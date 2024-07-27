@@ -1,0 +1,953 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>外键 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%A4%96%E9%94%AE/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 12:18:55 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>外键 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Mysql（五）事物、 外键、 存储函数、 存储过程、 流程控制、 视图、 触发器</title>
+		<link>/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/1249.html</link>
+					<comments>/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/1249.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 17:10:06 +0000</pubDate>
+				<category><![CDATA[Mysql]]></category>
+		<category><![CDATA[事物]]></category>
+		<category><![CDATA[外键]]></category>
+		<category><![CDATA[存储函数]]></category>
+		<category><![CDATA[存储过程]]></category>
+		<category><![CDATA[流程控制]]></category>
+		<category><![CDATA[视图]]></category>
+		<category><![CDATA[触发器]]></category>
+		<guid isPermaLink="false">/?p=1249</guid>
+
+					<description><![CDATA[外键 什么是外键 在两张表中公用字段，在一个关系中是主键，在另外一个关系中就是外键 公共字段是主键的表，是主表 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>外键</h1>
+<h2>什么是外键</h2>
+<p>
+  在两张表中公用字段，在一个关系中是主键，在另外一个关系中就是外键
+</p>
+<p>
+  公共字段是主键的表，是主表；是外键的表就是从表
+</p>
+<p>
+  <img fetchpriority="high" decoding="async" width="610" height="494" src="/wp-content/uploads/2018/05/word-image-1134.png" class="wp-image-1250" srcset="/wp-content/uploads/2018/05/word-image-1134.png 610w, /wp-content/uploads/2018/05/word-image-1134-300x243.png 300w" sizes="(max-width: 610px) 100vw, 610px" />
+</p>
+<h2>增加外键</h2>
+<p>
+  建表的时候加外键（明确指定从表中的公用字段是外键—有一定的约束）
+</p>
+<p>
+  create table class
+</p>
+<p>
+  (
+</p>
+<p>
+  	id int primary key auto_increment,
+</p>
+<p>
+  	class_name char(20)
+</p>
+<p>
+  )charset=utf8;
+</p>
+<p>
+  create table student
+</p>
+<p>
+  (
+</p>
+<p>
+  	id int primary key auto_increment,
+</p>
+<p>
+  	name char(30),
+</p>
+<p>
+  	class_id int,
+</p>
+<p>
+  	foreign key(class_id) references class(id)
+</p>
+<p>
+  )charset=utf8;
+</p>
+<p>
+  指定外键的时候，系统会自动的把外键字段加一个索引
+</p>
+<p>
+  <img decoding="async" width="887" height="286" src="/wp-content/uploads/2018/05/word-image-1135.png" class="wp-image-1251" srcset="/wp-content/uploads/2018/05/word-image-1135.png 887w, /wp-content/uploads/2018/05/word-image-1135-300x97.png 300w, /wp-content/uploads/2018/05/word-image-1135-768x248.png 768w" sizes="(max-width: 887px) 100vw, 887px" />
+</p>
+<p>
+  创建外键并指定名字
+</p>
+<p>
+  <img decoding="async" width="791" height="175" src="/wp-content/uploads/2018/05/word-image-1136.png" class="wp-image-1252" srcset="/wp-content/uploads/2018/05/word-image-1136.png 791w, /wp-content/uploads/2018/05/word-image-1136-300x66.png 300w, /wp-content/uploads/2018/05/word-image-1136-768x170.png 768w" sizes="(max-width: 791px) 100vw, 791px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1017" height="257" src="/wp-content/uploads/2018/05/word-image-1137.png" class="wp-image-1253" srcset="/wp-content/uploads/2018/05/word-image-1137.png 1017w, /wp-content/uploads/2018/05/word-image-1137-300x76.png 300w, /wp-content/uploads/2018/05/word-image-1137-768x194.png 768w" sizes="(max-width: 1017px) 100vw, 1017px" />
+</p>
+<p>
+  修改表加外键
+</p>
+<p>
+  alter table 表名add foreign key(外键字段) references 主表(主键);
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="909" height="88" src="/wp-content/uploads/2018/05/word-image-1138.png" class="wp-image-1254" srcset="/wp-content/uploads/2018/05/word-image-1138.png 909w, /wp-content/uploads/2018/05/word-image-1138-300x29.png 300w, /wp-content/uploads/2018/05/word-image-1138-768x74.png 768w" sizes="(max-width: 909px) 100vw, 909px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="914" height="296" src="/wp-content/uploads/2018/05/word-image-1139.png" class="wp-image-1255" srcset="/wp-content/uploads/2018/05/word-image-1139.png 914w, /wp-content/uploads/2018/05/word-image-1139-300x97.png 300w, /wp-content/uploads/2018/05/word-image-1139-768x249.png 768w" sizes="(max-width: 914px) 100vw, 914px" />
+</p>
+<h2>删除外键</h2>
+<p>
+  Alter table  表名 drop foreign key 外键名字;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="771" height="89" src="/wp-content/uploads/2018/05/word-image-1140.png" class="wp-image-1256" srcset="/wp-content/uploads/2018/05/word-image-1140.png 771w, /wp-content/uploads/2018/05/word-image-1140-300x35.png 300w, /wp-content/uploads/2018/05/word-image-1140-768x89.png 768w" sizes="(max-width: 771px) 100vw, 771px" />
+</p>
+<h2>外键的基本要求</h2>
+<ul>
+<li>
+    首先数据表字段是外键，表必须是innodb的数据库引擎
+  </li>
+<li>
+    主表和从表的公用字段，数据类型和必要的属性必须一致
+  </li>
+<li>
+    外键创建的时候需要注意数据的影响&#8212;（修改表后期加外键的时候）公用字段中从表的数据必须能在主表相应字段中找到
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="848" height="84" src="/wp-content/uploads/2018/05/word-image-1141.png" class="wp-image-1257" srcset="/wp-content/uploads/2018/05/word-image-1141.png 848w, /wp-content/uploads/2018/05/word-image-1141-300x30.png 300w, /wp-content/uploads/2018/05/word-image-1141-768x76.png 768w" sizes="(max-width: 848px) 100vw, 848px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="410" height="163" src="/wp-content/uploads/2018/05/word-image-1142.png" class="wp-image-1258" srcset="/wp-content/uploads/2018/05/word-image-1142.png 410w, /wp-content/uploads/2018/05/word-image-1142-300x119.png 300w" sizes="(max-width: 410px) 100vw, 410px" /></p>
+<p>  <img loading="lazy" decoding="async" width="381" height="166" src="/wp-content/uploads/2018/05/word-image-1143.png" class="wp-image-1259" srcset="/wp-content/uploads/2018/05/word-image-1143.png 381w, /wp-content/uploads/2018/05/word-image-1143-300x131.png 300w" sizes="(max-width: 381px) 100vw, 381px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1097" height="64" src="/wp-content/uploads/2018/05/word-image-1144.png" class="wp-image-1260" srcset="/wp-content/uploads/2018/05/word-image-1144.png 1097w, /wp-content/uploads/2018/05/word-image-1144-300x18.png 300w, /wp-content/uploads/2018/05/word-image-1144-768x45.png 768w, /wp-content/uploads/2018/05/word-image-1144-1024x60.png 1024w" sizes="(max-width: 1097px) 100vw, 1097px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1001" height="150" src="/wp-content/uploads/2018/05/word-image-1145.png" class="wp-image-1261" srcset="/wp-content/uploads/2018/05/word-image-1145.png 1001w, /wp-content/uploads/2018/05/word-image-1145-300x45.png 300w, /wp-content/uploads/2018/05/word-image-1145-768x115.png 768w" sizes="(max-width: 1001px) 100vw, 1001px" />
+</p>
+<h2>外键约束</h2>
+<h3>什么是外键约束</h3>
+<p>
+  就是对主表数据，和从表数据的一些要求
+</p>
+<p>
+  从表中有的相关数据，主表中不能随意删除
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="821" height="416" src="/wp-content/uploads/2018/05/word-image-1146.png" class="wp-image-1262" srcset="/wp-content/uploads/2018/05/word-image-1146.png 821w, /wp-content/uploads/2018/05/word-image-1146-300x152.png 300w, /wp-content/uploads/2018/05/word-image-1146-768x389.png 768w" sizes="(max-width: 821px) 100vw, 821px" />
+</p>
+<p>
+  想操作主表中的内容怎么办/
+</p>
+<p>
+  把相关信息从从表中全部删除，再修改相应主表中的内容
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="929" height="323" src="/wp-content/uploads/2018/05/word-image-1147.png" class="wp-image-1263" srcset="/wp-content/uploads/2018/05/word-image-1147.png 929w, /wp-content/uploads/2018/05/word-image-1147-300x104.png 300w, /wp-content/uploads/2018/05/word-image-1147-768x267.png 768w" sizes="(max-width: 929px) 100vw, 929px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="727" height="129" src="/wp-content/uploads/2018/05/word-image-1148.png" class="wp-image-1264" srcset="/wp-content/uploads/2018/05/word-image-1148.png 727w, /wp-content/uploads/2018/05/word-image-1148-300x53.png 300w" sizes="(max-width: 727px) 100vw, 727px" />
+</p>
+<p>
+  从表中用的相关数据，必须是主表中有的
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="939" height="387" src="/wp-content/uploads/2018/05/word-image-1149.png" class="wp-image-1265" srcset="/wp-content/uploads/2018/05/word-image-1149.png 939w, /wp-content/uploads/2018/05/word-image-1149-300x124.png 300w, /wp-content/uploads/2018/05/word-image-1149-768x317.png 768w" sizes="(max-width: 939px) 100vw, 939px" />
+</p>
+<h2>外键的意义</h2>
+<p>
+  保证了数据的一致性（外键约束的体现）
+</p>
+<p>
+  和完整性（班级和人进行了关联）
+</p>
+<p>
+  工作中一般很少使用外键，因为操作表数据的时候太麻烦，限制的条件太死
+</p>
+<h1>视图</h1>
+<h2>	什么是视图</h2>
+<p>
+  视图其实就是一张虚构的表，这个表只有表结构，没有表数据，视图的数据是从真正的数据表中引用的，那么我们修改视图的数据相关数据表的数据也会被修改；说白了视图就是把select查询结果当做了一个表
+</p>
+<h2>	视图的操作</h2>
+<h3>创建视图</h3>
+<p>
+  Create  view  view1 as   select 语句
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="876" height="115" src="/wp-content/uploads/2018/05/word-image-1150.png" class="wp-image-1266" srcset="/wp-content/uploads/2018/05/word-image-1150.png 876w, /wp-content/uploads/2018/05/word-image-1150-300x39.png 300w, /wp-content/uploads/2018/05/word-image-1150-768x101.png 768w" sizes="(max-width: 876px) 100vw, 876px" />
+</p>
+<h3>查看视图</h3>
+<p>
+  <img loading="lazy" decoding="async" width="650" height="199" src="/wp-content/uploads/2018/05/word-image-1151.png" class="wp-image-1267" srcset="/wp-content/uploads/2018/05/word-image-1151.png 650w, /wp-content/uploads/2018/05/word-image-1151-300x92.png 300w" sizes="(max-width: 650px) 100vw, 650px" />
+</p>
+<h3>使用视图</h3>
+<p>
+  和使用表的用法一样，注意这里视图主要是用于查询和修改的，一版不用于添加也不删除
+</p>
+<p>
+  查询视图
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="604" height="140" src="/wp-content/uploads/2018/05/word-image-1152.png" class="wp-image-1268" srcset="/wp-content/uploads/2018/05/word-image-1152.png 604w, /wp-content/uploads/2018/05/word-image-1152-300x70.png 300w" sizes="(max-width: 604px) 100vw, 604px" />
+</p>
+<p>
+  视图中的数据，都是从真实的表中来的
+</p>
+<p>
+  create view view1 as
+</p>
+<p>
+  	select class_name,name from class join student on class.id=student.class_id;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="813" height="117" src="/wp-content/uploads/2018/05/word-image-1153.png" class="wp-image-1269" srcset="/wp-content/uploads/2018/05/word-image-1153.png 813w, /wp-content/uploads/2018/05/word-image-1153-300x43.png 300w, /wp-content/uploads/2018/05/word-image-1153-768x111.png 768w" sizes="(max-width: 813px) 100vw, 813px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="857" height="159" src="/wp-content/uploads/2018/05/word-image-1154.png" class="wp-image-1270" srcset="/wp-content/uploads/2018/05/word-image-1154.png 857w, /wp-content/uploads/2018/05/word-image-1154-300x56.png 300w, /wp-content/uploads/2018/05/word-image-1154-768x142.png 768w" sizes="(max-width: 857px) 100vw, 857px" />
+</p>
+<h3>删除视图</h3>
+<p>
+  <img loading="lazy" decoding="async" width="734" height="68" src="/wp-content/uploads/2018/05/word-image-1155.png" class="wp-image-1271" srcset="/wp-content/uploads/2018/05/word-image-1155.png 734w, /wp-content/uploads/2018/05/word-image-1155-300x28.png 300w" sizes="(max-width: 734px) 100vw, 734px" />
+</p>
+<h2>视图数据的操作</h2>
+<h3>增加视图数据</h3>
+<p>
+  一般不是对视图的数据进行添加
+</p>
+<p>
+  这个视图的数据是来源于多表的
+</p>
+<p>
+  	肯定不能插入成功；
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="882" height="63" src="/wp-content/uploads/2018/05/word-image-1156.png" class="wp-image-1272" srcset="/wp-content/uploads/2018/05/word-image-1156.png 882w, /wp-content/uploads/2018/05/word-image-1156-300x21.png 300w, /wp-content/uploads/2018/05/word-image-1156-768x55.png 768w" sizes="(max-width: 882px) 100vw, 882px" />
+</p>
+<p>
+  这个视图数据是来源于一张表的
+</p>
+<p>
+  	当视图的数据是这个表中所有必须要写的数据的时候能插入
+</p>
+<p>
+  	否则不能插入
+</p>
+<p>
+  测试1
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="651" height="62" src="/wp-content/uploads/2018/05/word-image-1157.png" class="wp-image-1273" srcset="/wp-content/uploads/2018/05/word-image-1157.png 651w, /wp-content/uploads/2018/05/word-image-1157-300x29.png 300w" sizes="(max-width: 651px) 100vw, 651px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="874" height="61" src="/wp-content/uploads/2018/05/word-image-1158.png" class="wp-image-1274" srcset="/wp-content/uploads/2018/05/word-image-1158.png 874w, /wp-content/uploads/2018/05/word-image-1158-300x21.png 300w, /wp-content/uploads/2018/05/word-image-1158-768x54.png 768w" sizes="(max-width: 874px) 100vw, 874px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="834" height="214" src="/wp-content/uploads/2018/05/word-image-1159.png" class="wp-image-1275" srcset="/wp-content/uploads/2018/05/word-image-1159.png 834w, /wp-content/uploads/2018/05/word-image-1159-300x77.png 300w, /wp-content/uploads/2018/05/word-image-1159-768x197.png 768w" sizes="(max-width: 834px) 100vw, 834px" />
+</p>
+<p>
+  测试2
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="961" height="278" src="/wp-content/uploads/2018/05/word-image-1160.png" class="wp-image-1276" srcset="/wp-content/uploads/2018/05/word-image-1160.png 961w, /wp-content/uploads/2018/05/word-image-1160-300x87.png 300w, /wp-content/uploads/2018/05/word-image-1160-768x222.png 768w" sizes="(max-width: 961px) 100vw, 961px" />
+</p>
+<h3>删除视图数据</h3>
+<p>
+  第一种：视图的数据来源于多个表
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="755" height="251" src="/wp-content/uploads/2018/05/word-image-1161.png" class="wp-image-1277" srcset="/wp-content/uploads/2018/05/word-image-1161.png 755w, /wp-content/uploads/2018/05/word-image-1161-300x100.png 300w" sizes="(max-width: 755px) 100vw, 755px" />
+</p>
+<p>
+  第二种：视图的数据来源于一个表
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="896" height="269" src="/wp-content/uploads/2018/05/word-image-1162.png" class="wp-image-1278" srcset="/wp-content/uploads/2018/05/word-image-1162.png 896w, /wp-content/uploads/2018/05/word-image-1162-300x90.png 300w, /wp-content/uploads/2018/05/word-image-1162-768x231.png 768w" sizes="(max-width: 896px) 100vw, 896px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="792" height="191" src="/wp-content/uploads/2018/05/word-image-1163.png" class="wp-image-1279" srcset="/wp-content/uploads/2018/05/word-image-1163.png 792w, /wp-content/uploads/2018/05/word-image-1163-300x72.png 300w, /wp-content/uploads/2018/05/word-image-1163-768x185.png 768w" sizes="(max-width: 792px) 100vw, 792px" />
+</p>
+<h3>修改视图数据</h3>
+<p>
+  视图 数据的修改和表修改一样的用法都是使用update，视图数据的修改成功后，相应数据表中的数据也会发生改变
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="767" height="255" src="/wp-content/uploads/2018/05/word-image-1164.png" class="wp-image-1280" srcset="/wp-content/uploads/2018/05/word-image-1164.png 767w, /wp-content/uploads/2018/05/word-image-1164-300x100.png 300w" sizes="(max-width: 767px) 100vw, 767px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="879" height="185" src="/wp-content/uploads/2018/05/word-image-1165.png" class="wp-image-1281" srcset="/wp-content/uploads/2018/05/word-image-1165.png 879w, /wp-content/uploads/2018/05/word-image-1165-300x63.png 300w, /wp-content/uploads/2018/05/word-image-1165-768x162.png 768w" sizes="(max-width: 879px) 100vw, 879px" />
+</p>
+<p>
+  查询视图
+</p>
+<p>
+  和普通的表查询一样
+</p>
+<h2>视图的作用和好处</h2>
+<p>
+  视图的数据都是存在真实的表中的，但是视图的结构可以自己定义（select查询结果的结构）
+</p>
+<p>
+  当一些敏感数据不想被用户看到，但是该表中还有些数据用户还必须使用
+</p>
+<p>
+  我们就可以用视图来解决这个问题
+</p>
+<p>
+  比如下边的一些敏感数据 年龄，性别我们都可以用视图来把这些信息不显示（只需要用select语句不选这两个字段），用户只需要有权限查询我们创建的视图就可以了
+</p>
+<table>
+<tr>
+<td>
+<p>
+  Id
+</p>
+</td>
+<td>
+<p>
+  Name
+</p>
+</td>
+<td>
+<p>
+  Age
+</p>
+</td>
+<td>
+<p>
+  sex
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  林志玲
+</p>
+</td>
+<td>
+<p>
+  67
+</p>
+</td>
+<td>
+<p>
+  男
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  2
+</p>
+</td>
+<td>
+<p>
+  赵薇
+</p>
+</td>
+<td>
+<p>
+  58
+</p>
+</td>
+<td>
+<p>
+  男
+</p>
+</td>
+</tr>
+</table>
+<p>
+  我们可以把一些复杂的sql语句的结果做成视图
+</p>
+<p>
+  	四表联查
+</p>
+<p>
+  		班级名，学生名，课程名, 成绩
+</p>
+<p>
+  	我们可以把四表联查的sql结果做成视图，每次我们需要查看这种数据的时候直接
+</p>
+<p>
+  Select * from 视图;就可以了，而不用每次都写一个四表连接的sql
+</p>
+<p>
+  如果一个表数据量太大有200万条，查询的速度慢
+</p>
+<p>
+  我们可以把200条分别做成视图
+</p>
+<p>
+  1-10万条是一个视图  （id从1&#8212;10万）
+</p>
+<p>
+  10-20万条是一个视图	   （id从10万到20万）
+</p>
+<p>
+  ……………
+</p>
+<p>
+  我们查询前先判断id是哪个范围，再根据范围查找相应视图
+</p>
+<p>
+  查询的效率就大大的提高了  这种做法就是把表横向切割&#8212;-分表
+</p>
+<h1>事务</h1>
+<h2>什么是事务</h2>
+<p>
+  你向银行存钱 ，钱已经存入银行了，这是该把你的存钱记录存入电脑了，但是停电了
+</p>
+<p>
+  	你的钱少了，但是钱没在银行提现
+</p>
+<p>
+  你去银行取钱，钱取出来了，该从你的账户扣钱，这是又停电了，
+</p>
+<p>
+  	你拿到钱了，银行账户余额没少
+</p>
+<p>
+  在多条sql的时候，如果有一条不成功，那么所有的sql执行失效&#8212;事务
+</p>
+<h2>事务的执行流程</h2>
+<p>
+  开启事务   begin  /start transcation
+</p>
+<p>
+  执行sql
+</p>
+<p>
+  提交事务（所有sql执行成功） commit
+</p>
+<p>
+  回滚  (有一条sql执行失败就回滚)  rollback
+</p>
+<p>
+  注意;再开启事务后，没有提交事务，或是回滚都是没有效果的
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="961" height="301" src="/wp-content/uploads/2018/05/word-image-1166.png" class="wp-image-1282" srcset="/wp-content/uploads/2018/05/word-image-1166.png 961w, /wp-content/uploads/2018/05/word-image-1166-300x94.png 300w, /wp-content/uploads/2018/05/word-image-1166-768x241.png 768w" sizes="(max-width: 961px) 100vw, 961px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="969" height="236" src="/wp-content/uploads/2018/05/word-image-1167.png" class="wp-image-1283" srcset="/wp-content/uploads/2018/05/word-image-1167.png 969w, /wp-content/uploads/2018/05/word-image-1167-300x73.png 300w, /wp-content/uploads/2018/05/word-image-1167-768x187.png 768w" sizes="(max-width: 969px) 100vw, 969px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="745" height="276" src="/wp-content/uploads/2018/05/word-image-1168.png" class="wp-image-1284" srcset="/wp-content/uploads/2018/05/word-image-1168.png 745w, /wp-content/uploads/2018/05/word-image-1168-300x111.png 300w" sizes="(max-width: 745px) 100vw, 745px" />
+</p>
+<p>
+  测试2
+</p>
+<p>
+  事务执行没有完成的时候，数据表的数据没有任何变化
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="868" height="244" src="/wp-content/uploads/2018/05/word-image-1169.png" class="wp-image-1285" srcset="/wp-content/uploads/2018/05/word-image-1169.png 868w, /wp-content/uploads/2018/05/word-image-1169-300x84.png 300w, /wp-content/uploads/2018/05/word-image-1169-768x216.png 768w" sizes="(max-width: 868px) 100vw, 868px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="743" height="306" src="/wp-content/uploads/2018/05/word-image-1170.png" class="wp-image-1286" srcset="/wp-content/uploads/2018/05/word-image-1170.png 743w, /wp-content/uploads/2018/05/word-image-1170-300x124.png 300w" sizes="(max-width: 743px) 100vw, 743px" />
+</p>
+<p>
+  	提交事务后，数据表中的数据会永久性的改变
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="638" height="62" src="/wp-content/uploads/2018/05/word-image-1171.png" class="wp-image-1287" srcset="/wp-content/uploads/2018/05/word-image-1171.png 638w, /wp-content/uploads/2018/05/word-image-1171-300x29.png 300w" sizes="(max-width: 638px) 100vw, 638px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="808" height="345" src="/wp-content/uploads/2018/05/word-image-1172.png" class="wp-image-1288" srcset="/wp-content/uploads/2018/05/word-image-1172.png 808w, /wp-content/uploads/2018/05/word-image-1172-300x128.png 300w, /wp-content/uploads/2018/05/word-image-1172-768x328.png 768w" sizes="(max-width: 808px) 100vw, 808px" />
+</p>
+<h2>事务基本原理图</h2>
+<p>
+  <img loading="lazy" decoding="async" width="1328" height="552" src="/wp-content/uploads/2018/05/word-image-1173.png" class="wp-image-1289" srcset="/wp-content/uploads/2018/05/word-image-1173.png 1328w, /wp-content/uploads/2018/05/word-image-1173-300x125.png 300w, /wp-content/uploads/2018/05/word-image-1173-768x319.png 768w, /wp-content/uploads/2018/05/word-image-1173-1024x426.png 1024w" sizes="(max-width: 1328px) 100vw, 1328px" />
+</p>
+<h2>事务的特点（acid）</h2>
+<ul>
+<li>
+    原子性（Atomicity）
+  </li>
+</ul>
+<p>
+  事务里边的所有sql语句是一个整体，不可分割，要么全部执行成功，要么全部执行失败
+</p>
+<ul>
+<li>
+    一致性（consistency）
+  </li>
+</ul>
+<p>
+  事务执行过后，没有用户访问到的数据都是一样的
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1045" height="476" src="/wp-content/uploads/2018/05/word-image-1174.png" class="wp-image-1290" srcset="/wp-content/uploads/2018/05/word-image-1174.png 1045w, /wp-content/uploads/2018/05/word-image-1174-300x137.png 300w, /wp-content/uploads/2018/05/word-image-1174-768x350.png 768w, /wp-content/uploads/2018/05/word-image-1174-1024x466.png 1024w" sizes="(max-width: 1045px) 100vw, 1045px" />
+</p>
+<ul>
+<li>
+    隔离性（Isolation）
+  </li>
+</ul>
+<p>
+  事务与事务之间没有影响各自执行自己的命令
+</p>
+<p>
+  当前事务一开启执行后，开启事务2，操的数据如果一样比如是同一行数据，那么事务2会等待事务1结束以后再执行，开启事务1以后，操作的这行数据就会被‘锁’起来，其他的命令不能操作
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1431" height="180" src="/wp-content/uploads/2018/05/word-image-1175.png" class="wp-image-1291" srcset="/wp-content/uploads/2018/05/word-image-1175.png 1431w, /wp-content/uploads/2018/05/word-image-1175-300x38.png 300w, /wp-content/uploads/2018/05/word-image-1175-768x97.png 768w, /wp-content/uploads/2018/05/word-image-1175-1024x129.png 1024w" sizes="(max-width: 1431px) 100vw, 1431px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="831" height="144" src="/wp-content/uploads/2018/05/word-image-1176.png" class="wp-image-1292" srcset="/wp-content/uploads/2018/05/word-image-1176.png 831w, /wp-content/uploads/2018/05/word-image-1176-300x52.png 300w, /wp-content/uploads/2018/05/word-image-1176-768x133.png 768w" sizes="(max-width: 831px) 100vw, 831px" />
+</p>
+<ul>
+<li>
+    永久性（Durability）
+  </li>
+</ul>
+<p>
+  事务结束以后，对表的影响是永久有效的
+</p>
+<h1>Mysql编程</h1>
+<h2>系统函数(了解)</h2>
+<ul>
+<li>
+    字符串函数，比如：char_length(), concat(), instr(), lcase(), left(), ltrim(), mid()
+  </li>
+<li>
+    时间函数，比如：now(), cordate(), curtime(), datediff(), date_add()
+  </li>
+<li>
+    数学函数，比如：abs(), ceiling(), floor(), pow(), rand(), round()
+  </li>
+<li>
+    其他函数，比如：md5(), version(), datebase(), UUID()
+  </li>
+</ul>
+<p>
+  系统函数就是mysql系统自己定义的函数，我们只需要调用就可以了
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="981" height="153" src="/wp-content/uploads/2018/05/word-image-1177.png" class="wp-image-1293" srcset="/wp-content/uploads/2018/05/word-image-1177.png 981w, /wp-content/uploads/2018/05/word-image-1177-300x47.png 300w, /wp-content/uploads/2018/05/word-image-1177-768x120.png 768w" sizes="(max-width: 981px) 100vw, 981px" />
+</p>
+<h2>存储函数</h2>
+<p>
+  就是自己定义函数，必须返回一个单独的值，存储函数里边不能有结果集显示不能有select show 等命令
+</p>
+<h3>创建存储函数</h3>
+<p>
+  创建语法：
+</p>
+<p>
+  	create function 函数名(参数1 类型1,参数2 类型2&#8230;..) returns 返回值类型
+</p>
+<p>
+  begin
+</p>
+<p>
+  	&#8230;..
+</p>
+<p>
+  end;
+</p>
+<p>
+  其中begin和end 就是开始和结束的标识 可以理解成PHP的 {  }
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1030" height="134" src="/wp-content/uploads/2018/05/word-image-1178.png" class="wp-image-1294" srcset="/wp-content/uploads/2018/05/word-image-1178.png 1030w, /wp-content/uploads/2018/05/word-image-1178-300x39.png 300w, /wp-content/uploads/2018/05/word-image-1178-768x100.png 768w, /wp-content/uploads/2018/05/word-image-1178-1024x133.png 1024w" sizes="(max-width: 1030px) 100vw, 1030px" />
+</p>
+<p>
+  解决：修改sql代码执行结束符
+</p>
+<p>
+  	命令：delimiter  新的结束符
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="564" height="64" src="/wp-content/uploads/2018/05/word-image-1179.png" class="wp-image-1295" srcset="/wp-content/uploads/2018/05/word-image-1179.png 564w, /wp-content/uploads/2018/05/word-image-1179-300x34.png 300w" sizes="(max-width: 564px) 100vw, 564px" />
+</p>
+<p>
+  声明存储函数
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="769" height="150" src="/wp-content/uploads/2018/05/word-image-1180.png" class="wp-image-1296" srcset="/wp-content/uploads/2018/05/word-image-1180.png 769w, /wp-content/uploads/2018/05/word-image-1180-300x59.png 300w, /wp-content/uploads/2018/05/word-image-1180-768x150.png 768w" sizes="(max-width: 769px) 100vw, 769px" />
+</p>
+<p>
+  查看存储函数状态；
+</p>
+<p>
+  Show function status;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="976" height="216" src="/wp-content/uploads/2018/05/word-image-1181.png" class="wp-image-1297" srcset="/wp-content/uploads/2018/05/word-image-1181.png 976w, /wp-content/uploads/2018/05/word-image-1181-300x66.png 300w, /wp-content/uploads/2018/05/word-image-1181-768x170.png 768w" sizes="(max-width: 976px) 100vw, 976px" />
+</p>
+<p>
+  存储函数是属于某一个数据库的只能在当前这个数据库中使用
+</p>
+<h3>调用存储函数</h3>
+<p>
+  一般存储函数的调用和select 连用
+</p>
+<p>
+  其实和系统函数的使用没有差别，都是函数的调用
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="566" height="135" src="/wp-content/uploads/2018/05/word-image-1182.png" class="wp-image-1298" srcset="/wp-content/uploads/2018/05/word-image-1182.png 566w, /wp-content/uploads/2018/05/word-image-1182-300x72.png 300w" sizes="(max-width: 566px) 100vw, 566px" />
+</p>
+<p>
+  扩展，如果传入的参数类型不是int会怎么样？
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="856" height="76" src="/wp-content/uploads/2018/05/word-image-1183.png" class="wp-image-1299" srcset="/wp-content/uploads/2018/05/word-image-1183.png 856w, /wp-content/uploads/2018/05/word-image-1183-300x27.png 300w, /wp-content/uploads/2018/05/word-image-1183-768x68.png 768w" sizes="(max-width: 856px) 100vw, 856px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="915" height="197" src="/wp-content/uploads/2018/05/word-image-1184.png" class="wp-image-1300" srcset="/wp-content/uploads/2018/05/word-image-1184.png 915w, /wp-content/uploads/2018/05/word-image-1184-300x65.png 300w, /wp-content/uploads/2018/05/word-image-1184-768x165.png 768w" sizes="(max-width: 915px) 100vw, 915px" />
+</p>
+<h3>删除存储函数</h3>
+<p>
+  drop function 函数名;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="840" height="76" src="/wp-content/uploads/2018/05/word-image-1185.png" class="wp-image-1301" srcset="/wp-content/uploads/2018/05/word-image-1185.png 840w, /wp-content/uploads/2018/05/word-image-1185-300x27.png 300w, /wp-content/uploads/2018/05/word-image-1185-768x69.png 768w" sizes="(max-width: 840px) 100vw, 840px" />
+</p>
+<p>
+  总结：存储函数就是一个普通的有返回值的函数，这里返回值必须是一个单独的数据
+</p>
+<p>
+  		存储函数里边不能使用select show等命令因为，select show 返回的是一个结果集
+</p>
+<h2>变量</h2>
+<h3>系统变量</h3>
+<p>
+  查看系统变量
+</p>
+<p>
+  Show variables;
+</p>
+<p>
+  Autocommit  自动事务的提交，默认自动事务的提交会开启的
+</p>
+<p>
+  自动事务的开启  set atuocommit=1;
+</p>
+<p>
+  关闭   set  autocommit=0;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="862" height="233" src="/wp-content/uploads/2018/05/word-image-1186.png" class="wp-image-1302" srcset="/wp-content/uploads/2018/05/word-image-1186.png 862w, /wp-content/uploads/2018/05/word-image-1186-300x81.png 300w, /wp-content/uploads/2018/05/word-image-1186-768x208.png 768w" sizes="(max-width: 862px) 100vw, 862px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1444" height="268" src="/wp-content/uploads/2018/05/word-image-1187.png" class="wp-image-1303" srcset="/wp-content/uploads/2018/05/word-image-1187.png 1444w, /wp-content/uploads/2018/05/word-image-1187-300x56.png 300w, /wp-content/uploads/2018/05/word-image-1187-768x143.png 768w, /wp-content/uploads/2018/05/word-image-1187-1024x190.png 1024w" sizes="(max-width: 1444px) 100vw, 1444px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1503" height="361" src="/wp-content/uploads/2018/05/word-image-1188.png" class="wp-image-1304" srcset="/wp-content/uploads/2018/05/word-image-1188.png 1503w, /wp-content/uploads/2018/05/word-image-1188-300x72.png 300w, /wp-content/uploads/2018/05/word-image-1188-768x184.png 768w, /wp-content/uploads/2018/05/word-image-1188-1024x246.png 1024w" sizes="(max-width: 1503px) 100vw, 1503px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1638" height="334" src="/wp-content/uploads/2018/05/word-image-1189.png" class="wp-image-1305" srcset="/wp-content/uploads/2018/05/word-image-1189.png 1638w, /wp-content/uploads/2018/05/word-image-1189-300x61.png 300w, /wp-content/uploads/2018/05/word-image-1189-768x157.png 768w, /wp-content/uploads/2018/05/word-image-1189-1024x209.png 1024w" sizes="(max-width: 1638px) 100vw, 1638px" />
+</p>
+<h3>局部变量</h3>
+<p>
+  用declare声明的变量
+</p>
+<p>
+  声明格式是如下
+</p>
+<p>
+  	Declare 变量名 类型  default 默认值；
+</p>
+<p>
+  局部变量一般使用在函数的begin  end中间，应该先声明再使用；
+</p>
+<h3>会话变量</h3>
+<p>
+  就是在一次数据库连接中都生效的变量
+</p>
+<p>
+  声明方式是：set  @变量名=值；
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1052" height="220" src="/wp-content/uploads/2018/05/word-image-1190.png" class="wp-image-1306" srcset="/wp-content/uploads/2018/05/word-image-1190.png 1052w, /wp-content/uploads/2018/05/word-image-1190-300x63.png 300w, /wp-content/uploads/2018/05/word-image-1190-768x161.png 768w, /wp-content/uploads/2018/05/word-image-1190-1024x214.png 1024w" sizes="(max-width: 1052px) 100vw, 1052px" />
+</p>
+<h2>流程控制</h2>
+<h3>If分支</h3>
+<p>
+  if 条件 then
+</p>
+<p>
+  	//代码
+</p>
+<p>
+  elseif 条件 then
+</p>
+<p>
+  	//代码
+</p>
+<p>
+  else
+</p>
+<p>
+  	//代码
+</p>
+<p>
+  end if;
+</p>
+<p>
+  做一个判断学生成绩的函数，如果分数超过80为优秀，超过60为及格 ，低于60不及格
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1000" height="272" src="/wp-content/uploads/2018/05/word-image-1191.png" class="wp-image-1307" srcset="/wp-content/uploads/2018/05/word-image-1191.png 1000w, /wp-content/uploads/2018/05/word-image-1191-300x82.png 300w, /wp-content/uploads/2018/05/word-image-1191-768x209.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="819" height="433" src="/wp-content/uploads/2018/05/word-image-1192.png" class="wp-image-1308" srcset="/wp-content/uploads/2018/05/word-image-1192.png 819w, /wp-content/uploads/2018/05/word-image-1192-300x159.png 300w, /wp-content/uploads/2018/05/word-image-1192-768x406.png 768w" sizes="(max-width: 819px) 100vw, 819px" />
+</p>
+<h3>While循环</h3>
+<p>
+  while 条件 do
+</p>
+<p>
+  	//代码
+</p>
+<p>
+  end while;
+</p>
+<p>
+  案例，求一个数的阶乘
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="911" height="209" src="/wp-content/uploads/2018/05/word-image-1193.png" class="wp-image-1309" srcset="/wp-content/uploads/2018/05/word-image-1193.png 911w, /wp-content/uploads/2018/05/word-image-1193-300x69.png 300w, /wp-content/uploads/2018/05/word-image-1193-768x176.png 768w" sizes="(max-width: 911px) 100vw, 911px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="741" height="138" src="/wp-content/uploads/2018/05/word-image-1194.png" class="wp-image-1310" srcset="/wp-content/uploads/2018/05/word-image-1194.png 741w, /wp-content/uploads/2018/05/word-image-1194-300x56.png 300w" sizes="(max-width: 741px) 100vw, 741px" />
+</p>
+<h2>Mysql注释</h2>
+<h3>第一种</h3>
+<p>
+  	&#8212; 注释  注&#8211;后有一个空格
+</p>
+<h3>第二种</h3>
+<p>
+  	# 注释  注#后有一个空格
+</p>
+<h3>第三种</h3>
+<p>
+  	/*
+</p>
+<p>
+  	 多行注释
+</p>
+<p>
+  	 */
+</p>
+<h2>存储过程</h2>
+<p>
+  什么是存储过程：说白了，存储过程也是一个mysql自定义函数，要求没有return返回值
+</p>
+<p>
+  也就没有返回值的MySQL自定义函数，一般用于处理大型的业务逻辑，存储过程的代码只解析一次，
+</p>
+<p>
+  存储过程也是只属于某一个数据库的
+</p>
+<h3>创建存储过程</h3>
+<p>
+  语法：
+</p>
+<p>
+  Create procedure 名字 ([形参修饰符] 参数1 参数类型,[形参修饰符] 参数2,参数类型….)
+</p>
+<p>
+  Begin
+</p>
+<p>
+  End;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="951" height="234" src="/wp-content/uploads/2018/05/word-image-1195.png" class="wp-image-1311" srcset="/wp-content/uploads/2018/05/word-image-1195.png 951w, /wp-content/uploads/2018/05/word-image-1195-300x74.png 300w, /wp-content/uploads/2018/05/word-image-1195-768x189.png 768w" sizes="(max-width: 951px) 100vw, 951px" />
+</p>
+<h3>调用存储过程</h3>
+<p>
+  存储过程的调用和存储函数的调用不同，存储函数不是单独调用的，可以和其他存储函数一块调用
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="806" height="179" src="/wp-content/uploads/2018/05/word-image-1196.png" class="wp-image-1312" srcset="/wp-content/uploads/2018/05/word-image-1196.png 806w, /wp-content/uploads/2018/05/word-image-1196-300x67.png 300w, /wp-content/uploads/2018/05/word-image-1196-768x171.png 768w" sizes="(max-width: 806px) 100vw, 806px" />
+</p>
+<h3>存储过程调用</h3>
+<p>
+  存储过程是单独调用的用到了call关键字
+</p>
+<p>
+  用法:call 存储过程名字(参数列表);
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="729" height="153" src="/wp-content/uploads/2018/05/word-image-1197.png" class="wp-image-1313" srcset="/wp-content/uploads/2018/05/word-image-1197.png 729w, /wp-content/uploads/2018/05/word-image-1197-300x63.png 300w" sizes="(max-width: 729px) 100vw, 729px" />
+</p>
+<h3>查看存储过程</h3>
+<p>
+  Show  procedure  status;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="976" height="171" src="/wp-content/uploads/2018/05/word-image-1198.png" class="wp-image-1314" srcset="/wp-content/uploads/2018/05/word-image-1198.png 976w, /wp-content/uploads/2018/05/word-image-1198-300x53.png 300w, /wp-content/uploads/2018/05/word-image-1198-768x135.png 768w" sizes="(max-width: 976px) 100vw, 976px" />
+</p>
+<h3>删除存储过程</h3>
+<p>
+  Drop  procedure 存储过程的名字
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="650" height="86" src="/wp-content/uploads/2018/05/word-image-1199.png" class="wp-image-1315" srcset="/wp-content/uploads/2018/05/word-image-1199.png 650w, /wp-content/uploads/2018/05/word-image-1199-300x40.png 300w" sizes="(max-width: 650px) 100vw, 650px" />
+</p>
+<h3>存储过程的形参修饰符in,out,inout</h3>
+<p>
+  形参修饰符放在参数前边，类型放在参数后边
+</p>
+<p>
+  In
+</p>
+<p>
+  	参数的值可以传入，但是存储过程不能修改这个值
+</p>
+<p>
+  Out
+</p>
+<p>
+  	不能传入值，能在内部修改变量的值，外部也生效
+</p>
+<p>
+  Inout
+</p>
+<p>
+  	能传入值，并且可以修改标量的值，并且外部也生效
+</p>
+<p>
+  思考：存储函数和存储过程的区别
+</p>
+<h2>触发器</h2>
+<h3>触发器概念</h3>
+<h4>触发器的基本概念</h4>
+<p>
+  类似js中的点击事件，当我们点击了一个连接会自动的跳出一个窗口
+</p>
+<p>
+  触发器是在操作数据的时候，比如删除(增加，更新)了某个表的数据的时候，自动调用的自定义函数
+</p>
+<h4>触发器的作用好处</h4>
+<p>
+  首先可以安全验证，&#8212;增加数据的时候，进行数据的安全验证
+</p>
+<p>
+  	不用手动调用，&#8212;如果一件商品下架了，那么订单中就不要出现这个商品了，触发器可以自动的删除订单中的商品
+</p>
+<h3>创建触发器</h3>
+<p>
+  创建触发器基本语法
+</p>
+<p>
+  create trigger 名称 after|before 事件 on 表名  for each row
+</p>
+<p>
+  begin
+</p>
+<p>
+  #SQL语句
+</p>
+<p>
+  end //
+</p>
+<p>
+  定义一个触发器，当删除商品的时候，自动的把订单中用相关商品的记录删除（自动）
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="822" height="82" src="/wp-content/uploads/2018/05/word-image-1200.png" class="wp-image-1316" srcset="/wp-content/uploads/2018/05/word-image-1200.png 822w, /wp-content/uploads/2018/05/word-image-1200-300x30.png 300w, /wp-content/uploads/2018/05/word-image-1200-768x77.png 768w" sizes="(max-width: 822px) 100vw, 822px" />
+</p>
+<p>
+  触发事件  触发 触发器自动调用
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="973" height="49" src="/wp-content/uploads/2018/05/word-image-1201.png" class="wp-image-1317" srcset="/wp-content/uploads/2018/05/word-image-1201.png 973w, /wp-content/uploads/2018/05/word-image-1201-300x15.png 300w, /wp-content/uploads/2018/05/word-image-1201-768x39.png 768w" sizes="(max-width: 973px) 100vw, 973px" />
+</p>
+<p>
+  删除商品信息后，再次查看订单表信息
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="782" height="50" src="/wp-content/uploads/2018/05/word-image-1202.png" class="wp-image-1318" srcset="/wp-content/uploads/2018/05/word-image-1202.png 782w, /wp-content/uploads/2018/05/word-image-1202-300x19.png 300w, /wp-content/uploads/2018/05/word-image-1202-768x49.png 768w" sizes="(max-width: 782px) 100vw, 782px" />
+</p>
+</p>
+<p>
+  触发时机关键字：before, after
+</p>
+<p>
+  触发事件关键字：insert, delete, update
+</p>
+<p>
+  触发器一共有
+</p>
+<p>
+  	6中before insert，before delete，before update，after insert ,after delete,after update;
+</p>
+<p>
+  注意触发器不能有冲突
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1053" height="119" src="/wp-content/uploads/2018/05/word-image-1203.png" class="wp-image-1319" srcset="/wp-content/uploads/2018/05/word-image-1203.png 1053w, /wp-content/uploads/2018/05/word-image-1203-300x34.png 300w, /wp-content/uploads/2018/05/word-image-1203-768x87.png 768w, /wp-content/uploads/2018/05/word-image-1203-1024x116.png 1024w" sizes="(max-width: 1053px) 100vw, 1053px" />
+</p>
+<h3>触发器的应用</h3>
+<h4>触发器中的关键字：new</h4>
+<p>
+  	New新添加的记录信息
+</p>
+<p>
+  	Before  Delete
+</p>
+<p>
+  	After  delete
+</p>
+<p>
+  	两个都没有new关键字
+</p>
+<h4>触发器中的关键字：old</h4>
+<p>
+  	Old代表老的信息记录
+</p>
+<p>
+  	Before insert 这个触发器有old吗？ 没有</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/1249.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

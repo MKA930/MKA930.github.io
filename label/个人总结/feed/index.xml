@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>个人总结 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 Mar 2022 04:02:42 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>个人总结 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>[避坑指南] Laravel知多少(&#x1f464;个人总结)</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/laravel/8954.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/laravel/8954.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 Mar 2022 03:54:50 +0000</pubDate>
+				<category><![CDATA[Laravel]]></category>
+		<category><![CDATA[资料]]></category>
+		<category><![CDATA[laravel]]></category>
+		<category><![CDATA[laravel知多少]]></category>
+		<category><![CDATA[个人总结]]></category>
+		<category><![CDATA[避坑指南]]></category>
+		<guid isPermaLink="false">/?p=8954</guid>
+
+					<description><![CDATA[面试php的时候总是会被问到，你对你现在用的框架了解多少？有哪些优缺点？如果你用过多个框架的话，还会被用来框架 [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p>面试php的时候总是会被问到，你对你现在用的框架了解多少？有哪些优缺点？如果你用过多个框架的话，还会被用来框架与框架做对比。</p>
+
+
+
+<p>没办法，<strong>面试造航母，上班拧螺丝</strong>。以是程序员的常态。只能好好对待。</p>
+
+
+
+<p>目前所在项目用的是Laravel框架，下面是自己个人对这个框架的总结吧，应该还有很多漏掉的，你也可以在留言处做补充。关键还是 要如何去回答 面试官 。希望能对你面试 用Laravel 有些许帮助吧！</p>
+
+
+
+<p><strong>laravel框架最大的特点和优秀之处就是集合了php比较新的特点,以及各种各样的设计模式,Ioc模式,依赖注入等</strong></p>
+
+
+
+<h2 class="wp-block-heading"><strong>一、Laravel有哪些特点</strong></h2>
+
+
+
+<p>1 强大的rest router:用简单的回调函数就可以调用,快速绑定controller和router</p>
+
+
+
+<p>2 artisan:命令行工具,很多手动的工作都自动化</p>
+
+
+
+<p>3 可继承的模板,简化view的开发和管理</p>
+
+
+
+<p>4 blade模板:渲染速度更快</p>
+
+
+
+<p>5 ORM操作数据库</p>
+
+
+
+<p>6 migration:管理数据库和版本控制</p>
+
+
+
+<p>7 测试功能也很强大</p>
+
+
+
+<p>8 composer也是亮点</p>
+
+
+
+<p>9 队列</p>
+
+
+
+<p>10 定时任务等</p>
+
+
+
+<h2 class="wp-block-heading"><strong>二、架构模式</strong></h2>
+
+
+
+<p>laravel框架是使用了服务组件化的开发模式，由多个服务提供者构成了组件，再由多个组件提供不同的服务，然后是多个服务构成了项目。</p>
+
+
+
+<p>服务提供者是应用配置的核心，是通过 register方法中绑定服务到服务容器的。</p>
+
+
+
+<h2 class="wp-block-heading"><strong>三、涉及到的设计模式</strong></h2>
+
+
+
+<p>laravel框架使用了大量设计模式，使模块之间耦合度很低，服务容器可以方便的扩展框架功能以及编写测试。</p>
+
+
+
+<p>1.ORM &#8211; 对象关系映射模式</p>
+
+
+
+<p>2 依赖注入与IOC容器 &#8211; 策略模式</p>
+
+
+
+<p>3 监听与触发&nbsp; &#8211;&nbsp; 观察者模式</p>
+
+
+
+<p>4 门面模式 &#8211; 静态代理</p>
+
+
+
+<p>5 注册树模式&nbsp; &#8211;&nbsp; 比如app.php里用到的数组存储</p>
+
+
+
+<p>还有其他的，比如注册门面的时候用到单例模式app()-&gt;singleton等。</p>
+
+
+
+<h2 class="wp-block-heading"><strong>四、服务方面</strong></h2>
+
+
+
+<p>能快速开发出功能，自带各种方便的服务，比如数据验证、队列、缓存、数据迁移、测试、artisan 命令行等等，还有强大的 ORM，artisan强大的命令行工具，实现自动化。</p>
+
+
+
+<p>Laravel安全功能有效地利用了盐散列和加密码机制，Bcrypt哈希算法”来创建加密密码。</p>
+
+
+
+<h2 class="wp-block-heading"><strong>五、框架的其他知识点</strong></h2>
+
+
+
+<p><strong>服务容器：</strong>是一个用于管理类依赖和执行依赖注入的强大工具。其实质是通过构造函数或者某些情况下通过「setter」方法将类依赖注入到类中。&nbsp;</p>
+
+
+
+<p><strong>门面：</strong>为应用服务容器中的绑定类提供了一个「静态」接口 ，优点：在维护时能够提供更加易于测试、更加灵活、简明优雅的语法。</p>
+
+
+
+<p><strong>契约：</strong>用来规划服务提供者的格式、方法、参数等，给服务提供者规范了一定约束。</p>
+
+
+
+<p><strong>反射：</strong>主要用来动态地获取系统中类、实例对象、方法等语言构件的信息，通过发射API函数可以实现对这些语言构件信息的动态获取和动态操作等。主要用在ORM</p>
+
+
+
+<p><strong>后期静态绑定：</strong>用于在继承范围内引用静态调用的类，即在类的继承过程中，使用的类不再是当前类，而是调用的类。</p>
+
+
+
+<h2 class="wp-block-heading"><strong>六、生命周期</strong></h2>
+
+
+
+<p>生命周期我是这样总结的：</p>
+
+
+
+<p>入口文件 -&gt; 请求web服务器导入这个文件&nbsp; -&gt; 载入 Composer 生成的自动加载启动核心文件 -&gt; 内核启动(服务提供者启动框架的各种组件) -&gt; 交给路由分发到到（控制器，中间件等）-&gt; 逻辑处理&nbsp; &nbsp;-&gt; 返回结果</p>
+
+
+
+<h2 class="wp-block-heading"><strong>七、laravel框架运用到的repository模式的主要思想</strong></h2>
+
+
+
+<p>建立一个数据操作代理层，把controller里的数据操作剥离出来，这样做有几个好处：</p>
+
+
+
+<p>1 把数据处理逻辑分离使得代码更容易维护</p>
+
+
+
+<p>2 数据处理逻辑和业务逻辑分离，可以对这两个代码分别进行测试</p>
+
+
+
+<p>3 减少代码重复</p>
+
+
+
+<p>4 降低代码出错的几率</p>
+
+
+
+<p>5 让controller代码的可读性大大提高&nbsp;</p>
+
+
+
+<pre class="wp-block-preformatted">还有其他的，大家可以留言做总结哈！<br><br></pre>
+
+
+
+<p><strong>以上是本文的全部内容，希望对大家的学习有帮助，觉得有用，有需要就支持一下吧</strong></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/laravel/8954.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

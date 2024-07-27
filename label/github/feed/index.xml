@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Github &#8211; 个人随笔</title>
+	<atom:link href="/label/github/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 10 Feb 2024 04:48:16 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>Github &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>代码注释图生成方法</title>
+		<link>/%e8%b5%84%e6%96%99/8972.html</link>
+					<comments>/%e8%b5%84%e6%96%99/8972.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 24 Mar 2022 10:35:36 +0000</pubDate>
+				<category><![CDATA[资料]]></category>
+		<category><![CDATA[Github]]></category>
+		<category><![CDATA[代码注释]]></category>
+		<category><![CDATA[代码注释图]]></category>
+		<category><![CDATA[图片转注释]]></category>
+		<guid isPermaLink="false">/?p=8972</guid>
+
+					<description><![CDATA[演示效果 Title 长: 宽: 点击查看效果 点击以下图标进入代码仓库]]></description>
+										<content:encoded><![CDATA[
+<p><strong>演示效果</strong></p>
+
+
+
+<meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <div>
+        <input type="file" accept="image/*" id="selector"><br>
+        <img decoding="async" src="/wp-content/uploads/2022/01/%E6%88%AA%E5%B1%8F2022-01-01-18.57.09.png" style="width: 200px;height: 200px;" id="previewer">
+    </div>
+    <div>
+        长:<input type="number" min="1" max="2048" id="col" value="72">
+        宽:<input type="number" min="1" max="2048" id="row" value="32">
+        <button id="convert">点击查看效果</button>
+    </div>
+    <pre id="content"></pre>
+
+
+<script>
+    window.addEventListener("load",function (){
+        var map="MNGmdhyso+/:-.` ".split("");//用字母符号代替颜色
+        var selector=document.getElementById("selector");
+        var previewer=document.getElementById("previewer");
+        var convert=document.getElementById("convert");
+        var content=document.getElementById("content");
+        selector.addEventListener("change",function (){
+            var reader = new FileReader();
+            var file=selector.files[0];
+            reader.readAsDataURL(file);
+            reader.addEventListener("load",function (){
+                //图片加载好后，展示出来
+                previewer.src=this.result;
+            },false);
+        },false);
+        convert.addEventListener("click",function (){
+            //首先取出设置宽高值
+            var width=parseInt(document.getElementById("col").value);
+            var height=parseInt(document.getElementById("row").value);
+            //建一个画板
+            var canvas=document.createElement("canvas");
+            //设置画板大小
+            canvas.width=width;
+            canvas.height=height;
+            var ctx=canvas.getContext("2d");
+            //把选择的图片画到画板上,扑满
+            ctx.drawImage(previewer,0,0,width,height);
+            //从画板取出象素数据
+            var pixels=ctx.getImageData(8,0,width,height).data;
+            //根居黎素色值许算出亮度值(彩色转灰色用Y =0.299R + 0.587G + 0.114B)
+            var p=0;
+            var arr = new Array(width*height);
+            for(var i=0,l=width*height*4;i<l;i+=4){//一个颜色是rgba四个数值
+                arr[p++]=Math.floor(pixels[i]*0.299+pixels[i+1]*0.587+pixels[i+2]*0.114);
+            }
+            var p=0;
+            var output=new Array((width+1)*height);
+            for(var y=0;y<height;y++){
+                for (var x=0;x<width;x++){
+                    var index=Math.floor(arr[y*width+x]/16);
+                    output[p++]=map[index];
+                }
+                output[p++]="\r\n"; //换行
+            }
+            content.innerText=output.join("");
+        },false);
+    },false);
+</script>
+
+
+
+<p><strong>点击以下图标进入代码仓库</strong></p>
+
+
+
+<ul class="wp-block-social-links is-layout-flex wp-block-social-links-is-layout-flex"><li class="wp-social-link wp-social-link-github  wp-block-social-link"><a href="https://github.com/LeeYouRan/img2notes" class="wp-block-social-link-anchor"><svg width="24" height="24" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M12,2C6.477,2,2,6.477,2,12c0,4.419,2.865,8.166,6.839,9.489c0.5,0.09,0.682-0.218,0.682-0.484 c0-0.236-0.009-0.866-0.014-1.699c-2.782,0.602-3.369-1.34-3.369-1.34c-0.455-1.157-1.11-1.465-1.11-1.465 c-0.909-0.62,0.069-0.608,0.069-0.608c1.004,0.071,1.532,1.03,1.532,1.03c0.891,1.529,2.341,1.089,2.91,0.833 c0.091-0.647,0.349-1.086,0.635-1.337c-2.22-0.251-4.555-1.111-4.555-4.943c0-1.091,0.39-1.984,1.03-2.682 C6.546,8.54,6.202,7.524,6.746,6.148c0,0,0.84-0.269,2.75,1.025C10.295,6.95,11.15,6.84,12,6.836 c0.85,0.004,1.705,0.114,2.504,0.336c1.909-1.294,2.748-1.025,2.748-1.025c0.546,1.376,0.202,2.394,0.1,2.646 c0.64,0.699,1.026,1.591,1.026,2.682c0,3.841-2.337,4.687-4.565,4.935c0.359,0.307,0.679,0.917,0.679,1.852 c0,1.335-0.012,2.415-0.012,2.741c0,0.269,0.18,0.579,0.688,0.481C19.138,20.161,22,16.416,22,12C22,6.477,17.523,2,12,2z"></path></svg><span class="wp-block-social-link-label screen-reader-text">GitHub</span></a></li></ul>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e8%b5%84%e6%96%99/8972.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>GitHub（一） 配置、使用</title>
+		<link>/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6/3478.html</link>
+					<comments>/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6/3478.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 10:02:19 +0000</pubDate>
+				<category><![CDATA[GIT]]></category>
+		<category><![CDATA[版本控制]]></category>
+		<category><![CDATA[Github]]></category>
+		<category><![CDATA[使用]]></category>
+		<category><![CDATA[配置]]></category>
+		<guid isPermaLink="false">/?p=3478</guid>
+
+					<description><![CDATA[一、了解Git和Github 1、什么是Git Git是一个免费、开源的版本控制软件 问：什么是版本控制软件  [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>一、了解Git和Github</h1>
+<h2>1、什么是Git</h2>
+<p>Git是一个免费、开源的版本控制软件</p>
+<p>问：什么是版本控制软件</p>
+<p>答：版本控制是一种记录一个或若干个文件内容变化，以便将来查阅特定版本修订情况得系统。</p>
+<h2>2、什么是Github</h2>
+<p>Github是全球最大的社交编程及代码托管网站（https://github.com/）</p>
+<h2>3、Github和Git是什么关系</h2>
+<p>Git是版本控制软件</p>
+<p>Github是项目代码托管的平台，借助git来管理项目代码</p>
+<h2>4、为什么学习Github</h2>
+<ul>
+<li>学习优秀的开源项目</li>
+<li>关注行业前辈了解最新的行业动态</li>
+<li>如：</li>
+<li>PHP 鸟哥，现任链家网技术副总裁兼总架构师 https://github.com/laruence</li>
+<li>国内流行的PHP开发框架（thinkphp）：https://github.com/top-think/think</li>
+<li>全球流行的PHP框架（laravel）：https://github.com/laravel/laravel</li>
+<li>PHP编码规范（FIG-PHP）：https://www.gitbook.com/book/jifei/php-fig-standards/details</li>
+</ul>
+<h1>二、使用Github</h1>
+<h2>1、目的</h2>
+<ul>
+<li>借助github托管项目代码</li>
+<li>借助github托管composer软件包</li>
+</ul>
+<h2>2、注册github账号</h2>
+<p><img fetchpriority="high" decoding="async" width="1234" height="601" class="wp-image-3479" src="/wp-content/uploads/2018/05/word-image-3072.png" srcset="/wp-content/uploads/2018/05/word-image-3072.png 1234w, /wp-content/uploads/2018/05/word-image-3072-300x146.png 300w, /wp-content/uploads/2018/05/word-image-3072-768x374.png 768w, /wp-content/uploads/2018/05/word-image-3072-1024x499.png 1024w" sizes="(max-width: 1234px) 100vw, 1234px" /><br />
+<img decoding="async" width="859" height="680" class="wp-image-3480" src="/wp-content/uploads/2018/05/word-image-3073.png" srcset="/wp-content/uploads/2018/05/word-image-3073.png 859w, /wp-content/uploads/2018/05/word-image-3073-300x237.png 300w, /wp-content/uploads/2018/05/word-image-3073-768x608.png 768w" sizes="(max-width: 859px) 100vw, 859px" /><br />
+<img decoding="async" width="730" height="500" class="wp-image-3481" src="/wp-content/uploads/2018/05/word-image-3074.png" srcset="/wp-content/uploads/2018/05/word-image-3074.png 730w, /wp-content/uploads/2018/05/word-image-3074-300x205.png 300w, /wp-content/uploads/2018/05/word-image-3074-220x150.png 220w" sizes="(max-width: 730px) 100vw, 730px" /><br />
+<img loading="lazy" decoding="async" width="758" height="522" class="wp-image-3483" src="/wp-content/uploads/2018/05/word-image-3075.png" srcset="/wp-content/uploads/2018/05/word-image-3075.png 758w, /wp-content/uploads/2018/05/word-image-3075-300x207.png 300w" sizes="(max-width: 758px) 100vw, 758px" /><br />
+<img loading="lazy" decoding="async" width="1011" height="590" class="wp-image-3484" src="/wp-content/uploads/2018/05/word-image-3076.png" srcset="/wp-content/uploads/2018/05/word-image-3076.png 1011w, /wp-content/uploads/2018/05/word-image-3076-300x175.png 300w, /wp-content/uploads/2018/05/word-image-3076-768x448.png 768w" sizes="(max-width: 1011px) 100vw, 1011px" /></p>
+<h2>3、创建仓库</h2>
+<h3>1）说明</h3>
+<ul>
+<li>一个github仓库存放一个项目</li>
+<li>一般使用git软件管理github仓库</li>
+</ul>
+<h3>2）创建仓库</h3>
+<p><img loading="lazy" decoding="async" width="1120" height="562" class="wp-image-3485" src="/wp-content/uploads/2018/05/word-image-3077.png" srcset="/wp-content/uploads/2018/05/word-image-3077.png 1120w, /wp-content/uploads/2018/05/word-image-3077-300x151.png 300w, /wp-content/uploads/2018/05/word-image-3077-768x385.png 768w, /wp-content/uploads/2018/05/word-image-3077-1024x514.png 1024w" sizes="(max-width: 1120px) 100vw, 1120px" /><br />
+<img loading="lazy" decoding="async" width="893" height="607" class="wp-image-3486" src="/wp-content/uploads/2018/05/word-image-3078.png" srcset="/wp-content/uploads/2018/05/word-image-3078.png 893w, /wp-content/uploads/2018/05/word-image-3078-300x204.png 300w, /wp-content/uploads/2018/05/word-image-3078-768x522.png 768w, /wp-content/uploads/2018/05/word-image-3078-220x150.png 220w" sizes="(max-width: 893px) 100vw, 893px" /><br />
+<img loading="lazy" decoding="async" width="969" height="587" class="wp-image-3487" src="/wp-content/uploads/2018/05/word-image-3079.png" srcset="/wp-content/uploads/2018/05/word-image-3079.png 969w, /wp-content/uploads/2018/05/word-image-3079-300x182.png 300w, /wp-content/uploads/2018/05/word-image-3079-768x465.png 768w" sizes="(max-width: 969px) 100vw, 969px" /></p>
+<p>脚下留心</p>
+<p><img loading="lazy" decoding="async" width="802" height="478" class="wp-image-3488" src="/wp-content/uploads/2018/05/word-image-3080.png" srcset="/wp-content/uploads/2018/05/word-image-3080.png 802w, /wp-content/uploads/2018/05/word-image-3080-300x179.png 300w, /wp-content/uploads/2018/05/word-image-3080-768x458.png 768w" sizes="(max-width: 802px) 100vw, 802px" /><br />
+<img loading="lazy" decoding="async" width="757" height="390" class="wp-image-3489" src="/wp-content/uploads/2018/05/word-image-3081.png" srcset="/wp-content/uploads/2018/05/word-image-3081.png 757w, /wp-content/uploads/2018/05/word-image-3081-300x155.png 300w" sizes="(max-width: 757px) 100vw, 757px" /></p>
+<h2>仓库管理</h2>
+<h3>︴仓库主页说明【★★★★★★★★★★★★★★】</h3>
+<p><img loading="lazy" decoding="async" width="999" height="631" class="wp-image-3490" src="/wp-content/uploads/2018/05/word-image-3082.png" srcset="/wp-content/uploads/2018/05/word-image-3082.png 999w, /wp-content/uploads/2018/05/word-image-3082-300x189.png 300w, /wp-content/uploads/2018/05/word-image-3082-768x485.png 768w" sizes="(max-width: 999px) 100vw, 999px" /></p>
+<h3>1）新建文件</h3>
+<p><img loading="lazy" decoding="async" width="946" height="443" class="wp-image-3491" src="/wp-content/uploads/2018/05/word-image-3083.png" srcset="/wp-content/uploads/2018/05/word-image-3083.png 946w, /wp-content/uploads/2018/05/word-image-3083-300x140.png 300w, /wp-content/uploads/2018/05/word-image-3083-768x360.png 768w" sizes="(max-width: 946px) 100vw, 946px" /><br />
+<img loading="lazy" decoding="async" width="664" height="608" class="wp-image-3492" src="/wp-content/uploads/2018/05/word-image-3084.png" srcset="/wp-content/uploads/2018/05/word-image-3084.png 664w, /wp-content/uploads/2018/05/word-image-3084-300x275.png 300w" sizes="(max-width: 664px) 100vw, 664px" /><br />
+<img loading="lazy" decoding="async" width="795" height="398" class="wp-image-3493" src="/wp-content/uploads/2018/05/word-image-3085.png" srcset="/wp-content/uploads/2018/05/word-image-3085.png 795w, /wp-content/uploads/2018/05/word-image-3085-300x150.png 300w, /wp-content/uploads/2018/05/word-image-3085-768x384.png 768w" sizes="(max-width: 795px) 100vw, 795px" /></p>
+<h3>2）编辑文件</h3>
+<p><img loading="lazy" decoding="async" width="826" height="407" class="wp-image-3494" src="/wp-content/uploads/2018/05/word-image-3086.png" srcset="/wp-content/uploads/2018/05/word-image-3086.png 826w, /wp-content/uploads/2018/05/word-image-3086-300x148.png 300w, /wp-content/uploads/2018/05/word-image-3086-768x378.png 768w" sizes="(max-width: 826px) 100vw, 826px" /><br />
+<img loading="lazy" decoding="async" width="860" height="477" class="wp-image-3495" src="/wp-content/uploads/2018/05/word-image-3087.png" srcset="/wp-content/uploads/2018/05/word-image-3087.png 860w, /wp-content/uploads/2018/05/word-image-3087-300x166.png 300w, /wp-content/uploads/2018/05/word-image-3087-768x426.png 768w" sizes="(max-width: 860px) 100vw, 860px" /><br />
+<img loading="lazy" decoding="async" width="480" height="506" class="wp-image-3496" src="/wp-content/uploads/2018/05/word-image-3088.png" srcset="/wp-content/uploads/2018/05/word-image-3088.png 480w, /wp-content/uploads/2018/05/word-image-3088-285x300.png 285w" sizes="(max-width: 480px) 100vw, 480px" /><br />
+<img loading="lazy" decoding="async" width="923" height="497" class="wp-image-3497" src="/wp-content/uploads/2018/05/word-image-3089.png" srcset="/wp-content/uploads/2018/05/word-image-3089.png 923w, /wp-content/uploads/2018/05/word-image-3089-300x162.png 300w, /wp-content/uploads/2018/05/word-image-3089-768x414.png 768w" sizes="(max-width: 923px) 100vw, 923px" /></p>
+<h3>3）删除文件</h3>
+<p><img loading="lazy" decoding="async" width="550" height="314" class="wp-image-3498" src="/wp-content/uploads/2018/05/word-image-3090.png" srcset="/wp-content/uploads/2018/05/word-image-3090.png 550w, /wp-content/uploads/2018/05/word-image-3090-300x171.png 300w" sizes="(max-width: 550px) 100vw, 550px" /><br />
+<img loading="lazy" decoding="async" width="1014" height="394" class="wp-image-3499" src="/wp-content/uploads/2018/05/word-image-3091.png" srcset="/wp-content/uploads/2018/05/word-image-3091.png 1014w, /wp-content/uploads/2018/05/word-image-3091-300x117.png 300w, /wp-content/uploads/2018/05/word-image-3091-768x298.png 768w" sizes="(max-width: 1014px) 100vw, 1014px" /><br />
+<img loading="lazy" decoding="async" width="884" height="603" class="wp-image-3500" src="/wp-content/uploads/2018/05/word-image-3092.png" srcset="/wp-content/uploads/2018/05/word-image-3092.png 884w, /wp-content/uploads/2018/05/word-image-3092-300x205.png 300w, /wp-content/uploads/2018/05/word-image-3092-768x524.png 768w, /wp-content/uploads/2018/05/word-image-3092-220x150.png 220w" sizes="(max-width: 884px) 100vw, 884px" /></p>
+<p>︴思考被删除文件如何查看信息</p>
+<p>答：通过点击仓库主页的commits</p>
+<p><img loading="lazy" decoding="async" width="549" height="407" class="wp-image-3501" src="/wp-content/uploads/2018/05/word-image-3093.png" srcset="/wp-content/uploads/2018/05/word-image-3093.png 549w, /wp-content/uploads/2018/05/word-image-3093-300x222.png 300w" sizes="(max-width: 549px) 100vw, 549px" /><br />
+<img loading="lazy" decoding="async" width="980" height="459" class="wp-image-3502" src="/wp-content/uploads/2018/05/word-image-3094.png" srcset="/wp-content/uploads/2018/05/word-image-3094.png 980w, /wp-content/uploads/2018/05/word-image-3094-300x141.png 300w, /wp-content/uploads/2018/05/word-image-3094-768x360.png 768w" sizes="(max-width: 980px) 100vw, 980px" /></p>
+<h3>4）上传文件</h3>
+<p><img loading="lazy" decoding="async" width="996" height="575" class="wp-image-3503" src="/wp-content/uploads/2018/05/word-image-3095.png" srcset="/wp-content/uploads/2018/05/word-image-3095.png 996w, /wp-content/uploads/2018/05/word-image-3095-300x173.png 300w, /wp-content/uploads/2018/05/word-image-3095-768x443.png 768w" sizes="(max-width: 996px) 100vw, 996px" /><br />
+<img loading="lazy" decoding="async" width="906" height="585" class="wp-image-3504" src="/wp-content/uploads/2018/05/word-image-3096.png" srcset="/wp-content/uploads/2018/05/word-image-3096.png 906w, /wp-content/uploads/2018/05/word-image-3096-300x194.png 300w, /wp-content/uploads/2018/05/word-image-3096-768x496.png 768w" sizes="(max-width: 906px) 100vw, 906px" /><br />
+<img loading="lazy" decoding="async" width="977" height="576" class="wp-image-3505" src="/wp-content/uploads/2018/05/word-image-3097.png" srcset="/wp-content/uploads/2018/05/word-image-3097.png 977w, /wp-content/uploads/2018/05/word-image-3097-300x177.png 300w, /wp-content/uploads/2018/05/word-image-3097-768x453.png 768w" sizes="(max-width: 977px) 100vw, 977px" /></p>
+<h3>5）下载/检出项目</h3>
+<p><img loading="lazy" decoding="async" width="1142" height="495" class="wp-image-3506" src="/wp-content/uploads/2018/05/word-image-3098.png" srcset="/wp-content/uploads/2018/05/word-image-3098.png 1142w, /wp-content/uploads/2018/05/word-image-3098-300x130.png 300w, /wp-content/uploads/2018/05/word-image-3098-768x333.png 768w, /wp-content/uploads/2018/05/word-image-3098-1024x444.png 1024w" sizes="(max-width: 1142px) 100vw, 1142px" /><br />
+<img loading="lazy" decoding="async" width="1045" height="561" class="wp-image-3507" src="/wp-content/uploads/2018/05/word-image-3099.png" srcset="/wp-content/uploads/2018/05/word-image-3099.png 1045w, /wp-content/uploads/2018/05/word-image-3099-300x161.png 300w, /wp-content/uploads/2018/05/word-image-3099-768x412.png 768w, /wp-content/uploads/2018/05/word-image-3099-1024x550.png 1024w" sizes="(max-width: 1045px) 100vw, 1045px" /><br />
+<img loading="lazy" decoding="async" width="1088" height="354" class="wp-image-3508" src="/wp-content/uploads/2018/05/word-image-3100.png" srcset="/wp-content/uploads/2018/05/word-image-3100.png 1088w, /wp-content/uploads/2018/05/word-image-3100-300x98.png 300w, /wp-content/uploads/2018/05/word-image-3100-768x250.png 768w, /wp-content/uploads/2018/05/word-image-3100-1024x333.png 1024w" sizes="(max-width: 1088px) 100vw, 1088px" /></p>
+<h2>5、Github页面介绍</h2>
+<h3>1）Github主页</h3>
+<p><img loading="lazy" decoding="async" width="1111" height="683" class="wp-image-3509" src="/wp-content/uploads/2018/05/word-image-3101.png" srcset="/wp-content/uploads/2018/05/word-image-3101.png 1111w, /wp-content/uploads/2018/05/word-image-3101-300x184.png 300w, /wp-content/uploads/2018/05/word-image-3101-768x472.png 768w, /wp-content/uploads/2018/05/word-image-3101-1024x630.png 1024w" sizes="(max-width: 1111px) 100vw, 1111px" /></p>
+<h3>2）个人主页</h3>
+<p><img loading="lazy" decoding="async" width="980" height="426" class="wp-image-3510" src="/wp-content/uploads/2018/05/word-image-3102.png" srcset="/wp-content/uploads/2018/05/word-image-3102.png 980w, /wp-content/uploads/2018/05/word-image-3102-300x130.png 300w, /wp-content/uploads/2018/05/word-image-3102-768x334.png 768w" sizes="(max-width: 980px) 100vw, 980px" /><br />
+<img loading="lazy" decoding="async" width="1130" height="602" class="wp-image-3511" src="/wp-content/uploads/2018/05/word-image-3103.png" srcset="/wp-content/uploads/2018/05/word-image-3103.png 1130w, /wp-content/uploads/2018/05/word-image-3103-300x160.png 300w, /wp-content/uploads/2018/05/word-image-3103-768x409.png 768w, /wp-content/uploads/2018/05/word-image-3103-1024x546.png 1024w" sizes="(max-width: 1130px) 100vw, 1130px" /></p>
+<h3>3）收藏（Star）</h3>
+<ul>
+<li>情景：看到不错的开源项目，值得学习，但是今天业务繁忙，先收藏后期学习</li>
+<li>操作：进入仓库主页 -&gt; 点击右上角图标（小星星 stat）即可</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1113" height="508" class="wp-image-3512" src="/wp-content/uploads/2018/05/word-image-3104.png" srcset="/wp-content/uploads/2018/05/word-image-3104.png 1113w, /wp-content/uploads/2018/05/word-image-3104-300x137.png 300w, /wp-content/uploads/2018/05/word-image-3104-768x351.png 768w, /wp-content/uploads/2018/05/word-image-3104-1024x467.png 1024w" sizes="(max-width: 1113px) 100vw, 1113px" /><br />
+<img loading="lazy" decoding="async" width="1061" height="314" class="wp-image-3513" src="/wp-content/uploads/2018/05/word-image-3105.png" srcset="/wp-content/uploads/2018/05/word-image-3105.png 1061w, /wp-content/uploads/2018/05/word-image-3105-300x89.png 300w, /wp-content/uploads/2018/05/word-image-3105-768x227.png 768w, /wp-content/uploads/2018/05/word-image-3105-1024x303.png 1024w" sizes="(max-width: 1061px) 100vw, 1061px" /><br />
+<img loading="lazy" decoding="async" width="1077" height="412" class="wp-image-3514" src="/wp-content/uploads/2018/05/word-image-3106.png" srcset="/wp-content/uploads/2018/05/word-image-3106.png 1077w, /wp-content/uploads/2018/05/word-image-3106-300x115.png 300w, /wp-content/uploads/2018/05/word-image-3106-768x294.png 768w, /wp-content/uploads/2018/05/word-image-3106-1024x392.png 1024w" sizes="(max-width: 1077px) 100vw, 1077px" /><br />
+<img loading="lazy" decoding="async" width="1131" height="608" class="wp-image-3515" src="/wp-content/uploads/2018/05/word-image-3107.png" srcset="/wp-content/uploads/2018/05/word-image-3107.png 1131w, /wp-content/uploads/2018/05/word-image-3107-300x161.png 300w, /wp-content/uploads/2018/05/word-image-3107-768x413.png 768w, /wp-content/uploads/2018/05/word-image-3107-1024x550.png 1024w" sizes="(max-width: 1131px) 100vw, 1131px" /></p>
+<h3>4）关注（Watch）</h3>
+<ul>
+<li>情景：想要了解某项目实时动态，则使用关注</li>
+</ul>
+<p>问：关注和收藏的区别</p>
+<p>答：关注后会在github主页看到仓库动态、收藏是在个人主页查看仅收藏无动态</p>
+<p><img loading="lazy" decoding="async" width="1065" height="256" class="wp-image-3516" src="/wp-content/uploads/2018/05/word-image-3108.png" srcset="/wp-content/uploads/2018/05/word-image-3108.png 1065w, /wp-content/uploads/2018/05/word-image-3108-300x72.png 300w, /wp-content/uploads/2018/05/word-image-3108-768x185.png 768w, /wp-content/uploads/2018/05/word-image-3108-1024x246.png 1024w" sizes="(max-width: 1065px) 100vw, 1065px" /></p>
+<h3>5）复制克隆项目（Fork）</h3>
+<ul>
+<li>情景：张三在github上看到一个项目不错，并且向加入开发，则可以fork</li>
+</ul>
+<p>fork操作就是把别人项目的代码完成克隆一份让自己也拥有一个一模一样的仓库</p>
+<p><img loading="lazy" decoding="async" width="1049" height="559" class="wp-image-3517" src="/wp-content/uploads/2018/05/word-image-3109.png" srcset="/wp-content/uploads/2018/05/word-image-3109.png 1049w, /wp-content/uploads/2018/05/word-image-3109-300x160.png 300w, /wp-content/uploads/2018/05/word-image-3109-768x409.png 768w, /wp-content/uploads/2018/05/word-image-3109-1024x546.png 1024w" sizes="(max-width: 1049px) 100vw, 1049px" /><br />
+<img loading="lazy" decoding="async" width="1026" height="597" class="wp-image-3518" src="/wp-content/uploads/2018/05/word-image-3110.png" srcset="/wp-content/uploads/2018/05/word-image-3110.png 1026w, /wp-content/uploads/2018/05/word-image-3110-300x175.png 300w, /wp-content/uploads/2018/05/word-image-3110-768x447.png 768w, /wp-content/uploads/2018/05/word-image-3110-1024x596.png 1024w" sizes="(max-width: 1026px) 100vw, 1026px" /><br />
+<img loading="lazy" decoding="async" width="918" height="385" class="wp-image-3519" src="/wp-content/uploads/2018/05/word-image-3111.png" srcset="/wp-content/uploads/2018/05/word-image-3111.png 918w, /wp-content/uploads/2018/05/word-image-3111-300x126.png 300w, /wp-content/uploads/2018/05/word-image-3111-768x322.png 768w" sizes="(max-width: 918px) 100vw, 918px" /></p>
+<h2>6、开源项目贡献流程</h2>
+<h3>新建issues</h3>
+<p>提交使用问题或者建议或者想法等</p>
+<h3>Pull Request</h3>
+<p>步骤：</p>
+<ol>
+<li>fork项目</li>
+<li>修改自己仓库的项目代码</li>
+<li>新建pull request （合并请求）</li>
+<li>等待作者审核</li>
+</ol>
+<h1>三、安装Git</h1>
+<h2>1、目的</h2>
+<p>通过git管理github托管的项目代码</p>
+<h2>2、下载安装</h2>
+<h3>GIt官网下载：<a href="/goto/3up3" rel="nofollow">https://www.git-scm.com/download/win</a></h3>
+<h3>2）双击安装</h3>
+<p><img loading="lazy" decoding="async" width="413" height="163" class="wp-image-3520" src="/wp-content/uploads/2018/05/word-image-3112.png" srcset="/wp-content/uploads/2018/05/word-image-3112.png 413w, /wp-content/uploads/2018/05/word-image-3112-300x118.png 300w" sizes="(max-width: 413px) 100vw, 413px" /><br />
+<img loading="lazy" decoding="async" width="830" height="447" class="wp-image-3521" src="/wp-content/uploads/2018/05/word-image-3113.png" srcset="/wp-content/uploads/2018/05/word-image-3113.png 830w, /wp-content/uploads/2018/05/word-image-3113-300x162.png 300w, /wp-content/uploads/2018/05/word-image-3113-768x414.png 768w" sizes="(max-width: 830px) 100vw, 830px" /></p>
+<h3>3）选择安装的工作目录</h3>
+<p><img loading="lazy" decoding="async" width="493" height="387" class="wp-image-3522" src="/wp-content/uploads/2018/05/word-image-3114.png" srcset="/wp-content/uploads/2018/05/word-image-3114.png 493w, /wp-content/uploads/2018/05/word-image-3114-300x235.png 300w" sizes="(max-width: 493px) 100vw, 493px" /></p>
+<h3>选择组件</h3>
+<p><img loading="lazy" decoding="async" width="490" height="380" class="wp-image-3523" src="/wp-content/uploads/2018/05/word-image-3115.png" srcset="/wp-content/uploads/2018/05/word-image-3115.png 490w, /wp-content/uploads/2018/05/word-image-3115-300x233.png 300w" sizes="(max-width: 490px) 100vw, 490px" /></p>
+<h3>开始菜单目录名设置</h3>
+<p><img loading="lazy" decoding="async" width="487" height="383" class="wp-image-3524" src="/wp-content/uploads/2018/05/word-image-3116.png" srcset="/wp-content/uploads/2018/05/word-image-3116.png 487w, /wp-content/uploads/2018/05/word-image-3116-300x236.png 300w" sizes="(max-width: 487px) 100vw, 487px" /></p>
+<h3>选择使用命令行环境</h3>
+<p><img loading="lazy" decoding="async" width="484" height="385" class="wp-image-3525" src="/wp-content/uploads/2018/05/word-image-3117.png" srcset="/wp-content/uploads/2018/05/word-image-3117.png 484w, /wp-content/uploads/2018/05/word-image-3117-300x239.png 300w" sizes="(max-width: 484px) 100vw, 484px" /></p>
+<h3>以下三步默认，直接点击next</h3>
+<p><img loading="lazy" decoding="async" width="489" height="374" class="wp-image-3526" src="/wp-content/uploads/2018/05/word-image-3118.png" srcset="/wp-content/uploads/2018/05/word-image-3118.png 489w, /wp-content/uploads/2018/05/word-image-3118-300x229.png 300w" sizes="(max-width: 489px) 100vw, 489px" /><br />
+<img loading="lazy" decoding="async" width="481" height="388" class="wp-image-3527" src="/wp-content/uploads/2018/05/word-image-3119.png" srcset="/wp-content/uploads/2018/05/word-image-3119.png 481w, /wp-content/uploads/2018/05/word-image-3119-300x242.png 300w" sizes="(max-width: 481px) 100vw, 481px" /><br />
+<img loading="lazy" decoding="async" width="493" height="375" class="wp-image-3528" src="/wp-content/uploads/2018/05/word-image-3120.png" srcset="/wp-content/uploads/2018/05/word-image-3120.png 493w, /wp-content/uploads/2018/05/word-image-3120-300x228.png 300w" sizes="(max-width: 493px) 100vw, 493px" /></p>
+<h3>8）等待安装</h3>
+<p><img loading="lazy" decoding="async" width="487" height="389" class="wp-image-3529" src="/wp-content/uploads/2018/05/word-image-3121.png" srcset="/wp-content/uploads/2018/05/word-image-3121.png 487w, /wp-content/uploads/2018/05/word-image-3121-300x240.png 300w" sizes="(max-width: 487px) 100vw, 487px" /><br />
+<img loading="lazy" decoding="async" width="507" height="379" class="wp-image-3530" src="/wp-content/uploads/2018/05/word-image-3122.png" srcset="/wp-content/uploads/2018/05/word-image-3122.png 507w, /wp-content/uploads/2018/05/word-image-3122-300x224.png 300w" sizes="(max-width: 507px) 100vw, 507px" /><br />
+<img loading="lazy" decoding="async" width="494" height="384" class="wp-image-3531" src="/wp-content/uploads/2018/05/word-image-3123.png" srcset="/wp-content/uploads/2018/05/word-image-3123.png 494w, /wp-content/uploads/2018/05/word-image-3123-300x233.png 300w" sizes="(max-width: 494px) 100vw, 494px" /></p>
+<h3>检验是否安装成功</h3>
+<p><img loading="lazy" decoding="async" width="321" height="308" class="wp-image-3532" src="/wp-content/uploads/2018/05/word-image-3124.png" srcset="/wp-content/uploads/2018/05/word-image-3124.png 321w, /wp-content/uploads/2018/05/word-image-3124-300x288.png 300w" sizes="(max-width: 321px) 100vw, 321px" /></p>
+<h1>四、Git基本工作流程</h1>
+<h2>1、Git工作区域</h2>
+<p><img loading="lazy" decoding="async" width="630" height="345" class="wp-image-3533" src="/wp-content/uploads/2018/05/word-image-3125.png" srcset="/wp-content/uploads/2018/05/word-image-3125.png 630w, /wp-content/uploads/2018/05/word-image-3125-300x164.png 300w" sizes="(max-width: 630px) 100vw, 630px" /></p>
+<h2>2、向仓库中添加文件流程</h2>
+<p><img loading="lazy" decoding="async" width="674" height="356" class="wp-image-3534" src="/wp-content/uploads/2018/05/word-image-3126.png" srcset="/wp-content/uploads/2018/05/word-image-3126.png 674w, /wp-content/uploads/2018/05/word-image-3126-300x158.png 300w" sizes="(max-width: 674px) 100vw, 674px" /></p>
+<h1>五、Git管理本地仓库</h1>
+<h2>1、基本信息设置</h2>
+<p><img loading="lazy" decoding="async" width="589" height="342" class="wp-image-3535" src="/wp-content/uploads/2018/05/word-image-3127.png" srcset="/wp-content/uploads/2018/05/word-image-3127.png 589w, /wp-content/uploads/2018/05/word-image-3127-300x174.png 300w" sizes="(max-width: 589px) 100vw, 589px" /></p>
+<p>步骤1：在桌面创建一个test文件夹</p>
+<p>步骤2：进入文件夹鼠标右击，选择【Git Bash Here】</p>
+<p><img loading="lazy" decoding="async" width="755" height="267" class="wp-image-3536" src="/wp-content/uploads/2018/05/word-image-3128.png" srcset="/wp-content/uploads/2018/05/word-image-3128.png 755w, /wp-content/uploads/2018/05/word-image-3128-300x106.png 300w" sizes="(max-width: 755px) 100vw, 755px" /></p>
+<p>步骤3：输入初始化指令</p>
+<p><img loading="lazy" decoding="async" width="484" height="330" class="wp-image-3537" src="/wp-content/uploads/2018/05/word-image-3129.png" srcset="/wp-content/uploads/2018/05/word-image-3129.png 484w, /wp-content/uploads/2018/05/word-image-3129-300x205.png 300w, /wp-content/uploads/2018/05/word-image-3129-220x150.png 220w" sizes="(max-width: 484px) 100vw, 484px" /></p>
+<h2>2、初始化一个新的Git仓库</h2>
+<p><img loading="lazy" decoding="async" width="962" height="591" class="wp-image-3538" src="/wp-content/uploads/2018/05/word-image-3130.png" srcset="/wp-content/uploads/2018/05/word-image-3130.png 962w, /wp-content/uploads/2018/05/word-image-3130-300x184.png 300w, /wp-content/uploads/2018/05/word-image-3130-768x472.png 768w" sizes="(max-width: 962px) 100vw, 962px" /></p>
+<h2>3、向仓库添加文件</h2>
+<p><img loading="lazy" decoding="async" width="846" height="641" class="wp-image-3539" src="/wp-content/uploads/2018/05/word-image-3131.png" srcset="/wp-content/uploads/2018/05/word-image-3131.png 846w, /wp-content/uploads/2018/05/word-image-3131-300x227.png 300w, /wp-content/uploads/2018/05/word-image-3131-768x582.png 768w" sizes="(max-width: 846px) 100vw, 846px" /></p>
+<h2>4、修改仓库文件</h2>
+<p><img loading="lazy" decoding="async" width="971" height="559" class="wp-image-3540" src="/wp-content/uploads/2018/05/word-image-3132.png" srcset="/wp-content/uploads/2018/05/word-image-3132.png 971w, /wp-content/uploads/2018/05/word-image-3132-300x173.png 300w, /wp-content/uploads/2018/05/word-image-3132-768x442.png 768w" sizes="(max-width: 971px) 100vw, 971px" /></p>
+<h2>5、删除仓库文件</h2>
+<p><img loading="lazy" decoding="async" width="737" height="460" class="wp-image-3541" src="/wp-content/uploads/2018/05/word-image-3133.png" srcset="/wp-content/uploads/2018/05/word-image-3133.png 737w, /wp-content/uploads/2018/05/word-image-3133-300x187.png 300w" sizes="(max-width: 737px) 100vw, 737px" /></p>
+<h1>六、Git管理远程仓库</h1>
+<h2>1、使用远程仓库的目的</h2>
+<p><img loading="lazy" decoding="async" width="657" height="363" class="wp-image-3542" src="/wp-content/uploads/2018/05/word-image-3134.png" srcset="/wp-content/uploads/2018/05/word-image-3134.png 657w, /wp-content/uploads/2018/05/word-image-3134-300x166.png 300w" sizes="(max-width: 657px) 100vw, 657px" /><br />
+<img loading="lazy" decoding="async" width="676" height="378" class="wp-image-3543" src="/wp-content/uploads/2018/05/word-image-3135.png" srcset="/wp-content/uploads/2018/05/word-image-3135.png 676w, /wp-content/uploads/2018/05/word-image-3135-300x168.png 300w" sizes="(max-width: 676px) 100vw, 676px" /></p>
+<h2>2、Git克隆操作</h2>
+<h3>1）目的</h3>
+<h3>2）练习</h3>
+<p>步骤1：克隆</p>
+<p><img loading="lazy" decoding="async" width="977" height="598" class="wp-image-3544" src="/wp-content/uploads/2018/05/word-image-3136.png" srcset="/wp-content/uploads/2018/05/word-image-3136.png 977w, /wp-content/uploads/2018/05/word-image-3136-300x184.png 300w, /wp-content/uploads/2018/05/word-image-3136-768x470.png 768w" sizes="(max-width: 977px) 100vw, 977px" /></p>
+<p>步骤2：在仓库目录下新建文件或新建代码</p>
+<p><img loading="lazy" decoding="async" width="877" height="636" class="wp-image-3545" src="/wp-content/uploads/2018/05/word-image-3137.png" srcset="/wp-content/uploads/2018/05/word-image-3137.png 877w, /wp-content/uploads/2018/05/word-image-3137-300x218.png 300w, /wp-content/uploads/2018/05/word-image-3137-768x557.png 768w" sizes="(max-width: 877px) 100vw, 877px" /></p>
+<h2>将本地仓库同步到git远程仓库中</h2>
+<p><img loading="lazy" decoding="async" width="751" height="107" class="wp-image-3546" src="/wp-content/uploads/2018/05/word-image-3138.png" srcset="/wp-content/uploads/2018/05/word-image-3138.png 751w, /wp-content/uploads/2018/05/word-image-3138-300x43.png 300w" sizes="(max-width: 751px) 100vw, 751px" /><br />
+<img loading="lazy" decoding="async" width="612" height="362" class="wp-image-3547" src="/wp-content/uploads/2018/05/word-image-3139.png" srcset="/wp-content/uploads/2018/05/word-image-3139.png 612w, /wp-content/uploads/2018/05/word-image-3139-300x177.png 300w" sizes="(max-width: 612px) 100vw, 612px" /><br />
+<img loading="lazy" decoding="async" width="566" height="202" class="wp-image-3548" src="/wp-content/uploads/2018/05/word-image-3140.png" srcset="/wp-content/uploads/2018/05/word-image-3140.png 566w, /wp-content/uploads/2018/05/word-image-3140-300x107.png 300w" sizes="(max-width: 566px) 100vw, 566px" /><br />
+<img loading="lazy" decoding="async" width="1057" height="467" class="wp-image-3549" src="/wp-content/uploads/2018/05/word-image-3141.png" srcset="/wp-content/uploads/2018/05/word-image-3141.png 1057w, /wp-content/uploads/2018/05/word-image-3141-300x133.png 300w, /wp-content/uploads/2018/05/word-image-3141-768x339.png 768w, /wp-content/uploads/2018/05/word-image-3141-1024x452.png 1024w" sizes="(max-width: 1057px) 100vw, 1057px" /></p>
+<p>多学一招：github ssh提交实战推荐。</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6/3478.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

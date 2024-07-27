@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>常量 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%B8%B8%E9%87%8F/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sun, 20 May 2018 01:23:34 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>常量 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>PHP 语法（一）定界符、 执行原理、 执行过程、 语法、 输出语句、 变量、 常量、 编译型、 解释型</title>
+		<link>/php/712.html</link>
+					<comments>/php/712.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 16:48:20 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP基本语法]]></category>
+		<category><![CDATA[PHP 定界符]]></category>
+		<category><![CDATA[PHP 执行原理]]></category>
+		<category><![CDATA[PHP 执行过程]]></category>
+		<category><![CDATA[PHP 语法]]></category>
+		<category><![CDATA[PHP 输出语句]]></category>
+		<category><![CDATA[变量]]></category>
+		<category><![CDATA[常量]]></category>
+		<category><![CDATA[编译型]]></category>
+		<category><![CDATA[解释型]]></category>
+		<guid isPermaLink="false">/?p=712</guid>
+
+					<description><![CDATA[PHP语法（一） 回顾 PHP：超文本预处理器，这是一种运行在服务器端的开源的脚本语言 LAMP：Linux+ [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h1>PHP语法（一）</h1>
+<h2>回顾</h2>
+<ol>
+<li>
+  PHP：超文本预处理器，这是一种运行在服务器端的开源的脚本语言
+</li>
+<li>
+  LAMP：Linux+Apache+MySQL+PHP，这4个软件全部都是开源的
+</li>
+<li>
+  静态网站和动态网站</p>
+<ol>
+<li>
+    静态网站：不具有数据交互功能的网站
+  </li>
+<li>
+    动态网站：具有数据交互功能的网站
+  </li>
+<li>
+    实现动态网站的技术：asp	php	.net		java
+  </li>
+</ol>
+</li>
+<li>
+  客户端和服务器端</p>
+<ol>
+<li>
+    服务器端：为访问者提供服务的计算机，从狭义上来说，Apache是服务器。
+  </li>
+<li>
+    客户端：用来请求服务器的计算机，web客户端是IE，QQ客户端是软件
+  </li>
+</ol>
+</li>
+<li>
+  端口和端口号  0~65535
+</li>
+<li>
+  BS架构（浏览器和服务器）和CS架构（客户端软件和服务器）
+</li>
+<li>
+  前台和后台
+</li>
+<li>
+  IP地址和域名</p>
+<ol>
+<li>
+    通过IP地址唯一标识每台计算机
+  </li>
+<li>
+    域名是IP地址的别名，为了便于记忆。
+  </li>
+</ol>
+</li>
+<li>
+  PHP优点</p>
+<ol>
+<li>
+    跨平台
+  </li>
+<li>
+    源码开发
+  </li>
+<li>
+    语法简单
+  </li>
+</ol>
+</li>
+<li>
+  安装Apache</p>
+<ol>
+<li>
+    httpd命令在bin目录下
+  </li>
+<li>
+    htdocs是默认的虚拟目录
+  </li>
+<li>
+    conf是配置文件夹
+  </li>
+<li>
+    conf/httpd.conf是Apache的配置文件
+  </li>
+<li>
+    httpd -t 用来检测apache的运行情况
+  </li>
+<li>
+    httpd -M	用来显示加载的模块
+  </li>
+<li>
+    httpd -k start/stop/restart
+  </li>
+<li>
+    apache的启动/停止/重启
+  </li>
+<li><a href="http://localhost/" class="broken_link">http://localhost/</a>显示itworks表示正常
+  </li>
+</ol>
+</li>
+<li>
+  安装PHP</p>
+<ol>
+<li>
+    在httpd.conf中通过LoadModule加载PHP模块
+  </li>
+<li>
+    在httpd.conf中当访问PHP页面的时候调用PHP模块
+  </li>
+<li>
+    在httpd.conf中指定PHP配置文件  phpinidir
+  </li>
+</ol>
+</li>
+</ol>
+<p><img decoding="async" width="445" height="49" src="/wp-content/uploads/2018/05/word-image-617.png" class="wp-image-714" srcset="/wp-content/uploads/2018/05/word-image-617.png 445w, /wp-content/uploads/2018/05/word-image-617-300x33.png 300w" sizes="(max-width: 445px) 100vw, 445px" /></p>
+<ul>
+<li>
+<ol>
+<li>
+      在php.ini中通过extension_dir指定PHP扩展的加载位置
+    </li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>
+  安装MySQL</p>
+<ol>
+<li>
+    MySQL的端口号是3306
+  </li>
+</ol>
+</li>
+</ol>
+<p>
+  到此wamp安装完毕，下面提高部分
+</p>
+<ol>
+<li>
+  更改虚拟目录位置，在httpd.conf中DocumentRoot更改虚拟目录指令
+</li>
+<li>
+  注意：更改虚拟目录位置的同时一定要更改虚拟目录的权限
+</li>
+</ol>
+<p>
+  &lt;Directory 虚拟目录路径&gt;
+</p>
+<p>
+  &lt;/Directory&gt;
+</p>
+<ul>
+<li>
+<ol>
+<li>
+      allow from all		允许所有
+    </li>
+<li>
+      order allow,deny	先执行允许，后执行拒绝
+    </li>
+<li>
+      options indexes	目录中的文件用索引方式显示
+    </li>
+<li>
+      allowoverride all	允许分布式部署文件覆盖
+    </li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>
+  更改默认首页  DirectoryIndex index.html index.php
+</li>
+<li>
+  更改监听端口 Linten 80
+</li>
+<li>
+  虚拟主机配置  httpd-vhosts.conf文件中配置
+</li>
+<li>
+  DNS解析   system32/drivers/etc/hosts文件中
+</li>
+<li>
+  分布式部署</p>
+<ol>
+<li>
+    文件名是.htaccess文件
+  </li>
+<li>
+    在当前目录及子目录中有效
+  </li>
+<li>
+    可以更改apache和php的配置（php_flag  php_value）
+  </li>
+</ol>
+</li>
+</ol>
+<p>
+  总结：httpd.conf对Apache起作用，php.ini对PHP起作用 .htaccess对apache和PHP都起作用
+</p>
+<p>
+  配置文件可分为两个部分：主配置文件系统，分布式配置文件
+</p>
+<h2>解释型和编译型</h2>
+<p><img fetchpriority="high" decoding="async" width="656" height="147" src="/wp-content/uploads/2018/05/word-image-618.png" class="wp-image-715" srcset="/wp-content/uploads/2018/05/word-image-618.png 656w, /wp-content/uploads/2018/05/word-image-618-300x67.png 300w" sizes="(max-width: 656px) 100vw, 656px" /></p>
+<p>
+  如果保存了可执行代码是编译型语言，没有保存可执行代码是解释型语言
+</p>
+<h2>PHP执行过程</h2>
+<p><img decoding="async" width="1009" height="67" src="/wp-content/uploads/2018/05/word-image-619.png" class="wp-image-716" srcset="/wp-content/uploads/2018/05/word-image-619.png 1009w, /wp-content/uploads/2018/05/word-image-619-300x20.png 300w, /wp-content/uploads/2018/05/word-image-619-768x51.png 768w" sizes="(max-width: 1009px) 100vw, 1009px" /></p>
+<p>
+  脚下留心：PHP生成的中间语言保存在内存中（这点和java,.net不一样，这两门语言是可以看到中间文件的），PHP看不到中间文件。如果从能否看见中间文件这个角度来说PHP是解释型的；从是否生成中间文件来说PHP是编译型的。
+</p>
+<h2>EditPlus介绍</h2>
+<p>
+  体积小，可以自定义插件的一个开发工具
+</p>
+<h3>EditPlus的设置</h3>
+<p><img loading="lazy" decoding="async" width="488" height="69" src="/wp-content/uploads/2018/05/word-image-620.png" class="wp-image-717" srcset="/wp-content/uploads/2018/05/word-image-620.png 488w, /wp-content/uploads/2018/05/word-image-620-300x42.png 300w" sizes="(max-width: 488px) 100vw, 488px" /><br />
+<img loading="lazy" decoding="async" width="535" height="318" src="/wp-content/uploads/2018/05/word-image-621.png" class="wp-image-718" srcset="/wp-content/uploads/2018/05/word-image-621.png 535w, /wp-content/uploads/2018/05/word-image-621-300x178.png 300w" sizes="(max-width: 535px) 100vw, 535px" /></p>
+<h2>PHP四种定界符</h2>
+<ol>
+<li>
+  标准风格【推荐使用】
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  	echo &#8216;i am a boy!!!&#8217;;
+</p>
+<p>
+  ?&gt;
+</p>
+<ol>
+<li>
+  短标记风格（在php.ini中将short_open_tag = On）
+</li>
+</ol>
+<p>
+  默认情况下不支持短标记，必须在php.ini配置文件中开启支持短标记
+</p>
+<p>
+  &lt;?
+</p>
+<p>
+  	echo &#8216;i am a boy!!!&#8217;;
+</p>
+<p>
+  ?&gt;
+</p>
+<ol>
+<li>
+  asp风格（在php.ini中将asp_tags = on）
+</li>
+</ol>
+<p>
+  默认不支持asp风格
+</p>
+<p>
+  &lt;%
+</p>
+<p>
+  	echo &#8216;i am a boy!!!&#8217;;
+</p>
+<p>
+  %&gt;
+</p>
+<ol>
+<li>
+  script标记风格
+</li>
+</ol>
+<p>
+  &lt;script language=&#8221;php&#8221;&gt;
+</p>
+<p>
+  echo &#8216;i am a girl!!!&#8217;;
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<h2>PHP的执行原理</h2>
+<p><img loading="lazy" decoding="async" width="764" height="389" src="/wp-content/uploads/2018/05/word-image-622.png" class="wp-image-719" srcset="/wp-content/uploads/2018/05/word-image-622.png 764w, /wp-content/uploads/2018/05/word-image-622-300x153.png 300w" sizes="(max-width: 764px) 100vw, 764px" /></p>
+<p><strong>客户端向服务器发送请求：</strong>
+</p>
+<ol>
+<li>
+  如果请求的是HTML页面，服务器不执行，将页面的代码全部发送到客户端。
+</li>
+<li>
+  如果请求的是PHP，服务器会执行PHP页面，执行完毕后会生成标准的HTML代码，然后将HTML代码发送到客户端
+</li>
+</ol>
+<h2>PHP语法特点</h2>
+<p>
+  PHP用分号表示语句的结束
+</p>
+<p>
+  PHP变量名是区分大小写的，但是关键字不区分大小写
+</p>
+<h2>PHP支持省略结束标记</h2>
+<p>
+  &lt;?php表示php语言的开始，  ?&gt;表示php语言的结束。
+</p>
+<p>
+  如果一个页面从PHP开始一直到页面的最后全部是PHP代码，PHP结束符是可以省略的。
+</p>
+<p><img loading="lazy" decoding="async" width="297" height="113" src="/wp-content/uploads/2018/05/word-image-623.png" class="wp-image-720" /><br />
+<img loading="lazy" decoding="async" width="676" height="167" src="/wp-content/uploads/2018/05/word-image-624.png" class="wp-image-721" srcset="/wp-content/uploads/2018/05/word-image-624.png 676w, /wp-content/uploads/2018/05/word-image-624-300x74.png 300w" sizes="(max-width: 676px) 100vw, 676px" /></p>
+<p>
+  PHP结束符中有一个隐藏的分号
+</p>
+<p><img loading="lazy" decoding="async" width="515" height="106" src="/wp-content/uploads/2018/05/word-image-625.png" class="wp-image-722" srcset="/wp-content/uploads/2018/05/word-image-625.png 515w, /wp-content/uploads/2018/05/word-image-625-300x62.png 300w" sizes="(max-width: 515px) 100vw, 515px" /></p>
+<h2>页面显示乱码解决</h2>
+<p><img loading="lazy" decoding="async" width="592" height="102" src="/wp-content/uploads/2018/05/word-image-626.png" class="wp-image-723" srcset="/wp-content/uploads/2018/05/word-image-626.png 592w, /wp-content/uploads/2018/05/word-image-626-300x52.png 300w" sizes="(max-width: 592px) 100vw, 592px" /></p>
+<p>
+  解决方法一：在内容最上面输出&lt;meta&gt;标记
+</p>
+<p><img loading="lazy" decoding="async" width="578" height="77" src="/wp-content/uploads/2018/05/word-image-627.png" class="wp-image-724" srcset="/wp-content/uploads/2018/05/word-image-627.png 578w, /wp-content/uploads/2018/05/word-image-627-300x40.png 300w" sizes="(max-width: 578px) 100vw, 578px" /></p>
+<p>
+  解决方法二：header()
+</p>
+<p><img loading="lazy" decoding="async" width="713" height="74" src="/wp-content/uploads/2018/05/word-image-628.png" class="wp-image-725" srcset="/wp-content/uploads/2018/05/word-image-628.png 713w, /wp-content/uploads/2018/05/word-image-628-300x31.png 300w" sizes="(max-width: 713px) 100vw, 713px" /></p>
+<h2>PHP注释</h2>
+<p>
+  PHP注释有单行注释和多行注释
+</p>
+<p><img loading="lazy" decoding="async" width="428" height="126" src="/wp-content/uploads/2018/05/word-image-629.png" class="wp-image-726" srcset="/wp-content/uploads/2018/05/word-image-629.png 428w, /wp-content/uploads/2018/05/word-image-629-300x88.png 300w" sizes="(max-width: 428px) 100vw, 428px" /></p>
+<h2>输出语句</h2>
+<p>
+  在PHP中常用的输出有echo，print，print_r，var_dump
+</p>
+<h3>echo【适合输出字符串和数字】</h3>
+<p><img loading="lazy" decoding="async" width="1039" height="130" src="/wp-content/uploads/2018/05/word-image-630.png" class="wp-image-727" srcset="/wp-content/uploads/2018/05/word-image-630.png 1039w, /wp-content/uploads/2018/05/word-image-630-300x38.png 300w, /wp-content/uploads/2018/05/word-image-630-768x96.png 768w, /wp-content/uploads/2018/05/word-image-630-1024x128.png 1024w" sizes="(max-width: 1039px) 100vw, 1039px" /></p>
+<p>
+  echo可以输出字符串和数字型，不适合输出布尔和数组，true输出成1，false输出成空，数组输出成array
+</p>
+<p>
+  echo可以一次输出多个数据。
+</p>
+<h3>print</h3>
+<p>
+  print和echo大体一样，可以输出字符串和数字，不适合输出布尔和数组
+</p>
+<p>
+  print每次只能输出一个值，输出成功会返回1。
+</p>
+<p><img loading="lazy" decoding="async" width="856" height="216" src="/wp-content/uploads/2018/05/word-image-631.png" class="wp-image-728" srcset="/wp-content/uploads/2018/05/word-image-631.png 856w, /wp-content/uploads/2018/05/word-image-631-300x76.png 300w, /wp-content/uploads/2018/05/word-image-631-768x194.png 768w" sizes="(max-width: 856px) 100vw, 856px" /></p>
+<h3>print_r</h3>
+<p><img loading="lazy" decoding="async" width="646" height="182" src="/wp-content/uploads/2018/05/word-image-632.png" class="wp-image-729" srcset="/wp-content/uploads/2018/05/word-image-632.png 646w, /wp-content/uploads/2018/05/word-image-632-300x85.png 300w" sizes="(max-width: 646px) 100vw, 646px" /></p>
+<p>
+  print_r主要用来输出数组。
+</p>
+<h3>var_dump()【输出内容+数据类型+字符串长度】</h3>
+<p><img loading="lazy" decoding="async" width="773" height="176" src="/wp-content/uploads/2018/05/word-image-633.png" class="wp-image-730" srcset="/wp-content/uploads/2018/05/word-image-633.png 773w, /wp-content/uploads/2018/05/word-image-633-300x68.png 300w, /wp-content/uploads/2018/05/word-image-633-768x175.png 768w" sizes="(max-width: 773px) 100vw, 773px" /></p>
+<p>
+  var_dump()不但能输出数据的内容，而且可以输出数据类型和字符串的长度。
+</p>
+<h2>变量</h2>
+<p><img loading="lazy" decoding="async" width="341" height="89" src="/wp-content/uploads/2018/05/word-image-634.png" class="wp-image-731" srcset="/wp-content/uploads/2018/05/word-image-634.png 341w, /wp-content/uploads/2018/05/word-image-634-300x78.png 300w" sizes="(max-width: 341px) 100vw, 341px" /></p>
+<p>
+  变量就是计算机内存中的一段空间。
+</p>
+<h3>变量的命名规则</h3>
+<p>
+  变量必须以$开头，除了$以外，变量以字母，下划线开头，后面跟的是字母、数字、下划线。（$不是变量的组成部分，$表示变量的开始）
+</p>
+<p>
+  下列变量名合法的是：
+</p>
+<p>
+  $aa		合法
+</p>
+<p>
+  $1a		不合法
+</p>
+<p>
+  $_1a	合法
+</p>
+<p>
+  $a-1	不合法
+</p>
+<h3>变量的赋值</h3>
+<p>
+  传值
+</p>
+<p><img loading="lazy" decoding="async" width="332" height="110" src="/wp-content/uploads/2018/05/word-image-635.png" class="wp-image-732" srcset="/wp-content/uploads/2018/05/word-image-635.png 332w, /wp-content/uploads/2018/05/word-image-635-300x99.png 300w" sizes="(max-width: 332px) 100vw, 332px" /><br />
+<img loading="lazy" decoding="async" width="478" height="187" src="/wp-content/uploads/2018/05/word-image-636.png" class="wp-image-733" srcset="/wp-content/uploads/2018/05/word-image-636.png 478w, /wp-content/uploads/2018/05/word-image-636-300x117.png 300w" sizes="(max-width: 478px) 100vw, 478px" /></p>
+<p>
+  传址
+</p>
+<p>
+  &amp;表示取出a的地址
+</p>
+<p><img loading="lazy" decoding="async" width="427" height="103" src="/wp-content/uploads/2018/05/word-image-637.png" class="wp-image-734" srcset="/wp-content/uploads/2018/05/word-image-637.png 427w, /wp-content/uploads/2018/05/word-image-637-300x72.png 300w" sizes="(max-width: 427px) 100vw, 427px" /><br />
+<img loading="lazy" decoding="async" width="443" height="244" src="/wp-content/uploads/2018/05/word-image-638.png" class="wp-image-735" srcset="/wp-content/uploads/2018/05/word-image-638.png 443w, /wp-content/uploads/2018/05/word-image-638-300x165.png 300w" sizes="(max-width: 443px) 100vw, 443px" /></p>
+<h3>销毁变量</h3>
+<p>
+  情况一：页面执行完毕后，变量全部销毁，有PHP的垃圾回收机制销毁。
+</p>
+<p>
+  情况二：可以通过unset()手动销毁变量
+</p>
+<p><img loading="lazy" decoding="async" width="858" height="88" src="/wp-content/uploads/2018/05/word-image-639.png" class="wp-image-736" srcset="/wp-content/uploads/2018/05/word-image-639.png 858w, /wp-content/uploads/2018/05/word-image-639-300x31.png 300w, /wp-content/uploads/2018/05/word-image-639-768x79.png 768w" sizes="(max-width: 858px) 100vw, 858px" /></p>
+<p>
+  问题：PHP垃圾回收机制如何判断垃圾数据的？
+</p>
+<p>
+  答：如果一个数据没有被变量引用，这个数据就是垃圾数据。
+</p>
+<p>
+  unset()销毁的是变量名，变量名销毁以后，变量的值就不被引用，垃圾回收机制就将值销毁。
+</p>
+<p><img loading="lazy" decoding="async" width="378" height="87" src="/wp-content/uploads/2018/05/word-image-640.png" class="wp-image-737" srcset="/wp-content/uploads/2018/05/word-image-640.png 378w, /wp-content/uploads/2018/05/word-image-640-300x69.png 300w" sizes="(max-width: 378px) 100vw, 378px" /></p>
+<h3>判断变量是否存在</h3>
+<p>
+  isset()判断变量是否存在
+</p>
+<p><img loading="lazy" decoding="async" width="427" height="65" src="/wp-content/uploads/2018/05/word-image-641.png" class="wp-image-738" srcset="/wp-content/uploads/2018/05/word-image-641.png 427w, /wp-content/uploads/2018/05/word-image-641-300x46.png 300w" sizes="(max-width: 427px) 100vw, 427px" /></p>
+<h3>预定义变量</h3>
+<p><img loading="lazy" decoding="async" width="951" height="340" src="/wp-content/uploads/2018/05/word-image-642.png" class="wp-image-739" srcset="/wp-content/uploads/2018/05/word-image-642.png 951w, /wp-content/uploads/2018/05/word-image-642-300x107.png 300w, /wp-content/uploads/2018/05/word-image-642-768x275.png 768w" sizes="(max-width: 951px) 100vw, 951px" /></p>
+<p><strong>$_GET：用来保存客户端提交给服务器的Get提交的数据，是数组类型的数据</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="819" height="221" src="/wp-content/uploads/2018/05/word-image-643.png" class="wp-image-740" srcset="/wp-content/uploads/2018/05/word-image-643.png 819w, /wp-content/uploads/2018/05/word-image-643-300x81.png 300w, /wp-content/uploads/2018/05/word-image-643-768x207.png 768w" sizes="(max-width: 819px) 100vw, 819px" /></p>
+<p>
+  Get提交的URL地址格式：  地址?参数=值&amp;参数=值&amp;…
+</p>
+<p>
+  比如：index.php?name=tom&amp;sex=男&amp;age=22
+</p>
+<p><strong>$_POST：用来保存POST提交的数据，数组类型</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="897" height="249" src="/wp-content/uploads/2018/05/word-image-644.png" class="wp-image-741" srcset="/wp-content/uploads/2018/05/word-image-644.png 897w, /wp-content/uploads/2018/05/word-image-644-300x83.png 300w, /wp-content/uploads/2018/05/word-image-644-768x213.png 768w" sizes="(max-width: 897px) 100vw, 897px" /></p>
+<p><strong><a href="mk:@MSITStore:F:\\帮助文档\\php_manual_zh_2014.chm::/res/reserved.variables.request.html&quot; \o &quot;$_REQUEST">$_REQUEST</a>：既能获得get提交的数据，又能获得post提交数据</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="764" height="231" src="/wp-content/uploads/2018/05/word-image-645.png" class="wp-image-742" srcset="/wp-content/uploads/2018/05/word-image-645.png 764w, /wp-content/uploads/2018/05/word-image-645-300x91.png 300w" sizes="(max-width: 764px) 100vw, 764px" /></p>
+<p>
+  如果既有get，又有post，使用$_REQUEST获取值的时候，如果有同名的参数，post会将get的值覆盖。
+</p>
+<p>
+  我们可以在php.ini中更改get和post覆盖的顺序。
+</p>
+<p><img loading="lazy" decoding="async" width="823" height="52" src="/wp-content/uploads/2018/05/word-image-646.png" class="wp-image-743" srcset="/wp-content/uploads/2018/05/word-image-646.png 823w, /wp-content/uploads/2018/05/word-image-646-300x19.png 300w, /wp-content/uploads/2018/05/word-image-646-768x49.png 768w" sizes="(max-width: 823px) 100vw, 823px" /></p>
+<p><strong>$argc、$argv</strong>
+</p>
+<p>
+  PHP的运行不是必须Apache的参与，直接通过php.exe也是可以执行PHP的。
+</p>
+<p>
+  $_GET、$_POST、$_REQUEST都是用来获取http提交参数。
+</p>
+<p><img loading="lazy" decoding="async" width="875" height="106" src="/wp-content/uploads/2018/05/word-image-647.png" class="wp-image-744" srcset="/wp-content/uploads/2018/05/word-image-647.png 875w, /wp-content/uploads/2018/05/word-image-647-300x36.png 300w, /wp-content/uploads/2018/05/word-image-647-768x93.png 768w" sizes="(max-width: 875px) 100vw, 875px" /></p>
+<p>
+  $argc保存参数的个数，$argv保存参数的数组
+</p>
+<p><img loading="lazy" decoding="async" width="1234" height="133" src="/wp-content/uploads/2018/05/word-image-648.png" class="wp-image-745" srcset="/wp-content/uploads/2018/05/word-image-648.png 1234w, /wp-content/uploads/2018/05/word-image-648-300x32.png 300w, /wp-content/uploads/2018/05/word-image-648-768x83.png 768w, /wp-content/uploads/2018/05/word-image-648-1024x110.png 1024w" sizes="(max-width: 1234px) 100vw, 1234px" /></p>
+<h3>可变变量</h3>
+<p>
+  将变量名存储到另个变量中
+</p>
+<p><img loading="lazy" decoding="async" width="342" height="82" src="/wp-content/uploads/2018/05/word-image-649.png" class="wp-image-746" srcset="/wp-content/uploads/2018/05/word-image-649.png 342w, /wp-content/uploads/2018/05/word-image-649-300x72.png 300w" sizes="(max-width: 342px) 100vw, 342px" /></p>
+<p>
+  多学一招：变量名可以保存在变量中，函数名也可以保存在变量中
+</p>
+<p><img loading="lazy" decoding="async" width="424" height="115" src="/wp-content/uploads/2018/05/word-image-650.png" class="wp-image-747" srcset="/wp-content/uploads/2018/05/word-image-650.png 424w, /wp-content/uploads/2018/05/word-image-650-300x81.png 300w" sizes="(max-width: 424px) 100vw, 424px" /></p>
+<h2>常量</h2>
+<p>
+  当一个数据在执行周期内不发生变化，我们把这个数据声明成常量。
+</p>
+<p>
+  常量名前面没有$。$表示的是变量的开始
+</p>
+<p>
+  常量的定义一般都在程序的开始处定义。
+</p>
+<h3>语法</h3>
+<p>
+  define(常量名,常量值,[是否区分大小写，默认是区分大小写的])
+</p>
+<p><img loading="lazy" decoding="async" width="704" height="73" src="/wp-content/uploads/2018/05/word-image-651.png" class="wp-image-748" srcset="/wp-content/uploads/2018/05/word-image-651.png 704w, /wp-content/uploads/2018/05/word-image-651-300x31.png 300w" sizes="(max-width: 704px) 100vw, 704px" /><br />
+<img loading="lazy" decoding="async" width="459" height="78" src="/wp-content/uploads/2018/05/word-image-652.png" class="wp-image-749" srcset="/wp-content/uploads/2018/05/word-image-652.png 459w, /wp-content/uploads/2018/05/word-image-652-300x51.png 300w" sizes="(max-width: 459px) 100vw, 459px" /></p>
+<h3>特殊字符做常量名</h3>
+<p>
+  PHP中可以使用特殊字符做常量名，但是调用的使用必须使用constant关键字来调用
+</p>
+<p><img loading="lazy" decoding="async" width="892" height="49" src="/wp-content/uploads/2018/05/word-image-653.png" class="wp-image-750" srcset="/wp-content/uploads/2018/05/word-image-653.png 892w, /wp-content/uploads/2018/05/word-image-653-300x16.png 300w, /wp-content/uploads/2018/05/word-image-653-768x42.png 768w" sizes="(max-width: 892px) 100vw, 892px" /></p>
+<h3>判断常量是否存在</h3>
+<p>
+  常量一旦定义后面不能重新定义，所以在定义常量的时候我们先判断一下常量是否存在
+</p>
+<p><img loading="lazy" decoding="async" width="911" height="62" src="/wp-content/uploads/2018/05/word-image-654.png" class="wp-image-751" srcset="/wp-content/uploads/2018/05/word-image-654.png 911w, /wp-content/uploads/2018/05/word-image-654-300x20.png 300w, /wp-content/uploads/2018/05/word-image-654-768x52.png 768w" sizes="(max-width: 911px) 100vw, 911px" /></p>
+<p>
+  通过defined()函数判断常量是否定义
+</p>
+<p><img loading="lazy" decoding="async" width="509" height="75" src="/wp-content/uploads/2018/05/word-image-655.png" class="wp-image-752" srcset="/wp-content/uploads/2018/05/word-image-655.png 509w, /wp-content/uploads/2018/05/word-image-655-300x44.png 300w" sizes="(max-width: 509px) 100vw, 509px" /></p>
+<h3>预定义常量</h3>
+<p><img loading="lazy" decoding="async" width="925" height="528" src="/wp-content/uploads/2018/05/word-image-656.png" class="wp-image-753" srcset="/wp-content/uploads/2018/05/word-image-656.png 925w, /wp-content/uploads/2018/05/word-image-656-300x171.png 300w, /wp-content/uploads/2018/05/word-image-656-768x438.png 768w" sizes="(max-width: 925px) 100vw, 925px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="681" height="74" src="/wp-content/uploads/2018/05/word-image-657.png" class="wp-image-754" srcset="/wp-content/uploads/2018/05/word-image-657.png 681w, /wp-content/uploads/2018/05/word-image-657-300x33.png 300w" sizes="(max-width: 681px) 100vw, 681px" /></p>
+<h3>魔术常量</h3>
+<p>
+  常量的值是不变的，但是魔术常量的值是变化的。
+</p>
+<p><img loading="lazy" decoding="async" width="1344" height="508" src="/wp-content/uploads/2018/05/word-image-658.png" class="wp-image-755" srcset="/wp-content/uploads/2018/05/word-image-658.png 1344w, /wp-content/uploads/2018/05/word-image-658-300x113.png 300w, /wp-content/uploads/2018/05/word-image-658-768x290.png 768w, /wp-content/uploads/2018/05/word-image-658-1024x387.png 1024w" sizes="(max-width: 1344px) 100vw, 1344px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="761" height="81" src="/wp-content/uploads/2018/05/word-image-659.png" class="wp-image-756" srcset="/wp-content/uploads/2018/05/word-image-659.png 761w, /wp-content/uploads/2018/05/word-image-659-300x32.png 300w" sizes="(max-width: 761px) 100vw, 761px" /></p>
+<h3>const常量</h3>
+<p>
+  常量除了可以用define定义，还可以用const来定义
+</p>
+<p><img loading="lazy" decoding="async" width="458" height="72" src="/wp-content/uploads/2018/05/word-image-660.png" class="wp-image-757" srcset="/wp-content/uploads/2018/05/word-image-660.png 458w, /wp-content/uploads/2018/05/word-image-660-300x47.png 300w" sizes="(max-width: 458px) 100vw, 458px" /></p>
+<h3>查看所有常量</h3>
+<p><img loading="lazy" decoding="async" width="618" height="115" src="/wp-content/uploads/2018/05/word-image-661.png" class="wp-image-758" srcset="/wp-content/uploads/2018/05/word-image-661.png 618w, /wp-content/uploads/2018/05/word-image-661-300x56.png 300w" sizes="(max-width: 618px) 100vw, 618px" /></p>
+<h2>Editplus提示设置</h2>
+<p>
+  Editplus默认是没有提示的，必须添加语法文件才有提示
+</p>
+<p>
+  第一步：准备语法文件
+</p>
+<p><img loading="lazy" decoding="async" width="618" height="214" src="/wp-content/uploads/2018/05/word-image-662.png" class="wp-image-759" srcset="/wp-content/uploads/2018/05/word-image-662.png 618w, /wp-content/uploads/2018/05/word-image-662-300x104.png 300w" sizes="(max-width: 618px) 100vw, 618px" /></p>
+<p>
+  第二步：将语法文件添加到editplus上
+</p>
+<p><img loading="lazy" decoding="async" width="241" height="61" src="/wp-content/uploads/2018/05/word-image-663.png" class="wp-image-760" /><br />
+<img loading="lazy" decoding="async" width="555" height="347" src="/wp-content/uploads/2018/05/word-image-664.png" class="wp-image-761" srcset="/wp-content/uploads/2018/05/word-image-664.png 555w, /wp-content/uploads/2018/05/word-image-664-300x188.png 300w" sizes="(max-width: 555px) 100vw, 555px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/712.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

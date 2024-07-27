@@ -1,0 +1,1779 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>事件 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E4%BA%8B%E4%BB%B6/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 06:56:20 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>事件 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>JS高级（二）事件、JS闭包、DOM</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3136.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3136.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 06:56:20 +0000</pubDate>
+				<category><![CDATA[Javascript]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[DOM]]></category>
+		<category><![CDATA[JS闭包]]></category>
+		<category><![CDATA[事件]]></category>
+		<guid isPermaLink="false">/?p=3136</guid>
+
+					<description><![CDATA[JavaScript高级（2） 目录 一、回顾与加强 1、JavaScript错误类型及特点 1、编译类型的错 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>
+  JavaScript高级（2）
+</p>
+<p>
+  目录
+</p>
+<h1>一、回顾与加强</h1>
+<p>
+  1、JavaScript错误类型及特点
+</p>
+<p>
+  1、编译类型的错误
+</p>
+<p>
+  编译错误就是语法错误。
+</p>
+<p>
+  <img fetchpriority="high" decoding="async" width="1017" height="238" src="/wp-content/uploads/2018/05/word-image-2758.png" class="wp-image-3137" srcset="/wp-content/uploads/2018/05/word-image-2758.png 1017w, /wp-content/uploads/2018/05/word-image-2758-300x70.png 300w, /wp-content/uploads/2018/05/word-image-2758-768x180.png 768w" sizes="(max-width: 1017px) 100vw, 1017px" />
+</p>
+<p>
+  2、执行错误
+</p>
+<p>
+  语法上没有错误，结合上下午出现的错误，比如调用了一个不存在的变量或函数等。
+</p>
+<p>
+  <img decoding="async" width="1056" height="252" src="/wp-content/uploads/2018/05/word-image-2759.png" class="wp-image-3138" srcset="/wp-content/uploads/2018/05/word-image-2759.png 1056w, /wp-content/uploads/2018/05/word-image-2759-300x72.png 300w, /wp-content/uploads/2018/05/word-image-2759-768x183.png 768w, /wp-content/uploads/2018/05/word-image-2759-1024x244.png 1024w" sizes="(max-width: 1056px) 100vw, 1056px" />
+</p>
+<p>
+  2、事件
+</p>
+<p>
+  1、事件驱动式
+</p>
+<p>
+  事件驱动式由：用户的行为+JavaScript引擎捕获用户的行为+<strong>调用处理函数</strong>。实际上就是一个事件的组成。
+</p>
+<p>
+  2、事件处理函数的绑定与执行
+</p>
+<p>
+  ①、行内绑定
+</p>
+<p>
+  在HTML标签内指定事件并写处理程序。
+</p>
+<p>
+  <img decoding="async" width="847" height="245" src="/wp-content/uploads/2018/05/word-image-2760.png" class="wp-image-3139" srcset="/wp-content/uploads/2018/05/word-image-2760.png 847w, /wp-content/uploads/2018/05/word-image-2760-300x87.png 300w, /wp-content/uploads/2018/05/word-image-2760-768x222.png 768w" sizes="(max-width: 847px) 100vw, 847px" />
+</p>
+<p>
+  ②、行内绑定—动态绑定
+</p>
+<p>
+  如果事件的处理程序又大段的js代码，那么直接写到行内，肯定是不合理的，解决的办法是将大段的js代码封装成函数，然后触发事件的时候，调用这个函数。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="910" height="279" src="/wp-content/uploads/2018/05/word-image-2761.png" class="wp-image-3140" srcset="/wp-content/uploads/2018/05/word-image-2761.png 910w, /wp-content/uploads/2018/05/word-image-2761-300x92.png 300w, /wp-content/uploads/2018/05/word-image-2761-768x235.png 768w" sizes="(max-width: 910px) 100vw, 910px" />
+</p>
+<p>
+  ③、动态绑定
+</p>
+<p>
+  通过获取元素（标签、节点）的dom对象，然后给dom对象绑定事件的方式来实现事件的绑定。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="858" height="224" src="/wp-content/uploads/2018/05/word-image-2762.png" class="wp-image-3141" srcset="/wp-content/uploads/2018/05/word-image-2762.png 858w, /wp-content/uploads/2018/05/word-image-2762-300x78.png 300w, /wp-content/uploads/2018/05/word-image-2762-768x201.png 768w" sizes="(max-width: 858px) 100vw, 858px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1051" height="377" src="/wp-content/uploads/2018/05/word-image-2763.png" class="wp-image-3142" srcset="/wp-content/uploads/2018/05/word-image-2763.png 1051w, /wp-content/uploads/2018/05/word-image-2763-300x108.png 300w, /wp-content/uploads/2018/05/word-image-2763-768x275.png 768w, /wp-content/uploads/2018/05/word-image-2763-1024x367.png 1024w" sizes="(max-width: 1051px) 100vw, 1051px" />
+</p>
+<p>
+  3、在事件处理程序中，this分别表示什么
+</p>
+<p>
+  ①、行内绑定
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="594" height="31" src="/wp-content/uploads/2018/05/word-image-2764.png" class="wp-image-3143" srcset="/wp-content/uploads/2018/05/word-image-2764.png 594w, /wp-content/uploads/2018/05/word-image-2764-300x16.png 300w" sizes="(max-width: 594px) 100vw, 594px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="645" height="242" src="/wp-content/uploads/2018/05/word-image-2765.png" class="wp-image-3144" srcset="/wp-content/uploads/2018/05/word-image-2765.png 645w, /wp-content/uploads/2018/05/word-image-2765-300x113.png 300w" sizes="(max-width: 645px) 100vw, 645px" />
+</p>
+<p>
+  ②、行内绑定—动态执行
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1026" height="277" src="/wp-content/uploads/2018/05/word-image-2766.png" class="wp-image-3145" srcset="/wp-content/uploads/2018/05/word-image-2766.png 1026w, /wp-content/uploads/2018/05/word-image-2766-300x81.png 300w, /wp-content/uploads/2018/05/word-image-2766-768x207.png 768w, /wp-content/uploads/2018/05/word-image-2766-1024x276.png 1024w" sizes="(max-width: 1026px) 100vw, 1026px" />
+</p>
+<p>
+  ③、动态绑定
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1022" height="262" src="/wp-content/uploads/2018/05/word-image-2767.png" class="wp-image-3146" srcset="/wp-content/uploads/2018/05/word-image-2767.png 1022w, /wp-content/uploads/2018/05/word-image-2767-300x77.png 300w, /wp-content/uploads/2018/05/word-image-2767-768x197.png 768w" sizes="(max-width: 1022px) 100vw, 1022px" />
+</p>
+<h1>二、闭包</h1>
+<p>
+  1、概念
+</p>
+<p>
+  闭包，指的是词法表示包括不被计算的变量的函数，也就是说，函数可以使用函数之外定义的变量。
+</p>
+<p>
+  2、特点（作用）
+</p>
+<p>
+  1、和作用域的特定一致
+</p>
+<p>
+  可以在函数内部使用函数外部的变量。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="706" height="183" src="/wp-content/uploads/2018/05/word-image-2768.png" class="wp-image-3147" srcset="/wp-content/uploads/2018/05/word-image-2768.png 706w, /wp-content/uploads/2018/05/word-image-2768-300x78.png 300w" sizes="(max-width: 706px) 100vw, 706px" />
+</p>
+<p>
+  2、使用闭包，内存不会释放
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="820" height="309" src="/wp-content/uploads/2018/05/word-image-2769.png" class="wp-image-3148" srcset="/wp-content/uploads/2018/05/word-image-2769.png 820w, /wp-content/uploads/2018/05/word-image-2769-300x113.png 300w, /wp-content/uploads/2018/05/word-image-2769-768x289.png 768w" sizes="(max-width: 820px) 100vw, 820px" />
+</p>
+<p>
+  3、案例
+</p>
+<p>
+  1、点击页面中的三个li标签，能够正常输出li的下标
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1127" height="451" src="/wp-content/uploads/2018/05/word-image-2770.png" class="wp-image-3149" srcset="/wp-content/uploads/2018/05/word-image-2770.png 1127w, /wp-content/uploads/2018/05/word-image-2770-300x120.png 300w, /wp-content/uploads/2018/05/word-image-2770-768x307.png 768w, /wp-content/uploads/2018/05/word-image-2770-1024x410.png 1024w" sizes="(max-width: 1127px) 100vw, 1127px" />
+</p>
+<p>
+  上面案例的另一种写法：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="820" height="379" src="/wp-content/uploads/2018/05/word-image-2771.png" class="wp-image-3150" srcset="/wp-content/uploads/2018/05/word-image-2771.png 820w, /wp-content/uploads/2018/05/word-image-2771-300x139.png 300w, /wp-content/uploads/2018/05/word-image-2771-768x355.png 768w" sizes="(max-width: 820px) 100vw, 820px" />
+</p>
+<p>
+  2、页面刷新后，每隔1秒分别输出1/2/3/4/5
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="838" height="416" src="/wp-content/uploads/2018/05/word-image-2772.png" class="wp-image-3151" srcset="/wp-content/uploads/2018/05/word-image-2772.png 838w, /wp-content/uploads/2018/05/word-image-2772-300x149.png 300w, /wp-content/uploads/2018/05/word-image-2772-768x381.png 768w" sizes="(max-width: 838px) 100vw, 838px" />
+</p>
+<h1>三、DOM</h1>
+<p>
+  1、什么是DOM
+</p>
+<p>
+  DOM全称是Document Object Model（文档对象模型），它是JS将HTML按文档结构和内容层次抽象出的模型，使得JS有了访问HTML的能力，能够实现对HTML中内容的操作。DOM存在广泛，PHP以及其他语言也有各自的DOM模型。
+</p>
+<p>
+  DOM模型呈现树状结构，因此也叫“树模型”，树中的内容（标签、属性、文本）称为“节点”，包含有元素节点（标签）、属性节点、文本节点。每个节点，都是一个dom节点对象。
+</p>
+<p>
+  2、节点与DOM模型
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="515" height="276" src="/wp-content/uploads/2018/05/word-image-2773.png" class="wp-image-3152" srcset="/wp-content/uploads/2018/05/word-image-2773.png 515w, /wp-content/uploads/2018/05/word-image-2773-300x161.png 300w" sizes="(max-width: 515px) 100vw, 515px" />
+</p>
+<p>
+  根据 W3C 的 HTML DOM 标准，HTML 文档中的所有内容都是节点：
+</p>
+<p>
+  整个文档是一个文档节点，用document对象表示
+</p>
+<p>
+  每个 HTML 元素是元素节点，比如html、head、body、a、h1
+</p>
+<p>
+  HTML 元素内的文本是文本节点
+</p>
+<p>
+  每个 HTML 属性是属性节点，比如href
+</p>
+<p>
+  注释是注释节点
+</p>
+<p>
+  3、节点之间的关系
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="383" height="259" src="/wp-content/uploads/2018/05/word-image-2774.png" class="wp-image-3153" srcset="/wp-content/uploads/2018/05/word-image-2774.png 383w, /wp-content/uploads/2018/05/word-image-2774-300x203.png 300w, /wp-content/uploads/2018/05/word-image-2774-220x150.png 220w" sizes="(max-width: 383px) 100vw, 383px" />
+</p>
+<p>
+  4、元素节点查询操作
+</p>
+<p>
+  1、基于文档（document）查询
+</p>
+<p>
+  document.getElementById(元素id);   //得到一个dom对象
+</p>
+<p>
+  document.getElementsByTagName(标签名); //得到的是一个数组，数组的每个单元是一个dom对象
+</p>
+<p>
+  前面这两种方法推荐使用，因为兼容性好。
+</p>
+<p>
+  document.getElementsByClassName(类名);  //IE8+支持，就是从IE9支持 得到的是一个数组，数组的每个单元是一个dom对象
+</p>
+<p>
+  document.getElementsByName(元素的name属性); //得到的是一个数组
+</p>
+<p>
+  //h5中提供的方法
+</p>
+<p>
+  document.querySelector(css选择器); //IE7+支持  得到的是一个dom对象
+</p>
+<p>
+  document.querySelectorAll(css选择器); //IE7+支持  得到的是一个数组
+</p>
+<p>
+  测试的html：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="623" height="203" src="/wp-content/uploads/2018/05/word-image-2775.png" class="wp-image-3154" srcset="/wp-content/uploads/2018/05/word-image-2775.png 623w, /wp-content/uploads/2018/05/word-image-2775-300x98.png 300w" sizes="(max-width: 623px) 100vw, 623px" />
+</p>
+<p>
+  js代码及效果：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1291" height="392" src="/wp-content/uploads/2018/05/word-image-2776.png" class="wp-image-3155" srcset="/wp-content/uploads/2018/05/word-image-2776.png 1291w, /wp-content/uploads/2018/05/word-image-2776-300x91.png 300w, /wp-content/uploads/2018/05/word-image-2776-768x233.png 768w, /wp-content/uploads/2018/05/word-image-2776-1024x311.png 1024w" sizes="(max-width: 1291px) 100vw, 1291px" />
+</p>
+<p>
+  2、相互关系查询
+</p>
+<p>
+  ①、根据父节点查找子节点
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="750" height="505" src="/wp-content/uploads/2018/05/word-image-2777.png" class="wp-image-3156" srcset="/wp-content/uploads/2018/05/word-image-2777.png 750w, /wp-content/uploads/2018/05/word-image-2777-300x202.png 300w" sizes="(max-width: 750px) 100vw, 750px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1017" height="308" src="/wp-content/uploads/2018/05/word-image-2778.png" class="wp-image-3157" srcset="/wp-content/uploads/2018/05/word-image-2778.png 1017w, /wp-content/uploads/2018/05/word-image-2778-300x91.png 300w, /wp-content/uploads/2018/05/word-image-2778-768x233.png 768w" sizes="(max-width: 1017px) 100vw, 1017px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1055" height="288" src="/wp-content/uploads/2018/05/word-image-2779.png" class="wp-image-3158" srcset="/wp-content/uploads/2018/05/word-image-2779.png 1055w, /wp-content/uploads/2018/05/word-image-2779-300x82.png 300w, /wp-content/uploads/2018/05/word-image-2779-768x210.png 768w, /wp-content/uploads/2018/05/word-image-2779-1024x280.png 1024w" sizes="(max-width: 1055px) 100vw, 1055px" />
+</p>
+<p>
+  ②、根据子节点查父节点
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1096" height="258" src="/wp-content/uploads/2018/05/word-image-2780.png" class="wp-image-3159" srcset="/wp-content/uploads/2018/05/word-image-2780.png 1096w, /wp-content/uploads/2018/05/word-image-2780-300x71.png 300w, /wp-content/uploads/2018/05/word-image-2780-768x181.png 768w, /wp-content/uploads/2018/05/word-image-2780-1024x241.png 1024w" sizes="(max-width: 1096px) 100vw, 1096px" />
+</p>
+<p>
+  ③、查询兄弟节点
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1075" height="250" src="/wp-content/uploads/2018/05/word-image-2781.png" class="wp-image-3160" srcset="/wp-content/uploads/2018/05/word-image-2781.png 1075w, /wp-content/uploads/2018/05/word-image-2781-300x70.png 300w, /wp-content/uploads/2018/05/word-image-2781-768x179.png 768w, /wp-content/uploads/2018/05/word-image-2781-1024x238.png 1024w" sizes="(max-width: 1075px) 100vw, 1075px" />
+</p>
+<p>
+  3、遗留DOM
+</p>
+<p>
+  早期DOM访问形式，在一些特定元素的获取上比较方便。被保留下来使用，W3C标准化之后 称为“0级DOM”。
+</p>
+<p>
+  document.body			访问body节点
+</p>
+<p>
+  document.forms		    访问所有的表单		返回集合
+</p>
+<p>
+  document.formName[index].name       访问表单项
+</p>
+<p>
+  document.anchors		    访问所有的锚点		返回集合
+</p>
+<p>
+  document.links		    访问所有的链接		返回集合
+</p>
+<p>
+  document.images		    访问所有的图片		返回集合
+</p>
+<p>
+  document.all			    访问所有的元素
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1158" height="459" src="/wp-content/uploads/2018/05/word-image-2782.png" class="wp-image-3161" srcset="/wp-content/uploads/2018/05/word-image-2782.png 1158w, /wp-content/uploads/2018/05/word-image-2782-300x119.png 300w, /wp-content/uploads/2018/05/word-image-2782-768x304.png 768w, /wp-content/uploads/2018/05/word-image-2782-1024x406.png 1024w" sizes="(max-width: 1158px) 100vw, 1158px" />
+</p>
+<p>
+  5、元素节点增删改操作
+</p>
+<p>
+  1、增加元素节点/创建节点
+</p>
+<p>
+  方法一：父节点.appendChild(子节点)
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1079" height="443" src="/wp-content/uploads/2018/05/word-image-2783.png" class="wp-image-3162" srcset="/wp-content/uploads/2018/05/word-image-2783.png 1079w, /wp-content/uploads/2018/05/word-image-2783-300x123.png 300w, /wp-content/uploads/2018/05/word-image-2783-768x315.png 768w, /wp-content/uploads/2018/05/word-image-2783-1024x420.png 1024w" sizes="(max-width: 1079px) 100vw, 1079px" />
+</p>
+<p>
+  方法二：父节点.insertBefore(新节点, 参照的节点);
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1063" height="423" src="/wp-content/uploads/2018/05/word-image-2784.png" class="wp-image-3163" srcset="/wp-content/uploads/2018/05/word-image-2784.png 1063w, /wp-content/uploads/2018/05/word-image-2784-300x119.png 300w, /wp-content/uploads/2018/05/word-image-2784-768x306.png 768w, /wp-content/uploads/2018/05/word-image-2784-1024x407.png 1024w" sizes="(max-width: 1063px) 100vw, 1063px" />
+</p>
+<p>
+  2、修改节点
+</p>
+<p>
+  方法：父节点.replaceChild(新节点, 待替换的节点);
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1046" height="419" src="/wp-content/uploads/2018/05/word-image-2785.png" class="wp-image-3164" srcset="/wp-content/uploads/2018/05/word-image-2785.png 1046w, /wp-content/uploads/2018/05/word-image-2785-300x120.png 300w, /wp-content/uploads/2018/05/word-image-2785-768x308.png 768w, /wp-content/uploads/2018/05/word-image-2785-1024x410.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" />
+</p>
+<p>
+  3、删除节点
+</p>
+<p>
+  方法：父节点.removeChild(子节点);
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="944" height="312" src="/wp-content/uploads/2018/05/word-image-2786.png" class="wp-image-3165" srcset="/wp-content/uploads/2018/05/word-image-2786.png 944w, /wp-content/uploads/2018/05/word-image-2786-300x99.png 300w, /wp-content/uploads/2018/05/word-image-2786-768x254.png 768w" sizes="(max-width: 944px) 100vw, 944px" />
+</p>
+<p>
+  6、属性节点操作
+</p>
+<p>
+  1、获取元素的属性
+</p>
+<p>
+  elementNode.attributes         获取元素的所有属性
+</p>
+<p>
+  elementNode.getAttribute()		读取一个属性值
+</p>
+<p>
+  elementNode.属性名          获取元素的属性
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1098" height="432" src="/wp-content/uploads/2018/05/word-image-2787.png" class="wp-image-3166" srcset="/wp-content/uploads/2018/05/word-image-2787.png 1098w, /wp-content/uploads/2018/05/word-image-2787-300x118.png 300w, /wp-content/uploads/2018/05/word-image-2787-768x302.png 768w, /wp-content/uploads/2018/05/word-image-2787-1024x403.png 1024w" sizes="(max-width: 1098px) 100vw, 1098px" />
+</p>
+<p>
+  2、添加/修改元素的属性
+</p>
+<p>
+  elementNode.setAttribute()		设置（修改/添加）一个属性值
+</p>
+<p>
+  elementNode.属性名 = 值     设置元素的属性
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="932" height="237" src="/wp-content/uploads/2018/05/word-image-2788.png" class="wp-image-3167" srcset="/wp-content/uploads/2018/05/word-image-2788.png 932w, /wp-content/uploads/2018/05/word-image-2788-300x76.png 300w, /wp-content/uploads/2018/05/word-image-2788-768x195.png 768w" sizes="(max-width: 932px) 100vw, 932px" />
+</p>
+<p>
+  3、删除元素的属性
+</p>
+<p>
+  elementNode.removeAttribute()	删除一个属性
+</p>
+<p>
+  4、判断元素是否有哪个属性
+</p>
+<p>
+  elementNode.hasAttribute()		检测是否有某个属性，有返回true，没有返回false
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="959" height="224" src="/wp-content/uploads/2018/05/word-image-2789.png" class="wp-image-3168" srcset="/wp-content/uploads/2018/05/word-image-2789.png 959w, /wp-content/uploads/2018/05/word-image-2789-300x70.png 300w, /wp-content/uploads/2018/05/word-image-2789-768x179.png 768w" sizes="(max-width: 959px) 100vw, 959px" />
+</p>
+<p>
+  5、案例&#8212;全选，反选，取消
+</p>
+<p>
+  代码见19全选反选取消.html
+</p>
+<p>
+  7、操作css样式
+</p>
+<p>
+  1、设置css样式：
+</p>
+<p>
+  语法： node<strong>.</strong>style<strong>.</strong>css样式 = 值
+</p>
+<p>
+  不带中横线的css：node.style.样式 = 值。比如有color，border，width
+</p>
+<p>
+  带中横线的，样式要去掉中横线，后面的首字母大写，backgroundColor、fontSize、lineHeight
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="705" height="465" src="/wp-content/uploads/2018/05/word-image-2790.png" class="wp-image-3169" srcset="/wp-content/uploads/2018/05/word-image-2790.png 705w, /wp-content/uploads/2018/05/word-image-2790-300x198.png 300w" sizes="(max-width: 705px) 100vw, 705px" />
+</p>
+<p>
+  2、获取css样式
+</p>
+<p>
+  使用node.style.样式的方式只能获取行内样式和js已经设置过的样式。
+</p>
+<p>
+  在IE8及更低版本浏览器中支持node.currentStyle.样式
+</p>
+<p>
+  高版本浏览器支持getComputedStyle(node).样式
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="967" height="177" src="/wp-content/uploads/2018/05/word-image-2791.png" class="wp-image-3170" srcset="/wp-content/uploads/2018/05/word-image-2791.png 967w, /wp-content/uploads/2018/05/word-image-2791-300x55.png 300w, /wp-content/uploads/2018/05/word-image-2791-768x141.png 768w" sizes="(max-width: 967px) 100vw, 967px" />
+</p>
+<p>
+  兼容的性的写法：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="806" height="228" src="/wp-content/uploads/2018/05/word-image-2792.png" class="wp-image-3171" srcset="/wp-content/uploads/2018/05/word-image-2792.png 806w, /wp-content/uploads/2018/05/word-image-2792-300x85.png 300w, /wp-content/uploads/2018/05/word-image-2792-768x217.png 768w" sizes="(max-width: 806px) 100vw, 806px" />
+</p>
+<p>
+  8、DOM属性
+</p>
+<p>
+  DOM有四个属性，分别是：
+</p>
+<p><strong>innerHTML</strong>
+</p>
+<p>
+  	获取/设置元素里的html内容
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1275" height="264" src="/wp-content/uploads/2018/05/word-image-2793.png" class="wp-image-3172" srcset="/wp-content/uploads/2018/05/word-image-2793.png 1275w, /wp-content/uploads/2018/05/word-image-2793-300x62.png 300w, /wp-content/uploads/2018/05/word-image-2793-768x159.png 768w, /wp-content/uploads/2018/05/word-image-2793-1024x212.png 1024w" sizes="(max-width: 1275px) 100vw, 1275px" />
+</p>
+<p><strong>nodeName</strong>
+</p>
+<p>
+  	nodeName 是只读的
+</p>
+<p>
+  元素节点的 nodeName 与标签名相同
+</p>
+<p>
+  属性节点的 nodeName 与属性名相同
+</p>
+<p>
+  文本节点的 nodeName 始终是 #text
+</p>
+<p>
+  文档节点的 nodeName 始终是 #document
+</p>
+<p><strong>nodeValue</strong>
+</p>
+<p>
+  	元素节点的 nodeValue 是 undefined 或 null
+</p>
+<p>
+  文本节点的 nodeValue 是文本本身
+</p>
+<p>
+  属性节点的 nodeValue 是属性值
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="847" height="152" src="/wp-content/uploads/2018/05/word-image-2794.png" class="wp-image-3173" srcset="/wp-content/uploads/2018/05/word-image-2794.png 847w, /wp-content/uploads/2018/05/word-image-2794-300x54.png 300w, /wp-content/uploads/2018/05/word-image-2794-768x138.png 768w" sizes="(max-width: 847px) 100vw, 847px" />
+</p>
+<p><strong>nodeType</strong>
+</p>
+<p>
+  表示节点的类型
+</p>
+<p>
+  	元素 1
+</p>
+<p>
+  属性 2
+</p>
+<p>
+  文本 3
+</p>
+<p>
+  注释 8
+</p>
+<p>
+  文档 9
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1211" height="400" src="/wp-content/uploads/2018/05/word-image-2795.png" class="wp-image-3174" srcset="/wp-content/uploads/2018/05/word-image-2795.png 1211w, /wp-content/uploads/2018/05/word-image-2795-300x99.png 300w, /wp-content/uploads/2018/05/word-image-2795-768x254.png 768w, /wp-content/uploads/2018/05/word-image-2795-1024x338.png 1024w" sizes="(max-width: 1211px) 100vw, 1211px" />
+</p>
+<p>
+  案例：完成兼容性的查找子节点的方法，及查找上一个兄弟的方法，及查找下一个兄弟的方法
+</p>
+<p>
+  获取子元素的兼容性写法：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="738" height="502" src="/wp-content/uploads/2018/05/word-image-2796.png" class="wp-image-3175" srcset="/wp-content/uploads/2018/05/word-image-2796.png 738w, /wp-content/uploads/2018/05/word-image-2796-300x204.png 300w, /wp-content/uploads/2018/05/word-image-2796-220x150.png 220w" sizes="(max-width: 738px) 100vw, 738px" />
+</p>
+<p>
+  获取上一个兄弟的兼容性写法：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="716" height="380" src="/wp-content/uploads/2018/05/word-image-2797.png" class="wp-image-3176" srcset="/wp-content/uploads/2018/05/word-image-2797.png 716w, /wp-content/uploads/2018/05/word-image-2797-300x159.png 300w" sizes="(max-width: 716px) 100vw, 716px" />
+</p>
+<p>
+  获取下一个兄弟的兼容性写法：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="757" height="353" src="/wp-content/uploads/2018/05/word-image-2798.png" class="wp-image-3177" srcset="/wp-content/uploads/2018/05/word-image-2798.png 757w, /wp-content/uploads/2018/05/word-image-2798-300x140.png 300w" sizes="(max-width: 757px) 100vw, 757px" />
+</p>
+<p>
+  9、获取元素的位置
+</p>
+<p>
+  offsetLeft	  元素在网页中水平坐标值	ele.offsetLeft
+</p>
+<p>
+  offsetTop	  元素在网页中垂直坐标值	ele.offsetTop
+</p>
+<p>
+  offsetWidth	元素在页面中占据的宽度	ele.offsetWidth
+</p>
+<p>
+  offsetHeight	元素在页面中占据的高度	ele. offsetHeight
+</p>
+<p>
+  HTML+css：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="639" height="424" src="/wp-content/uploads/2018/05/word-image-2799.png" class="wp-image-3178" srcset="/wp-content/uploads/2018/05/word-image-2799.png 639w, /wp-content/uploads/2018/05/word-image-2799-300x199.png 300w" sizes="(max-width: 639px) 100vw, 639px" />
+</p>
+<p>
+  js及输出结果：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1256" height="251" src="/wp-content/uploads/2018/05/word-image-2800.png" class="wp-image-3179" srcset="/wp-content/uploads/2018/05/word-image-2800.png 1256w, /wp-content/uploads/2018/05/word-image-2800-300x60.png 300w, /wp-content/uploads/2018/05/word-image-2800-768x153.png 768w, /wp-content/uploads/2018/05/word-image-2800-1024x205.png 1024w" sizes="(max-width: 1256px) 100vw, 1256px" />
+</p>
+<p>
+  scrollLeft	  滚动条在容器中水平滚动的距离	ele.scrollLeft
+</p>
+<p>
+  scrollTop	  滚动条在容器中垂直滚动的距离	ele.scrollTop
+</p>
+<p>
+  测试的时候，先将页面设置的大一点，能看到滚动条：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="566" height="31" src="/wp-content/uploads/2018/05/word-image-2801.png" class="wp-image-3180" srcset="/wp-content/uploads/2018/05/word-image-2801.png 566w, /wp-content/uploads/2018/05/word-image-2801-300x16.png 300w" sizes="(max-width: 566px) 100vw, 566px" />
+</p>
+<p>
+  当滚动条滚动的时候，输出滚动的距离：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="858" height="132" src="/wp-content/uploads/2018/05/word-image-2802.png" class="wp-image-3181" srcset="/wp-content/uploads/2018/05/word-image-2802.png 858w, /wp-content/uploads/2018/05/word-image-2802-300x46.png 300w, /wp-content/uploads/2018/05/word-image-2802-768x118.png 768w" sizes="(max-width: 858px) 100vw, 858px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3136.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>JS高级（三）Json、淡入、事件、冒泡事件、可编辑表格、内置对象</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3098.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3098.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 06:53:28 +0000</pubDate>
+				<category><![CDATA[Javascript]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[Json]]></category>
+		<category><![CDATA[事件]]></category>
+		<category><![CDATA[内置对象]]></category>
+		<category><![CDATA[冒泡事件]]></category>
+		<category><![CDATA[可编辑表格]]></category>
+		<category><![CDATA[淡入]]></category>
+		<guid isPermaLink="false">/?p=3098</guid>
+
+					<description><![CDATA[JavaScript高级（3） 0、知识点补充 查找节点： firstChild lastChild：会把空白 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>
+  JavaScript高级（3）
+</p>
+<h1>0、知识点补充</h1>
+<p>
+  查找节点：
+</p>
+<p>
+  firstChild  lastChild：会把空白计算在内
+</p>
+<p>
+  firstElementChild  lastElementChild ：只查找元素类型的子节点，不会计算空白，但是在IE8+才支持
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1105" height="309" src="/wp-content/uploads/2018/05/word-image-2722.png" class="wp-image-3099" srcset="/wp-content/uploads/2018/05/word-image-2722.png 1105w, /wp-content/uploads/2018/05/word-image-2722-300x84.png 300w, /wp-content/uploads/2018/05/word-image-2722-768x215.png 768w, /wp-content/uploads/2018/05/word-image-2722-1024x286.png 1024w" sizes="(max-width: 1105px) 100vw, 1105px" />
+</p>
+<p>
+  克隆节点：cloneNode()
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1144" height="403" src="/wp-content/uploads/2018/05/word-image-2723.png" class="wp-image-3100" srcset="/wp-content/uploads/2018/05/word-image-2723.png 1144w, /wp-content/uploads/2018/05/word-image-2723-300x106.png 300w, /wp-content/uploads/2018/05/word-image-2723-768x271.png 768w, /wp-content/uploads/2018/05/word-image-2723-1024x361.png 1024w" sizes="(max-width: 1144px) 100vw, 1144px" />
+</p>
+<h1>一、案例—淡入效果</h1>
+<p>
+  1、做默认的html+css
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="631" height="564" src="/wp-content/uploads/2018/05/word-image-2724.png" class="wp-image-3101" srcset="/wp-content/uploads/2018/05/word-image-2724.png 631w, /wp-content/uploads/2018/05/word-image-2724-300x268.png 300w" sizes="(max-width: 631px) 100vw, 631px" />
+</p>
+<p>
+  2、每隔两秒生硬的变化
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="674" height="313" src="/wp-content/uploads/2018/05/word-image-2725.png" class="wp-image-3102" srcset="/wp-content/uploads/2018/05/word-image-2725.png 674w, /wp-content/uploads/2018/05/word-image-2725-300x139.png 300w" sizes="(max-width: 674px) 100vw, 674px" />
+</p>
+<p>
+  加入临界条件，控制inIndex和outIndex的范围：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="728" height="418" src="/wp-content/uploads/2018/05/word-image-2726.png" class="wp-image-3103" srcset="/wp-content/uploads/2018/05/word-image-2726.png 728w, /wp-content/uploads/2018/05/word-image-2726-300x172.png 300w" sizes="(max-width: 728px) 100vw, 728px" />
+</p>
+<p>
+  3、创建一个设置透明图的方法
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="752" height="229" src="/wp-content/uploads/2018/05/word-image-2727.png" class="wp-image-3104" srcset="/wp-content/uploads/2018/05/word-image-2727.png 752w, /wp-content/uploads/2018/05/word-image-2727-300x91.png 300w" sizes="(max-width: 752px) 100vw, 752px" />
+</p>
+<p>
+  4、让图片慢慢变化
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="822" height="560" src="/wp-content/uploads/2018/05/word-image-2728.png" class="wp-image-3105" srcset="/wp-content/uploads/2018/05/word-image-2728.png 822w, /wp-content/uploads/2018/05/word-image-2728-300x204.png 300w, /wp-content/uploads/2018/05/word-image-2728-768x523.png 768w, /wp-content/uploads/2018/05/word-image-2728-220x150.png 220w" sizes="(max-width: 822px) 100vw, 822px" />
+</p>
+<p>
+  5、解决变化过程中，最后一张总是显示的问题
+</p>
+<p>
+  变化过程中，待显示的图片的透明度还没有达到1，也就是半透明状态，而其他图片的z-index值又都为1，z-index值相同的话，默认总是显示最后一张。
+</p>
+<p>
+  解决的办法，变化这一刻（在变化的1秒钟之内），待显示的图片的z-index设置为3，其他的图片的z-index的值设置为1，让待隐藏的图片的z-index值为2.
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1089" height="625" src="/wp-content/uploads/2018/05/word-image-2729.png" class="wp-image-3106" srcset="/wp-content/uploads/2018/05/word-image-2729.png 1089w, /wp-content/uploads/2018/05/word-image-2729-300x172.png 300w, /wp-content/uploads/2018/05/word-image-2729-768x441.png 768w, /wp-content/uploads/2018/05/word-image-2729-1024x588.png 1024w" sizes="(max-width: 1089px) 100vw, 1089px" />
+</p>
+<h1><a id="post-3098-_Toc488784655"></a>二、事件与事件对象</h1>
+<p><a id="post-3098-_Toc488784656"></a><br />
+  1、事件监听与移除事件监听
+</p>
+<p>
+  事件监听要解决的问是给一个dom对象绑定多个事件。
+</p>
+<p>
+  1、事件监听
+</p>
+<p>
+  针对IE8+及火狐浏览器，使用addEventLister()，在绑定事件的时候，不要写on。
+</p>
+<p>
+  针对IE8及更低版本浏览器使用attachEvent()，绑定的事件倒序执行。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="758" height="475" src="/wp-content/uploads/2018/05/word-image-2730.png" class="wp-image-3107" srcset="/wp-content/uploads/2018/05/word-image-2730.png 758w, /wp-content/uploads/2018/05/word-image-2730-300x188.png 300w" sizes="(max-width: 758px) 100vw, 758px" />
+</p>
+<p>
+  写一个兼容性的函数：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="714" height="330" src="/wp-content/uploads/2018/05/word-image-2731.png" class="wp-image-3108" srcset="/wp-content/uploads/2018/05/word-image-2731.png 714w, /wp-content/uploads/2018/05/word-image-2731-300x139.png 300w" sizes="(max-width: 714px) 100vw, 714px" />
+</p>
+<p>
+  2、移除事件监听
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="821" height="552" src="/wp-content/uploads/2018/05/word-image-2732.png" class="wp-image-3109" srcset="/wp-content/uploads/2018/05/word-image-2732.png 821w, /wp-content/uploads/2018/05/word-image-2732-300x202.png 300w, /wp-content/uploads/2018/05/word-image-2732-768x516.png 768w" sizes="(max-width: 821px) 100vw, 821px" />
+</p>
+<p>
+  兼容性写法：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="613" height="209" src="/wp-content/uploads/2018/05/word-image-2733.png" class="wp-image-3110" srcset="/wp-content/uploads/2018/05/word-image-2733.png 613w, /wp-content/uploads/2018/05/word-image-2733-300x102.png 300w" sizes="(max-width: 613px) 100vw, 613px" />
+</p>
+<p><a id="post-3098-_Toc488784657"></a><br />
+  2、事件对象
+</p>
+<p>
+  事件对象存在于事件处理函数中。
+</p>
+<p>
+  事件对象就是描述当前事件的具体的情况的对象。这个对象根据事件的不同，内容可能会发生细微的变化，比如键盘事件，事件对象就会包括keyCode，比如单击事件，事件对象就会包含点击的坐标。
+</p>
+<p>
+  获取事件对象的兼容性写法：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="689" height="244" src="/wp-content/uploads/2018/05/word-image-2734.png" class="wp-image-3111" srcset="/wp-content/uploads/2018/05/word-image-2734.png 689w, /wp-content/uploads/2018/05/word-image-2734-300x106.png 300w" sizes="(max-width: 689px) 100vw, 689px" />
+</p>
+<p>
+  shiftKey：表示是否按了shift键，如果按了返回true，没有按返回false
+</p>
+<p>
+  ctrlKey：表示是否按了ctrl键，如果按了返回true，没有按返回false
+</p>
+<p>
+  altKey：表示是否按了alt键，如果按了返回true，没有按返回false
+</p>
+<p>
+  keyCode：表示键盘的代码，是一个数字，每个键都会对应一个数字。具体查看“键盘KeyCode对照表.docx”
+</p>
+<p>
+  判断是否按了@键：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="736" height="409" src="/wp-content/uploads/2018/05/word-image-2735.png" class="wp-image-3112" srcset="/wp-content/uploads/2018/05/word-image-2735.png 736w, /wp-content/uploads/2018/05/word-image-2735-300x167.png 300w" sizes="(max-width: 736px) 100vw, 736px" />
+</p>
+<p><a id="post-3098-_Toc488784658"></a><br />
+  3、阻止冒泡事件
+</p>
+<p>
+  1、什么是冒泡事件？
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="962" height="356" src="/wp-content/uploads/2018/05/word-image-2736.png" class="wp-image-3113" srcset="/wp-content/uploads/2018/05/word-image-2736.png 962w, /wp-content/uploads/2018/05/word-image-2736-300x111.png 300w, /wp-content/uploads/2018/05/word-image-2736-768x284.png 768w" sizes="(max-width: 962px) 100vw, 962px" />
+</p>
+<p>
+  在点击b这个div的时候，由于b在a的上面，也相当于点击了a。所以会触发两个事件，这种情况就是冒泡事件。
+</p>
+<p>
+  2、如何阻止冒泡行为
+</p>
+<p>
+  如果要阻止冒泡，
+</p>
+<p>
+  标准浏览器使用evt.stopPropagation()
+</p>
+<p>
+  IE内核浏览器使用window.event.cancelBubble = true;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="569" height="491" src="/wp-content/uploads/2018/05/word-image-2737.png" class="wp-image-3114" srcset="/wp-content/uploads/2018/05/word-image-2737.png 569w, /wp-content/uploads/2018/05/word-image-2737-300x259.png 300w" sizes="(max-width: 569px) 100vw, 569px" />
+</p>
+<p><a id="post-3098-_Toc488784659"></a><br />
+  4、阻止默认行为
+</p>
+<p>
+  比如表单提交或者超链接跳转，都会有一个地址，点击表单中的提交按钮或者超链接就会跳转到相应的地址。如果点击之后不希望这样跳转，就使用js方法阻止它，这就是阻止默认行为。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="810" height="486" src="/wp-content/uploads/2018/05/word-image-2738.png" class="wp-image-3115" srcset="/wp-content/uploads/2018/05/word-image-2738.png 810w, /wp-content/uploads/2018/05/word-image-2738-300x180.png 300w, /wp-content/uploads/2018/05/word-image-2738-768x461.png 768w" sizes="(max-width: 810px) 100vw, 810px" />
+</p>
+<p>
+  另外的方法：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="867" height="452" src="/wp-content/uploads/2018/05/word-image-2739.png" class="wp-image-3116" srcset="/wp-content/uploads/2018/05/word-image-2739.png 867w, /wp-content/uploads/2018/05/word-image-2739-300x156.png 300w, /wp-content/uploads/2018/05/word-image-2739-768x400.png 768w" sizes="(max-width: 867px) 100vw, 867px" />
+</p>
+<h1>三、案例—可编辑的表格</h1>
+<p>
+  1、完成html+css布局
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="484" height="391" src="/wp-content/uploads/2018/05/word-image-2740.png" class="wp-image-3117" srcset="/wp-content/uploads/2018/05/word-image-2740.png 484w, /wp-content/uploads/2018/05/word-image-2740-300x242.png 300w" sizes="(max-width: 484px) 100vw, 484px" />
+</p>
+<p>
+  css：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="644" height="437" src="/wp-content/uploads/2018/05/word-image-2741.png" class="wp-image-3118" srcset="/wp-content/uploads/2018/05/word-image-2741.png 644w, /wp-content/uploads/2018/05/word-image-2741-300x204.png 300w, /wp-content/uploads/2018/05/word-image-2741-220x150.png 220w" sizes="(max-width: 644px) 100vw, 644px" />
+</p>
+<p>
+  2、隔行换色
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="637" height="160" src="/wp-content/uploads/2018/05/word-image-2742.png" class="wp-image-3119" srcset="/wp-content/uploads/2018/05/word-image-2742.png 637w, /wp-content/uploads/2018/05/word-image-2742-300x75.png 300w" sizes="(max-width: 637px) 100vw, 637px" />
+</p>
+<p>
+  3、找到包括名字的td，并绑定单击事件
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="744" height="414" src="/wp-content/uploads/2018/05/word-image-2743.png" class="wp-image-3120" srcset="/wp-content/uploads/2018/05/word-image-2743.png 744w, /wp-content/uploads/2018/05/word-image-2743-300x167.png 300w" sizes="(max-width: 744px) 100vw, 744px" />
+</p>
+<p>
+  4、点击td后，将input放到td中
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="728" height="359" src="/wp-content/uploads/2018/05/word-image-2744.png" class="wp-image-3121" srcset="/wp-content/uploads/2018/05/word-image-2744.png 728w, /wp-content/uploads/2018/05/word-image-2744-300x148.png 300w" sizes="(max-width: 728px) 100vw, 728px" />
+</p>
+<p>
+  设置input的样式，阻止产生多个input
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="872" height="657" src="/wp-content/uploads/2018/05/word-image-2745.png" class="wp-image-3122" srcset="/wp-content/uploads/2018/05/word-image-2745.png 872w, /wp-content/uploads/2018/05/word-image-2745-300x226.png 300w, /wp-content/uploads/2018/05/word-image-2745-768x579.png 768w" sizes="(max-width: 872px) 100vw, 872px" />
+</p>
+<p>
+  5、给input绑定事件
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="716" height="462" src="/wp-content/uploads/2018/05/word-image-2746.png" class="wp-image-3123" srcset="/wp-content/uploads/2018/05/word-image-2746.png 716w, /wp-content/uploads/2018/05/word-image-2746-300x194.png 300w" sizes="(max-width: 716px) 100vw, 716px" />
+</p>
+<h1>四、面向对象概述</h1>
+<p>
+  1、什么是对象
+</p>
+<p>
+  我喜欢大眼睛，长头发，大长腿，小蛮腰，会洗衣服，会做饭，会生孩子的女孩。比如有孙俪，范冰冰。
+</p>
+<p>
+  上面这句话中的“大眼睛，长头发，大长腿，小蛮腰，会洗衣服，会做饭，会生孩子”表示一类人，在程序中就是一个类。而孙俪，范冰冰是符合这类的人，在程序中就的对象。
+</p>
+<p>
+  2、面向对象编程
+</p>
+<p>
+  面向对象编程简称OOP（Object-Oritened Programming）为软件开发人员敞开了一扇大门，它使得代码的编写更加简洁、高效、可读性和维护性增强。它实现了软件工程的三大目标：（代码）重用性、（功能）扩展性和（操作）灵活性，它的实现是依赖于面向对象的三大特性：封装、继承、多态。在实际开发中 使用面向对象编程 可以实现系统化、模块化和结构化的设计 它是每位软件开发员不可或缺的一项技能。
+</p>
+<h1>五、自定义对象</h1>
+<p>
+  1、构造函数和类的说明
+</p>
+<p>
+  PHP中要声明一个对象的话，必须先声明一个类，然后通过关键字new实例化得到一个对象。
+</p>
+<p>
+  在js中，没有类的概念，只有构造函数的概念，js中会把构造函数当做类。
+</p>
+<p>
+  在ES6（ECMAScript6）中才引入了类的概念。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="595" height="179" src="/wp-content/uploads/2018/05/word-image-2747.png" class="wp-image-3124" srcset="/wp-content/uploads/2018/05/word-image-2747.png 595w, /wp-content/uploads/2018/05/word-image-2747-300x90.png 300w" sizes="(max-width: 595px) 100vw, 595px" />
+</p>
+<p>
+  2、this关键字和成员
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="628" height="429" src="/wp-content/uploads/2018/05/word-image-2748.png" class="wp-image-3125" srcset="/wp-content/uploads/2018/05/word-image-2748.png 628w, /wp-content/uploads/2018/05/word-image-2748-300x205.png 300w, /wp-content/uploads/2018/05/word-image-2748-220x150.png 220w" sizes="(max-width: 628px) 100vw, 628px" />
+</p>
+<p>
+  用this关键字，在构造函数中添加成员：<br />
+  <br />
+  <img loading="lazy" decoding="async" width="794" height="338" src="/wp-content/uploads/2018/05/word-image-2749.png" class="wp-image-3126" srcset="/wp-content/uploads/2018/05/word-image-2749.png 794w, /wp-content/uploads/2018/05/word-image-2749-300x128.png 300w, /wp-content/uploads/2018/05/word-image-2749-768x327.png 768w" sizes="(max-width: 794px) 100vw, 794px" />
+</p>
+<p>
+  this表示根据Person实例化的每个对象。当前用的是哪个对象，this就表示哪个对象。
+</p>
+<p>
+  3、删除成员
+</p>
+<p>
+  使用的关键字是delete。delete关键字用于删除对象的成员，既可以删除成员属性，也可以删除成员方法。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="633" height="382" src="/wp-content/uploads/2018/05/word-image-2750.png" class="wp-image-3127" srcset="/wp-content/uploads/2018/05/word-image-2750.png 633w, /wp-content/uploads/2018/05/word-image-2750-300x181.png 300w" sizes="(max-width: 633px) 100vw, 633px" />
+</p>
+<p>
+  4、练习
+</p>
+<p>
+  案例目的是设置dom对象的css样式：
+</p>
+<p>
+  使用的办法不是直接设置，而是将设置dom对象css样式写到对象的成员方法中
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="716" height="371" src="/wp-content/uploads/2018/05/word-image-2751.png" class="wp-image-3128" srcset="/wp-content/uploads/2018/05/word-image-2751.png 716w, /wp-content/uploads/2018/05/word-image-2751-300x155.png 300w" sizes="(max-width: 716px) 100vw, 716px" />
+</p>
+<p>
+  完成链式调用：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1032" height="383" src="/wp-content/uploads/2018/05/word-image-2752.png" class="wp-image-3129" srcset="/wp-content/uploads/2018/05/word-image-2752.png 1032w, /wp-content/uploads/2018/05/word-image-2752-300x111.png 300w, /wp-content/uploads/2018/05/word-image-2752-768x285.png 768w, /wp-content/uploads/2018/05/word-image-2752-1024x380.png 1024w" sizes="(max-width: 1032px) 100vw, 1032px" />
+</p>
+<p>
+  5、自定义对象在内存中的表现形式
+</p>
+<p>
+  创建一个对象后，会在内存中栈和堆都开辟一个新的空间，堆中存储的是对象的实际内容，栈区存放的是堆的地址。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="798" height="282" src="/wp-content/uploads/2018/05/word-image-2753.png" class="wp-image-3130" srcset="/wp-content/uploads/2018/05/word-image-2753.png 798w, /wp-content/uploads/2018/05/word-image-2753-300x106.png 300w, /wp-content/uploads/2018/05/word-image-2753-768x271.png 768w" sizes="(max-width: 798px) 100vw, 798px" />
+</p>
+<p>
+  删除其中一个对象，会不会对另外的对象有影响？
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="797" height="280" src="/wp-content/uploads/2018/05/word-image-2754.png" class="wp-image-3131" srcset="/wp-content/uploads/2018/05/word-image-2754.png 797w, /wp-content/uploads/2018/05/word-image-2754-300x105.png 300w, /wp-content/uploads/2018/05/word-image-2754-768x270.png 768w" sizes="(max-width: 797px) 100vw, 797px" />
+</p>
+<h1>六、json格式的对象</h1>
+<p>
+  1、json简介
+</p>
+<p>
+  json就是符合某种格式的字符串。
+</p>
+<p>
+  JavaScript 对象表示法（JavaScript Object Notation）。
+</p>
+<p>
+  JSON 是存储和交换文本信息的语法。类似 XML。
+</p>
+<p>
+  JSON 比 XML 更小、更快，更易解析
+</p>
+<p>
+  JSON是独立于语言和平台的。所有的编程语言都认识JSON，这一点和XML一样。
+</p>
+<p>
+  2、json格式
+</p>
+<p>
+  有两种写法：
+</p>
+<p>
+  ①：方括号在外层，和JavaScript中的数组格式一样。
+</p>
+<p>
+  [&#8216;apple&#8217;, &#8216;banana&#8217;, &#8216;pear&#8217;, &#8216;orange&#8217;, &#8216;xigua&#8217;]
+</p>
+<p>
+  [{id:1, name:&#8217;宋江&#8217;, nickname:&#8217;及时雨&#8217;}, {id:2, name:&#8217;卢俊义&#8217;, nickname:&#8217;玉麒麟&#8217;},{id:1, name:&#8217;林冲&#8217;, nickname:&#8217;豹子头&#8217;}]
+</p>
+<p>
+  ②、大括号在外，和JavaScript中的对象格式一样。
+</p>
+<p>
+  {键:值, 键:值, ….}
+</p>
+<p>
+  {键:[], 键:[], …}
+</p>
+<p>
+  只要是[]，就要符合中括号的语法（和数组写法一样）;
+</p>
+<p>
+  只要是大括号，就要符合大括号的语法（键:值, …）
+</p>
+<p>
+  3、json格式的对象
+</p>
+<p>
+  我们最终要讨论的是JavaScript的对象写法，只不过这种写法和json的格式一样。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="598" height="104" src="/wp-content/uploads/2018/05/word-image-2755.png" class="wp-image-3132" srcset="/wp-content/uploads/2018/05/word-image-2755.png 598w, /wp-content/uploads/2018/05/word-image-2755-300x52.png 300w" sizes="(max-width: 598px) 100vw, 598px" />
+</p>
+<p>
+  成员属性和成员方法：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="711" height="420" src="/wp-content/uploads/2018/05/word-image-2756.png" class="wp-image-3133" srcset="/wp-content/uploads/2018/05/word-image-2756.png 711w, /wp-content/uploads/2018/05/word-image-2756-300x177.png 300w" sizes="(max-width: 711px) 100vw, 711px" />
+</p>
+<p>
+  调用成员：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="559" height="310" src="/wp-content/uploads/2018/05/word-image-2757.png" class="wp-image-3134" srcset="/wp-content/uploads/2018/05/word-image-2757.png 559w, /wp-content/uploads/2018/05/word-image-2757-300x166.png 300w" sizes="(max-width: 559px) 100vw, 559px" />
+</p>
+<h1>七、内置对象</h1>
+<p>
+  手册位置：上面的JavaScript—左侧的JavaScript—右侧的参考书
+</p>
+<p>
+  1、Object
+</p>
+<p>
+  2、String对象
+</p>
+<p>
+  使用方法：
+</p>
+<p><strong>属性</strong>
+</p>
+<p>
+  length：表示字符串的长度。
+</p>
+<p><strong>方法</strong>：
+</p>
+<p>
+  indexOf() – 查找一个字符串是否存在，返回值是存在的位置（存在的情况），或-1（不存在）
+</p>
+<p>
+  substr() – 截取字符串。两个参数，第一个参数表示起始位置可以是负数；第二个参数可选，表示长度，非负，不填表示到结尾
+</p>
+<p>
+  substring() –截取字符串。两个参数，都是非负数。分别表示起始位置和结束位置，第二个参数不写表示到结尾
+</p>
+<p>
+  slice() –截取字符串。两个参数，第一个表示起始位置，可以是负数。第二个是结尾位置。注意结尾位置不能在起始位置之前。
+</p>
+<p>
+  split() – 将字符串分割成数组。两个参数，第一个表示分隔符，第二个可选表示数组的最大长度
+</p>
+<p>
+  replace – 替换字符串中的值。两个参数，第一个表示查找的值，第二个表示替换后的值。
+</p>
+<p>
+  3、Date对象
+</p>
+<p>
+  使用方法，先new Date()，得到一个对象，然后用这个对象调用它里面的成员方法。
+</p>
+<p>
+  4、Array对象
+</p>
+<p><strong>属性</strong>：
+</p>
+<p>
+  length，表示数组元素个数
+</p>
+<p><strong>方法</strong>：
+</p>
+<p>
+  concat()   连接两个或更多的数组，并返回结果。
+</p>
+<p>
+  join()     把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。
+</p>
+<p>
+  pop()     删除并返回数组的最后一个元素
+</p>
+<p>
+  push()    向数组的末尾添加一个或更多元素，并返回新的长度。
+</p>
+<p>
+  reverse()  颠倒数组中元素的顺序。
+</p>
+<p>
+  shift()    删除并返回数组的第一个元素
+</p>
+<p>
+  slice()    从某个已有的数组返回选定的元素
+</p>
+<p>
+  splice()   删除元素，并向数组添加新元素。
+</p>
+<p>
+  toString() 把数组转换为字符串，并返回结果。
+</p>
+<p>
+  unshift()   向数组的开头添加一个或更多元素，并返回新的长度。
+</p>
+<p>
+  5、Math对象
+</p>
+<p><strong>方法</strong>：
+</p>
+<p>
+  abs(x)   返回数的绝对值。 正数的绝对值是它本身，负数的绝对值是它的相反数。
+</p>
+<p>
+  ceil(x)   对数进行上舍入。
+</p>
+<p>
+  floor(x)  对数进行下舍入。
+</p>
+<p>
+  max(x,y) 返回 x 和 y 中的最高值。
+</p>
+<p>
+  min(x,y) 返回 x 和 y 中的最低值。
+</p>
+<p>
+  random() 返回 0 ~ 1 之间的随机数。包含0，不包含1。[0,1)
+</p>
+<p>
+  随机整数公式：Math.floor(<em>i</em> + Math.random() * (<em>j</em> – <em>i</em> + 1))
+</p>
+<p>
+  round(x)  把数四舍五入为最接近的整数。
+</p>
+<p>
+  6、window对象
+</p>
+<p><strong>方法</strong>：
+</p>
+<p>
+  alert(); &#8212; 弹出一个警告框
+</p>
+<p>
+  confirm(&#8216;你确定要删除吗&#8217;);  点击确定返回true，点击取消返回false
+</p>
+<p>
+  prompt() – 弹出一个可输入的对话框，点击确定返回输入的内容，点击取消返回null
+</p>
+<p>
+  open() – 打开一个新窗口
+</p>
+<p>
+  var s =setTimeout(&#8220;js代码或js函数&#8221;, 毫秒数) – 表示多少毫秒后，执行前面的js代码或函数，只执行一次
+</p>
+<p>
+  var t =setInterval(&#8220;js代码或js函数&#8221;, 毫秒数) – 表示每隔多少毫秒，执行一次前面的js代码或函数。
+</p>
+<p>
+  clearTimeout(s); &#8212; 清除由setTimeout产生的定时器
+</p>
+<p>
+  clearInterval(t); &#8212; 清除由setInterval产生的定时器
+</p>
+<p>
+  7、navigator
+</p>
+<p>
+   navigator.userAgent，从这个结果中可以查看到浏览器及浏览器的版本。
+</p>
+<p>
+  8、screen
+</p>
+<p>
+  screen.availHeight 返回显示屏幕的高度 (除 Windows 任务栏之外)。
+</p>
+<p>
+  screen.availWidth 返回显示屏幕的宽度 (除 Windows 任务栏之外)。
+</p>
+<p>
+  screen.height返回显示屏幕的高度
+</p>
+<p>
+  screen.width返回显示屏幕的宽度
+</p>
+<p>
+  9、history
+</p>
+<p>
+  back() 加载 history 列表中的前一个 URL。
+</p>
+<p>
+  forward() 加载 history 列表中的下一个 URL。
+</p>
+<p>
+  go() 加载 history 列表中的某个具体页面。
+</p>
+<p>
+  10、location
+</p>
+<p>
+  reload() – 刷新页面，和点击浏览器中的刷新按钮是一个意思，如果添加参数为true表示强制刷新，和按Ctrl+F5一样，都表示清除缓存刷新。
+</p>
+<p>
+  location的属性：</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3098.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>JS初级（四）事件、 传值与引用、 函数类型、 匿名函数、 转义字符</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/405.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/405.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 14:13:04 +0000</pubDate>
+				<category><![CDATA[Javascript]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[事件]]></category>
+		<category><![CDATA[传值与引用]]></category>
+		<category><![CDATA[函数类型]]></category>
+		<category><![CDATA[匿名函数]]></category>
+		<category><![CDATA[转义字符]]></category>
+		<guid isPermaLink="false">/?p=405</guid>
+
+					<description><![CDATA[回顾 for for(初始值;条件;增量){ //循环体 } while while(条件){ //循环体 } [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h2>回顾</h2>
+<ol>
+<li>
+  for
+</li>
+</ol>
+<p>
+  for(初始值;条件;增量){
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  while
+</li>
+</ol>
+<p>
+  while(条件){
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  do-while
+</li>
+</ol>
+<p>
+  do{
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  }while(条件)
+</p>
+<ol>
+<li>
+  for-in
+</li>
+</ol>
+<p>
+  for(var 变量 in 数组){
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  注意：切记不能出现死循环
+</li>
+<li>
+  跳转语句</p>
+<ol>
+<li>
+    Break：中断循环
+  </li>
+<li>
+    Continue：跳出当前循环，进入下一个循环
+  </li>
+</ol>
+</li>
+</ol>
+<h2>函数</h2>
+<ol>
+<li>
+  函数就是代码块，可以多次调用，很容易实现模块化编程。
+</li>
+<li>
+  函数也叫方法（其实函数和方法有一点点的区别，在面向对象中去讲解，目前我们认为他们是一样的）。
+</li>
+<li>
+  函数分为预定义函数和自定义函数
+</li>
+<li>
+  自定义函数的语法
+</li>
+</ol>
+<p>
+  function 函数名([参数…]){
+</p>
+<p>
+  	//函数体
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  参数分为形式参数（形参）和实际参数（实参）。形参只起一个形式的作用，没有具体的值，只是告诉调用者调用的时候传递几个参数，在定义函数的时候使用。实际参数是传递给函数的具体的值，在调用函数的时候使用。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="636" height="71" src="/wp-content/uploads/2018/05/word-image-368.png" class="wp-image-407" srcset="/wp-content/uploads/2018/05/word-image-368.png 636w, /wp-content/uploads/2018/05/word-image-368-300x33.png 300w" sizes="(max-width: 636px) 100vw, 636px" /></p>
+<ol>
+<li>
+  通过函数名来调用函数
+</li>
+</ol>
+<h3>函数的预加载</h3>
+<p>
+  函数有预编译（预加载）的过程，可以实现调用在前，声明再后。在编译的时候先把函数编译好放在内存中，在执行JS的时候函数其实已经编译好了，所以直接调用就可以了。
+</p>
+<p><img loading="lazy" decoding="async" width="539" height="94" src="/wp-content/uploads/2018/05/word-image-369.png" class="wp-image-408" srcset="/wp-content/uploads/2018/05/word-image-369.png 539w, /wp-content/uploads/2018/05/word-image-369-300x52.png 300w" sizes="(max-width: 539px) 100vw, 539px" /></p>
+<p>
+  多学一招：不只是函数可以预加载，只要先声明的都可以预加载。
+</p>
+<p><img loading="lazy" decoding="async" width="937" height="56" src="/wp-content/uploads/2018/05/word-image-370.png" class="wp-image-409" srcset="/wp-content/uploads/2018/05/word-image-370.png 937w, /wp-content/uploads/2018/05/word-image-370-300x18.png 300w, /wp-content/uploads/2018/05/word-image-370-768x46.png 768w" sizes="(max-width: 937px) 100vw, 937px" /></p>
+<p><strong>提醒一下：在有的资料上也说变量不能预加载，原因是只是声明了空间，并没有将值加载进入。有的资料上称为“预编译”。</strong>
+</p>
+<h3>思考：形参和实参个数不一样会怎么样？</h3>
+<p><img loading="lazy" decoding="async" width="718" height="198" src="/wp-content/uploads/2018/05/word-image-371.png" class="wp-image-410" srcset="/wp-content/uploads/2018/05/word-image-371.png 718w, /wp-content/uploads/2018/05/word-image-371-300x83.png 300w" sizes="(max-width: 718px) 100vw, 718px" /></p>
+<p>
+  总结：
+</p>
+<ol>
+<li>
+  少传递的参数是undefined
+</li>
+<li>
+  多传递的参数函数中接受不到。
+</li>
+</ol>
+<h3>函数的调用</h3>
+<p>
+  函数是通过函数名来调用的
+</p>
+<p>
+  一般函数的调用要结合“事件”来调用
+</p>
+<p>
+  调用的方式：
+</p>
+<p>
+  方法一（通过HTML标签调用）：&lt;标签 事件=”函数名()”/&gt;
+</p>
+<p>
+  方法二（JS调用）：对象.事件=函数
+</p>
+<p>
+  方法一：
+</p>
+<p><img loading="lazy" decoding="async" width="731" height="141" src="/wp-content/uploads/2018/05/word-image-372.png" class="wp-image-411" srcset="/wp-content/uploads/2018/05/word-image-372.png 731w, /wp-content/uploads/2018/05/word-image-372-300x58.png 300w" sizes="(max-width: 731px) 100vw, 731px" /></p>
+<p>
+  方法二：
+</p>
+<p><img loading="lazy" decoding="async" width="598" height="167" src="/wp-content/uploads/2018/05/word-image-373.png" class="wp-image-412" srcset="/wp-content/uploads/2018/05/word-image-373.png 598w, /wp-content/uploads/2018/05/word-image-373-300x84.png 300w" sizes="(max-width: 598px) 100vw, 598px" /></p>
+<h2>事件</h2>
+<h3>事件和事件处理</h3>
+<p>
+  事件：以“on”开头的都是事件，每个事件后面都有“事件处理”，事件处理一般是由函数来担当。
+</p>
+<p>
+  &lt;标签 事件=’事件处理[函数]’&gt;
+</p>
+<h3>常用的事件</h3>
+<ol>
+<li>
+  onclick：当鼠标点击的时候
+</li>
+<li>
+  onfocus：当获得焦点的时候
+</li>
+<li>
+  onblur：当失去焦点的时候
+</li>
+<li>
+  onchange：发生改变的时候
+</li>
+<li>
+  onkeydown：当键盘按键按下去的时候
+</li>
+<li>
+  onkeyup：当键盘的键抬起的时候
+</li>
+<li>
+  onmouseover：当鼠标滑过的时候
+</li>
+<li>
+  onload：当加载的时候
+</li>
+</ol>
+<h3>例题</h3>
+<ol>
+<li>
+  字符串.substr(start [, length ])
+</li>
+<li>
+  字符串.substring(start, end)
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="623" height="98" src="/wp-content/uploads/2018/05/word-image-374.png" class="wp-image-413" srcset="/wp-content/uploads/2018/05/word-image-374.png 623w, /wp-content/uploads/2018/05/word-image-374-300x47.png 300w" sizes="(max-width: 623px) 100vw, 623px" /></p>
+<p>
+  代码如下
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  function fun_focus(){	//得到焦点
+</p>
+<p>
+  	if(frm.card.value==&#8217;请注意格式:10XXXXXX&#8217;)
+</p>
+<p>
+  		frm.card.value=&#8221;;
+</p>
+<p>
+  }
+</p>
+<p>
+  function fun_blur(){	//失去焦点
+</p>
+<p>
+  	if(frm.card.value==&#8221;)
+</p>
+<p>
+  		frm.card.value=&#8217;请注意格式:10XXXXXX&#8217;;
+</p>
+<p>
+  	else{	//判断输入值的格式是否正确
+</p>
+<p>
+  		var card=frm.card.value;
+</p>
+<p>
+  		if(card.length!=8){	//卡号不是8位
+</p>
+<p>
+  			alert(&#8216;卡号是8位的,你输入的是&#8217;+card.length+&#8217;位&#8217;);
+</p>
+<p>
+  		}else{
+</p>
+<p>
+  			if(card.substr(0,2)!=&#8217;10&#8217;){
+</p>
+<p>
+  				alert(&#8216;卡号必须是&#8221;10&#8243;开头&#8217;);
+</p>
+<p>
+  			}else{
+</p>
+<p>
+  				alert(&#8216;卡号正确&#8217;);
+</p>
+<p>
+  			}
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;form name=&#8217;frm&#8217; action=&#8221;&#8221;&gt;
+</p>
+<p>
+  	卡号：&lt;input type=&#8221;text&#8221; name=&#8221;card&#8221; value=&#8217;请注意格式:10XXXXXX&#8217; onfocus=&#8217;fun_focus()&#8217; onblur=&#8217;fun_blur()&#8217;&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="222" height="30" src="/wp-content/uploads/2018/05/word-image-375.png" class="wp-image-414" srcset="/wp-content/uploads/2018/05/word-image-375.png 222w, /wp-content/uploads/2018/05/word-image-375-220x30.png 220w" sizes="(max-width: 222px) 100vw, 222px" /></p>
+<h2>匿名函数</h2>
+<p>
+  没有名字的函数，
+</p>
+<p>
+  语法
+</p>
+<p>
+  function(){
+</p>
+<p>
+  	//匿名函数
+</p>
+<p>
+  }
+</p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="773" height="144" src="/wp-content/uploads/2018/05/word-image-376.png" class="wp-image-415" srcset="/wp-content/uploads/2018/05/word-image-376.png 773w, /wp-content/uploads/2018/05/word-image-376-300x56.png 300w, /wp-content/uploads/2018/05/word-image-376-768x143.png 768w" sizes="(max-width: 773px) 100vw, 773px" /></p>
+<h3>匿名函数自调用</h3>
+<p><img loading="lazy" decoding="async" width="864" height="114" src="/wp-content/uploads/2018/05/word-image-377.png" class="wp-image-416" srcset="/wp-content/uploads/2018/05/word-image-377.png 864w, /wp-content/uploads/2018/05/word-image-377-300x40.png 300w, /wp-content/uploads/2018/05/word-image-377-768x101.png 768w" sizes="(max-width: 864px) 100vw, 864px" /></p>
+<h3>匿名函数的使用</h3>
+<p><img loading="lazy" decoding="async" width="797" height="211" src="/wp-content/uploads/2018/05/word-image-378.png" class="wp-image-417" srcset="/wp-content/uploads/2018/05/word-image-378.png 797w, /wp-content/uploads/2018/05/word-image-378-300x79.png 300w, /wp-content/uploads/2018/05/word-image-378-768x203.png 768w" sizes="(max-width: 797px) 100vw, 797px" /></p>
+<h2>return</h2>
+<p>
+  作用：
+</p>
+<ol>
+<li>
+  作用一：终止函数的执行
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="754" height="188" src="/wp-content/uploads/2018/05/word-image-379.png" class="wp-image-418" srcset="/wp-content/uploads/2018/05/word-image-379.png 754w, /wp-content/uploads/2018/05/word-image-379-300x75.png 300w" sizes="(max-width: 754px) 100vw, 754px" /></p>
+<ol>
+<li>
+  作用二：返回数据
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="626" height="184" src="/wp-content/uploads/2018/05/word-image-380.png" class="wp-image-419" srcset="/wp-content/uploads/2018/05/word-image-380.png 626w, /wp-content/uploads/2018/05/word-image-380-300x88.png 300w" sizes="(max-width: 626px) 100vw, 626px" /></p>
+<p>
+  脚下留心：如果要返回多个数据，将多个数据放到数组中返回，不能写多个return;
+</p>
+<p><img loading="lazy" decoding="async" width="577" height="72" src="/wp-content/uploads/2018/05/word-image-381.png" class="wp-image-420" srcset="/wp-content/uploads/2018/05/word-image-381.png 577w, /wp-content/uploads/2018/05/word-image-381-300x37.png 300w" sizes="(max-width: 577px) 100vw, 577px" /></p>
+<p>
+  应该这样写：
+</p>
+<p><img loading="lazy" decoding="async" width="237" height="26" src="/wp-content/uploads/2018/05/word-image-382.png" class="wp-image-421" /></p>
+<h2>使用类型函数进行类型的获取或转换</h2>
+<p>
+  在计算机内部，所有的数据都可以转成布尔值。转换规律：
+</p>
+<p>
+  1、数字和布尔值转换规律： 0为false，非0为true
+</p>
+<p>
+  2、字符串和布尔值转换规律：空字符串为false，非空字符串为true
+</p>
+<p>
+  我们也可以通过类型函数显式转换
+</p>
+<p>
+  String()：转成字符串
+</p>
+<p>
+  Boolean()：转成布尔型
+</p>
+<p>
+  Number()：转成数字型
+</p>
+<p>
+  typeof 获取数据类型
+</p>
+<p><img loading="lazy" decoding="async" width="651" height="209" src="/wp-content/uploads/2018/05/word-image-383.png" class="wp-image-422" srcset="/wp-content/uploads/2018/05/word-image-383.png 651w, /wp-content/uploads/2018/05/word-image-383-300x96.png 300w" sizes="(max-width: 651px) 100vw, 651px" /></p>
+<h2>值传递和引用传递</h2>
+<p>
+  函数中参数的传递有两种方式，值传递，引用传递（传递地址）
+</p>
+<p>
+  分析如下代码执行过程（值传递）
+</p>
+<p><img loading="lazy" decoding="async" width="520" height="96" src="/wp-content/uploads/2018/05/word-image-384.png" class="wp-image-423" srcset="/wp-content/uploads/2018/05/word-image-384.png 520w, /wp-content/uploads/2018/05/word-image-384-300x55.png 300w" sizes="(max-width: 520px) 100vw, 520px" /></p>
+<p>
+  第一步：将保存10的空间的地址付给x。（x保存的是10的地址）
+</p>
+<p>
+  第二步：将10复制一份，将10的副本的地址付给y
+</p>
+<p><img loading="lazy" decoding="async" width="571" height="190" src="/wp-content/uploads/2018/05/word-image-385.png" class="wp-image-424" srcset="/wp-content/uploads/2018/05/word-image-385.png 571w, /wp-content/uploads/2018/05/word-image-385-300x100.png 300w" sizes="(max-width: 571px) 100vw, 571px" /></p>
+<p>
+  分析如下代码执行过程（地址传递）
+</p>
+<p><img loading="lazy" decoding="async" width="492" height="139" src="/wp-content/uploads/2018/05/word-image-386.png" class="wp-image-425" srcset="/wp-content/uploads/2018/05/word-image-386.png 492w, /wp-content/uploads/2018/05/word-image-386-300x85.png 300w" sizes="(max-width: 492px) 100vw, 492px" /><br />
+<img loading="lazy" decoding="async" width="577" height="192" src="/wp-content/uploads/2018/05/word-image-387.png" class="wp-image-426" srcset="/wp-content/uploads/2018/05/word-image-387.png 577w, /wp-content/uploads/2018/05/word-image-387-300x100.png 300w" sizes="(max-width: 577px) 100vw, 577px" /></p>
+<p>
+  总结：只要是基本数据类型都是值传递，复杂类型都是地址传递。
+</p>
+<h2>传递不确定参数</h2>
+<p>
+  通过arguments关键字保存传递的参数数组
+</p>
+<p><img loading="lazy" decoding="async" width="664" height="288" src="/wp-content/uploads/2018/05/word-image-388.png" class="wp-image-427" srcset="/wp-content/uploads/2018/05/word-image-388.png 664w, /wp-content/uploads/2018/05/word-image-388-300x130.png 300w" sizes="(max-width: 664px) 100vw, 664px" /></p>
+<h2>变量作用域</h2>
+<p>
+  变量按照作用的范围不一样分为
+</p>
+<ol>
+<li>
+  全局变量：在整个页面使用的变量
+</li>
+<li>
+  局部变量：在函数内部使用的变量
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="814" height="195" src="/wp-content/uploads/2018/05/word-image-389.png" class="wp-image-428" srcset="/wp-content/uploads/2018/05/word-image-389.png 814w, /wp-content/uploads/2018/05/word-image-389-300x72.png 300w, /wp-content/uploads/2018/05/word-image-389-768x184.png 768w" sizes="(max-width: 814px) 100vw, 814px" /></p>
+<p>
+  思考：隐式声明局部变量
+</p>
+<p><img loading="lazy" decoding="async" width="649" height="199" src="/wp-content/uploads/2018/05/word-image-390.png" class="wp-image-429" srcset="/wp-content/uploads/2018/05/word-image-390.png 649w, /wp-content/uploads/2018/05/word-image-390-300x92.png 300w" sizes="(max-width: 649px) 100vw, 649px" /></p>
+<p>
+  总结：在函数中，通过var声明的变量是局部变量，不用var声明的变量在全局变量。
+</p>
+<h2>JS嵌入到网页的方法</h2>
+<p>
+  方法一：内嵌引入，直接将函数体写到事件处理中
+</p>
+<p><img loading="lazy" decoding="async" width="680" height="56" src="/wp-content/uploads/2018/05/word-image-391.png" class="wp-image-430" srcset="/wp-content/uploads/2018/05/word-image-391.png 680w, /wp-content/uploads/2018/05/word-image-391-300x25.png 300w" sizes="(max-width: 680px) 100vw, 680px" /><br />
+<img loading="lazy" decoding="async" width="1050" height="41" src="/wp-content/uploads/2018/05/word-image-392.png" class="wp-image-431" srcset="/wp-content/uploads/2018/05/word-image-392.png 1050w, /wp-content/uploads/2018/05/word-image-392-300x12.png 300w, /wp-content/uploads/2018/05/word-image-392-768x30.png 768w, /wp-content/uploads/2018/05/word-image-392-1024x40.png 1024w" sizes="(max-width: 1050px) 100vw, 1050px" /></p>
+<p>
+  方法二：内部引入：在HTML页面的内部通过&lt;script&gt;开头，&lt;/script&gt;结束
+</p>
+<p><img loading="lazy" decoding="async" width="347" height="60" src="/wp-content/uploads/2018/05/word-image-393.png" class="wp-image-432" srcset="/wp-content/uploads/2018/05/word-image-393.png 347w, /wp-content/uploads/2018/05/word-image-393-300x52.png 300w" sizes="(max-width: 347px) 100vw, 347px" /></p>
+<p>
+  方法三：外部文件引入
+</p>
+<p>
+  第一步：创建JS文件，并在JS文件中写入代码
+</p>
+<p><img loading="lazy" decoding="async" width="219" height="86" src="/wp-content/uploads/2018/05/word-image-394.png" class="wp-image-433" /></p>
+<p>
+  第二步：在HTML中引入外部的JS文件
+</p>
+<p><img loading="lazy" decoding="async" width="368" height="25" src="/wp-content/uploads/2018/05/word-image-395.png" class="wp-image-434" srcset="/wp-content/uploads/2018/05/word-image-395.png 368w, /wp-content/uploads/2018/05/word-image-395-300x20.png 300w" sizes="(max-width: 368px) 100vw, 368px" /></p>
+<h2>具有特殊含义的字符</h2>
+<p>
+  “”：字符串
+</p>
+<p>
+  ‘’：字符串
+</p>
+<p>
+  JS换行		\n		（new）
+</p>
+<p>
+  JS回车		\r			（return）
+</p>
+<p>
+  制表位：		\t
+</p>
+<p><img loading="lazy" decoding="async" width="427" height="58" src="/wp-content/uploads/2018/05/word-image-396.png" class="wp-image-435" srcset="/wp-content/uploads/2018/05/word-image-396.png 427w, /wp-content/uploads/2018/05/word-image-396-300x41.png 300w" sizes="(max-width: 427px) 100vw, 427px" /></p>
+<h2>转义字符（\）</h2>
+<p>
+  作用：将具有特殊含义的字符转成普通字符。
+</p>
+<p><img loading="lazy" decoding="async" width="861" height="144" src="/wp-content/uploads/2018/05/word-image-397.png" class="wp-image-436" srcset="/wp-content/uploads/2018/05/word-image-397.png 861w, /wp-content/uploads/2018/05/word-image-397-300x50.png 300w, /wp-content/uploads/2018/05/word-image-397-768x128.png 768w" sizes="(max-width: 861px) 100vw, 861px" /></p>
+<h2>对象</h2>
+<p>
+  能够了解对象的概念以及对象的分类
+</p>
+<p>
+  对象是属性（变量）和方法（函数）的组合。
+</p>
+<p>
+  调用对象的属性：    对象.属性
+</p>
+<p>
+  调用对象的方法:			对象.方法()
+</p>
+<h2>JavaScript三类对象</h2>
+<ol>
+<li>
+  HTML对象：就是HTML标签
+</li>
+<li>
+  脚本对象
+</li>
+<li>
+  浏览器对象
+</li>
+</ol>
+<h2>作业题</h2>
+<h3>计算器</h3>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  function cal(op){
+</p>
+<p>
+  	var num1=frm.num1.value;
+</p>
+<p>
+  	var num2=frm.num2.value;
+</p>
+<p>
+  	if(num1==&#8221; || isNaN(num1) || num2==&#8221; || isNaN(num2))
+</p>
+<p>
+  		return;		//不是数字就终止执行
+</p>
+<p>
+  	num1=parseFloat(num1);	//转换层数字类型
+</p>
+<p>
+  	num2=parseFloat(num2);
+</p>
+<p>
+  	switch(op){
+</p>
+<p>
+  		case &#8216;+&#8217;:
+</p>
+<p>
+  			frm.result.value=num1+num2;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		case &#8216;-&#8216;:
+</p>
+<p>
+  			frm.result.value=num1-num2;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		case &#8216;*&#8217;:
+</p>
+<p>
+  			frm.result.value=num1*num2;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		case &#8216;/&#8217;:
+</p>
+<p>
+  			frm.result.value=num1/num2;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;form action=&#8221;&#8221; name=&#8217;frm&#8217;&gt;
+</p>
+<p>
+  第一个数: &lt;input type=&#8221;text&#8221; name=&#8221;num1&#8243; id=&#8221;&#8221;&gt; &lt;br&gt;
+</p>
+<p>
+  第二个数：&lt;input type=&#8221;text&#8221; name=&#8221;num2&#8243; id=&#8221;&#8221;&gt; &lt;br&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221; + &#8221; onclick=&#8221;cal(&#8216;+&#8217;)&#8221;&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221; &#8211; &#8221; onclick=&#8221;cal(&#8216;-&#8216;)&#8221;&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221; * &#8221; onclick=&#8221;cal(&#8216;*&#8217;)&#8221;&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221; / &#8221; onclick=&#8221;cal(&#8216;/&#8217;)&#8221;&gt; &lt;br&gt;
+</p>
+<p>
+  结果：&lt;input type=&#8221;text&#8221; name=&#8221;result&#8221; id=&#8221;&#8221;&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="305" height="99" src="/wp-content/uploads/2018/05/word-image-398.png" class="wp-image-437" srcset="/wp-content/uploads/2018/05/word-image-398.png 305w, /wp-content/uploads/2018/05/word-image-398-300x97.png 300w" sizes="(max-width: 305px) 100vw, 305px" /></p>
+<h3>去字符串的空格</h3>
+<p>
+  思路：声明一个变量用来保存结果字符串，遍历循环字符串，如果不是空格就保存到变量中。最后这个变量就是去掉空格的字符串。
+</p>
+<p><img loading="lazy" decoding="async" width="932" height="408" src="/wp-content/uploads/2018/05/word-image-399.png" class="wp-image-438" srcset="/wp-content/uploads/2018/05/word-image-399.png 932w, /wp-content/uploads/2018/05/word-image-399-300x131.png 300w, /wp-content/uploads/2018/05/word-image-399-768x336.png 768w" sizes="(max-width: 932px) 100vw, 932px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/405.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

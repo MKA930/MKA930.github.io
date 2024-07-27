@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>推流管理 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E6%8E%A8%E6%B5%81%E7%AE%A1%E7%90%86/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 16:30:33 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>推流管理 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>手机直播 搭建服务器、推流管理、实现直播、创建直播APP</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6335.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6335.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 16:30:33 +0000</pubDate>
+				<category><![CDATA[Yii]]></category>
+		<category><![CDATA[Yii手机直播]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[创建直播APP]]></category>
+		<category><![CDATA[实现直播]]></category>
+		<category><![CDATA[推流管理]]></category>
+		<category><![CDATA[搭建服务器]]></category>
+		<guid isPermaLink="false">/?p=6335</guid>
+
+					<description><![CDATA[手机直播 手机直播 1 1. 搭建直播服务器 2 1.1. 下载srs代码至服务器 2 1.2. 编译安装直播 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p><a id="post-6335-_____"></a><a id="post-6335-_Toc256000000"></a><br />
+  手机直播
+</p>
+<p><a href="#post-6335-_Toc256000000">手机直播	1</a>
+</p>
+<p><a href="#post-6335-_Toc256000002">1.	搭建直播服务器	2</a>
+</p>
+<p><a href="#post-6335-_Toc256000003">1.1.	下载srs代码至服务器	2</a>
+</p>
+<p><a href="#post-6335-_Toc256000004">1.2.	编译安装直播服务器	2</a>
+</p>
+<p><a href="#post-6335-_Toc256000005">2.	搭建一个简单的推流和拉流地址管理	3</a>
+</p>
+<p><a href="#post-6335-_Toc256000006">2.1.	创建一个用于保存推流和拉流地址的表	3</a>
+</p>
+<p><a href="#post-6335-_Toc256000007">2.2.	使用Yii2创建一个项目	4</a>
+</p>
+<p><a href="#post-6335-_Toc256000008">2.3.	Yii2框架的手册要点	4</a>
+</p>
+<p><a href="#post-6335-_Toc256000009">2.4.	启动Yii2项目的测试服务器	4</a>
+</p>
+<p><a href="#post-6335-_Toc256000010">2.5.	修改数据库配置	4</a>
+</p>
+<p><a href="#post-6335-_Toc256000011">2.6.	使用gii生成live表的增删改查	5</a>
+</p>
+<p><a href="#post-6335-_Toc256000012">2.6.1.	生成live表对应的模型	5</a>
+</p>
+<p><a href="#post-6335-_Toc256000013">2.6.2.	生成增删改查	5</a>
+</p>
+<p><a href="#post-6335-_Toc256000014">3.	使用srs提供有效的推流和拉流地址	5</a>
+</p>
+<p><a href="#post-6335-_Toc256000015">3.1.	使用srs启动一个rtmp协议的直播服务	5</a>
+</p>
+<p><a href="#post-6335-_Toc256000016">3.2.	获取推流和拉流的默认地址并进行测试	6</a>
+</p>
+<p><a href="#post-6335-_Toc256000017">3.3.	将推流和拉流地址分别存入数据库live表中	6</a>
+</p>
+<p><a href="#post-6335-_Toc256000018">4.	使用apicloud创建直播APP	6</a>
+</p>
+<p><a href="#post-6335-_Toc256000019">4.1.	注册apicloud账号	6</a>
+</p>
+<p><a href="#post-6335-_Toc256000020">4.2.	创建一个APP	6</a>
+</p>
+<p><a href="#post-6335-_Toc256000021">4.3.	将APP的初始代码检出到本地	6</a>
+</p>
+<p><a href="#post-6335-_Toc256000022">4.4.	在APP中请求PHP提供的接口获取推流和拉流地址	7</a>
+</p>
+<p><a href="#post-6335-_Toc256000023">4.4.1.	编写PHP接口提供数据	7</a>
+</p>
+<p><a href="#post-6335-_Toc256000024">4.5.	在APP端通过接口获取对应数据	7</a>
+</p>
+<p><a href="#post-6335-_Toc256000025">5.	使用palyModule实现直播	7</a>
+</p>
+<p><a href="#post-6335-_Toc256000026">5.1.	添加playModule模块	8</a>
+</p>
+<p><a href="#post-6335-_Toc256000027">5.2.	编写代码获取推流地址	8</a>
+</p>
+<p><a href="#post-6335-_Toc256000028">5.3.	上传代码云编译	8</a>
+</p>
+<p><a href="#post-6335-_Toc256000029">6.	实现推流	8</a>
+</p>
+<p><a href="#post-6335-_Toc256000030">6.1.	实现推流地址下拉列表框	8</a>
+</p>
+<p><a href="#post-6335-_Toc256000031">6.2.	使用模块插件ytylive实现推流效果	8</a>
+</p>
+<p><a href="#post-6335-_Toc256000032">6.2.1.	选择模块插件	8</a>
+</p>
+<p><a href="#post-6335-_Toc256000033">6.2.2.	编码实现推流	8</a>
+</p>
+<p><a href="#post-6335-_Toc256000034">6.2.3.	使用播放器或者新的安卓模拟器进行效果查看	8</a>
+</p>
+<p><img fetchpriority="high" decoding="async" width="1155" height="258" src="/wp-content/uploads/2018/05/word-image-5775.png" class="wp-image-6336" srcset="/wp-content/uploads/2018/05/word-image-5775.png 1155w, /wp-content/uploads/2018/05/word-image-5775-300x67.png 300w, /wp-content/uploads/2018/05/word-image-5775-768x172.png 768w, /wp-content/uploads/2018/05/word-image-5775-1024x229.png 1024w" sizes="(max-width: 1155px) 100vw, 1155px" /></p>
+<h1><a id="post-6335-________"></a><a id="post-6335-_Toc256000002"></a>搭建直播服务器</h1>
+<p><img decoding="async" width="706" height="206" src="/wp-content/uploads/2018/05/word-image-5776.png" class="wp-image-6337" srcset="/wp-content/uploads/2018/05/word-image-5776.png 706w, /wp-content/uploads/2018/05/word-image-5776-300x88.png 300w" sizes="(max-width: 706px) 100vw, 706px" /></p>
+<p>
+  Nginx的rtmp插件：
+</p>
+<p>
+  官网参考：<a href="https://github.com/arut/nginx-rtmp-module">https://github.com/arut/nginx-rtmp-module</a>
+</p>
+<p>
+  Srs直播服务器：
+</p>
+<p>
+  官网参考：<a href="https://github.com/ossrs/srs">https://github.com/ossrs/srs</a>
+</p>
+<p>
+  中文文档参考：<a href="https://github.com/ossrs/srs/wiki/v3_CN_Home">https://github.com/ossrs/srs/wiki/v3_CN_Home</a>
+</p>
+<h2><a id="post-6335-___srs______"></a><a id="post-6335-_Toc256000003"></a>下载srs代码至服务器</h2>
+<p>
+  git clone <a href="https://github.com/ossrs/srs.git">https://github.com/ossrs/srs.git</a>
+</p>
+<h2><a id="post-6335-__________"></a><a id="post-6335-_Toc256000004"></a>编译安装直播服务器</h2>
+<p>
+  注意：在编译安装的时候，需要关闭防火墙：
+</p>
+<p>
+  =》cd /trunk
+</p>
+<p>
+  =》./configure &#8211;prefix=/www/server/srs &#8211;with-ffmpeg
+</p>
+<p>
+  //&#8211;prefix=/www/server/srs指定安装位置
+</p>
+<p>
+  //&#8211;with-ffmpeg编译ffmpeg模块
+</p>
+<p>
+  =》make -j2 //编译srs程序
+</p>
+<p>
+  //-j2 可选项指定是使用的CPU核数指有CPU有多少核，用来加快编译速度
+</p>
+<p>
+  =》make install
+</p>
+<p>
+  或者：
+</p>
+<p>
+  ./configure &#8211;prefix=/www/server/srs &#8211;with-ffmpeg &amp;&amp; make -j2 &amp;&amp; make install
+</p>
+<p>
+  启动srs服务器
+</p>
+<h1><a id="post-6335-_________________"></a><a id="post-6335-_Toc256000005"></a>搭建一个简单的推流和拉流地址管理</h1>
+<p><img decoding="async" width="1476" height="258" src="/wp-content/uploads/2018/05/word-image-5777.png" class="wp-image-6338" srcset="/wp-content/uploads/2018/05/word-image-5777.png 1476w, /wp-content/uploads/2018/05/word-image-5777-300x52.png 300w, /wp-content/uploads/2018/05/word-image-5777-768x134.png 768w, /wp-content/uploads/2018/05/word-image-5777-1024x179.png 1024w" sizes="(max-width: 1476px) 100vw, 1476px" /></p>
+<h2><a id="post-6335-__________________"></a><a id="post-6335-_Toc256000006"></a>创建一个用于保存推流和拉流地址的表</h2>
+<p>
+  建表语句：
+</p>
+<p>
+  CREATE TABLE applive.live
+</p>
+<p>
+  (
+</p>
+<p>
+      id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+</p>
+<p>
+      push_url VARCHAR(255) COMMENT &#8216;推流地址&#8217;,
+</p>
+<p>
+      pull_url VARCHAR(255) COMMENT &#8216;拉流地址&#8217;
+</p>
+<p>
+  );
+</p>
+<p>
+  CREATE UNIQUE INDEX live_push_url_uindex ON applive.live (push_url);
+</p>
+<p>
+  CREATE UNIQUE INDEX live_pull_url_uindex ON applive.live (pull_url);
+</p>
+<p>
+  ALTER TABLE applive.live COMMENT = &#8216;保存直播的推流和拉流的表&#8217;;
+</p>
+<h2><a id="post-6335-___Yii2______"></a><a id="post-6335-_Toc256000007"></a>使用Yii2创建一个项目</h2>
+<p>
+  参考官网最新的文档：<a href="http://www.yiiframework.com/doc-2.0/guide-start-installation.html">http://www.yiiframework.com/doc-2.0/guide-start-installation.html</a>
+</p>
+<p>
+  下载Yii2源代码：
+</p>
+<p>
+  如果没有安装composer：
+</p>
+<p>
+  curl -sS <a href="https://getcomposer.org/installer">https://getcomposer.org/installer</a> | ph
+</p>
+<p>
+  mv composer.phar /usr/local/bin/composer
+</p>
+<p>
+  进入到可以通过web访问的目录
+</p>
+<p>
+  =》composer global require &#8220;fxp/composer-asset-plugin:^1.2.0&#8221;
+</p>
+<p>
+  创建一个项目：
+</p>
+<p>
+  composer create-project &#8211;prefer-dist yiisoft/yii2-app-basic AppLive
+</p>
+<h2><a id="post-6335-_Yii2_______"></a><a id="post-6335-_Toc256000008"></a>Yii2框架的手册要点</h2>
+<h2><a id="post-6335-___Yii2________"></a><a id="post-6335-_Toc256000009"></a>启动Yii2项目的测试服务器</h2>
+<p>
+  =》cd /wokers/AppLive 进入项目目录
+</p>
+<p>
+  =》php yii serve/index
+</p>
+<h2><a id="post-6335-_________2"></a><a id="post-6335-_Toc256000010"></a>修改数据库配置</h2>
+<p>
+  修改默认的数据库以及数据库用户名和密码
+</p>
+<p>
+  由于Yii框架默认配置了数据库以及数据库的用户名和密码信息，所以需要修改成自己的数据库配置信息：
+</p>
+<h2><a id="post-6335-___gii__live______"></a><a id="post-6335-_Toc256000011"></a>使用gii生成live表的增删改查</h2>
+<p><img loading="lazy" decoding="async" width="915" height="206" src="/wp-content/uploads/2018/05/word-image-5778.png" class="wp-image-6340" srcset="/wp-content/uploads/2018/05/word-image-5778.png 915w, /wp-content/uploads/2018/05/word-image-5778-300x68.png 300w, /wp-content/uploads/2018/05/word-image-5778-768x173.png 768w" sizes="(max-width: 915px) 100vw, 915px" /></p>
+<p>
+  多学一招：线上部署如果想使用gii需要单独配置IP白名单
+</p>
+<h3><a id="post-6335-___live______"></a><a id="post-6335-_Toc256000012"></a>生成live表对应的模型</h3>
+<h3><a id="post-6335-_______"></a><a id="post-6335-_Toc256000013"></a>生成增删改查</h3>
+<h1><a id="post-6335-___srs____________"></a><a id="post-6335-_Toc256000014"></a>使用srs提供有效的推流和拉流地址</h1>
+<p><img loading="lazy" decoding="async" width="1673" height="206" src="/wp-content/uploads/2018/05/word-image-5779.png" class="wp-image-6341" srcset="/wp-content/uploads/2018/05/word-image-5779.png 1673w, /wp-content/uploads/2018/05/word-image-5779-300x37.png 300w, /wp-content/uploads/2018/05/word-image-5779-768x95.png 768w, /wp-content/uploads/2018/05/word-image-5779-1024x126.png 1024w" sizes="(max-width: 1673px) 100vw, 1673px" /></p>
+<h2><a id="post-6335-___srs____rtmp_______"></a><a id="post-6335-_Toc256000015"></a>使用srs启动一个rtmp协议的直播服务</h2>
+<p>
+  由于需要以rtmp协议进行直播服务，所以要使用rtmp直播服务的对应配置文件来启动srs
+</p>
+<p>
+  =》cd /www/server/srs //切换到程序安装目录
+</p>
+<p>
+  =》./objs/src -c ./conf/rtmp.conf
+</p>
+<h2><a id="post-6335-___________________2"></a><a id="post-6335-_Toc256000016"></a>获取推流和拉流的默认地址并进行测试</h2>
+<p>
+  rtmp默认的推流地址：rtmp://服务器IP地址/live/livestream
+</p>
+<p>
+  rtmp默认的拉流地址：rtmp://服务器IP地址/live/livestream
+</p>
+<p>
+  例如：我的srs服务器对应的推流和拉流地址
+</p>
+<p>
+  推流地址：rtmp://116.62.60.90/live/livestream
+</p>
+<p>
+  拉流地址：rtmp://116.62.60.90/live/livestream
+</p>
+<h2><a id="post-6335-________________live__"></a><a id="post-6335-_Toc256000017"></a>将推流和拉流地址分别存入数据库live表中</h2>
+<h1><a id="post-6335-___apicloud____APP"></a><a id="post-6335-_Toc256000018"></a>使用apicloud创建直播APP</h1>
+<p><img loading="lazy" decoding="async" width="1515" height="258" src="/wp-content/uploads/2018/05/word-image-5780.png" class="wp-image-6342" srcset="/wp-content/uploads/2018/05/word-image-5780.png 1515w, /wp-content/uploads/2018/05/word-image-5780-300x51.png 300w, /wp-content/uploads/2018/05/word-image-5780-768x131.png 768w, /wp-content/uploads/2018/05/word-image-5780-1024x174.png 1024w" sizes="(max-width: 1515px) 100vw, 1515px" /></p>
+<h2><a id="post-6335-___apicloud__"></a><a id="post-6335-_Toc256000019"></a>注册apicloud账号</h2>
+<h2><a id="post-6335-_____APP"></a><a id="post-6335-_Toc256000020"></a>创建一个APP</h2>
+<h2><a id="post-6335-__APP__________"></a><a id="post-6335-_Toc256000021"></a>将APP的初始代码检出到本地</h2>
+<p>
+  注意：检出的用户名是注册时候的邮箱
+</p>
+<h2><a id="post-6335-__APP___PHP______________"></a><a id="post-6335-_Toc256000022"></a>在APP中请求PHP提供的接口获取推流和拉流地址</h2>
+<p><img loading="lazy" decoding="async" width="930" height="199" src="/wp-content/uploads/2018/05/word-image-5781.png" class="wp-image-6343" srcset="/wp-content/uploads/2018/05/word-image-5781.png 930w, /wp-content/uploads/2018/05/word-image-5781-300x64.png 300w, /wp-content/uploads/2018/05/word-image-5781-768x164.png 768w" sizes="(max-width: 930px) 100vw, 930px" /></p>
+<h3><a id="post-6335-___PHP______"></a><a id="post-6335-_Toc256000023"></a>编写PHP接口提供数据</h3>
+<p>
+  使用yii提供的gii代码生成工具生成输出直播数据的控制器
+</p>
+<p><strong>编写代码输出数据</strong>
+</p>
+<p>
+  访问上面生成的ApiController中的index方法
+</p>
+<p><a href="http://0.0.0.0:8080/?r=api/index">http://0.0.0.0:8080/?r=api/index</a>
+</p>
+<h2><a id="post-6335-__APP___________"></a><a id="post-6335-_Toc256000024"></a>在APP端通过接口获取对应数据</h2>
+<p>
+  注意：安卓模拟器中，无法直接访问localhost:8080
+</p>
+<p>
+  脚下留心：默认发送post请求时必须携带csrf token验证，否则报错，这里需要设置白名单：enableCsrfValidation=false
+</p>
+<h1><a id="post-6335-___palyModule____"></a><a id="post-6335-_Toc256000025"></a>使用palyModule实现直播</h1>
+<p><img loading="lazy" decoding="async" width="1120" height="206" src="/wp-content/uploads/2018/05/word-image-5782.png" class="wp-image-6344" srcset="/wp-content/uploads/2018/05/word-image-5782.png 1120w, /wp-content/uploads/2018/05/word-image-5782-300x55.png 300w, /wp-content/uploads/2018/05/word-image-5782-768x141.png 768w, /wp-content/uploads/2018/05/word-image-5782-1024x188.png 1024w" sizes="(max-width: 1120px) 100vw, 1120px" /></p>
+<h2><a id="post-6335-___playModule__"></a><a id="post-6335-_Toc256000026"></a>添加playModule模块</h2>
+<h2><a id="post-6335-___________"></a><a id="post-6335-_Toc256000027"></a>编写代码获取推流地址</h2>
+<h2><a id="post-6335-_________3"></a><a id="post-6335-_Toc256000028"></a>上传代码云编译</h2>
+<h1><a id="post-6335-______2"></a><a id="post-6335-_Toc256000029"></a>实现推流</h1>
+<p><img loading="lazy" decoding="async" width="714" height="206" src="/wp-content/uploads/2018/05/word-image-5783.png" class="wp-image-6345" srcset="/wp-content/uploads/2018/05/word-image-5783.png 714w, /wp-content/uploads/2018/05/word-image-5783-300x87.png 300w" sizes="(max-width: 714px) 100vw, 714px" /></p>
+<h2><a id="post-6335-____________"></a><a id="post-6335-_Toc256000030"></a>实现推流地址下拉列表框</h2>
+<h2><a id="post-6335-_______ytylive______"></a><a id="post-6335-_Toc256000031"></a>使用模块插件ytylive实现推流效果</h2>
+<p><img loading="lazy" decoding="async" width="1448" height="224" src="/wp-content/uploads/2018/05/word-image-5784.png" class="wp-image-6346" srcset="/wp-content/uploads/2018/05/word-image-5784.png 1448w, /wp-content/uploads/2018/05/word-image-5784-300x46.png 300w, /wp-content/uploads/2018/05/word-image-5784-768x119.png 768w, /wp-content/uploads/2018/05/word-image-5784-1024x158.png 1024w" sizes="(max-width: 1448px) 100vw, 1448px" /></p>
+<h3><a id="post-6335-________2"></a><a id="post-6335-_Toc256000032"></a>选择模块插件</h3>
+<h3><a id="post-6335-________3"></a><a id="post-6335-_Toc256000033"></a>编码实现推流</h3>
+<h3><a id="post-6335-_____________________"></a><a id="post-6335-_Toc256000034"></a>使用播放器或者新的安卓模拟器进行效果查看</h3>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6335.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

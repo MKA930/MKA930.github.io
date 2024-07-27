@@ -1,0 +1,3264 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>PHP核心编程 &#8211; 个人随笔</title>
+	<atom:link href="/classify/php/php%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 12:21:13 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>PHP核心编程 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>PHP 核心编程（一）文件上传、 表单传值、 验证文件类型</title>
+		<link>/php/1641.html</link>
+					<comments>/php/1641.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 10:22:37 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP核心编程]]></category>
+		<category><![CDATA[文件上传]]></category>
+		<category><![CDATA[表单传值]]></category>
+		<category><![CDATA[验证文件类型]]></category>
+		<guid isPermaLink="false">/?p=1641</guid>
+
+					<description><![CDATA[PHP核心编程（表单传值） 表单传值的方式 表单传值的方式有两种：get、post 从地址栏外观上来说 带有问 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>PHP核心编程（表单传值）</h1>
+<h2>表单传值的方式</h2>
+<p>
+  表单传值的方式有两种：get、post
+</p>
+<h3>从地址栏外观上来说</h3>
+<ol>
+<li>
+  带有问号是get【默认】
+</li>
+<li>
+  不带有问号的是post
+</li>
+</ol>
+<p><img fetchpriority="high" decoding="async" width="676" height="108" src="/wp-content/uploads/2018/05/word-image-1472.png" class="wp-image-1643" srcset="/wp-content/uploads/2018/05/word-image-1472.png 676w, /wp-content/uploads/2018/05/word-image-1472-300x48.png 300w" sizes="(max-width: 676px) 100vw, 676px" /><br />
+<img decoding="async" width="637" height="85" src="/wp-content/uploads/2018/05/word-image-1473.png" class="wp-image-1644" srcset="/wp-content/uploads/2018/05/word-image-1473.png 637w, /wp-content/uploads/2018/05/word-image-1473-300x40.png 300w" sizes="(max-width: 637px) 100vw, 637px" /></p>
+<p>
+  脚下留心：如果表单不指定传递方法，默认是get提交
+</p>
+<p><img decoding="async" width="584" height="24" src="/wp-content/uploads/2018/05/word-image-1474.png" class="wp-image-1645" srcset="/wp-content/uploads/2018/05/word-image-1474.png 584w, /wp-content/uploads/2018/05/word-image-1474-300x12.png 300w" sizes="(max-width: 584px) 100vw, 584px" /></p>
+<h3>从提交的数据大小来说</h3>
+<ol>
+<li>
+  提交少量数据，不同的浏览器最大值不一样，IE是2K
+</li>
+<li>
+  提交大量数据，可以在php.ini中post_max_size来更改传递数据的最大值
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="712" height="156" src="/wp-content/uploads/2018/05/word-image-1475.png" class="wp-image-1646" srcset="/wp-content/uploads/2018/05/word-image-1475.png 712w, /wp-content/uploads/2018/05/word-image-1475-300x66.png 300w" sizes="(max-width: 712px) 100vw, 712px" /></p>
+<h3>从安全性来说</h3>
+<ol>
+<li>
+  get安全性低
+</li>
+<li>
+  post安全性高
+</li>
+</ol>
+<h3>从提交的原理上来说</h3>
+<ol>
+<li>
+  get提交的数据和数据之间是独立的
+</li>
+<li>
+  post提交的数据转成XML格式一起提交，将所有的数据作为一个整体。
+</li>
+</ol>
+<h3>灵活性</h3>
+<ol>
+<li>
+  get提交很灵活，只要有页面的跳转就可以传递数据
+</li>
+<li>
+  post数据不灵活，必须要有表单的参与【ajax中post提交除外】
+</li>
+</ol>
+<p>
+  脚下留心：在项目中，get提交使用的频率高，因为get很灵活。
+</p>
+<h2>接受数据的三种方式</h2>
+<p>
+  1、$_GET：数组，保存get提交的数据
+</p>
+<p>
+  2、$_POST：数组，保存post提交的数据
+</p>
+<p>
+  3、$_REQUEST：数组，保存get和post提交的数据
+</p>
+<h2>传递复选框数据</h2>
+<p><img loading="lazy" decoding="async" width="968" height="233" src="/wp-content/uploads/2018/05/word-image-1476.png" class="wp-image-1647" srcset="/wp-content/uploads/2018/05/word-image-1476.png 968w, /wp-content/uploads/2018/05/word-image-1476-300x72.png 300w, /wp-content/uploads/2018/05/word-image-1476-768x185.png 768w" sizes="(max-width: 968px) 100vw, 968px" /></p>
+<h2>文件上传</h2>
+<p>
+  文件上传在项目中用的很多，比如上传照片，视频，音频等等。
+</p>
+<h3>表单的enctype属性</h3>
+<p><img loading="lazy" decoding="async" width="682" height="63" src="/wp-content/uploads/2018/05/word-image-1477.png" class="wp-image-1649" srcset="/wp-content/uploads/2018/05/word-image-1477.png 682w, /wp-content/uploads/2018/05/word-image-1477-300x28.png 300w" sizes="(max-width: 682px) 100vw, 682px" /></p>
+<ol>
+<li>
+  application/x-www-form-urlencoded：这是一个默认值，主要用于文本数据的传递，用来向服务器发送文本。
+</li>
+<li>
+  multipart/form-data：告知浏览器表单中有复合的数据（字符串，二进制）。
+</li>
+<li>
+  text/plain：用来向服务器发送大量文本，该方式主要应用于做电子邮件。
+</li>
+</ol>
+<p>
+  脚下留心：要传递数据，表单的enctype属性必须选择multipart/form-data
+</p>
+<h3>文件域</h3>
+<p><img loading="lazy" decoding="async" width="937" height="77" src="/wp-content/uploads/2018/05/word-image-1478.png" class="wp-image-1650" srcset="/wp-content/uploads/2018/05/word-image-1478.png 937w, /wp-content/uploads/2018/05/word-image-1478-300x25.png 300w, /wp-content/uploads/2018/05/word-image-1478-768x63.png 768w" sizes="(max-width: 937px) 100vw, 937px" /></p>
+<h3>$_FILES</h3>
+<p>
+  超全局变量$_FILES是一个二维数组，该数组用来保存上传到服务器的文件，行是文件域的名称，列有5个。
+</p>
+<p><img loading="lazy" decoding="async" width="1283" height="256" src="/wp-content/uploads/2018/05/word-image-1479.png" class="wp-image-1651" srcset="/wp-content/uploads/2018/05/word-image-1479.png 1283w, /wp-content/uploads/2018/05/word-image-1479-300x60.png 300w, /wp-content/uploads/2018/05/word-image-1479-768x153.png 768w, /wp-content/uploads/2018/05/word-image-1479-1024x204.png 1024w" sizes="(max-width: 1283px) 100vw, 1283px" /></p>
+<p>
+  1、$_FILES[][‘name’]：文件名称
+</p>
+<p>
+  2、$_FILES[][‘type]：文件的类型，MIME类型
+</p>
+<p>
+  3、$_FILES[][‘tmp_name]：文件上传的临时文件
+</p>
+<p>
+  4、$_FILES[][‘error]：上传的错误号，0表示没有错误
+</p>
+<p>
+  5、$_FILES[][‘size’]：文件大小，单位是字节
+</p>
+<h3>详解$_FILES[][‘type]</h3>
+<p>
+  $_FILES[][‘type]返回的是MIME类型的格式，这种格式的组成是“类别/格式”比如“image/png”,“text/html”。
+</p>
+<p><img loading="lazy" decoding="async" width="881" height="55" src="/wp-content/uploads/2018/05/word-image-1480.png" class="wp-image-1652" srcset="/wp-content/uploads/2018/05/word-image-1480.png 881w, /wp-content/uploads/2018/05/word-image-1480-300x19.png 300w, /wp-content/uploads/2018/05/word-image-1480-768x48.png 768w" sizes="(max-width: 881px) 100vw, 881px" /></p>
+<p>
+  application/msword：.doc文件
+</p>
+<p>
+  application/vnd.openxmlformats-officedocument.wordprocessingml.document：docx后缀
+</p>
+<p>
+  text/plain：记事本
+</p>
+<h3>详解$_FILES[][‘tmp_name]</h3>
+<p>
+  文件在上传的时候临时文件地址
+</p>
+<p>
+  可以在php.ini中通过upload_tmp_dir指定临时目录的地址
+</p>
+<p><img loading="lazy" decoding="async" width="719" height="62" src="/wp-content/uploads/2018/05/word-image-1481.png" class="wp-image-1653" srcset="/wp-content/uploads/2018/05/word-image-1481.png 719w, /wp-content/uploads/2018/05/word-image-1481-300x26.png 300w" sizes="(max-width: 719px) 100vw, 719px" /></p>
+<p>
+  如果不指定，临时地址由操作系统决定
+</p>
+<h3>与上传有关的配置</h3>
+<ol>
+<li>
+  upload_tmp_dir：文件上传的临时地址
+</li>
+<li>
+  post_max_size=8M：post提交的最大值，默认是8M
+</li>
+<li>
+  upload_max_filesize=2M：上传文件的最大值是2M
+</li>
+<li>
+  file_uploads=on：是否允许文件上传
+</li>
+<li>
+  max_file_uploads=20：最多可以上传的文件个数
+</li>
+</ol>
+<h3>详解$_FILES[][‘error’]</h3>
+<p>
+  $_FILES[][‘error’]表示文件上传的错误代码，取值有0,1,2,3,4,6,7，非零表示有错误。
+</p>
+<p>
+  0：正确
+</p>
+<p>
+  1：文件大小超出了php.ini中upload_max_filesize允许的最大值。
+</p>
+<p>
+  2：文件大小超出了表单允许的最大值
+</p>
+<p><img loading="lazy" decoding="async" width="941" height="191" src="/wp-content/uploads/2018/05/word-image-1482.png" class="wp-image-1654" srcset="/wp-content/uploads/2018/05/word-image-1482.png 941w, /wp-content/uploads/2018/05/word-image-1482-300x61.png 300w, /wp-content/uploads/2018/05/word-image-1482-768x156.png 768w" sizes="(max-width: 941px) 100vw, 941px" /></p>
+<p>
+  3：只有部分文件上传
+</p>
+<p>
+  4：没有文件上传，上传的文件为空
+</p>
+<p>
+  6：找不到临时文件
+</p>
+<p>
+  7：文件写入失败（从临时目录向目标目录移动的时候失败了）
+</p>
+<h3>补充：隐藏域</h3>
+<p>
+  语法：&lt;input type=&#8221;hidden&#8221; value=&#8221;&#8221; /&gt;
+</p>
+<p>
+  隐藏域也是表单元素的一种，在浏览器上不会显示，
+</p>
+<p>
+  应用：用来向服务器提交数据，并且此数据不需要显示在浏览器上。
+</p>
+<h2>move_uploaded_file</h2>
+<p><img loading="lazy" decoding="async" width="623" height="128" src="/wp-content/uploads/2018/05/word-image-1483.png" class="wp-image-1655" srcset="/wp-content/uploads/2018/05/word-image-1483.png 623w, /wp-content/uploads/2018/05/word-image-1483-300x62.png 300w" sizes="(max-width: 623px) 100vw, 623px" /></p>
+<p>
+  例题
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  if(!empty($_POST)){
+</p>
+<p>
+  	if($_FILES[&#8216;img&#8217;][&#8216;error&#8217;]==0){
+</p>
+<p>
+  		$tmp=$_FILES[&#8216;img&#8217;][&#8216;tmp_name&#8217;];			//文件临时地址
+</p>
+<p>
+  	$dest=&#8217;./Uploads/&#8217;.iconv(&#8216;utf-8&#8242;,&#8217;gb2312&#8217;,$_FILES[&#8216;img&#8217;][&#8216;name&#8217;]);	//目标地址
+</p>
+<p>
+  		if(move_uploaded_file($tmp,$dest))		//文件上传
+</p>
+<p>
+  			echo &#8216;成功&#8217;;
+</p>
+<p>
+  		else
+</p>
+<p>
+  			echo &#8216;失败&#8217;;
+</p>
+<p>
+  	}else{
+</p>
+<p>
+  		echo $_FILES[&#8216;img&#8217;][&#8216;error&#8217;];
+</p>
+<p>
+  		echo &#8216;文件上传失败&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form action=&#8221;&#8221; method=&#8221;post&#8221; enctype=&#8221;multipart/form-data&#8221;&gt;
+</p>
+<p>
+  &lt;input type=&#8221;file&#8221; name=&#8221;img&#8221; /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;submit&#8221; name=&#8221;btn&#8221; value=&#8221;上传&#8221; /&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p>
+  多学一招：iconv()函数用于字符编码的转换。
+</p>
+<h2>验证文件的类型</h2>
+<p>
+  方法一：通过文件的MIME类型验证
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  if(isset($_POST[&#8216;btn&#8217;])) {
+</p>
+<p>
+  	//只有jpg,gif,png可以上传  image/jpeg,image/gif,image/png
+</p>
+<p>
+  	$allow=array(&#8216;image/jpeg&#8217;,&#8217;image/png&#8217;,&#8217;image/gif&#8217;);//mime类型
+</p>
+<p>
+  	if(in_array($_FILES[&#8216;img&#8217;][&#8216;type&#8217;],$allow)){
+</p>
+<p>
+  		$tmp=$_FILES[&#8216;img&#8217;][&#8216;tmp_name&#8217;];	//临时文件路径
+</p>
+<p>
+  		$dst=&#8217;./Uploads/&#8217;.$_FILES[&#8216;img&#8217;][&#8216;name&#8217;];//目标地址
+</p>
+<p>
+  		echo move_uploaded_file($tmp,$dst)?&#8217;上传成功&#8217;:&#8217;上传失败&#8217;;
+</p>
+<p>
+  	}else{
+</p>
+<p>
+  		echo $_FILES[&#8216;img&#8217;][&#8216;type&#8217;].&#8217;为非法类型&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form action=&#8221;&#8221; method=&#8221;post&#8221; enctype=&#8221;multipart/form-data&#8221;&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;file&#8221; name=&#8221;img&#8221; /&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;submit&#8221; name=&#8221;btn&#8221; value=&#8221;上传&#8221; /&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p>
+  方法二：通过验证文件的后缀来判断文件
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //$path=&#8217;aa.bb.cc.JPG&#8217;;			//文件名
+</p>
+<p>
+  //echo strrchr($path,&#8217;.&#8217;);		//获取文件扩展名
+</p>
+<p>
+  if(isset($_POST[&#8216;btn&#8217;])) {
+</p>
+<p>
+  	$allow=array(&#8216;.jpg&#8217;,&#8217;.jpeg&#8217;,&#8217;.gif&#8217;,&#8217;.png&#8217;);				//允许的文件扩展名
+</p>
+<p>
+  	$ext=strtolower(strrchr($_FILES[&#8216;img&#8217;][&#8216;name&#8217;],&#8217;.&#8217;));	//上传文件小写扩展名
+</p>
+<p>
+  	if(in_array($ext,$allow))
+</p>
+<p>
+  		echo &#8216;合法&#8217;;
+</p>
+<p>
+  	else
+</p>
+<p>
+  		echo &#8216;非法&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  脚下留心：方法一和方法二不能识别文件伪装。
+</p>
+<p>
+  方法三：通过php_fileinfo扩展来验证文件类型，此方法做严格检查。
+</p>
+<p>
+  fileinfo扩展可以防止文件伪装
+</p>
+<p>
+  要使用fileinfo扩展必须在php.ini中开启此扩展
+</p>
+<p><img loading="lazy" decoding="async" width="694" height="80" src="/wp-content/uploads/2018/05/word-image-1484.png" class="wp-image-1656" srcset="/wp-content/uploads/2018/05/word-image-1484.png 694w, /wp-content/uploads/2018/05/word-image-1484-300x35.png 300w" sizes="(max-width: 694px) 100vw, 694px" /></p>
+<p>
+  重启服务器。
+</p>
+<p><img loading="lazy" decoding="async" width="505" height="152" src="/wp-content/uploads/2018/05/word-image-1485.png" class="wp-image-1657" srcset="/wp-content/uploads/2018/05/word-image-1485.png 505w, /wp-content/uploads/2018/05/word-image-1485-300x90.png 300w" sizes="(max-width: 505px) 100vw, 505px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="1094" height="171" src="/wp-content/uploads/2018/05/word-image-1486.png" class="wp-image-1658" srcset="/wp-content/uploads/2018/05/word-image-1486.png 1094w, /wp-content/uploads/2018/05/word-image-1486-300x47.png 300w, /wp-content/uploads/2018/05/word-image-1486-768x120.png 768w, /wp-content/uploads/2018/05/word-image-1486-1024x160.png 1024w" sizes="(max-width: 1094px) 100vw, 1094px" /></p>
+<p>
+  完整例题
+</p>
+<p>
+  if(isset($_POST[&#8216;btn&#8217;])) {
+</p>
+<p>
+  	//第一步：创建fileinfo资源
+</p>
+<p>
+  	$finfo=finfo_open(FILEINFO_MIME);		//创建了一个资源
+</p>
+<p>
+  	//第二步：将上传的文件与创建的资源做比较
+</p>
+<p>
+  	$info=finfo_file($finfo,$_FILES[&#8216;img&#8217;][&#8216;tmp_name&#8217;]);	//返回文件信息
+</p>
+<p>
+  	//第三步：分析返回的结果
+</p>
+<p>
+  	$allow=array(&#8216;image/jpeg&#8217;,&#8217;image/png&#8217;,&#8217;image/gif&#8217;);//允许mime类型
+</p>
+<p>
+  	$array=explode(&#8216;;&#8217;,$info);
+</p>
+<p>
+  	echo in_array($array[0],$allow)?&#8217;合法&#8217;:&#8217;非法&#8217;;
+</p>
+<p>
+  }
+</p>
+<h2>生成唯一文件名</h2>
+<p>
+  在文件上传的过程中，后面的文件将前面的同名文件覆盖。解决方案给每个文件取一个唯一的文件名。
+</p>
+<p>
+  方法一：用时间戳做文件名
+</p>
+<p>
+  时间戳：从1970年1月1日0时0分0秒到现在的秒数（或毫秒数）
+</p>
+<p><img loading="lazy" decoding="async" width="289" height="27" src="/wp-content/uploads/2018/05/word-image-1487.png" class="wp-image-1659" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="1040" height="205" src="/wp-content/uploads/2018/05/word-image-1488.png" class="wp-image-1660" srcset="/wp-content/uploads/2018/05/word-image-1488.png 1040w, /wp-content/uploads/2018/05/word-image-1488-300x59.png 300w, /wp-content/uploads/2018/05/word-image-1488-768x151.png 768w, /wp-content/uploads/2018/05/word-image-1488-1024x202.png 1024w" sizes="(max-width: 1040px) 100vw, 1040px" /></p>
+<p>
+  方法二：通过uniqid()函数 — 生成一个唯一ID
+</p>
+<p><img loading="lazy" decoding="async" width="659" height="159" src="/wp-content/uploads/2018/05/word-image-1489.png" class="wp-image-1661" srcset="/wp-content/uploads/2018/05/word-image-1489.png 659w, /wp-content/uploads/2018/05/word-image-1489-300x72.png 300w" sizes="(max-width: 659px) 100vw, 659px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="740" height="142" src="/wp-content/uploads/2018/05/word-image-1490.png" class="wp-image-1662" srcset="/wp-content/uploads/2018/05/word-image-1490.png 740w, /wp-content/uploads/2018/05/word-image-1490-300x58.png 300w" sizes="(max-width: 740px) 100vw, 740px" /></p>
+<h2>优化文件上传例题</h2>
+<p>
+  &lt;?php
+</p>
+<p>
+  if(isset($_POST[&#8216;btn&#8217;])) {
+</p>
+<p>
+  	$error=$_FILES[&#8216;img&#8217;][&#8216;error&#8217;];	//获取上传错误码
+</p>
+<p>
+  	//文件上传有误
+</p>
+<p>
+  	if($error!==0){
+</p>
+<p>
+  		switch($error) {
+</p>
+<p>
+  			case 1:
+</p>
+<p>
+  				echo &#8216;上传文件超出了PHP允许的最大值&#8217;;
+</p>
+<p>
+  				break;
+</p>
+<p>
+  			case 2:
+</p>
+<p>
+  				echo &#8216;上传文件超出了表单允许的最大值&#8217;;
+</p>
+<p>
+  				break;
+</p>
+<p>
+  			case 3:
+</p>
+<p>
+  				echo &#8216;只有部分文件上传&#8217;;
+</p>
+<p>
+  				break;
+</p>
+<p>
+  			case 4:
+</p>
+<p>
+  				echo &#8216;上传文件为空&#8217;;
+</p>
+<p>
+  				break;
+</p>
+<p>
+  			case 6:
+</p>
+<p>
+  				echo &#8216;找不到临时文件&#8217;;
+</p>
+<p>
+  				break;
+</p>
+<p>
+  			case 7:
+</p>
+<p>
+  				echo &#8216;文件写入失败&#8217;;
+</p>
+<p>
+  				break;
+</p>
+<p>
+  			default:
+</p>
+<p>
+  				echo &#8216;未知错误&#8217;;
+</p>
+<p>
+  		}
+</p>
+<p>
+  		exit;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//验证格式
+</p>
+<p>
+  	$allow=array(&#8216;image/jpeg&#8217;,&#8217;image/png&#8217;,&#8217;image/gif&#8217;);	//允许文件类型
+</p>
+<p>
+  	$finfo=finfo_open(FILEINFO_MIME);					//创建了一个资源
+</p>
+<p>
+  	$info=finfo_file($finfo,$_FILES[&#8216;img&#8217;][&#8216;tmp_name&#8217;]);//返回文件信息
+</p>
+<p>
+  	$array=explode(&#8216;;&#8217;,$info);
+</p>
+<p>
+  	if(!in_array($array[0],$allow))
+</p>
+<p>
+  		die(&#8216;文件非法，只允许&#8217;.implode(&#8216;,&#8217;,$allow));
+</p>
+<p>
+  	//验证文件大小
+</p>
+<p>
+  	if($_FILES[&#8216;img&#8217;][&#8216;size&#8217;]&gt;1024*1024){
+</p>
+<p>
+  		die(&#8216;文件不能大于1M&#8217;);
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//验证上传文件是否是http上传
+</p>
+<p>
+  	if(!is_uploaded_file($_FILES[&#8216;img&#8217;][&#8216;tmp_name&#8217;])){ //判断文件是否是通过 HTTP POST 上传的
+</p>
+<p>
+  		die(&#8216;文件必须是http文件上传&#8217;);
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//文件上传
+</p>
+<p>
+  	$dest=&#8217;./uploads/&#8217;.uniqid(&#8221;,true).strrchr($_FILES[&#8216;img&#8217;][&#8216;name&#8217;],&#8217;.&#8217;);
+</p>
+<p>
+  	echo move_uploaded_file($_FILES[&#8216;img&#8217;][&#8216;tmp_name&#8217;],$dest)?&#8217;上传成功&#8217;:&#8217;上传失败&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form action=&#8221;&#8221; method=&#8221;post&#8221; enctype=&#8221;multipart/form-data&#8221;&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;file&#8221; name=&#8221;img&#8221; /&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;submit&#8221; name=&#8221;btn&#8221; value=&#8221;上传&#8221; /&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<h2>多文件上传</h2>
+<p><img loading="lazy" decoding="async" width="1074" height="327" src="/wp-content/uploads/2018/05/word-image-1491.png" class="wp-image-1663" srcset="/wp-content/uploads/2018/05/word-image-1491.png 1074w, /wp-content/uploads/2018/05/word-image-1491-300x91.png 300w, /wp-content/uploads/2018/05/word-image-1491-768x234.png 768w, /wp-content/uploads/2018/05/word-image-1491-1024x312.png 1024w" sizes="(max-width: 1074px) 100vw, 1074px" /></p>
+<p>
+  例题
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  if(isset($_POST[&#8216;btn&#8217;])) {
+</p>
+<p>
+  	//var_dump($_FILES);		//三维数组
+</p>
+<p>
+  	foreach($_FILES[&#8216;img&#8217;][&#8216;name&#8217;] as $k=&gt;$v) {
+</p>
+<p>
+  		$dest=&#8217;./Uploads/&#8217;.uniqid(&#8221;,true).strrchr($v,&#8217;.&#8217;);	//目标文件
+</p>
+<p>
+  		echo move_uploaded_file($_FILES[&#8216;img&#8217;][&#8216;tmp_name&#8217;][$k],$dest)?&#8217;成功&#8217;:&#8217;失败&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form action=&#8221;&#8221; method=&#8221;post&#8221; enctype=&#8221;multipart/form-data&#8221;&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;file&#8221; name=&#8221;img[]&#8221; /&gt;&lt;br&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;file&#8221; name=&#8221;img[]&#8221; /&gt;&lt;br&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;file&#8221; name=&#8221;img[]&#8221; /&gt;&lt;br&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;submit&#8221; name=&#8221;btn&#8221; value=&#8221;上传&#8221; /&gt;
+</p>
+<p>
+  &lt;/form&gt;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/1641.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>PHP 核心编程（二）Mysql 扩展、 数据库连接、 笑话增删改查</title>
+		<link>/php/1603.html</link>
+					<comments>/php/1603.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 10:20:34 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP核心编程]]></category>
+		<category><![CDATA[Mysql 扩展]]></category>
+		<category><![CDATA[数据库连接]]></category>
+		<category><![CDATA[笑话增删改查]]></category>
+		<guid isPermaLink="false">/?p=1603</guid>
+
+					<description><![CDATA[PHP核心编程（MySQL扩展） 回顾MySQL MySQL是CS结构的软件 在任务管理器中查看 数据库引擎  [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>PHP核心编程（MySQL扩展）</h1>
+<h2>回顾MySQL</h2>
+<h3>MySQL是CS结构的软件</h3>
+<p><img loading="lazy" decoding="async" width="749" height="176" src="/wp-content/uploads/2018/05/word-image-1437.png" class="wp-image-1605" srcset="/wp-content/uploads/2018/05/word-image-1437.png 749w, /wp-content/uploads/2018/05/word-image-1437-300x70.png 300w" sizes="(max-width: 749px) 100vw, 749px" /></p>
+<p>
+  在任务管理器中查看
+</p>
+<p><img loading="lazy" decoding="async" width="535" height="152" src="/wp-content/uploads/2018/05/word-image-1438.png" class="wp-image-1606" srcset="/wp-content/uploads/2018/05/word-image-1438.png 535w, /wp-content/uploads/2018/05/word-image-1438-300x85.png 300w" sizes="(max-width: 535px) 100vw, 535px" /></p>
+<h3>数据库引擎</h3>
+<p>
+  innodb：默认情况下所有表数据在一个文件中
+</p>
+<p>
+  myisam：默认情况下每个表都是独立的
+</p>
+<p><img loading="lazy" decoding="async" width="682" height="60" src="/wp-content/uploads/2018/05/word-image-1439.png" class="wp-image-1607" srcset="/wp-content/uploads/2018/05/word-image-1439.png 682w, /wp-content/uploads/2018/05/word-image-1439-300x26.png 300w" sizes="(max-width: 682px) 100vw, 682px" /></p>
+<p>
+  如果表文件是独立的，在做数据迁移的时候可以直接拷贝表文件。
+</p>
+<h3>MySQL客户端</h3>
+<p>
+  一：命令行客户端
+</p>
+<p>
+  	优点：启动方便，运行速度快
+</p>
+<p>
+  	缺点：不是可视化界面
+</p>
+<p>
+  二：phpMyAdmin（web形式的客户端）
+</p>
+<p>
+  	优点：只要有浏览器就可以操作数据库
+</p>
+<p>
+  	缺点：不能保存没有操作完毕的数据
+</p>
+<p>
+  三：navicate或mysql-front（window界面客户端）
+</p>
+<p>
+  	优点：可以保存没有操作完毕的数据
+</p>
+<p>
+  	缺点：需要安装才能使用。
+</p>
+<p>
+  四：PHP页面做客户端
+</p>
+<h2>将PHP作为MySQL客户端</h2>
+<p>
+  要使用php链接MySQL必须开启相应的扩展
+</p>
+<p><img loading="lazy" decoding="async" width="707" height="283" src="/wp-content/uploads/2018/05/word-image-1440.png" class="wp-image-1608" srcset="/wp-content/uploads/2018/05/word-image-1440.png 707w, /wp-content/uploads/2018/05/word-image-1440-300x120.png 300w" sizes="(max-width: 707px) 100vw, 707px" /></p>
+<h3>PHP有三种扩展连接数据库</h3>
+<p>
+  方式一：mysql扩展
+</p>
+<p>
+  方法二：mysqli扩展
+</p>
+<p>
+  方法三：pdo扩展
+</p>
+<p><img loading="lazy" decoding="async" width="965" height="234" src="/wp-content/uploads/2018/05/word-image-1441.png" class="wp-image-1609" srcset="/wp-content/uploads/2018/05/word-image-1441.png 965w, /wp-content/uploads/2018/05/word-image-1441-300x73.png 300w, /wp-content/uploads/2018/05/word-image-1441-768x186.png 768w" sizes="(max-width: 965px) 100vw, 965px" /></p>
+<h2>连接数据库</h2>
+<p>
+  mysql_connect(‘主机地址:端口号’,’用户名’,’密码’)
+</p>
+<p>
+  连接失败执行or后面的内容
+</p>
+<p><img loading="lazy" decoding="async" width="1028" height="58" src="/wp-content/uploads/2018/05/word-image-1442.png" class="wp-image-1611" srcset="/wp-content/uploads/2018/05/word-image-1442.png 1028w, /wp-content/uploads/2018/05/word-image-1442-300x17.png 300w, /wp-content/uploads/2018/05/word-image-1442-768x43.png 768w, /wp-content/uploads/2018/05/word-image-1442-1024x58.png 1024w" sizes="(max-width: 1028px) 100vw, 1028px" /></p>
+<p>
+  连接成功返回连接资源
+</p>
+<p><img loading="lazy" decoding="async" width="1108" height="56" src="/wp-content/uploads/2018/05/word-image-1443.png" class="wp-image-1612" srcset="/wp-content/uploads/2018/05/word-image-1443.png 1108w, /wp-content/uploads/2018/05/word-image-1443-300x15.png 300w, /wp-content/uploads/2018/05/word-image-1443-768x39.png 768w, /wp-content/uploads/2018/05/word-image-1443-1024x52.png 1024w" sizes="(max-width: 1108px) 100vw, 1108px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="1261" height="165" src="/wp-content/uploads/2018/05/word-image-1444.png" class="wp-image-1613" srcset="/wp-content/uploads/2018/05/word-image-1444.png 1261w, /wp-content/uploads/2018/05/word-image-1444-300x39.png 300w, /wp-content/uploads/2018/05/word-image-1444-768x100.png 768w, /wp-content/uploads/2018/05/word-image-1444-1024x134.png 1024w" sizes="(max-width: 1261px) 100vw, 1261px" /></p>
+<p>
+  如果端口号是3306，端口号可以省略
+</p>
+<p><img loading="lazy" decoding="async" width="848" height="24" src="/wp-content/uploads/2018/05/word-image-1445.png" class="wp-image-1614" srcset="/wp-content/uploads/2018/05/word-image-1445.png 848w, /wp-content/uploads/2018/05/word-image-1445-300x8.png 300w, /wp-content/uploads/2018/05/word-image-1445-768x22.png 768w" sizes="(max-width: 848px) 100vw, 848px" /></p>
+<h2>选择数据库</h2>
+<p>
+  方法一：通过mysql_select_db()函数
+</p>
+<p><img loading="lazy" decoding="async" width="457" height="25" src="/wp-content/uploads/2018/05/word-image-1446.png" class="wp-image-1615" srcset="/wp-content/uploads/2018/05/word-image-1446.png 457w, /wp-content/uploads/2018/05/word-image-1446-300x16.png 300w" sizes="(max-width: 457px) 100vw, 457px" /></p>
+<p>
+  方法二：通过执行SQL语句
+</p>
+<p><img loading="lazy" decoding="async" width="573" height="22" src="/wp-content/uploads/2018/05/word-image-1447.png" class="wp-image-1616" srcset="/wp-content/uploads/2018/05/word-image-1447.png 573w, /wp-content/uploads/2018/05/word-image-1447-300x12.png 300w" sizes="(max-width: 573px) 100vw, 573px" /></p>
+<h2>设置字符编码</h2>
+<p><img loading="lazy" decoding="async" width="517" height="27" src="/wp-content/uploads/2018/05/word-image-1448.png" class="wp-image-1617" srcset="/wp-content/uploads/2018/05/word-image-1448.png 517w, /wp-content/uploads/2018/05/word-image-1448-300x16.png 300w" sizes="(max-width: 517px) 100vw, 517px" /></p>
+<h2>显示数据</h2>
+<p><img loading="lazy" decoding="async" width="724" height="68" src="/wp-content/uploads/2018/05/word-image-1449.png" class="wp-image-1618" srcset="/wp-content/uploads/2018/05/word-image-1449.png 724w, /wp-content/uploads/2018/05/word-image-1449-300x28.png 300w" sizes="(max-width: 724px) 100vw, 724px" /></p>
+<h2>将资源匹配成数组</h2>
+<h3>mysql_fetch_row：将资源中的一条数据匹配成索引数组</h3>
+<p>
+  将资源中的一条数据匹配成索引数组，并且指针下移一条。
+</p>
+<p><img loading="lazy" decoding="async" width="741" height="94" src="/wp-content/uploads/2018/05/word-image-1450.png" class="wp-image-1619" srcset="/wp-content/uploads/2018/05/word-image-1450.png 741w, /wp-content/uploads/2018/05/word-image-1450-300x38.png 300w" sizes="(max-width: 741px) 100vw, 741px" /></p>
+<h3>mysql_fetch_assoc：将资源中的一条数据匹配成关联数组</h3>
+<p>
+  将资源中的一条数据匹配成关联数组，并且指针下移一条。通过字段名做键
+</p>
+<p><img loading="lazy" decoding="async" width="718" height="83" src="/wp-content/uploads/2018/05/word-image-1451.png" class="wp-image-1620" srcset="/wp-content/uploads/2018/05/word-image-1451.png 718w, /wp-content/uploads/2018/05/word-image-1451-300x35.png 300w" sizes="(max-width: 718px) 100vw, 718px" /></p>
+<h3>mysql_fetch_array：匹配数组中既有关联数组又有索引数组</h3>
+<p>
+  将资源中的数据匹配成结果数组，此数组中既有关联数组又有索引数组
+</p>
+<p><img loading="lazy" decoding="async" width="1171" height="106" src="/wp-content/uploads/2018/05/word-image-1452.png" class="wp-image-1621" srcset="/wp-content/uploads/2018/05/word-image-1452.png 1171w, /wp-content/uploads/2018/05/word-image-1452-300x27.png 300w, /wp-content/uploads/2018/05/word-image-1452-768x70.png 768w, /wp-content/uploads/2018/05/word-image-1452-1024x93.png 1024w" sizes="(max-width: 1171px) 100vw, 1171px" /></p>
+<h3>mysql_fetch_object：匹配成对象</h3>
+<p>
+  将每一条记录匹配成对象，表中的字段是对象的属性，在PHP中对象访问属性使用-&gt;符号。
+</p>
+<p><img loading="lazy" decoding="async" width="725" height="91" src="/wp-content/uploads/2018/05/word-image-1453.png" class="wp-image-1622" srcset="/wp-content/uploads/2018/05/word-image-1453.png 725w, /wp-content/uploads/2018/05/word-image-1453-300x38.png 300w" sizes="(max-width: 725px) 100vw, 725px" /></p>
+<h2>获取资源的记录数</h2>
+<p><img loading="lazy" decoding="async" width="440" height="45" src="/wp-content/uploads/2018/05/word-image-1454.png" class="wp-image-1623" srcset="/wp-content/uploads/2018/05/word-image-1454.png 440w, /wp-content/uploads/2018/05/word-image-1454-300x31.png 300w" sizes="(max-width: 440px) 100vw, 440px" /></p>
+<h2>获取资源的字段数</h2>
+<p><img loading="lazy" decoding="async" width="401" height="23" src="/wp-content/uploads/2018/05/word-image-1455.png" class="wp-image-1624" srcset="/wp-content/uploads/2018/05/word-image-1455.png 401w, /wp-content/uploads/2018/05/word-image-1455-300x17.png 300w" sizes="(max-width: 401px) 100vw, 401px" /></p>
+<h2>释放资源</h2>
+<p><img loading="lazy" decoding="async" width="284" height="25" src="/wp-content/uploads/2018/05/word-image-1456.png" class="wp-image-1625" /></p>
+<h2>关闭连接</h2>
+<p><img loading="lazy" decoding="async" width="167" height="22" src="/wp-content/uploads/2018/05/word-image-1457.png" class="wp-image-1626" /></p>
+<h2>连接数据库完整例题</h2>
+<p>
+  &lt;?php
+</p>
+<p>
+  //连接数据库
+</p>
+<p>
+  	$link=@mysql_connect(&#8216;localhost&#8217;,&#8217;root&#8217;,&#8217;root&#8217;);	//连接数据库
+</p>
+<p>
+  	if(!$link){
+</p>
+<p>
+  		echo &#8216;数据库连接失败&lt;br&gt;&#8217;;
+</p>
+<p>
+  		echo &#8216;错误信息：&#8217;.mysql_error(),'&lt;br&gt;&#8217;;	//返回上一个MySQL操作产生的文本错误信息
+</p>
+<p>
+  		echo &#8216;错误编码：&#8217;.mysql_errno(),'&lt;br&gt;&#8217;;	//返回上一个MySQL操作中的错误信息的数字编码
+</p>
+<p>
+  		exit;
+</p>
+<p>
+  	}
+</p>
+<p>
+  //选择数据库
+</p>
+<p>
+  	//mysql_select_db(&#8216;jokedb&#8217;);	//选择数据库(方法一)
+</p>
+<p>
+  	mysql_query(&#8216;use jokedb&#8217;);		//选择数据库方法二
+</p>
+<p>
+  //设置字符编码
+</p>
+<p>
+  	mysql_query(&#8216;set names utf8&#8217;);	//设置字符编码
+</p>
+<p>
+  //获取笑话类别
+</p>
+<p>
+  	$rs=mysql_query(&#8216;select * from title&#8217;);
+</p>
+<p>
+  //将资源中的数据匹配成索引数组
+</p>
+<p>
+  /*
+</p>
+<p>
+  	while($rows=mysql_fetch_row($rs)){
+</p>
+<p>
+  		print_r($rows);
+</p>
+<p>
+  		echo &#8216;&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  */
+</p>
+<p>
+  //将资源中的数据匹配成关联数组
+</p>
+<p>
+  /*
+</p>
+<p>
+  	while($rows=mysql_fetch_assoc($rs)){
+</p>
+<p>
+  		print_r($rows);
+</p>
+<p>
+  		echo &#8216;&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  */
+</p>
+<p>
+  //将资源中的数据匹配成结果数组，此数组中既有关联数组又有索引数组
+</p>
+<p>
+  /*
+</p>
+<p>
+  	while($rows=mysql_fetch_array($rs)){
+</p>
+<p>
+  		print_r($rows);
+</p>
+<p>
+  		echo &#8216;&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  */
+</p>
+<p>
+  //将资源中的数据匹配成对象
+</p>
+<p>
+  	while($rows=mysql_fetch_object($rs)){
+</p>
+<p>
+  		echo $rows-&gt;Id,&#8217;-&#8216;,$rows-&gt;Title,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  //资源中的记录数
+</p>
+<p>
+  	echo mysql_num_rows($rs),'&lt;br&gt;&#8217;;
+</p>
+<p>
+  //资源中的字段数
+</p>
+<p>
+  	echo mysql_num_fields($rs),'&lt;br&gt;&#8217;;
+</p>
+<p>
+  //释放资源
+</p>
+<p>
+  mysql_free_result($rs);
+</p>
+<p>
+  //关闭连接
+</p>
+<p>
+  mysql_close();
+</p>
+<p>
+  ?&gt;
+</p>
+<h2>总结用到的函数</h2>
+<ol>
+<li>
+  mysql_connect()：连接数据库
+</li>
+<li>
+  mysql_error()：返回上一个MySQL操作产生的文本错误信息
+</li>
+<li>
+  mysql_errno()：返回上一个MySQL操作中的错误信息的数字编码
+</li>
+<li>
+  mysql_select_db()：选择数据库
+</li>
+<li>
+  mysql_query()：执行SQL语句
+</li>
+<li>
+  mysql_fetch_row()：匹配成索引数组
+</li>
+<li>
+  mysql_fetch_assoc()：匹配成关联数组
+</li>
+<li>
+  mysql_fetch_array()：匹配成既有关联数组又有索引数组
+</li>
+<li>
+  mysql_fetch_object()：将资源匹配成对象。
+</li>
+<li>
+  mysql_num_rows()：资源的记录数
+</li>
+<li>
+  mysql_num_fields()：资源的字段数
+</li>
+<li>
+  mysql_free_result()：释放资源
+</li>
+<li>
+  mysql_close()：关闭连接
+</li>
+</ol>
+<h2>项目实现——显示笑话</h2>
+<h3>显示笑话类别</h3>
+<p>
+  显示笑话类别，点击笑话类别传递笑话的编号
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	@mysql_connect(&#8216;localhost&#8217;,&#8217;root&#8217;,&#8217;root&#8217;) or die(mysql_error());	//连接数据库
+</p>
+<p>
+  	mysql_query(&#8216;use jokedb&#8217;);		     //选择数据库
+</p>
+<p>
+  	mysql_query(&#8216;set names utf8&#8217;);	//设置字符
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;!&#8211;显示笑话类别&#8211;&gt;
+</p>
+<p>
+  &lt;table&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;?php
+</p>
+<p>
+  			$rs=mysql_query(&#8216;select * from title&#8217;);
+</p>
+<p>
+  			$n=0;
+</p>
+<p>
+  			while($rows=mysql_fetch_assoc($rs)):
+</p>
+<p>
+  		?&gt;
+</p>
+<p>
+  			&lt;th&gt;&lt;a href=&#8221;?titleid=&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&#8221;&gt;&lt;?php echo $rows[&#8216;Title&#8217;]?&gt;&lt;/a&gt;&lt;/th&gt;
+</p>
+<p>
+  		&lt;?php
+</p>
+<p>
+  			if(++$n%9==0)
+</p>
+<p>
+  				echo &#8216;&lt;/tr&gt;&lt;tr&gt;&#8217;;
+</p>
+<p>
+  			endwhile;
+</p>
+<p>
+  		?&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="1124" height="125" src="/wp-content/uploads/2018/05/word-image-1458.png" class="wp-image-1627" srcset="/wp-content/uploads/2018/05/word-image-1458.png 1124w, /wp-content/uploads/2018/05/word-image-1458-300x33.png 300w, /wp-content/uploads/2018/05/word-image-1458-768x85.png 768w, /wp-content/uploads/2018/05/word-image-1458-1024x114.png 1024w" sizes="(max-width: 1124px) 100vw, 1124px" /></p>
+<h3>显示笑话内容</h3>
+<p><img loading="lazy" decoding="async" width="1070" height="473" src="/wp-content/uploads/2018/05/word-image-1459.png" class="wp-image-1628" srcset="/wp-content/uploads/2018/05/word-image-1459.png 1070w, /wp-content/uploads/2018/05/word-image-1459-300x133.png 300w, /wp-content/uploads/2018/05/word-image-1459-768x339.png 768w, /wp-content/uploads/2018/05/word-image-1459-1024x453.png 1024w" sizes="(max-width: 1070px) 100vw, 1070px" /></p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="1109" height="210" src="/wp-content/uploads/2018/05/word-image-1460.png" class="wp-image-1629" srcset="/wp-content/uploads/2018/05/word-image-1460.png 1109w, /wp-content/uploads/2018/05/word-image-1460-300x57.png 300w, /wp-content/uploads/2018/05/word-image-1460-768x145.png 768w, /wp-content/uploads/2018/05/word-image-1460-1024x194.png 1024w" sizes="(max-width: 1109px) 100vw, 1109px" /></p>
+<p>
+  “显示笑话内容”的完整代码
+</p>
+<p>
+  &lt;!doctype html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;title&gt;无标题文档&lt;/title&gt;
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  	table{
+</p>
+<p>
+  		width:980px;
+</p>
+<p>
+  		margin:auto;
+</p>
+<p>
+  		border:#000 solid 1px;
+</p>
+<p>
+  		font-size:12px;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	td,th{
+</p>
+<p>
+  		border:#000 solid 1px;
+</p>
+<p>
+  	}
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	@mysql_connect(&#8216;localhost&#8217;,&#8217;root&#8217;,&#8217;root&#8217;) or die(mysql_error());	//连接数据库
+</p>
+<p>
+  	mysql_query(&#8216;use jokedb&#8217;);		//选择数据库
+</p>
+<p>
+  	mysql_query(&#8216;set names utf8&#8217;);	//设置字符
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;!&#8211;显示笑话类别&#8211;&gt;
+</p>
+<p>
+  &lt;table&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;?php
+</p>
+<p>
+  			$rs=mysql_query(&#8216;select * from title&#8217;);
+</p>
+<p>
+  			$n=0;
+</p>
+<p>
+  			while($rows=mysql_fetch_assoc($rs)):
+</p>
+<p>
+  		?&gt;
+</p>
+<p>
+  			&lt;th&gt;&lt;a href=&#8221;?titleid=&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&#8221;&gt;&lt;?php echo $rows[&#8216;Title&#8217;]?&gt;&lt;/a&gt;&lt;/th&gt;
+</p>
+<p>
+  		&lt;?php
+</p>
+<p>
+  			if(++$n%9==0)
+</p>
+<p>
+  				echo &#8216;&lt;/tr&gt;&lt;tr&gt;&#8217;;
+</p>
+<p>
+  			endwhile;
+</p>
+<p>
+  		?&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p>
+  &lt;!&#8211;显示笑话内容&#8211;&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	$titleid=isset($_GET[&#8216;titleid&#8217;])?$_GET[&#8216;titleid&#8217;]:1;	//获取笑话类别
+</p>
+<p>
+  	$sql=&#8221;select * from contents where title=$titleid order by id desc&#8221;;		//拼接查询语句
+</p>
+<p>
+  	$rs=mysql_query($sql);
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;table&gt;
+</p>
+<p>
+  &lt;tr&gt;
+</p>
+<p>
+  	&lt;th&gt;编号&lt;/th&gt; &lt;th&gt;内容&lt;/th&gt; &lt;th&gt;作者&lt;/th&gt;
+</p>
+<p>
+  &lt;/tr&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  while($rows=mysql_fetch_assoc($rs)):
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Contents&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Author&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  endwhile;
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h2>项目实现——文件包含</h2>
+<p>
+  css样式代码在每个页面都要使用，在站点下创建style文件夹，在style文件夹中创建home.css样式，此样式为所有页面公用样式
+</p>
+<p><img loading="lazy" decoding="async" width="640" height="246" src="/wp-content/uploads/2018/05/word-image-1461.png" class="wp-image-1630" srcset="/wp-content/uploads/2018/05/word-image-1461.png 640w, /wp-content/uploads/2018/05/word-image-1461-300x115.png 300w" sizes="(max-width: 640px) 100vw, 640px" /></p>
+<p>
+  其他页面引入样式文件即可
+</p>
+<p><img loading="lazy" decoding="async" width="639" height="53" src="/wp-content/uploads/2018/05/word-image-1462.png" class="wp-image-1631" srcset="/wp-content/uploads/2018/05/word-image-1462.png 639w, /wp-content/uploads/2018/05/word-image-1462-300x25.png 300w" sizes="(max-width: 639px) 100vw, 639px" /></p>
+<p>
+  连接数据代码在项目中要出现多次，为了减少代码冗余，我们将相同的代码做成包含文件。
+</p>
+<p>
+  在站点下创建inc文件夹，在此文件夹中创建conn.php页面，此页面用来连接数据库
+</p>
+<p><img loading="lazy" decoding="async" width="1209" height="136" src="/wp-content/uploads/2018/05/word-image-1463.png" class="wp-image-1632" srcset="/wp-content/uploads/2018/05/word-image-1463.png 1209w, /wp-content/uploads/2018/05/word-image-1463-300x34.png 300w, /wp-content/uploads/2018/05/word-image-1463-768x86.png 768w, /wp-content/uploads/2018/05/word-image-1463-1024x115.png 1024w" sizes="(max-width: 1209px) 100vw, 1209px" /></p>
+<p>
+  其他页面包含conn.php页面即可
+</p>
+<p><img loading="lazy" decoding="async" width="537" height="135" src="/wp-content/uploads/2018/05/word-image-1464.png" class="wp-image-1633" srcset="/wp-content/uploads/2018/05/word-image-1464.png 537w, /wp-content/uploads/2018/05/word-image-1464-300x75.png 300w" sizes="(max-width: 537px) 100vw, 537px" /></p>
+<h2>项目实现——添加笑话</h2>
+<h3>进入添加笑话页面的入口</h3>
+<p><img loading="lazy" decoding="async" width="879" height="163" src="/wp-content/uploads/2018/05/word-image-1465.png" class="wp-image-1634" srcset="/wp-content/uploads/2018/05/word-image-1465.png 879w, /wp-content/uploads/2018/05/word-image-1465-300x56.png 300w, /wp-content/uploads/2018/05/word-image-1465-768x142.png 768w" sizes="(max-width: 879px) 100vw, 879px" /></p>
+<h3>显示添加笑话页面</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  	require &#8216;./inc/conn.php&#8217;;
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form method=&#8221;post&#8221; action=&#8221;&#8221;&gt;
+</p>
+<p>
+  	&lt;table&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;th colspan=&#8217;2&#8242;&gt;添加笑话&lt;/th&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td&gt;笑话类别&lt;/td&gt;
+</p>
+<p>
+  			&lt;td&gt;
+</p>
+<p>
+  				&lt;select name=&#8221;type&#8221;&gt;
+</p>
+<p>
+  					&lt;?php
+</p>
+<p>
+  						$rs=mysql_query(&#8216;select * from title&#8217;);
+</p>
+<p>
+  						while($rows=mysql_fetch_assoc($rs)):
+</p>
+<p>
+  					?&gt;
+</p>
+<p>
+  						&lt;option value=&#8221;&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&#8221;&gt;&lt;?php echo $rows[&#8216;Title&#8217;]?&gt;&lt;/option&gt;
+</p>
+<p>
+  					&lt;?php
+</p>
+<p>
+  						endwhile;
+</p>
+<p>
+  					?&gt;
+</p>
+</p>
+<p>
+  				&lt;/select&gt;
+</p>
+<p>
+  			&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td&gt;笑话内容&lt;/td&gt;
+</p>
+<p>
+  			&lt;td&gt;&lt;textarea name=&#8217;content&#8217; rows=&#8217;5&#8242;&gt;&lt;/textarea&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td&gt;作者&lt;/td&gt;
+</p>
+<p>
+  			&lt;td&gt;&lt;input type=&#8221;text&#8221; name=&#8221;author&#8221; id=&#8221;&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td colspan=&#8217;2&#8242; align=&#8217;center&#8217;&gt;
+</p>
+<p>
+  				&lt;input type=&#8221;submit&#8221; value=&#8221;添加笑话&#8221;&gt;
+</p>
+<p>
+  				&lt;input type=&#8221;button&#8221; value=&#8221;返回&#8221; onclick=&#8217;location.href=&#8221;index.php&#8221;&#8216;&gt;
+</p>
+<p>
+  			&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  	&lt;/table&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="1099" height="272" src="/wp-content/uploads/2018/05/word-image-1466.png" class="wp-image-1635" srcset="/wp-content/uploads/2018/05/word-image-1466.png 1099w, /wp-content/uploads/2018/05/word-image-1466-300x74.png 300w, /wp-content/uploads/2018/05/word-image-1466-768x190.png 768w, /wp-content/uploads/2018/05/word-image-1466-1024x253.png 1024w" sizes="(max-width: 1099px) 100vw, 1099px" /></p>
+<h3>实现添加笑话业务逻辑</h3>
+<p>
+  知识点
+</p>
+<p>
+  脚下留心：mysql_query()的返回值
+</p>
+<ol>
+<li>
+  执行数据查询语句（select,show）返回数据资源,失败返回false
+</li>
+<li>
+  执行数据操作语句（insert,update,delete）成功返回true，失败返回false。
+</li>
+</ol>
+<p>
+  脚下留心：跳转的方式
+</p>
+<ol>
+<li>
+  超链接跳转	&lt;a href=’地址’&gt;&lt;/a&gt;
+</li>
+<li>
+  Js跳转		location对象
+</li>
+<li>
+  PHP跳转		header(‘location:地址’);
+</li>
+</ol>
+<p>
+  实现代码
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	require &#8216;./inc/conn.php&#8217;;
+</p>
+<p>
+  	if(!empty($_POST)){
+</p>
+<p>
+  		$titleid=$_POST[&#8216;type&#8217;];	//类别id
+</p>
+<p>
+  		$content=$_POST[&#8216;content&#8217;];	//笑话内容
+</p>
+<p>
+  		$author=$_POST[&#8216;author&#8217;];	//笑话作者
+</p>
+<p>
+  		$sql=&#8221;insert into contents (title,contents,author) values ($titleid,&#8217;$content&#8217;,&#8217;$author&#8217;)&#8221;;
+</p>
+<p>
+  		if(mysql_query($sql))
+</p>
+<p>
+  			header(&#8216;location:index.php?titleid=&#8217;.$titleid);	//跳转到index.php页面
+</p>
+<p>
+  		else{
+</p>
+<p>
+  			echo &#8216;&lt;div&gt;添加失败&lt;/div&gt;&#8217;;
+</p>
+<p>
+  		}
+</p>
+<p>
+  		exit;
+</p>
+<p>
+  	}
+</p>
+<p>
+  ?&gt;
+</p>
+<h2>项目实现——删除笑话</h2>
+<h3>添加删除和修改按钮</h3>
+<p>
+  &lt;table&gt;
+</p>
+<p>
+  &lt;tr&gt;
+</p>
+<p>
+  	&lt;th&gt;编号&lt;/th&gt; &lt;th&gt;内容&lt;/th&gt; &lt;th&gt;作者&lt;/th&gt; &lt;th&gt;删除&lt;/th&gt; &lt;th&gt;修改&lt;/th&gt;
+</p>
+<p>
+  &lt;/tr&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  while($rows=mysql_fetch_assoc($rs)):
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Contents&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Author&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;input type=&#8221;button&#8221; value=&#8221;删除&#8221; onclick=&#8221;if(confirm(&#8216;确定要删除吗&#8217;))location.href=&#8217;del.php?id=&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&amp;titleid=&lt;?php echo $rows[&#8216;Title&#8217;]?&gt;'&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;input type=&#8221;button&#8221; value=&#8221;修改&#8221;&gt; &lt;/td&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  endwhile;
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="984" height="186" src="/wp-content/uploads/2018/05/word-image-1467.png" class="wp-image-1636" srcset="/wp-content/uploads/2018/05/word-image-1467.png 984w, /wp-content/uploads/2018/05/word-image-1467-300x57.png 300w, /wp-content/uploads/2018/05/word-image-1467-768x145.png 768w" sizes="(max-width: 984px) 100vw, 984px" /></p>
+<h3>执行删除的业务逻辑</h3>
+<p>
+  在站点下新建del.php页面，用来执行删除的业务逻辑
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	require &#8216;./inc/conn.php&#8217;;
+</p>
+<p>
+  	$id=$_GET[&#8216;id&#8217;];	//获取删除的id
+</p>
+<p>
+  	$titleid=$_GET[&#8216;titleid&#8217;];	//获取删除笑话的类别编号
+</p>
+<p>
+  	$sql=&#8221;delete from contents where id=$id&#8221;;
+</p>
+<p>
+  	if(mysql_query($sql))
+</p>
+<p>
+  		header(&#8216;location:index.php?titleid=&#8217;.$titleid);
+</p>
+<p>
+  	else
+</p>
+<p>
+  		echo mysql_error();
+</p>
+<p>
+  脚下留心：del.php页面不需要html结构，因为del.php页面只执行业务逻辑，没有显示功能。只要没有显示功能的页面都不需要html结构。
+</p>
+<h2>项目实现——修改笑话</h2>
+<h3>修改笑话入口（index.php）</h3>
+<p>
+  &lt;td&gt;&lt;input type=&#8221;button&#8221; value=&#8221;修改&#8221; onclick=&#8217;location.href=&#8221;update.php?id=&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&#8221;&#8216;&gt; &lt;/td&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="997" height="100" src="/wp-content/uploads/2018/05/word-image-1468.png" class="wp-image-1637" srcset="/wp-content/uploads/2018/05/word-image-1468.png 997w, /wp-content/uploads/2018/05/word-image-1468-300x30.png 300w, /wp-content/uploads/2018/05/word-image-1468-768x77.png 768w" sizes="(max-width: 997px) 100vw, 997px" /></p>
+<h3>显示修改界面</h3>
+<p>
+  在站点下创建update.php页面
+</p>
+<p>
+  &lt;!doctype html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;title&gt;无标题文档&lt;/title&gt;
+</p>
+<p>
+  &lt;link rel=&#8217;stylesheet&#8217; href=&#8217;style/home.css&#8217;/&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	require &#8216;./inc/conn.php&#8217;;
+</p>
+<p>
+  	$id=(int)$_GET[&#8216;id&#8217;];	//获取修改的编号
+</p>
+<p>
+  	$rs=mysql_query(&#8220;select * from contents where id=$id&#8221;);	//修改笑话信息
+</p>
+<p>
+  	if(mysql_num_rows($rs)!=1){
+</p>
+<p>
+  		echo &#8216;访问非法&#8217;;
+</p>
+<p>
+  		exit;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	$info=mysql_fetch_assoc($rs);	//将需要修改的信息转换成关联数组
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form method=&#8221;post&#8221; action=&#8221;&#8221;&gt;
+</p>
+<p>
+  	&lt;table&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;th colspan=&#8217;2&#8242;&gt;修改笑话&lt;/th&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td&gt;笑话类别&lt;/td&gt;
+</p>
+<p>
+  			&lt;td&gt;
+</p>
+<p>
+  				&lt;select name=&#8221;type&#8221;&gt;
+</p>
+<p>
+  					&lt;?php
+</p>
+<p>
+  						$rs=mysql_query(&#8216;select * from title&#8217;);
+</p>
+<p>
+  						while($rows=mysql_fetch_assoc($rs)):
+</p>
+<p>
+  					?&gt;
+</p>
+<p>
+  						&lt;option value=&#8221;&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&#8221; &lt;?php echo $rows[&#8216;Id&#8217;]==$info[&#8216;Title&#8217;]?&#8217;selected&#8217;:&#8221;?&gt;&gt;&lt;?php echo $rows[&#8216;Title&#8217;]?&gt;&lt;/option&gt;
+</p>
+<p>
+  					&lt;?php
+</p>
+<p>
+  						endwhile;
+</p>
+<p>
+  					?&gt;
+</p>
+</p>
+<p>
+  				&lt;/select&gt;
+</p>
+<p>
+  			&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td&gt;笑话内容&lt;/td&gt;
+</p>
+<p>
+  			&lt;td&gt;&lt;textarea name=&#8217;content&#8217; rows=&#8217;5&#8242;&gt;&lt;?php echo $info[&#8216;Contents&#8217;]?&gt;&lt;/textarea&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td&gt;作者&lt;/td&gt;
+</p>
+<p>
+  			&lt;td&gt;&lt;input type=&#8221;text&#8221; name=&#8221;author&#8221; value=&#8221;&lt;?php echo $info[&#8216;Author&#8217;]?&gt;&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td colspan=&#8217;2&#8242; align=&#8217;center&#8217;&gt;
+</p>
+<p>
+  				&lt;input type=&#8221;submit&#8221; value=&#8221;修改笑话&#8221;&gt;
+</p>
+<p>
+  				&lt;input type=&#8221;button&#8221; value=&#8221;返回&#8221; onclick=&#8217;location.href=&#8221;index.php&#8221;&#8216;&gt;
+</p>
+<p>
+  			&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  	&lt;/table&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="768" height="273" src="/wp-content/uploads/2018/05/word-image-1469.png" class="wp-image-1638" srcset="/wp-content/uploads/2018/05/word-image-1469.png 768w, /wp-content/uploads/2018/05/word-image-1469-300x107.png 300w" sizes="(max-width: 768px) 100vw, 768px" /></p>
+<h3>实现修改的业务逻辑</h3>
+<p><img loading="lazy" decoding="async" width="1295" height="430" src="/wp-content/uploads/2018/05/word-image-1470.png" class="wp-image-1639" srcset="/wp-content/uploads/2018/05/word-image-1470.png 1295w, /wp-content/uploads/2018/05/word-image-1470-300x100.png 300w, /wp-content/uploads/2018/05/word-image-1470-768x255.png 768w, /wp-content/uploads/2018/05/word-image-1470-1024x340.png 1024w" sizes="(max-width: 1295px) 100vw, 1295px" /></p>
+<h2>作业</h2>
+<p>
+  通过phpmyadmin和mysql-font做数据迁移</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/1603.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>PHP 核心编程（三）HTTP 协议、 文件操作、 页面静态化</title>
+		<link>/php/1554.html</link>
+					<comments>/php/1554.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 10:04:25 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP核心编程]]></category>
+		<category><![CDATA[HTTP 协议]]></category>
+		<category><![CDATA[文件操作]]></category>
+		<category><![CDATA[页面静态化]]></category>
+		<guid isPermaLink="false">/?p=1554</guid>
+
+					<description><![CDATA[文件操作、HTTP协议 文件夹操作 创建文件夹 注意事项： 创建文件夹模式介绍： 每个文件和文件夹都有三个权限 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>文件操作、HTTP协议</h1>
+<h2>文件夹操作</h2>
+<h3>创建文件夹</h3>
+<p><img loading="lazy" decoding="async" width="599" height="275" src="/wp-content/uploads/2018/05/word-image-1391.png" class="wp-image-1556" srcset="/wp-content/uploads/2018/05/word-image-1391.png 599w, /wp-content/uploads/2018/05/word-image-1391-300x138.png 300w" sizes="(max-width: 599px) 100vw, 599px" /></p>
+<p>
+  注意事项：
+</p>
+<p><img loading="lazy" decoding="async" width="1216" height="60" src="/wp-content/uploads/2018/05/word-image-1392.png" class="wp-image-1557" srcset="/wp-content/uploads/2018/05/word-image-1392.png 1216w, /wp-content/uploads/2018/05/word-image-1392-300x15.png 300w, /wp-content/uploads/2018/05/word-image-1392-768x38.png 768w, /wp-content/uploads/2018/05/word-image-1392-1024x51.png 1024w" sizes="(max-width: 1216px) 100vw, 1216px" /></p>
+<p>
+  创建文件夹模式介绍：
+</p>
+<p>
+  每个文件和文件夹都有三个权限：读权限（2<sup>0</sup>=1），写权限（2<sup>1</sup>=2），可执行权限（2<sup>2</sup>=4）
+</p>
+<p>
+  7=1+2+4（表示读，写，执行权限都有）
+</p>
+<p>
+  5=1+4（表示读，执行权限）
+</p>
+<p><img loading="lazy" decoding="async" width="643" height="94" src="/wp-content/uploads/2018/05/word-image-1393.png" class="wp-image-1558" srcset="/wp-content/uploads/2018/05/word-image-1393.png 643w, /wp-content/uploads/2018/05/word-image-1393-300x44.png 300w" sizes="(max-width: 643px) 100vw, 643px" /></p>
+<p>
+  例题
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //mkdir(&#8216;./aa&#8217;);		//在当前目录下创建aa文件夹
+</p>
+<p>
+  //mkdir(&#8216;./aa/bb&#8217;);		//在aa文件夹下创建bb文件夹（前提aa文件夹必须存在）
+</p>
+<p>
+  mkdir(&#8216;./aa/bb/cc&#8217;,777,true);	//递归创建文件夹
+</p>
+<h3>删除文件夹</h3>
+<p><img loading="lazy" decoding="async" width="738" height="71" src="/wp-content/uploads/2018/05/word-image-1394.png" class="wp-image-1559" srcset="/wp-content/uploads/2018/05/word-image-1394.png 738w, /wp-content/uploads/2018/05/word-image-1394-300x29.png 300w" sizes="(max-width: 738px) 100vw, 738px" /></p>
+<p>
+  注意：
+</p>
+<p><img loading="lazy" decoding="async" width="765" height="52" src="/wp-content/uploads/2018/05/word-image-1395.png" class="wp-image-1560" srcset="/wp-content/uploads/2018/05/word-image-1395.png 765w, /wp-content/uploads/2018/05/word-image-1395-300x20.png 300w" sizes="(max-width: 765px) 100vw, 765px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="464" height="68" src="/wp-content/uploads/2018/05/word-image-1396.png" class="wp-image-1561" srcset="/wp-content/uploads/2018/05/word-image-1396.png 464w, /wp-content/uploads/2018/05/word-image-1396-300x44.png 300w" sizes="(max-width: 464px) 100vw, 464px" /></p>
+<h3>重命名、移动文件夹</h3>
+<p>
+  语法：rename()
+</p>
+<p><img loading="lazy" decoding="async" width="527" height="96" src="/wp-content/uploads/2018/05/word-image-1397.png" class="wp-image-1562" srcset="/wp-content/uploads/2018/05/word-image-1397.png 527w, /wp-content/uploads/2018/05/word-image-1397-300x55.png 300w" sizes="(max-width: 527px) 100vw, 527px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="1121" height="81" src="/wp-content/uploads/2018/05/word-image-1398.png" class="wp-image-1563" srcset="/wp-content/uploads/2018/05/word-image-1398.png 1121w, /wp-content/uploads/2018/05/word-image-1398-300x22.png 300w, /wp-content/uploads/2018/05/word-image-1398-768x55.png 768w, /wp-content/uploads/2018/05/word-image-1398-1024x74.png 1024w" sizes="(max-width: 1121px) 100vw, 1121px" /></p>
+<p>
+  多学一招：rename也可以给文件重命名。
+</p>
+<h3>打开文件夹</h3>
+<p><img loading="lazy" decoding="async" width="569" height="148" src="/wp-content/uploads/2018/05/word-image-1399.png" class="wp-image-1564" srcset="/wp-content/uploads/2018/05/word-image-1399.png 569w, /wp-content/uploads/2018/05/word-image-1399-300x78.png 300w" sizes="(max-width: 569px) 100vw, 569px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="968" height="151" src="/wp-content/uploads/2018/05/word-image-1400.png" class="wp-image-1565" srcset="/wp-content/uploads/2018/05/word-image-1400.png 968w, /wp-content/uploads/2018/05/word-image-1400-300x47.png 300w, /wp-content/uploads/2018/05/word-image-1400-768x120.png 768w" sizes="(max-width: 968px) 100vw, 968px" /></p>
+<h3>其他与文件夹相关的函数</h3>
+<ol>
+<li>
+  is_dir()：是否是文件夹
+</li>
+<li>
+  basename()：获取文件名
+</li>
+<li>
+  dirname()：获取目录路径
+</li>
+<li>
+  realpath()：获取绝对路径
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="982" height="89" src="/wp-content/uploads/2018/05/word-image-1401.png" class="wp-image-1566" srcset="/wp-content/uploads/2018/05/word-image-1401.png 982w, /wp-content/uploads/2018/05/word-image-1401-300x27.png 300w, /wp-content/uploads/2018/05/word-image-1401-768x70.png 768w" sizes="(max-width: 982px) 100vw, 982px" /></p>
+<h3>遍历文件夹</h3>
+<p><img loading="lazy" decoding="async" width="1069" height="399" src="/wp-content/uploads/2018/05/word-image-1402.png" class="wp-image-1567" srcset="/wp-content/uploads/2018/05/word-image-1402.png 1069w, /wp-content/uploads/2018/05/word-image-1402-300x112.png 300w, /wp-content/uploads/2018/05/word-image-1402-768x287.png 768w, /wp-content/uploads/2018/05/word-image-1402-1024x382.png 1024w" sizes="(max-width: 1069px) 100vw, 1069px" /></p>
+<h2>文件操作</h2>
+<h3>file_put_contents — 将一个字符串写入文件</h3>
+<p>
+  将字符串写到文件中，如果文件不存在就创建该文件，如果文件存在清空文件内容重新写入新内容。
+</p>
+<p><img loading="lazy" decoding="async" width="685" height="45" src="/wp-content/uploads/2018/05/word-image-1403.png" class="wp-image-1568" srcset="/wp-content/uploads/2018/05/word-image-1403.png 685w, /wp-content/uploads/2018/05/word-image-1403-300x20.png 300w" sizes="(max-width: 685px) 100vw, 685px" /></p>
+<h3>file_get_contents — 将整个文件读入一个字符串</h3>
+<p><img loading="lazy" decoding="async" width="885" height="24" src="/wp-content/uploads/2018/05/word-image-1404.png" class="wp-image-1569" srcset="/wp-content/uploads/2018/05/word-image-1404.png 885w, /wp-content/uploads/2018/05/word-image-1404-300x8.png 300w, /wp-content/uploads/2018/05/word-image-1404-768x21.png 768w" sizes="(max-width: 885px) 100vw, 885px" /></p>
+<h3>readfile — 输出一个文件</h3>
+<p><img loading="lazy" decoding="async" width="831" height="31" src="/wp-content/uploads/2018/05/word-image-1405.png" class="wp-image-1570" srcset="/wp-content/uploads/2018/05/word-image-1405.png 831w, /wp-content/uploads/2018/05/word-image-1405-300x11.png 300w, /wp-content/uploads/2018/05/word-image-1405-768x29.png 768w" sizes="(max-width: 831px) 100vw, 831px" /></p>
+<h3>fopen()——打开文件</h3>
+<p><img loading="lazy" decoding="async" width="758" height="93" src="/wp-content/uploads/2018/05/word-image-1406.png" class="wp-image-1571" srcset="/wp-content/uploads/2018/05/word-image-1406.png 758w, /wp-content/uploads/2018/05/word-image-1406-300x37.png 300w" sizes="(max-width: 758px) 100vw, 758px" /></p>
+<p>
+  打开模式
+</p>
+<p><img loading="lazy" decoding="async" width="752" height="235" src="/wp-content/uploads/2018/05/word-image-1407.png" class="wp-image-1572" srcset="/wp-content/uploads/2018/05/word-image-1407.png 752w, /wp-content/uploads/2018/05/word-image-1407-300x94.png 300w" sizes="(max-width: 752px) 100vw, 752px" /></p>
+<p>
+  注意：“w”是写操作，如果文件不存在就创建，如果文件存在就清空内容重新写操作。如果要继续在原来文件后天就内容，使用“a”追加。
+</p>
+<h3>fgets()读取一行，并且指针下移</h3>
+<p><img loading="lazy" decoding="async" width="575" height="86" src="/wp-content/uploads/2018/05/word-image-1408.png" class="wp-image-1573" srcset="/wp-content/uploads/2018/05/word-image-1408.png 575w, /wp-content/uploads/2018/05/word-image-1408-300x45.png 300w" sizes="(max-width: 575px) 100vw, 575px" /></p>
+<h3>fputs()写入一行，并且指针下移</h3>
+<p>
+  fputs()等价于fwrite()
+</p>
+<p><img loading="lazy" decoding="async" width="918" height="91" src="/wp-content/uploads/2018/05/word-image-1409.png" class="wp-image-1574" srcset="/wp-content/uploads/2018/05/word-image-1409.png 918w, /wp-content/uploads/2018/05/word-image-1409-300x30.png 300w, /wp-content/uploads/2018/05/word-image-1409-768x76.png 768w" sizes="(max-width: 918px) 100vw, 918px" /></p>
+<h3>feof()文件指针是否到了文件结束的位置</h3>
+<p><img loading="lazy" decoding="async" width="748" height="150" src="/wp-content/uploads/2018/05/word-image-1410.png" class="wp-image-1575" srcset="/wp-content/uploads/2018/05/word-image-1410.png 748w, /wp-content/uploads/2018/05/word-image-1410-300x60.png 300w" sizes="(max-width: 748px) 100vw, 748px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="741" height="107" src="/wp-content/uploads/2018/05/word-image-1411.png" class="wp-image-1576" srcset="/wp-content/uploads/2018/05/word-image-1411.png 741w, /wp-content/uploads/2018/05/word-image-1411-300x43.png 300w" sizes="(max-width: 741px) 100vw, 741px" /></p>
+<h3>fseek()复位指针</h3>
+<p>
+  如果一个文件要输出多次，后面的输出需要将指针复位到文件的最前面
+</p>
+<p><img loading="lazy" decoding="async" width="350" height="23" src="/wp-content/uploads/2018/05/word-image-1412.png" class="wp-image-1577" srcset="/wp-content/uploads/2018/05/word-image-1412.png 350w, /wp-content/uploads/2018/05/word-image-1412-300x20.png 300w" sizes="(max-width: 350px) 100vw, 350px" /></p>
+<h3>fread()读取文件</h3>
+<p>
+  语法：fread(文件指针，文件长度)
+</p>
+<p><img loading="lazy" decoding="async" width="830" height="69" src="/wp-content/uploads/2018/05/word-image-1413.png" class="wp-image-1578" srcset="/wp-content/uploads/2018/05/word-image-1413.png 830w, /wp-content/uploads/2018/05/word-image-1413-300x25.png 300w, /wp-content/uploads/2018/05/word-image-1413-768x64.png 768w" sizes="(max-width: 830px) 100vw, 830px" /></p>
+<h3>unlink()：删除文件</h3>
+<p><img loading="lazy" decoding="async" width="396" height="25" src="/wp-content/uploads/2018/05/word-image-1414.png" class="wp-image-1579" srcset="/wp-content/uploads/2018/05/word-image-1414.png 396w, /wp-content/uploads/2018/05/word-image-1414-300x19.png 300w" sizes="(max-width: 396px) 100vw, 396px" /></p>
+<h3>is_file()：判断是否是文件</h3>
+<h3>file_exists()：文件或文件夹是否存在</h3>
+<p><img loading="lazy" decoding="async" width="667" height="70" src="/wp-content/uploads/2018/05/word-image-1415.png" class="wp-image-1580" srcset="/wp-content/uploads/2018/05/word-image-1415.png 667w, /wp-content/uploads/2018/05/word-image-1415-300x31.png 300w" sizes="(max-width: 667px) 100vw, 667px" /></p>
+<h3>例题：诗歌的分页</h3>
+<p>
+  运行结果：点击页码显示不同的诗歌
+</p>
+<p><img loading="lazy" decoding="async" width="463" height="233" src="/wp-content/uploads/2018/05/word-image-1416.png" class="wp-image-1581" srcset="/wp-content/uploads/2018/05/word-image-1416.png 463w, /wp-content/uploads/2018/05/word-image-1416-300x151.png 300w" sizes="(max-width: 463px) 100vw, 463px" /></p>
+<p>
+  代码
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //第一步：读取诗歌的内容
+</p>
+<p>
+  $fp=fopen(&#8216;./shi.txt&#8217;,&#8217;r&#8217;);
+</p>
+<p>
+  $str=&#8221;;
+</p>
+<p>
+  while(!feof($fp)) {
+</p>
+<p>
+  	$str.=fgets($fp).'&lt;br&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  //第三步：获取页码
+</p>
+<p>
+  $pageno=isset($_GET[&#8216;pageno&#8217;])?$_GET[&#8216;pageno&#8217;]:1;
+</p>
+<p>
+  //第二步：分割字符串成数组
+</p>
+<p>
+  $array=explode(&#8216;&#8211;&#8216;,$str);
+</p>
+<p>
+  //显示内容
+</p>
+<p>
+  echo $array[$pageno-1];
+</p>
+<p>
+  echo &#8216;&lt;hr&gt;&#8217;;
+</p>
+<p>
+  for($i=1;$i&lt;=count($array);$i++)
+</p>
+<p>
+  	echo &#8220;&lt;a href=&#8217;?pageno={$i}&#8217;&gt;{$i}&lt;/a&gt;&amp;nbsp;&#8221;;
+</p>
+<p>
+  ?&gt;
+</p>
+<h2>HTTP协议</h2>
+<h3>简介</h3>
+<ol>
+<li><a href="http://baike.baidu.com/view/468465.htm" target="_blank">超文本传输协议</a>（HyperText Transfer Protocol)是<a href="http://baike.baidu.com/view/6825.htm" target="_blank">互联网</a>上应用最为广<a href="http://baike.baidu.com/view/16603.htm" target="_blank">网络协议</a>。所有的www文件都必须遵守这个标准。设计HTTP是为了发送和接收<a href="http://baike.baidu.com/view/692.htm" target="_blank">HTML</a>页面。
+</li>
+<li>
+  http协议是B/S模式的访问方式
+</li>
+<li>
+  断开式连接，服务器处理完客户端请求后立即关闭当前连接
+</li>
+<li>
+  无状态性：服务器不记录用户的状态，也就是说用户多次访问服务器，服务器无法识别是否是同一个用户。
+</li>
+<li>
+  http协议分为HTTP请求协议和http响应协议。
+</li>
+</ol>
+<h3>http请求报文格式</h3>
+<ol>
+<li>
+  http请求报文=请求行+请求头+空行+请求主体
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="187" height="163" src="/wp-content/uploads/2018/05/word-image-1417.png" class="wp-image-1582" /></p>
+<ol>
+<li>
+  请求行：</p>
+<ol>
+<li>
+    语法：请求方式+URL地址+协议版本
+  </li>
+<li>
+    请求方式有：GET、POST
+  </li>
+<li>
+    URL地址必须从根目录开始匹配
+  </li>
+<li>
+    协议版本是“HTTP/1.1”
+  </li>
+<li>
+    通过\r\n表示行结束
+  </li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="366" height="24" src="/wp-content/uploads/2018/05/word-image-1418.png" class="wp-image-1583" srcset="/wp-content/uploads/2018/05/word-image-1418.png 366w, /wp-content/uploads/2018/05/word-image-1418-300x20.png 300w" sizes="(max-width: 366px) 100vw, 366px" /></p>
+<ol>
+<li>
+  请求头：
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="750" height="149" src="/wp-content/uploads/2018/05/word-image-1419.png" class="wp-image-1584" srcset="/wp-content/uploads/2018/05/word-image-1419.png 750w, /wp-content/uploads/2018/05/word-image-1419-300x60.png 300w" sizes="(max-width: 750px) 100vw, 750px" /></p>
+<ul>
+<li>
+<ol>
+<li>
+      格式：头标识:头数据
+    </li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>
+  请求主体</p>
+<ol>
+<li>
+    如果是GET请求没有主体数据
+  </li>
+<li>
+    如果是POST请求提交的数据就是主体数据
+  </li>
+</ol>
+</li>
+</ol>
+<h3>PHP模拟GET请求</h3>
+<p>
+  客户端要访问页面1，通过页面1做代理去访问页面2
+</p>
+<p><img loading="lazy" decoding="async" width="735" height="96" src="/wp-content/uploads/2018/05/word-image-1420.png" class="wp-image-1585" srcset="/wp-content/uploads/2018/05/word-image-1420.png 735w, /wp-content/uploads/2018/05/word-image-1420-300x39.png 300w" sizes="(max-width: 735px) 100vw, 735px" /></p>
+<p>
+  代码实现
+</p>
+<p><img loading="lazy" decoding="async" width="1232" height="339" src="/wp-content/uploads/2018/05/word-image-1421.png" class="wp-image-1586" srcset="/wp-content/uploads/2018/05/word-image-1421.png 1232w, /wp-content/uploads/2018/05/word-image-1421-300x83.png 300w, /wp-content/uploads/2018/05/word-image-1421-768x211.png 768w, /wp-content/uploads/2018/05/word-image-1421-1024x282.png 1024w" sizes="(max-width: 1232px) 100vw, 1232px" /></p>
+<h3>PHP模拟POST请求</h3>
+<p><img loading="lazy" decoding="async" width="1168" height="282" src="/wp-content/uploads/2018/05/word-image-1422.png" class="wp-image-1587" srcset="/wp-content/uploads/2018/05/word-image-1422.png 1168w, /wp-content/uploads/2018/05/word-image-1422-300x72.png 300w, /wp-content/uploads/2018/05/word-image-1422-768x185.png 768w, /wp-content/uploads/2018/05/word-image-1422-1024x247.png 1024w" sizes="(max-width: 1168px) 100vw, 1168px" /></p>
+<p>
+  脚下留心：POST必须大写。
+</p>
+<p>
+  在index.php页面中获取数据
+</p>
+<p><img loading="lazy" decoding="async" width="767" height="209" src="/wp-content/uploads/2018/05/word-image-1423.png" class="wp-image-1588" srcset="/wp-content/uploads/2018/05/word-image-1423.png 767w, /wp-content/uploads/2018/05/word-image-1423-300x82.png 300w" sizes="(max-width: 767px) 100vw, 767px" /></p>
+<h3>http响应报文格式</h3>
+<p><img loading="lazy" decoding="async" width="195" height="169" src="/wp-content/uploads/2018/05/word-image-1424.png" class="wp-image-1589" /></p>
+<p>
+  http响应报文由：响应行+响应头+空行+响应主体
+</p>
+<ol>
+<li>
+  响应行：协议版本+返回状态吗
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="156" height="25" src="/wp-content/uploads/2018/05/word-image-1425.png" class="wp-image-1590" srcset="/wp-content/uploads/2018/05/word-image-1425.png 156w, /wp-content/uploads/2018/05/word-image-1425-150x25.png 150w" sizes="(max-width: 156px) 100vw, 156px" /></p>
+<ol>
+<li>
+  状态码分类总结</p>
+<ol>
+<li>
+    2xx：正常
+  </li>
+<li>
+    3xx：重定向错误
+  </li>
+<li>
+    4xx：客户端错误
+  </li>
+<li>
+    5xx：服务器错误
+  </li>
+</ol>
+</li>
+<li>
+  常见状态码：</p>
+<ol>
+<li>
+    200	正常
+  </li>
+<li>
+    301	临时重定向    302	永久重定向
+  </li>
+<li>
+    404	找不到文件
+  </li>
+<li>
+    403	拒绝访问
+  </li>
+<li>
+    500	服务器错误
+  </li>
+</ol>
+</li>
+<li>
+  响应头
+</li>
+<li>
+  响应主体：所有的输出都是响应主体
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="763" height="384" src="/wp-content/uploads/2018/05/word-image-1426.png" class="wp-image-1591" srcset="/wp-content/uploads/2018/05/word-image-1426.png 763w, /wp-content/uploads/2018/05/word-image-1426-300x151.png 300w" sizes="(max-width: 763px) 100vw, 763px" /></p>
+<h3>操作响应头</h3>
+<p>
+  通过header()函数操作响应头
+</p>
+<p><img loading="lazy" decoding="async" width="760" height="65" src="/wp-content/uploads/2018/05/word-image-1427.png" class="wp-image-1592" srcset="/wp-content/uploads/2018/05/word-image-1427.png 760w, /wp-content/uploads/2018/05/word-image-1427-300x26.png 300w" sizes="(max-width: 760px) 100vw, 760px" /></p>
+<p>
+  脚下留心：header()函数用了操作响应头，在header()函数之前是不能有任何输出的。一旦有输出就表示响应头已经结束，不能操作头信息。
+</p>
+<p>
+  可以通过更改输出缓存的大小使得header()前面可以有输出。
+</p>
+<p><img loading="lazy" decoding="async" width="693" height="35" src="/wp-content/uploads/2018/05/word-image-1428.png" class="wp-image-1593" srcset="/wp-content/uploads/2018/05/word-image-1428.png 693w, /wp-content/uploads/2018/05/word-image-1428-300x15.png 300w" sizes="(max-width: 693px) 100vw, 693px" /></p>
+<p>
+  将输出缓存改为off或0就表示关闭缓存
+</p>
+<h2>响应头的应用</h2>
+<h3>文件下载</h3>
+<p>
+  正常情况下，浏览器接受到主体内容进行打开操作，通过操作响应头告诉浏览器将响应主体作为附件。
+</p>
+<p><img loading="lazy" decoding="async" width="694" height="169" src="/wp-content/uploads/2018/05/word-image-1429.png" class="wp-image-1594" srcset="/wp-content/uploads/2018/05/word-image-1429.png 694w, /wp-content/uploads/2018/05/word-image-1429-300x73.png 300w" sizes="(max-width: 694px) 100vw, 694px" /></p>
+<p>
+  图片下载
+</p>
+<p><img loading="lazy" decoding="async" width="791" height="128" src="/wp-content/uploads/2018/05/word-image-1430.png" class="wp-image-1595" srcset="/wp-content/uploads/2018/05/word-image-1430.png 791w, /wp-content/uploads/2018/05/word-image-1430-300x49.png 300w, /wp-content/uploads/2018/05/word-image-1430-768x124.png 768w" sizes="(max-width: 791px) 100vw, 791px" /></p>
+<p>
+  octet：八位字节
+</p>
+<p>
+  stream：流
+</p>
+<h3>控制器浏览器缓存</h3>
+<p><img loading="lazy" decoding="async" width="1185" height="177" src="/wp-content/uploads/2018/05/word-image-1431.png" class="wp-image-1596" srcset="/wp-content/uploads/2018/05/word-image-1431.png 1185w, /wp-content/uploads/2018/05/word-image-1431-300x45.png 300w, /wp-content/uploads/2018/05/word-image-1431-768x115.png 768w, /wp-content/uploads/2018/05/word-image-1431-1024x153.png 1024w" sizes="(max-width: 1185px) 100vw, 1185px" /></p>
+<p>
+  Expires：过期时间
+</p>
+<h2>页面静态化</h2>
+<table>
+<tr>
+<td></td>
+<td>
+<p>
+  静态页面
+</p>
+</td>
+<td>
+<p>
+  动态页面
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  执行效率
+</p>
+</td>
+<td>
+<p>
+  高
+</p>
+</td>
+<td>
+<p>
+  低
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  数据修改
+</p>
+</td>
+<td>
+<p>
+  不方便
+</p>
+</td>
+<td>
+<p>
+  方便
+</p>
+</td>
+</tr>
+</table>
+<p>
+  页面静态化可以将静态页面和动态页面的优点结合起来。
+</p>
+<h3>通过输出缓存实现页面静态化</h3>
+<p>
+  原理：将缓存中的生成完毕的静态的HTML读取出来 并写到静态文件中
+</p>
+<p><img loading="lazy" decoding="async" width="898" height="109" src="/wp-content/uploads/2018/05/word-image-1432.png" class="wp-image-1597" srcset="/wp-content/uploads/2018/05/word-image-1432.png 898w, /wp-content/uploads/2018/05/word-image-1432-300x36.png 300w, /wp-content/uploads/2018/05/word-image-1432-768x93.png 768w" sizes="(max-width: 898px) 100vw, 898px" /></p>
+<h3>通过file_get_contents实现页面静态化</h3>
+<p><img loading="lazy" decoding="async" width="986" height="51" src="/wp-content/uploads/2018/05/word-image-1433.png" class="wp-image-1598" srcset="/wp-content/uploads/2018/05/word-image-1433.png 986w, /wp-content/uploads/2018/05/word-image-1433-300x16.png 300w, /wp-content/uploads/2018/05/word-image-1433-768x40.png 768w" sizes="(max-width: 986px) 100vw, 986px" /></p>
+<h3>通过curl扩展实现页面静态化</h3>
+<p>
+  要在php.ini中开启curl扩展
+</p>
+<p><img loading="lazy" decoding="async" width="327" height="23" src="/wp-content/uploads/2018/05/word-image-1434.png" class="wp-image-1599" srcset="/wp-content/uploads/2018/05/word-image-1434.png 327w, /wp-content/uploads/2018/05/word-image-1434-300x21.png 300w" sizes="(max-width: 327px) 100vw, 327px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="883" height="198" src="/wp-content/uploads/2018/05/word-image-1435.png" class="wp-image-1600" srcset="/wp-content/uploads/2018/05/word-image-1435.png 883w, /wp-content/uploads/2018/05/word-image-1435-300x67.png 300w, /wp-content/uploads/2018/05/word-image-1435-768x172.png 768w" sizes="(max-width: 883px) 100vw, 883px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/1554.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>PHP 核心编程（四）Cookie、 Session、 响应头、 短连接、 请求头、 长链接</title>
+		<link>/php/1410.html</link>
+					<comments>/php/1410.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 09:42:49 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP核心编程]]></category>
+		<category><![CDATA[Cookie]]></category>
+		<category><![CDATA[Session]]></category>
+		<category><![CDATA[响应头]]></category>
+		<category><![CDATA[短连接]]></category>
+		<category><![CDATA[请求头]]></category>
+		<category><![CDATA[长链接]]></category>
+		<guid isPermaLink="false">/?p=1410</guid>
+
+					<description><![CDATA[Cookie和Session Cookie介绍 引入cookie的概念 思考：A页面中访问B页面的变量如何实现 [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h1>Cookie和Session</h1>
+<h2>Cookie介绍</h2>
+<h3>引入cookie的概念</h3>
+<p>
+  思考：A页面中访问B页面的变量如何实现？
+</p>
+<p>
+  方法一：包含文件
+</p>
+<p>
+  方法二：get或者post传递
+</p>
+<p>
+  方法三：将数据保存到请求头中，目标页面就可以到请求头中获取数据。这就是cookie。
+</p>
+<p>
+  Cookie是放在请求头中的一个信息包。
+</p>
+<h3>cookie的原理</h3>
+<p><img loading="lazy" decoding="async" width="1027" height="297" src="/wp-content/uploads/2018/05/word-image-1344.png" class="wp-image-1507" srcset="/wp-content/uploads/2018/05/word-image-1344.png 1027w, /wp-content/uploads/2018/05/word-image-1344-300x87.png 300w, /wp-content/uploads/2018/05/word-image-1344-768x222.png 768w, /wp-content/uploads/2018/05/word-image-1344-1024x296.png 1024w" sizes="(max-width: 1027px) 100vw, 1027px" /></p>
+<h3>请求头和响应头</h3>
+<p>
+  请求头的信息用来告知服务器客户端的信息
+</p>
+<p><img loading="lazy" decoding="async" width="1093" height="148" src="/wp-content/uploads/2018/05/word-image-1345.png" class="wp-image-1508" srcset="/wp-content/uploads/2018/05/word-image-1345.png 1093w, /wp-content/uploads/2018/05/word-image-1345-300x41.png 300w, /wp-content/uploads/2018/05/word-image-1345-768x104.png 768w, /wp-content/uploads/2018/05/word-image-1345-1024x139.png 1024w" sizes="(max-width: 1093px) 100vw, 1093px" /></p>
+<p>
+  响应头的信息用来告知客户端服务器的信息
+</p>
+<p><img loading="lazy" decoding="async" width="773" height="139" src="/wp-content/uploads/2018/05/word-image-1346.png" class="wp-image-1509" srcset="/wp-content/uploads/2018/05/word-image-1346.png 773w, /wp-content/uploads/2018/05/word-image-1346-300x54.png 300w, /wp-content/uploads/2018/05/word-image-1346-768x138.png 768w" sizes="(max-width: 773px) 100vw, 773px" /></p>
+<h3>长连接</h3>
+<p><img loading="lazy" decoding="async" width="647" height="234" src="/wp-content/uploads/2018/05/word-image-1347.png" class="wp-image-1510" srcset="/wp-content/uploads/2018/05/word-image-1347.png 647w, /wp-content/uploads/2018/05/word-image-1347-300x109.png 300w" sizes="(max-width: 647px) 100vw, 647px" /></p>
+<p>
+  TCP：是一个连接协议
+</p>
+<p>
+  http：是一个访问协议
+</p>
+<p>
+  在http请求之前有一个TCP连接的过程，http响应后不立即关闭连接，而是等5秒，以便第二次访问的时候不需要建立连接，从而节省资源，提高效率。
+</p>
+<h2>Cookie使用</h2>
+<p><img loading="lazy" decoding="async" width="942" height="88" src="/wp-content/uploads/2018/05/word-image-1348.png" class="wp-image-1511" srcset="/wp-content/uploads/2018/05/word-image-1348.png 942w, /wp-content/uploads/2018/05/word-image-1348-300x28.png 300w, /wp-content/uploads/2018/05/word-image-1348-768x72.png 768w" sizes="(max-width: 942px) 100vw, 942px" /></p>
+<h3>设置cookie</h3>
+<p>
+  语法：setcookie(‘名’,’值’)
+</p>
+<p>
+  分析如下情况，为什么第一次访问报错？再次访问可以获取到cookie的值
+</p>
+<p><img loading="lazy" decoding="async" width="779" height="221" src="/wp-content/uploads/2018/05/word-image-1349.png" class="wp-image-1512" srcset="/wp-content/uploads/2018/05/word-image-1349.png 779w, /wp-content/uploads/2018/05/word-image-1349-300x85.png 300w, /wp-content/uploads/2018/05/word-image-1349-768x218.png 768w" sizes="(max-width: 779px) 100vw, 779px" /></p>
+<p>
+  刷新浏览器
+</p>
+<p><img loading="lazy" decoding="async" width="561" height="120" src="/wp-content/uploads/2018/05/word-image-1350.png" class="wp-image-1513" srcset="/wp-content/uploads/2018/05/word-image-1350.png 561w, /wp-content/uploads/2018/05/word-image-1350-300x64.png 300w" sizes="(max-width: 561px) 100vw, 561px" /></p>
+<p>
+  原因：
+</p>
+<p>
+  第一次访问的时候请求头中没有cookie的信息，第一次访问服务器通过响应头将cookie的值发送到客户端
+</p>
+<p><img loading="lazy" decoding="async" width="887" height="523" src="/wp-content/uploads/2018/05/word-image-1351.png" class="wp-image-1514" srcset="/wp-content/uploads/2018/05/word-image-1351.png 887w, /wp-content/uploads/2018/05/word-image-1351-300x177.png 300w, /wp-content/uploads/2018/05/word-image-1351-768x453.png 768w" sizes="(max-width: 887px) 100vw, 887px" /></p>
+<p>
+  第二次再次访问的时候，cookie的信息就会自动存放到请求头中带到服务器去。服务器就可以获取cookie的值
+</p>
+<p><img loading="lazy" decoding="async" width="932" height="607" src="/wp-content/uploads/2018/05/word-image-1352.png" class="wp-image-1515" srcset="/wp-content/uploads/2018/05/word-image-1352.png 932w, /wp-content/uploads/2018/05/word-image-1352-300x195.png 300w, /wp-content/uploads/2018/05/word-image-1352-768x500.png 768w" sizes="(max-width: 932px) 100vw, 932px" /></p>
+<h3>Cookie保存在浏览器上</h3>
+<p><img loading="lazy" decoding="async" width="339" height="477" src="/wp-content/uploads/2018/05/word-image-1353.png" class="wp-image-1516" srcset="/wp-content/uploads/2018/05/word-image-1353.png 339w, /wp-content/uploads/2018/05/word-image-1353-213x300.png 213w" sizes="(max-width: 339px) 100vw, 339px" /><br />
+<img loading="lazy" decoding="async" width="783" height="191" src="/wp-content/uploads/2018/05/word-image-1354.png" class="wp-image-1517" srcset="/wp-content/uploads/2018/05/word-image-1354.png 783w, /wp-content/uploads/2018/05/word-image-1354-300x73.png 300w, /wp-content/uploads/2018/05/word-image-1354-768x187.png 768w" sizes="(max-width: 783px) 100vw, 783px" /><br />
+<img loading="lazy" decoding="async" width="525" height="543" src="/wp-content/uploads/2018/05/word-image-1355.png" class="wp-image-1518" srcset="/wp-content/uploads/2018/05/word-image-1355.png 525w, /wp-content/uploads/2018/05/word-image-1355-290x300.png 290w" sizes="(max-width: 525px) 100vw, 525px" /></p>
+<h3>cookie的分类</h3>
+<p>
+  cookie可以分为两类：临时性cookie和永久性cookie
+</p>
+<p>
+  临时性cookie：关闭浏览器cookie就消失
+</p>
+<p>
+  永久性cookie：关闭浏览器cookie不消失，在临时cookie基础上添加过期时间
+</p>
+<p>
+  语法：setcookie(名，值，过期时间)，过期时间用时间戳
+</p>
+<p><img loading="lazy" decoding="async" width="792" height="81" src="/wp-content/uploads/2018/05/word-image-1356.png" class="wp-image-1519" srcset="/wp-content/uploads/2018/05/word-image-1356.png 792w, /wp-content/uploads/2018/05/word-image-1356-300x31.png 300w, /wp-content/uploads/2018/05/word-image-1356-768x79.png 768w" sizes="(max-width: 792px) 100vw, 792px" /></p>
+<p>
+  查看cookie
+</p>
+<p><img loading="lazy" decoding="async" width="543" height="539" src="/wp-content/uploads/2018/05/word-image-1357.png" class="wp-image-1520" srcset="/wp-content/uploads/2018/05/word-image-1357.png 543w, /wp-content/uploads/2018/05/word-image-1357-150x150.png 150w, /wp-content/uploads/2018/05/word-image-1357-300x298.png 300w" sizes="(max-width: 543px) 100vw, 543px" /></p>
+<p>
+  永久性cookie的作用，用来实现记住用户名和密码
+</p>
+<p><img loading="lazy" decoding="async" width="460" height="267" src="/wp-content/uploads/2018/05/word-image-1358.png" class="wp-image-1521" srcset="/wp-content/uploads/2018/05/word-image-1358.png 460w, /wp-content/uploads/2018/05/word-image-1358-300x174.png 300w" sizes="(max-width: 460px) 100vw, 460px" /></p>
+<p>
+  脚下留心：cookie保存在浏览器上，火狐保存的cookie不可以通过ie等其他浏览器访问。那个浏览器保存的cookie那个浏览器访问。
+</p>
+<h3>Cookie中保存数据的类型</h3>
+<p>
+  保存字符串
+</p>
+<p><img loading="lazy" decoding="async" width="716" height="47" src="/wp-content/uploads/2018/05/word-image-1359.png" class="wp-image-1522" srcset="/wp-content/uploads/2018/05/word-image-1359.png 716w, /wp-content/uploads/2018/05/word-image-1359-300x20.png 300w" sizes="(max-width: 716px) 100vw, 716px" /></p>
+<p>
+  保存数字
+</p>
+<p><img loading="lazy" decoding="async" width="550" height="48" src="/wp-content/uploads/2018/05/word-image-1360.png" class="wp-image-1523" srcset="/wp-content/uploads/2018/05/word-image-1360.png 550w, /wp-content/uploads/2018/05/word-image-1360-300x26.png 300w" sizes="(max-width: 550px) 100vw, 550px" /></p>
+<p>
+  不能保存布尔型
+</p>
+<p><img loading="lazy" decoding="async" width="820" height="148" src="/wp-content/uploads/2018/05/word-image-1361.png" class="wp-image-1524" srcset="/wp-content/uploads/2018/05/word-image-1361.png 820w, /wp-content/uploads/2018/05/word-image-1361-300x54.png 300w, /wp-content/uploads/2018/05/word-image-1361-768x139.png 768w" sizes="(max-width: 820px) 100vw, 820px" /></p>
+<p>
+  不能保存null型
+</p>
+<p><img loading="lazy" decoding="async" width="777" height="100" src="/wp-content/uploads/2018/05/word-image-1362.png" class="wp-image-1525" srcset="/wp-content/uploads/2018/05/word-image-1362.png 777w, /wp-content/uploads/2018/05/word-image-1362-300x39.png 300w, /wp-content/uploads/2018/05/word-image-1362-768x99.png 768w" sizes="(max-width: 777px) 100vw, 777px" /></p>
+<p>
+  不能保存数组和对象
+</p>
+<p><img loading="lazy" decoding="async" width="935" height="89" src="/wp-content/uploads/2018/05/word-image-1363.png" class="wp-image-1526" srcset="/wp-content/uploads/2018/05/word-image-1363.png 935w, /wp-content/uploads/2018/05/word-image-1363-300x29.png 300w, /wp-content/uploads/2018/05/word-image-1363-768x73.png 768w" sizes="(max-width: 935px) 100vw, 935px" /></p>
+<p>
+  总结：cookie只能保存字符串和数字。
+</p>
+<h3>删除cookie</h3>
+<p><img loading="lazy" decoding="async" width="927" height="40" src="/wp-content/uploads/2018/05/word-image-1364.png" class="wp-image-1527" srcset="/wp-content/uploads/2018/05/word-image-1364.png 927w, /wp-content/uploads/2018/05/word-image-1364-300x13.png 300w, /wp-content/uploads/2018/05/word-image-1364-768x33.png 768w" sizes="(max-width: 927px) 100vw, 927px" /><br />
+<img loading="lazy" decoding="async" width="892" height="37" src="/wp-content/uploads/2018/05/word-image-1365.png" class="wp-image-1528" srcset="/wp-content/uploads/2018/05/word-image-1365.png 892w, /wp-content/uploads/2018/05/word-image-1365-300x12.png 300w, /wp-content/uploads/2018/05/word-image-1365-768x32.png 768w" sizes="(max-width: 892px) 100vw, 892px" /><br />
+<img loading="lazy" decoding="async" width="673" height="32" src="/wp-content/uploads/2018/05/word-image-1366.png" class="wp-image-1529" srcset="/wp-content/uploads/2018/05/word-image-1366.png 673w, /wp-content/uploads/2018/05/word-image-1366-300x14.png 300w" sizes="(max-width: 673px) 100vw, 673px" /></p>
+<h3>Cookie名字支持下标</h3>
+<p>
+  Cookie在浏览器上是没有数组概念的。浏览器请求到服务器，PHP将同名的参数转换成数组。
+</p>
+<p><img loading="lazy" decoding="async" width="810" height="115" src="/wp-content/uploads/2018/05/word-image-1367.png" class="wp-image-1530" srcset="/wp-content/uploads/2018/05/word-image-1367.png 810w, /wp-content/uploads/2018/05/word-image-1367-300x43.png 300w, /wp-content/uploads/2018/05/word-image-1367-768x109.png 768w" sizes="(max-width: 810px) 100vw, 810px" /></p>
+<p>
+  4-demo2.php上获取cookie
+</p>
+<p><img loading="lazy" decoding="async" width="830" height="90" src="/wp-content/uploads/2018/05/word-image-1368.png" class="wp-image-1531" srcset="/wp-content/uploads/2018/05/word-image-1368.png 830w, /wp-content/uploads/2018/05/word-image-1368-300x33.png 300w, /wp-content/uploads/2018/05/word-image-1368-768x83.png 768w" sizes="(max-width: 830px) 100vw, 830px" /></p>
+<h3>Cookie的有效目录</h3>
+<p>
+  默认情况下，cookie只能在设置cookie页面当前目录及后代目录下起作用
+</p>
+<p>
+  我们要在整个站点目录下起作用，设置第四个参数。“/”表示根目录下有效。
+</p>
+<p><img loading="lazy" decoding="async" width="664" height="29" src="/wp-content/uploads/2018/05/word-image-1369.png" class="wp-image-1532" srcset="/wp-content/uploads/2018/05/word-image-1369.png 664w, /wp-content/uploads/2018/05/word-image-1369-300x13.png 300w" sizes="(max-width: 664px) 100vw, 664px" /></p>
+<h3>Cookie支持子域名</h3>
+<p>
+  多学一招：域名的基础知识
+</p>
+<p>
+  域名从级别上来分分为一级域名，二级域名，三级域名,…
+</p>
+<p><a href="http://www.baidu.com/">www.baidu.com</a>：一级域名
+</p>
+<p><a href="http://www.aa.baidu.com/" class="broken_link">www.aa.baidu.com</a>：二级域名
+</p>
+<p><a href="http://www.aa.bb.cc.baidu.com/" class="broken_link">www.aa.bb.cc.baidu.com</a>：四级域名
+</p>
+<p><a href="http://www.itcast.cn/">www.itcast.cn</a>：一级域名
+</p>
+<p><a href="http://www.php.itcast.cn/" class="broken_link">www.php.itcast.cn</a>：二级域名
+</p>
+<p><a href="http://www.sh.itcast.cn/" class="broken_link">www.sh.itcast.cn</a>：二级域名
+</p>
+<p>
+  域名从地区上分分为：国内域名，国际域名
+</p>
+<p>
+  国内域名：从域名上可以区分国家
+</p>
+<p>
+  国际域名：从域名上不能区分那个国家
+</p>
+<p>
+  .com: 表示公司 company
+</p>
+<p>
+  .co:表示公司，和.com是一样的，因为.com快耗尽了
+</p>
+<p>
+  .cc：表示中国公司
+</p>
+<p>
+  .net：表示与网络有关的公司
+</p>
+<p>
+  .gov：政府
+</p>
+<p><a href="http://www.aa.com/" class="broken_link">www.aa.com</a>	国际域名
+</p>
+<p><a href="http://www.aa.net/">www.aa.net</a>	国际域名
+</p>
+<p><a href="http://www.aa.cn/" class="broken_link">www.aa.cn</a>		国内域名（中国）
+</p>
+<p><a href="http://www.aa.tw/" class="broken_link">www.aa.tw</a>		国内域名（台湾）
+</p>
+<p><a href="http://www.aa.jp/" class="broken_link">www.aa.jp</a>		国内域名（日本）
+</p>
+<p><a href="http://www.aa.af/" class="broken_link">www.aa.af</a>		国内域名（阿富汗）
+</p>
+<p>
+  默认情况下，cookie的值是区分子域名的，我们可以通过设置域名使得cookie在所有的子域名中访问
+</p>
+<p><img loading="lazy" decoding="async" width="611" height="86" src="/wp-content/uploads/2018/05/word-image-1370.png" class="wp-image-1533" srcset="/wp-content/uploads/2018/05/word-image-1370.png 611w, /wp-content/uploads/2018/05/word-image-1370-300x42.png 300w" sizes="(max-width: 611px) 100vw, 611px" /></p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="624" height="97" src="/wp-content/uploads/2018/05/word-image-1371.png" class="wp-image-1534" srcset="/wp-content/uploads/2018/05/word-image-1371.png 624w, /wp-content/uploads/2018/05/word-image-1371-300x47.png 300w" sizes="(max-width: 624px) 100vw, 624px" /><br />
+<img loading="lazy" decoding="async" width="504" height="98" src="/wp-content/uploads/2018/05/word-image-1372.png" class="wp-image-1535" srcset="/wp-content/uploads/2018/05/word-image-1372.png 504w, /wp-content/uploads/2018/05/word-image-1372-300x58.png 300w" sizes="(max-width: 504px) 100vw, 504px" /></p>
+<h3>是否安全传输</h3>
+<p>
+  setcookie(名字，值，过期时间，有效目录，子域名，是否安全传输=false)
+</p>
+<p>
+  默认是false。
+</p>
+<p>
+  如果是true只能是https协议才能传输cookie，http不能传输。
+</p>
+<p><img loading="lazy" decoding="async" width="913" height="191" src="/wp-content/uploads/2018/05/word-image-1373.png" class="wp-image-1536" srcset="/wp-content/uploads/2018/05/word-image-1373.png 913w, /wp-content/uploads/2018/05/word-image-1373-300x63.png 300w, /wp-content/uploads/2018/05/word-image-1373-768x161.png 768w" sizes="(max-width: 913px) 100vw, 913px" /></p>
+<h3>是否安全访问</h3>
+<p>
+  setcookie(名字，值，过期时间，有效目录，子域名，是否安全传输，是否安全访问=false)
+</p>
+<p>
+  默认情况下，js和php都可以获取cookie的值
+</p>
+<p><img loading="lazy" decoding="async" width="675" height="227" src="/wp-content/uploads/2018/05/word-image-1374.png" class="wp-image-1537" srcset="/wp-content/uploads/2018/05/word-image-1374.png 675w, /wp-content/uploads/2018/05/word-image-1374-300x101.png 300w" sizes="(max-width: 675px) 100vw, 675px" /></p>
+<p>
+  设为true，表示安全访问，只能通过PHP获取cookie，不能通过js获取。
+</p>
+<p><img loading="lazy" decoding="async" width="708" height="197" src="/wp-content/uploads/2018/05/word-image-1375.png" class="wp-image-1538" srcset="/wp-content/uploads/2018/05/word-image-1375.png 708w, /wp-content/uploads/2018/05/word-image-1375-300x83.png 300w" sizes="(max-width: 708px) 100vw, 708px" /></p>
+<h3>Cookie的缺点</h3>
+<ol>
+<li>
+  cookie保存在客户端安全性比较低
+</li>
+<li>
+  cookie只能保存数字和字符串，可控性比较差
+</li>
+<li>
+  增加请求时数据负载
+</li>
+<li>
+  浏览器对cookie是有大小限制的，一般的4K。
+</li>
+</ol>
+<h2>Session（会话）</h2>
+<ol>
+<li>
+  session是基于cookie技术的
+</li>
+<li>
+  session是将信息保存在服务器的技术，
+</li>
+<li>
+  要使用会话，需要开启会话。session_start()，默认情况下会话不会自动开启。
+</li>
+<li>
+  要自动开启会话，在php.ini文件中设置session.auto_start = 1，重启服务器。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="792" height="26" src="/wp-content/uploads/2018/05/word-image-1376.png" class="wp-image-1539" srcset="/wp-content/uploads/2018/05/word-image-1376.png 792w, /wp-content/uploads/2018/05/word-image-1376-300x10.png 300w, /wp-content/uploads/2018/05/word-image-1376-768x25.png 768w" sizes="(max-width: 792px) 100vw, 792px" /></p>
+<ol>
+<li>
+  session_id()：获取会话编号
+</li>
+<li>
+  session_name()：获取会话名称
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="836" height="109" src="/wp-content/uploads/2018/05/word-image-1377.png" class="wp-image-1540" srcset="/wp-content/uploads/2018/05/word-image-1377.png 836w, /wp-content/uploads/2018/05/word-image-1377-300x39.png 300w, /wp-content/uploads/2018/05/word-image-1377-768x100.png 768w" sizes="(max-width: 836px) 100vw, 836px" /></p>
+<ol>
+<li>
+  session可以保存除了资源以外的任何数据类型。
+</li>
+<li>
+  重复开启会话会报错
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="951" height="47" src="/wp-content/uploads/2018/05/word-image-1378.png" class="wp-image-1541" srcset="/wp-content/uploads/2018/05/word-image-1378.png 951w, /wp-content/uploads/2018/05/word-image-1378-300x15.png 300w, /wp-content/uploads/2018/05/word-image-1378-768x38.png 768w" sizes="(max-width: 951px) 100vw, 951px" /></p>
+<p>
+  可以通过@屏蔽错误
+</p>
+<p><img loading="lazy" decoding="async" width="593" height="45" src="/wp-content/uploads/2018/05/word-image-1379.png" class="wp-image-1542" srcset="/wp-content/uploads/2018/05/word-image-1379.png 593w, /wp-content/uploads/2018/05/word-image-1379-300x23.png 300w" sizes="(max-width: 593px) 100vw, 593px" /></p>
+<h3>session的执行过程</h3>
+<p><img loading="lazy" decoding="async" width="471" height="212" src="/wp-content/uploads/2018/05/word-image-1380.png" class="wp-image-1543" srcset="/wp-content/uploads/2018/05/word-image-1380.png 471w, /wp-content/uploads/2018/05/word-image-1380-300x135.png 300w" sizes="(max-width: 471px) 100vw, 471px" /></p>
+<p>
+  第一步：当使用session_start()函数，PHP就从打开session仓库。
+</p>
+<p>
+  如果是第一次访问，服务器会给客户端赋一个唯一的会话id。这个id保存在cookie中，在后面的访问中通过会话id访问会话的内容。
+</p>
+<p>
+  如果不是第一次访问，通过会话id加载对应的会话文件。
+</p>
+<p>
+  第二步：在PHP运行过程中，PHP可以对会话进行操作
+</p>
+<p>
+  第三步：当PHP脚本执行结束，没有被销毁的会话自动的保存到session仓库中，以便下次访问的时候加载使用。
+</p>
+<p>
+  	只能访问自己的会话，不能访问别人的会话，因为每个人的会话编号不同。
+</p>
+<h3>会话的配置</h3>
+<ol>
+<li>
+  session.save_path=&#8221;F:\wamp\tmp\tmp&#8221;：会话加载的位置
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="522" height="112" src="/wp-content/uploads/2018/05/word-image-1381.png" class="wp-image-1544" srcset="/wp-content/uploads/2018/05/word-image-1381.png 522w, /wp-content/uploads/2018/05/word-image-1381-300x64.png 300w" sizes="(max-width: 522px) 100vw, 522px" /></p>
+<ol>
+<li>
+  session.auto_start = 0：是否自动开启会话
+</li>
+<li>
+  session.name = PHPSESSID：设置会话编号的名字
+</li>
+<li>
+  session.cookie_path = /：保存会话编号的cookie整站有效
+</li>
+<li>
+  session.cookie_domain =：保存会话编号的cookie当前域名下有效
+</li>
+<li>
+  session.gc_maxlifetime = 1440：会话过期时间，默认1440秒=24分钟
+</li>
+<li>
+  session.cookie_lifetime = 0：会话编号在客户端保存的时间，0表示关闭浏览器就失效
+</li>
+<li>
+  session.save_handler = files：会话通过文件来保存
+</li>
+</ol>
+<h3>销毁会话</h3>
+<p>
+  session_destroy()
+</p>
+<p>
+  调用此函数会删除存储介质中的文件。
+</p>
+<p>
+  执行了销毁会话就不执行会话写操作
+</p>
+<p><img loading="lazy" decoding="async" width="361" height="62" src="/wp-content/uploads/2018/05/word-image-1382.png" class="wp-image-1545" srcset="/wp-content/uploads/2018/05/word-image-1382.png 361w, /wp-content/uploads/2018/05/word-image-1382-300x52.png 300w" sizes="(max-width: 361px) 100vw, 361px" /></p>
+<h3>垃圾回收</h3>
+<p><img loading="lazy" decoding="async" width="960" height="328" src="/wp-content/uploads/2018/05/word-image-1383.png" class="wp-image-1546" srcset="/wp-content/uploads/2018/05/word-image-1383.png 960w, /wp-content/uploads/2018/05/word-image-1383-300x103.png 300w, /wp-content/uploads/2018/05/word-image-1383-768x262.png 768w" sizes="(max-width: 960px) 100vw, 960px" /></p>
+<p>
+  测试
+</p>
+<p><img loading="lazy" decoding="async" width="811" height="92" src="/wp-content/uploads/2018/05/word-image-1384.png" class="wp-image-1547" srcset="/wp-content/uploads/2018/05/word-image-1384.png 811w, /wp-content/uploads/2018/05/word-image-1384-300x34.png 300w, /wp-content/uploads/2018/05/word-image-1384-768x87.png 768w" sizes="(max-width: 811px) 100vw, 811px" /></p>
+<p>
+  PHP认为超出了会话过期时间的文件是垃圾文件。PHP垃圾回收机制自动执行垃圾回收。
+</p>
+<h3>session和cookie的区别</h3>
+<p>
+  相同点
+</p>
+<ol>
+<li>
+  他们都是会话技术，都是有生命周期的
+</li>
+<li>
+  都是无状态性的
+</li>
+</ol>
+<p>
+  不同点
+</p>
+<table>
+<tr>
+<td></td>
+<td>
+<p>
+  cookie
+</p>
+</td>
+<td>
+<p>
+  session
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  保存的位置
+</p>
+</td>
+<td>
+<p>
+  客户端
+</p>
+</td>
+<td>
+<p>
+  服务器端
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  数据大小
+</p>
+</td>
+<td>
+<p>
+  4K
+</p>
+</td>
+<td>
+<p>
+  没有限制
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  数据类型
+</p>
+</td>
+<td>
+<p>
+  字符串和数字
+</p>
+</td>
+<td>
+<p>
+  除了资源以为的所有类型
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  安全性
+</p>
+</td>
+<td>
+<p>
+  低
+</p>
+</td>
+<td>
+<p>
+  高
+</p>
+</td>
+</tr>
+</table>
+<p>
+  Cookie和session都是实现在整个访问过程中可以访问到变量的值。
+</p>
+<h2>禁用cookie对session的影响</h2>
+<p><img loading="lazy" decoding="async" width="478" height="217" src="/wp-content/uploads/2018/05/word-image-1385.png" class="wp-image-1548" srcset="/wp-content/uploads/2018/05/word-image-1385.png 478w, /wp-content/uploads/2018/05/word-image-1385-300x136.png 300w" sizes="(max-width: 478px) 100vw, 478px" /><br />
+<img loading="lazy" decoding="async" width="790" height="341" src="/wp-content/uploads/2018/05/word-image-1386.png" class="wp-image-1549" srcset="/wp-content/uploads/2018/05/word-image-1386.png 790w, /wp-content/uploads/2018/05/word-image-1386-300x129.png 300w, /wp-content/uploads/2018/05/word-image-1386-768x332.png 768w" sizes="(max-width: 790px) 100vw, 790px" /></p>
+<p>
+  脚下留心：默认情况下，session是基于cookie技术的，如果禁用了cookie，session也是无法使用
+</p>
+<p>
+  服务器是无法控制客户端是否禁用cookie,解决方法：通过get传递会话编号。
+</p>
+<p>
+  实现方法；
+</p>
+<p>
+  在php.ini中设置session.use_only_cookies = 0：表示session不仅仅依赖于cookie
+</p>
+<p>
+  在php.ini中设置session.use_trans_sid = 1：表示运行通过其他方式传输sessionid。
+</p>
+<p><img loading="lazy" decoding="async" width="632" height="54" src="/wp-content/uploads/2018/05/word-image-1387.png" class="wp-image-1550" srcset="/wp-content/uploads/2018/05/word-image-1387.png 632w, /wp-content/uploads/2018/05/word-image-1387-300x26.png 300w" sizes="(max-width: 632px) 100vw, 632px" /></p>
+<p>
+  页面中get提交的地址后面都会自动添加sessionid参数，表单中都会添加sessionid的隐藏域
+</p>
+<p><img loading="lazy" decoding="async" width="813" height="130" src="/wp-content/uploads/2018/05/word-image-1388.png" class="wp-image-1551" srcset="/wp-content/uploads/2018/05/word-image-1388.png 813w, /wp-content/uploads/2018/05/word-image-1388-300x48.png 300w, /wp-content/uploads/2018/05/word-image-1388-768x123.png 768w" sizes="(max-width: 813px) 100vw, 813px" /></p>
+<h2>Session入库</h2>
+<p>
+  在处理大量数据的时候，会话保存到数据库中文件中效率要高。
+</p>
+<h3>创建数据库</h3>
+<p>
+  create table `session`(
+</p>
+<p>
+         sess_id varchar(50) primary key comment &#8216;会话id&#8217;,
+</p>
+<p>
+         sess_value varchar(2000) comment &#8216;会话的值&#8217;,
+</p>
+<p>
+         sess_expires int comment &#8216;会话产生时间&#8217;
+</p>
+<p>
+  )engine=memory charset=utf8 comment &#8216;会话表&#8217;
+</p>
+<p>
+  思考：
+</p>
+<ol>
+<li>
+  时间为什么不用datetime而用int?
+</li>
+</ol>
+<p>
+  答：datetime占用8个字节，int占用4个字节
+</p>
+<ol>
+<li>
+  表引擎为啥用memory
+</li>
+</ol>
+<p>
+  答：memory数据保存在内存中，执行效率很高，但memory引擎只要重启MySQL服务器，数据全部清空。
+</p>
+<h3>Session入库</h3>
+<p>
+  通过session_set_save_handler()函数设置会话的保存方式
+</p>
+<p><img loading="lazy" decoding="async" width="941" height="96" src="/wp-content/uploads/2018/05/word-image-1389.png" class="wp-image-1552" srcset="/wp-content/uploads/2018/05/word-image-1389.png 941w, /wp-content/uploads/2018/05/word-image-1389-300x31.png 300w, /wp-content/uploads/2018/05/word-image-1389-768x78.png 768w" sizes="(max-width: 941px) 100vw, 941px" /></p>
+<p>
+  on duplicate key update：当插入记录与主键或唯一键冲突的时候就执行update操作。
+</p>
+<p>
+  例题
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  header(&#8216;content-type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  //开启会话时候执行
+</p>
+<p>
+  function open() {
+</p>
+<p>
+  	//连接数据库
+</p>
+<p>
+  	mysql_connect(&#8216;localhost&#8217;,&#8217;root&#8217;,&#8217;root&#8217;);
+</p>
+<p>
+  	mysql_select_db(&#8216;data&#8217;);
+</p>
+<p>
+  	mysql_query(&#8216;set names utf8&#8217;);
+</p>
+<p>
+  }
+</p>
+<p>
+  //关闭会话的时候执行
+</p>
+<p>
+  function close() {
+</p>
+</p>
+<p>
+  }
+</p>
+<p>
+  /**
+</p>
+<p>
+  *读取会话的时候执行
+</p>
+<p>
+  *@param $sess_id string 会话id
+</p>
+<p>
+  */
+</p>
+<p>
+  function read($sess_id) {
+</p>
+<p>
+  	$sql=&#8221;select sess_value from session where sess_id=&#8217;$sess_id'&#8221;;
+</p>
+<p>
+  	$rs=mysql_query($sql);
+</p>
+<p>
+  	if($rows=mysql_fetch_row($rs))
+</p>
+<p>
+  		return $rows[0];
+</p>
+<p>
+  	return &#8221;;
+</p>
+<p>
+  }
+</p>
+<p>
+  /**
+</p>
+<p>
+  *写入会话的时候执行
+</p>
+<p>
+  *@param $sess_id string 会话编号
+</p>
+<p>
+  *@param $sess_value string 会话的值
+</p>
+<p>
+  */
+</p>
+<p>
+  function write($sess_id,$sess_value) {
+</p>
+<p>
+  	$time=time();	//会话产生的时间
+</p>
+<p>
+  	$sql=&#8221;insert into session values (&#8216;$sess_id&#8217;,&#8217;$sess_value&#8217;,$time) on duplicate key update sess_value=&#8217;$sess_value'&#8221;;
+</p>
+<p>
+  	return mysql_query($sql);
+</p>
+<p>
+  }
+</p>
+<p>
+  /**
+</p>
+<p>
+  *销毁会话的时候执行,调用session_destroy()执行
+</p>
+<p>
+  *@param $sess_id string 会话id
+</p>
+<p>
+  */
+</p>
+<p>
+  function destroy($sess_id) {
+</p>
+<p>
+  	$sql=&#8221;delete from session where sess_id=&#8217;$sess_id'&#8221;;
+</p>
+<p>
+  	return mysql_query($sql);
+</p>
+<p>
+  }
+</p>
+<p>
+  /**
+</p>
+<p>
+  *垃圾回收的时候执行
+</p>
+<p>
+  *@param $lifetime int 会话过期时间
+</p>
+<p>
+  */
+</p>
+<p>
+  function gc($lifetime) {
+</p>
+<p>
+  	$expires=time()-$lifetime;	//垃圾文件的临界值
+</p>
+<p>
+  	$sql=&#8221;delete from session where sess_expires&lt;$expires&#8221;;
+</p>
+<p>
+  	return mysql_query($sql);
+</p>
+<p>
+  }
+</p>
+<p>
+  ini_set(&#8216;session.gc_probability&#8217;,1000);	//执行垃圾回收的概率是1000/1000
+</p>
+<p>
+  ini_set(&#8216;session.gc_maxlifetime&#8217;,2);
+</p>
+<p>
+  session_set_save_handler(&#8216;open&#8217;,&#8217;close&#8217;,&#8217;read&#8217;,&#8217;write&#8217;,&#8217;destroy&#8217;,&#8217;gc&#8217;); session_start();	//开启会话
+</p>
+<p>
+  $_SESSION[&#8216;name&#8217;]=&#8217;tom&#8217;;
+</p>
+<p>
+  unset($_SESSION[&#8216;sex&#8217;]);
+</p>
+<p>
+  unset($_SESSION[&#8216;add&#8217;]);
+</p>
+<p>
+  $_SESSION[&#8216;aa&#8217;]=10;
+</p>
+<p>
+  session_destroy();
+</p>
+<p>
+  脚下留心：session_set_save_handler()一定要写在session_start()前面</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/1410.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>PHP 核心编程（五）GD 库、 图片颜色填充、 水印、 缩略图、 验证码</title>
+		<link>/php/php%e6%a0%b8%e5%bf%83%e7%bc%96%e7%a8%8b/1363.html</link>
+					<comments>/php/php%e6%a0%b8%e5%bf%83%e7%bc%96%e7%a8%8b/1363.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 09:35:08 +0000</pubDate>
+				<category><![CDATA[PHP核心编程]]></category>
+		<category><![CDATA[GD 库]]></category>
+		<category><![CDATA[图片颜色填充]]></category>
+		<category><![CDATA[水印]]></category>
+		<category><![CDATA[缩略图]]></category>
+		<category><![CDATA[验证码]]></category>
+		<guid isPermaLink="false">/?p=1363</guid>
+
+					<description><![CDATA[GD图像处理 GD库简介 GD库是专门做图像处理的。比如验证码，缩略图，图片水印等效果 PHP操作GD库的原理 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>GD图像处理</h1>
+<h2>GD库简介</h2>
+<p>GD库是专门做图像处理的。比如验证码，缩略图，图片水印等效果</p>
+<p><img loading="lazy" decoding="async" width="616" height="91" class="wp-image-1365" src="/wp-content/uploads/2018/05/word-image-1205.png" srcset="/wp-content/uploads/2018/05/word-image-1205.png 616w, /wp-content/uploads/2018/05/word-image-1205-300x44.png 300w" sizes="(max-width: 616px) 100vw, 616px" /><br />
+<img loading="lazy" decoding="async" width="873" height="263" class="wp-image-1366" src="/wp-content/uploads/2018/05/word-image-1206.png" srcset="/wp-content/uploads/2018/05/word-image-1206.png 873w, /wp-content/uploads/2018/05/word-image-1206-300x90.png 300w, /wp-content/uploads/2018/05/word-image-1206-768x231.png 768w" sizes="(max-width: 873px) 100vw, 873px" /><br />
+<img loading="lazy" decoding="async" width="574" height="203" class="wp-image-1367" src="/wp-content/uploads/2018/05/word-image-1207.png" srcset="/wp-content/uploads/2018/05/word-image-1207.png 574w, /wp-content/uploads/2018/05/word-image-1207-300x106.png 300w" sizes="(max-width: 574px) 100vw, 574px" /></p>
+<h2>PHP操作GD库的原理</h2>
+<p>第一步：创建图片资源</p>
+<p>第二步：对图片进行操作</p>
+<p>第三步：输出图片资源</p>
+<p>第四步：销毁图片资源</p>
+<h2>引入GD库</h2>
+<p>默认情况下，PHP不支持对图片的处理，必须引入GD扩展才能实现对图片的操作</p>
+<p><img loading="lazy" decoding="async" width="629" height="61" class="wp-image-1368" src="/wp-content/uploads/2018/05/word-image-1208.png" srcset="/wp-content/uploads/2018/05/word-image-1208.png 629w, /wp-content/uploads/2018/05/word-image-1208-300x29.png 300w" sizes="(max-width: 629px) 100vw, 629px" /></p>
+<p>开启GD库后，以image开头的函数都可以使用了。</p>
+<p><img loading="lazy" decoding="async" width="344" height="385" class="wp-image-1369" src="/wp-content/uploads/2018/05/word-image-1209.png" srcset="/wp-content/uploads/2018/05/word-image-1209.png 344w, /wp-content/uploads/2018/05/word-image-1209-268x300.png 268w" sizes="(max-width: 344px) 100vw, 344px" /></p>
+<h2>创建图片</h2>
+<h3>知识点</h3>
+<ol>
+<li>imagecreate()：创建图片资源</li>
+<li>imagecolorallocate()：给图片资源分配一个颜色</li>
+<li>imagejpeg()：图片按jpeg格式显示或保存</li>
+<li>imagegif()：图片按gif格式显示或保存</li>
+<li>imagepng()：图片按png格式显示或保存</li>
+<li>imagedestroy()：销毁图片</li>
+</ol>
+<h3>代码</h3>
+<p><img loading="lazy" decoding="async" width="1101" height="161" class="wp-image-1370" src="/wp-content/uploads/2018/05/word-image-1210.png" srcset="/wp-content/uploads/2018/05/word-image-1210.png 1101w, /wp-content/uploads/2018/05/word-image-1210-300x44.png 300w, /wp-content/uploads/2018/05/word-image-1210-768x112.png 768w, /wp-content/uploads/2018/05/word-image-1210-1024x150.png 1024w" sizes="(max-width: 1101px) 100vw, 1101px" /></p>
+<p>脚下留心：如果图片保存就不需要写header().</p>
+<h3>imagecolorallocate()</h3>
+<p>给图片分配颜色，默认第一个分配的颜色是背景色，返回的是颜色的编号</p>
+<p><img loading="lazy" decoding="async" width="998" height="143" class="wp-image-1371" src="/wp-content/uploads/2018/05/word-image-1211.png" srcset="/wp-content/uploads/2018/05/word-image-1211.png 998w, /wp-content/uploads/2018/05/word-image-1211-300x43.png 300w, /wp-content/uploads/2018/05/word-image-1211-768x110.png 768w" sizes="(max-width: 998px) 100vw, 998px" /></p>
+<p>返回的是颜色的索引编号</p>
+<p><img loading="lazy" decoding="async" width="820" height="107" class="wp-image-1372" src="/wp-content/uploads/2018/05/word-image-1212.png" srcset="/wp-content/uploads/2018/05/word-image-1212.png 820w, /wp-content/uploads/2018/05/word-image-1212-300x39.png 300w, /wp-content/uploads/2018/05/word-image-1212-768x100.png 768w" sizes="(max-width: 820px) 100vw, 820px" /></p>
+<h2>画图</h2>
+<h3>直线</h3>
+<p><img loading="lazy" decoding="async" width="636" height="109" class="wp-image-1373" src="/wp-content/uploads/2018/05/word-image-1213.png" srcset="/wp-content/uploads/2018/05/word-image-1213.png 636w, /wp-content/uploads/2018/05/word-image-1213-300x51.png 300w" sizes="(max-width: 636px) 100vw, 636px" /></p>
+<p>例题</p>
+<p><img loading="lazy" decoding="async" width="1068" height="138" class="wp-image-1374" src="/wp-content/uploads/2018/05/word-image-1214.png" srcset="/wp-content/uploads/2018/05/word-image-1214.png 1068w, /wp-content/uploads/2018/05/word-image-1214-300x39.png 300w, /wp-content/uploads/2018/05/word-image-1214-768x99.png 768w, /wp-content/uploads/2018/05/word-image-1214-1024x132.png 1024w" sizes="(max-width: 1068px) 100vw, 1068px" /></p>
+<h3>矩形</h3>
+<p><img loading="lazy" decoding="async" width="840" height="109" class="wp-image-1375" src="/wp-content/uploads/2018/05/word-image-1215.png" srcset="/wp-content/uploads/2018/05/word-image-1215.png 840w, /wp-content/uploads/2018/05/word-image-1215-300x39.png 300w, /wp-content/uploads/2018/05/word-image-1215-768x100.png 768w" sizes="(max-width: 840px) 100vw, 840px" /></p>
+<p>代码</p>
+<p><img loading="lazy" decoding="async" width="856" height="208" class="wp-image-1376" src="/wp-content/uploads/2018/05/word-image-1216.png" srcset="/wp-content/uploads/2018/05/word-image-1216.png 856w, /wp-content/uploads/2018/05/word-image-1216-300x73.png 300w, /wp-content/uploads/2018/05/word-image-1216-768x187.png 768w" sizes="(max-width: 856px) 100vw, 856px" /></p>
+<h3>圆弧</h3>
+<p><img loading="lazy" decoding="async" width="913" height="138" class="wp-image-1377" src="/wp-content/uploads/2018/05/word-image-1217.png" srcset="/wp-content/uploads/2018/05/word-image-1217.png 913w, /wp-content/uploads/2018/05/word-image-1217-300x45.png 300w, /wp-content/uploads/2018/05/word-image-1217-768x116.png 768w" sizes="(max-width: 913px) 100vw, 913px" /></p>
+<p>例题1</p>
+<p><img loading="lazy" decoding="async" width="1068" height="137" class="wp-image-1378" src="/wp-content/uploads/2018/05/word-image-1218.png" srcset="/wp-content/uploads/2018/05/word-image-1218.png 1068w, /wp-content/uploads/2018/05/word-image-1218-300x38.png 300w, /wp-content/uploads/2018/05/word-image-1218-768x99.png 768w, /wp-content/uploads/2018/05/word-image-1218-1024x131.png 1024w" sizes="(max-width: 1068px) 100vw, 1068px" /></p>
+<p>例题2</p>
+<p><img loading="lazy" decoding="async" width="882" height="149" class="wp-image-1379" src="/wp-content/uploads/2018/05/word-image-1219.png" srcset="/wp-content/uploads/2018/05/word-image-1219.png 882w, /wp-content/uploads/2018/05/word-image-1219-300x51.png 300w, /wp-content/uploads/2018/05/word-image-1219-768x130.png 768w" sizes="(max-width: 882px) 100vw, 882px" /></p>
+<p>例题3</p>
+<p><img loading="lazy" decoding="async" width="879" height="174" class="wp-image-1380" src="/wp-content/uploads/2018/05/word-image-1220.png" srcset="/wp-content/uploads/2018/05/word-image-1220.png 879w, /wp-content/uploads/2018/05/word-image-1220-300x59.png 300w, /wp-content/uploads/2018/05/word-image-1220-768x152.png 768w" sizes="(max-width: 879px) 100vw, 879px" /></p>
+<h3>曲线</h3>
+<p>曲线是由多个像素点组成，画曲线就是画许多像素点</p>
+<p><img loading="lazy" decoding="async" width="629" height="153" class="wp-image-1381" src="/wp-content/uploads/2018/05/word-image-1221.png" srcset="/wp-content/uploads/2018/05/word-image-1221.png 629w, /wp-content/uploads/2018/05/word-image-1221-300x73.png 300w" sizes="(max-width: 629px) 100vw, 629px" /></p>
+<p>例题</p>
+<p><img loading="lazy" decoding="async" width="978" height="198" class="wp-image-1382" src="/wp-content/uploads/2018/05/word-image-1222.png" srcset="/wp-content/uploads/2018/05/word-image-1222.png 978w, /wp-content/uploads/2018/05/word-image-1222-300x61.png 300w, /wp-content/uploads/2018/05/word-image-1222-768x155.png 768w" sizes="(max-width: 978px) 100vw, 978px" /></p>
+<h2>验证码</h2>
+<p>验证码可以防止暴力破解，通过排列组合的方式破解用户名和密码。</p>
+<p>验证码由背景图和随机数组成</p>
+<h3>知识点</h3>
+<ol>
+<li>imagestring()</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="914" height="93" class="wp-image-1383" src="/wp-content/uploads/2018/05/word-image-1223.png" srcset="/wp-content/uploads/2018/05/word-image-1223.png 914w, /wp-content/uploads/2018/05/word-image-1223-300x31.png 300w, /wp-content/uploads/2018/05/word-image-1223-768x78.png 768w" sizes="(max-width: 914px) 100vw, 914px" /></p>
+<ol>
+<li>字符串居中</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="502" height="151" class="wp-image-1384" src="/wp-content/uploads/2018/05/word-image-1224.png" srcset="/wp-content/uploads/2018/05/word-image-1224.png 502w, /wp-content/uploads/2018/05/word-image-1224-300x90.png 300w" sizes="(max-width: 502px) 100vw, 502px" /></p>
+<ul>
+<li>
+<ol>
+<li>Imagesx()：获取图片宽度</li>
+<li>Imagesy()：获取图片高度</li>
+<li>Imagefontwidth()：获取图片内置字体的宽度</li>
+<li>Imagefontheight()：获取图片内置字体的高度</li>
+</ol>
+</li>
+</ul>
+<h3>代码</h3>
+<p>&lt;?php</p>
+<p>//第一步：生成随机字符串</p>
+<p>$char_array=array_merge(range(&#8216;a&#8217;,&#8217;z&#8217;),range(&#8216;A&#8217;,&#8217;Z&#8217;),range(0,9)); //字母和数字的数组</p>
+<p>$indexes=array_rand($char_array,4); //随机抽取4个字符，返回字符下标数组</p>
+<p>shuffle($indexes); //打乱数组</p>
+<p>$str=&#8221;;</p>
+<p>foreach($indexes as $i) {</p>
+<p>$str.=$char_array[$i];</p>
+<p>}</p>
+<p>//第二步：将字符串写到背景图</p>
+<p>$img=imagecreate(200,100);</p>
+<p>imagecolorallocate($img,255,0,0); //背景色</p>
+<p>$color=imagecolorallocate($img,255,255,255); //前景色</p>
+<p>$img_w=imagesx($img); //图片宽度</p>
+<p>$img_h=imagesy($img); //图片高度</p>
+<p>$font=5; //内置的5号字体</p>
+<p>$font_w=imagefontwidth($font); //字符宽度</p>
+<p>$font_h=imagefontheight($font); //字符高度</p>
+<p>$x=($img_w-$font_w*strlen($str))/2; //起始点x坐标</p>
+<p>$y=($img_h-$font_h)/2; //起始点y坐标</p>
+<p>imagestring($img,$font,$x,$y,$str,$color); //将字符串写到图片上</p>
+<p>//输出图片</p>
+<p>header(&#8216;Content-Type:image/png&#8217;);</p>
+<p>imagepng($img);</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="465" height="176" class="wp-image-1385" src="/wp-content/uploads/2018/05/word-image-1225.png" srcset="/wp-content/uploads/2018/05/word-image-1225.png 465w, /wp-content/uploads/2018/05/word-image-1225-300x114.png 300w" sizes="(max-width: 465px) 100vw, 465px" /></p>
+<h2>中文验证码</h2>
+<p>Imagestring()不能做中文的验证码，要使用中文做验证码需要使用<a href="mk:@MSITStore:F:\\帮助文档\\php_manual_zh.chm::/res/function.imagettftext.html">imagettftext()</a>。</p>
+<p><img loading="lazy" decoding="async" width="860" height="77" class="wp-image-1386" src="/wp-content/uploads/2018/05/word-image-1226.png" srcset="/wp-content/uploads/2018/05/word-image-1226.png 860w, /wp-content/uploads/2018/05/word-image-1226-300x27.png 300w, /wp-content/uploads/2018/05/word-image-1226-768x69.png 768w" sizes="(max-width: 860px) 100vw, 860px" /></p>
+<p>将字体拷贝到站点下</p>
+<p><img loading="lazy" decoding="async" width="774" height="219" class="wp-image-1387" src="/wp-content/uploads/2018/05/word-image-1227.png" srcset="/wp-content/uploads/2018/05/word-image-1227.png 774w, /wp-content/uploads/2018/05/word-image-1227-300x85.png 300w, /wp-content/uploads/2018/05/word-image-1227-768x217.png 768w" sizes="(max-width: 774px) 100vw, 774px" /></p>
+<h3>知识点</h3>
+<p>获取字体的范围</p>
+<p><img loading="lazy" decoding="async" width="662" height="121" class="wp-image-1388" src="/wp-content/uploads/2018/05/word-image-1228.png" srcset="/wp-content/uploads/2018/05/word-image-1228.png 662w, /wp-content/uploads/2018/05/word-image-1228-300x55.png 300w" sizes="(max-width: 662px) 100vw, 662px" /></p>
+<p>返回值</p>
+<p><img loading="lazy" decoding="async" width="515" height="206" class="wp-image-1389" src="/wp-content/uploads/2018/05/word-image-1229.png" srcset="/wp-content/uploads/2018/05/word-image-1229.png 515w, /wp-content/uploads/2018/05/word-image-1229-300x120.png 300w" sizes="(max-width: 515px) 100vw, 515px" /></p>
+<h3>代码</h3>
+<p>基线</p>
+<p><img loading="lazy" decoding="async" width="536" height="137" class="wp-image-1390" src="/wp-content/uploads/2018/05/word-image-1230.png" srcset="/wp-content/uploads/2018/05/word-image-1230.png 536w, /wp-content/uploads/2018/05/word-image-1230-300x77.png 300w" sizes="(max-width: 536px) 100vw, 536px" /></p>
+<p>代码</p>
+<p>&lt;?php</p>
+<p>$img=imagecreate(200,100);</p>
+<p>imagecolorallocate($img,255,0,0); //背景色</p>
+<p>$color=imagecolorallocate($img,255,255,255); //前景色</p>
+<p>//生成随机中文字符串</p>
+<p>$char_array=[&#8216;锄&#8217;,&#8217;禾&#8217;,&#8217;日&#8217;,&#8217;当&#8217;,&#8217;午&#8217;,&#8217;汗&#8217;,&#8217;滴&#8217;,&#8217;禾&#8217;,&#8217;下&#8217;,&#8217;土&#8217;,&#8217;我&#8217;,&#8217;爱&#8217;,&#8217;北&#8217;,&#8217;京&#8217;,&#8217;天&#8217;,&#8217;安&#8217;,&#8217;门&#8217;];</p>
+<p>$indexes=array_rand($char_array,4); //随机抽取4个字符，返回字符下标数组</p>
+<p>shuffle($indexes); //打乱数组</p>
+<p>$str=&#8221;;</p>
+<p>foreach($indexes as $i) {</p>
+<p>$str.=$char_array[$i];</p>
+<p>}</p>
+<p>//字体参数</p>
+<p>$size=20; //字号</p>
+<p>$angle=0; //角度</p>
+<p>$fontfile=&#8217;./fonts/simhei.ttf&#8217;; //字体</p>
+<p>//获取字体范围</p>
+<p>$info=imagettfbbox($size,$angle,$fontfile,$str); //返回字符串的4个角的坐标4</p>
+<p>$x=(imagesx($img)-($info[4]-$info[6]))/2; //起始X轴</p>
+<p>$y=imagesy($img)/2+($info[1]-$info[7])/3; //起始y轴(字体基线的位置，不是字符的最底端。)</p>
+<p>//将中文写到图片上</p>
+<p>imagettftext($img,$size,$angle,$x,$y,$color,$fontfile,$str);</p>
+<p>//输出图片</p>
+<p>header(&#8216;Content-Type:image/png&#8217;);</p>
+<p>imagepng($img);</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="307" height="181" class="wp-image-1391" src="/wp-content/uploads/2018/05/word-image-1231.png" srcset="/wp-content/uploads/2018/05/word-image-1231.png 307w, /wp-content/uploads/2018/05/word-image-1231-300x177.png 300w" sizes="(max-width: 307px) 100vw, 307px" /></p>
+<h2>打开已有图片实现验证码</h2>
+<h3>打开已经存在的图片创建画布</h3>
+<ol>
+<li>imagecreatefromgif()：打开gif图创建画布</li>
+<li>imagecreatefromjpeg()：打开jpeg图创建画布</li>
+<li>imagecreatefrompng()：打开png图创建画布</li>
+</ol>
+<h3>代码</h3>
+<p>&lt;?php</p>
+<p>//第一步：生成随机字符串</p>
+<p>$char_array=array_merge(range(&#8216;a&#8217;,&#8217;z&#8217;),range(&#8216;A&#8217;,&#8217;Z&#8217;),range(0,9)); //字母和数字的数组</p>
+<p>$indexes=array_rand($char_array,4); //随机抽取4个字符，返回字符下标数组</p>
+<p>shuffle($indexes); //打乱数组</p>
+<p>$str=&#8221;;</p>
+<p>foreach($indexes as $i) {</p>
+<p>$str.=$char_array[$i];</p>
+<p>}</p>
+<p>//第二步：将字符串写到图片上</p>
+<p>$path=&#8217;./captcha/captcha_bg&#8217;.rand(1,5).&#8217;.jpg&#8217;; //图片路径</p>
+<p>$img=imagecreatefromjpeg($path); //打开已经存在的jpeg图</p>
+<p>$color=imagecolorallocate($img,255,0,0); //分配红色</p>
+<p>if(rand(1,2)==1) {</p>
+<p>$color=imagecolorallocate($img,0,255,100); //分配白色</p>
+<p>}</p>
+<p>$img_w=imagesx($img); //图片宽度</p>
+<p>$img_h=imagesy($img); //图片高度</p>
+<p>$font=5; //内置的5号字体</p>
+<p>$font_w=imagefontwidth($font); //字符宽度</p>
+<p>$font_h=imagefontheight($font); //字符高度</p>
+<p>$x=($img_w-$font_w*strlen($str))/2; //起始点x坐标</p>
+<p>$y=($img_h-$font_h)/2; //起始点y坐标</p>
+<p>imagestring($img,$font,$x,$y,$str,$color); //将字符串写到图片上</p>
+<p>//输出图片</p>
+<p>header(&#8216;Content-Type:image/png&#8217;);</p>
+<p>imagepng($img);</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="356" height="92" class="wp-image-1392" src="/wp-content/uploads/2018/05/word-image-1232.png" srcset="/wp-content/uploads/2018/05/word-image-1232.png 356w, /wp-content/uploads/2018/05/word-image-1232-300x78.png 300w" sizes="(max-width: 356px) 100vw, 356px" /></p>
+<h2>添加水印</h2>
+<p>添加水印的目的为了防止被盗图。</p>
+<h3>添加文字水印</h3>
+<p>&lt;?php</p>
+<p>$img=imagecreatefromjpeg(&#8216;./face.jpg&#8217;); //打开原图</p>
+<p>$color=imagecolorallocate($img,255,0,0); //分配颜色</p>
+<p>//字体参数</p>
+<p>$size=40; //字号</p>
+<p>$angle=0; //角度</p>
+<p>$fontfile=&#8217;./fonts/simhei.ttf&#8217;; //字体</p>
+<p>//获取字体范围</p>
+<p>$str=&#8217;传智播客版权&#8217;;</p>
+<p>$info=imagettfbbox($size,$angle,$fontfile,$str); //返回字符串的4个角的坐标4</p>
+<p>$x=imagesx($img)-($info[4]-$info[6]); //起始X轴</p>
+<p>$y=imagesy($img)-($info[1]-$info[7])/3; //起始y轴(字体基线的位置，不是字符的最底端。)</p>
+<p>//将中文写到图片上</p>
+<p>imagettftext($img,$size,$angle,$x,$y,$color,$fontfile,$str);</p>
+<p>//输出图片</p>
+<p>header(&#8216;Content-Type:image/png&#8217;);</p>
+<p>imagepng($img);</p>
+<p><img src="https://s.w.org/images/core/emoji/15.0.3/72x72/1f60e.png" alt="😎" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p><img loading="lazy" decoding="async" width="641" height="212" class="wp-image-1393" src="/wp-content/uploads/2018/05/word-image-1233.png" srcset="/wp-content/uploads/2018/05/word-image-1233.png 641w, /wp-content/uploads/2018/05/word-image-1233-300x99.png 300w" sizes="(max-width: 641px) 100vw, 641px" /></p>
+<h3>添加图片水印</h3>
+<p><img loading="lazy" decoding="async" width="945" height="114" class="wp-image-1394" src="/wp-content/uploads/2018/05/word-image-1234.png" srcset="/wp-content/uploads/2018/05/word-image-1234.png 945w, /wp-content/uploads/2018/05/word-image-1234-300x36.png 300w, /wp-content/uploads/2018/05/word-image-1234-768x93.png 768w" sizes="(max-width: 945px) 100vw, 945px" /></p>
+<h3>代码</h3>
+<p><img loading="lazy" decoding="async" width="965" height="259" class="wp-image-1395" src="/wp-content/uploads/2018/05/word-image-1235.png" srcset="/wp-content/uploads/2018/05/word-image-1235.png 965w, /wp-content/uploads/2018/05/word-image-1235-300x81.png 300w, /wp-content/uploads/2018/05/word-image-1235-768x206.png 768w" sizes="(max-width: 965px) 100vw, 965px" /></p>
+<h2>生成缩略图</h2>
+<p>将大图自动的生成小缩略图</p>
+<p>原图的参数：起始x，起始y，拷贝宽度，拷贝高度</p>
+<p><img loading="lazy" decoding="async" width="583" height="290" class="wp-image-1396" src="/wp-content/uploads/2018/05/word-image-1236.png" srcset="/wp-content/uploads/2018/05/word-image-1236.png 583w, /wp-content/uploads/2018/05/word-image-1236-300x149.png 300w" sizes="(max-width: 583px) 100vw, 583px" /></p>
+<p>目标图的参数：目标图x，目标图y，目标宽度，目标高度</p>
+<p><img loading="lazy" decoding="async" width="581" height="339" class="wp-image-1397" src="/wp-content/uploads/2018/05/word-image-1237.png" srcset="/wp-content/uploads/2018/05/word-image-1237.png 581w, /wp-content/uploads/2018/05/word-image-1237-300x175.png 300w" sizes="(max-width: 581px) 100vw, 581px" /></p>
+<p>使用函数</p>
+<p><img loading="lazy" decoding="async" width="748" height="123" class="wp-image-1398" src="/wp-content/uploads/2018/05/word-image-1238.png" srcset="/wp-content/uploads/2018/05/word-image-1238.png 748w, /wp-content/uploads/2018/05/word-image-1238-300x49.png 300w" sizes="(max-width: 748px) 100vw, 748px" /></p>
+<p>脚下留心：imagecreatetruecolor()和imagecreate()区别</p>
+<p>imagecreatetruecolor()新建一个真彩色图像(RGB模式)，默认背景色黑色</p>
+<p>imagecreate():新建一个基于调色板的图像，只支持256种颜色，默认背景白色</p>
+<p><img loading="lazy" decoding="async" width="1116" height="340" class="wp-image-1399" src="/wp-content/uploads/2018/05/word-image-1239.png" srcset="/wp-content/uploads/2018/05/word-image-1239.png 1116w, /wp-content/uploads/2018/05/word-image-1239-300x91.png 300w, /wp-content/uploads/2018/05/word-image-1239-768x234.png 768w, /wp-content/uploads/2018/05/word-image-1239-1024x312.png 1024w" sizes="(max-width: 1116px) 100vw, 1116px" /></p>
+<h2>给图片填充颜色</h2>
+<p><img loading="lazy" decoding="async" width="764" height="390" class="wp-image-1400" src="/wp-content/uploads/2018/05/word-image-1240.png" srcset="/wp-content/uploads/2018/05/word-image-1240.png 764w, /wp-content/uploads/2018/05/word-image-1240-300x153.png 300w" sizes="(max-width: 764px) 100vw, 764px" /></p>
+<p>深入理解imagefill()</p>
+<p><img loading="lazy" decoding="async" width="867" height="85" class="wp-image-1401" src="/wp-content/uploads/2018/05/word-image-1241.png" srcset="/wp-content/uploads/2018/05/word-image-1241.png 867w, /wp-content/uploads/2018/05/word-image-1241-300x29.png 300w, /wp-content/uploads/2018/05/word-image-1241-768x75.png 768w" sizes="(max-width: 867px) 100vw, 867px" /></p>
+<p>例题</p>
+<p><img loading="lazy" decoding="async" width="799" height="198" class="wp-image-1402" src="/wp-content/uploads/2018/05/word-image-1242.png" srcset="/wp-content/uploads/2018/05/word-image-1242.png 799w, /wp-content/uploads/2018/05/word-image-1242-300x74.png 300w, /wp-content/uploads/2018/05/word-image-1242-768x190.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+<h2>关于图片处理的改错</h2>
+<h3>第一：如果报错，就按报错的信息更改</h3>
+<p><img loading="lazy" decoding="async" width="1048" height="197" class="wp-image-1403" src="/wp-content/uploads/2018/05/word-image-1243.png" srcset="/wp-content/uploads/2018/05/word-image-1243.png 1048w, /wp-content/uploads/2018/05/word-image-1243-300x56.png 300w, /wp-content/uploads/2018/05/word-image-1243-768x144.png 768w, /wp-content/uploads/2018/05/word-image-1243-1024x192.png 1024w" sizes="(max-width: 1048px) 100vw, 1048px" /></p>
+<h3>第二：不报错，但是图片显示不出来</h3>
+<p><img loading="lazy" decoding="async" width="855" height="202" class="wp-image-1404" src="/wp-content/uploads/2018/05/word-image-1244.png" srcset="/wp-content/uploads/2018/05/word-image-1244.png 855w, /wp-content/uploads/2018/05/word-image-1244-300x71.png 300w, /wp-content/uploads/2018/05/word-image-1244-768x181.png 768w" sizes="(max-width: 855px) 100vw, 855px" /></p>
+<p>注释header()，查看错误</p>
+<p><img loading="lazy" decoding="async" width="1019" height="197" class="wp-image-1405" src="/wp-content/uploads/2018/05/word-image-1245.png" srcset="/wp-content/uploads/2018/05/word-image-1245.png 1019w, /wp-content/uploads/2018/05/word-image-1245-300x58.png 300w, /wp-content/uploads/2018/05/word-image-1245-768x148.png 768w" sizes="(max-width: 1019px) 100vw, 1019px" /></p>
+<p>第三：注释header()如果没有报错，就查看源码</p>
+<p><img loading="lazy" decoding="async" width="1154" height="264" class="wp-image-1406" src="/wp-content/uploads/2018/05/word-image-1246.png" srcset="/wp-content/uploads/2018/05/word-image-1246.png 1154w, /wp-content/uploads/2018/05/word-image-1246-300x69.png 300w, /wp-content/uploads/2018/05/word-image-1246-768x176.png 768w, /wp-content/uploads/2018/05/word-image-1246-1024x234.png 1024w" sizes="(max-width: 1154px) 100vw, 1154px" /><br />
+<img loading="lazy" decoding="async" width="1127" height="246" class="wp-image-1407" src="/wp-content/uploads/2018/05/word-image-1247.png" srcset="/wp-content/uploads/2018/05/word-image-1247.png 1127w, /wp-content/uploads/2018/05/word-image-1247-300x65.png 300w, /wp-content/uploads/2018/05/word-image-1247-768x168.png 768w, /wp-content/uploads/2018/05/word-image-1247-1024x224.png 1024w" sizes="(max-width: 1127px) 100vw, 1127px" /></p>
+<h3>第三：终极一招，ob_clean()</h3>
+<p>如果上面的方法都没有效果，可以尝试ob_clean()</p>
+<p>原理：图片输出之前不能有任何字符的输出，ob_clean()情况缓存中所有输出。</p>
+<p><img loading="lazy" decoding="async" width="873" height="238" class="wp-image-1408" src="/wp-content/uploads/2018/05/word-image-1248.png" srcset="/wp-content/uploads/2018/05/word-image-1248.png 873w, /wp-content/uploads/2018/05/word-image-1248-300x82.png 300w, /wp-content/uploads/2018/05/word-image-1248-768x209.png 768w" sizes="(max-width: 873px) 100vw, 873px" /></p>
+<h2>思考题</h2>
+<p>制作等比缩略图</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/php%e6%a0%b8%e5%bf%83%e7%bc%96%e7%a8%8b/1363.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

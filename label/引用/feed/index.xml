@@ -1,0 +1,1279 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>引用 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%BC%95%E7%94%A8/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 06:25:21 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>引用 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>JS初级（一）变量、 声明、 引用、 数据类型、 输出、 运算符</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/303.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/303.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 14:16:05 +0000</pubDate>
+				<category><![CDATA[Javascript]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[变量]]></category>
+		<category><![CDATA[声明]]></category>
+		<category><![CDATA[引用]]></category>
+		<category><![CDATA[数据类型]]></category>
+		<category><![CDATA[输出]]></category>
+		<category><![CDATA[运算符]]></category>
+		<guid isPermaLink="false">/?p=303</guid>
+
+					<description><![CDATA[JavaScript（一） 作业 第一题 &#60;style type=&#8221;text/css&#82 [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h1>JavaScript（一）</h1>
+<h2>作业</h2>
+<h3>第一题</h3>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  body{
+</p>
+<p>
+  	background-color:#0CF;
+</p>
+<p>
+  }
+</p>
+<p>
+  input[type=&#8217;text&#8217;]{
+</p>
+<p>
+  	border-top:none;
+</p>
+<p>
+  	border-left:none;
+</p>
+<p>
+  	border-right:none;
+</p>
+<p>
+  	border-bottom:#06C solid 1px;
+</p>
+<p>
+  	background-color:transparent;  /*背景色透明*/
+</p>
+<p>
+  }
+</p>
+<p>
+  input[type=&#8217;button&#8217;]{
+</p>
+<p>
+  	border:none;
+</p>
+<p>
+  	background-color:transparent;	/*背景色透明*/
+</p>
+<p>
+  	cursor:pointer;	/*当鼠标移上去的时候变成手形*/
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;div&gt;请输入信息：&lt;input type=&#8221;text&#8221; name=&#8221;username&#8221; /&gt;&lt;input type=&#8221;button&#8221; value=&#8221;确定&gt;&gt;&gt;&#8221; /&gt;&lt;/div&gt;
+</p>
+<p><img decoding="async" width="332" height="42" src="/wp-content/uploads/2018/05/word-image-273.png" class="wp-image-305" srcset="/wp-content/uploads/2018/05/word-image-273.png 332w, /wp-content/uploads/2018/05/word-image-273-300x38.png 300w" sizes="(max-width: 332px) 100vw, 332px" /></p>
+<h3>第四题</h3>
+<p>
+  分析页面结构如下：
+</p>
+<p><img decoding="async" width="330" height="141" src="/wp-content/uploads/2018/05/word-image-274.png" class="wp-image-306" srcset="/wp-content/uploads/2018/05/word-image-274.png 330w, /wp-content/uploads/2018/05/word-image-274-300x128.png 300w" sizes="(max-width: 330px) 100vw, 330px" /></p>
+<p>
+  页面总宽度：8+206+500+8=722
+</p>
+<p>
+  页面总高度：110+519=629
+</p>
+<p>
+  难点：
+</p>
+<p><img fetchpriority="high" decoding="async" width="776" height="166" src="/wp-content/uploads/2018/05/word-image-275.png" class="wp-image-307" srcset="/wp-content/uploads/2018/05/word-image-275.png 776w, /wp-content/uploads/2018/05/word-image-275-300x64.png 300w, /wp-content/uploads/2018/05/word-image-275-768x164.png 768w" sizes="(max-width: 776px) 100vw, 776px" /></p>
+<p>
+  实现代码
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  #content{
+</p>
+<p>
+  	width:722px;
+</p>
+<p>
+  	height:629px;		/*为了#left,#right高度100%，指定父元素高度*/
+</p>
+<p>
+  	overflow:hidden;	/*重新测定子元素的高度*/
+</p>
+<p>
+  	margin:auto;		/*页面居中*/
+</p>
+<p>
+  }
+</p>
+<p>
+  #content #left,#content #right{
+</p>
+<p>
+  	width:8px;
+</p>
+<p>
+  	height:100%;	/*背景无法撑开盒子，所以要设定高度*/
+</p>
+<p>
+  	background:url(images/line1.gif) repeat-y;
+</p>
+<p>
+  	float:left;
+</p>
+<p>
+  }
+</p>
+<p>
+  #content #right{
+</p>
+<p>
+  	background:url(images/line2.gif) repeat-y;
+</p>
+<p>
+  }
+</p>
+<p>
+  #content #center{
+</p>
+<p>
+  	width:706px;
+</p>
+<p>
+  	float:left;
+</p>
+<p>
+  }
+</p>
+<p>
+  #content #center&gt;div{
+</p>
+<p>
+  	float:left;
+</p>
+<p>
+  }
+</p>
+<p>
+  #content #center #part1{
+</p>
+<p>
+  	width:206px;
+</p>
+<p>
+  	background-color:#ECDFBC;
+</p>
+<p>
+  	/*text-align:center;*/	/*图片居中方法一*/
+</p>
+<p>
+  }
+</p>
+<p>
+  #part1 img{
+</p>
+<p>
+  	margin:auto;		/*图片居中方法二*/
+</p>
+<p>
+  	display:block;		/*设置块显示才能使用margin:auto来居中*/
+</p>
+<p>
+  }
+</p>
+<p>
+  #content #center #part4{
+</p>
+<p>
+  	width:500px;
+</p>
+<p>
+  	height:519px;
+</p>
+<p>
+  	background:url(images/b-04.jpg);
+</p>
+<p>
+  	padding-top:30px;
+</p>
+<p>
+  }
+</p>
+<p>
+  #part4 #wenzi{
+</p>
+<p>
+  	width:90%;
+</p>
+<p>
+  	font-size:14px;
+</p>
+<p>
+  	font-family:&#8217;微软雅黑&#8217;;
+</p>
+<p>
+  	margin:auto;
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;div id=&#8221;content&#8221;&gt;
+</p>
+<p>
+  	&lt;div id=&#8221;left&#8221;&gt;&lt;/div&gt;
+</p>
+<p>
+      &lt;div id=&#8221;center&#8221;&gt;
+</p>
+<p>
+      	&lt;div id=&#8221;part1&#8243;&gt;&lt;img src=&#8221;images/xihuzi2.gif&#8221; /&gt;&lt;/div&gt;
+</p>
+<p>
+          &lt;div id=&#8221;part2&#8243;&gt;&lt;img src=&#8221;images/5.jpg&#8221; /&gt;&lt;/div&gt;
+</p>
+<p>
+          &lt;div id=&#8221;part3&#8243;&gt;&lt;img src=&#8221;images/6.jpg&#8221; /&gt;&lt;/div&gt;
+</p>
+<p>
+          &lt;div id=&#8221;part4&#8243;&gt;
+</p>
+<p>
+          	&lt;div id=&#8221;wenzi&#8221;&gt;
+</p>
+<p>
+          	  &lt;header style=&#8221;text-align:center&#8221;&gt;西湖春天简介 &lt;/header&gt;
+</p>
+<p>
+          	  &lt;p&gt; 　　西湖春天是一家经旅游局批准，工商局登记注册，具有独立法人资格，并足额缴纳旅行社质量保证金的股份制企业。&lt;br /&gt;
+</p>
+<p>
+          	    公司下设组团部、地接部、导游部、财务部、石浦门市部、丹城门市部等机构，承接旅游、休闲、度假、疗养、会务、商务考察等业务，公司管理高度重视人力资源的合理利用和开发，现已拥有一批长期从事旅游工作、精通各项旅游业务、重信誉、讲实效、高素质的管理人员和一支训练有素、经验丰富的导游队伍，并且已做到人人持证上岗。&lt;br /&gt;
+</p>
+<p>
+          	    公司凭借象山旅游发展大好趋势，结合自身的规模优势，全力打造出&amp;ldquo;西湖春天&amp;rdquo;的旗帜品牌形象。目前，公司开发的公司网站，可以让您广泛的了解旅游信息。&lt;br /&gt;
+</p>
+<p>
+          	    公司自成立以来，坚持以&amp;ldquo;质量就是生命&amp;rdquo;的座右铭，虚心接受客户的监督，不断完善管理机制，全体员工积极进取，开拓创新、奋发图强；公司连续获得2003年度《安全生产先进集体》、《浙江省旅游消费推荐单位》、《&amp;ldquo;安康杯&amp;rdquo;竞赛优胜企业》、2004年度《石浦首届旅游消费诚信单位》等荣誉称号。&lt;br /&gt;
+</p>
+<p>
+          	    公司与国内众多旅行社建立了良好的义务关系，在主要城市已形成了客房、餐饮、交通等完善的旅游服务网络，&amp;ldquo;西湖春天&amp;rdquo;全体工作人员将以最合理的旅游线路，最实惠的价格，最细致的服务，热诚期待您的到来。&lt;/p&gt;
+</p>
+<p>
+          	&lt;/div&gt;
+</p>
+<p>
+        &lt;/div&gt;
+</p>
+<p>
+      &lt;/div&gt;
+</p>
+<p>
+      &lt;div id=&#8221;right&#8221;&gt;&lt;/div&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="738" height="249" src="/wp-content/uploads/2018/05/word-image-276.png" class="wp-image-308" srcset="/wp-content/uploads/2018/05/word-image-276.png 738w, /wp-content/uploads/2018/05/word-image-276-300x101.png 300w" sizes="(max-width: 738px) 100vw, 738px" /></p>
+<h2>圆角矩形</h2>
+<p>
+  区分上下左右四个点
+</p>
+<p><img loading="lazy" decoding="async" width="537" height="212" src="/wp-content/uploads/2018/05/word-image-277.png" class="wp-image-309" srcset="/wp-content/uploads/2018/05/word-image-277.png 537w, /wp-content/uploads/2018/05/word-image-277-300x118.png 300w" sizes="(max-width: 537px) 100vw, 537px" /></p>
+<p>
+  例题
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  div{
+</p>
+<p>
+  	width:100px;
+</p>
+<p>
+  	height:100px;
+</p>
+<p>
+  	border:#000 solid 1px;
+</p>
+<p>
+  	margin:5px auto;
+</p>
+<p>
+  }
+</p>
+<p>
+  div:nth-of-type(1){
+</p>
+<p>
+  	border-radius:10px;		/*四个点的圆角半径都是10px*/
+</p>
+<p>
+  }
+</p>
+<p>
+  div:nth-of-type(2){
+</p>
+<p>
+  	border-radius:10px 20px;	/*上下10px  左右20px*/
+</p>
+<p>
+  }
+</p>
+<p>
+  div:nth-of-type(3){
+</p>
+<p>
+  	border-radius:10px 20px 30px;	/*上10px 左右20px 下30px*/
+</p>
+<p>
+  }
+</p>
+<p>
+  div:nth-of-type(4){
+</p>
+<p>
+  	border-radius:10px 20px 30px 40px;	/*上右下左*/
+</p>
+<p>
+  }
+</p>
+<p>
+  div:nth-of-type(5){
+</p>
+<p>
+  	border-radius:50%;		/*正圆*/
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;div&gt;&lt;/div&gt;
+</p>
+<p>
+  &lt;div&gt;&lt;/div&gt;
+</p>
+<p>
+  &lt;div&gt;&lt;/div&gt;
+</p>
+<p>
+  &lt;div&gt;&lt;/div&gt;
+</p>
+<p>
+  &lt;div&gt;&lt;/div&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="153" height="542" src="/wp-content/uploads/2018/05/word-image-278.png" class="wp-image-310" srcset="/wp-content/uploads/2018/05/word-image-278.png 153w, /wp-content/uploads/2018/05/word-image-278-85x300.png 85w" sizes="(max-width: 153px) 100vw, 153px" /></p>
+<p>
+  圆角矩形的应用
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  body{
+</p>
+<p>
+  	background:#999;
+</p>
+<p>
+  }
+</p>
+<p>
+  div{
+</p>
+<p>
+  	width:200px;
+</p>
+<p>
+  	height:200px;
+</p>
+<p>
+  	padding:10px;
+</p>
+<p>
+  	border:#000 solid 1px;
+</p>
+<p>
+  	border-radius:10px;
+</p>
+<p>
+  	background-color:#CCC;
+</p>
+<p>
+  }
+</p>
+<p>
+  #face{
+</p>
+<p>
+  	border-radius:50%;
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;div&gt;&lt;img src=&#8221;images4/face.jpg&#8221; /&gt;&lt;/div&gt;
+</p>
+<p>
+  &lt;img src=&#8221;images4/face.jpg&#8221; id=&#8221;face&#8221; /&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="534" height="435" src="/wp-content/uploads/2018/05/word-image-279.png" class="wp-image-311" srcset="/wp-content/uploads/2018/05/word-image-279.png 534w, /wp-content/uploads/2018/05/word-image-279-300x244.png 300w" sizes="(max-width: 534px) 100vw, 534px" /></p>
+<h2>2D转换</h2>
+<p>
+  在二维平面上桌变化，关键字：transform
+</p>
+<h3>2D转换之移动（translate）</h3>
+<p>
+  例题：让div居于屏幕的中间
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  div{
+</p>
+<p>
+  	width:200px;
+</p>
+<p>
+  	height:200px;
+</p>
+<p>
+  	background-color:#900;
+</p>
+<p>
+  	position:absolute;
+</p>
+<p>
+  	left:50%;
+</p>
+<p>
+  	top:50%;
+</p>
+<p>
+  	/*transform:translateX(-50%) translateY(-50%);*/
+</p>
+<p>
+  	transform:translate(-50%,-50%)
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;div&gt;&lt;/div&gt;
+</p>
+<h3>2D转换之旋转</h3>
+<p><img loading="lazy" decoding="async" width="915" height="268" src="/wp-content/uploads/2018/05/word-image-280.png" class="wp-image-312" srcset="/wp-content/uploads/2018/05/word-image-280.png 915w, /wp-content/uploads/2018/05/word-image-280-300x88.png 300w, /wp-content/uploads/2018/05/word-image-280-768x225.png 768w" sizes="(max-width: 915px) 100vw, 915px" /></p>
+<h3>2D转换之缩放（scale）</h3>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  img{
+</p>
+<p>
+  	transform:scaleX(1.5);	/*x轴是原来的1.5倍*/
+</p>
+<p>
+  	transform:scaleY(0.5);	/*y轴是原来的0.5倍*/
+</p>
+<p>
+  	transform:scale(0.5,0.5);	/*同时设定x轴和y轴的缩放*/
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;img src=&#8221;images4/face.jpg&#8221; width=&#8221;200&#8243; height=&#8221;200&#8243; /&gt;
+</p>
+<h3>例题：三角做法</h3>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  div{
+</p>
+<p>
+  	width:300px;
+</p>
+<p>
+  	height:30px;
+</p>
+<p>
+  	border:#999 solid 1px;
+</p>
+<p>
+  	margin:100px  auto;
+</p>
+<p>
+  	position:relative;
+</p>
+<p>
+  }
+</p>
+<p>
+  div:after{
+</p>
+<p>
+  	content:&#8221;;
+</p>
+<p>
+  	width:12px;
+</p>
+<p>
+  	height:12px;
+</p>
+<p>
+  	display:inline-block;
+</p>
+<p>
+  	position:absolute;
+</p>
+<p>
+  	right:12px;
+</p>
+<p>
+  	border-right:#999 solid 1px;
+</p>
+<p>
+  	border-bottom:#999 solid 1px;
+</p>
+<p>
+  	transform:rotate(45deg) translateY(10px);;
+</p>
+<p>
+  }
+</p>
+<p>
+  div:hover{
+</p>
+<p>
+  	border:#00F solid 1px;
+</p>
+<p>
+  }
+</p>
+<p>
+  div:hover:after{  /*必须先写:hover，后写:after*/
+</p>
+<p>
+  	border-right:#00F solid 1px;
+</p>
+<p>
+  	border-bottom:#00F solid 1px;
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;div&gt;&lt;/div&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="390" height="54" src="/wp-content/uploads/2018/05/word-image-281.png" class="wp-image-313" srcset="/wp-content/uploads/2018/05/word-image-281.png 390w, /wp-content/uploads/2018/05/word-image-281-300x42.png 300w" sizes="(max-width: 390px) 100vw, 390px" /></p>
+<h2>过渡（transition）</h2>
+<p><img loading="lazy" decoding="async" width="768" height="242" src="/wp-content/uploads/2018/05/word-image-282.png" class="wp-image-314" srcset="/wp-content/uploads/2018/05/word-image-282.png 768w, /wp-content/uploads/2018/05/word-image-282-300x95.png 300w" sizes="(max-width: 768px) 100vw, 768px" /></p>
+<p>
+  动画类型有：
+</p>
+<p><img loading="lazy" decoding="async" width="500" height="171" src="/wp-content/uploads/2018/05/word-image-283.png" class="wp-image-315" srcset="/wp-content/uploads/2018/05/word-image-283.png 500w, /wp-content/uploads/2018/05/word-image-283-300x103.png 300w" sizes="(max-width: 500px) 100vw, 500px" /></p>
+<p>
+  例题（对象移动）：
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  div{
+</p>
+<p>
+  	width:200px;
+</p>
+<p>
+  	height:200px;
+</p>
+<p>
+  	background-color:#F00;
+</p>
+<p>
+  	transition:all 1s ease;
+</p>
+<p>
+  }
+</p>
+<p>
+  div:hover{
+</p>
+<p>
+  	transform:translateX(500px);
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;div&gt;&lt;/div&gt;
+</p>
+<p>
+  例题：（头像旋转）
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  img{
+</p>
+<p>
+  	border-radius:50%;
+</p>
+<p>
+  	transition:all 0.5s ease;
+</p>
+<p>
+  }
+</p>
+<p>
+  img:hover{
+</p>
+<p>
+  	transform:rotate(360deg);
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;img src=&#8221;images4/face.jpg&#8221; /&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="447" height="223" src="/wp-content/uploads/2018/05/word-image-284.png" class="wp-image-316" srcset="/wp-content/uploads/2018/05/word-image-284.png 447w, /wp-content/uploads/2018/05/word-image-284-300x150.png 300w" sizes="(max-width: 447px) 100vw, 447px" /></p>
+<p>
+  例题：（头像变大）
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  ul{
+</p>
+<p>
+  	list-style-type:none;
+</p>
+<p>
+  	margin:10px auto;
+</p>
+<p>
+  	padding:0px;
+</p>
+<p>
+  	overflow:hidden;
+</p>
+<p>
+  }
+</p>
+<p>
+  li{
+</p>
+<p>
+  	width:200px;
+</p>
+<p>
+  	height:200px;
+</p>
+<p>
+  	border:#000 solid 1px;
+</p>
+<p>
+  	margin:5px;
+</p>
+<p>
+  	float:left;
+</p>
+<p>
+  	overflow:hidden;
+</p>
+<p>
+  }
+</p>
+<p>
+  img{
+</p>
+<p>
+  	transition:all 0.5s ease;
+</p>
+<p>
+  }
+</p>
+<p>
+  img:hover{
+</p>
+<p>
+  	transform:scale(1.1);
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;ul&gt;
+</p>
+<p>
+  	&lt;li&gt;&lt;img src=&#8221;images4/face.jpg&#8221; width=&#8221;200&#8243; height=&#8221;200&#8243; /&gt;&lt;/li&gt;
+</p>
+<p>
+      &lt;li&gt;&lt;img src=&#8221;images4/face.jpg&#8221; width=&#8221;200&#8243; height=&#8221;200&#8243; /&gt;&lt;/li&gt;
+</p>
+<p>
+      &lt;li&gt;&lt;img src=&#8221;images4/face.jpg&#8221; width=&#8221;200&#8243; height=&#8221;200&#8243; /&gt;&lt;/li&gt;
+</p>
+<p>
+  &lt;/ul&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="657" height="213" src="/wp-content/uploads/2018/05/word-image-285.png" class="wp-image-318" srcset="/wp-content/uploads/2018/05/word-image-285.png 657w, /wp-content/uploads/2018/05/word-image-285-300x97.png 300w" sizes="(max-width: 657px) 100vw, 657px" /></p>
+<h2>Sublime介绍</h2>
+<ol>
+<li>
+  生成HTML框架结构
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="668" height="52" src="/wp-content/uploads/2018/05/word-image-286.png" class="wp-image-319" srcset="/wp-content/uploads/2018/05/word-image-286.png 668w, /wp-content/uploads/2018/05/word-image-286-300x23.png 300w" sizes="(max-width: 668px) 100vw, 668px" /><br />
+<img loading="lazy" decoding="async" width="543" height="56" src="/wp-content/uploads/2018/05/word-image-287.png" class="wp-image-320" srcset="/wp-content/uploads/2018/05/word-image-287.png 543w, /wp-content/uploads/2018/05/word-image-287-300x31.png 300w" sizes="(max-width: 543px) 100vw, 543px" /><br />
+<img loading="lazy" decoding="async" width="519" height="59" src="/wp-content/uploads/2018/05/word-image-288.png" class="wp-image-321" srcset="/wp-content/uploads/2018/05/word-image-288.png 519w, /wp-content/uploads/2018/05/word-image-288-300x34.png 300w" sizes="(max-width: 519px) 100vw, 519px" /><br />
+<img loading="lazy" decoding="async" width="398" height="54" src="/wp-content/uploads/2018/05/word-image-289.png" class="wp-image-322" srcset="/wp-content/uploads/2018/05/word-image-289.png 398w, /wp-content/uploads/2018/05/word-image-289-300x41.png 300w" sizes="(max-width: 398px) 100vw, 398px" /></p>
+<p>
+  按tab键或ctrl+E生成
+</p>
+<p>
+  注意要将页面保存再按快捷键生成
+</p>
+<p>
+  常用的其他技巧
+</p>
+<p><img loading="lazy" decoding="async" width="439" height="28" src="/wp-content/uploads/2018/05/word-image-290.png" class="wp-image-323" srcset="/wp-content/uploads/2018/05/word-image-290.png 439w, /wp-content/uploads/2018/05/word-image-290-300x19.png 300w" sizes="(max-width: 439px) 100vw, 439px" /><br />
+<img loading="lazy" decoding="async" width="745" height="30" src="/wp-content/uploads/2018/05/word-image-291.png" class="wp-image-324" srcset="/wp-content/uploads/2018/05/word-image-291.png 745w, /wp-content/uploads/2018/05/word-image-291-300x12.png 300w" sizes="(max-width: 745px) 100vw, 745px" /><br />
+<img loading="lazy" decoding="async" width="751" height="118" src="/wp-content/uploads/2018/05/word-image-292.png" class="wp-image-325" srcset="/wp-content/uploads/2018/05/word-image-292.png 751w, /wp-content/uploads/2018/05/word-image-292-300x47.png 300w" sizes="(max-width: 751px) 100vw, 751px" /></p>
+<h2>什么是JavaScript</h2>
+<ol>
+<li>
+  JavaScript是一种解释型的，基于对象的脚本语言。
+</li>
+<li>
+  Javascript（JS）可以运行在客户端，也可以运行在服务器端。默认是运行在客户端。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="882" height="44" src="/wp-content/uploads/2018/05/word-image-293.png" class="wp-image-326" srcset="/wp-content/uploads/2018/05/word-image-293.png 882w, /wp-content/uploads/2018/05/word-image-293-300x15.png 300w, /wp-content/uploads/2018/05/word-image-293-768x38.png 768w" sizes="(max-width: 882px) 100vw, 882px" /></p>
+<p>
+  script：脚本
+</p>
+<h3>页面的执行过程</h3>
+<p><img loading="lazy" decoding="async" width="742" height="85" src="/wp-content/uploads/2018/05/word-image-294.png" class="wp-image-327" srcset="/wp-content/uploads/2018/05/word-image-294.png 742w, /wp-content/uploads/2018/05/word-image-294-300x34.png 300w" sizes="(max-width: 742px) 100vw, 742px" /></p>
+<h3>解释型与编译型</h3>
+<p><img loading="lazy" decoding="async" width="786" height="138" src="/wp-content/uploads/2018/05/word-image-295.png" class="wp-image-328" srcset="/wp-content/uploads/2018/05/word-image-295.png 786w, /wp-content/uploads/2018/05/word-image-295-300x53.png 300w, /wp-content/uploads/2018/05/word-image-295-768x135.png 768w" sizes="(max-width: 786px) 100vw, 786px" /></p>
+<p>
+  要看一门语言是否是解释型还是编译型，主要看是否会生成中间文件。
+</p>
+<p>
+  运行在客户端的语言都是解释型
+</p>
+<p>
+  运行在服务器端的语言都是编译型。
+</p>
+<h3>脚本语言</h3>
+<p>
+  脚本语言也是语言一种，脚本语言的特点要结合其他语言一起实现功能。
+</p>
+<h2>JavaScript的应用场景</h2>
+<ol>
+<li>
+  客户端特效
+</li>
+<li>
+  验证表单
+</li>
+</ol>
+<h2>变量</h2>
+<p>
+  变量就是一个会变的量
+</p>
+<p>
+  x+1=2		x=1
+</p>
+<p>
+  x+10=20	x=10
+</p>
+<p><img loading="lazy" decoding="async" width="452" height="83" src="/wp-content/uploads/2018/05/word-image-296.png" class="wp-image-329" srcset="/wp-content/uploads/2018/05/word-image-296.png 452w, /wp-content/uploads/2018/05/word-image-296-300x55.png 300w" sizes="(max-width: 452px) 100vw, 452px" /></p>
+<p>
+  变量就是内存中的一段空间
+</p>
+<h2>变量的命名规则</h2>
+<ol>
+<li>
+  变量以字母、下划线，$开头，后面跟的在字母、数字、下划线，$
+</li>
+<li>
+  关键字不能做变量名
+</li>
+<li>
+  变量名区分大小写（aa和Aa是两个空间）
+</li>
+</ol>
+<p>
+  下列变量名是否合法
+</p>
+<ol>
+<li>
+  aa		合法
+</li>
+<li>
+  a1		合法
+</li>
+<li>
+  1a		不合法（不能以数字开头）
+</li>
+<li>
+  _1a		合法
+</li>
+<li>
+  a-1		不合法
+</li>
+<li>
+  a%		不合法
+</li>
+<li>
+  x		合法
+</li>
+<li>
+  do		不合法（关键字不可以做变量名 if for else case …）
+</li>
+</ol>
+<h2>声明变量</h2>
+<p>
+  通过var关键字来声明变量。
+</p>
+<p>
+  声明变量有两种方法
+</p>
+<ol>
+<li>
+  显式声明：通过var关键字声明后使用
+</li>
+<li>
+  隐式声明：不声明，直接使用
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="962" height="138" src="/wp-content/uploads/2018/05/word-image-297.png" class="wp-image-330" srcset="/wp-content/uploads/2018/05/word-image-297.png 962w, /wp-content/uploads/2018/05/word-image-297-300x43.png 300w, /wp-content/uploads/2018/05/word-image-297-768x110.png 768w" sizes="(max-width: 962px) 100vw, 962px" /></p>
+<h2>输出的方法</h2>
+<p>
+  1、document.write(‘锄禾日当午’);	//输出在浏览器上
+</p>
+<p><img loading="lazy" decoding="async" width="533" height="43" src="/wp-content/uploads/2018/05/word-image-298.png" class="wp-image-331" srcset="/wp-content/uploads/2018/05/word-image-298.png 533w, /wp-content/uploads/2018/05/word-image-298-300x24.png 300w" sizes="(max-width: 533px) 100vw, 533px" /></p>
+<p>
+  2、alert(‘锄禾日当午’);		//弹出一个对话框（就是window.alert()）
+</p>
+<p><img loading="lazy" decoding="async" width="181" height="188" src="/wp-content/uploads/2018/05/word-image-299.png" class="wp-image-332" /></p>
+<p>
+  3、prompt()：弹出一个用于输入的对话框
+</p>
+<p><img loading="lazy" decoding="async" width="930" height="153" src="/wp-content/uploads/2018/05/word-image-300.png" class="wp-image-333" srcset="/wp-content/uploads/2018/05/word-image-300.png 930w, /wp-content/uploads/2018/05/word-image-300-300x49.png 300w, /wp-content/uploads/2018/05/word-image-300-768x126.png 768w" sizes="(max-width: 930px) 100vw, 930px" /></p>
+<p>
+  4、弹出一个对话框，有“确定”和“取消”按钮
+</p>
+<p><img loading="lazy" decoding="async" width="583" height="174" src="/wp-content/uploads/2018/05/word-image-301.png" class="wp-image-334" srcset="/wp-content/uploads/2018/05/word-image-301.png 583w, /wp-content/uploads/2018/05/word-image-301-300x90.png 300w" sizes="(max-width: 583px) 100vw, 583px" /></p>
+<p>
+  5、console.log(‘锄禾日当午’)：在控制台输出，用于代码调试
+</p>
+<p><img loading="lazy" decoding="async" width="556" height="103" src="/wp-content/uploads/2018/05/word-image-302.png" class="wp-image-335" srcset="/wp-content/uploads/2018/05/word-image-302.png 556w, /wp-content/uploads/2018/05/word-image-302-300x56.png 300w" sizes="(max-width: 556px) 100vw, 556px" /></p>
+<p>
+  几个需要记忆的单词
+</p>
+<ol>
+<li>
+  window：窗口
+</li>
+<li>
+  document：文档
+</li>
+<li>
+  console：控制台
+</li>
+<li>
+  log：日志
+</li>
+</ol>
+<h2>变量数据类型</h2>
+<p>
+  变量的数据类型取决于变量中存储的值。如果存放的是数字就是数字型，存放字符串就是字符串型。
+</p>
+<p><img loading="lazy" decoding="async" width="521" height="323" src="/wp-content/uploads/2018/05/word-image-303.png" class="wp-image-336" srcset="/wp-content/uploads/2018/05/word-image-303.png 521w, /wp-content/uploads/2018/05/word-image-303-300x186.png 300w" sizes="(max-width: 521px) 100vw, 521px" /></p>
+<p>
+  基本数据类型
+</p>
+<table>
+<tr>
+<td>
+<p>
+  数据类型
+</p>
+</td>
+<td>
+<p>
+  例题
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  数字型（Number）
+</p>
+</td>
+<td>
+<p>
+  10   10.5
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  字符串型（String）
+</p>
+</td>
+<td>
+<p>
+  “锄禾日当午”   ‘锄禾日当午’
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  布尔型（Boolean）
+</p>
+</td>
+<td>
+<p>
+  true（真）  false（假）
+</p>
+</td>
+</tr>
+</table>
+<p>
+  特殊数据类型
+</p>
+<table>
+<tr>
+<td>
+<p>
+  Null（空）
+</p>
+</td>
+<td>
+<p>
+  空型
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  Undefined（未定义型）
+</p>
+</td>
+<td>
+<p>
+  变量声明后当没有赋值，这个变量是未定义型
+</p>
+</td>
+</tr>
+</table>
+<p>
+  typeof：显示变量的数据类型
+</p>
+<p><img loading="lazy" decoding="async" width="623" height="97" src="/wp-content/uploads/2018/05/word-image-304.png" class="wp-image-337" srcset="/wp-content/uploads/2018/05/word-image-304.png 623w, /wp-content/uploads/2018/05/word-image-304-300x47.png 300w" sizes="(max-width: 623px) 100vw, 623px" /><br />
+<img loading="lazy" decoding="async" width="535" height="90" src="/wp-content/uploads/2018/05/word-image-305.png" class="wp-image-338" srcset="/wp-content/uploads/2018/05/word-image-305.png 535w, /wp-content/uploads/2018/05/word-image-305-300x50.png 300w" sizes="(max-width: 535px) 100vw, 535px" /><br />
+<img loading="lazy" decoding="async" width="509" height="89" src="/wp-content/uploads/2018/05/word-image-306.png" class="wp-image-339" srcset="/wp-content/uploads/2018/05/word-image-306.png 509w, /wp-content/uploads/2018/05/word-image-306-300x52.png 300w" sizes="(max-width: 509px) 100vw, 509px" /><br />
+<img loading="lazy" decoding="async" width="517" height="85" src="/wp-content/uploads/2018/05/word-image-307.png" class="wp-image-340" srcset="/wp-content/uploads/2018/05/word-image-307.png 517w, /wp-content/uploads/2018/05/word-image-307-300x49.png 300w" sizes="(max-width: 517px) 100vw, 517px" /></p>
+<p>
+  多学一招：JS支持八进制，十进制，十六进制。
+</p>
+<p><img loading="lazy" decoding="async" width="562" height="189" src="/wp-content/uploads/2018/05/word-image-308.png" class="wp-image-341" srcset="/wp-content/uploads/2018/05/word-image-308.png 562w, /wp-content/uploads/2018/05/word-image-308-300x101.png 300w" sizes="(max-width: 562px) 100vw, 562px" /></p>
+<p>
+  多学一招：JS支持无穷大
+</p>
+<p><img loading="lazy" decoding="async" width="759" height="37" src="/wp-content/uploads/2018/05/word-image-309.png" class="wp-image-342" srcset="/wp-content/uploads/2018/05/word-image-309.png 759w, /wp-content/uploads/2018/05/word-image-309-300x15.png 300w" sizes="(max-width: 759px) 100vw, 759px" /></p>
+<h2>JavaScript的基本语法规则</h2>
+<ol>
+<li>
+  解释型语言，可以随时运行
+</li>
+<li>
+  大小写敏感
+</li>
+<li>
+  弱类型语言（变量的数据类型取决于存放的数据）
+</li>
+<li>
+  分号表示语句的结束（也可以使用换行替代分号，但不推荐）
+</li>
+</ol>
+<h2>注释</h2>
+<ol>
+<li>
+  单行注释：			//
+</li>
+<li>
+  多行注释：			/*    */
+</li>
+</ol>
+<h2>运算符</h2>
+<h3>赋值运算符（=）</h3>
+<p>
+  a=5：将5付给a
+</p>
+<h3>算术运算符</h3>
+<table>
+<tr>
+<td>
+<p><strong>一元运算符</strong>
+</p>
+</td>
+<td>
+<p><strong>描述</strong>
+</p>
+</td>
+<td>
+<p><strong>二元运算符</strong>
+</p>
+</td>
+<td>
+<p><strong>描述</strong>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &#8211;
+</p>
+</td>
+<td>
+<p>
+  负号
+</p>
+</td>
+<td>
+<p>
+  +
+</p>
+</td>
+<td>
+<p>
+  加
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  ++
+</p>
+</td>
+<td>
+<p>
+  自增
+</p>
+</td>
+<td>
+<p>
+  &#8211;
+</p>
+</td>
+<td>
+<p>
+  减
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &#8212;
+</p>
+</td>
+<td>
+<p>
+  自减
+</p>
+</td>
+<td>
+<p>
+  *
+</p>
+</td>
+<td>
+<p>
+  乘
+</p>
+</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>
+<p>
+  /
+</p>
+</td>
+<td>
+<p>
+  除
+</p>
+</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>
+<p>
+  %
+</p>
+</td>
+<td>
+<p>
+  模（取模就是取余数）
+</p>
+</td>
+</tr>
+</table>
+<p>
+  注意：
+</p>
+<p>
+  1、“+”除了做数字运算，还可以做字符串相加，字符串相加就是字符串相连。
+</p>
+<p>
+  2、字符串和数字相加，将数字转成字符串型再相连
+</p>
+<p>
+  3、字符串只能做加法，不能做减法，不能做乘法，不能做除法。
+</p>
+<p><img loading="lazy" decoding="async" width="1035" height="162" src="/wp-content/uploads/2018/05/word-image-310.png" class="wp-image-343" srcset="/wp-content/uploads/2018/05/word-image-310.png 1035w, /wp-content/uploads/2018/05/word-image-310-300x47.png 300w, /wp-content/uploads/2018/05/word-image-310-768x120.png 768w, /wp-content/uploads/2018/05/word-image-310-1024x160.png 1024w" sizes="(max-width: 1035px) 100vw, 1035px" /></p>
+<p>
+  4、取模就是取余数
+</p>
+<p><img loading="lazy" decoding="async" width="608" height="139" src="/wp-content/uploads/2018/05/word-image-311.png" class="wp-image-344" srcset="/wp-content/uploads/2018/05/word-image-311.png 608w, /wp-content/uploads/2018/05/word-image-311-300x69.png 300w" sizes="(max-width: 608px) 100vw, 608px" /></p>
+<p>
+  自增
+</p>
+<p>
+  ++前置：先自增，后运行
+</p>
+<p>
+  ++后置：后自增，先运算
+</p>
+<p><img loading="lazy" decoding="async" width="736" height="92" src="/wp-content/uploads/2018/05/word-image-312.png" class="wp-image-345" srcset="/wp-content/uploads/2018/05/word-image-312.png 736w, /wp-content/uploads/2018/05/word-image-312-300x38.png 300w" sizes="(max-width: 736px) 100vw, 736px" /><br />
+<img loading="lazy" decoding="async" width="742" height="99" src="/wp-content/uploads/2018/05/word-image-313.png" class="wp-image-346" srcset="/wp-content/uploads/2018/05/word-image-313.png 742w, /wp-content/uploads/2018/05/word-image-313-300x40.png 300w" sizes="(max-width: 742px) 100vw, 742px" /><br />
+<img loading="lazy" decoding="async" width="581" height="119" src="/wp-content/uploads/2018/05/word-image-314.png" class="wp-image-347" srcset="/wp-content/uploads/2018/05/word-image-314.png 581w, /wp-content/uploads/2018/05/word-image-314-300x61.png 300w" sizes="(max-width: 581px) 100vw, 581px" /><br />
+<img loading="lazy" decoding="async" width="1055" height="71" src="/wp-content/uploads/2018/05/word-image-315.png" class="wp-image-348" srcset="/wp-content/uploads/2018/05/word-image-315.png 1055w, /wp-content/uploads/2018/05/word-image-315-300x20.png 300w, /wp-content/uploads/2018/05/word-image-315-768x52.png 768w, /wp-content/uploads/2018/05/word-image-315-1024x69.png 1024w" sizes="(max-width: 1055px) 100vw, 1055px" /><br />
+<img loading="lazy" decoding="async" width="581" height="119" src="/wp-content/uploads/2018/05/word-image-316.png" class="wp-image-349" srcset="/wp-content/uploads/2018/05/word-image-316.png 581w, /wp-content/uploads/2018/05/word-image-316-300x61.png 300w" sizes="(max-width: 581px) 100vw, 581px" /></p>
+<h2>作业：</h2>
+<ol>
+<li>
+  实现旋转的效果
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="101" height="100" src="/wp-content/uploads/2018/05/word-image-317.png" class="wp-image-350" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/303.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

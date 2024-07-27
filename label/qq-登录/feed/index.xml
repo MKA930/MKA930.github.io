@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>QQ 登录 &#8211; 个人随笔</title>
+	<atom:link href="/label/qq-%E7%99%BB%E5%BD%95/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sun, 17 Jun 2018 08:03:35 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>QQ 登录 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP5 商城（六）邮件找回密码、QQ 互联、QQ 登录、分类列表页的面包屑导航、分类列表页左侧分类菜单</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8241.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8241.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 08 Jun 2018 00:35:46 +0000</pubDate>
+				<category><![CDATA[TP5.0]]></category>
+		<category><![CDATA[TP5.0商城]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[QQ 互联]]></category>
+		<category><![CDATA[QQ 登录]]></category>
+		<category><![CDATA[分类列表页左侧分类菜单]]></category>
+		<category><![CDATA[分类列表页的面包屑导航]]></category>
+		<category><![CDATA[邮件找回密码]]></category>
+		<guid isPermaLink="false">/?p=8241</guid>
+
+					<description><![CDATA[商城第六天 一、邮件技术实现密码找回 1、邮件发送概述 （1）邮件发送的原理 &#160; 解释： POP3： [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>商城第六天</h1>
+<h1>一、邮件技术实现密码找回</h1>
+<h2>1、邮件发送概述</h2>
+<h3>（1）邮件发送的原理</h3>
+<p>&nbsp;</p>
+<p><img fetchpriority="high" decoding="async" width="993" height="380" class="wp-image-8242" src="/wp-content/uploads/2018/06/word-image-822.png" srcset="/wp-content/uploads/2018/06/word-image-822.png 993w, /wp-content/uploads/2018/06/word-image-822-300x115.png 300w, /wp-content/uploads/2018/06/word-image-822-768x294.png 768w" sizes="(max-width: 993px) 100vw, 993px" /></p>
+<p>解释：</p>
+<p>POP3：全名为“Post Office Protocol &#8211; Version 3”，即“邮局协议版本3”。是TCP/IP协议族中的一员，由RFC1939 定义。本协议主要用于支持使用客户端远程管理在服务器上的电子邮件，提供了SSL加密。</p>
+<p>简单一句话，POP服务器是用来收信的。</p>
+<h3>（2）SMTP协议（Simple Mail Transfer Protocol）</h3>
+<p><a id="post-8241-_Toc449198636"></a> SMTP（Simple Mail Transfer Protocol）：</p>
+<p>即简单邮件传输协议,它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。</p>
+<p>SMTP协议属于TCP/IP协议族，它帮助每台计算机在发送或中转信件时找到下一个目的地。</p>
+<p>通过SMTP协议所指定的服务器,就可以把E－mail寄到收信人的服务器上了，整个过程只要几分钟。SMTP服务器则是遵循SMTP协议的发送邮件服务器，用来发送或中转发出的电子邮件。</p>
+<p>简单的说：　SMTP则是负责邮件服务器与邮件服务器之间的寄信的通讯协定（类似于http协议）</p>
+<h2>2、如何实现邮件的发送</h2>
+<p>（1）需要有邮件发送的第三方程序包，比如可以使用开源免费的PHPMailer</p>
+<p><img decoding="async" width="236" height="25" class="wp-image-8243" src="/wp-content/uploads/2018/06/word-image-823.png" /></p>
+<p>（2）需要邮件服务器</p>
+<p>利用互联网上的第三方免费邮件服务器，例如 163， qq等，有些大公司会自己搭建邮件服务器。</p>
+<p>（3）需要在免费的邮件服务器里面（可以去注册163的），注册一个邮箱，进入邮箱后，要开通smtp服务。</p>
+<p>以163为例，先注册一个邮箱账号。</p>
+<p><img decoding="async" width="691" height="616" class="wp-image-8244" src="/wp-content/uploads/2018/06/word-image-824.png" srcset="/wp-content/uploads/2018/06/word-image-824.png 691w, /wp-content/uploads/2018/06/word-image-824-300x267.png 300w" sizes="(max-width: 691px) 100vw, 691px" /></p>
+<p>注册成功然后登录进入用户设置</p>
+<p><img loading="lazy" decoding="async" width="950" height="304" class="wp-image-8245" src="/wp-content/uploads/2018/06/word-image-825.png" srcset="/wp-content/uploads/2018/06/word-image-825.png 950w, /wp-content/uploads/2018/06/word-image-825-300x96.png 300w, /wp-content/uploads/2018/06/word-image-825-768x246.png 768w" sizes="(max-width: 950px) 100vw, 950px" /></p>
+<p>开通smtp服务</p>
+<p><img loading="lazy" decoding="async" width="1107" height="644" class="wp-image-8246" src="/wp-content/uploads/2018/06/word-image-826.png" srcset="/wp-content/uploads/2018/06/word-image-826.png 1107w, /wp-content/uploads/2018/06/word-image-826-300x175.png 300w, /wp-content/uploads/2018/06/word-image-826-768x447.png 768w, /wp-content/uploads/2018/06/word-image-826-1024x596.png 1024w" sizes="(max-width: 1107px) 100vw, 1107px" /></p>
+<p>设置客户端授权密码</p>
+<p><img loading="lazy" decoding="async" width="987" height="529" class="wp-image-8247" src="/wp-content/uploads/2018/06/word-image-827.png" srcset="/wp-content/uploads/2018/06/word-image-827.png 987w, /wp-content/uploads/2018/06/word-image-827-300x161.png 300w, /wp-content/uploads/2018/06/word-image-827-768x412.png 768w" sizes="(max-width: 987px) 100vw, 987px" /></p>
+<p>（4） php.ini配置文件中需要启用sockets扩展。</p>
+<p><img loading="lazy" decoding="async" width="475" height="229" class="wp-image-8248" src="/wp-content/uploads/2018/06/word-image-828.png" srcset="/wp-content/uploads/2018/06/word-image-828.png 475w, /wp-content/uploads/2018/06/word-image-828-300x145.png 300w" sizes="(max-width: 475px) 100vw, 475px" /></p>
+<p>记得重启apache服务器</p>
+<h2>3、邮件发送案例</h2>
+<p>参考以下示例：</p>
+<p><img loading="lazy" decoding="async" width="264" height="48" class="wp-image-8249" src="/wp-content/uploads/2018/06/word-image-829.png" /></p>
+<h2>集成到项目中实现忘记密码功能</h2>
+<ol>
+<li>把上面测试通过的发送邮件的sendEmail复制到[应用目录]/extend目录中</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="509" height="208" class="wp-image-8250" src="/wp-content/uploads/2018/06/word-image-830.png" srcset="/wp-content/uploads/2018/06/word-image-830.png 509w, /wp-content/uploads/2018/06/word-image-830-300x123.png 300w" sizes="(max-width: 509px) 100vw, 509px" /></p>
+<p>注：测试的时候，记得修改demo.php中的基本配置。</p>
+<ol>
+<li>在common.php文件中封装一个发送邮件的方法sendEmail</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1042" height="714" class="wp-image-8251" src="/wp-content/uploads/2018/06/word-image-831.png" srcset="/wp-content/uploads/2018/06/word-image-831.png 1042w, /wp-content/uploads/2018/06/word-image-831-300x206.png 300w, /wp-content/uploads/2018/06/word-image-831-768x526.png 768w, /wp-content/uploads/2018/06/word-image-831-1024x702.png 1024w" sizes="(max-width: 1042px) 100vw, 1042px" /></p>
+<ol>
+<li>记得测试一下是否ok</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1077" height="265" class="wp-image-8252" src="/wp-content/uploads/2018/06/word-image-832.png" srcset="/wp-content/uploads/2018/06/word-image-832.png 1077w, /wp-content/uploads/2018/06/word-image-832-300x74.png 300w, /wp-content/uploads/2018/06/word-image-832-768x189.png 768w, /wp-content/uploads/2018/06/word-image-832-1024x252.png 1024w" sizes="(max-width: 1077px) 100vw, 1077px" /></p>
+<h2>实现登录的忘记密码功能</h2>
+<p>找回密码的基本流程图解：</p>
+<p><img loading="lazy" decoding="async" width="460" height="660" class="wp-image-8253" src="/wp-content/uploads/2018/06/word-image-833.png" srcset="/wp-content/uploads/2018/06/word-image-833.png 460w, /wp-content/uploads/2018/06/word-image-833-209x300.png 209w" sizes="(max-width: 460px) 100vw, 460px" /></p>
+<ol>
+<li>修改登录页面的忘记密码的链接地址</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1135" height="294" class="wp-image-8254" src="/wp-content/uploads/2018/06/word-image-834.png" srcset="/wp-content/uploads/2018/06/word-image-834.png 1135w, /wp-content/uploads/2018/06/word-image-834-300x78.png 300w, /wp-content/uploads/2018/06/word-image-834-768x199.png 768w, /wp-content/uploads/2018/06/word-image-834-1024x265.png 1024w" sizes="(max-width: 1135px) 100vw, 1135px" /></p>
+<ol>
+<li>在home-publicController-findpassword方法，展示一个输入注册时候的邮箱的模板显示。</li>
+</ol>
+<p>注:模板可以直接复制登录的login.html模板即可，稍做修改</p>
+<p><img loading="lazy" decoding="async" width="1271" height="399" class="wp-image-8255" src="/wp-content/uploads/2018/06/word-image-835.png" srcset="/wp-content/uploads/2018/06/word-image-835.png 1271w, /wp-content/uploads/2018/06/word-image-835-300x94.png 300w, /wp-content/uploads/2018/06/word-image-835-768x241.png 768w, /wp-content/uploads/2018/06/word-image-835-1024x321.png 1024w" sizes="(max-width: 1271px) 100vw, 1271px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="471" height="161" class="wp-image-8256" src="/wp-content/uploads/2018/06/word-image-836.png" srcset="/wp-content/uploads/2018/06/word-image-836.png 471w, /wp-content/uploads/2018/06/word-image-836-300x103.png 300w" sizes="(max-width: 471px) 100vw, 471px" /></p>
+<ol>
+<li>给上面的按钮绑定单击事件，进行发送ajax，触发发送邮件。</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1032" height="380" class="wp-image-8257" src="/wp-content/uploads/2018/06/word-image-837.png" srcset="/wp-content/uploads/2018/06/word-image-837.png 1032w, /wp-content/uploads/2018/06/word-image-837-300x110.png 300w, /wp-content/uploads/2018/06/word-image-837-768x283.png 768w, /wp-content/uploads/2018/06/word-image-837-1024x377.png 1024w" sizes="(max-width: 1032px) 100vw, 1032px" /></p>
+<ol>
+<li>在home模块的PublicController控制器中的findPassword方法中判断是否是ajax请求，接收重置的邮箱，进行一些发送邮件前的判断</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1000" height="504" class="wp-image-8258" src="/wp-content/uploads/2018/06/word-image-838.png" srcset="/wp-content/uploads/2018/06/word-image-838.png 1000w, /wp-content/uploads/2018/06/word-image-838-300x151.png 300w, /wp-content/uploads/2018/06/word-image-838-768x387.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" /></p>
+<ol>
+<li>当输入的邮箱在系统中存在的时候，就进行发送邮件。</li>
+</ol>
+<p>需要把修改密码的链接地址构造起来一个a标签，发送给邮箱的用户：</p>
+<p>类似于： php15商城&#8211; &lt;a href=”http://域名/修改密码的新地址”&gt;点我找回密码&lt;/a&gt;</p>
+<p>获取当前网站的请求协议和域名：</p>
+<p><img loading="lazy" decoding="async" width="409" height="82" class="wp-image-8259" src="/wp-content/uploads/2018/06/word-image-839.png" srcset="/wp-content/uploads/2018/06/word-image-839.png 409w, /wp-content/uploads/2018/06/word-image-839-300x60.png 300w" sizes="(max-width: 409px) 100vw, 409px" /> <img loading="lazy" decoding="async" width="1233" height="688" class="wp-image-8260" src="/wp-content/uploads/2018/06/word-image-840.png" srcset="/wp-content/uploads/2018/06/word-image-840.png 1233w, /wp-content/uploads/2018/06/word-image-840-300x167.png 300w, /wp-content/uploads/2018/06/word-image-840-768x429.png 768w, /wp-content/uploads/2018/06/word-image-840-1024x571.png 1024w" sizes="(max-width: 1233px) 100vw, 1233px" /></p>
+<p>发送成功或失败，在html静态页面给出对应的提示：</p>
+<p><img loading="lazy" decoding="async" width="1043" height="460" class="wp-image-8261" src="/wp-content/uploads/2018/06/word-image-841.png" srcset="/wp-content/uploads/2018/06/word-image-841.png 1043w, /wp-content/uploads/2018/06/word-image-841-300x132.png 300w, /wp-content/uploads/2018/06/word-image-841-768x339.png 768w, /wp-content/uploads/2018/06/word-image-841-1024x452.png 1024w" sizes="(max-width: 1043px) 100vw, 1043px" /></p>
+<p>注：上面提示layer.msg需要引入layer弹出层插件</p>
+<p>邮件收到的地址如下：</p>
+<p><img loading="lazy" decoding="async" width="618" height="210" class="wp-image-8262" src="/wp-content/uploads/2018/06/word-image-842.png" srcset="/wp-content/uploads/2018/06/word-image-842.png 618w, /wp-content/uploads/2018/06/word-image-842-300x102.png 300w" sizes="(max-width: 618px) 100vw, 618px" /></p>
+<ol>
+<li>建立一个修改密码的方法updpassword。</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="920" height="300" class="wp-image-8263" src="/wp-content/uploads/2018/06/word-image-843.png" srcset="/wp-content/uploads/2018/06/word-image-843.png 920w, /wp-content/uploads/2018/06/word-image-843-300x98.png 300w, /wp-content/uploads/2018/06/word-image-843-768x250.png 768w" sizes="(max-width: 920px) 100vw, 920px" /></p>
+<p>模板内容如下：</p>
+<p><img loading="lazy" decoding="async" width="1281" height="595" class="wp-image-8264" src="/wp-content/uploads/2018/06/word-image-844.png" srcset="/wp-content/uploads/2018/06/word-image-844.png 1281w, /wp-content/uploads/2018/06/word-image-844-300x139.png 300w, /wp-content/uploads/2018/06/word-image-844-768x357.png 768w, /wp-content/uploads/2018/06/word-image-844-1024x476.png 1024w" sizes="(max-width: 1281px) 100vw, 1281px" /> <img loading="lazy" decoding="async" width="520" height="246" class="wp-image-8265" src="/wp-content/uploads/2018/06/word-image-845.png" srcset="/wp-content/uploads/2018/06/word-image-845.png 520w, /wp-content/uploads/2018/06/word-image-845-300x142.png 300w" sizes="(max-width: 520px) 100vw, 520px" /></p>
+<ol>
+<li>给上面的id=updPassword绑定单击事件，发送ajax请求，修改密码</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1069" height="597" class="wp-image-8266" src="/wp-content/uploads/2018/06/word-image-846.png" srcset="/wp-content/uploads/2018/06/word-image-846.png 1069w, /wp-content/uploads/2018/06/word-image-846-300x168.png 300w, /wp-content/uploads/2018/06/word-image-846-768x429.png 768w, /wp-content/uploads/2018/06/word-image-846-1024x572.png 1024w" sizes="(max-width: 1069px) 100vw, 1069px" /></p>
+<p>注：上面模板也要引入layer弹出层插件</p>
+<ol>
+<li>在updpassword中判断是否是ajax请求，完成修改用户的密码</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1047" height="604" class="wp-image-8267" src="/wp-content/uploads/2018/06/word-image-847.png" srcset="/wp-content/uploads/2018/06/word-image-847.png 1047w, /wp-content/uploads/2018/06/word-image-847-300x173.png 300w, /wp-content/uploads/2018/06/word-image-847-768x443.png 768w, /wp-content/uploads/2018/06/word-image-847-1024x591.png 1024w" sizes="(max-width: 1047px) 100vw, 1047px" /></p>
+<p>同时在Memer模型的编辑的前钩子中完成密码的加密：</p>
+<p><img loading="lazy" decoding="async" width="1001" height="416" class="wp-image-8268" src="/wp-content/uploads/2018/06/word-image-848.png" srcset="/wp-content/uploads/2018/06/word-image-848.png 1001w, /wp-content/uploads/2018/06/word-image-848-300x125.png 300w, /wp-content/uploads/2018/06/word-image-848-768x319.png 768w" sizes="(max-width: 1001px) 100vw, 1001px" /></p>
+<h2>验证邮件地址的合法性</h2>
+<ol>
+<li>因为用户可以篡改邮件的链接地址，如把id=1的用户改为id=3的用于，这样就把其他用户的密码给修改了</li>
+<li>还要保证链接地址有个有效期比如1天。</li>
+</ol>
+<p>具体做法：</p>
+<ol>
+<li>在发送邮件的时候，给携带携带3个参数，member_id、time、加密的字符串。</li>
+</ol>
+<p>加密的字符串是member_id和time和我们配置中一个配置项加密的结果。</p>
+<p><img loading="lazy" decoding="async" width="1248" height="506" class="wp-image-8269" src="/wp-content/uploads/2018/06/word-image-849.png" srcset="/wp-content/uploads/2018/06/word-image-849.png 1248w, /wp-content/uploads/2018/06/word-image-849-300x122.png 300w, /wp-content/uploads/2018/06/word-image-849-768x311.png 768w, /wp-content/uploads/2018/06/word-image-849-1024x415.png 1024w" sizes="(max-width: 1248px) 100vw, 1248px" /></p>
+<p>邮件地址生成的a链接地址如下：</p>
+<p><a href="/goto/wto7" rel="nofollow">http://www.php15shop.com/home/public/updpassword/member_id/2/time/1529202630/hash/50730d397f3b07e62e52e4c5b5e1cf47</a></p>
+<ol>
+<li>在更新密码的updPassword方法中，判断邮件地址是否被篡改，且要在指定的有效期内</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1011" height="504" class="wp-image-8270" src="/wp-content/uploads/2018/06/word-image-850.png" srcset="/wp-content/uploads/2018/06/word-image-850.png 1011w, /wp-content/uploads/2018/06/word-image-850-300x150.png 300w, /wp-content/uploads/2018/06/word-image-850-768x383.png 768w" sizes="(max-width: 1011px) 100vw, 1011px" /></p>
+<p>以后凡是防止用户篡改表单或者url中的参数，解决办法：加密后对比处理。</p>
+<h1>二、QQ互联</h1>
+<h2>1、注册QQ互联应用</h2>
+<p>先去腾讯开发平台注册账号：<a href="/goto/efjr" rel="nofollow">http://open.qq.com/</a> 。</p>
+<p><img loading="lazy" decoding="async" width="1342" height="240" class="wp-image-8271" src="/wp-content/uploads/2018/06/word-image-851.png" srcset="/wp-content/uploads/2018/06/word-image-851.png 1342w, /wp-content/uploads/2018/06/word-image-851-300x54.png 300w, /wp-content/uploads/2018/06/word-image-851-768x137.png 768w, /wp-content/uploads/2018/06/word-image-851-1024x183.png 1024w" sizes="(max-width: 1342px) 100vw, 1342px" /></p>
+<p>等资料审核通过后便可去qq互联创建应用： <a href="/goto/p1rq" rel="nofollow">https://connect.qq.com/manage.html#/</a> ，创建好如下所示。</p>
+<p><img loading="lazy" decoding="async" width="1048" height="604" class="wp-image-8272" src="/wp-content/uploads/2018/06/word-image-852.png" srcset="/wp-content/uploads/2018/06/word-image-852.png 1048w, /wp-content/uploads/2018/06/word-image-852-300x173.png 300w, /wp-content/uploads/2018/06/word-image-852-768x443.png 768w, /wp-content/uploads/2018/06/word-image-852-1024x590.png 1024w" sizes="(max-width: 1048px) 100vw, 1048px" /></p>
+<p>点击上面的查看，进入以下页面：</p>
+<p><img loading="lazy" decoding="async" width="1039" height="562" class="wp-image-8273" src="/wp-content/uploads/2018/06/word-image-853.png" srcset="/wp-content/uploads/2018/06/word-image-853.png 1039w, /wp-content/uploads/2018/06/word-image-853-300x162.png 300w, /wp-content/uploads/2018/06/word-image-853-768x415.png 768w, /wp-content/uploads/2018/06/word-image-853-1024x554.png 1024w" sizes="(max-width: 1039px) 100vw, 1039px" /></p>
+<p>回调域设置：</p>
+<p><img loading="lazy" decoding="async" width="899" height="379" class="wp-image-8274" src="/wp-content/uploads/2018/06/word-image-854.png" srcset="/wp-content/uploads/2018/06/word-image-854.png 899w, /wp-content/uploads/2018/06/word-image-854-300x126.png 300w, /wp-content/uploads/2018/06/word-image-854-768x324.png 768w" sizes="(max-width: 899px) 100vw, 899px" /></p>
+<p>注意：</p>
+<ol>
+<li>上面的应用虽然审核不通过，但是不影响我们使用。我们只需要获取应用的appid和key即可。</li>
+<li>只有网站备案通过，应用才可以审核通过，没通过审核的应用只能使用我们所注册的qq号进行登录测试，审核通过后就没限制。</li>
+<li>当我们本地网站集成qq登录时，本地域名回调地址域需要和上面应用设置的一样。</li>
+</ol>
+<p>注意：</p>
+<p>当应用创建好之后，立刻记住appid和appkey ,设置好和我们本地网站域名一样的回调域和回调地址。</p>
+<h2>2、下载QQ登录PHP-SDK 集成包</h2>
+<p>下载地址：<a href="/goto/il7d" rel="nofollow">http://wiki.connect.qq.com/</a></p>
+<p><img loading="lazy" decoding="async" width="1073" height="691" class="wp-image-8275" src="/wp-content/uploads/2018/06/word-image-855.png" srcset="/wp-content/uploads/2018/06/word-image-855.png 1073w, /wp-content/uploads/2018/06/word-image-855-300x193.png 300w, /wp-content/uploads/2018/06/word-image-855-768x495.png 768w, /wp-content/uploads/2018/06/word-image-855-1024x659.png 1024w" sizes="(max-width: 1073px) 100vw, 1073px" /></p>
+<p>下载php版本：</p>
+<p><img loading="lazy" decoding="async" width="1148" height="484" class="wp-image-8276" src="/wp-content/uploads/2018/06/word-image-856.png" srcset="/wp-content/uploads/2018/06/word-image-856.png 1148w, /wp-content/uploads/2018/06/word-image-856-300x126.png 300w, /wp-content/uploads/2018/06/word-image-856-768x324.png 768w, /wp-content/uploads/2018/06/word-image-856-1024x432.png 1024w" sizes="(max-width: 1148px) 100vw, 1148px" /></p>
+<p>下载下来如下所示：</p>
+<p><img loading="lazy" decoding="async" width="271" height="29" class="wp-image-8277" src="/wp-content/uploads/2018/06/word-image-857.png" /></p>
+<h2>进行QQ登录前的参数配置</h2>
+<p>1、把qq登录开发包SDK中的以下目录复制到网站根目录下,即[应用目录]/public/中</p>
+<p><img loading="lazy" decoding="async" width="752" height="349" class="wp-image-8278" src="/wp-content/uploads/2018/06/word-image-858.png" srcset="/wp-content/uploads/2018/06/word-image-858.png 752w, /wp-content/uploads/2018/06/word-image-858-300x139.png 300w" sizes="(max-width: 752px) 100vw, 752px" /></p>
+<ol>
+<li>直接在浏览器中访问connect2.1目录中即可</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="553" height="155" class="wp-image-8279" src="/wp-content/uploads/2018/06/word-image-859.png" srcset="/wp-content/uploads/2018/06/word-image-859.png 553w, /wp-content/uploads/2018/06/word-image-859-300x84.png 300w" sizes="(max-width: 553px) 100vw, 553px" /></p>
+<p>点击上面的设置配置项。</p>
+<p><img loading="lazy" decoding="async" width="1108" height="489" class="wp-image-8280" src="/wp-content/uploads/2018/06/word-image-860.png" srcset="/wp-content/uploads/2018/06/word-image-860.png 1108w, /wp-content/uploads/2018/06/word-image-860-300x132.png 300w, /wp-content/uploads/2018/06/word-image-860-768x339.png 768w, /wp-content/uploads/2018/06/word-image-860-1024x452.png 1024w" sizes="(max-width: 1108px) 100vw, 1108px" /></p>
+<p>进入如下：</p>
+<p><img loading="lazy" decoding="async" width="1014" height="187" class="wp-image-8281" src="/wp-content/uploads/2018/06/word-image-861.png" srcset="/wp-content/uploads/2018/06/word-image-861.png 1014w, /wp-content/uploads/2018/06/word-image-861-300x55.png 300w, /wp-content/uploads/2018/06/word-image-861-768x142.png 768w" sizes="(max-width: 1014px) 100vw, 1014px" /></p>
+<p>点击上面的example,，点击qq登录登录的logo图标，如果能够有一个qq登录的弹框说明配置成功</p>
+<p><img loading="lazy" decoding="async" width="981" height="452" class="wp-image-8282" src="/wp-content/uploads/2018/06/word-image-862.png" srcset="/wp-content/uploads/2018/06/word-image-862.png 981w, /wp-content/uploads/2018/06/word-image-862-300x138.png 300w, /wp-content/uploads/2018/06/word-image-862-768x354.png 768w" sizes="(max-width: 981px) 100vw, 981px" /></p>
+<p>注意：我们应用中的域名如果备案审核通过，则只能用我们所注册的qq进行登录测试</p>
+<p>用注册的qq登录成功之后，会进入到我们之前所设置的callback回调地址</p>
+<p><img loading="lazy" decoding="async" width="1120" height="173" class="wp-image-8283" src="/wp-content/uploads/2018/06/word-image-863.png" srcset="/wp-content/uploads/2018/06/word-image-863.png 1120w, /wp-content/uploads/2018/06/word-image-863-300x46.png 300w, /wp-content/uploads/2018/06/word-image-863-768x119.png 768w, /wp-content/uploads/2018/06/word-image-863-1024x158.png 1024w" sizes="(max-width: 1120px) 100vw, 1120px" /></p>
+<h2>分析如何唤起QQ登录弹框</h2>
+<p>分析qq图标的logo按钮</p>
+<p><img loading="lazy" decoding="async" width="676" height="398" class="wp-image-8284" src="/wp-content/uploads/2018/06/word-image-864.png" srcset="/wp-content/uploads/2018/06/word-image-864.png 676w, /wp-content/uploads/2018/06/word-image-864-300x177.png 300w" sizes="(max-width: 676px) 100vw, 676px" /></p>
+<p>再去对应的文件中查看toQzoneLogin()事件：</p>
+<p><img loading="lazy" decoding="async" width="1064" height="323" class="wp-image-8285" src="/wp-content/uploads/2018/06/word-image-865.png" srcset="/wp-content/uploads/2018/06/word-image-865.png 1064w, /wp-content/uploads/2018/06/word-image-865-300x91.png 300w, /wp-content/uploads/2018/06/word-image-865-768x233.png 768w, /wp-content/uploads/2018/06/word-image-865-1024x311.png 1024w" sizes="(max-width: 1064px) 100vw, 1064px" /></p>
+<p>可见事件在一个新窗口打开oauth 中的index.php。找到此文件</p>
+<p><img loading="lazy" decoding="async" width="738" height="188" class="wp-image-8286" src="/wp-content/uploads/2018/06/word-image-866.png" srcset="/wp-content/uploads/2018/06/word-image-866.png 738w, /wp-content/uploads/2018/06/word-image-866-300x76.png 300w" sizes="(max-width: 738px) 100vw, 738px" /></p>
+<p>可见，以上3行代码最终唤起qq登录弹框！。后面在项目中，点击qq登录的logo图标执行这三行代码即可完成qq登录弹框。</p>
+<h2>5、集成到项目中实现QQ登录</h2>
+<p>qq登录流程图：</p>
+<p><img loading="lazy" decoding="async" width="1191" height="408" class="wp-image-8287" src="/wp-content/uploads/2018/06/word-image-867.png" srcset="/wp-content/uploads/2018/06/word-image-867.png 1191w, /wp-content/uploads/2018/06/word-image-867-300x103.png 300w, /wp-content/uploads/2018/06/word-image-867-768x263.png 768w, /wp-content/uploads/2018/06/word-image-867-1024x351.png 1024w" sizes="(max-width: 1191px) 100vw, 1191px" /></p>
+<h3>1、点击qq登录的图片，唤起qq登录弹框</h3>
+<ol>
+<li>把之前测好的API目录复制到extend/qqLogin/目录下面</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="736" height="205" class="wp-image-8288" src="/wp-content/uploads/2018/06/word-image-868.png" srcset="/wp-content/uploads/2018/06/word-image-868.png 736w, /wp-content/uploads/2018/06/word-image-868-300x84.png 300w" sizes="(max-width: 736px) 100vw, 736px" /></p>
+<p>注：如果之前的配置参数写错了，可以直接修改inc.php文件</p>
+<p><img loading="lazy" decoding="async" width="1270" height="164" class="wp-image-8289" src="/wp-content/uploads/2018/06/word-image-869.png" srcset="/wp-content/uploads/2018/06/word-image-869.png 1270w, /wp-content/uploads/2018/06/word-image-869-300x39.png 300w, /wp-content/uploads/2018/06/word-image-869-768x99.png 768w, /wp-content/uploads/2018/06/word-image-869-1024x132.png 1024w" sizes="(max-width: 1270px) 100vw, 1270px" /></p>
+<ol>
+<li>在login.html的登录模板给qq的登录图标，设置一个url地址，跳到home-memberController-qqLogin方法：</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1266" height="345" class="wp-image-8290" src="/wp-content/uploads/2018/06/word-image-870.png" srcset="/wp-content/uploads/2018/06/word-image-870.png 1266w, /wp-content/uploads/2018/06/word-image-870-300x82.png 300w, /wp-content/uploads/2018/06/word-image-870-768x209.png 768w, /wp-content/uploads/2018/06/word-image-870-1024x279.png 1024w" sizes="(max-width: 1266px) 100vw, 1266px" /></p>
+<p>qqLogin方法如下：</p>
+<p><img loading="lazy" decoding="async" width="931" height="362" class="wp-image-8291" src="/wp-content/uploads/2018/06/word-image-871.png" srcset="/wp-content/uploads/2018/06/word-image-871.png 931w, /wp-content/uploads/2018/06/word-image-871-300x117.png 300w, /wp-content/uploads/2018/06/word-image-871-768x299.png 768w" sizes="(max-width: 931px) 100vw, 931px" /></p>
+<p>点击下面的qq登录，出现qq弹框说明引入项目成功：</p>
+<p><img loading="lazy" decoding="async" width="553" height="142" class="wp-image-8292" src="/wp-content/uploads/2018/06/word-image-872.png" srcset="/wp-content/uploads/2018/06/word-image-872.png 553w, /wp-content/uploads/2018/06/word-image-872-300x77.png 300w" sizes="(max-width: 553px) 100vw, 553px" /> <img loading="lazy" decoding="async" width="738" height="364" class="wp-image-8293" src="/wp-content/uploads/2018/06/word-image-873.png" srcset="/wp-content/uploads/2018/06/word-image-873.png 738w, /wp-content/uploads/2018/06/word-image-873-300x148.png 300w" sizes="(max-width: 738px) 100vw, 738px" /></p>
+<h3>在qq回调域callback中获取openid和token</h3>
+<ol>
+<li>在home模块member控制器中建立一个qq回调方法名为qqCallback</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1043" height="529" class="wp-image-8294" src="/wp-content/uploads/2018/06/word-image-874.png" srcset="/wp-content/uploads/2018/06/word-image-874.png 1043w, /wp-content/uploads/2018/06/word-image-874-300x152.png 300w, /wp-content/uploads/2018/06/word-image-874-768x390.png 768w, /wp-content/uploads/2018/06/word-image-874-1024x519.png 1024w" sizes="(max-width: 1043px) 100vw, 1043px" /></p>
+<p>获取到openid和token和qq用户相关的信息如下：</p>
+<p><img loading="lazy" decoding="async" width="1209" height="716" class="wp-image-8295" src="/wp-content/uploads/2018/06/word-image-875.png" srcset="/wp-content/uploads/2018/06/word-image-875.png 1209w, /wp-content/uploads/2018/06/word-image-875-300x178.png 300w, /wp-content/uploads/2018/06/word-image-875-768x455.png 768w, /wp-content/uploads/2018/06/word-image-875-1024x606.png 1024w" sizes="(max-width: 1209px) 100vw, 1209px" /></p>
+<h3>实现qq完成系统的登录</h3>
+<p>在前台会员表sh_member中加一个字段nickname在，记录用户登录成功的昵称。</p>
+<p><img loading="lazy" decoding="async" width="548" height="218" class="wp-image-8296" src="/wp-content/uploads/2018/06/word-image-876.png" srcset="/wp-content/uploads/2018/06/word-image-876.png 548w, /wp-content/uploads/2018/06/word-image-876-300x119.png 300w" sizes="(max-width: 548px) 100vw, 548px" /></p>
+<p>1、先去系统中判断有没有此qq的openid 。做不同的业务逻辑</p>
+<p><img loading="lazy" decoding="async" width="714" height="296" class="wp-image-8297" src="/wp-content/uploads/2018/06/word-image-877.png" srcset="/wp-content/uploads/2018/06/word-image-877.png 714w, /wp-content/uploads/2018/06/word-image-877-300x124.png 300w" sizes="(max-width: 714px) 100vw, 714px" /></p>
+<p>代码如下：</p>
+<p><img loading="lazy" decoding="async" width="826" height="708" class="wp-image-8298" src="/wp-content/uploads/2018/06/word-image-878.png" srcset="/wp-content/uploads/2018/06/word-image-878.png 826w, /wp-content/uploads/2018/06/word-image-878-300x257.png 300w, /wp-content/uploads/2018/06/word-image-878-768x658.png 768w" sizes="(max-width: 826px) 100vw, 826px" /></p>
+<p>注：需要在member模型的入库的前钩子中，对密码加密进行判断，因为qq登录没有密码</p>
+<p><img loading="lazy" decoding="async" width="824" height="423" class="wp-image-8299" src="/wp-content/uploads/2018/06/word-image-879.png" srcset="/wp-content/uploads/2018/06/word-image-879.png 824w, /wp-content/uploads/2018/06/word-image-879-300x154.png 300w, /wp-content/uploads/2018/06/word-image-879-768x394.png 768w" sizes="(max-width: 824px) 100vw, 824px" /></p>
+<p>登录成功效果：</p>
+<p><img loading="lazy" decoding="async" width="488" height="121" class="wp-image-8300" src="/wp-content/uploads/2018/06/word-image-880.png" srcset="/wp-content/uploads/2018/06/word-image-880.png 488w, /wp-content/uploads/2018/06/word-image-880-300x74.png 300w" sizes="(max-width: 488px) 100vw, 488px" /></p>
+<h1>三、完成分类列表页的面包屑导航</h1>
+<p>如下：</p>
+<p><img loading="lazy" decoding="async" width="918" height="182" class="wp-image-8301" src="/wp-content/uploads/2018/06/word-image-881.png" srcset="/wp-content/uploads/2018/06/word-image-881.png 918w, /wp-content/uploads/2018/06/word-image-881-300x59.png 300w, /wp-content/uploads/2018/06/word-image-881-768x152.png 768w" sizes="(max-width: 918px) 100vw, 918px" /></p>
+<p>面包屑导航就是找当前分类的父分类。</p>
+<p>核心：</p>
+<p>找子分类：传递当前分类的cat_id,进行递归查找。</p>
+<p>找父分类：传递当前分类的pid,进行递归查找。</p>
+<p>代码</p>
+<ol>
+<li>设置好首页的分类的链接地址：以三级分类筛选地址为例：</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1262" height="623" class="wp-image-8302" src="/wp-content/uploads/2018/06/word-image-882.png" srcset="/wp-content/uploads/2018/06/word-image-882.png 1262w, /wp-content/uploads/2018/06/word-image-882-300x148.png 300w, /wp-content/uploads/2018/06/word-image-882-768x379.png 768w, /wp-content/uploads/2018/06/word-image-882-1024x506.png 1024w" sizes="(max-width: 1262px) 100vw, 1262px" /></p>
+<ol>
+<li>在home-CategoryController-index方法，取出当前分类的面包屑导航相关数据，并分配到模板中</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="859" height="395" class="wp-image-8303" src="/wp-content/uploads/2018/06/word-image-883.png" srcset="/wp-content/uploads/2018/06/word-image-883.png 859w, /wp-content/uploads/2018/06/word-image-883-300x138.png 300w, /wp-content/uploads/2018/06/word-image-883-768x353.png 768w" sizes="(max-width: 859px) 100vw, 859px" /></p>
+<p>同时在home模块的Category模型中定义一个getFamilyCats的方法，获取父分类</p>
+<p><img loading="lazy" decoding="async" width="1034" height="600" class="wp-image-8304" src="/wp-content/uploads/2018/06/word-image-884.png" srcset="/wp-content/uploads/2018/06/word-image-884.png 1034w, /wp-content/uploads/2018/06/word-image-884-300x174.png 300w, /wp-content/uploads/2018/06/word-image-884-768x446.png 768w, /wp-content/uploads/2018/06/word-image-884-1024x594.png 1024w" sizes="(max-width: 1034px) 100vw, 1034px" /></p>
+<ol>
+<li>模板中遍历数据</li>
+</ol>
+<p>模板复制前台模板的list.html到 /home/view/category/目录下，并改名为index.html</p>
+<p><img loading="lazy" decoding="async" width="592" height="486" class="wp-image-8305" src="/wp-content/uploads/2018/06/word-image-885.png" srcset="/wp-content/uploads/2018/06/word-image-885.png 592w, /wp-content/uploads/2018/06/word-image-885-300x246.png 300w" sizes="(max-width: 592px) 100vw, 592px" /></p>
+<p>遍历数据：</p>
+<p><img loading="lazy" decoding="async" width="1256" height="427" class="wp-image-8306" src="/wp-content/uploads/2018/06/word-image-886.png" srcset="/wp-content/uploads/2018/06/word-image-886.png 1256w, /wp-content/uploads/2018/06/word-image-886-300x102.png 300w, /wp-content/uploads/2018/06/word-image-886-768x261.png 768w, /wp-content/uploads/2018/06/word-image-886-1024x348.png 1024w" sizes="(max-width: 1256px) 100vw, 1256px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="352" height="97" class="wp-image-8307" src="/wp-content/uploads/2018/06/word-image-887.png" srcset="/wp-content/uploads/2018/06/word-image-887.png 352w, /wp-content/uploads/2018/06/word-image-887-300x83.png 300w" sizes="(max-width: 352px) 100vw, 352px" /></p>
+<h1>四、实现分类列表页左侧分类菜单</h1>
+<h3>分析</h3>
+<p>思路：</p>
+<p>不管点击哪一个分类到此分类列表页，下图的蓝色区域都是当前分类的最顶级分类。</p>
+<p>蓝色顶级分类下面含有二级分类，二级分类下又包含三级分类。</p>
+<p>如下：</p>
+<p>顶级分类：电脑办公</p>
+<p>二级分类：电脑整机、电脑配件、办公打印等</p>
+<p>三级分类：如电脑整机下有笔记本、超极本、平板电脑</p>
+<p><img loading="lazy" decoding="async" width="233" height="316" class="wp-image-8308" src="/wp-content/uploads/2018/06/word-image-888.png" srcset="/wp-content/uploads/2018/06/word-image-888.png 233w, /wp-content/uploads/2018/06/word-image-888-221x300.png 221w" sizes="(max-width: 233px) 100vw, 233px" /></p>
+<h3>代码实现</h3>
+<ol>
+<li>在index方法中取出所有的分类，以cat_id 为二维数组下标，把每个元素通过pid进行分组</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="897" height="672" class="wp-image-8309" src="/wp-content/uploads/2018/06/word-image-889.png" srcset="/wp-content/uploads/2018/06/word-image-889.png 897w, /wp-content/uploads/2018/06/word-image-889-300x225.png 300w, /wp-content/uploads/2018/06/word-image-889-768x575.png 768w" sizes="(max-width: 897px) 100vw, 897px" /></p>
+<ol>
+<li>模板中遍历数据</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1224" height="508" class="wp-image-8310" src="/wp-content/uploads/2018/06/word-image-890.png" srcset="/wp-content/uploads/2018/06/word-image-890.png 1224w, /wp-content/uploads/2018/06/word-image-890-300x125.png 300w, /wp-content/uploads/2018/06/word-image-890-768x319.png 768w, /wp-content/uploads/2018/06/word-image-890-1024x425.png 1024w" sizes="(max-width: 1224px) 100vw, 1224px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="241" height="276" class="wp-image-8311" src="/wp-content/uploads/2018/06/word-image-891.png" /></p>
+<h1>五、完成分类列表页商品的展示</h1>
+<h3>分析</h3>
+<p>当点击某个分类的时候，应该把当前分类及其子孙分类下面的所有商品取出来。</p>
+<p>如：当点击华为手机分类的时候，应该把华为分类下面的所有的商品取出来。</p>
+<p>如：当点击国内手机分类时，应该把国内手机分类下面的所有的子孙分类的商品都取出来</p>
+<h3>代码实现</h3>
+<p>1、在home-categoryController-index方法中，取出当前分类及其子孙分类所有的商品</p>
+<p>2、模板中遍历</p>
+<p><img loading="lazy" decoding="async" width="1194" height="542" class="wp-image-8312" src="/wp-content/uploads/2018/06/word-image-892.png" srcset="/wp-content/uploads/2018/06/word-image-892.png 1194w, /wp-content/uploads/2018/06/word-image-892-300x136.png 300w, /wp-content/uploads/2018/06/word-image-892-768x349.png 768w, /wp-content/uploads/2018/06/word-image-892-1024x465.png 1024w" sizes="(max-width: 1194px) 100vw, 1194px" /> <img loading="lazy" decoding="async" width="1336" height="399" class="wp-image-8313" src="/wp-content/uploads/2018/06/word-image-893.png" srcset="/wp-content/uploads/2018/06/word-image-893.png 1336w, /wp-content/uploads/2018/06/word-image-893-300x90.png 300w, /wp-content/uploads/2018/06/word-image-893-768x229.png 768w, /wp-content/uploads/2018/06/word-image-893-1024x306.png 1024w" sizes="(max-width: 1336px) 100vw, 1336px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="985" height="328" class="wp-image-8314" src="/wp-content/uploads/2018/06/word-image-894.png" srcset="/wp-content/uploads/2018/06/word-image-894.png 985w, /wp-content/uploads/2018/06/word-image-894-300x100.png 300w, /wp-content/uploads/2018/06/word-image-894-768x256.png 768w" sizes="(max-width: 985px) 100vw, 985px" /></p>
+<h1>六、完成商品详情页</h1>
+<h2>1、实现商品详情页面包屑导航</h2>
+<h2>2、商品基本数据的展示</h2>
+<h2>3、实现商品详情页中的图片画廊的展示</h2>
+<h2>4、实现商品详情页属性的展示</h2>
+<h3>分析</h3>
+<p>单选属性：</p>
+<p><img loading="lazy" decoding="async" width="662" height="241" class="wp-image-8315" src="/wp-content/uploads/2018/06/word-image-895.png" srcset="/wp-content/uploads/2018/06/word-image-895.png 662w, /wp-content/uploads/2018/06/word-image-895-300x109.png 300w" sizes="(max-width: 662px) 100vw, 662px" /></p>
+<p>注意一点：</p>
+<p>因为单选属性的值可能有多个，所以我们可以把根据属性的attr_id进行分组，把相同属性的attr_id的值归为同一组，方便在模板中进行循环遍历。</p>
+<p>唯一属性：</p>
+<p><img loading="lazy" decoding="async" width="858" height="178" class="wp-image-8316" src="/wp-content/uploads/2018/06/word-image-896.png" srcset="/wp-content/uploads/2018/06/word-image-896.png 858w, /wp-content/uploads/2018/06/word-image-896-300x62.png 300w, /wp-content/uploads/2018/06/word-image-896-768x159.png 768w" sizes="(max-width: 858px) 100vw, 858px" /></p>
+<p>唯一属性不需要分组，因为唯一属性的值只有一个。</p>
+<h3>代码实现</h3>
+<h2>5、实现商品详情页的浏览历史</h2>
+<h3>分析</h3>
+<p><img loading="lazy" decoding="async" width="290" height="182" class="wp-image-8317" src="/wp-content/uploads/2018/06/word-image-897.png" /></p>
+<p>基本思路：</p>
+<p>①可以使用cookie技术来实现浏览商品历史的存储，cookie中存储商品的goods_id即可。</p>
+<p>只所以只存储浏览商品的id，因为商品的价格后面可能随时会变化，且记录一般存储3-5个。</p>
+<p>②最新访问的商品应该放置在浏览历史的第一个位置</p>
+<p>③当浏览历史存储量到达最大值（如超过5），应把最早访问的商品id给移除。</p>
+<p>④当访问相同商品的时候，只保留最后访问的商品，即数组需要删除重复的元素。</p>
+<p>cookie怎么存储所访问商品的id: 我们把访问商品的id存进数组中，再把数组写入到cookie中，形式如：[1,4,6,2,8]。</p>
+<h3>代码实现</h3>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8241.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>时钟周期 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E6%97%B6%E9%92%9F%E5%91%A8%E6%9C%9F/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 06:24:42 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>时钟周期 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>JS初级（五）BOM、 DOM、 定时器、 对象、 时钟周期</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/440.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/440.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 14:12:06 +0000</pubDate>
+				<category><![CDATA[Javascript]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[BOM]]></category>
+		<category><![CDATA[DOM]]></category>
+		<category><![CDATA[定时器]]></category>
+		<category><![CDATA[对象]]></category>
+		<category><![CDATA[时钟周期]]></category>
+		<guid isPermaLink="false">/?p=440</guid>
+
+					<description><![CDATA[回顾 函数预加载：在页面编译的时候就将函数编译到内存中，就可以先调用，再定义。 通过arguments关键字可 [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h2>回顾</h2>
+<ol>
+<li>
+  函数预加载：在页面编译的时候就将函数编译到内存中，就可以先调用，再定义。
+</li>
+<li>
+  通过arguments关键字可以实现传递的参数个数不一样
+</li>
+<li>
+  事件：以on开头的都是事件
+</li>
+<li>
+  事件后面肯定有事件处理程序，事件处理程序一般都是函数
+</li>
+<li>
+  函数调用</p>
+<ol>
+<li>
+    方法一：&lt;标签 事件=’函数()’&gt;
+  </li>
+<li>
+    方法二：对象.事件=函数
+  </li>
+</ol>
+</li>
+<li>
+  匿名函数：没有名字的函数
+</li>
+<li>
+  匿名函数自调用   (匿名函数)();
+</li>
+<li>
+  return</p>
+<ol>
+<li>
+    作用一：终止函数的执行
+  </li>
+<li>
+    作用二：从函数内部将值返回到调用处
+  </li>
+</ol>
+</li>
+<li>
+  变量的作用域</p>
+<ol>
+<li>
+    全局变量：供整个页面使用
+  </li>
+<li>
+    局部变量：在函数内部使用变量，注意在函数内部通过var声明的变量是局部变量，不通过var声明的是全局变量。
+  </li>
+</ol>
+</li>
+<li>
+  Js嵌入到页面的方法</p>
+<ol>
+<li>
+    方法一：直接写在事件处理程序中 &lt;p onclick=’alert(‘锄禾日当午’)’&gt;
+  </li>
+<li>
+    方法二：通过&lt;script&gt;开头，&lt;/script&gt;结束嵌套在页面的内部
+  </li>
+<li>
+    方法三：写在页面的外部，通过&lt;script&gt;标记引入到页面内部
+  </li>
+</ol>
+</li>
+<li>
+  特殊含义的字符</p>
+<ol>
+<li>
+    \r：回车
+  </li>
+<li>
+    \n：换行
+  </li>
+<li>
+    \t：制表位
+  </li>
+</ol>
+</li>
+<li>
+  转义字符：\  将具有特殊含义的字符转成普通字符
+</li>
+<li>
+  对象：由属性（变量）和方法（函数）组成的组合。</p>
+<ol>
+<li>
+    对象.属性
+  </li>
+<li>
+    对象.方法()
+  </li>
+</ol>
+</li>
+</ol>
+<h2>对象的分类</h2>
+<ol>
+<li>
+  HTML：就是HTML元素
+</li>
+<li>
+  脚本对象
+</li>
+<li>
+  浏览器对象
+</li>
+</ol>
+<h2>脚本对象</h2>
+<h3>Array（数组）</h3>
+<p>
+  数组也属于对象
+</p>
+<p><img decoding="async" width="612" height="52" src="/wp-content/uploads/2018/05/word-image-401.png" class="wp-image-442" srcset="/wp-content/uploads/2018/05/word-image-401.png 612w, /wp-content/uploads/2018/05/word-image-401-300x25.png 300w" sizes="(max-width: 612px) 100vw, 612px" /></p>
+<p>
+  常用的一些方法与属性
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  var stu=new Array(&#8216;tom&#8217;,&#8217;berry&#8217;,&#8217;ketty&#8217;);
+</p>
+<p>
+  document.write(&#8216;排序后:&#8217;+stu.sort()+'&lt;br&gt;&#8217;);		//排序
+</p>
+<p>
+  document.write(&#8216;翻转后:&#8217;+stu.reverse()+'&lt;br&gt;&#8217;);		//反转
+</p>
+<p>
+  document.write(&#8216;连接后：&#8217;+stu.join(&#8216;&gt;&gt;&gt;&#8217;)+'&lt;br&gt;&#8217;)	//将数组元素连接起来
+</p>
+<p>
+  document.write(&#8216;数组长度：&#8217;+stu.length+'&lt;br&gt;&#8217;);		//数组的长度
+</p>
+<p>
+  stu.unshift(&#8216;李白&#8217;);//在数组的前面插入
+</p>
+<p>
+  document.write(&#8216;unshift：&#8217;+stu+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  stu.shift();		//将数组的第一个元素删除
+</p>
+<p>
+  document.write(&#8216;shift：&#8217;+stu+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  stu.push(&#8216;杜甫&#8217;);	//将元素插入到数组的后面
+</p>
+<p>
+  document.write(&#8216;push：&#8217;+stu+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  stu.pop();			//删除数组的最后一个元素
+</p>
+<p>
+  document.write(stu);
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<h3>String（字符串）</h3>
+<p>
+  字符串的声明
+</p>
+<p>
+  方法一：把字符串当成基本类型直接赋值
+</p>
+<p><img decoding="async" width="176" height="24" src="/wp-content/uploads/2018/05/word-image-402.png" class="wp-image-443" /></p>
+<p>
+  方法二：把字符串当成对象来声明
+</p>
+<p><img decoding="async" width="804" height="29" src="/wp-content/uploads/2018/05/word-image-403.png" class="wp-image-444" srcset="/wp-content/uploads/2018/05/word-image-403.png 804w, /wp-content/uploads/2018/05/word-image-403-300x11.png 300w, /wp-content/uploads/2018/05/word-image-403-768x28.png 768w" sizes="(max-width: 804px) 100vw, 804px" /></p>
+<p>
+  字符串是基本类型，在字符串运行的时候会在内存中生成一个临时对象，通过临时对象调用属性和方法
+</p>
+<ol>
+<li>
+  截取子字符串   语法： 字符串.substr(开始位置,[截取长度])
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="869" height="140" src="/wp-content/uploads/2018/05/word-image-404.png" class="wp-image-445" srcset="/wp-content/uploads/2018/05/word-image-404.png 869w, /wp-content/uploads/2018/05/word-image-404-300x48.png 300w, /wp-content/uploads/2018/05/word-image-404-768x124.png 768w" sizes="(max-width: 869px) 100vw, 869px" /></p>
+<ol>
+<li>
+  截取子字符串   语法：字符串.substring(起始位置，结束位置)
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="752" height="107" src="/wp-content/uploads/2018/05/word-image-405.png" class="wp-image-446" srcset="/wp-content/uploads/2018/05/word-image-405.png 752w, /wp-content/uploads/2018/05/word-image-405-300x43.png 300w" sizes="(max-width: 752px) 100vw, 752px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="615" height="97" src="/wp-content/uploads/2018/05/word-image-406.png" class="wp-image-447" srcset="/wp-content/uploads/2018/05/word-image-406.png 615w, /wp-content/uploads/2018/05/word-image-406-300x47.png 300w" sizes="(max-width: 615px) 100vw, 615px" /></p>
+<ol>
+<li>
+  indexOf()：返回 <strong>String</strong> 对象内第一次出现子字符串的字符位置
+</li>
+<li>
+  lastIndexOf（）：返回字符串最后出现的位置
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="866" height="94" src="/wp-content/uploads/2018/05/word-image-407.png" class="wp-image-448" srcset="/wp-content/uploads/2018/05/word-image-407.png 866w, /wp-content/uploads/2018/05/word-image-407-300x33.png 300w, /wp-content/uploads/2018/05/word-image-407-768x83.png 768w" sizes="(max-width: 866px) 100vw, 866px" /></p>
+<ol>
+<li>
+  toLowerCase()：转成小写
+</li>
+<li>
+  toUpperCase()：转成大写
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="665" height="70" src="/wp-content/uploads/2018/05/word-image-408.png" class="wp-image-449" srcset="/wp-content/uploads/2018/05/word-image-408.png 665w, /wp-content/uploads/2018/05/word-image-408-300x32.png 300w" sizes="(max-width: 665px) 100vw, 665px" /></p>
+<ol>
+<li>
+  字符串长度
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="579" height="22" src="/wp-content/uploads/2018/05/word-image-409.png" class="wp-image-450" srcset="/wp-content/uploads/2018/05/word-image-409.png 579w, /wp-content/uploads/2018/05/word-image-409-300x11.png 300w" sizes="(max-width: 579px) 100vw, 579px" /></p>
+<p>
+  多学一招：字符串可以当成字符数组来使用
+</p>
+<p><img loading="lazy" decoding="async" width="489" height="75" src="/wp-content/uploads/2018/05/word-image-410.png" class="wp-image-451" srcset="/wp-content/uploads/2018/05/word-image-410.png 489w, /wp-content/uploads/2018/05/word-image-410-300x46.png 300w" sizes="(max-width: 489px) 100vw, 489px" /></p>
+<h3>Math（数学）</h3>
+<p><img loading="lazy" decoding="async" width="943" height="277" src="/wp-content/uploads/2018/05/word-image-411.png" class="wp-image-452" srcset="/wp-content/uploads/2018/05/word-image-411.png 943w, /wp-content/uploads/2018/05/word-image-411-300x88.png 300w, /wp-content/uploads/2018/05/word-image-411-768x226.png 768w" sizes="(max-width: 943px) 100vw, 943px" /></p>
+<p>
+  例题：产生一个1~100的随机整数
+</p>
+<p><img loading="lazy" decoding="async" width="763" height="263" src="/wp-content/uploads/2018/05/word-image-412.png" class="wp-image-453" srcset="/wp-content/uploads/2018/05/word-image-412.png 763w, /wp-content/uploads/2018/05/word-image-412-300x103.png 300w" sizes="(max-width: 763px) 100vw, 763px" /></p>
+<h3>Date（日期）</h3>
+<p><img loading="lazy" decoding="async" width="598" height="128" src="/wp-content/uploads/2018/05/word-image-413.png" class="wp-image-454" srcset="/wp-content/uploads/2018/05/word-image-413.png 598w, /wp-content/uploads/2018/05/word-image-413-300x64.png 300w" sizes="(max-width: 598px) 100vw, 598px" /></p>
+<p>
+  Date()对象的方法有很多，我们可以把它分为3组
+</p>
+<p>
+  第一组：setXXX：设置时间
+</p>
+<p>
+  第二组：getXXX：获取时间
+</p>
+<p>
+  第三组：toXXX：转化时间格式
+</p>
+<p>
+  例题：获取当前时间
+</p>
+<p><img loading="lazy" decoding="async" width="854" height="260" src="/wp-content/uploads/2018/05/word-image-414.png" class="wp-image-455" srcset="/wp-content/uploads/2018/05/word-image-414.png 854w, /wp-content/uploads/2018/05/word-image-414-300x91.png 300w, /wp-content/uploads/2018/05/word-image-414-768x234.png 768w" sizes="(max-width: 854px) 100vw, 854px" /><br />
+<img loading="lazy" decoding="async" width="1031" height="28" src="/wp-content/uploads/2018/05/word-image-415.png" class="wp-image-456" srcset="/wp-content/uploads/2018/05/word-image-415.png 1031w, /wp-content/uploads/2018/05/word-image-415-300x8.png 300w, /wp-content/uploads/2018/05/word-image-415-768x21.png 768w, /wp-content/uploads/2018/05/word-image-415-1024x28.png 1024w" sizes="(max-width: 1031px) 100vw, 1031px" /></p>
+<p>
+  例题：转换时间格式
+</p>
+<p><img loading="lazy" decoding="async" width="949" height="93" src="/wp-content/uploads/2018/05/word-image-416.png" class="wp-image-457" srcset="/wp-content/uploads/2018/05/word-image-416.png 949w, /wp-content/uploads/2018/05/word-image-416-300x29.png 300w, /wp-content/uploads/2018/05/word-image-416-768x75.png 768w" sizes="(max-width: 949px) 100vw, 949px" /><br />
+<img loading="lazy" decoding="async" width="199" height="56" src="/wp-content/uploads/2018/05/word-image-417.png" class="wp-image-458" /></p>
+<p>
+  例题：上月的1号是星期几？
+</p>
+<p><img loading="lazy" decoding="async" width="941" height="165" src="/wp-content/uploads/2018/05/word-image-418.png" class="wp-image-459" srcset="/wp-content/uploads/2018/05/word-image-418.png 941w, /wp-content/uploads/2018/05/word-image-418-300x53.png 300w, /wp-content/uploads/2018/05/word-image-418-768x135.png 768w" sizes="(max-width: 941px) 100vw, 941px" /></p>
+<h2>浏览器对象</h2>
+<p><img loading="lazy" decoding="async" width="508" height="194" src="/wp-content/uploads/2018/05/word-image-419.png" class="wp-image-460" srcset="/wp-content/uploads/2018/05/word-image-419.png 508w, /wp-content/uploads/2018/05/word-image-419-300x115.png 300w" sizes="(max-width: 508px) 100vw, 508px" /></p>
+<h3>浏览器的分层结构</h3>
+<p><img loading="lazy" decoding="async" width="491" height="257" src="/wp-content/uploads/2018/05/word-image-420.png" class="wp-image-461" srcset="/wp-content/uploads/2018/05/word-image-420.png 491w, /wp-content/uploads/2018/05/word-image-420-300x157.png 300w" sizes="(max-width: 491px) 100vw, 491px" /></p>
+<h3>window（窗口）</h3>
+<p>
+  在浏览器对象中最顶层的对象。
+</p>
+<p><img loading="lazy" decoding="async" width="482" height="135" src="/wp-content/uploads/2018/05/word-image-421.png" class="wp-image-462" srcset="/wp-content/uploads/2018/05/word-image-421.png 482w, /wp-content/uploads/2018/05/word-image-421-300x84.png 300w" sizes="(max-width: 482px) 100vw, 482px" /></p>
+<p>
+  脚下留心：由于window是最顶层对象，所以window可以省略。
+</p>
+<h3>document（文档）【重点】</h3>
+<ol>
+<li>
+  window.document.write(‘’)；将字符串输出到浏览器上
+</li>
+<li>
+  document.bgColor=&#8217;#cccccc&#8217;;	//背景色
+</li>
+<li>
+  document.fgColor=&#8217;#FF0000&#8242;;	//前景色
+</li>
+<li>
+  获取网页标签对象（重点）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="951" height="321" src="/wp-content/uploads/2018/05/word-image-422.png" class="wp-image-463" srcset="/wp-content/uploads/2018/05/word-image-422.png 951w, /wp-content/uploads/2018/05/word-image-422-300x101.png 300w, /wp-content/uploads/2018/05/word-image-422-768x259.png 768w" sizes="(max-width: 951px) 100vw, 951px" /></p>
+<p>
+  例题：标签属性进行取值赋值
+</p>
+<p>
+  &lt;input type=&#8221;text&#8221; id=&#8221;txt&#8221;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  window.onload=function(){
+</p>
+<p>
+  	var oTxt=document.getElementById(&#8216;txt&#8217;);
+</p>
+<p>
+  	oTxt.onblur=function(){
+</p>
+<p>
+  		//alert(oTxt.value);
+</p>
+<p>
+  		//alert(oTxt.type);		//text
+</p>
+<p>
+  		oTxt.type=&#8217;button&#8217;;		//给属性赋值
+</p>
+<p>
+  		oTxt.value=&#8217;确定&#8217;;		//给属性赋值
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  结果：当文本框失去焦点的时候变成按钮
+</p>
+<h3>history（历史）</h3>
+<p>
+  back ( ) 方法相当于后退按钮
+</p>
+<p>
+  forward ( ) 方法相当于前进按钮
+</p>
+<p>
+  go (1)代表前进1页，等价于forward( )方法；
+</p>
+<p>
+  go(-1) 代表后退1页，等价于back( )方法；
+</p>
+<p>
+  第一页
+</p>
+<p>
+  当前是第一页
+</p>
+<p>
+  &lt;a href=&#8221;11-history2.html&#8221;&gt;跳转到第二页&lt;/a&gt;
+</p>
+<p>
+  第二页
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  function myforward(){
+</p>
+<p>
+  	//history.forward();	//前进一级  等价于
+</p>
+<p>
+  	history.go(1);
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  当前是第二页
+</p>
+<p>
+  &lt;a href=&#8221;11-history3.html&#8221;&gt;跳转到第三页&lt;/a&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;前进一级&#8221; onclick=&#8217;myforward()&#8217;&gt;
+</p>
+<p>
+  第三页
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  function myback(){
+</p>
+<p>
+  	//history.back();	//返回上一级，等价于下一句
+</p>
+<p>
+  	history.go(-1);
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  这是第三页&lt;br&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;返回一级&#8221; onclick=&#8217;myback()&#8217;&gt;&lt;br&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;返回两级&#8221; onclick=&#8217;history.go(-2)&#8217;&gt;
+</p>
+<h3>location（地址）</h3>
+<p>
+  location对象主要用来做页面的跳转
+</p>
+<p>
+  属性：href——设置或检索完整的 URL 字符串
+</p>
+<p>
+  方法：
+</p>
+<p>
+  assign(&#8220;url&#8221;)：跳转到指定页面
+</p>
+<p>
+  reload()：重新加载当前页面
+</p>
+<p>
+  replace(&#8220;url&#8221;) ：通过加载 URL 指定的文档来替换当前文档
+</p>
+<p>
+  例题：
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  function jump1(){
+</p>
+<p>
+  	//通过更改location的属性来跳转
+</p>
+<p>
+  	alert(location.href);	//当前的url地址
+</p>
+<p>
+  	location.href=&#8217;4-生成1~100的随机整数.html&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  function jump2(){
+</p>
+<p>
+  	//通过方法来跳转
+</p>
+<p>
+  	location.assign(&#8216;4-生成1~100的随机整数.html&#8217;);
+</p>
+<p>
+  }
+</p>
+<p>
+  function jump3(){
+</p>
+<p>
+  	//将其他页面加载到当前窗口上来，reload()是用来做刷新的
+</p>
+<p>
+  	//location.reload(&#8216;4-生成1~100的随机整数.html&#8217;);
+</p>
+<p>
+  	location.reload();	//刷新本页面
+</p>
+<p>
+  }
+</p>
+<p>
+  function jump4(){
+</p>
+<p>
+  	//跳转完毕后不能点击&#8221;后退&#8221;按钮
+</p>
+<p>
+  	location.replace(&#8216;4-生成1~100的随机整数.html&#8217;);
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;href属性跳转&#8221; onclick=&#8217;jump1()&#8217;&gt; &lt;br&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;assign()跳转&#8221; onclick=&#8217;jump2()&#8217;&gt; &lt;br&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;reload()【刷新】&#8221; onclick=&#8217;jump3()&#8217;&gt; &lt;br&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;replace()&#8221; onclick=&#8217;jump4()&#8217;&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="450" height="95" src="/wp-content/uploads/2018/05/word-image-423.png" class="wp-image-464" srcset="/wp-content/uploads/2018/05/word-image-423.png 450w, /wp-content/uploads/2018/05/word-image-423-300x63.png 300w" sizes="(max-width: 450px) 100vw, 450px" /></p>
+<h3>screen（屏幕）【了解】</h3>
+<p>
+  包含有关客户端显示屏幕的信息
+</p>
+<p>
+  注意：没有应用于 screen 对象的公开标准，不过所有浏览器都支持该对象。
+</p>
+<p>
+  width：返回显示器屏幕的宽度。
+</p>
+<p>
+  height：返回显示屏幕的高度。
+</p>
+<p>
+  availWidth：返回显示屏幕的宽度 (除 Windows 任务栏之外)。
+</p>
+<p>
+  availHeight：返回显示屏幕的高度 (除 Windows 任务栏之外)。
+</p>
+<p><img loading="lazy" decoding="async" width="749" height="421" src="/wp-content/uploads/2018/05/word-image-424.png" class="wp-image-465" srcset="/wp-content/uploads/2018/05/word-image-424.png 749w, /wp-content/uploads/2018/05/word-image-424-300x169.png 300w" sizes="(max-width: 749px) 100vw, 749px" /></p>
+<p>
+  例题
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  document.write(&#8216;屏幕宽度：&#8217;+screen.width+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  document.write(&#8216;屏幕高度：&#8217;+screen.height+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  document.write(&#8216;屏幕宽度(不包含任务栏)：&#8217;+screen.availWidth+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  document.write(&#8216;屏幕高度(不包含任务栏)：&#8217;+screen.availHeight+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  脚下留心：screen对象的属性都是只读属性
+</p>
+<h3>navigator（导航）【了解】</h3>
+<p>
+  navigator 对象包含有关浏览器的信息。
+</p>
+<p>
+  注意：没有应用于 navigator 对象的公开标准，不过所有浏览器都支持该对象。
+</p>
+<p>
+  appCodeName：返回浏览器的代码名。
+</p>
+<p>
+  在所有以 Netscape 代码为基础的浏览器中，它的值是 &#8220;Mozilla&#8221;。为了兼容起见，在 Microsoft 的浏览器中，它的值也是 &#8220;Mozilla&#8221;。
+</p>
+<p>
+  appName：返回浏览器的名称。
+</p>
+<p>
+  appVersion：返回浏览器的平台和版本信息。
+</p>
+<p><img loading="lazy" decoding="async" width="1046" height="114" src="/wp-content/uploads/2018/05/word-image-425.png" class="wp-image-466" srcset="/wp-content/uploads/2018/05/word-image-425.png 1046w, /wp-content/uploads/2018/05/word-image-425-300x33.png 300w, /wp-content/uploads/2018/05/word-image-425-768x84.png 768w, /wp-content/uploads/2018/05/word-image-425-1024x112.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /></p>
+<h2>对象操作语句</h2>
+<h3>this语句</h3>
+<p>
+  this表示当前对象
+</p>
+<p><img loading="lazy" decoding="async" width="905" height="168" src="/wp-content/uploads/2018/05/word-image-426.png" class="wp-image-467" srcset="/wp-content/uploads/2018/05/word-image-426.png 905w, /wp-content/uploads/2018/05/word-image-426-300x56.png 300w, /wp-content/uploads/2018/05/word-image-426-768x143.png 768w" sizes="(max-width: 905px) 100vw, 905px" /></p>
+<h3>with语句</h3>
+<p>
+  with用来执行一组方法和属性，所有的属性和方法都属于with后面的对象
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  with(document){
+</p>
+<p>
+  	write(&#8216;锄禾日当午&lt;br&gt;&#8217;);
+</p>
+<p>
+  	write(&#8216;汗滴禾下土&lt;hr&gt;&#8217;);
+</p>
+<p>
+  	bgColor=&#8217;#cccccc&#8217;;
+</p>
+<p>
+  	fgColor=&#8217;#FF0000&#8242;;
+</p>
+<p>
+  }
+</p>
+<p>
+  with(Math){
+</p>
+<p>
+  	document.write(PI+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  	document.write(abs(-10)+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="246" height="100" src="/wp-content/uploads/2018/05/word-image-427.png" class="wp-image-468" /></p>
+<h3>eval语句</h3>
+<p>
+  用来执行字符串表达式
+</p>
+<p><img loading="lazy" decoding="async" width="976" height="50" src="/wp-content/uploads/2018/05/word-image-428.png" class="wp-image-469" srcset="/wp-content/uploads/2018/05/word-image-428.png 976w, /wp-content/uploads/2018/05/word-image-428-300x15.png 300w, /wp-content/uploads/2018/05/word-image-428-768x39.png 768w" sizes="(max-width: 976px) 100vw, 976px" /></p>
+<h2>DOM和BOM</h2>
+<p>
+  DOM：document object model 文档对象模型
+</p>
+<p><img loading="lazy" decoding="async" width="697" height="260" src="/wp-content/uploads/2018/05/word-image-429.png" class="wp-image-470" srcset="/wp-content/uploads/2018/05/word-image-429.png 697w, /wp-content/uploads/2018/05/word-image-429-300x112.png 300w" sizes="(max-width: 697px) 100vw, 697px" /></p>
+<p>
+  BOM：brower object model 浏览器对象模型
+</p>
+<p><img loading="lazy" decoding="async" width="672" height="85" src="/wp-content/uploads/2018/05/word-image-430.png" class="wp-image-471" srcset="/wp-content/uploads/2018/05/word-image-430.png 672w, /wp-content/uploads/2018/05/word-image-430-300x38.png 300w" sizes="(max-width: 672px) 100vw, 672px" /></p>
+<p>
+  DOM由HTMDOM，XMLDOM，CSSDOM组成
+</p>
+<p>
+  CSSDOM的语法结构：对象.style.样式属性
+</p>
+<p>
+  oDiv.style.width
+</p>
+<p>
+  oDiv.style.height
+</p>
+<p><img loading="lazy" decoding="async" width="449" height="49" src="/wp-content/uploads/2018/05/word-image-431.png" class="wp-image-472" srcset="/wp-content/uploads/2018/05/word-image-431.png 449w, /wp-content/uploads/2018/05/word-image-431-300x33.png 300w" sizes="(max-width: 449px) 100vw, 449px" /></p>
+<h2>例题</h2>
+<h3>表单验证</h3>
+<p>
+  难点：
+</p>
+<ol>
+<li>
+  验证表单的函数在表单提交的时候调用，表单提交的事件是onsubmit
+</li>
+<li>
+  Onsubmit事件后面如果return fasle就终止提交，return true就提交
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="678" height="67" src="/wp-content/uploads/2018/05/word-image-432.png" class="wp-image-473" srcset="/wp-content/uploads/2018/05/word-image-432.png 678w, /wp-content/uploads/2018/05/word-image-432-300x30.png 300w" sizes="(max-width: 678px) 100vw, 678px" /></p>
+<p>
+  代码
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  function check(){
+</p>
+<p>
+  	//验证用户名
+</p>
+<p>
+  	var oUser=document.getElementById(&#8216;username&#8217;);	//获取用户名的文本框对象
+</p>
+<p>
+  	if(oUser.value==&#8221;){
+</p>
+<p>
+  		alert(&#8216;用户名不能为空&#8217;);
+</p>
+<p>
+  		oUser.focus();	//获取焦点
+</p>
+<p>
+  		return false;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//验证密码
+</p>
+<p>
+  	var oPwd=document.getElementById(&#8216;pwd&#8217;);	//获取密码对象
+</p>
+<p>
+  	if(oPwd.value==&#8221;){
+</p>
+<p>
+  		alert(&#8216;密码不能为空&#8217;);
+</p>
+<p>
+  		oPwd.focus();
+</p>
+<p>
+  		return false
+</p>
+<p>
+  	}else{
+</p>
+<p>
+  		if(oPwd.value.length!=6 || isNaN(oPwd.value)){
+</p>
+<p>
+  			alert(&#8216;密码必须是6位的数字&#8217;);
+</p>
+<p>
+  			oPwd.select();	//选中文本框的内容
+</p>
+<p>
+  			return false;
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  	return true;
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;form action=&#8221;&#8221; method=&#8217;post&#8217; onsubmit=&#8217;return check()&#8217;&gt;
+</p>
+<p>
+  	&lt;table&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td&gt;用户名：&lt;/td&gt;
+</p>
+<p>
+  			&lt;td&gt;&lt;input type=&#8221;text&#8221; id=&#8221;username&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td&gt;密码：&lt;/td&gt;
+</p>
+<p>
+  			&lt;td&gt;&lt;input type=&#8221;password&#8221; id=&#8221;pwd&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td colspan=&#8217;2&#8242; align=&#8217;center&#8217;&gt;
+</p>
+<p>
+  				&lt;input type=&#8221;submit&#8221; value=&#8221;提交&#8221;&gt;
+</p>
+<p>
+  			&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  	&lt;/table&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="243" height="90" src="/wp-content/uploads/2018/05/word-image-433.png" class="wp-image-474" /></p>
+<h3>设置时钟周期</h3>
+<p><img loading="lazy" decoding="async" width="984" height="243" src="/wp-content/uploads/2018/05/word-image-434.png" class="wp-image-475" srcset="/wp-content/uploads/2018/05/word-image-434.png 984w, /wp-content/uploads/2018/05/word-image-434-300x74.png 300w, /wp-content/uploads/2018/05/word-image-434-768x190.png 768w" sizes="(max-width: 984px) 100vw, 984px" /><br />
+<img loading="lazy" decoding="async" width="177" height="30" src="/wp-content/uploads/2018/05/word-image-435.png" class="wp-image-476" /></p>
+<h3>设置定时器</h3>
+<p><img loading="lazy" decoding="async" width="749" height="163" src="/wp-content/uploads/2018/05/word-image-436.png" class="wp-image-477" srcset="/wp-content/uploads/2018/05/word-image-436.png 749w, /wp-content/uploads/2018/05/word-image-436-300x65.png 300w" sizes="(max-width: 749px) 100vw, 749px" /><br />
+<img loading="lazy" decoding="async" width="173" height="29" src="/wp-content/uploads/2018/05/word-image-437.png" class="wp-image-478" /></p>
+<h2>作业</h2>
+<ol>
+<li>
+  打印100以内的6的倍数，一行放7个
+</li>
+<li>
+  求一元二次方程的根
+</li>
+<li>
+  倒计时
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="339" height="34" src="/wp-content/uploads/2018/05/word-image-438.png" class="wp-image-479" srcset="/wp-content/uploads/2018/05/word-image-438.png 339w, /wp-content/uploads/2018/05/word-image-438-300x30.png 300w" sizes="(max-width: 339px) 100vw, 339px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/440.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

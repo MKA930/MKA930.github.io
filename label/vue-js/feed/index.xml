@@ -1,0 +1,3338 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Vue.JS &#8211; 个人随笔</title>
+	<atom:link href="/label/vue-js/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 14:58:52 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>Vue.JS &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>混合APP （二）HyBrid App Vue.JS、页面、TP后台、下拉刷新、模块使用</title>
+		<link>/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/5431.html</link>
+					<comments>/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/5431.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 14:58:52 +0000</pubDate>
+				<category><![CDATA[混合APP]]></category>
+		<category><![CDATA[移动端开发]]></category>
+		<category><![CDATA[TP后台]]></category>
+		<category><![CDATA[Vue.JS]]></category>
+		<category><![CDATA[下拉刷新]]></category>
+		<category><![CDATA[模块使用]]></category>
+		<category><![CDATA[页面]]></category>
+		<guid isPermaLink="false">/?p=5431</guid>
+
+					<description><![CDATA[移动端开发（HyBrid App） 复习 什么是APP：就是安卓或者苹果上的软件 APP开发多种模式： web [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>移动端开发（HyBrid App）</h1>
+<h1>复习</h1>
+<p>
+  什么是APP：就是安卓或者苹果上的软件
+</p>
+<p>
+  APP开发多种模式：
+</p>
+<ol>
+<li>
+  web app ： 内嵌浏览器，好处（开发快）瑕疵（用户体验差，功能不够强大）
+</li>
+<li>
+  原生开发：就是安卓开发安卓app 、ios开发苹果app    好处：用户体验度高，瑕疵：成本大
+</li>
+<li>
+  混合app：使用html + css + js 就可以开发app并且一套代码就可以搞定安卓和苹果app
+</li>
+</ol>
+<p>
+  注册apicloud账号并且创建app应用
+</p>
+<p>
+  安装模拟器
+</p>
+<p>
+  sublime 配合模拟器开发使用
+</p>
+<p>
+  设置APP的logo和引导页
+</p>
+<p>
+  实战广场舞app静态页面
+</p>
+<h1>■ 实战案例之广场舞App静态页面</h1>
+<h2>1、顶部导航栏的制作</h2>
+<h3>1）效果图</h3>
+<p><img fetchpriority="high" decoding="async" width="368" height="207" src="/wp-content/uploads/2018/05/word-image-4917.png" class="wp-image-5432" srcset="/wp-content/uploads/2018/05/word-image-4917.png 368w, /wp-content/uploads/2018/05/word-image-4917-300x169.png 300w" sizes="(max-width: 368px) 100vw, 368px" /></p>
+<h3>代码</h3>
+<ul>
+<li>
+    步骤1：将auicss2的css、script、image文件夹拖拽到框架中
+  </li>
+<li>
+    步骤2：头部代码
+  </li>
+</ul>
+<p>
+  &lt;!doctype html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+      &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;viewport&#8221; content=&#8221;maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width&#8221;/&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;format-detection&#8221; content=&#8221;telephone=no,email=no,date=no,address=no&#8221;&gt;
+</p>
+<p>
+      &lt;title&gt;Hello APP&lt;/title&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;./css/api.css&#8221; /&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;./css/aui.css&#8221; /&gt;
+</p>
+<p>
+      &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+          .aui-bar-nav { background: #FD4E56; }
+</p>
+<p>
+      &lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+      &lt;div id=&#8221;wrap&#8221;&gt;
+</p>
+<p>
+          &lt;div id=&#8221;header&#8221;&gt;
+</p>
+<p>
+              &lt;header class=&#8221;aui-bar aui-bar-nav&#8221;&gt;热门&lt;/header&gt;
+</p>
+<p>
+          &lt;/div&gt;
+</p>
+<p>
+          &lt;div id=&#8221;main&#8221;&gt;
+</p>
+<p>
+                  哈哈
+</p>
+<p>
+          &lt;/div&gt;
+</p>
+<p>
+          &lt;div id=&#8221;footer&#8221;&gt;
+</p>
+<p>
+          &lt;/div&gt;
+</p>
+<p>
+      &lt;/div&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;./script/api.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+      apiready = function(){
+</p>
+</p>
+<p>
+      };
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h2>2、底部导航栏的切换</h2>
+<h3>1）效果图</h3>
+<p><img decoding="async" width="351" height="157" src="/wp-content/uploads/2018/05/word-image-4918.png" class="wp-image-5433" srcset="/wp-content/uploads/2018/05/word-image-4918.png 351w, /wp-content/uploads/2018/05/word-image-4918-300x134.png 300w" sizes="(max-width: 351px) 100vw, 351px" /></p>
+<h3>2）代码</h3>
+<p>
+  &lt;!doctype html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+      &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;viewport&#8221; content=&#8221;maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width&#8221;/&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;format-detection&#8221; content=&#8221;telephone=no,email=no,date=no,address=no&#8221;&gt;
+</p>
+<p>
+      &lt;title&gt;Hello APP&lt;/title&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;./css/api.css&#8221; /&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;./css/aui.css&#8221; /&gt;
+</p>
+<p>
+      &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+          .aui-bar-nav { background: #FD4E56; }
+</p>
+<p>
+      &lt;/style&gt;
+</p>
+<p>
+      &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+          #demo {
+</p>
+<p>
+              width: 4rem;
+</p>
+<p>
+              height: 4rem;
+</p>
+<p>
+              position: absolute;
+</p>
+<p>
+              left: 50%;
+</p>
+<p>
+              top: 50%;
+</p>
+<p>
+              margin-left: -2rem;
+</p>
+<p>
+              margin-top: -2rem;
+</p>
+<p>
+              background-color: #e0e0e0;
+</p>
+<p>
+              border-radius: 50%;
+</p>
+<p>
+              line-height: 4rem;
+</p>
+<p>
+              text-align: center;
+</p>
+<p>
+              color: #212121;
+</p>
+<p>
+              font-size: 1.2rem;
+</p>
+<p>
+          }
+</p>
+<p>
+      &lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+      &lt;div id=&#8221;wrap&#8221;&gt;
+</p>
+<p>
+          &lt;div id=&#8221;header&#8221;&gt;
+</p>
+<p>
+              &lt;header class=&#8221;aui-bar aui-bar-nav&#8221; id=&#8221;title&#8221;&gt;热门&lt;/header&gt;
+</p>
+<p>
+          &lt;/div&gt;
+</p>
+<p>
+          &lt;div id=&#8221;main&#8221;&gt;
+</p>
+<p>
+          &lt;/div&gt;
+</p>
+<p>
+          &lt;footer class=&#8221;aui-bar aui-bar-tab&#8221;  id=&#8221;footer&#8221;&gt;
+</p>
+<p>
+              &lt;div class=&#8221;aui-bar-tab-item aui-active&#8221; tapmode&gt;
+</p>
+<p>
+                  &lt;i class=&#8221;aui-iconfont aui-icon-home&#8221;&gt;&lt;/i&gt;
+</p>
+<p>
+                  &lt;div class=&#8221;aui-bar-tab-label&#8221;&gt;热门&lt;/div&gt;
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+              &lt;div class=&#8221;aui-bar-tab-item&#8221; tapmode&gt;
+</p>
+<p>
+                  &lt;i class=&#8221;aui-iconfont aui-icon-star&#8221;&gt;&lt;/i&gt;
+</p>
+<p>
+                  &lt;div class=&#8221;aui-bar-tab-label&#8221;&gt;广场&lt;/div&gt;
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+              &lt;div class=&#8221;aui-bar-tab-item&#8221; tapmode&gt;
+</p>
+<p>
+              &lt;i class=&#8221;aui-iconfont aui-icon-wechat-circle&#8221;&gt;&lt;/i&gt;
+</p>
+<p>
+                  &lt;div class=&#8221;aui-bar-tab-label&#8221;&gt;动态&lt;/div&gt;
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+              &lt;div class=&#8221;aui-bar-tab-item&#8221; tapmode&gt;
+</p>
+<p>
+                  &lt;div class=&#8221;aui-dot&#8221;&gt;&lt;/div&gt;
+</p>
+<p>
+                  &lt;i class=&#8221;aui-iconfont aui-icon-my&#8221;&gt;&lt;/i&gt;
+</p>
+<p>
+                  &lt;div class=&#8221;aui-bar-tab-label&#8221;&gt;关于&lt;/div&gt;
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+          &lt;/footer&gt;
+</p>
+<p>
+      &lt;/div&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;./script/api.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;./script/aui-tab.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+      apiready = function(){
+</p>
+<p>
+          api.parseTapmode();
+</p>
+<p>
+          //默认打开热门页面
+</p>
+<p>
+          openPage(&#8216;hot&#8217;, &#8216;热门&#8217;);
+</p>
+<p>
+      }
+</p>
+<p>
+      var tab = new auiTab({
+</p>
+<p>
+          element:document.getElementById(&#8220;footer&#8221;)
+</p>
+<p>
+      },function(ret){
+</p>
+<p>
+          console.log(ret);
+</p>
+<p>
+          if(ret){
+</p>
+<p>
+              //document.getElementById(&#8220;demo&#8221;).textContent = ret.index;
+</p>
+<p>
+              switch (ret.index) {
+</p>
+<p>
+                  case 1:
+</p>
+<p>
+                      openPage(&#8216;hot&#8217;, &#8216;热门&#8217;);
+</p>
+<p>
+                      break;
+</p>
+<p>
+                  case 2:
+</p>
+<p>
+                      openPage(&#8216;guangchang&#8217;, &#8216;广场&#8217;);
+</p>
+<p>
+                      break;
+</p>
+<p>
+                  case 3:
+</p>
+<p>
+                      openPage(&#8216;action&#8217;, &#8216;动态&#8217;);
+</p>
+<p>
+                      break;
+</p>
+<p>
+                  case 4:
+</p>
+<p>
+                      openPage(&#8216;about&#8217;, &#8216;关于我们&#8217;);
+</p>
+<p>
+                      break;
+</p>
+<p>
+                  default:
+</p>
+<p>
+                      openPage(&#8216;hot&#8217;, &#8216;热门&#8217;);
+</p>
+<p>
+                      break;
+</p>
+<p>
+              }
+</p>
+<p>
+          }
+</p>
+<p>
+      });
+</p>
+<p>
+      //打开页面方法
+</p>
+<p>
+      function openPage(pageName, title) {
+</p>
+<p>
+          var header = $api.byId(&#8216;header&#8217;);
+</p>
+<p>
+          //适配iOS7+，Android4.4+状态栏沉浸式效果，详见config文档statusBarAppearance字段
+</p>
+<p>
+          $api.fixStatusBar(header);
+</p>
+<p>
+          //动态计算header的高度，因iOS7+和Android4.4+上支持沉浸式效果，
+</p>
+<p>
+          //因此header的实际高度可能为css样式中声明的44px加上设备状态栏高度
+</p>
+<p>
+          //其中，IOS状态栏高度为20px，Android为25px
+</p>
+<p>
+          var headerH = $api.offset(header).h;
+</p>
+<p>
+          //footer高度为css样式中声明的30px
+</p>
+<p>
+          var footerH = 50;
+</p>
+<p>
+          //frame的高度为当前window高度减去header和footer的高度
+</p>
+<p>
+          var frameH = api.winHeight &#8211; headerH &#8211; footerH;
+</p>
+<p>
+          api.openFrame({
+</p>
+<p>
+              name: &#8216;main&#8217;,
+</p>
+<p>
+              url: &#8216;html/&#8217;+pageName+&#8217;.html&#8217;,
+</p>
+<p>
+              bounces: true,
+</p>
+<p>
+              rect: {
+</p>
+<p>
+                  x: 0,
+</p>
+<p>
+                  y: headerH,
+</p>
+<p>
+                  w: &#8216;auto&#8217;,
+</p>
+<p>
+                  h: frameH
+</p>
+<p>
+              }
+</p>
+<p>
+          });
+</p>
+<p>
+          //切换头部标题
+</p>
+<p>
+          $api.byId(&#8216;title&#8217;).innerHTML = title;
+</p>
+<p>
+      }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h2><a id="post-5431-_Toc467854965"></a><a id="post-5431-_Toc477793840"></a><a id="post-5431-_Toc481941137"></a><a id="post-5431-_Toc485569123"></a><a id="post-5431-_Toc469586786"></a><a id="post-5431-_Toc475889837"></a><a id="post-5431-_Toc483754609"></a><a id="post-5431-_Toc471313633"></a>热门页（frame_host.html）</h2>
+<h3>1）效果图</h3>
+<p><img decoding="async" width="360" height="596" src="/wp-content/uploads/2018/05/word-image-4919.png" class="wp-image-5434" srcset="/wp-content/uploads/2018/05/word-image-4919.png 360w, /wp-content/uploads/2018/05/word-image-4919-181x300.png 181w" sizes="(max-width: 360px) 100vw, 360px" /></p>
+<h3>2）代码</h3>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+      &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;viewport&#8221; content=&#8221;maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0&#8243;/&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;format-detection&#8221; content=&#8221;telephone=no,email=no,date=no,aItemress=no&#8221;&gt;
+</p>
+<p>
+      &lt;title&gt;热门&lt;/title&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;../css/aui.css&#8221; /&gt;
+</p>
+<p>
+      &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+          .aui-content { padding: 0 8px; }
+</p>
+<p>
+          .aui-content .aui-card-list { padding: 0px 6px; }
+</p>
+<p>
+          .aui-content .aui-card-list-footer { padding: 0px; }
+</p>
+<p>
+      &lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+      &lt;section class=&#8221;aui-content&#8221;&gt;
+</p>
+<p>
+          &lt;div class=&#8221;aui-card-list&#8221;&gt;
+</p>
+<p>
+              &lt;div class=&#8221;aui-card-list-content&#8221;&gt;
+</p>
+<p>
+                  &lt;img src=&#8221;../image/demo.png&#8221; /&gt;
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+              &lt;div class=&#8221;aui-card-list-footer&#8221;&gt;
+</p>
+<p>
+                  是打发斯蒂芬
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+          &lt;/div&gt;
+</p>
+<p>
+          &lt;div class=&#8221;aui-card-list&#8221;&gt;
+</p>
+<p>
+              &lt;div class=&#8221;aui-card-list-content&#8221;&gt;
+</p>
+<p>
+                  &lt;img src=&#8221;../image/demo.png&#8221; /&gt;
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+              &lt;div class=&#8221;aui-card-list-footer&#8221;&gt;
+</p>
+<p>
+                  是打发斯蒂芬
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+          &lt;/div&gt;
+</p>
+<p>
+          &lt;div class=&#8221;aui-card-list&#8221;&gt;
+</p>
+<p>
+              &lt;div class=&#8221;aui-card-list-content&#8221;&gt;
+</p>
+<p>
+                  &lt;img src=&#8221;../image/demo.png&#8221; /&gt;
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+              &lt;div class=&#8221;aui-card-list-footer&#8221;&gt;
+</p>
+<p>
+                  是打发斯蒂芬
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+          &lt;/div&gt;
+</p>
+<p>
+      &lt;/section&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;../script/api.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+      apiready = function(){
+</p>
+<p>
+          api.parseTapmode();
+</p>
+<p>
+      }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h2>广场页（frame_square.html）</h2>
+<h3>1）效果图</h3>
+<p><img loading="lazy" decoding="async" width="367" height="632" src="/wp-content/uploads/2018/05/word-image-4920.png" class="wp-image-5435" srcset="/wp-content/uploads/2018/05/word-image-4920.png 367w, /wp-content/uploads/2018/05/word-image-4920-174x300.png 174w" sizes="(max-width: 367px) 100vw, 367px" /></p>
+<h3>2）代码</h3>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+      &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;viewport&#8221; content=&#8221;maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0&#8243;/&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;format-detection&#8221; content=&#8221;telephone=no,email=no,date=no,aItemress=no&#8221;&gt;
+</p>
+<p>
+      &lt;title&gt;AUI快速完成布局&lt;/title&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;../css/aui.css&#8221; /&gt;
+</p>
+<p>
+      &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+      /*大层*/
+</p>
+<p>
+      .container{margin: 0 auto;}
+</p>
+<p>
+      /*瀑布流层*/
+</p>
+<p>
+      .waterfall{
+</p>
+<p>
+           -moz-column-count:2; /* Firefox */
+</p>
+<p>
+           -webkit-column-count:2; /* Safari 和 Chrome */
+</p>
+<p>
+           column-count:2;
+</p>
+<p>
+           -moz-column-gap: 1em;-webkit-column-gap: 1em;column-gap: 1em;}
+</p>
+<p>
+      /*一个内容层*/
+</p>
+<p>
+      .item{ padding: 1em;margin: 0 0 1em 0;-moz-page-break-inside: avoid;-webkit-column-break-inside: avoid;break-inside: avoid;/*border: 1px solid #000;*/ background: #fff;}
+</p>
+<p>
+      .item img{ width: 100%;margin-bottom:10px;}
+</p>
+<p>
+      &lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+      &lt;div class=&#8221;container&#8221;&gt;
+</p>
+<p>
+          &lt;div class=&#8221;waterfall&#8221;&gt;
+</p>
+<p>
+              &lt;div class=&#8221;item&#8221;&gt;
+</p>
+<p>
+                  &lt;img src=&#8221;../image/1.png&#8221;&gt;
+</p>
+<p>
+                  &lt;p&gt;瀑布流效果&lt;/p&gt;
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+              &lt;div class=&#8221;item&#8221;&gt;
+</p>
+<p>
+                  &lt;img src=&#8221;../image/5.png&#8221;&gt;
+</p>
+<p>
+                  &lt;p&gt;瀑布流效果&lt;/p&gt;
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+              &lt;div class=&#8221;item&#8221;&gt;
+</p>
+<p>
+                  &lt;img src=&#8221;../image/2.png&#8221;&gt;
+</p>
+<p>
+                  &lt;p&gt;瀑布流效果&lt;/p&gt;
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+              &lt;div class=&#8221;item&#8221;&gt;
+</p>
+<p>
+                  &lt;img src=&#8221;../image/3.png&#8221;&gt;
+</p>
+<p>
+                  &lt;p&gt;瀑布流效果&lt;/p&gt;
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+              &lt;div class=&#8221;item&#8221;&gt;
+</p>
+<p>
+                  &lt;img src=&#8221;../image/4.png&#8221;&gt;
+</p>
+<p>
+                  &lt;p&gt;瀑布流效果&lt;/p&gt;
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+              &lt;div class=&#8221;item&#8221;&gt;
+</p>
+<p>
+                  &lt;img src=&#8221;../image/1.png&#8221;&gt;
+</p>
+<p>
+                  &lt;p&gt;瀑布流效果&lt;/p&gt;
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+              &lt;div class=&#8221;item&#8221;&gt;
+</p>
+<p>
+                  &lt;img src=&#8221;../image/5.png&#8221;&gt;
+</p>
+<p>
+                  &lt;p&gt;瀑布流效果&lt;/p&gt;
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+              &lt;div class=&#8221;item&#8221;&gt;
+</p>
+<p>
+                  &lt;img src=&#8221;../image/4.png&#8221;&gt;
+</p>
+<p>
+                  &lt;p&gt;瀑布流效果&lt;/p&gt;
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+          &lt;/div&gt;
+</p>
+<p>
+      &lt;/div&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;../script/api.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+      apiready = function(){
+</p>
+<p>
+          api.parseTapmode();
+</p>
+<p>
+      }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h2>动态页（frame_news.html）</h2>
+<h3>1）效果图</h3>
+<p><img loading="lazy" decoding="async" width="363" height="615" src="/wp-content/uploads/2018/05/word-image-4921.png" class="wp-image-5436" srcset="/wp-content/uploads/2018/05/word-image-4921.png 363w, /wp-content/uploads/2018/05/word-image-4921-177x300.png 177w" sizes="(max-width: 363px) 100vw, 363px" /></p>
+<h3>2）代码</h3>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+      &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;viewport&#8221; content=&#8221;maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0&#8243;/&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;format-detection&#8221; content=&#8221;telephone=no,email=no,date=no,address=no&#8221;&gt;
+</p>
+<p>
+      &lt;title&gt;AUI快速完成布局&lt;/title&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;../css/aui.css&#8221; /&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+      &lt;div class=&#8221;aui-content aui-margin-b-15&#8243;&gt;
+</p>
+<p>
+          &lt;ul class=&#8221;aui-list aui-media-list&#8221;&gt;
+</p>
+<p>
+              &lt;li class=&#8221;aui-list-item aui-list-item-middle&#8221;&gt;
+</p>
+<p>
+                  &lt;div class=&#8221;aui-media-list-item-inner&#8221;&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-media wechat-avatar&#8221;&gt;
+</p>
+<p>
+                          &lt;img src=&#8221;../image/m1.png&#8221; /&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-inner&#8221;&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text&#8221;&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-title&#8221;&gt;张三&lt;/div&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-right&#8221;&gt;》》&lt;/div&gt;
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text aui-font-size-12&#8243;&gt;
+</p>
+<p>
+                              Hello AUI 2.0!
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                  &lt;/div&gt;
+</p>
+<p>
+              &lt;/li&gt;
+</p>
+<p>
+              &lt;li class=&#8221;aui-list-item aui-list-item-middle&#8221;&gt;
+</p>
+<p>
+                  &lt;div class=&#8221;aui-media-list-item-inner&#8221;&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-media wechat-avatar&#8221;&gt;
+</p>
+<p>
+                          &lt;img src=&#8221;../image/m2.png&#8221; /&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-inner&#8221;&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text&#8221;&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-title&#8221;&gt;张三&lt;/div&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-right&#8221;&gt;》》&lt;/div&gt;
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text aui-font-size-12&#8243;&gt;
+</p>
+<p>
+                              Hello AUI 2.0!
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                  &lt;/div&gt;
+</p>
+<p>
+              &lt;/li&gt;
+</p>
+<p>
+              &lt;li class=&#8221;aui-list-item aui-list-item-middle&#8221;&gt;
+</p>
+<p>
+                  &lt;div class=&#8221;aui-media-list-item-inner&#8221;&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-media wechat-avatar&#8221;&gt;
+</p>
+<p>
+                          &lt;img src=&#8221;../image/m3.png&#8221; /&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-inner&#8221;&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text&#8221;&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-title&#8221;&gt;张三&lt;/div&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-right&#8221;&gt;》》&lt;/div&gt;
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text aui-font-size-12&#8243;&gt;
+</p>
+<p>
+                              Hello AUI 2.0!
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                  &lt;/div&gt;
+</p>
+<p>
+              &lt;/li&gt;
+</p>
+<p>
+              &lt;li class=&#8221;aui-list-item aui-list-item-middle&#8221;&gt;
+</p>
+<p>
+                  &lt;div class=&#8221;aui-media-list-item-inner&#8221;&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-media wechat-avatar&#8221;&gt;
+</p>
+<p>
+                          &lt;img src=&#8221;../image/m4.png&#8221; /&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-inner&#8221;&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text&#8221;&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-title&#8221;&gt;张三&lt;/div&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-right&#8221;&gt;》》&lt;/div&gt;
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text aui-font-size-12&#8243;&gt;
+</p>
+<p>
+                              Hello AUI 2.0!
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                  &lt;/div&gt;
+</p>
+<p>
+              &lt;/li&gt;
+</p>
+<p>
+          &lt;/ul&gt;
+</p>
+<p>
+      &lt;/div&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;../script/api.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h2>关于页（frame_about.html）</h2>
+<h3>1）效果图</h3>
+<p><img loading="lazy" decoding="async" width="363" height="621" src="/wp-content/uploads/2018/05/word-image-4922.png" class="wp-image-5437" srcset="/wp-content/uploads/2018/05/word-image-4922.png 363w, /wp-content/uploads/2018/05/word-image-4922-175x300.png 175w" sizes="(max-width: 363px) 100vw, 363px" /></p>
+<h3>2）代码</h3>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+      &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;viewport&#8221; content=&#8221;maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0&#8243;/&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;format-detection&#8221; content=&#8221;telephone=no,email=no,date=no,address=no&#8221;&gt;
+</p>
+<p>
+      &lt;title&gt;AUI快速完成布局&lt;/title&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;../css/aui.css&#8221; /&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+      &lt;div class=&#8221;aui-content aui-margin-b-15&#8243;&gt;
+</p>
+<p>
+          &lt;ul class=&#8221;aui-list aui-media-list&#8221;&gt;
+</p>
+<p>
+              &lt;li class=&#8221;aui-list-item aui-list-item-middle&#8221; onclick=&#8221;openMusic()&#8221;&gt;
+</p>
+<p>
+                  &lt;div class=&#8221;aui-media-list-item-inner&#8221;&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-media wechat-avatar&#8221;&gt;
+</p>
+<p>
+                          &lt;img src=&#8221;../image/m1.png&#8221; /&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-inner&#8221;&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text&#8221;&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-title&#8221;&gt;张三&lt;/div&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-right&#8221;&gt;》》&lt;/div&gt;
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text aui-font-size-12&#8243;&gt;
+</p>
+<p>
+                              Hello AUI 2.0!
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                  &lt;/div&gt;
+</p>
+<p>
+              &lt;/li&gt;
+</p>
+<p>
+              &lt;li class=&#8221;aui-list-item aui-list-item-middle&#8221; onclick=&#8221;openMusic()&#8221;&gt;
+</p>
+<p>
+                  &lt;div class=&#8221;aui-media-list-item-inner&#8221;&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-media wechat-avatar&#8221;&gt;
+</p>
+<p>
+                          &lt;img src=&#8221;../image/m2.png&#8221; /&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-inner&#8221;&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text&#8221;&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-title&#8221;&gt;张三&lt;/div&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-right&#8221;&gt;》》&lt;/div&gt;
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text aui-font-size-12&#8243;&gt;
+</p>
+<p>
+                              Hello AUI 2.0!
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                  &lt;/div&gt;
+</p>
+<p>
+              &lt;/li&gt;
+</p>
+<p>
+              &lt;li class=&#8221;aui-list-item aui-list-item-middle&#8221; onclick=&#8221;openMusic()&#8221;&gt;
+</p>
+<p>
+                  &lt;div class=&#8221;aui-media-list-item-inner&#8221;&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-media wechat-avatar&#8221;&gt;
+</p>
+<p>
+                          &lt;img src=&#8221;../image/m3.png&#8221; /&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-inner&#8221;&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text&#8221;&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-title&#8221;&gt;张三&lt;/div&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-right&#8221;&gt;》》&lt;/div&gt;
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text aui-font-size-12&#8243;&gt;
+</p>
+<p>
+                              Hello AUI 2.0!
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                  &lt;/div&gt;
+</p>
+<p>
+              &lt;/li&gt;
+</p>
+<p>
+              &lt;li class=&#8221;aui-list-item aui-list-item-middle&#8221; onclick=&#8221;openMusic()&#8221;&gt;
+</p>
+<p>
+                  &lt;div class=&#8221;aui-media-list-item-inner&#8221;&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-media wechat-avatar&#8221;&gt;
+</p>
+<p>
+                          &lt;img src=&#8221;../image/m4.png&#8221; /&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-inner&#8221;&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text&#8221;&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-title&#8221;&gt;张三&lt;/div&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-right&#8221;&gt;》》&lt;/div&gt;
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text aui-font-size-12&#8243;&gt;
+</p>
+<p>
+                              Hello AUI 2.0!
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                  &lt;/div&gt;
+</p>
+<p>
+              &lt;/li&gt;
+</p>
+<p>
+          &lt;/ul&gt;
+</p>
+<p>
+      &lt;/div&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;../script/api.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  function openMusic () {
+</p>
+<p>
+      api.openFrame({
+</p>
+<p>
+              name: &#8216;frame_music&#8217;,
+</p>
+<p>
+              url: &#8216;./music.html&#8217;,
+</p>
+<p>
+              bounces: true,
+</p>
+<p>
+              rect: {
+</p>
+<p>
+                  x: 0,
+</p>
+<p>
+                  y: 0,
+</p>
+<p>
+                  w: &#8216;auto&#8217;,
+</p>
+<p>
+                  h: &#8216;auto&#8217;
+</p>
+<p>
+              }
+</p>
+<p>
+          });
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h2>音乐详情页（frame_music.html）</h2>
+<h3>1）效果图</h3>
+<p><img loading="lazy" decoding="async" width="362" height="627" src="/wp-content/uploads/2018/05/word-image-4923.png" class="wp-image-5438" srcset="/wp-content/uploads/2018/05/word-image-4923.png 362w, /wp-content/uploads/2018/05/word-image-4923-173x300.png 173w" sizes="(max-width: 362px) 100vw, 362px" /></p>
+<h3>2）代码</h3>
+<p>
+  &lt;!doctype html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+      &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;viewport&#8221; content=&#8221;maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width&#8221;/&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;format-detection&#8221; content=&#8221;telephone=no,email=no,date=no,address=no&#8221;&gt;
+</p>
+<p>
+      &lt;title&gt;甜椒广场舞&lt;/title&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;../css/api.css&#8221; /&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;../css/aui.css&#8221; /&gt;
+</p>
+<p>
+      &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+      .aui-bar-dark {background-color:#E65A65;}
+</p>
+<p>
+      #music {padding:50px 0; text-align:center;}
+</p>
+<p>
+      #music img {margin: auto; border-radius:100px; width:200px; height:200px;}
+</p>
+<p>
+      #title {text-align:center; margin: 10px 0px;}
+</p>
+<p>
+      .aui-range { width: 100%;}
+</p>
+<p>
+      /*.aui-range input[type=&#8217;range&#8217;] { background-color: #E65A65; }*/
+</p>
+<p>
+      .aui-range input[type=&#8217;range&#8217;]::-webkit-slider-thumb { background-color: #E65A65; }
+</p>
+<p>
+      &lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+      &lt;header id=&#8221;aui-header&#8221; class=&#8221;aui-bar aui-bar-nav aui-bar-dark&#8221;&gt;
+</p>
+<p>
+          &lt;a class=&#8221;aui-pull-left aui-btn&#8221; onclick=&#8221;closeWin()&#8221;&gt;
+</p>
+<p>
+              &lt;span class=&#8221;aui-iconfont aui-icon-left&#8221;&gt;&lt;/span&gt;
+</p>
+<p>
+          &lt;/a&gt;
+</p>
+<p>
+          &lt;div class=&#8221;aui-title&#8221;&gt;甜椒广场舞&lt;/div&gt;
+</p>
+<p>
+      &lt;/header&gt;
+</p>
+<p>
+      &lt;div id=&#8217;music&#8217;&gt;
+</p>
+<p>
+          &lt;img src=&#8217;../image/music.png&#8217; /&gt;
+</p>
+<p>
+      &lt;/div&gt;
+</p>
+<p>
+      &lt;h5 id=&#8217;title&#8217;&gt;买买买 &#8211; By2&lt;/h5&gt;
+</p>
+<p>
+      &lt;br /&gt;
+</p>
+<p>
+      &lt;div class=&#8221;aui-list-item-input&#8221;&gt;
+</p>
+<p>
+          &lt;div class=&#8221;aui-range&#8221;&gt;
+</p>
+<p>
+              &lt;input type=&#8221;range&#8221; class=&#8221;aui-range&#8221; value=&#8221;0&#8243; max=&#8221;100&#8243; min=&#8221;1&#8243; step=&#8221;1&#8243; id=&#8221;range&#8221;&gt;
+</p>
+<p>
+              &lt;div class=&#8221;aui-range-tip aui-hide&#8221;&gt;0&lt;/div&gt;
+</p>
+<p>
+          &lt;/div&gt;
+</p>
+<p>
+      &lt;/div&gt;
+</p>
+<p>
+      &lt;br /&gt;
+</p>
+<p>
+      &lt;p&gt;&lt;div class=&#8221;aui-btn aui-btn-danger aui-btn-block&#8221;&gt;播放音乐(start)&lt;/div&gt;&lt;/p&gt;
+</p>
+<p>
+      &lt;br /&gt;
+</p>
+<p>
+      &lt;p&gt;&lt;div class=&#8221;aui-btn aui-btn-danger aui-btn-block&#8221;&gt;停止播放(pause)&lt;/div&gt;&lt;/p&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;../script/api.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;../script/aui-range.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+      var range = new auiRange({
+</p>
+<p>
+          element:document.getElementById(&#8220;range&#8221;)
+</p>
+<p>
+      },function(ret){
+</p>
+<p>
+      })
+</p>
+<p>
+      apiready = function(){
+</p>
+<p>
+          api.parseTapmode();
+</p>
+<p>
+      }
+</p>
+<p>
+      function closeWin() {
+</p>
+<p>
+          api.closeFrame({
+</p>
+<p>
+              name: &#8216;frame_music&#8217;
+</p>
+<p>
+          });
+</p>
+<p>
+      }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h1>一、使用TP完成APP后台</h1>
+<h2>1、需求</h2>
+<p>
+  后台可以动态添加、显示音乐数据
+</p>
+<h2>实现</h2>
+<p>
+  见tools
+</p>
+<h1><a id="post-5431-_Toc467340740"></a>App与TP框架整合（App接口）</h1>
+<h2><a id="post-5431-_Toc467340741"></a>1、App接口请求/运行原理图</h2>
+<p><img loading="lazy" decoding="async" width="742" height="254" src="/wp-content/uploads/2018/05/word-image-4924.png" class="wp-image-5439" srcset="/wp-content/uploads/2018/05/word-image-4924.png 742w, /wp-content/uploads/2018/05/word-image-4924-300x103.png 300w" sizes="(max-width: 742px) 100vw, 742px" /></p>
+<h2>使用TP框架开发App接口</h2>
+<p><img loading="lazy" decoding="async" width="1296" height="561" src="/wp-content/uploads/2018/05/word-image-4925.png" class="wp-image-5440" srcset="/wp-content/uploads/2018/05/word-image-4925.png 1296w, /wp-content/uploads/2018/05/word-image-4925-300x130.png 300w, /wp-content/uploads/2018/05/word-image-4925-768x332.png 768w, /wp-content/uploads/2018/05/word-image-4925-1024x443.png 1024w" sizes="(max-width: 1296px) 100vw, 1296px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace Api\Controller;
+</p>
+<p>
+  use Think\Controller;
+</p>
+<p>
+  class MusicController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      public function index()
+</p>
+<p>
+      {
+</p>
+<p>
+      	$offset =  I(&#8216;post.offset&#8217;); // 相当于 $_POST[&#8216;id&#8217;]
+</p>
+<p>
+      	$limit = I(&#8216;post.limit&#8217;); // 相当于 $_POST[&#8216;id&#8217;]
+</p>
+<p>
+      	//步骤1：从数据库获取数据
+</p>
+<p>
+      	$musicData = M(&#8216;music&#8217;)-&gt;order(&#8216;id desc&#8217;)-&gt;limit($offset, $limit)-&gt;select();
+</p>
+<p>
+      	//步骤2：数据过滤
+</p>
+<p>
+      	foreach ($musicData as $key =&gt; $value) {
+</p>
+<p>
+      		$musicData[$key][&#8216;logo&#8217;] = &#8216;http://192.168.72.56/tp32_app_guangchangwu/Public/Uploads/&#8217; . $musicData[$key][&#8216;logo&#8217;];
+</p>
+<p>
+      	}
+</p>
+<p>
+      	//步骤3：响应json数据
+</p>
+<p>
+      	echo json_encode($musicData);
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h2>在App中使用api.ajax调用App接口</h2>
+<p>
+  接口
+</p>
+<p><img loading="lazy" decoding="async" width="863" height="601" src="/wp-content/uploads/2018/05/word-image-4926.png" class="wp-image-5441" srcset="/wp-content/uploads/2018/05/word-image-4926.png 863w, /wp-content/uploads/2018/05/word-image-4926-300x209.png 300w, /wp-content/uploads/2018/05/word-image-4926-768x535.png 768w" sizes="(max-width: 863px) 100vw, 863px" /><br />
+<img loading="lazy" decoding="async" width="426" height="433" src="/wp-content/uploads/2018/05/word-image-4927.png" class="wp-image-5442" srcset="/wp-content/uploads/2018/05/word-image-4927.png 426w, /wp-content/uploads/2018/05/word-image-4927-295x300.png 295w" sizes="(max-width: 426px) 100vw, 426px" /></p>
+<h2>4、JQ遍历显示数据</h2>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+      &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;viewport&#8221; content=&#8221;maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0&#8243;/&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;format-detection&#8221; content=&#8221;telephone=no,email=no,date=no,address=no&#8221;&gt;
+</p>
+<p>
+      &lt;title&gt;AUI快速完成布局&lt;/title&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;../css/aui.css&#8221; /&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+      &lt;div class=&#8221;aui-content aui-margin-b-15&#8243;&gt;
+</p>
+<p>
+          &lt;ul class=&#8221;aui-list aui-media-list&#8221;&gt;&lt;!&#8211;
+</p>
+<p>
+              &lt;li class=&#8221;aui-list-item aui-list-item-middle&#8221; onclick=&#8221;openMusic()&#8221;&gt;
+</p>
+<p>
+                  &lt;div class=&#8221;aui-media-list-item-inner&#8221;&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-media wechat-avatar&#8221;&gt;
+</p>
+<p>
+                          &lt;img src=&#8221;../image/m1.png&#8221; /&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-inner&#8221;&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text&#8221;&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-title&#8221;&gt;张三&lt;/div&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-right&#8221;&gt;》》&lt;/div&gt;
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text aui-font-size-12&#8243;&gt;
+</p>
+<p>
+                              Hello AUI 2.0!
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                  &lt;/div&gt;
+</p>
+<p>
+              &lt;/li&gt; &#8211;&gt;
+</p>
+<p>
+          &lt;/ul&gt;
+</p>
+<p>
+      &lt;/div&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;script src=&#8221;https://cdn.bootcss.com/jquery/1.8.3/jquery.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;../script/api.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  apiready = function(){
+</p>
+<p>
+      <strong>//脚下留心：必须写本机的ip  因为模拟器也是一个单独的操作系统</strong>
+</p>
+<p><strong>    api.ajax({</strong>
+</p>
+<p><strong>        url: &#8216;http://192.168.72.56/tp32_app_guangchangwu/index.php/api/music/index&#8217;,</strong>
+</p>
+<p><strong>        method: &#8216;post&#8217;,</strong>
+</p>
+<p><strong>        data: {</strong>
+</p>
+<p><strong>            values: {</strong>
+</p>
+<p><strong>                offset: 0,</strong>
+</p>
+<p><strong>                limit: 2,</strong>
+</p>
+<p><strong>            }</strong>
+</p>
+<p><strong>        }</strong>
+</p>
+<p><strong>    }, function(ret, err) {</strong>
+</p>
+<p><strong>        if (ret) {</strong>
+</p>
+<p><strong>            //api.alert({ msg: JSON.stringify(ret) });</strong>
+</p>
+<p><strong>            var html = &#8221;;</strong>
+</p>
+<p><strong>            $.each(ret, function(i, itemObj) {</strong>
+</p>
+<p><strong>                html += &#8216;&lt;li class=&#8221;aui-list-item aui-list-item-middle&#8221; onclick=&#8221;openMusic()&#8221;&gt;&#8217; + </strong>
+</p>
+<p><strong>                    &#8216;&lt;div class=&#8221;aui-media-list-item-inner&#8221;&gt;&#8217; + </strong>
+</p>
+<p><strong>                        &#8216;&lt;div class=&#8221;aui-list-item-media wechat-avatar&#8221;&gt;&#8217; + </strong>
+</p>
+<p><strong>                            &#8216;&lt;img src=&#8221;&#8216;+itemObj.logo+'&#8221; /&gt;&#8217; + </strong>
+</p>
+<p><strong>                        &#8216;&lt;/div&gt;&#8217; + </strong>
+</p>
+<p><strong>                        &#8216;&lt;div class=&#8221;aui-list-item-inner&#8221;&gt;&#8217; + </strong>
+</p>
+<p><strong>                            &#8216;&lt;div class=&#8221;aui-list-item-text&#8221;&gt;&#8217; + </strong>
+</p>
+<p><strong>                                &#8216;&lt;div class=&#8221;aui-list-item-title&#8221;&gt;&#8217;+itemObj.title+'&lt;/div&gt;&#8217; + </strong>
+</p>
+<p><strong>                                &#8216;&lt;div class=&#8221;aui-list-item-right&#8221;&gt;》》&lt;/div&gt;&#8217; + </strong>
+</p>
+<p><strong>                            &#8216;&lt;/div&gt;&#8217; + </strong>
+</p>
+<p><strong>                            &#8216;&lt;div class=&#8221;aui-list-item-text aui-font-size-12&#8243;&gt;&#8217; + </strong>
+</p>
+<p><strong>                               itemObj.author + &#8216;&lt;/div&gt;&#8217; + </strong>
+</p>
+<p><strong>                        &#8216;&lt;/div&gt;&#8217; + </strong>
+</p>
+<p><strong>                    &#8216;&lt;/div&gt;&#8217; + </strong>
+</p>
+<p><strong>                &#8216;&lt;/li&gt;&#8217;;</strong>
+</p>
+<p><strong>            });</strong>
+</p>
+<p><strong>            //拼接最终在页面显示</strong>
+</p>
+<p><strong>            $(&#8220;ul&#8221;).html(html);</strong>
+</p>
+<p><strong>        } else {</strong>
+</p>
+<p><strong>            api.alert({ msg: JSON.stringify(err) });</strong>
+</p>
+<p><strong>        }</strong>
+</p>
+<p><strong>    });</strong>
+</p>
+<p>
+  }
+</p>
+<p>
+  function openMusic () {
+</p>
+<p>
+      api.openFrame({
+</p>
+<p>
+          name: &#8216;frame_music&#8217;,
+</p>
+<p>
+          url: &#8216;./music.html&#8217;,
+</p>
+<p>
+          bounces: true,
+</p>
+<p>
+          rect: {
+</p>
+<p>
+              x: 0,
+</p>
+<p>
+              y: 0,
+</p>
+<p>
+              w: &#8216;auto&#8217;,
+</p>
+<p>
+              h: &#8216;auto&#8217;
+</p>
+<p>
+          }
+</p>
+<p>
+      });
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+</p>
+<h1> 实现下拉的刷新</h1>
+<h2>什么是下拉刷新</h2>
+<p><img loading="lazy" decoding="async" width="367" height="338" src="/wp-content/uploads/2018/05/word-image-4928.png" class="wp-image-5443" srcset="/wp-content/uploads/2018/05/word-image-4928.png 367w, /wp-content/uploads/2018/05/word-image-4928-300x276.png 300w" sizes="(max-width: 367px) 100vw, 367px" /></p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+</p>
+<p><img loading="lazy" decoding="async" width="376" height="347" src="/wp-content/uploads/2018/05/word-image-4929.png" class="wp-image-5444" srcset="/wp-content/uploads/2018/05/word-image-4929.png 376w, /wp-content/uploads/2018/05/word-image-4929-300x277.png 300w" sizes="(max-width: 376px) 100vw, 376px" /></p>
+<h2>下拉刷新接口</h2>
+<p><img loading="lazy" decoding="async" width="712" height="563" src="/wp-content/uploads/2018/05/word-image-4930.png" class="wp-image-5445" srcset="/wp-content/uploads/2018/05/word-image-4930.png 712w, /wp-content/uploads/2018/05/word-image-4930-300x237.png 300w" sizes="(max-width: 712px) 100vw, 712px" /><br />
+<img loading="lazy" decoding="async" width="698" height="318" src="/wp-content/uploads/2018/05/word-image-4931.png" class="wp-image-5446" srcset="/wp-content/uploads/2018/05/word-image-4931.png 698w, /wp-content/uploads/2018/05/word-image-4931-300x137.png 300w" sizes="(max-width: 698px) 100vw, 698px" /></p>
+<p>
+  api.setRefreshHeaderInfo({
+</p>
+<p>
+      loadingImg: &#8216;widget://image/refresh.png&#8217;,
+</p>
+<p>
+      bgColor: &#8216;#ccc&#8217;,
+</p>
+<p>
+      textColor: &#8216;#fff&#8217;,
+</p>
+<p>
+      textDown: &#8216;下拉刷新&#8230;&#8217;,
+</p>
+<p>
+      textUp: &#8216;松开刷新&#8230;&#8217;
+</p>
+<p>
+  }, function(ret, err) {
+</p>
+<p>
+      //在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态
+</p>
+<p>
+  });
+</p>
+<h2>使用下拉刷新获取数据</h2>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+      &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;viewport&#8221; content=&#8221;maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0&#8243;/&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;format-detection&#8221; content=&#8221;telephone=no,email=no,date=no,address=no&#8221;&gt;
+</p>
+<p>
+      &lt;title&gt;AUI快速完成布局&lt;/title&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;../css/aui.css&#8221; /&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+      &lt;div class=&#8221;aui-content aui-margin-b-15&#8243;&gt;
+</p>
+<p>
+          &lt;ul class=&#8221;aui-list aui-media-list&#8221;&gt;&lt;!&#8211;
+</p>
+<p>
+              &lt;li class=&#8221;aui-list-item aui-list-item-middle&#8221; onclick=&#8221;openMusic()&#8221;&gt;
+</p>
+<p>
+                  &lt;div class=&#8221;aui-media-list-item-inner&#8221;&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-media wechat-avatar&#8221;&gt;
+</p>
+<p>
+                          &lt;img src=&#8221;../image/m1.png&#8221; /&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;aui-list-item-inner&#8221;&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text&#8221;&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-title&#8221;&gt;张三&lt;/div&gt;
+</p>
+<p>
+                              &lt;div class=&#8221;aui-list-item-right&#8221;&gt;》》&lt;/div&gt;
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                          &lt;div class=&#8221;aui-list-item-text aui-font-size-12&#8243;&gt;
+</p>
+<p>
+                              Hello AUI 2.0!
+</p>
+<p>
+                          &lt;/div&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                  &lt;/div&gt;
+</p>
+<p>
+              &lt;/li&gt; &#8211;&gt;
+</p>
+<p>
+          &lt;/ul&gt;
+</p>
+<p>
+      &lt;/div&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;script src=&#8221;https://cdn.bootcss.com/jquery/1.8.3/jquery.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;../script/api.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  apiready = function(){
+</p>
+<p>
+     <strong> //默认点击动态，发送请求，显示第一页数据</strong>
+</p>
+<p><strong>    getData(0);</strong>
+</p>
+<p>
+      <strong>api.setRefreshHeaderInfo({</strong>
+</p>
+<p><strong>        loadingImg: &#8216;widget://image/refresh.png&#8217;,</strong>
+</p>
+<p><strong>        bgColor: &#8216;#ccc&#8217;,</strong>
+</p>
+<p><strong>        textColor: &#8216;#fff&#8217;,</strong>
+</p>
+<p><strong>        textDown: &#8216;下拉刷新&#8230;&#8217;,</strong>
+</p>
+<p><strong>        textUp: &#8216;松开刷新&#8230;&#8217;</strong>
+</p>
+<p><strong>    }, function(ret, err) {</strong>
+</p>
+<p><strong>        //在这里从服务器加载数据，加载完成后调用api.refreshHeaderLoadDone()方法恢复组件到默认状态</strong>
+</p>
+<p><strong>        getData(1);</strong>
+</p>
+<p><strong>        api.refreshHeaderLoadDone();</strong>
+</p>
+<p><strong>    });</strong>
+</p>
+<p>
+  }
+</p>
+<p>
+  function openMusic () {
+</p>
+<p>
+      api.openFrame({
+</p>
+<p>
+          name: &#8216;frame_music&#8217;,
+</p>
+<p>
+          url: &#8216;./music.html&#8217;,
+</p>
+<p>
+          bounces: true,
+</p>
+<p>
+          rect: {
+</p>
+<p>
+              x: 0,
+</p>
+<p>
+              y: 0,
+</p>
+<p>
+              w: &#8216;auto&#8217;,
+</p>
+<p>
+              h: &#8216;auto&#8217;
+</p>
+<p>
+          }
+</p>
+<p>
+      });
+</p>
+<p>
+  }
+</p>
+<p><strong>//全局变量起始位置</strong>
+</p>
+<p><strong>var offset = 0;</strong>
+</p>
+<p><strong>function getData(isAdd) {</strong>
+</p>
+<p><strong>    if (isAdd) offset+=2;</strong>
+</p>
+<p><strong>    //脚下留心：必须写本机的ip  因为模拟器也是一个单独的操作系统</strong>
+</p>
+<p><strong>    api.ajax({</strong>
+</p>
+<p><strong>        url: &#8216;http://192.168.72.56/tp32_app_guangchangwu/index.php/api/music/index&#8217;,</strong>
+</p>
+<p><strong>        method: &#8216;post&#8217;,</strong>
+</p>
+<p><strong>        data: {</strong>
+</p>
+<p><strong>            values: {</strong>
+</p>
+<p><strong>                offset: offset,</strong>
+</p>
+<p><strong>                limit: 2,</strong>
+</p>
+<p><strong>            }</strong>
+</p>
+<p><strong>        }</strong>
+</p>
+<p><strong>    }, function(ret, err) {</strong>
+</p>
+<p><strong>       </strong>
+</p>
+<p><strong>        //将json对象数据转化为字符串</strong>
+</p>
+<p><strong>        if (ret &amp;&amp; JSON.stringify(ret) !== &#8216;[]&#8217;) {</strong>
+</p>
+<p><strong>            //api.alert({ msg: JSON.stringify(ret) });</strong>
+</p>
+<p><strong>            var html = &#8221;;</strong>
+</p>
+<p><strong>            $.each(ret, function(i, itemObj) {</strong>
+</p>
+<p><strong>                html += &#8216;&lt;li class=&#8221;aui-list-item aui-list-item-middle&#8221; onclick=&#8221;openMusic()&#8221;&gt;&#8217; + </strong>
+</p>
+<p><strong>                    &#8216;&lt;div class=&#8221;aui-media-list-item-inner&#8221;&gt;&#8217; + </strong>
+</p>
+<p><strong>                        &#8216;&lt;div class=&#8221;aui-list-item-media wechat-avatar&#8221;&gt;&#8217; + </strong>
+</p>
+<p><strong>                            &#8216;&lt;img src=&#8221;&#8216;+itemObj.logo+'&#8221; /&gt;&#8217; + </strong>
+</p>
+<p><strong>                        &#8216;&lt;/div&gt;&#8217; + </strong>
+</p>
+<p><strong>                        &#8216;&lt;div class=&#8221;aui-list-item-inner&#8221;&gt;&#8217; + </strong>
+</p>
+<p><strong>                            &#8216;&lt;div class=&#8221;aui-list-item-text&#8221;&gt;&#8217; + </strong>
+</p>
+<p><strong>                                &#8216;&lt;div class=&#8221;aui-list-item-title&#8221;&gt;&#8217;+itemObj.title+'&lt;/div&gt;&#8217; + </strong>
+</p>
+<p><strong>                                &#8216;&lt;div class=&#8221;aui-list-item-right&#8221;&gt;》》&lt;/div&gt;&#8217; + </strong>
+</p>
+<p><strong>                            &#8216;&lt;/div&gt;&#8217; + </strong>
+</p>
+<p><strong>                            &#8216;&lt;div class=&#8221;aui-list-item-text aui-font-size-12&#8243;&gt;&#8217; + </strong>
+</p>
+<p><strong>                               itemObj.author + &#8216;&lt;/div&gt;&#8217; + </strong>
+</p>
+<p><strong>                        &#8216;&lt;/div&gt;&#8217; + </strong>
+</p>
+<p><strong>                    &#8216;&lt;/div&gt;&#8217; + </strong>
+</p>
+<p><strong>                &#8216;&lt;/li&gt;&#8217;;</strong>
+</p>
+<p><strong>            });</strong>
+</p>
+<p><strong>            //拼接最终在页面显示</strong>
+</p>
+<p><strong>            //$(&#8220;ul&#8221;).html(html);</strong>
+</p>
+<p><strong>            //append();   后面追加</strong>
+</p>
+<p><strong>            //prepend()   前面追加</strong>
+</p>
+<p><strong>            $(&#8216;ul&#8217;).prepend(html);</strong>
+</p>
+<p><strong>        } else {</strong>
+</p>
+<p><strong>            alert(&#8216;没有更多数据&#8217;);</strong>
+</p>
+<p><strong>            // api.alert({ msg: JSON.stringify(err) });</strong>
+</p>
+<p><strong>        }</strong>
+</p>
+<p><strong>    });</strong>
+</p>
+<p><strong>}</strong>
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h1>四、使用APICloud中的模块让音乐响起来</h1>
+<h2>1、音乐详情页CD旋转</h2>
+<ul>
+<li>
+    步骤1：广场舞文件夹引入旋转jq插件
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="961" height="509" src="/wp-content/uploads/2018/05/word-image-4932.png" class="wp-image-5447" srcset="/wp-content/uploads/2018/05/word-image-4932.png 961w, /wp-content/uploads/2018/05/word-image-4932-300x159.png 300w, /wp-content/uploads/2018/05/word-image-4932-768x407.png 768w" sizes="(max-width: 961px) 100vw, 961px" /></p>
+<ul>
+<li>
+    music页面引入jquery并且让cd转动起来
+  </li>
+</ul>
+<p>
+  &lt;!doctype html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+      &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;viewport&#8221; content=&#8221;maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width&#8221;/&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;format-detection&#8221; content=&#8221;telephone=no,email=no,date=no,address=no&#8221;&gt;
+</p>
+<p>
+      &lt;title&gt;甜椒广场舞&lt;/title&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;../css/api.css&#8221; /&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;../css/aui.css&#8221; /&gt;
+</p>
+<p>
+      &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+      .aui-bar-dark {background-color:#E65A65;}
+</p>
+<p>
+      #music {padding:50px 0; text-align:center;}
+</p>
+<p>
+      #music img {margin: auto; border-radius:100px; width:200px; height:200px;}
+</p>
+<p>
+      #title {text-align:center; margin: 10px 0px;}
+</p>
+<p>
+      .aui-range { width: 100%;}
+</p>
+<p>
+      /*.aui-range input[type=&#8217;range&#8217;] { background-color: #E65A65; }*/
+</p>
+<p>
+      .aui-range input[type=&#8217;range&#8217;]::-webkit-slider-thumb { background-color: #E65A65; }
+</p>
+<p>
+      &lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+      &lt;header id=&#8221;aui-header&#8221; class=&#8221;aui-bar aui-bar-nav aui-bar-dark&#8221;&gt;
+</p>
+<p>
+          &lt;a class=&#8221;aui-pull-left aui-btn&#8221; onclick=&#8221;closeWin()&#8221;&gt;
+</p>
+<p>
+              &lt;span class=&#8221;aui-iconfont aui-icon-left&#8221;&gt;&lt;/span&gt;
+</p>
+<p>
+          &lt;/a&gt;
+</p>
+<p>
+          &lt;div class=&#8221;aui-title&#8221;&gt;甜椒广场舞&lt;/div&gt;
+</p>
+<p>
+      &lt;/header&gt;
+</p>
+<p>
+      &lt;div id=&#8217;music&#8217;&gt;
+</p>
+<p>
+          &lt;img src=&#8217;../image/music.png&#8217; /&gt;
+</p>
+<p>
+      &lt;/div&gt;
+</p>
+<p>
+      &lt;h5 id=&#8217;title&#8217;&gt;买买买 &#8211; By2&lt;/h5&gt;
+</p>
+<p>
+      &lt;br /&gt;
+</p>
+<p>
+      &lt;div class=&#8221;aui-list-item-input&#8221;&gt;
+</p>
+<p>
+          &lt;div class=&#8221;aui-range&#8221;&gt;
+</p>
+<p>
+              &lt;input type=&#8221;range&#8221; class=&#8221;aui-range&#8221; value=&#8221;0&#8243; max=&#8221;100&#8243; min=&#8221;1&#8243; step=&#8221;1&#8243; id=&#8221;range&#8221;&gt;
+</p>
+<p>
+              &lt;div class=&#8221;aui-range-tip aui-hide&#8221;&gt;0&lt;/div&gt;
+</p>
+<p>
+          &lt;/div&gt;
+</p>
+<p>
+      &lt;/div&gt;
+</p>
+<p>
+      &lt;br /&gt;
+</p>
+<p>
+      &lt;p&gt;&lt;div class=&#8221;aui-btn aui-btn-danger aui-btn-block&#8221;&gt;播放音乐(start)&lt;/div&gt;&lt;/p&gt;
+</p>
+<p>
+      &lt;br /&gt;
+</p>
+<p>
+      &lt;p&gt;&lt;div class=&#8221;aui-btn aui-btn-danger aui-btn-block&#8221;&gt;停止播放(pause)&lt;/div&gt;&lt;/p&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;../script/api.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;../script/aui-range.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p><strong>&lt;script type=&#8221;text/javascript&#8221; src=&#8221;../script/jquery.min.js&#8221; &gt;&lt;/script&gt;</strong>
+</p>
+<p><strong>&lt;script type=&#8221;text/javascript&#8221; src=&#8221;../script/jquery.rotate.min.js&#8221; &gt;&lt;/script&gt;</strong>
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+      apiready = function(){
+</p>
+<p>
+          api.parseTapmode();
+</p>
+<p><strong>        //默认打开旋转</strong>
+</p>
+<p><strong>        startMusic();</strong>
+</p>
+<p>
+      }
+</p>
+<p>
+      //进度条拖拽
+</p>
+<p>
+      var range = new auiRange({
+</p>
+<p>
+          element:document.getElementById(&#8220;range&#8221;)
+</p>
+<p>
+      },function(ret){
+</p>
+<p>
+      })
+</p>
+<p>
+      //关闭当前窗口，返回动态列表页
+</p>
+<p>
+      function closeWin() {
+</p>
+<p>
+          api.closeFrame({
+</p>
+<p>
+              name: &#8216;frame_music&#8217;
+</p>
+<p>
+          });
+</p>
+<p>
+      }
+</p>
+<p>
+      <strong>/*光盘旋转*/</strong>
+</p>
+<p><strong>    var angle = 0;</strong>
+</p>
+<p><strong>    var timer;</strong>
+</p>
+<p><strong>    function startMusic() {</strong>
+</p>
+<p><strong>        //清除已存在的定时器</strong>
+</p>
+<p><strong>        clearInterval(timer);</strong>
+</p>
+<p><strong>        timer = setInterval(function(){</strong>
+</p>
+<p><strong>            angle+=3;</strong>
+</p>
+<p><strong>            $(&#8220;#music img&#8221;).rotate(angle);</strong>
+</p>
+<p><strong>        },50);</strong>
+</p>
+<p><strong>    }</strong>
+</p>
+<p><strong>    //清除旋转</strong>
+</p>
+<p><strong>    function stopMusic() {</strong>
+</p>
+<p><strong>        clearInterval(timer);</strong>
+</p>
+<p><strong>    }</strong>
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h2>音乐播放功能</h2>
+<h3>1）添加模块</h3>
+<p><img loading="lazy" decoding="async" width="1293" height="454" src="/wp-content/uploads/2018/05/word-image-4933.png" class="wp-image-5448" srcset="/wp-content/uploads/2018/05/word-image-4933.png 1293w, /wp-content/uploads/2018/05/word-image-4933-300x105.png 300w, /wp-content/uploads/2018/05/word-image-4933-768x270.png 768w, /wp-content/uploads/2018/05/word-image-4933-1024x360.png 1024w" sizes="(max-width: 1293px) 100vw, 1293px" /><br />
+<img loading="lazy" decoding="async" width="1234" height="382" src="/wp-content/uploads/2018/05/word-image-4934.png" class="wp-image-5449" srcset="/wp-content/uploads/2018/05/word-image-4934.png 1234w, /wp-content/uploads/2018/05/word-image-4934-300x93.png 300w, /wp-content/uploads/2018/05/word-image-4934-768x238.png 768w, /wp-content/uploads/2018/05/word-image-4934-1024x317.png 1024w" sizes="(max-width: 1234px) 100vw, 1234px" /><br />
+<img loading="lazy" decoding="async" width="1277" height="451" src="/wp-content/uploads/2018/05/word-image-4935.png" class="wp-image-5450" srcset="/wp-content/uploads/2018/05/word-image-4935.png 1277w, /wp-content/uploads/2018/05/word-image-4935-300x106.png 300w, /wp-content/uploads/2018/05/word-image-4935-768x271.png 768w, /wp-content/uploads/2018/05/word-image-4935-1024x362.png 1024w" sizes="(max-width: 1277px) 100vw, 1277px" /><br />
+<img loading="lazy" decoding="async" width="1311" height="544" src="/wp-content/uploads/2018/05/word-image-4936.png" class="wp-image-5451" srcset="/wp-content/uploads/2018/05/word-image-4936.png 1311w, /wp-content/uploads/2018/05/word-image-4936-300x124.png 300w, /wp-content/uploads/2018/05/word-image-4936-768x319.png 768w, /wp-content/uploads/2018/05/word-image-4936-1024x425.png 1024w" sizes="(max-width: 1311px) 100vw, 1311px" /></p>
+<h3>让本地支持模块调试</h3>
+<p><img loading="lazy" decoding="async" width="1087" height="697" src="/wp-content/uploads/2018/05/word-image-4937.png" class="wp-image-5452" srcset="/wp-content/uploads/2018/05/word-image-4937.png 1087w, /wp-content/uploads/2018/05/word-image-4937-300x192.png 300w, /wp-content/uploads/2018/05/word-image-4937-768x492.png 768w, /wp-content/uploads/2018/05/word-image-4937-1024x657.png 1024w" sizes="(max-width: 1087px) 100vw, 1087px" /><br />
+<img loading="lazy" decoding="async" width="1048" height="400" src="/wp-content/uploads/2018/05/word-image-4938.png" class="wp-image-5453" srcset="/wp-content/uploads/2018/05/word-image-4938.png 1048w, /wp-content/uploads/2018/05/word-image-4938-300x115.png 300w, /wp-content/uploads/2018/05/word-image-4938-768x293.png 768w, /wp-content/uploads/2018/05/word-image-4938-1024x391.png 1024w" sizes="(max-width: 1048px) 100vw, 1048px" /></p>
+<h2>3、查看netAudio手册，让音乐响起来（播放/停止按钮）</h2>
+<h3>1）播放</h3>
+<ul>
+<li>
+    接口
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="874" height="514" src="/wp-content/uploads/2018/05/word-image-4939.png" class="wp-image-5454" srcset="/wp-content/uploads/2018/05/word-image-4939.png 874w, /wp-content/uploads/2018/05/word-image-4939-300x176.png 300w, /wp-content/uploads/2018/05/word-image-4939-768x452.png 768w" sizes="(max-width: 874px) 100vw, 874px" /><br />
+<img loading="lazy" decoding="async" width="731" height="545" src="/wp-content/uploads/2018/05/word-image-4940.png" class="wp-image-5455" srcset="/wp-content/uploads/2018/05/word-image-4940.png 731w, /wp-content/uploads/2018/05/word-image-4940-300x224.png 300w" sizes="(max-width: 731px) 100vw, 731px" /><br />
+<img loading="lazy" decoding="async" width="1115" height="473" src="/wp-content/uploads/2018/05/word-image-4941.png" class="wp-image-5456" srcset="/wp-content/uploads/2018/05/word-image-4941.png 1115w, /wp-content/uploads/2018/05/word-image-4941-300x127.png 300w, /wp-content/uploads/2018/05/word-image-4941-768x326.png 768w, /wp-content/uploads/2018/05/word-image-4941-1024x434.png 1024w" sizes="(max-width: 1115px) 100vw, 1115px" /><br />
+<img loading="lazy" decoding="async" width="803" height="328" src="/wp-content/uploads/2018/05/word-image-4942.png" class="wp-image-5457" srcset="/wp-content/uploads/2018/05/word-image-4942.png 803w, /wp-content/uploads/2018/05/word-image-4942-300x123.png 300w, /wp-content/uploads/2018/05/word-image-4942-768x314.png 768w" sizes="(max-width: 803px) 100vw, 803px" /></p>
+<h3>2）停止</h3>
+<ul>
+<li>
+    接口
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="962" height="374" src="/wp-content/uploads/2018/05/word-image-4943.png" class="wp-image-5458" srcset="/wp-content/uploads/2018/05/word-image-4943.png 962w, /wp-content/uploads/2018/05/word-image-4943-300x117.png 300w, /wp-content/uploads/2018/05/word-image-4943-768x299.png 768w" sizes="(max-width: 962px) 100vw, 962px" /><br />
+<img loading="lazy" decoding="async" width="362" height="246" src="/wp-content/uploads/2018/05/word-image-4944.png" class="wp-image-5459" srcset="/wp-content/uploads/2018/05/word-image-4944.png 362w, /wp-content/uploads/2018/05/word-image-4944-300x204.png 300w, /wp-content/uploads/2018/05/word-image-4944-220x150.png 220w" sizes="(max-width: 362px) 100vw, 362px" /></p>
+<h3>完整代码</h3>
+<p>
+  action.html
+</p>
+<p><img loading="lazy" decoding="async" width="1202" height="595" src="/wp-content/uploads/2018/05/word-image-4945.png" class="wp-image-5460" srcset="/wp-content/uploads/2018/05/word-image-4945.png 1202w, /wp-content/uploads/2018/05/word-image-4945-300x149.png 300w, /wp-content/uploads/2018/05/word-image-4945-768x380.png 768w, /wp-content/uploads/2018/05/word-image-4945-1024x507.png 1024w" sizes="(max-width: 1202px) 100vw, 1202px" /><br />
+<img loading="lazy" decoding="async" width="646" height="520" src="/wp-content/uploads/2018/05/word-image-4946.png" class="wp-image-5461" srcset="/wp-content/uploads/2018/05/word-image-4946.png 646w, /wp-content/uploads/2018/05/word-image-4946-300x241.png 300w" sizes="(max-width: 646px) 100vw, 646px" /></p>
+<p>
+  music.html
+</p>
+<p>
+  &lt;!doctype html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+      &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;viewport&#8221; content=&#8221;maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width&#8221;/&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;format-detection&#8221; content=&#8221;telephone=no,email=no,date=no,address=no&#8221;&gt;
+</p>
+<p>
+      &lt;title&gt;甜椒广场舞&lt;/title&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;../css/api.css&#8221; /&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;../css/aui.css&#8221; /&gt;
+</p>
+<p>
+      &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+      .aui-bar-dark {background-color:#E65A65;}
+</p>
+<p>
+      #music {padding:50px 0; text-align:center;}
+</p>
+<p>
+      #music img {margin: auto; border-radius:100px; width:200px; height:200px;}
+</p>
+<p>
+      #title {text-align:center; margin: 10px 0px;}
+</p>
+<p>
+      .aui-range { width: 100%;}
+</p>
+<p>
+      /*.aui-range input[type=&#8217;range&#8217;] { background-color: #E65A65; }*/
+</p>
+<p>
+      .aui-range input[type=&#8217;range&#8217;]::-webkit-slider-thumb { background-color: #E65A65; }
+</p>
+<p>
+      &lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+      &lt;header id=&#8221;aui-header&#8221; class=&#8221;aui-bar aui-bar-nav aui-bar-dark&#8221;&gt;
+</p>
+<p>
+          &lt;a class=&#8221;aui-pull-left aui-btn&#8221; onclick=&#8221;closeWin()&#8221;&gt;
+</p>
+<p>
+              &lt;span class=&#8221;aui-iconfont aui-icon-left&#8221;&gt;&lt;/span&gt;
+</p>
+<p>
+          &lt;/a&gt;
+</p>
+<p>
+          &lt;div class=&#8221;aui-title&#8221;&gt;甜椒广场舞&lt;/div&gt;
+</p>
+<p>
+      &lt;/header&gt;
+</p>
+<p>
+      &lt;div id=&#8217;music&#8217;&gt;
+</p>
+<p>
+          &lt;img src=&#8217;../image/music.png&#8217; /&gt;
+</p>
+<p>
+      &lt;/div&gt;
+</p>
+<p>
+      &lt;h5 id=&#8217;title&#8217;&gt;买买买 &#8211; By2&lt;/h5&gt;
+</p>
+<p>
+      &lt;br /&gt;
+</p>
+<p>
+      &lt;div class=&#8221;aui-list-item-input&#8221;&gt;
+</p>
+<p>
+          &lt;div class=&#8221;aui-range&#8221;&gt;
+</p>
+<p>
+              &lt;input type=&#8221;range&#8221; class=&#8221;aui-range&#8221; value=&#8221;0&#8243; max=&#8221;100&#8243; min=&#8221;1&#8243; step=&#8221;1&#8243; id=&#8221;range&#8221;&gt;
+</p>
+<p>
+              &lt;div class=&#8221;aui-range-tip aui-hide&#8221;&gt;0&lt;/div&gt;
+</p>
+<p>
+          &lt;/div&gt;
+</p>
+<p>
+      &lt;/div&gt;
+</p>
+<p>
+      &lt;br /&gt;
+</p>
+<p>
+      &lt;p&gt;&lt;div class=&#8221;aui-btn aui-btn-danger aui-btn-block&#8221; <strong>onclick=&#8221;startMusic()&#8221;</strong>&gt;播放音乐(start)&lt;/div&gt;&lt;/p&gt;
+</p>
+<p>
+      &lt;br /&gt;
+</p>
+<p>
+      &lt;p&gt;&lt;div class=&#8221;aui-btn aui-btn-danger aui-btn-block&#8221; <strong>onclick=&#8221;stopMusic();&#8221;</strong>&gt;停止播放(pause)&lt;/div&gt;&lt;/p&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;../script/api.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;../script/aui-range.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;../script/jquery.min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;../script/jquery.rotate.min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+      apiready = function(){
+</p>
+<p>
+          api.parseTapmode();
+</p>
+<p>
+          //默认打开旋转+播放
+</p>
+<p>
+          startMusic();
+</p>
+<p>
+      }
+</p>
+<p>
+      //进度条拖拽
+</p>
+<p>
+      var range = new auiRange({
+</p>
+<p>
+          element:document.getElementById(&#8220;range&#8221;)
+</p>
+<p>
+      },function(ret){
+</p>
+<p>
+      })
+</p>
+<p>
+      //关闭当前窗口，返回动态列表页
+</p>
+<p>
+      function closeWin() {
+</p>
+<p>
+          api.closeFrame({
+</p>
+<p>
+              name: &#8216;frame_music&#8217;
+</p>
+<p>
+          });
+</p>
+<p>
+      }
+</p>
+<p>
+      /*光盘旋转*/
+</p>
+<p>
+      var angle = 0;
+</p>
+<p>
+      var timer;
+</p>
+<p>
+      function startMusic() {
+</p>
+<p>
+          //清除已存在的定时器
+</p>
+<p>
+          clearInterval(timer);
+</p>
+<p>
+          timer = setInterval(function(){
+</p>
+<p>
+              angle+=3;
+</p>
+<p>
+              $(&#8220;#music img&#8221;).rotate(angle);
+</p>
+<p>
+          },50);
+</p>
+<p>
+          <strong>//播放</strong>
+</p>
+<p><strong>        var netAudio = api.require(&#8216;netAudio&#8217;);</strong>
+</p>
+<p><strong>        netAudio.play({</strong>
+</p>
+<p><strong>            // path: &#8216;http://7xisq1.com1.z0.glb.clouddn.com/apicloud/0d0b81b8bd5ab81bda9ca54267eb9b98.mp3&#8217;</strong>
+</p>
+<p><strong>            path: api.pageParam.musicUrl</strong>
+</p>
+<p><strong>        }, function(ret, err) {</strong>
+</p>
+<p><strong>            if (ret) {</strong>
+</p>
+<p><strong>                //alert(JSON.stringify(ret));</strong>
+</p>
+<p><strong>                //当前已经播放 ret.current  </strong>
+</p>
+<p><strong>                //总时间       ret.duraion   单位：秒</strong>
+</p>
+<p><strong>                // alert(ret.current / ret.duration * 100);</strong>
+</p>
+<p><strong>                $(&#8216;.aui-range input&#8217;).val(ret.current / ret.duration * 100);</strong>
+</p>
+<p><strong>            } else {</strong>
+</p>
+<p><strong>                alert(JSON.stringify(err));</strong>
+</p>
+<p><strong>            }</strong>
+</p>
+<p><strong>        });</strong>
+</p>
+<p>
+      }
+</p>
+<p>
+      //清除旋转
+</p>
+<p>
+      function stopMusic() {
+</p>
+<p>
+          //暂停旋转
+</p>
+<p>
+          clearInterval(timer);
+</p>
+<p><strong>        //暂停播放</strong>
+</p>
+<p><strong>        var netAudio = api.require(&#8216;netAudio&#8217;);</strong>
+</p>
+<p><strong>        netAudio.pause();</strong>
+</p>
+<p>
+      }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h2>4、拖动播放进度（拖动滑块到某一个位置时，让歌曲也在相应的位置播放）</h2>
+<p><img loading="lazy" decoding="async" width="749" height="355" src="/wp-content/uploads/2018/05/word-image-4947.png" class="wp-image-5462" srcset="/wp-content/uploads/2018/05/word-image-4947.png 749w, /wp-content/uploads/2018/05/word-image-4947-300x142.png 300w" sizes="(max-width: 749px) 100vw, 749px" /><br />
+<img loading="lazy" decoding="async" width="456" height="512" src="/wp-content/uploads/2018/05/word-image-4948.png" class="wp-image-5463" srcset="/wp-content/uploads/2018/05/word-image-4948.png 456w, /wp-content/uploads/2018/05/word-image-4948-267x300.png 267w" sizes="(max-width: 456px) 100vw, 456px" /><br />
+<img loading="lazy" decoding="async" width="888" height="430" src="/wp-content/uploads/2018/05/word-image-4949.png" class="wp-image-5464" srcset="/wp-content/uploads/2018/05/word-image-4949.png 888w, /wp-content/uploads/2018/05/word-image-4949-300x145.png 300w, /wp-content/uploads/2018/05/word-image-4949-768x372.png 768w" sizes="(max-width: 888px) 100vw, 888px" /></p>
+<p>
+  //检测是否拖动，说明：只要是表单标签设置值，统一用jq的val方法
+</p>
+<p>
+  //点击用onclick
+</p>
+<p>
+  //点击之后让用户选择用：onchange
+</p>
+<p>
+  $(&#8216;.aui-range input&#8217;).change(function(){
+</p>
+<p>
+      //获取拖拽的进度
+</p>
+<p>
+      var bofangjindu = $(&#8216;.aui-range-tip&#8217;).html();
+</p>
+<p>
+      //设置播放进去
+</p>
+<p>
+      var netAudio = api.require(&#8216;netAudio&#8217;);
+</p>
+<p>
+      netAudio.setProgress({
+</p>
+<p>
+          progress: bofangjindu
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<h1><a id="post-5431-_Toc467340744"></a>五、Vuejs框架</h1>
+<h2>1、什么是vue</h2>
+<p>
+  vue是用js写的一个web框架，它提供数据和视图的绑定。修改数据，视图自动更新。
+</p>
+<h2>2、vue.js的下载</h2>
+<p>
+  下载地址：<a href="https://v1.vuejs.org/guide/installation.html">https://v1.vuejs.org/guide/installation.html</a>
+</p>
+<h2>vue.js初体验</h2>
+<h3>1）渲染数据</h3>
+<p>
+  &lt;!DOCTYPE html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  	&lt;title&gt;测试&lt;/title&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  	&lt;div id=&#8221;app&#8221;&gt;
+</p>
+<p>
+  		{{ message }}
+</p>
+<p>
+  		{{ data1 }}
+</p>
+<p>
+  		{{ abc }}
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;script type=&#8221;text/javascript&#8221; src=&#8221;./vue.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  	&lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  		new Vue({
+</p>
+<p>
+  			el: &#8216;#app&#8217;, //那个元素对象
+</p>
+<p>
+  			data: {
+</p>
+<p>
+  				message: &#8216;今天喜洋洋&#8217;,
+</p>
+<p>
+  				data1: &#8216;今天喜洋洋2&#8217;,
+</p>
+<p>
+  				abc: &#8216;打发斯蒂芬&#8217;,
+</p>
+<p>
+  			}
+</p>
+<p>
+  		});
+</p>
+<p>
+  	&lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h3>2）双向绑定</h3>
+<p>
+  &lt;!DOCTYPE html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  	&lt;title&gt;测试&lt;/title&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  	&lt;div id=&#8221;app&#8221;&gt;
+</p>
+<p>
+  		{{ message }}
+</p>
+<p>
+  		{{ data1 }}
+</p>
+<p>
+  		{{ abc }}
+</p>
+<p>
+  		&lt;input type=&#8221;text&#8221; name=&#8221;&#8221; v-model=&#8221;message&#8221;&gt;
+</p>
+<p>
+  		&lt;input type=&#8221;text&#8221; name=&#8221;&#8221; v-model=&#8221;data1&#8243;&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;script type=&#8221;text/javascript&#8221; src=&#8221;./vue.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  	&lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  		new Vue({
+</p>
+<p>
+  			el: &#8216;#app&#8217;, //那个元素对象
+</p>
+<p>
+  			data: {
+</p>
+<p>
+  				message: &#8216;今天喜洋洋&#8217;,
+</p>
+<p>
+  				data1: &#8216;今天喜洋洋2&#8217;,
+</p>
+<p>
+  				abc: &#8216;打发斯蒂芬&#8217;,
+</p>
+<p>
+  			}
+</p>
+<p>
+  		});
+</p>
+<p>
+  	&lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h3>3）渲染列表</h3>
+<p>
+  &lt;!DOCTYPE html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  	&lt;title&gt;测试&lt;/title&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  	&lt;div id=&#8221;app&#8221;&gt;
+</p>
+<p>
+  		&lt;ul&gt;
+</p>
+<p>
+  			&lt;li v-for=&#8221;music in musicList&#8221;&gt;{{ music.name }}&lt;/li&gt;
+</p>
+<p>
+  		&lt;/ul&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;script type=&#8221;text/javascript&#8221; src=&#8221;./vue.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  	&lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  		new Vue({
+</p>
+<p>
+  			el: &#8216;#app&#8217;,
+</p>
+<p>
+  			data: {
+</p>
+<p>
+  				musicList: [
+</p>
+<p>
+  					{&#8216;name&#8217;:&#8217;哈1&#8242;, &#8216;author&#8217;: &#8216;成大1&#8217;},
+</p>
+<p>
+  					{&#8216;name&#8217;:&#8217;哈11&#8242;, &#8216;author&#8217;: &#8216;成大2&#8217;},
+</p>
+<p>
+  					{&#8216;name&#8217;:&#8217;哈111&#8242;, &#8216;author&#8217;: &#8216;成大3&#8217;},
+</p>
+<p>
+  					{&#8216;name&#8217;:&#8217;哈1111&#8242;, &#8216;author&#8217;: &#8216;成大4&#8217;}
+</p>
+<p>
+  				]
+</p>
+<p>
+  			}
+</p>
+<p>
+  		});
+</p>
+<p>
+  	&lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h2>4、使用Vuejs遍历音乐替换JQ</h2>
+<p>
+  步骤1：action.html引入vue
+</p>
+<p><img loading="lazy" decoding="async" width="448" height="526" src="/wp-content/uploads/2018/05/word-image-4950.png" class="wp-image-5465" srcset="/wp-content/uploads/2018/05/word-image-4950.png 448w, /wp-content/uploads/2018/05/word-image-4950-256x300.png 256w" sizes="(max-width: 448px) 100vw, 448px" /><br />
+<img loading="lazy" decoding="async" width="938" height="478" src="/wp-content/uploads/2018/05/word-image-4951.png" class="wp-image-5466" srcset="/wp-content/uploads/2018/05/word-image-4951.png 938w, /wp-content/uploads/2018/05/word-image-4951-300x153.png 300w, /wp-content/uploads/2018/05/word-image-4951-768x391.png 768w" sizes="(max-width: 938px) 100vw, 938px" /></p>
+<p>
+  步骤2：在页面new Vue显示数据
+</p>
+<h1>︴扩展：视频播放</h1>
+<p>
+   步骤1：安装模块，然后自定义loader
+</p>
+<p><img loading="lazy" decoding="async" width="1259" height="406" src="/wp-content/uploads/2018/05/word-image-4952.png" class="wp-image-5467" srcset="/wp-content/uploads/2018/05/word-image-4952.png 1259w, /wp-content/uploads/2018/05/word-image-4952-300x97.png 300w, /wp-content/uploads/2018/05/word-image-4952-768x248.png 768w, /wp-content/uploads/2018/05/word-image-4952-1024x330.png 1024w" sizes="(max-width: 1259px) 100vw, 1259px" /></p>
+<p>
+  步骤2：查看手册，调用播放器
+</p>
+<p>
+  var moviePlayer = api.require(&#8216;moviePlayer&#8217;);
+</p>
+<p>
+  moviePlayer.open({
+</p>
+<p>
+            rect:{
+</p>
+<p>
+            x: 0,
+</p>
+<p>
+            y: 0,
+</p>
+<p>
+            w:api.frameWidth,
+</p>
+<p>
+            h:300
+</p>
+<p>
+            },
+</p>
+<p>
+            styles:{
+</p>
+<p>
+            head:{
+</p>
+<p>
+            bg: &#8216;rgba(161,161,161,0.5)&#8217;,
+</p>
+<p>
+            height: 44,
+</p>
+<p>
+            y:20,
+</p>
+<p>
+            title:{
+</p>
+<p>
+            size:20,
+</p>
+<p>
+            color:&#8217;#fff&#8217;,
+</p>
+<p>
+            width:40,
+</p>
+<p>
+            leftMargin:10
+</p>
+<p>
+            },
+</p>
+<p>
+            backSize: 30,
+</p>
+<p>
+            backImg:&#8217;widget://image/back.png&#8217;,
+</p>
+<p>
+            customButtons:[{
+</p>
+<p>
+            w:30,
+</p>
+<p>
+            h:30,
+</p>
+<p>
+            rightMagin:10,
+</p>
+<p>
+            img:&#8217;widget://image/image/collect.png&#8217;,
+</p>
+<p>
+            imgSelected:&#8217;fs://image/collectSelected.png&#8217;,
+</p>
+<p>
+            }]},
+</p>
+<p>
+            foot:{
+</p>
+<p>
+            bg: &#8216;rgba(0,0,0,0.5)&#8217;,
+</p>
+<p>
+            height: 44,
+</p>
+<p>
+            palyBtn:{
+</p>
+<p>
+            size: 20,
+</p>
+<p>
+            playImg:&#8217;widget://image/play.png&#8217;,
+</p>
+<p>
+            pauseImg:&#8217;widget://image/pause.png&#8217;,
+</p>
+<p>
+            marginLeft:5
+</p>
+<p>
+            },
+</p>
+<p>
+            currentTimeLabel:{
+</p>
+<p>
+            textSize:14,
+</p>
+<p>
+            textColor:&#8221;#FFF&#8221;,
+</p>
+<p>
+            textWidth: 43,
+</p>
+<p>
+            marginLeft:5
+</p>
+<p>
+            },
+</p>
+<p>
+            seekBar:{
+</p>
+<p>
+            sliderImg:&#8217;widget://image/circle.png&#8217;,
+</p>
+<p>
+            sliderW : 20,
+</p>
+<p>
+            sliderH : 20,
+</p>
+<p>
+            progressColor: &#8216;#696969&#8217;,
+</p>
+<p>
+            progressSelected: &#8216;#76EE00&#8217;,
+</p>
+<p>
+            marginLeft:10,
+</p>
+<p>
+            marginRight:10
+</p>
+<p>
+            },
+</p>
+<p>
+            totalTimeLabel:{
+</p>
+<p>
+            textSize:14,
+</p>
+<p>
+            textColor:&#8221;#FFF&#8221;,
+</p>
+<p>
+            textWidth: 43,
+</p>
+<p>
+            marginRight:5
+</p>
+<p>
+            },
+</p>
+<p>
+            fullscreenBtn:{
+</p>
+<p>
+            size:20,
+</p>
+<p>
+            verticalImg:&#8217;widget://image/vertical.png&#8217;,
+</p>
+<p>
+            horizontalImg:&#8217;widget://image/horizontal.png&#8217;,
+</p>
+<p>
+            }
+</p>
+<p>
+            } },
+</p>
+<p>
+             path:&#8217;http://baobab.wdjcdn.com/1455782903700jy.mp4&#8242;,
+</p>
+<p>
+             autoPlay: true
+</p>
+<p>
+              },function(ret, err){
+</p>
+<p>
+                  if(ret){
+</p>
+<p>
+                      // alert(JSON.stringify(ret));
+</p>
+<p>
+                  // } else {
+</p>
+<p>
+                      // alert(JSON.stringify(err));
+</p>
+<p>
+                  }
+</p>
+<p>
+  });</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/5431.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		<enclosure url="http://7xisq1.com1.z0.glb.clouddn.com/apicloud/0d0b81b8bd5ab81bda9ca54267eb9b98.mp3" length="2031926" type="audio/mpeg" />
+
+			</item>
+	</channel>
+</rss>

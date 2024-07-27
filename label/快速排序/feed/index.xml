@@ -1,0 +1,935 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>快速排序 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 12:17:23 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>快速排序 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>PHP 语法（五）http 错误编号、 冒泡排序、 多字节处理、 快速排序、 数组指针、 算法、 选择排序、 错误处理</title>
+		<link>/php/889.html</link>
+					<comments>/php/889.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 16:44:25 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP基本语法]]></category>
+		<category><![CDATA[http 错误编号]]></category>
+		<category><![CDATA[冒泡排序]]></category>
+		<category><![CDATA[多字节处理]]></category>
+		<category><![CDATA[快速排序]]></category>
+		<category><![CDATA[数组指针]]></category>
+		<category><![CDATA[算法]]></category>
+		<category><![CDATA[选择排序]]></category>
+		<category><![CDATA[错误处理]]></category>
+		<guid isPermaLink="false">/?p=889</guid>
+
+					<description><![CDATA[PHP语法（五） 作业 猴子吃桃子，第一天吃了一半又多吃一个，第二天一样，到第十天就剩下一个桃子，请问原来有几 [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h1>PHP语法（五）</h1>
+<h2>作业</h2>
+<ol>
+<li>
+  猴子吃桃子，第一天吃了一半又多吃一个，第二天一样，到第十天就剩下一个桃子，请问原来有几个桃子？
+</li>
+</ol>
+<p>
+  分析：
+</p>
+<p>
+  用n表示第n天
+</p>
+<p>
+  f(n)/2-1=f(n+1)
+</p>
+<p>
+  f(n)=(f(n+1)+1)*2
+</p>
+<p>
+  代码
+</p>
+<p><img fetchpriority="high" decoding="async" width="642" height="129" src="/wp-content/uploads/2018/05/word-image-786.png" class="wp-image-891" srcset="/wp-content/uploads/2018/05/word-image-786.png 642w, /wp-content/uploads/2018/05/word-image-786-300x60.png 300w" sizes="(max-width: 642px) 100vw, 642px" /></p>
+<ol>
+<li>
+  用递归实在二分法
+</li>
+</ol>
+<p><img decoding="async" width="804" height="489" src="/wp-content/uploads/2018/05/word-image-787.png" class="wp-image-892" srcset="/wp-content/uploads/2018/05/word-image-787.png 804w, /wp-content/uploads/2018/05/word-image-787-300x182.png 300w, /wp-content/uploads/2018/05/word-image-787-768x467.png 768w" sizes="(max-width: 804px) 100vw, 804px" /></p>
+<h2>错误处理</h2>
+<h3>错误分类</h3>
+<ol>
+<li>
+  语法错误
+</li>
+<li>
+  运行时错误
+</li>
+<li>
+  逻辑错误
+</li>
+</ol>
+<p><img decoding="async" width="939" height="42" src="/wp-content/uploads/2018/05/word-image-788.png" class="wp-image-893" srcset="/wp-content/uploads/2018/05/word-image-788.png 939w, /wp-content/uploads/2018/05/word-image-788-300x13.png 300w, /wp-content/uploads/2018/05/word-image-788-768x34.png 768w" sizes="(max-width: 939px) 100vw, 939px" /><br />
+<img loading="lazy" decoding="async" width="869" height="90" src="/wp-content/uploads/2018/05/word-image-789.png" class="wp-image-894" srcset="/wp-content/uploads/2018/05/word-image-789.png 869w, /wp-content/uploads/2018/05/word-image-789-300x31.png 300w, /wp-content/uploads/2018/05/word-image-789-768x80.png 768w" sizes="(max-width: 869px) 100vw, 869px" /><br />
+<img loading="lazy" decoding="async" width="645" height="91" src="/wp-content/uploads/2018/05/word-image-790.png" class="wp-image-895" srcset="/wp-content/uploads/2018/05/word-image-790.png 645w, /wp-content/uploads/2018/05/word-image-790-300x42.png 300w" sizes="(max-width: 645px) 100vw, 645px" /></p>
+<p>
+  总结：语法错误是最容易发现的错误，逻辑错误是最难发现的错误。
+</p>
+<h3>错误级别</h3>
+<p>
+  按照错误的严重程度，将错误划分为如下3种：
+</p>
+<ol>
+<li>
+  notice：提示
+</li>
+<li>
+  warning：警告
+</li>
+<li>
+  error：错误
+</li>
+</ol>
+<p>
+  notice和warning错误后代码继续执行，error错误后代码终止执行。
+</p>
+<h3>错误的触发</h3>
+<p>
+  方式一：PHP程序触发
+</p>
+<p>
+  方式二：用户自己触发（trigger_error()）
+</p>
+<p>
+  例题：如果年龄不在20~30之间就报错
+</p>
+<p><img loading="lazy" decoding="async" width="1111" height="135" src="/wp-content/uploads/2018/05/word-image-791.png" class="wp-image-896" srcset="/wp-content/uploads/2018/05/word-image-791.png 1111w, /wp-content/uploads/2018/05/word-image-791-300x36.png 300w, /wp-content/uploads/2018/05/word-image-791-768x93.png 768w, /wp-content/uploads/2018/05/word-image-791-1024x124.png 1024w" sizes="(max-width: 1111px) 100vw, 1111px" /></p>
+<p>
+  用户触发错误级别（参照php.ini文件）
+</p>
+<p><img loading="lazy" decoding="async" width="848" height="89" src="/wp-content/uploads/2018/05/word-image-792.png" class="wp-image-897" srcset="/wp-content/uploads/2018/05/word-image-792.png 848w, /wp-content/uploads/2018/05/word-image-792-300x31.png 300w, /wp-content/uploads/2018/05/word-image-792-768x81.png 768w" sizes="(max-width: 848px) 100vw, 848px" /></p>
+<p>
+  多学一招：错误的级别是PHP预定义常量。每一位的1表示一种错误类型。
+</p>
+<p><img loading="lazy" decoding="async" width="551" height="47" src="/wp-content/uploads/2018/05/word-image-793.png" class="wp-image-898" srcset="/wp-content/uploads/2018/05/word-image-793.png 551w, /wp-content/uploads/2018/05/word-image-793-300x26.png 300w" sizes="(max-width: 551px) 100vw, 551px" /></p>
+<h3>错误的处理方式</h3>
+<ol>
+<li>
+  显示错误报告（默认）
+</li>
+<li>
+  将错误记录在日志中
+</li>
+<li>
+  交给用户自定义脚本进行错误处理
+</li>
+</ol>
+<h3>错误处理方式的设置</h3>
+<ol>
+<li>
+  报错错误级别
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="690" height="33" src="/wp-content/uploads/2018/05/word-image-794.png" class="wp-image-899" srcset="/wp-content/uploads/2018/05/word-image-794.png 690w, /wp-content/uploads/2018/05/word-image-794-300x14.png 300w" sizes="(max-width: 690px) 100vw, 690px" /><br />
+<img loading="lazy" decoding="async" width="1086" height="136" src="/wp-content/uploads/2018/05/word-image-795.png" class="wp-image-900" srcset="/wp-content/uploads/2018/05/word-image-795.png 1086w, /wp-content/uploads/2018/05/word-image-795-300x38.png 300w, /wp-content/uploads/2018/05/word-image-795-768x96.png 768w, /wp-content/uploads/2018/05/word-image-795-1024x128.png 1024w" sizes="(max-width: 1086px) 100vw, 1086px" /></p>
+<ol>
+<li>
+  浏览器上显示（关闭）错误报告
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="719" height="29" src="/wp-content/uploads/2018/05/word-image-796.png" class="wp-image-901" srcset="/wp-content/uploads/2018/05/word-image-796.png 719w, /wp-content/uploads/2018/05/word-image-796-300x12.png 300w" sizes="(max-width: 719px) 100vw, 719px" /><br />
+<img loading="lazy" decoding="async" width="669" height="50" src="/wp-content/uploads/2018/05/word-image-797.png" class="wp-image-902" srcset="/wp-content/uploads/2018/05/word-image-797.png 669w, /wp-content/uploads/2018/05/word-image-797-300x22.png 300w" sizes="(max-width: 669px) 100vw, 669px" /></p>
+<ol>
+<li>
+  在日志中记录错误
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="689" height="48" src="/wp-content/uploads/2018/05/word-image-798.png" class="wp-image-903" srcset="/wp-content/uploads/2018/05/word-image-798.png 689w, /wp-content/uploads/2018/05/word-image-798-300x21.png 300w" sizes="(max-width: 689px) 100vw, 689px" /></p>
+<p><strong>应用：</strong>开发的时候错误显示在浏览器，日志不记录，项目运行的时候错误不显示在浏览器上，错误记录在日志中。
+</p>
+<p><img loading="lazy" decoding="async" width="860" height="287" src="/wp-content/uploads/2018/05/word-image-799.png" class="wp-image-904" srcset="/wp-content/uploads/2018/05/word-image-799.png 860w, /wp-content/uploads/2018/05/word-image-799-300x100.png 300w, /wp-content/uploads/2018/05/word-image-799-768x256.png 768w" sizes="(max-width: 860px) 100vw, 860px" /></p>
+<ol>
+<li>
+  自定义脚本处理错误
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="714" height="113" src="/wp-content/uploads/2018/05/word-image-800.png" class="wp-image-905" srcset="/wp-content/uploads/2018/05/word-image-800.png 714w, /wp-content/uploads/2018/05/word-image-800-300x47.png 300w" sizes="(max-width: 714px) 100vw, 714px" /></p>
+<p>
+  应用：
+</p>
+<p>
+  /**
+</p>
+<p>
+  *@param $level 错误的类别
+</p>
+<p>
+  *@param $msg 错误的信息
+</p>
+<p>
+  *@param $file 错误的文件
+</p>
+<p>
+  *@param $line 错误的行号
+</p>
+<p>
+  */
+</p>
+<p>
+  function error($level,$msg,$file,$line) {
+</p>
+<p>
+  	switch($level) {
+</p>
+<p>
+  		case E_NOTICE:
+</p>
+<p>
+  		case E_USER_NOTICE:
+</p>
+<p>
+  			echo &#8216;屏蔽此错误&lt;br&gt;&#8217;;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		case E_WARNING:
+</p>
+<p>
+  		case E_USER_WARNING:
+</p>
+<p>
+  			echo &#8216;将错误记录在日志中&lt;br&gt;&#8217;;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		case E_ERROR:
+</p>
+<p>
+  		case E_USER_ERROR:
+</p>
+<p>
+  			echo &#8216;发邮件&lt;br&gt;&#8217;;
+</p>
+<p>
+  			break;
+</p>
+</p>
+<p>
+  	}
+</p>
+</p>
+<p>
+  	echo &#8216;错误信息：&#8217;.$msg,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  	echo &#8216;错误文件：&#8217;.$file,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  	echo &#8216;错误行号：&#8217;.$line,'&lt;hr&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  set_error_handler(&#8216;error&#8217;);	//注册错误处理函数
+</p>
+<p>
+  trigger_error(&#8216;自己触发的错误&#8217;);
+</p>
+<p>
+  trigger_error(&#8216;警告&#8217;,E_USER_WARNING);
+</p>
+<p>
+  trigger_error(&#8216;错误&#8217;,E_USER_ERROR);
+</p>
+<p><img loading="lazy" decoding="async" width="446" height="267" src="/wp-content/uploads/2018/05/word-image-801.png" class="wp-image-906" srcset="/wp-content/uploads/2018/05/word-image-801.png 446w, /wp-content/uploads/2018/05/word-image-801-300x180.png 300w" sizes="(max-width: 446px) 100vw, 446px" /></p>
+<h2>更改PHP配置</h2>
+<ol>
+<li>
+  php.ini文件，所有的虚拟主机全部有效，需要重启服务器
+</li>
+<li>
+  .htaccess文件，在当前目录及子目录下有效，不需要重启服务器
+</li>
+<li>
+  ini_set()：当前页面中有效，不需要重启服务器
+</li>
+</ol>
+<h2>HTTP错误编</h2>
+<p>
+  1xx（临时响应）
+</p>
+<p>
+  2xx（成功）
+</p>
+<p>
+  3xx（重定向）
+</p>
+<p><img loading="lazy" decoding="async" width="852" height="183" src="/wp-content/uploads/2018/05/word-image-802.png" class="wp-image-907" srcset="/wp-content/uploads/2018/05/word-image-802.png 852w, /wp-content/uploads/2018/05/word-image-802-300x64.png 300w, /wp-content/uploads/2018/05/word-image-802-768x165.png 768w" sizes="(max-width: 852px) 100vw, 852px" /></p>
+<p>
+  4xx（请求错误）
+</p>
+<p><img loading="lazy" decoding="async" width="620" height="450" src="/wp-content/uploads/2018/05/word-image-803.png" class="wp-image-908" srcset="/wp-content/uploads/2018/05/word-image-803.png 620w, /wp-content/uploads/2018/05/word-image-803-300x218.png 300w" sizes="(max-width: 620px) 100vw, 620px" /></p>
+<p>
+  5xx（服务器错误）
+</p>
+<p><img loading="lazy" decoding="async" width="653" height="163" src="/wp-content/uploads/2018/05/word-image-804.png" class="wp-image-909" srcset="/wp-content/uploads/2018/05/word-image-804.png 653w, /wp-content/uploads/2018/05/word-image-804-300x75.png 300w" sizes="(max-width: 653px) 100vw, 653px" /></p>
+<p>
+  需要记忆的编码
+</p>
+<ol>
+<li>
+  200 – 成功
+</li>
+<li>
+  301-永久移动
+</li>
+<li>
+  302-临时移动
+</li>
+<li>
+  403-拒绝访问
+</li>
+<li>
+  404 &#8211; 请求的网页不存在
+</li>
+<li>
+  500—服务器内部错误
+</li>
+<li>
+  502—网关错误
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="826" height="139" src="/wp-content/uploads/2018/05/word-image-805.png" class="wp-image-910" srcset="/wp-content/uploads/2018/05/word-image-805.png 826w, /wp-content/uploads/2018/05/word-image-805-300x50.png 300w, /wp-content/uploads/2018/05/word-image-805-768x129.png 768w" sizes="(max-width: 826px) 100vw, 826px" /></p>
+<h2>数组的指针</h2>
+<h3>指针的介绍</h3>
+<ol>
+<li>
+  指针本质是一个变量，保存指向某个元素的地址
+</li>
+<li>
+  默认情况下打开一个数组，指针指向数组的第一个元素
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="479" height="169" src="/wp-content/uploads/2018/05/word-image-806.png" class="wp-image-911" srcset="/wp-content/uploads/2018/05/word-image-806.png 479w, /wp-content/uploads/2018/05/word-image-806-300x106.png 300w" sizes="(max-width: 479px) 100vw, 479px" /></p>
+<ol>
+<li>
+  foreach的流程图
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="635" height="432" src="/wp-content/uploads/2018/05/word-image-807.png" class="wp-image-912" srcset="/wp-content/uploads/2018/05/word-image-807.png 635w, /wp-content/uploads/2018/05/word-image-807-300x204.png 300w, /wp-content/uploads/2018/05/word-image-807-220x150.png 220w" sizes="(max-width: 635px) 100vw, 635px" /></p>
+<h3>操作指针的函数</h3>
+<p>
+  key()：返回当前指针的键
+</p>
+<p>
+  current()：返回数组中的当前单元
+</p>
+<p>
+  next()：指针下移一位
+</p>
+<p>
+  prev()：指针倒回一位
+</p>
+<p>
+  reset()：指针初始化
+</p>
+<p>
+  end()：指针指向最后一位
+</p>
+<p><img loading="lazy" decoding="async" width="770" height="89" src="/wp-content/uploads/2018/05/word-image-808.png" class="wp-image-913" srcset="/wp-content/uploads/2018/05/word-image-808.png 770w, /wp-content/uploads/2018/05/word-image-808-300x35.png 300w, /wp-content/uploads/2018/05/word-image-808-768x89.png 768w" sizes="(max-width: 770px) 100vw, 770px" /></p>
+<h3>通过for循环遍历数组</h3>
+<ol>
+<li>
+  从前往后遍历数组
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="780" height="113" src="/wp-content/uploads/2018/05/word-image-809.png" class="wp-image-914" srcset="/wp-content/uploads/2018/05/word-image-809.png 780w, /wp-content/uploads/2018/05/word-image-809-300x43.png 300w, /wp-content/uploads/2018/05/word-image-809-768x111.png 768w" sizes="(max-width: 780px) 100vw, 780px" /></p>
+<ol>
+<li>
+  从后往前遍历数组
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="654" height="86" src="/wp-content/uploads/2018/05/word-image-810.png" class="wp-image-915" srcset="/wp-content/uploads/2018/05/word-image-810.png 654w, /wp-content/uploads/2018/05/word-image-810-300x39.png 300w" sizes="(max-width: 654px) 100vw, 654px" /></p>
+<h3>each()</h3>
+<p>
+  作用：返回当前的键值并且指针向前移动一位，如果到了数组的末端返回false
+</p>
+<p>
+  each()=current()+key()+next()
+</p>
+<p>
+  each()返回4个元素的数组，既有索引数组又有关联数组，键的下标是0和key，值的下标是1和value。
+</p>
+<p><img loading="lazy" decoding="async" width="817" height="113" src="/wp-content/uploads/2018/05/word-image-811.png" class="wp-image-916" srcset="/wp-content/uploads/2018/05/word-image-811.png 817w, /wp-content/uploads/2018/05/word-image-811-300x41.png 300w, /wp-content/uploads/2018/05/word-image-811-768x106.png 768w" sizes="(max-width: 817px) 100vw, 817px" /></p>
+<h3>通过while循环遍历数组</h3>
+<p><img loading="lazy" decoding="async" width="765" height="94" src="/wp-content/uploads/2018/05/word-image-812.png" class="wp-image-917" srcset="/wp-content/uploads/2018/05/word-image-812.png 765w, /wp-content/uploads/2018/05/word-image-812-300x37.png 300w" sizes="(max-width: 765px) 100vw, 765px" /></p>
+<h2>常用的函数</h2>
+<h3>操作数组的函数</h3>
+<ol>
+<li>
+  range(起始值,结束值,[步长=1])，生成指定范围的数组
+</li>
+<li>
+  array_merge()：数组合并
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="782" height="69" src="/wp-content/uploads/2018/05/word-image-813.png" class="wp-image-918" srcset="/wp-content/uploads/2018/05/word-image-813.png 782w, /wp-content/uploads/2018/05/word-image-813-300x26.png 300w, /wp-content/uploads/2018/05/word-image-813-768x68.png 768w" sizes="(max-width: 782px) 100vw, 782px" /></p>
+<ol>
+<li>
+  array_rand()：数组中随机取出一个或多个单元
+</li>
+<li>
+  shuffle()：打乱数组
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="936" height="174" src="/wp-content/uploads/2018/05/word-image-814.png" class="wp-image-919" srcset="/wp-content/uploads/2018/05/word-image-814.png 936w, /wp-content/uploads/2018/05/word-image-814-300x56.png 300w, /wp-content/uploads/2018/05/word-image-814-768x143.png 768w" sizes="(max-width: 936px) 100vw, 936px" /></p>
+<ol>
+<li>
+  in_array()：检查数组中是否存在某个值
+</li>
+<li>
+  is_array()：检测变量是否是数组
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="720" height="88" src="/wp-content/uploads/2018/05/word-image-815.png" class="wp-image-920" srcset="/wp-content/uploads/2018/05/word-image-815.png 720w, /wp-content/uploads/2018/05/word-image-815-300x37.png 300w" sizes="(max-width: 720px) 100vw, 720px" /></p>
+<ol>
+<li>
+  array_keys()：返回数组中所有的键名
+</li>
+<li>
+  array_values()：返回数组中所有的值
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="855" height="110" src="/wp-content/uploads/2018/05/word-image-816.png" class="wp-image-921" srcset="/wp-content/uploads/2018/05/word-image-816.png 855w, /wp-content/uploads/2018/05/word-image-816-300x39.png 300w, /wp-content/uploads/2018/05/word-image-816-768x99.png 768w" sizes="(max-width: 855px) 100vw, 855px" /></p>
+<ol>
+<li>
+  explode()：将字符串分割成数组
+</li>
+<li>
+  implode()：将一个一维数组的值转化为字符串
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="966" height="108" src="/wp-content/uploads/2018/05/word-image-817.png" class="wp-image-922" srcset="/wp-content/uploads/2018/05/word-image-817.png 966w, /wp-content/uploads/2018/05/word-image-817-300x34.png 300w, /wp-content/uploads/2018/05/word-image-817-768x86.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<ol>
+<li>
+  array_diff()：数组相减
+</li>
+<li>
+  array_intersect()：数组相交
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="758" height="131" src="/wp-content/uploads/2018/05/word-image-818.png" class="wp-image-923" srcset="/wp-content/uploads/2018/05/word-image-818.png 758w, /wp-content/uploads/2018/05/word-image-818-300x52.png 300w" sizes="(max-width: 758px) 100vw, 758px" /></p>
+<h3>字符串操作函数</h3>
+<ol>
+<li>
+  字符串可以看成是字符的集合，可以通过[]来访问字符串（不能操作中午）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="387" height="91" src="/wp-content/uploads/2018/05/word-image-819.png" class="wp-image-924" srcset="/wp-content/uploads/2018/05/word-image-819.png 387w, /wp-content/uploads/2018/05/word-image-819-300x71.png 300w" sizes="(max-width: 387px) 100vw, 387px" /></p>
+<ol>
+<li>
+  strlen()：获取字符串长度，以字节为单位
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="372" height="42" src="/wp-content/uploads/2018/05/word-image-820.png" class="wp-image-925" srcset="/wp-content/uploads/2018/05/word-image-820.png 372w, /wp-content/uploads/2018/05/word-image-820-300x34.png 300w" sizes="(max-width: 372px) 100vw, 372px" /></p>
+<ol>
+<li>
+  strpos()：查找子字符串在字符串第一次出现的位置
+</li>
+<li>
+  strrpos()：查找子字符串在字符串最后一次出现的位置
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="636" height="66" src="/wp-content/uploads/2018/05/word-image-821.png" class="wp-image-926" srcset="/wp-content/uploads/2018/05/word-image-821.png 636w, /wp-content/uploads/2018/05/word-image-821-300x31.png 300w" sizes="(max-width: 636px) 100vw, 636px" /></p>
+<ol>
+<li>
+  str_repeat()：字符串重复
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="814" height="48" src="/wp-content/uploads/2018/05/word-image-822.png" class="wp-image-927" srcset="/wp-content/uploads/2018/05/word-image-822.png 814w, /wp-content/uploads/2018/05/word-image-822-300x18.png 300w, /wp-content/uploads/2018/05/word-image-822-768x45.png 768w" sizes="(max-width: 814px) 100vw, 814px" /></p>
+<ol>
+<li>
+  substr()
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1049" height="92" src="/wp-content/uploads/2018/05/word-image-823.png" class="wp-image-928" srcset="/wp-content/uploads/2018/05/word-image-823.png 1049w, /wp-content/uploads/2018/05/word-image-823-300x26.png 300w, /wp-content/uploads/2018/05/word-image-823-768x67.png 768w, /wp-content/uploads/2018/05/word-image-823-1024x90.png 1024w" sizes="(max-width: 1049px) 100vw, 1049px" /></p>
+<ol>
+<li>
+  strchr()和strstr()是一样的：从第一次出现的字符串开始截取，一直截取到最后
+</li>
+<li>
+  strrchr()：从最后一次出现的字符串开始截取，一直截取到最后
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="654" height="71" src="/wp-content/uploads/2018/05/word-image-824.png" class="wp-image-929" srcset="/wp-content/uploads/2018/05/word-image-824.png 654w, /wp-content/uploads/2018/05/word-image-824-300x33.png 300w" sizes="(max-width: 654px) 100vw, 654px" /></p>
+<ol>
+<li>
+  str_replace()：字符串替换
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="984" height="55" src="/wp-content/uploads/2018/05/word-image-825.png" class="wp-image-930" srcset="/wp-content/uploads/2018/05/word-image-825.png 984w, /wp-content/uploads/2018/05/word-image-825-300x17.png 300w, /wp-content/uploads/2018/05/word-image-825-768x43.png 768w" sizes="(max-width: 984px) 100vw, 984px" /></p>
+<ol>
+<li>
+  str_split()：把字符串分割成数组
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="916" height="32" src="/wp-content/uploads/2018/05/word-image-826.png" class="wp-image-931" srcset="/wp-content/uploads/2018/05/word-image-826.png 916w, /wp-content/uploads/2018/05/word-image-826-300x10.png 300w, /wp-content/uploads/2018/05/word-image-826-768x27.png 768w" sizes="(max-width: 916px) 100vw, 916px" /></p>
+<ol>
+<li>
+  strtolower()：将字符串转成小写
+</li>
+<li>
+  strtoupper()：将字符串转成大写
+</li>
+<li>
+  ucfirst()：首字母大写
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="641" height="70" src="/wp-content/uploads/2018/05/word-image-827.png" class="wp-image-932" srcset="/wp-content/uploads/2018/05/word-image-827.png 641w, /wp-content/uploads/2018/05/word-image-827-300x33.png 300w" sizes="(max-width: 641px) 100vw, 641px" /></p>
+<ol>
+<li>
+  trim()：去字符串两边的空格
+</li>
+<li>
+  ltrim()：去字符串左边的空格
+</li>
+<li>
+  rtrim()：去字符串右边的空格
+</li>
+<li>
+  nl2br()：将\n转成&lt;br&gt;
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1040" height="247" src="/wp-content/uploads/2018/05/word-image-828.png" class="wp-image-933" srcset="/wp-content/uploads/2018/05/word-image-828.png 1040w, /wp-content/uploads/2018/05/word-image-828-300x71.png 300w, /wp-content/uploads/2018/05/word-image-828-768x182.png 768w, /wp-content/uploads/2018/05/word-image-828-1024x243.png 1024w" sizes="(max-width: 1040px) 100vw, 1040px" /></p>
+<ol>
+<li>
+  htmlentities()：实体转换
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="878" height="31" src="/wp-content/uploads/2018/05/word-image-829.png" class="wp-image-934" srcset="/wp-content/uploads/2018/05/word-image-829.png 878w, /wp-content/uploads/2018/05/word-image-829-300x11.png 300w, /wp-content/uploads/2018/05/word-image-829-768x27.png 768w" sizes="(max-width: 878px) 100vw, 878px" /></p>
+<h2>多字节处理</h2>
+<p>
+  PHP默认不支持多字节处理，需要在php.ini中开启多字节处理。
+</p>
+<p><img loading="lazy" decoding="async" width="766" height="71" src="/wp-content/uploads/2018/05/word-image-830.png" class="wp-image-935" srcset="/wp-content/uploads/2018/05/word-image-830.png 766w, /wp-content/uploads/2018/05/word-image-830-300x28.png 300w" sizes="(max-width: 766px) 100vw, 766px" /></p>
+<p>
+  mb_扩展都是以字符为单位。
+</p>
+<p><img loading="lazy" decoding="async" width="789" height="127" src="/wp-content/uploads/2018/05/word-image-831.png" class="wp-image-936" srcset="/wp-content/uploads/2018/05/word-image-831.png 789w, /wp-content/uploads/2018/05/word-image-831-300x48.png 300w, /wp-content/uploads/2018/05/word-image-831-768x124.png 768w" sizes="(max-width: 789px) 100vw, 789px" /></p>
+<h2>算法</h2>
+<h3>冒泡排序</h3>
+<p>
+  思想：从第0个和第1个数比较，第1个数和第2个数比较，以此类推，第i和和第i+1个数比较，满足条件就交换。
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  $num=array(140,20,52,78,12,45,105,56,23);
+</p>
+<p>
+  /*
+</p>
+<p>
+  //第一次循环
+</p>
+<p>
+  for($i=0;$i&lt;count($num)-1;$i++){
+</p>
+<p>
+  	if($num[$i]&gt;$num[$i+1]){
+</p>
+<p>
+  		$temp=$num[$i];
+</p>
+<p>
+  		$num[$i]=$num[$i+1];
+</p>
+<p>
+  		$num[$i+1]=$temp;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //第二次循环
+</p>
+<p>
+  for($i=0;$i&lt;count($num)-2;$i++){
+</p>
+<p>
+  	if($num[$i]&gt;$num[$i+1]){
+</p>
+<p>
+  		$temp=$num[$i];
+</p>
+<p>
+  		$num[$i]=$num[$i+1];
+</p>
+<p>
+  		$num[$i+1]=$temp;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //第三次循环
+</p>
+<p>
+  for($i=0;$i&lt;count($num)-3;$i++){
+</p>
+<p>
+  	if($num[$i]&gt;$num[$i+1]){
+</p>
+<p>
+  		$temp=$num[$i];
+</p>
+<p>
+  		$num[$i]=$num[$i+1];
+</p>
+<p>
+  		$num[$i+1]=$temp;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  print_r($num);
+</p>
+<p>
+  //剩下以此类推
+</p>
+<p>
+  */
+</p>
+<p>
+  //分析
+</p>
+<p>
+  /**
+</p>
+<p>
+  *初始数据
+</p>
+<p>
+  第一次  20,52,78,12,45,105,56,23,（140）
+</p>
+<p>
+  第二次	20,52,12,45,78,56,23,（105,140）
+</p>
+<p>
+  第三次  20,12,45,52,56,23,(78,105,140）
+</p>
+<p>
+  以此类推
+</p>
+<p>
+  */
+</p>
+<p>
+  //实现代码
+</p>
+<p>
+  for($n=1;$n&lt;count($num)-1;$n++){	//总共要循环几次
+</p>
+<p>
+  	for($i=0;$i&lt;count($num)-$n;$i++){
+</p>
+<p>
+  		if($num[$i]&gt;$num[$i+1]){
+</p>
+<p>
+  			$temp=$num[$i];
+</p>
+<p>
+  			$num[$i]=$num[$i+1];
+</p>
+<p>
+  			$num[$i+1]=$temp;
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  print_r($num);
+</p>
+<p><img loading="lazy" decoding="async" width="835" height="31" src="/wp-content/uploads/2018/05/word-image-832.png" class="wp-image-937" srcset="/wp-content/uploads/2018/05/word-image-832.png 835w, /wp-content/uploads/2018/05/word-image-832-300x11.png 300w, /wp-content/uploads/2018/05/word-image-832-768x29.png 768w" sizes="(max-width: 835px) 100vw, 835px" /></p>
+<h3>选择排序</h3>
+<p>
+  思想：第0个数和其他的数比（确定一个数），第1个数和其他剩余的数（再确定一个数），第2个和其他的数比，以此类推
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  $num=array(140,20,52,78,12,45,105,56,23);
+</p>
+<p>
+  /**
+</p>
+<p>
+  *分析：140,20,52,78,12,45,105,56,23
+</p>
+<p>
+  第一次	（12）,140,52,78,20,45,105,56,23
+</p>
+<p>
+  第二次	（12,20）,140,78,52,45,105,56,23
+</p>
+<p>
+  第三次	（12,20,23),140,78,52,105,56,45
+</p>
+<p>
+  以此类推
+</p>
+<p>
+  //第一次循环
+</p>
+<p>
+  for($i=1;$i&lt;count($num);$i++){
+</p>
+<p>
+  	if($num[0]&gt;$num[$i]){
+</p>
+<p>
+  		$temp=$num[0];
+</p>
+<p>
+  		$num[0]=$num[$i];
+</p>
+<p>
+  		$num[$i]=$temp;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //第二次循环
+</p>
+<p>
+  for($i=2;$i&lt;count($num);$i++){
+</p>
+<p>
+  	if($num[1]&gt;$num[$i]){
+</p>
+<p>
+  		$temp=$num[1];
+</p>
+<p>
+  		$num[1]=$num[$i];
+</p>
+<p>
+  		$num[$i]=$temp;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //第三次循环
+</p>
+<p>
+  for($i=3;$i&lt;count($num);$i++){
+</p>
+<p>
+  	if($num[2]&gt;$num[$i]){
+</p>
+<p>
+  		$temp=$num[2];
+</p>
+<p>
+  		$num[2]=$num[$i];
+</p>
+<p>
+  		$num[$i]=$temp;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //依次类推
+</p>
+<p>
+  print_r($num);
+</p>
+<p>
+  */
+</p>
+<p>
+  //实现代码
+</p>
+<p>
+  for($n=0;$n&lt;count($num)-1;$n++){	//循环的次数
+</p>
+<p>
+  	for($i=$n+1;$i&lt;count($num);$i++){//数据交换
+</p>
+<p>
+  		if($num[$n]&gt;$num[$i]){
+</p>
+<p>
+  			$temp=$num[$n];
+</p>
+<p>
+  			$num[$n]=$num[$i];
+</p>
+<p>
+  			$num[$i]=$temp;
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  print_r($num);
+</p>
+<p><img loading="lazy" decoding="async" width="840" height="34" src="/wp-content/uploads/2018/05/word-image-833.png" class="wp-image-938" srcset="/wp-content/uploads/2018/05/word-image-833.png 840w, /wp-content/uploads/2018/05/word-image-833-300x12.png 300w, /wp-content/uploads/2018/05/word-image-833-768x31.png 768w" sizes="(max-width: 840px) 100vw, 840px" /></p>
+<h3>快速排序</h3>
+<p>
+  思想：以第0个数为标准，比它小的放左边，比它大的放右边
+</p>
+<p>
+  分析：
+</p>
+<p>
+  原始数据
+</p>
+<p><img loading="lazy" decoding="async" width="906" height="86" src="/wp-content/uploads/2018/05/word-image-834.png" class="wp-image-939" srcset="/wp-content/uploads/2018/05/word-image-834.png 906w, /wp-content/uploads/2018/05/word-image-834-300x28.png 300w, /wp-content/uploads/2018/05/word-image-834-768x73.png 768w" sizes="(max-width: 906px) 100vw, 906px" /></p>
+<p>
+  第一次排序，以60为标准，比60小排左边，比60大排右边，这个数组分成了2数组
+</p>
+<p><img loading="lazy" decoding="async" width="814" height="173" src="/wp-content/uploads/2018/05/word-image-835.png" class="wp-image-940" srcset="/wp-content/uploads/2018/05/word-image-835.png 814w, /wp-content/uploads/2018/05/word-image-835-300x64.png 300w, /wp-content/uploads/2018/05/word-image-835-768x163.png 768w" sizes="(max-width: 814px) 100vw, 814px" /></p>
+<p>
+  第二次排序：将分成的两个数组再执行和第一次排序一样的动作
+</p>
+<p><img loading="lazy" decoding="async" width="677" height="190" src="/wp-content/uploads/2018/05/word-image-836.png" class="wp-image-941" srcset="/wp-content/uploads/2018/05/word-image-836.png 677w, /wp-content/uploads/2018/05/word-image-836-300x84.png 300w" sizes="(max-width: 677px) 100vw, 677px" /></p>
+<p>
+  以此类推
+</p>
+<p>
+  实现代码
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  $num=array(140,20,52,78,12,45,105,56,23);
+</p>
+<p>
+  function mysort($arr) {
+</p>
+<p>
+  	$len=count($arr);	//数组的长度
+</p>
+<p>
+  	if($len==0 || $len==1)//如果数组为空或就一个数据,直接将数组返回
+</p>
+<p>
+  		return $arr;
+</p>
+<p>
+  	$temp=$arr[0];	//以第0个数为标准
+</p>
+<p>
+  	$small=$big=array();	//声明两个数组
+</p>
+<p>
+  	for($i=1;$i&lt;$len;$i++){
+</p>
+<p>
+  		if($arr[$i]&lt;$temp)
+</p>
+<p>
+  			$small[]=$arr[$i];
+</p>
+<p>
+  		else
+</p>
+<p>
+  			$big[]=$arr[$i];
+</p>
+<p>
+  	}
+</p>
+<p>
+  	$small_array=mysort($small);	//递归调用
+</p>
+<p>
+  	$big_array=mysort($big);		//递归调用
+</p>
+<p>
+  	return array_merge($small_array,array($temp),$big_array);//数组合并
+</p>
+<p>
+  }
+</p>
+<p>
+  //调用
+</p>
+<p>
+  print_r(mysort($num));
+</p>
+<p><img loading="lazy" decoding="async" width="814" height="35" src="/wp-content/uploads/2018/05/word-image-837.png" class="wp-image-942" srcset="/wp-content/uploads/2018/05/word-image-837.png 814w, /wp-content/uploads/2018/05/word-image-837-300x13.png 300w, /wp-content/uploads/2018/05/word-image-837-768x33.png 768w" sizes="(max-width: 814px) 100vw, 814px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/889.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

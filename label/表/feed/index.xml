@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>表 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E8%A1%A8/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sun, 20 May 2018 01:07:08 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>表 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>DedeCMS 二次开发（一）CMS介绍、安装、目录结构、取出数据、表、表关系、标签</title>
+		<link>/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91/6479.html</link>
+					<comments>/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91/6479.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 17:26:35 +0000</pubDate>
+				<category><![CDATA[DedeCMS]]></category>
+		<category><![CDATA[二次开发]]></category>
+		<category><![CDATA[CMS介绍]]></category>
+		<category><![CDATA[取出数据]]></category>
+		<category><![CDATA[安装]]></category>
+		<category><![CDATA[标签]]></category>
+		<category><![CDATA[目录结构]]></category>
+		<category><![CDATA[表]]></category>
+		<category><![CDATA[表关系]]></category>
+		<guid isPermaLink="false">/?p=6479</guid>
+
+					<description><![CDATA[dedecms第一天 CMS介绍 什么是cms 就是别人已经把数据库和基本的php代码设计好了。只需要我们填充 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>dedecms第一天</p>
+<h1><a id="post-6479-_CMS__"></a><a id="post-6479-_Toc256000002"></a>CMS介绍</h1>
+<h2><a id="post-6479-____cms"></a><a id="post-6479-_Toc256000003"></a>什么是cms</h2>
+<p>就是别人已经把数据库和基本的php代码设计好了。只需要我们填充静态页面和基本的数据，就可以做成一个网站。</p>
+<p>能做那些网站</p>
+<p>1 只能做一些，逻辑比较简单。</p>
+<p>2 以展示内容为主，主要是静态页面。</p>
+<p>3 不需要和用户进行太多的交互。</p>
+<p>4 适合做企业的门户网站，素材网站等。</p>
+<p>不适合做的网站</p>
+<p>1 逻辑比较复杂的，和用户有较多的交互的。</p>
+<p>2 比如，电商网站，社交网站，新闻类网站。</p>
+<h2><a id="post-6479-____cms_____"></a><a id="post-6479-_Toc256000004"></a>开源的cms系统有哪些</h2>
+<p>dedecms开源网站，偏向于美工使用的系统，操作起来比较简单，只需要套静态页面就行（适合于企业的门户网站）。</p>
+<p>phpcms开源的，相对来说比较复杂，适合于php程序员做一些二次开发，做稍微大一点的网站。</p>
+<h2><a id="post-6479-____cms_______"></a><a id="post-6479-_Toc256000005"></a>开源的cms系统有哪些特点</h2>
+<p>（1） 强大的后台管理功能</p>
+<p>（2） 网站的前台绝大部分页面真静态</p>
+<p>（3） 采用mvc架构，便于扩展新的内容</p>
+<p>（4） 强大的采集功能，便于采集其他的网站内容</p>
+<p>（5） 强大的标签体系，便于在模板中取出数据</p>
+<p>案例演示：http://www.dedecms.com/caseshow/e-gov/</p>
+<p><img fetchpriority="high" decoding="async" width="1143" height="615" class="wp-image-6606" src="/wp-content/uploads/2018/05/word-image-6014.png" srcset="/wp-content/uploads/2018/05/word-image-6014.png 1143w, /wp-content/uploads/2018/05/word-image-6014-300x161.png 300w, /wp-content/uploads/2018/05/word-image-6014-768x413.png 768w, /wp-content/uploads/2018/05/word-image-6014-1024x551.png 1024w" sizes="(max-width: 1143px) 100vw, 1143px" /><br />
+<img decoding="async" width="1483" height="648" class="wp-image-6607" src="/wp-content/uploads/2018/05/word-image-6015.png" srcset="/wp-content/uploads/2018/05/word-image-6015.png 1483w, /wp-content/uploads/2018/05/word-image-6015-300x131.png 300w, /wp-content/uploads/2018/05/word-image-6015-768x336.png 768w, /wp-content/uploads/2018/05/word-image-6015-1024x447.png 1024w" sizes="(max-width: 1483px) 100vw, 1483px" /></p>
+<h1><a id="post-6479-___dedecms"></a><a id="post-6479-_Toc256000006"></a>安装dedecms</h1>
+<p>a 下载dedecms</p>
+<p><img decoding="async" width="1193" height="511" class="wp-image-6608" src="/wp-content/uploads/2018/05/word-image-6016.png" srcset="/wp-content/uploads/2018/05/word-image-6016.png 1193w, /wp-content/uploads/2018/05/word-image-6016-300x128.png 300w, /wp-content/uploads/2018/05/word-image-6016-768x329.png 768w, /wp-content/uploads/2018/05/word-image-6016-1024x439.png 1024w" sizes="(max-width: 1193px) 100vw, 1193px" /><br />
+<img loading="lazy" decoding="async" width="903" height="497" class="wp-image-6609" src="/wp-content/uploads/2018/05/word-image-6017.png" srcset="/wp-content/uploads/2018/05/word-image-6017.png 903w, /wp-content/uploads/2018/05/word-image-6017-300x165.png 300w, /wp-content/uploads/2018/05/word-image-6017-768x423.png 768w" sizes="(max-width: 903px) 100vw, 903px" /></p>
+<p>b 下载完成的页面，放到网站的根目录中直接进行解压</p>
+<p><img loading="lazy" decoding="async" width="850" height="91" class="wp-image-6610" src="/wp-content/uploads/2018/05/word-image-6018.png" srcset="/wp-content/uploads/2018/05/word-image-6018.png 850w, /wp-content/uploads/2018/05/word-image-6018-300x32.png 300w, /wp-content/uploads/2018/05/word-image-6018-768x82.png 768w" sizes="(max-width: 850px) 100vw, 850px" /><br />
+<img loading="lazy" decoding="async" width="857" height="215" class="wp-image-6611" src="/wp-content/uploads/2018/05/word-image-6019.png" srcset="/wp-content/uploads/2018/05/word-image-6019.png 857w, /wp-content/uploads/2018/05/word-image-6019-300x75.png 300w, /wp-content/uploads/2018/05/word-image-6019-768x193.png 768w" sizes="(max-width: 857px) 100vw, 857px" /></p>
+<p>c 访问dede进行安装</p>
+<p><img loading="lazy" decoding="async" width="698" height="312" class="wp-image-6612" src="/wp-content/uploads/2018/05/word-image-6020.png" srcset="/wp-content/uploads/2018/05/word-image-6020.png 698w, /wp-content/uploads/2018/05/word-image-6020-300x134.png 300w" sizes="(max-width: 698px) 100vw, 698px" /></p>
+<p>点击uploads之后出现安装的页面</p>
+<p><img loading="lazy" decoding="async" width="871" height="609" class="wp-image-6613" src="/wp-content/uploads/2018/05/word-image-6021.png" srcset="/wp-content/uploads/2018/05/word-image-6021.png 871w, /wp-content/uploads/2018/05/word-image-6021-300x210.png 300w, /wp-content/uploads/2018/05/word-image-6021-768x537.png 768w" sizes="(max-width: 871px) 100vw, 871px" /></p>
+<p>设置数据库的密码和管理员的初始密码</p>
+<p><img loading="lazy" decoding="async" width="949" height="851" class="wp-image-6614" src="/wp-content/uploads/2018/05/word-image-6022.png" srcset="/wp-content/uploads/2018/05/word-image-6022.png 949w, /wp-content/uploads/2018/05/word-image-6022-300x269.png 300w, /wp-content/uploads/2018/05/word-image-6022-768x689.png 768w" sizes="(max-width: 949px) 100vw, 949px" /></p>
+<p>安装成功之后的页面</p>
+<p><img loading="lazy" decoding="async" width="783" height="427" class="wp-image-6616" src="/wp-content/uploads/2018/05/word-image-6023.png" srcset="/wp-content/uploads/2018/05/word-image-6023.png 783w, /wp-content/uploads/2018/05/word-image-6023-300x164.png 300w, /wp-content/uploads/2018/05/word-image-6023-768x419.png 768w" sizes="(max-width: 783px) 100vw, 783px" /></p>
+<p>网站的首页访问：</p>
+<p><img loading="lazy" decoding="async" width="1122" height="450" class="wp-image-6617" src="/wp-content/uploads/2018/05/word-image-6024.png" srcset="/wp-content/uploads/2018/05/word-image-6024.png 1122w, /wp-content/uploads/2018/05/word-image-6024-300x120.png 300w, /wp-content/uploads/2018/05/word-image-6024-768x308.png 768w, /wp-content/uploads/2018/05/word-image-6024-1024x411.png 1024w" sizes="(max-width: 1122px) 100vw, 1122px" /></p>
+<h2><a id="post-6479-_____"></a><a id="post-6479-_Toc256000007"></a>目录结构</h2>
+<p>使用编辑器将我们的项目搭建起来</p>
+<p><img loading="lazy" decoding="async" width="697" height="357" class="wp-image-6618" src="/wp-content/uploads/2018/05/word-image-6025.png" srcset="/wp-content/uploads/2018/05/word-image-6025.png 697w, /wp-content/uploads/2018/05/word-image-6025-300x154.png 300w" sizes="(max-width: 697px) 100vw, 697px" /></p>
+<h3><a id="post-6479-_a__"></a><a id="post-6479-_Toc256000008"></a>a目录</h3>
+<p>用于存放网站生成的静态页面</p>
+<h3><a id="post-6479-_data__"></a><a id="post-6479-_Toc256000009"></a>data目录</h3>
+<p>用于存放数据库的配置信息文件和一些缓存的数据文件</p>
+<p><img loading="lazy" decoding="async" width="914" height="583" class="wp-image-6619" src="/wp-content/uploads/2018/05/word-image-6026.png" srcset="/wp-content/uploads/2018/05/word-image-6026.png 914w, /wp-content/uploads/2018/05/word-image-6026-300x191.png 300w, /wp-content/uploads/2018/05/word-image-6026-768x490.png 768w" sizes="(max-width: 914px) 100vw, 914px" /></p>
+<h3><a id="post-6479-_include__"></a><a id="post-6479-_Toc256000010"></a>dede目录</h3>
+<p>cms的后台主程序目录</p>
+<h3>include目录</h3>
+<p>用于存放dede核心文件目录，比如数据库类，文档的上传类，标签的解析类。</p>
+<h3><a id="post-6479-_install__"></a><a id="post-6479-_Toc256000011"></a>install目录</h3>
+<p>dede的安装目录</p>
+<h3><a id="post-6479-_memeber__"></a><a id="post-6479-_Toc256000012"></a>memeber目录</h3>
+<p>会员目录，主要是对会员进行增删改查的操作</p>
+<h3><a id="post-6479-_plus__"></a><a id="post-6479-_Toc256000013"></a>plus目录</h3>
+<p>插件目录，如果后期我们有特别的需求，可以自己把相应的程序文件放在这里使用</p>
+<h3><a id="post-6479-_templets__"></a><a id="post-6479-_Toc256000014"></a>templets目录</h3>
+<p>静态文件模板目录，用于存放我们的静态页面</p>
+<h3><a id="post-6479-_uploads__"></a><a id="post-6479-_Toc256000015"></a>uploads目录</h3>
+<p><a id="post-6479-_______"></a><br />
+上传文件的保存目录，比如上传的图片等。</p>
+<h1><a id="post-6479-____________"></a><a id="post-6479-_Toc256000022"></a>完成一个新闻类型的网站</h1>
+<p>访问到dedecms的后台</p>
+<p><a href="http://localhost/dede-1/uploads/dede/login.php">http://localhost/dede-1/uploads/dede/login.php</a></p>
+<p><img loading="lazy" decoding="async" width="890" height="344" class="wp-image-6620" src="/wp-content/uploads/2018/05/word-image-6027.png" srcset="/wp-content/uploads/2018/05/word-image-6027.png 890w, /wp-content/uploads/2018/05/word-image-6027-300x116.png 300w, /wp-content/uploads/2018/05/word-image-6027-768x297.png 768w" sizes="(max-width: 890px) 100vw, 890px" /></p>
+<h2><a id="post-6479-______6"></a><a id="post-6479-_Toc256000023"></a>创建模型</h2>
+<p><img loading="lazy" decoding="async" width="1408" height="493" class="wp-image-6621" src="/wp-content/uploads/2018/05/word-image-6028.png" srcset="/wp-content/uploads/2018/05/word-image-6028.png 1408w, /wp-content/uploads/2018/05/word-image-6028-300x105.png 300w, /wp-content/uploads/2018/05/word-image-6028-768x269.png 768w, /wp-content/uploads/2018/05/word-image-6028-1024x359.png 1024w" sizes="(max-width: 1408px) 100vw, 1408px" /></p>
+<p>现在dede中默认有以上的模型，等到后续如果这些模型不能满足我们的需求我们可以自己创建。</p>
+<p>模型值得就是，这个网站的内容的类型。</p>
+<p>因为我们要创建一个新闻类型的网站，只需要使用使用文章模型即可。</p>
+<h2><a id="post-6479-______7"></a><a id="post-6479-_Toc256000024"></a>创建栏目</h2>
+<p>顶级导航：体育新闻、娱乐新闻</p>
+<p>体育新闻：足球新闻、武术新闻</p>
+<p>娱乐新闻：明星轶事、明星八卦</p>
+<p>a 打开后台创建栏目</p>
+<p><img loading="lazy" decoding="async" width="1768" height="338" class="wp-image-6622" src="/wp-content/uploads/2018/05/word-image-6029.png" srcset="/wp-content/uploads/2018/05/word-image-6029.png 1768w, /wp-content/uploads/2018/05/word-image-6029-300x57.png 300w, /wp-content/uploads/2018/05/word-image-6029-768x147.png 768w, /wp-content/uploads/2018/05/word-image-6029-1024x196.png 1024w" sizes="(max-width: 1768px) 100vw, 1768px" /></p>
+<p>b 进行网站顶级栏目的添加</p>
+<p><img loading="lazy" decoding="async" width="954" height="563" class="wp-image-6623" src="/wp-content/uploads/2018/05/word-image-6030.png" srcset="/wp-content/uploads/2018/05/word-image-6030.png 954w, /wp-content/uploads/2018/05/word-image-6030-300x177.png 300w, /wp-content/uploads/2018/05/word-image-6030-768x453.png 768w" sizes="(max-width: 954px) 100vw, 954px" /></p>
+<p>添加娱乐新闻</p>
+<p><img loading="lazy" decoding="async" width="930" height="586" class="wp-image-6624" src="/wp-content/uploads/2018/05/word-image-6031.png" srcset="/wp-content/uploads/2018/05/word-image-6031.png 930w, /wp-content/uploads/2018/05/word-image-6031-300x189.png 300w, /wp-content/uploads/2018/05/word-image-6031-768x484.png 768w" sizes="(max-width: 930px) 100vw, 930px" /></p>
+<p>c 顶级栏目添加之后的效果</p>
+<p><img loading="lazy" decoding="async" width="1655" height="279" class="wp-image-6625" src="/wp-content/uploads/2018/05/word-image-6032.png" srcset="/wp-content/uploads/2018/05/word-image-6032.png 1655w, /wp-content/uploads/2018/05/word-image-6032-300x51.png 300w, /wp-content/uploads/2018/05/word-image-6032-768x129.png 768w, /wp-content/uploads/2018/05/word-image-6032-1024x173.png 1024w" sizes="(max-width: 1655px) 100vw, 1655px" /></p>
+<p>d 点击增加子级为每一个顶级栏目添加二级栏目</p>
+<p><img loading="lazy" decoding="async" width="1619" height="316" class="wp-image-6626" src="/wp-content/uploads/2018/05/word-image-6033.png" srcset="/wp-content/uploads/2018/05/word-image-6033.png 1619w, /wp-content/uploads/2018/05/word-image-6033-300x59.png 300w, /wp-content/uploads/2018/05/word-image-6033-768x150.png 768w, /wp-content/uploads/2018/05/word-image-6033-1024x200.png 1024w" sizes="(max-width: 1619px) 100vw, 1619px" /><br />
+<img loading="lazy" decoding="async" width="587" height="533" class="wp-image-6627" src="/wp-content/uploads/2018/05/word-image-6034.png" srcset="/wp-content/uploads/2018/05/word-image-6034.png 587w, /wp-content/uploads/2018/05/word-image-6034-300x272.png 300w" sizes="(max-width: 587px) 100vw, 587px" /></p>
+<p>二级栏目增加之后的效果:</p>
+<p><img loading="lazy" decoding="async" width="1574" height="357" class="wp-image-6628" src="/wp-content/uploads/2018/05/word-image-6035.png" srcset="/wp-content/uploads/2018/05/word-image-6035.png 1574w, /wp-content/uploads/2018/05/word-image-6035-300x68.png 300w, /wp-content/uploads/2018/05/word-image-6035-768x174.png 768w, /wp-content/uploads/2018/05/word-image-6035-1024x232.png 1024w" sizes="(max-width: 1574px) 100vw, 1574px" /></p>
+<p>e 栏目增加完成之后,刷线前台页面,即可看到效果</p>
+<p><img loading="lazy" decoding="async" width="814" height="253" class="wp-image-6629" src="/wp-content/uploads/2018/05/word-image-6036.png" srcset="/wp-content/uploads/2018/05/word-image-6036.png 814w, /wp-content/uploads/2018/05/word-image-6036-300x93.png 300w, /wp-content/uploads/2018/05/word-image-6036-768x239.png 768w" sizes="(max-width: 814px) 100vw, 814px" /></p>
+<h2><a id="post-6479-______8"></a><a id="post-6479-_Toc256000025"></a>添加内容</h2>
+<p>a 为网站增加文章</p>
+<p><img loading="lazy" decoding="async" width="1279" height="413" class="wp-image-6630" src="/wp-content/uploads/2018/05/word-image-6037.png" srcset="/wp-content/uploads/2018/05/word-image-6037.png 1279w, /wp-content/uploads/2018/05/word-image-6037-300x97.png 300w, /wp-content/uploads/2018/05/word-image-6037-768x248.png 768w, /wp-content/uploads/2018/05/word-image-6037-1024x331.png 1024w" sizes="(max-width: 1279px) 100vw, 1279px" /></p>
+<p>b 添加具体的文档内容</p>
+<p><img loading="lazy" decoding="async" width="1186" height="766" class="wp-image-6631" src="/wp-content/uploads/2018/05/word-image-6038.png" srcset="/wp-content/uploads/2018/05/word-image-6038.png 1186w, /wp-content/uploads/2018/05/word-image-6038-300x194.png 300w, /wp-content/uploads/2018/05/word-image-6038-768x496.png 768w, /wp-content/uploads/2018/05/word-image-6038-1024x661.png 1024w" sizes="(max-width: 1186px) 100vw, 1186px" /></p>
+<p>c 文章添加完成之后的效果</p>
+<p><img loading="lazy" decoding="async" width="1618" height="304" class="wp-image-6632" src="/wp-content/uploads/2018/05/word-image-6039.png" srcset="/wp-content/uploads/2018/05/word-image-6039.png 1618w, /wp-content/uploads/2018/05/word-image-6039-300x56.png 300w, /wp-content/uploads/2018/05/word-image-6039-768x144.png 768w, /wp-content/uploads/2018/05/word-image-6039-1024x192.png 1024w" sizes="(max-width: 1618px) 100vw, 1618px" /></p>
+<p>d 在首页查看刚才添加的文章内容</p>
+<p>&nbsp;</p>
+<p><img loading="lazy" decoding="async" width="1101" height="920" class="wp-image-6633" src="/wp-content/uploads/2018/05/word-image-6040.png" srcset="/wp-content/uploads/2018/05/word-image-6040.png 1101w, /wp-content/uploads/2018/05/word-image-6040-300x251.png 300w, /wp-content/uploads/2018/05/word-image-6040-768x642.png 768w, /wp-content/uploads/2018/05/word-image-6040-1024x856.png 1024w" sizes="(max-width: 1101px) 100vw, 1101px" /></p>
+<h2><a id="post-6479-________3"></a><a id="post-6479-_Toc256000027"></a>生成静态页面</h2>
+<h3><a id="post-6479-_________"></a><a id="post-6479-_Toc256000028"></a>生成首页静态页面</h3>
+<p><img loading="lazy" decoding="async" width="1134" height="317" class="wp-image-6634" src="/wp-content/uploads/2018/05/word-image-6041.png" srcset="/wp-content/uploads/2018/05/word-image-6041.png 1134w, /wp-content/uploads/2018/05/word-image-6041-300x84.png 300w, /wp-content/uploads/2018/05/word-image-6041-768x215.png 768w, /wp-content/uploads/2018/05/word-image-6041-1024x286.png 1024w" sizes="(max-width: 1134px) 100vw, 1134px" /></p>
+<h3><a id="post-6479-__________2"></a><a id="post-6479-_Toc256000029"></a>生成栏目静态页面</h3>
+<p><img loading="lazy" decoding="async" width="1225" height="403" class="wp-image-6635" src="/wp-content/uploads/2018/05/word-image-6042.png" srcset="/wp-content/uploads/2018/05/word-image-6042.png 1225w, /wp-content/uploads/2018/05/word-image-6042-300x99.png 300w, /wp-content/uploads/2018/05/word-image-6042-768x253.png 768w, /wp-content/uploads/2018/05/word-image-6042-1024x337.png 1024w" sizes="(max-width: 1225px) 100vw, 1225px" /><br />
+<img loading="lazy" decoding="async" width="856" height="204" class="wp-image-6636" src="/wp-content/uploads/2018/05/word-image-6043.png" srcset="/wp-content/uploads/2018/05/word-image-6043.png 856w, /wp-content/uploads/2018/05/word-image-6043-300x71.png 300w, /wp-content/uploads/2018/05/word-image-6043-768x183.png 768w" sizes="(max-width: 856px) 100vw, 856px" /></p>
+<h3><a id="post-6479-__________3"></a><a id="post-6479-_Toc256000030"></a>生成内容静态页面</h3>
+<p><img loading="lazy" decoding="async" width="1175" height="322" class="wp-image-6637" src="/wp-content/uploads/2018/05/word-image-6044.png" srcset="/wp-content/uploads/2018/05/word-image-6044.png 1175w, /wp-content/uploads/2018/05/word-image-6044-300x82.png 300w, /wp-content/uploads/2018/05/word-image-6044-768x210.png 768w, /wp-content/uploads/2018/05/word-image-6044-1024x281.png 1024w" sizes="(max-width: 1175px) 100vw, 1175px" /><br />
+<img loading="lazy" decoding="async" width="832" height="525" class="wp-image-6638" src="/wp-content/uploads/2018/05/word-image-6045.png" srcset="/wp-content/uploads/2018/05/word-image-6045.png 832w, /wp-content/uploads/2018/05/word-image-6045-300x189.png 300w, /wp-content/uploads/2018/05/word-image-6045-768x485.png 768w" sizes="(max-width: 832px) 100vw, 832px" /></p>
+<h1><a id="post-6479-_dedecms______"></a><a id="post-6479-_Toc256000031"></a>dedecms里面主要的表</h1>
+<h2><a id="post-6479-_dede_channeltype_____"></a><a id="post-6479-_Toc256000032"></a>dede_channeltype（模型表）</h2>
+<p><img loading="lazy" decoding="async" width="1482" height="462" class="wp-image-6639" src="/wp-content/uploads/2018/05/word-image-6046.png" srcset="/wp-content/uploads/2018/05/word-image-6046.png 1482w, /wp-content/uploads/2018/05/word-image-6046-300x94.png 300w, /wp-content/uploads/2018/05/word-image-6046-768x239.png 768w, /wp-content/uploads/2018/05/word-image-6046-1024x319.png 1024w" sizes="(max-width: 1482px) 100vw, 1482px" /></p>
+<p>这个表主要使用与我们保存模型的</p>
+<h2><a id="post-6479-_dede_arctype_____"></a><a id="post-6479-_Toc256000033"></a>dede_arctype（栏目表）</h2>
+<p><img loading="lazy" decoding="async" width="1206" height="353" class="wp-image-6640" src="/wp-content/uploads/2018/05/word-image-6047.png" srcset="/wp-content/uploads/2018/05/word-image-6047.png 1206w, /wp-content/uploads/2018/05/word-image-6047-300x88.png 300w, /wp-content/uploads/2018/05/word-image-6047-768x225.png 768w, /wp-content/uploads/2018/05/word-image-6047-1024x300.png 1024w" sizes="(max-width: 1206px) 100vw, 1206px" /></p>
+<h2><a id="post-6479-_deede_archives______"></a><a id="post-6479-_Toc256000034"></a>deede_archives(内容主表)</h2>
+<p><img loading="lazy" decoding="async" width="1152" height="331" class="wp-image-6641" src="/wp-content/uploads/2018/05/word-image-6048.png" srcset="/wp-content/uploads/2018/05/word-image-6048.png 1152w, /wp-content/uploads/2018/05/word-image-6048-300x86.png 300w, /wp-content/uploads/2018/05/word-image-6048-768x221.png 768w, /wp-content/uploads/2018/05/word-image-6048-1024x294.png 1024w" sizes="(max-width: 1152px) 100vw, 1152px" /></p>
+<h2><a id="post-6479-_dede_addonxxx_____"></a><a id="post-6479-_Toc256000035"></a>dede_addonxxx(附加表)</h2>
+<p><img loading="lazy" decoding="async" width="1208" height="304" class="wp-image-6642" src="/wp-content/uploads/2018/05/word-image-6049.png" srcset="/wp-content/uploads/2018/05/word-image-6049.png 1208w, /wp-content/uploads/2018/05/word-image-6049-300x75.png 300w, /wp-content/uploads/2018/05/word-image-6049-768x193.png 768w, /wp-content/uploads/2018/05/word-image-6049-1024x258.png 1024w" sizes="(max-width: 1208px) 100vw, 1208px" /></p>
+<p>每一个附加表,都是为了保存这个模型下面所独有的内容</p>
+<h1><a id="post-6479-________4"></a><a id="post-6479-_Toc256000036"></a>表之间的关系</h1>
+<h2><a id="post-6479-________"></a><a id="post-6479-_Toc256000037"></a>模型表与栏目表</h2>
+<p>由于每个栏目必然要确定是哪一个模型下面的栏目所以这里dede_channeltype模型表中的id字段对应的就是dede_arctype栏目表中的channeltype字段进行关联</p>
+<p><img loading="lazy" decoding="async" width="1264" height="758" class="wp-image-6643" src="/wp-content/uploads/2018/05/word-image-6050.png" srcset="/wp-content/uploads/2018/05/word-image-6050.png 1264w, /wp-content/uploads/2018/05/word-image-6050-300x180.png 300w, /wp-content/uploads/2018/05/word-image-6050-768x461.png 768w, /wp-content/uploads/2018/05/word-image-6050-1024x614.png 1024w" sizes="(max-width: 1264px) 100vw, 1264px" /></p>
+<h2><a id="post-6479-__________4"></a><a id="post-6479-_Toc256000038"></a>内容主表与栏目表</h2>
+<p>内容主表的typeid与栏目表中id是对应的</p>
+<p><img loading="lazy" decoding="async" width="1193" height="792" class="wp-image-6644" src="/wp-content/uploads/2018/05/word-image-6051.png" srcset="/wp-content/uploads/2018/05/word-image-6051.png 1193w, /wp-content/uploads/2018/05/word-image-6051-300x199.png 300w, /wp-content/uploads/2018/05/word-image-6051-768x510.png 768w, /wp-content/uploads/2018/05/word-image-6051-1024x680.png 1024w" sizes="(max-width: 1193px) 100vw, 1193px" /></p>
+<h2><a id="post-6479-__________5"></a><a id="post-6479-_Toc256000039"></a>内容主表和附加表</h2>
+<p><img loading="lazy" decoding="async" width="1078" height="685" class="wp-image-6645" src="/wp-content/uploads/2018/05/word-image-6052.png" srcset="/wp-content/uploads/2018/05/word-image-6052.png 1078w, /wp-content/uploads/2018/05/word-image-6052-300x191.png 300w, /wp-content/uploads/2018/05/word-image-6052-768x488.png 768w, /wp-content/uploads/2018/05/word-image-6052-1024x651.png 1024w" sizes="(max-width: 1078px) 100vw, 1078px" /></p>
+<p>这两个表中的typeid是相对应的</p>
+<h1><a id="post-6479-_________________"></a><a id="post-6479-_Toc256000040"></a>开发一个电影网站（添加数据信息）</h1>
+<h2><a id="post-6479-________5"></a><a id="post-6479-_Toc256000041"></a>创建电影模型</h2>
+<p>a 创建模型的一个步骤</p>
+<p>核心&#8212;-&gt;内容模型管理&#8212;&#8212;&#8211;&gt;增加模型</p>
+<p><img loading="lazy" decoding="async" width="1856" height="483" class="wp-image-6646" src="/wp-content/uploads/2018/05/word-image-6053.png" srcset="/wp-content/uploads/2018/05/word-image-6053.png 1856w, /wp-content/uploads/2018/05/word-image-6053-300x78.png 300w, /wp-content/uploads/2018/05/word-image-6053-768x200.png 768w, /wp-content/uploads/2018/05/word-image-6053-1024x266.png 1024w" sizes="(max-width: 1856px) 100vw, 1856px" /></p>
+<p>b 增加一个电影模型</p>
+<p><img loading="lazy" decoding="async" width="1489" height="858" class="wp-image-6647" src="/wp-content/uploads/2018/05/word-image-6054.png" srcset="/wp-content/uploads/2018/05/word-image-6054.png 1489w, /wp-content/uploads/2018/05/word-image-6054-300x173.png 300w, /wp-content/uploads/2018/05/word-image-6054-768x443.png 768w, /wp-content/uploads/2018/05/word-image-6054-1024x590.png 1024w" sizes="(max-width: 1489px) 100vw, 1489px" /></p>
+<p>增加成功之后的界面</p>
+<p><img loading="lazy" decoding="async" width="1402" height="431" class="wp-image-6648" src="/wp-content/uploads/2018/05/word-image-6055.png" srcset="/wp-content/uploads/2018/05/word-image-6055.png 1402w, /wp-content/uploads/2018/05/word-image-6055-300x92.png 300w, /wp-content/uploads/2018/05/word-image-6055-768x236.png 768w, /wp-content/uploads/2018/05/word-image-6055-1024x315.png 1024w" sizes="(max-width: 1402px) 100vw, 1402px" /></p>
+<p>模型所对应的附加表</p>
+<p><img loading="lazy" decoding="async" width="606" height="299" class="wp-image-6649" src="/wp-content/uploads/2018/05/word-image-6056.png" srcset="/wp-content/uploads/2018/05/word-image-6056.png 606w, /wp-content/uploads/2018/05/word-image-6056-300x148.png 300w" sizes="(max-width: 606px) 100vw, 606px" /></p>
+<h2><a id="post-6479-________6"></a><a id="post-6479-_Toc256000042"></a>添加属性字段</h2>
+<p>因为增加模型时,默认添加的字端,不能满足我们的需求,所以我们要自己手动的增加一些字段.</p>
+<p>a 更改已经创建好的模型</p>
+<p><img loading="lazy" decoding="async" width="1845" height="452" class="wp-image-6650" src="/wp-content/uploads/2018/05/word-image-6057.png" srcset="/wp-content/uploads/2018/05/word-image-6057.png 1845w, /wp-content/uploads/2018/05/word-image-6057-300x73.png 300w, /wp-content/uploads/2018/05/word-image-6057-768x188.png 768w, /wp-content/uploads/2018/05/word-image-6057-1024x251.png 1024w" sizes="(max-width: 1845px) 100vw, 1845px" /><br />
+<img loading="lazy" decoding="async" width="930" height="458" class="wp-image-6651" src="/wp-content/uploads/2018/05/word-image-6058.png" srcset="/wp-content/uploads/2018/05/word-image-6058.png 930w, /wp-content/uploads/2018/05/word-image-6058-300x148.png 300w, /wp-content/uploads/2018/05/word-image-6058-768x378.png 768w" sizes="(max-width: 930px) 100vw, 930px" /></p>
+<p>b 添加主演字段</p>
+<p><img loading="lazy" decoding="async" width="664" height="547" class="wp-image-6652" src="/wp-content/uploads/2018/05/word-image-6059.png" srcset="/wp-content/uploads/2018/05/word-image-6059.png 664w, /wp-content/uploads/2018/05/word-image-6059-300x247.png 300w" sizes="(max-width: 664px) 100vw, 664px" /></p>
+<p>c 添加导演字段</p>
+<p><img loading="lazy" decoding="async" width="966" height="701" class="wp-image-6653" src="/wp-content/uploads/2018/05/word-image-6060.png" srcset="/wp-content/uploads/2018/05/word-image-6060.png 966w, /wp-content/uploads/2018/05/word-image-6060-300x218.png 300w, /wp-content/uploads/2018/05/word-image-6060-768x557.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<p>d 增加年代字段</p>
+<p><img loading="lazy" decoding="async" width="665" height="510" class="wp-image-6654" src="/wp-content/uploads/2018/05/word-image-6061.png" srcset="/wp-content/uploads/2018/05/word-image-6061.png 665w, /wp-content/uploads/2018/05/word-image-6061-300x230.png 300w" sizes="(max-width: 665px) 100vw, 665px" /></p>
+<p>e 增加语言的字段</p>
+<p><img loading="lazy" decoding="async" width="1000" height="577" class="wp-image-6655" src="/wp-content/uploads/2018/05/word-image-6062.png" srcset="/wp-content/uploads/2018/05/word-image-6062.png 1000w, /wp-content/uploads/2018/05/word-image-6062-300x173.png 300w, /wp-content/uploads/2018/05/word-image-6062-768x443.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" /></p>
+<p>f 增加地区的字段</p>
+<p><img loading="lazy" decoding="async" width="1506" height="579" class="wp-image-6656" src="/wp-content/uploads/2018/05/word-image-6063.png" srcset="/wp-content/uploads/2018/05/word-image-6063.png 1506w, /wp-content/uploads/2018/05/word-image-6063-300x115.png 300w, /wp-content/uploads/2018/05/word-image-6063-768x295.png 768w, /wp-content/uploads/2018/05/word-image-6063-1024x394.png 1024w" sizes="(max-width: 1506px) 100vw, 1506px" /></p>
+<p>g 增加评分</p>
+<p><img loading="lazy" decoding="async" width="933" height="603" class="wp-image-6657" src="/wp-content/uploads/2018/05/word-image-6064.png" srcset="/wp-content/uploads/2018/05/word-image-6064.png 933w, /wp-content/uploads/2018/05/word-image-6064-300x194.png 300w, /wp-content/uploads/2018/05/word-image-6064-768x496.png 768w" sizes="(max-width: 933px) 100vw, 933px" /></p>
+<p>h 评分人数</p>
+<p><img loading="lazy" decoding="async" width="736" height="537" class="wp-image-6658" src="/wp-content/uploads/2018/05/word-image-6065.png" srcset="/wp-content/uploads/2018/05/word-image-6065.png 736w, /wp-content/uploads/2018/05/word-image-6065-300x219.png 300w" sizes="(max-width: 736px) 100vw, 736px" /></p>
+<p>j 增加简介的字段</p>
+<p><img loading="lazy" decoding="async" width="950" height="644" class="wp-image-6659" src="/wp-content/uploads/2018/05/word-image-6066.png" srcset="/wp-content/uploads/2018/05/word-image-6066.png 950w, /wp-content/uploads/2018/05/word-image-6066-300x203.png 300w, /wp-content/uploads/2018/05/word-image-6066-768x521.png 768w, /wp-content/uploads/2018/05/word-image-6066-220x150.png 220w" sizes="(max-width: 950px) 100vw, 950px" /></p>
+<p>字段增加完成之后的效果’</p>
+<p><img loading="lazy" decoding="async" width="1646" height="383" class="wp-image-6660" src="/wp-content/uploads/2018/05/word-image-6067.png" srcset="/wp-content/uploads/2018/05/word-image-6067.png 1646w, /wp-content/uploads/2018/05/word-image-6067-300x70.png 300w, /wp-content/uploads/2018/05/word-image-6067-768x179.png 768w, /wp-content/uploads/2018/05/word-image-6067-1024x238.png 1024w" sizes="(max-width: 1646px) 100vw, 1646px" /></p>
+<p>查看已经创建好的电影模型附加表所对应的字段</p>
+<p><img loading="lazy" decoding="async" width="1133" height="213" class="wp-image-6661" src="/wp-content/uploads/2018/05/word-image-6068.png" srcset="/wp-content/uploads/2018/05/word-image-6068.png 1133w, /wp-content/uploads/2018/05/word-image-6068-300x56.png 300w, /wp-content/uploads/2018/05/word-image-6068-768x144.png 768w, /wp-content/uploads/2018/05/word-image-6068-1024x193.png 1024w" sizes="(max-width: 1133px) 100vw, 1133px" /></p>
+<p>&nbsp;</p>
+<h2><a id="post-6479-__________7"></a><a id="post-6479-_Toc256000046"></a>创建电影网站栏目</h2>
+<p>顶级导航：我的电影、国产大片、原声影院、欧美大片、3D影院、公司简介、关于我们</p>
+<p>我的电影：爱情、动作、科幻、惊悚、儿童、动漫</p>
+<p>a 使用批量添加顶级导航栏目</p>
+<p><img loading="lazy" decoding="async" width="1886" height="362" class="wp-image-6662" src="/wp-content/uploads/2018/05/word-image-6069.png" srcset="/wp-content/uploads/2018/05/word-image-6069.png 1886w, /wp-content/uploads/2018/05/word-image-6069-300x58.png 300w, /wp-content/uploads/2018/05/word-image-6069-768x147.png 768w, /wp-content/uploads/2018/05/word-image-6069-1024x197.png 1024w" sizes="(max-width: 1886px) 100vw, 1886px" /></p>
+<p>b 增加导航栏目</p>
+<p><img loading="lazy" decoding="async" width="1289" height="775" class="wp-image-6663" src="/wp-content/uploads/2018/05/word-image-6070.png" srcset="/wp-content/uploads/2018/05/word-image-6070.png 1289w, /wp-content/uploads/2018/05/word-image-6070-300x180.png 300w, /wp-content/uploads/2018/05/word-image-6070-768x462.png 768w, /wp-content/uploads/2018/05/word-image-6070-1024x616.png 1024w" sizes="(max-width: 1289px) 100vw, 1289px" /></p>
+<p>将公司简介,和关于我们两个栏目添加成为文章类型的</p>
+<p>增加之后的页面</p>
+<p><img loading="lazy" decoding="async" width="1701" height="525" class="wp-image-6664" src="/wp-content/uploads/2018/05/word-image-6071.png" srcset="/wp-content/uploads/2018/05/word-image-6071.png 1701w, /wp-content/uploads/2018/05/word-image-6071-300x93.png 300w, /wp-content/uploads/2018/05/word-image-6071-768x237.png 768w, /wp-content/uploads/2018/05/word-image-6071-1024x316.png 1024w" sizes="(max-width: 1701px) 100vw, 1701px" /></p>
+<h2><a id="post-6479-__________8"></a><a id="post-6479-_Toc256000047"></a>添加具体电影数据</h2>
+<p>a 在内容管理中添加电影数据</p>
+<p><img loading="lazy" decoding="async" width="637" height="571" class="wp-image-6665" src="/wp-content/uploads/2018/05/word-image-6072.png" srcset="/wp-content/uploads/2018/05/word-image-6072.png 637w, /wp-content/uploads/2018/05/word-image-6072-300x269.png 300w" sizes="(max-width: 637px) 100vw, 637px" /></p>
+<p>b 增加电影数据:</p>
+<p><img loading="lazy" decoding="async" width="1094" height="556" class="wp-image-6666" src="/wp-content/uploads/2018/05/word-image-6073.png" srcset="/wp-content/uploads/2018/05/word-image-6073.png 1094w, /wp-content/uploads/2018/05/word-image-6073-300x152.png 300w, /wp-content/uploads/2018/05/word-image-6073-768x390.png 768w, /wp-content/uploads/2018/05/word-image-6073-1024x520.png 1024w" sizes="(max-width: 1094px) 100vw, 1094px" /><br />
+<img loading="lazy" decoding="async" width="1075" height="748" class="wp-image-6668" src="/wp-content/uploads/2018/05/word-image-6075.png" srcset="/wp-content/uploads/2018/05/word-image-6075.png 1075w, /wp-content/uploads/2018/05/word-image-6075-300x209.png 300w, /wp-content/uploads/2018/05/word-image-6075-768x534.png 768w, /wp-content/uploads/2018/05/word-image-6075-1024x713.png 1024w" sizes="(max-width: 1075px) 100vw, 1075px" /></p>
+<h1><a id="post-6479-__________9"></a><a id="post-6479-_Toc256000048"></a>制作电影网站首页</h1>
+<h2><a id="post-6479-___________"></a><a id="post-6479-_Toc256000049"></a>复制模板文件到项目中</h2>
+<p>a 将我们的模板复制到templets中</p>
+<p><img loading="lazy" decoding="async" width="976" height="272" class="wp-image-6670" src="/wp-content/uploads/2018/05/word-image-6077.png" srcset="/wp-content/uploads/2018/05/word-image-6077.png 976w, /wp-content/uploads/2018/05/word-image-6077-300x84.png 300w, /wp-content/uploads/2018/05/word-image-6077-768x214.png 768w" sizes="(max-width: 976px) 100vw, 976px" /></p>
+<h2><a id="post-6479-_____________2"></a><a id="post-6479-_Toc256000050"></a>修改模板文件的默认风格</h2>
+<p>修改dede默认加载静态页面的路径</p>
+<p><img loading="lazy" decoding="async" width="1197" height="628" class="wp-image-6672" src="/wp-content/uploads/2018/05/word-image-6079.png" srcset="/wp-content/uploads/2018/05/word-image-6079.png 1197w, /wp-content/uploads/2018/05/word-image-6079-300x157.png 300w, /wp-content/uploads/2018/05/word-image-6079-768x403.png 768w, /wp-content/uploads/2018/05/word-image-6079-1024x537.png 1024w" sizes="(max-width: 1197px) 100vw, 1197px" /></p>
+<h2><a id="post-6479-__a67______"></a><a id="post-6479-_Toc256000051"></a>将a67模板首页改名,作为整个网站的首页</h2>
+<p><img loading="lazy" decoding="async" width="939" height="279" class="wp-image-6674" src="/wp-content/uploads/2018/05/word-image-6081.png" srcset="/wp-content/uploads/2018/05/word-image-6081.png 939w, /wp-content/uploads/2018/05/word-image-6081-300x89.png 300w, /wp-content/uploads/2018/05/word-image-6081-768x228.png 768w" sizes="(max-width: 939px) 100vw, 939px" /></p>
+<h2><a id="post-6479-__________10"></a><a id="post-6479-_Toc256000052"></a>生成首页文件</h2>
+<p>a 在生成栏目下找到更新主页html页面的按钮’</p>
+<p><img loading="lazy" decoding="async" width="1147" height="367" class="wp-image-6676" src="/wp-content/uploads/2018/05/word-image-6083.png" srcset="/wp-content/uploads/2018/05/word-image-6083.png 1147w, /wp-content/uploads/2018/05/word-image-6083-300x96.png 300w, /wp-content/uploads/2018/05/word-image-6083-768x246.png 768w, /wp-content/uploads/2018/05/word-image-6083-1024x328.png 1024w" sizes="(max-width: 1147px) 100vw, 1147px" /></p>
+<p>b 选择a67下面的index.htm文件</p>
+<p><img loading="lazy" decoding="async" width="873" height="353" class="wp-image-6678" src="/wp-content/uploads/2018/05/word-image-6085.png" srcset="/wp-content/uploads/2018/05/word-image-6085.png 873w, /wp-content/uploads/2018/05/word-image-6085-300x121.png 300w, /wp-content/uploads/2018/05/word-image-6085-768x311.png 768w" sizes="(max-width: 873px) 100vw, 873px" /></p>
+<p>c 首页更新成功</p>
+<p><img loading="lazy" decoding="async" width="1008" height="595" class="wp-image-6679" src="/wp-content/uploads/2018/05/word-image-6086.png" srcset="/wp-content/uploads/2018/05/word-image-6086.png 1008w, /wp-content/uploads/2018/05/word-image-6086-300x177.png 300w, /wp-content/uploads/2018/05/word-image-6086-768x453.png 768w" sizes="(max-width: 1008px) 100vw, 1008px" /></p>
+<h2>修改首页资源路径</h2>
+<p>此时的常量所代表的路径:</p>
+<p><img loading="lazy" decoding="async" width="696" height="80" class="wp-image-6681" src="/wp-content/uploads/2018/05/word-image-6088.png" srcset="/wp-content/uploads/2018/05/word-image-6088.png 696w, /wp-content/uploads/2018/05/word-image-6088-300x34.png 300w" sizes="(max-width: 696px) 100vw, 696px" /></p>
+<p>a 新建一个demo.html文件测试</p>
+<p><img loading="lazy" decoding="async" width="1135" height="586" class="wp-image-6684" src="/wp-content/uploads/2018/05/word-image-6090.png" srcset="/wp-content/uploads/2018/05/word-image-6090.png 1135w, /wp-content/uploads/2018/05/word-image-6090-300x155.png 300w, /wp-content/uploads/2018/05/word-image-6090-768x397.png 768w, /wp-content/uploads/2018/05/word-image-6090-1024x529.png 1024w" sizes="(max-width: 1135px) 100vw, 1135px" /></p>
+<p>b 重新生成首页文件,显示出路径</p>
+<p><img loading="lazy" decoding="async" width="868" height="269" class="wp-image-6687" src="/wp-content/uploads/2018/05/word-image-6093.png" srcset="/wp-content/uploads/2018/05/word-image-6093.png 868w, /wp-content/uploads/2018/05/word-image-6093-300x93.png 300w, /wp-content/uploads/2018/05/word-image-6093-768x238.png 768w" sizes="(max-width: 868px) 100vw, 868px" /></p>
+<p>c 更新主页html之后重新生成的页面,路径的输出结果如下</p>
+<p><img loading="lazy" decoding="async" width="664" height="172" class="wp-image-6689" src="/wp-content/uploads/2018/05/word-image-6095.png" srcset="/wp-content/uploads/2018/05/word-image-6095.png 664w, /wp-content/uploads/2018/05/word-image-6095-300x78.png 300w" sizes="(max-width: 664px) 100vw, 664px" /></p>
+<p>d 将index.htm中的静态资源路劲进行修改</p>
+<p><img loading="lazy" decoding="async" width="1021" height="316" class="wp-image-6691" src="/wp-content/uploads/2018/05/word-image-6097.png" srcset="/wp-content/uploads/2018/05/word-image-6097.png 1021w, /wp-content/uploads/2018/05/word-image-6097-300x93.png 300w, /wp-content/uploads/2018/05/word-image-6097-768x238.png 768w" sizes="(max-width: 1021px) 100vw, 1021px" /></p>
+<p>路径修改完成之后,重新生成主页html页面,并且进行访问</p>
+<p><img loading="lazy" decoding="async" width="1156" height="469" class="wp-image-6693" src="/wp-content/uploads/2018/05/word-image-6099.png" srcset="/wp-content/uploads/2018/05/word-image-6099.png 1156w, /wp-content/uploads/2018/05/word-image-6099-300x122.png 300w, /wp-content/uploads/2018/05/word-image-6099-768x312.png 768w, /wp-content/uploads/2018/05/word-image-6099-1024x415.png 1024w" sizes="(max-width: 1156px) 100vw, 1156px" /></p>
+<h1><a id="post-6479-_dede_____"></a><a id="post-6479-_Toc256000054"></a>dede里面的标签</h1>
+<h2><a id="post-6479-____"></a><a id="post-6479-_Toc256000055"></a>单标签</h2>
+<p>语法格式：</p>
+<p>{dede:标签名称 属性1=属性值1 /}</p>
+<p>例如：</p>
+<p>{dede:global.cfg_templets_skin/}</p>
+<p>{dede:include filename=&#8221;head.html&#8221;/} 表示包含一个外部文件</p>
+<p>注意：很多单标签以global开头的变量值都是在common.inc.php这个文件中进行定义的</p>
+<p><img loading="lazy" decoding="async" width="1249" height="706" class="wp-image-6695" src="/wp-content/uploads/2018/05/word-image-6101.png" srcset="/wp-content/uploads/2018/05/word-image-6101.png 1249w, /wp-content/uploads/2018/05/word-image-6101-300x170.png 300w, /wp-content/uploads/2018/05/word-image-6101-768x434.png 768w, /wp-content/uploads/2018/05/word-image-6101-1024x579.png 1024w" sizes="(max-width: 1249px) 100vw, 1249px" /></p>
+<h2><a id="post-6479-_____2"></a><a id="post-6479-_Toc256000056"></a>双标签</h2>
+<p>语法格式：</p>
+<p>{dede:标签名称 属性1=属性值1 属性2=属性值2}</p>
+<p>[field:字段名称/]</p>
+<p>{/dede:标签名称}</p>
+<p>注意：</p>
+<p>1、dede后面要有一个冒号：</p>
+<p>2、标签名和属性之间要有空格</p>
+<p>3、属性与属性之间也要有空格分开</p>
+<p>4、结束双标签要以斜线打头</p>
+<p>5、[field:字段名称/]里面的字段名称，一般是双标签所操作的表里面的字段名称</p>
+<p>举个栗子：</p>
+<p>{dede:channel type=&#8217;top&#8217; row=&#8217;10&#8217; }</p>
+<p>&lt;li&gt;&lt;a href='[field:typeurl/]&#8217; [field:rel/]&gt;&lt;span&gt;[field:typename/]&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</p>
+<p>{/dede:channel}</p>
+<p>每一个双标签都对应一个解析文件，通过该解析文件完成标签到PHP代码的转换。</p>
+<p>解析标签为sql语句的,文件位置</p>
+<p><img loading="lazy" decoding="async" width="588" height="582" class="wp-image-6697" src="/wp-content/uploads/2018/05/word-image-6103.png" srcset="/wp-content/uploads/2018/05/word-image-6103.png 588w, /wp-content/uploads/2018/05/word-image-6103-300x297.png 300w" sizes="(max-width: 588px) 100vw, 588px" /></p>
+<p>所有的前段使用的取数据的标签都在php中被解析了</p>
+<h3><a id="post-6479-______"></a><a id="post-6479-_Toc256000057"></a>常用双标签</h3>
+<p>channel 取出栏目数据的标签</p>
+<p>arclist 取出文章的标签</p>
+<p>channnelartlist 取出栏目和栏目下的所有数据</p>
+<p>标签的定影位置:</p>
+<p><img loading="lazy" decoding="async" width="1505" height="585" class="wp-image-6699" src="/wp-content/uploads/2018/05/word-image-6105.png" srcset="/wp-content/uploads/2018/05/word-image-6105.png 1505w, /wp-content/uploads/2018/05/word-image-6105-300x117.png 300w, /wp-content/uploads/2018/05/word-image-6105-768x299.png 768w, /wp-content/uploads/2018/05/word-image-6105-1024x398.png 1024w" sizes="(max-width: 1505px) 100vw, 1505px" /></p>
+<h1><a id="post-6479-____________2"></a><a id="post-6479-_Toc256000058"></a>取出首页中的栏目数据</h1>
+<p>使用channel标签取出数据库中的数据进行显示:</p>
+<p>举个栗子：</p>
+<p>{dede:channel type=&#8217;top&#8217; row=&#8217;10&#8217; }</p>
+<p>&lt;li&gt;&lt;a href='[field:typeurl/]&#8217; [field:rel/]&gt;&lt;span&gt;[field:typename/]&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</p>
+<p>{/dede:channel}</p>
+<p>type:top表示取出顶级标签</p>
+<p>row:10 取出十条数据</p>
+<p>a 使用demo.html页面进行测试</p>
+<p><img loading="lazy" decoding="async" width="1099" height="248" class="wp-image-6701" src="/wp-content/uploads/2018/05/word-image-6107.png" srcset="/wp-content/uploads/2018/05/word-image-6107.png 1099w, /wp-content/uploads/2018/05/word-image-6107-300x68.png 300w, /wp-content/uploads/2018/05/word-image-6107-768x173.png 768w, /wp-content/uploads/2018/05/word-image-6107-1024x231.png 1024w" sizes="(max-width: 1099px) 100vw, 1099px" /></p>
+<p>输出的效果如下:</p>
+<p><img loading="lazy" decoding="async" width="399" height="313" class="wp-image-6702" src="/wp-content/uploads/2018/05/word-image-6108.png" srcset="/wp-content/uploads/2018/05/word-image-6108.png 399w, /wp-content/uploads/2018/05/word-image-6108-300x235.png 300w" sizes="(max-width: 399px) 100vw, 399px" /></p>
+<p>b 在首页index.htm中使用channel标签,输出顶级栏目</p>
+<p><img loading="lazy" decoding="async" width="1317" height="314" class="wp-image-6704" src="/wp-content/uploads/2018/05/word-image-6110.png" srcset="/wp-content/uploads/2018/05/word-image-6110.png 1317w, /wp-content/uploads/2018/05/word-image-6110-300x72.png 300w, /wp-content/uploads/2018/05/word-image-6110-768x183.png 768w, /wp-content/uploads/2018/05/word-image-6110-1024x244.png 1024w" sizes="(max-width: 1317px) 100vw, 1317px" /></p>
+<p>c 重新生成index.htm页面</p>
+<p><img loading="lazy" decoding="async" width="1223" height="433" class="wp-image-6707" src="/wp-content/uploads/2018/05/word-image-6113.png" srcset="/wp-content/uploads/2018/05/word-image-6113.png 1223w, /wp-content/uploads/2018/05/word-image-6113-300x106.png 300w, /wp-content/uploads/2018/05/word-image-6113-768x272.png 768w, /wp-content/uploads/2018/05/word-image-6113-1024x363.png 1024w" sizes="(max-width: 1223px) 100vw, 1223px" /></p>
+<p>查看效果:</p>
+<p><img loading="lazy" decoding="async" width="820" height="325" class="wp-image-6709" src="/wp-content/uploads/2018/05/word-image-6115.png" srcset="/wp-content/uploads/2018/05/word-image-6115.png 820w, /wp-content/uploads/2018/05/word-image-6115-300x119.png 300w, /wp-content/uploads/2018/05/word-image-6115-768x304.png 768w" sizes="(max-width: 820px) 100vw, 820px" /></p>
+<p>顶级栏目就显示完成</p>
+<h1><a id="post-6479-_______________"></a><a id="post-6479-_Toc256000059"></a>取出“我的电影”栏目的子栏目</h1>
+<p>这里我们还要使用channel标签</p>
+<p><img loading="lazy" decoding="async" width="1137" height="292" class="wp-image-6711" src="/wp-content/uploads/2018/05/word-image-6117.png" srcset="/wp-content/uploads/2018/05/word-image-6117.png 1137w, /wp-content/uploads/2018/05/word-image-6117-300x77.png 300w, /wp-content/uploads/2018/05/word-image-6117-768x197.png 768w, /wp-content/uploads/2018/05/word-image-6117-1024x263.png 1024w" sizes="(max-width: 1137px) 100vw, 1137px" /></p>
+<p>重新生成index.htm查看效果</p>
+<p><img loading="lazy" decoding="async" width="1227" height="295" class="wp-image-6712" src="/wp-content/uploads/2018/05/word-image-6118.png" srcset="/wp-content/uploads/2018/05/word-image-6118.png 1227w, /wp-content/uploads/2018/05/word-image-6118-300x72.png 300w, /wp-content/uploads/2018/05/word-image-6118-768x185.png 768w, /wp-content/uploads/2018/05/word-image-6118-1024x246.png 1024w" sizes="(max-width: 1227px) 100vw, 1227px" /><br />
+<img loading="lazy" decoding="async" width="1130" height="189" class="wp-image-6714" src="/wp-content/uploads/2018/05/word-image-6120.png" srcset="/wp-content/uploads/2018/05/word-image-6120.png 1130w, /wp-content/uploads/2018/05/word-image-6120-300x50.png 300w, /wp-content/uploads/2018/05/word-image-6120-768x128.png 768w, /wp-content/uploads/2018/05/word-image-6120-1024x171.png 1024w" sizes="(max-width: 1130px) 100vw, 1130px" /></p>
+<p>多学一招:解析channel标签的使用,</p>
+<p>每一个标签都是对应的一个PHP文件</p>
+<p><img loading="lazy" decoding="async" width="814" height="656" class="wp-image-6716" src="/wp-content/uploads/2018/05/word-image-6122.png" srcset="/wp-content/uploads/2018/05/word-image-6122.png 814w, /wp-content/uploads/2018/05/word-image-6122-300x242.png 300w, /wp-content/uploads/2018/05/word-image-6122-768x619.png 768w" sizes="(max-width: 814px) 100vw, 814px" /></p>
+<p>在channel.lib.php中打印出执行的sql语句</p>
+<p><img loading="lazy" decoding="async" width="746" height="224" class="wp-image-6718" src="/wp-content/uploads/2018/05/word-image-6124.png" srcset="/wp-content/uploads/2018/05/word-image-6124.png 746w, /wp-content/uploads/2018/05/word-image-6124-300x90.png 300w" sizes="(max-width: 746px) 100vw, 746px" /></p>
+<p>打印到的效果如下:</p>
+<p><img loading="lazy" decoding="async" width="1536" height="188" class="wp-image-6720" src="/wp-content/uploads/2018/05/word-image-6126.png" srcset="/wp-content/uploads/2018/05/word-image-6126.png 1536w, /wp-content/uploads/2018/05/word-image-6126-300x37.png 300w, /wp-content/uploads/2018/05/word-image-6126-768x94.png 768w, /wp-content/uploads/2018/05/word-image-6126-1024x125.png 1024w" sizes="(max-width: 1536px) 100vw, 1536px" /></p>
+<p>这里虽然调用了标签,但是他的后面确实跟着一个php文件</p>
+<h1><a id="post-6479-__________________2"></a><a id="post-6479-_Toc256000060"></a>取出如下电影数据（首页专题电影）</h1>
+<h2><a id="post-6479-___arclist____"></a><a id="post-6479-_Toc256000061"></a>使用arclist标签实现</h2>
+<h3><a id="post-6479-_channelid__"></a><a id="post-6479-_Toc256000062"></a>channelid属性</h3>
+<p>用来确定是哪个模型下面的数据信息以及确定哪个附加表进行关联</p>
+<h3><a id="post-6479-_addfields__"></a><a id="post-6479-_Toc256000063"></a>addfields属性</h3>
+<p>如果不使用addfields属性，则只会关联内容主表和栏目表进行数据查询，所以当我们需要查询附加表中的数据时就必须要使用addfields属性。这个属性标明附加表dede_addmovie需要使用的字段.</p>
+<p>格式：addfields=“字段1,字段2,字段3”;//指定的是要从附加表中获取的字段信息列表。</p>
+<p>注意：要想从附加表中取得数据那么就必须同时使用addfields属性和channelid属性</p>
+<p>取出数据的代码：</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91/6479.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

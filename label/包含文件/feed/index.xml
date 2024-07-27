@@ -1,0 +1,1475 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>包含文件 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%8C%85%E5%90%AB%E6%96%87%E4%BB%B6/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 12:17:54 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>包含文件 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>PHP 语法（三）判断语句、 包含文件、 循环语句、 运算符</title>
+		<link>/php/813.html</link>
+					<comments>/php/813.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 16:46:36 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP基本语法]]></category>
+		<category><![CDATA[判断语句]]></category>
+		<category><![CDATA[包含文件]]></category>
+		<category><![CDATA[循环语句]]></category>
+		<category><![CDATA[运算符]]></category>
+		<guid isPermaLink="false">/?p=813</guid>
+
+					<description><![CDATA[PHP语法（三） 运算符 算术运算符 一元运算符 二元运算符 &#8211; + ++ &#8211; &#8 [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h1>PHP语法（三）</h1>
+<h2>运算符</h2>
+<h3>算术运算符</h3>
+<table>
+<tr>
+<td>
+<p>
+  一元运算符
+</p>
+</td>
+<td>
+<p>
+  二元运算符
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &#8211;
+</p>
+</td>
+<td>
+<p>
+  +
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  ++
+</p>
+</td>
+<td>
+<p>
+  &#8211;
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &#8212;
+</p>
+</td>
+<td>
+<p>
+  *
+</p>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<p>
+  /
+</p>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<p>
+  %
+</p>
+</td>
+</tr>
+</table>
+<p>
+  脚下留心：
+</p>
+<ol>
+<li>
+  PHP中的“+”只能做数字运行，不能做字符串运算。
+</li>
+<li>
+  ++和&#8211;要注意前置和后置的问题
+</li>
+</ol>
+<p><img decoding="async" width="659" height="26" src="/wp-content/uploads/2018/05/word-image-714.png" class="wp-image-815" srcset="/wp-content/uploads/2018/05/word-image-714.png 659w, /wp-content/uploads/2018/05/word-image-714-300x12.png 300w" sizes="(max-width: 659px) 100vw, 659px" /><br />
+<img decoding="async" width="601" height="71" src="/wp-content/uploads/2018/05/word-image-715.png" class="wp-image-816" srcset="/wp-content/uploads/2018/05/word-image-715.png 601w, /wp-content/uploads/2018/05/word-image-715-300x35.png 300w" sizes="(max-width: 601px) 100vw, 601px" /></p>
+<h3>比较运算符（关系运算符）</h3>
+<table>
+<tr>
+<td>
+<p>
+  运算符
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &gt;
+</p>
+</td>
+<td>
+<p>
+  大于
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &gt;=
+</p>
+</td>
+<td>
+<p>
+  大于等于
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &lt;
+</p>
+</td>
+<td>
+<p>
+  小于
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &lt;=
+</p>
+</td>
+<td>
+<p>
+  小于等于
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  ==
+</p>
+</td>
+<td>
+<p>
+  等于    *只要能转成相同的值就是相等
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  ===
+</p>
+</td>
+<td>
+<p>
+  全等于  *不但值相等，数据类型也要相等
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  !=或&lt;&gt;
+</p>
+</td>
+<td>
+<p>
+  不等于
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  !==
+</p>
+</td>
+<td>
+<p>
+  不全等
+</p>
+</td>
+</tr>
+</table>
+<p>
+  注意：比较运算符的运算结果是布尔型的
+</p>
+<p><img fetchpriority="high" decoding="async" width="615" height="213" src="/wp-content/uploads/2018/05/word-image-716.png" class="wp-image-817" srcset="/wp-content/uploads/2018/05/word-image-716.png 615w, /wp-content/uploads/2018/05/word-image-716-300x104.png 300w" sizes="(max-width: 615px) 100vw, 615px" /></p>
+<p>
+  不等于
+</p>
+<p><img loading="lazy" decoding="async" width="307" height="115" src="/wp-content/uploads/2018/05/word-image-717.png" class="wp-image-818" srcset="/wp-content/uploads/2018/05/word-image-717.png 307w, /wp-content/uploads/2018/05/word-image-717-300x112.png 300w" sizes="(max-width: 307px) 100vw, 307px" /></p>
+<h3>逻辑运算符</h3>
+<p>
+  逻辑运算符是用来连接比较运算符的。
+</p>
+<table>
+<tr>
+<td>
+<p>
+  运算符
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &amp;&amp;或and
+</p>
+</td>
+<td>
+<p>
+  与（并且）
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  ||或or
+</p>
+</td>
+<td>
+<p>
+  或（或者）
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  !
+</p>
+</td>
+<td>
+<p>
+  非（取反）
+</p>
+</td>
+</tr>
+</table>
+<p>
+  练习
+</p>
+<p>
+  true &amp;&amp; true		true
+</p>
+<p>
+  true &amp;&amp; false		false
+</p>
+<p>
+  false &amp;&amp; true		false
+</p>
+<p>
+  false &amp;&amp; false	false
+</p>
+<p>
+  true || true		true
+</p>
+<p>
+  true || false		true
+</p>
+<p>
+  false || true 	true
+</p>
+<p>
+  false || false	false
+</p>
+<p>
+  !true				false
+</p>
+<p>
+  !false				true
+</p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="693" height="90" src="/wp-content/uploads/2018/05/word-image-718.png" class="wp-image-819" srcset="/wp-content/uploads/2018/05/word-image-718.png 693w, /wp-content/uploads/2018/05/word-image-718-300x39.png 300w" sizes="(max-width: 693px) 100vw, 693px" /></p>
+<h3>赋值运算符</h3>
+<table>
+<tr>
+<td>
+<p>
+  运算符
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  =
+</p>
+</td>
+<td>
+<p>
+  赋值
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  +=
+</p>
+</td>
+<td>
+<p>
+  a+=b    a=a+b
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  -=
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  *=
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  /=
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  %=
+</p>
+</td>
+<td></td>
+</tr>
+</table>
+<p>
+  总结 ：= 赋值	==	等于	===  全等
+</p>
+<h3>字符串连接符（.）</h3>
+<p><img loading="lazy" decoding="async" width="550" height="35" src="/wp-content/uploads/2018/05/word-image-719.png" class="wp-image-820" srcset="/wp-content/uploads/2018/05/word-image-719.png 550w, /wp-content/uploads/2018/05/word-image-719-300x19.png 300w" sizes="(max-width: 550px) 100vw, 550px" /></p>
+<h3>错误控制运算符（错误抑制符 @）</h3>
+<p>
+  @用来屏蔽表达式错误，只对表达式有效。
+</p>
+<p><img loading="lazy" decoding="async" width="678" height="78" src="/wp-content/uploads/2018/05/word-image-720.png" class="wp-image-821" srcset="/wp-content/uploads/2018/05/word-image-720.png 678w, /wp-content/uploads/2018/05/word-image-720-300x35.png 300w" sizes="(max-width: 678px) 100vw, 678px" /></p>
+<h3>三元运算符（?:）</h3>
+<p>
+  语法：表达式?值1：值2
+</p>
+<p>
+  如果表达式为真，返回值1，否则返回值2
+</p>
+<p><img loading="lazy" decoding="async" width="954" height="207" src="/wp-content/uploads/2018/05/word-image-721.png" class="wp-image-822" srcset="/wp-content/uploads/2018/05/word-image-721.png 954w, /wp-content/uploads/2018/05/word-image-721-300x65.png 300w, /wp-content/uploads/2018/05/word-image-721-768x167.png 768w" sizes="(max-width: 954px) 100vw, 954px" /></p>
+<h3>位运算符（了解）</h3>
+<table>
+<tr>
+<td>
+<p>
+  运算符
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  按位与（&amp;）
+</p>
+</td>
+<td>
+<p>
+  两个相同的位都是1，结果才是1，有一位是0结果就是0
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  按位或（|）
+</p>
+</td>
+<td>
+<p>
+  两个位只要有一个是1结果就是1
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  按位异或（^）
+</p>
+</td>
+<td>
+<p>
+  两个位不同为1，相同位0
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  按位非（~）
+</p>
+</td>
+<td>
+<p>
+  按位取反
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  位左移（&lt;&lt;）
+</p>
+</td>
+<td>
+<p>
+  位向左移动
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  位右移（&gt;&gt;）
+</p>
+</td>
+<td>
+<p>
+  位向右移动
+</p>
+</td>
+</tr>
+</table>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="1232" height="258" src="/wp-content/uploads/2018/05/word-image-722.png" class="wp-image-823" srcset="/wp-content/uploads/2018/05/word-image-722.png 1232w, /wp-content/uploads/2018/05/word-image-722-300x63.png 300w, /wp-content/uploads/2018/05/word-image-722-768x161.png 768w, /wp-content/uploads/2018/05/word-image-722-1024x214.png 1024w" sizes="(max-width: 1232px) 100vw, 1232px" /></p>
+<h2>运算符的优先级</h2>
+<ol>
+<li>
+  第一步：小括号的优先级最高
+</li>
+<li>
+  第二步：先乘除后加减
+</li>
+<li>
+  第三步：算术运算符 &gt; 比较运算符 &gt; 逻辑运算符 &gt; 赋值运算符
+</li>
+</ol>
+<p>
+  $a=5;
+</p>
+<p>
+  $b=6;
+</p>
+<p>
+  $a&gt;$b &amp;&amp; ($a+$b)&gt;$b*2 || !($a==$b)
+</p>
+<p>
+  =false &amp;&amp; false || true
+</p>
+<p>
+  =true
+</p>
+<h2>两个常用于判读变量的函数</h2>
+<p>
+  在处理一个没有定义的变量的时候回报错
+</p>
+<p><img loading="lazy" decoding="async" width="777" height="73" src="/wp-content/uploads/2018/05/word-image-723.png" class="wp-image-824" srcset="/wp-content/uploads/2018/05/word-image-723.png 777w, /wp-content/uploads/2018/05/word-image-723-300x28.png 300w, /wp-content/uploads/2018/05/word-image-723-768x72.png 768w" sizes="(max-width: 777px) 100vw, 777px" /></p>
+<p>
+  我们在使用变量之前，向判读一下变量，判读变量的函数有两个
+</p>
+<table>
+<tr>
+<td>
+<p>
+  函数
+</p>
+</td>
+<td>
+<p>
+  说明
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  isset()
+</p>
+</td>
+<td>
+<p>
+  检测变量是否设置，并且设置的值不是null
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  empty()
+</p>
+</td>
+<td>
+<p>
+  检查变量是否为空，只要能转成 false的都为空。
+</p>
+</td>
+</tr>
+</table>
+<p>
+  例题：
+</p>
+<p><img loading="lazy" decoding="async" width="555" height="111" src="/wp-content/uploads/2018/05/word-image-724.png" class="wp-image-825" srcset="/wp-content/uploads/2018/05/word-image-724.png 555w, /wp-content/uploads/2018/05/word-image-724-300x60.png 300w" sizes="(max-width: 555px) 100vw, 555px" /><br />
+<img loading="lazy" decoding="async" width="683" height="110" src="/wp-content/uploads/2018/05/word-image-725.png" class="wp-image-826" srcset="/wp-content/uploads/2018/05/word-image-725.png 683w, /wp-content/uploads/2018/05/word-image-725-300x48.png 300w" sizes="(max-width: 683px) 100vw, 683px" /></p>
+<h2>流程控制的三大基本结构</h2>
+<ol>
+<li>
+  顺序结构
+</li>
+<li>
+  判断
+</li>
+<li>
+  循环
+</li>
+</ol>
+<h2>判断语句</h2>
+<h3>语法结构</h3>
+<ol>
+<li>
+  单分支
+</li>
+</ol>
+<p>
+  if(条件){
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  双分支
+</li>
+</ol>
+<p>
+  if(条件){
+</p>
+<p>
+  }else{
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  多分支
+</li>
+</ol>
+<p>
+  if(条件){
+</p>
+<p>
+  }
+</p>
+<p>
+  elseif(条件){
+</p>
+<p>
+  }
+</p>
+<p>
+  elseif(条件){
+</p>
+<p>
+  }
+</p>
+<p>
+  else{
+</p>
+<p>
+  }
+</p>
+<p>
+  注意：多分支else和if之间是没有空格的。
+</p>
+<ol>
+<li>
+  多路选择
+</li>
+</ol>
+<p>
+  Switch(表达式){
+</p>
+<p>
+  	case 常量:
+</p>
+<p>
+  		[break];
+</p>
+<p>
+  	case 常量:
+</p>
+<p>
+  		[break];
+</p>
+<p>
+  	default
+</p>
+<p>
+  }
+</p>
+<h3>例题：判断闰年（双分支）</h3>
+<ol>
+<li>
+  empty()：如果$_POST为空表示没有post提交，不为空表示表达有post提交
+</li>
+<li>
+  trim()：去除字符串两边的空格
+</li>
+<li>
+  is_numeric()：判断变量是否是数字或数字字符串
+</li>
+<li>
+  $year+=0;将$year转成数字类型
+</li>
+<li>
+  is_int()：判断变量是否是整型
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  if(!empty($_POST)) {	//数组不为空说明点击了提交按钮
+</p>
+<p>
+  	$year=trim($_POST[&#8216;year&#8217;]);	//获取年份,trim()用来去字符串两边的空格
+</p>
+<p>
+  	if($year==&#8221;){
+</p>
+<p>
+  		echo &#8216;您没有输入&#8217;;
+</p>
+<p>
+  	}else{
+</p>
+<p>
+  		if(!is_numeric($year)){
+</p>
+<p>
+  			echo &#8216;您输入的不是数字&#8217;;
+</p>
+<p>
+  		}else{
+</p>
+<p>
+  			$year+=0;	//将$year转成数字类型
+</p>
+<p>
+  			if(is_int($year)){	//is_int()检查变量是否是整型
+</p>
+<p>
+  				if($year&lt;1)
+</p>
+<p>
+  					echo &#8216;您输入的年份必须正整数&#8217;;
+</p>
+<p>
+  				else {
+</p>
+<p>
+  					/**
+</p>
+<p>
+  					*润年的条件
+</p>
+<p>
+  					*1、能被4整除，但是不能被100整除
+</p>
+<p>
+  					*2、能被400整除的年份
+</p>
+<p>
+  					*/
+</p>
+<p>
+  					if($year%4==0 &amp;&amp; $year%100!=0 || $year%400==0)
+</p>
+<p>
+  						echo &#8220;{$year}是闰年&#8221;;
+</p>
+<p>
+  					else
+</p>
+<p>
+  						echo &#8220;{$year}是平年&#8221;;
+</p>
+<p>
+  				}
+</p>
+<p>
+  			}else{
+</p>
+<p>
+  				echo &#8216;您输入的年份不是整数&#8217;;
+</p>
+<p>
+  			}
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form method=&#8221;post&#8221; action=&#8221;&#8221;&gt;
+</p>
+<p>
+  	请输入年份： &lt;input type=&#8221;text&#8221; name=&#8221;year&#8221;&gt; &lt;br /&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;submit&#8221; name=&#8221;button&#8221; value=&#8221;判读闰年&#8221;&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="307" height="72" src="/wp-content/uploads/2018/05/word-image-726.png" class="wp-image-827" srcset="/wp-content/uploads/2018/05/word-image-726.png 307w, /wp-content/uploads/2018/05/word-image-726-300x70.png 300w" sizes="(max-width: 307px) 100vw, 307px" /></p>
+<h3>例题：判断成绩（多分支）</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  if(!empty($_POST)) {
+</p>
+<p>
+  	$ch=trim($_POST[&#8216;ch&#8217;]);		//获取语文成绩
+</p>
+<p>
+  	$math=trim($_POST[&#8216;math&#8217;]);	//获取数学成绩
+</p>
+<p>
+  	if($ch==&#8221; || !is_numeric($ch) || $ch&lt;0 || $ch&gt;100)
+</p>
+<p>
+  		echo &#8216;语文成绩必须在0-100之间&#8217;;
+</p>
+<p>
+  	elseif($math==&#8221; || !is_numeric($math) || !($math&gt;=0 &amp;&amp; $math&lt;=100))
+</p>
+<p>
+  		echo &#8216;数学成绩必须在0-100之间&#8217;;
+</p>
+<p>
+  	else{
+</p>
+<p>
+  		$avg=($ch+$math)/2;
+</p>
+<p>
+  		echo &#8216;您的平均分是：&#8217;.$avg.'&lt;br&gt;&#8217;;
+</p>
+<p>
+  		if($avg&gt;=90)
+</p>
+<p>
+  			echo &#8216;孩子，你是我的骄傲&#8217;;
+</p>
+<p>
+  		elseif($avg&gt;=80)
+</p>
+<p>
+  			echo &#8216;好样的，宝贝&#8217;;
+</p>
+<p>
+  		elseif($avg&gt;=70)
+</p>
+<p>
+  			echo &#8216;您离优秀不远了&#8217;;
+</p>
+<p>
+  		elseif($avg&gt;=60)
+</p>
+<p>
+  			echo &#8216;您还是有潜力的&#8217;;
+</p>
+<p>
+  		else
+</p>
+<p>
+  			echo &#8216;看来你不努力是不行了&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form method=&#8221;post&#8221; action=&#8221;&#8221;&gt;
+</p>
+<p>
+  	语文： &lt;input type=&#8221;text&#8221; name=&#8221;ch&#8221;&gt; &lt;br /&gt;
+</p>
+<p>
+  	数学： &lt;input type=&#8221;text&#8221; name=&#8221;math&#8221;&gt; &lt;br /&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;submit&#8221; name=&#8221;button&#8221; value=&#8221;提交&#8221;&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="308" height="113" src="/wp-content/uploads/2018/05/word-image-727.png" class="wp-image-828" srcset="/wp-content/uploads/2018/05/word-image-727.png 308w, /wp-content/uploads/2018/05/word-image-727-300x110.png 300w" sizes="(max-width: 308px) 100vw, 308px" /></p>
+<h3>例题：switch-case</h3>
+<p>
+  &lt;div id=&#8221;shi&#8221; class=&#8221;&#8221;&gt;
+</p>
+<p>
+  	锄禾日当午，&lt;br&gt;
+</p>
+</p>
+<p>
+  汗滴禾下土。&lt;br&gt;
+</p>
+</p>
+<p>
+  谁知盘中餐，&lt;br&gt;
+</p>
+</p>
+<p>
+  粒粒皆辛苦。
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;form method=&#8221;post&#8221; action=&#8221;&#8221;&gt;
+</p>
+<p>
+  	&lt;select name=&#8221;color&#8221;&gt;
+</p>
+<p>
+  		&lt;option value=&#8221;&#8221;&gt;&#8212;请选择颜色&#8212;&lt;/option&gt;
+</p>
+<p>
+  		&lt;option value=&#8221;1&#8243;&gt;红色&lt;/option&gt;
+</p>
+<p>
+  		&lt;option value=&#8221;2&#8243;&gt;绿色&lt;/option&gt;
+</p>
+<p>
+  		&lt;option value=&#8221;3&#8243;&gt;蓝色&lt;/option&gt;
+</p>
+<p>
+  	&lt;/select&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;submit&#8221; name=&#8221;button&#8221; value=&#8221;确定&#8221;&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  if(!empty($_POST)) {
+</p>
+<p>
+  	$color=$_POST[&#8216;color&#8217;];
+</p>
+<p>
+  	switch($color) {
+</p>
+<p>
+  		case 1:
+</p>
+<p>
+  			$color=&#8217;#FF0000&#8242;;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		case 2:
+</p>
+<p>
+  			$color=&#8217;#009900&#8242;;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		case 3:
+</p>
+<p>
+  			$color=&#8217;#0000FF&#8217;;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		default:
+</p>
+<p>
+  			$color=&#8217;#000000&#8242;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	/*
+</p>
+<p>
+  	echo &#8216;&lt;script type=&#8221;text/javascript&#8221;&gt;&#8217;;
+</p>
+<p>
+  	echo &#8220;shi.style.color='{$color}'&#8221;;
+</p>
+<p>
+  	echo &#8216;&lt;/script&gt;&#8217;;
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	//换一种写法
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  	&lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  		shi.style.color='&lt;?php echo $color?&gt;&#8217;;
+</p>
+<p>
+  	&lt;/script&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="412" height="127" src="/wp-content/uploads/2018/05/word-image-728.png" class="wp-image-829" srcset="/wp-content/uploads/2018/05/word-image-728.png 412w, /wp-content/uploads/2018/05/word-image-728-300x92.png 300w" sizes="(max-width: 412px) 100vw, 412px" /></p>
+<h3>注意如下两种写法</h3>
+<p><img loading="lazy" decoding="async" width="628" height="277" src="/wp-content/uploads/2018/05/word-image-729.png" class="wp-image-830" srcset="/wp-content/uploads/2018/05/word-image-729.png 628w, /wp-content/uploads/2018/05/word-image-729-300x132.png 300w" sizes="(max-width: 628px) 100vw, 628px" /></p>
+<h3>替代语法</h3>
+<p>
+  左大括号变冒号（:），右大括号变endXXX
+</p>
+<p><strong>单分支</strong>
+</p>
+<p>
+  if(条件):
+</p>
+<p>
+  endif;
+</p>
+<p><strong>双分支</strong>
+</p>
+<p>
+  if(条件):
+</p>
+<p>
+  	//代码1
+</p>
+<p>
+  else:
+</p>
+<p>
+  	//代码2
+</p>
+<p>
+  endif;
+</p>
+<p><strong>多分支</strong>
+</p>
+<p>
+  if(条件):
+</p>
+<p>
+  	//代码1
+</p>
+<p>
+  elseif(条件):
+</p>
+<p>
+  	//代码2
+</p>
+<p>
+  else:
+</p>
+<p>
+  	//代码3
+</p>
+<p>
+  endif;
+</p>
+<p><strong>switch-case</strong>
+</p>
+<p>
+  switch(表达式):
+</p>
+<p>
+  	case :
+</p>
+<p>
+  		break;
+</p>
+<p>
+  endswitch;
+</p>
+<h3>else if和elseif的区别</h3>
+<p>
+  elseif是多分支；else if是嵌套if语句
+</p>
+<p>
+  else if等价于
+</p>
+<p>
+  else{
+</p>
+<p>
+  	if(){
+</p>
+<p>
+  }
+</p>
+<p>
+  }
+</p>
+<p>
+  验证一下
+</p>
+<p><img loading="lazy" decoding="async" width="429" height="170" src="/wp-content/uploads/2018/05/word-image-730.png" class="wp-image-831" srcset="/wp-content/uploads/2018/05/word-image-730.png 429w, /wp-content/uploads/2018/05/word-image-730-300x119.png 300w" sizes="(max-width: 429px) 100vw, 429px" /><br />
+<img loading="lazy" decoding="async" width="394" height="209" src="/wp-content/uploads/2018/05/word-image-731.png" class="wp-image-832" srcset="/wp-content/uploads/2018/05/word-image-731.png 394w, /wp-content/uploads/2018/05/word-image-731-300x159.png 300w" sizes="(max-width: 394px) 100vw, 394px" /></p>
+<h2>循环语句</h2>
+<h3>循环的分类</h3>
+<ol>
+<li>
+  for
+</li>
+<li>
+  while
+</li>
+<li>
+  do-while
+</li>
+<li>
+  foreach
+</li>
+</ol>
+<h3>语法</h3>
+<ol>
+<li>
+  for循环
+</li>
+</ol>
+<p>
+  for(初始值;条件;增量){
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  for循环的替代语法
+</li>
+</ol>
+<p>
+  for(初始值;条件;增量):
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  endfor;
+</p>
+<ol>
+<li>
+  while循环
+</li>
+</ol>
+<p>
+  while(条件){
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  While循环的替代语法
+</li>
+</ol>
+<p>
+  While(条件):
+</p>
+<p>
+  Endwhile;
+</p>
+<p>
+  do-while循环
+</p>
+<p>
+  do
+</p>
+<p>
+  {
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  }while(条件)
+</p>
+<p>
+  注意：判断和循环体中如果有一句代码，大括号是可以省略的。
+</p>
+<h3>循环的思考</h3>
+<ol>
+<li>
+  在一个循环了n次的循环中，初始值、条件、增量各执行了几次
+</li>
+</ol>
+<p>
+  答：初始值1次，条件n+1次，增量n次
+</p>
+<ol>
+<li>
+  for($i=1;$i!=5;$i++)循环了几次？
+</li>
+</ol>
+<p>
+  答：循环4次
+</p>
+<ol>
+<li>
+  循环执行完毕后，$i的变量是否存在？
+</li>
+</ol>
+<p>
+  答：存在
+</p>
+<p><img loading="lazy" decoding="async" width="339" height="45" src="/wp-content/uploads/2018/05/word-image-732.png" class="wp-image-833" srcset="/wp-content/uploads/2018/05/word-image-732.png 339w, /wp-content/uploads/2018/05/word-image-732-300x40.png 300w" sizes="(max-width: 339px) 100vw, 339px" /></p>
+<h3>例题：三种循环实现从1加到任意数</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  if(isset($_POST[&#8216;button&#8217;])) {
+</p>
+<p>
+  	$num=$_POST[&#8216;num&#8217;];
+</p>
+<p>
+  	//for循环实现
+</p>
+<p>
+  	$sum=0;
+</p>
+<p>
+  	for($i=1; $i&lt;=$num; $i++) {
+</p>
+<p>
+  		$sum+=$i;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	echo &#8220;for循环实现结果是:{$sum}&lt;br&gt;&#8221;;
+</p>
+<p>
+  	//while循环
+</p>
+<p>
+  	$sum=0;$i=1;
+</p>
+<p>
+  	while($i&lt;=$num) {
+</p>
+<p>
+  		$sum+=$i++;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	echo &#8220;while循环实现结果是:{$sum}&lt;br&gt;&#8221;;
+</p>
+<p>
+  	//do-while循环
+</p>
+<p>
+  	$sum=0;$i=1;
+</p>
+<p>
+  	do
+</p>
+<p>
+  	{
+</p>
+<p>
+  		$sum+=$i++;
+</p>
+<p>
+  	}while($i&lt;=$num);
+</p>
+<p>
+  	echo &#8220;do-while循环实现结果是:{$sum}&lt;br&gt;&#8221;;
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form method=&#8221;post&#8221; action=&#8221;&#8221;&gt;
+</p>
+<p>
+  	请输入一个数： &lt;input type=&#8221;text&#8221; name=&#8221;num&#8221;&gt; &lt;br /&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;submit&#8221; name=&#8221;button&#8221; value=&#8221;提交&#8221;&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="291" height="108" src="/wp-content/uploads/2018/05/word-image-733.png" class="wp-image-834" /></p>
+<h3>例题：翻转数组</h3>
+<ol>
+<li>
+  给数组添加元素
+</li>
+<li>
+  两个变量调换
+</li>
+<li>
+  for循环中初始值，条件，增量的部分可以放多个表达式
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1064" height="237" src="/wp-content/uploads/2018/05/word-image-734.png" class="wp-image-835" srcset="/wp-content/uploads/2018/05/word-image-734.png 1064w, /wp-content/uploads/2018/05/word-image-734-300x67.png 300w, /wp-content/uploads/2018/05/word-image-734-768x171.png 768w, /wp-content/uploads/2018/05/word-image-734-1024x228.png 1024w" sizes="(max-width: 1064px) 100vw, 1064px" /></p>
+<p>
+  面试题：不通过第三个变量如何实现两个变量的交换?
+</p>
+<p><img loading="lazy" decoding="async" width="515" height="113" src="/wp-content/uploads/2018/05/word-image-735.png" class="wp-image-836" srcset="/wp-content/uploads/2018/05/word-image-735.png 515w, /wp-content/uploads/2018/05/word-image-735-300x66.png 300w" sizes="(max-width: 515px) 100vw, 515px" /></p>
+<h3>foreach循环</h3>
+<p>
+  foreach循环用来遍历数组
+</p>
+<p>
+  语法：
+</p>
+<p>
+  //语法一
+</p>
+<p>
+  foreach(数组  as 值){
+</p>
+<p>
+  }
+</p>
+<p>
+  //语法二
+</p>
+<p>
+  foreach(数组 as 键=&gt;值){
+</p>
+<p>
+  }
+</p>
+<p>
+  //foreach也支持替换语法
+</p>
+<p>
+  foreach(数组 as 值):
+</p>
+<p>
+  endforeach;
+</p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="522" height="204" src="/wp-content/uploads/2018/05/word-image-736.png" class="wp-image-837" srcset="/wp-content/uploads/2018/05/word-image-736.png 522w, /wp-content/uploads/2018/05/word-image-736-300x117.png 300w" sizes="(max-width: 522px) 100vw, 522px" /></p>
+<p>
+  例题：
+</p>
+<p><img loading="lazy" decoding="async" width="1039" height="421" src="/wp-content/uploads/2018/05/word-image-737.png" class="wp-image-838" srcset="/wp-content/uploads/2018/05/word-image-737.png 1039w, /wp-content/uploads/2018/05/word-image-737-300x122.png 300w, /wp-content/uploads/2018/05/word-image-737-768x311.png 768w, /wp-content/uploads/2018/05/word-image-737-1024x415.png 1024w" sizes="(max-width: 1039px) 100vw, 1039px" /></p>
+<h2>跳转语句</h2>
+<ol>
+<li>
+  break：中断所有循环
+</li>
+<li>
+  continue：跳出当前循环进入下一个循环
+</li>
+</ol>
+<p>
+  注意：
+</p>
+<ol>
+<li>
+  break和continue默认中断1重循环。
+</li>
+<li>
+  如果一个循环只循环一次，break和continue的结果是一样的
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="556" height="191" src="/wp-content/uploads/2018/05/word-image-738.png" class="wp-image-839" srcset="/wp-content/uploads/2018/05/word-image-738.png 556w, /wp-content/uploads/2018/05/word-image-738-300x103.png 300w" sizes="(max-width: 556px) 100vw, 556px" /></p>
+<ol>
+<li>
+  switch的本质是循环了一次的循环
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="414" height="197" src="/wp-content/uploads/2018/05/word-image-739.png" class="wp-image-840" srcset="/wp-content/uploads/2018/05/word-image-739.png 414w, /wp-content/uploads/2018/05/word-image-739-300x143.png 300w" sizes="(max-width: 414px) 100vw, 414px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="402" height="154" src="/wp-content/uploads/2018/05/word-image-740.png" class="wp-image-841" srcset="/wp-content/uploads/2018/05/word-image-740.png 402w, /wp-content/uploads/2018/05/word-image-740-300x115.png 300w" sizes="(max-width: 402px) 100vw, 402px" /></p>
+<h2>包含文件</h2>
+<p>
+  相同的代码出现在多个页面中，不便于维护，我们将相同的代码分离开来，在需要用到的页面中引入包含文件即可。
+</p>
+<p><img loading="lazy" decoding="async" width="659" height="262" src="/wp-content/uploads/2018/05/word-image-741.png" class="wp-image-842" srcset="/wp-content/uploads/2018/05/word-image-741.png 659w, /wp-content/uploads/2018/05/word-image-741-300x119.png 300w" sizes="(max-width: 659px) 100vw, 659px" /></p>
+<p>
+  解决：我们将相同的代码分离开来，在需要用到的页面中引入包含文件即可
+</p>
+<p><img loading="lazy" decoding="async" width="702" height="244" src="/wp-content/uploads/2018/05/word-image-742.png" class="wp-image-843" srcset="/wp-content/uploads/2018/05/word-image-742.png 702w, /wp-content/uploads/2018/05/word-image-742-300x104.png 300w" sizes="(max-width: 702px) 100vw, 702px" /></p>
+<h3>包含的语法</h3>
+<ol>
+<li>
+  include ‘地址’：可以包含多次，如果有错，报警告错误，继续执行
+</li>
+<li>
+  require ‘地址’：可以包含多次，如果有错，报致命错误，终止执行。
+</li>
+<li>
+  include_once ‘地址’：只能包含一次，区别和include一样
+</li>
+<li>
+  require_once ‘地址’：只能包含一次，区别和require一样
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="603" height="93" src="/wp-content/uploads/2018/05/word-image-743.png" class="wp-image-844" srcset="/wp-content/uploads/2018/05/word-image-743.png 603w, /wp-content/uploads/2018/05/word-image-743-300x46.png 300w" sizes="(max-width: 603px) 100vw, 603px" /><br />
+<img loading="lazy" decoding="async" width="660" height="73" src="/wp-content/uploads/2018/05/word-image-744.png" class="wp-image-845" srcset="/wp-content/uploads/2018/05/word-image-744.png 660w, /wp-content/uploads/2018/05/word-image-744-300x33.png 300w" sizes="(max-width: 660px) 100vw, 660px" /></p>
+<p>
+  如果HTML包含文件中有PHP代码，包含文件的PHP代码是执行的。 因为包含文件就相当于拷贝粘贴到PHP页面中了。
+</p>
+<h2>作业</h2>
+<ol>
+<li>
+  PHP实现计算器
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="571" height="34" src="/wp-content/uploads/2018/05/word-image-745.png" class="wp-image-846" srcset="/wp-content/uploads/2018/05/word-image-745.png 571w, /wp-content/uploads/2018/05/word-image-745-300x18.png 300w" sizes="(max-width: 571px) 100vw, 571px" /></p>
+<ol>
+<li>
+  九九乘法表
+</li>
+</ol>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/813.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

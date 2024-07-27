@@ -1,0 +1,2832 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>接口开发 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 15:22:41 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>接口开发 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>微信公众号（一）服务号与订阅号、编辑模式和开发模式、接口开发、TOKEN、微信六大接口、阿里云服务器</title>
+		<link>/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/5626.html</link>
+					<comments>/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/5626.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 15:22:41 +0000</pubDate>
+				<category><![CDATA[微信公众号]]></category>
+		<category><![CDATA[移动端开发]]></category>
+		<category><![CDATA[TOKEN]]></category>
+		<category><![CDATA[微信六大接口]]></category>
+		<category><![CDATA[接口开发]]></category>
+		<category><![CDATA[服务号与订阅号]]></category>
+		<category><![CDATA[编辑模式和开发模式]]></category>
+		<category><![CDATA[阿里云服务器]]></category>
+		<guid isPermaLink="false">/?p=5626</guid>
+
+					<description><![CDATA[移动端开发（微信开发）day1 一、微信公众平台概述 1、历史起源 2011年1月21日，腾讯推出微信（张小龙 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>移动端开发（微信开发）day1</h1>
+<h1><a id="post-5626-_Toc450923180"></a>一、微信公众平台概述</h1>
+<h2><a id="post-5626-_Toc438049747"></a><a id="post-5626-_Toc450923181"></a><a id="post-5626-_Toc445307507"></a>1、历史起源 </h2>
+<ul>
+<li>
+    2011年1月21日，腾讯推出微信（张小龙）
+  </li>
+<li>
+    2011年8月，用户达到1500万 。到2011年底，微信用户已超过5000万
+  </li>
+<li>
+    2012年8月20日，腾讯推出微信公众平台功能，同年11月开放第三方接口
+  </li>
+<li>
+    2013年1月微信突破3亿，海外版wechat用户也达到7000万
+  </li>
+<li>
+    2013年10月24日，腾讯微信的用户数量已经超过了6亿，每日活跃用户1亿
+  </li>
+</ul>
+<h2><a id="post-5626-_Toc438049748"></a><a id="post-5626-_Toc445307508"></a><a id="post-5626-_Toc450923182"></a>2、微信公众平台 </h2>
+<ul>
+<li>
+    微信公众平台：给个人、企业和组织提供业务服务与用户管理能力的服务平台，如：
+  </li>
+</ul>
+<p>
+  查看关注用户，回复用户消息，推送文章消息给用户等
+</p>
+<ul>
+<li>
+    平台地址：<a href="https://mp.weixin.qq.com/">https://mp.weixin.qq.com/</a>
+  </li>
+</ul>
+<h2><a id="post-5626-_Toc450923183"></a><a id="post-5626-_Toc438049749"></a><a id="post-5626-_Toc445307509"></a>3、微信与微信公众平台区别（★） </h2>
+<ul>
+<li>
+    微信：是一款跨平台的通讯工具。支持单人、多人参与。通过手机网络发送语音、
+  </li>
+</ul>
+<p>
+  图片、视频和文字。
+</p>
+<ul>
+<li>
+    微信公众平台：管理公众号的系统/平台，可以查看关注用户，推送消息给用户
+  </li>
+</ul>
+<h2><a id="post-5626-_Toc438049751"></a><a id="post-5626-_Toc450923185"></a><a id="post-5626-_Toc445307511"></a>4、微信公众号</h2>
+<p><img fetchpriority="high" decoding="async" width="610" height="322" src="/wp-content/uploads/2018/05/word-image-5101.png" class="wp-image-5627" srcset="/wp-content/uploads/2018/05/word-image-5101.png 610w, /wp-content/uploads/2018/05/word-image-5101-300x158.png 300w" sizes="(max-width: 610px) 100vw, 610px" /></p>
+<h1><a id="post-5626-_Toc438049752"></a><a id="post-5626-_Toc445307512"></a><a id="post-5626-_Toc450923186"></a>二、概念</h1>
+<h2><a id="post-5626-_Toc438049754"></a><a id="post-5626-_Toc450923188"></a><a id="post-5626-_Toc445307514"></a>1、微信公众号：订阅号与服务号的区别 </h2>
+<ul>
+<li><strong>订阅号：</strong>针对的是个人和媒体，每天只能发送一条信息，默认有自定义菜单（不可
+  </li>
+</ul>
+<p>
+  以自定义跳转地址），不支持微信认证（注：目前订阅号不支持升级服务号）
+</p>
+<ul>
+<li><strong>服务号：</strong>针对的是企业或组织，每月只能发送4条信息，默认有自定义的菜单，认
+  </li>
+</ul>
+<p>
+  证（300/年），认证完成可以使用高级接口（如：微信支付，用户管理等）
+</p>
+<p><img decoding="async" width="388" height="80" src="/wp-content/uploads/2018/05/word-image-5102.png" class="wp-image-5628" srcset="/wp-content/uploads/2018/05/word-image-5102.png 388w, /wp-content/uploads/2018/05/word-image-5102-300x62.png 300w" sizes="(max-width: 388px) 100vw, 388px" /><br />
+<img decoding="async" width="1032" height="489" src="/wp-content/uploads/2018/05/word-image-5103.png" class="wp-image-5629" srcset="/wp-content/uploads/2018/05/word-image-5103.png 1032w, /wp-content/uploads/2018/05/word-image-5103-300x142.png 300w, /wp-content/uploads/2018/05/word-image-5103-768x364.png 768w, /wp-content/uploads/2018/05/word-image-5103-1024x485.png 1024w" sizes="(max-width: 1032px) 100vw, 1032px" /><br />
+<img loading="lazy" decoding="async" width="634" height="455" src="/wp-content/uploads/2018/05/word-image-5104.png" class="wp-image-5630" srcset="/wp-content/uploads/2018/05/word-image-5104.png 634w, /wp-content/uploads/2018/05/word-image-5104-300x215.png 300w" sizes="(max-width: 634px) 100vw, 634px" /></p>
+<h2><a id="post-5626-_Toc450923189"></a>微信平台的两种运营模式（★）</h2>
+<ul>
+<li>
+    说明：在微信公众平台注册成功后可以获得一个微信公众号（订阅/服务
+  </li>
+</ul>
+<p>
+  等），该公众号可以分享给用户关注，并且后期登录公众平台可以进去管
+</p>
+<p>
+  理（如：查看关注用户，回复关注用户消息，推送消息给关注用户等）
+</p>
+<ul>
+<li>
+    编辑模式运营：通过之前注册的公众平台管理公众号
+  </li>
+<li>
+    开发模式运营：不用原来注册的平台管理公众号，而是自己独立开发
+  </li>
+</ul>
+<p>
+  脚下留心：开发者模式和编辑模式相互排斥
+</p>
+<h2><a id="post-5626-_Toc450923190"></a>编辑模式适用场景</h2>
+<ul>
+<li>
+    不具备开发能力的运营者
+  </li>
+<li>
+    主要是进行品牌宣传、新闻媒体、自助客服的公众帐号
+  </li>
+<li>
+    运营初期，不需要特别多的功能
+  </li>
+<li>
+    开发模式系统升级、故障等特殊情况
+  </li>
+</ul>
+<h1>三、公众平台注册</h1>
+<h2>1、打开官网</h2>
+<p>
+  官网：<a href="https://mp.weixin.qq.com/">https://mp.weixin.qq.com/</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1200" height="509" src="/wp-content/uploads/2018/05/word-image-5105.png" class="wp-image-5631" srcset="/wp-content/uploads/2018/05/word-image-5105.png 1200w, /wp-content/uploads/2018/05/word-image-5105-300x127.png 300w, /wp-content/uploads/2018/05/word-image-5105-768x326.png 768w, /wp-content/uploads/2018/05/word-image-5105-1024x434.png 1024w" sizes="(max-width: 1200px) 100vw, 1200px" /></p>
+<h2>2、填写基本资料</h2>
+<p><img loading="lazy" decoding="async" width="824" height="722" src="/wp-content/uploads/2018/05/word-image-5106.png" class="wp-image-5632" srcset="/wp-content/uploads/2018/05/word-image-5106.png 824w, /wp-content/uploads/2018/05/word-image-5106-300x263.png 300w, /wp-content/uploads/2018/05/word-image-5106-768x673.png 768w" sizes="(max-width: 824px) 100vw, 824px" /></p>
+<h2>3、验证邮箱，选择账号类型</h2>
+<p><img loading="lazy" decoding="async" width="1217" height="611" src="/wp-content/uploads/2018/05/word-image-5107.png" class="wp-image-5633" srcset="/wp-content/uploads/2018/05/word-image-5107.png 1217w, /wp-content/uploads/2018/05/word-image-5107-300x151.png 300w, /wp-content/uploads/2018/05/word-image-5107-768x386.png 768w, /wp-content/uploads/2018/05/word-image-5107-1024x514.png 1024w" sizes="(max-width: 1217px) 100vw, 1217px" /><br />
+<img loading="lazy" decoding="async" width="633" height="293" src="/wp-content/uploads/2018/05/word-image-5108.png" class="wp-image-5634" srcset="/wp-content/uploads/2018/05/word-image-5108.png 633w, /wp-content/uploads/2018/05/word-image-5108-300x139.png 300w" sizes="(max-width: 633px) 100vw, 633px" /></p>
+<p><img loading="lazy" decoding="async" width="1163" height="716" src="/wp-content/uploads/2018/05/word-image-5109.png" class="wp-image-5635" srcset="/wp-content/uploads/2018/05/word-image-5109.png 1163w, /wp-content/uploads/2018/05/word-image-5109-300x185.png 300w, /wp-content/uploads/2018/05/word-image-5109-768x473.png 768w, /wp-content/uploads/2018/05/word-image-5109-1024x630.png 1024w" sizes="(max-width: 1163px) 100vw, 1163px" /><br />
+<img loading="lazy" decoding="async" width="950" height="501" src="/wp-content/uploads/2018/05/word-image-5110.png" class="wp-image-5636" srcset="/wp-content/uploads/2018/05/word-image-5110.png 950w, /wp-content/uploads/2018/05/word-image-5110-300x158.png 300w, /wp-content/uploads/2018/05/word-image-5110-768x405.png 768w" sizes="(max-width: 950px) 100vw, 950px" /></p>
+<h2>4、选择【订阅号】后，信息录入</h2>
+<p>
+  填写身份证姓名和身份证卡号
+</p>
+<p><img loading="lazy" decoding="async" width="993" height="530" src="/wp-content/uploads/2018/05/word-image-5111.png" class="wp-image-5637" srcset="/wp-content/uploads/2018/05/word-image-5111.png 993w, /wp-content/uploads/2018/05/word-image-5111-300x160.png 300w, /wp-content/uploads/2018/05/word-image-5111-768x410.png 768w" sizes="(max-width: 993px) 100vw, 993px" /><br />
+<img loading="lazy" decoding="async" width="839" height="406" src="/wp-content/uploads/2018/05/word-image-5112.png" class="wp-image-5638" srcset="/wp-content/uploads/2018/05/word-image-5112.png 839w, /wp-content/uploads/2018/05/word-image-5112-300x145.png 300w, /wp-content/uploads/2018/05/word-image-5112-768x372.png 768w" sizes="(max-width: 839px) 100vw, 839px" /></p>
+<h2>5、公众号信息</h2>
+<p><img loading="lazy" decoding="async" width="1071" height="559" src="/wp-content/uploads/2018/05/word-image-5113.png" class="wp-image-5639" srcset="/wp-content/uploads/2018/05/word-image-5113.png 1071w, /wp-content/uploads/2018/05/word-image-5113-300x157.png 300w, /wp-content/uploads/2018/05/word-image-5113-768x401.png 768w, /wp-content/uploads/2018/05/word-image-5113-1024x534.png 1024w" sizes="(max-width: 1071px) 100vw, 1071px" /><br />
+<img loading="lazy" decoding="async" width="774" height="455" src="/wp-content/uploads/2018/05/word-image-5114.png" class="wp-image-5640" srcset="/wp-content/uploads/2018/05/word-image-5114.png 774w, /wp-content/uploads/2018/05/word-image-5114-300x176.png 300w, /wp-content/uploads/2018/05/word-image-5114-768x451.png 768w" sizes="(max-width: 774px) 100vw, 774px" /></p>
+<h2>6、注册成功页</h2>
+<p>
+  通过网址【<a href="https://mp.weixin.qq.com/">https://mp.weixin.qq.com/</a>】登录，也可以进入该页面
+</p>
+<p><img loading="lazy" decoding="async" width="1256" height="520" src="/wp-content/uploads/2018/05/word-image-5115.png" class="wp-image-5641" srcset="/wp-content/uploads/2018/05/word-image-5115.png 1256w, /wp-content/uploads/2018/05/word-image-5115-300x124.png 300w, /wp-content/uploads/2018/05/word-image-5115-768x318.png 768w, /wp-content/uploads/2018/05/word-image-5115-1024x424.png 1024w" sizes="(max-width: 1256px) 100vw, 1256px" /></p>
+<h1><a id="post-5626-_Toc450923191"></a>四、编辑模式运营（了解）</h1>
+<h2>1、编辑模式和开发模式切换</h2>
+<p><img loading="lazy" decoding="async" width="1178" height="513" src="/wp-content/uploads/2018/05/word-image-5116.png" class="wp-image-5642" srcset="/wp-content/uploads/2018/05/word-image-5116.png 1178w, /wp-content/uploads/2018/05/word-image-5116-300x131.png 300w, /wp-content/uploads/2018/05/word-image-5116-768x334.png 768w, /wp-content/uploads/2018/05/word-image-5116-1024x446.png 1024w" sizes="(max-width: 1178px) 100vw, 1178px" /></p>
+<p>
+  脚下留心：切换开发模式后编辑模式将禁用
+</p>
+<p><img loading="lazy" decoding="async" width="1140" height="304" src="/wp-content/uploads/2018/05/word-image-5117.png" class="wp-image-5643" srcset="/wp-content/uploads/2018/05/word-image-5117.png 1140w, /wp-content/uploads/2018/05/word-image-5117-300x80.png 300w, /wp-content/uploads/2018/05/word-image-5117-768x205.png 768w, /wp-content/uploads/2018/05/word-image-5117-1024x273.png 1024w" sizes="(max-width: 1140px) 100vw, 1140px" /></p>
+<h2>2、编辑模式功能</h2>
+<h3>1）群发功能</h3>
+<p><img loading="lazy" decoding="async" width="947" height="656" src="/wp-content/uploads/2018/05/word-image-5118.png" class="wp-image-5644" srcset="/wp-content/uploads/2018/05/word-image-5118.png 947w, /wp-content/uploads/2018/05/word-image-5118-300x208.png 300w, /wp-content/uploads/2018/05/word-image-5118-768x532.png 768w" sizes="(max-width: 947px) 100vw, 947px" /><br />
+<img loading="lazy" decoding="async" width="653" height="210" src="/wp-content/uploads/2018/05/word-image-5119.png" class="wp-image-5645" srcset="/wp-content/uploads/2018/05/word-image-5119.png 653w, /wp-content/uploads/2018/05/word-image-5119-300x96.png 300w" sizes="(max-width: 653px) 100vw, 653px" /><br />
+<img loading="lazy" decoding="async" width="1147" height="557" src="/wp-content/uploads/2018/05/word-image-5120.png" class="wp-image-5646" srcset="/wp-content/uploads/2018/05/word-image-5120.png 1147w, /wp-content/uploads/2018/05/word-image-5120-300x146.png 300w, /wp-content/uploads/2018/05/word-image-5120-768x373.png 768w, /wp-content/uploads/2018/05/word-image-5120-1024x497.png 1024w" sizes="(max-width: 1147px) 100vw, 1147px" /></p>
+<h3>2）回复功能 &#8211; 被关注添加自动回复</h3>
+<p>
+  关注公共账号，平台发送的关注信息或欢迎语，我们通常称之为<strong>订阅回复</strong>或<strong>关注回复</strong>。
+</p>
+<p><img loading="lazy" decoding="async" width="1110" height="480" src="/wp-content/uploads/2018/05/word-image-5121.png" class="wp-image-5647" srcset="/wp-content/uploads/2018/05/word-image-5121.png 1110w, /wp-content/uploads/2018/05/word-image-5121-300x130.png 300w, /wp-content/uploads/2018/05/word-image-5121-768x332.png 768w, /wp-content/uploads/2018/05/word-image-5121-1024x443.png 1024w" sizes="(max-width: 1110px) 100vw, 1110px" /></p>
+<h3>3）回复功能 &#8211; 关键词自动回复</h3>
+<p><img loading="lazy" decoding="async" width="535" height="163" src="/wp-content/uploads/2018/05/word-image-5122.png" class="wp-image-5648" srcset="/wp-content/uploads/2018/05/word-image-5122.png 535w, /wp-content/uploads/2018/05/word-image-5122-300x91.png 300w" sizes="(max-width: 535px) 100vw, 535px" /></p>
+<p>
+  当我们<strong>设定的关键词</strong>与<strong>用户发送的关键词</strong>相匹配时，系统自动回复执行消息。
+</p>
+<p><img loading="lazy" decoding="async" width="1046" height="576" src="/wp-content/uploads/2018/05/word-image-5123.png" class="wp-image-5649" srcset="/wp-content/uploads/2018/05/word-image-5123.png 1046w, /wp-content/uploads/2018/05/word-image-5123-300x165.png 300w, /wp-content/uploads/2018/05/word-image-5123-768x423.png 768w, /wp-content/uploads/2018/05/word-image-5123-1024x564.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /></p>
+<p><strong>未全匹配</strong>：当用户发送的内容包含当前关键词，系统自动回复。
+</p>
+<p><strong>已全匹配</strong>：当用户发送的内容与当前关键词完全匹配，系统自动回复
+</p>
+<p><img loading="lazy" decoding="async" width="951" height="540" src="/wp-content/uploads/2018/05/word-image-5124.png" class="wp-image-5650" srcset="/wp-content/uploads/2018/05/word-image-5124.png 951w, /wp-content/uploads/2018/05/word-image-5124-300x170.png 300w, /wp-content/uploads/2018/05/word-image-5124-768x436.png 768w" sizes="(max-width: 951px) 100vw, 951px" /><br />
+<img loading="lazy" decoding="async" width="957" height="567" src="/wp-content/uploads/2018/05/word-image-5125.png" class="wp-image-5651" srcset="/wp-content/uploads/2018/05/word-image-5125.png 957w, /wp-content/uploads/2018/05/word-image-5125-300x178.png 300w, /wp-content/uploads/2018/05/word-image-5125-768x455.png 768w" sizes="(max-width: 957px) 100vw, 957px" /></p>
+<p><strong>︴思考：如何修改已经存在的规则</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="998" height="447" src="/wp-content/uploads/2018/05/word-image-5126.png" class="wp-image-5652" srcset="/wp-content/uploads/2018/05/word-image-5126.png 998w, /wp-content/uploads/2018/05/word-image-5126-300x134.png 300w, /wp-content/uploads/2018/05/word-image-5126-768x344.png 768w" sizes="(max-width: 998px) 100vw, 998px" /></p>
+<h3>4）回复功能 &#8211; 消息自动回复</h3>
+<p>
+  当用户发送的关键词与我们设定的关键词不匹配时，系统自动回复此信息。
+</p>
+<p><img loading="lazy" decoding="async" width="1070" height="489" src="/wp-content/uploads/2018/05/word-image-5127.png" class="wp-image-5653" srcset="/wp-content/uploads/2018/05/word-image-5127.png 1070w, /wp-content/uploads/2018/05/word-image-5127-300x137.png 300w, /wp-content/uploads/2018/05/word-image-5127-768x351.png 768w, /wp-content/uploads/2018/05/word-image-5127-1024x468.png 1024w" sizes="(max-width: 1070px) 100vw, 1070px" /></p>
+<p>
+  温馨提示：
+</p>
+<p>
+  1、消息自动回复：1个小时内回复1—2条内容；
+</p>
+<p>
+  2、暂不支持设置图文、网页地址消息回复；
+</p>
+<p>
+  3、消息自动回复只能设置一条信息回复。
+</p>
+<p><img loading="lazy" decoding="async" width="668" height="460" src="/wp-content/uploads/2018/05/word-image-5128.png" class="wp-image-5654" srcset="/wp-content/uploads/2018/05/word-image-5128.png 668w, /wp-content/uploads/2018/05/word-image-5128-300x207.png 300w, /wp-content/uploads/2018/05/word-image-5128-220x150.png 220w" sizes="(max-width: 668px) 100vw, 668px" /></p>
+<h2><a id="post-5626-_Toc450923192"></a>︴案例：简单号码薄</h2>
+<h3>1）功能需求和效果</h3>
+<p>
+  用户关注后或输【？】自动弹出自定义回复文本信息如下：
+</p>
+<p>
+  回复1特种服务号码
+</p>
+<p>
+  回复2通讯服务号码
+</p>
+<p>
+  回复3银行服务号码
+</p>
+<p>
+  回复4用户反馈
+</p>
+<p><img loading="lazy" decoding="async" width="1035" height="345" src="/wp-content/uploads/2018/05/word-image-5129.png" class="wp-image-5655" srcset="/wp-content/uploads/2018/05/word-image-5129.png 1035w, /wp-content/uploads/2018/05/word-image-5129-300x100.png 300w, /wp-content/uploads/2018/05/word-image-5129-768x256.png 768w, /wp-content/uploads/2018/05/word-image-5129-1024x341.png 1024w" sizes="(max-width: 1035px) 100vw, 1035px" /></p>
+<h3>2）回复1 </h3>
+<p>
+  常用特种服务号码：
+</p>
+<p>
+  匪警：110
+</p>
+<p>
+  火警：119
+</p>
+<p>
+  急救中心：120
+</p>
+<p><img loading="lazy" decoding="async" width="1035" height="467" src="/wp-content/uploads/2018/05/word-image-5130.png" class="wp-image-5656" srcset="/wp-content/uploads/2018/05/word-image-5130.png 1035w, /wp-content/uploads/2018/05/word-image-5130-300x135.png 300w, /wp-content/uploads/2018/05/word-image-5130-768x347.png 768w, /wp-content/uploads/2018/05/word-image-5130-1024x462.png 1024w" sizes="(max-width: 1035px) 100vw, 1035px" /></p>
+<h3>3）回复2 </h3>
+<p>
+  常用通讯服务号码：
+</p>
+<p>
+  中移动：10086
+</p>
+<p>
+  中电信：10000
+</p>
+<p>
+  中联通：10010
+</p>
+<p><img loading="lazy" decoding="async" width="1061" height="468" src="/wp-content/uploads/2018/05/word-image-5131.png" class="wp-image-5657" srcset="/wp-content/uploads/2018/05/word-image-5131.png 1061w, /wp-content/uploads/2018/05/word-image-5131-300x132.png 300w, /wp-content/uploads/2018/05/word-image-5131-768x339.png 768w, /wp-content/uploads/2018/05/word-image-5131-1024x452.png 1024w" sizes="(max-width: 1061px) 100vw, 1061px" /></p>
+<h3>4）回复3</h3>
+<p>
+  银行服务号码
+</p>
+<p>
+  建设银行：95533
+</p>
+<p>
+  工商银行：99588
+</p>
+<p>
+  农业银行：95599
+</p>
+<p><img loading="lazy" decoding="async" width="1027" height="420" src="/wp-content/uploads/2018/05/word-image-5132.png" class="wp-image-5658" srcset="/wp-content/uploads/2018/05/word-image-5132.png 1027w, /wp-content/uploads/2018/05/word-image-5132-300x123.png 300w, /wp-content/uploads/2018/05/word-image-5132-768x314.png 768w, /wp-content/uploads/2018/05/word-image-5132-1024x419.png 1024w" sizes="(max-width: 1027px) 100vw, 1027px" /></p>
+<h3>5）回复4</h3>
+<p>
+  尊敬的用户，为了更好的为您服务，请将系统的不足之处反馈给我们。
+</p>
+<p>
+  反馈格式：@+建议内容
+</p>
+<p>
+  例如：@希望增加***号码
+</p>
+<p>
+  回复：感谢您的宝贵建议，我们会努力为您提供更好的服务！
+</p>
+<p><img loading="lazy" decoding="async" width="1031" height="285" src="/wp-content/uploads/2018/05/word-image-5133.png" class="wp-image-5659" srcset="/wp-content/uploads/2018/05/word-image-5133.png 1031w, /wp-content/uploads/2018/05/word-image-5133-300x83.png 300w, /wp-content/uploads/2018/05/word-image-5133-768x212.png 768w, /wp-content/uploads/2018/05/word-image-5133-1024x283.png 1024w" sizes="(max-width: 1031px) 100vw, 1031px" /></p>
+<h3>5）关注：</h3>
+<p>
+  欢迎关注简易号码簿！
+</p>
+<p>
+  在这里，我们为您提供常用号码查询服务。您可以通过文本菜单交互或关键字搜索的方式查找号码。
+</p>
+<p>
+  快回复？开始体验吧！
+</p>
+<p><img loading="lazy" decoding="async" width="960" height="457" src="/wp-content/uploads/2018/05/word-image-5134.png" class="wp-image-5660" srcset="/wp-content/uploads/2018/05/word-image-5134.png 960w, /wp-content/uploads/2018/05/word-image-5134-300x143.png 300w, /wp-content/uploads/2018/05/word-image-5134-768x366.png 768w" sizes="(max-width: 960px) 100vw, 960px" /></p>
+<h2>︴案例：自定义菜单</h2>
+<h3>1）说明</h3>
+<ul>
+<li>
+    自定义菜单一级菜单3个二级菜单5个（共15个菜单）
+  </li>
+<li>
+    微信自定义菜单，默认是有24小时的缓冲期，所以无法实时预览（注：可以通过取消关注并再次关注，解决此问题）
+  </li>
+</ul>
+<h3>2）需求：精仿传智播客官方微信</h3>
+<p><img loading="lazy" decoding="async" width="499" height="584" src="/wp-content/uploads/2018/05/word-image-5135.png" class="wp-image-5661" srcset="/wp-content/uploads/2018/05/word-image-5135.png 499w, /wp-content/uploads/2018/05/word-image-5135-256x300.png 256w" sizes="(max-width: 499px) 100vw, 499px" /></p>
+<h3>3）步骤</h3>
+<p><img loading="lazy" decoding="async" width="854" height="559" src="/wp-content/uploads/2018/05/word-image-5136.png" class="wp-image-5662" srcset="/wp-content/uploads/2018/05/word-image-5136.png 854w, /wp-content/uploads/2018/05/word-image-5136-300x196.png 300w, /wp-content/uploads/2018/05/word-image-5136-768x503.png 768w" sizes="(max-width: 854px) 100vw, 854px" /></p>
+<h1><a id="post-5626-_Toc450923193"></a>五、开发者模式运营（重要）</h1>
+<h2><a id="post-5626-_Toc450923194"></a>1、概念</h2>
+<h3>1）编辑模式原理图 </h3>
+<p>
+  当用户发送消息时,直接发送到微信服务器上,经过微信服务器的处理,则返回给客户端.
+</p>
+<p><img loading="lazy" decoding="async" width="668" height="338" src="/wp-content/uploads/2018/05/word-image-5137.png" class="wp-image-5663" srcset="/wp-content/uploads/2018/05/word-image-5137.png 668w, /wp-content/uploads/2018/05/word-image-5137-300x152.png 300w" sizes="(max-width: 668px) 100vw, 668px" /></p>
+<h3>2）开发者模式原理图 </h3>
+<p><img loading="lazy" decoding="async" width="1011" height="432" src="/wp-content/uploads/2018/05/word-image-5138.png" class="wp-image-5664" srcset="/wp-content/uploads/2018/05/word-image-5138.png 1011w, /wp-content/uploads/2018/05/word-image-5138-300x128.png 300w, /wp-content/uploads/2018/05/word-image-5138-768x328.png 768w" sizes="(max-width: 1011px) 100vw, 1011px" /></p>
+<p>
+  请求：用户发送消息 -&gt;（XML报文）-&gt;  微信服务器  -&gt;（XML报文）-&gt; 自定义服务器
+</p>
+<p>
+  响应：用户发送消息 &lt;-（XML报文）&lt;-  微信服务器  &lt;-（XML报文）&lt;- 自定义服务器
+</p>
+<h2>2、准备自定义服务器（SAE云 或者 阿里云）</h2>
+<h3>1）SAE云（默认有PHP环境）</h3>
+<ul>
+<li><strong>步骤1</strong>：打开官网注册进入用户中心
+  </li>
+</ul>
+<p><a href="http://www.sinacloud.com/">http://www.sinacloud.com/</a>
+</p>
+<ul>
+<li><strong>步骤2</strong>：创建应用（相当于创建虚拟主机）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="967" height="559" src="/wp-content/uploads/2018/05/word-image-5139.png" class="wp-image-5665" srcset="/wp-content/uploads/2018/05/word-image-5139.png 967w, /wp-content/uploads/2018/05/word-image-5139-300x173.png 300w, /wp-content/uploads/2018/05/word-image-5139-768x444.png 768w" sizes="(max-width: 967px) 100vw, 967px" /><br />
+<img loading="lazy" decoding="async" width="646" height="482" src="/wp-content/uploads/2018/05/word-image-5140.png" class="wp-image-5666" srcset="/wp-content/uploads/2018/05/word-image-5140.png 646w, /wp-content/uploads/2018/05/word-image-5140-300x224.png 300w" sizes="(max-width: 646px) 100vw, 646px" /><br />
+<img loading="lazy" decoding="async" width="974" height="501" src="/wp-content/uploads/2018/05/word-image-5141.png" class="wp-image-5667" srcset="/wp-content/uploads/2018/05/word-image-5141.png 974w, /wp-content/uploads/2018/05/word-image-5141-300x154.png 300w, /wp-content/uploads/2018/05/word-image-5141-768x395.png 768w" sizes="(max-width: 974px) 100vw, 974px" /><br />
+<img loading="lazy" decoding="async" width="897" height="638" src="/wp-content/uploads/2018/05/word-image-5142.png" class="wp-image-5668" srcset="/wp-content/uploads/2018/05/word-image-5142.png 897w, /wp-content/uploads/2018/05/word-image-5142-300x213.png 300w, /wp-content/uploads/2018/05/word-image-5142-768x546.png 768w" sizes="(max-width: 897px) 100vw, 897px" /><br />
+<img loading="lazy" decoding="async" width="719" height="606" src="/wp-content/uploads/2018/05/word-image-5143.png" class="wp-image-5669" srcset="/wp-content/uploads/2018/05/word-image-5143.png 719w, /wp-content/uploads/2018/05/word-image-5143-300x253.png 300w" sizes="(max-width: 719px) 100vw, 719px" /><br />
+<img loading="lazy" decoding="async" width="1161" height="623" src="/wp-content/uploads/2018/05/word-image-5144.png" class="wp-image-5670" srcset="/wp-content/uploads/2018/05/word-image-5144.png 1161w, /wp-content/uploads/2018/05/word-image-5144-300x161.png 300w, /wp-content/uploads/2018/05/word-image-5144-768x412.png 768w, /wp-content/uploads/2018/05/word-image-5144-1024x549.png 1024w" sizes="(max-width: 1161px) 100vw, 1161px" /><br />
+<img loading="lazy" decoding="async" width="1230" height="676" src="/wp-content/uploads/2018/05/word-image-5145.png" class="wp-image-5671" srcset="/wp-content/uploads/2018/05/word-image-5145.png 1230w, /wp-content/uploads/2018/05/word-image-5145-300x165.png 300w, /wp-content/uploads/2018/05/word-image-5145-768x422.png 768w, /wp-content/uploads/2018/05/word-image-5145-1024x563.png 1024w" sizes="(max-width: 1230px) 100vw, 1230px" /></p>
+<ul>
+<li><strong>步骤3</strong>：服务器代码管理（svn版本控制软件）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1187" height="682" src="/wp-content/uploads/2018/05/word-image-5146.png" class="wp-image-5672" srcset="/wp-content/uploads/2018/05/word-image-5146.png 1187w, /wp-content/uploads/2018/05/word-image-5146-300x172.png 300w, /wp-content/uploads/2018/05/word-image-5146-768x441.png 768w, /wp-content/uploads/2018/05/word-image-5146-1024x588.png 1024w" sizes="(max-width: 1187px) 100vw, 1187px" /><br />
+<img loading="lazy" decoding="async" width="1265" height="656" src="/wp-content/uploads/2018/05/word-image-5147.png" class="wp-image-5673" srcset="/wp-content/uploads/2018/05/word-image-5147.png 1265w, /wp-content/uploads/2018/05/word-image-5147-300x156.png 300w, /wp-content/uploads/2018/05/word-image-5147-768x398.png 768w, /wp-content/uploads/2018/05/word-image-5147-1024x531.png 1024w" sizes="(max-width: 1265px) 100vw, 1265px" /><br />
+<img loading="lazy" decoding="async" width="608" height="415" src="/wp-content/uploads/2018/05/word-image-5148.png" class="wp-image-5674" srcset="/wp-content/uploads/2018/05/word-image-5148.png 608w, /wp-content/uploads/2018/05/word-image-5148-300x205.png 300w, /wp-content/uploads/2018/05/word-image-5148-220x150.png 220w" sizes="(max-width: 608px) 100vw, 608px" /></p>
+<p>
+  脚下留心：仓库目录下必须有以1命名的文件下
+</p>
+<p><img loading="lazy" decoding="async" width="975" height="415" src="/wp-content/uploads/2018/05/word-image-5149.png" class="wp-image-5675" srcset="/wp-content/uploads/2018/05/word-image-5149.png 975w, /wp-content/uploads/2018/05/word-image-5149-300x128.png 300w, /wp-content/uploads/2018/05/word-image-5149-768x327.png 768w" sizes="(max-width: 975px) 100vw, 975px" /><br />
+<img loading="lazy" decoding="async" width="1006" height="466" src="/wp-content/uploads/2018/05/word-image-5150.png" class="wp-image-5676" srcset="/wp-content/uploads/2018/05/word-image-5150.png 1006w, /wp-content/uploads/2018/05/word-image-5150-300x139.png 300w, /wp-content/uploads/2018/05/word-image-5150-768x356.png 768w" sizes="(max-width: 1006px) 100vw, 1006px" /></p>
+<ul>
+<li><strong>步骤4</strong>：浏览器代码
+  </li>
+</ul>
+<p>
+  #常看创建应用设置的二级域名是什么，每个人填写的不一样）
+</p>
+<p><a href="http://phpopenfather.applinzi.com/index.php">http://php0225.applinzi.com/test.php</a>
+</p>
+<p><img loading="lazy" decoding="async" width="473" height="184" src="/wp-content/uploads/2018/05/word-image-5151.png" class="wp-image-5677" srcset="/wp-content/uploads/2018/05/word-image-5151.png 473w, /wp-content/uploads/2018/05/word-image-5151-300x117.png 300w" sizes="(max-width: 473px) 100vw, 473px" /><br />
+<img loading="lazy" decoding="async" width="973" height="236" src="/wp-content/uploads/2018/05/word-image-5152.png" class="wp-image-5678" srcset="/wp-content/uploads/2018/05/word-image-5152.png 973w, /wp-content/uploads/2018/05/word-image-5152-300x73.png 300w, /wp-content/uploads/2018/05/word-image-5152-768x186.png 768w" sizes="(max-width: 973px) 100vw, 973px" /></p>
+<h3>2）创建阿里云服务器（需要自己安装PHP环境）</h3>
+<ul>
+<li><strong>步骤1</strong>：打开官网注册并点击顶部控制台，进入控制台页点击左侧菜单购买服务器
+  </li>
+</ul>
+<p><a href="https://www.aliyun.com/">https://www.aliyun.com/</a>
+</p>
+<p><img loading="lazy" decoding="async" width="473" height="99" src="/wp-content/uploads/2018/05/word-image-5153.png" class="wp-image-5679" srcset="/wp-content/uploads/2018/05/word-image-5153.png 473w, /wp-content/uploads/2018/05/word-image-5153-300x63.png 300w" sizes="(max-width: 473px) 100vw, 473px" /><br />
+<img loading="lazy" decoding="async" width="855" height="448" src="/wp-content/uploads/2018/05/word-image-5154.png" class="wp-image-5680" srcset="/wp-content/uploads/2018/05/word-image-5154.png 855w, /wp-content/uploads/2018/05/word-image-5154-300x157.png 300w, /wp-content/uploads/2018/05/word-image-5154-768x402.png 768w" sizes="(max-width: 855px) 100vw, 855px" /></p>
+<ul>
+<li><strong>步骤2</strong>：选择购买指定节点服务器
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1365" height="280" src="/wp-content/uploads/2018/05/word-image-5155.png" class="wp-image-5681" srcset="/wp-content/uploads/2018/05/word-image-5155.png 1365w, /wp-content/uploads/2018/05/word-image-5155-300x62.png 300w, /wp-content/uploads/2018/05/word-image-5155-768x158.png 768w, /wp-content/uploads/2018/05/word-image-5155-1024x210.png 1024w" sizes="(max-width: 1365px) 100vw, 1365px" /></p>
+<ul>
+<li><strong>步骤3</strong>：选择计费方式（ps. 该方式需要账号有100元）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="751" height="518" src="/wp-content/uploads/2018/05/word-image-5156.png" class="wp-image-5682" srcset="/wp-content/uploads/2018/05/word-image-5156.png 751w, /wp-content/uploads/2018/05/word-image-5156-300x207.png 300w" sizes="(max-width: 751px) 100vw, 751px" /><br />
+<img loading="lazy" decoding="async" width="585" height="556" src="/wp-content/uploads/2018/05/word-image-5157.png" class="wp-image-5683" srcset="/wp-content/uploads/2018/05/word-image-5157.png 585w, /wp-content/uploads/2018/05/word-image-5157-300x285.png 300w" sizes="(max-width: 585px) 100vw, 585px" /><br />
+<img loading="lazy" decoding="async" width="578" height="624" src="/wp-content/uploads/2018/05/word-image-5158.png" class="wp-image-5684" srcset="/wp-content/uploads/2018/05/word-image-5158.png 578w, /wp-content/uploads/2018/05/word-image-5158-278x300.png 278w" sizes="(max-width: 578px) 100vw, 578px" /></p>
+<ul>
+<li><strong>步骤4</strong>：服务器购买清单
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="946" height="548" src="/wp-content/uploads/2018/05/word-image-5159.png" class="wp-image-5685" srcset="/wp-content/uploads/2018/05/word-image-5159.png 946w, /wp-content/uploads/2018/05/word-image-5159-300x174.png 300w, /wp-content/uploads/2018/05/word-image-5159-768x445.png 768w" sizes="(max-width: 946px) 100vw, 946px" /></p>
+<ul>
+<li><strong>步骤5</strong>：获取服务器公网IP地址
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="682" height="317" src="/wp-content/uploads/2018/05/word-image-5160.png" class="wp-image-5686" srcset="/wp-content/uploads/2018/05/word-image-5160.png 682w, /wp-content/uploads/2018/05/word-image-5160-300x139.png 300w" sizes="(max-width: 682px) 100vw, 682px" /><br />
+<img loading="lazy" decoding="async" width="930" height="283" src="/wp-content/uploads/2018/05/word-image-5161.png" class="wp-image-5687" srcset="/wp-content/uploads/2018/05/word-image-5161.png 930w, /wp-content/uploads/2018/05/word-image-5161-300x91.png 300w, /wp-content/uploads/2018/05/word-image-5161-768x234.png 768w" sizes="(max-width: 930px) 100vw, 930px" /></p>
+<h3>配置阿里云（LAMP环境）</h3>
+<ul>
+<li>
+    安装apache服务
+  </li>
+</ul>
+<p>
+  步骤1：安装
+</p>
+<p><img loading="lazy" decoding="async" width="598" height="168" src="/wp-content/uploads/2018/05/word-image-5162.png" class="wp-image-5688" srcset="/wp-content/uploads/2018/05/word-image-5162.png 598w, /wp-content/uploads/2018/05/word-image-5162-300x84.png 300w" sizes="(max-width: 598px) 100vw, 598px" /><br />
+<img loading="lazy" decoding="async" width="508" height="229" src="/wp-content/uploads/2018/05/word-image-5163.png" class="wp-image-5689" srcset="/wp-content/uploads/2018/05/word-image-5163.png 508w, /wp-content/uploads/2018/05/word-image-5163-300x135.png 300w" sizes="(max-width: 508px) 100vw, 508px" /></p>
+<p>
+  步骤2：启动（注：第一次需要修改下配置文件）
+</p>
+<p><img loading="lazy" decoding="async" width="608" height="150" src="/wp-content/uploads/2018/05/word-image-5164.png" class="wp-image-5690" srcset="/wp-content/uploads/2018/05/word-image-5164.png 608w, /wp-content/uploads/2018/05/word-image-5164-300x74.png 300w" sizes="(max-width: 608px) 100vw, 608px" /><br />
+<img loading="lazy" decoding="async" width="492" height="109" src="/wp-content/uploads/2018/05/word-image-5165.png" class="wp-image-5691" srcset="/wp-content/uploads/2018/05/word-image-5165.png 492w, /wp-content/uploads/2018/05/word-image-5165-300x66.png 300w" sizes="(max-width: 492px) 100vw, 492px" /><br />
+<img loading="lazy" decoding="async" width="536" height="55" src="/wp-content/uploads/2018/05/word-image-5166.png" class="wp-image-5692" srcset="/wp-content/uploads/2018/05/word-image-5166.png 536w, /wp-content/uploads/2018/05/word-image-5166-300x31.png 300w" sizes="(max-width: 536px) 100vw, 536px" /></p>
+<p>
+  步骤3：输入ip访问
+</p>
+<p><img loading="lazy" decoding="async" width="973" height="385" src="/wp-content/uploads/2018/05/word-image-5167.png" class="wp-image-5693" srcset="/wp-content/uploads/2018/05/word-image-5167.png 973w, /wp-content/uploads/2018/05/word-image-5167-300x119.png 300w, /wp-content/uploads/2018/05/word-image-5167-768x304.png 768w" sizes="(max-width: 973px) 100vw, 973px" /></p>
+<p>
+  步骤4：修改网页访问
+</p>
+<p><img loading="lazy" decoding="async" width="811" height="121" src="/wp-content/uploads/2018/05/word-image-5168.png" class="wp-image-5694" srcset="/wp-content/uploads/2018/05/word-image-5168.png 811w, /wp-content/uploads/2018/05/word-image-5168-300x45.png 300w, /wp-content/uploads/2018/05/word-image-5168-768x115.png 768w" sizes="(max-width: 811px) 100vw, 811px" /></p>
+<ul>
+<li>
+    安装php
+  </li>
+</ul>
+<p>
+  步骤1：安装
+</p>
+<p>
+  yum -y install php php-mysql
+</p>
+<p><img loading="lazy" decoding="async" width="589" height="121" src="/wp-content/uploads/2018/05/word-image-5169.png" class="wp-image-5695" srcset="/wp-content/uploads/2018/05/word-image-5169.png 589w, /wp-content/uploads/2018/05/word-image-5169-300x62.png 300w" sizes="(max-width: 589px) 100vw, 589px" /><br />
+<img loading="lazy" decoding="async" width="575" height="230" src="/wp-content/uploads/2018/05/word-image-5170.png" class="wp-image-5696" srcset="/wp-content/uploads/2018/05/word-image-5170.png 575w, /wp-content/uploads/2018/05/word-image-5170-300x120.png 300w" sizes="(max-width: 575px) 100vw, 575px" /></p>
+<p>
+  yum -y install gd php-gd gd-devel php-xml php-common php-curl php-mbstring php-ldap php-pear php-xmlrpc php-imap
+</p>
+<p><img loading="lazy" decoding="async" width="1119" height="170" src="/wp-content/uploads/2018/05/word-image-5171.png" class="wp-image-5697" srcset="/wp-content/uploads/2018/05/word-image-5171.png 1119w, /wp-content/uploads/2018/05/word-image-5171-300x46.png 300w, /wp-content/uploads/2018/05/word-image-5171-768x117.png 768w, /wp-content/uploads/2018/05/word-image-5171-1024x156.png 1024w" sizes="(max-width: 1119px) 100vw, 1119px" /><br />
+<img loading="lazy" decoding="async" width="656" height="270" src="/wp-content/uploads/2018/05/word-image-5172.png" class="wp-image-5698" srcset="/wp-content/uploads/2018/05/word-image-5172.png 656w, /wp-content/uploads/2018/05/word-image-5172-300x123.png 300w" sizes="(max-width: 656px) 100vw, 656px" /></p>
+<p>
+  步骤2：重启apache，创建php文件测试
+</p>
+<p><img loading="lazy" decoding="async" width="740" height="493" src="/wp-content/uploads/2018/05/word-image-5173.png" class="wp-image-5699" srcset="/wp-content/uploads/2018/05/word-image-5173.png 740w, /wp-content/uploads/2018/05/word-image-5173-300x200.png 300w" sizes="(max-width: 740px) 100vw, 740px" /><br />
+<img loading="lazy" decoding="async" width="637" height="338" src="/wp-content/uploads/2018/05/word-image-5174.png" class="wp-image-5700" srcset="/wp-content/uploads/2018/05/word-image-5174.png 637w, /wp-content/uploads/2018/05/word-image-5174-300x159.png 300w" sizes="(max-width: 637px) 100vw, 637px" /></p>
+<ul>
+<li>
+    安装MySQL
+  </li>
+</ul>
+<p>
+  步骤1：安装
+</p>
+<p>
+  yum -y install mysql mysql-server mysql-devel
+</p>
+<p><img loading="lazy" decoding="async" width="707" height="220" src="/wp-content/uploads/2018/05/word-image-5175.png" class="wp-image-5701" srcset="/wp-content/uploads/2018/05/word-image-5175.png 707w, /wp-content/uploads/2018/05/word-image-5175-300x93.png 300w" sizes="(max-width: 707px) 100vw, 707px" /><br />
+<img loading="lazy" decoding="async" width="916" height="249" src="/wp-content/uploads/2018/05/word-image-5176.png" class="wp-image-5703" srcset="/wp-content/uploads/2018/05/word-image-5176.png 916w, /wp-content/uploads/2018/05/word-image-5176-300x82.png 300w, /wp-content/uploads/2018/05/word-image-5176-768x209.png 768w" sizes="(max-width: 916px) 100vw, 916px" /></p>
+<p>
+  步骤2：启动服务（service mysqld start）
+</p>
+<p><img loading="lazy" decoding="async" width="591" height="311" src="/wp-content/uploads/2018/05/word-image-5177.png" class="wp-image-5704" srcset="/wp-content/uploads/2018/05/word-image-5177.png 591w, /wp-content/uploads/2018/05/word-image-5177-300x158.png 300w" sizes="(max-width: 591px) 100vw, 591px" /></p>
+<p>
+  步骤3：登录，更改密码（注：默认密码为空）
+</p>
+<p><img loading="lazy" decoding="async" width="667" height="378" src="/wp-content/uploads/2018/05/word-image-5178.png" class="wp-image-5705" srcset="/wp-content/uploads/2018/05/word-image-5178.png 667w, /wp-content/uploads/2018/05/word-image-5178-300x170.png 300w" sizes="(max-width: 667px) 100vw, 667px" /></p>
+<p><strong>update mysql.user set password=password(&#8216;admin888&#8242;) where User=&#8217;root&#8217;;</strong>
+</p>
+<p><strong>flush privileges;</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="579" height="428" src="/wp-content/uploads/2018/05/word-image-5179.png" class="wp-image-5706" srcset="/wp-content/uploads/2018/05/word-image-5179.png 579w, /wp-content/uploads/2018/05/word-image-5179-300x222.png 300w" sizes="(max-width: 579px) 100vw, 579px" /></p>
+<h2>3、微信接口开发</h2>
+<h3>1）下载微信PHP SDK</h3>
+<p><img loading="lazy" decoding="async" width="1200" height="531" src="/wp-content/uploads/2018/05/word-image-5180.png" class="wp-image-5707" srcset="/wp-content/uploads/2018/05/word-image-5180.png 1200w, /wp-content/uploads/2018/05/word-image-5180-300x133.png 300w, /wp-content/uploads/2018/05/word-image-5180-768x340.png 768w, /wp-content/uploads/2018/05/word-image-5180-1024x453.png 1024w" sizes="(max-width: 1200px) 100vw, 1200px" /><br />
+<img loading="lazy" decoding="async" width="1134" height="549" src="/wp-content/uploads/2018/05/word-image-5181.png" class="wp-image-5708" srcset="/wp-content/uploads/2018/05/word-image-5181.png 1134w, /wp-content/uploads/2018/05/word-image-5181-300x145.png 300w, /wp-content/uploads/2018/05/word-image-5181-768x372.png 768w, /wp-content/uploads/2018/05/word-image-5181-1024x496.png 1024w" sizes="(max-width: 1134px) 100vw, 1134px" /><br />
+<img loading="lazy" decoding="async" width="984" height="525" src="/wp-content/uploads/2018/05/word-image-5182.png" class="wp-image-5709" srcset="/wp-content/uploads/2018/05/word-image-5182.png 984w, /wp-content/uploads/2018/05/word-image-5182-300x160.png 300w, /wp-content/uploads/2018/05/word-image-5182-768x410.png 768w" sizes="(max-width: 984px) 100vw, 984px" /></p>
+<p>
+  下载地址：
+</p>
+<p><a href="http://mp.weixin.qq.com/mpres/htmledition/res/wx_sample.20140819.zip">http://mp.weixin.qq.com/mpres/htmledition/res/wx_sample.20140819.zip</a>
+</p>
+<h3>2）微信接口初体验</h3>
+<ul>
+<li>
+    步骤1：下载微信官方SDK
+  </li>
+</ul>
+<p><a href="http://mp.weixin.qq.com/mpres/htmledition/res/wx_sample.20140819.zip">http://mp.weixin.qq.com/mpres/htmledition/res/wx_sample.20140819.zip</a>
+</p>
+<p>
+  SDK就是别人开发好的功能或者接口，一般工作中下载第三方SDK输入APPID和APPKEY即可完
+</p>
+<p>
+  成对应功能。
+</p>
+<ul>
+<li>
+    步骤2：更改微信SDK，上传服务器（代码如下）
+  </li>
+</ul>
+<p>
+  wx.php
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  /**
+</p>
+<p>
+    * wechat php test
+</p>
+<p>
+    */
+</p>
+<p>
+  //define your token
+</p>
+<p>
+  define(&#8220;TOKEN&#8221;, &#8220;itcast&#8221;);  //脚下留心：token必须和微信公众平台保持一致
+</p>
+<p>
+  $wechatObj = new wechatCallbackapiTest();
+</p>
+<p><strong>$wechatObj-&gt;valid();</strong>
+</p>
+<p>
+  class wechatCallbackapiTest
+</p>
+<p>
+  {
+</p>
+<p>
+  	public function valid()
+</p>
+<p>
+      {
+</p>
+<p>
+          $echoStr = $_GET[&#8220;echostr&#8221;];
+</p>
+<p>
+          //valid signature , option
+</p>
+<p>
+          if($this-&gt;checkSignature()){
+</p>
+<p>
+          	echo $echoStr;
+</p>
+<p>
+          	exit;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+      public function responseMsg()
+</p>
+<p>
+      {
+</p>
+<p>
+  		//get post data, May be due to the different environments
+</p>
+<p>
+  		$postStr = $GLOBALS[&#8220;HTTP_RAW_POST_DATA&#8221;];
+</p>
+<p>
+        	//extract post data
+</p>
+<p>
+  		if (!empty($postStr)){
+</p>
+<p>
+                  /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
+</p>
+<p>
+                     the best way is to check the validity of xml by yourself */
+</p>
+<p>
+                  libxml_disable_entity_loader(true);
+</p>
+<p>
+                	$postObj = simplexml_load_string($postStr, &#8216;SimpleXMLElement&#8217;, LIBXML_NOCDATA);
+</p>
+<p>
+                  $fromUsername = $postObj-&gt;FromUserName;
+</p>
+<p>
+                  $toUsername = $postObj-&gt;ToUserName;
+</p>
+<p>
+                  $keyword = trim($postObj-&gt;Content);
+</p>
+<p>
+                  $time = time();
+</p>
+<p>
+                  $textTpl = &#8220;&lt;xml&gt;
+</p>
+<p>
+  							&lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;
+</p>
+<p>
+  							&lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;
+</p>
+<p>
+  							&lt;CreateTime&gt;%s&lt;/CreateTime&gt;
+</p>
+<p>
+  							&lt;MsgType&gt;&lt;![CDATA[%s]]&gt;&lt;/MsgType&gt;
+</p>
+<p>
+  							&lt;Content&gt;&lt;![CDATA[%s]]&gt;&lt;/Content&gt;
+</p>
+<p>
+  							&lt;FuncFlag&gt;0&lt;/FuncFlag&gt;
+</p>
+<p>
+  							&lt;/xml&gt;&#8221;;
+</p>
+<p>
+  				if(!empty( $keyword ))
+</p>
+<p>
+                  {
+</p>
+<p>
+                		$msgType = &#8220;text&#8221;;
+</p>
+<p>
+                  	$contentStr = &#8220;滚!&#8221;;
+</p>
+<p>
+                  	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+</p>
+<p>
+                  	echo $resultStr;
+</p>
+<p>
+                  }else{
+</p>
+<p>
+                  	echo &#8220;Input something&#8230;&#8221;;
+</p>
+<p>
+                  }
+</p>
+<p>
+          }else {
+</p>
+<p>
+          	echo &#8220;&#8221;;
+</p>
+<p>
+          	exit;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+</p>
+<p>
+  	private function checkSignature()
+</p>
+<p>
+  	{
+</p>
+<p>
+          // you must define TOKEN by yourself
+</p>
+<p>
+          if (!defined(&#8220;TOKEN&#8221;)) {
+</p>
+<p>
+              throw new Exception(&#8216;TOKEN is not defined!&#8217;);
+</p>
+<p>
+          }
+</p>
+</p>
+<p>
+          $signature = $_GET[&#8220;signature&#8221;];
+</p>
+<p>
+          $timestamp = $_GET[&#8220;timestamp&#8221;];
+</p>
+<p>
+          $nonce = $_GET[&#8220;nonce&#8221;];
+</p>
+</p>
+<p>
+  		$token = TOKEN;
+</p>
+<p>
+  		$tmpArr = array($token, $timestamp, $nonce);
+</p>
+<p>
+          // use SORT_STRING rule
+</p>
+<p>
+  		sort($tmpArr, SORT_STRING);
+</p>
+<p>
+  		$tmpStr = implode( $tmpArr );
+</p>
+<p>
+  		$tmpStr = sha1( $tmpStr );
+</p>
+</p>
+<p>
+  		if( $tmpStr == $signature ){
+</p>
+<p>
+  			return true;
+</p>
+<p>
+  		}else{
+</p>
+<p>
+  			return false;
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<ul>
+<li>
+    步骤3：开启开发者模式（校验token）
+  </li>
+</ul>
+<p>
+  打开微信公众号管理平台 -&gt; 点击左侧菜单（开发-&gt;基本配置） -&gt; 开启开发者模式
+</p>
+<p><img loading="lazy" decoding="async" width="933" height="582" src="/wp-content/uploads/2018/05/word-image-5183.png" class="wp-image-5710" srcset="/wp-content/uploads/2018/05/word-image-5183.png 933w, /wp-content/uploads/2018/05/word-image-5183-300x187.png 300w, /wp-content/uploads/2018/05/word-image-5183-768x479.png 768w" sizes="(max-width: 933px) 100vw, 933px" /></p>
+<ul>
+<li>
+    步骤4：修改SDK（关闭校验，开启响应用户请求）
+  </li>
+</ul>
+<p>
+  wx.php
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  /**
+</p>
+<p>
+    * wechat php test
+</p>
+<p>
+    */
+</p>
+<p>
+  //define your token
+</p>
+<p>
+  define(&#8220;TOKEN&#8221;, &#8220;itcast&#8221;);  //脚下留心：token必须和微信公众平台保持一致
+</p>
+<p>
+  $wechatObj = new wechatCallbackapiTest();
+</p>
+<p><strong>//$wechatObj-&gt;valid();</strong>
+</p>
+<p><strong>$wechatObj-&gt;responseMsg();</strong>
+</p>
+<p>
+  class wechatCallbackapiTest
+</p>
+<p>
+  {
+</p>
+<p>
+  	public function valid()
+</p>
+<p>
+      {
+</p>
+<p>
+          $echoStr = $_GET[&#8220;echostr&#8221;];
+</p>
+<p>
+          //valid signature , option
+</p>
+<p>
+          if($this-&gt;checkSignature()){
+</p>
+<p>
+          	echo $echoStr;
+</p>
+<p>
+          	exit;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+      public function responseMsg()
+</p>
+<p>
+      {
+</p>
+<p>
+  		//get post data, May be due to the different environments
+</p>
+<p>
+  		$postStr = $GLOBALS[&#8220;HTTP_RAW_POST_DATA&#8221;];
+</p>
+<p>
+        	//extract post data
+</p>
+<p>
+  		if (!empty($postStr)){
+</p>
+<p>
+                  /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
+</p>
+<p>
+                     the best way is to check the validity of xml by yourself */
+</p>
+<p>
+                  libxml_disable_entity_loader(true);
+</p>
+<p>
+                	$postObj = simplexml_load_string($postStr, &#8216;SimpleXMLElement&#8217;, LIBXML_NOCDATA);
+</p>
+<p>
+                  $fromUsername = $postObj-&gt;FromUserName;
+</p>
+<p>
+                  $toUsername = $postObj-&gt;ToUserName;
+</p>
+<p>
+                  $keyword = trim($postObj-&gt;Content);
+</p>
+<p>
+                  $time = time();
+</p>
+<p>
+                  $textTpl = &#8220;&lt;xml&gt;
+</p>
+<p>
+  							&lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;
+</p>
+<p>
+  							&lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;
+</p>
+<p>
+  							&lt;CreateTime&gt;%s&lt;/CreateTime&gt;
+</p>
+<p>
+  							&lt;MsgType&gt;&lt;![CDATA[%s]]&gt;&lt;/MsgType&gt;
+</p>
+<p>
+  							&lt;Content&gt;&lt;![CDATA[%s]]&gt;&lt;/Content&gt;
+</p>
+<p>
+  							&lt;FuncFlag&gt;0&lt;/FuncFlag&gt;
+</p>
+<p>
+  							&lt;/xml&gt;&#8221;;
+</p>
+<p>
+  				if(!empty( $keyword ))
+</p>
+<p>
+                  {
+</p>
+<p>
+                		$msgType = &#8220;text&#8221;;
+</p>
+<p>
+                  	$contentStr = &#8220;滚!&#8221;;
+</p>
+<p>
+                  	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+</p>
+<p>
+                  	echo $resultStr;
+</p>
+<p>
+                  }else{
+</p>
+<p>
+                  	echo &#8220;Input something&#8230;&#8221;;
+</p>
+<p>
+                  }
+</p>
+<p>
+          }else {
+</p>
+<p>
+          	echo &#8220;&#8221;;
+</p>
+<p>
+          	exit;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+</p>
+<p>
+  	private function checkSignature()
+</p>
+<p>
+  	{
+</p>
+<p>
+          // you must define TOKEN by yourself
+</p>
+<p>
+          if (!defined(&#8220;TOKEN&#8221;)) {
+</p>
+<p>
+              throw new Exception(&#8216;TOKEN is not defined!&#8217;);
+</p>
+<p>
+          }
+</p>
+</p>
+<p>
+          $signature = $_GET[&#8220;signature&#8221;];
+</p>
+<p>
+          $timestamp = $_GET[&#8220;timestamp&#8221;];
+</p>
+<p>
+          $nonce = $_GET[&#8220;nonce&#8221;];
+</p>
+</p>
+<p>
+  		$token = TOKEN;
+</p>
+<p>
+  		$tmpArr = array($token, $timestamp, $nonce);
+</p>
+<p>
+          // use SORT_STRING rule
+</p>
+<p>
+  		sort($tmpArr, SORT_STRING);
+</p>
+<p>
+  		$tmpStr = implode( $tmpArr );
+</p>
+<p>
+  		$tmpStr = sha1( $tmpStr );
+</p>
+</p>
+<p>
+  		if( $tmpStr == $signature ){
+</p>
+<p>
+  			return true;
+</p>
+<p>
+  		}else{
+</p>
+<p>
+  			return false;
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<h2>4、微信接口分析</h2>
+<h3>函数认识</h3>
+<ul>
+<li>
+    函数：simplexml_load_string
+  </li>
+<li>
+    作用：将xml字符串载入到对象中
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="396" height="526" src="/wp-content/uploads/2018/05/word-image-5184.png" class="wp-image-5711" srcset="/wp-content/uploads/2018/05/word-image-5184.png 396w, /wp-content/uploads/2018/05/word-image-5184-226x300.png 226w" sizes="(max-width: 396px) 100vw, 396px" /></p>
+<ul>
+<li>
+    函数：sprintf()
+  </li>
+<li>
+    作用：将字符串中的百分号替换成变量
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="496" height="152" src="/wp-content/uploads/2018/05/word-image-5185.png" class="wp-image-5712" srcset="/wp-content/uploads/2018/05/word-image-5185.png 496w, /wp-content/uploads/2018/05/word-image-5185-300x92.png 300w" sizes="(max-width: 496px) 100vw, 496px" /></p>
+<h3>接口代码注释</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  /**
+</p>
+<p>
+    * wechat php test
+</p>
+<p>
+    */
+</p>
+<p>
+  //define your token
+</p>
+<p>
+  //定义TOKEN秘钥，用于微信服务器和自定义服务器之间的校验
+</p>
+<p>
+  define(&#8220;TOKEN&#8221;, &#8220;itcast&#8221;);
+</p>
+<p>
+  //创建一个wechatObj对象
+</p>
+<p>
+  $wechatObj = new wechatCallbackapiTest();
+</p>
+<p>
+  //调用valid方法，用于微信开发验证和回复
+</p>
+<p>
+  //$wechatObj-&gt;valid();
+</p>
+<p>
+  //
+</p>
+<p>
+  $wechatObj-&gt;responseMsg();
+</p>
+<p>
+  class wechatCallbackapiTest
+</p>
+<p>
+  {
+</p>
+<p>
+  	public function valid()
+</p>
+<p>
+      {
+</p>
+<p>
+  		// 接受随机字符串
+</p>
+<p>
+          $echoStr = $_GET[&#8220;echostr&#8221;];
+</p>
+<p>
+          //valid signature , option
+</p>
+<p>
+          if($this-&gt;checkSignature()){
+</p>
+<p>
+          	echo $echoStr;
+</p>
+<p>
+          	exit;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+      public function responseMsg()
+</p>
+<p>
+      {
+</p>
+<p>
+  		//get post data, May be due to the different environments
+</p>
+<p>
+  		//$GLOBALS[&#8220;HTTP_RAW_POST_DATA&#8221;]功能与$_POST功能类似，主要用于接收HTTP中的POST请求
+</p>
+<p>
+  		//但是$GLOBALS[&#8220;HTTP_RAW_POST_DATA&#8221;]可以接收XML数据
+</p>
+<p>
+  		$postStr = $GLOBALS[&#8220;HTTP_RAW_POST_DATA&#8221;];
+</p>
+<p>
+        	//extract post data
+</p>
+<p>
+  		if (!empty($postStr)){
+</p>
+<p>
+                  /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
+</p>
+<p>
+                     the best way is to check the validity of xml by yourself */
+</p>
+<p>
+  				//安全处理：禁止引用外部xml实体， 防止XXE漏洞
+</p>
+<p>
+              // <a href="http://www.thinkphp.cn/topic/37740.html">http://www.thinkphp.cn/topic/37740.html</a>
+</p>
+<p>
+                  libxml_disable_entity_loader(true);
+</p>
+<p>
+  				// simplexml_load_string() 函数把 XML 字符串载入对象中
+</p>
+<p>
+                	$postObj = simplexml_load_string($postStr, &#8216;SimpleXMLElement&#8217;, LIBXML_NOCDATA);
+</p>
+<p>
+                  $fromUsername = $postObj-&gt;FromUserName;	// 发送方帐号（一个OpenID）
+</p>
+<p>
+                  $toUsername = $postObj-&gt;ToUserName;		// 开发者微信号
+</p>
+<p>
+                  $keyword = trim($postObj-&gt;Content);     // 文本消息内容
+</p>
+<p>
+                  $time = time();
+</p>
+<p>
+  				// 文本消息XML模板
+</p>
+<p>
+                  $textTpl = &#8220;&lt;xml&gt;
+</p>
+<p>
+  							&lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;
+</p>
+<p>
+  							&lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;
+</p>
+<p>
+  							&lt;CreateTime&gt;%s&lt;/CreateTime&gt;
+</p>
+<p>
+  							&lt;MsgType&gt;&lt;![CDATA[%s]]&gt;&lt;/MsgType&gt;
+</p>
+<p>
+  							&lt;Content&gt;&lt;![CDATA[%s]]&gt;&lt;/Content&gt;
+</p>
+<p>
+  							&lt;FuncFlag&gt;0&lt;/FuncFlag&gt;
+</p>
+<p>
+  							&lt;/xml&gt;&#8221;;
+</p>
+<p>
+  				if(!empty( $keyword ))
+</p>
+<p>
+                  {
+</p>
+<p>
+                		$msgType = &#8220;text&#8221;;
+</p>
+<p>
+                  	$contentStr = &#8220;Welcome to wechat world!&#8221;;
+</p>
+</p>
+<p>
+  					// 给XML模板填充数据
+</p>
+<p>
+                  	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $toUsername.&#8217;__&#8217;.$fromUsername);
+</p>
+<p>
+                  	echo $resultStr;
+</p>
+<p>
+                  }else{
+</p>
+<p>
+                  	echo &#8220;Input something&#8230;&#8221;;
+</p>
+<p>
+                  }
+</p>
+<p>
+          }else {
+</p>
+<p>
+          	echo &#8220;&#8221;;
+</p>
+<p>
+          	exit;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+</p>
+<p>
+  	// 验证数字签名
+</p>
+<p>
+  	private function checkSignature()
+</p>
+<p>
+  	{
+</p>
+<p>
+          // you must define TOKEN by yourself
+</p>
+<p>
+  		// 校验TOKEN秘钥
+</p>
+<p>
+          if (!defined(&#8220;TOKEN&#8221;)) {
+</p>
+<p>
+              throw new Exception(&#8216;TOKEN is not defined!&#8217;);
+</p>
+<p>
+          }
+</p>
+</p>
+<p>
+  		// 接受数字签名
+</p>
+<p>
+          $signature = $_GET[&#8220;signature&#8221;];
+</p>
+<p>
+  		// 接受时间戳
+</p>
+<p>
+          $timestamp = $_GET[&#8220;timestamp&#8221;];
+</p>
+<p>
+  		// 接受随机数
+</p>
+<p>
+          $nonce = $_GET[&#8220;nonce&#8221;];
+</p>
+</p>
+<p>
+  		// 定义$token 获取TOKEN秘钥
+</p>
+<p>
+  		$token = TOKEN;
+</p>
+<p>
+  		// token、timestamp、nonce组成数组
+</p>
+<p>
+  		$tmpArr = array($token, $timestamp, $nonce);
+</p>
+<p>
+          // use SORT_STRING rule
+</p>
+<p>
+  		//数组排序
+</p>
+<p>
+  		sort($tmpArr, SORT_STRING);
+</p>
+<p>
+  		// 划分成字符串
+</p>
+<p>
+  		$tmpStr = implode( $tmpArr );
+</p>
+<p>
+  		// 通过哈希算法进行加密
+</p>
+<p>
+  		$tmpStr = sha1( $tmpStr );
+</p>
+</p>
+<p>
+  		// 与当前发送过来的数字签名进行比对，成功返回true，否则返回false
+</p>
+<p>
+  		if( $tmpStr == $signature ){
+</p>
+<p>
+  			return true;
+</p>
+<p>
+  		}else{
+</p>
+<p>
+  			return false;
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<h1>六、微信的6大接收接口</h1>
+<h2>︴思考：如何区分数据类型（文本、图片、语音、视频、地理、链接消息）</h2>
+<p><img loading="lazy" decoding="async" width="936" height="624" src="/wp-content/uploads/2018/05/word-image-5186.png" class="wp-image-5713" srcset="/wp-content/uploads/2018/05/word-image-5186.png 936w, /wp-content/uploads/2018/05/word-image-5186-300x200.png 300w, /wp-content/uploads/2018/05/word-image-5186-768x512.png 768w" sizes="(max-width: 936px) 100vw, 936px" /></p>
+<h2>2、使用php代码判断代码判断用户发送的消息类型</h2>
+<p>
+  需求：用户发送图片则响应图片消息，视频响应视频消息，文本响应文本消息
+</p>
+<p>
+  发现：通过xml报文中的msgTtype可以判断类型
+</p>
+<p><img loading="lazy" decoding="async" width="1032" height="608" src="/wp-content/uploads/2018/05/word-image-5187.png" class="wp-image-5714" srcset="/wp-content/uploads/2018/05/word-image-5187.png 1032w, /wp-content/uploads/2018/05/word-image-5187-300x177.png 300w, /wp-content/uploads/2018/05/word-image-5187-768x452.png 768w, /wp-content/uploads/2018/05/word-image-5187-1024x603.png 1024w" sizes="(max-width: 1032px) 100vw, 1032px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  /**
+</p>
+<p>
+    * wechat php test
+</p>
+<p>
+    */
+</p>
+<p>
+  //定义token
+</p>
+<p>
+  define(&#8220;TOKEN&#8221;, &#8220;itcast&#8221;);
+</p>
+<p>
+  //创建wechatObj对象
+</p>
+<p>
+  $wechatObj = new wechatCallbackapiTest();
+</p>
+<p>
+  //校验token
+</p>
+<p>
+  //$wechatObj-&gt;valid();  仅开启开发者模式使用一下后期不需要使用
+</p>
+<p>
+  //调用方法响应用户数据
+</p>
+<p>
+  $wechatObj-&gt;responseMsg();
+</p>
+<p>
+  class wechatCallbackapiTest
+</p>
+<p>
+  {
+</p>
+<p>
+  	public function valid()
+</p>
+<p>
+      {
+</p>
+<p>
+      	//随机字符串
+</p>
+<p>
+          $echoStr = $_GET[&#8220;echostr&#8221;];
+</p>
+<p>
+          //校验token
+</p>
+<p>
+          if($this-&gt;checkSignature()){
+</p>
+<p>
+          	echo $echoStr;
+</p>
+<p>
+          	exit;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+      public function responseMsg()
+</p>
+<p>
+      {
+</p>
+<p>
+  		//get post data, May be due to the different environments
+</p>
+<p>
+  		//和POST一样获取数据，只不过他可以获取xml数据
+</p>
+<p>
+  		//接受微信服务器提交过来的xml报文
+</p>
+<p>
+  		$postStr = $GLOBALS[&#8220;HTTP_RAW_POST_DATA&#8221;];
+</p>
+<p>
+        	//extract post data
+</p>
+<p>
+  		if (!empty($postStr)) {
+</p>
+<p>
+                  /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
+</p>
+<p>
+                     the best way is to check the validity of xml by yourself */
+</p>
+<p>
+                  //安全处理：禁止引用外部xml实体， 防止XXE漏洞
+</p>
+<p>
+                  // http://www.thinkphp.cn/topic/37740.html
+</p>
+<p>
+                  libxml_disable_entity_loader(true);
+</p>
+<p>
+                  //将xml数据转化为对象
+</p>
+<p>
+                	$postObj = simplexml_load_string($postStr, &#8216;SimpleXMLElement&#8217;, LIBXML_NOCDATA);
+</p>
+<p>
+                  $fromUsername = $postObj-&gt;FromUserName;   //那个用户发送的
+</p>
+<p>
+                  $toUsername = $postObj-&gt;ToUserName;		  //发送给那个用户
+</p>
+<p>
+                  $keyword = trim($postObj-&gt;Content);		  //发送的内容（可能是图片、文字、视频等）
+</p>
+<p>
+                  $time = time();
+</p>
+<p>
+                  $textTpl = &#8220;&lt;xml&gt;
+</p>
+<p>
+  							&lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;
+</p>
+<p>
+  							&lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;
+</p>
+<p>
+  							&lt;CreateTime&gt;%s&lt;/CreateTime&gt;
+</p>
+<p>
+  							&lt;MsgType&gt;&lt;![CDATA[%s]]&gt;&lt;/MsgType&gt;
+</p>
+<p>
+  							&lt;Content&gt;&lt;![CDATA[%s]]&gt;&lt;/Content&gt;
+</p>
+<p>
+  							&lt;FuncFlag&gt;0&lt;/FuncFlag&gt;
+</p>
+<p>
+  							&lt;/xml&gt;&#8221;; //被动回复文本xml报文
+</p>
+</p>
+<p>
+                  //根据消息xml报文的MsgType参数判断请求文件类型
+</p>
+<p>
+              	switch ($postObj-&gt;MsgType) {
+</p>
+<p>
+                      case &#8216;text&#8217;:
+</p>
+<p>
+                          $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, &#8220;text&#8221;, &#8216;文本消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      case &#8216;image&#8217;:
+</p>
+<p>
+                          $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, &#8220;text&#8221;, &#8216;图片消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      case &#8216;voice&#8217;:
+</p>
+<p>
+                          $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, &#8220;text&#8221;, &#8216;语法消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      case &#8216;video&#8217;:
+</p>
+<p>
+                          $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, &#8220;text&#8221;, &#8216;视频消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      case &#8216;shortvideo&#8217;:
+</p>
+<p>
+                          $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, &#8220;text&#8221;, &#8216;小视频消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      case &#8216;location&#8217;:
+</p>
+<p>
+                          $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, &#8220;text&#8221;, &#8216;位置消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      case &#8216;link&#8217;:
+</p>
+<p>
+                          $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, &#8220;text&#8221;, &#8216;链接消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      default:
+</p>
+<p>
+                          $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, &#8220;text&#8221;, &#8216;滚！&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                  }
+</p>
+<p>
+              	echo $resultStr;
+</p>
+<p>
+          }else {
+</p>
+<p>
+          	echo &#8220;&#8221;;
+</p>
+<p>
+          	exit;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+</p>
+<p>
+  	private function checkSignature()
+</p>
+<p>
+  	{
+</p>
+<p>
+          //检测token是否定义
+</p>
+<p>
+          if (!defined(&#8220;TOKEN&#8221;)) {
+</p>
+<p>
+              throw new Exception(&#8216;TOKEN is not defined!&#8217;);
+</p>
+<p>
+          }
+</p>
+</p>
+<p>
+          //微信加密签名，signature结合了开发者填写的token参数和请求中的timestamp参数、nonce参数。
+</p>
+<p>
+          $signature = $_GET[&#8220;signature&#8221;];
+</p>
+<p>
+          //时间戳
+</p>
+<p>
+          $timestamp = $_GET[&#8220;timestamp&#8221;];
+</p>
+<p>
+          //随机数
+</p>
+<p>
+          $nonce = $_GET[&#8220;nonce&#8221;];
+</p>
+<p>
+          //将一个常量的值赋给$token变量
+</p>
+<p>
+  		$token = TOKEN;
+</p>
+<p>
+  		//将token、时间戳、随机数放到一个数组中
+</p>
+<p>
+  		$tmpArr = array($token, $timestamp, $nonce);
+</p>
+<p>
+          //给数组排序
+</p>
+<p>
+  		sort($tmpArr, SORT_STRING);
+</p>
+<p>
+  		//将数组转化为字符串
+</p>
+<p>
+  		$tmpStr = implode( $tmpArr );
+</p>
+<p>
+  		//哈希加密
+</p>
+<p>
+  		$tmpStr = sha1( $tmpStr );
+</p>
+</p>
+<p>
+  		if( $tmpStr == $signature ){
+</p>
+<p>
+  			return true;
+</p>
+<p>
+  		}else{
+</p>
+<p>
+  			return false;
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<h2>■ 代码（封装优化）</h2>
+<p><img loading="lazy" decoding="async" width="1189" height="592" src="/wp-content/uploads/2018/05/word-image-5188.png" class="wp-image-5715" srcset="/wp-content/uploads/2018/05/word-image-5188.png 1189w, /wp-content/uploads/2018/05/word-image-5188-300x149.png 300w, /wp-content/uploads/2018/05/word-image-5188-768x382.png 768w, /wp-content/uploads/2018/05/word-image-5188-1024x510.png 1024w" sizes="(max-width: 1189px) 100vw, 1189px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  /**
+</p>
+<p>
+    * wechat php test
+</p>
+<p>
+    */
+</p>
+<p>
+  //定义token
+</p>
+<p>
+  define(&#8220;TOKEN&#8221;, &#8220;itcast&#8221;);
+</p>
+<p>
+  //创建wechatObj对象
+</p>
+<p>
+  $wechatObj = new wechatCallbackapiTest();
+</p>
+<p>
+  //校验token
+</p>
+<p>
+  //$wechatObj-&gt;valid();  仅开启开发者模式使用一下后期不需要使用
+</p>
+<p>
+  //调用方法响应用户数据
+</p>
+<p>
+  $wechatObj-&gt;responseMsg();
+</p>
+<p>
+  class wechatCallbackapiTest
+</p>
+<p>
+  {
+</p>
+<p>
+  	public function valid()
+</p>
+<p>
+      {
+</p>
+<p>
+      	//随机字符串
+</p>
+<p>
+          $echoStr = $_GET[&#8220;echostr&#8221;];
+</p>
+<p>
+          //校验token
+</p>
+<p>
+          if($this-&gt;checkSignature()){
+</p>
+<p>
+          	echo $echoStr;
+</p>
+<p>
+          	exit;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+      public function responseMsg()
+</p>
+<p>
+      {
+</p>
+<p>
+  		//get post data, May be due to the different environments
+</p>
+<p>
+  		//和POST一样获取数据，只不过他可以获取xml数据
+</p>
+<p>
+  		//接受微信服务器提交过来的xml报文
+</p>
+<p>
+  		$postStr = $GLOBALS[&#8220;HTTP_RAW_POST_DATA&#8221;];
+</p>
+<p>
+        	//extract post data
+</p>
+<p>
+  		if (!empty($postStr)) {
+</p>
+<p>
+                  /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
+</p>
+<p>
+                     the best way is to check the validity of xml by yourself */
+</p>
+<p>
+                  //安全处理：禁止引用外部xml实体， 防止XXE漏洞
+</p>
+<p>
+                  // http://www.thinkphp.cn/topic/37740.html
+</p>
+<p>
+                  libxml_disable_entity_loader(true);
+</p>
+<p>
+                  //将xml数据转化为对象
+</p>
+<p>
+                	$postObj = simplexml_load_string($postStr, &#8216;SimpleXMLElement&#8217;, LIBXML_NOCDATA);
+</p>
+<p>
+                  $fromUsername = $postObj-&gt;FromUserName;   //发送者：那个用户发送的
+</p>
+<p>
+                  $toUsername = $postObj-&gt;ToUserName;		  //接受者：发送给那个用户
+</p>
+<p>
+                  $keyword = trim($postObj-&gt;Content);		  //发送的内容（可能是图片、文字、视频等）
+</p>
+</p>
+<p>
+                  //根据消息xml报文的MsgType参数判断请求文件类型
+</p>
+<p>
+              	switch ($postObj-&gt;MsgType) {
+</p>
+<p>
+                      case &#8216;text&#8217;:
+</p>
+<p>
+                          $this-&gt;sendText($fromUsername, $toUsername, &#8216;文本消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      case &#8216;image&#8217;:
+</p>
+<p>
+                          $this-&gt;sendText($fromUsername, $toUsername, &#8216;图片消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      case &#8216;voice&#8217;:
+</p>
+<p>
+                          $this-&gt;sendText($fromUsername, $toUsername, &#8216;语音消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      case &#8216;video&#8217;:
+</p>
+<p>
+                          $this-&gt;sendText($fromUsername, $toUsername, &#8216;视频消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      case &#8216;shortvideo&#8217;:
+</p>
+<p>
+                          $this-&gt;sendText($fromUsername, $toUsername, &#8216;小视频消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      case &#8216;location&#8217;:
+</p>
+<p>
+                          $this-&gt;sendText($fromUsername, $toUsername, &#8216;位置消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      case &#8216;link&#8217;:
+</p>
+<p>
+                          $this-&gt;sendText($fromUsername, $toUsername, &#8216;链接消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      default:
+</p>
+<p>
+                          $this-&gt;sendText($fromUsername, $toUsername, &#8216;滚！&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                  }
+</p>
+<p>
+          }else {
+</p>
+<p>
+          	echo &#8220;&#8221;;
+</p>
+<p>
+          	exit;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+   <strong>   /**</strong>
+</p>
+<p><strong>     * @param stirng $fromUsername 接受消息的用户</strong>
+</p>
+<p><strong>     * @param stirng $toUsername   发送消息的用户</strong>
+</p>
+<p><strong>     * @param stirng $content      内容</strong>
+</p>
+<p><strong>     */</strong>
+</p>
+<p><strong>    private function sendText($fromUsername, $toUsername, $content)</strong>
+</p>
+<p><strong>    {</strong>
+</p>
+<p><strong>        $time = time(); </strong>
+</p>
+<p><strong>        $textTpl = &#8220;&lt;xml&gt;</strong>
+</p>
+<p><strong>                    &lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;</strong>
+</p>
+<p><strong>                    &lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;</strong>
+</p>
+<p><strong>                    &lt;CreateTime&gt;%s&lt;/CreateTime&gt;</strong>
+</p>
+<p><strong>                    &lt;MsgType&gt;&lt;![CDATA[%s]]&gt;&lt;/MsgType&gt;</strong>
+</p>
+<p><strong>                    &lt;Content&gt;&lt;![CDATA[%s]]&gt;&lt;/Content&gt;</strong>
+</p>
+<p><strong>                    &lt;FuncFlag&gt;0&lt;/FuncFlag&gt;</strong>
+</p>
+<p><strong>                    &lt;/xml&gt;&#8221;; //被动回复文本xml报文    </strong>
+</p>
+<p><strong>        $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, &#8220;text&#8221;, $content);</strong>
+</p>
+<p><strong>        echo  $resultStr;</strong>
+</p>
+<p><strong>    }</strong>
+</p>
+</p>
+<p>
+  	private function checkSignature()
+</p>
+<p>
+  	{
+</p>
+<p>
+          //检测token是否定义
+</p>
+<p>
+          if (!defined(&#8220;TOKEN&#8221;)) {
+</p>
+<p>
+              throw new Exception(&#8216;TOKEN is not defined!&#8217;);
+</p>
+<p>
+          }
+</p>
+</p>
+<p>
+          //微信加密签名，signature结合了开发者填写的token参数和请求中的timestamp参数、nonce参数。
+</p>
+<p>
+          $signature = $_GET[&#8220;signature&#8221;];
+</p>
+<p>
+          //时间戳
+</p>
+<p>
+          $timestamp = $_GET[&#8220;timestamp&#8221;];
+</p>
+<p>
+          //随机数
+</p>
+<p>
+          $nonce = $_GET[&#8220;nonce&#8221;];
+</p>
+<p>
+          //将一个常量的值赋给$token变量
+</p>
+<p>
+  		$token = TOKEN;
+</p>
+<p>
+  		//将token、时间戳、随机数放到一个数组中
+</p>
+<p>
+  		$tmpArr = array($token, $timestamp, $nonce);
+</p>
+<p>
+          //给数组排序
+</p>
+<p>
+  		sort($tmpArr, SORT_STRING);
+</p>
+<p>
+  		//将数组转化为字符串
+</p>
+<p>
+  		$tmpStr = implode( $tmpArr );
+</p>
+<p>
+  		//哈希加密
+</p>
+<p>
+  		$tmpStr = sha1( $tmpStr );
+</p>
+</p>
+<p>
+  		if( $tmpStr == $signature ){
+</p>
+<p>
+  			return true;
+</p>
+<p>
+  		}else{
+</p>
+<p>
+  			return false;
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<h1>七、微信订阅回复接口</h1>
+<h2><a id="post-5626-_Toc475986511"></a>1、订阅回复接口（关注回复接口）</h2>
+<p><img loading="lazy" decoding="async" width="870" height="678" src="/wp-content/uploads/2018/05/word-image-5189.png" class="wp-image-5716" srcset="/wp-content/uploads/2018/05/word-image-5189.png 870w, /wp-content/uploads/2018/05/word-image-5189-300x234.png 300w, /wp-content/uploads/2018/05/word-image-5189-768x599.png 768w" sizes="(max-width: 870px) 100vw, 870px" /><br />
+<img loading="lazy" decoding="async" width="847" height="454" src="/wp-content/uploads/2018/05/word-image-5190.png" class="wp-image-5717" srcset="/wp-content/uploads/2018/05/word-image-5190.png 847w, /wp-content/uploads/2018/05/word-image-5190-300x161.png 300w, /wp-content/uploads/2018/05/word-image-5190-768x412.png 768w" sizes="(max-width: 847px) 100vw, 847px" /></p>
+<h2><a id="post-5626-_Toc475986513"></a>2、编写PHP代码判断订阅回复</h2>
+<p><img loading="lazy" decoding="async" width="892" height="519" src="/wp-content/uploads/2018/05/word-image-5191.png" class="wp-image-5718" srcset="/wp-content/uploads/2018/05/word-image-5191.png 892w, /wp-content/uploads/2018/05/word-image-5191-300x175.png 300w, /wp-content/uploads/2018/05/word-image-5191-768x447.png 768w" sizes="(max-width: 892px) 100vw, 892px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  /**
+</p>
+<p>
+    * wechat php test
+</p>
+<p>
+    */
+</p>
+<p>
+  //定义token
+</p>
+<p>
+  define(&#8220;TOKEN&#8221;, &#8220;itcast&#8221;);
+</p>
+<p>
+  //创建wechatObj对象
+</p>
+<p>
+  $wechatObj = new wechatCallbackapiTest();
+</p>
+<p>
+  //校验token
+</p>
+<p>
+  //$wechatObj-&gt;valid();  仅开启开发者模式使用一下后期不需要使用
+</p>
+<p>
+  //调用方法响应用户数据
+</p>
+<p>
+  $wechatObj-&gt;responseMsg();
+</p>
+<p>
+  class wechatCallbackapiTest
+</p>
+<p>
+  {
+</p>
+<p>
+  	public function valid()
+</p>
+<p>
+      {
+</p>
+<p>
+      	//随机字符串
+</p>
+<p>
+          $echoStr = $_GET[&#8220;echostr&#8221;];
+</p>
+<p>
+          //校验token
+</p>
+<p>
+          if($this-&gt;checkSignature()){
+</p>
+<p>
+          	echo $echoStr;
+</p>
+<p>
+          	exit;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+      public function responseMsg()
+</p>
+<p>
+      {
+</p>
+<p>
+  		//get post data, May be due to the different environments
+</p>
+<p>
+  		//和POST一样获取数据，只不过他可以获取xml数据
+</p>
+<p>
+  		//接受微信服务器提交过来的xml报文
+</p>
+<p>
+  		$postStr = $GLOBALS[&#8220;HTTP_RAW_POST_DATA&#8221;];
+</p>
+<p>
+        	//extract post data
+</p>
+<p>
+  		if (!empty($postStr)) {
+</p>
+<p>
+                  /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
+</p>
+<p>
+                     the best way is to check the validity of xml by yourself */
+</p>
+<p>
+                  //安全处理：禁止引用外部xml实体， 防止XXE漏洞
+</p>
+<p>
+                  // http://www.thinkphp.cn/topic/37740.html
+</p>
+<p>
+                  libxml_disable_entity_loader(true);
+</p>
+<p>
+                  //将xml数据转化为对象
+</p>
+<p>
+                	$postObj = simplexml_load_string($postStr, &#8216;SimpleXMLElement&#8217;, LIBXML_NOCDATA);
+</p>
+<p>
+                  $fromUsername = $postObj-&gt;FromUserName;   //发送者：那个用户发送的
+</p>
+<p>
+                  $toUsername = $postObj-&gt;ToUserName;		  //接受者：发送给那个用户
+</p>
+<p>
+                  $keyword = trim($postObj-&gt;Content);		  //发送的内容（可能是图片、文字、视频等）
+</p>
+</p>
+<p>
+                  //根据消息xml报文的MsgType参数判断请求文件类型
+</p>
+<p>
+              	switch ($postObj-&gt;MsgType) {
+</p>
+<p>
+                      <strong>case &#8216;event&#8217;:</strong>
+</p>
+<p><strong>                        //Event 事件类型，subscribe(订阅)、unsubscribe(取消订阅)</strong>
+</p>
+<p><strong>                        if ($postObj-&gt;Event == &#8216;subscribe&#8217;) {</strong>
+</p>
+<p><strong>                            $this-&gt;sendText($fromUsername, $toUsername, &#8216;感谢老板关注，需要xx请服务1&#8217;);</strong>
+</p>
+<p><strong>                        } else {</strong>
+</p>
+<p><strong>                            //后期项目封装可能需要修改数据库</strong>
+</p>
+<p><strong>                        }</strong>
+</p>
+<p><strong>                        break;</strong>
+</p>
+<p>
+                      case &#8216;text&#8217;:
+</p>
+<p>
+                          $this-&gt;sendText($fromUsername, $toUsername, &#8216;文本消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      case &#8216;image&#8217;:
+</p>
+<p>
+                          $this-&gt;sendText($fromUsername, $toUsername, &#8216;图片消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      case &#8216;voice&#8217;:
+</p>
+<p>
+                          $this-&gt;sendText($fromUsername, $toUsername, &#8216;语音消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      case &#8216;video&#8217;:
+</p>
+<p>
+                          $this-&gt;sendText($fromUsername, $toUsername, &#8216;视频消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      case &#8216;shortvideo&#8217;:
+</p>
+<p>
+                          $this-&gt;sendText($fromUsername, $toUsername, &#8216;小视频消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      case &#8216;location&#8217;:
+</p>
+<p>
+                          $this-&gt;sendText($fromUsername, $toUsername, &#8216;位置消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      case &#8216;link&#8217;:
+</p>
+<p>
+                          $this-&gt;sendText($fromUsername, $toUsername, &#8216;链接消息&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                      default:
+</p>
+<p>
+                          $this-&gt;sendText($fromUsername, $toUsername, &#8216;滚！&#8217;);
+</p>
+<p>
+                          break;
+</p>
+<p>
+                  }
+</p>
+<p>
+          }else {
+</p>
+<p>
+          	echo &#8220;&#8221;;
+</p>
+<p>
+          	exit;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+      /**
+</p>
+<p>
+       * @param stirng $fromUsername 接受消息的用户
+</p>
+<p>
+       * @param stirng $toUsername   发送消息的用户
+</p>
+<p>
+       * @param stirng $content      内容
+</p>
+<p>
+       */
+</p>
+<p>
+      private function sendText($fromUsername, $toUsername, $content)
+</p>
+<p>
+      {
+</p>
+<p>
+          $time = time();
+</p>
+<p>
+          $textTpl = &#8220;&lt;xml&gt;
+</p>
+<p>
+                      &lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;
+</p>
+<p>
+                      &lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;
+</p>
+<p>
+                      &lt;CreateTime&gt;%s&lt;/CreateTime&gt;
+</p>
+<p>
+                      &lt;MsgType&gt;&lt;![CDATA[%s]]&gt;&lt;/MsgType&gt;
+</p>
+<p>
+                      &lt;Content&gt;&lt;![CDATA[%s]]&gt;&lt;/Content&gt;
+</p>
+<p>
+                      &lt;FuncFlag&gt;0&lt;/FuncFlag&gt;
+</p>
+<p>
+                      &lt;/xml&gt;&#8221;; //被动回复文本xml报文
+</p>
+<p>
+          $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, &#8220;text&#8221;, $content);
+</p>
+<p>
+          echo  $resultStr;
+</p>
+<p>
+      }
+</p>
+</p>
+<p>
+  	private function checkSignature()
+</p>
+<p>
+  	{
+</p>
+<p>
+          //检测token是否定义
+</p>
+<p>
+          if (!defined(&#8220;TOKEN&#8221;)) {
+</p>
+<p>
+              throw new Exception(&#8216;TOKEN is not defined!&#8217;);
+</p>
+<p>
+          }
+</p>
+</p>
+<p>
+          //微信加密签名，signature结合了开发者填写的token参数和请求中的timestamp参数、nonce参数。
+</p>
+<p>
+          $signature = $_GET[&#8220;signature&#8221;];
+</p>
+<p>
+          //时间戳
+</p>
+<p>
+          $timestamp = $_GET[&#8220;timestamp&#8221;];
+</p>
+<p>
+          //随机数
+</p>
+<p>
+          $nonce = $_GET[&#8220;nonce&#8221;];
+</p>
+<p>
+          //将一个常量的值赋给$token变量
+</p>
+<p>
+  		$token = TOKEN;
+</p>
+<p>
+  		//将token、时间戳、随机数放到一个数组中
+</p>
+<p>
+  		$tmpArr = array($token, $timestamp, $nonce);
+</p>
+<p>
+          //给数组排序
+</p>
+<p>
+  		sort($tmpArr, SORT_STRING);
+</p>
+<p>
+  		//将数组转化为字符串
+</p>
+<p>
+  		$tmpStr = implode( $tmpArr );
+</p>
+<p>
+  		//哈希加密
+</p>
+<p>
+  		$tmpStr = sha1( $tmpStr );
+</p>
+</p>
+<p>
+  		if( $tmpStr == $signature ){
+</p>
+<p>
+  			return true;
+</p>
+<p>
+  		}else{
+</p>
+<p>
+  			return false;
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<h1>八、微信消息的6大回复接口</h1>
+<h2>1、回复文本接口</h2>
+<h3>1）xml报文</h3>
+<p><img loading="lazy" decoding="async" width="240" height="398" src="/wp-content/uploads/2018/05/word-image-5192.png" class="wp-image-5719" srcset="/wp-content/uploads/2018/05/word-image-5192.png 240w, /wp-content/uploads/2018/05/word-image-5192-181x300.png 181w" sizes="(max-width: 240px) 100vw, 240px" /><br />
+<img loading="lazy" decoding="async" width="533" height="313" src="/wp-content/uploads/2018/05/word-image-5193.png" class="wp-image-5720" srcset="/wp-content/uploads/2018/05/word-image-5193.png 533w, /wp-content/uploads/2018/05/word-image-5193-300x176.png 300w" sizes="(max-width: 533px) 100vw, 533px" /></p>
+<h3>2）代码</h3>
+<p><img loading="lazy" decoding="async" width="730" height="374" src="/wp-content/uploads/2018/05/word-image-5194.png" class="wp-image-5721" srcset="/wp-content/uploads/2018/05/word-image-5194.png 730w, /wp-content/uploads/2018/05/word-image-5194-300x154.png 300w" sizes="(max-width: 730px) 100vw, 730px" /></p>
+<p>
+  /**
+</p>
+<p>
+   * @param stirng $fromUsername 接受消息的用户
+</p>
+<p>
+   * @param stirng $toUsername   发送消息的用户
+</p>
+<p>
+   * @param stirng $content      内容
+</p>
+<p>
+   */
+</p>
+<p>
+  private function sendText($fromUsername, $toUsername, $content)
+</p>
+<p>
+  {
+</p>
+<p>
+      $time = time();
+</p>
+<p>
+      $textTpl = &#8220;&lt;xml&gt;
+</p>
+<p>
+                  &lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;
+</p>
+<p>
+                  &lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;
+</p>
+<p>
+                  &lt;CreateTime&gt;%s&lt;/CreateTime&gt;
+</p>
+<p>
+                  &lt;MsgType&gt;&lt;![CDATA[%s]]&gt;&lt;/MsgType&gt;
+</p>
+<p>
+                  &lt;Content&gt;&lt;![CDATA[%s]]&gt;&lt;/Content&gt;
+</p>
+<p>
+                  &lt;FuncFlag&gt;0&lt;/FuncFlag&gt;
+</p>
+<p>
+                  &lt;/xml&gt;&#8221;; //被动回复文本xml报文
+</p>
+<p>
+      $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, &#8220;text&#8221;, $content);
+</p>
+<p>
+      echo  $resultStr;
+</p>
+<p>
+  }
+</p>
+<h2>2、回复图片、语音、视频消息</h2>
+<h3>1）图片xml报文</h3>
+<p><img loading="lazy" decoding="async" width="462" height="270" src="/wp-content/uploads/2018/05/word-image-5195.png" class="wp-image-5722" srcset="/wp-content/uploads/2018/05/word-image-5195.png 462w, /wp-content/uploads/2018/05/word-image-5195-300x175.png 300w" sizes="(max-width: 462px) 100vw, 462px" /></p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  【获取Mediald】
+</p>
+<p><img loading="lazy" decoding="async" width="613" height="66" src="/wp-content/uploads/2018/05/word-image-5196.png" class="wp-image-5723" srcset="/wp-content/uploads/2018/05/word-image-5196.png 613w, /wp-content/uploads/2018/05/word-image-5196-300x32.png 300w" sizes="(max-width: 613px) 100vw, 613px" /></p>
+<p>
+  步骤1：
+</p>
+<p><img loading="lazy" decoding="async" width="287" height="131" src="/wp-content/uploads/2018/05/word-image-5197.png" class="wp-image-5724" /><br />
+<img loading="lazy" decoding="async" width="423" height="175" src="/wp-content/uploads/2018/05/word-image-5198.png" class="wp-image-5725" srcset="/wp-content/uploads/2018/05/word-image-5198.png 423w, /wp-content/uploads/2018/05/word-image-5198-300x124.png 300w" sizes="(max-width: 423px) 100vw, 423px" /></p>
+<p><a href="https://mp.weixin.qq.com/debug/cgi-bin/apiinfo?t=index&amp;type=基础支持">https://mp.weixin.qq.com/debug/cgi-bin/apiinfo?t=index&amp;type=基础支持</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1087" height="602" src="/wp-content/uploads/2018/05/word-image-5199.png" class="wp-image-5726" srcset="/wp-content/uploads/2018/05/word-image-5199.png 1087w, /wp-content/uploads/2018/05/word-image-5199-300x166.png 300w, /wp-content/uploads/2018/05/word-image-5199-768x425.png 768w, /wp-content/uploads/2018/05/word-image-5199-1024x567.png 1024w" sizes="(max-width: 1087px) 100vw, 1087px" /><br />
+<img loading="lazy" decoding="async" width="1200" height="709" src="/wp-content/uploads/2018/05/word-image-5200.png" class="wp-image-5727" srcset="/wp-content/uploads/2018/05/word-image-5200.png 1200w, /wp-content/uploads/2018/05/word-image-5200-300x177.png 300w, /wp-content/uploads/2018/05/word-image-5200-768x454.png 768w, /wp-content/uploads/2018/05/word-image-5200-1024x605.png 1024w" sizes="(max-width: 1200px) 100vw, 1200px" /></p>
+<h3>2）代码</h3>
+<p>
+  Eg2F6ND63LqjRvlOdaEV_lxGjgO9KIRDZm8e54hcTYH-P-FyBZA55FNad8a8pQMA
+</p>
+<p><img loading="lazy" decoding="async" width="851" height="445" src="/wp-content/uploads/2018/05/word-image-5201.png" class="wp-image-5728" srcset="/wp-content/uploads/2018/05/word-image-5201.png 851w, /wp-content/uploads/2018/05/word-image-5201-300x157.png 300w, /wp-content/uploads/2018/05/word-image-5201-768x402.png 768w" sizes="(max-width: 851px) 100vw, 851px" /></p>
+<h3>视频xml报文</h3>
+<p><img loading="lazy" decoding="async" width="452" height="347" src="/wp-content/uploads/2018/05/word-image-5202.png" class="wp-image-5729" srcset="/wp-content/uploads/2018/05/word-image-5202.png 452w, /wp-content/uploads/2018/05/word-image-5202-300x230.png 300w" sizes="(max-width: 452px) 100vw, 452px" /></p>
+<h3>代码</h3>
+<p><img loading="lazy" decoding="async" width="991" height="531" src="/wp-content/uploads/2018/05/word-image-5203.png" class="wp-image-5730" srcset="/wp-content/uploads/2018/05/word-image-5203.png 991w, /wp-content/uploads/2018/05/word-image-5203-300x161.png 300w, /wp-content/uploads/2018/05/word-image-5203-768x412.png 768w" sizes="(max-width: 991px) 100vw, 991px" /></p>
+<h2>3、音乐回复接口</h2>
+<h3>1）xml报文</h3>
+<p><img loading="lazy" decoding="async" width="541" height="374" src="/wp-content/uploads/2018/05/word-image-5204.png" class="wp-image-5731" srcset="/wp-content/uploads/2018/05/word-image-5204.png 541w, /wp-content/uploads/2018/05/word-image-5204-300x207.png 300w" sizes="(max-width: 541px) 100vw, 541px" /></p>
+<h3>2）代码</h3>
+<p><img loading="lazy" decoding="async" width="1118" height="542" src="/wp-content/uploads/2018/05/word-image-5205.png" class="wp-image-5732" srcset="/wp-content/uploads/2018/05/word-image-5205.png 1118w, /wp-content/uploads/2018/05/word-image-5205-300x145.png 300w, /wp-content/uploads/2018/05/word-image-5205-768x372.png 768w, /wp-content/uploads/2018/05/word-image-5205-1024x496.png 1024w" sizes="(max-width: 1118px) 100vw, 1118px" /></p>
+<h2>4、图文回复接口（重点重点）</h2>
+<h3>1）xml报文</h3>
+<p><img loading="lazy" decoding="async" width="529" height="529" src="/wp-content/uploads/2018/05/word-image-5206.png" class="wp-image-5733" srcset="/wp-content/uploads/2018/05/word-image-5206.png 529w, /wp-content/uploads/2018/05/word-image-5206-150x150.png 150w, /wp-content/uploads/2018/05/word-image-5206-300x300.png 300w" sizes="(max-width: 529px) 100vw, 529px" /></p>
+<h3>2）代码</h3>
+<p>
+      <strong>/**</strong>
+</p>
+<p><strong>     * 响应图文（优化版）</strong>
+</p>
+<p><strong>     * @param stirng $fromUsername 接受消息的用户</strong>
+</p>
+<p><strong>     * @param stirng $toUsername   发送消息的用户</strong>
+</p>
+<p><strong>     * @param array  $arr          图文消息二位数组（注；第二层数组字段 title,desc,picurl,url）</strong>
+</p>
+<p><strong>     */</strong>
+</p>
+<p><strong>    private function sendImgArticle($fromUsername, $toUsername, $arr)</strong>
+</p>
+<p><strong>    {</strong>
+</p>
+<p><strong>        $textTpl = &#8220;&lt;xml&gt;</strong>
+</p>
+<p><strong>        &lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;</strong>
+</p>
+<p><strong>        &lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;</strong>
+</p>
+<p><strong>        &lt;CreateTime&gt;%s&lt;/CreateTime&gt;</strong>
+</p>
+<p><strong>        &lt;MsgType&gt;&lt;![CDATA[news]]&gt;&lt;/MsgType&gt;</strong>
+</p>
+<p><strong>        &lt;ArticleCount&gt;%s&lt;/ArticleCount&gt;</strong>
+</p>
+<p><strong>        &lt;Articles&gt;&#8221;;</strong>
+</p>
+<p><strong>        foreach ($arr as $img) {</strong>
+</p>
+<p><strong>            $textTpl .= &#8220;&lt;item&gt;</strong>
+</p>
+<p><strong>            &lt;Title&gt;&lt;![CDATA[{$img[&#8216;title&#8217;]}]]&gt;&lt;/Title&gt; </strong>
+</p>
+<p><strong>            &lt;Description&gt;&lt;![CDATA[{$img[&#8216;desc&#8217;]}]]&gt;&lt;/Description&gt;</strong>
+</p>
+<p><strong>            &lt;PicUrl&gt;&lt;![CDATA[{$img[&#8216;picurl&#8217;]}]]&gt;&lt;/PicUrl&gt;</strong>
+</p>
+<p><strong>            &lt;Url&gt;&lt;![CDATA[{$img[&#8216;url&#8217;]}]]&gt;&lt;/Url&gt;</strong>
+</p>
+<p><strong>            &lt;/item&gt;&#8221;;</strong>
+</p>
+<p><strong>        }</strong>
+</p>
+<p><strong>        $textTpl .= &#8220;&lt;/Articles&gt;</strong>
+</p>
+<p><strong>        &lt;/xml&gt;&#8221;; </strong>
+</p>
+<p><strong>        $resultStr = sprintf($textTpl, $fromUsername, $toUsername, time(), count($arr));</strong>
+</p>
+<p><strong>        echo  $resultStr;</strong>
+</p>
+<p><strong>    }</strong>
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 响应单图文
+</p>
+<p>
+       * @param stirng $fromUsername 接受消息的用户
+</p>
+<p>
+       * @param stirng $toUsername   发送消息的用户
+</p>
+<p>
+       */
+</p>
+<p>
+      private function <strong>sendImgArticle1</strong>($fromUsername, $toUsername)
+</p>
+<p>
+      {
+</p>
+<p>
+          $textTpl = &#8220;&lt;xml&gt;
+</p>
+<p>
+          &lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;
+</p>
+<p>
+          &lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;
+</p>
+<p>
+          &lt;CreateTime&gt;%s&lt;/CreateTime&gt;
+</p>
+<p>
+          &lt;MsgType&gt;&lt;![CDATA[news]]&gt;&lt;/MsgType&gt;
+</p>
+<p>
+          &lt;ArticleCount&gt;%s&lt;/ArticleCount&gt;
+</p>
+<p>
+          &lt;Articles&gt;
+</p>
+<p>
+          &lt;item&gt;
+</p>
+<p>
+          &lt;Title&gt;&lt;![CDATA[%s]]&gt;&lt;/Title&gt;
+</p>
+<p>
+          &lt;Description&gt;&lt;![CDATA[%s]]&gt;&lt;/Description&gt;
+</p>
+<p>
+          &lt;PicUrl&gt;&lt;![CDATA[%s]]&gt;&lt;/PicUrl&gt;
+</p>
+<p>
+          &lt;Url&gt;&lt;![CDATA[%s]]&gt;&lt;/Url&gt;
+</p>
+<p>
+          &lt;/item&gt;
+</p>
+<p>
+          &lt;/Articles&gt;
+</p>
+<p>
+          &lt;/xml&gt;&#8221;;
+</p>
+<p>
+          $imgCount = 1;
+</p>
+<p>
+          $title = &#8216;单图文&#8217;;
+</p>
+<p>
+          $desc = &#8216;xxx&#8217;;
+</p>
+<p>
+          $picurl = &#8216;http://47.52.95.83/zhaoxiaokang/img/b1.jpg&#8217;;
+</p>
+<p>
+          $url = &#8216;http://baidu.com&/#8217;;
+</p>
+<p>
+          $resultStr = sprintf($textTpl, $fromUsername, $toUsername, time(), $imgCount, $title, $desc, $picurl, $url);
+</p>
+<p>
+          echo  $resultStr;
+</p>
+<p>
+      }
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 响应多图文
+</p>
+<p>
+       * @param stirng $fromUsername 接受消息的用户
+</p>
+<p>
+       * @param stirng $toUsername   发送消息的用户
+</p>
+<p>
+       */
+</p>
+<p>
+      private function <strong>sendImgArticleN</strong>($fromUsername, $toUsername)
+</p>
+<p>
+      {
+</p>
+<p>
+          $textTpl = &#8220;&lt;xml&gt;
+</p>
+<p>
+          &lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;
+</p>
+<p>
+          &lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;
+</p>
+<p>
+          &lt;CreateTime&gt;%s&lt;/CreateTime&gt;
+</p>
+<p>
+          &lt;MsgType&gt;&lt;![CDATA[news]]&gt;&lt;/MsgType&gt;
+</p>
+<p>
+          &lt;ArticleCount&gt;3&lt;/ArticleCount&gt;
+</p>
+<p>
+          &lt;Articles&gt;
+</p>
+<p>
+          &lt;item&gt;
+</p>
+<p>
+          &lt;Title&gt;&lt;![CDATA[大图]]&gt;&lt;/Title&gt;
+</p>
+<p>
+          &lt;Description&gt;&lt;![CDATA[bigimg]]&gt;&lt;/Description&gt;
+</p>
+<p>
+          &lt;PicUrl&gt;&lt;![CDATA[http://47.52.95.83/zhaoxiaokang/img/b1.jpg]]&gt;&lt;/PicUrl&gt;
+</p>
+<p>
+          &lt;Url&gt;&lt;![CDATA[http://baidu.com]]&gt;&lt;/Url&gt;
+</p>
+<p>
+          &lt;/item&gt;
+</p>
+<p>
+          &lt;item&gt;
+</p>
+<p>
+          &lt;Title&gt;&lt;![CDATA[小图1]]&gt;&lt;/Title&gt;
+</p>
+<p>
+          &lt;Description&gt;&lt;![CDATA[one]]&gt;&lt;/Description&gt;
+</p>
+<p>
+          &lt;PicUrl&gt;&lt;![CDATA[http://47.52.95.83/zhaoxiaokang/img/one.png]]&gt;&lt;/PicUrl&gt;
+</p>
+<p>
+          &lt;Url&gt;&lt;![CDATA[http://baidu.com]]&gt;&lt;/Url&gt;
+</p>
+<p>
+          &lt;/item&gt;
+</p>
+<p>
+          &lt;item&gt;
+</p>
+<p>
+          &lt;Title&gt;&lt;![CDATA[小图2]]&gt;&lt;/Title&gt;
+</p>
+<p>
+          &lt;Description&gt;&lt;![CDATA[two]]&gt;&lt;/Description&gt;
+</p>
+<p>
+          &lt;PicUrl&gt;&lt;![CDATA[http://47.52.95.83/zhaoxiaokang/img/two.png]]&gt;&lt;/PicUrl&gt;
+</p>
+<p>
+          &lt;Url&gt;&lt;![CDATA[http://baidu.com]]&gt;&lt;/Url&gt;
+</p>
+<p>
+          &lt;/item&gt;
+</p>
+<p>
+          &lt;/Articles&gt;
+</p>
+<p>
+          &lt;/xml&gt;&#8221;;
+</p>
+<p>
+          $resultStr = sprintf($textTpl, $fromUsername, $toUsername, time());
+</p>
+<p>
+          echo  $resultStr;
+</p>
+<p>
+      }
+</p>
+<h1>︴自觉练习</h1>
+<p><img loading="lazy" decoding="async" width="247" height="173" src="/wp-content/uploads/2018/05/word-image-5207.png" class="wp-image-5734" /><br />
+<img loading="lazy" decoding="async" width="549" height="231" src="/wp-content/uploads/2018/05/word-image-5208.png" class="wp-image-5735" srcset="/wp-content/uploads/2018/05/word-image-5208.png 549w, /wp-content/uploads/2018/05/word-image-5208-300x126.png 300w" sizes="(max-width: 549px) 100vw, 549px" /><br />
+<img loading="lazy" decoding="async" width="596" height="255" src="/wp-content/uploads/2018/05/word-image-5209.png" class="wp-image-5736" srcset="/wp-content/uploads/2018/05/word-image-5209.png 596w, /wp-content/uploads/2018/05/word-image-5209-300x128.png 300w" sizes="(max-width: 596px) 100vw, 596px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/5626.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

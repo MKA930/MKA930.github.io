@@ -1,0 +1,4751 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>试卷导出 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E8%AF%95%E5%8D%B7%E5%AF%BC%E5%87%BA/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 15:33:26 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>试卷导出 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Laravel在线教育平台（六）数据字典、数据迁移、后台试卷管理、试卷导出、答题处理、支付宝</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/5738.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/5738.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 15:33:26 +0000</pubDate>
+				<category><![CDATA[Laravel]]></category>
+		<category><![CDATA[Laravel在线教育平台]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[后台试卷管理]]></category>
+		<category><![CDATA[支付宝]]></category>
+		<category><![CDATA[数据字典]]></category>
+		<category><![CDATA[数据迁移]]></category>
+		<category><![CDATA[答题处理]]></category>
+		<category><![CDATA[试卷导出]]></category>
+		<guid isPermaLink="false">/?p=5738</guid>
+
+					<description><![CDATA[Laravel框架实战-在线教育平台（6） ︴准备 1、数据字典 后台试卷表 表名 paper 序号 字段 类 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1><a id="post-5738-_Toc488249285"></a>Laravel框架实战-在线教育平台（6）</h1>
+<h1><a id="post-5738-_Toc488076574"></a>︴准备  </h1>
+<h2>1、数据字典</h2>
+<h3>后台试卷表</h3>
+<table>
+<tr>
+<td>
+<p><strong>表名</strong>
+</p>
+</td>
+<td colspan="6">
+<p>
+  paper
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>序号</strong>
+</p>
+</td>
+<td>
+<p><strong>字段</strong>
+</p>
+</td>
+<td>
+<p><strong>类型</strong>
+</p>
+</td>
+<td>
+<p><strong>说明</strong>
+</p>
+</td>
+<td>
+<p><strong>空</strong>
+</p>
+</td>
+<td>
+<p><strong>默认值</strong>
+</p>
+</td>
+<td>
+<p><strong>主键</strong>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  id
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  自增主键
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  N/A
+</p>
+</td>
+<td>
+<p>
+  是
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  2
+</p>
+</td>
+<td>
+<p>
+  paper_name
+</p>
+</td>
+<td>
+<p>
+  varchar(50)
+</p>
+</td>
+<td>
+<p>
+  试卷名
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  3
+</p>
+</td>
+<td>
+<p>
+  course_id
+</p>
+</td>
+<td>
+<p>
+  tinyint
+</p>
+</td>
+<td>
+<p>
+  关联课程ID，所属的课程
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  4
+</p>
+</td>
+<td>
+<p>
+  score
+</p>
+</td>
+<td>
+<p>
+  tinyint
+</p>
+</td>
+<td>
+<p>
+  试卷总分
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  100
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  5
+</p>
+</td>
+<td>
+<p>
+  updated_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  创建于
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  6
+</p>
+</td>
+<td>
+<p>
+  created_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  更新于
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+</table>
+<h3>后台试题表</h3>
+<table>
+<tr>
+<td>
+<p><strong>表名</strong>
+</p>
+</td>
+<td colspan="6">
+<p>
+  question
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>序号</strong>
+</p>
+</td>
+<td>
+<p><strong>字段</strong>
+</p>
+</td>
+<td>
+<p><strong>类型</strong>
+</p>
+</td>
+<td>
+<p><strong>说明</strong>
+</p>
+</td>
+<td>
+<p><strong>空</strong>
+</p>
+</td>
+<td>
+<p><strong>默认值</strong>
+</p>
+</td>
+<td>
+<p><strong>主键</strong>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  id
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  自增主键
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  N/A
+</p>
+</td>
+<td>
+<p>
+  是
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  2
+</p>
+</td>
+<td>
+<p>
+  type
+</p>
+</td>
+<td>
+<p>
+  tinyint
+</p>
+</td>
+<td>
+<p>
+  类型：1-单选，2-多选
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  3
+</p>
+</td>
+<td>
+<p>
+  question
+</p>
+</td>
+<td>
+<p>
+  varchar(255)
+</p>
+</td>
+<td>
+<p>
+  试题具体内容
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  4
+</p>
+</td>
+<td>
+<p>
+  paper_id
+</p>
+</td>
+<td>
+<p>
+  tinyint
+</p>
+</td>
+<td>
+<p>
+  关联试卷ID
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  5
+</p>
+</td>
+<td>
+<p>
+  score
+</p>
+</td>
+<td>
+<p>
+  tinyint
+</p>
+</td>
+<td>
+<p>
+  该题总分
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  2
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  6
+</p>
+</td>
+<td>
+<p>
+  options
+</p>
+</td>
+<td>
+<p>
+  varchar(255)
+</p>
+</td>
+<td>
+<p>
+  选项内容
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  7
+</p>
+</td>
+<td>
+<p>
+  answer
+</p>
+</td>
+<td>
+<p>
+  varchar(1)
+</p>
+</td>
+<td>
+<p>
+  正确答案
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  8
+</p>
+</td>
+<td>
+<p>
+  remark
+</p>
+</td>
+<td>
+<p>
+  varchar(255)
+</p>
+</td>
+<td>
+<p>
+  试题备注说明
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  9
+</p>
+</td>
+<td>
+<p>
+  updated_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  创建于
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  10
+</p>
+</td>
+<td>
+<p>
+  created_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  更新于
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+</table>
+<h3>答题表</h3>
+<table>
+<tr>
+<td>
+<p><strong>表名</strong>
+</p>
+</td>
+<td colspan="6">
+<p>
+  answer
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>序号</strong>
+</p>
+</td>
+<td>
+<p><strong>字段</strong>
+</p>
+</td>
+<td>
+<p><strong>类型</strong>
+</p>
+</td>
+<td>
+<p><strong>说明</strong>
+</p>
+</td>
+<td>
+<p><strong>空</strong>
+</p>
+</td>
+<td>
+<p><strong>默认值</strong>
+</p>
+</td>
+<td>
+<p><strong>主键</strong>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  id
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  自增主键
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  N/A
+</p>
+</td>
+<td>
+<p>
+  是
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  2
+</p>
+</td>
+<td>
+<p>
+  paper_id
+</p>
+</td>
+<td>
+<p>
+  tinyint
+</p>
+</td>
+<td>
+<p>
+  试卷ID
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  3
+</p>
+</td>
+<td>
+<p>
+  question_id
+</p>
+</td>
+<td>
+<p>
+  tinyint
+</p>
+</td>
+<td>
+<p>
+  关联课程ID，所属的课程
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  4
+</p>
+</td>
+<td>
+<p>
+  member_id
+</p>
+</td>
+<td>
+<p>
+  tinyint
+</p>
+</td>
+<td>
+<p>
+  会员ID
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  5
+</p>
+</td>
+<td>
+<p>
+  is_correct
+</p>
+</td>
+<td>
+<p>
+  tinyint
+</p>
+</td>
+<td>
+<p>
+  是否正确：1-正确，2-错误
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  2
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  6
+</p>
+</td>
+<td>
+<p>
+  score
+</p>
+</td>
+<td>
+<p>
+  tinyint
+</p>
+</td>
+<td>
+<p>
+  得分
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  7
+</p>
+</td>
+<td>
+<p>
+  answer
+</p>
+</td>
+<td>
+<p>
+  char(4)
+</p>
+</td>
+<td>
+<p>
+  学生的答案
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  8
+</p>
+</td>
+<td>
+<p>
+  updated_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  创建于
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  9
+</p>
+</td>
+<td>
+<p>
+  created_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  更新于
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+</table>
+<h2>数据迁移</h2>
+<p>
+  步骤1：创建迁移文件（该迁移文件一次性创建三个表）
+</p>
+<p>
+  步骤2：编写迁移文件
+</p>
+<p>
+  步骤3：执行迁移文件
+</p>
+<p><img fetchpriority="high" decoding="async" width="1332" height="574" src="/wp-content/uploads/2018/05/word-image-5210.png" class="wp-image-5741" srcset="/wp-content/uploads/2018/05/word-image-5210.png 1332w, /wp-content/uploads/2018/05/word-image-5210-300x129.png 300w, /wp-content/uploads/2018/05/word-image-5210-768x331.png 768w, /wp-content/uploads/2018/05/word-image-5210-1024x441.png 1024w" sizes="(max-width: 1332px) 100vw, 1332px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  use Illuminate\Support\Facades\Schema;
+</p>
+<p>
+  use Illuminate\Database\Schema\Blueprint;
+</p>
+<p>
+  use Illuminate\Database\Migrations\Migration;
+</p>
+<p>
+  class CreateKaoshiTable extends Migration
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Run the migrations.
+</p>
+<p>
+       *
+</p>
+<p>
+       * @return void
+</p>
+<p>
+       */
+</p>
+<p>
+      public function up()
+</p>
+<p>
+      {
+</p>
+<p>
+          #试卷
+</p>
+<p>
+          Schema::create(&#8216;paper&#8217;, function (Blueprint $table) {
+</p>
+<p>
+              $table-&gt;increments(&#8216;id&#8217;);
+</p>
+<p>
+              $table-&gt;string(&#8216;paper_name&#8217;, 50)-&gt;comment(&#8216;试卷名&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedTinyInteger(&#8216;course_id&#8217;)-&gt;comment(&#8216;关联课程ID，所属的课程&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedTinyInteger(&#8216;score&#8217;)-&gt;default(100)-&gt;comment(&#8216;试卷总分&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedInteger(&#8216;created_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedInteger(&#8216;updated_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;更新于&#8217;);
+</p>
+<p>
+          });
+</p>
+<p>
+          #试题
+</p>
+<p>
+          Schema::create(&#8216;question&#8217;, function (Blueprint $table) {
+</p>
+<p>
+              $table-&gt;increments(&#8216;id&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedTinyInteger(&#8216;type&#8217;)-&gt;default(1)-&gt;comment(&#8216;类型:1-单选,2-多选&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedTinyInteger(&#8216;paper_id&#8217;)-&gt;comment(&#8216;关联试卷ID&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedTinyInteger(&#8216;score&#8217;)-&gt;comment(&#8216;该题总分&#8217;);
+</p>
+<p>
+              $table-&gt;string(&#8216;question&#8217;)-&gt;comment(&#8216;试题具体内容&#8217;);
+</p>
+<p>
+              $table-&gt;string(&#8216;options&#8217;)-&gt;comment(&#8216;选项内容&#8217;);
+</p>
+<p>
+              $table-&gt;string(&#8216;answer&#8217;)-&gt;comment(&#8216;正确答案&#8217;);
+</p>
+<p>
+              $table-&gt;string(&#8216;remark&#8217;)-&gt;comment(&#8216;试题备注说明&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedInteger(&#8216;created_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedInteger(&#8216;updated_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;更新于&#8217;);
+</p>
+<p>
+          });
+</p>
+<p>
+          #答题表
+</p>
+<p>
+          Schema::create(&#8216;answer&#8217;, function (Blueprint $table) {
+</p>
+<p>
+              $table-&gt;increments(&#8216;id&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedTinyInteger(&#8216;paper_id&#8217;)-&gt;comment(&#8216;关联试卷ID&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedTinyInteger(&#8216;question_id&#8217;)-&gt;comment(&#8216;关联课程ID，所属的课程&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedTinyInteger(&#8216;member_id&#8217;)-&gt;comment(&#8216;会员ID&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedTinyInteger(&#8216;is_correct&#8217;)-&gt;comment(&#8216;是否正确:1-是,2-否&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedTinyInteger(&#8216;score&#8217;)-&gt;default(0)-&gt;comment(&#8216;得分&#8217;);
+</p>
+<p>
+              $table-&gt;char(&#8216;answer&#8217;, 4)-&gt;comment(&#8216;学生的答案&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedInteger(&#8216;created_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedInteger(&#8216;updated_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;更新于&#8217;);
+</p>
+<p>
+          });
+</p>
+<p>
+      }
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Reverse the migrations.
+</p>
+<p>
+       *
+</p>
+<p>
+       * @return void
+</p>
+<p>
+       */
+</p>
+<p>
+      public function down()
+</p>
+<p>
+      {
+</p>
+<p>
+          //
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p><img decoding="async" width="393" height="95" src="/wp-content/uploads/2018/05/word-image-5211.png" class="wp-image-5742" srcset="/wp-content/uploads/2018/05/word-image-5211.png 393w, /wp-content/uploads/2018/05/word-image-5211-300x73.png 300w" sizes="(max-width: 393px) 100vw, 393px" /></p>
+<h2>模型</h2>
+<p>
+  paper
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Model;
+</p>
+<p>
+  use Illuminate\Database\Eloquent\Model;
+</p>
+<p>
+  class Paper extends Model
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明表名（注：laravel会自动加s所以自己声明覆盖）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $table = &#8216;paper&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Unix时间戳形式填充创建于和更新于（注：模型默认托管时间但是是datetime类型）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $dateFormat = &#8216;U&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明可批量设置的属性（注：当使用create静态方式时）
+</p>
+<p>
+       * @var array
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $fillable = [&#8216;paper_name&#8217;, &#8216;course_id&#8217;, &#8216;score&#8217;];
+</p>
+<p>
+  }
+</p>
+<p>
+  question
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Model;
+</p>
+<p>
+  use Illuminate\Database\Eloquent\Model;
+</p>
+<p>
+  class Question extends Model
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明表名（注：laravel会自动加s所以自己声明覆盖）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $table = &#8216;question&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Unix时间戳形式填充创建于和更新于（注：模型默认托管时间但是是datetime类型）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $dateFormat = &#8216;U&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明可批量设置的属性（注：当使用create静态方式时）
+</p>
+<p>
+       * @var array
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $fillable = [&#8216;type&#8217;, &#8216;paper_id&#8217;, &#8216;score&#8217;, &#8216;question&#8217;, &#8216;options&#8217;, &#8216;answer&#8217;, &#8216;remark&#8217;];
+</p>
+<p>
+  }
+</p>
+<p>
+  answer
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Model;
+</p>
+<p>
+  use Illuminate\Database\Eloquent\Model;
+</p>
+<p>
+  class Answer extends Model
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明表名（注：laravel会自动加s所以自己声明覆盖）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $table = &#8216;answer&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Unix时间戳形式填充创建于和更新于（注：模型默认托管时间但是是datetime类型）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $dateFormat = &#8216;U&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明可批量设置的属性（注：当使用create静态方式时）
+</p>
+<p>
+       * @var array
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $fillable = [&#8216;paper_id&#8217;, &#8216;question_id&#8217;, &#8216;member_id&#8217;, &#8216;is_correct&#8217;, &#8216;score&#8217;, &#8216;answer&#8217;];
+</p>
+<p>
+  }
+</p>
+<h1><a id="post-5738-_Toc488249288"></a>一、后台试卷管理</h1>
+<h2>1、设置添加试卷入口</h2>
+<p><img decoding="async" width="1135" height="308" src="/wp-content/uploads/2018/05/word-image-5212.png" class="wp-image-5743" srcset="/wp-content/uploads/2018/05/word-image-5212.png 1135w, /wp-content/uploads/2018/05/word-image-5212-300x81.png 300w, /wp-content/uploads/2018/05/word-image-5212-768x208.png 768w, /wp-content/uploads/2018/05/word-image-5212-1024x278.png 1024w" sizes="(max-width: 1135px) 100vw, 1135px" /></p>
+<p>
+  &lt;dl id=&#8221;menu-tongji&#8221;&gt;
+</p>
+<p>
+  		&lt;dt&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe61a;&lt;/i&gt; 考试管理&lt;i class=&#8221;Hui-iconfont menu_dropdown-arrow&#8221;&gt;&amp;#xe6d5;&lt;/i&gt;&lt;/dt&gt;
+</p>
+<p>
+  		&lt;dd&gt;
+</p>
+<p>
+  			&lt;ul&gt;
+</p>
+<p>
+  				&lt;li&gt;&lt;a data-href=&#8221;{{ url(&#8216;admin/paper/index&#8217;) }}&#8221; data-title=&#8221;试卷管理&#8221;   href=&#8221;javascript:void(0)&#8221;&gt;试卷管理&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  				&lt;li&gt;&lt;a data-href=&#8221;{{ url(&#8216;admin/question/index&#8217;) }}&#8221; data-title=&#8221;试题管理&#8221;  href=&#8221;javascript:void(0)&#8221;&gt;试题管理&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  		&lt;/ul&gt;
+</p>
+<p>
+  	&lt;/dd&gt;
+</p>
+<p>
+  &lt;/dl&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="391" height="444" src="/wp-content/uploads/2018/05/word-image-5213.png" class="wp-image-5744" srcset="/wp-content/uploads/2018/05/word-image-5213.png 391w, /wp-content/uploads/2018/05/word-image-5213-264x300.png 264w" sizes="(max-width: 391px) 100vw, 391px" /></p>
+<h2>列表</h2>
+<ul>
+<li>
+    步骤1：定义路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="885" height="301" src="/wp-content/uploads/2018/05/word-image-5214.png" class="wp-image-5745" srcset="/wp-content/uploads/2018/05/word-image-5214.png 885w, /wp-content/uploads/2018/05/word-image-5214-300x102.png 300w, /wp-content/uploads/2018/05/word-image-5214-768x261.png 768w" sizes="(max-width: 885px) 100vw, 885px" /></p>
+<ul>
+<li>
+    步骤2：创建控制器和方法、方法通过模型获取数据库所有数据，并传递给视图
+  </li>
+</ul>
+<p>
+  步骤1：修改模型，增加关联方法
+</p>
+<p><img loading="lazy" decoding="async" width="1102" height="449" src="/wp-content/uploads/2018/05/word-image-5215.png" class="wp-image-5746" srcset="/wp-content/uploads/2018/05/word-image-5215.png 1102w, /wp-content/uploads/2018/05/word-image-5215-300x122.png 300w, /wp-content/uploads/2018/05/word-image-5215-768x313.png 768w, /wp-content/uploads/2018/05/word-image-5215-1024x417.png 1024w" sizes="(max-width: 1102px) 100vw, 1102px" /></p>
+<p>
+  /**
+</p>
+<p>
+   * 关联课程
+</p>
+<p>
+   */
+</p>
+<p>
+  public function course()
+</p>
+<p>
+  {
+</p>
+<p>
+      return $this-&gt;hasOne(&#8216;App\Http\Model\Course&#8217;, &#8216;id&#8217;, &#8216;course_id&#8217;);
+</p>
+<p>
+  }
+</p>
+<p>
+  步骤2：控制器代码
+</p>
+<p><img loading="lazy" decoding="async" width="939" height="544" src="/wp-content/uploads/2018/05/word-image-5216.png" class="wp-image-5747" srcset="/wp-content/uploads/2018/05/word-image-5216.png 939w, /wp-content/uploads/2018/05/word-image-5216-300x174.png 300w, /wp-content/uploads/2018/05/word-image-5216-768x445.png 768w" sizes="(max-width: 939px) 100vw, 939px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use App\Http\Model\Paper;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class PaperController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function index()
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.查询所有数据
+</p>
+<p>
+          $papers = Paper::with(&#8216;course&#8217;)-&gt;get();
+</p>
+<p>
+          //2.加载视图并传递数据
+</p>
+<p>
+          return view(&#8216;admin.paper.index&#8217;, compact(&#8216;papers&#8217;));
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤3：视图循环显示（注：页面随便复制一个功能的列表进行修改）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1316" height="645" src="/wp-content/uploads/2018/05/word-image-5217.png" class="wp-image-5748" srcset="/wp-content/uploads/2018/05/word-image-5217.png 1316w, /wp-content/uploads/2018/05/word-image-5217-300x147.png 300w, /wp-content/uploads/2018/05/word-image-5217-768x376.png 768w, /wp-content/uploads/2018/05/word-image-5217-1024x502.png 1024w" sizes="(max-width: 1316px) 100vw, 1316px" /></p>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;renderer&#8221; content=&#8221;webkit|ie-comp|ie-stand&#8221;&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;X-UA-Compatible&#8221; content=&#8221;IE=edge,chrome=1&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&#8221; /&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Cache-Control&#8221; content=&#8221;no-siteapp&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if lt IE 9]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/html5shiv.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/respond.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/css/H-ui.min.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/H-ui.admin.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/Hui-iconfont/1.0.8/iconfont.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/skin/default/skin.css&#8221; id=&#8221;skin&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/style.css&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if IE 6]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/DD_belatedPNG_0.0.8a-min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script&gt;DD_belatedPNG.fix(&#8216;*&#8217;);&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;title&gt;试卷管理&lt;/title&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;nav class=&#8221;breadcrumb&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe67f;&lt;/i&gt; 首页 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 管理员管理 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 试卷管理 &lt;a class=&#8221;btn btn-success radius r&#8221; style=&#8221;line-height:1.6em;margin-top:3px&#8221; href=&#8221;javascript:location.replace(location.href);&#8221; title=&#8221;刷新&#8221; &gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe68f;&lt;/i&gt;&lt;/a&gt;&lt;/nav&gt;
+</p>
+<p>
+  &lt;div class=&#8221;page-container&#8221;&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  		&lt;form class=&#8221;Huiform&#8221; method=&#8221;post&#8221; action=&#8221;&#8221; target=&#8221;_self&#8221;&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;text&#8221; class=&#8221;input-text&#8221; style=&#8221;width:250px&#8221; placeholder=&#8221;试卷名称&#8221; id=&#8221;search_content&#8221; name=&#8221;&#8221;&gt;
+</p>
+<p>
+  			&lt;button type=&#8221;button&#8221; class=&#8221;btn btn-success&#8221; id=&#8221;search&#8221; name=&#8221;&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe665;&lt;/i&gt; 搜试卷节点&lt;/button&gt;
+</p>
+<p>
+  		&lt;/form&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;cl pd-5 bg-1 bk-gray mt-20&#8243;&gt;
+</p>
+<p>
+  		 &lt;span class=&#8221;l&#8221;&gt;
+</p>
+<p>
+  		 &lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;datadel()&#8221; class=&#8221;btn btn-danger radius&#8221;&gt;
+</p>
+<p>
+  		 	&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt; 批量删除
+</p>
+<p>
+  		 &lt;/a&gt;
+</p>
+<p>
+  		 &lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_add(&#8216;添加试卷节点&#8217;,'{{ url(&#8216;admin/auth/add&#8217;) }}&#8217;,&#8217;400&#8242;,&#8217;360&#8242;)&#8221; class=&#8221;btn btn-primary radius&#8221;&gt;
+</p>
+<p>
+  		 	&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe600;&lt;/i&gt; 添加试卷节点
+</p>
+<p>
+  		 &lt;/a&gt;
+</p>
+<p>
+  		&lt;/span&gt;
+</p>
+<p>
+  		&lt;span class=&#8221;r&#8221;&gt;共有数据：&lt;strong&gt;54&lt;/strong&gt; 条&lt;/span&gt; &lt;/div&gt;
+</p>
+<p>
+  	&lt;table class=&#8221;table table-border table-bordered table-bg&#8221;&gt;
+</p>
+<p>
+  		&lt;thead&gt;
+</p>
+<p>
+  			&lt;tr&gt;
+</p>
+<p>
+  				&lt;th scope=&#8221;col&#8221; colspan=&#8221;8&#8243;&gt;试卷节点&lt;/th&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  			&lt;tr class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;25&#8243;&gt;&lt;input type=&#8221;checkbox&#8221; name=&#8221;&#8221; value=&#8221;&#8221;&gt;&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;ID&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;试卷名&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;所属的课程&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;试卷总分&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;创建于&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;更新于&lt;/th&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;100&#8243;&gt;操作&lt;/th&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  		&lt;/thead&gt;
+</p>
+<p>
+  		&lt;tbody&gt;
+</p>
+<p>
+  			@foreach ($papers as $paper)
+</p>
+<p>
+  			&lt;tr class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;input type=&#8221;checkbox&#8221; value=&#8221;{{ $paper-&gt;id }}&#8221; name=&#8221;&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $paper-&gt;id }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $paper-&gt;paper_name }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;!&#8211; &lt;td&gt;{{ $paper-&gt;course_id }}&lt;/td&gt; &#8211;&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $paper-&gt;course-&gt;course_name }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $paper-&gt;score }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $paper-&gt;created_at }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $paper-&gt;updated_at }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;a title=&#8221;编辑&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_edit(&#8216;角色编辑&#8217;,&#8217;admin-permission-add.html&#8217;,&#8217;1&#8242;,&#8221;,&#8217;310&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6df;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;删除&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_del(this,&#8217;1&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  			@endforeach
+</p>
+<p>
+  		&lt;/tbody&gt;
+</p>
+<p>
+  	&lt;/table&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;!&#8211;_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery/1.9.1/jquery.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/layer/2.4/layer.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/js/H-ui.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/js/H-ui.admin.js&#8221;&gt;&lt;/script&gt; &lt;!&#8211;/_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;请在下方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/datatables/1.10.0/jquery.dataTables.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  var table = $(&#8216;table&#8217;).DataTable({
+</p>
+<p>
+      iDisplayLength:2,	    //限制每页显示条数
+</p>
+<p>
+      // searching : false, 		 //禁用搜索
+</p>
+<p>
+      bLengthChange: false,   //去掉每页显示多少条数据方法
+</p>
+<p>
+  });
+</p>
+<p>
+  //客户端搜索功能更
+</p>
+<p>
+  $(&#8216;#search&#8217;).click(function(){
+</p>
+<p>
+      var search_content = $(&#8216;#search_content&#8217;).val();
+</p>
+<p>
+      table.search(search_content).draw();
+</p>
+<p>
+  });
+</p>
+<p>
+  $(function(){
+</p>
+<p>
+      $(&#8216;#DataTables_Table_0_filter&#8217;).hide();
+</p>
+<p>
+  });
+</p>
+<p>
+  /*
+</p>
+<p>
+  	参数解释：
+</p>
+<p>
+  	title	标题
+</p>
+<p>
+  	url		请求的url
+</p>
+<p>
+  	id		需要操作的数据id
+</p>
+<p>
+  	w		弹出层宽度（缺省调默认值）
+</p>
+<p>
+  	h		弹出层高度（缺省调默认值）
+</p>
+<p>
+  */
+</p>
+<p>
+  /*管理员-试卷-添加*/
+</p>
+<p>
+  function admin_permission_add(title,url,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-试卷-编辑*/
+</p>
+<p>
+  function admin_permission_edit(title,url,id,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-试卷-删除*/
+</p>
+<p>
+  function admin_permission_del(obj,id){
+</p>
+<p>
+  	layer.confirm(&#8216;确认要删除吗？&#8217;,function(index){
+</p>
+<p>
+  		$.ajax({
+</p>
+<p>
+  			type: &#8216;POST&#8217;,
+</p>
+<p>
+  			url: &#8221;,
+</p>
+<p>
+  			dataType: &#8216;json&#8217;,
+</p>
+<p>
+  			success: function(data){
+</p>
+<p>
+  				$(obj).parents(&#8220;tr&#8221;).remove();
+</p>
+<p>
+  				layer.msg(&#8216;已删除!&#8217;,{icon:1,time:1000});
+</p>
+<p>
+  			},
+</p>
+<p>
+  			error:function(data) {
+</p>
+<p>
+  				console.log(data.msg);
+</p>
+<p>
+  			},
+</p>
+<p>
+  		});
+</p>
+<p>
+  	});
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+</p>
+<h2>3、添加试卷</h2>
+<h3>1）加载视图</h3>
+<ul>
+<li>
+    步骤1：定义路由（支持get和post提价）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1057" height="263" src="/wp-content/uploads/2018/05/word-image-5218.png" class="wp-image-5749" srcset="/wp-content/uploads/2018/05/word-image-5218.png 1057w, /wp-content/uploads/2018/05/word-image-5218-300x75.png 300w, /wp-content/uploads/2018/05/word-image-5218-768x191.png 768w, /wp-content/uploads/2018/05/word-image-5218-1024x255.png 1024w" sizes="(max-width: 1057px) 100vw, 1057px" /></p>
+<ul>
+<li>
+    步骤2：更改试卷列表视图中的添加试卷按钮链接
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1230" height="223" src="/wp-content/uploads/2018/05/word-image-5219.png" class="wp-image-5750" srcset="/wp-content/uploads/2018/05/word-image-5219.png 1230w, /wp-content/uploads/2018/05/word-image-5219-300x54.png 300w, /wp-content/uploads/2018/05/word-image-5219-768x139.png 768w, /wp-content/uploads/2018/05/word-image-5219-1024x186.png 1024w" sizes="(max-width: 1230px) 100vw, 1230px" /></p>
+<ul>
+<li>
+    步骤3：更改add.blade.php视图（因为之前是直接复制auth的添加视图）
+  </li>
+</ul>
+<p>
+  步骤1：修改控制器查询所有课程
+</p>
+<p><img loading="lazy" decoding="async" width="1035" height="465" src="/wp-content/uploads/2018/05/word-image-5220.png" class="wp-image-5751" srcset="/wp-content/uploads/2018/05/word-image-5220.png 1035w, /wp-content/uploads/2018/05/word-image-5220-300x135.png 300w, /wp-content/uploads/2018/05/word-image-5220-768x345.png 768w, /wp-content/uploads/2018/05/word-image-5220-1024x460.png 1024w" sizes="(max-width: 1035px) 100vw, 1035px" /></p>
+<p>
+  步骤2：创建视图
+</p>
+<p><img loading="lazy" decoding="async" width="1236" height="686" src="/wp-content/uploads/2018/05/word-image-5221.png" class="wp-image-5752" srcset="/wp-content/uploads/2018/05/word-image-5221.png 1236w, /wp-content/uploads/2018/05/word-image-5221-300x167.png 300w, /wp-content/uploads/2018/05/word-image-5221-768x426.png 768w, /wp-content/uploads/2018/05/word-image-5221-1024x568.png 1024w" sizes="(max-width: 1236px) 100vw, 1236px" /></p>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;renderer&#8221; content=&#8221;webkit|ie-comp|ie-stand&#8221;&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;X-UA-Compatible&#8221; content=&#8221;IE=edge,chrome=1&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&#8221; /&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Cache-Control&#8221; content=&#8221;no-siteapp&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if lt IE 9]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/html5shiv.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/respond.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/css/H-ui.min.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/H-ui.admin.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/Hui-iconfont/1.0.8/iconfont.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/skin/default/skin.css&#8221; id=&#8221;skin&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/style.css&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if IE 6]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/DD_belatedPNG_0.0.8a-min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script&gt;DD_belatedPNG.fix(&#8216;*&#8217;);&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;title&gt;添加管理员 &#8211; 管理员管理 &#8211; H-ui.admin v3.1&lt;/title&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;keywords&#8221; content=&#8221;H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载&#8221;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;description&#8221; content=&#8221;H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。&#8221;&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;article class=&#8221;page-container&#8221;&gt;
+</p>
+<p>
+  	&lt;form class=&#8221;form form-horizontal&#8221; id=&#8221;form-admin-add&#8221;&gt;
+</p>
+<p>
+  		{{ csrf_field() }}
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;&lt;span class=&#8221;c-red&#8221;&gt;*&lt;/span&gt;试卷名称：&lt;/label&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;formControls col-xs-8 col-sm-9&#8243;&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;text&#8221; class=&#8221;input-text&#8221; id=&#8221;paper_name&#8221; name=&#8221;paper_name&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;&lt;span class=&#8221;c-red&#8221;&gt;*&lt;/span&gt;总分：&lt;/label&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;formControls col-xs-8 col-sm-9&#8243;&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;text&#8221; class=&#8221;input-text&#8221; autocomplete=&#8221;off&#8221;  id=&#8221;score&#8221; name=&#8221;score&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;关联课程：&lt;/label&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;formControls col-xs-8 col-sm-9&#8243;&gt; &lt;span class=&#8221;select-box&#8221; style=&#8221;width:150px;&#8221;&gt;
+</p>
+<p>
+  			&lt;select class=&#8221;select&#8221; name=&#8221;pid&#8221; size=&#8221;1&#8243;&gt;
+</p>
+<p>
+  				@foreach ($courses as $course)
+</p>
+<p>
+  				&lt;option value=&#8221;{{ $course-&gt;id }}&#8221;&gt;{{ $course-&gt;course_name }}&lt;/option&gt;
+</p>
+<p>
+  				@endforeach
+</p>
+<p>
+  			&lt;/select&gt;
+</p>
+<p>
+  			&lt;/span&gt; &lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3&#8243;&gt;
+</p>
+<p>
+  			&lt;input class=&#8221;btn btn-primary radius&#8221; type=&#8221;submit&#8221; value=&#8221;&amp;nbsp;&amp;nbsp;提交&amp;nbsp;&amp;nbsp;&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;/form&gt;
+</p>
+<p>
+  &lt;/article&gt;
+</p>
+<p>
+  &lt;!&#8211;_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery/1.9.1/jquery.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/layer/2.4/layer.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/js/H-ui.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/js/H-ui.admin.js&#8221;&gt;&lt;/script&gt; &lt;!&#8211;/_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;请在下方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/jquery.validate.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/validate-methods.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/messages_zh.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(function(){
+</p>
+<p>
+  	$(&#8216;.skin-minimal input&#8217;).iCheck({
+</p>
+<p>
+  		checkboxClass: &#8216;icheckbox-blue&#8217;,
+</p>
+<p>
+  		radioClass: &#8216;iradio-blue&#8217;,
+</p>
+<p>
+  		increaseArea: &#8216;20%&#8217;
+</p>
+<p>
+  	});
+</p>
+</p>
+<p>
+  	$(&#8220;#form-admin-add&#8221;).validate({
+</p>
+<p>
+  		rules:{
+</p>
+<p>
+  			atuh_name:{
+</p>
+<p>
+  				required:true,
+</p>
+<p>
+  				minlength:4,
+</p>
+<p>
+  				maxlength:16
+</p>
+<p>
+  			},
+</p>
+<p>
+  			controller:{
+</p>
+<p>
+  				required:true,
+</p>
+<p>
+  			},
+</p>
+<p>
+  			action:{
+</p>
+<p>
+  				required:true,
+</p>
+<p>
+  			},
+</p>
+<p>
+  		},
+</p>
+<p>
+  		onkeyup:false,
+</p>
+<p>
+  		focusCleanup:true,
+</p>
+<p>
+  		success:&#8221;valid&#8221;,
+</p>
+<p>
+  		submitHandler:function(form){
+</p>
+<p>
+  			$(form).ajaxSubmit({
+</p>
+<p>
+  				type: &#8216;post&#8217;,
+</p>
+<p>
+  				url: &#8220;{{ url(&#8216;admin/auth/add&#8217;) }}&#8221;,
+</p>
+<p>
+  				success: function(data){
+</p>
+<p>
+  				    //在父元素提示
+</p>
+<p>
+                      parent.layer.msg(&#8216;添加成功!&#8217;,{icon:1,time:1000});
+</p>
+<p>
+  					//成功则关闭窗口
+</p>
+<p>
+                      var index = parent.layer.getFrameIndex(window.name);
+</p>
+<p>
+                      parent.$(&#8216;.btn-refresh&#8217;).click();
+</p>
+<p>
+                      parent.layer.close(index);
+</p>
+<p>
+  				},
+</p>
+<p>
+                  error: function(XmlHttpRequest, textStatus, errorThrown){
+</p>
+<p>
+  					layer.msg(&#8216;error!&#8217;,{icon:1,time:1000});
+</p>
+<p>
+  				}
+</p>
+<p>
+  			});
+</p>
+<p>
+  		}
+</p>
+<p>
+  	});
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;!&#8211;/请在上方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h3>数据处理</h3>
+<ul>
+<li>
+    步骤1：修改视图表单提js插件
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="968" height="575" src="/wp-content/uploads/2018/05/word-image-5222.png" class="wp-image-5753" srcset="/wp-content/uploads/2018/05/word-image-5222.png 968w, /wp-content/uploads/2018/05/word-image-5222-300x178.png 300w, /wp-content/uploads/2018/05/word-image-5222-768x456.png 768w" sizes="(max-width: 968px) 100vw, 968px" /></p>
+<ul>
+<li>
+    步骤2：控制器录入数据
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1097" height="552" src="/wp-content/uploads/2018/05/word-image-5223.png" class="wp-image-5754" srcset="/wp-content/uploads/2018/05/word-image-5223.png 1097w, /wp-content/uploads/2018/05/word-image-5223-300x151.png 300w, /wp-content/uploads/2018/05/word-image-5223-768x386.png 768w, /wp-content/uploads/2018/05/word-image-5223-1024x515.png 1024w" sizes="(max-width: 1097px) 100vw, 1097px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use App\Http\Model\Paper;
+</p>
+<p>
+  use App\Http\Model\Course;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class PaperController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function index()
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.查询所有数据
+</p>
+<p>
+          $papers = Paper::with(&#8216;course&#8217;)-&gt;get();
+</p>
+<p>
+          //2.加载视图并传递数据
+</p>
+<p>
+          return view(&#8216;admin.paper.index&#8217;, compact(&#8216;papers&#8217;));
+</p>
+<p>
+      }
+</p>
+<p>
+      //添加
+</p>
+<p>
+      public function add(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.判断HTTP请求类型
+</p>
+<p>
+          if ($request-&gt;isMethod(&#8216;post&#8217;)) {
+</p>
+<p>
+          	//2.接受数据
+</p>
+<p>
+          	$postData = $request-&gt;only([&#8216;paper_name&#8217;, &#8216;score&#8217;, &#8216;course_id&#8217;]);
+</p>
+<p>
+          	//3.创建数据
+</p>
+<p>
+          	$rs = Paper::create($postData);
+</p>
+<p>
+          	//4.判断
+</p>
+<p>
+          	return $rs ? 1 : 0;
+</p>
+<p>
+          } else {
+</p>
+<p>
+              //2.查询所有课程
+</p>
+<p>
+              $courses = Course::get();
+</p>
+<p>
+              //3.加载视图并传递数据
+</p>
+<p>
+              return view(&#8216;admin.paper.add&#8217;, compact(&#8216;courses&#8217;));
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h1>后台试题管理</h1>
+<h2>1、列表</h2>
+<ul>
+<li>
+    步骤1：定义路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1082" height="367" src="/wp-content/uploads/2018/05/word-image-5224.png" class="wp-image-5755" srcset="/wp-content/uploads/2018/05/word-image-5224.png 1082w, /wp-content/uploads/2018/05/word-image-5224-300x102.png 300w, /wp-content/uploads/2018/05/word-image-5224-768x260.png 768w, /wp-content/uploads/2018/05/word-image-5224-1024x347.png 1024w" sizes="(max-width: 1082px) 100vw, 1082px" /></p>
+<ul>
+<li>
+    步骤2：设置入口
+  </li>
+</ul>
+<p>
+  入口1
+</p>
+<p><img loading="lazy" decoding="async" width="1251" height="342" src="/wp-content/uploads/2018/05/word-image-5225.png" class="wp-image-5756" srcset="/wp-content/uploads/2018/05/word-image-5225.png 1251w, /wp-content/uploads/2018/05/word-image-5225-300x82.png 300w, /wp-content/uploads/2018/05/word-image-5225-768x210.png 768w, /wp-content/uploads/2018/05/word-image-5225-1024x280.png 1024w" sizes="(max-width: 1251px) 100vw, 1251px" /></p>
+<p>
+  入口2
+</p>
+<p><img loading="lazy" decoding="async" width="1207" height="410" src="/wp-content/uploads/2018/05/word-image-5226.png" class="wp-image-5757" srcset="/wp-content/uploads/2018/05/word-image-5226.png 1207w, /wp-content/uploads/2018/05/word-image-5226-300x102.png 300w, /wp-content/uploads/2018/05/word-image-5226-768x261.png 768w, /wp-content/uploads/2018/05/word-image-5226-1024x348.png 1024w" sizes="(max-width: 1207px) 100vw, 1207px" /></p>
+<ul>
+<li>
+    步骤3：创建控制器和方法，并获取所有数据传递给视图
+  </li>
+</ul>
+<ol>
+<li>
+  定义模型，关联试题
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1138" height="462" src="/wp-content/uploads/2018/05/word-image-5227.png" class="wp-image-5758" srcset="/wp-content/uploads/2018/05/word-image-5227.png 1138w, /wp-content/uploads/2018/05/word-image-5227-300x122.png 300w, /wp-content/uploads/2018/05/word-image-5227-768x312.png 768w, /wp-content/uploads/2018/05/word-image-5227-1024x416.png 1024w" sizes="(max-width: 1138px) 100vw, 1138px" /></p>
+<p>
+  2）控制器
+</p>
+<p><img loading="lazy" decoding="async" width="1146" height="510" src="/wp-content/uploads/2018/05/word-image-5228.png" class="wp-image-5759" srcset="/wp-content/uploads/2018/05/word-image-5228.png 1146w, /wp-content/uploads/2018/05/word-image-5228-300x134.png 300w, /wp-content/uploads/2018/05/word-image-5228-768x342.png 768w, /wp-content/uploads/2018/05/word-image-5228-1024x456.png 1024w" sizes="(max-width: 1146px) 100vw, 1146px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use App\Http\Model\Question;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class QuestionController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function index(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.接受试题ID：有-显示该试题的列表，无-显示所有试题
+</p>
+<p>
+          $paper_id = $request-&gt;input(&#8216;paper_id&#8217;);
+</p>
+<p>
+          //2.查询所有数据
+</p>
+<p>
+          if ($paper_id) {
+</p>
+<p>
+              $questions = Question::with(&#8216;paper&#8217;)-&gt;where(&#8216;paper_id&#8217;, $paper_id)-&gt;get();
+</p>
+<p>
+          } else {
+</p>
+<p>
+              $questions = Question::with(&#8216;paper&#8217;)-&gt;get();
+</p>
+<p>
+          }
+</p>
+<p>
+          //3.加载视图并传递数据
+</p>
+<p>
+          return view(&#8216;admin.question.index&#8217;, compact(&#8216;questions&#8217;));
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤4：常见视图循环显示数据
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1264" height="581" src="/wp-content/uploads/2018/05/word-image-5229.png" class="wp-image-5760" srcset="/wp-content/uploads/2018/05/word-image-5229.png 1264w, /wp-content/uploads/2018/05/word-image-5229-300x138.png 300w, /wp-content/uploads/2018/05/word-image-5229-768x353.png 768w, /wp-content/uploads/2018/05/word-image-5229-1024x471.png 1024w" sizes="(max-width: 1264px) 100vw, 1264px" /></p>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;renderer&#8221; content=&#8221;webkit|ie-comp|ie-stand&#8221;&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;X-UA-Compatible&#8221; content=&#8221;IE=edge,chrome=1&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&#8221; /&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Cache-Control&#8221; content=&#8221;no-siteapp&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if lt IE 9]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/html5shiv.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/respond.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/css/H-ui.min.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/H-ui.admin.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/Hui-iconfont/1.0.8/iconfont.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/skin/default/skin.css&#8221; id=&#8221;skin&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/style.css&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if IE 6]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/DD_belatedPNG_0.0.8a-min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script&gt;DD_belatedPNG.fix(&#8216;*&#8217;);&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;title&gt;试卷管理&lt;/title&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;nav class=&#8221;breadcrumb&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe67f;&lt;/i&gt; 首页 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 管理员管理 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 试卷管理 &lt;a class=&#8221;btn btn-success radius r&#8221; style=&#8221;line-height:1.6em;margin-top:3px&#8221; href=&#8221;javascript:location.replace(location.href);&#8221; title=&#8221;刷新&#8221; &gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe68f;&lt;/i&gt;&lt;/a&gt;&lt;/nav&gt;
+</p>
+<p>
+  &lt;div class=&#8221;page-container&#8221;&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  		&lt;form class=&#8221;Huiform&#8221; method=&#8221;post&#8221; action=&#8221;&#8221; target=&#8221;_self&#8221;&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;text&#8221; class=&#8221;input-text&#8221; style=&#8221;width:250px&#8221; placeholder=&#8221;试卷名称&#8221; id=&#8221;search_content&#8221; name=&#8221;&#8221;&gt;
+</p>
+<p>
+  			&lt;button type=&#8221;button&#8221; class=&#8221;btn btn-success&#8221; id=&#8221;search&#8221; name=&#8221;&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe665;&lt;/i&gt; 搜试卷节点&lt;/button&gt;
+</p>
+<p>
+  		&lt;/form&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;cl pd-5 bg-1 bk-gray mt-20&#8243;&gt;
+</p>
+<p>
+  		 &lt;span class=&#8221;l&#8221;&gt;
+</p>
+<p>
+  		 &lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;datadel()&#8221; class=&#8221;btn btn-danger radius&#8221;&gt;
+</p>
+<p>
+  		 	&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt; 批量删除
+</p>
+<p>
+  		 &lt;/a&gt;
+</p>
+<p>
+  		 &lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_add(&#8216;添加试卷节点&#8217;,'{{ url(&#8216;admin/paper/add&#8217;) }}&#8217;,&#8217;400&#8242;,&#8217;360&#8242;)&#8221; class=&#8221;btn btn-primary radius&#8221;&gt;
+</p>
+<p>
+  		 	&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe600;&lt;/i&gt; 添加试卷节点
+</p>
+<p>
+  		 &lt;/a&gt;
+</p>
+<p>
+  		&lt;/span&gt;
+</p>
+<p>
+  		&lt;span class=&#8221;r&#8221;&gt;共有数据：&lt;strong&gt;54&lt;/strong&gt; 条&lt;/span&gt; &lt;/div&gt;
+</p>
+<p>
+  	&lt;table class=&#8221;table table-border table-bordered table-bg&#8221;&gt;
+</p>
+<p>
+  		&lt;thead&gt;
+</p>
+<p>
+  			&lt;tr&gt;
+</p>
+<p>
+  				&lt;th scope=&#8221;col&#8221; colspan=&#8221;11&#8243;&gt;试卷节点&lt;/th&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  			&lt;tr class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;25&#8243;&gt;&lt;input type=&#8221;checkbox&#8221; name=&#8221;&#8221; value=&#8221;&#8221;&gt;&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;ID&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;类型&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;所属试卷&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;分数&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;问题&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;答案选项&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;答案&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;说明&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;创建于&lt;/th&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;100&#8243;&gt;操作&lt;/th&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  		&lt;/thead&gt;
+</p>
+<p>
+  		&lt;tbody&gt;
+</p>
+<p>
+  			@foreach ($questions as $question)
+</p>
+<p>
+  			&lt;tr class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;input type=&#8221;checkbox&#8221; value=&#8221;{{ $question-&gt;id }}&#8221; name=&#8221;&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $question-&gt;id }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;
+</p>
+<p>
+  					@if ($question-&gt;type == 1)单选题
+</p>
+<p>
+  					@else 多选题
+</p>
+<p>
+  					@endif
+</p>
+<p>
+  				&lt;/td&gt;
+</p>
+<p>
+  				&lt;!&#8211; &lt;td&gt;{{ $question-&gt;paper_id }}&lt;/td&gt; &#8211;&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $question-&gt;paper-&gt;paper_name }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $question-&gt;score }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $question-&gt;question }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $question-&gt;options }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $question-&gt;answer }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $question-&gt;remark }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $question-&gt;created_at }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;a title=&#8221;编辑&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_edit(&#8216;角色编辑&#8217;,&#8217;admin-permission-add.html&#8217;,&#8217;1&#8242;,&#8221;,&#8217;310&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6df;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;删除&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_del(this,&#8217;1&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  			@endforeach
+</p>
+<p>
+  		&lt;/tbody&gt;
+</p>
+<p>
+  	&lt;/table&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;!&#8211;_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery/1.9.1/jquery.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/layer/2.4/layer.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/js/H-ui.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/js/H-ui.admin.js&#8221;&gt;&lt;/script&gt; &lt;!&#8211;/_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;请在下方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/datatables/1.10.0/jquery.dataTables.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  var table = $(&#8216;table&#8217;).DataTable({
+</p>
+<p>
+      iDisplayLength:10,	    //限制每页显示条数
+</p>
+<p>
+      // searching : false, 		 //禁用搜索
+</p>
+<p>
+      bLengthChange: false,   //去掉每页显示多少条数据方法
+</p>
+<p>
+  });
+</p>
+<p>
+  //客户端搜索功能更
+</p>
+<p>
+  $(&#8216;#search&#8217;).click(function(){
+</p>
+<p>
+      var search_content = $(&#8216;#search_content&#8217;).val();
+</p>
+<p>
+      table.search(search_content).draw();
+</p>
+<p>
+  });
+</p>
+<p>
+  $(function(){
+</p>
+<p>
+      $(&#8216;#DataTables_Table_0_filter&#8217;).hide();
+</p>
+<p>
+  });
+</p>
+<p>
+  /*
+</p>
+<p>
+  	参数解释：
+</p>
+<p>
+  	title	标题
+</p>
+<p>
+  	url		请求的url
+</p>
+<p>
+  	id		需要操作的数据id
+</p>
+<p>
+  	w		弹出层宽度（缺省调默认值）
+</p>
+<p>
+  	h		弹出层高度（缺省调默认值）
+</p>
+<p>
+  */
+</p>
+<p>
+  /*管理员-试卷-添加*/
+</p>
+<p>
+  function admin_permission_add(title,url,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-试卷-编辑*/
+</p>
+<p>
+  function admin_permission_edit(title,url,id,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-试卷-删除*/
+</p>
+<p>
+  function admin_permission_del(obj,id){
+</p>
+<p>
+  	layer.confirm(&#8216;确认要删除吗？&#8217;,function(index){
+</p>
+<p>
+  		$.ajax({
+</p>
+<p>
+  			type: &#8216;POST&#8217;,
+</p>
+<p>
+  			url: &#8221;,
+</p>
+<p>
+  			dataType: &#8216;json&#8217;,
+</p>
+<p>
+  			success: function(data){
+</p>
+<p>
+  				$(obj).parents(&#8220;tr&#8221;).remove();
+</p>
+<p>
+  				layer.msg(&#8216;已删除!&#8217;,{icon:1,time:1000});
+</p>
+<p>
+  			},
+</p>
+<p>
+  			error:function(data) {
+</p>
+<p>
+  				console.log(data.msg);
+</p>
+<p>
+  			},
+</p>
+<p>
+  		});
+</p>
+<p>
+  	});
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="1355" height="386" src="/wp-content/uploads/2018/05/word-image-5230.png" class="wp-image-5761" srcset="/wp-content/uploads/2018/05/word-image-5230.png 1355w, /wp-content/uploads/2018/05/word-image-5230-300x85.png 300w, /wp-content/uploads/2018/05/word-image-5230-768x219.png 768w, /wp-content/uploads/2018/05/word-image-5230-1024x292.png 1024w" sizes="(max-width: 1355px) 100vw, 1355px" /></p>
+<h2>后台试题导入和导出</h2>
+<h3>︴下载工具库</h3>
+<p>
+  资料：<a href="https://packagist.org/packages/maatwebsite/excel">https://packagist.org/packages/maatwebsite/excel</a>
+</p>
+<ul>
+<li>
+    步骤1：下载
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="674" height="453" src="/wp-content/uploads/2018/05/word-image-5231.png" class="wp-image-5762" srcset="/wp-content/uploads/2018/05/word-image-5231.png 674w, /wp-content/uploads/2018/05/word-image-5231-300x202.png 300w" sizes="(max-width: 674px) 100vw, 674px" /></p>
+<ul>
+<li>
+    步骤2：配置
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="885" height="261" src="/wp-content/uploads/2018/05/word-image-5232.png" class="wp-image-5763" srcset="/wp-content/uploads/2018/05/word-image-5232.png 885w, /wp-content/uploads/2018/05/word-image-5232-300x88.png 300w, /wp-content/uploads/2018/05/word-image-5232-768x226.png 768w" sizes="(max-width: 885px) 100vw, 885px" /><br />
+<img loading="lazy" decoding="async" width="922" height="207" src="/wp-content/uploads/2018/05/word-image-5233.png" class="wp-image-5764" srcset="/wp-content/uploads/2018/05/word-image-5233.png 922w, /wp-content/uploads/2018/05/word-image-5233-300x67.png 300w, /wp-content/uploads/2018/05/word-image-5233-768x172.png 768w" sizes="(max-width: 922px) 100vw, 922px" /></p>
+<h3>︴导出语法</h3>
+<p><img loading="lazy" decoding="async" width="651" height="357" src="/wp-content/uploads/2018/05/word-image-5234.png" class="wp-image-5765" srcset="/wp-content/uploads/2018/05/word-image-5234.png 651w, /wp-content/uploads/2018/05/word-image-5234-300x165.png 300w" sizes="(max-width: 651px) 100vw, 651px" /></p>
+<p>
+  $data = [
+</p>
+<p>
+      [&#8216;编号&#8217;,&#8217;姓名&#8217;,&#8217;年龄&#8217;],
+</p>
+<p>
+      [&#8216;1&#8242;,&#8217;a1&#8242;,&#8217;1&#8217;],
+</p>
+<p>
+      [&#8216;2&#8242;,&#8217;a2&#8242;,&#8217;2&#8217;],
+</p>
+<p>
+      [&#8216;3&#8242;,&#8217;a3&#8242;,&#8217;3&#8217;]
+</p>
+<p>
+  ];
+</p>
+<p>
+  Excel::create(&#8216;学习成绩&#8217;, function($excel) use ($data) {
+</p>
+<p>
+      $excel-&gt;sheet(&#8216;score&#8217;, function($sheet) use ($data) {
+</p>
+<p>
+          $sheet-&gt;rows($data);
+</p>
+<p>
+      });
+</p>
+<p>
+  })-&gt;export(&#8216;xls&#8217;);
+</p>
+<h3>︴导入语法</h3>
+<p>
+  $excel_file_path = getcwd() . &#8216;/t2.xls&#8217;; //你的Excel文件存放地址
+</p>
+<p>
+  $excel_data = Excel::load($excel_file_path, function($reader) {
+</p>
+<p>
+  $res = $reader-&gt;getSheet(0)-&gt;toArray();
+</p>
+<p>
+      // 直接打印内容即可看到效果
+</p>
+<p>
+      echo &#8216;job.xlsx 表格内容为:&#8217;;
+</p>
+<p>
+      dd($res);
+</p>
+<p>
+  });
+</p>
+<h3>1）试题导入（excel）</h3>
+<ul>
+<li>
+    步骤1：定义路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1046" height="134" src="/wp-content/uploads/2018/05/word-image-5235.png" class="wp-image-5766" srcset="/wp-content/uploads/2018/05/word-image-5235.png 1046w, /wp-content/uploads/2018/05/word-image-5235-300x38.png 300w, /wp-content/uploads/2018/05/word-image-5235-768x98.png 768w, /wp-content/uploads/2018/05/word-image-5235-1024x131.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /></p>
+<ul>
+<li>
+    步骤2：试卷列表设置导入连接
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1288" height="366" src="/wp-content/uploads/2018/05/word-image-5236.png" class="wp-image-5767" srcset="/wp-content/uploads/2018/05/word-image-5236.png 1288w, /wp-content/uploads/2018/05/word-image-5236-300x85.png 300w, /wp-content/uploads/2018/05/word-image-5236-768x218.png 768w, /wp-content/uploads/2018/05/word-image-5236-1024x291.png 1024w" sizes="(max-width: 1288px) 100vw, 1288px" /></p>
+<ul>
+<li>
+    步骤3：创建导入试题方法，并完成导入功能
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="888" height="636" src="/wp-content/uploads/2018/05/word-image-5237.png" class="wp-image-5768" srcset="/wp-content/uploads/2018/05/word-image-5237.png 888w, /wp-content/uploads/2018/05/word-image-5237-300x215.png 300w, /wp-content/uploads/2018/05/word-image-5237-768x550.png 768w" sizes="(max-width: 888px) 100vw, 888px" /></p>
+<p>
+  //导入试题
+</p>
+<p>
+  public function add(Request $request)
+</p>
+<p>
+  {
+</p>
+<p>
+      //步骤1：获取参数
+</p>
+<p>
+      $paper_id = $request-&gt;input(&#8216;paper_id&#8217;);
+</p>
+<p>
+      //步骤2；判断excel文件是否存在
+</p>
+<p>
+      $file = getcwd() . &#8216;/excel/&#8217; . $paper_id .&#8217;.xlsx&#8217;;
+</p>
+<p>
+      if (file_exists($file)) {
+</p>
+<p>
+          //步骤3：读取excel内容
+</p>
+<p>
+          $excel_data = Excel::load($file, function($reader) {
+</p>
+<p>
+          $res = $reader-&gt;getSheet(0)-&gt;toArray();
+</p>
+<p>
+              // 直接打印内容即可看到效果
+</p>
+<p>
+              // echo &#8216;job.xlsx 表格内容为:&#8217;;
+</p>
+<p>
+              // dd($res);
+</p>
+<p>
+              //步骤4：通过循环将试题插入数据库
+</p>
+<p>
+              foreach ($res as $k=&gt;$v) {
+</p>
+<p>
+                  if ($k == 0) continue; //跳过表格标题
+</p>
+<p>
+                  $type = $v[0] == &#8216;单选题&#8217; ? 1 : 2;
+</p>
+<p>
+                  $remark = $v[6] ? $v[6] : &#8221;;
+</p>
+<p>
+                  $data = [
+</p>
+<p>
+                      &#8216;type&#8217; =&gt; $type,
+</p>
+<p>
+                      &#8216;paper_id&#8217; =&gt; intval($v[1]),
+</p>
+<p>
+                      &#8216;score&#8217; =&gt; $v[4],
+</p>
+<p>
+                      &#8216;question&#8217; =&gt; $v[2],
+</p>
+<p>
+                      &#8216;options&#8217; =&gt; $v[3],
+</p>
+<p>
+                      &#8216;answer&#8217; =&gt; $v[5],
+</p>
+<p>
+                      &#8216;remark&#8217; =&gt; $remark
+</p>
+<p>
+                  ];
+</p>
+<p>
+                  Question::create($data);
+</p>
+<p>
+              }
+</p>
+<p>
+          });
+</p>
+<p>
+          //步骤5：跳转到试卷试题列表页
+</p>
+<p>
+          return redirect(&#8216;admin/question/index?paper_id=&#8217;.$paper_id);
+</p>
+<p>
+      }
+</p>
+<p>
+      return redirect(&#8216;admin/paper/index&#8217;);
+</p>
+<p>
+  }
+</p>
+<h3>2）试题导出（excel）</h3>
+<ul>
+<li>
+    步骤1：定义路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1061" height="319" src="/wp-content/uploads/2018/05/word-image-5238.png" class="wp-image-5769" srcset="/wp-content/uploads/2018/05/word-image-5238.png 1061w, /wp-content/uploads/2018/05/word-image-5238-300x90.png 300w, /wp-content/uploads/2018/05/word-image-5238-768x231.png 768w, /wp-content/uploads/2018/05/word-image-5238-1024x308.png 1024w" sizes="(max-width: 1061px) 100vw, 1061px" /></p>
+<ul>
+<li>
+    步骤2：创建控制器方法并完成功能
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1019" height="634" src="/wp-content/uploads/2018/05/word-image-5239.png" class="wp-image-5770" srcset="/wp-content/uploads/2018/05/word-image-5239.png 1019w, /wp-content/uploads/2018/05/word-image-5239-300x187.png 300w, /wp-content/uploads/2018/05/word-image-5239-768x478.png 768w" sizes="(max-width: 1019px) 100vw, 1019px" /></p>
+<p>
+  //导出试题
+</p>
+<p>
+  public function export(Request $request)
+</p>
+<p>
+  {
+</p>
+<p>
+      //步骤1：获取参数
+</p>
+<p>
+      $paper_id = $request-&gt;input(&#8216;paper_id&#8217;);
+</p>
+<p>
+      //步骤2；根据试卷ID获取所有试题
+</p>
+<p>
+      $questions = Question::with(&#8216;paper&#8217;)-&gt;where(&#8216;paper_id&#8217;, $paper_id)-&gt;get();
+</p>
+<p>
+      //步骤3：组装导出数据
+</p>
+<p>
+      $data[] = [&#8216;类型&#8217;,&#8217;所属试卷&#8217;,&#8217;问题&#8217;,&#8217;选项&#8217;,&#8217;分数&#8217;,&#8217;答案&#8217;,&#8217;说明&#8217;];
+</p>
+<p>
+      foreach ($questions as $key =&gt; $question) {
+</p>
+<p>
+          $type = $question-&gt;type == 1 ? &#8216;单选题&#8217; : &#8216;多选题&#8217;;
+</p>
+<p>
+          $data[] = [
+</p>
+<p>
+              $type,
+</p>
+<p>
+              $question-&gt;paper-&gt;paper_name,
+</p>
+<p>
+              $question-&gt;question,
+</p>
+<p>
+              $question-&gt;options,
+</p>
+<p>
+              $question-&gt;score,
+</p>
+<p>
+              $question-&gt;answer,
+</p>
+<p>
+              $question-&gt;remark
+</p>
+<p>
+          ];
+</p>
+<p>
+          $name = $question-&gt;paper-&gt;paper_name;
+</p>
+<p>
+      }
+</p>
+<p>
+      Excel::create($name, function($excel) use ($data) {
+</p>
+<p>
+          $excel-&gt;sheet(&#8216;score&#8217;, function($sheet) use ($data) {
+</p>
+<p>
+              $sheet-&gt;rows($data);
+</p>
+<p>
+          });
+</p>
+<p>
+      })-&gt;export(&#8216;xls&#8217;);
+</p>
+<p>
+      return redirect(&#8216;admin/paper/index&#8217;);
+</p>
+<p>
+  }
+</p>
+<h1>三、前台答题功能</h1>
+<h2>展示试题</h2>
+<ul>
+<li>
+    步骤1：定义路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="913" height="488" src="/wp-content/uploads/2018/05/word-image-5240.png" class="wp-image-5771" srcset="/wp-content/uploads/2018/05/word-image-5240.png 913w, /wp-content/uploads/2018/05/word-image-5240-300x160.png 300w, /wp-content/uploads/2018/05/word-image-5240-768x410.png 768w" sizes="(max-width: 913px) 100vw, 913px" /></p>
+<ul>
+<li>
+    步骤1：创建控制器方法并查询所有题目试题
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="923" height="542" src="/wp-content/uploads/2018/05/word-image-5241.png" class="wp-image-5772" srcset="/wp-content/uploads/2018/05/word-image-5241.png 923w, /wp-content/uploads/2018/05/word-image-5241-300x176.png 300w, /wp-content/uploads/2018/05/word-image-5241-768x451.png 768w" sizes="(max-width: 923px) 100vw, 923px" /></p>
+<ul>
+<li>
+    步骤3：视图循环显示
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="908" height="619" src="/wp-content/uploads/2018/05/word-image-5242.png" class="wp-image-5773" srcset="/wp-content/uploads/2018/05/word-image-5242.png 908w, /wp-content/uploads/2018/05/word-image-5242-300x205.png 300w, /wp-content/uploads/2018/05/word-image-5242-768x524.png 768w, /wp-content/uploads/2018/05/word-image-5242-220x150.png 220w" sizes="(max-width: 908px) 100vw, 908px" /></p>
+<p>
+  &lt;!DOCTYPE html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  	&lt;title&gt;考试&lt;/title&gt;
+</p>
+<p>
+  	&lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  	* { padding:0px; margin:0px; }
+</p>
+<p>
+  	body
+</p>
+<p>
+  	{
+</p>
+<p>
+  	    font-family:&#8221;微软雅黑&#8221;,&#8221;Lucida Grande&#8221;,Helvetica,Arial,Verdana,sans-serif;
+</p>
+<p>
+  	    word-break:break-all;
+</p>
+<p>
+  	    word-wrap: break-word;
+</p>
+<p>
+  	    background: #ddf4ff url(&#8220;https://image.wjx.cn/images/newbg/oldbg2-bg.jpg&#8221;) repeat-x;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	#main { width: 920px;margin: auto;}
+</p>
+<p>
+  	#main .title {width: 100%; height:105px;background: url(&#8220;https://image.wjx.cn/images/newbg/oldbg2.jpg&#8221;) no-repeat top center;  }
+</p>
+<p>
+  	#main h1 { color:#19a8ee; text-align: center; font-size: 24px !important; }
+</p>
+<p>
+  	#main h2 { margin-left: 30px; }
+</p>
+<p>
+  	#main h3 { margin-bottom: 10px; }
+</p>
+<p>
+  	#main .content {background: #fff;}
+</p>
+<p>
+  	#main .content .question { width: 800px; margin: auto; border-bottom: 1px solid #EFEFEF;padding-top: 20px;}
+</p>
+<p>
+  	#main .content .question input { width: 20px; height: 20px; vertical-align: middle; margin: 8px 0px; }
+</p>
+<p>
+  	#main #submit { width: 80px; height: 40px; margin-left: 420px; cursor: pointer;}
+</p>
+<p>
+  	&lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  	&lt;div id=&#8221;main&#8221;&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;title&#8221;&gt;&lt;/div&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;content&#8221;&gt;
+</p>
+<p>
+  			&lt;h1&gt;试卷A&lt;/h1&gt;
+</p>
+<p>
+  			&lt;h2&gt;单选&lt;/h2&gt;
+</p>
+<p>
+  			@foreach ($questions as $k=&gt;$question)
+</p>
+<p>
+  			@if ($question-&gt;type == 1)
+</p>
+<p>
+  			&lt;div class=&#8221;question&#8221;&gt;
+</p>
+<p>
+  				&lt;div&gt;
+</p>
+<p>
+  					&lt;h3&gt;{{$k + 1}}.{{$question-&gt;question}}&lt;/h3&gt;
+</p>
+<p>
+  					@foreach (explode(&#8216;,&#8217;, $question-&gt;options) as $option)
+</p>
+<p>
+  					&lt;input type=&#8221;radio&#8221; name=&#8221;a&#8221; value=&#8221;&#8221; /&gt;{{ $option }}&lt;br /&gt;
+</p>
+<p>
+  					@endforeach
+</p>
+<p>
+  				&lt;/div&gt;
+</p>
+<p>
+  			&lt;/div&gt;
+</p>
+<p>
+  			@endif
+</p>
+<p>
+  			@endforeach
+</p>
+<p>
+  			&lt;h2&gt;多选&lt;/h2&gt;)
+</p>
+<p>
+  			@php
+</p>
+<p>
+  			$k = 0;
+</p>
+<p>
+  			@endphp
+</p>
+<p>
+  			@foreach ($questions as $question)
+</p>
+<p>
+  			@if ($question-&gt;type == 2)
+</p>
+<p>
+  			&lt;div class=&#8221;question&#8221;&gt;
+</p>
+<p>
+  				&lt;div&gt;
+</p>
+<p>
+  					&lt;h3&gt;{{$k + 1}}.{{$question-&gt;question}}&lt;/h3&gt;
+</p>
+<p>
+  					@foreach (explode(&#8216;,&#8217;, $question-&gt;options) as $option)
+</p>
+<p>
+  					&lt;input type=&#8221;checkbox&#8221; name=&#8221;a&#8221; value=&#8221;1&#8243; /&gt;{{ $option }}&lt;br /&gt;
+</p>
+<p>
+  					@endforeach
+</p>
+<p>
+  				&lt;/div&gt;
+</p>
+<p>
+  			&lt;/div&gt;
+</p>
+<p>
+  			@endif
+</p>
+<p>
+  			@endforeach
+</p>
+<p>
+  			&lt;br/&gt;
+</p>
+<p>
+  			&lt;br/&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;submit&#8221; name=&#8221;提交&#8221; id=&#8221;submit&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h2>答题处理</h2>
+<ul>
+<li>
+    步骤1：定义路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1018" height="284" src="/wp-content/uploads/2018/05/word-image-5243.png" class="wp-image-5774" srcset="/wp-content/uploads/2018/05/word-image-5243.png 1018w, /wp-content/uploads/2018/05/word-image-5243-300x84.png 300w, /wp-content/uploads/2018/05/word-image-5243-768x214.png 768w" sizes="(max-width: 1018px) 100vw, 1018px" /></p>
+<ul>
+<li>
+    步骤2：修改视图
+  </li>
+</ul>
+<p>
+  &lt;!DOCTYPE html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  	&lt;title&gt;考试&lt;/title&gt;
+</p>
+<p>
+  	&lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  	* { padding:0px; margin:0px; }
+</p>
+<p>
+  	body
+</p>
+<p>
+  	{
+</p>
+<p>
+  	    font-family:&#8221;微软雅黑&#8221;,&#8221;Lucida Grande&#8221;,Helvetica,Arial,Verdana,sans-serif;
+</p>
+<p>
+  	    word-break:break-all;
+</p>
+<p>
+  	    word-wrap: break-word;
+</p>
+<p>
+  	    background: #ddf4ff url(&#8220;https://image.wjx.cn/images/newbg/oldbg2-bg.jpg&#8221;) repeat-x;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	#main { width: 920px;margin: auto;}
+</p>
+<p>
+  	#main .title {width: 100%; height:105px;background: url(&#8220;https://image.wjx.cn/images/newbg/oldbg2.jpg&#8221;) no-repeat top center;  }
+</p>
+<p>
+  	#main h1 { color:#19a8ee; text-align: center; font-size: 24px !important; }
+</p>
+<p>
+  	#main h2 { margin-left: 30px; }
+</p>
+<p>
+  	#main h3 { margin-bottom: 10px; }
+</p>
+<p>
+  	#main .content {background: #fff;}
+</p>
+<p>
+  	#main .content .question { width: 800px; margin: auto; border-bottom: 1px solid #EFEFEF;padding-top: 20px;}
+</p>
+<p>
+  	#main .content .question input { width: 20px; height: 20px; vertical-align: middle; margin: 8px 0px; }
+</p>
+<p>
+  	#main #submit { width: 80px; height: 40px; margin-left: 420px; cursor: pointer;}
+</p>
+<p>
+  	&lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  	<strong>@php</strong>
+</p>
+<p><strong>	$rs = [&#8216;A&#8217;, &#8216;B&#8217;, &#8216;C&#8217;, &#8216;D&#8217;];</strong>
+</p>
+<p><strong>	@endphp</strong>
+</p>
+<p>
+  	&lt;form action=&#8221;{{ url(&#8216;home/answer/add&#8217;) }}&#8221; method=&#8221;post&#8221;&gt;
+</p>
+<p>
+  	{{ csrf_field() }}
+</p>
+<p>
+  	&lt;div id=&#8221;main&#8221;&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;title&#8221;&gt;&lt;/div&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;content&#8221;&gt;
+</p>
+<p>
+  			&lt;h1&gt;试卷A&lt;/h1&gt;
+</p>
+<p>
+  			&lt;h2&gt;单选&lt;/h2&gt;
+</p>
+<p>
+  			@foreach ($questions as $k=&gt;$question)
+</p>
+<p>
+  			@if ($question-&gt;type == 1)
+</p>
+<p>
+  			&lt;div class=&#8221;question&#8221;&gt;
+</p>
+<p>
+  				&lt;div&gt;
+</p>
+<p>
+  					&lt;h3&gt;{{$k + 1}}.{{$question-&gt;question}}&lt;/h3&gt;
+</p>
+<p>
+  					@foreach (explode(&#8216;,&#8217;, $question-&gt;options) as $temp=&gt;$option)
+</p>
+<p>
+  					&lt;input type=&#8221;radio&#8221; <strong>name=&#8221;answer[{{ $question-&gt;id }}]&#8221; value=&#8221;{{ $rs[$temp] }}&#8221; </strong>/&gt;{{ $option }}&lt;br /&gt;
+</p>
+<p>
+  					@endforeach
+</p>
+<p>
+  				&lt;/div&gt;
+</p>
+<p>
+  			&lt;/div&gt;
+</p>
+<p>
+  			@endif
+</p>
+<p>
+  			@endforeach
+</p>
+<p>
+  			&lt;h2&gt;多选&lt;/h2&gt;
+</p>
+<p>
+  			@php
+</p>
+<p>
+  			$k = 0;
+</p>
+<p>
+  			@endphp
+</p>
+<p>
+  			@foreach ($questions as $question)
+</p>
+<p>
+  			@if ($question-&gt;type == 2)
+</p>
+<p>
+  			&lt;div class=&#8221;question&#8221;&gt;
+</p>
+<p>
+  				&lt;div&gt;
+</p>
+<p>
+  					&lt;h3&gt;{{$k + 1}}.{{$question-&gt;question}}&lt;/h3&gt;
+</p>
+<p>
+  					@foreach (explode(&#8216;,&#8217;, $question-&gt;options) as $temp=&gt;$option)
+</p>
+<p>
+  					&lt;input type=&#8221;checkbox&#8221; <strong>name=&#8221;answer[{{ $question-&gt;id }}][]&#8221; value=&#8221;{{ $rs[$temp] }}&#8221; </strong>/&gt;{{ $option }}&lt;br /&gt;
+</p>
+<p>
+  					@endforeach
+</p>
+<p>
+  				&lt;/div&gt;
+</p>
+<p>
+  			&lt;/div&gt;
+</p>
+<p>
+  			@endif
+</p>
+<p>
+  			@endforeach
+</p>
+<p>
+  			&lt;br/&gt;
+</p>
+<p>
+  			&lt;br/&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;submit&#8221; name=&#8221;提交&#8221; id=&#8221;submit&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;/form&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<ul>
+<li>
+    步骤3：数据处理【难点、重点】
+  </li>
+</ul>
+<p>
+  主要学习视图的name设置以及这边的判断原理
+</p>
+<p><img loading="lazy" decoding="async" width="1167" height="641" src="/wp-content/uploads/2018/05/word-image-5244.png" class="wp-image-5775" srcset="/wp-content/uploads/2018/05/word-image-5244.png 1167w, /wp-content/uploads/2018/05/word-image-5244-300x165.png 300w, /wp-content/uploads/2018/05/word-image-5244-768x422.png 768w, /wp-content/uploads/2018/05/word-image-5244-1024x562.png 1024w" sizes="(max-width: 1167px) 100vw, 1167px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Home;
+</p>
+<p>
+  use App\Http\Model\Question;
+</p>
+<p>
+  use App\Http\Model\Answer;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class AnswerController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //答题处理
+</p>
+<p>
+      public function add(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+      	//1.判断请求类型
+</p>
+<p>
+          if ($request-&gt;isMethod(&#8216;post&#8217;)) {
+</p>
+<p>
+              //2.接受数据
+</p>
+<p>
+              $postData = $request-&gt;only(&#8216;answer&#8217;, &#8216;paper_id&#8217;);
+</p>
+<p>
+              //dd($postData);
+</p>
+<p>
+              //3.查询试卷对应的所有试题
+</p>
+<p>
+              $questions = Question::where(&#8216;paper_id&#8217;, $postData[&#8216;paper_id&#8217;])-&gt;get();
+</p>
+<p>
+              //4.循环判断提交的试题是否正确
+</p>
+<p>
+              foreach ($questions as $key =&gt; $question) {
+</p>
+<p>
+                  //4.1先判断当前试题是否在提交表单中：
+</p>
+<p>
+                  //正常流   -&gt;肯定存在     处理：正确，错误
+</p>
+<p>
+                  //非正常流-&gt;肯定不存在    处理：不管，不加入到answer直接没分
+</p>
+<p>
+                  if (isset($postData[&#8216;answer&#8217;][$question-&gt;id])) {
+</p>
+<p>
+                      //用户本地答案
+</p>
+<p>
+                      $userSubmitAnswer = is_array($postData[&#8216;answer&#8217;][$question-&gt;id]) ? implode(&#8221;, $postData[&#8216;answer&#8217;][$question-&gt;id]) : $postData[&#8216;answer&#8217;][$question-&gt;id];
+</p>
+<p>
+                      //判断是否正确
+</p>
+<p>
+                      $temp = [
+</p>
+<p>
+                          &#8216;paper_id&#8217; =&gt; $postData[&#8216;paper_id&#8217;],
+</p>
+<p>
+                          &#8216;question_id&#8217; =&gt; $question-&gt;id,
+</p>
+<p>
+                          &#8216;member_id&#8217;  =&gt; 0,
+</p>
+<p>
+                          &#8216;score&#8217;    =&gt; $question-&gt;score,
+</p>
+<p>
+                          &#8216;answer&#8217; =&gt; $userSubmitAnswer //用户答案
+</p>
+<p>
+                      ];
+</p>
+<p>
+                      if ($question-&gt;answer == $userSubmitAnswer) {
+</p>
+<p>
+                          //答对
+</p>
+<p>
+                          $temp[&#8216;is_correct&#8217;] = 1;  //是否正确:1-是,2-否
+</p>
+<p>
+                      } else {
+</p>
+<p>
+                          //答错
+</p>
+<p>
+                          $temp[&#8216;is_correct&#8217;] =2 ; //是否正确:1-是,2-否
+</p>
+<p>
+                      }
+</p>
+<p>
+                      Answer::create($temp);
+</p>
+<p>
+                  }
+</p>
+<p>
+              }
+</p>
+<p>
+              //处理完毕跳转到结果页
+</p>
+<p>
+              return redirect(&#8216;home/answer/detail&#8217;);
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+      //答题结果显示
+</p>
+<p>
+      public function detail()
+</p>
+<p>
+      {
+</p>
+<p>
+          return view(&#8216;home/answer/detail&#8217;);
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h2>展示答题结果</h2>
+<ul>
+<li>
+    步骤1：定义路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1127" height="276" src="/wp-content/uploads/2018/05/word-image-5245.png" class="wp-image-5776" srcset="/wp-content/uploads/2018/05/word-image-5245.png 1127w, /wp-content/uploads/2018/05/word-image-5245-300x73.png 300w, /wp-content/uploads/2018/05/word-image-5245-768x188.png 768w, /wp-content/uploads/2018/05/word-image-5245-1024x251.png 1024w" sizes="(max-width: 1127px) 100vw, 1127px" /></p>
+<ul>
+<li>
+    步骤2：创建控制器方法
+  </li>
+</ul>
+<ol>
+<li>
+  设置模型
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1115" height="499" src="/wp-content/uploads/2018/05/word-image-5246.png" class="wp-image-5777" srcset="/wp-content/uploads/2018/05/word-image-5246.png 1115w, /wp-content/uploads/2018/05/word-image-5246-300x134.png 300w, /wp-content/uploads/2018/05/word-image-5246-768x344.png 768w, /wp-content/uploads/2018/05/word-image-5246-1024x458.png 1024w" sizes="(max-width: 1115px) 100vw, 1115px" /></p>
+<p>
+  2）设置控制器
+</p>
+<p><img loading="lazy" decoding="async" width="1015" height="510" src="/wp-content/uploads/2018/05/word-image-5247.png" class="wp-image-5778" srcset="/wp-content/uploads/2018/05/word-image-5247.png 1015w, /wp-content/uploads/2018/05/word-image-5247-300x151.png 300w, /wp-content/uploads/2018/05/word-image-5247-768x386.png 768w" sizes="(max-width: 1015px) 100vw, 1015px" /></p>
+<ul>
+<li>
+    步骤3：视图判断显示结果
+  </li>
+</ul>
+<p>
+  &lt;!DOCTYPE html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  	&lt;title&gt;考试&lt;/title&gt;
+</p>
+<p>
+  	&lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  	* { padding:0px; margin:0px; }
+</p>
+<p>
+  	body
+</p>
+<p>
+  	{
+</p>
+<p>
+  	    font-family:&#8221;微软雅黑&#8221;,&#8221;Lucida Grande&#8221;,Helvetica,Arial,Verdana,sans-serif;
+</p>
+<p>
+  	    word-break:break-all;
+</p>
+<p>
+  	    word-wrap: break-word;
+</p>
+<p>
+  	    background: #ddf4ff url(&#8220;https://image.wjx.cn/images/newbg/oldbg2-bg.jpg&#8221;) repeat-x;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	#main { width: 920px;margin: auto;}
+</p>
+<p>
+  	#main .title {width: 100%; height:105px;background: url(&#8220;https://image.wjx.cn/images/newbg/oldbg2.jpg&#8221;) no-repeat top center;  }
+</p>
+<p>
+  	#main h1 { color:#19a8ee; text-align: center; font-size: 24px !important; }
+</p>
+<p>
+  	#main h2 { margin-left: 30px; }
+</p>
+<p>
+  	#main h3 { margin-bottom: 10px; }
+</p>
+<p>
+  	#main .content {background: #fff;}
+</p>
+<p>
+  	#main .content .question { width: 800px; margin: auto; border-bottom: 1px solid #EFEFEF;padding-top: 20px;}
+</p>
+<p>
+  	#main .content .question input { width: 20px; height: 20px; vertical-align: middle; margin: 8px 0px; }
+</p>
+<p>
+  	#main #submit { width: 80px; height: 40px; margin-left: 420px; cursor: pointer;}
+</p>
+<p>
+  	&lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  	@php
+</p>
+<p>
+  	$rs = [&#8216;A&#8217;, &#8216;B&#8217;, &#8216;C&#8217;, &#8216;D&#8217;];
+</p>
+<p>
+  	@endphp
+</p>
+<p>
+  	&lt;form action=&#8221;{{ url(&#8216;home/answer/add&#8217;) }}&#8221; method=&#8221;post&#8221;&gt;
+</p>
+<p>
+  	{{ csrf_field() }}
+</p>
+<p>
+  	&lt;div id=&#8221;main&#8221;&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;title&#8221;&gt;&lt;/div&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;content&#8221;&gt;
+</p>
+<p>
+  			&lt;h1&gt;试卷A&lt;/h1&gt;
+</p>
+<p>
+  			&lt;h2&gt;单选&lt;/h2&gt;
+</p>
+<p>
+  			@foreach ($answers as $k=&gt;$answer)
+</p>
+<p>
+  			@if ($answer-&gt;question-&gt;type == 1)
+</p>
+<p>
+  			&lt;div class=&#8221;question&#8221;&gt;
+</p>
+<p>
+  				&lt;div&gt;
+</p>
+<p>
+  					&lt;h3&gt;
+</p>
+<p>
+  						{{$k + 1}}.{{$answer-&gt;question-&gt;question}}&amp;nbsp;
+</p>
+<p>
+  						@if ($answer-&gt;is_correct == 1)
+</p>
+<p>
+  							&lt;font color=&#8221;green&#8221;&gt;正确&lt;/font&gt;
+</p>
+<p>
+  						@else
+</p>
+<p>
+  							&lt;font color=&#8221;red&#8221;&gt;错误&lt;/font&gt; ，正确答案：{{$answer-&gt;question-&gt;answer}}
+</p>
+<p>
+  						@endif
+</p>
+<p>
+  					&lt;/h3&gt;
+</p>
+<p>
+  					@foreach (explode(&#8216;,&#8217;, $answer-&gt;question-&gt;options) as $temp=&gt;$option)
+</p>
+<p>
+  					&lt;input type=&#8221;radio&#8221;
+</p>
+<p>
+  						@if($rs[$temp] == $answer-&gt;answer)
+</p>
+<p>
+  							checked
+</p>
+<p>
+  						@endif
+</p>
+<p>
+  					/&gt;{{ $option }}&lt;br /&gt;
+</p>
+<p>
+  					@endforeach
+</p>
+<p>
+  				&lt;/div&gt;
+</p>
+<p>
+  			&lt;/div&gt;
+</p>
+<p>
+  			@endif
+</p>
+<p>
+  			@endforeach
+</p>
+<p>
+  			&lt;h2&gt;多选&lt;/h2&gt;
+</p>
+<p>
+  			@php
+</p>
+<p>
+  			$k = 0;
+</p>
+<p>
+  			@endphp
+</p>
+<p>
+  			@foreach ($answers as $answer)
+</p>
+<p>
+  			@if ($answer-&gt;question-&gt;type == 2)
+</p>
+<p>
+  			&lt;div class=&#8221;question&#8221;&gt;
+</p>
+<p>
+  				&lt;div&gt;
+</p>
+<p>
+  					&lt;h3&gt;
+</p>
+<p>
+  						{{$k + 1}}.{{$answer-&gt;question-&gt;question}}
+</p>
+</p>
+<p>
+  						@if ($answer-&gt;is_correct == 1)
+</p>
+<p>
+  							&lt;font color=&#8221;green&#8221;&gt;正确&lt;/font&gt;
+</p>
+<p>
+  						@else
+</p>
+<p>
+  							&lt;font color=&#8221;red&#8221;&gt;错误&lt;/font&gt; ，正确答案：{{$answer-&gt;question-&gt;answer}}
+</p>
+<p>
+  						@endif
+</p>
+<p>
+  					&lt;/h3&gt;
+</p>
+<p>
+  					@foreach (explode(&#8216;,&#8217;, $answer-&gt;question-&gt;options) as $temp=&gt;$option)
+</p>
+<p>
+  					&lt;input type=&#8221;checkbox&#8221;
+</p>
+<p>
+  						@if(strpos(&#8216;_&#8217;.$answer-&gt;answer, $rs[$temp]))
+</p>
+<p>
+  							checked=checked
+</p>
+<p>
+  						@endif
+</p>
+<p>
+  					/&gt;{{ $option }}&lt;br /&gt;
+</p>
+<p>
+  					@endforeach
+</p>
+<p>
+  				&lt;/div&gt;
+</p>
+<p>
+  			&lt;/div&gt;
+</p>
+<p>
+  			@endif
+</p>
+<p>
+  			@endforeach
+</p>
+<p>
+  			&lt;br/&gt;
+</p>
+<p>
+  			&lt;br/&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;submit&#8221; name=&#8221;提交&#8221; id=&#8221;submit&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;/form&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="845" height="680" src="/wp-content/uploads/2018/05/word-image-5248.png" class="wp-image-5779" srcset="/wp-content/uploads/2018/05/word-image-5248.png 845w, /wp-content/uploads/2018/05/word-image-5248-300x241.png 300w, /wp-content/uploads/2018/05/word-image-5248-768x618.png 768w" sizes="(max-width: 845px) 100vw, 845px" /></p>
+<h1>在Laravle中使用支付宝</h1>
+<h2>1、下载第三方支付宝SDK工具库</h2>
+<ul>
+<li>
+    步骤1：下载
+  </li>
+</ul>
+<p>
+  composer require &#8220;echobool/alipay-laravel5:dev-master&#8221;
+</p>
+<p><img loading="lazy" decoding="async" width="542" height="247" src="/wp-content/uploads/2018/05/word-image-5249.png" class="wp-image-5780" srcset="/wp-content/uploads/2018/05/word-image-5249.png 542w, /wp-content/uploads/2018/05/word-image-5249-300x137.png 300w" sizes="(max-width: 542px) 100vw, 542px" /></p>
+<ul>
+<li>
+    步骤2：配置
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="466" height="102" src="/wp-content/uploads/2018/05/word-image-5250.png" class="wp-image-5781" srcset="/wp-content/uploads/2018/05/word-image-5250.png 466w, /wp-content/uploads/2018/05/word-image-5250-300x66.png 300w" sizes="(max-width: 466px) 100vw, 466px" /><br />
+<img loading="lazy" decoding="async" width="998" height="231" src="/wp-content/uploads/2018/05/word-image-5251.png" class="wp-image-5782" srcset="/wp-content/uploads/2018/05/word-image-5251.png 998w, /wp-content/uploads/2018/05/word-image-5251-300x69.png 300w, /wp-content/uploads/2018/05/word-image-5251-768x178.png 768w" sizes="(max-width: 998px) 100vw, 998px" /></p>
+<ul>
+<li>
+    步骤3：更新配置
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="346" height="126" src="/wp-content/uploads/2018/05/word-image-5252.png" class="wp-image-5783" srcset="/wp-content/uploads/2018/05/word-image-5252.png 346w, /wp-content/uploads/2018/05/word-image-5252-300x109.png 300w" sizes="(max-width: 346px) 100vw, 346px" /></p>
+<ul>
+<li>
+    步骤4：发布配置文件
+  </li>
+</ul>
+<p>
+  1）生成配置文件
+</p>
+<p><img loading="lazy" decoding="async" width="1085" height="437" src="/wp-content/uploads/2018/05/word-image-5253.png" class="wp-image-5784" srcset="/wp-content/uploads/2018/05/word-image-5253.png 1085w, /wp-content/uploads/2018/05/word-image-5253-300x121.png 300w, /wp-content/uploads/2018/05/word-image-5253-768x309.png 768w, /wp-content/uploads/2018/05/word-image-5253-1024x412.png 1024w" sizes="(max-width: 1085px) 100vw, 1085px" /></p>
+<p>
+  2）修改配置文件
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  /**
+</p>
+<p>
+   * Created by PhpStorm.
+</p>
+<p>
+   * User: luojinyi
+</p>
+<p>
+   * Date: 2017/6/26
+</p>
+<p>
+   * Time: 下午5:21
+</p>
+<p>
+   */
+</p>
+<p>
+  return [
+</p>
+<p>
+      //应用ID,您的APPID。
+</p>
+<p>
+      &#8216;app_id&#8217; =&gt; &#8220;2016091200497515&#8221;,
+</p>
+<p>
+      //商户私钥 不能用pkcs8.pem中的密钥！！！！！
+</p>
+<p>
+      &#8216;merchant_private_key&#8217; =&gt; &#8220;MIIEogIBAAKCAQEAuVAxeZTkmobcdfsgOor2xK5vyHmLnGfDLK4latRGDu8Esil7vVx59IQK9rnDnO2KFn/zvk36PpsKyyV1c9p1IK+/pm/kpu9GkTJKJm5vSFx21UWzVCZlRLPy92UH9KGHyD4V28mzMCGuUwniy8O0oiwR9sL5Qcayh5/Ao47nnQ3VTby8bFyuEchsOd8fqVDJzyyAdHoWqqKsuYg+SJqdjP0dsJsryS427we2LEZ9k2IZhd2Mhuj7N28ZcI8NS3YAdh5Yw1+g1j6J0oReQ209awSnwkatwUEH1dSNCnI4tNQu7WfbKm9u1eKb6SE83bvKE11ombAftcaO/9X+be6XHwIDAQABAoIBAGlNmZ+mLTVmNzbPyiOaPdnL6fd4og3xpKXqG5cWIu1vgzKeghM7zo1Uz0oei3rMPLDGasKUWwRiZALGOXTpCa/WTsiMQtldlLMDacFm9dOfv2M35UyHOPqOax2MCrZHZ/ow1Yj8l9dc/EtxjbAOeMHC2z5m0u8+ssqAzB3lIdZLQiD+J744AzFZ09VcwtAzLpVBN67DCsqHd+MVwNMajcoUokMfXO7+KYO9uKFS50GDlhTs/nJXy7ihZ1GkLpKjXMBAlP2X3Iyv8Tibd1eKnXkzufCABPH1tnFsMwvW4PJ3DQY4pnyRb9Tq6Ydqcjrc4bgB9E5qUKeB/578R746WoECgYEA8ir1WjjTUYeskcs8Od9kqj/35WYDS704jD2VLp2Sjtodj+/em38s2l3xnH/+S7+msQFdsllmQYC/9yMZ65nNCGeoHKPrJvVgyl45KPxDeeCWrNq8UQBlOezyVg6BKQV8qFPHb/rag8OXhzcRxlIVqzZPFRSw1YVfLZSEADPYrMECgYEAw+XkgRkX6ia3JVFa8dpoFhHweDfuRncw9Wny0/6gFjNv/apl726BoS9jregeJfynqWDkDdkw05I6y9wiQyiXDWH6/JV97xXsoYqFIUfydFFGz2yHJ+l1rCLXjn+k1dmzTJLWU+bRxbVCqC2VAm6laJUkEuntDyCtnN+xf1cn298CgYB/4oG5CINH7d8LCwmeAkPVyHwv74RUDfP701WhzWKk/7hW17R1514XXz8Fh24SMH5lwTPqyF1AwC4f47B/g7QL+TmFDmdTJofbtpB2/WjgxuKrG8QQ/qV2RpPfMD+zGwuulLegghe9N6Agrss7MQPya3atykRsLceKeYCP3tFQwQKBgEX5rp/2yLYZUj6ASw4tSBTqH42x3OlK1jAzwku7no+PnCduYK8gOCnNdbu/OFW1ZGZ6d7wCoxBQIbSEU7DNpPdg0ni7JZrrp/UkN93lh1PJXJPnXngBSslMQNdj/Qtukj9+DBU4VCJdVwwgDCQsReWPsK0Y5lcLAzkQJqUoCtLdAoGAEm6PFZs3mQekOf1L43NfEdG5E8MvuguutBJaKqfuOLk5LnBgC2wP0XUL1Dz47oJNXoQxHse9QUOy7QijTLTz/tehDFUYDSwkJ1lEEvaEhmMqeR/MiUT+z2//MnG4AlNHyYU/cMU38CkgDPwinFv5TvjRMHWyx8ZSvQ2d99ptXHM=&#8221;,
+</p>
+<p>
+      //异步通知地址
+</p>
+<p>
+      &#8216;notify_url&#8217; =&gt; &#8220;http://外网可访问网关地址/alipay.trade.page.pay-PHP-UTF-8/notify_url.php&#8221;,
+</p>
+<p>
+      //同步跳转
+</p>
+<p>
+      &#8216;return_url&#8217; =&gt; &#8220;http://l.com/edu6/public/home/alipay/returnUrl&#8221;,
+</p>
+<p>
+      //编码格式
+</p>
+<p>
+      &#8216;charset&#8217; =&gt; &#8220;UTF-8&#8221;,
+</p>
+<p>
+      //签名方式
+</p>
+<p>
+      &#8216;sign_type&#8217; =&gt; &#8220;RSA2&#8221;,
+</p>
+<p>
+      //支付宝网关
+</p>
+<p>
+      &#8216;gatewayUrl&#8217; =&gt; &#8220;https://openapi.alipaydev.com/gateway.do&#8221;,
+</p>
+<p>
+      //支付宝公钥,查看地址：https://openhome.alipay.com/platform/keyManage.htm 对应APPID下的支付宝公钥。
+</p>
+<p>
+      &#8216;alipay_public_key&#8217; =&gt; &#8220;MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuVAxeZTkmobcdfsgOor2xK5vyHmLnGfDLK4latRGDu8Esil7vVx59IQK9rnDnO2KFn/zvk36PpsKyyV1c9p1IK+/pm/kpu9GkTJKJm5vSFx21UWzVCZlRLPy92UH9KGHyD4V28mzMCGuUwniy8O0oiwR9sL5Qcayh5/Ao47nnQ3VTby8bFyuEchsOd8fqVDJzyyAdHoWqqKsuYg+SJqdjP0dsJsryS427we2LEZ9k2IZhd2Mhuj7N28ZcI8NS3YAdh5Yw1+g1j6J0oReQ209awSnwkatwUEH1dSNCnI4tNQu7WfbKm9u1eKb6SE83bvKE11ombAftcaO/9X+be6XHwIDAQAB&#8221;,
+</p>
+<p>
+      //支付时提交方式 true 为表单提交方式成功后跳转到return_url,
+</p>
+<p>
+      //false 时为Curl方式 返回支付宝支付页面址址 自己跳转上去 支付成功不会跳转到return_url上， 我也不知道为什么，有人发现可以跳转请告诉 我一下 谢谢
+</p>
+<p>
+      // email: 40281612@qq.com
+</p>
+<p>
+      &#8216;trade_pay_type&#8217; =&gt; true,
+</p>
+<p>
+  ];
+</p>
+<ul>
+<li>
+    步骤5：定义路由，创建控制器方法，并将官方demo代码放进去
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1186" height="301" src="/wp-content/uploads/2018/05/word-image-5254.png" class="wp-image-5785" srcset="/wp-content/uploads/2018/05/word-image-5254.png 1186w, /wp-content/uploads/2018/05/word-image-5254-300x76.png 300w, /wp-content/uploads/2018/05/word-image-5254-768x195.png 768w, /wp-content/uploads/2018/05/word-image-5254-1024x260.png 1024w" sizes="(max-width: 1186px) 100vw, 1186px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Home;
+</p>
+<p>
+  //文件头use一下
+</p>
+<p>
+  use EchoBool\AlipayLaravel\Facades\Alipay;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class AlipayController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 支付
+</p>
+<p>
+       * @param Request $request
+</p>
+<p>
+       * @return mixed
+</p>
+<p>
+       */
+</p>
+<p>
+      public function goPay(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          //商户订单号，商户网站订单系统中唯一订单号，必填
+</p>
+<p>
+          $out_trade_no = date(&#8216;YmdHis&#8217;) . &#8216;00045623&#8217;;
+</p>
+<p>
+          //订单名称，必填
+</p>
+<p>
+          $subject = &#8216;锁贸通任务ID448&#8217;;
+</p>
+<p>
+          //付款金额，必填
+</p>
+<p>
+          $total_amount = 0.01;
+</p>
+<p>
+          //商品描述，可空
+</p>
+<p>
+          $body = &#8216;macbook pro2&#8217;;
+</p>
+<p>
+          $customData = json_encode([&#8216;model_name&#8217; =&gt; &#8216;ewrwe&#8217;, &#8216;id&#8217; =&gt; 121]);//自定义参数
+</p>
+<p>
+          $response = Alipay::tradePagePay($subject, $body, $out_trade_no, $total_amount, $customData);
+</p>
+<p>
+          //输出表单
+</p>
+<p>
+          return $response[&#8216;redirect_url&#8217;];
+</p>
+<p>
+      }
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 退款
+</p>
+<p>
+       * @param Request $request
+</p>
+<p>
+       */
+</p>
+<p>
+      public function refund(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          //商户订单号
+</p>
+<p>
+          $out_trade_no = $request-&gt;get(&#8216;trade_no&#8217;);
+</p>
+<p>
+          $refund_amount = 0.01;
+</p>
+<p>
+          $refund_reason = &#8216;任务取消退款&#8217;;
+</p>
+<p>
+          $out_request_no = &#8216;201&#8217;;
+</p>
+<p>
+          $response = Alipay::tradeRefund($out_trade_no, $refund_amount, $refund_reason, $out_request_no);
+</p>
+<p>
+          dd($response);
+</p>
+<p>
+      }
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 退款查询
+</p>
+<p>
+       * @param Request $request
+</p>
+<p>
+       */
+</p>
+<p>
+      public function refundQuery(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          //商户订单号
+</p>
+<p>
+          $out_trade_no = $request-&gt;get(&#8216;trade_no&#8217;);
+</p>
+<p>
+          $out_request_no = $request-&gt;get(&#8216;out_request_no&#8217;);
+</p>
+<p>
+          $response = Alipay::refundQuery($out_trade_no,$out_request_no);
+</p>
+<p>
+          dd($response);
+</p>
+<p>
+      }
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 交易是否成功查询
+</p>
+<p>
+       * @param Request $request
+</p>
+<p>
+       */
+</p>
+<p>
+      public function tradePayQuery(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          //商户订单号
+</p>
+<p>
+          $out_trade_no = $request-&gt;get(&#8216;trade_no&#8217;);
+</p>
+<p>
+          $response = Alipay::tradePayQuery($out_trade_no);
+</p>
+<p>
+          dd($response);
+</p>
+<p>
+      }
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 交易关闭
+</p>
+<p>
+       * @param Request $request
+</p>
+<p>
+       */
+</p>
+<p>
+      public function tradeClose(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          //商户订单号
+</p>
+<p>
+          $out_trade_no = $request-&gt;get(&#8216;trade_no&#8217;);
+</p>
+<p>
+          $response = Alipay::Close($out_trade_no);
+</p>
+<p>
+          dd($response);
+</p>
+<p>
+      }
+</p>
+</p>
+<p>
+      /**
+</p>
+<p>
+           * 异步通知
+</p>
+<p>
+           * @param Request $request
+</p>
+<p>
+           */
+</p>
+<p>
+          public function notify(Request $request)
+</p>
+<p>
+          {
+</p>
+<p>
+              $result = Alipay::notify($_POST);
+</p>
+<p>
+              /* 实际验证过程建议商户添加以下校验。
+</p>
+<p>
+             1、商户需要验证该通知数据中的out_trade_no是否为商户系统中创建的订单号，
+</p>
+<p>
+             2、判断total_amount是否确实为该订单的实际金额（即商户订单创建时的金额），
+</p>
+<p>
+             3、校验通知中的seller_id（或者seller_email) 是否为out_trade_no这笔单据的对应的操作方（有的时候，一个商户可能有多个seller_id/seller_email）
+</p>
+<p>
+             4、验证app_id是否为该商户本身。
+</p>
+<p>
+             */
+</p>
+<p>
+              if ($result) {//验证成功
+</p>
+<p>
+                  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</p>
+<p>
+                  //请在这里加上商户的业务逻辑程序代
+</p>
+</p>
+<p>
+                  //——请根据您的业务逻辑来编写程序（以下代码仅作参考）——
+</p>
+</p>
+<p>
+                  //获取支付宝的通知返回参数，可参考技术文档中服务器异步通知参数列表
+</p>
+</p>
+<p>
+                  //商户订单号
+</p>
+</p>
+<p>
+                  $out_trade_no = $_POST[&#8216;out_trade_no&#8217;];
+</p>
+</p>
+<p>
+                  //支付宝交易号
+</p>
+</p>
+<p>
+                  $trade_no = $_POST[&#8216;trade_no&#8217;];
+</p>
+</p>
+<p>
+                  //交易状态
+</p>
+<p>
+                  $trade_status = $_POST[&#8216;trade_status&#8217;];
+</p>
+</p>
+<p>
+                  if ($_POST[&#8216;trade_status&#8217;] == &#8216;TRADE_FINISHED&#8217;) {
+</p>
+</p>
+<p>
+                      //判断该笔订单是否在商户网站中已经做过处理
+</p>
+<p>
+                      //如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
+</p>
+<p>
+                      //请务必判断请求时的total_amount与通知时获取的total_fee为一致的
+</p>
+<p>
+                      //如果有做过处理，不执行商户的业务程序
+</p>
+</p>
+<p>
+                      //注意：
+</p>
+<p>
+                      //退款日期超过可退款期限后（如三个月可退款），支付宝系统发送该交易状态通知
+</p>
+<p>
+                  } else if ($_POST[&#8216;trade_status&#8217;] == &#8216;TRADE_SUCCESS&#8217;) {
+</p>
+<p>
+                      //判断该笔订单是否在商户网站中已经做过处理
+</p>
+<p>
+                      //如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
+</p>
+<p>
+                      //请务必判断请求时的total_amount与通知时获取的total_fee为一致的
+</p>
+<p>
+                      //如果有做过处理，不执行商户的业务程序
+</p>
+<p>
+                      //注意：
+</p>
+<p>
+                      //付款完成后，支付宝系统发送该交易状态通知
+</p>
+<p>
+                  }
+</p>
+<p>
+                  //——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
+</p>
+<p>
+                  echo &#8220;success&#8221;;    //请不要修改或删除
+</p>
+<p>
+              } else {
+</p>
+<p>
+                  //验证失败
+</p>
+<p>
+                  echo &#8220;fail&#8221;;
+</p>
+</p>
+<p>
+              }
+</p>
+<p>
+          }
+</p>
+</p>
+<p>
+          /**
+</p>
+<p>
+           * 同步通知 即支付成功后跳转到return_url 上时进行验证  如果支付方式是CURL方式将不会跳转 请注意
+</p>
+<p>
+           * @param Request $request
+</p>
+<p>
+           */
+</p>
+<p>
+          public function returnUrl(Request $request)
+</p>
+<p>
+          {
+</p>
+<p>
+              $result = Alipay::notify($_GET);
+</p>
+<p>
+              /* 实际验证过程建议商户添加以下校验。
+</p>
+<p>
+                  1、商户需要验证该通知数据中的out_trade_no是否为商户系统中创建的订单号，
+</p>
+<p>
+                  2、判断total_amount是否确实为该订单的实际金额（即商户订单创建时的金额），
+</p>
+<p>
+                  3、校验通知中的seller_id（或者seller_email) 是否为out_trade_no这笔单据的对应的操作方（有的时候，一个商户可能有多个seller_id/seller_email）
+</p>
+<p>
+                  4、验证app_id是否为该商户本身。
+</p>
+<p>
+               */
+</p>
+</p>
+<p>
+              if ($result) {//验证成功
+</p>
+<p>
+                  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</p>
+<p>
+                  //请在这里加上商户的业务逻辑程序代码
+</p>
+</p>
+<p>
+                  //——请根据您的业务逻辑来编写程序（以下代码仅作参考）——
+</p>
+<p>
+                  //获取支付宝的通知返回参数，可参考技术文档中页面跳转同步通知参数列表
+</p>
+</p>
+<p>
+                  //商户订单号
+</p>
+<p>
+                  $out_trade_no = htmlspecialchars($_GET[&#8216;out_trade_no&#8217;]);
+</p>
+</p>
+<p>
+                  //支付宝交易号
+</p>
+<p>
+                  $trade_no = htmlspecialchars($_GET[&#8216;trade_no&#8217;]);
+</p>
+</p>
+<p>
+                  echo &#8220;验证成功&lt;br /&gt;支付宝交易号：&#8221; . $trade_no;
+</p>
+</p>
+<p>
+                  //——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
+</p>
+</p>
+<p>
+                  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+</p>
+<p>
+              } else {
+</p>
+<p>
+                  //验证失败
+</p>
+<p>
+                  echo &#8220;验证失败&#8221;;
+</p>
+<p>
+              }
+</p>
+<p>
+          }
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤6：访问测试
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1074" height="625" src="/wp-content/uploads/2018/05/word-image-5255.png" class="wp-image-5786" srcset="/wp-content/uploads/2018/05/word-image-5255.png 1074w, /wp-content/uploads/2018/05/word-image-5255-300x175.png 300w, /wp-content/uploads/2018/05/word-image-5255-768x447.png 768w, /wp-content/uploads/2018/05/word-image-5255-1024x596.png 1024w" sizes="(max-width: 1074px) 100vw, 1074px" /></p>
+<p>
+  报错
+</p>
+<p><img loading="lazy" decoding="async" width="712" height="454" src="/wp-content/uploads/2018/05/word-image-5256.png" class="wp-image-5787" srcset="/wp-content/uploads/2018/05/word-image-5256.png 712w, /wp-content/uploads/2018/05/word-image-5256-300x191.png 300w" sizes="(max-width: 712px) 100vw, 712px" /></p>
+<p>
+  php artisan config:cache</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/5738.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

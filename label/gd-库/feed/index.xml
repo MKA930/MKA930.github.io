@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>GD 库 &#8211; 个人随笔</title>
+	<atom:link href="/label/gd-%E5%BA%93/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 12:20:15 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>GD 库 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>PHP 核心编程（五）GD 库、 图片颜色填充、 水印、 缩略图、 验证码</title>
+		<link>/php/php%e6%a0%b8%e5%bf%83%e7%bc%96%e7%a8%8b/1363.html</link>
+					<comments>/php/php%e6%a0%b8%e5%bf%83%e7%bc%96%e7%a8%8b/1363.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 09:35:08 +0000</pubDate>
+				<category><![CDATA[PHP核心编程]]></category>
+		<category><![CDATA[GD 库]]></category>
+		<category><![CDATA[图片颜色填充]]></category>
+		<category><![CDATA[水印]]></category>
+		<category><![CDATA[缩略图]]></category>
+		<category><![CDATA[验证码]]></category>
+		<guid isPermaLink="false">/?p=1363</guid>
+
+					<description><![CDATA[GD图像处理 GD库简介 GD库是专门做图像处理的。比如验证码，缩略图，图片水印等效果 PHP操作GD库的原理 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>GD图像处理</h1>
+<h2>GD库简介</h2>
+<p>GD库是专门做图像处理的。比如验证码，缩略图，图片水印等效果</p>
+<p><img fetchpriority="high" decoding="async" width="616" height="91" class="wp-image-1365" src="/wp-content/uploads/2018/05/word-image-1205.png" srcset="/wp-content/uploads/2018/05/word-image-1205.png 616w, /wp-content/uploads/2018/05/word-image-1205-300x44.png 300w" sizes="(max-width: 616px) 100vw, 616px" /><br />
+<img decoding="async" width="873" height="263" class="wp-image-1366" src="/wp-content/uploads/2018/05/word-image-1206.png" srcset="/wp-content/uploads/2018/05/word-image-1206.png 873w, /wp-content/uploads/2018/05/word-image-1206-300x90.png 300w, /wp-content/uploads/2018/05/word-image-1206-768x231.png 768w" sizes="(max-width: 873px) 100vw, 873px" /><br />
+<img decoding="async" width="574" height="203" class="wp-image-1367" src="/wp-content/uploads/2018/05/word-image-1207.png" srcset="/wp-content/uploads/2018/05/word-image-1207.png 574w, /wp-content/uploads/2018/05/word-image-1207-300x106.png 300w" sizes="(max-width: 574px) 100vw, 574px" /></p>
+<h2>PHP操作GD库的原理</h2>
+<p>第一步：创建图片资源</p>
+<p>第二步：对图片进行操作</p>
+<p>第三步：输出图片资源</p>
+<p>第四步：销毁图片资源</p>
+<h2>引入GD库</h2>
+<p>默认情况下，PHP不支持对图片的处理，必须引入GD扩展才能实现对图片的操作</p>
+<p><img loading="lazy" decoding="async" width="629" height="61" class="wp-image-1368" src="/wp-content/uploads/2018/05/word-image-1208.png" srcset="/wp-content/uploads/2018/05/word-image-1208.png 629w, /wp-content/uploads/2018/05/word-image-1208-300x29.png 300w" sizes="(max-width: 629px) 100vw, 629px" /></p>
+<p>开启GD库后，以image开头的函数都可以使用了。</p>
+<p><img loading="lazy" decoding="async" width="344" height="385" class="wp-image-1369" src="/wp-content/uploads/2018/05/word-image-1209.png" srcset="/wp-content/uploads/2018/05/word-image-1209.png 344w, /wp-content/uploads/2018/05/word-image-1209-268x300.png 268w" sizes="(max-width: 344px) 100vw, 344px" /></p>
+<h2>创建图片</h2>
+<h3>知识点</h3>
+<ol>
+<li>imagecreate()：创建图片资源</li>
+<li>imagecolorallocate()：给图片资源分配一个颜色</li>
+<li>imagejpeg()：图片按jpeg格式显示或保存</li>
+<li>imagegif()：图片按gif格式显示或保存</li>
+<li>imagepng()：图片按png格式显示或保存</li>
+<li>imagedestroy()：销毁图片</li>
+</ol>
+<h3>代码</h3>
+<p><img loading="lazy" decoding="async" width="1101" height="161" class="wp-image-1370" src="/wp-content/uploads/2018/05/word-image-1210.png" srcset="/wp-content/uploads/2018/05/word-image-1210.png 1101w, /wp-content/uploads/2018/05/word-image-1210-300x44.png 300w, /wp-content/uploads/2018/05/word-image-1210-768x112.png 768w, /wp-content/uploads/2018/05/word-image-1210-1024x150.png 1024w" sizes="(max-width: 1101px) 100vw, 1101px" /></p>
+<p>脚下留心：如果图片保存就不需要写header().</p>
+<h3>imagecolorallocate()</h3>
+<p>给图片分配颜色，默认第一个分配的颜色是背景色，返回的是颜色的编号</p>
+<p><img loading="lazy" decoding="async" width="998" height="143" class="wp-image-1371" src="/wp-content/uploads/2018/05/word-image-1211.png" srcset="/wp-content/uploads/2018/05/word-image-1211.png 998w, /wp-content/uploads/2018/05/word-image-1211-300x43.png 300w, /wp-content/uploads/2018/05/word-image-1211-768x110.png 768w" sizes="(max-width: 998px) 100vw, 998px" /></p>
+<p>返回的是颜色的索引编号</p>
+<p><img loading="lazy" decoding="async" width="820" height="107" class="wp-image-1372" src="/wp-content/uploads/2018/05/word-image-1212.png" srcset="/wp-content/uploads/2018/05/word-image-1212.png 820w, /wp-content/uploads/2018/05/word-image-1212-300x39.png 300w, /wp-content/uploads/2018/05/word-image-1212-768x100.png 768w" sizes="(max-width: 820px) 100vw, 820px" /></p>
+<h2>画图</h2>
+<h3>直线</h3>
+<p><img loading="lazy" decoding="async" width="636" height="109" class="wp-image-1373" src="/wp-content/uploads/2018/05/word-image-1213.png" srcset="/wp-content/uploads/2018/05/word-image-1213.png 636w, /wp-content/uploads/2018/05/word-image-1213-300x51.png 300w" sizes="(max-width: 636px) 100vw, 636px" /></p>
+<p>例题</p>
+<p><img loading="lazy" decoding="async" width="1068" height="138" class="wp-image-1374" src="/wp-content/uploads/2018/05/word-image-1214.png" srcset="/wp-content/uploads/2018/05/word-image-1214.png 1068w, /wp-content/uploads/2018/05/word-image-1214-300x39.png 300w, /wp-content/uploads/2018/05/word-image-1214-768x99.png 768w, /wp-content/uploads/2018/05/word-image-1214-1024x132.png 1024w" sizes="(max-width: 1068px) 100vw, 1068px" /></p>
+<h3>矩形</h3>
+<p><img loading="lazy" decoding="async" width="840" height="109" class="wp-image-1375" src="/wp-content/uploads/2018/05/word-image-1215.png" srcset="/wp-content/uploads/2018/05/word-image-1215.png 840w, /wp-content/uploads/2018/05/word-image-1215-300x39.png 300w, /wp-content/uploads/2018/05/word-image-1215-768x100.png 768w" sizes="(max-width: 840px) 100vw, 840px" /></p>
+<p>代码</p>
+<p><img loading="lazy" decoding="async" width="856" height="208" class="wp-image-1376" src="/wp-content/uploads/2018/05/word-image-1216.png" srcset="/wp-content/uploads/2018/05/word-image-1216.png 856w, /wp-content/uploads/2018/05/word-image-1216-300x73.png 300w, /wp-content/uploads/2018/05/word-image-1216-768x187.png 768w" sizes="(max-width: 856px) 100vw, 856px" /></p>
+<h3>圆弧</h3>
+<p><img loading="lazy" decoding="async" width="913" height="138" class="wp-image-1377" src="/wp-content/uploads/2018/05/word-image-1217.png" srcset="/wp-content/uploads/2018/05/word-image-1217.png 913w, /wp-content/uploads/2018/05/word-image-1217-300x45.png 300w, /wp-content/uploads/2018/05/word-image-1217-768x116.png 768w" sizes="(max-width: 913px) 100vw, 913px" /></p>
+<p>例题1</p>
+<p><img loading="lazy" decoding="async" width="1068" height="137" class="wp-image-1378" src="/wp-content/uploads/2018/05/word-image-1218.png" srcset="/wp-content/uploads/2018/05/word-image-1218.png 1068w, /wp-content/uploads/2018/05/word-image-1218-300x38.png 300w, /wp-content/uploads/2018/05/word-image-1218-768x99.png 768w, /wp-content/uploads/2018/05/word-image-1218-1024x131.png 1024w" sizes="(max-width: 1068px) 100vw, 1068px" /></p>
+<p>例题2</p>
+<p><img loading="lazy" decoding="async" width="882" height="149" class="wp-image-1379" src="/wp-content/uploads/2018/05/word-image-1219.png" srcset="/wp-content/uploads/2018/05/word-image-1219.png 882w, /wp-content/uploads/2018/05/word-image-1219-300x51.png 300w, /wp-content/uploads/2018/05/word-image-1219-768x130.png 768w" sizes="(max-width: 882px) 100vw, 882px" /></p>
+<p>例题3</p>
+<p><img loading="lazy" decoding="async" width="879" height="174" class="wp-image-1380" src="/wp-content/uploads/2018/05/word-image-1220.png" srcset="/wp-content/uploads/2018/05/word-image-1220.png 879w, /wp-content/uploads/2018/05/word-image-1220-300x59.png 300w, /wp-content/uploads/2018/05/word-image-1220-768x152.png 768w" sizes="(max-width: 879px) 100vw, 879px" /></p>
+<h3>曲线</h3>
+<p>曲线是由多个像素点组成，画曲线就是画许多像素点</p>
+<p><img loading="lazy" decoding="async" width="629" height="153" class="wp-image-1381" src="/wp-content/uploads/2018/05/word-image-1221.png" srcset="/wp-content/uploads/2018/05/word-image-1221.png 629w, /wp-content/uploads/2018/05/word-image-1221-300x73.png 300w" sizes="(max-width: 629px) 100vw, 629px" /></p>
+<p>例题</p>
+<p><img loading="lazy" decoding="async" width="978" height="198" class="wp-image-1382" src="/wp-content/uploads/2018/05/word-image-1222.png" srcset="/wp-content/uploads/2018/05/word-image-1222.png 978w, /wp-content/uploads/2018/05/word-image-1222-300x61.png 300w, /wp-content/uploads/2018/05/word-image-1222-768x155.png 768w" sizes="(max-width: 978px) 100vw, 978px" /></p>
+<h2>验证码</h2>
+<p>验证码可以防止暴力破解，通过排列组合的方式破解用户名和密码。</p>
+<p>验证码由背景图和随机数组成</p>
+<h3>知识点</h3>
+<ol>
+<li>imagestring()</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="914" height="93" class="wp-image-1383" src="/wp-content/uploads/2018/05/word-image-1223.png" srcset="/wp-content/uploads/2018/05/word-image-1223.png 914w, /wp-content/uploads/2018/05/word-image-1223-300x31.png 300w, /wp-content/uploads/2018/05/word-image-1223-768x78.png 768w" sizes="(max-width: 914px) 100vw, 914px" /></p>
+<ol>
+<li>字符串居中</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="502" height="151" class="wp-image-1384" src="/wp-content/uploads/2018/05/word-image-1224.png" srcset="/wp-content/uploads/2018/05/word-image-1224.png 502w, /wp-content/uploads/2018/05/word-image-1224-300x90.png 300w" sizes="(max-width: 502px) 100vw, 502px" /></p>
+<ul>
+<li>
+<ol>
+<li>Imagesx()：获取图片宽度</li>
+<li>Imagesy()：获取图片高度</li>
+<li>Imagefontwidth()：获取图片内置字体的宽度</li>
+<li>Imagefontheight()：获取图片内置字体的高度</li>
+</ol>
+</li>
+</ul>
+<h3>代码</h3>
+<p>&lt;?php</p>
+<p>//第一步：生成随机字符串</p>
+<p>$char_array=array_merge(range(&#8216;a&#8217;,&#8217;z&#8217;),range(&#8216;A&#8217;,&#8217;Z&#8217;),range(0,9)); //字母和数字的数组</p>
+<p>$indexes=array_rand($char_array,4); //随机抽取4个字符，返回字符下标数组</p>
+<p>shuffle($indexes); //打乱数组</p>
+<p>$str=&#8221;;</p>
+<p>foreach($indexes as $i) {</p>
+<p>$str.=$char_array[$i];</p>
+<p>}</p>
+<p>//第二步：将字符串写到背景图</p>
+<p>$img=imagecreate(200,100);</p>
+<p>imagecolorallocate($img,255,0,0); //背景色</p>
+<p>$color=imagecolorallocate($img,255,255,255); //前景色</p>
+<p>$img_w=imagesx($img); //图片宽度</p>
+<p>$img_h=imagesy($img); //图片高度</p>
+<p>$font=5; //内置的5号字体</p>
+<p>$font_w=imagefontwidth($font); //字符宽度</p>
+<p>$font_h=imagefontheight($font); //字符高度</p>
+<p>$x=($img_w-$font_w*strlen($str))/2; //起始点x坐标</p>
+<p>$y=($img_h-$font_h)/2; //起始点y坐标</p>
+<p>imagestring($img,$font,$x,$y,$str,$color); //将字符串写到图片上</p>
+<p>//输出图片</p>
+<p>header(&#8216;Content-Type:image/png&#8217;);</p>
+<p>imagepng($img);</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="465" height="176" class="wp-image-1385" src="/wp-content/uploads/2018/05/word-image-1225.png" srcset="/wp-content/uploads/2018/05/word-image-1225.png 465w, /wp-content/uploads/2018/05/word-image-1225-300x114.png 300w" sizes="(max-width: 465px) 100vw, 465px" /></p>
+<h2>中文验证码</h2>
+<p>Imagestring()不能做中文的验证码，要使用中文做验证码需要使用<a href="mk:@MSITStore:F:\\帮助文档\\php_manual_zh.chm::/res/function.imagettftext.html">imagettftext()</a>。</p>
+<p><img loading="lazy" decoding="async" width="860" height="77" class="wp-image-1386" src="/wp-content/uploads/2018/05/word-image-1226.png" srcset="/wp-content/uploads/2018/05/word-image-1226.png 860w, /wp-content/uploads/2018/05/word-image-1226-300x27.png 300w, /wp-content/uploads/2018/05/word-image-1226-768x69.png 768w" sizes="(max-width: 860px) 100vw, 860px" /></p>
+<p>将字体拷贝到站点下</p>
+<p><img loading="lazy" decoding="async" width="774" height="219" class="wp-image-1387" src="/wp-content/uploads/2018/05/word-image-1227.png" srcset="/wp-content/uploads/2018/05/word-image-1227.png 774w, /wp-content/uploads/2018/05/word-image-1227-300x85.png 300w, /wp-content/uploads/2018/05/word-image-1227-768x217.png 768w" sizes="(max-width: 774px) 100vw, 774px" /></p>
+<h3>知识点</h3>
+<p>获取字体的范围</p>
+<p><img loading="lazy" decoding="async" width="662" height="121" class="wp-image-1388" src="/wp-content/uploads/2018/05/word-image-1228.png" srcset="/wp-content/uploads/2018/05/word-image-1228.png 662w, /wp-content/uploads/2018/05/word-image-1228-300x55.png 300w" sizes="(max-width: 662px) 100vw, 662px" /></p>
+<p>返回值</p>
+<p><img loading="lazy" decoding="async" width="515" height="206" class="wp-image-1389" src="/wp-content/uploads/2018/05/word-image-1229.png" srcset="/wp-content/uploads/2018/05/word-image-1229.png 515w, /wp-content/uploads/2018/05/word-image-1229-300x120.png 300w" sizes="(max-width: 515px) 100vw, 515px" /></p>
+<h3>代码</h3>
+<p>基线</p>
+<p><img loading="lazy" decoding="async" width="536" height="137" class="wp-image-1390" src="/wp-content/uploads/2018/05/word-image-1230.png" srcset="/wp-content/uploads/2018/05/word-image-1230.png 536w, /wp-content/uploads/2018/05/word-image-1230-300x77.png 300w" sizes="(max-width: 536px) 100vw, 536px" /></p>
+<p>代码</p>
+<p>&lt;?php</p>
+<p>$img=imagecreate(200,100);</p>
+<p>imagecolorallocate($img,255,0,0); //背景色</p>
+<p>$color=imagecolorallocate($img,255,255,255); //前景色</p>
+<p>//生成随机中文字符串</p>
+<p>$char_array=[&#8216;锄&#8217;,&#8217;禾&#8217;,&#8217;日&#8217;,&#8217;当&#8217;,&#8217;午&#8217;,&#8217;汗&#8217;,&#8217;滴&#8217;,&#8217;禾&#8217;,&#8217;下&#8217;,&#8217;土&#8217;,&#8217;我&#8217;,&#8217;爱&#8217;,&#8217;北&#8217;,&#8217;京&#8217;,&#8217;天&#8217;,&#8217;安&#8217;,&#8217;门&#8217;];</p>
+<p>$indexes=array_rand($char_array,4); //随机抽取4个字符，返回字符下标数组</p>
+<p>shuffle($indexes); //打乱数组</p>
+<p>$str=&#8221;;</p>
+<p>foreach($indexes as $i) {</p>
+<p>$str.=$char_array[$i];</p>
+<p>}</p>
+<p>//字体参数</p>
+<p>$size=20; //字号</p>
+<p>$angle=0; //角度</p>
+<p>$fontfile=&#8217;./fonts/simhei.ttf&#8217;; //字体</p>
+<p>//获取字体范围</p>
+<p>$info=imagettfbbox($size,$angle,$fontfile,$str); //返回字符串的4个角的坐标4</p>
+<p>$x=(imagesx($img)-($info[4]-$info[6]))/2; //起始X轴</p>
+<p>$y=imagesy($img)/2+($info[1]-$info[7])/3; //起始y轴(字体基线的位置，不是字符的最底端。)</p>
+<p>//将中文写到图片上</p>
+<p>imagettftext($img,$size,$angle,$x,$y,$color,$fontfile,$str);</p>
+<p>//输出图片</p>
+<p>header(&#8216;Content-Type:image/png&#8217;);</p>
+<p>imagepng($img);</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="307" height="181" class="wp-image-1391" src="/wp-content/uploads/2018/05/word-image-1231.png" srcset="/wp-content/uploads/2018/05/word-image-1231.png 307w, /wp-content/uploads/2018/05/word-image-1231-300x177.png 300w" sizes="(max-width: 307px) 100vw, 307px" /></p>
+<h2>打开已有图片实现验证码</h2>
+<h3>打开已经存在的图片创建画布</h3>
+<ol>
+<li>imagecreatefromgif()：打开gif图创建画布</li>
+<li>imagecreatefromjpeg()：打开jpeg图创建画布</li>
+<li>imagecreatefrompng()：打开png图创建画布</li>
+</ol>
+<h3>代码</h3>
+<p>&lt;?php</p>
+<p>//第一步：生成随机字符串</p>
+<p>$char_array=array_merge(range(&#8216;a&#8217;,&#8217;z&#8217;),range(&#8216;A&#8217;,&#8217;Z&#8217;),range(0,9)); //字母和数字的数组</p>
+<p>$indexes=array_rand($char_array,4); //随机抽取4个字符，返回字符下标数组</p>
+<p>shuffle($indexes); //打乱数组</p>
+<p>$str=&#8221;;</p>
+<p>foreach($indexes as $i) {</p>
+<p>$str.=$char_array[$i];</p>
+<p>}</p>
+<p>//第二步：将字符串写到图片上</p>
+<p>$path=&#8217;./captcha/captcha_bg&#8217;.rand(1,5).&#8217;.jpg&#8217;; //图片路径</p>
+<p>$img=imagecreatefromjpeg($path); //打开已经存在的jpeg图</p>
+<p>$color=imagecolorallocate($img,255,0,0); //分配红色</p>
+<p>if(rand(1,2)==1) {</p>
+<p>$color=imagecolorallocate($img,0,255,100); //分配白色</p>
+<p>}</p>
+<p>$img_w=imagesx($img); //图片宽度</p>
+<p>$img_h=imagesy($img); //图片高度</p>
+<p>$font=5; //内置的5号字体</p>
+<p>$font_w=imagefontwidth($font); //字符宽度</p>
+<p>$font_h=imagefontheight($font); //字符高度</p>
+<p>$x=($img_w-$font_w*strlen($str))/2; //起始点x坐标</p>
+<p>$y=($img_h-$font_h)/2; //起始点y坐标</p>
+<p>imagestring($img,$font,$x,$y,$str,$color); //将字符串写到图片上</p>
+<p>//输出图片</p>
+<p>header(&#8216;Content-Type:image/png&#8217;);</p>
+<p>imagepng($img);</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="356" height="92" class="wp-image-1392" src="/wp-content/uploads/2018/05/word-image-1232.png" srcset="/wp-content/uploads/2018/05/word-image-1232.png 356w, /wp-content/uploads/2018/05/word-image-1232-300x78.png 300w" sizes="(max-width: 356px) 100vw, 356px" /></p>
+<h2>添加水印</h2>
+<p>添加水印的目的为了防止被盗图。</p>
+<h3>添加文字水印</h3>
+<p>&lt;?php</p>
+<p>$img=imagecreatefromjpeg(&#8216;./face.jpg&#8217;); //打开原图</p>
+<p>$color=imagecolorallocate($img,255,0,0); //分配颜色</p>
+<p>//字体参数</p>
+<p>$size=40; //字号</p>
+<p>$angle=0; //角度</p>
+<p>$fontfile=&#8217;./fonts/simhei.ttf&#8217;; //字体</p>
+<p>//获取字体范围</p>
+<p>$str=&#8217;传智播客版权&#8217;;</p>
+<p>$info=imagettfbbox($size,$angle,$fontfile,$str); //返回字符串的4个角的坐标4</p>
+<p>$x=imagesx($img)-($info[4]-$info[6]); //起始X轴</p>
+<p>$y=imagesy($img)-($info[1]-$info[7])/3; //起始y轴(字体基线的位置，不是字符的最底端。)</p>
+<p>//将中文写到图片上</p>
+<p>imagettftext($img,$size,$angle,$x,$y,$color,$fontfile,$str);</p>
+<p>//输出图片</p>
+<p>header(&#8216;Content-Type:image/png&#8217;);</p>
+<p>imagepng($img);</p>
+<p><img src="https://s.w.org/images/core/emoji/15.0.3/72x72/1f60e.png" alt="😎" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p><img loading="lazy" decoding="async" width="641" height="212" class="wp-image-1393" src="/wp-content/uploads/2018/05/word-image-1233.png" srcset="/wp-content/uploads/2018/05/word-image-1233.png 641w, /wp-content/uploads/2018/05/word-image-1233-300x99.png 300w" sizes="(max-width: 641px) 100vw, 641px" /></p>
+<h3>添加图片水印</h3>
+<p><img loading="lazy" decoding="async" width="945" height="114" class="wp-image-1394" src="/wp-content/uploads/2018/05/word-image-1234.png" srcset="/wp-content/uploads/2018/05/word-image-1234.png 945w, /wp-content/uploads/2018/05/word-image-1234-300x36.png 300w, /wp-content/uploads/2018/05/word-image-1234-768x93.png 768w" sizes="(max-width: 945px) 100vw, 945px" /></p>
+<h3>代码</h3>
+<p><img loading="lazy" decoding="async" width="965" height="259" class="wp-image-1395" src="/wp-content/uploads/2018/05/word-image-1235.png" srcset="/wp-content/uploads/2018/05/word-image-1235.png 965w, /wp-content/uploads/2018/05/word-image-1235-300x81.png 300w, /wp-content/uploads/2018/05/word-image-1235-768x206.png 768w" sizes="(max-width: 965px) 100vw, 965px" /></p>
+<h2>生成缩略图</h2>
+<p>将大图自动的生成小缩略图</p>
+<p>原图的参数：起始x，起始y，拷贝宽度，拷贝高度</p>
+<p><img loading="lazy" decoding="async" width="583" height="290" class="wp-image-1396" src="/wp-content/uploads/2018/05/word-image-1236.png" srcset="/wp-content/uploads/2018/05/word-image-1236.png 583w, /wp-content/uploads/2018/05/word-image-1236-300x149.png 300w" sizes="(max-width: 583px) 100vw, 583px" /></p>
+<p>目标图的参数：目标图x，目标图y，目标宽度，目标高度</p>
+<p><img loading="lazy" decoding="async" width="581" height="339" class="wp-image-1397" src="/wp-content/uploads/2018/05/word-image-1237.png" srcset="/wp-content/uploads/2018/05/word-image-1237.png 581w, /wp-content/uploads/2018/05/word-image-1237-300x175.png 300w" sizes="(max-width: 581px) 100vw, 581px" /></p>
+<p>使用函数</p>
+<p><img loading="lazy" decoding="async" width="748" height="123" class="wp-image-1398" src="/wp-content/uploads/2018/05/word-image-1238.png" srcset="/wp-content/uploads/2018/05/word-image-1238.png 748w, /wp-content/uploads/2018/05/word-image-1238-300x49.png 300w" sizes="(max-width: 748px) 100vw, 748px" /></p>
+<p>脚下留心：imagecreatetruecolor()和imagecreate()区别</p>
+<p>imagecreatetruecolor()新建一个真彩色图像(RGB模式)，默认背景色黑色</p>
+<p>imagecreate():新建一个基于调色板的图像，只支持256种颜色，默认背景白色</p>
+<p><img loading="lazy" decoding="async" width="1116" height="340" class="wp-image-1399" src="/wp-content/uploads/2018/05/word-image-1239.png" srcset="/wp-content/uploads/2018/05/word-image-1239.png 1116w, /wp-content/uploads/2018/05/word-image-1239-300x91.png 300w, /wp-content/uploads/2018/05/word-image-1239-768x234.png 768w, /wp-content/uploads/2018/05/word-image-1239-1024x312.png 1024w" sizes="(max-width: 1116px) 100vw, 1116px" /></p>
+<h2>给图片填充颜色</h2>
+<p><img loading="lazy" decoding="async" width="764" height="390" class="wp-image-1400" src="/wp-content/uploads/2018/05/word-image-1240.png" srcset="/wp-content/uploads/2018/05/word-image-1240.png 764w, /wp-content/uploads/2018/05/word-image-1240-300x153.png 300w" sizes="(max-width: 764px) 100vw, 764px" /></p>
+<p>深入理解imagefill()</p>
+<p><img loading="lazy" decoding="async" width="867" height="85" class="wp-image-1401" src="/wp-content/uploads/2018/05/word-image-1241.png" srcset="/wp-content/uploads/2018/05/word-image-1241.png 867w, /wp-content/uploads/2018/05/word-image-1241-300x29.png 300w, /wp-content/uploads/2018/05/word-image-1241-768x75.png 768w" sizes="(max-width: 867px) 100vw, 867px" /></p>
+<p>例题</p>
+<p><img loading="lazy" decoding="async" width="799" height="198" class="wp-image-1402" src="/wp-content/uploads/2018/05/word-image-1242.png" srcset="/wp-content/uploads/2018/05/word-image-1242.png 799w, /wp-content/uploads/2018/05/word-image-1242-300x74.png 300w, /wp-content/uploads/2018/05/word-image-1242-768x190.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+<h2>关于图片处理的改错</h2>
+<h3>第一：如果报错，就按报错的信息更改</h3>
+<p><img loading="lazy" decoding="async" width="1048" height="197" class="wp-image-1403" src="/wp-content/uploads/2018/05/word-image-1243.png" srcset="/wp-content/uploads/2018/05/word-image-1243.png 1048w, /wp-content/uploads/2018/05/word-image-1243-300x56.png 300w, /wp-content/uploads/2018/05/word-image-1243-768x144.png 768w, /wp-content/uploads/2018/05/word-image-1243-1024x192.png 1024w" sizes="(max-width: 1048px) 100vw, 1048px" /></p>
+<h3>第二：不报错，但是图片显示不出来</h3>
+<p><img loading="lazy" decoding="async" width="855" height="202" class="wp-image-1404" src="/wp-content/uploads/2018/05/word-image-1244.png" srcset="/wp-content/uploads/2018/05/word-image-1244.png 855w, /wp-content/uploads/2018/05/word-image-1244-300x71.png 300w, /wp-content/uploads/2018/05/word-image-1244-768x181.png 768w" sizes="(max-width: 855px) 100vw, 855px" /></p>
+<p>注释header()，查看错误</p>
+<p><img loading="lazy" decoding="async" width="1019" height="197" class="wp-image-1405" src="/wp-content/uploads/2018/05/word-image-1245.png" srcset="/wp-content/uploads/2018/05/word-image-1245.png 1019w, /wp-content/uploads/2018/05/word-image-1245-300x58.png 300w, /wp-content/uploads/2018/05/word-image-1245-768x148.png 768w" sizes="(max-width: 1019px) 100vw, 1019px" /></p>
+<p>第三：注释header()如果没有报错，就查看源码</p>
+<p><img loading="lazy" decoding="async" width="1154" height="264" class="wp-image-1406" src="/wp-content/uploads/2018/05/word-image-1246.png" srcset="/wp-content/uploads/2018/05/word-image-1246.png 1154w, /wp-content/uploads/2018/05/word-image-1246-300x69.png 300w, /wp-content/uploads/2018/05/word-image-1246-768x176.png 768w, /wp-content/uploads/2018/05/word-image-1246-1024x234.png 1024w" sizes="(max-width: 1154px) 100vw, 1154px" /><br />
+<img loading="lazy" decoding="async" width="1127" height="246" class="wp-image-1407" src="/wp-content/uploads/2018/05/word-image-1247.png" srcset="/wp-content/uploads/2018/05/word-image-1247.png 1127w, /wp-content/uploads/2018/05/word-image-1247-300x65.png 300w, /wp-content/uploads/2018/05/word-image-1247-768x168.png 768w, /wp-content/uploads/2018/05/word-image-1247-1024x224.png 1024w" sizes="(max-width: 1127px) 100vw, 1127px" /></p>
+<h3>第三：终极一招，ob_clean()</h3>
+<p>如果上面的方法都没有效果，可以尝试ob_clean()</p>
+<p>原理：图片输出之前不能有任何字符的输出，ob_clean()情况缓存中所有输出。</p>
+<p><img loading="lazy" decoding="async" width="873" height="238" class="wp-image-1408" src="/wp-content/uploads/2018/05/word-image-1248.png" srcset="/wp-content/uploads/2018/05/word-image-1248.png 873w, /wp-content/uploads/2018/05/word-image-1248-300x82.png 300w, /wp-content/uploads/2018/05/word-image-1248-768x209.png 768w" sizes="(max-width: 873px) 100vw, 873px" /></p>
+<h2>思考题</h2>
+<p>制作等比缩略图</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/php%e6%a0%b8%e5%bf%83%e7%bc%96%e7%a8%8b/1363.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

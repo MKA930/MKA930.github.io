@@ -1,0 +1,4892 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>PHP基本语法 &#8211; 个人随笔</title>
+	<atom:link href="/classify/php/php%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sun, 20 May 2018 01:23:34 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>PHP基本语法 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>PHP 简介与环境搭建  分布式部署、 虚拟主机</title>
+		<link>/php/576.html</link>
+					<comments>/php/576.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 16:49:54 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP基本语法]]></category>
+		<category><![CDATA[PHP 环境搭建]]></category>
+		<category><![CDATA[分布式部署]]></category>
+		<category><![CDATA[虚拟主机]]></category>
+		<guid isPermaLink="false">/?p=576</guid>
+
+					<description><![CDATA[PHP简介与环境搭建 PHP简介 PHP（“PHP: Hypertext Preprocessor”，超文本预 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>PHP简介与环境搭建</h1>
+<h2>PHP简介</h2>
+<ol>
+<li>PHP（“PHP: Hypertext Preprocessor”，超文本预处理器）</li>
+<li>PHP是一门运行在服务器端的脚本语言</li>
+</ol>
+<h3>lamp组合</h3>
+<p>Linux：开源的操作系统</p>
+<p>Apache：阿帕奇，给PHP的运行提供了运行环境，这是一个开源的软件</p>
+<p>PHP：开源的运行在服务器端的脚本语言</p>
+<p>MySQL：开源的数据库，用来保存数据</p>
+<p>思考：wamp组合是什么？</p>
+<p>答：windows+apche+mysql+php</p>
+<p>思考：PHP的运行我们需要安装apache，为什么HTML,CSS,JS的运行我们没有安装环境</p>
+<p>答：首页HTML,CSS,JS的运行是需要环境的，这三门语言是通过浏览器去解析执行的，所以浏览器为这三门语言提供了运行环境。</p>
+<p><img fetchpriority="high" decoding="async" width="724" height="167" class="wp-image-578" src="/wp-content/uploads/2018/05/word-image-490.png" srcset="/wp-content/uploads/2018/05/word-image-490.png 724w, /wp-content/uploads/2018/05/word-image-490-300x69.png 300w" sizes="(max-width: 724px) 100vw, 724px" /></p>
+<h2>六组概念</h2>
+<h3>客户端和服务器端</h3>
+<p>服务器端：从广义来说：用来保存数据并且为客户端提供服务的计算机；狭义上的服务器就是Apache。</p>
+<p>客户端：用来请求服务器端数据的计算机。</p>
+<p>思考：用新浪服务器上的浏览器访问新浪网站，客户端和服务器端是什么？</p>
+<p>答：这台计算机既做客户端也做服务器端。</p>
+<h3>静态网站和动态网站</h3>
+<p>网页：一个页面 网站：很多页面的组合</p>
+<p><strong>静态网站：</strong>没有能力进行数据交互的网站，.html就是静态页面</p>
+<p>缺点：不能做数据交互</p>
+<p>优点：因为服务器端不执行，所以执行效率最高</p>
+<p><strong>动态网站：</strong>可以进行数据交互的网站</p>
+<p>优点：可以进行数据交互</p>
+<p>缺点：因为服务器端要执行，所以执行效率偏低</p>
+<p>思考：动态网站中是否存在静态页面？</p>
+<p>答：可以的</p>
+<p>实现动态网站的技术</p>
+<table>
+<tbody>
+<tr>
+<td>实现技术</td>
+<td>页面后缀</td>
+</tr>
+<tr>
+<td>asp技术</td>
+<td>.asp，这个技术已经被淘汰</td>
+</tr>
+<tr>
+<td>PHP技术</td>
+<td>.php</td>
+</tr>
+<tr>
+<td>.net技术</td>
+<td>.aspx</td>
+</tr>
+<tr>
+<td>Java技术</td>
+<td>.jsp</td>
+</tr>
+</tbody>
+</table>
+<p>现在最常用的是php技术和java技术</p>
+<p><img decoding="async" width="642" height="51" class="wp-image-579" src="/wp-content/uploads/2018/05/word-image-491.png" srcset="/wp-content/uploads/2018/05/word-image-491.png 642w, /wp-content/uploads/2018/05/word-image-491-300x24.png 300w" sizes="(max-width: 642px) 100vw, 642px" /> <img decoding="async" width="615" height="55" class="wp-image-580" src="/wp-content/uploads/2018/05/word-image-492.png" srcset="/wp-content/uploads/2018/05/word-image-492.png 615w, /wp-content/uploads/2018/05/word-image-492-300x27.png 300w" sizes="(max-width: 615px) 100vw, 615px" /> <img loading="lazy" decoding="async" width="520" height="40" class="wp-image-581" src="/wp-content/uploads/2018/05/word-image-493.png" srcset="/wp-content/uploads/2018/05/word-image-493.png 520w, /wp-content/uploads/2018/05/word-image-493-300x23.png 300w" sizes="(max-width: 520px) 100vw, 520px" /> <img loading="lazy" decoding="async" width="474" height="67" class="wp-image-582" src="/wp-content/uploads/2018/05/word-image-494.png" srcset="/wp-content/uploads/2018/05/word-image-494.png 474w, /wp-content/uploads/2018/05/word-image-494-300x42.png 300w" sizes="(max-width: 474px) 100vw, 474px" /></p>
+<h3>BS架构和CS架构</h3>
+<p>B：browser（浏览器）</p>
+<p>S：server（服务器）</p>
+<p>C：client（客户端）</p>
+<p>BS：通过浏览器访问服务器，比如新浪，百度，传智官网</p>
+<p>CS：通过客户端软件访问服务器，比如QQ，微信，股票软件</p>
+<h3>前台和后台</h3>
+<p>前台：给浏览器访问的页面</p>
+<p><img loading="lazy" decoding="async" width="641" height="82" class="wp-image-583" src="/wp-content/uploads/2018/05/word-image-495.png" srcset="/wp-content/uploads/2018/05/word-image-495.png 641w, /wp-content/uploads/2018/05/word-image-495-300x38.png 300w" sizes="(max-width: 641px) 100vw, 641px" /></p>
+<p>后台：管理员操作的页面</p>
+<p><img loading="lazy" decoding="async" width="1114" height="344" class="wp-image-584" src="/wp-content/uploads/2018/05/word-image-496.png" srcset="/wp-content/uploads/2018/05/word-image-496.png 1114w, /wp-content/uploads/2018/05/word-image-496-300x93.png 300w, /wp-content/uploads/2018/05/word-image-496-768x237.png 768w, /wp-content/uploads/2018/05/word-image-496-1024x316.png 1024w" sizes="(max-width: 1114px) 100vw, 1114px" /></p>
+<h3>端口和端口号</h3>
+<p>一个服务器就像一个大楼，大楼中有很多房间，每个房间就是一个端口，端口上的编号成为端口号，端口的编号是从0-65535。</p>
+<p>端口号只有整数，范围是从0 到65535，端口号小于256的定义为常用端口，服务器一般都是通过常用端口号来识别的。所有TCP/IP实现所提供的服务都用1-1023之间，客户端口号因存在时间很短暂又称临时端口号，大多数TCP/IP实现给临时端口号分配1024-5000之间的端口号。大于5000的端口号是为其他服务器预留的</p>
+<p><img loading="lazy" decoding="async" width="574" height="141" class="wp-image-585" src="/wp-content/uploads/2018/05/word-image-497.png" srcset="/wp-content/uploads/2018/05/word-image-497.png 574w, /wp-content/uploads/2018/05/word-image-497-300x74.png 300w" sizes="(max-width: 574px) 100vw, 574px" /></p>
+<h3>IP地址和域名</h3>
+<p>IP：用来区分每台计算机的地址</p>
+<p><img loading="lazy" decoding="async" width="360" height="49" class="wp-image-586" src="/wp-content/uploads/2018/05/word-image-498.png" srcset="/wp-content/uploads/2018/05/word-image-498.png 360w, /wp-content/uploads/2018/05/word-image-498-300x41.png 300w" sizes="(max-width: 360px) 100vw, 360px" /></p>
+<p>域名：一个域名对应一个IP地址，就是IP地址的别名</p>
+<p><img loading="lazy" decoding="async" width="665" height="228" class="wp-image-587" src="/wp-content/uploads/2018/05/word-image-499.png" srcset="/wp-content/uploads/2018/05/word-image-499.png 665w, /wp-content/uploads/2018/05/word-image-499-300x103.png 300w" sizes="(max-width: 665px) 100vw, 665px" /></p>
+<h2>PHP优点</h2>
+<ol>
+<li>开源的，源码开放</li>
+<li>跨平台：PHP既能运行在windows上，也能运行在Linux上</li>
+<li>语法简单，上手快</li>
+</ol>
+<h2>需要用到的DOS命令</h2>
+<h3>打开命令行面板</h3>
+<p>方法一：直接点击命令提示符进入</p>
+<p><img loading="lazy" decoding="async" width="221" height="55" class="wp-image-588" src="/wp-content/uploads/2018/05/word-image-500.png" srcset="/wp-content/uploads/2018/05/word-image-500.png 221w, /wp-content/uploads/2018/05/word-image-500-220x55.png 220w" sizes="(max-width: 221px) 100vw, 221px" /></p>
+<p>方法二：花键+R，打开运行面板，输入cmd，点击确定</p>
+<p><img loading="lazy" decoding="async" width="411" height="230" class="wp-image-589" src="/wp-content/uploads/2018/05/word-image-501.png" srcset="/wp-content/uploads/2018/05/word-image-501.png 411w, /wp-content/uploads/2018/05/word-image-501-300x168.png 300w" sizes="(max-width: 411px) 100vw, 411px" /></p>
+<h3>两个命令</h3>
+<p><img loading="lazy" decoding="async" width="586" height="175" class="wp-image-590" src="/wp-content/uploads/2018/05/word-image-502.png" srcset="/wp-content/uploads/2018/05/word-image-502.png 586w, /wp-content/uploads/2018/05/word-image-502-300x90.png 300w" sizes="(max-width: 586px) 100vw, 586px" /></p>
+<h2>安装Apache</h2>
+<p>apache默认的端口是80。</p>
+<h3>查看80端口是否被占用</h3>
+<p>通过netstat –ano查看端口占用情况</p>
+<p><img loading="lazy" decoding="async" width="810" height="281" class="wp-image-591" src="/wp-content/uploads/2018/05/word-image-503.png" srcset="/wp-content/uploads/2018/05/word-image-503.png 810w, /wp-content/uploads/2018/05/word-image-503-300x104.png 300w, /wp-content/uploads/2018/05/word-image-503-768x266.png 768w" sizes="(max-width: 810px) 100vw, 810px" /></p>
+<p>如果80端口被占用，</p>
+<p>方法一（关闭占用80端口的进程）：通过进程编号（PID）查看一下是哪个进程占用了80端口，通过PID在任务管理器中找到对应的进程或服务，右键关闭对应的进程或服务即可。</p>
+<p>方法二：更改Apache的运行端口。</p>
+<p>&nbsp;</p>
+<p><img loading="lazy" decoding="async" width="502" height="180" class="wp-image-592" src="/wp-content/uploads/2018/05/word-image-504.png" srcset="/wp-content/uploads/2018/05/word-image-504.png 502w, /wp-content/uploads/2018/05/word-image-504-300x108.png 300w" sizes="(max-width: 502px) 100vw, 502px" /></p>
+<h3>获取Apache的安装文件</h3>
+<p><img loading="lazy" decoding="async" width="256" height="20" class="wp-image-593" src="/wp-content/uploads/2018/05/word-image-505.png" /></p>
+<h3>双击安装</h3>
+<ol>
+<li>新建wamp文件夹，用来部署PHP运行环境，</li>
+<li>在wamp文件夹下创建Apache文件夹，用来安装Apache软件</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="550" height="108" class="wp-image-594" src="/wp-content/uploads/2018/05/word-image-506.png" srcset="/wp-content/uploads/2018/05/word-image-506.png 550w, /wp-content/uploads/2018/05/word-image-506-300x59.png 300w" sizes="(max-width: 550px) 100vw, 550px" /></p>
+<ol>
+<li>双击安装</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="507" height="387" class="wp-image-595" src="/wp-content/uploads/2018/05/word-image-507.png" srcset="/wp-content/uploads/2018/05/word-image-507.png 507w, /wp-content/uploads/2018/05/word-image-507-300x229.png 300w" sizes="(max-width: 507px) 100vw, 507px" /> <img loading="lazy" decoding="async" width="510" height="388" class="wp-image-596" src="/wp-content/uploads/2018/05/word-image-508.png" srcset="/wp-content/uploads/2018/05/word-image-508.png 510w, /wp-content/uploads/2018/05/word-image-508-300x228.png 300w" sizes="(max-width: 510px) 100vw, 510px" /> <img loading="lazy" decoding="async" width="513" height="389" class="wp-image-597" src="/wp-content/uploads/2018/05/word-image-509.png" srcset="/wp-content/uploads/2018/05/word-image-509.png 513w, /wp-content/uploads/2018/05/word-image-509-300x227.png 300w" sizes="(max-width: 513px) 100vw, 513px" /> <img loading="lazy" decoding="async" width="503" height="389" class="wp-image-598" src="/wp-content/uploads/2018/05/word-image-510.png" srcset="/wp-content/uploads/2018/05/word-image-510.png 503w, /wp-content/uploads/2018/05/word-image-510-300x232.png 300w" sizes="(max-width: 503px) 100vw, 503px" /> <img loading="lazy" decoding="async" width="502" height="384" class="wp-image-599" src="/wp-content/uploads/2018/05/word-image-511.png" srcset="/wp-content/uploads/2018/05/word-image-511.png 502w, /wp-content/uploads/2018/05/word-image-511-300x229.png 300w" sizes="(max-width: 502px) 100vw, 502px" /> <img loading="lazy" decoding="async" width="506" height="382" class="wp-image-600" src="/wp-content/uploads/2018/05/word-image-512.png" srcset="/wp-content/uploads/2018/05/word-image-512.png 506w, /wp-content/uploads/2018/05/word-image-512-300x226.png 300w" sizes="(max-width: 506px) 100vw, 506px" /> <img loading="lazy" decoding="async" width="500" height="380" class="wp-image-601" src="/wp-content/uploads/2018/05/word-image-513.png" srcset="/wp-content/uploads/2018/05/word-image-513.png 500w, /wp-content/uploads/2018/05/word-image-513-300x228.png 300w" sizes="(max-width: 500px) 100vw, 500px" /> <img loading="lazy" decoding="async" width="508" height="388" class="wp-image-602" src="/wp-content/uploads/2018/05/word-image-514.png" srcset="/wp-content/uploads/2018/05/word-image-514.png 508w, /wp-content/uploads/2018/05/word-image-514-300x229.png 300w" sizes="(max-width: 508px) 100vw, 508px" /></p>
+<p>安装完毕后，在状态栏的右下角出现如下图标</p>
+<p><img loading="lazy" decoding="async" width="220" height="68" class="wp-image-603" src="/wp-content/uploads/2018/05/word-image-515.png" /></p>
+<h3>测试Apache服务器是否安装成功</h3>
+<p>访问服务器语法：<a href="http://IP/" class="broken_link">http://IP/</a>地址[:端口号]</p>
+<p>127.0.0.1表示本地电脑，也可以写成localhost（local：本地 host：主机）</p>
+<p>比如：<a href="http://127.0.0.1/">http://127.0.0.1/</a>:80</p>
+<p>在浏览器中输入<a href="http://127.0.0.1/">http://127.0.0.1/</a>[:端口号]或者<a href="http://localhost/" class="broken_link">http://localhost/</a>[:端口号]显示it works表示apache运行正常</p>
+<p><img loading="lazy" decoding="async" width="576" height="117" class="wp-image-604" src="/wp-content/uploads/2018/05/word-image-516.png" srcset="/wp-content/uploads/2018/05/word-image-516.png 576w, /wp-content/uploads/2018/05/word-image-516-300x61.png 300w" sizes="(max-width: 576px) 100vw, 576px" /> <img loading="lazy" decoding="async" width="594" height="112" class="wp-image-605" src="/wp-content/uploads/2018/05/word-image-517.png" srcset="/wp-content/uploads/2018/05/word-image-517.png 594w, /wp-content/uploads/2018/05/word-image-517-300x57.png 300w" sizes="(max-width: 594px) 100vw, 594px" /></p>
+<h3>Apache的启动\关闭\重启操作</h3>
+<p>方法一：鼠标左键点击Apache图标</p>
+<p><img loading="lazy" decoding="async" width="390" height="99" class="wp-image-606" src="/wp-content/uploads/2018/05/word-image-518.png" srcset="/wp-content/uploads/2018/05/word-image-518.png 390w, /wp-content/uploads/2018/05/word-image-518-300x76.png 300w" sizes="(max-width: 390px) 100vw, 390px" /></p>
+<p>方法二：鼠标右键Apache图标</p>
+<p><img loading="lazy" decoding="async" width="343" height="80" class="wp-image-607" src="/wp-content/uploads/2018/05/word-image-519.png" srcset="/wp-content/uploads/2018/05/word-image-519.png 343w, /wp-content/uploads/2018/05/word-image-519-300x70.png 300w" sizes="(max-width: 343px) 100vw, 343px" /> <img loading="lazy" decoding="async" width="532" height="322" class="wp-image-608" src="/wp-content/uploads/2018/05/word-image-520.png" srcset="/wp-content/uploads/2018/05/word-image-520.png 532w, /wp-content/uploads/2018/05/word-image-520-300x182.png 300w" sizes="(max-width: 532px) 100vw, 532px" /></p>
+<p>方法三：在控制面板——管理工具——服务</p>
+<p><img loading="lazy" decoding="async" width="769" height="262" class="wp-image-609" src="/wp-content/uploads/2018/05/word-image-521.png" srcset="/wp-content/uploads/2018/05/word-image-521.png 769w, /wp-content/uploads/2018/05/word-image-521-300x102.png 300w, /wp-content/uploads/2018/05/word-image-521-768x262.png 768w" sizes="(max-width: 769px) 100vw, 769px" /> <img loading="lazy" decoding="async" width="604" height="348" class="wp-image-610" src="/wp-content/uploads/2018/05/word-image-522.png" srcset="/wp-content/uploads/2018/05/word-image-522.png 604w, /wp-content/uploads/2018/05/word-image-522-300x173.png 300w" sizes="(max-width: 604px) 100vw, 604px" /></p>
+<p>方法四：通过apache命令，Apache的命令在bin目录中</p>
+<p>在wamp\Apache\bin目录中，有一个httpd.exe文件，这个文件用来执行Apache的命令。</p>
+<p><img loading="lazy" decoding="async" width="723" height="407" class="wp-image-611" src="/wp-content/uploads/2018/05/word-image-523.png" srcset="/wp-content/uploads/2018/05/word-image-523.png 723w, /wp-content/uploads/2018/05/word-image-523-300x169.png 300w" sizes="(max-width: 723px) 100vw, 723px" /></p>
+<p>在命令行中通过Apache的命令来控制服务</p>
+<p><img loading="lazy" decoding="async" width="744" height="308" class="wp-image-612" src="/wp-content/uploads/2018/05/word-image-524.png" srcset="/wp-content/uploads/2018/05/word-image-524.png 744w, /wp-content/uploads/2018/05/word-image-524-300x124.png 300w" sizes="(max-width: 744px) 100vw, 744px" /></p>
+<p>脚下留心：在安装apache的路径不能出现中文</p>
+<p><img loading="lazy" decoding="async" width="386" height="63" class="wp-image-613" src="/wp-content/uploads/2018/05/word-image-525.png" srcset="/wp-content/uploads/2018/05/word-image-525.png 386w, /wp-content/uploads/2018/05/word-image-525-300x49.png 300w" sizes="(max-width: 386px) 100vw, 386px" /></p>
+<h3>配置环境变量</h3>
+<p>我们现在执行httpd指令必须到apache/bin目录下，如果我们配置了环境变量就可以在任意的目录下执行httpd指令</p>
+<p>第一步：我的电脑——右键</p>
+<p><img loading="lazy" decoding="async" width="666" height="302" class="wp-image-614" src="/wp-content/uploads/2018/05/word-image-526.png" srcset="/wp-content/uploads/2018/05/word-image-526.png 666w, /wp-content/uploads/2018/05/word-image-526-300x136.png 300w" sizes="(max-width: 666px) 100vw, 666px" /></p>
+<p>第二步：点击“高级系统设置”</p>
+<p><img loading="lazy" decoding="async" width="540" height="186" class="wp-image-615" src="/wp-content/uploads/2018/05/word-image-527.png" srcset="/wp-content/uploads/2018/05/word-image-527.png 540w, /wp-content/uploads/2018/05/word-image-527-300x103.png 300w" sizes="(max-width: 540px) 100vw, 540px" /></p>
+<p>第三步：点击“环境变量”</p>
+<p><img loading="lazy" decoding="async" width="476" height="514" class="wp-image-616" src="/wp-content/uploads/2018/05/word-image-528.png" srcset="/wp-content/uploads/2018/05/word-image-528.png 476w, /wp-content/uploads/2018/05/word-image-528-278x300.png 278w" sizes="(max-width: 476px) 100vw, 476px" /></p>
+<p>第四步：选中Path，点击“编辑”</p>
+<p><img loading="lazy" decoding="async" width="448" height="477" class="wp-image-617" src="/wp-content/uploads/2018/05/word-image-529.png" srcset="/wp-content/uploads/2018/05/word-image-529.png 448w, /wp-content/uploads/2018/05/word-image-529-282x300.png 282w" sizes="(max-width: 448px) 100vw, 448px" /></p>
+<p>第五步：将httpd.exe文件所在的目录添加到path中</p>
+<p><img loading="lazy" decoding="async" width="396" height="172" class="wp-image-618" src="/wp-content/uploads/2018/05/word-image-530.png" srcset="/wp-content/uploads/2018/05/word-image-530.png 396w, /wp-content/uploads/2018/05/word-image-530-300x130.png 300w" sizes="(max-width: 396px) 100vw, 396px" /></p>
+<p><strong>测试：</strong></p>
+<p>重新开启命令行</p>
+<p><img loading="lazy" decoding="async" width="582" height="76" class="wp-image-619" src="/wp-content/uploads/2018/05/word-image-531.png" srcset="/wp-content/uploads/2018/05/word-image-531.png 582w, /wp-content/uploads/2018/05/word-image-531-300x39.png 300w" sizes="(max-width: 582px) 100vw, 582px" /></p>
+<p>执行原理：</p>
+<ol>
+<li>首先在当前目录下寻找httpd指令,如果有就执行，如果没有就到环境变量的Path中去找</li>
+<li>Path中的每个路径之间用分号隔开，从左往右依次寻找。</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="380" height="83" class="wp-image-620" src="/wp-content/uploads/2018/05/word-image-532.png" srcset="/wp-content/uploads/2018/05/word-image-532.png 380w, /wp-content/uploads/2018/05/word-image-532-300x66.png 300w" sizes="(max-width: 380px) 100vw, 380px" /></p>
+<h3>apache的目录结构</h3>
+<p><img loading="lazy" decoding="async" width="593" height="261" class="wp-image-621" src="/wp-content/uploads/2018/05/word-image-533.png" srcset="/wp-content/uploads/2018/05/word-image-533.png 593w, /wp-content/uploads/2018/05/word-image-533-300x132.png 300w" sizes="(max-width: 593px) 100vw, 593px" /></p>
+<p>Apache的配置文件</p>
+<p><img loading="lazy" decoding="async" width="487" height="157" class="wp-image-622" src="/wp-content/uploads/2018/05/word-image-534.png" srcset="/wp-content/uploads/2018/05/word-image-534.png 487w, /wp-content/uploads/2018/05/word-image-534-300x97.png 300w" sizes="(max-width: 487px) 100vw, 487px" /></p>
+<h3>Apache启动过程</h3>
+<p><img loading="lazy" decoding="async" width="781" height="446" class="wp-image-623" src="/wp-content/uploads/2018/05/word-image-535.png" srcset="/wp-content/uploads/2018/05/word-image-535.png 781w, /wp-content/uploads/2018/05/word-image-535-300x171.png 300w, /wp-content/uploads/2018/05/word-image-535-768x439.png 768w" sizes="(max-width: 781px) 100vw, 781px" /></p>
+<p>所以更改Apache的配置文件后要重新启动服务器</p>
+<h3>Apache三个常用的命令</h3>
+<p>httpd -v：显示apache的版本</p>
+<p><img loading="lazy" decoding="async" width="644" height="68" class="wp-image-624" src="/wp-content/uploads/2018/05/word-image-536.png" srcset="/wp-content/uploads/2018/05/word-image-536.png 644w, /wp-content/uploads/2018/05/word-image-536-300x32.png 300w" sizes="(max-width: 644px) 100vw, 644px" /></p>
+<p>httpd -t，用来检测apache的配置有无错误</p>
+<p><img loading="lazy" decoding="async" width="1022" height="86" class="wp-image-625" src="/wp-content/uploads/2018/05/word-image-537.png" srcset="/wp-content/uploads/2018/05/word-image-537.png 1022w, /wp-content/uploads/2018/05/word-image-537-300x25.png 300w, /wp-content/uploads/2018/05/word-image-537-768x65.png 768w" sizes="(max-width: 1022px) 100vw, 1022px" /></p>
+<p>httpd -M：显示加载的模块</p>
+<p><img loading="lazy" decoding="async" width="689" height="225" class="wp-image-626" src="/wp-content/uploads/2018/05/word-image-538.png" srcset="/wp-content/uploads/2018/05/word-image-538.png 689w, /wp-content/uploads/2018/05/word-image-538-300x98.png 300w" sizes="(max-width: 689px) 100vw, 689px" /></p>
+<p><strong>解决服务器名的问题</strong></p>
+<p><img loading="lazy" decoding="async" width="1010" height="81" class="wp-image-627" src="/wp-content/uploads/2018/05/word-image-539.png" srcset="/wp-content/uploads/2018/05/word-image-539.png 1010w, /wp-content/uploads/2018/05/word-image-539-300x24.png 300w, /wp-content/uploads/2018/05/word-image-539-768x62.png 768w" sizes="(max-width: 1010px) 100vw, 1010px" /></p>
+<p>打开httpd.conf配置文件</p>
+<p><img loading="lazy" decoding="async" width="596" height="29" class="wp-image-628" src="/wp-content/uploads/2018/05/word-image-540.png" srcset="/wp-content/uploads/2018/05/word-image-540.png 596w, /wp-content/uploads/2018/05/word-image-540-300x15.png 300w" sizes="(max-width: 596px) 100vw, 596px" /></p>
+<p>保存，并重启服务器</p>
+<p><img loading="lazy" decoding="async" width="576" height="53" class="wp-image-629" src="/wp-content/uploads/2018/05/word-image-541.png" srcset="/wp-content/uploads/2018/05/word-image-541.png 576w, /wp-content/uploads/2018/05/word-image-541-300x28.png 300w" sizes="(max-width: 576px) 100vw, 576px" /></p>
+<h3>Apache配置文件语法</h3>
+<ul>
+<li>配置文件中的指令是不区分大小写的</li>
+<li>指令的参数(argument) 是区分大小写的</li>
+<li>&#8220;#&#8221;是注解</li>
+</ul>
+<h2>PHP安装</h2>
+<h3>获取安装包</h3>
+<p><img loading="lazy" decoding="async" width="188" height="18" class="wp-image-630" src="/wp-content/uploads/2018/05/word-image-542.png" /></p>
+<p>将安装包拷贝WAMP下，并改名为php</p>
+<p><img loading="lazy" decoding="async" width="513" height="112" class="wp-image-631" src="/wp-content/uploads/2018/05/word-image-543.png" srcset="/wp-content/uploads/2018/05/word-image-543.png 513w, /wp-content/uploads/2018/05/word-image-543-300x65.png 300w" sizes="(max-width: 513px) 100vw, 513px" /></p>
+<p>到此，PHP安装完毕！</p>
+<h3>判断PHP版本</h3>
+<p><img loading="lazy" decoding="async" width="683" height="86" class="wp-image-632" src="/wp-content/uploads/2018/05/word-image-544.png" srcset="/wp-content/uploads/2018/05/word-image-544.png 683w, /wp-content/uploads/2018/05/word-image-544-300x38.png 300w" sizes="(max-width: 683px) 100vw, 683px" /></p>
+<h3>将PHP作为一个模块提供给apache加载</h3>
+<p>现在PHP和Apache之间是没有关联的，我们要让Apache启动的时候加载PHP</p>
+<p><img loading="lazy" decoding="async" width="847" height="406" class="wp-image-633" src="/wp-content/uploads/2018/05/word-image-545.png" srcset="/wp-content/uploads/2018/05/word-image-545.png 847w, /wp-content/uploads/2018/05/word-image-545-300x144.png 300w, /wp-content/uploads/2018/05/word-image-545-768x368.png 768w" sizes="(max-width: 847px) 100vw, 847px" /></p>
+<p>打开httpd.conf文件，添加导入模块的指令</p>
+<p><img loading="lazy" decoding="async" width="962" height="88" class="wp-image-634" src="/wp-content/uploads/2018/05/word-image-546.png" srcset="/wp-content/uploads/2018/05/word-image-546.png 962w, /wp-content/uploads/2018/05/word-image-546-300x27.png 300w, /wp-content/uploads/2018/05/word-image-546-768x70.png 768w" sizes="(max-width: 962px) 100vw, 962px" /></p>
+<p>重启服务器，测试加载是否成功（httpd -t）</p>
+<p><img loading="lazy" decoding="async" width="567" height="43" class="wp-image-635" src="/wp-content/uploads/2018/05/word-image-547.png" srcset="/wp-content/uploads/2018/05/word-image-547.png 567w, /wp-content/uploads/2018/05/word-image-547-300x23.png 300w" sizes="(max-width: 567px) 100vw, 567px" /></p>
+<p>具体代码参加帮助文档</p>
+<p><img loading="lazy" decoding="async" width="1143" height="375" class="wp-image-636" src="/wp-content/uploads/2018/05/word-image-548.png" srcset="/wp-content/uploads/2018/05/word-image-548.png 1143w, /wp-content/uploads/2018/05/word-image-548-300x98.png 300w, /wp-content/uploads/2018/05/word-image-548-768x252.png 768w, /wp-content/uploads/2018/05/word-image-548-1024x336.png 1024w" sizes="(max-width: 1143px) 100vw, 1143px" /></p>
+<p>测试：</p>
+<p>在htdocs文件夹下写个test.php页面</p>
+<p><img loading="lazy" decoding="async" width="488" height="100" class="wp-image-637" src="/wp-content/uploads/2018/05/word-image-549.png" srcset="/wp-content/uploads/2018/05/word-image-549.png 488w, /wp-content/uploads/2018/05/word-image-549-300x61.png 300w" sizes="(max-width: 488px) 100vw, 488px" /></p>
+<p>代码如下：</p>
+<p><img loading="lazy" decoding="async" width="447" height="79" class="wp-image-638" src="/wp-content/uploads/2018/05/word-image-550.png" srcset="/wp-content/uploads/2018/05/word-image-550.png 447w, /wp-content/uploads/2018/05/word-image-550-300x53.png 300w" sizes="(max-width: 447px) 100vw, 447px" /></p>
+<p>保存，并运行</p>
+<p><img loading="lazy" decoding="async" width="658" height="138" class="wp-image-639" src="/wp-content/uploads/2018/05/word-image-551.png" srcset="/wp-content/uploads/2018/05/word-image-551.png 658w, /wp-content/uploads/2018/05/word-image-551-300x63.png 300w" sizes="(max-width: 658px) 100vw, 658px" /></p>
+<p>原因：因为PHP模块不知道要在什么情况下去执行。</p>
+<h3>在请求PHP页面的时候调用PHP模块</h3>
+<p><img loading="lazy" decoding="async" width="921" height="75" class="wp-image-640" src="/wp-content/uploads/2018/05/word-image-552.png" srcset="/wp-content/uploads/2018/05/word-image-552.png 921w, /wp-content/uploads/2018/05/word-image-552-300x24.png 300w, /wp-content/uploads/2018/05/word-image-552-768x63.png 768w" sizes="(max-width: 921px) 100vw, 921px" /></p>
+<p>思考：如何执行HTML页面中PHP代码</p>
+<p><img loading="lazy" decoding="async" width="818" height="31" class="wp-image-641" src="/wp-content/uploads/2018/05/word-image-553.png" srcset="/wp-content/uploads/2018/05/word-image-553.png 818w, /wp-content/uploads/2018/05/word-image-553-300x11.png 300w, /wp-content/uploads/2018/05/word-image-553-768x29.png 768w" sizes="(max-width: 818px) 100vw, 818px" /></p>
+<h3>加载PHP配置文件</h3>
+<p>PHP的加载原理和Apache一样，也是先读取配置文件，然后加载各个模块（扩展）。</p>
+<p><img loading="lazy" decoding="async" width="709" height="109" class="wp-image-642" src="/wp-content/uploads/2018/05/word-image-554.png" srcset="/wp-content/uploads/2018/05/word-image-554.png 709w, /wp-content/uploads/2018/05/word-image-554-300x46.png 300w" sizes="(max-width: 709px) 100vw, 709px" /></p>
+<p>第一步：打开PHP目录</p>
+<p><img loading="lazy" decoding="async" width="921" height="415" class="wp-image-643" src="/wp-content/uploads/2018/05/word-image-555.png" srcset="/wp-content/uploads/2018/05/word-image-555.png 921w, /wp-content/uploads/2018/05/word-image-555-300x135.png 300w, /wp-content/uploads/2018/05/word-image-555-768x346.png 768w" sizes="(max-width: 921px) 100vw, 921px" /></p>
+<p>第二步：复制php.ini-development一份，并改名php.ini</p>
+<p><img loading="lazy" decoding="async" width="635" height="64" class="wp-image-644" src="/wp-content/uploads/2018/05/word-image-556.png" srcset="/wp-content/uploads/2018/05/word-image-556.png 635w, /wp-content/uploads/2018/05/word-image-556-300x30.png 300w" sizes="(max-width: 635px) 100vw, 635px" /></p>
+<p>第三步：将php.ini拷贝到c：\windows目录下（不推荐使用）</p>
+<p><img loading="lazy" decoding="async" width="658" height="104" class="wp-image-645" src="/wp-content/uploads/2018/05/word-image-557.png" srcset="/wp-content/uploads/2018/05/word-image-557.png 658w, /wp-content/uploads/2018/05/word-image-557-300x47.png 300w" sizes="(max-width: 658px) 100vw, 658px" /></p>
+<p>推荐方法：通过PHPIniDir指令指定php.ini的目录</p>
+<p><img loading="lazy" decoding="async" width="857" height="79" class="wp-image-646" src="/wp-content/uploads/2018/05/word-image-558.png" srcset="/wp-content/uploads/2018/05/word-image-558.png 857w, /wp-content/uploads/2018/05/word-image-558-300x28.png 300w, /wp-content/uploads/2018/05/word-image-558-768x71.png 768w" sizes="(max-width: 857px) 100vw, 857px" /></p>
+<p>测试结果：</p>
+<p><img loading="lazy" decoding="async" width="389" height="54" class="wp-image-647" src="/wp-content/uploads/2018/05/word-image-559.png" srcset="/wp-content/uploads/2018/05/word-image-559.png 389w, /wp-content/uploads/2018/05/word-image-559-300x42.png 300w" sizes="(max-width: 389px) 100vw, 389px" /></p>
+<h3>设置时区</h3>
+<p>当php.ini成功加载后，发现时区无法加载</p>
+<p><img loading="lazy" decoding="async" width="1347" height="153" class="wp-image-648" src="/wp-content/uploads/2018/05/word-image-560.png" srcset="/wp-content/uploads/2018/05/word-image-560.png 1347w, /wp-content/uploads/2018/05/word-image-560-300x34.png 300w, /wp-content/uploads/2018/05/word-image-560-768x87.png 768w, /wp-content/uploads/2018/05/word-image-560-1024x116.png 1024w" sizes="(max-width: 1347px) 100vw, 1347px" /></p>
+<p>打开php.ini</p>
+<p><img loading="lazy" decoding="async" width="735" height="102" class="wp-image-649" src="/wp-content/uploads/2018/05/word-image-561.png" srcset="/wp-content/uploads/2018/05/word-image-561.png 735w, /wp-content/uploads/2018/05/word-image-561-300x42.png 300w" sizes="(max-width: 735px) 100vw, 735px" /></p>
+<p>保存，重启服务器</p>
+<p><img loading="lazy" decoding="async" width="650" height="146" class="wp-image-650" src="/wp-content/uploads/2018/05/word-image-562.png" srcset="/wp-content/uploads/2018/05/word-image-562.png 650w, /wp-content/uploads/2018/05/word-image-562-300x67.png 300w" sizes="(max-width: 650px) 100vw, 650px" /></p>
+<h2>MySQL的安装</h2>
+<h3>获取安装文件</h3>
+<p><img loading="lazy" decoding="async" width="185" height="21" class="wp-image-651" src="/wp-content/uploads/2018/05/word-image-563.png" /></p>
+<h3>双击安装</h3>
+<p><img loading="lazy" decoding="async" width="509" height="396" class="wp-image-652" src="/wp-content/uploads/2018/05/word-image-564.png" srcset="/wp-content/uploads/2018/05/word-image-564.png 509w, /wp-content/uploads/2018/05/word-image-564-300x233.png 300w" sizes="(max-width: 509px) 100vw, 509px" /> <img loading="lazy" decoding="async" width="505" height="383" class="wp-image-653" src="/wp-content/uploads/2018/05/word-image-565.png" srcset="/wp-content/uploads/2018/05/word-image-565.png 505w, /wp-content/uploads/2018/05/word-image-565-300x228.png 300w" sizes="(max-width: 505px) 100vw, 505px" /> <img loading="lazy" decoding="async" width="487" height="386" class="wp-image-654" src="/wp-content/uploads/2018/05/word-image-566.png" srcset="/wp-content/uploads/2018/05/word-image-566.png 487w, /wp-content/uploads/2018/05/word-image-566-300x238.png 300w" sizes="(max-width: 487px) 100vw, 487px" /> <img loading="lazy" decoding="async" width="504" height="384" class="wp-image-655" src="/wp-content/uploads/2018/05/word-image-567.png" srcset="/wp-content/uploads/2018/05/word-image-567.png 504w, /wp-content/uploads/2018/05/word-image-567-300x229.png 300w" sizes="(max-width: 504px) 100vw, 504px" /> <img loading="lazy" decoding="async" width="494" height="385" class="wp-image-656" src="/wp-content/uploads/2018/05/word-image-568.png" srcset="/wp-content/uploads/2018/05/word-image-568.png 494w, /wp-content/uploads/2018/05/word-image-568-300x234.png 300w" sizes="(max-width: 494px) 100vw, 494px" /> <img loading="lazy" decoding="async" width="502" height="389" class="wp-image-657" src="/wp-content/uploads/2018/05/word-image-569.png" srcset="/wp-content/uploads/2018/05/word-image-569.png 502w, /wp-content/uploads/2018/05/word-image-569-300x232.png 300w" sizes="(max-width: 502px) 100vw, 502px" /> <img loading="lazy" decoding="async" width="509" height="385" class="wp-image-658" src="/wp-content/uploads/2018/05/word-image-570.png" srcset="/wp-content/uploads/2018/05/word-image-570.png 509w, /wp-content/uploads/2018/05/word-image-570-300x227.png 300w" sizes="(max-width: 509px) 100vw, 509px" /> <img loading="lazy" decoding="async" width="517" height="387" class="wp-image-659" src="/wp-content/uploads/2018/05/word-image-571.png" srcset="/wp-content/uploads/2018/05/word-image-571.png 517w, /wp-content/uploads/2018/05/word-image-571-300x225.png 300w" sizes="(max-width: 517px) 100vw, 517px" /> <img loading="lazy" decoding="async" width="504" height="386" class="wp-image-660" src="/wp-content/uploads/2018/05/word-image-572.png" srcset="/wp-content/uploads/2018/05/word-image-572.png 504w, /wp-content/uploads/2018/05/word-image-572-300x230.png 300w" sizes="(max-width: 504px) 100vw, 504px" /> <img loading="lazy" decoding="async" width="505" height="384" class="wp-image-661" src="/wp-content/uploads/2018/05/word-image-573.png" srcset="/wp-content/uploads/2018/05/word-image-573.png 505w, /wp-content/uploads/2018/05/word-image-573-300x228.png 300w" sizes="(max-width: 505px) 100vw, 505px" /> <img loading="lazy" decoding="async" width="506" height="387" class="wp-image-662" src="/wp-content/uploads/2018/05/word-image-574.png" srcset="/wp-content/uploads/2018/05/word-image-574.png 506w, /wp-content/uploads/2018/05/word-image-574-300x229.png 300w" sizes="(max-width: 506px) 100vw, 506px" /> <img loading="lazy" decoding="async" width="509" height="378" class="wp-image-663" src="/wp-content/uploads/2018/05/word-image-575.png" srcset="/wp-content/uploads/2018/05/word-image-575.png 509w, /wp-content/uploads/2018/05/word-image-575-300x223.png 300w" sizes="(max-width: 509px) 100vw, 509px" /> <img loading="lazy" decoding="async" width="520" height="387" class="wp-image-664" src="/wp-content/uploads/2018/05/word-image-576.png" srcset="/wp-content/uploads/2018/05/word-image-576.png 520w, /wp-content/uploads/2018/05/word-image-576-300x223.png 300w" sizes="(max-width: 520px) 100vw, 520px" /> <img loading="lazy" decoding="async" width="510" height="383" class="wp-image-665" src="/wp-content/uploads/2018/05/word-image-577.png" srcset="/wp-content/uploads/2018/05/word-image-577.png 510w, /wp-content/uploads/2018/05/word-image-577-300x225.png 300w" sizes="(max-width: 510px) 100vw, 510px" /> <img loading="lazy" decoding="async" width="509" height="383" class="wp-image-666" src="/wp-content/uploads/2018/05/word-image-578.png" srcset="/wp-content/uploads/2018/05/word-image-578.png 509w, /wp-content/uploads/2018/05/word-image-578-300x226.png 300w" sizes="(max-width: 509px) 100vw, 509px" /> <img loading="lazy" decoding="async" width="502" height="380" class="wp-image-667" src="/wp-content/uploads/2018/05/word-image-579.png" srcset="/wp-content/uploads/2018/05/word-image-579.png 502w, /wp-content/uploads/2018/05/word-image-579-300x227.png 300w" sizes="(max-width: 502px) 100vw, 502px" /> <img loading="lazy" decoding="async" width="506" height="381" class="wp-image-668" src="/wp-content/uploads/2018/05/word-image-580.png" srcset="/wp-content/uploads/2018/05/word-image-580.png 506w, /wp-content/uploads/2018/05/word-image-580-300x226.png 300w" sizes="(max-width: 506px) 100vw, 506px" /> <img loading="lazy" decoding="async" width="504" height="384" class="wp-image-669" src="/wp-content/uploads/2018/05/word-image-581.png" srcset="/wp-content/uploads/2018/05/word-image-581.png 504w, /wp-content/uploads/2018/05/word-image-581-300x229.png 300w" sizes="(max-width: 504px) 100vw, 504px" /> <img loading="lazy" decoding="async" width="504" height="385" class="wp-image-671" src="/wp-content/uploads/2018/05/word-image-582.png" srcset="/wp-content/uploads/2018/05/word-image-582.png 504w, /wp-content/uploads/2018/05/word-image-582-300x229.png 300w" sizes="(max-width: 504px) 100vw, 504px" /> <img loading="lazy" decoding="async" width="506" height="390" class="wp-image-672" src="/wp-content/uploads/2018/05/word-image-583.png" srcset="/wp-content/uploads/2018/05/word-image-583.png 506w, /wp-content/uploads/2018/05/word-image-583-300x231.png 300w" sizes="(max-width: 506px) 100vw, 506px" /></p>
+<h3>MySQL目录</h3>
+<p><img loading="lazy" decoding="async" width="610" height="326" class="wp-image-673" src="/wp-content/uploads/2018/05/word-image-584.png" srcset="/wp-content/uploads/2018/05/word-image-584.png 610w, /wp-content/uploads/2018/05/word-image-584-300x160.png 300w" sizes="(max-width: 610px) 100vw, 610px" /></p>
+<h2>加载PHP中的扩展</h2>
+<p>PHP本身没有功能，PHP功能是通过加载PHP扩展得来</p>
+<p><img loading="lazy" decoding="async" width="400" height="138" class="wp-image-674" src="/wp-content/uploads/2018/05/word-image-585.png" srcset="/wp-content/uploads/2018/05/word-image-585.png 400w, /wp-content/uploads/2018/05/word-image-585-300x104.png 300w" sizes="(max-width: 400px) 100vw, 400px" /></p>
+<p>默认PHP扩展加载位置</p>
+<p><img loading="lazy" decoding="async" width="788" height="33" class="wp-image-675" src="/wp-content/uploads/2018/05/word-image-586.png" srcset="/wp-content/uploads/2018/05/word-image-586.png 788w, /wp-content/uploads/2018/05/word-image-586-300x13.png 300w, /wp-content/uploads/2018/05/word-image-586-768x32.png 768w" sizes="(max-width: 788px) 100vw, 788px" /></p>
+<p>打开php.ini</p>
+<p><img loading="lazy" decoding="async" width="841" height="57" class="wp-image-676" src="/wp-content/uploads/2018/05/word-image-587.png" srcset="/wp-content/uploads/2018/05/word-image-587.png 841w, /wp-content/uploads/2018/05/word-image-587-300x20.png 300w, /wp-content/uploads/2018/05/word-image-587-768x52.png 768w" sizes="(max-width: 841px) 100vw, 841px" /></p>
+<p>保存并重启服务</p>
+<p><img loading="lazy" decoding="async" width="751" height="32" class="wp-image-677" src="/wp-content/uploads/2018/05/word-image-588.png" srcset="/wp-content/uploads/2018/05/word-image-588.png 751w, /wp-content/uploads/2018/05/word-image-588-300x13.png 300w" sizes="(max-width: 751px) 100vw, 751px" /></p>
+<p>加载PHP连接MySQL的扩展</p>
+<p><img loading="lazy" decoding="async" width="782" height="135" class="wp-image-678" src="/wp-content/uploads/2018/05/word-image-589.png" srcset="/wp-content/uploads/2018/05/word-image-589.png 782w, /wp-content/uploads/2018/05/word-image-589-300x52.png 300w, /wp-content/uploads/2018/05/word-image-589-768x133.png 768w" sizes="(max-width: 782px) 100vw, 782px" /></p>
+<p>测试（在PHP页面中写一段连接数据库的代码）</p>
+<p>&lt;?php</p>
+<p>mysql_connect(&#8216;localhost&#8217;,&#8217;root&#8217;,&#8217;aa&#8217;) or die(&#8216;error&#8217;);</p>
+<p>echo &#8216;success&#8217;;</p>
+<p>?&gt;</p>
+<p>运行</p>
+<p><img loading="lazy" decoding="async" width="590" height="127" class="wp-image-679" src="/wp-content/uploads/2018/05/word-image-590.png" srcset="/wp-content/uploads/2018/05/word-image-590.png 590w, /wp-content/uploads/2018/05/word-image-590-300x65.png 300w" sizes="(max-width: 590px) 100vw, 590px" /></p>
+<h2>更改apache虚拟目录</h2>
+<p>打开httpd.conf，通过DocumentRoot指令更改虚拟目录的位置</p>
+<p><img loading="lazy" decoding="async" width="550" height="32" class="wp-image-680" src="/wp-content/uploads/2018/05/word-image-591.png" srcset="/wp-content/uploads/2018/05/word-image-591.png 550w, /wp-content/uploads/2018/05/word-image-591-300x17.png 300w" sizes="(max-width: 550px) 100vw, 550px" /></p>
+<p>测试：在c:\www目录中创建aa.php，访问</p>
+<p><img loading="lazy" decoding="async" width="511" height="161" class="wp-image-681" src="/wp-content/uploads/2018/05/word-image-592.png" srcset="/wp-content/uploads/2018/05/word-image-592.png 511w, /wp-content/uploads/2018/05/word-image-592-300x95.png 300w" sizes="(max-width: 511px) 100vw, 511px" /></p>
+<p>原因：虚拟目录没有访问的权限</p>
+<h2>更改虚拟的目录的权限</h2>
+<p>给c:\www添加可以访问的权限</p>
+<p>&lt;Directory &#8220;C:\www&#8221;&gt;</p>
+<p>Allow from all #允许所有人访问</p>
+<p>&lt;/Directory&gt;</p>
+<p>再次测试就可以访问</p>
+<p><img loading="lazy" decoding="async" width="466" height="97" class="wp-image-682" src="/wp-content/uploads/2018/05/word-image-593.png" srcset="/wp-content/uploads/2018/05/word-image-593.png 466w, /wp-content/uploads/2018/05/word-image-593-300x62.png 300w" sizes="(max-width: 466px) 100vw, 466px" /></p>
+<p>如果不写具体的页面</p>
+<p><img loading="lazy" decoding="async" width="545" height="166" class="wp-image-683" src="/wp-content/uploads/2018/05/word-image-594.png" srcset="/wp-content/uploads/2018/05/word-image-594.png 545w, /wp-content/uploads/2018/05/word-image-594-300x91.png 300w" sizes="(max-width: 545px) 100vw, 545px" /></p>
+<p>通过Options Indexes指令显示文件夹文件的索引</p>
+<p>&lt;Directory &#8220;C:\www&#8221;&gt;</p>
+<p>Options Indexes</p>
+<p>Allow from all</p>
+<p>&lt;/Directory&gt;</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="566" height="186" class="wp-image-684" src="/wp-content/uploads/2018/05/word-image-595.png" srcset="/wp-content/uploads/2018/05/word-image-595.png 566w, /wp-content/uploads/2018/05/word-image-595-300x99.png 300w" sizes="(max-width: 566px) 100vw, 566px" /></p>
+<p>练习</p>
+<ol>
+<li>如下代码结果是什么</li>
+</ol>
+<p>&lt;Directory &#8220;C:\www&#8221;&gt;</p>
+<p>Order deny,allow</p>
+<p>Allow from all</p>
+<p>deny from all</p>
+<p>&lt;/Directory&gt;</p>
+<p>结果：允许所有人访问</p>
+<ol>
+<li>如下代码结果是什么</li>
+</ol>
+<p>&lt;Directory &#8220;C:\www&#8221;&gt;</p>
+<p>Order deny,allow</p>
+<p>Allow from 192.168.101.50</p>
+<p>Deny from 192.168</p>
+<p>&lt;/Directory&gt;</p>
+<p>结果：拒绝192.168开头的除了192.168.101.50以为的所有IP</p>
+<ol>
+<li>如下代码运行结果什么？</li>
+</ol>
+<p>&lt;Directory &#8220;C:\www&#8221;&gt;</p>
+<p>Order deny,allow</p>
+<p>deny from all</p>
+<p>Allow from 127.0.0.1</p>
+<p>&lt;/Directory&gt;</p>
+<p>结果：只允许127.0.0.1访问</p>
+<ol>
+<li>如下代码运行结果是什么</li>
+</ol>
+<p>&lt;Directory &#8220;C:\www&#8221;&gt;</p>
+<p>Order deny,allow</p>
+<p>deny from all</p>
+<p>Allow from www.php.com</p>
+<p>&lt;/Directory&gt;</p>
+<p>结果：只允许<a href="http://www.php.com/">www.php.com</a>的域名访问</p>
+<h2>更改默认首页</h2>
+<p>在httpd.conf中，通过DirectoryIndex指令指定默认首页</p>
+<p><img loading="lazy" decoding="async" width="792" height="72" class="wp-image-685" src="/wp-content/uploads/2018/05/word-image-596.png" srcset="/wp-content/uploads/2018/05/word-image-596.png 792w, /wp-content/uploads/2018/05/word-image-596-300x27.png 300w, /wp-content/uploads/2018/05/word-image-596-768x70.png 768w" sizes="(max-width: 792px) 100vw, 792px" /></p>
+<h2>更改端口</h2>
+<p>默认情况下，端口号是80</p>
+<p>通过Listen指令更改端口</p>
+<p><img loading="lazy" decoding="async" width="586" height="92" class="wp-image-686" src="/wp-content/uploads/2018/05/word-image-597.png" srcset="/wp-content/uploads/2018/05/word-image-597.png 586w, /wp-content/uploads/2018/05/word-image-597-300x47.png 300w" sizes="(max-width: 586px) 100vw, 586px" /></p>
+<p>访问测试</p>
+<p><img loading="lazy" decoding="async" width="433" height="104" class="wp-image-687" src="/wp-content/uploads/2018/05/word-image-598.png" srcset="/wp-content/uploads/2018/05/word-image-598.png 433w, /wp-content/uploads/2018/05/word-image-598-300x72.png 300w" sizes="(max-width: 433px) 100vw, 433px" /></p>
+<h2>DNS解析</h2>
+<p>DNS（Domain Name Server），将输入的域名解析成IP地址的过程。当输入域名的时候操作系统会寻找最近的DNS映射文件。每个计算机上都有个DNS的映射文件</p>
+<p><img loading="lazy" decoding="async" width="886" height="118" class="wp-image-688" src="/wp-content/uploads/2018/05/word-image-599.png" srcset="/wp-content/uploads/2018/05/word-image-599.png 886w, /wp-content/uploads/2018/05/word-image-599-300x40.png 300w, /wp-content/uploads/2018/05/word-image-599-768x102.png 768w" sizes="(max-width: 886px) 100vw, 886px" /></p>
+<p>打开hosts文件</p>
+<p><img loading="lazy" decoding="async" width="650" height="57" class="wp-image-689" src="/wp-content/uploads/2018/05/word-image-600.png" srcset="/wp-content/uploads/2018/05/word-image-600.png 650w, /wp-content/uploads/2018/05/word-image-600-300x26.png 300w" sizes="(max-width: 650px) 100vw, 650px" /></p>
+<p>输入<a href="http://www.baidu.com就会解析到127.0.0.1/" class="broken_link">www.baidu.com</a><a href="http://www.baidu.com就会解析到127.0.0.1/" class="broken_link">就会解析到</a><a href="http://www.baidu.com就会解析到127.0.0.1/" class="broken_link">127.0.0.1</a>的服务器上</p>
+<p><img loading="lazy" decoding="async" width="458" height="83" class="wp-image-690" src="/wp-content/uploads/2018/05/word-image-601.png" srcset="/wp-content/uploads/2018/05/word-image-601.png 458w, /wp-content/uploads/2018/05/word-image-601-300x54.png 300w" sizes="(max-width: 458px) 100vw, 458px" /></p>
+<h2>虚拟主机</h2>
+<p><img loading="lazy" decoding="async" width="349" height="212" class="wp-image-691" src="/wp-content/uploads/2018/05/word-image-602.png" srcset="/wp-content/uploads/2018/05/word-image-602.png 349w, /wp-content/uploads/2018/05/word-image-602-300x182.png 300w" sizes="(max-width: 349px) 100vw, 349px" /></p>
+<p>不同的网站部署在同一个服务器上，但是浏览器访问不同网站感觉是不同的服务器，感觉是每个网站都在不同的主机上，每个网站就是一个虚拟主机。</p>
+<h3>开启虚拟主机</h3>
+<p>打开httpd.conf文件</p>
+<p><img loading="lazy" decoding="async" width="969" height="70" class="wp-image-692" src="/wp-content/uploads/2018/05/word-image-603.png" srcset="/wp-content/uploads/2018/05/word-image-603.png 969w, /wp-content/uploads/2018/05/word-image-603-300x22.png 300w, /wp-content/uploads/2018/05/word-image-603-768x55.png 768w" sizes="(max-width: 969px) 100vw, 969px" /></p>
+<p>打开httpd-vhosts.conf文件，配置虚拟主机</p>
+<p><img loading="lazy" decoding="async" width="850" height="177" class="wp-image-693" src="/wp-content/uploads/2018/05/word-image-604.png" srcset="/wp-content/uploads/2018/05/word-image-604.png 850w, /wp-content/uploads/2018/05/word-image-604-300x62.png 300w, /wp-content/uploads/2018/05/word-image-604-768x160.png 768w" sizes="(max-width: 850px) 100vw, 850px" /></p>
+<p>在hosts中做DNS解析</p>
+<p><img loading="lazy" decoding="async" width="424" height="65" class="wp-image-694" src="/wp-content/uploads/2018/05/word-image-605.png" srcset="/wp-content/uploads/2018/05/word-image-605.png 424w, /wp-content/uploads/2018/05/word-image-605-300x46.png 300w" sizes="(max-width: 424px) 100vw, 424px" /></p>
+<p>测试</p>
+<p><img loading="lazy" decoding="async" width="237" height="86" class="wp-image-695" src="/wp-content/uploads/2018/05/word-image-606.png" /> <img loading="lazy" decoding="async" width="343" height="75" class="wp-image-696" src="/wp-content/uploads/2018/05/word-image-607.png" srcset="/wp-content/uploads/2018/05/word-image-607.png 343w, /wp-content/uploads/2018/05/word-image-607-300x66.png 300w" sizes="(max-width: 343px) 100vw, 343px" /> <img loading="lazy" decoding="async" width="313" height="80" class="wp-image-697" src="/wp-content/uploads/2018/05/word-image-608.png" srcset="/wp-content/uploads/2018/05/word-image-608.png 313w, /wp-content/uploads/2018/05/word-image-608-300x77.png 300w" sizes="(max-width: 313px) 100vw, 313px" /></p>
+<p>站点：存放与网站有关文件的文件夹</p>
+<p>虚拟目录=站点+文件夹的权限</p>
+<p>虚拟主机=虚拟目录+与主机有关的配置</p>
+<h2>分布式部署</h2>
+<p>更改apache和php的配置文件，Apache中的所有虚拟主机都会受到影响。也就是说Apache和PHP的配置作用于所有的虚拟主机。</p>
+<p><img loading="lazy" decoding="async" width="396" height="193" class="wp-image-698" src="/wp-content/uploads/2018/05/word-image-609.png" srcset="/wp-content/uploads/2018/05/word-image-609.png 396w, /wp-content/uploads/2018/05/word-image-609-300x146.png 300w" sizes="(max-width: 396px) 100vw, 396px" /></p>
+<h3>分布式部署文件</h3>
+<ol>
+<li>名字必须是.htaccess</li>
+<li>必须通过编辑器创建</li>
+<li>分布式部署文件在当前目录及子目录下起作用，每个目录中都可以存放分布式部署文件。</li>
+<li>更改.htaccess文件，更改后立即生效，不需要重启启动服务器</li>
+</ol>
+<p>作用：可以通过分布式部署文件更改Apache和PHP的配置</p>
+<h3>更改Apache配置</h3>
+<p>在虚拟主机中，拒绝访问服务器</p>
+<p><img loading="lazy" decoding="async" width="680" height="208" class="wp-image-699" src="/wp-content/uploads/2018/05/word-image-610.png" srcset="/wp-content/uploads/2018/05/word-image-610.png 680w, /wp-content/uploads/2018/05/word-image-610-300x92.png 300w" sizes="(max-width: 680px) 100vw, 680px" /></p>
+<p>在分布式部署文件中再允许访问</p>
+<p><img loading="lazy" decoding="async" width="600" height="126" class="wp-image-700" src="/wp-content/uploads/2018/05/word-image-611.png" srcset="/wp-content/uploads/2018/05/word-image-611.png 600w, /wp-content/uploads/2018/05/word-image-611-300x63.png 300w" sizes="(max-width: 600px) 100vw, 600px" /></p>
+<p>测试</p>
+<p><img loading="lazy" decoding="async" width="397" height="94" class="wp-image-701" src="/wp-content/uploads/2018/05/word-image-612.png" srcset="/wp-content/uploads/2018/05/word-image-612.png 397w, /wp-content/uploads/2018/05/word-image-612-300x71.png 300w" sizes="(max-width: 397px) 100vw, 397px" /></p>
+<h3>更改PHP配置</h3>
+<p>在分布式部署中有两个指令php_flag和php_value</p>
+<p>通过php_flag指令更改开关性质的配置</p>
+<p>通过php_value指令更改值性质的配置</p>
+<p><img loading="lazy" decoding="async" width="1063" height="95" class="wp-image-702" src="/wp-content/uploads/2018/05/word-image-613.png" srcset="/wp-content/uploads/2018/05/word-image-613.png 1063w, /wp-content/uploads/2018/05/word-image-613-300x27.png 300w, /wp-content/uploads/2018/05/word-image-613-768x69.png 768w, /wp-content/uploads/2018/05/word-image-613-1024x92.png 1024w" sizes="(max-width: 1063px) 100vw, 1063px" /></p>
+<h2>WAMP安装总结</h2>
+<p>第一步：安装Apache，输入<a href="http://localhost/" class="broken_link">http://localhost/</a>，显示it works成功</p>
+<p>第二步：安装PHP</p>
+<p>第三步：将PHP作为模块给Apache加载（LoadModule）</p>
+<p>第四步：在访问PHP页面的时候执行PHP模块 addType</p>
+<p>第五步：加载PHP配置文件，PHPIniDir指定php.ini的地址</p>
+<p>第六步：加载PHP扩展，extension_dir指定扩展的路径。</p>
+<h2>集成环境安装</h2>
+<p>集成环境一：</p>
+<p><img loading="lazy" decoding="async" width="179" height="27" class="wp-image-703" src="/wp-content/uploads/2018/05/word-image-614.png" /></p>
+<p>集成环境二：</p>
+<p><img loading="lazy" decoding="async" width="174" height="24" class="wp-image-704" src="/wp-content/uploads/2018/05/word-image-615.png" /></p>
+<h2>作业</h2>
+<ol>
+<li>配置一个虚拟主机用来做PHP站点，在配置一个虚拟主机用来支撑phpMyAdmin。</li>
+<li>如果配置服务器使得HTML中的php代码被解析。</li>
+</ol>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/576.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>PHP 语法（一）定界符、 执行原理、 执行过程、 语法、 输出语句、 变量、 常量、 编译型、 解释型</title>
+		<link>/php/712.html</link>
+					<comments>/php/712.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 16:48:20 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP基本语法]]></category>
+		<category><![CDATA[PHP 定界符]]></category>
+		<category><![CDATA[PHP 执行原理]]></category>
+		<category><![CDATA[PHP 执行过程]]></category>
+		<category><![CDATA[PHP 语法]]></category>
+		<category><![CDATA[PHP 输出语句]]></category>
+		<category><![CDATA[变量]]></category>
+		<category><![CDATA[常量]]></category>
+		<category><![CDATA[编译型]]></category>
+		<category><![CDATA[解释型]]></category>
+		<guid isPermaLink="false">/?p=712</guid>
+
+					<description><![CDATA[PHP语法（一） 回顾 PHP：超文本预处理器，这是一种运行在服务器端的开源的脚本语言 LAMP：Linux+ [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h1>PHP语法（一）</h1>
+<h2>回顾</h2>
+<ol>
+<li>
+  PHP：超文本预处理器，这是一种运行在服务器端的开源的脚本语言
+</li>
+<li>
+  LAMP：Linux+Apache+MySQL+PHP，这4个软件全部都是开源的
+</li>
+<li>
+  静态网站和动态网站</p>
+<ol>
+<li>
+    静态网站：不具有数据交互功能的网站
+  </li>
+<li>
+    动态网站：具有数据交互功能的网站
+  </li>
+<li>
+    实现动态网站的技术：asp	php	.net		java
+  </li>
+</ol>
+</li>
+<li>
+  客户端和服务器端</p>
+<ol>
+<li>
+    服务器端：为访问者提供服务的计算机，从狭义上来说，Apache是服务器。
+  </li>
+<li>
+    客户端：用来请求服务器的计算机，web客户端是IE，QQ客户端是软件
+  </li>
+</ol>
+</li>
+<li>
+  端口和端口号  0~65535
+</li>
+<li>
+  BS架构（浏览器和服务器）和CS架构（客户端软件和服务器）
+</li>
+<li>
+  前台和后台
+</li>
+<li>
+  IP地址和域名</p>
+<ol>
+<li>
+    通过IP地址唯一标识每台计算机
+  </li>
+<li>
+    域名是IP地址的别名，为了便于记忆。
+  </li>
+</ol>
+</li>
+<li>
+  PHP优点</p>
+<ol>
+<li>
+    跨平台
+  </li>
+<li>
+    源码开发
+  </li>
+<li>
+    语法简单
+  </li>
+</ol>
+</li>
+<li>
+  安装Apache</p>
+<ol>
+<li>
+    httpd命令在bin目录下
+  </li>
+<li>
+    htdocs是默认的虚拟目录
+  </li>
+<li>
+    conf是配置文件夹
+  </li>
+<li>
+    conf/httpd.conf是Apache的配置文件
+  </li>
+<li>
+    httpd -t 用来检测apache的运行情况
+  </li>
+<li>
+    httpd -M	用来显示加载的模块
+  </li>
+<li>
+    httpd -k start/stop/restart
+  </li>
+<li>
+    apache的启动/停止/重启
+  </li>
+<li><a href="http://localhost/" class="broken_link">http://localhost/</a>显示itworks表示正常
+  </li>
+</ol>
+</li>
+<li>
+  安装PHP</p>
+<ol>
+<li>
+    在httpd.conf中通过LoadModule加载PHP模块
+  </li>
+<li>
+    在httpd.conf中当访问PHP页面的时候调用PHP模块
+  </li>
+<li>
+    在httpd.conf中指定PHP配置文件  phpinidir
+  </li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="445" height="49" src="/wp-content/uploads/2018/05/word-image-617.png" class="wp-image-714" srcset="/wp-content/uploads/2018/05/word-image-617.png 445w, /wp-content/uploads/2018/05/word-image-617-300x33.png 300w" sizes="(max-width: 445px) 100vw, 445px" /></p>
+<ul>
+<li>
+<ol>
+<li>
+      在php.ini中通过extension_dir指定PHP扩展的加载位置
+    </li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>
+  安装MySQL</p>
+<ol>
+<li>
+    MySQL的端口号是3306
+  </li>
+</ol>
+</li>
+</ol>
+<p>
+  到此wamp安装完毕，下面提高部分
+</p>
+<ol>
+<li>
+  更改虚拟目录位置，在httpd.conf中DocumentRoot更改虚拟目录指令
+</li>
+<li>
+  注意：更改虚拟目录位置的同时一定要更改虚拟目录的权限
+</li>
+</ol>
+<p>
+  &lt;Directory 虚拟目录路径&gt;
+</p>
+<p>
+  &lt;/Directory&gt;
+</p>
+<ul>
+<li>
+<ol>
+<li>
+      allow from all		允许所有
+    </li>
+<li>
+      order allow,deny	先执行允许，后执行拒绝
+    </li>
+<li>
+      options indexes	目录中的文件用索引方式显示
+    </li>
+<li>
+      allowoverride all	允许分布式部署文件覆盖
+    </li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>
+  更改默认首页  DirectoryIndex index.html index.php
+</li>
+<li>
+  更改监听端口 Linten 80
+</li>
+<li>
+  虚拟主机配置  httpd-vhosts.conf文件中配置
+</li>
+<li>
+  DNS解析   system32/drivers/etc/hosts文件中
+</li>
+<li>
+  分布式部署</p>
+<ol>
+<li>
+    文件名是.htaccess文件
+  </li>
+<li>
+    在当前目录及子目录中有效
+  </li>
+<li>
+    可以更改apache和php的配置（php_flag  php_value）
+  </li>
+</ol>
+</li>
+</ol>
+<p>
+  总结：httpd.conf对Apache起作用，php.ini对PHP起作用 .htaccess对apache和PHP都起作用
+</p>
+<p>
+  配置文件可分为两个部分：主配置文件系统，分布式配置文件
+</p>
+<h2>解释型和编译型</h2>
+<p><img loading="lazy" decoding="async" width="656" height="147" src="/wp-content/uploads/2018/05/word-image-618.png" class="wp-image-715" srcset="/wp-content/uploads/2018/05/word-image-618.png 656w, /wp-content/uploads/2018/05/word-image-618-300x67.png 300w" sizes="(max-width: 656px) 100vw, 656px" /></p>
+<p>
+  如果保存了可执行代码是编译型语言，没有保存可执行代码是解释型语言
+</p>
+<h2>PHP执行过程</h2>
+<p><img loading="lazy" decoding="async" width="1009" height="67" src="/wp-content/uploads/2018/05/word-image-619.png" class="wp-image-716" srcset="/wp-content/uploads/2018/05/word-image-619.png 1009w, /wp-content/uploads/2018/05/word-image-619-300x20.png 300w, /wp-content/uploads/2018/05/word-image-619-768x51.png 768w" sizes="(max-width: 1009px) 100vw, 1009px" /></p>
+<p>
+  脚下留心：PHP生成的中间语言保存在内存中（这点和java,.net不一样，这两门语言是可以看到中间文件的），PHP看不到中间文件。如果从能否看见中间文件这个角度来说PHP是解释型的；从是否生成中间文件来说PHP是编译型的。
+</p>
+<h2>EditPlus介绍</h2>
+<p>
+  体积小，可以自定义插件的一个开发工具
+</p>
+<h3>EditPlus的设置</h3>
+<p><img loading="lazy" decoding="async" width="488" height="69" src="/wp-content/uploads/2018/05/word-image-620.png" class="wp-image-717" srcset="/wp-content/uploads/2018/05/word-image-620.png 488w, /wp-content/uploads/2018/05/word-image-620-300x42.png 300w" sizes="(max-width: 488px) 100vw, 488px" /><br />
+<img loading="lazy" decoding="async" width="535" height="318" src="/wp-content/uploads/2018/05/word-image-621.png" class="wp-image-718" srcset="/wp-content/uploads/2018/05/word-image-621.png 535w, /wp-content/uploads/2018/05/word-image-621-300x178.png 300w" sizes="(max-width: 535px) 100vw, 535px" /></p>
+<h2>PHP四种定界符</h2>
+<ol>
+<li>
+  标准风格【推荐使用】
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  	echo &#8216;i am a boy!!!&#8217;;
+</p>
+<p>
+  ?&gt;
+</p>
+<ol>
+<li>
+  短标记风格（在php.ini中将short_open_tag = On）
+</li>
+</ol>
+<p>
+  默认情况下不支持短标记，必须在php.ini配置文件中开启支持短标记
+</p>
+<p>
+  &lt;?
+</p>
+<p>
+  	echo &#8216;i am a boy!!!&#8217;;
+</p>
+<p>
+  ?&gt;
+</p>
+<ol>
+<li>
+  asp风格（在php.ini中将asp_tags = on）
+</li>
+</ol>
+<p>
+  默认不支持asp风格
+</p>
+<p>
+  &lt;%
+</p>
+<p>
+  	echo &#8216;i am a boy!!!&#8217;;
+</p>
+<p>
+  %&gt;
+</p>
+<ol>
+<li>
+  script标记风格
+</li>
+</ol>
+<p>
+  &lt;script language=&#8221;php&#8221;&gt;
+</p>
+<p>
+  echo &#8216;i am a girl!!!&#8217;;
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<h2>PHP的执行原理</h2>
+<p><img loading="lazy" decoding="async" width="764" height="389" src="/wp-content/uploads/2018/05/word-image-622.png" class="wp-image-719" srcset="/wp-content/uploads/2018/05/word-image-622.png 764w, /wp-content/uploads/2018/05/word-image-622-300x153.png 300w" sizes="(max-width: 764px) 100vw, 764px" /></p>
+<p><strong>客户端向服务器发送请求：</strong>
+</p>
+<ol>
+<li>
+  如果请求的是HTML页面，服务器不执行，将页面的代码全部发送到客户端。
+</li>
+<li>
+  如果请求的是PHP，服务器会执行PHP页面，执行完毕后会生成标准的HTML代码，然后将HTML代码发送到客户端
+</li>
+</ol>
+<h2>PHP语法特点</h2>
+<p>
+  PHP用分号表示语句的结束
+</p>
+<p>
+  PHP变量名是区分大小写的，但是关键字不区分大小写
+</p>
+<h2>PHP支持省略结束标记</h2>
+<p>
+  &lt;?php表示php语言的开始，  ?&gt;表示php语言的结束。
+</p>
+<p>
+  如果一个页面从PHP开始一直到页面的最后全部是PHP代码，PHP结束符是可以省略的。
+</p>
+<p><img loading="lazy" decoding="async" width="297" height="113" src="/wp-content/uploads/2018/05/word-image-623.png" class="wp-image-720" /><br />
+<img loading="lazy" decoding="async" width="676" height="167" src="/wp-content/uploads/2018/05/word-image-624.png" class="wp-image-721" srcset="/wp-content/uploads/2018/05/word-image-624.png 676w, /wp-content/uploads/2018/05/word-image-624-300x74.png 300w" sizes="(max-width: 676px) 100vw, 676px" /></p>
+<p>
+  PHP结束符中有一个隐藏的分号
+</p>
+<p><img loading="lazy" decoding="async" width="515" height="106" src="/wp-content/uploads/2018/05/word-image-625.png" class="wp-image-722" srcset="/wp-content/uploads/2018/05/word-image-625.png 515w, /wp-content/uploads/2018/05/word-image-625-300x62.png 300w" sizes="(max-width: 515px) 100vw, 515px" /></p>
+<h2>页面显示乱码解决</h2>
+<p><img loading="lazy" decoding="async" width="592" height="102" src="/wp-content/uploads/2018/05/word-image-626.png" class="wp-image-723" srcset="/wp-content/uploads/2018/05/word-image-626.png 592w, /wp-content/uploads/2018/05/word-image-626-300x52.png 300w" sizes="(max-width: 592px) 100vw, 592px" /></p>
+<p>
+  解决方法一：在内容最上面输出&lt;meta&gt;标记
+</p>
+<p><img loading="lazy" decoding="async" width="578" height="77" src="/wp-content/uploads/2018/05/word-image-627.png" class="wp-image-724" srcset="/wp-content/uploads/2018/05/word-image-627.png 578w, /wp-content/uploads/2018/05/word-image-627-300x40.png 300w" sizes="(max-width: 578px) 100vw, 578px" /></p>
+<p>
+  解决方法二：header()
+</p>
+<p><img loading="lazy" decoding="async" width="713" height="74" src="/wp-content/uploads/2018/05/word-image-628.png" class="wp-image-725" srcset="/wp-content/uploads/2018/05/word-image-628.png 713w, /wp-content/uploads/2018/05/word-image-628-300x31.png 300w" sizes="(max-width: 713px) 100vw, 713px" /></p>
+<h2>PHP注释</h2>
+<p>
+  PHP注释有单行注释和多行注释
+</p>
+<p><img loading="lazy" decoding="async" width="428" height="126" src="/wp-content/uploads/2018/05/word-image-629.png" class="wp-image-726" srcset="/wp-content/uploads/2018/05/word-image-629.png 428w, /wp-content/uploads/2018/05/word-image-629-300x88.png 300w" sizes="(max-width: 428px) 100vw, 428px" /></p>
+<h2>输出语句</h2>
+<p>
+  在PHP中常用的输出有echo，print，print_r，var_dump
+</p>
+<h3>echo【适合输出字符串和数字】</h3>
+<p><img loading="lazy" decoding="async" width="1039" height="130" src="/wp-content/uploads/2018/05/word-image-630.png" class="wp-image-727" srcset="/wp-content/uploads/2018/05/word-image-630.png 1039w, /wp-content/uploads/2018/05/word-image-630-300x38.png 300w, /wp-content/uploads/2018/05/word-image-630-768x96.png 768w, /wp-content/uploads/2018/05/word-image-630-1024x128.png 1024w" sizes="(max-width: 1039px) 100vw, 1039px" /></p>
+<p>
+  echo可以输出字符串和数字型，不适合输出布尔和数组，true输出成1，false输出成空，数组输出成array
+</p>
+<p>
+  echo可以一次输出多个数据。
+</p>
+<h3>print</h3>
+<p>
+  print和echo大体一样，可以输出字符串和数字，不适合输出布尔和数组
+</p>
+<p>
+  print每次只能输出一个值，输出成功会返回1。
+</p>
+<p><img loading="lazy" decoding="async" width="856" height="216" src="/wp-content/uploads/2018/05/word-image-631.png" class="wp-image-728" srcset="/wp-content/uploads/2018/05/word-image-631.png 856w, /wp-content/uploads/2018/05/word-image-631-300x76.png 300w, /wp-content/uploads/2018/05/word-image-631-768x194.png 768w" sizes="(max-width: 856px) 100vw, 856px" /></p>
+<h3>print_r</h3>
+<p><img loading="lazy" decoding="async" width="646" height="182" src="/wp-content/uploads/2018/05/word-image-632.png" class="wp-image-729" srcset="/wp-content/uploads/2018/05/word-image-632.png 646w, /wp-content/uploads/2018/05/word-image-632-300x85.png 300w" sizes="(max-width: 646px) 100vw, 646px" /></p>
+<p>
+  print_r主要用来输出数组。
+</p>
+<h3>var_dump()【输出内容+数据类型+字符串长度】</h3>
+<p><img loading="lazy" decoding="async" width="773" height="176" src="/wp-content/uploads/2018/05/word-image-633.png" class="wp-image-730" srcset="/wp-content/uploads/2018/05/word-image-633.png 773w, /wp-content/uploads/2018/05/word-image-633-300x68.png 300w, /wp-content/uploads/2018/05/word-image-633-768x175.png 768w" sizes="(max-width: 773px) 100vw, 773px" /></p>
+<p>
+  var_dump()不但能输出数据的内容，而且可以输出数据类型和字符串的长度。
+</p>
+<h2>变量</h2>
+<p><img loading="lazy" decoding="async" width="341" height="89" src="/wp-content/uploads/2018/05/word-image-634.png" class="wp-image-731" srcset="/wp-content/uploads/2018/05/word-image-634.png 341w, /wp-content/uploads/2018/05/word-image-634-300x78.png 300w" sizes="(max-width: 341px) 100vw, 341px" /></p>
+<p>
+  变量就是计算机内存中的一段空间。
+</p>
+<h3>变量的命名规则</h3>
+<p>
+  变量必须以$开头，除了$以外，变量以字母，下划线开头，后面跟的是字母、数字、下划线。（$不是变量的组成部分，$表示变量的开始）
+</p>
+<p>
+  下列变量名合法的是：
+</p>
+<p>
+  $aa		合法
+</p>
+<p>
+  $1a		不合法
+</p>
+<p>
+  $_1a	合法
+</p>
+<p>
+  $a-1	不合法
+</p>
+<h3>变量的赋值</h3>
+<p>
+  传值
+</p>
+<p><img loading="lazy" decoding="async" width="332" height="110" src="/wp-content/uploads/2018/05/word-image-635.png" class="wp-image-732" srcset="/wp-content/uploads/2018/05/word-image-635.png 332w, /wp-content/uploads/2018/05/word-image-635-300x99.png 300w" sizes="(max-width: 332px) 100vw, 332px" /><br />
+<img loading="lazy" decoding="async" width="478" height="187" src="/wp-content/uploads/2018/05/word-image-636.png" class="wp-image-733" srcset="/wp-content/uploads/2018/05/word-image-636.png 478w, /wp-content/uploads/2018/05/word-image-636-300x117.png 300w" sizes="(max-width: 478px) 100vw, 478px" /></p>
+<p>
+  传址
+</p>
+<p>
+  &amp;表示取出a的地址
+</p>
+<p><img loading="lazy" decoding="async" width="427" height="103" src="/wp-content/uploads/2018/05/word-image-637.png" class="wp-image-734" srcset="/wp-content/uploads/2018/05/word-image-637.png 427w, /wp-content/uploads/2018/05/word-image-637-300x72.png 300w" sizes="(max-width: 427px) 100vw, 427px" /><br />
+<img loading="lazy" decoding="async" width="443" height="244" src="/wp-content/uploads/2018/05/word-image-638.png" class="wp-image-735" srcset="/wp-content/uploads/2018/05/word-image-638.png 443w, /wp-content/uploads/2018/05/word-image-638-300x165.png 300w" sizes="(max-width: 443px) 100vw, 443px" /></p>
+<h3>销毁变量</h3>
+<p>
+  情况一：页面执行完毕后，变量全部销毁，有PHP的垃圾回收机制销毁。
+</p>
+<p>
+  情况二：可以通过unset()手动销毁变量
+</p>
+<p><img loading="lazy" decoding="async" width="858" height="88" src="/wp-content/uploads/2018/05/word-image-639.png" class="wp-image-736" srcset="/wp-content/uploads/2018/05/word-image-639.png 858w, /wp-content/uploads/2018/05/word-image-639-300x31.png 300w, /wp-content/uploads/2018/05/word-image-639-768x79.png 768w" sizes="(max-width: 858px) 100vw, 858px" /></p>
+<p>
+  问题：PHP垃圾回收机制如何判断垃圾数据的？
+</p>
+<p>
+  答：如果一个数据没有被变量引用，这个数据就是垃圾数据。
+</p>
+<p>
+  unset()销毁的是变量名，变量名销毁以后，变量的值就不被引用，垃圾回收机制就将值销毁。
+</p>
+<p><img loading="lazy" decoding="async" width="378" height="87" src="/wp-content/uploads/2018/05/word-image-640.png" class="wp-image-737" srcset="/wp-content/uploads/2018/05/word-image-640.png 378w, /wp-content/uploads/2018/05/word-image-640-300x69.png 300w" sizes="(max-width: 378px) 100vw, 378px" /></p>
+<h3>判断变量是否存在</h3>
+<p>
+  isset()判断变量是否存在
+</p>
+<p><img loading="lazy" decoding="async" width="427" height="65" src="/wp-content/uploads/2018/05/word-image-641.png" class="wp-image-738" srcset="/wp-content/uploads/2018/05/word-image-641.png 427w, /wp-content/uploads/2018/05/word-image-641-300x46.png 300w" sizes="(max-width: 427px) 100vw, 427px" /></p>
+<h3>预定义变量</h3>
+<p><img loading="lazy" decoding="async" width="951" height="340" src="/wp-content/uploads/2018/05/word-image-642.png" class="wp-image-739" srcset="/wp-content/uploads/2018/05/word-image-642.png 951w, /wp-content/uploads/2018/05/word-image-642-300x107.png 300w, /wp-content/uploads/2018/05/word-image-642-768x275.png 768w" sizes="(max-width: 951px) 100vw, 951px" /></p>
+<p><strong>$_GET：用来保存客户端提交给服务器的Get提交的数据，是数组类型的数据</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="819" height="221" src="/wp-content/uploads/2018/05/word-image-643.png" class="wp-image-740" srcset="/wp-content/uploads/2018/05/word-image-643.png 819w, /wp-content/uploads/2018/05/word-image-643-300x81.png 300w, /wp-content/uploads/2018/05/word-image-643-768x207.png 768w" sizes="(max-width: 819px) 100vw, 819px" /></p>
+<p>
+  Get提交的URL地址格式：  地址?参数=值&amp;参数=值&amp;…
+</p>
+<p>
+  比如：index.php?name=tom&amp;sex=男&amp;age=22
+</p>
+<p><strong>$_POST：用来保存POST提交的数据，数组类型</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="897" height="249" src="/wp-content/uploads/2018/05/word-image-644.png" class="wp-image-741" srcset="/wp-content/uploads/2018/05/word-image-644.png 897w, /wp-content/uploads/2018/05/word-image-644-300x83.png 300w, /wp-content/uploads/2018/05/word-image-644-768x213.png 768w" sizes="(max-width: 897px) 100vw, 897px" /></p>
+<p><strong><a href="mk:@MSITStore:F:\\帮助文档\\php_manual_zh_2014.chm::/res/reserved.variables.request.html&quot; \o &quot;$_REQUEST">$_REQUEST</a>：既能获得get提交的数据，又能获得post提交数据</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="764" height="231" src="/wp-content/uploads/2018/05/word-image-645.png" class="wp-image-742" srcset="/wp-content/uploads/2018/05/word-image-645.png 764w, /wp-content/uploads/2018/05/word-image-645-300x91.png 300w" sizes="(max-width: 764px) 100vw, 764px" /></p>
+<p>
+  如果既有get，又有post，使用$_REQUEST获取值的时候，如果有同名的参数，post会将get的值覆盖。
+</p>
+<p>
+  我们可以在php.ini中更改get和post覆盖的顺序。
+</p>
+<p><img loading="lazy" decoding="async" width="823" height="52" src="/wp-content/uploads/2018/05/word-image-646.png" class="wp-image-743" srcset="/wp-content/uploads/2018/05/word-image-646.png 823w, /wp-content/uploads/2018/05/word-image-646-300x19.png 300w, /wp-content/uploads/2018/05/word-image-646-768x49.png 768w" sizes="(max-width: 823px) 100vw, 823px" /></p>
+<p><strong>$argc、$argv</strong>
+</p>
+<p>
+  PHP的运行不是必须Apache的参与，直接通过php.exe也是可以执行PHP的。
+</p>
+<p>
+  $_GET、$_POST、$_REQUEST都是用来获取http提交参数。
+</p>
+<p><img loading="lazy" decoding="async" width="875" height="106" src="/wp-content/uploads/2018/05/word-image-647.png" class="wp-image-744" srcset="/wp-content/uploads/2018/05/word-image-647.png 875w, /wp-content/uploads/2018/05/word-image-647-300x36.png 300w, /wp-content/uploads/2018/05/word-image-647-768x93.png 768w" sizes="(max-width: 875px) 100vw, 875px" /></p>
+<p>
+  $argc保存参数的个数，$argv保存参数的数组
+</p>
+<p><img loading="lazy" decoding="async" width="1234" height="133" src="/wp-content/uploads/2018/05/word-image-648.png" class="wp-image-745" srcset="/wp-content/uploads/2018/05/word-image-648.png 1234w, /wp-content/uploads/2018/05/word-image-648-300x32.png 300w, /wp-content/uploads/2018/05/word-image-648-768x83.png 768w, /wp-content/uploads/2018/05/word-image-648-1024x110.png 1024w" sizes="(max-width: 1234px) 100vw, 1234px" /></p>
+<h3>可变变量</h3>
+<p>
+  将变量名存储到另个变量中
+</p>
+<p><img loading="lazy" decoding="async" width="342" height="82" src="/wp-content/uploads/2018/05/word-image-649.png" class="wp-image-746" srcset="/wp-content/uploads/2018/05/word-image-649.png 342w, /wp-content/uploads/2018/05/word-image-649-300x72.png 300w" sizes="(max-width: 342px) 100vw, 342px" /></p>
+<p>
+  多学一招：变量名可以保存在变量中，函数名也可以保存在变量中
+</p>
+<p><img loading="lazy" decoding="async" width="424" height="115" src="/wp-content/uploads/2018/05/word-image-650.png" class="wp-image-747" srcset="/wp-content/uploads/2018/05/word-image-650.png 424w, /wp-content/uploads/2018/05/word-image-650-300x81.png 300w" sizes="(max-width: 424px) 100vw, 424px" /></p>
+<h2>常量</h2>
+<p>
+  当一个数据在执行周期内不发生变化，我们把这个数据声明成常量。
+</p>
+<p>
+  常量名前面没有$。$表示的是变量的开始
+</p>
+<p>
+  常量的定义一般都在程序的开始处定义。
+</p>
+<h3>语法</h3>
+<p>
+  define(常量名,常量值,[是否区分大小写，默认是区分大小写的])
+</p>
+<p><img loading="lazy" decoding="async" width="704" height="73" src="/wp-content/uploads/2018/05/word-image-651.png" class="wp-image-748" srcset="/wp-content/uploads/2018/05/word-image-651.png 704w, /wp-content/uploads/2018/05/word-image-651-300x31.png 300w" sizes="(max-width: 704px) 100vw, 704px" /><br />
+<img loading="lazy" decoding="async" width="459" height="78" src="/wp-content/uploads/2018/05/word-image-652.png" class="wp-image-749" srcset="/wp-content/uploads/2018/05/word-image-652.png 459w, /wp-content/uploads/2018/05/word-image-652-300x51.png 300w" sizes="(max-width: 459px) 100vw, 459px" /></p>
+<h3>特殊字符做常量名</h3>
+<p>
+  PHP中可以使用特殊字符做常量名，但是调用的使用必须使用constant关键字来调用
+</p>
+<p><img loading="lazy" decoding="async" width="892" height="49" src="/wp-content/uploads/2018/05/word-image-653.png" class="wp-image-750" srcset="/wp-content/uploads/2018/05/word-image-653.png 892w, /wp-content/uploads/2018/05/word-image-653-300x16.png 300w, /wp-content/uploads/2018/05/word-image-653-768x42.png 768w" sizes="(max-width: 892px) 100vw, 892px" /></p>
+<h3>判断常量是否存在</h3>
+<p>
+  常量一旦定义后面不能重新定义，所以在定义常量的时候我们先判断一下常量是否存在
+</p>
+<p><img loading="lazy" decoding="async" width="911" height="62" src="/wp-content/uploads/2018/05/word-image-654.png" class="wp-image-751" srcset="/wp-content/uploads/2018/05/word-image-654.png 911w, /wp-content/uploads/2018/05/word-image-654-300x20.png 300w, /wp-content/uploads/2018/05/word-image-654-768x52.png 768w" sizes="(max-width: 911px) 100vw, 911px" /></p>
+<p>
+  通过defined()函数判断常量是否定义
+</p>
+<p><img loading="lazy" decoding="async" width="509" height="75" src="/wp-content/uploads/2018/05/word-image-655.png" class="wp-image-752" srcset="/wp-content/uploads/2018/05/word-image-655.png 509w, /wp-content/uploads/2018/05/word-image-655-300x44.png 300w" sizes="(max-width: 509px) 100vw, 509px" /></p>
+<h3>预定义常量</h3>
+<p><img loading="lazy" decoding="async" width="925" height="528" src="/wp-content/uploads/2018/05/word-image-656.png" class="wp-image-753" srcset="/wp-content/uploads/2018/05/word-image-656.png 925w, /wp-content/uploads/2018/05/word-image-656-300x171.png 300w, /wp-content/uploads/2018/05/word-image-656-768x438.png 768w" sizes="(max-width: 925px) 100vw, 925px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="681" height="74" src="/wp-content/uploads/2018/05/word-image-657.png" class="wp-image-754" srcset="/wp-content/uploads/2018/05/word-image-657.png 681w, /wp-content/uploads/2018/05/word-image-657-300x33.png 300w" sizes="(max-width: 681px) 100vw, 681px" /></p>
+<h3>魔术常量</h3>
+<p>
+  常量的值是不变的，但是魔术常量的值是变化的。
+</p>
+<p><img loading="lazy" decoding="async" width="1344" height="508" src="/wp-content/uploads/2018/05/word-image-658.png" class="wp-image-755" srcset="/wp-content/uploads/2018/05/word-image-658.png 1344w, /wp-content/uploads/2018/05/word-image-658-300x113.png 300w, /wp-content/uploads/2018/05/word-image-658-768x290.png 768w, /wp-content/uploads/2018/05/word-image-658-1024x387.png 1024w" sizes="(max-width: 1344px) 100vw, 1344px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="761" height="81" src="/wp-content/uploads/2018/05/word-image-659.png" class="wp-image-756" srcset="/wp-content/uploads/2018/05/word-image-659.png 761w, /wp-content/uploads/2018/05/word-image-659-300x32.png 300w" sizes="(max-width: 761px) 100vw, 761px" /></p>
+<h3>const常量</h3>
+<p>
+  常量除了可以用define定义，还可以用const来定义
+</p>
+<p><img loading="lazy" decoding="async" width="458" height="72" src="/wp-content/uploads/2018/05/word-image-660.png" class="wp-image-757" srcset="/wp-content/uploads/2018/05/word-image-660.png 458w, /wp-content/uploads/2018/05/word-image-660-300x47.png 300w" sizes="(max-width: 458px) 100vw, 458px" /></p>
+<h3>查看所有常量</h3>
+<p><img loading="lazy" decoding="async" width="618" height="115" src="/wp-content/uploads/2018/05/word-image-661.png" class="wp-image-758" srcset="/wp-content/uploads/2018/05/word-image-661.png 618w, /wp-content/uploads/2018/05/word-image-661-300x56.png 300w" sizes="(max-width: 618px) 100vw, 618px" /></p>
+<h2>Editplus提示设置</h2>
+<p>
+  Editplus默认是没有提示的，必须添加语法文件才有提示
+</p>
+<p>
+  第一步：准备语法文件
+</p>
+<p><img loading="lazy" decoding="async" width="618" height="214" src="/wp-content/uploads/2018/05/word-image-662.png" class="wp-image-759" srcset="/wp-content/uploads/2018/05/word-image-662.png 618w, /wp-content/uploads/2018/05/word-image-662-300x104.png 300w" sizes="(max-width: 618px) 100vw, 618px" /></p>
+<p>
+  第二步：将语法文件添加到editplus上
+</p>
+<p><img loading="lazy" decoding="async" width="241" height="61" src="/wp-content/uploads/2018/05/word-image-663.png" class="wp-image-760" /><br />
+<img loading="lazy" decoding="async" width="555" height="347" src="/wp-content/uploads/2018/05/word-image-664.png" class="wp-image-761" srcset="/wp-content/uploads/2018/05/word-image-664.png 555w, /wp-content/uploads/2018/05/word-image-664-300x188.png 300w" sizes="(max-width: 555px) 100vw, 555px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/712.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>PHP 语法（二）PHP 伪类型、 原码、 反码、 变量类型、 数组、 类型转换、 补码、 资源类型</title>
+		<link>/php/763.html</link>
+					<comments>/php/763.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 16:47:04 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP基本语法]]></category>
+		<category><![CDATA[PHP 伪类型]]></category>
+		<category><![CDATA[原码]]></category>
+		<category><![CDATA[反码]]></category>
+		<category><![CDATA[变量类型]]></category>
+		<category><![CDATA[数组]]></category>
+		<category><![CDATA[类型转换]]></category>
+		<category><![CDATA[补码]]></category>
+		<category><![CDATA[资源类型]]></category>
+		<guid isPermaLink="false">/?p=763</guid>
+
+					<description><![CDATA[PHP语法（二） 回顾 编译型和解析型：在程序运行的时候是否会生成中间代码 PHP执行过程：读取源代码——词法 [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h1>PHP语法（二）</h1>
+<h2>回顾</h2>
+<ol>
+<li>
+  编译型和解析型：在程序运行的时候是否会生成中间代码
+</li>
+<li>
+  PHP执行过程：读取源代码——词法分析——语法分析——生成opcode编码——有zend engine去执行
+</li>
+<li>
+  PHP四种界定符
+</li>
+</ol>
+<p>
+  第一种：标准风格：
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  第二种：短标记风格，要在php.ini中开启short_open_tag=on
+</p>
+<p>
+  &lt;?
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  第三种：asp风格，要在php.ini中设置asp_tags=on
+</p>
+<p>
+  &lt;%
+</p>
+<p>
+  %&gt;
+</p>
+<p>
+  第四种：脚本风格
+</p>
+<p>
+  &lt;script language=’php’&gt;
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  推荐使用第一种
+</p>
+<p>
+  PHP支持省略结束标记
+</p>
+<ol>
+<li>
+  注释</p>
+<ol>
+<li>
+    单行注释：//和#
+  </li>
+<li>
+    多行注释：/*  */
+  </li>
+</ol>
+</li>
+<li>
+  输出语句</p>
+<ol>
+<li>
+    echo：用来输出字符串和数字，可以输出多个值
+  </li>
+<li>
+    print：用来输出字符串和数字，可以输出一个值，输出成功返回1
+  </li>
+<li>
+    print_r：用来输出数组
+  </li>
+<li>
+    var_dump()：输出所有的数据类型。
+  </li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="682" height="94" src="/wp-content/uploads/2018/05/word-image-666.png" class="wp-image-765" srcset="/wp-content/uploads/2018/05/word-image-666.png 682w, /wp-content/uploads/2018/05/word-image-666-300x41.png 300w" sizes="(max-width: 682px) 100vw, 682px" /></p>
+<ol>
+<li>
+  变量</p>
+<ol>
+<li>
+    概念：变量是内存中的一段空间
+  </li>
+<li>
+    变量的命名规则：</p>
+<ol>
+<li>
+      变量必须以$开头，但是$不是变量的组成部分
+    </li>
+<li>
+      变量名以字母、下划线开头，后面跟的是字母、数字、下划线。
+    </li>
+<li>
+      变量赋值的时候分为值传递和引用传递。&amp;表示获取变量的地址
+    </li>
+<li>
+      unset()用来删除变量，删除的是变量名，变量值由垃圾回收机制去销毁。
+    </li>
+<li>
+      isset()用来判断变量是否存在。
+    </li>
+<li>
+      预定义变量</p>
+<ol>
+<li>
+        $_GET：数组，用来保存http协议GET提交的数据
+      </li>
+<li>
+        $_POST：数组，用来保存http协议POST提交的数组
+      </li>
+<li>
+        $_REQUEST：数组，用来保存http协议GET和POST提交的数组。如果$_REQUEST获取数据，如果GET提交的和POST提交的数据名一样，默认POST覆盖GET数据。在php.ini中
+      </li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>
+  Request_order=’GP’
+</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol>
+<li>
+              $argc：传递给脚本的参数数目
+            </li>
+<li>
+              $argv：传递给脚本的参数数组
+            </li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>
+  常量</p>
+<ol>
+<li>
+    定义常量 define(常量名,常量值，是否区分大小写)和const
+  </li>
+<li>
+    可以使用特殊字符做常量名，调用的时候要使用constant()来调用
+  </li>
+<li>
+    常量一旦定义就不能重复定义，通过defined()函数判断常量是否定义。
+  </li>
+<li>
+    预定义常量：PHP_OS，PHP_VERSION
+  </li>
+<li>
+    魔术常量：__LINE__，__FILE__，__DIR__
+  </li>
+<li>
+    get_defined_constants()获取所有的常量
+  </li>
+</ol>
+</li>
+</ol>
+<h2>变量数据类型</h2>
+<h3>强数据类型和弱数据类型</h3>
+<p><strong>弱数据类型：</strong>变量的类型取决于保存的值。什么样的值决定什么样的数据类型。
+</p>
+<p><strong>强数据类型：</strong>声明一个空间保存什么类型的数据，那么这个空间就不允许保存其他类型的数据。
+</p>
+<p>
+  PHP和JS都是弱数据类型。
+</p>
+<h3>数据类型的分类（8种）</h3>
+<p><img loading="lazy" decoding="async" width="653" height="324" src="/wp-content/uploads/2018/05/word-image-667.png" class="wp-image-766" srcset="/wp-content/uploads/2018/05/word-image-667.png 653w, /wp-content/uploads/2018/05/word-image-667-300x149.png 300w" sizes="(max-width: 653px) 100vw, 653px" /></p>
+<h3>标量类型（基本类型）</h3>
+<table>
+<tr>
+<td>
+<p>
+  数据类型
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+<td>
+<p>
+  备注
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  boolean（布尔型）
+</p>
+</td>
+<td>
+<p>
+  true和false
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p><a href="mk:@MSITStore:F:\帮助文档\php_manual_zh_2014.chm::/res/language.types.integer.html">integer</a>（整形）
+</p>
+</td>
+<td>
+<p>
+  整数，用4个字节保存
+</p>
+</td>
+<td>
+<p>
+  范围-2<sup>31</sup>~2<sup>31</sup>-1
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  float（浮点型）
+</p>
+</td>
+<td>
+<p>
+  实数
+</p>
+</td>
+<td>
+<p>
+  理论最大值1.8E+308
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  string（字符串）
+</p>
+</td>
+<td>
+<p>
+  单引号和双引号
+</p>
+</td>
+<td></td>
+</tr>
+</table>
+<p><img loading="lazy" decoding="async" width="941" height="51" src="/wp-content/uploads/2018/05/word-image-668.png" class="wp-image-767" srcset="/wp-content/uploads/2018/05/word-image-668.png 941w, /wp-content/uploads/2018/05/word-image-668-300x16.png 300w, /wp-content/uploads/2018/05/word-image-668-768x42.png 768w" sizes="(max-width: 941px) 100vw, 941px" /><br />
+<img loading="lazy" decoding="async" width="451" height="53" src="/wp-content/uploads/2018/05/word-image-669.png" class="wp-image-768" srcset="/wp-content/uploads/2018/05/word-image-669.png 451w, /wp-content/uploads/2018/05/word-image-669-300x35.png 300w" sizes="(max-width: 451px) 100vw, 451px" /><br />
+<img loading="lazy" decoding="async" width="732" height="34" src="/wp-content/uploads/2018/05/word-image-670.png" class="wp-image-769" srcset="/wp-content/uploads/2018/05/word-image-670.png 732w, /wp-content/uploads/2018/05/word-image-670-300x14.png 300w" sizes="(max-width: 732px) 100vw, 732px" /></p>
+<p>
+  PHP支持八进制和十六进制的整型
+</p>
+<p><img loading="lazy" decoding="async" width="405" height="131" src="/wp-content/uploads/2018/05/word-image-671.png" class="wp-image-770" srcset="/wp-content/uploads/2018/05/word-image-671.png 405w, /wp-content/uploads/2018/05/word-image-671-300x97.png 300w" sizes="(max-width: 405px) 100vw, 405px" /></p>
+<p>
+  进制转换
+</p>
+<table>
+<tr>
+<td>
+<p>
+  进制
+</p>
+</td>
+<td>
+<p>
+  缩写
+</p>
+</td>
+<td>
+<p>
+  单词
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  十进制
+</p>
+</td>
+<td>
+<p>
+  dec
+</p>
+</td>
+<td>
+<p>
+  decimalist
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  八进制
+</p>
+</td>
+<td>
+<p>
+  oct
+</p>
+</td>
+<td>
+<p>
+  octonary
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  二进制
+</p>
+</td>
+<td>
+<p>
+  bin
+</p>
+</td>
+<td>
+<p>
+  binary
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  十六进制
+</p>
+</td>
+<td>
+<p>
+  hex
+</p>
+</td>
+<td>
+<p>
+  hexadecimal
+</p>
+</td>
+</tr>
+</table>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="387" height="71" src="/wp-content/uploads/2018/05/word-image-672.png" class="wp-image-771" srcset="/wp-content/uploads/2018/05/word-image-672.png 387w, /wp-content/uploads/2018/05/word-image-672-300x55.png 300w" sizes="(max-width: 387px) 100vw, 387px" /></p>
+<ol>
+<li>
+  十进制的整数转二进制（除2反向取余）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="664" height="181" src="/wp-content/uploads/2018/05/word-image-673.png" class="wp-image-772" srcset="/wp-content/uploads/2018/05/word-image-673.png 664w, /wp-content/uploads/2018/05/word-image-673-300x82.png 300w" sizes="(max-width: 664px) 100vw, 664px" /></p>
+<ol>
+<li>
+  十进制的小数转二进制（乘2正向取整）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="528" height="165" src="/wp-content/uploads/2018/05/word-image-674.png" class="wp-image-773" srcset="/wp-content/uploads/2018/05/word-image-674.png 528w, /wp-content/uploads/2018/05/word-image-674-300x94.png 300w" sizes="(max-width: 528px) 100vw, 528px" /></p>
+<ol>
+<li>
+  二进制转十进制，个位是2的0次方，往左一次是1次方，2次方，往右依次是-1次方，-2次方
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="575" height="167" src="/wp-content/uploads/2018/05/word-image-675.png" class="wp-image-774" srcset="/wp-content/uploads/2018/05/word-image-675.png 575w, /wp-content/uploads/2018/05/word-image-675-300x87.png 300w" sizes="(max-width: 575px) 100vw, 575px" /></p>
+<ol>
+<li>
+  八进制转二进制：把每位的八进制转成3位的二级制然后合并起来
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="577" height="133" src="/wp-content/uploads/2018/05/word-image-676.png" class="wp-image-775" srcset="/wp-content/uploads/2018/05/word-image-676.png 577w, /wp-content/uploads/2018/05/word-image-676-300x69.png 300w" sizes="(max-width: 577px) 100vw, 577px" /></p>
+<ol>
+<li>
+  十六进制转二进制：把每位的十六进制转成4位的二级制然后合并起来
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="594" height="142" src="/wp-content/uploads/2018/05/word-image-677.png" class="wp-image-776" srcset="/wp-content/uploads/2018/05/word-image-677.png 594w, /wp-content/uploads/2018/05/word-image-677-300x72.png 300w" sizes="(max-width: 594px) 100vw, 594px" /></p>
+<p>
+  脚下留心：小数可能在内存中保存的是近似值。
+</p>
+<p><img loading="lazy" decoding="async" width="721" height="308" src="/wp-content/uploads/2018/05/word-image-678.png" class="wp-image-777" srcset="/wp-content/uploads/2018/05/word-image-678.png 721w, /wp-content/uploads/2018/05/word-image-678-300x128.png 300w" sizes="(max-width: 721px) 100vw, 721px" /></p>
+<p>
+  浮点数尽可能不要参与比较
+</p>
+<p><img loading="lazy" decoding="async" width="671" height="68" src="/wp-content/uploads/2018/05/word-image-679.png" class="wp-image-778" srcset="/wp-content/uploads/2018/05/word-image-679.png 671w, /wp-content/uploads/2018/05/word-image-679-300x30.png 300w" sizes="(max-width: 671px) 100vw, 671px" /></p>
+<p>
+  如果浮点数要比较，使用bccomp()函数比较
+</p>
+<p><img loading="lazy" decoding="async" width="432" height="31" src="/wp-content/uploads/2018/05/word-image-680.png" class="wp-image-779" srcset="/wp-content/uploads/2018/05/word-image-680.png 432w, /wp-content/uploads/2018/05/word-image-680-300x22.png 300w" sizes="(max-width: 432px) 100vw, 432px" /></p>
+<p>
+  bccomp()返回0表示相等，1表示左边的数大，-1表示右边的数大
+</p>
+<h3>字符串型</h3>
+<ol>
+<li>
+  如果字符串中没有变量，双引号和单引号是一样的
+</li>
+<li>
+  如果字符串中有变量，单引号字符串中的变量不被解析，双引号字符串中的变量要解析。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="536" height="85" src="/wp-content/uploads/2018/05/word-image-681.png" class="wp-image-780" srcset="/wp-content/uploads/2018/05/word-image-681.png 536w, /wp-content/uploads/2018/05/word-image-681-300x48.png 300w" sizes="(max-width: 536px) 100vw, 536px" /></p>
+<p>
+  分析如下代码
+</p>
+<p><img loading="lazy" decoding="async" width="914" height="67" src="/wp-content/uploads/2018/05/word-image-682.png" class="wp-image-781" srcset="/wp-content/uploads/2018/05/word-image-682.png 914w, /wp-content/uploads/2018/05/word-image-682-300x22.png 300w, /wp-content/uploads/2018/05/word-image-682-768x56.png 768w" sizes="(max-width: 914px) 100vw, 914px" /></p>
+<p>
+  解决：
+</p>
+<p><img loading="lazy" decoding="async" width="697" height="51" src="/wp-content/uploads/2018/05/word-image-683.png" class="wp-image-782" srcset="/wp-content/uploads/2018/05/word-image-683.png 697w, /wp-content/uploads/2018/05/word-image-683-300x22.png 300w" sizes="(max-width: 697px) 100vw, 697px" /></p>
+<p>
+  完美解决：
+</p>
+<p>
+  通过添加{ }来解决
+</p>
+<p><img loading="lazy" decoding="async" width="754" height="47" src="/wp-content/uploads/2018/05/word-image-684.png" class="wp-image-783" srcset="/wp-content/uploads/2018/05/word-image-684.png 754w, /wp-content/uploads/2018/05/word-image-684-300x19.png 300w" sizes="(max-width: 754px) 100vw, 754px" /></p>
+<p>
+  {和$必须紧挨在一起
+</p>
+<p><img loading="lazy" decoding="async" width="510" height="69" src="/wp-content/uploads/2018/05/word-image-685.png" class="wp-image-784" srcset="/wp-content/uploads/2018/05/word-image-685.png 510w, /wp-content/uploads/2018/05/word-image-685-300x41.png 300w" sizes="(max-width: 510px) 100vw, 510px" /></p>
+<p>
+  {和$没有顺序，主要挨在一起就行
+</p>
+<p><img loading="lazy" decoding="async" width="536" height="69" src="/wp-content/uploads/2018/05/word-image-686.png" class="wp-image-785" srcset="/wp-content/uploads/2018/05/word-image-686.png 536w, /wp-content/uploads/2018/05/word-image-686-300x39.png 300w" sizes="(max-width: 536px) 100vw, 536px" /></p>
+<p>
+  使用字符串定界符
+</p>
+<table>
+<tr>
+<td>
+<p>
+  heredoc
+</p>
+</td>
+<td>
+<p>
+  nowdoc
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  类似于双引号
+</p>
+</td>
+<td>
+<p>
+  类似于单引号
+</p>
+</td>
+</tr>
+</table>
+<p><img loading="lazy" decoding="async" width="590" height="237" src="/wp-content/uploads/2018/05/word-image-687.png" class="wp-image-786" srcset="/wp-content/uploads/2018/05/word-image-687.png 590w, /wp-content/uploads/2018/05/word-image-687-300x121.png 300w" sizes="(max-width: 590px) 100vw, 590px" /></p>
+<p>
+  字符串定界符注意事项：
+</p>
+<ol>
+<li>
+  以“&lt;&lt;&lt;”开头
+</li>
+<li>
+  字符串定界符的命名规则和变量的命名规则一样，不能以数字开头。
+</li>
+<li>
+  结束定界符必须顶格写
+</li>
+<li>
+  适用于输出大段文本
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="878" height="78" src="/wp-content/uploads/2018/05/word-image-688.png" class="wp-image-787" srcset="/wp-content/uploads/2018/05/word-image-688.png 878w, /wp-content/uploads/2018/05/word-image-688-300x27.png 300w, /wp-content/uploads/2018/05/word-image-688-768x68.png 768w" sizes="(max-width: 878px) 100vw, 878px" /></p>
+<p>
+  字符串的四种声明方法：
+</p>
+<ol>
+<li>
+  单引号字符串
+</li>
+<li>
+  双引号字符串
+</li>
+<li>
+  heredoc
+</li>
+<li>
+  nowdoc
+</li>
+</ol>
+<h3>转义字符（\）</h3>
+<ol>
+<li>
+  将特殊字符转成普通字符   \’	\”	\$  \\
+</li>
+<li>
+  和r，t，n在一起组成新的具有特殊含义的字符
+</li>
+</ol>
+<p>
+  \t	\r	\n
+</p>
+<p><img loading="lazy" decoding="async" width="653" height="73" src="/wp-content/uploads/2018/05/word-image-689.png" class="wp-image-788" srcset="/wp-content/uploads/2018/05/word-image-689.png 653w, /wp-content/uploads/2018/05/word-image-689-300x34.png 300w" sizes="(max-width: 653px) 100vw, 653px" /></p>
+<p>
+  3、可以用转义字符转义asc||码
+</p>
+<p>
+  ASC||：给键盘上的每个键都编一个对应的数字编码，成为ASC||码。ASC由7位的二进制数组成，最多可以编128个键。
+</p>
+<p>
+  字符比较其实比较的是字符的ASC||码。 A&lt;a   a-A=32
+</p>
+<p>
+  填空题：已知A=65，求d=?
+</p>
+<p>
+  d=a+3=A+32+3=65+35=100
+</p>
+<p><img loading="lazy" decoding="async" width="663" height="69" src="/wp-content/uploads/2018/05/word-image-690.png" class="wp-image-789" srcset="/wp-content/uploads/2018/05/word-image-690.png 663w, /wp-content/uploads/2018/05/word-image-690-300x31.png 300w" sizes="(max-width: 663px) 100vw, 663px" /></p>
+<h2>数组</h2>
+<p>
+  数组是内存中一段连续的空间，通过下标来区分每个元素
+</p>
+<h3>数组的声明</h3>
+<p><img loading="lazy" decoding="async" width="774" height="72" src="/wp-content/uploads/2018/05/word-image-691.png" class="wp-image-790" srcset="/wp-content/uploads/2018/05/word-image-691.png 774w, /wp-content/uploads/2018/05/word-image-691-300x28.png 300w, /wp-content/uploads/2018/05/word-image-691-768x71.png 768w" sizes="(max-width: 774px) 100vw, 774px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="738" height="152" src="/wp-content/uploads/2018/05/word-image-692.png" class="wp-image-791" srcset="/wp-content/uploads/2018/05/word-image-692.png 738w, /wp-content/uploads/2018/05/word-image-692-300x62.png 300w" sizes="(max-width: 738px) 100vw, 738px" /></p>
+<p>
+  关联数组中,一个下标对应一个值，称为键值对。
+</p>
+<p>
+  通过“=&gt;”符号给关联数组赋值。
+</p>
+<p>
+  注意：不是所有的数字做下标的都是索引数组，如果做下标的数字不是表示值的位置，这也是关联数组。
+</p>
+<p><img loading="lazy" decoding="async" width="504" height="68" src="/wp-content/uploads/2018/05/word-image-693.png" class="wp-image-792" srcset="/wp-content/uploads/2018/05/word-image-693.png 504w, /wp-content/uploads/2018/05/word-image-693-300x40.png 300w" sizes="(max-width: 504px) 100vw, 504px" /></p>
+<p>
+  注意：以数字做下标的情况下，后面的元素在前面元素的下标上递增1.
+</p>
+<p><img loading="lazy" decoding="async" width="822" height="48" src="/wp-content/uploads/2018/05/word-image-694.png" class="wp-image-793" srcset="/wp-content/uploads/2018/05/word-image-694.png 822w, /wp-content/uploads/2018/05/word-image-694-300x18.png 300w, /wp-content/uploads/2018/05/word-image-694-768x45.png 768w" sizes="(max-width: 822px) 100vw, 822px" /></p>
+<p>
+  例题：写出如下下标
+</p>
+<p><img loading="lazy" decoding="async" width="705" height="45" src="/wp-content/uploads/2018/05/word-image-695.png" class="wp-image-794" srcset="/wp-content/uploads/2018/05/word-image-695.png 705w, /wp-content/uploads/2018/05/word-image-695-300x19.png 300w" sizes="(max-width: 705px) 100vw, 705px" /><br />
+<img loading="lazy" decoding="async" width="691" height="45" src="/wp-content/uploads/2018/05/word-image-696.png" class="wp-image-795" srcset="/wp-content/uploads/2018/05/word-image-696.png 691w, /wp-content/uploads/2018/05/word-image-696-300x20.png 300w" sizes="(max-width: 691px) 100vw, 691px" /><br />
+<img loading="lazy" decoding="async" width="884" height="44" src="/wp-content/uploads/2018/05/word-image-697.png" class="wp-image-796" srcset="/wp-content/uploads/2018/05/word-image-697.png 884w, /wp-content/uploads/2018/05/word-image-697-300x15.png 300w, /wp-content/uploads/2018/05/word-image-697-768x38.png 768w" sizes="(max-width: 884px) 100vw, 884px" /><br />
+<img loading="lazy" decoding="async" width="706" height="45" src="/wp-content/uploads/2018/05/word-image-698.png" class="wp-image-797" srcset="/wp-content/uploads/2018/05/word-image-698.png 706w, /wp-content/uploads/2018/05/word-image-698-300x19.png 300w" sizes="(max-width: 706px) 100vw, 706px" /></p>
+<h3>数组下标的思考</h3>
+<p>
+  在一般情况下，数组下标就是数字和字符串。如果是其他情况会怎么样？
+</p>
+<p><img loading="lazy" decoding="async" width="868" height="194" src="/wp-content/uploads/2018/05/word-image-699.png" class="wp-image-798" srcset="/wp-content/uploads/2018/05/word-image-699.png 868w, /wp-content/uploads/2018/05/word-image-699-300x67.png 300w, /wp-content/uploads/2018/05/word-image-699-768x172.png 768w" sizes="(max-width: 868px) 100vw, 868px" /></p>
+<h3>extract()</h3>
+<p>
+  从数组中将变量导入到当前的符号表
+</p>
+<p><img loading="lazy" decoding="async" width="511" height="67" src="/wp-content/uploads/2018/05/word-image-700.png" class="wp-image-799" srcset="/wp-content/uploads/2018/05/word-image-700.png 511w, /wp-content/uploads/2018/05/word-image-700-300x39.png 300w" sizes="(max-width: 511px) 100vw, 511px" /></p>
+<h3>数组的分类</h3>
+<ol>
+<li>
+  按照元素的键值关系来分类</p>
+<ol>
+<li>
+    索引数组：通过元素的位置坐下标
+  </li>
+<li>
+    关联数组：元素的值和下标没有位置上的关系。关联数组中元素顺序与下标无关。
+  </li>
+</ol>
+</li>
+<li>
+  按照数组的结构来分类：</p>
+<ol>
+<li>
+    一维数组
+  </li>
+<li>
+    多维数组
+  </li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="896" height="185" src="/wp-content/uploads/2018/05/word-image-701.png" class="wp-image-800" srcset="/wp-content/uploads/2018/05/word-image-701.png 896w, /wp-content/uploads/2018/05/word-image-701-300x62.png 300w, /wp-content/uploads/2018/05/word-image-701-768x159.png 768w" sizes="(max-width: 896px) 100vw, 896px" /></p>
+<p>
+  注意：在PHP和JS中，二维数组不一定是二维表。
+</p>
+<p><img loading="lazy" decoding="async" width="981" height="229" src="/wp-content/uploads/2018/05/word-image-702.png" class="wp-image-801" srcset="/wp-content/uploads/2018/05/word-image-702.png 981w, /wp-content/uploads/2018/05/word-image-702-300x70.png 300w, /wp-content/uploads/2018/05/word-image-702-768x179.png 768w" sizes="(max-width: 981px) 100vw, 981px" /></p>
+<h2>资源类型（resource）</h2>
+<ol>
+<li>
+  PHP引用的外部数据都是资源类型
+</li>
+<li>
+  资源类型只能获取，不能创建
+</li>
+<li>
+  资源也是有类别的，比如有链接资源，文本流资源
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="787" height="87" src="/wp-content/uploads/2018/05/word-image-703.png" class="wp-image-802" srcset="/wp-content/uploads/2018/05/word-image-703.png 787w, /wp-content/uploads/2018/05/word-image-703-300x33.png 300w, /wp-content/uploads/2018/05/word-image-703-768x85.png 768w" sizes="(max-width: 787px) 100vw, 787px" /></p>
+<h2>NULL类型</h2>
+<ol>
+<li>
+  表示没有
+</li>
+<li>
+  NULL是不区分大小写的，写null也是一样的。
+</li>
+</ol>
+<h2>PHP <a href="mk:@MSITStore:F:\帮助文档\php_manual_zh_2014.chm::/res/language.pseudo-types.html">伪类型</a></h2>
+<p>
+  PHP除了上面8种原始数据类型外，还提供了3种伪类型
+</p>
+<h3>混合类型（<a href="mk:@MSITStore:F:\帮助文档\php_manual_zh_2014.chm::/res/language.pseudo-types.html#language.types.mixed">mixed</a>）</h3>
+<p><em>mixed</em> 说明一个参数可以接受多种不同的类型
+</p>
+<p><img loading="lazy" decoding="async" width="606" height="82" src="/wp-content/uploads/2018/05/word-image-704.png" class="wp-image-803" srcset="/wp-content/uploads/2018/05/word-image-704.png 606w, /wp-content/uploads/2018/05/word-image-704-300x41.png 300w" sizes="(max-width: 606px) 100vw, 606px" /></p>
+<h3>number</h3>
+<p><img loading="lazy" decoding="async" width="303" height="24" src="/wp-content/uploads/2018/05/word-image-705.png" class="wp-image-804" srcset="/wp-content/uploads/2018/05/word-image-705.png 303w, /wp-content/uploads/2018/05/word-image-705-300x24.png 300w" sizes="(max-width: 303px) 100vw, 303px" /></p>
+<h3>callback</h3>
+<p>
+  callback表示回调函数。在某种条件下，计算机自动调用的函数称为回调函数。具体在后面讲解。
+</p>
+<h2>类型转换</h2>
+<p>
+  数据类型是数据在内存中的存储结构，并在此结构上的操作运行的集合。这就意味着不同的数据类型的运算操作会不一样，不同的数据类型之间运算首先先要组成相同的数据类型，还个转换有可能是计算机自己转换的。我们要注意这个数据类型的转换。
+</p>
+<h3>自动转换</h3>
+<p>
+  在计算机期望类型和实际类型不符的条件下自动转换成计算机期望的类型
+</p>
+<p>
+  
+</p>
+<p><img loading="lazy" decoding="async" width="693" height="83" src="/wp-content/uploads/2018/05/word-image-706.png" class="wp-image-805" srcset="/wp-content/uploads/2018/05/word-image-706.png 693w, /wp-content/uploads/2018/05/word-image-706-300x36.png 300w" sizes="(max-width: 693px) 100vw, 693px" /><br />
+<img loading="lazy" decoding="async" width="516" height="89" src="/wp-content/uploads/2018/05/word-image-707.png" class="wp-image-806" srcset="/wp-content/uploads/2018/05/word-image-707.png 516w, /wp-content/uploads/2018/05/word-image-707-300x52.png 300w" sizes="(max-width: 516px) 100vw, 516px" /></p>
+<h3>强制转换</h3>
+<p><img loading="lazy" decoding="async" width="436" height="45" src="/wp-content/uploads/2018/05/word-image-708.png" class="wp-image-807" srcset="/wp-content/uploads/2018/05/word-image-708.png 436w, /wp-content/uploads/2018/05/word-image-708-300x31.png 300w" sizes="(max-width: 436px) 100vw, 436px" /></p>
+<p>
+  int：整数
+</p>
+<p>
+  bool：布尔型
+</p>
+<p>
+  float：浮点型
+</p>
+<p>
+  string：字符串型
+</p>
+<h3>其他类型和bool之间的关系</h3>
+<ol>
+<li>
+  数字转布尔：0为假，非0为真
+</li>
+<li>
+  字符串，数组转布尔：如果一个字符串你们转成0或者转成空就为false，否则为true。
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  //整数转布尔
+</p>
+<p>
+  var_dump((bool)1);echo &#8216;&lt;br&gt;&#8217;;		//true
+</p>
+<p>
+  var_dump((bool)0);echo &#8216;&lt;br&gt;&#8217;;		//false
+</p>
+<p>
+  var_dump((bool)-1);echo &#8216;&lt;hr&gt;&#8217;;		//true
+</p>
+<p>
+  //浮点数转布尔
+</p>
+<p>
+  var_dump((bool)1.1);echo &#8216;&lt;br&gt;&#8217;;		//true
+</p>
+<p>
+  var_dump((bool)0.0);echo &#8216;&lt;br&gt;&#8217;;		//false
+</p>
+<p>
+  var_dump((bool)-1.1);echo &#8216;&lt;hr&gt;&#8217;;		//true
+</p>
+<p>
+  //字符串转布尔
+</p>
+<p>
+  var_dump((bool)&#8217;abc&#8217;);echo &#8216;&lt;br&gt;&#8217;;		//true
+</p>
+<p>
+  var_dump((bool)&#8217;0&#8242;);echo &#8216;&lt;br&gt;&#8217;;		//false
+</p>
+<p>
+  var_dump((bool)&#8217;0.0&#8242;);echo &#8216;&lt;br&gt;&#8217;;		//true
+</p>
+<p>
+  var_dump((bool)&#8217;00&#8217;);echo &#8216;&lt;br&gt;&#8217;;		//true
+</p>
+<p>
+  var_dump((bool)&#8221;);echo &#8216;&lt;br&gt;&#8217;;			//false
+</p>
+<p>
+  var_dump((bool)&#8217;null&#8217;);echo &#8216;&lt;br&gt;&#8217;;		//true
+</p>
+<p>
+  var_dump((bool)&#8217;false&#8217;);echo &#8216;&lt;hr&gt;&#8217;;	//true
+</p>
+<p>
+  //数组转成布尔
+</p>
+<p>
+  var_dump((bool)array());echo &#8216;&lt;br&gt;&#8217;;	//false
+</p>
+<p>
+  var_dump((bool)array(1));echo &#8216;&lt;br&gt;&#8217;;	//true
+</p>
+<p>
+  var_dump((bool)array(false));echo &#8216;&lt;br&gt;&#8217;;	//true
+</p>
+<p>
+  var_dump((bool)null);echo &#8216;&lt;br&gt;&#8217;;			//false
+</p>
+<h3>与类型有关的函数</h3>
+<p><img loading="lazy" decoding="async" width="213" height="42" src="/wp-content/uploads/2018/05/word-image-709.png" class="wp-image-808" /></p>
+<p>
+  能够返回的值有
+</p>
+<p><img loading="lazy" decoding="async" width="519" height="251" src="/wp-content/uploads/2018/05/word-image-710.png" class="wp-image-809" srcset="/wp-content/uploads/2018/05/word-image-710.png 519w, /wp-content/uploads/2018/05/word-image-710-300x145.png 300w" sizes="(max-width: 519px) 100vw, 519px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="466" height="91" src="/wp-content/uploads/2018/05/word-image-711.png" class="wp-image-810" srcset="/wp-content/uploads/2018/05/word-image-711.png 466w, /wp-content/uploads/2018/05/word-image-711-300x59.png 300w" sizes="(max-width: 466px) 100vw, 466px" /></p>
+<p>
+  is_XXX系列，用来判断变量是否是某种数据类型
+</p>
+<p><img loading="lazy" decoding="async" width="865" height="129" src="/wp-content/uploads/2018/05/word-image-712.png" class="wp-image-811" srcset="/wp-content/uploads/2018/05/word-image-712.png 865w, /wp-content/uploads/2018/05/word-image-712-300x45.png 300w, /wp-content/uploads/2018/05/word-image-712-768x115.png 768w" sizes="(max-width: 865px) 100vw, 865px" /></p>
+<h2>原码、反码、补码</h2>
+<h3>原码</h3>
+<p>
+  原码：数字转成二进制，这个二级制数就是原码
+</p>
+<p>
+  比如5对应的二进制是101。101就是5的原码。
+</p>
+<h3>反码</h3>
+<p>
+  反码就是原码的相同位取反，0变1,1变0.
+</p>
+<h3>补码</h3>
+<ol>
+<li>
+  正数的原码，反码，补码是一样的。
+</li>
+<li>
+  负数的反码：符号位不变，其他位取反。最高位就是符号位，正数是0，负数是1。
+</li>
+<li>
+  负数的补码：补码=反码+1
+</li>
+</ol>
+<p>
+  例题：
+</p>
+<p>
+  X=5
+</p>
+<p>
+  X[原]=x[反]=x[补]=0101
+</p>
+<p>
+  X=-5
+</p>
+<p>
+  X[原]=1101
+</p>
+<p>
+  X[反]=1010
+</p>
+<p>
+  X[补]=1011
+</p>
+<h3>为什么计算机要使用补码运算？</h3>
+<ol>
+<li>
+  在补码中+0和-0表示方法一样
+</li>
+<li>
+  计算机的运行有高位溢出原则
+</li>
+</ol>
+<p>
+  为什么+0和-0补码是一样的？
+</p>
+<p>
+  +0的反码是  +0[反]=0000
+</p>
+<p>
+  -0[原]=1000   -0[反]=1111   -0[补]=10000  高位溢出后 0000
+</p>
+<ol>
+<li>
+  利用补码运算，可以将减法变成加法来运算
+</li>
+</ol>
+<p>
+  比如：4-1
+</p>
+<p>
+  =4+（-1）
+</p>
+<p>
+  =0100[原]+1001[原]
+</p>
+<p>
+  =0100[反]+1110[反]
+</p>
+<p>
+  =0100[补]+1111[补]
+</p>
+<p>
+  =10011[补]
+</p>
+<p>
+  =0011[补]  高位溢出
+</p>
+<p>
+  =0011[原]
+</p>
+<p>
+  =3
+</p>
+<p>
+  例题：1-4
+</p>
+<p>
+  =1+（-4）
+</p>
+<p>
+  =0001[原]+1100[原]
+</p>
+<p>
+  =0001[反]+1011[反]
+</p>
+<p>
+  =0001[补]+1100[补]
+</p>
+<p>
+  =1101[补]
+</p>
+<p>
+  =1100[反]
+</p>
+<p>
+  =1011[原]
+</p>
+<p>
+  =-3</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/763.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>PHP 语法（三）判断语句、 包含文件、 循环语句、 运算符</title>
+		<link>/php/813.html</link>
+					<comments>/php/813.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 16:46:36 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP基本语法]]></category>
+		<category><![CDATA[判断语句]]></category>
+		<category><![CDATA[包含文件]]></category>
+		<category><![CDATA[循环语句]]></category>
+		<category><![CDATA[运算符]]></category>
+		<guid isPermaLink="false">/?p=813</guid>
+
+					<description><![CDATA[PHP语法（三） 运算符 算术运算符 一元运算符 二元运算符 &#8211; + ++ &#8211; &#8 [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h1>PHP语法（三）</h1>
+<h2>运算符</h2>
+<h3>算术运算符</h3>
+<table>
+<tr>
+<td>
+<p>
+  一元运算符
+</p>
+</td>
+<td>
+<p>
+  二元运算符
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &#8211;
+</p>
+</td>
+<td>
+<p>
+  +
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  ++
+</p>
+</td>
+<td>
+<p>
+  &#8211;
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &#8212;
+</p>
+</td>
+<td>
+<p>
+  *
+</p>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<p>
+  /
+</p>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<p>
+  %
+</p>
+</td>
+</tr>
+</table>
+<p>
+  脚下留心：
+</p>
+<ol>
+<li>
+  PHP中的“+”只能做数字运行，不能做字符串运算。
+</li>
+<li>
+  ++和&#8211;要注意前置和后置的问题
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="659" height="26" src="/wp-content/uploads/2018/05/word-image-714.png" class="wp-image-815" srcset="/wp-content/uploads/2018/05/word-image-714.png 659w, /wp-content/uploads/2018/05/word-image-714-300x12.png 300w" sizes="(max-width: 659px) 100vw, 659px" /><br />
+<img loading="lazy" decoding="async" width="601" height="71" src="/wp-content/uploads/2018/05/word-image-715.png" class="wp-image-816" srcset="/wp-content/uploads/2018/05/word-image-715.png 601w, /wp-content/uploads/2018/05/word-image-715-300x35.png 300w" sizes="(max-width: 601px) 100vw, 601px" /></p>
+<h3>比较运算符（关系运算符）</h3>
+<table>
+<tr>
+<td>
+<p>
+  运算符
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &gt;
+</p>
+</td>
+<td>
+<p>
+  大于
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &gt;=
+</p>
+</td>
+<td>
+<p>
+  大于等于
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &lt;
+</p>
+</td>
+<td>
+<p>
+  小于
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &lt;=
+</p>
+</td>
+<td>
+<p>
+  小于等于
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  ==
+</p>
+</td>
+<td>
+<p>
+  等于    *只要能转成相同的值就是相等
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  ===
+</p>
+</td>
+<td>
+<p>
+  全等于  *不但值相等，数据类型也要相等
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  !=或&lt;&gt;
+</p>
+</td>
+<td>
+<p>
+  不等于
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  !==
+</p>
+</td>
+<td>
+<p>
+  不全等
+</p>
+</td>
+</tr>
+</table>
+<p>
+  注意：比较运算符的运算结果是布尔型的
+</p>
+<p><img loading="lazy" decoding="async" width="615" height="213" src="/wp-content/uploads/2018/05/word-image-716.png" class="wp-image-817" srcset="/wp-content/uploads/2018/05/word-image-716.png 615w, /wp-content/uploads/2018/05/word-image-716-300x104.png 300w" sizes="(max-width: 615px) 100vw, 615px" /></p>
+<p>
+  不等于
+</p>
+<p><img loading="lazy" decoding="async" width="307" height="115" src="/wp-content/uploads/2018/05/word-image-717.png" class="wp-image-818" srcset="/wp-content/uploads/2018/05/word-image-717.png 307w, /wp-content/uploads/2018/05/word-image-717-300x112.png 300w" sizes="(max-width: 307px) 100vw, 307px" /></p>
+<h3>逻辑运算符</h3>
+<p>
+  逻辑运算符是用来连接比较运算符的。
+</p>
+<table>
+<tr>
+<td>
+<p>
+  运算符
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &amp;&amp;或and
+</p>
+</td>
+<td>
+<p>
+  与（并且）
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  ||或or
+</p>
+</td>
+<td>
+<p>
+  或（或者）
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  !
+</p>
+</td>
+<td>
+<p>
+  非（取反）
+</p>
+</td>
+</tr>
+</table>
+<p>
+  练习
+</p>
+<p>
+  true &amp;&amp; true		true
+</p>
+<p>
+  true &amp;&amp; false		false
+</p>
+<p>
+  false &amp;&amp; true		false
+</p>
+<p>
+  false &amp;&amp; false	false
+</p>
+<p>
+  true || true		true
+</p>
+<p>
+  true || false		true
+</p>
+<p>
+  false || true 	true
+</p>
+<p>
+  false || false	false
+</p>
+<p>
+  !true				false
+</p>
+<p>
+  !false				true
+</p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="693" height="90" src="/wp-content/uploads/2018/05/word-image-718.png" class="wp-image-819" srcset="/wp-content/uploads/2018/05/word-image-718.png 693w, /wp-content/uploads/2018/05/word-image-718-300x39.png 300w" sizes="(max-width: 693px) 100vw, 693px" /></p>
+<h3>赋值运算符</h3>
+<table>
+<tr>
+<td>
+<p>
+  运算符
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  =
+</p>
+</td>
+<td>
+<p>
+  赋值
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  +=
+</p>
+</td>
+<td>
+<p>
+  a+=b    a=a+b
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  -=
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  *=
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  /=
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  %=
+</p>
+</td>
+<td></td>
+</tr>
+</table>
+<p>
+  总结 ：= 赋值	==	等于	===  全等
+</p>
+<h3>字符串连接符（.）</h3>
+<p><img loading="lazy" decoding="async" width="550" height="35" src="/wp-content/uploads/2018/05/word-image-719.png" class="wp-image-820" srcset="/wp-content/uploads/2018/05/word-image-719.png 550w, /wp-content/uploads/2018/05/word-image-719-300x19.png 300w" sizes="(max-width: 550px) 100vw, 550px" /></p>
+<h3>错误控制运算符（错误抑制符 @）</h3>
+<p>
+  @用来屏蔽表达式错误，只对表达式有效。
+</p>
+<p><img loading="lazy" decoding="async" width="678" height="78" src="/wp-content/uploads/2018/05/word-image-720.png" class="wp-image-821" srcset="/wp-content/uploads/2018/05/word-image-720.png 678w, /wp-content/uploads/2018/05/word-image-720-300x35.png 300w" sizes="(max-width: 678px) 100vw, 678px" /></p>
+<h3>三元运算符（?:）</h3>
+<p>
+  语法：表达式?值1：值2
+</p>
+<p>
+  如果表达式为真，返回值1，否则返回值2
+</p>
+<p><img loading="lazy" decoding="async" width="954" height="207" src="/wp-content/uploads/2018/05/word-image-721.png" class="wp-image-822" srcset="/wp-content/uploads/2018/05/word-image-721.png 954w, /wp-content/uploads/2018/05/word-image-721-300x65.png 300w, /wp-content/uploads/2018/05/word-image-721-768x167.png 768w" sizes="(max-width: 954px) 100vw, 954px" /></p>
+<h3>位运算符（了解）</h3>
+<table>
+<tr>
+<td>
+<p>
+  运算符
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  按位与（&amp;）
+</p>
+</td>
+<td>
+<p>
+  两个相同的位都是1，结果才是1，有一位是0结果就是0
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  按位或（|）
+</p>
+</td>
+<td>
+<p>
+  两个位只要有一个是1结果就是1
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  按位异或（^）
+</p>
+</td>
+<td>
+<p>
+  两个位不同为1，相同位0
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  按位非（~）
+</p>
+</td>
+<td>
+<p>
+  按位取反
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  位左移（&lt;&lt;）
+</p>
+</td>
+<td>
+<p>
+  位向左移动
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  位右移（&gt;&gt;）
+</p>
+</td>
+<td>
+<p>
+  位向右移动
+</p>
+</td>
+</tr>
+</table>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="1232" height="258" src="/wp-content/uploads/2018/05/word-image-722.png" class="wp-image-823" srcset="/wp-content/uploads/2018/05/word-image-722.png 1232w, /wp-content/uploads/2018/05/word-image-722-300x63.png 300w, /wp-content/uploads/2018/05/word-image-722-768x161.png 768w, /wp-content/uploads/2018/05/word-image-722-1024x214.png 1024w" sizes="(max-width: 1232px) 100vw, 1232px" /></p>
+<h2>运算符的优先级</h2>
+<ol>
+<li>
+  第一步：小括号的优先级最高
+</li>
+<li>
+  第二步：先乘除后加减
+</li>
+<li>
+  第三步：算术运算符 &gt; 比较运算符 &gt; 逻辑运算符 &gt; 赋值运算符
+</li>
+</ol>
+<p>
+  $a=5;
+</p>
+<p>
+  $b=6;
+</p>
+<p>
+  $a&gt;$b &amp;&amp; ($a+$b)&gt;$b*2 || !($a==$b)
+</p>
+<p>
+  =false &amp;&amp; false || true
+</p>
+<p>
+  =true
+</p>
+<h2>两个常用于判读变量的函数</h2>
+<p>
+  在处理一个没有定义的变量的时候回报错
+</p>
+<p><img loading="lazy" decoding="async" width="777" height="73" src="/wp-content/uploads/2018/05/word-image-723.png" class="wp-image-824" srcset="/wp-content/uploads/2018/05/word-image-723.png 777w, /wp-content/uploads/2018/05/word-image-723-300x28.png 300w, /wp-content/uploads/2018/05/word-image-723-768x72.png 768w" sizes="(max-width: 777px) 100vw, 777px" /></p>
+<p>
+  我们在使用变量之前，向判读一下变量，判读变量的函数有两个
+</p>
+<table>
+<tr>
+<td>
+<p>
+  函数
+</p>
+</td>
+<td>
+<p>
+  说明
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  isset()
+</p>
+</td>
+<td>
+<p>
+  检测变量是否设置，并且设置的值不是null
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  empty()
+</p>
+</td>
+<td>
+<p>
+  检查变量是否为空，只要能转成 false的都为空。
+</p>
+</td>
+</tr>
+</table>
+<p>
+  例题：
+</p>
+<p><img loading="lazy" decoding="async" width="555" height="111" src="/wp-content/uploads/2018/05/word-image-724.png" class="wp-image-825" srcset="/wp-content/uploads/2018/05/word-image-724.png 555w, /wp-content/uploads/2018/05/word-image-724-300x60.png 300w" sizes="(max-width: 555px) 100vw, 555px" /><br />
+<img loading="lazy" decoding="async" width="683" height="110" src="/wp-content/uploads/2018/05/word-image-725.png" class="wp-image-826" srcset="/wp-content/uploads/2018/05/word-image-725.png 683w, /wp-content/uploads/2018/05/word-image-725-300x48.png 300w" sizes="(max-width: 683px) 100vw, 683px" /></p>
+<h2>流程控制的三大基本结构</h2>
+<ol>
+<li>
+  顺序结构
+</li>
+<li>
+  判断
+</li>
+<li>
+  循环
+</li>
+</ol>
+<h2>判断语句</h2>
+<h3>语法结构</h3>
+<ol>
+<li>
+  单分支
+</li>
+</ol>
+<p>
+  if(条件){
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  双分支
+</li>
+</ol>
+<p>
+  if(条件){
+</p>
+<p>
+  }else{
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  多分支
+</li>
+</ol>
+<p>
+  if(条件){
+</p>
+<p>
+  }
+</p>
+<p>
+  elseif(条件){
+</p>
+<p>
+  }
+</p>
+<p>
+  elseif(条件){
+</p>
+<p>
+  }
+</p>
+<p>
+  else{
+</p>
+<p>
+  }
+</p>
+<p>
+  注意：多分支else和if之间是没有空格的。
+</p>
+<ol>
+<li>
+  多路选择
+</li>
+</ol>
+<p>
+  Switch(表达式){
+</p>
+<p>
+  	case 常量:
+</p>
+<p>
+  		[break];
+</p>
+<p>
+  	case 常量:
+</p>
+<p>
+  		[break];
+</p>
+<p>
+  	default
+</p>
+<p>
+  }
+</p>
+<h3>例题：判断闰年（双分支）</h3>
+<ol>
+<li>
+  empty()：如果$_POST为空表示没有post提交，不为空表示表达有post提交
+</li>
+<li>
+  trim()：去除字符串两边的空格
+</li>
+<li>
+  is_numeric()：判断变量是否是数字或数字字符串
+</li>
+<li>
+  $year+=0;将$year转成数字类型
+</li>
+<li>
+  is_int()：判断变量是否是整型
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  if(!empty($_POST)) {	//数组不为空说明点击了提交按钮
+</p>
+<p>
+  	$year=trim($_POST[&#8216;year&#8217;]);	//获取年份,trim()用来去字符串两边的空格
+</p>
+<p>
+  	if($year==&#8221;){
+</p>
+<p>
+  		echo &#8216;您没有输入&#8217;;
+</p>
+<p>
+  	}else{
+</p>
+<p>
+  		if(!is_numeric($year)){
+</p>
+<p>
+  			echo &#8216;您输入的不是数字&#8217;;
+</p>
+<p>
+  		}else{
+</p>
+<p>
+  			$year+=0;	//将$year转成数字类型
+</p>
+<p>
+  			if(is_int($year)){	//is_int()检查变量是否是整型
+</p>
+<p>
+  				if($year&lt;1)
+</p>
+<p>
+  					echo &#8216;您输入的年份必须正整数&#8217;;
+</p>
+<p>
+  				else {
+</p>
+<p>
+  					/**
+</p>
+<p>
+  					*润年的条件
+</p>
+<p>
+  					*1、能被4整除，但是不能被100整除
+</p>
+<p>
+  					*2、能被400整除的年份
+</p>
+<p>
+  					*/
+</p>
+<p>
+  					if($year%4==0 &amp;&amp; $year%100!=0 || $year%400==0)
+</p>
+<p>
+  						echo &#8220;{$year}是闰年&#8221;;
+</p>
+<p>
+  					else
+</p>
+<p>
+  						echo &#8220;{$year}是平年&#8221;;
+</p>
+<p>
+  				}
+</p>
+<p>
+  			}else{
+</p>
+<p>
+  				echo &#8216;您输入的年份不是整数&#8217;;
+</p>
+<p>
+  			}
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form method=&#8221;post&#8221; action=&#8221;&#8221;&gt;
+</p>
+<p>
+  	请输入年份： &lt;input type=&#8221;text&#8221; name=&#8221;year&#8221;&gt; &lt;br /&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;submit&#8221; name=&#8221;button&#8221; value=&#8221;判读闰年&#8221;&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="307" height="72" src="/wp-content/uploads/2018/05/word-image-726.png" class="wp-image-827" srcset="/wp-content/uploads/2018/05/word-image-726.png 307w, /wp-content/uploads/2018/05/word-image-726-300x70.png 300w" sizes="(max-width: 307px) 100vw, 307px" /></p>
+<h3>例题：判断成绩（多分支）</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  if(!empty($_POST)) {
+</p>
+<p>
+  	$ch=trim($_POST[&#8216;ch&#8217;]);		//获取语文成绩
+</p>
+<p>
+  	$math=trim($_POST[&#8216;math&#8217;]);	//获取数学成绩
+</p>
+<p>
+  	if($ch==&#8221; || !is_numeric($ch) || $ch&lt;0 || $ch&gt;100)
+</p>
+<p>
+  		echo &#8216;语文成绩必须在0-100之间&#8217;;
+</p>
+<p>
+  	elseif($math==&#8221; || !is_numeric($math) || !($math&gt;=0 &amp;&amp; $math&lt;=100))
+</p>
+<p>
+  		echo &#8216;数学成绩必须在0-100之间&#8217;;
+</p>
+<p>
+  	else{
+</p>
+<p>
+  		$avg=($ch+$math)/2;
+</p>
+<p>
+  		echo &#8216;您的平均分是：&#8217;.$avg.'&lt;br&gt;&#8217;;
+</p>
+<p>
+  		if($avg&gt;=90)
+</p>
+<p>
+  			echo &#8216;孩子，你是我的骄傲&#8217;;
+</p>
+<p>
+  		elseif($avg&gt;=80)
+</p>
+<p>
+  			echo &#8216;好样的，宝贝&#8217;;
+</p>
+<p>
+  		elseif($avg&gt;=70)
+</p>
+<p>
+  			echo &#8216;您离优秀不远了&#8217;;
+</p>
+<p>
+  		elseif($avg&gt;=60)
+</p>
+<p>
+  			echo &#8216;您还是有潜力的&#8217;;
+</p>
+<p>
+  		else
+</p>
+<p>
+  			echo &#8216;看来你不努力是不行了&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form method=&#8221;post&#8221; action=&#8221;&#8221;&gt;
+</p>
+<p>
+  	语文： &lt;input type=&#8221;text&#8221; name=&#8221;ch&#8221;&gt; &lt;br /&gt;
+</p>
+<p>
+  	数学： &lt;input type=&#8221;text&#8221; name=&#8221;math&#8221;&gt; &lt;br /&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;submit&#8221; name=&#8221;button&#8221; value=&#8221;提交&#8221;&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="308" height="113" src="/wp-content/uploads/2018/05/word-image-727.png" class="wp-image-828" srcset="/wp-content/uploads/2018/05/word-image-727.png 308w, /wp-content/uploads/2018/05/word-image-727-300x110.png 300w" sizes="(max-width: 308px) 100vw, 308px" /></p>
+<h3>例题：switch-case</h3>
+<p>
+  &lt;div id=&#8221;shi&#8221; class=&#8221;&#8221;&gt;
+</p>
+<p>
+  	锄禾日当午，&lt;br&gt;
+</p>
+</p>
+<p>
+  汗滴禾下土。&lt;br&gt;
+</p>
+</p>
+<p>
+  谁知盘中餐，&lt;br&gt;
+</p>
+</p>
+<p>
+  粒粒皆辛苦。
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;form method=&#8221;post&#8221; action=&#8221;&#8221;&gt;
+</p>
+<p>
+  	&lt;select name=&#8221;color&#8221;&gt;
+</p>
+<p>
+  		&lt;option value=&#8221;&#8221;&gt;&#8212;请选择颜色&#8212;&lt;/option&gt;
+</p>
+<p>
+  		&lt;option value=&#8221;1&#8243;&gt;红色&lt;/option&gt;
+</p>
+<p>
+  		&lt;option value=&#8221;2&#8243;&gt;绿色&lt;/option&gt;
+</p>
+<p>
+  		&lt;option value=&#8221;3&#8243;&gt;蓝色&lt;/option&gt;
+</p>
+<p>
+  	&lt;/select&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;submit&#8221; name=&#8221;button&#8221; value=&#8221;确定&#8221;&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  if(!empty($_POST)) {
+</p>
+<p>
+  	$color=$_POST[&#8216;color&#8217;];
+</p>
+<p>
+  	switch($color) {
+</p>
+<p>
+  		case 1:
+</p>
+<p>
+  			$color=&#8217;#FF0000&#8242;;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		case 2:
+</p>
+<p>
+  			$color=&#8217;#009900&#8242;;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		case 3:
+</p>
+<p>
+  			$color=&#8217;#0000FF&#8217;;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		default:
+</p>
+<p>
+  			$color=&#8217;#000000&#8242;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	/*
+</p>
+<p>
+  	echo &#8216;&lt;script type=&#8221;text/javascript&#8221;&gt;&#8217;;
+</p>
+<p>
+  	echo &#8220;shi.style.color='{$color}'&#8221;;
+</p>
+<p>
+  	echo &#8216;&lt;/script&gt;&#8217;;
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	//换一种写法
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  	&lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  		shi.style.color='&lt;?php echo $color?&gt;&#8217;;
+</p>
+<p>
+  	&lt;/script&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="412" height="127" src="/wp-content/uploads/2018/05/word-image-728.png" class="wp-image-829" srcset="/wp-content/uploads/2018/05/word-image-728.png 412w, /wp-content/uploads/2018/05/word-image-728-300x92.png 300w" sizes="(max-width: 412px) 100vw, 412px" /></p>
+<h3>注意如下两种写法</h3>
+<p><img loading="lazy" decoding="async" width="628" height="277" src="/wp-content/uploads/2018/05/word-image-729.png" class="wp-image-830" srcset="/wp-content/uploads/2018/05/word-image-729.png 628w, /wp-content/uploads/2018/05/word-image-729-300x132.png 300w" sizes="(max-width: 628px) 100vw, 628px" /></p>
+<h3>替代语法</h3>
+<p>
+  左大括号变冒号（:），右大括号变endXXX
+</p>
+<p><strong>单分支</strong>
+</p>
+<p>
+  if(条件):
+</p>
+<p>
+  endif;
+</p>
+<p><strong>双分支</strong>
+</p>
+<p>
+  if(条件):
+</p>
+<p>
+  	//代码1
+</p>
+<p>
+  else:
+</p>
+<p>
+  	//代码2
+</p>
+<p>
+  endif;
+</p>
+<p><strong>多分支</strong>
+</p>
+<p>
+  if(条件):
+</p>
+<p>
+  	//代码1
+</p>
+<p>
+  elseif(条件):
+</p>
+<p>
+  	//代码2
+</p>
+<p>
+  else:
+</p>
+<p>
+  	//代码3
+</p>
+<p>
+  endif;
+</p>
+<p><strong>switch-case</strong>
+</p>
+<p>
+  switch(表达式):
+</p>
+<p>
+  	case :
+</p>
+<p>
+  		break;
+</p>
+<p>
+  endswitch;
+</p>
+<h3>else if和elseif的区别</h3>
+<p>
+  elseif是多分支；else if是嵌套if语句
+</p>
+<p>
+  else if等价于
+</p>
+<p>
+  else{
+</p>
+<p>
+  	if(){
+</p>
+<p>
+  }
+</p>
+<p>
+  }
+</p>
+<p>
+  验证一下
+</p>
+<p><img loading="lazy" decoding="async" width="429" height="170" src="/wp-content/uploads/2018/05/word-image-730.png" class="wp-image-831" srcset="/wp-content/uploads/2018/05/word-image-730.png 429w, /wp-content/uploads/2018/05/word-image-730-300x119.png 300w" sizes="(max-width: 429px) 100vw, 429px" /><br />
+<img loading="lazy" decoding="async" width="394" height="209" src="/wp-content/uploads/2018/05/word-image-731.png" class="wp-image-832" srcset="/wp-content/uploads/2018/05/word-image-731.png 394w, /wp-content/uploads/2018/05/word-image-731-300x159.png 300w" sizes="(max-width: 394px) 100vw, 394px" /></p>
+<h2>循环语句</h2>
+<h3>循环的分类</h3>
+<ol>
+<li>
+  for
+</li>
+<li>
+  while
+</li>
+<li>
+  do-while
+</li>
+<li>
+  foreach
+</li>
+</ol>
+<h3>语法</h3>
+<ol>
+<li>
+  for循环
+</li>
+</ol>
+<p>
+  for(初始值;条件;增量){
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  for循环的替代语法
+</li>
+</ol>
+<p>
+  for(初始值;条件;增量):
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  endfor;
+</p>
+<ol>
+<li>
+  while循环
+</li>
+</ol>
+<p>
+  while(条件){
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  While循环的替代语法
+</li>
+</ol>
+<p>
+  While(条件):
+</p>
+<p>
+  Endwhile;
+</p>
+<p>
+  do-while循环
+</p>
+<p>
+  do
+</p>
+<p>
+  {
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  }while(条件)
+</p>
+<p>
+  注意：判断和循环体中如果有一句代码，大括号是可以省略的。
+</p>
+<h3>循环的思考</h3>
+<ol>
+<li>
+  在一个循环了n次的循环中，初始值、条件、增量各执行了几次
+</li>
+</ol>
+<p>
+  答：初始值1次，条件n+1次，增量n次
+</p>
+<ol>
+<li>
+  for($i=1;$i!=5;$i++)循环了几次？
+</li>
+</ol>
+<p>
+  答：循环4次
+</p>
+<ol>
+<li>
+  循环执行完毕后，$i的变量是否存在？
+</li>
+</ol>
+<p>
+  答：存在
+</p>
+<p><img loading="lazy" decoding="async" width="339" height="45" src="/wp-content/uploads/2018/05/word-image-732.png" class="wp-image-833" srcset="/wp-content/uploads/2018/05/word-image-732.png 339w, /wp-content/uploads/2018/05/word-image-732-300x40.png 300w" sizes="(max-width: 339px) 100vw, 339px" /></p>
+<h3>例题：三种循环实现从1加到任意数</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  if(isset($_POST[&#8216;button&#8217;])) {
+</p>
+<p>
+  	$num=$_POST[&#8216;num&#8217;];
+</p>
+<p>
+  	//for循环实现
+</p>
+<p>
+  	$sum=0;
+</p>
+<p>
+  	for($i=1; $i&lt;=$num; $i++) {
+</p>
+<p>
+  		$sum+=$i;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	echo &#8220;for循环实现结果是:{$sum}&lt;br&gt;&#8221;;
+</p>
+<p>
+  	//while循环
+</p>
+<p>
+  	$sum=0;$i=1;
+</p>
+<p>
+  	while($i&lt;=$num) {
+</p>
+<p>
+  		$sum+=$i++;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	echo &#8220;while循环实现结果是:{$sum}&lt;br&gt;&#8221;;
+</p>
+<p>
+  	//do-while循环
+</p>
+<p>
+  	$sum=0;$i=1;
+</p>
+<p>
+  	do
+</p>
+<p>
+  	{
+</p>
+<p>
+  		$sum+=$i++;
+</p>
+<p>
+  	}while($i&lt;=$num);
+</p>
+<p>
+  	echo &#8220;do-while循环实现结果是:{$sum}&lt;br&gt;&#8221;;
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form method=&#8221;post&#8221; action=&#8221;&#8221;&gt;
+</p>
+<p>
+  	请输入一个数： &lt;input type=&#8221;text&#8221; name=&#8221;num&#8221;&gt; &lt;br /&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;submit&#8221; name=&#8221;button&#8221; value=&#8221;提交&#8221;&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="291" height="108" src="/wp-content/uploads/2018/05/word-image-733.png" class="wp-image-834" /></p>
+<h3>例题：翻转数组</h3>
+<ol>
+<li>
+  给数组添加元素
+</li>
+<li>
+  两个变量调换
+</li>
+<li>
+  for循环中初始值，条件，增量的部分可以放多个表达式
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1064" height="237" src="/wp-content/uploads/2018/05/word-image-734.png" class="wp-image-835" srcset="/wp-content/uploads/2018/05/word-image-734.png 1064w, /wp-content/uploads/2018/05/word-image-734-300x67.png 300w, /wp-content/uploads/2018/05/word-image-734-768x171.png 768w, /wp-content/uploads/2018/05/word-image-734-1024x228.png 1024w" sizes="(max-width: 1064px) 100vw, 1064px" /></p>
+<p>
+  面试题：不通过第三个变量如何实现两个变量的交换?
+</p>
+<p><img loading="lazy" decoding="async" width="515" height="113" src="/wp-content/uploads/2018/05/word-image-735.png" class="wp-image-836" srcset="/wp-content/uploads/2018/05/word-image-735.png 515w, /wp-content/uploads/2018/05/word-image-735-300x66.png 300w" sizes="(max-width: 515px) 100vw, 515px" /></p>
+<h3>foreach循环</h3>
+<p>
+  foreach循环用来遍历数组
+</p>
+<p>
+  语法：
+</p>
+<p>
+  //语法一
+</p>
+<p>
+  foreach(数组  as 值){
+</p>
+<p>
+  }
+</p>
+<p>
+  //语法二
+</p>
+<p>
+  foreach(数组 as 键=&gt;值){
+</p>
+<p>
+  }
+</p>
+<p>
+  //foreach也支持替换语法
+</p>
+<p>
+  foreach(数组 as 值):
+</p>
+<p>
+  endforeach;
+</p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="522" height="204" src="/wp-content/uploads/2018/05/word-image-736.png" class="wp-image-837" srcset="/wp-content/uploads/2018/05/word-image-736.png 522w, /wp-content/uploads/2018/05/word-image-736-300x117.png 300w" sizes="(max-width: 522px) 100vw, 522px" /></p>
+<p>
+  例题：
+</p>
+<p><img loading="lazy" decoding="async" width="1039" height="421" src="/wp-content/uploads/2018/05/word-image-737.png" class="wp-image-838" srcset="/wp-content/uploads/2018/05/word-image-737.png 1039w, /wp-content/uploads/2018/05/word-image-737-300x122.png 300w, /wp-content/uploads/2018/05/word-image-737-768x311.png 768w, /wp-content/uploads/2018/05/word-image-737-1024x415.png 1024w" sizes="(max-width: 1039px) 100vw, 1039px" /></p>
+<h2>跳转语句</h2>
+<ol>
+<li>
+  break：中断所有循环
+</li>
+<li>
+  continue：跳出当前循环进入下一个循环
+</li>
+</ol>
+<p>
+  注意：
+</p>
+<ol>
+<li>
+  break和continue默认中断1重循环。
+</li>
+<li>
+  如果一个循环只循环一次，break和continue的结果是一样的
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="556" height="191" src="/wp-content/uploads/2018/05/word-image-738.png" class="wp-image-839" srcset="/wp-content/uploads/2018/05/word-image-738.png 556w, /wp-content/uploads/2018/05/word-image-738-300x103.png 300w" sizes="(max-width: 556px) 100vw, 556px" /></p>
+<ol>
+<li>
+  switch的本质是循环了一次的循环
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="414" height="197" src="/wp-content/uploads/2018/05/word-image-739.png" class="wp-image-840" srcset="/wp-content/uploads/2018/05/word-image-739.png 414w, /wp-content/uploads/2018/05/word-image-739-300x143.png 300w" sizes="(max-width: 414px) 100vw, 414px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="402" height="154" src="/wp-content/uploads/2018/05/word-image-740.png" class="wp-image-841" srcset="/wp-content/uploads/2018/05/word-image-740.png 402w, /wp-content/uploads/2018/05/word-image-740-300x115.png 300w" sizes="(max-width: 402px) 100vw, 402px" /></p>
+<h2>包含文件</h2>
+<p>
+  相同的代码出现在多个页面中，不便于维护，我们将相同的代码分离开来，在需要用到的页面中引入包含文件即可。
+</p>
+<p><img loading="lazy" decoding="async" width="659" height="262" src="/wp-content/uploads/2018/05/word-image-741.png" class="wp-image-842" srcset="/wp-content/uploads/2018/05/word-image-741.png 659w, /wp-content/uploads/2018/05/word-image-741-300x119.png 300w" sizes="(max-width: 659px) 100vw, 659px" /></p>
+<p>
+  解决：我们将相同的代码分离开来，在需要用到的页面中引入包含文件即可
+</p>
+<p><img loading="lazy" decoding="async" width="702" height="244" src="/wp-content/uploads/2018/05/word-image-742.png" class="wp-image-843" srcset="/wp-content/uploads/2018/05/word-image-742.png 702w, /wp-content/uploads/2018/05/word-image-742-300x104.png 300w" sizes="(max-width: 702px) 100vw, 702px" /></p>
+<h3>包含的语法</h3>
+<ol>
+<li>
+  include ‘地址’：可以包含多次，如果有错，报警告错误，继续执行
+</li>
+<li>
+  require ‘地址’：可以包含多次，如果有错，报致命错误，终止执行。
+</li>
+<li>
+  include_once ‘地址’：只能包含一次，区别和include一样
+</li>
+<li>
+  require_once ‘地址’：只能包含一次，区别和require一样
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="603" height="93" src="/wp-content/uploads/2018/05/word-image-743.png" class="wp-image-844" srcset="/wp-content/uploads/2018/05/word-image-743.png 603w, /wp-content/uploads/2018/05/word-image-743-300x46.png 300w" sizes="(max-width: 603px) 100vw, 603px" /><br />
+<img loading="lazy" decoding="async" width="660" height="73" src="/wp-content/uploads/2018/05/word-image-744.png" class="wp-image-845" srcset="/wp-content/uploads/2018/05/word-image-744.png 660w, /wp-content/uploads/2018/05/word-image-744-300x33.png 300w" sizes="(max-width: 660px) 100vw, 660px" /></p>
+<p>
+  如果HTML包含文件中有PHP代码，包含文件的PHP代码是执行的。 因为包含文件就相当于拷贝粘贴到PHP页面中了。
+</p>
+<h2>作业</h2>
+<ol>
+<li>
+  PHP实现计算器
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="571" height="34" src="/wp-content/uploads/2018/05/word-image-745.png" class="wp-image-846" srcset="/wp-content/uploads/2018/05/word-image-745.png 571w, /wp-content/uploads/2018/05/word-image-745-300x18.png 300w" sizes="(max-width: 571px) 100vw, 571px" /></p>
+<ol>
+<li>
+  九九乘法表
+</li>
+</ol>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/813.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>PHP 语法（四）二分法、 传参、 全局变量、 函数、 匿名函数、 变量作用域、 变量生命周期、 终止脚本、 递归、 静态变量</title>
+		<link>/php/848.html</link>
+					<comments>/php/848.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 16:45:14 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP基本语法]]></category>
+		<category><![CDATA[二分法]]></category>
+		<category><![CDATA[传参]]></category>
+		<category><![CDATA[全局变量]]></category>
+		<category><![CDATA[函数]]></category>
+		<category><![CDATA[匿名函数]]></category>
+		<category><![CDATA[变量作用域]]></category>
+		<category><![CDATA[变量生命周期]]></category>
+		<category><![CDATA[终止脚本]]></category>
+		<category><![CDATA[递归]]></category>
+		<category><![CDATA[静态变量]]></category>
+		<guid isPermaLink="false">/?p=848</guid>
+
+					<description><![CDATA[PHP语法（四） 包含文件 include和require：包含多次 include_once和require [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h1>PHP语法（四）</h1>
+<h2>包含文件</h2>
+<ol>
+<li>
+  include和require：包含多次
+</li>
+<li>
+  include_once和require_once：包含一次
+</li>
+<li>
+  包含文件就相当于将包含文件中的代码拷贝粘贴到PHP页面中（魔术常量除外，魔术常量显示所在文件的文件信息），所以后缀是.html的包含文件中的PHP代码被文件包含后也是会执行的。
+</li>
+</ol>
+<h3>路径</h3>
+<p>
+  路径分为绝对路径和相对路径
+</p>
+<p>
+  绝对路径：从盘符开始  c:\aa\bb.txt
+</p>
+<p>
+  相对路径：从当前文件所在的目录开始   aa\bb.txt    ../aa.txt
+</p>
+<p>
+  ../表示上一级目录     ./当前目录
+</p>
+<p><img loading="lazy" decoding="async" width="865" height="65" src="/wp-content/uploads/2018/05/word-image-747.png" class="wp-image-850" srcset="/wp-content/uploads/2018/05/word-image-747.png 865w, /wp-content/uploads/2018/05/word-image-747-300x23.png 300w, /wp-content/uploads/2018/05/word-image-747-768x58.png 768w" sizes="(max-width: 865px) 100vw, 865px" /></p>
+<p>
+  区别：
+</p>
+<p>
+  ./就表示在当前目录下找
+</p>
+<p>
+  不带./受include_path配置的影响
+</p>
+<p><img loading="lazy" decoding="async" width="1029" height="32" src="/wp-content/uploads/2018/05/word-image-748.png" class="wp-image-851" srcset="/wp-content/uploads/2018/05/word-image-748.png 1029w, /wp-content/uploads/2018/05/word-image-748-300x9.png 300w, /wp-content/uploads/2018/05/word-image-748-768x24.png 768w, /wp-content/uploads/2018/05/word-image-748-1024x32.png 1024w" sizes="(max-width: 1029px) 100vw, 1029px" /></p>
+<p>
+  作用：将项目中的包含文件统一放置到指定目录内，然后利用include_path指向这个目录。可以提高安全性，也可以不用写很长的地址字符串。
+</p>
+<p>
+  include_path的值可以写多个路径，从前往后找文件。
+</p>
+<p>
+  set_include_path(&#8220;F:\www1;d:\www2;c:\&#8221;);
+</p>
+<p><strong>获取虚拟目录地址</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="650" height="54" src="/wp-content/uploads/2018/05/word-image-749.png" class="wp-image-852" srcset="/wp-content/uploads/2018/05/word-image-749.png 650w, /wp-content/uploads/2018/05/word-image-749-300x25.png 300w" sizes="(max-width: 650px) 100vw, 650px" /></p>
+<p><strong>文件包含</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="944" height="113" src="/wp-content/uploads/2018/05/word-image-750.png" class="wp-image-853" srcset="/wp-content/uploads/2018/05/word-image-750.png 944w, /wp-content/uploads/2018/05/word-image-750-300x36.png 300w, /wp-content/uploads/2018/05/word-image-750-768x92.png 768w" sizes="(max-width: 944px) 100vw, 944px" /></p>
+<p><strong>路径中“/”和“\”的区别</strong>
+</p>
+<p>
+  /：斜杠，用于web路径			http://www.php.com/aa/bb/index.html
+</p>
+<p>
+  \：反斜杠 用于文件物理地址路径  C:\aa\bb\index.html
+</p>
+<p>
+  在windows中可以相互混淆，但是在Linux中不可以，Linux中严格区分。
+</p>
+<h2>函数</h2>
+<p>
+  函数是一个固定的代码块，也称为子程序，一个函数可以被多次调用，函数可以很好的实现计算机的模块化编程。
+</p>
+<h3>定义语法</h3>
+<p>
+  function 函数名(参数1,参数2,&#8230;){
+</p>
+<p>
+  	//函数体
+</p>
+<p>
+  }
+</p>
+<p>
+  函数的命名规则：
+</p>
+<ol>
+<li>
+  以字母、下划线开头，后面跟的是字母、数字、下划线
+</li>
+<li>
+  函数名不区分大小写（JS是区分大小写的）
+</li>
+</ol>
+<h3>调用函数</h3>
+<p>
+  通过函数名来调研函数。
+</p>
+<p>
+  例题：打印斐波那契数列
+</p>
+<p><img loading="lazy" decoding="async" width="996" height="401" src="/wp-content/uploads/2018/05/word-image-751.png" class="wp-image-854" srcset="/wp-content/uploads/2018/05/word-image-751.png 996w, /wp-content/uploads/2018/05/word-image-751-300x121.png 300w, /wp-content/uploads/2018/05/word-image-751-768x309.png 768w" sizes="(max-width: 996px) 100vw, 996px" /></p>
+<h3>参数的概念</h3>
+<p>
+  函数括号里面的数称为参数
+</p>
+<p>
+  参数分为形式参数和实际参数
+</p>
+<p>
+  形式参数没有具体的值，只起一个形式的作用，用来告诉调用者需要传递几个参数给函数。函数定义时候的参数是形式参数
+</p>
+<p>
+  实际参数：函数调用的时候传递给函数的参数。
+</p>
+<h3>可变函数</h3>
+<p>
+  将函数名保持在变量中。
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  function fun1() {
+</p>
+<p>
+  	echo &#8216;处理一年级的事情&lt;br&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  function fun2() {
+</p>
+<p>
+  	echo &#8216;处理二年级的事情&lt;br&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  function fun3() {
+</p>
+<p>
+  	echo &#8216;处理三年级的事情&lt;br&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  function fun($grade) {
+</p>
+<p>
+  	$f=&#8217;fun&#8217;.$grade;	//可变函数
+</p>
+<p>
+  	$f();
+</p>
+<p>
+  }
+</p>
+<p>
+  fun(1);
+</p>
+<p>
+  fun(2);
+</p>
+<p>
+  fun(3);
+</p>
+<p><img loading="lazy" decoding="async" width="233" height="59" src="/wp-content/uploads/2018/05/word-image-752.png" class="wp-image-855" /></p>
+<h3>匿名函数</h3>
+<p>
+  没有名字的函数，PHP5.3以后才支持的。
+</p>
+<p><img loading="lazy" decoding="async" width="490" height="148" src="/wp-content/uploads/2018/05/word-image-753.png" class="wp-image-856" srcset="/wp-content/uploads/2018/05/word-image-753.png 490w, /wp-content/uploads/2018/05/word-image-753-300x91.png 300w" sizes="(max-width: 490px) 100vw, 490px" /></p>
+<h3>函数的传值与传址</h3>
+<p>
+  默认情况下，函数参数传递是值传递，在定义函数的时候参数前面加上“&amp;”表示地址传递。
+</p>
+<p><img loading="lazy" decoding="async" width="501" height="153" src="/wp-content/uploads/2018/05/word-image-754.png" class="wp-image-857" srcset="/wp-content/uploads/2018/05/word-image-754.png 501w, /wp-content/uploads/2018/05/word-image-754-300x92.png 300w" sizes="(max-width: 501px) 100vw, 501px" /></p>
+<p>
+  脚下留心：如果函数的参数是引用传递，调用函数的时候不能直接写值，只能写变量，因为地址总是保存在变量中。
+</p>
+<p><img loading="lazy" decoding="async" width="967" height="99" src="/wp-content/uploads/2018/05/word-image-755.png" class="wp-image-858" srcset="/wp-content/uploads/2018/05/word-image-755.png 967w, /wp-content/uploads/2018/05/word-image-755-300x31.png 300w, /wp-content/uploads/2018/05/word-image-755-768x79.png 768w" sizes="(max-width: 967px) 100vw, 967px" /></p>
+<h3>参数的默认值</h3>
+<p>
+  如果参数有默认值的情况下，传递了参数就使用传递的值，没有传递参数就使用默认值。
+</p>
+<p><img loading="lazy" decoding="async" width="707" height="196" src="/wp-content/uploads/2018/05/word-image-756.png" class="wp-image-859" srcset="/wp-content/uploads/2018/05/word-image-756.png 707w, /wp-content/uploads/2018/05/word-image-756-300x83.png 300w" sizes="(max-width: 707px) 100vw, 707px" /></p>
+<p>
+  注意事项
+</p>
+<ol>
+<li>
+  默认值必须在一个存在的值，不能用变量来代替
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="846" height="110" src="/wp-content/uploads/2018/05/word-image-757.png" class="wp-image-860" srcset="/wp-content/uploads/2018/05/word-image-757.png 846w, /wp-content/uploads/2018/05/word-image-757-300x39.png 300w, /wp-content/uploads/2018/05/word-image-757-768x100.png 768w" sizes="(max-width: 846px) 100vw, 846px" /></p>
+<ol>
+<li>
+  常量可以做默认值
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="509" height="108" src="/wp-content/uploads/2018/05/word-image-758.png" class="wp-image-861" srcset="/wp-content/uploads/2018/05/word-image-758.png 509w, /wp-content/uploads/2018/05/word-image-758-300x64.png 300w" sizes="(max-width: 509px) 100vw, 509px" /></p>
+<ol>
+<li>
+  在定义函数的时候，没有默认值的参数写前面，有默认值的参数写后面。
+</li>
+<li>
+  形参合实参不匹配
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="739" height="118" src="/wp-content/uploads/2018/05/word-image-759.png" class="wp-image-862" srcset="/wp-content/uploads/2018/05/word-image-759.png 739w, /wp-content/uploads/2018/05/word-image-759-300x48.png 300w" sizes="(max-width: 739px) 100vw, 739px" /></p>
+<ul>
+<li>
+<ol>
+<li>
+      实际参数少于形式参数，报错，没有对应值的参数为null
+    </li>
+<li>
+      实际参数少于形式参数，只取前面对应的值。
+    </li>
+</ol>
+</li>
+</ul>
+<h3>传递不确定参数</h3>
+<p><img loading="lazy" decoding="async" width="940" height="170" src="/wp-content/uploads/2018/05/word-image-760.png" class="wp-image-863" srcset="/wp-content/uploads/2018/05/word-image-760.png 940w, /wp-content/uploads/2018/05/word-image-760-300x54.png 300w, /wp-content/uploads/2018/05/word-image-760-768x139.png 768w" sizes="(max-width: 940px) 100vw, 940px" /></p>
+<p>
+  在js中通过arguments关键字来获取传递的参数。
+</p>
+<h3>判断函数是否存在</h3>
+<p><img loading="lazy" decoding="async" width="503" height="139" src="/wp-content/uploads/2018/05/word-image-761.png" class="wp-image-864" srcset="/wp-content/uploads/2018/05/word-image-761.png 503w, /wp-content/uploads/2018/05/word-image-761-300x83.png 300w" sizes="(max-width: 503px) 100vw, 503px" /></p>
+<h2>return</h2>
+<h3>作用1：在函数中使用</h3>
+<ol>
+<li>
+  终止函数的执行
+</li>
+<li>
+  从函数内部将数据返回出来
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="516" height="231" src="/wp-content/uploads/2018/05/word-image-762.png" class="wp-image-865" srcset="/wp-content/uploads/2018/05/word-image-762.png 516w, /wp-content/uploads/2018/05/word-image-762-300x134.png 300w" sizes="(max-width: 516px) 100vw, 516px" /></p>
+<h3>作用2：在页面中使用</h3>
+<p>
+  第一步：创建9-config.php
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  return array(
+</p>
+<p>
+  	&#8216;host&#8217;=&gt;&#8217;lolcalhost&#8217;,
+</p>
+<p>
+  	&#8216;username&#8217;=&gt;&#8217;root&#8217;,
+</p>
+<p>
+  	&#8216;pwd&#8217;=&gt;&#8217;root&#8217;
+</p>
+<p>
+  );
+</p>
+<p>
+  第二步：在9-demo.php页面中包含9-config.php
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  $config=require &#8216;./9-config.php&#8217;;
+</p>
+<p>
+  var_dump($config);
+</p>
+<p><img loading="lazy" decoding="async" width="685" height="26" src="/wp-content/uploads/2018/05/word-image-763.png" class="wp-image-866" srcset="/wp-content/uploads/2018/05/word-image-763.png 685w, /wp-content/uploads/2018/05/word-image-763-300x11.png 300w" sizes="(max-width: 685px) 100vw, 685px" /></p>
+<p>
+  作用：用来做框架的配置文件。
+</p>
+<h3>作用3：终止脚本的执行</h3>
+<p><img loading="lazy" decoding="async" width="411" height="81" src="/wp-content/uploads/2018/05/word-image-764.png" class="wp-image-867" srcset="/wp-content/uploads/2018/05/word-image-764.png 411w, /wp-content/uploads/2018/05/word-image-764-300x59.png 300w" sizes="(max-width: 411px) 100vw, 411px" /></p>
+<h2>终止脚本的执行的方法</h2>
+<ol>
+<li>
+  return
+</li>
+<li>
+  exit——等同于die
+</li>
+<li>
+  die
+</li>
+</ol>
+<p>
+  区别：
+</p>
+<ol>
+<li>
+  return只能终止当前脚本，如果包含文件中含有return，只能终止包含文件。
+</li>
+<li>
+  exit和die用来终止所有脚本执行
+</li>
+<li>
+  exit和die后面都能跟参数（程序中有一个潜规则，没有参数用exit，有参数用die）。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="677" height="30" src="/wp-content/uploads/2018/05/word-image-765.png" class="wp-image-868" srcset="/wp-content/uploads/2018/05/word-image-765.png 677w, /wp-content/uploads/2018/05/word-image-765-300x13.png 300w" sizes="(max-width: 677px) 100vw, 677px" /></p>
+<p>
+  测试
+</p>
+<ol>
+<li>
+  写一个包含文件
+</li>
+</ol>
+<p>
+  echo &#8216;包含文件开始&lt;br&gt;&#8217;;
+</p>
+<p>
+  return;
+</p>
+<p>
+  echo &#8216;包含文件结束&lt;br&gt;&#8217;;
+</p>
+<ol>
+<li>
+  写一个测试文件
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="644" height="71" src="/wp-content/uploads/2018/05/word-image-766.png" class="wp-image-869" srcset="/wp-content/uploads/2018/05/word-image-766.png 644w, /wp-content/uploads/2018/05/word-image-766-300x33.png 300w" sizes="(max-width: 644px) 100vw, 644px" /></p>
+<ol>
+<li>
+  将return换成exit或die，运行结果
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="403" height="56" src="/wp-content/uploads/2018/05/word-image-767.png" class="wp-image-870" srcset="/wp-content/uploads/2018/05/word-image-767.png 403w, /wp-content/uploads/2018/05/word-image-767-300x42.png 300w" sizes="(max-width: 403px) 100vw, 403px" /><br />
+<img loading="lazy" decoding="async" width="615" height="61" src="/wp-content/uploads/2018/05/word-image-768.png" class="wp-image-871" srcset="/wp-content/uploads/2018/05/word-image-768.png 615w, /wp-content/uploads/2018/05/word-image-768-300x30.png 300w" sizes="(max-width: 615px) 100vw, 615px" /></p>
+<h2>变量的作用域</h2>
+<ol>
+<li>
+  全局变量：作用范围在函数的外部
+</li>
+<li>
+  局部变量：作用范围在函数内部
+</li>
+<li>
+  超全局变量：在整个页面访问（函数内，函数外都能访问）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="738" height="116" src="/wp-content/uploads/2018/05/word-image-769.png" class="wp-image-872" srcset="/wp-content/uploads/2018/05/word-image-769.png 738w, /wp-content/uploads/2018/05/word-image-769-300x47.png 300w" sizes="(max-width: 738px) 100vw, 738px" /><br />
+<img loading="lazy" decoding="async" width="721" height="103" src="/wp-content/uploads/2018/05/word-image-770.png" class="wp-image-873" srcset="/wp-content/uploads/2018/05/word-image-770.png 721w, /wp-content/uploads/2018/05/word-image-770-300x43.png 300w" sizes="(max-width: 721px) 100vw, 721px" /><br />
+<img loading="lazy" decoding="async" width="575" height="107" src="/wp-content/uploads/2018/05/word-image-771.png" class="wp-image-874" srcset="/wp-content/uploads/2018/05/word-image-771.png 575w, /wp-content/uploads/2018/05/word-image-771-300x56.png 300w" sizes="(max-width: 575px) 100vw, 575px" /></p>
+<h3>在函数内部使用全局变量</h3>
+<p><strong>方法一：使用$GLOBALS</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="1043" height="50" src="/wp-content/uploads/2018/05/word-image-772.png" class="wp-image-875" srcset="/wp-content/uploads/2018/05/word-image-772.png 1043w, /wp-content/uploads/2018/05/word-image-772-300x14.png 300w, /wp-content/uploads/2018/05/word-image-772-768x37.png 768w, /wp-content/uploads/2018/05/word-image-772-1024x49.png 1024w" sizes="(max-width: 1043px) 100vw, 1043px" /></p>
+<p>
+  例题：
+</p>
+<p>
+  例题一：
+</p>
+<p><img loading="lazy" decoding="async" width="603" height="148" src="/wp-content/uploads/2018/05/word-image-773.png" class="wp-image-876" srcset="/wp-content/uploads/2018/05/word-image-773.png 603w, /wp-content/uploads/2018/05/word-image-773-300x74.png 300w" sizes="(max-width: 603px) 100vw, 603px" /></p>
+<p>
+  例题二：
+</p>
+<p><img loading="lazy" decoding="async" width="453" height="113" src="/wp-content/uploads/2018/05/word-image-774.png" class="wp-image-877" srcset="/wp-content/uploads/2018/05/word-image-774.png 453w, /wp-content/uploads/2018/05/word-image-774-300x75.png 300w" sizes="(max-width: 453px) 100vw, 453px" /></p>
+<p><strong>方法二：使用global关键字</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="768" height="128" src="/wp-content/uploads/2018/05/word-image-775.png" class="wp-image-878" srcset="/wp-content/uploads/2018/05/word-image-775.png 768w, /wp-content/uploads/2018/05/word-image-775-300x50.png 300w" sizes="(max-width: 768px) 100vw, 768px" /></p>
+<p>
+  注意：只有变量有作用域的概念，常量没有作用域的概念
+</p>
+</p>
+<p><img loading="lazy" decoding="async" width="357" height="110" src="/wp-content/uploads/2018/05/word-image-776.png" class="wp-image-879" srcset="/wp-content/uploads/2018/05/word-image-776.png 357w, /wp-content/uploads/2018/05/word-image-776-300x92.png 300w" sizes="(max-width: 357px) 100vw, 357px" /><br />
+<img loading="lazy" decoding="async" width="348" height="107" src="/wp-content/uploads/2018/05/word-image-777.png" class="wp-image-880" srcset="/wp-content/uploads/2018/05/word-image-777.png 348w, /wp-content/uploads/2018/05/word-image-777-300x92.png 300w" sizes="(max-width: 348px) 100vw, 348px" /></p>
+<p><strong>方法三：匿名函数use()</strong>
+</p>
+<p>
+  use()将匿名函数外部的变量引入到匿名函数的内部。
+</p>
+<p><img loading="lazy" decoding="async" width="850" height="107" src="/wp-content/uploads/2018/05/word-image-778.png" class="wp-image-881" srcset="/wp-content/uploads/2018/05/word-image-778.png 850w, /wp-content/uploads/2018/05/word-image-778-300x38.png 300w, /wp-content/uploads/2018/05/word-image-778-768x97.png 768w" sizes="(max-width: 850px) 100vw, 850px" /></p>
+<p>
+  练习
+</p>
+<p><img loading="lazy" decoding="async" width="552" height="194" src="/wp-content/uploads/2018/05/word-image-779.png" class="wp-image-882" srcset="/wp-content/uploads/2018/05/word-image-779.png 552w, /wp-content/uploads/2018/05/word-image-779-300x105.png 300w" sizes="(max-width: 552px) 100vw, 552px" /></p>
+<h2>变量的生命周期</h2>
+<p>
+  全局变量声明的时候产生，页面执行完毕后销毁
+</p>
+<p>
+  局部变量调用函数的时候产生，函数执行完毕销毁。
+</p>
+<p>
+  静态变量程序加载的时候产生，只被初始化一次，页面执行完毕销毁
+</p>
+<h2>静态变量（static）</h2>
+<p>
+  静态变量一般指的是局部静态变量，PHP中没有全局的静态变量，因为全局的静态变量就是全局变量。
+</p>
+<table>
+<tr>
+<td><img loading="lazy" decoding="async" width="377" height="150" src="/wp-content/uploads/2018/05/word-image-780.png" class="wp-image-883" srcset="/wp-content/uploads/2018/05/word-image-780.png 377w, /wp-content/uploads/2018/05/word-image-780-300x119.png 300w" sizes="(max-width: 377px) 100vw, 377px" /></td>
+<td><img loading="lazy" decoding="async" width="417" height="161" src="/wp-content/uploads/2018/05/word-image-781.png" class="wp-image-884" srcset="/wp-content/uploads/2018/05/word-image-781.png 417w, /wp-content/uploads/2018/05/word-image-781-300x116.png 300w" sizes="(max-width: 417px) 100vw, 417px" /></td>
+</tr>
+</table>
+<p>
+  注意：静态变量是有作用域的
+</p>
+<p><img loading="lazy" decoding="async" width="496" height="192" src="/wp-content/uploads/2018/05/word-image-782.png" class="wp-image-885" srcset="/wp-content/uploads/2018/05/word-image-782.png 496w, /wp-content/uploads/2018/05/word-image-782-300x116.png 300w" sizes="(max-width: 496px) 100vw, 496px" /></p>
+<h2>递归</h2>
+<p>
+  在函数的内部自己调用自己。
+</p>
+<p>
+  递归的要素
+</p>
+<ol>
+<li>
+  递归点：函数内部调用自己的地方
+</li>
+<li>
+  递归出口：递归结束
+</li>
+</ol>
+<h3>例题：用递归实现从1加到任意一个数</h3>
+<p><img loading="lazy" decoding="async" width="663" height="340" src="/wp-content/uploads/2018/05/word-image-783.png" class="wp-image-886" srcset="/wp-content/uploads/2018/05/word-image-783.png 663w, /wp-content/uploads/2018/05/word-image-783-300x154.png 300w" sizes="(max-width: 663px) 100vw, 663px" /></p>
+<h3>例题：打印前十个斐波那契数列</h3>
+<p>
+  第n个斐波那契数等于第n-1和n-2的和
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  /**
+</p>
+<p>
+  *$n是第n个斐波那契数
+</p>
+<p>
+  */
+</p>
+<p>
+  function fun($n) {
+</p>
+<p>
+  	if($n==1 || $n==2) {
+</p>
+<p>
+  		return 1;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	return fun($n-1)+fun($n-2);
+</p>
+<p>
+  }
+</p>
+<p>
+  //打印前10个斐波那契数列
+</p>
+<p>
+  for($i=1;$i&lt;=10;$i++)
+</p>
+<p>
+  	echo fun($i),&#8217;&amp;nbsp;&#8217;;
+</p>
+<p>
+  /**
+</p>
+<p>
+  *分析第四个斐波那契数
+</p>
+<p>
+  fun(4)	=fun(3)+fun(2)
+</p>
+<p>
+  		=fun(2)+fun(1)+1
+</p>
+<p>
+  		=1+1+1
+</p>
+<p>
+  		=3
+</p>
+<p>
+  */
+</p>
+<p>
+  ?&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="235" height="31" src="/wp-content/uploads/2018/05/word-image-784.png" class="wp-image-887" /></p>
+<h2>算法：二分法查找</h2>
+<ol>
+<li>
+  前提：一个有序的数组
+</li>
+<li>
+  功能：在有序的数组中查找是否存在某个数
+</li>
+</ol>
+<p>
+  在1,5,9,12,56,78,102数组中查找102
+</p>
+<p>
+  第一步：找出数组中间的数12，12&lt;102，在12右边查找
+</p>
+<p>
+  第二步：剩下的数据有56,78,102，找中间的数是78，78&lt;102，在78的右边找
+</p>
+<p>
+  第三步：剩下的数据有102，找到了。
+</p>
+<h3>实现代码</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  /**
+</p>
+<p>
+  *@param $array array 查找的数组
+</p>
+<p>
+  *@param $min int 最小下标
+</p>
+<p>
+  *@param $max int 最大下标
+</p>
+<p>
+  *@param $search number 查询的数字
+</p>
+<p>
+  */
+</p>
+<p>
+  function binary($array,$min,$max,$search) {
+</p>
+<p>
+  	while($min&lt;=$max){
+</p>
+<p>
+  		$mid=floor(($min+$max)/2);	//计算中间元素的下表
+</p>
+<p>
+  		if($array[$mid]==$search)	//找到查找的元素
+</p>
+<p>
+  		{
+</p>
+<p>
+  			return $mid;	//返回下标
+</p>
+<p>
+  		}
+</p>
+<p>
+  		elseif($array[$mid]&lt;$search) {	//查找的元素比中间值大
+</p>
+<p>
+  			$min=$mid+1;		//更改最小下标值
+</p>
+<p>
+  		}
+</p>
+<p>
+  		else {
+</p>
+<p>
+  			$max=$mid-1;		//更改最大下标值
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  	return -1;	//没有找到
+</p>
+<p>
+  }
+</p>
+<p>
+  $num=array(1,5,9,12,56,78,102);
+</p>
+<p>
+  echo binary($num,0,count($num)-1,8),'&lt;br&gt;&#8217;;
+</p>
+<h2>作业：</h2>
+<ol>
+<li>
+  猴子吃桃子，第一天吃了一半又多吃一个，第二天一样，到第十天就剩下一个桃子，请问原来有几个桃子？
+</li>
+<li>
+  用递归实在二分法
+</li>
+</ol>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/848.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>PHP 语法（五）http 错误编号、 冒泡排序、 多字节处理、 快速排序、 数组指针、 算法、 选择排序、 错误处理</title>
+		<link>/php/889.html</link>
+					<comments>/php/889.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 16:44:25 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP基本语法]]></category>
+		<category><![CDATA[http 错误编号]]></category>
+		<category><![CDATA[冒泡排序]]></category>
+		<category><![CDATA[多字节处理]]></category>
+		<category><![CDATA[快速排序]]></category>
+		<category><![CDATA[数组指针]]></category>
+		<category><![CDATA[算法]]></category>
+		<category><![CDATA[选择排序]]></category>
+		<category><![CDATA[错误处理]]></category>
+		<guid isPermaLink="false">/?p=889</guid>
+
+					<description><![CDATA[PHP语法（五） 作业 猴子吃桃子，第一天吃了一半又多吃一个，第二天一样，到第十天就剩下一个桃子，请问原来有几 [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h1>PHP语法（五）</h1>
+<h2>作业</h2>
+<ol>
+<li>
+  猴子吃桃子，第一天吃了一半又多吃一个，第二天一样，到第十天就剩下一个桃子，请问原来有几个桃子？
+</li>
+</ol>
+<p>
+  分析：
+</p>
+<p>
+  用n表示第n天
+</p>
+<p>
+  f(n)/2-1=f(n+1)
+</p>
+<p>
+  f(n)=(f(n+1)+1)*2
+</p>
+<p>
+  代码
+</p>
+<p><img loading="lazy" decoding="async" width="642" height="129" src="/wp-content/uploads/2018/05/word-image-786.png" class="wp-image-891" srcset="/wp-content/uploads/2018/05/word-image-786.png 642w, /wp-content/uploads/2018/05/word-image-786-300x60.png 300w" sizes="(max-width: 642px) 100vw, 642px" /></p>
+<ol>
+<li>
+  用递归实在二分法
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="804" height="489" src="/wp-content/uploads/2018/05/word-image-787.png" class="wp-image-892" srcset="/wp-content/uploads/2018/05/word-image-787.png 804w, /wp-content/uploads/2018/05/word-image-787-300x182.png 300w, /wp-content/uploads/2018/05/word-image-787-768x467.png 768w" sizes="(max-width: 804px) 100vw, 804px" /></p>
+<h2>错误处理</h2>
+<h3>错误分类</h3>
+<ol>
+<li>
+  语法错误
+</li>
+<li>
+  运行时错误
+</li>
+<li>
+  逻辑错误
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="939" height="42" src="/wp-content/uploads/2018/05/word-image-788.png" class="wp-image-893" srcset="/wp-content/uploads/2018/05/word-image-788.png 939w, /wp-content/uploads/2018/05/word-image-788-300x13.png 300w, /wp-content/uploads/2018/05/word-image-788-768x34.png 768w" sizes="(max-width: 939px) 100vw, 939px" /><br />
+<img loading="lazy" decoding="async" width="869" height="90" src="/wp-content/uploads/2018/05/word-image-789.png" class="wp-image-894" srcset="/wp-content/uploads/2018/05/word-image-789.png 869w, /wp-content/uploads/2018/05/word-image-789-300x31.png 300w, /wp-content/uploads/2018/05/word-image-789-768x80.png 768w" sizes="(max-width: 869px) 100vw, 869px" /><br />
+<img loading="lazy" decoding="async" width="645" height="91" src="/wp-content/uploads/2018/05/word-image-790.png" class="wp-image-895" srcset="/wp-content/uploads/2018/05/word-image-790.png 645w, /wp-content/uploads/2018/05/word-image-790-300x42.png 300w" sizes="(max-width: 645px) 100vw, 645px" /></p>
+<p>
+  总结：语法错误是最容易发现的错误，逻辑错误是最难发现的错误。
+</p>
+<h3>错误级别</h3>
+<p>
+  按照错误的严重程度，将错误划分为如下3种：
+</p>
+<ol>
+<li>
+  notice：提示
+</li>
+<li>
+  warning：警告
+</li>
+<li>
+  error：错误
+</li>
+</ol>
+<p>
+  notice和warning错误后代码继续执行，error错误后代码终止执行。
+</p>
+<h3>错误的触发</h3>
+<p>
+  方式一：PHP程序触发
+</p>
+<p>
+  方式二：用户自己触发（trigger_error()）
+</p>
+<p>
+  例题：如果年龄不在20~30之间就报错
+</p>
+<p><img loading="lazy" decoding="async" width="1111" height="135" src="/wp-content/uploads/2018/05/word-image-791.png" class="wp-image-896" srcset="/wp-content/uploads/2018/05/word-image-791.png 1111w, /wp-content/uploads/2018/05/word-image-791-300x36.png 300w, /wp-content/uploads/2018/05/word-image-791-768x93.png 768w, /wp-content/uploads/2018/05/word-image-791-1024x124.png 1024w" sizes="(max-width: 1111px) 100vw, 1111px" /></p>
+<p>
+  用户触发错误级别（参照php.ini文件）
+</p>
+<p><img loading="lazy" decoding="async" width="848" height="89" src="/wp-content/uploads/2018/05/word-image-792.png" class="wp-image-897" srcset="/wp-content/uploads/2018/05/word-image-792.png 848w, /wp-content/uploads/2018/05/word-image-792-300x31.png 300w, /wp-content/uploads/2018/05/word-image-792-768x81.png 768w" sizes="(max-width: 848px) 100vw, 848px" /></p>
+<p>
+  多学一招：错误的级别是PHP预定义常量。每一位的1表示一种错误类型。
+</p>
+<p><img loading="lazy" decoding="async" width="551" height="47" src="/wp-content/uploads/2018/05/word-image-793.png" class="wp-image-898" srcset="/wp-content/uploads/2018/05/word-image-793.png 551w, /wp-content/uploads/2018/05/word-image-793-300x26.png 300w" sizes="(max-width: 551px) 100vw, 551px" /></p>
+<h3>错误的处理方式</h3>
+<ol>
+<li>
+  显示错误报告（默认）
+</li>
+<li>
+  将错误记录在日志中
+</li>
+<li>
+  交给用户自定义脚本进行错误处理
+</li>
+</ol>
+<h3>错误处理方式的设置</h3>
+<ol>
+<li>
+  报错错误级别
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="690" height="33" src="/wp-content/uploads/2018/05/word-image-794.png" class="wp-image-899" srcset="/wp-content/uploads/2018/05/word-image-794.png 690w, /wp-content/uploads/2018/05/word-image-794-300x14.png 300w" sizes="(max-width: 690px) 100vw, 690px" /><br />
+<img loading="lazy" decoding="async" width="1086" height="136" src="/wp-content/uploads/2018/05/word-image-795.png" class="wp-image-900" srcset="/wp-content/uploads/2018/05/word-image-795.png 1086w, /wp-content/uploads/2018/05/word-image-795-300x38.png 300w, /wp-content/uploads/2018/05/word-image-795-768x96.png 768w, /wp-content/uploads/2018/05/word-image-795-1024x128.png 1024w" sizes="(max-width: 1086px) 100vw, 1086px" /></p>
+<ol>
+<li>
+  浏览器上显示（关闭）错误报告
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="719" height="29" src="/wp-content/uploads/2018/05/word-image-796.png" class="wp-image-901" srcset="/wp-content/uploads/2018/05/word-image-796.png 719w, /wp-content/uploads/2018/05/word-image-796-300x12.png 300w" sizes="(max-width: 719px) 100vw, 719px" /><br />
+<img loading="lazy" decoding="async" width="669" height="50" src="/wp-content/uploads/2018/05/word-image-797.png" class="wp-image-902" srcset="/wp-content/uploads/2018/05/word-image-797.png 669w, /wp-content/uploads/2018/05/word-image-797-300x22.png 300w" sizes="(max-width: 669px) 100vw, 669px" /></p>
+<ol>
+<li>
+  在日志中记录错误
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="689" height="48" src="/wp-content/uploads/2018/05/word-image-798.png" class="wp-image-903" srcset="/wp-content/uploads/2018/05/word-image-798.png 689w, /wp-content/uploads/2018/05/word-image-798-300x21.png 300w" sizes="(max-width: 689px) 100vw, 689px" /></p>
+<p><strong>应用：</strong>开发的时候错误显示在浏览器，日志不记录，项目运行的时候错误不显示在浏览器上，错误记录在日志中。
+</p>
+<p><img loading="lazy" decoding="async" width="860" height="287" src="/wp-content/uploads/2018/05/word-image-799.png" class="wp-image-904" srcset="/wp-content/uploads/2018/05/word-image-799.png 860w, /wp-content/uploads/2018/05/word-image-799-300x100.png 300w, /wp-content/uploads/2018/05/word-image-799-768x256.png 768w" sizes="(max-width: 860px) 100vw, 860px" /></p>
+<ol>
+<li>
+  自定义脚本处理错误
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="714" height="113" src="/wp-content/uploads/2018/05/word-image-800.png" class="wp-image-905" srcset="/wp-content/uploads/2018/05/word-image-800.png 714w, /wp-content/uploads/2018/05/word-image-800-300x47.png 300w" sizes="(max-width: 714px) 100vw, 714px" /></p>
+<p>
+  应用：
+</p>
+<p>
+  /**
+</p>
+<p>
+  *@param $level 错误的类别
+</p>
+<p>
+  *@param $msg 错误的信息
+</p>
+<p>
+  *@param $file 错误的文件
+</p>
+<p>
+  *@param $line 错误的行号
+</p>
+<p>
+  */
+</p>
+<p>
+  function error($level,$msg,$file,$line) {
+</p>
+<p>
+  	switch($level) {
+</p>
+<p>
+  		case E_NOTICE:
+</p>
+<p>
+  		case E_USER_NOTICE:
+</p>
+<p>
+  			echo &#8216;屏蔽此错误&lt;br&gt;&#8217;;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		case E_WARNING:
+</p>
+<p>
+  		case E_USER_WARNING:
+</p>
+<p>
+  			echo &#8216;将错误记录在日志中&lt;br&gt;&#8217;;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		case E_ERROR:
+</p>
+<p>
+  		case E_USER_ERROR:
+</p>
+<p>
+  			echo &#8216;发邮件&lt;br&gt;&#8217;;
+</p>
+<p>
+  			break;
+</p>
+</p>
+<p>
+  	}
+</p>
+</p>
+<p>
+  	echo &#8216;错误信息：&#8217;.$msg,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  	echo &#8216;错误文件：&#8217;.$file,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  	echo &#8216;错误行号：&#8217;.$line,'&lt;hr&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  set_error_handler(&#8216;error&#8217;);	//注册错误处理函数
+</p>
+<p>
+  trigger_error(&#8216;自己触发的错误&#8217;);
+</p>
+<p>
+  trigger_error(&#8216;警告&#8217;,E_USER_WARNING);
+</p>
+<p>
+  trigger_error(&#8216;错误&#8217;,E_USER_ERROR);
+</p>
+<p><img loading="lazy" decoding="async" width="446" height="267" src="/wp-content/uploads/2018/05/word-image-801.png" class="wp-image-906" srcset="/wp-content/uploads/2018/05/word-image-801.png 446w, /wp-content/uploads/2018/05/word-image-801-300x180.png 300w" sizes="(max-width: 446px) 100vw, 446px" /></p>
+<h2>更改PHP配置</h2>
+<ol>
+<li>
+  php.ini文件，所有的虚拟主机全部有效，需要重启服务器
+</li>
+<li>
+  .htaccess文件，在当前目录及子目录下有效，不需要重启服务器
+</li>
+<li>
+  ini_set()：当前页面中有效，不需要重启服务器
+</li>
+</ol>
+<h2>HTTP错误编</h2>
+<p>
+  1xx（临时响应）
+</p>
+<p>
+  2xx（成功）
+</p>
+<p>
+  3xx（重定向）
+</p>
+<p><img loading="lazy" decoding="async" width="852" height="183" src="/wp-content/uploads/2018/05/word-image-802.png" class="wp-image-907" srcset="/wp-content/uploads/2018/05/word-image-802.png 852w, /wp-content/uploads/2018/05/word-image-802-300x64.png 300w, /wp-content/uploads/2018/05/word-image-802-768x165.png 768w" sizes="(max-width: 852px) 100vw, 852px" /></p>
+<p>
+  4xx（请求错误）
+</p>
+<p><img loading="lazy" decoding="async" width="620" height="450" src="/wp-content/uploads/2018/05/word-image-803.png" class="wp-image-908" srcset="/wp-content/uploads/2018/05/word-image-803.png 620w, /wp-content/uploads/2018/05/word-image-803-300x218.png 300w" sizes="(max-width: 620px) 100vw, 620px" /></p>
+<p>
+  5xx（服务器错误）
+</p>
+<p><img loading="lazy" decoding="async" width="653" height="163" src="/wp-content/uploads/2018/05/word-image-804.png" class="wp-image-909" srcset="/wp-content/uploads/2018/05/word-image-804.png 653w, /wp-content/uploads/2018/05/word-image-804-300x75.png 300w" sizes="(max-width: 653px) 100vw, 653px" /></p>
+<p>
+  需要记忆的编码
+</p>
+<ol>
+<li>
+  200 – 成功
+</li>
+<li>
+  301-永久移动
+</li>
+<li>
+  302-临时移动
+</li>
+<li>
+  403-拒绝访问
+</li>
+<li>
+  404 &#8211; 请求的网页不存在
+</li>
+<li>
+  500—服务器内部错误
+</li>
+<li>
+  502—网关错误
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="826" height="139" src="/wp-content/uploads/2018/05/word-image-805.png" class="wp-image-910" srcset="/wp-content/uploads/2018/05/word-image-805.png 826w, /wp-content/uploads/2018/05/word-image-805-300x50.png 300w, /wp-content/uploads/2018/05/word-image-805-768x129.png 768w" sizes="(max-width: 826px) 100vw, 826px" /></p>
+<h2>数组的指针</h2>
+<h3>指针的介绍</h3>
+<ol>
+<li>
+  指针本质是一个变量，保存指向某个元素的地址
+</li>
+<li>
+  默认情况下打开一个数组，指针指向数组的第一个元素
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="479" height="169" src="/wp-content/uploads/2018/05/word-image-806.png" class="wp-image-911" srcset="/wp-content/uploads/2018/05/word-image-806.png 479w, /wp-content/uploads/2018/05/word-image-806-300x106.png 300w" sizes="(max-width: 479px) 100vw, 479px" /></p>
+<ol>
+<li>
+  foreach的流程图
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="635" height="432" src="/wp-content/uploads/2018/05/word-image-807.png" class="wp-image-912" srcset="/wp-content/uploads/2018/05/word-image-807.png 635w, /wp-content/uploads/2018/05/word-image-807-300x204.png 300w, /wp-content/uploads/2018/05/word-image-807-220x150.png 220w" sizes="(max-width: 635px) 100vw, 635px" /></p>
+<h3>操作指针的函数</h3>
+<p>
+  key()：返回当前指针的键
+</p>
+<p>
+  current()：返回数组中的当前单元
+</p>
+<p>
+  next()：指针下移一位
+</p>
+<p>
+  prev()：指针倒回一位
+</p>
+<p>
+  reset()：指针初始化
+</p>
+<p>
+  end()：指针指向最后一位
+</p>
+<p><img loading="lazy" decoding="async" width="770" height="89" src="/wp-content/uploads/2018/05/word-image-808.png" class="wp-image-913" srcset="/wp-content/uploads/2018/05/word-image-808.png 770w, /wp-content/uploads/2018/05/word-image-808-300x35.png 300w, /wp-content/uploads/2018/05/word-image-808-768x89.png 768w" sizes="(max-width: 770px) 100vw, 770px" /></p>
+<h3>通过for循环遍历数组</h3>
+<ol>
+<li>
+  从前往后遍历数组
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="780" height="113" src="/wp-content/uploads/2018/05/word-image-809.png" class="wp-image-914" srcset="/wp-content/uploads/2018/05/word-image-809.png 780w, /wp-content/uploads/2018/05/word-image-809-300x43.png 300w, /wp-content/uploads/2018/05/word-image-809-768x111.png 768w" sizes="(max-width: 780px) 100vw, 780px" /></p>
+<ol>
+<li>
+  从后往前遍历数组
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="654" height="86" src="/wp-content/uploads/2018/05/word-image-810.png" class="wp-image-915" srcset="/wp-content/uploads/2018/05/word-image-810.png 654w, /wp-content/uploads/2018/05/word-image-810-300x39.png 300w" sizes="(max-width: 654px) 100vw, 654px" /></p>
+<h3>each()</h3>
+<p>
+  作用：返回当前的键值并且指针向前移动一位，如果到了数组的末端返回false
+</p>
+<p>
+  each()=current()+key()+next()
+</p>
+<p>
+  each()返回4个元素的数组，既有索引数组又有关联数组，键的下标是0和key，值的下标是1和value。
+</p>
+<p><img loading="lazy" decoding="async" width="817" height="113" src="/wp-content/uploads/2018/05/word-image-811.png" class="wp-image-916" srcset="/wp-content/uploads/2018/05/word-image-811.png 817w, /wp-content/uploads/2018/05/word-image-811-300x41.png 300w, /wp-content/uploads/2018/05/word-image-811-768x106.png 768w" sizes="(max-width: 817px) 100vw, 817px" /></p>
+<h3>通过while循环遍历数组</h3>
+<p><img loading="lazy" decoding="async" width="765" height="94" src="/wp-content/uploads/2018/05/word-image-812.png" class="wp-image-917" srcset="/wp-content/uploads/2018/05/word-image-812.png 765w, /wp-content/uploads/2018/05/word-image-812-300x37.png 300w" sizes="(max-width: 765px) 100vw, 765px" /></p>
+<h2>常用的函数</h2>
+<h3>操作数组的函数</h3>
+<ol>
+<li>
+  range(起始值,结束值,[步长=1])，生成指定范围的数组
+</li>
+<li>
+  array_merge()：数组合并
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="782" height="69" src="/wp-content/uploads/2018/05/word-image-813.png" class="wp-image-918" srcset="/wp-content/uploads/2018/05/word-image-813.png 782w, /wp-content/uploads/2018/05/word-image-813-300x26.png 300w, /wp-content/uploads/2018/05/word-image-813-768x68.png 768w" sizes="(max-width: 782px) 100vw, 782px" /></p>
+<ol>
+<li>
+  array_rand()：数组中随机取出一个或多个单元
+</li>
+<li>
+  shuffle()：打乱数组
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="936" height="174" src="/wp-content/uploads/2018/05/word-image-814.png" class="wp-image-919" srcset="/wp-content/uploads/2018/05/word-image-814.png 936w, /wp-content/uploads/2018/05/word-image-814-300x56.png 300w, /wp-content/uploads/2018/05/word-image-814-768x143.png 768w" sizes="(max-width: 936px) 100vw, 936px" /></p>
+<ol>
+<li>
+  in_array()：检查数组中是否存在某个值
+</li>
+<li>
+  is_array()：检测变量是否是数组
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="720" height="88" src="/wp-content/uploads/2018/05/word-image-815.png" class="wp-image-920" srcset="/wp-content/uploads/2018/05/word-image-815.png 720w, /wp-content/uploads/2018/05/word-image-815-300x37.png 300w" sizes="(max-width: 720px) 100vw, 720px" /></p>
+<ol>
+<li>
+  array_keys()：返回数组中所有的键名
+</li>
+<li>
+  array_values()：返回数组中所有的值
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="855" height="110" src="/wp-content/uploads/2018/05/word-image-816.png" class="wp-image-921" srcset="/wp-content/uploads/2018/05/word-image-816.png 855w, /wp-content/uploads/2018/05/word-image-816-300x39.png 300w, /wp-content/uploads/2018/05/word-image-816-768x99.png 768w" sizes="(max-width: 855px) 100vw, 855px" /></p>
+<ol>
+<li>
+  explode()：将字符串分割成数组
+</li>
+<li>
+  implode()：将一个一维数组的值转化为字符串
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="966" height="108" src="/wp-content/uploads/2018/05/word-image-817.png" class="wp-image-922" srcset="/wp-content/uploads/2018/05/word-image-817.png 966w, /wp-content/uploads/2018/05/word-image-817-300x34.png 300w, /wp-content/uploads/2018/05/word-image-817-768x86.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<ol>
+<li>
+  array_diff()：数组相减
+</li>
+<li>
+  array_intersect()：数组相交
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="758" height="131" src="/wp-content/uploads/2018/05/word-image-818.png" class="wp-image-923" srcset="/wp-content/uploads/2018/05/word-image-818.png 758w, /wp-content/uploads/2018/05/word-image-818-300x52.png 300w" sizes="(max-width: 758px) 100vw, 758px" /></p>
+<h3>字符串操作函数</h3>
+<ol>
+<li>
+  字符串可以看成是字符的集合，可以通过[]来访问字符串（不能操作中午）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="387" height="91" src="/wp-content/uploads/2018/05/word-image-819.png" class="wp-image-924" srcset="/wp-content/uploads/2018/05/word-image-819.png 387w, /wp-content/uploads/2018/05/word-image-819-300x71.png 300w" sizes="(max-width: 387px) 100vw, 387px" /></p>
+<ol>
+<li>
+  strlen()：获取字符串长度，以字节为单位
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="372" height="42" src="/wp-content/uploads/2018/05/word-image-820.png" class="wp-image-925" srcset="/wp-content/uploads/2018/05/word-image-820.png 372w, /wp-content/uploads/2018/05/word-image-820-300x34.png 300w" sizes="(max-width: 372px) 100vw, 372px" /></p>
+<ol>
+<li>
+  strpos()：查找子字符串在字符串第一次出现的位置
+</li>
+<li>
+  strrpos()：查找子字符串在字符串最后一次出现的位置
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="636" height="66" src="/wp-content/uploads/2018/05/word-image-821.png" class="wp-image-926" srcset="/wp-content/uploads/2018/05/word-image-821.png 636w, /wp-content/uploads/2018/05/word-image-821-300x31.png 300w" sizes="(max-width: 636px) 100vw, 636px" /></p>
+<ol>
+<li>
+  str_repeat()：字符串重复
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="814" height="48" src="/wp-content/uploads/2018/05/word-image-822.png" class="wp-image-927" srcset="/wp-content/uploads/2018/05/word-image-822.png 814w, /wp-content/uploads/2018/05/word-image-822-300x18.png 300w, /wp-content/uploads/2018/05/word-image-822-768x45.png 768w" sizes="(max-width: 814px) 100vw, 814px" /></p>
+<ol>
+<li>
+  substr()
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1049" height="92" src="/wp-content/uploads/2018/05/word-image-823.png" class="wp-image-928" srcset="/wp-content/uploads/2018/05/word-image-823.png 1049w, /wp-content/uploads/2018/05/word-image-823-300x26.png 300w, /wp-content/uploads/2018/05/word-image-823-768x67.png 768w, /wp-content/uploads/2018/05/word-image-823-1024x90.png 1024w" sizes="(max-width: 1049px) 100vw, 1049px" /></p>
+<ol>
+<li>
+  strchr()和strstr()是一样的：从第一次出现的字符串开始截取，一直截取到最后
+</li>
+<li>
+  strrchr()：从最后一次出现的字符串开始截取，一直截取到最后
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="654" height="71" src="/wp-content/uploads/2018/05/word-image-824.png" class="wp-image-929" srcset="/wp-content/uploads/2018/05/word-image-824.png 654w, /wp-content/uploads/2018/05/word-image-824-300x33.png 300w" sizes="(max-width: 654px) 100vw, 654px" /></p>
+<ol>
+<li>
+  str_replace()：字符串替换
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="984" height="55" src="/wp-content/uploads/2018/05/word-image-825.png" class="wp-image-930" srcset="/wp-content/uploads/2018/05/word-image-825.png 984w, /wp-content/uploads/2018/05/word-image-825-300x17.png 300w, /wp-content/uploads/2018/05/word-image-825-768x43.png 768w" sizes="(max-width: 984px) 100vw, 984px" /></p>
+<ol>
+<li>
+  str_split()：把字符串分割成数组
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="916" height="32" src="/wp-content/uploads/2018/05/word-image-826.png" class="wp-image-931" srcset="/wp-content/uploads/2018/05/word-image-826.png 916w, /wp-content/uploads/2018/05/word-image-826-300x10.png 300w, /wp-content/uploads/2018/05/word-image-826-768x27.png 768w" sizes="(max-width: 916px) 100vw, 916px" /></p>
+<ol>
+<li>
+  strtolower()：将字符串转成小写
+</li>
+<li>
+  strtoupper()：将字符串转成大写
+</li>
+<li>
+  ucfirst()：首字母大写
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="641" height="70" src="/wp-content/uploads/2018/05/word-image-827.png" class="wp-image-932" srcset="/wp-content/uploads/2018/05/word-image-827.png 641w, /wp-content/uploads/2018/05/word-image-827-300x33.png 300w" sizes="(max-width: 641px) 100vw, 641px" /></p>
+<ol>
+<li>
+  trim()：去字符串两边的空格
+</li>
+<li>
+  ltrim()：去字符串左边的空格
+</li>
+<li>
+  rtrim()：去字符串右边的空格
+</li>
+<li>
+  nl2br()：将\n转成&lt;br&gt;
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1040" height="247" src="/wp-content/uploads/2018/05/word-image-828.png" class="wp-image-933" srcset="/wp-content/uploads/2018/05/word-image-828.png 1040w, /wp-content/uploads/2018/05/word-image-828-300x71.png 300w, /wp-content/uploads/2018/05/word-image-828-768x182.png 768w, /wp-content/uploads/2018/05/word-image-828-1024x243.png 1024w" sizes="(max-width: 1040px) 100vw, 1040px" /></p>
+<ol>
+<li>
+  htmlentities()：实体转换
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="878" height="31" src="/wp-content/uploads/2018/05/word-image-829.png" class="wp-image-934" srcset="/wp-content/uploads/2018/05/word-image-829.png 878w, /wp-content/uploads/2018/05/word-image-829-300x11.png 300w, /wp-content/uploads/2018/05/word-image-829-768x27.png 768w" sizes="(max-width: 878px) 100vw, 878px" /></p>
+<h2>多字节处理</h2>
+<p>
+  PHP默认不支持多字节处理，需要在php.ini中开启多字节处理。
+</p>
+<p><img loading="lazy" decoding="async" width="766" height="71" src="/wp-content/uploads/2018/05/word-image-830.png" class="wp-image-935" srcset="/wp-content/uploads/2018/05/word-image-830.png 766w, /wp-content/uploads/2018/05/word-image-830-300x28.png 300w" sizes="(max-width: 766px) 100vw, 766px" /></p>
+<p>
+  mb_扩展都是以字符为单位。
+</p>
+<p><img loading="lazy" decoding="async" width="789" height="127" src="/wp-content/uploads/2018/05/word-image-831.png" class="wp-image-936" srcset="/wp-content/uploads/2018/05/word-image-831.png 789w, /wp-content/uploads/2018/05/word-image-831-300x48.png 300w, /wp-content/uploads/2018/05/word-image-831-768x124.png 768w" sizes="(max-width: 789px) 100vw, 789px" /></p>
+<h2>算法</h2>
+<h3>冒泡排序</h3>
+<p>
+  思想：从第0个和第1个数比较，第1个数和第2个数比较，以此类推，第i和和第i+1个数比较，满足条件就交换。
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  $num=array(140,20,52,78,12,45,105,56,23);
+</p>
+<p>
+  /*
+</p>
+<p>
+  //第一次循环
+</p>
+<p>
+  for($i=0;$i&lt;count($num)-1;$i++){
+</p>
+<p>
+  	if($num[$i]&gt;$num[$i+1]){
+</p>
+<p>
+  		$temp=$num[$i];
+</p>
+<p>
+  		$num[$i]=$num[$i+1];
+</p>
+<p>
+  		$num[$i+1]=$temp;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //第二次循环
+</p>
+<p>
+  for($i=0;$i&lt;count($num)-2;$i++){
+</p>
+<p>
+  	if($num[$i]&gt;$num[$i+1]){
+</p>
+<p>
+  		$temp=$num[$i];
+</p>
+<p>
+  		$num[$i]=$num[$i+1];
+</p>
+<p>
+  		$num[$i+1]=$temp;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //第三次循环
+</p>
+<p>
+  for($i=0;$i&lt;count($num)-3;$i++){
+</p>
+<p>
+  	if($num[$i]&gt;$num[$i+1]){
+</p>
+<p>
+  		$temp=$num[$i];
+</p>
+<p>
+  		$num[$i]=$num[$i+1];
+</p>
+<p>
+  		$num[$i+1]=$temp;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  print_r($num);
+</p>
+<p>
+  //剩下以此类推
+</p>
+<p>
+  */
+</p>
+<p>
+  //分析
+</p>
+<p>
+  /**
+</p>
+<p>
+  *初始数据
+</p>
+<p>
+  第一次  20,52,78,12,45,105,56,23,（140）
+</p>
+<p>
+  第二次	20,52,12,45,78,56,23,（105,140）
+</p>
+<p>
+  第三次  20,12,45,52,56,23,(78,105,140）
+</p>
+<p>
+  以此类推
+</p>
+<p>
+  */
+</p>
+<p>
+  //实现代码
+</p>
+<p>
+  for($n=1;$n&lt;count($num)-1;$n++){	//总共要循环几次
+</p>
+<p>
+  	for($i=0;$i&lt;count($num)-$n;$i++){
+</p>
+<p>
+  		if($num[$i]&gt;$num[$i+1]){
+</p>
+<p>
+  			$temp=$num[$i];
+</p>
+<p>
+  			$num[$i]=$num[$i+1];
+</p>
+<p>
+  			$num[$i+1]=$temp;
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  print_r($num);
+</p>
+<p><img loading="lazy" decoding="async" width="835" height="31" src="/wp-content/uploads/2018/05/word-image-832.png" class="wp-image-937" srcset="/wp-content/uploads/2018/05/word-image-832.png 835w, /wp-content/uploads/2018/05/word-image-832-300x11.png 300w, /wp-content/uploads/2018/05/word-image-832-768x29.png 768w" sizes="(max-width: 835px) 100vw, 835px" /></p>
+<h3>选择排序</h3>
+<p>
+  思想：第0个数和其他的数比（确定一个数），第1个数和其他剩余的数（再确定一个数），第2个和其他的数比，以此类推
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  $num=array(140,20,52,78,12,45,105,56,23);
+</p>
+<p>
+  /**
+</p>
+<p>
+  *分析：140,20,52,78,12,45,105,56,23
+</p>
+<p>
+  第一次	（12）,140,52,78,20,45,105,56,23
+</p>
+<p>
+  第二次	（12,20）,140,78,52,45,105,56,23
+</p>
+<p>
+  第三次	（12,20,23),140,78,52,105,56,45
+</p>
+<p>
+  以此类推
+</p>
+<p>
+  //第一次循环
+</p>
+<p>
+  for($i=1;$i&lt;count($num);$i++){
+</p>
+<p>
+  	if($num[0]&gt;$num[$i]){
+</p>
+<p>
+  		$temp=$num[0];
+</p>
+<p>
+  		$num[0]=$num[$i];
+</p>
+<p>
+  		$num[$i]=$temp;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //第二次循环
+</p>
+<p>
+  for($i=2;$i&lt;count($num);$i++){
+</p>
+<p>
+  	if($num[1]&gt;$num[$i]){
+</p>
+<p>
+  		$temp=$num[1];
+</p>
+<p>
+  		$num[1]=$num[$i];
+</p>
+<p>
+  		$num[$i]=$temp;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //第三次循环
+</p>
+<p>
+  for($i=3;$i&lt;count($num);$i++){
+</p>
+<p>
+  	if($num[2]&gt;$num[$i]){
+</p>
+<p>
+  		$temp=$num[2];
+</p>
+<p>
+  		$num[2]=$num[$i];
+</p>
+<p>
+  		$num[$i]=$temp;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //依次类推
+</p>
+<p>
+  print_r($num);
+</p>
+<p>
+  */
+</p>
+<p>
+  //实现代码
+</p>
+<p>
+  for($n=0;$n&lt;count($num)-1;$n++){	//循环的次数
+</p>
+<p>
+  	for($i=$n+1;$i&lt;count($num);$i++){//数据交换
+</p>
+<p>
+  		if($num[$n]&gt;$num[$i]){
+</p>
+<p>
+  			$temp=$num[$n];
+</p>
+<p>
+  			$num[$n]=$num[$i];
+</p>
+<p>
+  			$num[$i]=$temp;
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  print_r($num);
+</p>
+<p><img loading="lazy" decoding="async" width="840" height="34" src="/wp-content/uploads/2018/05/word-image-833.png" class="wp-image-938" srcset="/wp-content/uploads/2018/05/word-image-833.png 840w, /wp-content/uploads/2018/05/word-image-833-300x12.png 300w, /wp-content/uploads/2018/05/word-image-833-768x31.png 768w" sizes="(max-width: 840px) 100vw, 840px" /></p>
+<h3>快速排序</h3>
+<p>
+  思想：以第0个数为标准，比它小的放左边，比它大的放右边
+</p>
+<p>
+  分析：
+</p>
+<p>
+  原始数据
+</p>
+<p><img loading="lazy" decoding="async" width="906" height="86" src="/wp-content/uploads/2018/05/word-image-834.png" class="wp-image-939" srcset="/wp-content/uploads/2018/05/word-image-834.png 906w, /wp-content/uploads/2018/05/word-image-834-300x28.png 300w, /wp-content/uploads/2018/05/word-image-834-768x73.png 768w" sizes="(max-width: 906px) 100vw, 906px" /></p>
+<p>
+  第一次排序，以60为标准，比60小排左边，比60大排右边，这个数组分成了2数组
+</p>
+<p><img loading="lazy" decoding="async" width="814" height="173" src="/wp-content/uploads/2018/05/word-image-835.png" class="wp-image-940" srcset="/wp-content/uploads/2018/05/word-image-835.png 814w, /wp-content/uploads/2018/05/word-image-835-300x64.png 300w, /wp-content/uploads/2018/05/word-image-835-768x163.png 768w" sizes="(max-width: 814px) 100vw, 814px" /></p>
+<p>
+  第二次排序：将分成的两个数组再执行和第一次排序一样的动作
+</p>
+<p><img loading="lazy" decoding="async" width="677" height="190" src="/wp-content/uploads/2018/05/word-image-836.png" class="wp-image-941" srcset="/wp-content/uploads/2018/05/word-image-836.png 677w, /wp-content/uploads/2018/05/word-image-836-300x84.png 300w" sizes="(max-width: 677px) 100vw, 677px" /></p>
+<p>
+  以此类推
+</p>
+<p>
+  实现代码
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  $num=array(140,20,52,78,12,45,105,56,23);
+</p>
+<p>
+  function mysort($arr) {
+</p>
+<p>
+  	$len=count($arr);	//数组的长度
+</p>
+<p>
+  	if($len==0 || $len==1)//如果数组为空或就一个数据,直接将数组返回
+</p>
+<p>
+  		return $arr;
+</p>
+<p>
+  	$temp=$arr[0];	//以第0个数为标准
+</p>
+<p>
+  	$small=$big=array();	//声明两个数组
+</p>
+<p>
+  	for($i=1;$i&lt;$len;$i++){
+</p>
+<p>
+  		if($arr[$i]&lt;$temp)
+</p>
+<p>
+  			$small[]=$arr[$i];
+</p>
+<p>
+  		else
+</p>
+<p>
+  			$big[]=$arr[$i];
+</p>
+<p>
+  	}
+</p>
+<p>
+  	$small_array=mysort($small);	//递归调用
+</p>
+<p>
+  	$big_array=mysort($big);		//递归调用
+</p>
+<p>
+  	return array_merge($small_array,array($temp),$big_array);//数组合并
+</p>
+<p>
+  }
+</p>
+<p>
+  //调用
+</p>
+<p>
+  print_r(mysort($num));
+</p>
+<p><img loading="lazy" decoding="async" width="814" height="35" src="/wp-content/uploads/2018/05/word-image-837.png" class="wp-image-942" srcset="/wp-content/uploads/2018/05/word-image-837.png 814w, /wp-content/uploads/2018/05/word-image-837-300x13.png 300w, /wp-content/uploads/2018/05/word-image-837-768x33.png 768w" sizes="(max-width: 814px) 100vw, 814px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/889.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

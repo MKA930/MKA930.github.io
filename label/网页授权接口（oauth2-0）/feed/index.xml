@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>网页授权接口（Oauth2.0） &#8211; 个人随笔</title>
+	<atom:link href="/label/%E7%BD%91%E9%A1%B5%E6%8E%88%E6%9D%83%E6%8E%A5%E5%8F%A3%EF%BC%88oauth2-0%EF%BC%89/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Tue, 29 Mar 2022 15:26:11 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>网页授权接口（Oauth2.0） &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>微信公众号（三）带参数的二维码接口、LBS 接口、语音识别、图灵机器人、网页授权接口（Oauth2.0）、微信 JSSDK 接口、扫码抽奖、授权登录</title>
+		<link>/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/5516.html</link>
+					<comments>/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/5516.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 15:10:26 +0000</pubDate>
+				<category><![CDATA[微信公众号]]></category>
+		<category><![CDATA[移动端开发]]></category>
+		<category><![CDATA[LBS 接口]]></category>
+		<category><![CDATA[图灵机器人]]></category>
+		<category><![CDATA[带参数的二维码接口]]></category>
+		<category><![CDATA[微信 JSSDK 接口]]></category>
+		<category><![CDATA[扫码抽奖]]></category>
+		<category><![CDATA[授权登录]]></category>
+		<category><![CDATA[网页授权接口（Oauth2.0）]]></category>
+		<category><![CDATA[语音识别]]></category>
+		<guid isPermaLink="false">/?p=5516</guid>
+
+					<description><![CDATA[移动端开发（微信开发3） ︴微信大总结 wx.php接口 &#60;?php require &#8216;./ [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>移动端开发（微信开发3） <a id="post-5516-_Toc475823345"></a></h1>
+<h1>︴微信大总结</h1>
+<h2>wx.php接口</h2>
+<p>&lt;?php</p>
+<p>require &#8216;./Wechat.class.php&#8217;;</p>
+<p>/**</p>
+<p>* wechat php test</p>
+<p>*/</p>
+<p>//define your token</p>
+<p>define(&#8220;TOKEN&#8221;, &#8220;itcast&#8221;);</p>
+<p>class wechatCallbackapiTest extends Wechat</p>
+<p>{</p>
+<p>public function valid()</p>
+<p>{</p>
+<p>$echoStr = $_GET[&#8220;echostr&#8221;];</p>
+<p>//valid signature , option</p>
+<p>if($this-&gt;checkSignature()){</p>
+<p>echo $echoStr;</p>
+<p>exit;</p>
+<p>}</p>
+<p>}</p>
+<p>public function responseMsg()</p>
+<p>{</p>
+<p>//get post data, May be due to the different environments</p>
+<p>$postStr = $GLOBALS[&#8220;HTTP_RAW_POST_DATA&#8221;];</p>
+<p>//extract post data</p>
+<p>if (!empty($postStr)){</p>
+<p>/* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,</p>
+<p>the best way is to check the validity of xml by yourself */</p>
+<p>libxml_disable_entity_loader(true);</p>
+<p>$postObj = simplexml_load_string($postStr, &#8216;SimpleXMLElement&#8217;, LIBXML_NOCDATA);</p>
+<p>$fromUsername = $postObj-&gt;FromUserName;</p>
+<p>$toUsername = $postObj-&gt;ToUserName;</p>
+<p>$keyword = trim($postObj-&gt;Content);</p>
+<p>$type = trim($postObj-&gt;MsgType);</p>
+<p>$time = time();</p>
+<p>switch ($type) {</p>
+<p>case &#8216;text&#8217;:</p>
+<p>if ($keyword == &#8216;来图片&#8217;) {</p>
+<p>$filePath = dirname(__FILE__) . DIRECTORY_SEPARATOR .&#8217;zhujiao.jpg&#8217;;</p>
+<p>$this-&gt;sendImage($fromUsername, $toUsername, $this-&gt;getMediaId($filePath));</p>
+<p>} else {</p>
+<p>$this-&gt;sendText($fromUsername, $toUsername, &#8216;陈总&#8217;);</p>
+<p>}</p>
+<p>break;</p>
+<p>default:</p>
+<p>$this-&gt;sendText($fromUsername, $toUsername, &#8216;兄弟，不在服务器&#8217;);</p>
+<p># code&#8230;</p>
+<p>break;</p>
+<p>}</p>
+<p>}else {</p>
+<p>echo &#8220;&#8221;;</p>
+<p>exit;</p>
+<p>}</p>
+<p>}</p>
+<p>private function checkSignature()</p>
+<p>{</p>
+<p>// you must define TOKEN by yourself</p>
+<p>if (!defined(&#8220;TOKEN&#8221;)) {</p>
+<p>throw new Exception(&#8216;TOKEN is not defined!&#8217;);</p>
+<p>}</p>
+<p>$signature = $_GET[&#8220;signature&#8221;];</p>
+<p>$timestamp = $_GET[&#8220;timestamp&#8221;];</p>
+<p>$nonce = $_GET[&#8220;nonce&#8221;];</p>
+<p>$token = TOKEN;</p>
+<p>$tmpArr = array($token, $timestamp, $nonce);</p>
+<p>// use SORT_STRING rule</p>
+<p>sort($tmpArr, SORT_STRING);</p>
+<p>$tmpStr = implode( $tmpArr );</p>
+<p>$tmpStr = sha1( $tmpStr );</p>
+<p>if( $tmpStr == $signature ){</p>
+<p>return true;</p>
+<p>}else{</p>
+<p>return false;</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>$wechatObj = new wechatCallbackapiTest();</p>
+<p>//脚下留心：</p>
+<p>//如果通信不成功</p>
+<p>//解决思路：</p>
+<p>//1.检查URL是否能正常访问</p>
+<p>//2.检查调用的是否是valid方法</p>
+<p>//$wechatObj-&gt;valid();</p>
+<p>$wechatObj-&gt;responseMsg();</p>
+<h2>Wechat.class.php</h2>
+<p>&lt;?php</p>
+<p>define(&#8216;APPID&#8217;, &#8216;wx56e3e3d75414b3d0&#8217;);</p>
+<p>define(&#8216;APPSECRET&#8217;, &#8216;f8ec8178c6dda48d1cb25c07304eff44&#8217;);</p>
+<p>class Wechat</p>
+<p>{</p>
+<p>/**</p>
+<p>* 获取access_token</p>
+<p>* @see https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421140183</p>
+<p>* @return string</p>
+<p>*/</p>
+<p>public function getToken()</p>
+<p>{</p>
+<p>$apiData = array(</p>
+<p>&#8216;appid&#8217; =&gt; APPID,</p>
+<p>&#8216;secret&#8217; =&gt; APPSECRET</p>
+<p>);</p>
+<p>$api = &#8216;https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;&#8217;.http_build_query($apiData);</p>
+<p>$data = $this-&gt;httpRequest($api);</p>
+<p>return $data[&#8216;access_token&#8217;];</p>
+<p>}</p>
+<p>/**</p>
+<p>* 上传媒体文件</p>
+<p>* @see https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1444738726</p>
+<p>* @return string</p>
+<p>* 注：</p>
+<p>* 图片（image）: 2M，支持PNG\JPEG\JPG\GIF格式</p>
+<p>* 语音（voice）：2M，播放长度不超过60s，支持AMR\MP3格式</p>
+<p>* 视频（video）：10MB，支持MP4格式</p>
+<p>* 缩略图（thumb）：64KB，支持JPG格式</p>
+<p>*/</p>
+<p>public function getMediaId($filePath)</p>
+<p>{</p>
+<p>//1.定义接口</p>
+<p>$apiData = array(</p>
+<p>&#8216;access_token&#8217; =&gt; $this-&gt;getToken(),</p>
+<p>&#8216;type&#8217;=&gt;&#8217;image&#8217;</p>
+<p>);</p>
+<p>$api = &#8216;https://api.weixin.qq.com/cgi-bin/media/upload?&#8217;.http_build_query($apiData);</p>
+<p>//2.发送请求</p>
+<p>//$filePath = dirname(__FILE__) . DIRECTORY_SEPARATOR .&#8217;zhujiao.jpg&#8217;; //脚下留心：window不区分\/但linux只支持 /</p>
+<p>if(version_compare(PHP_VERSION,&#8217;5.5.0&#8242;,'&lt;&#8216;)) {</p>
+<p>//脚下留心：PHP版本低于5.5</p>
+<p>$postData = array(&#8216;media&#8217; =&gt; &#8216;@&#8217;.$filePath);</p>
+<p>} else {</p>
+<p>//脚下留心：PHP版本高于5.5</p>
+<p>$postData = array(&#8216;media&#8217; =&gt; new Curlfile($filePath));</p>
+<p>}</p>
+<p>$data = $this-&gt;httpRequest($api, $postData);</p>
+<p>return $data[&#8216;media_id&#8217;];</p>
+<p>// var_dump($data);</p>
+<p>}</p>
+<p>/**</p>
+<p>* PHP发送请求</p>
+<p>* @param string $api 接口地址</p>
+<p>* @param array $postData POST请求数据</p>
+<p>*/</p>
+<p>public function httpRequest($api, $postData = array())</p>
+<p>{</p>
+<p>//1.初始化</p>
+<p>$ch = curl_init();</p>
+<p>//2.配置</p>
+<p>//2.1设置请求地址</p>
+<p>curl_setopt($ch, CURLOPT_URL, $api);</p>
+<p>//2.2数据流不直接输出</p>
+<p>curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);</p>
+<p>//2.3POST请求</p>
+<p>if ($postData) {</p>
+<p>curl_setopt($ch, CURLOPT_POST, true);</p>
+<p>curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);</p>
+<p>}</p>
+<p>//curl注意事项，如果发送的请求是https，必须要禁止服务器端校检SSL证书</p>
+<p>curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);</p>
+<p>curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);</p>
+<p>//3.发送请求</p>
+<p>$data = curl_exec($ch);</p>
+<p>//4.释放资源</p>
+<p>curl_close($ch);</p>
+<p>return json_decode($data, true);</p>
+<p>}</p>
+<p>/**</p>
+<p>* 响应音乐消息</p>
+<p>* @param string $fromUsername 接受者</p>
+<p>* @param string $toUsername 发送者</p>
+<p>* @param string $title 标题</p>
+<p>* @param string $desc 描述</p>
+<p>* @param string $musicUrl 音乐互联网地址（.mp3）</p>
+<p>* @param string $ThumbMediaId 封面</p>
+<p>* @param return</p>
+<p>*/</p>
+<p>protected function sendMusic($fromUsername, $toUsername, $title=&#8217;摇一摇歌声&#8217;, $desc=&#8217;甜美型，那是骗你的&#8217;, $musicUrl=&#8217;http://47.91.211.137/zxk/music.mp3&#8242;, $ThumbMediaId=&#8217;t96tqk6yOa_patBRMJNme_zrt3mlbKWCSZtXy5LMuSV8CZF58jXG5pRP67Xnciyb&#8217;) {</p>
+<p>$tpl = &#8216;&lt;xml&gt;</p>
+<p>&lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;</p>
+<p>&lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;</p>
+<p>&lt;CreateTime&gt;%s&lt;/CreateTime&gt;</p>
+<p>&lt;MsgType&gt;&lt;![CDATA[music]]&gt;&lt;/MsgType&gt;</p>
+<p>&lt;Music&gt;</p>
+<p>&lt;Title&gt;&lt;![CDATA[%s]]&gt;&lt;/Title&gt;</p>
+<p>&lt;Description&gt;&lt;![CDATA[%s]]&gt;&lt;/Description&gt;</p>
+<p>&lt;MusicUrl&gt;&lt;![CDATA[%s]]&gt;&lt;/MusicUrl&gt;</p>
+<p>&lt;HQMusicUrl&gt;&lt;![CDATA[%s]]&gt;&lt;/HQMusicUrl&gt;</p>
+<p>&lt;ThumbMediaId&gt;&lt;![CDATA[%s]]&gt;&lt;/ThumbMediaId&gt;</p>
+<p>&lt;/Music&gt;</p>
+<p>&lt;/xml&gt;&#8217;;</p>
+<p>echo sprintf($tpl, $fromUsername, $toUsername, time(), $title, $desc, $musicUrl, $musicUrl, $ThumbMediaId);</p>
+<p>die;</p>
+<p>}</p>
+<p>/**</p>
+<p>* 响应文本消息</p>
+<p>* @param string $fromUsername 接受者</p>
+<p>* @param string $toUsername 发送者</p>
+<p>* @param string $content 发送的内容</p>
+<p>* @param return</p>
+<p>*/</p>
+<p>protected function sendText($fromUsername, $toUsername, $content) {</p>
+<p>$textTpl = &#8216;&lt;xml&gt;</p>
+<p>&lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;</p>
+<p>&lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;</p>
+<p>&lt;CreateTime&gt;%s&lt;/CreateTime&gt;</p>
+<p>&lt;MsgType&gt;&lt;![CDATA[text]]&gt;&lt;/MsgType&gt;</p>
+<p>&lt;Content&gt;&lt;![CDATA[%s]]&gt;&lt;/Content&gt;</p>
+<p>&lt;/xml&gt;&#8217;;</p>
+<p>echo sprintf($textTpl, $fromUsername, $toUsername, time(), $content);</p>
+<p>die;</p>
+<p>}</p>
+<p>/**</p>
+<p>* 响应图片消息</p>
+<p>* @param string $fromUsername 接受者</p>
+<p>* @param string $toUsername 发送者</p>
+<p>* @param string $MediaId 媒体ID（https://mp.weixin.qq.com/debug 先回去access_token 然后获取MediaId）</p>
+<p>* @param return</p>
+<p>*/</p>
+<p>protected function sendImage($fromUsername, $toUsername, $MediaId = &#8216;G3P8hP2UXqozqUrOpt6rkfC2LEykkeD4OGTPBUyjVFgrGy0-C1yOR3Bvg0vSalic&#8217;)</p>
+<p>{</p>
+<p>//响应图片的xml报文</p>
+<p>$tpl = &#8216;&lt;xml&gt;</p>
+<p>&lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;</p>
+<p>&lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;</p>
+<p>&lt;CreateTime&gt;%s&lt;/CreateTime&gt;</p>
+<p>&lt;MsgType&gt;&lt;![CDATA[image]]&gt;&lt;/MsgType&gt;</p>
+<p>&lt;Image&gt;&lt;MediaId&gt;&lt;![CDATA[%s]]&gt;&lt;/MediaId&gt;&lt;/Image&gt;</p>
+<p>&lt;/xml&gt;&#8217;;</p>
+<p>//脚下留心：MediaId是需要通过接口获取的，明天详细讲解，今天通过工具获取</p>
+<p>//https://mp.weixin.qq.com/debug 查看MediaId（G3P8hP2UXqozqUrOpt6rkfC2LEykkeD4OGTPBUyjVFgrGy0-C1yOR3Bvg0vSalic）</p>
+<p>echo sprintf($tpl, $fromUsername, $toUsername, time(), $MediaId);</p>
+<p>die;</p>
+<p>}</p>
+<p>/**</p>
+<p>* 响应视频消息</p>
+<p>* @param string $fromUsername 接受者</p>
+<p>* @param string $toUsername 发送者</p>
+<p>* @param string $MediaId 媒体ID（https://mp.weixin.qq.com/debug 先回去access_token 然后获取MediaId）</p>
+<p>* @param return</p>
+<p>*/</p>
+<p>protected function sendVideo($fromUsername, $toUsername, $MediaId = &#8216;8pudm18nSyQ5vBO8fCKQ_ucHm9BKTUtTDjfoLNYfoev_B1JY-hJ-E1mk5BncLCtm&#8217;)</p>
+<p>{</p>
+<p>$tpl = &#8216;&lt;xml&gt;</p>
+<p>&lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;</p>
+<p>&lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;</p>
+<p>&lt;CreateTime&gt;%s&lt;/CreateTime&gt;</p>
+<p>&lt;MsgType&gt;&lt;![CDATA</p>
+
+<p>]&gt;&lt;/MsgType&gt;</p>
+<p>&lt;Video&gt;</p>
+<p>&lt;MediaId&gt;&lt;![CDATA[%s]]&gt;&lt;/MediaId&gt;</p>
+<p>&lt;Title&gt;&lt;![CDATA[%s]]&gt;&lt;/Title&gt;</p>
+<p>&lt;Description&gt;&lt;![CDATA[%s]]&gt;&lt;/Description&gt;</p>
+<p>&lt;/Video&gt;</p>
+<p>&lt;/xml&gt;&#8217;;</p>
+<p>echo sprintf($tpl, $fromUsername, $toUsername, time(), $MediaId, &#8216;陈恒那些事&#8217;, &#8216;大战三百回合&#8217;);</p>
+<p>}</p>
+<p>}</p>
+<h1><a id="post-5516-_Toc485411508"></a>一、微信带参数二维码接口</h1>
+<h2><a id="post-5516-_Toc485411509"></a><a id="post-5516-_Toc475823346"></a>1、什么是微信二维码</h2>
+<p><img fetchpriority="high" decoding="async" width="1153" height="544" class="wp-image-5517" src="/wp-content/uploads/2018/05/word-image-4997.png" srcset="/wp-content/uploads/2018/05/word-image-4997.png 1153w, /wp-content/uploads/2018/05/word-image-4997-300x142.png 300w, /wp-content/uploads/2018/05/word-image-4997-768x362.png 768w, /wp-content/uploads/2018/05/word-image-4997-1024x483.png 1024w" sizes="(max-width: 1153px) 100vw, 1153px" /></p>
+<h2><a id="post-5516-_Toc485411510"></a><a id="post-5516-_Toc475823347"></a>使用php代码获取微信二维码</h2>
+<h3>接口说明</h3>
+<p><img decoding="async" width="885" height="395" class="wp-image-5518" src="/wp-content/uploads/2018/05/word-image-4998.png" srcset="/wp-content/uploads/2018/05/word-image-4998.png 885w, /wp-content/uploads/2018/05/word-image-4998-300x134.png 300w, /wp-content/uploads/2018/05/word-image-4998-768x343.png 768w" sizes="(max-width: 885px) 100vw, 885px" /><br />
+<img decoding="async" width="804" height="446" class="wp-image-5519" src="/wp-content/uploads/2018/05/word-image-4999.png" srcset="/wp-content/uploads/2018/05/word-image-4999.png 804w, /wp-content/uploads/2018/05/word-image-4999-300x166.png 300w, /wp-content/uploads/2018/05/word-image-4999-768x426.png 768w" sizes="(max-width: 804px) 100vw, 804px" /><br />
+<img loading="lazy" decoding="async" width="781" height="360" class="wp-image-5520" src="/wp-content/uploads/2018/05/word-image-5000.png" srcset="/wp-content/uploads/2018/05/word-image-5000.png 781w, /wp-content/uploads/2018/05/word-image-5000-300x138.png 300w, /wp-content/uploads/2018/05/word-image-5000-768x354.png 768w" sizes="(max-width: 781px) 100vw, 781px" /></p>
+<h3>2）代码</h3>
+<ul>
+<li>需求：生成带参数的二维码，用户扫码后出现下述提醒</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="381" height="201" class="wp-image-5524" src="/wp-content/uploads/2018/05/word-image-5002.png" srcset="/wp-content/uploads/2018/05/word-image-5002.png 381w, /wp-content/uploads/2018/05/word-image-5002-300x158.png 300w" sizes="(max-width: 381px) 100vw, 381px" /></p>
+<ul>
+<li>步骤1；生成带参数的二维码</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1034" height="503" class="wp-image-5525" src="/wp-content/uploads/2018/05/word-image-5003.png" srcset="/wp-content/uploads/2018/05/word-image-5003.png 1034w, /wp-content/uploads/2018/05/word-image-5003-300x146.png 300w, /wp-content/uploads/2018/05/word-image-5003-768x374.png 768w, /wp-content/uploads/2018/05/word-image-5003-1024x498.png 1024w" sizes="(max-width: 1034px) 100vw, 1034px" /></p>
+<p>&lt;?php</p>
+<p>require &#8216;Wechat.class.php&#8217;;</p>
+<p>$Wechat = new Wechat;</p>
+<p>//步骤1：生成ticket</p>
+<p>$api = &#8220;https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=&#8221;.$Wechat-&gt;getToken();</p>
+<p>$postData = &#8216;{&#8220;expire_seconds&#8221;: 604800, &#8220;action_name&#8221;: &#8220;QR_STR_SCENE&#8221;, &#8220;action_info&#8221;: {&#8220;scene&#8221;: {&#8220;scene_str&#8221;: &#8220;php12&#8221;}}}&#8217;;</p>
+<p>//脚下留心：OPENID是用户和公众号之间的唯一表示</p>
+<p>$data = $Wechat-&gt;httpRequest($api, $postData);</p>
+<p>// var_dump($data);</p>
+<p>//步骤2：生成二维码</p>
+<p>$api = &#8220;https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=&#8221;.$data[&#8216;ticket&#8217;];</p>
+<p>//方法1</p>
+<p>//header(&#8220;location: $api&#8221;);</p>
+<p>//方法2</p>
+<p>$imageInfo = file_get_contents($api);</p>
+<p>file_put_contents(&#8216;./erweima.jpg&#8217;, $imageInfo);</p>
+<ul>
+<li>步骤2；修改wx.php接口，当用户扫码时候提示需求信息</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1080" height="665" class="wp-image-5526" src="/wp-content/uploads/2018/05/word-image-5004.png" srcset="/wp-content/uploads/2018/05/word-image-5004.png 1080w, /wp-content/uploads/2018/05/word-image-5004-300x185.png 300w, /wp-content/uploads/2018/05/word-image-5004-768x473.png 768w, /wp-content/uploads/2018/05/word-image-5004-1024x631.png 1024w" sizes="(max-width: 1080px) 100vw, 1080px" /></p>
+<p>//推荐采用冗余策略，将支付宝支付，或者微信通知存放到mongodb中</p>
+<p>//file_put_contents(&#8216;./getxmldata.text&#8217;, $postStr);</p>
+<p>switch ($type) {</p>
+<p>case &#8216;event&#8217;:</p>
+<p>if ($postObj-&gt;Event == &#8216;subscribe&#8217;)</p>
+<p>{</p>
+<p>if (isset($postObj-&gt;EventKey) &amp;&amp; $postObj-&gt;EventKey != &#8221;) {</p>
+<p>//新用户扫码</p>
+<p>$this-&gt;sendText($fromUsername, $toUsername, &#8216;新用户：&#8217;.$postObj-&gt;EventKey);</p>
+<p>} else {</p>
+<p>//关注</p>
+<p>$this-&gt;sendText($fromUsername, $toUsername, &#8216;感谢老铁关注，双击666&#8217;);</p>
+<p>}</p>
+<p>} else if ($postObj-&gt;Event == &#8216;SCAN&#8217; &amp;&amp; isset($postObj-&gt;EventKey)) {</p>
+<p>//老用户扫码</p>
+<p>$this-&gt;sendText($fromUsername, $toUsername, &#8216;老用户：&#8217;.$postObj-&gt;EventKey);</p>
+<p>} else if ($postObj-&gt;Event == &#8216;unsubscribe&#8217;) {</p>
+<p>//取关</p>
+<p>//业务逻辑去数据库，给用户mark已经取消关注，后期网站判断用户是否关注，如果没有</p>
+<p>//就在页面显示一个弹框让他关注</p>
+<p>$this-&gt;sendText($fromUsername, $toUsername, &#8216;妈的，要你何用&#8217;);</p>
+<p>} else {</p>
+<p>$this-&gt;sendText($fromUsername, $toUsername, &#8216;弄啥嘞！&#8217;);</p>
+<p>}</p>
+<p>break;</p>
+<p>case &#8216;text&#8217;:</p>
+<p>if ($keyword == &#8216;来图片&#8217;) {</p>
+<p>$filePath = dirname(__FILE__) . DIRECTORY_SEPARATOR .&#8217;zhujiao.jpg&#8217;;</p>
+<p>$this-&gt;sendImage($fromUsername, $toUsername, $this-&gt;getMediaId($filePath));</p>
+<p>} else {</p>
+<p>$this-&gt;sendText($fromUsername, $toUsername, &#8216;陈总&#8217;);</p>
+<p>}</p>
+<p>break;</p>
+<p>default:</p>
+<p>$this-&gt;sendText($fromUsername, $toUsername, &#8216;兄弟，不在服务器&#8217;);</p>
+<p># code&#8230;</p>
+<p>break;</p>
+<p>}</p>
+<h2>︴应用场景</h2>
+<p>问：首先明确搞活动吸粉使用微信默认提供的二维码是否而已？</p>
+<p>答：明确可以，但是有效次没法统计门店吸粉量。</p>
+<p>解决：通过程序生成不同参数的二维码</p>
+<p>应用场景：门店吸粉统计二维码</p>
+<h1><a id="post-5516-_Toc475823348"></a>二、微信LBS接口</h1>
+<h2><a id="post-5516-_Toc475823349"></a>1、什么是LBS</h2>
+<p>就是地理位置服务（获取你的位置，经度纬度）</p>
+<h2><a id="post-5516-_Toc475823350"></a>2、接口说明（微信获取用户地理位置信息，经度和纬度）</h2>
+<p><img loading="lazy" decoding="async" width="229" height="118" class="wp-image-5527" src="/wp-content/uploads/2018/05/word-image-5005.png" /><br />
+<img loading="lazy" decoding="async" width="952" height="537" class="wp-image-5528" src="/wp-content/uploads/2018/05/word-image-5006.png" srcset="/wp-content/uploads/2018/05/word-image-5006.png 952w, /wp-content/uploads/2018/05/word-image-5006-300x169.png 300w, /wp-content/uploads/2018/05/word-image-5006-768x433.png 768w" sizes="(max-width: 952px) 100vw, 952px" /></p>
+<h2><a id="post-5516-_Toc475823352"></a>4、使用php代码获取</h2>
+<h3>1）需求</h3>
+<p><img loading="lazy" decoding="async" width="501" height="230" class="wp-image-5529" src="/wp-content/uploads/2018/05/word-image-5007.png" srcset="/wp-content/uploads/2018/05/word-image-5007.png 501w, /wp-content/uploads/2018/05/word-image-5007-300x138.png 300w" sizes="(max-width: 501px) 100vw, 501px" /></p>
+<p>说明：用户发送位置坐标</p>
+<p>提示：您发送的是地理位置消息，经度：xxx，纬度：xxx</p>
+<h3>2）代码</h3>
+<p><img loading="lazy" decoding="async" width="1128" height="425" class="wp-image-5530" src="/wp-content/uploads/2018/05/word-image-5008.png" srcset="/wp-content/uploads/2018/05/word-image-5008.png 1128w, /wp-content/uploads/2018/05/word-image-5008-300x113.png 300w, /wp-content/uploads/2018/05/word-image-5008-768x289.png 768w, /wp-content/uploads/2018/05/word-image-5008-1024x386.png 1024w" sizes="(max-width: 1128px) 100vw, 1128px" /></p>
+<p>case &#8216;location&#8217;:</p>
+<p>$tips = &#8216;您发送的是地理位置消息，经度：&#8217;.$postObj-&gt;Location_Y.&#8217;，纬度：xxx&#8217;.$postObj-&gt;Location_X;</p>
+<p>$this-&gt;sendText($fromUsername, $toUsername, $tips);</p>
+<p>break;</p>
+<h2><a id="post-5516-_Toc475823353"></a>︴LBS案例：周边检索功能</h2>
+<h3>步骤1：注册账号（登录）-&gt; 创建应用 -&gt; 获取key（b94b446f4ecad8b4f0e6cf758bacf915）</h3>
+<p><a href="/goto/dean" rel="nofollow">http://lbs.amap.com/dev/key/app</a></p>
+<p><img loading="lazy" decoding="async" width="576" height="277" class="wp-image-5531" src="/wp-content/uploads/2018/05/word-image-5009.png" srcset="/wp-content/uploads/2018/05/word-image-5009.png 576w, /wp-content/uploads/2018/05/word-image-5009-300x144.png 300w" sizes="(max-width: 576px) 100vw, 576px" /><br />
+<img loading="lazy" decoding="async" width="689" height="634" class="wp-image-5532" src="/wp-content/uploads/2018/05/word-image-5010.png" srcset="/wp-content/uploads/2018/05/word-image-5010.png 689w, /wp-content/uploads/2018/05/word-image-5010-300x276.png 300w" sizes="(max-width: 689px) 100vw, 689px" /><br />
+<img loading="lazy" decoding="async" width="1334" height="366" class="wp-image-5533" src="/wp-content/uploads/2018/05/word-image-5011.png" srcset="/wp-content/uploads/2018/05/word-image-5011.png 1334w, /wp-content/uploads/2018/05/word-image-5011-300x82.png 300w, /wp-content/uploads/2018/05/word-image-5011-768x211.png 768w, /wp-content/uploads/2018/05/word-image-5011-1024x281.png 1024w" sizes="(max-width: 1334px) 100vw, 1334px" /></p>
+<h3>步骤2：获取周边检索功能接口</h3>
+<p>高德地图开发平台 <a href="/goto/ayxg" rel="nofollow">http://lbs.amap.com/</a></p>
+<p><img loading="lazy" decoding="async" width="898" height="309" class="wp-image-5534" src="/wp-content/uploads/2018/05/word-image-5012.png" srcset="/wp-content/uploads/2018/05/word-image-5012.png 898w, /wp-content/uploads/2018/05/word-image-5012-300x103.png 300w, /wp-content/uploads/2018/05/word-image-5012-768x264.png 768w" sizes="(max-width: 898px) 100vw, 898px" /><br />
+<img loading="lazy" decoding="async" width="1194" height="419" class="wp-image-5535" src="/wp-content/uploads/2018/05/word-image-5013.png" srcset="/wp-content/uploads/2018/05/word-image-5013.png 1194w, /wp-content/uploads/2018/05/word-image-5013-300x105.png 300w, /wp-content/uploads/2018/05/word-image-5013-768x270.png 768w, /wp-content/uploads/2018/05/word-image-5013-1024x359.png 1024w" sizes="(max-width: 1194px) 100vw, 1194px" /><br />
+<img loading="lazy" decoding="async" width="944" height="569" class="wp-image-5536" src="/wp-content/uploads/2018/05/word-image-5014.png" srcset="/wp-content/uploads/2018/05/word-image-5014.png 944w, /wp-content/uploads/2018/05/word-image-5014-300x181.png 300w, /wp-content/uploads/2018/05/word-image-5014-768x463.png 768w" sizes="(max-width: 944px) 100vw, 944px" /></p>
+<h3>步骤3：PHP获取周边数据</h3>
+<p>接口：</p>
+<p><a href="/goto/fbj4" rel="nofollow">http://restapi.amap.com/v3/place/around?key=您的key&amp;location=121.611812,31.034795&amp;keywords=传智播客&amp;types=&amp;radius=10000&amp;offset=20&amp;page=1&amp;extensions=all</a></p>
+<p><img loading="lazy" decoding="async" width="1112" height="522" class="wp-image-5537" src="/wp-content/uploads/2018/05/word-image-5015.png" srcset="/wp-content/uploads/2018/05/word-image-5015.png 1112w, /wp-content/uploads/2018/05/word-image-5015-300x141.png 300w, /wp-content/uploads/2018/05/word-image-5015-768x361.png 768w, /wp-content/uploads/2018/05/word-image-5015-1024x481.png 1024w" sizes="(max-width: 1112px) 100vw, 1112px" /></p>
+<p>&lt;?php</p>
+<p>//1.定义接口</p>
+<p>$apiData = array(</p>
+<p>&#8216;key&#8217; =&gt; &#8216;b94b446f4ecad8b4f0e6cf758bacf915&#8217;,</p>
+<p>&#8216;location&#8217; =&gt; &#8216;121.611812,31.034795&#8217;,</p>
+<p>&#8216;keywords&#8217; =&gt; &#8216;传智播客&#8217;,</p>
+<p>&#8216;types&#8217; =&gt; &#8221;,</p>
+<p>&#8216;radius&#8217; =&gt; &#8216;10000&#8217;,</p>
+<p>&#8216;offset&#8217; =&gt; &#8217;20&#8217;,</p>
+<p>&#8216;page&#8217; =&gt; &#8216;1&#8217;,</p>
+<p>&#8216;extensions&#8217; =&gt; &#8216;all&#8217;</p>
+<p>);</p>
+<p>$api = &#8216;http://restapi.amap.com/v3/place/around?&#8217;.http_build_query($apiData);</p>
+<p>//2.请求</p>
+<p>$data = file_get_contents($api);</p>
+<p>$data = json_decode($data, true);</p>
+<p>echo &#8216;&lt;pre&gt;&#8217;;</p>
+<p>print_r($data);</p>
+<h2>︴应用场景</h2>
+<p>场景1：用户发送地理位置 -&gt; 直接文字响应周边商家门店</p>
+<p>场景2：用户发送地理位置 -&gt; 响应网址/或图文消息，点击网址看到下图效果</p>
+<p><img loading="lazy" decoding="async" width="694" height="586" class="wp-image-5538" src="/wp-content/uploads/2018/05/word-image-5016.png" srcset="/wp-content/uploads/2018/05/word-image-5016.png 694w, /wp-content/uploads/2018/05/word-image-5016-300x253.png 300w" sizes="(max-width: 694px) 100vw, 694px" /></p>
+<p>场景3：用户发送地理位置 -&gt; 响应网址，点击网址看到下图效果（可以搜索附近关键词）</p>
+<p><img loading="lazy" decoding="async" width="313" height="395" class="wp-image-5539" src="/wp-content/uploads/2018/05/word-image-5017.png" srcset="/wp-content/uploads/2018/05/word-image-5017.png 313w, /wp-content/uploads/2018/05/word-image-5017-238x300.png 238w" sizes="(max-width: 313px) 100vw, 313px" /></p>
+<h1><a id="post-5516-_Toc475985051"></a>三、微信的语音识别接口</h1>
+<h2><a id="post-5516-_Toc475985052"></a>1、什么是语音识别</h2>
+<p>就是发送语音转化为文字</p>
+<h2>接口说明</h2>
+<p><img loading="lazy" decoding="async" width="467" height="212" class="wp-image-5540" src="/wp-content/uploads/2018/05/word-image-5018.png" srcset="/wp-content/uploads/2018/05/word-image-5018.png 467w, /wp-content/uploads/2018/05/word-image-5018-300x136.png 300w" sizes="(max-width: 467px) 100vw, 467px" /><br />
+<img loading="lazy" decoding="async" width="948" height="592" class="wp-image-5541" src="/wp-content/uploads/2018/05/word-image-5019.png" srcset="/wp-content/uploads/2018/05/word-image-5019.png 948w, /wp-content/uploads/2018/05/word-image-5019-300x187.png 300w, /wp-content/uploads/2018/05/word-image-5019-768x480.png 768w" sizes="(max-width: 948px) 100vw, 948px" /><br />
+<img loading="lazy" decoding="async" width="760" height="377" class="wp-image-5542" src="/wp-content/uploads/2018/05/word-image-5020.png" srcset="/wp-content/uploads/2018/05/word-image-5020.png 760w, /wp-content/uploads/2018/05/word-image-5020-300x149.png 300w" sizes="(max-width: 760px) 100vw, 760px" /></p>
+<h2><a id="post-5516-_Toc475985054"></a>使用php代码获取微信的语音识别结果</h2>
+<p>步骤1：开启语音识别功能（注：因为缓存开启前已经关注需要取消关注）</p>
+<p><img loading="lazy" decoding="async" width="334" height="353" class="wp-image-5543" src="/wp-content/uploads/2018/05/word-image-5021.png" srcset="/wp-content/uploads/2018/05/word-image-5021.png 334w, /wp-content/uploads/2018/05/word-image-5021-284x300.png 284w" sizes="(max-width: 334px) 100vw, 334px" /><br />
+<img loading="lazy" decoding="async" width="941" height="473" class="wp-image-5544" src="/wp-content/uploads/2018/05/word-image-5022.png" srcset="/wp-content/uploads/2018/05/word-image-5022.png 941w, /wp-content/uploads/2018/05/word-image-5022-300x151.png 300w, /wp-content/uploads/2018/05/word-image-5022-768x386.png 768w" sizes="(max-width: 941px) 100vw, 941px" /></p>
+<p>步骤2：wx.php接口检测是语音，响应文字消息</p>
+<p><img loading="lazy" decoding="async" width="800" height="207" class="wp-image-5545" src="/wp-content/uploads/2018/05/word-image-5023.png" srcset="/wp-content/uploads/2018/05/word-image-5023.png 800w, /wp-content/uploads/2018/05/word-image-5023-300x78.png 300w, /wp-content/uploads/2018/05/word-image-5023-768x199.png 768w" sizes="(max-width: 800px) 100vw, 800px" /></p>
+<p>//脚下留心：只有开启语音识别才有Recognition参数</p>
+<p>$this-&gt;sendText($fromUsername, $toUsername, $postObj-&gt;Recognition);</p>
+<p>break;</p>
+<h1><a id="post-5516-_Toc475985055"></a>四、图灵机器人接口（第三方平台）</h1>
+<h2><a id="post-5516-_Toc475985056"></a>1、什么是图灵机器人</h2>
+<p>就是智能聊天机器人（定义一个php接口传递关键词他会自动识别响应合理的内容）</p>
+<p>以前使用的叫小黄鸡</p>
+<h2><a id="post-5516-_Toc475985057"></a>图灵机器人接口</h2>
+<h3>1）步骤1：注册/登录获取APPKEY（105042050cc245fd9ec31f21f5da6952）</h3>
+<p><a href="/goto/xndx" rel="nofollow">http://www.tuling123.com/</a></p>
+<p><img loading="lazy" decoding="async" width="789" height="379" class="wp-image-5546" src="/wp-content/uploads/2018/05/word-image-5024.png" srcset="/wp-content/uploads/2018/05/word-image-5024.png 789w, /wp-content/uploads/2018/05/word-image-5024-300x144.png 300w, /wp-content/uploads/2018/05/word-image-5024-768x369.png 768w" sizes="(max-width: 789px) 100vw, 789px" /><br />
+<img loading="lazy" decoding="async" width="1246" height="617" class="wp-image-5547" src="/wp-content/uploads/2018/05/word-image-5025.png" srcset="/wp-content/uploads/2018/05/word-image-5025.png 1246w, /wp-content/uploads/2018/05/word-image-5025-300x149.png 300w, /wp-content/uploads/2018/05/word-image-5025-768x380.png 768w, /wp-content/uploads/2018/05/word-image-5025-1024x507.png 1024w" sizes="(max-width: 1246px) 100vw, 1246px" /><br />
+<img loading="lazy" decoding="async" width="711" height="460" class="wp-image-5548" src="/wp-content/uploads/2018/05/word-image-5026.png" srcset="/wp-content/uploads/2018/05/word-image-5026.png 711w, /wp-content/uploads/2018/05/word-image-5026-300x194.png 300w" sizes="(max-width: 711px) 100vw, 711px" /><br />
+<img loading="lazy" decoding="async" width="906" height="415" class="wp-image-5549" src="/wp-content/uploads/2018/05/word-image-5027.png" srcset="/wp-content/uploads/2018/05/word-image-5027.png 906w, /wp-content/uploads/2018/05/word-image-5027-300x137.png 300w, /wp-content/uploads/2018/05/word-image-5027-768x352.png 768w" sizes="(max-width: 906px) 100vw, 906px" /></p>
+<h3>2）接口说明</h3>
+<p><img loading="lazy" decoding="async" width="1124" height="662" class="wp-image-5550" src="/wp-content/uploads/2018/05/word-image-5028.png" srcset="/wp-content/uploads/2018/05/word-image-5028.png 1124w, /wp-content/uploads/2018/05/word-image-5028-300x177.png 300w, /wp-content/uploads/2018/05/word-image-5028-768x452.png 768w, /wp-content/uploads/2018/05/word-image-5028-1024x603.png 1024w" sizes="(max-width: 1124px) 100vw, 1124px" /><br />
+<img loading="lazy" decoding="async" width="938" height="344" class="wp-image-5551" src="/wp-content/uploads/2018/05/word-image-5029.png" srcset="/wp-content/uploads/2018/05/word-image-5029.png 938w, /wp-content/uploads/2018/05/word-image-5029-300x110.png 300w, /wp-content/uploads/2018/05/word-image-5029-768x282.png 768w" sizes="(max-width: 938px) 100vw, 938px" /><br />
+<img loading="lazy" decoding="async" width="801" height="575" class="wp-image-5552" src="/wp-content/uploads/2018/05/word-image-5030.png" srcset="/wp-content/uploads/2018/05/word-image-5030.png 801w, /wp-content/uploads/2018/05/word-image-5030-300x215.png 300w, /wp-content/uploads/2018/05/word-image-5030-768x551.png 768w" sizes="(max-width: 801px) 100vw, 801px" /></p>
+<h2><a id="post-5516-_Toc475985058"></a>使用php代码对接图灵机器人</h2>
+<p><img loading="lazy" decoding="async" width="655" height="595" class="wp-image-5553" src="/wp-content/uploads/2018/05/word-image-5031.png" srcset="/wp-content/uploads/2018/05/word-image-5031.png 655w, /wp-content/uploads/2018/05/word-image-5031-300x273.png 300w" sizes="(max-width: 655px) 100vw, 655px" /><br />
+<img loading="lazy" decoding="async" width="840" height="468" class="wp-image-5554" src="/wp-content/uploads/2018/05/word-image-5032.png" srcset="/wp-content/uploads/2018/05/word-image-5032.png 840w, /wp-content/uploads/2018/05/word-image-5032-300x167.png 300w, /wp-content/uploads/2018/05/word-image-5032-768x428.png 768w" sizes="(max-width: 840px) 100vw, 840px" /></p>
+<p>&lt;?php</p>
+<p>require &#8216;Wechat.class.php&#8217;;</p>
+<p>$Wechat = new Wechat;</p>
+<p>//1.定义接口</p>
+<p>$api = &#8220;http://www.tuling123.com/openapi/api&#8221;;</p>
+<p>//2.定义接口数据</p>
+<p>$postData = array(</p>
+<p>&#8216;key&#8217; =&gt; &#8216;105042050cc245fd9ec31f21f5da6952&#8217;,</p>
+<p>&#8216;info&#8217; =&gt; $_GET[&#8216;k&#8217;],</p>
+<p>&#8216;userid&#8217; =&gt; &#8216;chenheng&#8217;,</p>
+<p>);</p>
+<p>//3.发送请求</p>
+<p>$data = $Wechat-&gt;httpRequest($api, json_encode($postData), true);</p>
+<p>echo &#8216;&lt;pre&gt;&#8217;;</p>
+<p>print_r($data);</p>
+<h2><a id="post-5516-_Toc475985059"></a>在微信中整合图灵机器人</h2>
+<p><img loading="lazy" decoding="async" width="1214" height="506" class="wp-image-5555" src="/wp-content/uploads/2018/05/word-image-5033.png" srcset="/wp-content/uploads/2018/05/word-image-5033.png 1214w, /wp-content/uploads/2018/05/word-image-5033-300x125.png 300w, /wp-content/uploads/2018/05/word-image-5033-768x320.png 768w, /wp-content/uploads/2018/05/word-image-5033-1024x427.png 1024w" sizes="(max-width: 1214px) 100vw, 1214px" /></p>
+<p>$content = $this-&gt;liaotian($keyword, $userid = &#8216;aaaa&#8217;);</p>
+<p>$this-&gt;sendText($fromUsername, $toUsername, $content);</p>
+<p><img loading="lazy" decoding="async" width="898" height="447" class="wp-image-5556" src="/wp-content/uploads/2018/05/word-image-5034.png" srcset="/wp-content/uploads/2018/05/word-image-5034.png 898w, /wp-content/uploads/2018/05/word-image-5034-300x149.png 300w, /wp-content/uploads/2018/05/word-image-5034-768x382.png 768w" sizes="(max-width: 898px) 100vw, 898px" /></p>
+<p>/***</p>
+<p>* 聊天机器人</p>
+<p>* @param string $keyword 聊天内容</p>
+<p>* @param string $userid 用户标识</p>
+<p>*/</p>
+<p>private function liaotian($keyword, $userid = &#8221;)</p>
+<p>{</p>
+<p>//1.定义接口</p>
+<p>$api = &#8220;http://www.tuling123.com/openapi/api&#8221;;</p>
+<p>//2.定义接口数据</p>
+<p>$postData = array(</p>
+<p>&#8216;key&#8217; =&gt; &#8216;105042050cc245fd9ec31f21f5da6952&#8217;,</p>
+<p>&#8216;info&#8217; =&gt; $keyword,</p>
+<p>&#8216;userid&#8217; =&gt; $userid,</p>
+<p>);</p>
+<p>//3.发送请求</p>
+<p>$data = $this-&gt;httpRequest($api, json_encode($postData), true);</p>
+<p>return isset($data[&#8216;text&#8217;]) ? $data[&#8216;text&#8217;] : &#8221;;</p>
+<p>}</p>
+<h2>︴扩展：发语音美女陪聊</h2>
+<p>说明：就是语音识别+图灵机器人</p>
+<p><img loading="lazy" decoding="async" width="538" height="431" class="wp-image-5557" src="/wp-content/uploads/2018/05/word-image-5035.png" srcset="/wp-content/uploads/2018/05/word-image-5035.png 538w, /wp-content/uploads/2018/05/word-image-5035-300x240.png 300w" sizes="(max-width: 538px) 100vw, 538px" /></p>
+<h1><a id="post-5516-_Toc475985070"></a>五、微信接口与MySQL数据库</h1>
+<h2>1、需求</h2>
+<p>用户输入【新闻】可以查看网站最新的新闻数据（推送图文消息）</p>
+<h2><a id="post-5516-_Toc475985072"></a>创建相应数据库</h2>
+<p>create database wechat;</p>
+<p>use wechat;</p>
+<p>create table news (</p>
+<p>id int unsigned primary key auto_increment,</p>
+<p>title varchar(30) not null,</p>
+<p>description varchar(200) not null,</p>
+<p>picurl varchar(50) not null,</p>
+<p>url varchar(50) not null</p>
+<p>)engine=MyISAM charset=utf8;</p>
+<p>insert into news</p>
+<p>values</p>
+<p>(null,&#8217;美女&#8217;,&#8217;大河绕青山,知己又红颜&#8217;,&#8217;http://47.91.211.137/zxk/img/b1.png&#8217;,&#8217;http://www.baidu.cn&#8217;),</p>
+<p>(null,&#8217;靓仔&#8217;,&#8217;我是你爸爸&#8217;,&#8217;http://47.91.211.137/zxk/img/one.png&#8217;,&#8217;http://www.baidu.cn&#8217;),</p>
+<p>(null,&#8217;adsf&#8217;,&#8217;我是手动阀&#8217;,&#8217;http://47.91.211.137/zxk/img/two.png&#8217;,&#8217;http://www.baidu.cn&#8217;),</p>
+<p>(null,&#8217;sdfsd&#8217;,&#8217;我手动阀&#8217;,&#8217;http://47.91.211.137/zxk/img/three.png&#8217;,&#8217;http://www.baidu.cn&#8217;),</p>
+<p>(null,&#8217;释放掉&#8217;,&#8217;发送的爸&#8217;,&#8217;http://47.91.211.137/zxk/img/one.png&#8217;,&#8217;http://www.baidu.cn&#8217;),</p>
+<p>(null,&#8217;水电费&#8217;,&#8217;手动阀&#8217;,&#8217;http://47.91.211.137/zxk/img/one.png&#8217;,&#8217;http://www.baidu.cn&#8217;),</p>
+<p>(null,&#8217;水电费&#8217;,&#8217;我手动阀爸爸&#8217;,&#8217;http://47.91.211.137/zxk/img/two.png&#8217;,&#8217;http://www.baidu.cn&#8217;),</p>
+<p>(null,&#8217;第三方&#8217;,&#8217;啥地方爸爸&#8217;,&#8217;http://47.91.211.137/zxk/img/three.png&#8217;,&#8217;http://www.baidu.cn&#8217;);</p>
+<h2>3、在微信的代码读取表中对的数据,然后拼接图文消息</h2>
+<p><img loading="lazy" decoding="async" width="1095" height="428" class="wp-image-5558" src="/wp-content/uploads/2018/05/word-image-5036.png" srcset="/wp-content/uploads/2018/05/word-image-5036.png 1095w, /wp-content/uploads/2018/05/word-image-5036-300x117.png 300w, /wp-content/uploads/2018/05/word-image-5036-768x300.png 768w, /wp-content/uploads/2018/05/word-image-5036-1024x400.png 1024w" sizes="(max-width: 1095px) 100vw, 1095px" /></p>
+<p>if ($keyword == &#8216;来新闻&#8217;) {</p>
+<p>$pdo = new PDO(&#8216;mysql:dbname=wechat&#8217;, &#8216;root&#8217;, &#8221;);</p>
+<p>$pdostatement = $pdo-&gt;query(&#8220;select * from news order by id desc limit 5&#8221;);</p>
+<p>$newsData = $pdostatement-&gt;fetchAll(PDO::FETCH_ASSOC);</p>
+<p>foreach ($newsData as $key =&gt; $news) {</p>
+<p>$temp[] = array(</p>
+<p>&#8216;title&#8217;=&gt; $news[&#8216;title&#8217;],</p>
+<p>&#8216;desc&#8217;=&gt; $news[&#8216;description&#8217;],</p>
+<p>&#8216;img&#8217; =&gt; $news[&#8216;picurl&#8217;],</p>
+<p>&#8216;url&#8217; =&gt; $news[&#8216;url&#8217;]</p>
+<p>);</p>
+<p>}</p>
+<p>$this-&gt;sendNews($fromUsername, $toUsername, $temp);</p>
+<p>die;</p>
+<p>}</p>
+<p><img loading="lazy" decoding="async" width="921" height="583" class="wp-image-5559" src="/wp-content/uploads/2018/05/word-image-5037.png" srcset="/wp-content/uploads/2018/05/word-image-5037.png 921w, /wp-content/uploads/2018/05/word-image-5037-300x190.png 300w, /wp-content/uploads/2018/05/word-image-5037-768x486.png 768w" sizes="(max-width: 921px) 100vw, 921px" /></p>
+<p>/**</p>
+<p>* 响应图文消息</p>
+<p>* @param string $fromUsername 接受者</p>
+<p>* @param string $toUsername 发送者</p>
+<p>* @param string $data 数据</p>
+<p>* @param return</p>
+<p>*/</p>
+<p>protected function sendNews($fromUsername, $toUsername, $datas)</p>
+<p>{</p>
+<p>// 格式：</p>
+<p>// $datas = array(</p>
+<p>// array(&#8216;title&#8217;=&gt;&#8217;a&#8217;, &#8216;desc&#8217;=&gt; &#8216;bb&#8217;, &#8216;img&#8217; =&gt; &#8216;http://47.91.211.137/zxk/img/b1.jpg&#8217;, &#8216;url&#8217; =&gt; &#8216;http://baidu.com&/#8217;),</p>
+<p>// array(&#8216;title&#8217;=&gt;&#8217;a&#8217;, &#8216;desc&#8217;=&gt; &#8216;bb&#8217;, &#8216;img&#8217; =&gt; &#8216;http://47.91.211.137/zxk/img/b1.jpg&#8217;, &#8216;url&#8217; =&gt; &#8216;http://baidu.com&/#8217;),</p>
+<p>// array(&#8216;title&#8217;=&gt;&#8217;a&#8217;, &#8216;desc&#8217;=&gt; &#8216;bb&#8217;, &#8216;img&#8217; =&gt; &#8216;http://47.91.211.137/zxk/img/b1.jpg&#8217;, &#8216;url&#8217; =&gt; &#8216;http://baidu.com&/#8217;),</p>
+<p>// array(&#8216;title&#8217;=&gt;&#8217;a&#8217;, &#8216;desc&#8217;=&gt; &#8216;bb&#8217;, &#8216;img&#8217; =&gt; &#8216;http://47.91.211.137/zxk/img/b1.jpg&#8217;, &#8216;url&#8217; =&gt; &#8216;http://baidu.com&/#8217;)</p>
+<p>// );</p>
+<p>//响应图文消息，切记：ArticleCount是几则有几个item</p>
+<p>$tpl = &#8216;&lt;xml&gt;</p>
+<p>&lt;ToUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/ToUserName&gt;</p>
+<p>&lt;FromUserName&gt;&lt;![CDATA[%s]]&gt;&lt;/FromUserName&gt;</p>
+<p>&lt;CreateTime&gt;%s&lt;/CreateTime&gt;</p>
+<p>&lt;MsgType&gt;&lt;![CDATA[news]]&gt;&lt;/MsgType&gt;</p>
+<p>&lt;ArticleCount&gt;%s&lt;/ArticleCount&gt;</p>
+<p>&lt;Articles&gt;&#8217;;</p>
+<p>foreach ($datas as $data) {</p>
+<p>$tpl .= &#8220;&lt;item&gt;</p>
+<p>&lt;Title&gt;&lt;![CDATA[{$data[&#8216;title&#8217;]}]]&gt;&lt;/Title&gt;</p>
+<p>&lt;Description&gt;&lt;![CDATA[{$data[&#8216;desc&#8217;]}]]&gt;&lt;/Description&gt;</p>
+<p>&lt;PicUrl&gt;&lt;![CDATA[{$data[&#8216;img&#8217;]}]]&gt;&lt;/PicUrl&gt;</p>
+<p>&lt;Url&gt;&lt;![CDATA[{$data[&#8216;url&#8217;]}]]&gt;&lt;/Url&gt;</p>
+<p>&lt;/item&gt;&#8221;;</p>
+<p>}</p>
+<p>$tpl .= &#8216;&lt;/Articles&gt;&lt;/xml&gt;&#8217;;</p>
+<p>echo sprintf($tpl, $fromUsername, $toUsername, time(), count($datas));</p>
+<p>}</p>
+<h1><a id="post-5516-_Toc475985060"></a>六、网页授权接口（Oauth2.0） 【★★★★★★★★】</h1>
+<h2><a id="post-5516-_Toc475985061"></a>1、什么是网页授权接口（Oauth2.0）</h2>
+<p><img loading="lazy" decoding="async" width="1067" height="418" class="wp-image-5560" src="/wp-content/uploads/2018/05/word-image-5038.png" srcset="/wp-content/uploads/2018/05/word-image-5038.png 1067w, /wp-content/uploads/2018/05/word-image-5038-300x118.png 300w, /wp-content/uploads/2018/05/word-image-5038-768x301.png 768w, /wp-content/uploads/2018/05/word-image-5038-1024x401.png 1024w" sizes="(max-width: 1067px) 100vw, 1067px" /></p>
+<h2><a id="post-5516-_Toc475985062"></a>2、网页授权模式说明</h2>
+<p><img loading="lazy" decoding="async" width="1159" height="380" class="wp-image-5561" src="/wp-content/uploads/2018/05/word-image-5039.png" srcset="/wp-content/uploads/2018/05/word-image-5039.png 1159w, /wp-content/uploads/2018/05/word-image-5039-300x98.png 300w, /wp-content/uploads/2018/05/word-image-5039-768x252.png 768w, /wp-content/uploads/2018/05/word-image-5039-1024x336.png 1024w" sizes="(max-width: 1159px) 100vw, 1159px" /><br />
+<img loading="lazy" decoding="async" width="659" height="202" class="wp-image-5562" src="/wp-content/uploads/2018/05/word-image-5040.png" srcset="/wp-content/uploads/2018/05/word-image-5040.png 659w, /wp-content/uploads/2018/05/word-image-5040-300x92.png 300w" sizes="(max-width: 659px) 100vw, 659px" /><br />
+<img loading="lazy" decoding="async" width="273" height="284" class="wp-image-5563" src="/wp-content/uploads/2018/05/word-image-5041.png" /></p>
+<h2><a id="post-5516-_Toc475985064"></a>3、实现网页授权功能</h2>
+<h3>1）授权回调页面域名</h3>
+<p><img loading="lazy" decoding="async" width="192" height="91" class="wp-image-5564" src="/wp-content/uploads/2018/05/word-image-5042.png" /><br />
+<img loading="lazy" decoding="async" width="888" height="57" class="wp-image-5565" src="/wp-content/uploads/2018/05/word-image-5043.png" srcset="/wp-content/uploads/2018/05/word-image-5043.png 888w, /wp-content/uploads/2018/05/word-image-5043-300x19.png 300w, /wp-content/uploads/2018/05/word-image-5043-768x49.png 768w" sizes="(max-width: 888px) 100vw, 888px" /><br />
+<img loading="lazy" decoding="async" width="575" height="354" class="wp-image-5566" src="/wp-content/uploads/2018/05/word-image-5044.png" srcset="/wp-content/uploads/2018/05/word-image-5044.png 575w, /wp-content/uploads/2018/05/word-image-5044-300x185.png 300w" sizes="(max-width: 575px) 100vw, 575px" /></p>
+<h3>2）用户同意授权，获取code</h3>
+<p><img loading="lazy" decoding="async" width="892" height="192" class="wp-image-5567" src="/wp-content/uploads/2018/05/word-image-5045.png" srcset="/wp-content/uploads/2018/05/word-image-5045.png 892w, /wp-content/uploads/2018/05/word-image-5045-300x65.png 300w, /wp-content/uploads/2018/05/word-image-5045-768x165.png 768w" sizes="(max-width: 892px) 100vw, 892px" /></p>
+<p>接口：</p>
+<p>https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&#038;redirect_uri=用户同意后处理的PHP程序&#038;response_type=</p>
+<p>code&amp;scope=snsapi_userinfo&amp;state=STATE#wechat_redirect</p>
+<p><strong>替换自己的链接后，登录PC端将链接发送给自己然后手机端访问</strong></p>
+<p>https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx56e3e3d75414b3d0&#038;redirect_uri=http://php.skschool.cn/zhaoxiaokang/member.php&#038;response_type=code&#038;scope=snsapi_userinfo&#038;state=STATE#wechat_redirect</p>
+<p><img loading="lazy" decoding="async" width="546" height="348" class="wp-image-5568" src="/wp-content/uploads/2018/05/word-image-5046.png" srcset="/wp-content/uploads/2018/05/word-image-5046.png 546w, /wp-content/uploads/2018/05/word-image-5046-300x191.png 300w" sizes="(max-width: 546px) 100vw, 546px" /><br />
+<img loading="lazy" decoding="async" width="322" height="537" class="wp-image-5569" src="/wp-content/uploads/2018/05/word-image-5047.png" srcset="/wp-content/uploads/2018/05/word-image-5047.png 322w, /wp-content/uploads/2018/05/word-image-5047-180x300.png 180w" sizes="(max-width: 322px) 100vw, 322px" /><br />
+<img loading="lazy" decoding="async" width="908" height="219" class="wp-image-5570" src="/wp-content/uploads/2018/05/word-image-5048.png" srcset="/wp-content/uploads/2018/05/word-image-5048.png 908w, /wp-content/uploads/2018/05/word-image-5048-300x72.png 300w, /wp-content/uploads/2018/05/word-image-5048-768x185.png 768w" sizes="(max-width: 908px) 100vw, 908px" /></p>
+<h3>3）通过code换取网页授权access_token 和 openid（创建member.php页面输入下属代码）</h3>
+<p>&lt;?php</p>
+<p>//步骤1：设置安全回调地址</p>
+<p>//步骤2：手动访问https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx56e3e3d75414b3d0&amp;redirect_uri=http://47.91.211.137/zxk/member.php&amp;response_type=code&amp;scope=snsapi_userinfo&amp;state=STATE#wechat_redirect</p>
+<p>//步骤3：根据code获取access_token和openid</p>
+<p>$apiData = array(</p>
+<p>&#8216;appid&#8217;=&gt;&#8217;wx56e3e3d75414b3d0&#8217;,</p>
+<p>&#8216;secret&#8217;=&gt;&#8217;f8ec8178c6dda48d1cb25c07304eff44&#8217;,</p>
+<p>&#8216;code&#8217;=&gt;$_GET[&#8216;code&#8217;],</p>
+<p>&#8216;grant_type&#8217;=&gt;&#8217;authorization_code&#8217;</p>
+<p>);</p>
+<p>$api = &#8216;https://api.weixin.qq.com/sns/oauth2/access_token?&#8217;.http_build_query($apiData);</p>
+<p>$data = file_get_contents($api);</p>
+<p>$data = json_decode($data, true);</p>
+<h3>︴拉取用户信息（需scope为 snsapi_userinfo）</h3>
+<p>&lt;?php</p>
+<p>//步骤1：设置安全回调地址</p>
+<p>//步骤2：手动访问https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx56e3e3d75414b3d0&amp;redirect_uri=http://47.91.211.137/zxk/member.php&amp;response_type=code&amp;scope=snsapi_userinfo&amp;state=STATE#wechat_redirect</p>
+<p>//步骤3：根据code获取access_token和openid</p>
+<p>$apiData = array(</p>
+<p>&#8216;appid&#8217;=&gt;&#8217;wx56e3e3d75414b3d0&#8217;,</p>
+<p>&#8216;secret&#8217;=&gt;&#8217;f8ec8178c6dda48d1cb25c07304eff44&#8217;,</p>
+<p>&#8216;code&#8217;=&gt;$_GET[&#8216;code&#8217;],</p>
+<p>&#8216;grant_type&#8217;=&gt;&#8217;authorization_code&#8217;</p>
+<p>);</p>
+<p>$api = &#8216;https://api.weixin.qq.com/sns/oauth2/access_token?&#8217;.http_build_query($apiData);</p>
+<p>$data = file_get_contents($api);</p>
+<p>$data = json_decode($data, true);</p>
+<p>//步骤4：获取用户信息</p>
+<p>$apiData = array(</p>
+<p>&#8216;access_token&#8217; =&gt; $data[&#8216;access_token&#8217;],</p>
+<p>&#8216;openid&#8217; =&gt; $data[&#8216;openid&#8217;],</p>
+<p>&#8216;lang&#8217; =&gt; &#8216;zh_CN&#8217;</p>
+<p>);</p>
+<p>$api = &#8216;https://api.weixin.qq.com/sns/userinfo?&#8217;.http_build_query($apiData);</p>
+<p>$data = file_get_contents($api);</p>
+<p>$data = json_decode($data, true);</p>
+<p>echo &#8216;&lt;pre&gt;&#8217;;</p>
+<p>print_r($data);</p>
+<h3>︴小总结【★★★★★】</h3>
+<p>需 求：获取用户信息</p>
+<p>步骤1：设置回调域名（测试账号页面）</p>
+<p>步骤2：获取code</p>
+<p><strong>替换自己的链接后，登录PC端将链接发送给自己然后手机端访问</strong></p>
+<p>https://open.weixin.qq.com/connect/oauth2/authorize?appid=<strong>wx56e3e3d75414b3d0</strong>&amp;redirect_uri=<strong>http://47.91.211.137/zxk/member.php</strong>&amp;response_type=code&amp;scope=<strong>snsapi_userinfo</strong>&amp;state=STATE#wechat_redirect</p>
+<p>步骤3：根据code获取access_token和openid（member.php）</p>
+<p><img loading="lazy" decoding="async" width="993" height="287" class="wp-image-5571" src="/wp-content/uploads/2018/05/word-image-5049.png" srcset="/wp-content/uploads/2018/05/word-image-5049.png 993w, /wp-content/uploads/2018/05/word-image-5049-300x87.png 300w, /wp-content/uploads/2018/05/word-image-5049-768x222.png 768w" sizes="(max-width: 993px) 100vw, 993px" /></p>
+<p>步骤4：根据openid和access_token获取用户信息（member.php）</p>
+<p><img loading="lazy" decoding="async" width="908" height="294" class="wp-image-5572" src="/wp-content/uploads/2018/05/word-image-5050.png" srcset="/wp-content/uploads/2018/05/word-image-5050.png 908w, /wp-content/uploads/2018/05/word-image-5050-300x97.png 300w, /wp-content/uploads/2018/05/word-image-5050-768x249.png 768w" sizes="(max-width: 908px) 100vw, 908px" /></p>
+<h2>实战开发流程</h2>
+<p>用户访问某需要登录的页面 -&gt; 通过会话技术判断用户是否登录（openid） ： 已登录-&gt; 不用管正常访问，未登录-&gt; 程序跳转到</p>
+<p>（https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx56e3e3d75414b3d0&amp;redirect_uri=http://php.skschool.cn/zhaoxiaokang/member.php&amp;response_type=code&amp;scope=snsapi_userinfo&amp;state=STATE#wechat_redirect）获取openid并通过会话技术保存即可。</p>
+<h1><a id="post-5516-_Toc475985065"></a><a id="post-5516-_Toc485411516"></a>七、微信JSSDK接口【★★★★★】</h1>
+<h2><a id="post-5516-_Toc475985066"></a><a id="post-5516-_Toc485411517"></a>1、什么是JSSDK接口</h2>
+<p><img loading="lazy" decoding="async" width="286" height="258" class="wp-image-5573" src="/wp-content/uploads/2018/05/word-image-5051.png" /><br />
+<img loading="lazy" decoding="async" width="983" height="301" class="wp-image-5574" src="/wp-content/uploads/2018/05/word-image-5052.png" srcset="/wp-content/uploads/2018/05/word-image-5052.png 983w, /wp-content/uploads/2018/05/word-image-5052-300x92.png 300w, /wp-content/uploads/2018/05/word-image-5052-768x235.png 768w" sizes="(max-width: 983px) 100vw, 983px" /></p>
+<h2><a id="post-5516-_Toc475985067"></a><a id="post-5516-_Toc485411518"></a>2、下载JSSDK官方接口</h2>
+<p><img loading="lazy" decoding="async" width="311" height="379" class="wp-image-5575" src="/wp-content/uploads/2018/05/word-image-5053.png" srcset="/wp-content/uploads/2018/05/word-image-5053.png 311w, /wp-content/uploads/2018/05/word-image-5053-246x300.png 246w" sizes="(max-width: 311px) 100vw, 311px" /></p>
+<p><a href="/goto/v00y" rel="nofollow">http://demo.open.weixin.qq.com/jssdk/sample.zip</a></p>
+<h2><a id="post-5516-_Toc475985069"></a><a id="post-5516-_Toc485411520"></a>实现JSSDK接口功能</h2>
+<p>步骤1：设置安全域名</p>
+<p><img loading="lazy" decoding="async" width="811" height="251" class="wp-image-5576" src="/wp-content/uploads/2018/05/word-image-5054.png" srcset="/wp-content/uploads/2018/05/word-image-5054.png 811w, /wp-content/uploads/2018/05/word-image-5054-300x93.png 300w, /wp-content/uploads/2018/05/word-image-5054-768x238.png 768w" sizes="(max-width: 811px) 100vw, 811px" /></p>
+<p>步骤2：解压JSSDK</p>
+<p><img loading="lazy" decoding="async" width="950" height="358" class="wp-image-5577" src="/wp-content/uploads/2018/05/word-image-5055.png" srcset="/wp-content/uploads/2018/05/word-image-5055.png 950w, /wp-content/uploads/2018/05/word-image-5055-300x113.png 300w, /wp-content/uploads/2018/05/word-image-5055-768x289.png 768w" sizes="(max-width: 950px) 100vw, 950px" /></p>
+<p>步骤3：修改sample.php文件</p>
+<p><img loading="lazy" decoding="async" width="1011" height="296" class="wp-image-5578" src="/wp-content/uploads/2018/05/word-image-5056.png" srcset="/wp-content/uploads/2018/05/word-image-5056.png 1011w, /wp-content/uploads/2018/05/word-image-5056-300x88.png 300w, /wp-content/uploads/2018/05/word-image-5056-768x225.png 768w" sizes="(max-width: 1011px) 100vw, 1011px" /></p>
+<p>步骤4：修改sample.php配置接口</p>
+<p><img loading="lazy" decoding="async" width="928" height="656" class="wp-image-5579" src="/wp-content/uploads/2018/05/word-image-5057.png" srcset="/wp-content/uploads/2018/05/word-image-5057.png 928w, /wp-content/uploads/2018/05/word-image-5057-300x212.png 300w, /wp-content/uploads/2018/05/word-image-5057-768x543.png 768w" sizes="(max-width: 928px) 100vw, 928px" /></p>
+<p>步骤4：上传到服务器访问</p>
+<h1>综合案例</h1>
+<h2>需求</h2>
+<p>发送关键词【1024】响应链接参加活动（PC端：说明用微信打开，微信端：已登录不管，未登录授权登录）</p>
+<h2>代码</h2>
+<h3>步骤1：加载静态页面</h3>
+<p><img loading="lazy" decoding="async" width="932" height="471" class="wp-image-5580" src="/wp-content/uploads/2018/05/word-image-5058.png" srcset="/wp-content/uploads/2018/05/word-image-5058.png 932w, /wp-content/uploads/2018/05/word-image-5058-300x152.png 300w, /wp-content/uploads/2018/05/word-image-5058-768x388.png 768w" sizes="(max-width: 932px) 100vw, 932px" /></p>
+<h3>步骤2：判断用户是否登录</h3>
+<p>思路：通过session中的openid判断用户是否登录</p>
+<p>逻辑：当用户访问index.php 通过 isWeixinApp.php判断用户是否通过微信客户端打开，通过isLogin.php是否登录（是-则不管，否-则跳转到网页授权）</p>
+<p>index.php</p>
+<p><img loading="lazy" decoding="async" width="1268" height="643" class="wp-image-5581" src="/wp-content/uploads/2018/05/word-image-5059.png" srcset="/wp-content/uploads/2018/05/word-image-5059.png 1268w, /wp-content/uploads/2018/05/word-image-5059-300x152.png 300w, /wp-content/uploads/2018/05/word-image-5059-768x389.png 768w, /wp-content/uploads/2018/05/word-image-5059-1024x519.png 1024w" sizes="(max-width: 1268px) 100vw, 1268px" /></p>
+<p>isWeixinApp.php</p>
+<p><img loading="lazy" decoding="async" width="1110" height="476" class="wp-image-5582" src="/wp-content/uploads/2018/05/word-image-5060.png" srcset="/wp-content/uploads/2018/05/word-image-5060.png 1110w, /wp-content/uploads/2018/05/word-image-5060-300x129.png 300w, /wp-content/uploads/2018/05/word-image-5060-768x329.png 768w, /wp-content/uploads/2018/05/word-image-5060-1024x439.png 1024w" sizes="(max-width: 1110px) 100vw, 1110px" /></p>
+<p>&lt;?php</p>
+<p>$user_agent = $_SERVER[&#8216;HTTP_USER_AGENT&#8217;];</p>
+<p>if (strpos($user_agent, &#8216;MicroMessenger&#8217;) === false) {</p>
+<p>// 非微信浏览器禁止浏览</p>
+<p>//echo &#8220;HTTP/1.1 401 Unauthorized&#8221;;</p>
+<p>echo &#8216;你有瑕疵，because 你 out 了，快用微信客户端&#8217;;</p>
+<p>die;</p>
+<p>}</p>
+<p>isLogin.php</p>
+<p><img loading="lazy" decoding="async" width="1056" height="715" class="wp-image-5583" src="/wp-content/uploads/2018/05/word-image-5061.png" srcset="/wp-content/uploads/2018/05/word-image-5061.png 1056w, /wp-content/uploads/2018/05/word-image-5061-300x203.png 300w, /wp-content/uploads/2018/05/word-image-5061-768x520.png 768w, /wp-content/uploads/2018/05/word-image-5061-1024x693.png 1024w, /wp-content/uploads/2018/05/word-image-5061-220x150.png 220w" sizes="(max-width: 1056px) 100vw, 1056px" /></p>
+<p>&lt;?php</p>
+<p>//步骤1：设置安全回调地址</p>
+<p>//步骤2：手动访问https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx56e3e3d75414b3d0&amp;redirect_uri=http://47.91.211.137/zxk/member.php&amp;response_type=code&amp;scope=snsapi_userinfo&amp;state=STATE#wechat_redirect</p>
+<p>//步骤3：根据code获取access_token和openid</p>
+<p>$apiData = array(</p>
+<p>&#8216;appid&#8217;=&gt;&#8217;wx56e3e3d75414b3d0&#8217;,</p>
+<p>&#8216;secret&#8217;=&gt;&#8217;f8ec8178c6dda48d1cb25c07304eff44&#8217;,</p>
+<p>&#8216;code&#8217;=&gt;$_GET[&#8216;code&#8217;],</p>
+<p>&#8216;grant_type&#8217;=&gt;&#8217;authorization_code&#8217;</p>
+<p>);</p>
+<p>$api = &#8216;https://api.weixin.qq.com/sns/oauth2/access_token?&#8217;.http_build_query($apiData);</p>
+<p>$data = file_get_contents($api);</p>
+<p>$data = json_decode($data, true);</p>
+<p>// //步骤4：获取用户信息</p>
+<p>$apiData = array(</p>
+<p>&#8216;access_token&#8217; =&gt; $data[&#8216;access_token&#8217;],</p>
+<p>&#8216;openid&#8217; =&gt; $data[&#8216;openid&#8217;],</p>
+<p>&#8216;lang&#8217; =&gt; &#8216;zh_CN&#8217;</p>
+<p>);</p>
+<p>$api = &#8216;https://api.weixin.qq.com/sns/userinfo?&#8217;.http_build_query($apiData);</p>
+<p>$data = file_get_contents($api);</p>
+<p>$data = json_decode($data, true);</p>
+<p>//登录成功，保存用户信息，并跳转到首页</p>
+<p>session_start();</p>
+<p>$_SESSION[&#8216;userinfo&#8217;] = array(</p>
+<p>&#8216;openid&#8217; =&gt; $data[&#8216;openid&#8217;],</p>
+<p>&#8216;nickname&#8217; =&gt; $data[&#8216;nickname&#8217;],</p>
+<p>&#8216;headimgurl&#8217; =&gt; $data[&#8216;headimgurl&#8217;]</p>
+<p>);</p>
+<p>header(&#8220;location: ./index.php&#8221;);</p>
+<h2>扫码抽奖</h2>
+<p><img loading="lazy" decoding="async" width="1071" height="633" class="wp-image-5584" src="/wp-content/uploads/2018/05/word-image-5062.png" srcset="/wp-content/uploads/2018/05/word-image-5062.png 1071w, /wp-content/uploads/2018/05/word-image-5062-300x177.png 300w, /wp-content/uploads/2018/05/word-image-5062-768x454.png 768w, /wp-content/uploads/2018/05/word-image-5062-1024x605.png 1024w" sizes="(max-width: 1071px) 100vw, 1071px" /><br />
+<img loading="lazy" decoding="async" width="711" height="516" class="wp-image-5585" src="/wp-content/uploads/2018/05/word-image-5063.png" srcset="/wp-content/uploads/2018/05/word-image-5063.png 711w, /wp-content/uploads/2018/05/word-image-5063-300x218.png 300w" sizes="(max-width: 711px) 100vw, 711px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/5516.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		<enclosure url="http://47.91.211.137/zxk/music.mp3" length="0" type="audio/mpeg" />
+
+			</item>
+	</channel>
+</rss>

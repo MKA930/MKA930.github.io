@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>商城后台首页展示 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%95%86%E5%9F%8E%E5%90%8E%E5%8F%B0%E9%A6%96%E9%A1%B5%E5%B1%95%E7%A4%BA/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 09 Jun 2018 01:14:00 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>商城后台首页展示 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP 3.2 （一）配置、路由、模型、视图、控制器、商城后台首页展示</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/4022.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/4022.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 13:08:24 +0000</pubDate>
+				<category><![CDATA[TP3.2]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[商城后台首页展示]]></category>
+		<category><![CDATA[控制器]]></category>
+		<category><![CDATA[模型]]></category>
+		<category><![CDATA[视图]]></category>
+		<category><![CDATA[路由]]></category>
+		<category><![CDATA[配置]]></category>
+		<guid isPermaLink="false">/?p=4022</guid>
+
+					<description><![CDATA[框架概述 1.1、回顾MVC(重点理解) MVC是一个编程思想。将业务拆分成为三个板块分别为模型、视图以及控制 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>框架概述</h1>
+<h2>1.1、回顾MVC(重点理解)</h2>
+<p>
+  MVC是一个编程思想。将业务拆分成为三个板块分别为模型、视图以及控制器
+</p>
+<p>
+  M代表是的模型主要是进行数据交互
+</p>
+<p>
+  V代表的就是视图主要是与用户进行交互
+</p>
+<p>
+  C代表是控制器作用作用是进行中间的协同工作。调度模型或者视图完成工作
+</p>
+<p><img fetchpriority="high" decoding="async" width="1159" height="486" src="/wp-content/uploads/2018/05/word-image-3566.png" class="wp-image-4023" srcset="/wp-content/uploads/2018/05/word-image-3566.png 1159w, /wp-content/uploads/2018/05/word-image-3566-300x126.png 300w, /wp-content/uploads/2018/05/word-image-3566-768x322.png 768w, /wp-content/uploads/2018/05/word-image-3566-1024x429.png 1024w" sizes="(max-width: 1159px) 100vw, 1159px" /></p>
+<h2>1.2、什么是框架</h2>
+<p>
+  框架就是一个半成品的代码库。包括很多的基础功能，能够方便进行项目的开发。使用框架进行项目开发可以节省开发时间。
+</p>
+<p>
+  例如：在前端页面上进行dom操作。可以使用原生的js进行。也可以使用jQuery来进行dom操作。此处jQuery就是前端的一款框架
+</p>
+<h2>1.3、PHP的常用框架</h2>
+<ol>
+<li>
+  zendframework：由zend公司开发的一款重量级的框架
+</li>
+<li>
+  YII：基于组件的一款框架
+</li>
+<li>
+  CI框架：一款比较轻量的框架
+</li>
+<li>
+  laravel框架：最优雅的框架
+</li>
+</ol>
+<p>
+  5、thinkPHP框架：国产框架
+</p>
+<h2>1.4、TP框架的优点</h2>
+<p>
+  国产思想符合国人、代码注释都是中文。并且使用量比较大。社区活跃(问题能够及时解决)
+</p>
+<h1>TP框架的基本使用</h1>
+<h2>2.1、TP源码下载</h2>
+<p>
+  官方网址：<a href="/goto/hl2v" rel="nofollow">http://www.thinkphp.cn/</a>
+</p>
+<h3>2.1.1、关于版本的选择</h3>
+<p>
+  3.2版本：主要是针对于web项目(有前台后台)
+</p>
+<p>
+  5.0版本：主要针对api接口项目(全部都是写接口)
+</p>
+<p>
+  关于实际在开发项目中版本的选择没有严格的界限。例如web项目也可以使用5.0版本。写接口也可以使用3.2版本
+</p>
+<h3>2.1.2、下载TP3.2版本源代码</h3>
+<p><img decoding="async" width="1117" height="405" src="/wp-content/uploads/2018/05/word-image-3567.png" class="wp-image-4024" srcset="/wp-content/uploads/2018/05/word-image-3567.png 1117w, /wp-content/uploads/2018/05/word-image-3567-300x109.png 300w, /wp-content/uploads/2018/05/word-image-3567-768x278.png 768w, /wp-content/uploads/2018/05/word-image-3567-1024x371.png 1024w" sizes="(max-width: 1117px) 100vw, 1117px" /></p>
+<p>
+  关于核心版本与完整版的区别。对于核心版本只包括了框架的基本功能。对于完整版本除了框架基本内容之外还包括其他的功能。例如分页、文件上传等
+</p>
+<h2>2.2、TP框架项目部署(实现)</h2>
+<h3>2.2.1、解析下载的源代码目录文件</h3>
+<p>
+  ①解析下载的源码
+</p>
+<p><img decoding="async" width="769" height="274" src="/wp-content/uploads/2018/05/word-image-3568.png" class="wp-image-4025" srcset="/wp-content/uploads/2018/05/word-image-3568.png 769w, /wp-content/uploads/2018/05/word-image-3568-300x107.png 300w, /wp-content/uploads/2018/05/word-image-3568-768x274.png 768w" sizes="(max-width: 769px) 100vw, 769px" /></p>
+<p>
+  Application:TP默认的应用代码存储的目录(存储自己编写的代码)
+</p>
+<p>
+  Public：TP推荐的存储资源文件的目录
+</p>
+<p>
+  ThinkPHP:TP框架的源代码目录
+</p>
+<p>
+  .htaccess:Apache的重写规则文件
+</p>
+<p>
+  composer.json：composer的配置文件。composer是PHP的代码管理工具
+</p>
+<p>
+  Index.php：项目的入口文件(非常重要)
+</p>
+<p>
+  ②TP框架的源码目录
+</p>
+<p><img loading="lazy" decoding="async" width="939" height="382" src="/wp-content/uploads/2018/05/word-image-3569.png" class="wp-image-4026" srcset="/wp-content/uploads/2018/05/word-image-3569.png 939w, /wp-content/uploads/2018/05/word-image-3569-300x122.png 300w, /wp-content/uploads/2018/05/word-image-3569-768x312.png 768w" sizes="(max-width: 939px) 100vw, 939px" /></p>
+<p>
+  Common：存储TP所提供的公共函数文件。对于此目录下的functions.php中的函数可以在任何位置直接使用
+</p>
+<p>
+  Conf:TP的默认配置信息目录
+</p>
+<p>
+  Lang:TP的语言包
+</p>
+<p>
+  Library：TP框架的核心的类库目录
+</p>
+<p>
+  Mode：TP所支持的模式
+</p>
+<p>
+  Tpl：TP默认的系统模板目录
+</p>
+<p>
+  ThinkPHP.php:tp框架的入口文件(在项目的入口文件中必须要载入此文件来载入整个TP框架)
+</p>
+<h3>2.2.2、创建项目</h3>
+<p>
+  ①创建项目目录
+</p>
+<p><img loading="lazy" decoding="async" width="643" height="100" src="/wp-content/uploads/2018/05/word-image-3570.png" class="wp-image-4027" srcset="/wp-content/uploads/2018/05/word-image-3570.png 643w, /wp-content/uploads/2018/05/word-image-3570-300x47.png 300w" sizes="(max-width: 643px) 100vw, 643px" /></p>
+<p>
+  ②拷贝TP的框架源代码
+</p>
+<p><img loading="lazy" decoding="async" width="1232" height="332" src="/wp-content/uploads/2018/05/word-image-3571.png" class="wp-image-4028" srcset="/wp-content/uploads/2018/05/word-image-3571.png 1232w, /wp-content/uploads/2018/05/word-image-3571-300x81.png 300w, /wp-content/uploads/2018/05/word-image-3571-768x207.png 768w, /wp-content/uploads/2018/05/word-image-3571-1024x276.png 1024w" sizes="(max-width: 1232px) 100vw, 1232px" /></p>
+<h3>2.2.3、创建虚拟主机</h3>
+<p>
+  ①修改Apache的虚拟主机配置文件
+</p>
+<p><img loading="lazy" decoding="async" width="934" height="516" src="/wp-content/uploads/2018/05/word-image-3572.png" class="wp-image-4029" srcset="/wp-content/uploads/2018/05/word-image-3572.png 934w, /wp-content/uploads/2018/05/word-image-3572-300x166.png 300w, /wp-content/uploads/2018/05/word-image-3572-768x424.png 768w" sizes="(max-width: 934px) 100vw, 934px" /></p>
+<p>
+  ②修改本机的hosts文件
+</p>
+<p><img loading="lazy" decoding="async" width="800" height="444" src="/wp-content/uploads/2018/05/word-image-3573.png" class="wp-image-4030" srcset="/wp-content/uploads/2018/05/word-image-3573.png 800w, /wp-content/uploads/2018/05/word-image-3573-300x167.png 300w, /wp-content/uploads/2018/05/word-image-3573-768x426.png 768w" sizes="(max-width: 800px) 100vw, 800px" /></p>
+<p>
+  ③重启Apache访问测试
+</p>
+<p><img loading="lazy" decoding="async" width="881" height="297" src="/wp-content/uploads/2018/05/word-image-3574.png" class="wp-image-4031" srcset="/wp-content/uploads/2018/05/word-image-3574.png 881w, /wp-content/uploads/2018/05/word-image-3574-300x101.png 300w, /wp-content/uploads/2018/05/word-image-3574-768x259.png 768w" sizes="(max-width: 881px) 100vw, 881px" /></p>
+<h3>2.2.4、创建应用</h3>
+<p>
+  ①编写入口文件
+</p>
+<p><img loading="lazy" decoding="async" width="1188" height="451" src="/wp-content/uploads/2018/05/word-image-3575.png" class="wp-image-4032" srcset="/wp-content/uploads/2018/05/word-image-3575.png 1188w, /wp-content/uploads/2018/05/word-image-3575-300x114.png 300w, /wp-content/uploads/2018/05/word-image-3575-768x292.png 768w, /wp-content/uploads/2018/05/word-image-3575-1024x389.png 1024w" sizes="(max-width: 1188px) 100vw, 1188px" /></p>
+<p>
+  ②访问测试
+</p>
+<p><img loading="lazy" decoding="async" width="998" height="465" src="/wp-content/uploads/2018/05/word-image-3576.png" class="wp-image-4033" srcset="/wp-content/uploads/2018/05/word-image-3576.png 998w, /wp-content/uploads/2018/05/word-image-3576-300x140.png 300w, /wp-content/uploads/2018/05/word-image-3576-768x358.png 768w" sizes="(max-width: 998px) 100vw, 998px" /></p>
+<p>
+  ③查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="336" height="365" src="/wp-content/uploads/2018/05/word-image-3577.png" class="wp-image-4034" srcset="/wp-content/uploads/2018/05/word-image-3577.png 336w, /wp-content/uploads/2018/05/word-image-3577-276x300.png 276w" sizes="(max-width: 336px) 100vw, 336px" /></p>
+<p>
+  ④解释应用中的目录
+</p>
+<p><img loading="lazy" decoding="async" width="1057" height="362" src="/wp-content/uploads/2018/05/word-image-3578.png" class="wp-image-4035" srcset="/wp-content/uploads/2018/05/word-image-3578.png 1057w, /wp-content/uploads/2018/05/word-image-3578-300x103.png 300w, /wp-content/uploads/2018/05/word-image-3578-768x263.png 768w, /wp-content/uploads/2018/05/word-image-3578-1024x351.png 1024w" sizes="(max-width: 1057px) 100vw, 1057px" /></p>
+<p>
+  ⑤进入Home解释目录<br />
+  
+</p>
+<p><img loading="lazy" decoding="async" width="883" height="299" src="/wp-content/uploads/2018/05/word-image-3579.png" class="wp-image-4036" srcset="/wp-content/uploads/2018/05/word-image-3579.png 883w, /wp-content/uploads/2018/05/word-image-3579-300x102.png 300w, /wp-content/uploads/2018/05/word-image-3579-768x260.png 768w" sizes="(max-width: 883px) 100vw, 883px" /></p>
+<p>
+  优化小技巧：
+</p>
+<ol>
+<li>
+  解决自己项目中的死链接。如果死链接比较多。会影响到项目的加载速度
+</li>
+</ol>
+<p>
+  2、更换磁盘为固态
+</p>
+<ol>
+<li>
+  磁盘冗余阵列。买raid卡挂载多块磁盘
+</li>
+</ol>
+<h1>控制器及URL模式</h1>
+<h2>3.1、创建控制器</h2>
+<h3>3.1.1、控制器的存储方式</h3>
+<ol>
+<li>
+  存储地址
+</li>
+</ol>
+<p>
+  应用(application)/模块(Home)/Controller
+</p>
+<ol>
+<li>
+  文件命名
+</li>
+</ol>
+<p>
+  控制器名称(满足驼峰式规范)+Controller+.class.php
+</p>
+<h3>3.1.2、控制器的创建规则</h3>
+<ol>
+<li>
+  申明命名空间(按照目录地址规则)
+</li>
+<li>
+  引入TP的控制器的基类
+</li>
+<li>
+  编写自定义的控制器的类
+</li>
+</ol>
+<h3>3.1.3、具体创建控制器</h3>
+<p><img loading="lazy" decoding="async" width="1248" height="696" src="/wp-content/uploads/2018/05/word-image-3580.png" class="wp-image-4037" srcset="/wp-content/uploads/2018/05/word-image-3580.png 1248w, /wp-content/uploads/2018/05/word-image-3580-300x167.png 300w, /wp-content/uploads/2018/05/word-image-3580-768x428.png 768w, /wp-content/uploads/2018/05/word-image-3580-1024x571.png 1024w" sizes="(max-width: 1248px) 100vw, 1248px" /></p>
+<h2>3.2、URL地址解析</h2>
+<p>
+  默认情况下TP访问的完整地址：<a href="/goto/hd8t" rel="nofollow">http://域名/入口文件?m=模块名称&amp;c=控制器名称&amp;a=方法名称(操作)</a>
+</p>
+<p>
+  ①在控制器中增加方法
+</p>
+<p><img loading="lazy" decoding="async" width="1163" height="563" src="/wp-content/uploads/2018/05/word-image-3581.png" class="wp-image-4038" srcset="/wp-content/uploads/2018/05/word-image-3581.png 1163w, /wp-content/uploads/2018/05/word-image-3581-300x145.png 300w, /wp-content/uploads/2018/05/word-image-3581-768x372.png 768w, /wp-content/uploads/2018/05/word-image-3581-1024x496.png 1024w" sizes="(max-width: 1163px) 100vw, 1163px" /></p>
+<p>
+  ②访问测试
+</p>
+<p><img loading="lazy" decoding="async" width="862" height="277" src="/wp-content/uploads/2018/05/word-image-3582.png" class="wp-image-4039" srcset="/wp-content/uploads/2018/05/word-image-3582.png 862w, /wp-content/uploads/2018/05/word-image-3582-300x96.png 300w, /wp-content/uploads/2018/05/word-image-3582-768x247.png 768w" sizes="(max-width: 862px) 100vw, 862px" /></p>
+<h2>3.3、默认访问(理解)</h2>
+<h3>3.3.1、分析默认访问的情况</h3>
+<p><img loading="lazy" decoding="async" width="1011" height="481" src="/wp-content/uploads/2018/05/word-image-3583.png" class="wp-image-4040" srcset="/wp-content/uploads/2018/05/word-image-3583.png 1011w, /wp-content/uploads/2018/05/word-image-3583-300x143.png 300w, /wp-content/uploads/2018/05/word-image-3583-768x365.png 768w" sizes="(max-width: 1011px) 100vw, 1011px" /></p>
+<p>
+  对于上述直接访问首先Apache的默认访问页为index.php因此就进入到项目的入口文件。由于TP默认的配置项设置默认的模块为Home默认的控制器为Index默认的方法为index因此可以看到上述效果
+</p>
+<h3>3.3.2、修改默认访问</h3>
+<p>
+  ①查看TP中的默认配置项
+</p>
+<p><img loading="lazy" decoding="async" width="1018" height="410" src="/wp-content/uploads/2018/05/word-image-3584.png" class="wp-image-4041" srcset="/wp-content/uploads/2018/05/word-image-3584.png 1018w, /wp-content/uploads/2018/05/word-image-3584-300x121.png 300w, /wp-content/uploads/2018/05/word-image-3584-768x309.png 768w" sizes="(max-width: 1018px) 100vw, 1018px" /></p>
+<p>
+  ②修改配置项
+</p>
+<p><img loading="lazy" decoding="async" width="1024" height="385" src="/wp-content/uploads/2018/05/word-image-3585.png" class="wp-image-4042" srcset="/wp-content/uploads/2018/05/word-image-3585.png 1024w, /wp-content/uploads/2018/05/word-image-3585-300x113.png 300w, /wp-content/uploads/2018/05/word-image-3585-768x289.png 768w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<p>
+  ③删除缓存文件
+</p>
+<p><img loading="lazy" decoding="async" width="843" height="267" src="/wp-content/uploads/2018/05/word-image-3586.png" class="wp-image-4043" srcset="/wp-content/uploads/2018/05/word-image-3586.png 843w, /wp-content/uploads/2018/05/word-image-3586-300x95.png 300w, /wp-content/uploads/2018/05/word-image-3586-768x243.png 768w" sizes="(max-width: 843px) 100vw, 843px" /></p>
+<p>
+  ④查看效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="866" height="349" src="/wp-content/uploads/2018/05/word-image-3587.png" class="wp-image-4044" srcset="/wp-content/uploads/2018/05/word-image-3587.png 866w, /wp-content/uploads/2018/05/word-image-3587-300x121.png 300w, /wp-content/uploads/2018/05/word-image-3587-768x310.png 768w" sizes="(max-width: 866px) 100vw, 866px" /></p>
+<p>
+  此时产生报错的原因是因为默认的方法不存在
+</p>
+<h2>3.4、调试模式</h2>
+<p>
+  通过定义一个常量操作TP所处的模式。调试默认每次都会自动的加载最新的配置文件以及公共函数。跟调试模式对应的叫做生产模式
+</p>
+<p>
+  在实际开发的过程中开启调试模式。当项目上线运行的过程中需要使用生产模式。在生成模式下会缓存(临时存储信息)对于的文件信息也会减少日志文件的生成
+</p>
+<p>
+  ①开启调试模式
+</p>
+<p><img loading="lazy" decoding="async" width="976" height="522" src="/wp-content/uploads/2018/05/word-image-3588.png" class="wp-image-4045" srcset="/wp-content/uploads/2018/05/word-image-3588.png 976w, /wp-content/uploads/2018/05/word-image-3588-300x160.png 300w, /wp-content/uploads/2018/05/word-image-3588-768x411.png 768w" sizes="(max-width: 976px) 100vw, 976px" /></p>
+<p>
+  ②查看访问效果
+</p>
+<p><img loading="lazy" decoding="async" width="1277" height="567" src="/wp-content/uploads/2018/05/word-image-3589.png" class="wp-image-4046" srcset="/wp-content/uploads/2018/05/word-image-3589.png 1277w, /wp-content/uploads/2018/05/word-image-3589-300x133.png 300w, /wp-content/uploads/2018/05/word-image-3589-768x341.png 768w, /wp-content/uploads/2018/05/word-image-3589-1024x455.png 1024w" sizes="(max-width: 1277px) 100vw, 1277px" /></p>
+<p>
+  ③查看runtime下的目录
+</p>
+<p><img loading="lazy" decoding="async" width="896" height="364" src="/wp-content/uploads/2018/05/word-image-3590.png" class="wp-image-4047" srcset="/wp-content/uploads/2018/05/word-image-3590.png 896w, /wp-content/uploads/2018/05/word-image-3590-300x122.png 300w, /wp-content/uploads/2018/05/word-image-3590-768x312.png 768w" sizes="(max-width: 896px) 100vw, 896px" /></p>
+<h2>3.5、TP中的模块</h2>
+<p>
+  在TP中的应用目录下每一个文件就是一个模块只是Common跟Runtime比较特殊。不能参与项目中其他”访问功能业务”。想要增加模块可以直接在应用目录下去增加目录即可
+</p>
+<p>
+  例如如下增加后台模块
+</p>
+<p>
+  ①创建目录
+</p>
+<p><img loading="lazy" decoding="async" width="912" height="241" src="/wp-content/uploads/2018/05/word-image-3591.png" class="wp-image-4048" srcset="/wp-content/uploads/2018/05/word-image-3591.png 912w, /wp-content/uploads/2018/05/word-image-3591-300x79.png 300w, /wp-content/uploads/2018/05/word-image-3591-768x203.png 768w" sizes="(max-width: 912px) 100vw, 912px" /></p>
+<p>
+  ②创建控制器
+</p>
+<p><img loading="lazy" decoding="async" width="1022" height="659" src="/wp-content/uploads/2018/05/word-image-3592.png" class="wp-image-4049" srcset="/wp-content/uploads/2018/05/word-image-3592.png 1022w, /wp-content/uploads/2018/05/word-image-3592-300x193.png 300w, /wp-content/uploads/2018/05/word-image-3592-768x495.png 768w" sizes="(max-width: 1022px) 100vw, 1022px" /></p>
+<p>
+  ③访问测试
+</p>
+<p><img loading="lazy" decoding="async" width="682" height="226" src="/wp-content/uploads/2018/05/word-image-3593.png" class="wp-image-4050" srcset="/wp-content/uploads/2018/05/word-image-3593.png 682w, /wp-content/uploads/2018/05/word-image-3593-300x99.png 300w" sizes="(max-width: 682px) 100vw, 682px" /></p>
+<h2>3.6、TP中的配置文件</h2>
+<h3>3.6.1、配置文件地址</h3>
+<ol>
+<li>
+  Tp框架中惯例配置文件(ThinkPHP\Conf\convention.php)
+</li>
+<li>
+  公共模块的配置文件(Application\Common\Conf\config.php)
+</li>
+<li>
+  某一个模块的配置文件(Application\模块\Conf\config.php)
+</li>
+</ol>
+<p>
+  对于配置文件TP是自动载入的。因此可以在项目中直接使用配置文件
+</p>
+<h3>3.6.2、TP中配置文件的优先级</h3>
+<p>
+  配置文件优先级含义：当同一个配置项在三个文件中同时出现最终使用哪一个配置文件中的内容
+</p>
+<p>
+  模块配置文件&gt;公共模块配置文件&gt;TP惯例配置文件
+</p>
+<h3>3.6.3、演示配置文件优先级</h3>
+<p>
+  ①修改公共模块的配置文件
+</p>
+<p><img loading="lazy" decoding="async" width="1279" height="336" src="/wp-content/uploads/2018/05/word-image-3594.png" class="wp-image-4051" srcset="/wp-content/uploads/2018/05/word-image-3594.png 1279w, /wp-content/uploads/2018/05/word-image-3594-300x79.png 300w, /wp-content/uploads/2018/05/word-image-3594-768x202.png 768w, /wp-content/uploads/2018/05/word-image-3594-1024x269.png 1024w" sizes="(max-width: 1279px) 100vw, 1279px" /></p>
+<p>
+  ②修改Home模块下的配置
+</p>
+<p><img loading="lazy" decoding="async" width="970" height="343" src="/wp-content/uploads/2018/05/word-image-3595.png" class="wp-image-4052" srcset="/wp-content/uploads/2018/05/word-image-3595.png 970w, /wp-content/uploads/2018/05/word-image-3595-300x106.png 300w, /wp-content/uploads/2018/05/word-image-3595-768x272.png 768w" sizes="(max-width: 970px) 100vw, 970px" /></p>
+<p>
+  ③增加测试方法
+</p>
+<p><img loading="lazy" decoding="async" width="913" height="452" src="/wp-content/uploads/2018/05/word-image-3596.png" class="wp-image-4053" srcset="/wp-content/uploads/2018/05/word-image-3596.png 913w, /wp-content/uploads/2018/05/word-image-3596-300x149.png 300w, /wp-content/uploads/2018/05/word-image-3596-768x380.png 768w" sizes="(max-width: 913px) 100vw, 913px" /></p>
+<p>
+  ④查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="565" height="251" src="/wp-content/uploads/2018/05/word-image-3597.png" class="wp-image-4054" srcset="/wp-content/uploads/2018/05/word-image-3597.png 565w, /wp-content/uploads/2018/05/word-image-3597-300x133.png 300w" sizes="(max-width: 565px) 100vw, 565px" /></p>
+<h2>3.7、TP中的四种URL模式（重点）</h2>
+<h3>3.7.1、四种URL模式介绍</h3>
+<p>
+  ①普通模式
+</p>
+<p>
+  直接通过给入口文件传递m、c、a三个参数
+</p>
+<p>
+  m对应模块名称
+</p>
+<p>
+  c对应控制器名称
+</p>
+<p>
+  a对应方法名称
+</p>
+<p>
+  格式：<a href="/goto/zx7y" rel="nofollow">http://tp.com/index.php?m=Home&amp;c=Index&amp;a=test2</a>
+</p>
+<p>
+  任何情况下都可以访问
+</p>
+<p>
+  ②pathinfo模式
+</p>
+<p>
+  Pathinfo模式从URL地址栏上看上去像一个目录的格式。
+</p>
+<p>
+  格式为：<a href="/goto/itit" rel="nofollow">http://tp.com/index.php/Home/Index/test2</a>
+</p>
+<p>
+  对于上述的地址格式入口文件后的每一个“/”分隔的就是一个参数
+</p>
+<p>
+  Home(第一个参数)对应的模块名称
+</p>
+<p>
+  Index(第二个参数)对应的控制器名称
+</p>
+<p>
+  Test2(第三个参数)对应的方法名称
+</p>
+<p>
+  注意：pathinfo模式需要有web服务器的支持 Apache支持此模式。Nginx就不支持
+</p>
+<p>
+  ③重写模式
+</p>
+<p>
+  将原本的URL访问改写成其他的URL形式。重写模式根据不同的web服务器决定。最常见的重写就是隐藏项目的入口文件
+</p>
+<p>
+  例如
+</p>
+<p>
+  访问:http://tp.com/Home/Index/test2=&gt;解析的地址为http://tp.com、index.php/Home/Index/test2
+</p>
+<p>
+  ④兼容模式
+</p>
+<p>
+  考虑部分web服务器不支持pathinfo。又想要去使用类似pathinfo的格式。就可以使用兼容模式
+</p>
+<p>
+  格式：<a href="/goto/dc8y" rel="nofollow">http://tp.com/index.php?s=/Home/Index/test2</a>
+</p>
+<p>
+  兼容模式没有任何其他的外界要求
+</p>
+<h3>3.7.2、实现隐藏入口文件</h3>
+<p>
+  ①开启Apache的重写模块
+</p>
+<p><img loading="lazy" decoding="async" width="1012" height="473" src="/wp-content/uploads/2018/05/word-image-3598.png" class="wp-image-4055" srcset="/wp-content/uploads/2018/05/word-image-3598.png 1012w, /wp-content/uploads/2018/05/word-image-3598-300x140.png 300w, /wp-content/uploads/2018/05/word-image-3598-768x359.png 768w" sizes="(max-width: 1012px) 100vw, 1012px" /></p>
+<p>
+  ②设置虚拟主机可以重写
+</p>
+<p><img loading="lazy" decoding="async" width="1126" height="545" src="/wp-content/uploads/2018/05/word-image-3599.png" class="wp-image-4056" srcset="/wp-content/uploads/2018/05/word-image-3599.png 1126w, /wp-content/uploads/2018/05/word-image-3599-300x145.png 300w, /wp-content/uploads/2018/05/word-image-3599-768x372.png 768w, /wp-content/uploads/2018/05/word-image-3599-1024x496.png 1024w" sizes="(max-width: 1126px) 100vw, 1126px" /></p>
+<p>
+  ③拷贝重写规则文件
+</p>
+<p><img loading="lazy" decoding="async" width="1172" height="491" src="/wp-content/uploads/2018/05/word-image-3600.png" class="wp-image-4057" srcset="/wp-content/uploads/2018/05/word-image-3600.png 1172w, /wp-content/uploads/2018/05/word-image-3600-300x126.png 300w, /wp-content/uploads/2018/05/word-image-3600-768x322.png 768w, /wp-content/uploads/2018/05/word-image-3600-1024x429.png 1024w" sizes="(max-width: 1172px) 100vw, 1172px" /></p>
+<p>
+  ④重启Apache查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="544" height="125" src="/wp-content/uploads/2018/05/word-image-3601.png" class="wp-image-4058" srcset="/wp-content/uploads/2018/05/word-image-3601.png 544w, /wp-content/uploads/2018/05/word-image-3601-300x69.png 300w" sizes="(max-width: 544px) 100vw, 544px" /></p>
+<p>
+  注意：只要条件满足TP中的四种URL模式都可以使用访问到方法
+</p>
+<h3>3.7.3、URL地址生成(重点会用)</h3>
+<p>
+  使用TP提供的U函数根据当前的模型、控制器、方法、参数等生产一个链接地址
+</p>
+<p>
+  ①查看U函数的使用方式
+</p>
+<p><img loading="lazy" decoding="async" width="1157" height="639" src="/wp-content/uploads/2018/05/word-image-3602.png" class="wp-image-4059" srcset="/wp-content/uploads/2018/05/word-image-3602.png 1157w, /wp-content/uploads/2018/05/word-image-3602-300x166.png 300w, /wp-content/uploads/2018/05/word-image-3602-768x424.png 768w, /wp-content/uploads/2018/05/word-image-3602-1024x566.png 1024w" sizes="(max-width: 1157px) 100vw, 1157px" /></p>
+<p>
+  ②编写测试代码
+</p>
+<p><img loading="lazy" decoding="async" width="1097" height="695" src="/wp-content/uploads/2018/05/word-image-3603.png" class="wp-image-4060" srcset="/wp-content/uploads/2018/05/word-image-3603.png 1097w, /wp-content/uploads/2018/05/word-image-3603-300x190.png 300w, /wp-content/uploads/2018/05/word-image-3603-768x487.png 768w, /wp-content/uploads/2018/05/word-image-3603-1024x649.png 1024w" sizes="(max-width: 1097px) 100vw, 1097px" /></p>
+<p>
+  ④查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="964" height="449" src="/wp-content/uploads/2018/05/word-image-3604.png" class="wp-image-4061" srcset="/wp-content/uploads/2018/05/word-image-3604.png 964w, /wp-content/uploads/2018/05/word-image-3604-300x140.png 300w, /wp-content/uploads/2018/05/word-image-3604-768x358.png 768w" sizes="(max-width: 964px) 100vw, 964px" /></p>
+<p>
+  从上述结果中可以得知TP默认的是使用pathinfo模式
+</p>
+<p>
+  在TP的配置文件中有一个URL_MODEL控制使用的URL模式
+</p>
+<p>
+  ⑤查看惯例配置中的配置项
+</p>
+<p><img loading="lazy" decoding="async" width="1149" height="440" src="/wp-content/uploads/2018/05/word-image-3605.png" class="wp-image-4062" srcset="/wp-content/uploads/2018/05/word-image-3605.png 1149w, /wp-content/uploads/2018/05/word-image-3605-300x115.png 300w, /wp-content/uploads/2018/05/word-image-3605-768x294.png 768w, /wp-content/uploads/2018/05/word-image-3605-1024x392.png 1024w" sizes="(max-width: 1149px) 100vw, 1149px" /></p>
+<p>
+  ⑥查看普通模式的地址
+</p>
+<p>
+  修改URL模式
+</p>
+<p><img loading="lazy" decoding="async" width="862" height="389" src="/wp-content/uploads/2018/05/word-image-3606.png" class="wp-image-4063" srcset="/wp-content/uploads/2018/05/word-image-3606.png 862w, /wp-content/uploads/2018/05/word-image-3606-300x135.png 300w, /wp-content/uploads/2018/05/word-image-3606-768x347.png 768w" sizes="(max-width: 862px) 100vw, 862px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="864" height="347" src="/wp-content/uploads/2018/05/word-image-3607.png" class="wp-image-4064" srcset="/wp-content/uploads/2018/05/word-image-3607.png 864w, /wp-content/uploads/2018/05/word-image-3607-300x120.png 300w, /wp-content/uploads/2018/05/word-image-3607-768x308.png 768w" sizes="(max-width: 864px) 100vw, 864px" /></p>
+<p>
+  ⑦查看重写模式地址
+</p>
+<p><img loading="lazy" decoding="async" width="1102" height="447" src="/wp-content/uploads/2018/05/word-image-3608.png" class="wp-image-4065" srcset="/wp-content/uploads/2018/05/word-image-3608.png 1102w, /wp-content/uploads/2018/05/word-image-3608-300x122.png 300w, /wp-content/uploads/2018/05/word-image-3608-768x312.png 768w, /wp-content/uploads/2018/05/word-image-3608-1024x415.png 1024w" sizes="(max-width: 1102px) 100vw, 1102px" /></p>
+<p>
+  结果如下
+</p>
+<p><img loading="lazy" decoding="async" width="786" height="339" src="/wp-content/uploads/2018/05/word-image-3609.png" class="wp-image-4066" srcset="/wp-content/uploads/2018/05/word-image-3609.png 786w, /wp-content/uploads/2018/05/word-image-3609-300x129.png 300w, /wp-content/uploads/2018/05/word-image-3609-768x331.png 768w" sizes="(max-width: 786px) 100vw, 786px" /></p>
+<p>
+  ⑧查看兼容模式
+</p>
+<p><img loading="lazy" decoding="async" width="1063" height="379" src="/wp-content/uploads/2018/05/word-image-3610.png" class="wp-image-4067" srcset="/wp-content/uploads/2018/05/word-image-3610.png 1063w, /wp-content/uploads/2018/05/word-image-3610-300x107.png 300w, /wp-content/uploads/2018/05/word-image-3610-768x274.png 768w, /wp-content/uploads/2018/05/word-image-3610-1024x365.png 1024w" sizes="(max-width: 1063px) 100vw, 1063px" /><br />
+<img loading="lazy" decoding="async" width="804" height="375" src="/wp-content/uploads/2018/05/word-image-3611.png" class="wp-image-4068" srcset="/wp-content/uploads/2018/05/word-image-3611.png 804w, /wp-content/uploads/2018/05/word-image-3611-300x140.png 300w, /wp-content/uploads/2018/05/word-image-3611-768x358.png 768w" sizes="(max-width: 804px) 100vw, 804px" /></p>
+<p>
+  注意：TP中的四种URL模式并不是限制项目需要使用哪一种模式进行访问。URL_MODEL配置项的作用是为了控制U函数所生成的URL地址的格式
+</p>
+<h2>3.8、页面跳转与重定向</h2>
+<p>
+  关于页面跳转跟重定向功能是经常使用。常见位置在数据操作完成之后的提示信息
+</p>
+<h3>3.8.1、页面跳转</h3>
+<p>
+  在TP的控制器基类中提供了两个方法可以实现跳转功能分别为success跟error
+</p>
+<p>
+  ①查看源码位置
+</p>
+<p><img loading="lazy" decoding="async" width="1087" height="695" src="/wp-content/uploads/2018/05/word-image-3612.png" class="wp-image-4069" srcset="/wp-content/uploads/2018/05/word-image-3612.png 1087w, /wp-content/uploads/2018/05/word-image-3612-300x192.png 300w, /wp-content/uploads/2018/05/word-image-3612-768x491.png 768w, /wp-content/uploads/2018/05/word-image-3612-1024x655.png 1024w" sizes="(max-width: 1087px) 100vw, 1087px" /></p>
+<p>
+  ②测试成功的方法使用
+</p>
+<p><img loading="lazy" decoding="async" width="1029" height="505" src="/wp-content/uploads/2018/05/word-image-3613.png" class="wp-image-4070" srcset="/wp-content/uploads/2018/05/word-image-3613.png 1029w, /wp-content/uploads/2018/05/word-image-3613-300x147.png 300w, /wp-content/uploads/2018/05/word-image-3613-768x377.png 768w, /wp-content/uploads/2018/05/word-image-3613-1024x503.png 1024w" sizes="(max-width: 1029px) 100vw, 1029px" /></p>
+<p>
+  ③测试失败的方法的使用
+</p>
+<p><img loading="lazy" decoding="async" width="1017" height="482" src="/wp-content/uploads/2018/05/word-image-3614.png" class="wp-image-4071" srcset="/wp-content/uploads/2018/05/word-image-3614.png 1017w, /wp-content/uploads/2018/05/word-image-3614-300x142.png 300w, /wp-content/uploads/2018/05/word-image-3614-768x364.png 768w" sizes="(max-width: 1017px) 100vw, 1017px" /></p>
+<p>
+  ④关于成功失败跳转的模板文件地址
+</p>
+<p><img loading="lazy" decoding="async" width="1289" height="643" src="/wp-content/uploads/2018/05/word-image-3615.png" class="wp-image-4072" srcset="/wp-content/uploads/2018/05/word-image-3615.png 1289w, /wp-content/uploads/2018/05/word-image-3615-300x150.png 300w, /wp-content/uploads/2018/05/word-image-3615-768x383.png 768w, /wp-content/uploads/2018/05/word-image-3615-1024x511.png 1024w" sizes="(max-width: 1289px) 100vw, 1289px" /></p>
+<h3>3.8.2、页面重定向</h3>
+<p>
+  ①查看使用方式
+</p>
+<p><img loading="lazy" decoding="async" width="1098" height="682" src="/wp-content/uploads/2018/05/word-image-3616.png" class="wp-image-4073" srcset="/wp-content/uploads/2018/05/word-image-3616.png 1098w, /wp-content/uploads/2018/05/word-image-3616-300x186.png 300w, /wp-content/uploads/2018/05/word-image-3616-768x477.png 768w, /wp-content/uploads/2018/05/word-image-3616-1024x636.png 1024w" sizes="(max-width: 1098px) 100vw, 1098px" /></p>
+<p>
+  ②创建方法测试
+</p>
+<p><img loading="lazy" decoding="async" width="1095" height="545" src="/wp-content/uploads/2018/05/word-image-3617.png" class="wp-image-4074" srcset="/wp-content/uploads/2018/05/word-image-3617.png 1095w, /wp-content/uploads/2018/05/word-image-3617-300x149.png 300w, /wp-content/uploads/2018/05/word-image-3617-768x382.png 768w, /wp-content/uploads/2018/05/word-image-3617-1024x510.png 1024w" sizes="(max-width: 1095px) 100vw, 1095px" /></p>
+<p>
+  ③查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="679" height="241" src="/wp-content/uploads/2018/05/word-image-3618.png" class="wp-image-4075" srcset="/wp-content/uploads/2018/05/word-image-3618.png 679w, /wp-content/uploads/2018/05/word-image-3618-300x106.png 300w" sizes="(max-width: 679px) 100vw, 679px" /></p>
+<h2>3.9、空控制器与空操作</h2>
+<h3>3.9.1、空操作</h3>
+<p>
+  当用户访问某一个不存在的方法时接下来由单独的一个空操作(对应在控制中的_empty的方法)实现处理请求。
+</p>
+<p>
+  ①增加方法
+</p>
+<p><img loading="lazy" decoding="async" width="839" height="468" src="/wp-content/uploads/2018/05/word-image-3619.png" class="wp-image-4076" srcset="/wp-content/uploads/2018/05/word-image-3619.png 839w, /wp-content/uploads/2018/05/word-image-3619-300x167.png 300w, /wp-content/uploads/2018/05/word-image-3619-768x428.png 768w" sizes="(max-width: 839px) 100vw, 839px" /></p>
+<p>
+  ②访问测试
+</p>
+<p><img loading="lazy" decoding="async" width="1032" height="363" src="/wp-content/uploads/2018/05/word-image-3620.png" class="wp-image-4077" srcset="/wp-content/uploads/2018/05/word-image-3620.png 1032w, /wp-content/uploads/2018/05/word-image-3620-300x106.png 300w, /wp-content/uploads/2018/05/word-image-3620-768x270.png 768w, /wp-content/uploads/2018/05/word-image-3620-1024x360.png 1024w" sizes="(max-width: 1032px) 100vw, 1032px" /></p>
+<h3>3.9.2、空控制器</h3>
+<p>
+  当用户访问一个不存在的控制器时会自动的去执行空控制下对应的方法。
+</p>
+<p>
+  ①先创建空控制器
+</p>
+<p><img loading="lazy" decoding="async" width="858" height="481" src="/wp-content/uploads/2018/05/word-image-3621.png" class="wp-image-4078" srcset="/wp-content/uploads/2018/05/word-image-3621.png 858w, /wp-content/uploads/2018/05/word-image-3621-300x168.png 300w, /wp-content/uploads/2018/05/word-image-3621-768x431.png 768w" sizes="(max-width: 858px) 100vw, 858px" /></p>
+<p>
+  ②执行查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="1094" height="461" src="/wp-content/uploads/2018/05/word-image-3622.png" class="wp-image-4079" srcset="/wp-content/uploads/2018/05/word-image-3622.png 1094w, /wp-content/uploads/2018/05/word-image-3622-300x126.png 300w, /wp-content/uploads/2018/05/word-image-3622-768x324.png 768w, /wp-content/uploads/2018/05/word-image-3622-1024x432.png 1024w" sizes="(max-width: 1094px) 100vw, 1094px" /></p>
+<p>
+  ③在空控制器中创建空方法
+</p>
+<p><img loading="lazy" decoding="async" width="936" height="648" src="/wp-content/uploads/2018/05/word-image-3623.png" class="wp-image-4080" srcset="/wp-content/uploads/2018/05/word-image-3623.png 936w, /wp-content/uploads/2018/05/word-image-3623-300x208.png 300w, /wp-content/uploads/2018/05/word-image-3623-768x532.png 768w" sizes="(max-width: 936px) 100vw, 936px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="694" height="184" src="/wp-content/uploads/2018/05/word-image-3624.png" class="wp-image-4081" srcset="/wp-content/uploads/2018/05/word-image-3624.png 694w, /wp-content/uploads/2018/05/word-image-3624-300x80.png 300w" sizes="(max-width: 694px) 100vw, 694px" /></p>
+<p>
+  备注：最好事先错误的提示页面通过使用web服务器的错误提示设置
+</p>
+<h1>视图(一)</h1>
+<h2>4.1、视图创建规则</h2>
+<h3>4.1.1、视图创建规则</h3>
+<ol>
+<li>
+  默认情况下需要将视图的模板文件存储在模块下的view目录中
+</li>
+<li>
+  默认情况下视图存储需要在View下跟控制器同名的目录中
+</li>
+<li>
+  默认情况下视图模板文件名称需要保持跟方法同名后缀为.html的模板
+</li>
+</ol>
+<h3>4.1.2、创建视图</h3>
+<p>
+  ①创建根控制器同名的目录
+</p>
+<p><img loading="lazy" decoding="async" width="997" height="187" src="/wp-content/uploads/2018/05/word-image-3625.png" class="wp-image-4082" srcset="/wp-content/uploads/2018/05/word-image-3625.png 997w, /wp-content/uploads/2018/05/word-image-3625-300x56.png 300w, /wp-content/uploads/2018/05/word-image-3625-768x144.png 768w" sizes="(max-width: 997px) 100vw, 997px" /></p>
+<p>
+  ②创建模板
+</p>
+<p><img loading="lazy" decoding="async" width="918" height="476" src="/wp-content/uploads/2018/05/word-image-3626.png" class="wp-image-4083" srcset="/wp-content/uploads/2018/05/word-image-3626.png 918w, /wp-content/uploads/2018/05/word-image-3626-300x156.png 300w, /wp-content/uploads/2018/05/word-image-3626-768x398.png 768w" sizes="(max-width: 918px) 100vw, 918px" /></p>
+<h2>4.2、控制器调用视图</h2>
+<p>
+  对于在TP的方法中需要使用视图的模板可以使用两个方法分别为display跟fetch方法。
+</p>
+<p>
+  对于display跟fetch用法一模一样，区别在于display会直接输出模板的结果。Fetch不会直接输出
+</p>
+<h3>4.2.1、演示display跟fetch的区别</h3>
+<p>
+  ①创建方法
+</p>
+<p><img loading="lazy" decoding="async" width="1061" height="596" src="/wp-content/uploads/2018/05/word-image-3627.png" class="wp-image-4084" srcset="/wp-content/uploads/2018/05/word-image-3627.png 1061w, /wp-content/uploads/2018/05/word-image-3627-300x169.png 300w, /wp-content/uploads/2018/05/word-image-3627-768x431.png 768w, /wp-content/uploads/2018/05/word-image-3627-1024x575.png 1024w" sizes="(max-width: 1061px) 100vw, 1061px" /></p>
+<p>
+  ②查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="764" height="167" src="/wp-content/uploads/2018/05/word-image-3628.png" class="wp-image-4085" srcset="/wp-content/uploads/2018/05/word-image-3628.png 764w, /wp-content/uploads/2018/05/word-image-3628-300x66.png 300w" sizes="(max-width: 764px) 100vw, 764px" /><br />
+<img loading="lazy" decoding="async" width="708" height="259" src="/wp-content/uploads/2018/05/word-image-3629.png" class="wp-image-4086" srcset="/wp-content/uploads/2018/05/word-image-3629.png 708w, /wp-content/uploads/2018/05/word-image-3629-300x110.png 300w" sizes="(max-width: 708px) 100vw, 708px" /></p>
+<p>
+  修改showtwo方法
+</p>
+<p><img loading="lazy" decoding="async" width="946" height="587" src="/wp-content/uploads/2018/05/word-image-3630.png" class="wp-image-4087" srcset="/wp-content/uploads/2018/05/word-image-3630.png 946w, /wp-content/uploads/2018/05/word-image-3630-300x186.png 300w, /wp-content/uploads/2018/05/word-image-3630-768x477.png 768w" sizes="(max-width: 946px) 100vw, 946px" /></p>
+<p>
+  结果如下
+</p>
+<p><img loading="lazy" decoding="async" width="740" height="323" src="/wp-content/uploads/2018/05/word-image-3631.png" class="wp-image-4088" srcset="/wp-content/uploads/2018/05/word-image-3631.png 740w, /wp-content/uploads/2018/05/word-image-3631-300x131.png 300w" sizes="(max-width: 740px) 100vw, 740px" /></p>
+<h3>4.2.2、演示display用法</h3>
+<p>
+  ①查看使用方式
+</p>
+<p><img loading="lazy" decoding="async" width="848" height="390" src="/wp-content/uploads/2018/05/word-image-3632.png" class="wp-image-4089" srcset="/wp-content/uploads/2018/05/word-image-3632.png 848w, /wp-content/uploads/2018/05/word-image-3632-300x138.png 300w, /wp-content/uploads/2018/05/word-image-3632-768x353.png 768w" sizes="(max-width: 848px) 100vw, 848px" /></p>
+<p>
+  ②指定模块方式使用display
+</p>
+<p>
+  创建测试方法
+</p>
+<p><img loading="lazy" decoding="async" width="898" height="626" src="/wp-content/uploads/2018/05/word-image-3633.png" class="wp-image-4090" srcset="/wp-content/uploads/2018/05/word-image-3633.png 898w, /wp-content/uploads/2018/05/word-image-3633-300x209.png 300w, /wp-content/uploads/2018/05/word-image-3633-768x535.png 768w" sizes="(max-width: 898px) 100vw, 898px" /></p>
+<p>
+  查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="654" height="179" src="/wp-content/uploads/2018/05/word-image-3634.png" class="wp-image-4091" srcset="/wp-content/uploads/2018/05/word-image-3634.png 654w, /wp-content/uploads/2018/05/word-image-3634-300x82.png 300w" sizes="(max-width: 654px) 100vw, 654px" /><br />
+<img loading="lazy" decoding="async" width="633" height="135" src="/wp-content/uploads/2018/05/word-image-3635.png" class="wp-image-4092" srcset="/wp-content/uploads/2018/05/word-image-3635.png 633w, /wp-content/uploads/2018/05/word-image-3635-300x64.png 300w" sizes="(max-width: 633px) 100vw, 633px" /></p>
+<p>
+  ③直接指定模板文件地址
+</p>
+<p>
+  创建测试方法
+</p>
+<p><img loading="lazy" decoding="async" width="1058" height="373" src="/wp-content/uploads/2018/05/word-image-3636.png" class="wp-image-4093" srcset="/wp-content/uploads/2018/05/word-image-3636.png 1058w, /wp-content/uploads/2018/05/word-image-3636-300x106.png 300w, /wp-content/uploads/2018/05/word-image-3636-768x271.png 768w, /wp-content/uploads/2018/05/word-image-3636-1024x361.png 1024w" sizes="(max-width: 1058px) 100vw, 1058px" /></p>
+<p>
+  查看结果
+</p>
+<p><img loading="lazy" decoding="async" width="764" height="202" src="/wp-content/uploads/2018/05/word-image-3637.png" class="wp-image-4094" srcset="/wp-content/uploads/2018/05/word-image-3637.png 764w, /wp-content/uploads/2018/05/word-image-3637-300x79.png 300w" sizes="(max-width: 764px) 100vw, 764px" /></p>
+<h2>4.3、模板替换</h2>
+<p>
+  模板替换就是通过在模板中使用TP内置的”模板变量”.TP在每次渲染模板之前都会讲对应的模板变量进行替换
+</p>
+<h3>4.3.1、内置的模板替换</h3>
+<p>
+  ①查看文档
+</p>
+<p>
+  在TP有内置的模板变量替换如下
+</p>
+<p><img loading="lazy" decoding="async" width="885" height="277" src="/wp-content/uploads/2018/05/word-image-3638.png" class="wp-image-4095" srcset="/wp-content/uploads/2018/05/word-image-3638.png 885w, /wp-content/uploads/2018/05/word-image-3638-300x94.png 300w, /wp-content/uploads/2018/05/word-image-3638-768x240.png 768w" sizes="(max-width: 885px) 100vw, 885px" /></p>
+<p>
+  ②修改show模板查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="1080" height="675" src="/wp-content/uploads/2018/05/word-image-3639.png" class="wp-image-4096" srcset="/wp-content/uploads/2018/05/word-image-3639.png 1080w, /wp-content/uploads/2018/05/word-image-3639-300x188.png 300w, /wp-content/uploads/2018/05/word-image-3639-768x480.png 768w, /wp-content/uploads/2018/05/word-image-3639-1024x640.png 1024w" sizes="(max-width: 1080px) 100vw, 1080px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="989" height="425" src="/wp-content/uploads/2018/05/word-image-3640.png" class="wp-image-4097" srcset="/wp-content/uploads/2018/05/word-image-3640.png 989w, /wp-content/uploads/2018/05/word-image-3640-300x129.png 300w, /wp-content/uploads/2018/05/word-image-3640-768x330.png 768w" sizes="(max-width: 989px) 100vw, 989px" /></p>
+<p>
+  最常使用的是__PUBLIC__替换资源地址
+</p>
+<h3>4.3.2、自定义模板替换</h3>
+<p>
+  ①增加自定义配置项
+</p>
+<p><img loading="lazy" decoding="async" width="987" height="525" src="/wp-content/uploads/2018/05/word-image-3641.png" class="wp-image-4098" srcset="/wp-content/uploads/2018/05/word-image-3641.png 987w, /wp-content/uploads/2018/05/word-image-3641-300x160.png 300w, /wp-content/uploads/2018/05/word-image-3641-768x409.png 768w" sizes="(max-width: 987px) 100vw, 987px" /></p>
+<p>
+  ②模板中使用
+</p>
+<p><img loading="lazy" decoding="async" width="1068" height="412" src="/wp-content/uploads/2018/05/word-image-3642.png" class="wp-image-4099" srcset="/wp-content/uploads/2018/05/word-image-3642.png 1068w, /wp-content/uploads/2018/05/word-image-3642-300x116.png 300w, /wp-content/uploads/2018/05/word-image-3642-768x296.png 768w, /wp-content/uploads/2018/05/word-image-3642-1024x395.png 1024w" sizes="(max-width: 1068px) 100vw, 1068px" /></p>
+<p>
+  ③效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="869" height="257" src="/wp-content/uploads/2018/05/word-image-3643.png" class="wp-image-4100" srcset="/wp-content/uploads/2018/05/word-image-3643.png 869w, /wp-content/uploads/2018/05/word-image-3643-300x89.png 300w, /wp-content/uploads/2018/05/word-image-3643-768x227.png 768w" sizes="(max-width: 869px) 100vw, 869px" /></p>
+<h1>案例-搭建电商项目后台</h1>
+<h2>5.1、项目部署</h2>
+<h3>5.1.1、创建项目</h3>
+<p>
+  ①创建项目的根目录
+</p>
+<p><img loading="lazy" decoding="async" width="987" height="294" src="/wp-content/uploads/2018/05/word-image-3644.png" class="wp-image-4101" srcset="/wp-content/uploads/2018/05/word-image-3644.png 987w, /wp-content/uploads/2018/05/word-image-3644-300x89.png 300w, /wp-content/uploads/2018/05/word-image-3644-768x229.png 768w" sizes="(max-width: 987px) 100vw, 987px" /></p>
+<p>
+  ②创建wwwroot目录
+</p>
+<p><img loading="lazy" decoding="async" width="890" height="153" src="/wp-content/uploads/2018/05/word-image-3645.png" class="wp-image-4102" srcset="/wp-content/uploads/2018/05/word-image-3645.png 890w, /wp-content/uploads/2018/05/word-image-3645-300x52.png 300w, /wp-content/uploads/2018/05/word-image-3645-768x132.png 768w" sizes="(max-width: 890px) 100vw, 890px" /></p>
+<p>
+  ③拷贝TP的框架源代码
+</p>
+<p><img loading="lazy" decoding="async" width="1159" height="358" src="/wp-content/uploads/2018/05/word-image-3646.png" class="wp-image-4103" srcset="/wp-content/uploads/2018/05/word-image-3646.png 1159w, /wp-content/uploads/2018/05/word-image-3646-300x93.png 300w, /wp-content/uploads/2018/05/word-image-3646-768x237.png 768w, /wp-content/uploads/2018/05/word-image-3646-1024x316.png 1024w" sizes="(max-width: 1159px) 100vw, 1159px" /></p>
+<p>
+  ④拷贝入口文件及重写规则文件
+</p>
+<p><img loading="lazy" decoding="async" width="1212" height="376" src="/wp-content/uploads/2018/05/word-image-3647.png" class="wp-image-4104" srcset="/wp-content/uploads/2018/05/word-image-3647.png 1212w, /wp-content/uploads/2018/05/word-image-3647-300x93.png 300w, /wp-content/uploads/2018/05/word-image-3647-768x238.png 768w, /wp-content/uploads/2018/05/word-image-3647-1024x318.png 1024w" sizes="(max-width: 1212px) 100vw, 1212px" /></p>
+<h3>5.1.2、配置虚拟主机</h3>
+<p>
+  ①增加虚拟主机
+</p>
+<p><img loading="lazy" decoding="async" width="1053" height="449" src="/wp-content/uploads/2018/05/word-image-3648.png" class="wp-image-4105" srcset="/wp-content/uploads/2018/05/word-image-3648.png 1053w, /wp-content/uploads/2018/05/word-image-3648-300x128.png 300w, /wp-content/uploads/2018/05/word-image-3648-768x327.png 768w, /wp-content/uploads/2018/05/word-image-3648-1024x437.png 1024w" sizes="(max-width: 1053px) 100vw, 1053px" /></p>
+<p>
+  ②修改hosts文件
+</p>
+<p><img loading="lazy" decoding="async" width="864" height="408" src="/wp-content/uploads/2018/05/word-image-3649.png" class="wp-image-4106" srcset="/wp-content/uploads/2018/05/word-image-3649.png 864w, /wp-content/uploads/2018/05/word-image-3649-300x142.png 300w, /wp-content/uploads/2018/05/word-image-3649-768x363.png 768w" sizes="(max-width: 864px) 100vw, 864px" /></p>
+<p>
+  ③修改入口文件
+</p>
+<p><img loading="lazy" decoding="async" width="996" height="553" src="/wp-content/uploads/2018/05/word-image-3650.png" class="wp-image-4107" srcset="/wp-content/uploads/2018/05/word-image-3650.png 996w, /wp-content/uploads/2018/05/word-image-3650-300x167.png 300w, /wp-content/uploads/2018/05/word-image-3650-768x426.png 768w" sizes="(max-width: 996px) 100vw, 996px" /></p>
+<p>
+  ④重启Apache访问查看
+</p>
+<p><img loading="lazy" decoding="async" width="978" height="447" src="/wp-content/uploads/2018/05/word-image-3651.png" class="wp-image-4108" srcset="/wp-content/uploads/2018/05/word-image-3651.png 978w, /wp-content/uploads/2018/05/word-image-3651-300x137.png 300w, /wp-content/uploads/2018/05/word-image-3651-768x351.png 768w" sizes="(max-width: 978px) 100vw, 978px" /></p>
+<p>
+  查看目录结构
+</p>
+<p><img loading="lazy" decoding="async" width="642" height="366" src="/wp-content/uploads/2018/05/word-image-3652.png" class="wp-image-4109" srcset="/wp-content/uploads/2018/05/word-image-3652.png 642w, /wp-content/uploads/2018/05/word-image-3652-300x171.png 300w" sizes="(max-width: 642px) 100vw, 642px" /></p>
+<p>
+  对于此方式部署项目由于域名解析的目录下只有入口文件。因此项目的安全性更好
+</p>
+<h2>5.2、创建后台模块</h2>
+<p>
+  ①复制Home模块为Admin
+</p>
+<p><img loading="lazy" decoding="async" width="950" height="253" src="/wp-content/uploads/2018/05/word-image-3653.png" class="wp-image-4110" srcset="/wp-content/uploads/2018/05/word-image-3653.png 950w, /wp-content/uploads/2018/05/word-image-3653-300x80.png 300w, /wp-content/uploads/2018/05/word-image-3653-768x205.png 768w" sizes="(max-width: 950px) 100vw, 950px" /></p>
+<p>
+  ②修改后台模块下的index控制器
+</p>
+<p><img loading="lazy" decoding="async" width="1021" height="483" src="/wp-content/uploads/2018/05/word-image-3654.png" class="wp-image-4111" srcset="/wp-content/uploads/2018/05/word-image-3654.png 1021w, /wp-content/uploads/2018/05/word-image-3654-300x142.png 300w, /wp-content/uploads/2018/05/word-image-3654-768x363.png 768w" sizes="(max-width: 1021px) 100vw, 1021px" /></p>
+<p>
+  ③访问查看
+</p>
+<p><img loading="lazy" decoding="async" width="1086" height="261" src="/wp-content/uploads/2018/05/word-image-3655.png" class="wp-image-4112" srcset="/wp-content/uploads/2018/05/word-image-3655.png 1086w, /wp-content/uploads/2018/05/word-image-3655-300x72.png 300w, /wp-content/uploads/2018/05/word-image-3655-768x185.png 768w, /wp-content/uploads/2018/05/word-image-3655-1024x246.png 1024w" sizes="(max-width: 1086px) 100vw, 1086px" /></p>
+<h2>5.3、处理URL地址</h2>
+<h3>5.3.1、隐藏入口文件</h3>
+<p>
+  ①修改Apache的配置启用重写模式
+</p>
+<p><img loading="lazy" decoding="async" width="806" height="359" src="/wp-content/uploads/2018/05/word-image-3656.png" class="wp-image-4113" srcset="/wp-content/uploads/2018/05/word-image-3656.png 806w, /wp-content/uploads/2018/05/word-image-3656-300x134.png 300w, /wp-content/uploads/2018/05/word-image-3656-768x342.png 768w" sizes="(max-width: 806px) 100vw, 806px" /></p>
+<p>
+  ②设置虚拟主机可以重启
+</p>
+<p><img loading="lazy" decoding="async" width="948" height="486" src="/wp-content/uploads/2018/05/word-image-3657.png" class="wp-image-4114" srcset="/wp-content/uploads/2018/05/word-image-3657.png 948w, /wp-content/uploads/2018/05/word-image-3657-300x154.png 300w, /wp-content/uploads/2018/05/word-image-3657-768x394.png 768w" sizes="(max-width: 948px) 100vw, 948px" /></p>
+<p>
+  重写规则文件已经拷贝
+</p>
+<p>
+  ③重启Apache访问测试
+</p>
+<p><img loading="lazy" decoding="async" width="969" height="470" src="/wp-content/uploads/2018/05/word-image-3658.png" class="wp-image-4115" srcset="/wp-content/uploads/2018/05/word-image-3658.png 969w, /wp-content/uploads/2018/05/word-image-3658-300x146.png 300w, /wp-content/uploads/2018/05/word-image-3658-768x373.png 768w" sizes="(max-width: 969px) 100vw, 969px" /></p>
+<p>
+  ④创建测试方法使用U函数生成
+</p>
+<p><img loading="lazy" decoding="async" width="929" height="479" src="/wp-content/uploads/2018/05/word-image-3659.png" class="wp-image-4116" srcset="/wp-content/uploads/2018/05/word-image-3659.png 929w, /wp-content/uploads/2018/05/word-image-3659-300x155.png 300w, /wp-content/uploads/2018/05/word-image-3659-768x396.png 768w" sizes="(max-width: 929px) 100vw, 929px" /></p>
+<p>
+  ⑤访问测试
+</p>
+<p><img loading="lazy" decoding="async" width="498" height="206" src="/wp-content/uploads/2018/05/word-image-3660.png" class="wp-image-4117" srcset="/wp-content/uploads/2018/05/word-image-3660.png 498w, /wp-content/uploads/2018/05/word-image-3660-300x124.png 300w" sizes="(max-width: 498px) 100vw, 498px" /></p>
+<p>
+  ⑥设置为重写模式
+</p>
+<p><img loading="lazy" decoding="async" width="981" height="416" src="/wp-content/uploads/2018/05/word-image-3661.png" class="wp-image-4118" srcset="/wp-content/uploads/2018/05/word-image-3661.png 981w, /wp-content/uploads/2018/05/word-image-3661-300x127.png 300w, /wp-content/uploads/2018/05/word-image-3661-768x326.png 768w" sizes="(max-width: 981px) 100vw, 981px" /></p>
+<p>
+  再次查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="517" height="176" src="/wp-content/uploads/2018/05/word-image-3662.png" class="wp-image-4119" srcset="/wp-content/uploads/2018/05/word-image-3662.png 517w, /wp-content/uploads/2018/05/word-image-3662-300x102.png 300w" sizes="(max-width: 517px) 100vw, 517px" /></p>
+<h3>5.3.2、隐藏Home模块</h3>
+<p>
+  ①设置默认的模块以及容许访问的模块
+</p>
+<p><img loading="lazy" decoding="async" width="967" height="472" src="/wp-content/uploads/2018/05/word-image-3663.png" class="wp-image-4120" srcset="/wp-content/uploads/2018/05/word-image-3663.png 967w, /wp-content/uploads/2018/05/word-image-3663-300x146.png 300w, /wp-content/uploads/2018/05/word-image-3663-768x375.png 768w" sizes="(max-width: 967px) 100vw, 967px" /></p>
+<p>
+  ②查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="824" height="209" src="/wp-content/uploads/2018/05/word-image-3664.png" class="wp-image-4121" srcset="/wp-content/uploads/2018/05/word-image-3664.png 824w, /wp-content/uploads/2018/05/word-image-3664-300x76.png 300w, /wp-content/uploads/2018/05/word-image-3664-768x195.png 768w" sizes="(max-width: 824px) 100vw, 824px" /></p>
+<h2>5.4、实现后台的首页显示</h2>
+<p>
+  ①修改Index控制器代码
+</p>
+<p><img loading="lazy" decoding="async" width="948" height="476" src="/wp-content/uploads/2018/05/word-image-3665.png" class="wp-image-4122" srcset="/wp-content/uploads/2018/05/word-image-3665.png 948w, /wp-content/uploads/2018/05/word-image-3665-300x151.png 300w, /wp-content/uploads/2018/05/word-image-3665-768x386.png 768w" sizes="(max-width: 948px) 100vw, 948px" /></p>
+<p>
+  ②创建视图目录
+</p>
+<p><img loading="lazy" decoding="async" width="926" height="210" src="/wp-content/uploads/2018/05/word-image-3666.png" class="wp-image-4123" srcset="/wp-content/uploads/2018/05/word-image-3666.png 926w, /wp-content/uploads/2018/05/word-image-3666-300x68.png 300w, /wp-content/uploads/2018/05/word-image-3666-768x174.png 768w" sizes="(max-width: 926px) 100vw, 926px" /></p>
+<p>
+  ③拷贝首页模板
+</p>
+<p><img loading="lazy" decoding="async" width="1287" height="541" src="/wp-content/uploads/2018/05/word-image-3667.png" class="wp-image-4124" srcset="/wp-content/uploads/2018/05/word-image-3667.png 1287w, /wp-content/uploads/2018/05/word-image-3667-300x126.png 300w, /wp-content/uploads/2018/05/word-image-3667-768x323.png 768w, /wp-content/uploads/2018/05/word-image-3667-1024x430.png 1024w" sizes="(max-width: 1287px) 100vw, 1287px" /></p>
+<p>
+  ④查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="956" height="399" src="/wp-content/uploads/2018/05/word-image-3668.png" class="wp-image-4125" srcset="/wp-content/uploads/2018/05/word-image-3668.png 956w, /wp-content/uploads/2018/05/word-image-3668-300x125.png 300w, /wp-content/uploads/2018/05/word-image-3668-768x321.png 768w" sizes="(max-width: 956px) 100vw, 956px" /></p>
+<p>
+  ⑤拷贝其他模板
+</p>
+<p><img loading="lazy" decoding="async" width="1312" height="517" src="/wp-content/uploads/2018/05/word-image-3669.png" class="wp-image-4126" srcset="/wp-content/uploads/2018/05/word-image-3669.png 1312w, /wp-content/uploads/2018/05/word-image-3669-300x118.png 300w, /wp-content/uploads/2018/05/word-image-3669-768x303.png 768w, /wp-content/uploads/2018/05/word-image-3669-1024x404.png 1024w" sizes="(max-width: 1312px) 100vw, 1312px" /></p>
+<p>
+  ⑥查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="1174" height="381" src="/wp-content/uploads/2018/05/word-image-3670.png" class="wp-image-4127" srcset="/wp-content/uploads/2018/05/word-image-3670.png 1174w, /wp-content/uploads/2018/05/word-image-3670-300x97.png 300w, /wp-content/uploads/2018/05/word-image-3670-768x249.png 768w, /wp-content/uploads/2018/05/word-image-3670-1024x332.png 1024w" sizes="(max-width: 1174px) 100vw, 1174px" /><br />
+<img loading="lazy" decoding="async" width="782" height="169" src="/wp-content/uploads/2018/05/word-image-3671.png" class="wp-image-4128" srcset="/wp-content/uploads/2018/05/word-image-3671.png 782w, /wp-content/uploads/2018/05/word-image-3671-300x65.png 300w, /wp-content/uploads/2018/05/word-image-3671-768x166.png 768w" sizes="(max-width: 782px) 100vw, 782px" /></p>
+<p>
+  ⑦修改首页的模板
+</p>
+<p><img loading="lazy" decoding="async" width="1088" height="610" src="/wp-content/uploads/2018/05/word-image-3672.png" class="wp-image-4129" srcset="/wp-content/uploads/2018/05/word-image-3672.png 1088w, /wp-content/uploads/2018/05/word-image-3672-300x168.png 300w, /wp-content/uploads/2018/05/word-image-3672-768x431.png 768w, /wp-content/uploads/2018/05/word-image-3672-1024x574.png 1024w" sizes="(max-width: 1088px) 100vw, 1088px" /></p>
+<h2>5.5、处理后台资源地址</h2>
+<p>
+  ①拷贝资源文件
+</p>
+<p><img loading="lazy" decoding="async" width="1318" height="419" src="/wp-content/uploads/2018/05/word-image-3673.png" class="wp-image-4130" srcset="/wp-content/uploads/2018/05/word-image-3673.png 1318w, /wp-content/uploads/2018/05/word-image-3673-300x95.png 300w, /wp-content/uploads/2018/05/word-image-3673-768x244.png 768w, /wp-content/uploads/2018/05/word-image-3673-1024x326.png 1024w" sizes="(max-width: 1318px) 100vw, 1318px" /></p>
+<p>
+  ②自定义模板替换
+</p>
+<p><img loading="lazy" decoding="async" width="935" height="534" src="/wp-content/uploads/2018/05/word-image-3674.png" class="wp-image-4131" srcset="/wp-content/uploads/2018/05/word-image-3674.png 935w, /wp-content/uploads/2018/05/word-image-3674-300x171.png 300w, /wp-content/uploads/2018/05/word-image-3674-768x439.png 768w" sizes="(max-width: 935px) 100vw, 935px" /></p>
+<p>
+  ③修改top模板
+</p>
+<p><img loading="lazy" decoding="async" width="1073" height="453" src="/wp-content/uploads/2018/05/word-image-3675.png" class="wp-image-4132" srcset="/wp-content/uploads/2018/05/word-image-3675.png 1073w, /wp-content/uploads/2018/05/word-image-3675-300x127.png 300w, /wp-content/uploads/2018/05/word-image-3675-768x324.png 768w, /wp-content/uploads/2018/05/word-image-3675-1024x432.png 1024w" sizes="(max-width: 1073px) 100vw, 1073px" /></p>
+<p>
+  ④修改menu模板
+</p>
+<p><img loading="lazy" decoding="async" width="1079" height="491" src="/wp-content/uploads/2018/05/word-image-3676.png" class="wp-image-4133" srcset="/wp-content/uploads/2018/05/word-image-3676.png 1079w, /wp-content/uploads/2018/05/word-image-3676-300x137.png 300w, /wp-content/uploads/2018/05/word-image-3676-768x349.png 768w, /wp-content/uploads/2018/05/word-image-3676-1024x466.png 1024w" sizes="(max-width: 1079px) 100vw, 1079px" /></p>
+<p>
+  ⑤修改main模板
+</p>
+<p><img loading="lazy" decoding="async" width="1076" height="525" src="/wp-content/uploads/2018/05/word-image-3677.png" class="wp-image-4134" srcset="/wp-content/uploads/2018/05/word-image-3677.png 1076w, /wp-content/uploads/2018/05/word-image-3677-300x146.png 300w, /wp-content/uploads/2018/05/word-image-3677-768x375.png 768w, /wp-content/uploads/2018/05/word-image-3677-1024x500.png 1024w" sizes="(max-width: 1076px) 100vw, 1076px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/4022.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

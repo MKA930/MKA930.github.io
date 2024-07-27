@@ -1,0 +1,2420 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>DOM操作 &#8211; 个人随笔</title>
+	<atom:link href="/label/dom%E6%93%8D%E4%BD%9C/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 09:45:41 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>DOM操作 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Jquery（三）事件处理、DOM操作、事件委托</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3411.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3411.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 09:45:41 +0000</pubDate>
+				<category><![CDATA[Jquery]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[前端框架]]></category>
+		<category><![CDATA[DOM操作]]></category>
+		<category><![CDATA[事件处理]]></category>
+		<category><![CDATA[事件委托]]></category>
+		<guid isPermaLink="false">/?p=3411</guid>
+
+					<description><![CDATA[jQuery（三） 回顾 查找元素 filter()：过滤元素 （not()） hasClass()：是否具有 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1> jQuery（三）</h1>
+<h2>回顾</h2>
+<ol>
+<li>
+  查找元素</p>
+<ol>
+<li>
+    filter()：过滤元素 （not()）
+  </li>
+<li>
+    hasClass()：是否具有指定类
+  </li>
+<li>
+    is()：是不是
+  </li>
+<li>
+    find()：在子元素中查找
+  </li>
+<li>
+    children()：获取子元素的集合
+  </li>
+<li>
+    next()：下一个元素
+  </li>
+<li>
+    nextAll()：后面所有的元素
+  </li>
+<li>
+    prev()：前面的一个元素
+  </li>
+<li>
+    prevAll()：前面所有的元素
+  </li>
+<li>
+    parent()：父级元素
+  </li>
+<li>
+    parents()：所有的父级元素
+  </li>
+<li>
+    sibling()：同级元素
+  </li>
+</ol>
+</li>
+<li>
+  DOM操作</p>
+<ol>
+<li>
+    在内部添加元素</p>
+<ol>
+<li>
+      A.append(B)：将B插入到A的内部的后面
+    </li>
+<li>
+      A.appendTo(B)：将A插入到B的内部的后面
+    </li>
+<li>
+      A.prepend(B)：将B插入到A的内部的前面
+    </li>
+<li>
+      A.prependTo(B)：将A插入到B的内部的前面
+    </li>
+</ol>
+</li>
+<li>
+    在外部添加元素</p>
+<ol>
+<li>
+      A.after(B)：将B插入到A的外部的后面
+    </li>
+<li>
+      A.insertAfter(B)：将A插入到B的外部的后面
+    </li>
+<li>
+      A.before(B)：将B插入到A的外部的前面
+    </li>
+<li>
+      A.insertBefore(B)：将A插入到B的外部的前面
+    </li>
+</ol>
+</li>
+<li>
+    替换DOM元素</p>
+<ol>
+<li>
+      A.replaceAll(B)：用A替换所有的B
+    </li>
+<li>
+      A.replaceWith(B)：用B替换A
+    </li>
+</ol>
+</li>
+<li>
+    删除DOM元素</p>
+<ol>
+<li>
+      empty()：清空元素的内容
+    </li>
+<li>
+      remove()：删除元素
+    </li>
+</ol>
+</li>
+<li>
+    克隆DOM元素</p>
+<ol>
+<li>
+      clone()：复制节点，不复制对应的事件
+    </li>
+<li>
+      clone(true)：复制节点和对应的事件
+    </li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+  一些常用的方法和属性</p>
+<ol>
+<li>
+    size()：获取节点集合的长度
+  </li>
+<li>
+    length：获取节点集合的长度
+  </li>
+<li>
+    index()：获取节点的索引
+  </li>
+<li>
+    data()：缓存或获取缓存数据
+  </li>
+<li>
+    $.trim()：去空格
+  </li>
+<li>
+    $.merge()：合并数组
+  </li>
+</ol>
+</li>
+<li>
+  DOM和jQuery对象互换</p>
+<ol>
+<li>
+    通过$()和jquery()方法将DOM转成JQuery对象
+  </li>
+<li>
+    通过get()和[]的方法将jQuery的对象转成DOM对象
+  </li>
+</ol>
+</li>
+<li>
+  链式操作：每个方法执行完毕后返回当前对象，所以我们能够实现链式操作。
+</li>
+</ol>
+<h2>jQuery设置事件处理</h2>
+<p>
+  1、$().事件类型(事件处理函数)		——设置事件处理
+</p>
+<p>
+  2、$().事件类型()						——处罚事件处理
+</p>
+<p><img fetchpriority="high" decoding="async" width="741" height="195" src="/wp-content/uploads/2018/05/word-image-3017.png" class="wp-image-3413" srcset="/wp-content/uploads/2018/05/word-image-3017.png 741w, /wp-content/uploads/2018/05/word-image-3017-300x79.png 300w" sizes="(max-width: 741px) 100vw, 741px" /></p>
+<p>
+  脚下留心：JQuery事件和DOM事件基本是一一对应，比DOM事件少“on”这个单词。
+</p>
+<h2>$(document).ready()事件</h2>
+<table>
+<tr>
+<td></td>
+<td>
+<p>
+  DOM方式
+</p>
+</td>
+<td>
+<p>
+  jQuery方式
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  执行次数
+</p>
+</td>
+<td>
+<p>
+  只有最后一个window.onload()起作用
+</p>
+</td>
+<td>
+<p>
+  $(document).ready()可以无限制的使用
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  执行时间
+</p>
+</td>
+<td>
+<p>
+  在全部静态资源（文字，图片，js，样式）在浏览器显示完毕才执行加载事件
+</p>
+</td>
+<td>
+<p>
+  只要静态资源在内存中形成DOM结构就开始执行，这时候可能内容在浏览器还没有显示。
+</p>
+</td>
+</tr>
+</table>
+<p>
+  很显然：$(document).ready()可以极大的提高web响应速度。
+</p>
+<p>
+  多学一招：$(document).ready()可以简化为
+</p>
+<p><img decoding="async" width="699" height="170" src="/wp-content/uploads/2018/05/word-image-3018.png" class="wp-image-3414" srcset="/wp-content/uploads/2018/05/word-image-3018.png 699w, /wp-content/uploads/2018/05/word-image-3018-300x73.png 300w" sizes="(max-width: 699px) 100vw, 699px" /></p>
+<h2>DOM操作练习</h2>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+      $(&#8216;:button&#8217;).click(function(e) {
+</p>
+<p>
+          var i=$(&#8216;:button&#8217;).index($(this));	//找出索引号
+</p>
+<p>
+  		if(i==0){	//全部左移
+</p>
+<p>
+  			$(&#8216;select:first option&#8217;).appendTo($(&#8216;select:last&#8217;));
+</p>
+<p>
+  		}
+</p>
+<p>
+  		else if(i==1){	//选中左移
+</p>
+<p>
+  			$(&#8216;select:first option:checked&#8217;).appendTo($(&#8216;select:last&#8217;));
+</p>
+<p>
+  		}
+</p>
+<p>
+  		else if(i==2){	//全部右移
+</p>
+<p>
+  			$(&#8216;select:last option&#8217;).appendTo($(&#8216;select:first&#8217;));
+</p>
+</p>
+<p>
+  		}
+</p>
+<p>
+  		else if(i==3){	//选中右移
+</p>
+<p>
+  			$(&#8216;select:last option:checked&#8217;).appendTo($(&#8216;select:first&#8217;));
+</p>
+<p>
+  		}
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;select size=&#8221;10&#8243; multiple=&#8221;multiple&#8221;&gt;
+</p>
+<p>
+  	&lt;option&gt;张三&lt;/option&gt;
+</p>
+<p>
+      &lt;option&gt;李四&lt;/option&gt;
+</p>
+<p>
+      &lt;option&gt;王五&lt;/option&gt;
+</p>
+<p>
+  	&lt;option&gt;赵六&lt;/option&gt;
+</p>
+<p>
+  	&lt;option&gt;Tom&lt;/option&gt;
+</p>
+<p>
+  	&lt;option&gt;Berry&lt;/option&gt;
+</p>
+<p>
+  	&lt;option&gt;Ketty&lt;/option&gt;
+</p>
+<p>
+  	&lt;option&gt;Rose&lt;/option&gt;
+</p>
+<p>
+  &lt;/select&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;div&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;  &gt;&gt;  &#8221; title=&#8221;全部左移&#8221;/&gt;&lt;br /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;  &gt;  &#8221; title=&#8221;左移&#8221;/&gt; &lt;br /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;  &lt;&lt;  &#8221; title=&#8217;全部右移&#8217;/&gt;&lt;br /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;  &lt;  &#8221; title=&#8217;右移&#8217;/&gt; &lt;br /&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;div&gt;
+</p>
+<p>
+  &lt;select  size=&#8221;10&#8243; multiple=&#8221;multiple&#8221;&gt;&lt;/select&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p><img decoding="async" width="425" height="235" src="/wp-content/uploads/2018/05/word-image-3019.png" class="wp-image-3415" srcset="/wp-content/uploads/2018/05/word-image-3019.png 425w, /wp-content/uploads/2018/05/word-image-3019-300x166.png 300w" sizes="(max-width: 425px) 100vw, 425px" /></p>
+<h2>绑定事件（bind）</h2>
+<p>
+  语法：bind(事件,回调函数)
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(function(){
+</p>
+<p>
+  	//1、绑定事件
+</p>
+<p>
+  	/*
+</p>
+<p>
+  	$(&#8216;#username&#8217;).bind(&#8216;mouseover&#8217;,function(){
+</p>
+<p>
+  		if($(this).val()==&#8217;请输入用户名&#8217;)
+</p>
+<p>
+  			$(this).val(&#8221;);
+</p>
+<p>
+  	}).bind(&#8216;mouseout&#8217;,function(){
+</p>
+<p>
+  		if($.trim($(this).val())==&#8221;)
+</p>
+<p>
+  			$(this).val(&#8216;请输入用户名&#8217;);
+</p>
+<p>
+  	})
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	//2、通过json格式一次绑定多个事件
+</p>
+<p>
+  	/*
+</p>
+<p>
+  	var json={
+</p>
+<p>
+  		&#8216;mouseover&#8217;:function(){
+</p>
+<p>
+  			if($(this).val()==&#8217;请输入用户名&#8217;)
+</p>
+<p>
+  				$(this).val(&#8221;);
+</p>
+<p>
+  		},
+</p>
+<p>
+  		&#8216;mouseout&#8217;:function(){
+</p>
+<p>
+  			if($.trim($(this).val())==&#8221;)
+</p>
+<p>
+  				$(this).val(&#8216;请输入用户名&#8217;);
+</p>
+<p>
+  		}
+</p>
+<p>
+  	};
+</p>
+<p>
+  	$(&#8216;#username&#8217;).bind(json);
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	//3、不同的事件，同一个事件处理
+</p>
+<p>
+  	$(&#8216;#username&#8217;).bind(&#8216;click mouseover mouseout&#8217;,function(){
+</p>
+<p>
+  		console.log(&#8216;aa&#8217;);
+</p>
+<p>
+  	})
+</p>
+<p>
+  })
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;input type=&#8221;text&#8221; id=&#8221;username&#8221; value=&#8221;请输入用户名&#8221; /&gt;
+</p>
+<h2>反绑定事件（unbind）</h2>
+<p>
+  如果一个元素不需要执行某个事件了，只需要反绑定即可。
+</p>
+<p>
+  1、对象.unbind(事件)：反绑定某个事件
+</p>
+<p>
+  2、对象.unbind()：反绑定所有事件
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  #btn{
+</p>
+<p>
+  	width:100px;
+</p>
+<p>
+  	height:50px;
+</p>
+<p>
+  	cursor:pointer;
+</p>
+<p>
+  	background-color:#F90;
+</p>
+<p>
+  	color:#F00;
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;js/jquery-1.8.3.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+  	var flag=false;		//开关
+</p>
+<p>
+      $(&#8216;#btn&#8217;).click(function(e) {
+</p>
+<p>
+  		if(!flag){
+</p>
+<p>
+  			var t=5;
+</p>
+<p>
+  			$(this).text(t);
+</p>
+<p>
+  			var id=window.setInterval(function(){
+</p>
+<p>
+  				$(&#8216;#btn&#8217;).text(&#8211;t);
+</p>
+<p>
+  				if(t==0){
+</p>
+<p>
+  					clearInterval(id);	//关闭时钟
+</p>
+<p>
+  					//$(&#8216;#btn&#8217;).unbind(&#8216;click&#8217;);	//反绑定click事件
+</p>
+<p>
+  					$(&#8216;#btn&#8217;).unbind();			//反绑定所有事件
+</p>
+<p>
+  				}
+</p>
+<p>
+  			},1000);
+</p>
+<p>
+  			flag=true;
+</p>
+<p>
+  		}
+</p>
+<p>
+  		console.log(&#8216;抢红包&#8217;);
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;div id=&#8221;btn&#8221;&gt;5秒之后关闭抢红包&lt;/div&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="434" height="107" src="/wp-content/uploads/2018/05/word-image-3020.png" class="wp-image-3416" srcset="/wp-content/uploads/2018/05/word-image-3020.png 434w, /wp-content/uploads/2018/05/word-image-3020-300x74.png 300w" sizes="(max-width: 434px) 100vw, 434px" /></p>
+<h2>一次性绑定（one）</h2>
+<p><img loading="lazy" decoding="async" width="726" height="155" src="/wp-content/uploads/2018/05/word-image-3021.png" class="wp-image-3417" srcset="/wp-content/uploads/2018/05/word-image-3021.png 726w, /wp-content/uploads/2018/05/word-image-3021-300x64.png 300w" sizes="(max-width: 726px) 100vw, 726px" /></p>
+<h2>事件委托和取消事件委托</h2>
+<p>
+  jQuery对象.live()  绑定在祖辈元素上的事件处理函数可以对后代的触发做出响应。
+</p>
+<p>
+  jQuery对象.die() 从元素中删除通过live()绑定的事件
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+  	$(&#8216;li&#8217;).live(&#8216;click&#8217;,function(e) {	//将click事件绑定到li的祖辈元素中
+</p>
+<p>
+          alert($(this).html());
+</p>
+<p>
+      });
+</p>
+<p>
+  	//添加li
+</p>
+<p>
+      $(&#8216;:button:first&#8217;).click(function(e) {
+</p>
+<p>
+          $(&#8216;&lt;li&gt;重庆&lt;/li&gt;&#8217;).appendTo($(&#8216;ul&#8217;));
+</p>
+<p>
+      });
+</p>
+<p>
+  	//取消live绑定的事件
+</p>
+<p>
+  	$(&#8216;:button:last&#8217;).click(function(e) {
+</p>
+<p>
+          //$(&#8216;li&#8217;).die(&#8216;click&#8217;);	//取消通过live()绑定的click()事件
+</p>
+<p>
+  		$(&#8216;li&#8217;).die();			//取消live绑定的所有事件
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;ul&gt;
+</p>
+<p>
+  	&lt;li&gt;北京&lt;/li&gt;
+</p>
+<p>
+      &lt;li&gt;上海&lt;/li&gt;
+</p>
+<p>
+  &lt;/ul&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;添加li&#8221; /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;取消live绑定的事件&#8221; /&gt;
+</p>
+<h2>事件对象</h2>
+<p>
+  事件对象中保存着与事件有关的信息
+</p>
+<ol>
+<li>
+  通过事件对象阻止冒泡
+</li>
+<li>
+  通过事件对象阻止浏览器的默认动作
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="910" height="398" src="/wp-content/uploads/2018/05/word-image-3022.png" class="wp-image-3418" srcset="/wp-content/uploads/2018/05/word-image-3022.png 910w, /wp-content/uploads/2018/05/word-image-3022-300x131.png 300w, /wp-content/uploads/2018/05/word-image-3022-768x336.png 768w" sizes="(max-width: 910px) 100vw, 910px" /></p>
+<h2>hover</h2>
+<p>
+  语法：hover(over_fun,out_fun)，此方法实现鼠标移到到元素上和离开元素的效果
+</p>
+<p><img loading="lazy" decoding="async" width="899" height="192" src="/wp-content/uploads/2018/05/word-image-3023.png" class="wp-image-3419" srcset="/wp-content/uploads/2018/05/word-image-3023.png 899w, /wp-content/uploads/2018/05/word-image-3023-300x64.png 300w, /wp-content/uploads/2018/05/word-image-3023-768x164.png 768w" sizes="(max-width: 899px) 100vw, 899px" /></p>
+<h2>toggle</h2>
+<p><img loading="lazy" decoding="async" width="649" height="323" src="/wp-content/uploads/2018/05/word-image-3024.png" class="wp-image-3420" srcset="/wp-content/uploads/2018/05/word-image-3024.png 649w, /wp-content/uploads/2018/05/word-image-3024-300x149.png 300w" sizes="(max-width: 649px) 100vw, 649px" /></p>
+<h2>显示隐藏元素</h2>
+<ol>
+<li>
+  show(speed,[callback])	显示
+</li>
+<li>
+  hide(speed,[callback])	隐藏
+</li>
+<li>
+  toggle(speed,[callback])	交替，如果当前是隐藏的，就显示。如果当前是显示的就隐藏
+</li>
+</ol>
+<p>
+  方法的参数有:fast（200毫秒）   normal（400毫秒）    slow（600号码），也可以指定任意毫秒数
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  #first{
+</p>
+<p>
+  	width:300px;
+</p>
+<p>
+  	height:200px;
+</p>
+<p>
+  	background-color:#060;
+</p>
+<p>
+  	color:#FFF;
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+  	//显示
+</p>
+<p>
+      $(&#8216;:button:eq(0)&#8217;).click(function(e) {
+</p>
+<p>
+          //$(&#8216;#first&#8217;).show();
+</p>
+<p>
+  		$(&#8216;#first&#8217;).show(1000);
+</p>
+<p>
+      });
+</p>
+<p>
+  	//隐藏
+</p>
+<p>
+  	 $(&#8216;:button:eq(1)&#8217;).click(function(e) {
+</p>
+<p>
+          //$(&#8216;#first&#8217;).hide();
+</p>
+<p>
+  		//$(&#8216;#first&#8217;).hide(&#8216;slow&#8217;);
+</p>
+<p>
+  		//$(&#8216;#first&#8217;).hide(2000);
+</p>
+<p>
+  		$(&#8216;#first&#8217;).hide(&#8216;slow&#8217;,function(){
+</p>
+<p>
+  			$(&#8216;:button&#8217;).remove();
+</p>
+<p>
+  		})
+</p>
+<p>
+      });
+</p>
+<p>
+  	//交替
+</p>
+<p>
+  	$(&#8216;:button:eq(2)&#8217;).click(function(e) {
+</p>
+<p>
+          //$(&#8216;#first&#8217;).toggle();
+</p>
+<p>
+  		$(&#8216;#first&#8217;).toggle(600)
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;显示&#8221; /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;隐藏&#8221; /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;交替&#8221; /&gt;
+</p>
+<p>
+  &lt;div id=&#8221;first&#8221;&gt;
+</p>
+<p>
+      离离原上草，一岁一枯荣。&lt;br /&gt;
+</p>
+<p>
+      野火烧不尽，春风吹又生。&lt;br /&gt;
+</p>
+<p>
+      远芳侵古道，晴翠接荒城。&lt;br /&gt;
+</p>
+<p>
+      又送王孙去，萋萋满别情。&lt;br /&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<h2>向上向下</h2>
+<ol>
+<li>
+  slideUp(speed,[callback])：向上
+</li>
+<li>
+  slideDown(speed,[callback])：向下
+</li>
+<li>
+  slideToggle(speed,[callback])：交替向上向下
+</li>
+</ol>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+  	//向上
+</p>
+<p>
+      $(&#8216;:button:eq(0)&#8217;).click(function(e) {
+</p>
+<p>
+          //$(&#8216;#first&#8217;).slideUp();
+</p>
+<p>
+  		$(&#8216;#first&#8217;).slideUp(&#8216;slow&#8217;);
+</p>
+<p>
+      });
+</p>
+<p>
+  	//向下
+</p>
+<p>
+  	 $(&#8216;:button:eq(1)&#8217;).click(function(e) {
+</p>
+<p>
+          //$(&#8216;#first&#8217;).slideDown();
+</p>
+<p>
+  		//$(&#8216;#first&#8217;).slideDown(1000);
+</p>
+<p>
+  		$(&#8216;#first&#8217;).slideDown(1000,function(){
+</p>
+<p>
+  				alert(&#8216;执行完毕&#8217;)
+</p>
+<p>
+  			})
+</p>
+<p>
+      });
+</p>
+<p>
+  	//交替
+</p>
+<p>
+  	$(&#8216;:button:eq(2)&#8217;).click(function(e) {
+</p>
+<p>
+          $(&#8216;#first&#8217;).slideToggle();	//交替向上向下
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<h2>淡入淡出</h2>
+<ol>
+<li>
+  fadeIn(speed,[callback])
+</li>
+<li>
+  fadeOut(speed,[callback])
+</li>
+<li>
+  fadeToggle(speed,[callback])
+</li>
+<li>
+  fadeTo(speed,不透明度[0-1])
+</li>
+</ol>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+  	//淡入
+</p>
+<p>
+      $(&#8216;:button:eq(0)&#8217;).click(function(e) {
+</p>
+<p>
+          //$(&#8216;#first&#8217;).fadeIn();	//淡入
+</p>
+<p>
+  		$(&#8216;#first&#8217;).fadeIn(1000);
+</p>
+<p>
+      });
+</p>
+<p>
+  	//淡出
+</p>
+<p>
+  	 $(&#8216;:button:eq(1)&#8217;).click(function(e) {
+</p>
+<p>
+          //$(&#8216;#first&#8217;).fadeOut();	//淡出
+</p>
+<p>
+  		$(&#8216;#first&#8217;).fadeOut(1000);
+</p>
+<p>
+      });
+</p>
+<p>
+  	//交替
+</p>
+<p>
+  	$(&#8216;:button:eq(2)&#8217;).click(function(e) {
+</p>
+<p>
+          $(&#8216;#first&#8217;).fadeToggle(1000);
+</p>
+<p>
+      });
+</p>
+<p>
+  	//淡出到
+</p>
+<p>
+  	$(&#8216;:button:eq(3)&#8217;).click(function(e) {
+</p>
+<p>
+          $(&#8216;#first&#8217;).fadeTo(1000,0.3);	//淡出到0.3
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<h2>动画（animate）</h2>
+<p>
+  语法:animate(参数,运行时间)
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  #first{
+</p>
+<p>
+  	width:100px;
+</p>
+<p>
+  	height:100px;
+</p>
+<p>
+  	background-color:#060;
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;js/jquery-1.8.3.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script src=&#8221;/jquery-ui/ui/jquery.ui.effect.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+      $(&#8216;#first&#8217;).click(function(e) {
+</p>
+<p>
+          $(this)
+</p>
+<p>
+  		.animate({
+</p>
+<p>
+  			&#8216;width&#8217;:&#8217;50px&#8217;,
+</p>
+<p>
+  			&#8216;height&#8217;:&#8217;50px&#8217;
+</p>
+<p>
+  		},500)
+</p>
+<p>
+  		.animate({
+</p>
+<p>
+  			&#8216;width&#8217;:&#8217;150px&#8217;,
+</p>
+<p>
+  			&#8216;height&#8217;:&#8217;150px&#8217;
+</p>
+<p>
+  		},1000)
+</p>
+<p>
+  		.animate({
+</p>
+<p>
+  			&#8216;margin-left&#8217;:&#8217;300px&#8217;,
+</p>
+<p>
+  			&#8216;background-color&#8217;:&#8217;#FF0000&#8242;
+</p>
+<p>
+  		},1000)
+</p>
+<p>
+  		.animate({
+</p>
+<p>
+  			&#8216;margin-left&#8217;:&#8217;250px&#8217;,
+</p>
+<p>
+  		},50)
+</p>
+<p>
+  		.animate({
+</p>
+<p>
+  			&#8216;margin-left&#8217;:&#8217;300px&#8217;,
+</p>
+<p>
+  		},50)
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;div id=&#8221;first&#8221;&gt;&lt;/div&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="621" height="176" src="/wp-content/uploads/2018/05/word-image-3025.png" class="wp-image-3421" srcset="/wp-content/uploads/2018/05/word-image-3025.png 621w, /wp-content/uploads/2018/05/word-image-3025-300x85.png 300w" sizes="(max-width: 621px) 100vw, 621px" /></p>
+<h3>动画的例题</h3>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  *{
+</p>
+<p>
+  	margin:0px;
+</p>
+<p>
+  	padding:0px;
+</p>
+<p>
+  }
+</p>
+<p>
+  ul{
+</p>
+<p>
+  	list-style-type:none;
+</p>
+<p>
+  	width:702px;
+</p>
+<p>
+  	margin:100px auto;
+</p>
+<p>
+  }
+</p>
+<p>
+  li{
+</p>
+<p>
+  	width:232px;
+</p>
+<p>
+  	height:139px;
+</p>
+<p>
+  	float:left;
+</p>
+<p>
+  	border:#000 solid 1px;
+</p>
+<p>
+  	overflow:hidden;
+</p>
+<p>
+  	cursor:pointer;
+</p>
+<p>
+  }
+</p>
+<p>
+  li span{
+</p>
+<p>
+  	width:100%;
+</p>
+<p>
+  	height:30px;
+</p>
+<p>
+  	display:inline-block;
+</p>
+<p>
+  	background-color:rgba(0,0,0,0.3);
+</p>
+<p>
+  	position:relative;
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;js/jquery-1.8.3.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+      $(&#8216;li&#8217;).hover(function(){
+</p>
+<p>
+  		$(this).find(&#8216;span&#8217;).animate({&#8216;top&#8217;:&#8217;-30px&#8217;},500)
+</p>
+<p>
+  	},function(){
+</p>
+<p>
+  		$(this).find(&#8216;span&#8217;).animate({&#8216;top&#8217;:&#8217;0px&#8217;},500)
+</p>
+<p>
+  	})
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;ul&gt;
+</p>
+<p>
+    &lt;li&gt;&lt;img src=&#8221;images/01.jpg&#8221; width=&#8221;232&#8243; height=&#8221;139&#8243; /&gt;&lt;span&gt;我可以认识你吗&lt;/span&gt;&lt;/li&gt;
+</p>
+<p>
+    &lt;li&gt;&lt;img src=&#8221;images/02.jpg&#8221; width=&#8221;232&#8243; height=&#8221;139&#8243; /&gt;&lt;span&gt;其实我注意你好久了&lt;/span&gt;&lt;/li&gt;
+</p>
+<p>
+    &lt;li&gt;&lt;img src=&#8221;images/03.jpg&#8221; width=&#8221;232&#8243; height=&#8221;139&#8243; /&gt;&lt;span&gt;我喜欢你微笑的样子&lt;/span&gt;&lt;/li&gt;
+</p>
+<p>
+    &lt;li&gt;&lt;img src=&#8221;images/04.jpg&#8221; width=&#8221;232&#8243; height=&#8221;139&#8243; /&gt;&lt;/li&gt;
+</p>
+<p>
+    &lt;li&gt;&lt;img src=&#8221;images/05.jpg&#8221; width=&#8221;232&#8243; height=&#8221;139&#8243; /&gt;&lt;/li&gt;
+</p>
+<p>
+  &lt;/ul&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="862" height="188" src="/wp-content/uploads/2018/05/word-image-3026.png" class="wp-image-3422" srcset="/wp-content/uploads/2018/05/word-image-3026.png 862w, /wp-content/uploads/2018/05/word-image-3026-300x65.png 300w, /wp-content/uploads/2018/05/word-image-3026-768x167.png 768w" sizes="(max-width: 862px) 100vw, 862px" /></p>
+<h2>jQuery中的ajax</h2>
+<table>
+<tr>
+<td>
+<p>
+  getScript()，getJSON()
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  $.get()，$.post()，$.load()
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  $.ajax()
+</p>
+</td>
+</tr>
+</table>
+<p>
+  jQuery对ajax进行了封装
+</p>
+<h3>$.ajax()</h3>
+<p>
+  $.ajax()参数选项
+</p>
+<table>
+<tr>
+<td>
+<p>
+  url
+</p>
+</td>
+<td>
+<p>
+  请求的地址
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  type
+</p>
+</td>
+<td>
+<p>
+  请求的方式  get|post
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  data
+</p>
+</td>
+<td>
+<p>
+  请求的数据
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  dataType
+</p>
+</td>
+<td>
+<p>
+  返回的数据类型：
+</p>
+<p>
+  xml，html，script，json，jsonp，默认是text
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  success
+</p>
+</td>
+<td>
+<p>
+  function：当ajax执行成功后调用的函数
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  error
+</p>
+</td>
+<td>
+<p>
+  funtion：当ajax执行失败后调用的函数
+</p>
+</td>
+</tr>
+</table>
+<p>
+  例题
+</p>
+<p>
+  HTML页面
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+      $(&#8216;#username&#8217;).blur(function(e) {
+</p>
+<p>
+          $.ajax({
+</p>
+<p>
+  			&#8216;url&#8217;:&#8217;./15-demo.php&#8217;,
+</p>
+<p>
+  			&#8216;type&#8217;:&#8217;get&#8217;,
+</p>
+<p>
+  			&#8216;data&#8217;:&#8217;username=&#8217;+encodeURIComponent($(&#8216;#username&#8217;).val()),
+</p>
+<p>
+  			&#8216;dataType&#8217;:&#8217;text&#8217;,
+</p>
+<p>
+  			&#8216;success&#8217;:function(data){	//成功后执行
+</p>
+<p>
+  				alert(data)
+</p>
+<p>
+  			},
+</p>
+<p>
+  			&#8216;error&#8217;:function(){			//失败后执行
+</p>
+<p>
+  				alert(&#8216;请求失败&#8217;);
+</p>
+<p>
+  			}
+</p>
+<p>
+  		})
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;input type=&#8221;text&#8221; id=&#8221;username&#8221; /&gt;
+</p>
+<p>
+  PHP页面
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  echo $_GET[&#8216;username&#8217;];
+</p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="806" height="69" src="/wp-content/uploads/2018/05/word-image-3027.png" class="wp-image-3423" srcset="/wp-content/uploads/2018/05/word-image-3027.png 806w, /wp-content/uploads/2018/05/word-image-3027-300x26.png 300w, /wp-content/uploads/2018/05/word-image-3027-768x66.png 768w" sizes="(max-width: 806px) 100vw, 806px" /></p>
+<h3>$.get()和$.post()</h3>
+<p><img loading="lazy" decoding="async" width="838" height="340" src="/wp-content/uploads/2018/05/word-image-3028.png" class="wp-image-3424" srcset="/wp-content/uploads/2018/05/word-image-3028.png 838w, /wp-content/uploads/2018/05/word-image-3028-300x122.png 300w, /wp-content/uploads/2018/05/word-image-3028-768x312.png 768w" sizes="(max-width: 838px) 100vw, 838px" /></p>
+<h3>load()</h3>
+<p>
+  可以实现局部刷新
+</p>
+<p>
+  17-demo1.php
+</p>
+<p>
+  &lt;div id=&#8221;stu&#8221;&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+      $(&#8216;.pageno&#8217;).click(function(e) {
+</p>
+<p>
+  		var pageno=$(this).text();
+</p>
+<p>
+          //$(&#8216;#stu&#8217;).load(&#8217;17-demo2.php&#8217;,{&#8216;pageno&#8217;:pageno});		//post传递
+</p>
+<p>
+  		//$(&#8216;#stu&#8217;).load(&#8217;17-demo2.php?pageno=&#8217;+pageno);			//get传递
+</p>
+<p>
+  		$(&#8216;#stu&#8217;).load(&#8217;17-demo2.php?pageno=&#8217;+pageno,&#8221;,function(){
+</p>
+<p>
+  			alert(&#8216;加载完毕&#8217;);
+</p>
+<p>
+  		})
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	mysql_connect(&#8216;localhost&#8217;,&#8217;root&#8217;,&#8217;root&#8217;);
+</p>
+<p>
+  	mysql_query(&#8216;use `data`&#8217;);
+</p>
+<p>
+  	mysql_query(&#8216;set names utf8&#8217;);
+</p>
+<p>
+  	$rs=mysql_query(&#8216;select count(*) from stu&#8217;);
+</p>
+<p>
+  	$rows=mysql_fetch_row($rs);
+</p>
+<p>
+  	$pagecount=ceil($rows[0]/2);
+</p>
+<p>
+  	for($i=1;$i&lt;=$pagecount;$i++){
+</p>
+<p>
+  		echo &#8220;&lt;a href=&#8217;javascript:void(0)&#8217; class=&#8217;pageno&#8217;&gt;{$i}&lt;/a&gt;&amp;nbsp;&#8221;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  17-demo2.php
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  mysql_connect(&#8216;localhost&#8217;,&#8217;root&#8217;,&#8217;root&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;use `data`&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;set names utf8&#8217;);
+</p>
+<p>
+  $pageno=$_REQUEST[&#8216;pageno&#8217;];
+</p>
+<p>
+  $startno=($pageno-1)*2;
+</p>
+<p>
+  $sql=&#8221;select * from stu limit $startno,2&#8243;;
+</p>
+<p>
+  $rs=mysql_query($sql);
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;table&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+      	&lt;th&gt;编号&lt;/th&gt;
+</p>
+<p>
+          &lt;th&gt;姓名&lt;/th&gt;
+</p>
+<p>
+          &lt;th&gt;性别&lt;/th&gt;
+</p>
+<p>
+          &lt;th&gt;年龄&lt;/th&gt;
+</p>
+<p>
+          &lt;th&gt;地址&lt;/th&gt;
+</p>
+<p>
+          &lt;th&gt;语文&lt;/th&gt;
+</p>
+<p>
+          &lt;th&gt;数学&lt;/th&gt;
+</p>
+<p>
+      &lt;/tr&gt;
+</p>
+<p>
+      &lt;?php while($rows=mysql_fetch_assoc($rs)):?&gt;
+</p>
+<p>
+      &lt;tr&gt;
+</p>
+<p>
+      	&lt;td&gt;&lt;?php echo $rows[&#8216;stuNo&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+          &lt;td&gt;&lt;?php echo $rows[&#8216;stuName&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+          &lt;td&gt;&lt;?php echo $rows[&#8216;stuSex&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+          &lt;td&gt;&lt;?php echo $rows[&#8216;stuAge&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+          &lt;td&gt;&lt;?php echo $rows[&#8216;stuAddress&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+          &lt;td&gt;&lt;?php echo $rows[&#8216;ch&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+          &lt;td&gt;&lt;?php echo $rows[&#8216;math&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+      &lt;/tr&gt;
+</p>
+<p>
+      &lt;?php endwhile;?&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="387" height="146" src="/wp-content/uploads/2018/05/word-image-3029.png" class="wp-image-3426" srcset="/wp-content/uploads/2018/05/word-image-3029.png 387w, /wp-content/uploads/2018/05/word-image-3029-300x113.png 300w" sizes="(max-width: 387px) 100vw, 387px" /></p>
+<h3>$.getScript()</h3>
+<p>
+  用来加载脚本
+</p>
+<p>
+  写一个js脚本
+</p>
+<p><img loading="lazy" decoding="async" width="373" height="142" src="/wp-content/uploads/2018/05/word-image-3030.png" class="wp-image-3427" srcset="/wp-content/uploads/2018/05/word-image-3030.png 373w, /wp-content/uploads/2018/05/word-image-3030-300x114.png 300w" sizes="(max-width: 373px) 100vw, 373px" /></p>
+<p>
+  动态加载js
+</p>
+<p><img loading="lazy" decoding="async" width="1207" height="193" src="/wp-content/uploads/2018/05/word-image-3031.png" class="wp-image-3428" srcset="/wp-content/uploads/2018/05/word-image-3031.png 1207w, /wp-content/uploads/2018/05/word-image-3031-300x48.png 300w, /wp-content/uploads/2018/05/word-image-3031-768x123.png 768w, /wp-content/uploads/2018/05/word-image-3031-1024x164.png 1024w" sizes="(max-width: 1207px) 100vw, 1207px" /></p>
+<h3>$.getJSON()</h3>
+<p>
+  获取JSON格式的数据
+</p>
+<ol>
+<li>
+  新建PHP页面
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  $stu=array(&#8216;tom&#8217;,&#8217;berry&#8217;,&#8217;ketty&#8217;);
+</p>
+<p>
+  echo json_encode($stu);
+</p>
+<ol>
+<li>
+  新建HTML页面
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="859" height="342" src="/wp-content/uploads/2018/05/word-image-3032.png" class="wp-image-3429" srcset="/wp-content/uploads/2018/05/word-image-3032.png 859w, /wp-content/uploads/2018/05/word-image-3032-300x119.png 300w, /wp-content/uploads/2018/05/word-image-3032-768x306.png 768w" sizes="(max-width: 859px) 100vw, 859px" /></p>
+<h3>$.get()和$.getJSON()可以跨域</h3>
+<p>
+  注意：$.post()不能跨域
+</p>
+<ol>
+<li>
+  在phpmyadmin.com中创建PHP页面
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="345" height="66" src="/wp-content/uploads/2018/05/word-image-3033.png" class="wp-image-3430" srcset="/wp-content/uploads/2018/05/word-image-3033.png 345w, /wp-content/uploads/2018/05/word-image-3033-300x57.png 300w" sizes="(max-width: 345px) 100vw, 345px" /></p>
+<ol>
+<li>
+  在<a href="http://www.php.com/">www.php.com</a>中创建HTML页面，跨域请求
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1155" height="364" src="/wp-content/uploads/2018/05/word-image-3034.png" class="wp-image-3431" srcset="/wp-content/uploads/2018/05/word-image-3034.png 1155w, /wp-content/uploads/2018/05/word-image-3034-300x95.png 300w, /wp-content/uploads/2018/05/word-image-3034-768x242.png 768w, /wp-content/uploads/2018/05/word-image-3034-1024x323.png 1024w" sizes="(max-width: 1155px) 100vw, 1155px" /></p>
+<h3>服务器返回XML格式</h3>
+<ol>
+<li>
+  将预先准备好的XML拷贝的到站点下
+</li>
+<li>
+  HTML页面代码如下
+</li>
+</ol>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+  	var xml;	//保存XML对象
+</p>
+<p>
+  	//加载国家
+</p>
+<p>
+      $.get(&#8216;./location.xml&#8217;,function(data){
+</p>
+<p>
+  		xml=$(data);
+</p>
+<p>
+  		xml.find(&#8216;country&#8217;).each(function(index, element) {
+</p>
+<p>
+              $(&#8216;&lt;option&gt;&#8217;).text($(this).attr(&#8216;name&#8217;)).val($(this).attr(&#8216;id&#8217;)).appendTo($(&#8216;#country&#8217;));
+</p>
+<p>
+          });
+</p>
+<p>
+  	},&#8217;xml&#8217;);
+</p>
+<p>
+  	//加载省
+</p>
+<p>
+  	$(&#8216;#country&#8217;).change(function(e) {
+</p>
+<p>
+  		$(&#8216;#province&#8217;).html(&#8216;&lt;option value=&#8221;&#8221;&gt;&#8212;请选择&#8212;&lt;/option&gt;&#8217;);
+</p>
+<p>
+          var id=$(this).val();
+</p>
+<p>
+  		xml.find(&#8220;[id=&#8221;+id+&#8221;]&#8221;).children().each(function(index, element) {
+</p>
+<p>
+              $(&#8216;&lt;option&gt;&#8217;).text($(this).attr(&#8216;name&#8217;)).val($(this).attr(&#8216;id&#8217;)).appendTo($(&#8216;#province&#8217;));
+</p>
+<p>
+          });
+</p>
+<p>
+      });
+</p>
+<p>
+  	//加载市
+</p>
+<p>
+  	$(&#8216;#province&#8217;).change(function(e) {
+</p>
+<p>
+          $(&#8216;#city&#8217;).html(&#8216;&lt;option value=&#8221;&#8221;&gt;&#8212;请选择&#8212;&lt;/option&gt;&#8217;);
+</p>
+<p>
+  		 var id=$(this).val();
+</p>
+<p>
+  		xml.find(&#8220;[id=&#8221;+id+&#8221;]&#8221;).children().each(function(index, element) {
+</p>
+<p>
+              $(&#8216;&lt;option&gt;&#8217;).text($(this).attr(&#8216;name&#8217;)).val($(this).attr(&#8216;id&#8217;)).appendTo($(&#8216;#city&#8217;));
+</p>
+<p>
+          });
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  国家：&lt;select id=&#8221;country&#8221;&gt;&lt;option value=&#8221;&#8221;&gt;&#8212;请选择&#8212;&lt;/option&gt;&lt;/select&gt;
+</p>
+<p>
+  省：&lt;select id=&#8221;province&#8221;&gt;&lt;option value=&#8221;&#8221;&gt;&#8212;请选择&#8212;&lt;/option&gt;&lt;/select&gt;
+</p>
+<p>
+  市：&lt;select id=&#8221;city&#8221;&gt;&lt;option value=&#8221;&#8221;&gt;&#8212;请选择&#8212;&lt;/option&gt;&lt;/select&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="493" height="114" src="/wp-content/uploads/2018/05/word-image-3035.png" class="wp-image-3432" srcset="/wp-content/uploads/2018/05/word-image-3035.png 493w, /wp-content/uploads/2018/05/word-image-3035-300x69.png 300w" sizes="(max-width: 493px) 100vw, 493px" /></p>
+<p>
+  多学一招：实现省、市、县三级可以将数据保存在数据库，XML，JS数组/JSON。建议不要将数据放在数据库中。可以放在XML和JS中
+</p>
+<h2>扩展jQuery插件</h2>
+<p>
+  JQuery中方法有两种，一种是JQuery对象的方法，另一种是jQuery元素的方法。扩展插件就分为这两种方式来定义。
+</p>
+<p>
+  1、扩展JQuery对象的方法
+</p>
+<p>
+  语法：
+</p>
+<p>
+  $.方法名=function(){
+</p>
+<p>
+  }
+</p>
+<p>
+  2、扩展jQuery元素的方法
+</p>
+<p>
+  $.fn.方法名=function(){
+</p>
+<p>
+  }
+</p>
+<p>
+  练习
+</p>
+<p><img loading="lazy" decoding="async" width="978" height="418" src="/wp-content/uploads/2018/05/word-image-3036.png" class="wp-image-3433" srcset="/wp-content/uploads/2018/05/word-image-3036.png 978w, /wp-content/uploads/2018/05/word-image-3036-300x128.png 300w, /wp-content/uploads/2018/05/word-image-3036-768x328.png 768w" sizes="(max-width: 978px) 100vw, 978px" /></p>
+<h2>例题：编辑表格内容</h2>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  table,td,th{
+</p>
+<p>
+  	border:#000 solid 1px;
+</p>
+<p>
+  	border-collapse:collapse;
+</p>
+<p>
+  	margin:auto;
+</p>
+<p>
+  	font-size:16px;
+</p>
+<p>
+  	background-color:#F96
+</p>
+<p>
+  }
+</p>
+<p>
+  tr{
+</p>
+<p>
+  	height:25px;
+</p>
+<p>
+  }
+</p>
+<p>
+  th{
+</p>
+<p>
+  	background-color:#09F;
+</p>
+<p>
+  	width:50%;
+</p>
+<p>
+  }
+</p>
+<p>
+  input{
+</p>
+<p>
+  	border:none;
+</p>
+<p>
+  	background-color:transparent;
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;js/jquery-1.8.3.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+  	//添加文件框
+</p>
+<p>
+      $(&#8216;td&#8217;).click(function(e) {
+</p>
+<p>
+  		var value=$(this).html();	//单元格的数据
+</p>
+<p>
+  		if($(this).find(&#8216;input&#8217;).length==0){
+</p>
+<p>
+  			$(this).html(&#8221;);			//清空td
+</p>
+<p>
+  			$(&#8216;&lt;input&gt;&#8217;).attr(&#8216;type&#8217;,&#8217;text&#8217;).val(value).appendTo($(this)).trigger(&#8216;focus&#8217;).trigger(&#8216;select&#8217;)
+</p>
+<p>
+  		}
+</p>
+<p>
+      });
+</p>
+<p>
+  	//修改值
+</p>
+<p>
+  	$(document).keyup(function(e) {
+</p>
+<p>
+          if(e.keyCode==13){
+</p>
+<p>
+  			var src=$(e.target || e.srcElement);	//获取事件发生时候当前的对象
+</p>
+<p>
+  			if(src.is(&#8216;input&#8217;)){
+</p>
+<p>
+  				var value=src.val();
+</p>
+<p>
+  				src.parent().html(value);	//将值放到td中
+</p>
+<p>
+  			}
+</p>
+<p>
+  		}
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;table width=&#8221;400&#8243; cellpadding=&#8221;0&#8243; cellspacing=&#8221;0&#8243;&gt;
+</p>
+<p>
+  &lt;tr&gt;
+</p>
+<p>
+  	&lt;th&gt;学号&lt;/th&gt;
+</p>
+<p>
+      &lt;th&gt;姓名&lt;/th&gt;
+</p>
+<p>
+  &lt;/tr&gt;
+</p>
+<p>
+  &lt;tr&gt;
+</p>
+<p>
+  	&lt;td&gt;001&lt;/td&gt;
+</p>
+<p>
+      &lt;td&gt;张三&lt;/td&gt;
+</p>
+<p>
+  &lt;/tr&gt;
+</p>
+<p>
+  &lt;tr&gt;
+</p>
+<p>
+  	&lt;td&gt;002&lt;/td&gt;
+</p>
+<p>
+      &lt;td&gt;李四&lt;/td&gt;
+</p>
+<p>
+  &lt;/tr&gt;
+</p>
+<p>
+  &lt;tr&gt;
+</p>
+<p>
+  	&lt;td&gt;003&lt;/td&gt;
+</p>
+<p>
+      &lt;td&gt;王五&lt;/td&gt;
+</p>
+<p>
+  &lt;/tr&gt;
+</p>
+<p>
+  &lt;tr&gt;
+</p>
+<p>
+  	&lt;td&gt;004&lt;/td&gt;
+</p>
+<p>
+      &lt;td&gt;赵六&lt;/td&gt;
+</p>
+<p>
+  &lt;/tr&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="549" height="152" src="/wp-content/uploads/2018/05/word-image-3037.png" class="wp-image-3434" srcset="/wp-content/uploads/2018/05/word-image-3037.png 549w, /wp-content/uploads/2018/05/word-image-3037-300x83.png 300w" sizes="(max-width: 549px) 100vw, 549px" /></p>
+<h2>例题：导航栏</h2>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  *{
+</p>
+<p>
+  	font-size:12px;
+</p>
+<p>
+  	margin:0px;
+</p>
+<p>
+  	padding:0px;
+</p>
+<p>
+  }
+</p>
+<p>
+  #daohang{
+</p>
+<p>
+  	width:300px;
+</p>
+<p>
+  	margin:50px 0px 0px 200px;
+</p>
+<p>
+  }
+</p>
+<p>
+  #daohang ul{
+</p>
+<p>
+  	list-style-type:none;
+</p>
+<p>
+  	width:100px;
+</p>
+<p>
+  }
+</p>
+<p>
+  #daohang .main{
+</p>
+<p>
+  	background:url(images24/title.gif) repeat-x;
+</p>
+<p>
+  }
+</p>
+<p>
+  #daohang .main a{
+</p>
+<p>
+  	text-decoration:none;
+</p>
+<p>
+  }
+</p>
+<p>
+  #daohang .main ul{
+</p>
+<p>
+  	display:none;
+</p>
+<p>
+  	background:#FC9;
+</p>
+<p>
+  }
+</p>
+<p>
+  #daohang .main ul li{
+</p>
+<p>
+  	height:25px;
+</p>
+<p>
+  	line-height:25px;
+</p>
+<p>
+  }
+</p>
+<p>
+  #daohang .main&gt;span{
+</p>
+<p>
+  	display:block;
+</p>
+<p>
+  	height:25px;
+</p>
+<p>
+  	line-height:25px;
+</p>
+<p>
+  	background:url(images24/collapsed.gif) no-repeat 5px center;
+</p>
+<p>
+  	font-size:14px;
+</p>
+<p>
+  	padding-left:20px;
+</p>
+<p>
+  	color:#FFF;
+</p>
+<p>
+  	cursor:pointer;
+</p>
+<p>
+  }
+</p>
+<p>
+  #daohang .main .bg{
+</p>
+<p>
+  	background-image:url(images24/expanded.gif);
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;js/jquery-1.8.3.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+      $(&#8216;.main&gt;span&#8217;).click(function(e) {
+</p>
+<p>
+          $(this).toggleClass(&#8216;bg&#8217;).next().slideToggle(&#8216;slow&#8217;);
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;div id=&#8221;daohang&#8221;&gt;
+</p>
+<p>
+  &lt;ul&gt;
+</p>
+<p>
+  	&lt;li class=&#8221;main&#8221;&gt;
+</p>
+<p>
+  		&lt;span&gt;菜单项1&lt;/span&gt;
+</p>
+<p>
+  		&lt;ul&gt;
+</p>
+<p>
+  			&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;子菜单项11&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  			&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;子菜单项12&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  		&lt;/ul&gt;
+</p>
+<p>
+  	&lt;/li&gt;
+</p>
+<p>
+  	&lt;li class=&#8221;main&#8221;&gt;
+</p>
+<p>
+  		&lt;span&gt;菜单项2&lt;/span&gt;
+</p>
+<p>
+  		&lt;ul&gt;
+</p>
+<p>
+  			&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;子菜单项21&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  			&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;子菜单项22&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  		&lt;/ul&gt;
+</p>
+<p>
+  	&lt;/li&gt;
+</p>
+<p>
+  	&lt;li class=&#8221;main&#8221;&gt;
+</p>
+<p>
+  		&lt;span&gt;菜单项3&lt;/span&gt;
+</p>
+<p>
+  		&lt;ul&gt;
+</p>
+<p>
+  			&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;子菜单项31&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  			&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;子菜单项32&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  		&lt;/ul&gt;
+</p>
+<p>
+  	&lt;/li&gt;
+</p>
+<p>
+  &lt;/ul&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="203" height="150" src="/wp-content/uploads/2018/05/word-image-3038.png" class="wp-image-3435" /></p>
+<h2>例题：弹出对话框</h2>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  .win{
+</p>
+<p>
+  	width:250px;
+</p>
+<p>
+  	background-color:#D0DEF0;
+</p>
+<p>
+  	padding:2px;
+</p>
+<p>
+  	position:absolute;
+</p>
+<p>
+  	display:none;
+</p>
+<p>
+  }
+</p>
+<p>
+  .win #title{
+</p>
+<p>
+  	padding:4px;
+</p>
+<p>
+  	font-size:16px;
+</p>
+<p>
+  }
+</p>
+<p>
+  .win #title img{
+</p>
+<p>
+  	float:right;
+</p>
+<p>
+  	cursor:pointer;
+</p>
+<p>
+  }
+</p>
+<p>
+  .win #content{
+</p>
+<p>
+  	height:150px;
+</p>
+<p>
+  	background-color:#FFF;
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;js/jquery-1.8.3.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  //定义窗口
+</p>
+<p>
+  $.win=function(){
+</p>
+<p>
+  	//定位窗口
+</p>
+<p>
+  	var left=parseInt(($(window).width()-$(&#8216;#win&#8217;).width())/2+$(window).scrollLeft());
+</p>
+<p>
+  	var top=parseInt(($(window).height()-$(&#8216;#win&#8217;).height())/2+$(window).scrollTop());
+</p>
+<p>
+  	$(&#8216;#win&#8217;).css({&#8216;left&#8217;:left,&#8217;top&#8217;:top})
+</p>
+<p>
+  	//给关闭按钮添加事件
+</p>
+<p>
+  	$(&#8216;#title&#8217;).children(&#8216;img&#8217;).click(function(e) {
+</p>
+<p>
+          $(&#8216;#win&#8217;).hide();
+</p>
+<p>
+      });
+</p>
+<p>
+  	return $(&#8216;#win&#8217;);
+</p>
+<p>
+  }
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+      $(&#8216;.buy&#8217;).click(function(e) {
+</p>
+<p>
+  		$.win().show();
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;div class=&#8221;win&#8221; id=&#8221;win&#8221;&gt;
+</p>
+<p>
+    &lt;div id=&#8221;title&#8221;&gt;&lt;img src=&#8221;images25/close.gif&#8221; alt=&#8221;关闭&#8221; width=&#8221;15&#8243; height=&#8221;15&#8243; /&gt;购物车&lt;/div&gt;
+</p>
+<p>
+      &lt;div id=&#8221;content&#8221;&gt;
+</p>
+</p>
+<p>
+      &lt;/div&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;放入购物车&#8221; class=&#8221;buy&#8221; style=&#8221;margin:auto; display:block&#8221; /&gt;
+</p>
+<p>
+  &lt;div style=&#8221;height:1000px; width:2000px;&#8221;&gt;&lt;/div&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;放入购物车&#8221; class=&#8221;buy&#8221; style=&#8221;margin:auto; display:block&#8221; /&gt;
+</p>
+<p>
+  scrollLeft()：水平滚动条距左的位置
+</p>
+<p>
+  scrollTop()：垂直滚动条距上的位置
+</p>
+<ol>
+<li>
+  能够使用bind()方法绑定事件
+</li>
+<li>
+  能够熟练使用jQuery的常规事件绑定语法
+</li>
+<li>
+  能够使用事件切换方法hover(),toggle()
+</li>
+<li>
+  能够使用jQuery的基本特效方法 show(),hide(),toggle()
+</li>
+<li>
+  能够使用jQuery的滑动特效方法 slideDown(),slideUp(),slideToggle()
+</li>
+<li>
+  能够使用jQuery的淡入淡出特效方法
+</li>
+<li>
+  能够理解jQuery中插件的作用
+</li>
+<li>
+  能够制作自定义插件
+</li>
+<li>
+  能够使用jQuery实现ajax的get请求
+</li>
+<li>
+  能够使用jQuery实现ajax的post请求
+</li>
+</ol>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3411.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

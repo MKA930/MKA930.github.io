@@ -1,0 +1,1193 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>学生列表） &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%AD%A6%E7%94%9F%E5%88%97%E8%A1%A8%EF%BC%89/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 16:09:30 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>学生列表） &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Laravel框架（三）Composer、数据迁移、学生管理小项目（登录模块、学生列表）</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6119.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6119.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 16:09:30 +0000</pubDate>
+				<category><![CDATA[Laravel]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[Composer]]></category>
+		<category><![CDATA[学生列表）]]></category>
+		<category><![CDATA[学生管理小项目（登录模块]]></category>
+		<category><![CDATA[数据迁移]]></category>
+		<guid isPermaLink="false">/?p=6119</guid>
+
+					<description><![CDATA[Laravel框架第3天 一、学习Composer 1、了解Composer 1）什么是Composer Co [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1><a id="post-6119-_Toc487903166"></a>Laravel框架第3天</h1>
+<h1>一、学习Composer</h1>
+<h2>1、了解Composer</h2>
+<h3>1）什么是Composer</h3>
+<p><img fetchpriority="high" decoding="async" width="233" height="272" src="/wp-content/uploads/2018/05/word-image-5568.png" class="wp-image-6120" /></p>
+<p>
+  Composer是 PHP 用来管理依赖（dependency）关系的工具。你可以在自己的项目中声明所依赖的外部工具库（libraries），Composer 会帮你安装这些依赖的库文件。
+</p>
+<h3>2）理解</h3>
+<ul>
+<li>
+    如果PHP是win操作系统，composer就是杀毒软件的软件管家
+  </li>
+<li>
+    如果PHP是Linux操作系统，composer就是yum
+  </li>
+</ul>
+<p>
+  之前：项目中需要发送邮件、验证码等功能必须自己去网上下载整合到项目中
+</p>
+<p>
+  现在：通过composer命令安装自动整合到项目中
+</p>
+<h3>3）总结</h3>
+<p>
+  Composer是为PHP准备的软件管家，项目所需工具库都可以通过Composer下载
+</p>
+<h2>下载Composer</h2>
+<h3>❉ 官网</h3>
+<ul>
+<li>
+    官方网站：<a href="https://getcomposer.org/">https://getcomposer.org/</a>    		（安装下载composer用）
+  </li>
+<li>
+    中文网站：<a href="http://www.phpcomposer.com/">http://www.phpcomposer.com/</a> （学习，切换镜像）
+  </li>
+<li>
+    仓库地址：<a href="https://packagist.org/">https://packagist.org/</a> 			（存放组件的仓库，需翻墙）
+  </li>
+</ul>
+<h3>※ 方法1：说明，下载并安装（不推荐）</h3>
+<ul>
+<li>
+    下载composer-setup.exe文件安装
+  </li>
+<li>
+    好处：傻瓜式、安装简单
+  </li>
+<li>
+    坏处：容易报错、仅win操作系统使用
+  </li>
+</ul>
+<p><strong>步骤1：下载</strong>
+</p>
+<p><img decoding="async" width="568" height="380" src="/wp-content/uploads/2018/05/word-image-5569.png" class="wp-image-6121" srcset="/wp-content/uploads/2018/05/word-image-5569.png 568w, /wp-content/uploads/2018/05/word-image-5569-300x201.png 300w" sizes="(max-width: 568px) 100vw, 568px" /></p>
+<p><strong>步骤2：双击</strong>
+</p>
+<p><img decoding="async" width="425" height="144" src="/wp-content/uploads/2018/05/word-image-5570.png" class="wp-image-6122" srcset="/wp-content/uploads/2018/05/word-image-5570.png 425w, /wp-content/uploads/2018/05/word-image-5570-300x102.png 300w" sizes="(max-width: 425px) 100vw, 425px" /></p>
+<p><strong>步骤3：安装（注：除下图选择php.exe其余直接下一步next）:</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="553" height="271" src="/wp-content/uploads/2018/05/word-image-5571.png" class="wp-image-6123" srcset="/wp-content/uploads/2018/05/word-image-5571.png 553w, /wp-content/uploads/2018/05/word-image-5571-300x147.png 300w" sizes="(max-width: 553px) 100vw, 553px" /></p>
+<p><strong>步骤4：检查是否安装成功（在DOS窗口输入 composer出现下图字样则安装成功）</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="647" height="318" src="/wp-content/uploads/2018/05/word-image-5572.png" class="wp-image-6124" srcset="/wp-content/uploads/2018/05/word-image-5572.png 647w, /wp-content/uploads/2018/05/word-image-5572-300x147.png 300w" sizes="(max-width: 647px) 100vw, 647px" /></p>
+<h3>※ 方法2：说明，下载并安装（推荐使用）</h3>
+<ul>
+<li>
+    下载composer.phar文件安装
+  </li>
+<li>
+    好处：跨平台
+  </li>
+<li>
+    坏处：渣渣上手难
+  </li>
+</ul>
+<p><strong>步骤1：下载（打开网页，拖拽到底部）</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="678" height="313" src="/wp-content/uploads/2018/05/word-image-5573.png" class="wp-image-6125" srcset="/wp-content/uploads/2018/05/word-image-5573.png 678w, /wp-content/uploads/2018/05/word-image-5573-300x138.png 300w" sizes="(max-width: 678px) 100vw, 678px" /></p>
+<p><strong>步骤2：该文件免安装所以可以直接使用</strong>
+</p>
+<p><strong>步骤2：检查是否安装成功（在DOS窗口输入 composer出现下图字样则安装成功）</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="806" height="318" src="/wp-content/uploads/2018/05/word-image-5574.png" class="wp-image-6126" srcset="/wp-content/uploads/2018/05/word-image-5574.png 806w, /wp-content/uploads/2018/05/word-image-5574-300x118.png 300w, /wp-content/uploads/2018/05/word-image-5574-768x303.png 768w" sizes="(max-width: 806px) 100vw, 806px" /></p>
+<h2>语法</h2>
+<p><a href="http://docs.phpcomposer.com/03-cli.html">http://docs.phpcomposer.com/03-cli.html</a>
+</p>
+<p>
+  composer install 			#第一次从远处仓库拉去php包的时候执行
+</p>
+<p>
+  composer update 			#修改本地的composer.json后执行（安装，更新）
+</p>
+<p>
+  composer require  			#包含/下载一个php包到vendor目录中
+</p>
+<p>
+  composer init 				#创建一个composer.json文件（不推荐，自己手动创建即可）
+</p>
+<p>
+  composer about 				#查看composer的信息
+</p>
+<p>
+  composer self-update			#composer自己更新
+</p>
+<p>
+  composer list				#查看帮助
+</p>
+<h2>︴简化Composer命令</h2>
+<ul>
+<li>
+    复杂：php composer.phar 指令
+  </li>
+<li>
+    简化：composer 指令
+  </li>
+</ul>
+<p>
+  说明：后期大量使用composer命令，语法：【php composer.phar 指令】
+</p>
+<p>
+  发现：每次重复敲【php composer.phar】太长
+</p>
+<p>
+  解决：
+</p>
+<p>
+  步骤1：将composer.phar放到www目录中
+</p>
+<p>
+  步骤2：打开DOS窗口输入DOS命令<strong>echo @php &#8220;%~dp0composer.phar&#8221; %*&gt;composer.bat</strong>（注：执行命令后会自动创建.bat文件）
+</p>
+<p><img loading="lazy" decoding="async" width="722" height="190" src="/wp-content/uploads/2018/05/word-image-5575.png" class="wp-image-6127" srcset="/wp-content/uploads/2018/05/word-image-5575.png 722w, /wp-content/uploads/2018/05/word-image-5575-300x79.png 300w" sizes="(max-width: 722px) 100vw, 722px" /></p>
+<p>
+  步骤3：将composer.bat将去环境变量
+</p>
+<p><img loading="lazy" decoding="async" width="1248" height="717" src="/wp-content/uploads/2018/05/word-image-5576.png" class="wp-image-6128" srcset="/wp-content/uploads/2018/05/word-image-5576.png 1248w, /wp-content/uploads/2018/05/word-image-5576-300x172.png 300w, /wp-content/uploads/2018/05/word-image-5576-768x441.png 768w, /wp-content/uploads/2018/05/word-image-5576-1024x588.png 1024w" sizes="(max-width: 1248px) 100vw, 1248px" /></p>
+<p>
+  步骤4：验证
+</p>
+<p><img loading="lazy" decoding="async" width="464" height="255" src="/wp-content/uploads/2018/05/word-image-5577.png" class="wp-image-6129" srcset="/wp-content/uploads/2018/05/word-image-5577.png 464w, /wp-content/uploads/2018/05/word-image-5577-300x165.png 300w" sizes="(max-width: 464px) 100vw, 464px" /></p>
+<h2>4、Composer下载软件包流程</h2>
+<p><img loading="lazy" decoding="async" width="641" height="77" src="/wp-content/uploads/2018/05/word-image-5578.png" class="wp-image-6130" srcset="/wp-content/uploads/2018/05/word-image-5578.png 641w, /wp-content/uploads/2018/05/word-image-5578-300x36.png 300w" sizes="(max-width: 641px) 100vw, 641px" /></p>
+<h1>二、数据迁移</h1>
+<h2>1、概念</h2>
+<p>
+  数据迁移就是使用PHP管理数据库
+</p>
+<h2>传统数据管理和数据迁移区别</h2>
+<p><img loading="lazy" decoding="async" width="700" height="401" src="/wp-content/uploads/2018/05/word-image-5579.png" class="wp-image-6131" srcset="/wp-content/uploads/2018/05/word-image-5579.png 700w, /wp-content/uploads/2018/05/word-image-5579-300x172.png 300w" sizes="(max-width: 700px) 100vw, 700px" /></p>
+<h2>语法</h2>
+<h3>︴手册</h3>
+<p><a href="http://laravelacademy.org/post/6964.html">http://laravelacademy.org/post/6964.html</a>
+</p>
+</p>
+<h3>调用方法声明创建字段</h3>
+<ul>
+<li>
+    php artisan make:migration 数据迁移名称
+  </li>
+<li>
+    php artisan make:migration create_表名_table  &#8211;create=表名	 （创建表）
+  </li>
+<li>
+    php artisan make:migration update_表名_table  &#8211;table=表名  （修改表）
+  </li>
+</ul>
+<p>
+  问：三个语法区别
+</p>
+<p>
+  答：相对而言语法2语法3比语法1多了一些数据，便于创建和修改表
+</p>
+<h3>2）运行/撤销迁移</h3>
+<ul>
+<li>
+    运行：php  artisan  migrate
+  </li>
+<li>
+    撤销：php  artisan  migrate:rollback
+  </li>
+</ul>
+<h2>︴初体验（创建表、修改表）</h2>
+<ul>
+<li>
+    需求：创建表a（字段：id，uname）
+  </li>
+</ul>
+<p>
+  步骤1：创建数据迁移文件（也就是创建一个php文件 管理生成a表）
+</p>
+<p><img loading="lazy" decoding="async" width="1092" height="447" src="/wp-content/uploads/2018/05/word-image-5581.png" class="wp-image-6133" srcset="/wp-content/uploads/2018/05/word-image-5581.png 1092w, /wp-content/uploads/2018/05/word-image-5581-300x123.png 300w, /wp-content/uploads/2018/05/word-image-5581-768x314.png 768w, /wp-content/uploads/2018/05/word-image-5581-1024x419.png 1024w" sizes="(max-width: 1092px) 100vw, 1092px" /></p>
+<p>
+  public function up()
+</p>
+<p>
+  {
+</p>
+<p>
+      Schema::create(&#8216;a&#8217;, function (Blueprint $table) {
+</p>
+<p>
+          $table-&gt;increments(&#8216;id&#8217;);
+</p>
+<p>
+          $table-&gt;string(&#8216;name&#8217;, 30);
+</p>
+<p>
+      });
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="1193" height="570" src="/wp-content/uploads/2018/05/word-image-5582.png" class="wp-image-6134" srcset="/wp-content/uploads/2018/05/word-image-5582.png 1193w, /wp-content/uploads/2018/05/word-image-5582-300x143.png 300w, /wp-content/uploads/2018/05/word-image-5582-768x367.png 768w, /wp-content/uploads/2018/05/word-image-5582-1024x489.png 1024w" sizes="(max-width: 1193px) 100vw, 1193px" /></p>
+<ul>
+<li>
+    需求：修改表a（name改成varchar类型长度为1、增加一个创建于created_at字段）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1177" height="596" src="/wp-content/uploads/2018/05/word-image-5583.png" class="wp-image-6135" srcset="/wp-content/uploads/2018/05/word-image-5583.png 1177w, /wp-content/uploads/2018/05/word-image-5583-300x152.png 300w, /wp-content/uploads/2018/05/word-image-5583-768x389.png 768w, /wp-content/uploads/2018/05/word-image-5583-1024x519.png 1024w" sizes="(max-width: 1177px) 100vw, 1177px" /></p>
+<p>
+  public function up()
+</p>
+<p>
+  {
+</p>
+<p>
+      Schema::table(&#8216;a&#8217;, function (Blueprint $table) {
+</p>
+<p>
+          //改已存在的字段类型
+</p>
+<p>
+          $table-&gt;string(&#8216;name&#8217;, 4)-&gt;change();
+</p>
+<p>
+          //新增
+</p>
+<p>
+          $table-&gt;integer(&#8216;created_at&#8217;);
+</p>
+<p>
+      });
+</p>
+<p>
+  }
+</p>
+<h2>︴练习1：通过数据迁移创建下属表</h2>
+<h3>1）原声SQL</h3>
+<p>
+  create table day3_t2 (
+</p>
+<p>
+  id int primary key auto_increment comment &#8216;编号&#8217;,
+</p>
+<p>
+  uname varchar(30) not null comment &#8216;用户名&#8217;,
+</p>
+<p>
+  pwd char(32) not null comment &#8216;密码&#8217;,
+</p>
+<p>
+  content text not null comment &#8216;内容&#8217;,
+</p>
+<p>
+  created_at int not null default 0 comment &#8216;创建于&#8217;,
+</p>
+<p>
+  updated_at int not null default 0 comment &#8216;更新于&#8217;
+</p>
+<p>
+  )engine=myisam charset=utf8;
+</p>
+<h3>数据迁移</h3>
+<p>
+  步骤1：创建迁移文件（php artisan make:migration create_day3_t2_table &#8211;create=day3_t2）
+</p>
+<p>
+  步骤2：编写迁移代码
+</p>
+<p><img loading="lazy" decoding="async" width="1124" height="643" src="/wp-content/uploads/2018/05/word-image-5584.png" class="wp-image-6136" srcset="/wp-content/uploads/2018/05/word-image-5584.png 1124w, /wp-content/uploads/2018/05/word-image-5584-300x172.png 300w, /wp-content/uploads/2018/05/word-image-5584-768x439.png 768w, /wp-content/uploads/2018/05/word-image-5584-1024x586.png 1024w" sizes="(max-width: 1124px) 100vw, 1124px" /></p>
+<p>
+  public function up()
+</p>
+<p>
+  {
+</p>
+<p>
+      Schema::create(&#8216;day3_t2&#8217;, function (Blueprint $table) {
+</p>
+<p>
+  //            create table day3_t2 (
+</p>
+<p>
+  //            id int primary key auto_increment comment &#8216;编号&#8217;,
+</p>
+<p>
+  //            uname varchar(30) not null comment &#8216;用户名&#8217;,
+</p>
+<p>
+  //            pwd char(32) not null comment &#8216;密码&#8217;,
+</p>
+<p>
+  //            content text not null comment &#8216;内容&#8217;,
+</p>
+<p>
+  //            created_at int not null default 0 comment &#8216;创建于&#8217;,
+</p>
+<p>
+  //            updated_at int not null default 0 comment &#8216;更新于&#8217;
+</p>
+<p>
+  //            )engine=myisam charset=utf8;
+</p>
+<p>
+          //编码已数据库配置文件为主
+</p>
+<p>
+          $table-&gt;engine = &#8216;myisam&#8217;;
+</p>
+<p>
+          $table-&gt;increments(&#8216;id&#8217;)-&gt;comment(&#8216;编号&#8217;);
+</p>
+<p>
+          $table-&gt;string(&#8216;uname&#8217;, 30)-&gt;comment(&#8216;用户名&#8217;);
+</p>
+<p>
+          $table-&gt;char(&#8216;pwd&#8217;, 32)-&gt;comment(&#8216;密码&#8217;);
+</p>
+<p>
+          $table-&gt;text(&#8216;content&#8217;)-&gt;comment(&#8216;内容&#8217;);
+</p>
+<p>
+          $table-&gt;unsignedInteger(&#8216;created_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+          $table-&gt;unsignedInteger(&#8216;updated_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;更新于&#8217;);
+</p>
+<p>
+      });
+</p>
+<p>
+  }
+</p>
+<h2>︴练习2：通过SQL语句修复线上BUG</h2>
+<h3>1）原声SQL</h3>
+<p>
+  #首先插入一条数据，然后test改为test2
+</p>
+<p>
+  insert into day3_t2
+</p>
+<p>
+  values
+</p>
+<p>
+  (null,&#8217;test&#8217;,&#8217;adfadsf&#8217;,&#8217;dfads&#8217;,0,0);
+</p>
+<h3>2）数据迁移</h3>
+<p>
+  #创建数据迁移文件，文件名规则：fix_bug_BUG版本号
+</p>
+<p>
+  #将用户名改成test2
+</p>
+<p><img loading="lazy" decoding="async" width="1139" height="640" src="/wp-content/uploads/2018/05/word-image-5585.png" class="wp-image-6137" srcset="/wp-content/uploads/2018/05/word-image-5585.png 1139w, /wp-content/uploads/2018/05/word-image-5585-300x169.png 300w, /wp-content/uploads/2018/05/word-image-5585-768x432.png 768w, /wp-content/uploads/2018/05/word-image-5585-1024x575.png 1024w" sizes="(max-width: 1139px) 100vw, 1139px" /></p>
+<p>
+  public function up()
+</p>
+<p>
+  {
+</p>
+<p>
+      DB::table(&#8216;day3_t2&#8217;)-&gt;where(&#8216;uname&#8217;, &#8216;test&#8217;)-&gt;update([
+</p>
+<p>
+          &#8216;uname&#8217;=&gt;&#8217;test2&#8217;
+</p>
+<p>
+      ]);
+</p>
+<p>
+  }
+</p>
+<h1>三、填充数据（seeder）</h1>
+<h2>1、概念</h2>
+<ul>
+<li>
+    数据迁移：就是使用php管理数据库
+  </li>
+<li>
+    填充数据：就是使用php快速插入测试数据
+  </li>
+</ul>
+<h2>2、语法（seeder）</h2>
+<p>
+  创建填充器：php artisan make:seeder 填充器名称  （推荐：表名TableSeeder 大驼峰）
+</p>
+<p>
+  运行填充器：php artisan db:seed &#8211;class=填充器名称
+</p>
+<h2>︴练习1：给day3_t2插入两百条数据</h2>
+<p>
+  准备文件
+</p>
+<p>
+  php artisan make:seeder Day3t2TableSeeder
+</p>
+<p>
+  执行
+</p>
+<p><img loading="lazy" decoding="async" width="1326" height="639" src="/wp-content/uploads/2018/05/word-image-5586.png" class="wp-image-6138" srcset="/wp-content/uploads/2018/05/word-image-5586.png 1326w, /wp-content/uploads/2018/05/word-image-5586-300x145.png 300w, /wp-content/uploads/2018/05/word-image-5586-768x370.png 768w, /wp-content/uploads/2018/05/word-image-5586-1024x493.png 1024w" sizes="(max-width: 1326px) 100vw, 1326px" /></p>
+<h2>︴练习2：faker使用</h2>
+<h3>1）概念</h3>
+<ul>
+<li>
+    说明：faker就是PHP的一个库（类）
+  </li>
+<li>
+    作用：生成假数据，如手机号、地址、姓名等
+  </li>
+<li>
+    地址：<a href="https://packagist.org/packages/fzaninotto/faker">https://packagist.org/packages/fzaninotto/faker</a>
+  </li>
+<li>
+    地址：<a href="https://github.com/fzaninotto/Faker#fakerproviderimage">https://github.com/fzaninotto/Faker#fakerproviderimage</a>
+  </li>
+</ul>
+<h3>使用</h3>
+<p>
+  步骤1：下载（composer require fzaninotto/faker）
+</p>
+<p>
+  步骤2：使用
+</p>
+<p><img loading="lazy" decoding="async" width="1302" height="502" src="/wp-content/uploads/2018/05/word-image-5587.png" class="wp-image-6139" srcset="/wp-content/uploads/2018/05/word-image-5587.png 1302w, /wp-content/uploads/2018/05/word-image-5587-300x116.png 300w, /wp-content/uploads/2018/05/word-image-5587-768x296.png 768w, /wp-content/uploads/2018/05/word-image-5587-1024x395.png 1024w" sizes="(max-width: 1302px) 100vw, 1302px" /></p>
+<p>
+  Route::get(&#8216;/test&#8217;, function() {
+</p>
+<p>
+      $faker = \Faker\Factory::create(&#8216;zh_CN&#8217;);
+</p>
+<p>
+      echo $faker-&gt;name . &#8216;&lt;br /&gt;&#8217;;
+</p>
+<p>
+      echo $faker-&gt;email . &#8216;&lt;br /&gt;&#8217;;
+</p>
+<p>
+      echo $faker-&gt;phoneNumber . &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+      echo $faker-&gt;company . &#8216;&lt;br /&gt;&#8217;;
+</p>
+<p>
+      echo $faker-&gt;city . &#8216;&lt;br /&gt;&#8217;;
+</p>
+<p>
+      echo $faker-&gt;unixTime . &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+      echo $faker-&gt;imageUrl() . &#8216;&lt;br /&gt;&#8217;;
+</p>
+<p>
+      echo $faker-&gt;imageUrl(50,50) . &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+      echo $faker-&gt;paragraph(20) . &#8216;&lt;br /&gt;&#8217;;
+</p>
+<p>
+  });
+</p>
+<h3>整合数据填充</h3>
+<p><img loading="lazy" decoding="async" width="1183" height="615" src="/wp-content/uploads/2018/05/word-image-5588.png" class="wp-image-6140" srcset="/wp-content/uploads/2018/05/word-image-5588.png 1183w, /wp-content/uploads/2018/05/word-image-5588-300x156.png 300w, /wp-content/uploads/2018/05/word-image-5588-768x399.png 768w, /wp-content/uploads/2018/05/word-image-5588-1024x532.png 1024w" sizes="(max-width: 1183px) 100vw, 1183px" /></p>
+<p>
+  public function run()
+</p>
+<p>
+  {
+</p>
+<p>
+      for ($i = 0; $i &lt; 100; $i++) {
+</p>
+<p>
+          $faker = \Faker\Factory::create(&#8216;zh_CN&#8217;);
+</p>
+<p>
+          $insertData[] = [
+</p>
+<p>
+              &#8216;uname&#8217; =&gt; $faker-&gt;name,
+</p>
+<p>
+              &#8216;pwd&#8217; =&gt; $faker-&gt;password,
+</p>
+<p>
+              &#8216;content&#8217; =&gt; $faker-&gt;paragraph(20)
+</p>
+<p>
+          ];
+</p>
+<p>
+      }
+</p>
+<p>
+      DB::table(&#8216;day3_t2&#8217;)-&gt;insert($insertData);
+</p>
+<p>
+  }
+</p>
+<h1>小总结</h1>
+<p>
+  什么是数据迁移：就是用PHP文件管理数据库
+</p>
+<p>
+  语法：
+</p>
+<p>
+  1）  php  artisan make:migration 迁移文件名称
+</p>
+<p>
+  2）  php  artisan make:migration create_表名_table  &#8211;create=表名
+</p>
+<p>
+  3）  php  artisan make:migration update_表名_table  &#8211;table=表名
+</p>
+<p>
+  运行迁移文件：php artisan migrate
+</p>
+<p>
+  撤销迁移文件：php artisan migrate:rollback
+</p>
+<p>
+  什么是数据填充：就是用PHP插入测试数据
+</p>
+<p>
+  什么是faker：就是PHP一个类，这个类生成假数据
+</p>
+<p>
+  数据填充： php artisan make:seeder 填充器名称/文件名   （注：推荐表名TableSeeder  大驼峰）
+</p>
+<p>
+  执行填充： php artisan db:seed &#8211;class=填充器名/文件名
+</p>
+<h1>四、学生管理小项目（登录模块）</h1>
+<h2>1、准备</h2>
+<h3>1）根据效果图（静态模板）设计表</h3>
+<p><img loading="lazy" decoding="async" width="1657" height="903" src="/wp-content/uploads/2018/05/word-image-5589.png" class="wp-image-6141" srcset="/wp-content/uploads/2018/05/word-image-5589.png 1657w, /wp-content/uploads/2018/05/word-image-5589-300x163.png 300w, /wp-content/uploads/2018/05/word-image-5589-768x419.png 768w, /wp-content/uploads/2018/05/word-image-5589-1024x558.png 1024w" sizes="(max-width: 1657px) 100vw, 1657px" /><br />
+<img loading="lazy" decoding="async" width="1152" height="461" src="/wp-content/uploads/2018/05/word-image-5590.png" class="wp-image-6142" srcset="/wp-content/uploads/2018/05/word-image-5590.png 1152w, /wp-content/uploads/2018/05/word-image-5590-300x120.png 300w, /wp-content/uploads/2018/05/word-image-5590-768x307.png 768w, /wp-content/uploads/2018/05/word-image-5590-1024x410.png 1024w" sizes="(max-width: 1152px) 100vw, 1152px" /></p>
+<p>
+  create database laravel54;
+</p>
+<p>
+  use laravel54;
+</p>
+<p>
+  create table student(
+</p>
+<p>
+  id int primary key auto_increment comment &#8216;编号&#8217;,
+</p>
+<p>
+  uname varchar(45) not null comment &#8216;用户名&#8217;,
+</p>
+<p>
+  pwd varchar(255) not null comment &#8216;密码&#8217;,
+</p>
+<p>
+  age tinyint(3) not null default 0 comment &#8216;年龄&#8217;,
+</p>
+<p>
+  sex tinyint(1) not null default 1 comment &#8216;性别：1-男,2-女&#8217;,
+</p>
+<p>
+  created_at int not null default 0 comment &#8216;创建于&#8217;,
+</p>
+<p>
+  updated_at int not null default 0 comment &#8216;更新于&#8217;
+</p>
+<p>
+  )engine=myisam charset=utf8;
+</p>
+<p>
+  Laravel存储用户密码非MD5算法，而是使用php5.5新函数password_hash和password_verify
+</p>
+<p>
+  加密语法：Hash::make(&#8216;admin888&#8217;);  或者  bcrypt(&#8216;admin888&#8217;);
+</p>
+<p>
+  校验语法：Hash::check(&#8216;admin888&#8217;, 密文);
+</p>
+<p><img loading="lazy" decoding="async" width="770" height="242" src="/wp-content/uploads/2018/05/word-image-5591.png" class="wp-image-6143" srcset="/wp-content/uploads/2018/05/word-image-5591.png 770w, /wp-content/uploads/2018/05/word-image-5591-300x94.png 300w, /wp-content/uploads/2018/05/word-image-5591-768x241.png 768w" sizes="(max-width: 770px) 100vw, 770px" /></p>
+<h3>2）通过PHP创建表并填充数据（数据迁移和填充数据）</h3>
+<ul>
+<li>
+    数据迁移
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1248" height="614" src="/wp-content/uploads/2018/05/word-image-5592.png" class="wp-image-6144" srcset="/wp-content/uploads/2018/05/word-image-5592.png 1248w, /wp-content/uploads/2018/05/word-image-5592-300x148.png 300w, /wp-content/uploads/2018/05/word-image-5592-768x378.png 768w, /wp-content/uploads/2018/05/word-image-5592-1024x504.png 1024w" sizes="(max-width: 1248px) 100vw, 1248px" /></p>
+<p>
+  public function up()
+</p>
+<p>
+  {
+</p>
+<p>
+  //        create table student(
+</p>
+<p>
+  //        id int primary key auto_increment comment &#8216;编号&#8217;,
+</p>
+<p>
+  //        uname varchar(45) not null comment &#8216;用户名&#8217;,
+</p>
+<p>
+  //        pwd varchar(255) not null comment &#8216;密码&#8217;,
+</p>
+<p>
+  //        age tinyint(3) not null default 0 comment &#8216;年龄&#8217;,
+</p>
+<p>
+  //        sex tinyint(1) not null default 1 comment &#8216;性别：1-男,2-女&#8217;,
+</p>
+<p>
+  //        created_at int not null default 0 comment &#8216;创建于&#8217;,
+</p>
+<p>
+  //        updated_at int not null default 0 comment &#8216;更新于&#8217;
+</p>
+<p>
+  //        )engine=myisam charset=utf8;
+</p>
+<p>
+      Schema::create(&#8216;student&#8217;, function (Blueprint $table) {
+</p>
+<p>
+          $table-&gt;increments(&#8216;id&#8217;)-&gt;comment(&#8216;编号&#8217;);
+</p>
+<p>
+          $table-&gt;string(&#8216;uname&#8217;, 45)-&gt;comment(&#8216;用户名&#8217;);
+</p>
+<p>
+          $table-&gt;string(&#8216;pwd&#8217;, 255)-&gt;comment(&#8216;密码&#8217;);
+</p>
+<p>
+          $table-&gt;unsignedTinyInteger(&#8216;age&#8217;)-&gt;default(0)-&gt;comment(&#8216;年龄&#8217;);
+</p>
+<p>
+          $table-&gt;unsignedTinyInteger(&#8216;sex&#8217;)-&gt;default(1)-&gt;comment(&#8216;性别：1-男,2-女&#8217;);
+</p>
+<p>
+          $table-&gt;integer(&#8216;created_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+          $table-&gt;integer(&#8216;updated_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;更新于&#8217;);
+</p>
+<p>
+      });
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    创建模型
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1281" height="607" src="/wp-content/uploads/2018/05/word-image-5593.png" class="wp-image-6145" srcset="/wp-content/uploads/2018/05/word-image-5593.png 1281w, /wp-content/uploads/2018/05/word-image-5593-300x142.png 300w, /wp-content/uploads/2018/05/word-image-5593-768x364.png 768w, /wp-content/uploads/2018/05/word-image-5593-1024x485.png 1024w" sizes="(max-width: 1281px) 100vw, 1281px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Model;
+</p>
+<p>
+  use Illuminate\Database\Eloquent\Model;
+</p>
+<p>
+  class Student extends Model
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 设置表名
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $table = &#8216;student&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明可以批量设置的属性
+</p>
+<p>
+       * @var array
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $fillable   =  [&#8216;uname&#8217;, &#8216;pwd&#8217;, &#8216;age&#8217;, &#8216;sex&#8217;];
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Unix时间戳填充数据（注：默认托管创建于更新于）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $dateFormat = &#8216;U&#8217;;
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    填充数据
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1296" height="595" src="/wp-content/uploads/2018/05/word-image-5594.png" class="wp-image-6146" srcset="/wp-content/uploads/2018/05/word-image-5594.png 1296w, /wp-content/uploads/2018/05/word-image-5594-300x138.png 300w, /wp-content/uploads/2018/05/word-image-5594-768x353.png 768w, /wp-content/uploads/2018/05/word-image-5594-1024x470.png 1024w" sizes="(max-width: 1296px) 100vw, 1296px" /></p>
+<p>
+  说明：tinker是Laravel自带的便于调试数据库的工具
+</p>
+<p>
+  运行：php artisan tinker
+</p>
+<p>
+  指令：通过模型操作数据库
+</p>
+<p>
+  调用工厂文件：factory(App\Http\Model\AModel::class, 2)-&gt;create()
+</p>
+<p>
+  脚下留心：工厂文件中定义的模型必须通过migration创建无法将无法找到模型
+</p>
+<h2>登录模块【加载视图】</h2>
+<h3>1）思路</h3>
+<ul>
+<li>
+    步骤1：定义路由 （/student/login 对应控制器 Student\LoginController@login）
+  </li>
+<li>
+    步骤2：创建控制器并加载视图
+  </li>
+<li>
+    步骤3：创建视图
+  </li>
+</ul>
+<h3>代码</h3>
+<ul>
+<li>
+    步骤1：定义路由 （/student/login 对应控制器 Student\LoginController@login）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1251" height="373" src="/wp-content/uploads/2018/05/word-image-5595.png" class="wp-image-6147" srcset="/wp-content/uploads/2018/05/word-image-5595.png 1251w, /wp-content/uploads/2018/05/word-image-5595-300x89.png 300w, /wp-content/uploads/2018/05/word-image-5595-768x229.png 768w, /wp-content/uploads/2018/05/word-image-5595-1024x305.png 1024w" sizes="(max-width: 1251px) 100vw, 1251px" /></p>
+<ul>
+<li>
+    步骤2：创建控制器并加载视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1120" height="579" src="/wp-content/uploads/2018/05/word-image-5596.png" class="wp-image-6148" srcset="/wp-content/uploads/2018/05/word-image-5596.png 1120w, /wp-content/uploads/2018/05/word-image-5596-300x155.png 300w, /wp-content/uploads/2018/05/word-image-5596-768x397.png 768w, /wp-content/uploads/2018/05/word-image-5596-1024x529.png 1024w" sizes="(max-width: 1120px) 100vw, 1120px" /></p>
+<ul>
+<li>
+    步骤3：创建视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1236" height="662" src="/wp-content/uploads/2018/05/word-image-5597.png" class="wp-image-6149" srcset="/wp-content/uploads/2018/05/word-image-5597.png 1236w, /wp-content/uploads/2018/05/word-image-5597-300x161.png 300w, /wp-content/uploads/2018/05/word-image-5597-768x411.png 768w, /wp-content/uploads/2018/05/word-image-5597-1024x548.png 1024w" sizes="(max-width: 1236px) 100vw, 1236px" /></p>
+<h2>登录模块【登录数据处理】</h2>
+<h3>1）思路</h3>
+<ul>
+<li>
+    步骤1：修改登录视图form参数
+  </li>
+<li>
+    步骤2：修改路由支持post提交（注：cstf 和 弹框资源处理）
+  </li>
+<li>
+    步骤3：控制器方法增加判断，是否POST提交（是-添加数据，否-加载视图）
+  </li>
+</ul>
+<h3>代码</h3>
+<ul>
+<li>
+    步骤1：修改登录视图form参数（注：cstf 和 弹框资源处理）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1142" height="541" src="/wp-content/uploads/2018/05/word-image-5598.png" class="wp-image-6150" srcset="/wp-content/uploads/2018/05/word-image-5598.png 1142w, /wp-content/uploads/2018/05/word-image-5598-300x142.png 300w, /wp-content/uploads/2018/05/word-image-5598-768x364.png 768w, /wp-content/uploads/2018/05/word-image-5598-1024x485.png 1024w" sizes="(max-width: 1142px) 100vw, 1142px" /></p>
+<p>
+  弹框资源
+</p>
+<p><img loading="lazy" decoding="async" width="1147" height="331" src="/wp-content/uploads/2018/05/word-image-5599.png" class="wp-image-6151" srcset="/wp-content/uploads/2018/05/word-image-5599.png 1147w, /wp-content/uploads/2018/05/word-image-5599-300x87.png 300w, /wp-content/uploads/2018/05/word-image-5599-768x222.png 768w, /wp-content/uploads/2018/05/word-image-5599-1024x296.png 1024w" sizes="(max-width: 1147px) 100vw, 1147px" /></p>
+<p>
+  &lt;link href=&#8221;https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css&#8221; rel=&#8221;stylesheet&#8221;&gt;
+</p>
+<p>
+  &lt;script src=&#8221;https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert-dev.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  @if (Session::has(&#8216;tips&#8217;))
+</p>
+<p>
+  swal(&#8220;{{ Session::get(&#8216;tips&#8217;) }}！&#8221;, &#8220;操作提示！&#8221;,&#8221;{{ Session::get(&#8216;state&#8217;) }}&#8221;)
+</p>
+<p>
+  @endif
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<ul>
+<li>
+    步骤2：修改路由支持post提交
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1219" height="428" src="/wp-content/uploads/2018/05/word-image-5600.png" class="wp-image-6152" srcset="/wp-content/uploads/2018/05/word-image-5600.png 1219w, /wp-content/uploads/2018/05/word-image-5600-300x105.png 300w, /wp-content/uploads/2018/05/word-image-5600-768x270.png 768w, /wp-content/uploads/2018/05/word-image-5600-1024x360.png 1024w" sizes="(max-width: 1219px) 100vw, 1219px" /></p>
+<ul>
+<li>
+    步骤3：控制器方法增加判断，是否POST提交（是-判断数据，否-加载视图）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1201" height="537" src="/wp-content/uploads/2018/05/word-image-5601.png" class="wp-image-6153" srcset="/wp-content/uploads/2018/05/word-image-5601.png 1201w, /wp-content/uploads/2018/05/word-image-5601-300x134.png 300w, /wp-content/uploads/2018/05/word-image-5601-768x343.png 768w, /wp-content/uploads/2018/05/word-image-5601-1024x458.png 1024w" sizes="(max-width: 1201px) 100vw, 1201px" /></p>
+<p>
+  public function login(Request $request)
+</p>
+<p>
+  {
+</p>
+<p>
+      //1.判断是否提交
+</p>
+<p>
+      if ($request-&gt;isMethod(&#8216;post&#8217;)) {
+</p>
+<p>
+          //2.接受数据
+</p>
+<p>
+          $postData = $request-&gt;all();
+</p>
+<p>
+          //3.根据用户名查询用户信息
+</p>
+<p>
+          $student = Student::where(&#8216;uname&#8217;, $postData[&#8216;uname&#8217;])-&gt;first();
+</p>
+<p>
+          //4.判断状态
+</p>
+<p>
+          if (!$student || !Hash::check($postData[&#8216;pwd&#8217;], $student-&gt;pwd)) {
+</p>
+<p>
+              return redirect(&#8216;/student/login&#8217;)-&gt;with([&#8216;state&#8217;=&gt;&#8217;error&#8217;, &#8216;tips&#8217;=&gt;&#8217;账号或密码错误&#8217;]);
+</p>
+<p>
+          }
+</p>
+<p>
+          //5.登录成功去首页
+</p>
+<p>
+          return redirect(&#8216;/student&#8217;)-&gt;with([&#8216;state&#8217;=&gt;&#8217;success&#8217;, &#8216;tips&#8217;=&gt;&#8217;老铁，登录成功&#8217;]);
+</p>
+<p>
+      } else {
+</p>
+<p>
+          return view(&#8216;student.login.login&#8217;);
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="796" height="283" src="/wp-content/uploads/2018/05/word-image-5602.png" class="wp-image-6154" srcset="/wp-content/uploads/2018/05/word-image-5602.png 796w, /wp-content/uploads/2018/05/word-image-5602-300x107.png 300w, /wp-content/uploads/2018/05/word-image-5602-768x273.png 768w" sizes="(max-width: 796px) 100vw, 796px" /></p>
+<h1>五、学生管理小项目（学生列表）</h1>
+<h2>1、学生列表</h2>
+<h3>1）思路</h3>
+<ul>
+<li>
+    步骤1：定义路由 （/student 对应控制器 Student\IndexController@index）
+  </li>
+<li>
+    步骤2：创建控制器、查询所有数据、加载视图
+  </li>
+<li>
+    步骤3：创建视图
+  </li>
+<li>
+    步骤4：视图循环显示数据
+  </li>
+</ul>
+<h3>2）代码</h3>
+<ul>
+<li>
+    步骤1：定义路由 （/student 对应控制器 Student\IndexController@index）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1221" height="307" src="/wp-content/uploads/2018/05/word-image-5603.png" class="wp-image-6155" srcset="/wp-content/uploads/2018/05/word-image-5603.png 1221w, /wp-content/uploads/2018/05/word-image-5603-300x75.png 300w, /wp-content/uploads/2018/05/word-image-5603-768x193.png 768w, /wp-content/uploads/2018/05/word-image-5603-1024x257.png 1024w" sizes="(max-width: 1221px) 100vw, 1221px" /></p>
+<ul>
+<li>
+    步骤2：创建学生控制器、查询所有数据、加载视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1063" height="528" src="/wp-content/uploads/2018/05/word-image-5604.png" class="wp-image-6156" srcset="/wp-content/uploads/2018/05/word-image-5604.png 1063w, /wp-content/uploads/2018/05/word-image-5604-300x149.png 300w, /wp-content/uploads/2018/05/word-image-5604-768x381.png 768w, /wp-content/uploads/2018/05/word-image-5604-1024x509.png 1024w" sizes="(max-width: 1063px) 100vw, 1063px" /></p>
+<ul>
+<li>
+    步骤3：创建视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1256" height="660" src="/wp-content/uploads/2018/05/word-image-5605.png" class="wp-image-6157" srcset="/wp-content/uploads/2018/05/word-image-5605.png 1256w, /wp-content/uploads/2018/05/word-image-5605-300x158.png 300w, /wp-content/uploads/2018/05/word-image-5605-768x404.png 768w, /wp-content/uploads/2018/05/word-image-5605-1024x538.png 1024w" sizes="(max-width: 1256px) 100vw, 1256px" /></p>
+<ul>
+<li>
+    步骤4：视图循环显示数据
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1007" height="568" src="/wp-content/uploads/2018/05/word-image-5606.png" class="wp-image-6158" srcset="/wp-content/uploads/2018/05/word-image-5606.png 1007w, /wp-content/uploads/2018/05/word-image-5606-300x169.png 300w, /wp-content/uploads/2018/05/word-image-5606-768x433.png 768w" sizes="(max-width: 1007px) 100vw, 1007px" /></p>
+<p>
+  分页
+</p>
+<p><img loading="lazy" decoding="async" width="949" height="584" src="/wp-content/uploads/2018/05/word-image-5607.png" class="wp-image-6159" srcset="/wp-content/uploads/2018/05/word-image-5607.png 949w, /wp-content/uploads/2018/05/word-image-5607-300x185.png 300w, /wp-content/uploads/2018/05/word-image-5607-768x473.png 768w" sizes="(max-width: 949px) 100vw, 949px" /></p>
+<p>
+  弹框
+</p>
+<p><img loading="lazy" decoding="async" width="1012" height="368" src="/wp-content/uploads/2018/05/word-image-5608.png" class="wp-image-6160" srcset="/wp-content/uploads/2018/05/word-image-5608.png 1012w, /wp-content/uploads/2018/05/word-image-5608-300x109.png 300w, /wp-content/uploads/2018/05/word-image-5608-768x279.png 768w" sizes="(max-width: 1012px) 100vw, 1012px" /></p>
+<p>
+  &lt;link href=&#8221;https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css&#8221; rel=&#8221;stylesheet&#8221;&gt;
+</p>
+<p>
+  &lt;script src=&#8221;https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert-dev.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+      @if (Session::has(&#8216;tips&#8217;))
+</p>
+<p>
+      swal(&#8220;{{ Session::get(&#8216;tips&#8217;) }}！&#8221;, &#8220;操作提示！&#8221;,&#8221;{{ Session::get(&#8216;state&#8217;) }}&#8221;)
+</p>
+<p>
+      @endif
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<h2>2、学生添加【加载视图】</h2>
+<h3>1）思路</h3>
+<ul>
+<li>
+    步骤1：定义路由 （/student/add 对应控制器 Student\IndexController@add）
+  </li>
+<li>
+    步骤2：创建控制器方法、加载视图
+  </li>
+<li>
+    步骤3：创建视图
+  </li>
+</ul>
+<h3>代码</h3>
+<ul>
+<li>
+    步骤1：定义路由 （/student/add 对应控制器 Student\IndexController@add）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1082" height="458" src="/wp-content/uploads/2018/05/word-image-5609.png" class="wp-image-6161" srcset="/wp-content/uploads/2018/05/word-image-5609.png 1082w, /wp-content/uploads/2018/05/word-image-5609-300x127.png 300w, /wp-content/uploads/2018/05/word-image-5609-768x325.png 768w, /wp-content/uploads/2018/05/word-image-5609-1024x433.png 1024w" sizes="(max-width: 1082px) 100vw, 1082px" /></p>
+<ul>
+<li>
+    步骤2：创建控制器方法、加载视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="889" height="482" src="/wp-content/uploads/2018/05/word-image-5610.png" class="wp-image-6162" srcset="/wp-content/uploads/2018/05/word-image-5610.png 889w, /wp-content/uploads/2018/05/word-image-5610-300x163.png 300w, /wp-content/uploads/2018/05/word-image-5610-768x416.png 768w" sizes="(max-width: 889px) 100vw, 889px" /></p>
+<ul>
+<li>
+    步骤3：创建视图并修改表单action等属性
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1187" height="622" src="/wp-content/uploads/2018/05/word-image-5611.png" class="wp-image-6163" srcset="/wp-content/uploads/2018/05/word-image-5611.png 1187w, /wp-content/uploads/2018/05/word-image-5611-300x157.png 300w, /wp-content/uploads/2018/05/word-image-5611-768x402.png 768w, /wp-content/uploads/2018/05/word-image-5611-1024x537.png 1024w" sizes="(max-width: 1187px) 100vw, 1187px" /></p>
+<p>
+  表单属性和cstf隐藏域
+</p>
+<p><img loading="lazy" decoding="async" width="934" height="641" src="/wp-content/uploads/2018/05/word-image-5612.png" class="wp-image-6164" srcset="/wp-content/uploads/2018/05/word-image-5612.png 934w, /wp-content/uploads/2018/05/word-image-5612-300x206.png 300w, /wp-content/uploads/2018/05/word-image-5612-768x527.png 768w, /wp-content/uploads/2018/05/word-image-5612-220x150.png 220w" sizes="(max-width: 934px) 100vw, 934px" /></p>
+<h2>3、学生添加【数据处理】</h2>
+<h3>1）思路</h3>
+<ul>
+<li>
+    步骤1：更改路由支持post提交
+  </li>
+<li>
+    步骤2：控制器接受数据、插入数据库、判断（成功-列表页，失败-当前页）
+  </li>
+</ul>
+<h3>代码</h3>
+<ul>
+<li>
+    步骤1：更改路由支持post提交
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1178" height="333" src="/wp-content/uploads/2018/05/word-image-5613.png" class="wp-image-6165" srcset="/wp-content/uploads/2018/05/word-image-5613.png 1178w, /wp-content/uploads/2018/05/word-image-5613-300x85.png 300w, /wp-content/uploads/2018/05/word-image-5613-768x217.png 768w, /wp-content/uploads/2018/05/word-image-5613-1024x289.png 1024w" sizes="(max-width: 1178px) 100vw, 1178px" /></p>
+<ul>
+<li>
+    步骤2：控制器接受数据、插入数据库、判断（成功-列表页，失败-当前页）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1151" height="622" src="/wp-content/uploads/2018/05/word-image-5614.png" class="wp-image-6166" srcset="/wp-content/uploads/2018/05/word-image-5614.png 1151w, /wp-content/uploads/2018/05/word-image-5614-300x162.png 300w, /wp-content/uploads/2018/05/word-image-5614-768x415.png 768w, /wp-content/uploads/2018/05/word-image-5614-1024x553.png 1024w" sizes="(max-width: 1151px) 100vw, 1151px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Student;
+</p>
+<p>
+  use App\Http\Model\Student;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class IndexController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //添加
+</p>
+<p>
+      public function add(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.判断
+</p>
+<p>
+          if ($request-&gt;isMethod(&#8216;post&#8217;)) {
+</p>
+<p>
+              //2.接受数据
+</p>
+<p>
+              $postData = $request-&gt;all();
+</p>
+<p>
+              unset($postData[&#8216;_token&#8217;]);
+</p>
+<p>
+              $postData[&#8216;pwd&#8217;] = bcrypt($postData[&#8216;pwd&#8217;]);
+</p>
+<p>
+              //3.插入数据
+</p>
+<p>
+              $rs = Student::create($postData);//脚下留心：cstf有隐藏域_token 模型自动托管创建于和更新于
+</p>
+<p>
+              //4.判断
+</p>
+<p>
+              if ($rs) {
+</p>
+<p>
+                  return redirect(&#8216;/student&#8217;)-&gt;with([&#8216;state&#8217;=&gt;&#8217;success&#8217;, &#8216;tips&#8217;=&gt;&#8217;插入成功&#8217;]);
+</p>
+<p>
+              } else {
+</p>
+<p>
+                  return redirect(&#8216;/student/add&#8217;)-&gt;with([&#8216;state&#8217;=&gt;&#8217;error&#8217;, &#8216;tips&#8217;=&gt;&#8217;插入失败&#8217;]);
+</p>
+<p>
+              }
+</p>
+<p>
+          } else {
+</p>
+<p>
+              //直接加载视图
+</p>
+<p>
+              return view(&#8216;student.index.add&#8217;);
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function index()
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.分页查询数据
+</p>
+<p>
+          $student = Student::orderBy(&#8216;id&#8217;, &#8216;desc&#8217;)-&gt;paginate(2);
+</p>
+<p>
+          //2.加载视图并传递数据
+</p>
+<p>
+          return view(&#8216;student.index.index&#8217;, compact(&#8216;student&#8217;));
+</p>
+<p>
+      }
+</p>
+<p>
+  }</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6119.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

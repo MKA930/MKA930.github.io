@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>千万级数据 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%8D%83%E4%B8%87%E7%BA%A7%E6%95%B0%E6%8D%AE/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Tue, 29 Mar 2022 15:32:37 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>千万级数据 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>网站优化（二）MySQL 优化 千万级数据、索引、存储过程</title>
+		<link>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5385.html</link>
+					<comments>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5385.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 14:48:20 +0000</pubDate>
+				<category><![CDATA[优化方案]]></category>
+		<category><![CDATA[网站优化]]></category>
+		<category><![CDATA[千万级数据]]></category>
+		<category><![CDATA[存储过程]]></category>
+		<category><![CDATA[索引]]></category>
+		<guid isPermaLink="false">/?p=5385</guid>
+
+					<description><![CDATA[1、索引的作用 索引通俗来讲就相当于书的目录，当我们根据条件查询的时候，没有索引，便需要全表扫描，数据量少还可 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>1、索引的作用</h1>
+<p>索引通俗来讲就相当于书的目录，当我们根据条件查询的时候，没有索引，便需要全表扫描，数据量少还可以，一旦数据量超过百万甚至千万，一条查询sql执行往往需要几十秒甚至更多，5秒以上就已经让人难以忍受了。</p>
+<p>提升查询速度的方向一是提升硬件(内存、cpu、硬盘)，二是在软件上优化（加索引、优化sql；优化sql不在本文阐述范围之内）。能在软件上解决的，就不在硬件上解决，毕竟硬件提升代码昂贵，性价比太低。代价小且行之有效的解决方法就是合理的加索引。索引使用得当，能使查询速度提升上万倍，效果惊人。</p>
+<h1>索 引类型</h1>
+<p>MySQL的索引有5种</p>
+<p>主键索引、普通索引、唯一索引、全文索引、组合索引（多列索引）</p>
+<p>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;</p>
+<p>普通索引（index） &#8211; 仅仅只是为了提高查询的速度。</p>
+<p>唯一索引（unique index） &#8211; 防止数据出现重复</p>
+<p>主键索引（primary key） &#8211; 引保证数据的唯一性,而且不能为NULL</p>
+<p>全文索引（fulltext key） &#8211; 从字段中提取的特别关键词</p>
+<p>组合索引（多列索引） &#8211; 创建在多列上的索引</p>
+<p>说明：唯一索引和全文索引用的很少，我们主要关注主键索引、普通索引和组合索引。</p>
+<h1>索引的语法</h1>
+<p>查看某张表的索引：show index from 表名；</p>
+<p>创建普通索引：alter table 表名 add index 索引名 (加索引的列)</p>
+<p>创建组合索引：alter table 表名 add index 索引名 (加索引的列1,加索引的列2)</p>
+<p>删除某张表的索引：drop index 索引名 on 表名;</p>
+<h1>性能测试</h1>
+<h2>1）测试环境： 联想ThinkPad</h2>
+<p><img fetchpriority="high" decoding="async" width="517" height="140" class="wp-image-5386" src="/wp-content/uploads/2018/05/word-image-4875.png" srcset="/wp-content/uploads/2018/05/word-image-4875.png 517w, /wp-content/uploads/2018/05/word-image-4875-300x81.png 300w" sizes="(max-width: 517px) 100vw, 517px" /></p>
+<h2>2）创建数据表</h2>
+<p>create database php0611 charset = utf8;</p>
+<p>use php0611;</p>
+<p><img decoding="async" width="385" height="96" class="wp-image-5387" src="/wp-content/uploads/2018/05/word-image-4876.png" srcset="/wp-content/uploads/2018/05/word-image-4876.png 385w, /wp-content/uploads/2018/05/word-image-4876-300x75.png 300w" sizes="(max-width: 385px) 100vw, 385px" /></p>
+<p>CREATE TABLE `test` (</p>
+<p>`id` bigint(20) PRIMARY key not null AUTO_INCREMENT,</p>
+<p>`username` varchar(11) DEFAULT NULL,</p>
+<p>`gender` varchar(2) DEFAULT NULL,</p>
+<p>`password` varchar(100) DEFAULT NULL</p>
+<p>) ENGINE=MyISAM DEFAULT CHARSET=utf8;</p>
+<p><img decoding="async" width="531" height="143" class="wp-image-5388" src="/wp-content/uploads/2018/05/word-image-4877.png" srcset="/wp-content/uploads/2018/05/word-image-4877.png 531w, /wp-content/uploads/2018/05/word-image-4877-300x81.png 300w" sizes="(max-width: 531px) 100vw, 531px" /></p>
+<h2>3）使用存储过程插入1千万条数据</h2>
+<p>存储引擎使用MyISAM是因为此引擎没有事务，插入速度极快，方便我们快速插入千万条测试数据，等我们插完数据，再把存储类型修改为InnoDB。</p>
+<p>delimiter $$</p>
+<p>create procedure myproc()</p>
+<p>begin</p>
+<p>declare num int;</p>
+<p>set num=1;</p>
+<p>while num &lt;= 10000000 do</p>
+<p>insert into test(username,gender,password) values(num,&#8217;保密&#8217;,PASSWORD(num));</p>
+<p>set num=num+1;</p>
+<p>end while;</p>
+<p>end $$</p>
+<p>delimiter ;</p>
+<p># 说明：上述代码可优化insert检查循环次数 原理：values(),(),(); 更高效</p>
+<p><img loading="lazy" decoding="async" width="702" height="263" class="wp-image-5389" src="/wp-content/uploads/2018/05/word-image-4878.png" srcset="/wp-content/uploads/2018/05/word-image-4878.png 702w, /wp-content/uploads/2018/05/word-image-4878-300x112.png 300w" sizes="(max-width: 702px) 100vw, 702px" /></p>
+<p>由于使用的MyISAM引擎，插入1千万条数据，仅耗时246秒，若是InnoDB引擎，插入100万条数据就要花费数小时了。注：如需要使用innodb存储引擎，可通过命令：alter table test engine=InnoDB;此命令执行时间大约耗时5分钟，耐心等待。</p>
+<h2>4）执行存储过程</h2>
+<p>call myproc();</p>
+<p><img loading="lazy" decoding="async" width="353" height="84" class="wp-image-5390" src="/wp-content/uploads/2018/05/word-image-4879.png" srcset="/wp-content/uploads/2018/05/word-image-4879.png 353w, /wp-content/uploads/2018/05/word-image-4879-300x71.png 300w" sizes="(max-width: 353px) 100vw, 353px" /></p>
+<h2>5）测试结果1：没加索引</h2>
+<p><img loading="lazy" decoding="async" width="666" height="302" class="wp-image-5391" src="/wp-content/uploads/2018/05/word-image-4880.png" srcset="/wp-content/uploads/2018/05/word-image-4880.png 666w, /wp-content/uploads/2018/05/word-image-4880-300x136.png 300w" sizes="(max-width: 666px) 100vw, 666px" /></p>
+<h2>6）给username添加普通索引</h2>
+<p><img loading="lazy" decoding="async" width="601" height="191" class="wp-image-5392" src="/wp-content/uploads/2018/05/word-image-4881.png" srcset="/wp-content/uploads/2018/05/word-image-4881.png 601w, /wp-content/uploads/2018/05/word-image-4881-300x95.png 300w" sizes="(max-width: 601px) 100vw, 601px" /></p>
+<h2>7）测试结果2：加索引</h2>
+<p><img loading="lazy" decoding="async" width="600" height="389" class="wp-image-5393" src="/wp-content/uploads/2018/05/word-image-4882.png" srcset="/wp-content/uploads/2018/05/word-image-4882.png 600w, /wp-content/uploads/2018/05/word-image-4882-300x195.png 300w" sizes="(max-width: 600px) 100vw, 600px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5385.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

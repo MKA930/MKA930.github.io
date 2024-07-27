@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>地图API &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%9C%B0%E5%9B%BEapi/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 13:11:04 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>地图API &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>页面静态化 地图API、页面静态化</title>
+		<link>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/4777.html</link>
+					<comments>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/4777.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 13:11:04 +0000</pubDate>
+				<category><![CDATA[网站优化]]></category>
+		<category><![CDATA[页面静态化]]></category>
+		<category><![CDATA[地图API]]></category>
+		<guid isPermaLink="false">/?p=4777</guid>
+
+					<description><![CDATA[地图API 地图API介绍 地图API所指的就是能够提供地图相关的服务。 对于该服务一般都是通过JavaScr [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>地图API</h1>
+<h2>地图API介绍</h2>
+<p>
+  地图API所指的就是能够提供地图相关的服务。
+</p>
+<p>
+  对于该服务一般都是通过JavaScript或者其他语言将具体的地图信息嵌入到应用中
+</p>
+<p>
+  例如58中是房子信息会显示出地点的地图信息
+</p>
+<p><img fetchpriority="high" decoding="async" width="762" height="426" src="/wp-content/uploads/2018/05/word-image-4300.png" class="wp-image-4779" srcset="/wp-content/uploads/2018/05/word-image-4300.png 762w, /wp-content/uploads/2018/05/word-image-4300-300x168.png 300w" sizes="(max-width: 762px) 100vw, 762px" /></p>
+<p>
+  地图API除了提供地图显示之外还提供 例如 定位、线路、周边等相关的服务
+</p>
+<h2>2.2、腾讯地图的使用</h2>
+<h3>2.2.1、文档查看</h3>
+<p>
+  ①进入到文档
+</p>
+<p><img decoding="async" width="1336" height="354" src="/wp-content/uploads/2018/05/word-image-4301.png" class="wp-image-4780" srcset="/wp-content/uploads/2018/05/word-image-4301.png 1336w, /wp-content/uploads/2018/05/word-image-4301-300x79.png 300w, /wp-content/uploads/2018/05/word-image-4301-768x203.png 768w, /wp-content/uploads/2018/05/word-image-4301-1024x271.png 1024w" sizes="(max-width: 1336px) 100vw, 1336px" /></p>
+<p>
+  ②具体查看文档
+</p>
+<p><img decoding="async" width="1277" height="580" src="/wp-content/uploads/2018/05/word-image-4302.png" class="wp-image-4781" srcset="/wp-content/uploads/2018/05/word-image-4302.png 1277w, /wp-content/uploads/2018/05/word-image-4302-300x136.png 300w, /wp-content/uploads/2018/05/word-image-4302-768x349.png 768w, /wp-content/uploads/2018/05/word-image-4302-1024x465.png 1024w" sizes="(max-width: 1277px) 100vw, 1277px" /></p>
+<h3>2.2.2、具体使用地图</h3>
+<p>
+  ①载入API
+</p>
+<p><img loading="lazy" decoding="async" width="1001" height="550" src="/wp-content/uploads/2018/05/word-image-4303.png" class="wp-image-4782" srcset="/wp-content/uploads/2018/05/word-image-4303.png 1001w, /wp-content/uploads/2018/05/word-image-4303-300x165.png 300w, /wp-content/uploads/2018/05/word-image-4303-768x422.png 768w" sizes="(max-width: 1001px) 100vw, 1001px" /></p>
+<p>
+  ②创建地图DOM元素
+</p>
+<p><img loading="lazy" decoding="async" width="1055" height="647" src="/wp-content/uploads/2018/05/word-image-4304.png" class="wp-image-4783" srcset="/wp-content/uploads/2018/05/word-image-4304.png 1055w, /wp-content/uploads/2018/05/word-image-4304-300x184.png 300w, /wp-content/uploads/2018/05/word-image-4304-768x471.png 768w, /wp-content/uploads/2018/05/word-image-4304-1024x628.png 1024w" sizes="(max-width: 1055px) 100vw, 1055px" /></p>
+<p>
+  ③创建对象
+</p>
+<p><img loading="lazy" decoding="async" width="1041" height="705" src="/wp-content/uploads/2018/05/word-image-4305.png" class="wp-image-4784" srcset="/wp-content/uploads/2018/05/word-image-4305.png 1041w, /wp-content/uploads/2018/05/word-image-4305-300x203.png 300w, /wp-content/uploads/2018/05/word-image-4305-768x520.png 768w, /wp-content/uploads/2018/05/word-image-4305-1024x693.png 1024w, /wp-content/uploads/2018/05/word-image-4305-220x150.png 220w" sizes="(max-width: 1041px) 100vw, 1041px" /></p>
+<p>
+  ④初始化地图
+</p>
+<p><img loading="lazy" decoding="async" width="1015" height="515" src="/wp-content/uploads/2018/05/word-image-4306.png" class="wp-image-4785" srcset="/wp-content/uploads/2018/05/word-image-4306.png 1015w, /wp-content/uploads/2018/05/word-image-4306-300x152.png 300w, /wp-content/uploads/2018/05/word-image-4306-768x390.png 768w" sizes="(max-width: 1015px) 100vw, 1015px" /></p>
+<h3>2.2.3、根据指定地址显示地图</h3>
+<p><img loading="lazy" decoding="async" width="1060" height="652" src="/wp-content/uploads/2018/05/word-image-4307.png" class="wp-image-4786" srcset="/wp-content/uploads/2018/05/word-image-4307.png 1060w, /wp-content/uploads/2018/05/word-image-4307-300x185.png 300w, /wp-content/uploads/2018/05/word-image-4307-768x472.png 768w, /wp-content/uploads/2018/05/word-image-4307-1024x630.png 1024w" sizes="(max-width: 1060px) 100vw, 1060px" /><br />
+<img loading="lazy" decoding="async" width="1047" height="683" src="/wp-content/uploads/2018/05/word-image-4308.png" class="wp-image-4787" srcset="/wp-content/uploads/2018/05/word-image-4308.png 1047w, /wp-content/uploads/2018/05/word-image-4308-300x196.png 300w, /wp-content/uploads/2018/05/word-image-4308-768x501.png 768w, /wp-content/uploads/2018/05/word-image-4308-1024x668.png 1024w" sizes="(max-width: 1047px) 100vw, 1047px" /><br />
+<img loading="lazy" decoding="async" width="1027" height="141" src="/wp-content/uploads/2018/05/word-image-4309.png" class="wp-image-4788" srcset="/wp-content/uploads/2018/05/word-image-4309.png 1027w, /wp-content/uploads/2018/05/word-image-4309-300x41.png 300w, /wp-content/uploads/2018/05/word-image-4309-768x105.png 768w, /wp-content/uploads/2018/05/word-image-4309-1024x141.png 1024w" sizes="(max-width: 1027px) 100vw, 1027px" /></p>
+<h1>静态化概述</h1>
+<h2>静态与动态网页</h2>
+<p>
+  ①静态网页
+</p>
+<p>
+  直接以静态的html/shtml等格式直接显示内容的
+</p>
+<p><img loading="lazy" decoding="async" width="1014" height="577" src="/wp-content/uploads/2018/05/word-image-4310.png" class="wp-image-4789" srcset="/wp-content/uploads/2018/05/word-image-4310.png 1014w, /wp-content/uploads/2018/05/word-image-4310-300x171.png 300w, /wp-content/uploads/2018/05/word-image-4310-768x437.png 768w" sizes="(max-width: 1014px) 100vw, 1014px" /></p>
+<p>
+  优点：安全、运行速度快
+</p>
+<p>
+  缺点：工作量大
+</p>
+<p>
+  ②动态网页
+</p>
+<p>
+  使用动态语言配合数据库显示内容。
+</p>
+<p><img loading="lazy" decoding="async" width="917" height="611" src="/wp-content/uploads/2018/05/word-image-4311.png" class="wp-image-4790" srcset="/wp-content/uploads/2018/05/word-image-4311.png 917w, /wp-content/uploads/2018/05/word-image-4311-300x200.png 300w, /wp-content/uploads/2018/05/word-image-4311-768x512.png 768w" sizes="(max-width: 917px) 100vw, 917px" /></p>
+<p>
+  优点：灵活性高、维护工作量小
+</p>
+<p>
+  缺点：与静态网页相对比运行速度慢
+</p>
+<h2>什么是静态化</h2>
+<p>
+  将动态网页显示的内容转换为静态网页来进行显示，而具体转换的过程就是静态化。对于静态化是一个过程。在实现的完成后会产生对于的html静态文件。
+</p>
+<h2>静态化优点</h2>
+<ol>
+<li>
+  安全性高
+</li>
+</ol>
+<p>
+  对于静态化的html文件不接受任何参数。
+</p>
+<ol>
+<li>
+  性能更高
+</li>
+</ol>
+<p>
+  对于静态的html文件Apache是直接解析文件响应结果。对于动态的php需要交给PHP引擎解析最后在由Apache响应结果
+</p>
+<ol>
+<li>
+  加载速度快
+</li>
+</ol>
+<p>
+  浏览器自带缓存功能
+</p>
+<ol>
+<li>
+  更加符合搜索引擎优化
+</li>
+</ol>
+<p>
+  对于百度、360搜索引擎更加喜欢收录静态的HTML文件
+</p>
+<h2>2.4、实现静态化的原理</h2>
+<p>
+  1、获取解析之后的结果(最终要显示的结果)
+</p>
+<p>
+  2、写入文件(一定要自行设计一个规律写入)
+</p>
+<p>
+  ①创建生成html文件的php
+</p>
+<p><img loading="lazy" decoding="async" width="978" height="612" src="/wp-content/uploads/2018/05/word-image-4312.png" class="wp-image-4791" srcset="/wp-content/uploads/2018/05/word-image-4312.png 978w, /wp-content/uploads/2018/05/word-image-4312-300x188.png 300w, /wp-content/uploads/2018/05/word-image-4312-768x481.png 768w" sizes="(max-width: 978px) 100vw, 978px" /></p>
+<p>
+  ②访问
+</p>
+<p><img loading="lazy" decoding="async" width="550" height="166" src="/wp-content/uploads/2018/05/word-image-4313.png" class="wp-image-4792" srcset="/wp-content/uploads/2018/05/word-image-4313.png 550w, /wp-content/uploads/2018/05/word-image-4313-300x91.png 300w" sizes="(max-width: 550px) 100vw, 550px" /></p>
+<p>
+  ③查看文件
+</p>
+<p><img loading="lazy" decoding="async" width="1188" height="496" src="/wp-content/uploads/2018/05/word-image-4314.png" class="wp-image-4793" srcset="/wp-content/uploads/2018/05/word-image-4314.png 1188w, /wp-content/uploads/2018/05/word-image-4314-300x125.png 300w, /wp-content/uploads/2018/05/word-image-4314-768x321.png 768w, /wp-content/uploads/2018/05/word-image-4314-1024x428.png 1024w" sizes="(max-width: 1188px) 100vw, 1188px" /></p>
+<p>
+  访问效果
+</p>
+<p><img loading="lazy" decoding="async" width="699" height="237" src="/wp-content/uploads/2018/05/word-image-4315.png" class="wp-image-4794" srcset="/wp-content/uploads/2018/05/word-image-4315.png 699w, /wp-content/uploads/2018/05/word-image-4315-300x102.png 300w" sizes="(max-width: 699px) 100vw, 699px" /></p>
+<p>
+  对于静态化中的两步骤能够实现就能够实现静态化功能。但是最常用的方式是使用PHP 中的OB缓存实现
+</p>
+<h2>静态化适用场景</h2>
+<ol>
+<li>
+  适用于更新不是特别频繁的项目。例如行业、新闻门户或者企业项目使用
+</li>
+<li>
+  可以针对更新较为频繁的项目的首页使用静态化
+</li>
+</ol>
+<h1>缓存区</h1>
+<h2>3.1、静态与动态网页解析流程(了解)</h2>
+<h3>3.1.1、静态网页</h3>
+<p><img loading="lazy" decoding="async" width="1236" height="508" src="/wp-content/uploads/2018/05/word-image-4316.png" class="wp-image-4795" srcset="/wp-content/uploads/2018/05/word-image-4316.png 1236w, /wp-content/uploads/2018/05/word-image-4316-300x123.png 300w, /wp-content/uploads/2018/05/word-image-4316-768x316.png 768w, /wp-content/uploads/2018/05/word-image-4316-1024x421.png 1024w" sizes="(max-width: 1236px) 100vw, 1236px" /></p>
+<p>
+  对于上述流程中将临时存储所读取到文件内容介子叫做程序缓存。程序缓存是一定存在的。不可以手动关闭
+</p>
+<h3>3.1.2、动态网页</h3>
+<p><img loading="lazy" decoding="async" width="1207" height="505" src="/wp-content/uploads/2018/05/word-image-4317.png" class="wp-image-4796" srcset="/wp-content/uploads/2018/05/word-image-4317.png 1207w, /wp-content/uploads/2018/05/word-image-4317-300x126.png 300w, /wp-content/uploads/2018/05/word-image-4317-768x321.png 768w, /wp-content/uploads/2018/05/word-image-4317-1024x428.png 1024w" sizes="(max-width: 1207px) 100vw, 1207px" /></p>
+<p>
+  对于上述流程中涉及到两种缓存系统，一种是程序缓存，另外一种是OB缓存。
+</p>
+<h2>3.2、程序缓存</h2>
+<p>
+  注意案例过程中需要关闭OB缓存。直接修改配置文件注释掉即可
+</p>
+<p><img loading="lazy" decoding="async" width="779" height="671" src="/wp-content/uploads/2018/05/word-image-4318.png" class="wp-image-4797" srcset="/wp-content/uploads/2018/05/word-image-4318.png 779w, /wp-content/uploads/2018/05/word-image-4318-300x258.png 300w, /wp-content/uploads/2018/05/word-image-4318-768x662.png 768w" sizes="(max-width: 779px) 100vw, 779px" /></p>
+<p>
+  注意重启Apache
+</p>
+<p>
+  ①编写案例
+</p>
+<p><img loading="lazy" decoding="async" width="1011" height="386" src="/wp-content/uploads/2018/05/word-image-4319.png" class="wp-image-4798" srcset="/wp-content/uploads/2018/05/word-image-4319.png 1011w, /wp-content/uploads/2018/05/word-image-4319-300x115.png 300w, /wp-content/uploads/2018/05/word-image-4319-768x293.png 768w" sizes="(max-width: 1011px) 100vw, 1011px" /></p>
+<p>
+  ②图解
+</p>
+<p><img loading="lazy" decoding="async" width="1201" height="535" src="/wp-content/uploads/2018/05/word-image-4320.png" class="wp-image-4799" srcset="/wp-content/uploads/2018/05/word-image-4320.png 1201w, /wp-content/uploads/2018/05/word-image-4320-300x134.png 300w, /wp-content/uploads/2018/05/word-image-4320-768x342.png 768w, /wp-content/uploads/2018/05/word-image-4320-1024x456.png 1024w" sizes="(max-width: 1201px) 100vw, 1201px" /></p>
+<p>
+  从上述案例结果只能够能够确认一定会存在程序缓存。如果不存在，会导致结果只看到一部分。当代码执行的过程中将一切的输出都放入到程序缓存中也包括header所设置的响应头
+</p>
+<p>
+  当PHP程序执行完毕 Apache需要获取程序缓存中的内容进行封包。因此直接程序缓存中的内容刷新给Apache进行响应
+</p>
+<h2>3.3、OB缓存</h2>
+<h3>3.3.1、OB缓存案例一</h3>
+<p>
+  ①代码
+</p>
+<p><img loading="lazy" decoding="async" width="1064" height="408" src="/wp-content/uploads/2018/05/word-image-4321.png" class="wp-image-4800" srcset="/wp-content/uploads/2018/05/word-image-4321.png 1064w, /wp-content/uploads/2018/05/word-image-4321-300x115.png 300w, /wp-content/uploads/2018/05/word-image-4321-768x294.png 768w, /wp-content/uploads/2018/05/word-image-4321-1024x393.png 1024w" sizes="(max-width: 1064px) 100vw, 1064px" /></p>
+<p>
+  ②效果
+</p>
+<p><img loading="lazy" decoding="async" width="1183" height="241" src="/wp-content/uploads/2018/05/word-image-4322.png" class="wp-image-4801" srcset="/wp-content/uploads/2018/05/word-image-4322.png 1183w, /wp-content/uploads/2018/05/word-image-4322-300x61.png 300w, /wp-content/uploads/2018/05/word-image-4322-768x156.png 768w, /wp-content/uploads/2018/05/word-image-4322-1024x209.png 1024w" sizes="(max-width: 1183px) 100vw, 1183px" /></p>
+<p>
+  ③图解
+</p>
+<p><img loading="lazy" decoding="async" width="1144" height="507" src="/wp-content/uploads/2018/05/word-image-4323.png" class="wp-image-4802" srcset="/wp-content/uploads/2018/05/word-image-4323.png 1144w, /wp-content/uploads/2018/05/word-image-4323-300x133.png 300w, /wp-content/uploads/2018/05/word-image-4323-768x340.png 768w, /wp-content/uploads/2018/05/word-image-4323-1024x454.png 1024w" sizes="(max-width: 1144px) 100vw, 1144px" /></p>
+<p>
+  ④描述
+</p>
+<p>
+  当代码在执行是顺序将内容放入程序缓存。最后由Apache进行封包响应由于Apache会提供一个默认的的响应头因此导致响应的格式不对因此导致错误
+</p>
+<h3>3.3.2、OB缓存案例二</h3>
+<p>
+  ①代码
+</p>
+<p><img loading="lazy" decoding="async" width="1126" height="452" src="/wp-content/uploads/2018/05/word-image-4324.png" class="wp-image-4803" srcset="/wp-content/uploads/2018/05/word-image-4324.png 1126w, /wp-content/uploads/2018/05/word-image-4324-300x120.png 300w, /wp-content/uploads/2018/05/word-image-4324-768x308.png 768w, /wp-content/uploads/2018/05/word-image-4324-1024x411.png 1024w" sizes="(max-width: 1126px) 100vw, 1126px" /></p>
+<p>
+  ②画图分析
+</p>
+<p><img loading="lazy" decoding="async" width="1239" height="512" src="/wp-content/uploads/2018/05/word-image-4325.png" class="wp-image-4804" srcset="/wp-content/uploads/2018/05/word-image-4325.png 1239w, /wp-content/uploads/2018/05/word-image-4325-300x124.png 300w, /wp-content/uploads/2018/05/word-image-4325-768x317.png 768w, /wp-content/uploads/2018/05/word-image-4325-1024x423.png 1024w" sizes="(max-width: 1239px) 100vw, 1239px" /></p>
+<ol>
+<li>
+  当代码执行到第三行ob_start开启了一个全新的OB缓存区
+</li>
+<li>
+  当代码执行到第五行 是内容书输出因此优先放入到OB缓存
+</li>
+<li>
+  当代码执行到第七行由于header是设置响应头的并非直接输出因此进入到了程序缓存
+</li>
+<li>
+  当代码执行到第九行同样为输出存储到Ob缓存中
+</li>
+<li>
+  最终代码执行完毕，由于没有进行手动的刷新操作。因此PHP自动的将OB缓存中的内容刷新到程序缓存中
+</li>
+<li>
+  Apache读取程序缓存中的内容进行封包响应
+</li>
+</ol>
+<h2>3.4.、OB缓存注意事项</h2>
+<p>
+  1、OB缓存默认是一个开启状态 可以通过php.ini中的output_buffering控制
+</p>
+<p>
+  2、当有程序缓存跟OB缓存同时存在。输出的内容优先放入OB缓存。而非输出的内容例如控制响应的会放入到程序缓存。例如cookie、session等相关的设置
+</p>
+<p>
+  3、当代码执行完毕。PHP会自动的将OB缓存中的内容刷新到程序缓存中
+</p>
+<p>
+  4、OB缓存可以开启多个。每一个之间相互不响应
+</p>
+<h2>3.5、OB缓存中常用函数</h2>
+<p>
+  Ob_start();开启OB缓存
+</p>
+<p>
+  Ob_get_contents();获取OB缓存中的内容
+</p>
+<p>
+  Ob_clean():清空OB缓存中的内容
+</p>
+<p>
+  Ob_end_clean():清空并且关闭OB缓存
+</p>
+<p>
+  Ob_flush();手动的刷新OB缓存到程序缓存中
+</p>
+<p>
+  Ob_end_flush();将OB缓存中的内容刷新到程序缓存并且关闭OB缓存
+</p>
+<p>
+  ①ob_get_contents
+</p>
+<p><img loading="lazy" decoding="async" width="1175" height="591" src="/wp-content/uploads/2018/05/word-image-4326.png" class="wp-image-4805" srcset="/wp-content/uploads/2018/05/word-image-4326.png 1175w, /wp-content/uploads/2018/05/word-image-4326-300x151.png 300w, /wp-content/uploads/2018/05/word-image-4326-768x386.png 768w, /wp-content/uploads/2018/05/word-image-4326-1024x515.png 1024w" sizes="(max-width: 1175px) 100vw, 1175px" /></p>
+<p>
+  浏览器访问结果
+</p>
+<p><img loading="lazy" decoding="async" width="591" height="226" src="/wp-content/uploads/2018/05/word-image-4327.png" class="wp-image-4806" srcset="/wp-content/uploads/2018/05/word-image-4327.png 591w, /wp-content/uploads/2018/05/word-image-4327-300x115.png 300w" sizes="(max-width: 591px) 100vw, 591px" /></p>
+<p>
+  文件中结果
+</p>
+<p><img loading="lazy" decoding="async" width="777" height="238" src="/wp-content/uploads/2018/05/word-image-4328.png" class="wp-image-4807" srcset="/wp-content/uploads/2018/05/word-image-4328.png 777w, /wp-content/uploads/2018/05/word-image-4328-300x92.png 300w, /wp-content/uploads/2018/05/word-image-4328-768x235.png 768w" sizes="(max-width: 777px) 100vw, 777px" /></p>
+<p>
+  ②ob_clean
+</p>
+<p><img loading="lazy" decoding="async" width="1054" height="699" src="/wp-content/uploads/2018/05/word-image-4329.png" class="wp-image-4808" srcset="/wp-content/uploads/2018/05/word-image-4329.png 1054w, /wp-content/uploads/2018/05/word-image-4329-300x199.png 300w, /wp-content/uploads/2018/05/word-image-4329-768x509.png 768w, /wp-content/uploads/2018/05/word-image-4329-1024x679.png 1024w" sizes="(max-width: 1054px) 100vw, 1054px" /></p>
+<p>
+  浏览器结果
+</p>
+<p><img loading="lazy" decoding="async" width="532" height="166" src="/wp-content/uploads/2018/05/word-image-4330.png" class="wp-image-4809" srcset="/wp-content/uploads/2018/05/word-image-4330.png 532w, /wp-content/uploads/2018/05/word-image-4330-300x94.png 300w" sizes="(max-width: 532px) 100vw, 532px" /></p>
+<p>
+  文件中结果
+</p>
+<p><img loading="lazy" decoding="async" width="725" height="262" src="/wp-content/uploads/2018/05/word-image-4331.png" class="wp-image-4810" srcset="/wp-content/uploads/2018/05/word-image-4331.png 725w, /wp-content/uploads/2018/05/word-image-4331-300x108.png 300w" sizes="(max-width: 725px) 100vw, 725px" /></p>
+<p>
+  ③ob_flush
+</p>
+<p><img loading="lazy" decoding="async" width="1155" height="698" src="/wp-content/uploads/2018/05/word-image-4332.png" class="wp-image-4811" srcset="/wp-content/uploads/2018/05/word-image-4332.png 1155w, /wp-content/uploads/2018/05/word-image-4332-300x181.png 300w, /wp-content/uploads/2018/05/word-image-4332-768x464.png 768w, /wp-content/uploads/2018/05/word-image-4332-1024x619.png 1024w" sizes="(max-width: 1155px) 100vw, 1155px" /></p>
+<p>
+  浏览器效果
+</p>
+<p><img loading="lazy" decoding="async" width="654" height="215" src="/wp-content/uploads/2018/05/word-image-4333.png" class="wp-image-4812" srcset="/wp-content/uploads/2018/05/word-image-4333.png 654w, /wp-content/uploads/2018/05/word-image-4333-300x99.png 300w" sizes="(max-width: 654px) 100vw, 654px" /></p>
+<p>
+  文件效果
+</p>
+<p><img loading="lazy" decoding="async" width="695" height="213" src="/wp-content/uploads/2018/05/word-image-4334.png" class="wp-image-4813" srcset="/wp-content/uploads/2018/05/word-image-4334.png 695w, /wp-content/uploads/2018/05/word-image-4334-300x92.png 300w" sizes="(max-width: 695px) 100vw, 695px" /></p>
+<h2>4.6、OB缓存嵌套</h2>
+<p><img loading="lazy" decoding="async" width="892" height="654" src="/wp-content/uploads/2018/05/word-image-4335.png" class="wp-image-4814" srcset="/wp-content/uploads/2018/05/word-image-4335.png 892w, /wp-content/uploads/2018/05/word-image-4335-300x220.png 300w, /wp-content/uploads/2018/05/word-image-4335-768x563.png 768w" sizes="(max-width: 892px) 100vw, 892px" /></p>
+<p>
+  对于上述案例浏览器会逐个输出并且会顺序的输出1,2,3。说明ob缓存每一次开启都会开启一个缓存区。每个之间存在一个“标号”关系
+</p>
+<p><img loading="lazy" decoding="async" width="728" height="138" src="/wp-content/uploads/2018/05/word-image-4336.png" class="wp-image-4815" srcset="/wp-content/uploads/2018/05/word-image-4336.png 728w, /wp-content/uploads/2018/05/word-image-4336-300x57.png 300w" sizes="(max-width: 728px) 100vw, 728px" /></p>
+<p>
+  而在三个文件中分别的内容为php、mysql、java 产生此结果原因。因为每一个缓存区之间不相互影响
+</p>
+<h2>4.7、使用OB缓存实现静态化</h2>
+<p>
+  ①创建新闻数据表
+</p>
+<p>
+  CREATE TABLE `news` (
+</p>
+<p>
+    `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+</p>
+<p>
+    `title` varchar(255) NOT NULL DEFAULT &#8221;,
+</p>
+<p>
+    `body` varchar(255) NOT NULL DEFAULT &#8221;,
+</p>
+<p>
+    PRIMARY KEY (`id`)
+</p>
+<p>
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</p>
+<p>
+  ②写入测试数据
+</p>
+<p><img loading="lazy" decoding="async" width="684" height="270" src="/wp-content/uploads/2018/05/word-image-4337.png" class="wp-image-4816" srcset="/wp-content/uploads/2018/05/word-image-4337.png 684w, /wp-content/uploads/2018/05/word-image-4337-300x118.png 300w" sizes="(max-width: 684px) 100vw, 684px" /></p>
+<p>
+  ③编写新闻列表页
+</p>
+<p><img loading="lazy" decoding="async" width="1051" height="685" src="/wp-content/uploads/2018/05/word-image-4338.png" class="wp-image-4817" srcset="/wp-content/uploads/2018/05/word-image-4338.png 1051w, /wp-content/uploads/2018/05/word-image-4338-300x196.png 300w, /wp-content/uploads/2018/05/word-image-4338-768x501.png 768w, /wp-content/uploads/2018/05/word-image-4338-1024x667.png 1024w" sizes="(max-width: 1051px) 100vw, 1051px" /></p>
+<p>
+  ④创建可以生产新闻详情页的PHP文件
+</p>
+<p><img loading="lazy" decoding="async" width="1092" height="622" src="/wp-content/uploads/2018/05/word-image-4339.png" class="wp-image-4818" srcset="/wp-content/uploads/2018/05/word-image-4339.png 1092w, /wp-content/uploads/2018/05/word-image-4339-300x171.png 300w, /wp-content/uploads/2018/05/word-image-4339-768x437.png 768w, /wp-content/uploads/2018/05/word-image-4339-1024x583.png 1024w" sizes="(max-width: 1092px) 100vw, 1092px" /><br />
+<img loading="lazy" decoding="async" width="911" height="432" src="/wp-content/uploads/2018/05/word-image-4340.png" class="wp-image-4819" srcset="/wp-content/uploads/2018/05/word-image-4340.png 911w, /wp-content/uploads/2018/05/word-image-4340-300x142.png 300w, /wp-content/uploads/2018/05/word-image-4340-768x364.png 768w" sizes="(max-width: 911px) 100vw, 911px" /></p>
+<p>
+  ⑤访问触发生产
+</p>
+<p><img loading="lazy" decoding="async" width="809" height="198" src="/wp-content/uploads/2018/05/word-image-4341.png" class="wp-image-4820" srcset="/wp-content/uploads/2018/05/word-image-4341.png 809w, /wp-content/uploads/2018/05/word-image-4341-300x73.png 300w, /wp-content/uploads/2018/05/word-image-4341-768x188.png 768w" sizes="(max-width: 809px) 100vw, 809px" /></p>
+<p>
+  ⑥查看文件
+</p>
+<p><img loading="lazy" decoding="async" width="1335" height="627" src="/wp-content/uploads/2018/05/word-image-4342.png" class="wp-image-4821" srcset="/wp-content/uploads/2018/05/word-image-4342.png 1335w, /wp-content/uploads/2018/05/word-image-4342-300x141.png 300w, /wp-content/uploads/2018/05/word-image-4342-768x361.png 768w, /wp-content/uploads/2018/05/word-image-4342-1024x481.png 1024w" sizes="(max-width: 1335px) 100vw, 1335px" /></p>
+<p>
+  ⑦给列表增加连接地址
+</p>
+<p><img loading="lazy" decoding="async" width="1116" height="581" src="/wp-content/uploads/2018/05/word-image-4343.png" class="wp-image-4822" srcset="/wp-content/uploads/2018/05/word-image-4343.png 1116w, /wp-content/uploads/2018/05/word-image-4343-300x156.png 300w, /wp-content/uploads/2018/05/word-image-4343-768x400.png 768w, /wp-content/uploads/2018/05/word-image-4343-1024x533.png 1024w" sizes="(max-width: 1116px) 100vw, 1116px" /></p>
+<h2>4.8、商城使用静态化</h2>
+<h3>4.8.1、商城首页进行静态化</h3>
+<p>
+  ①创建控制器方法
+</p>
+<p><img loading="lazy" decoding="async" width="981" height="437" src="/wp-content/uploads/2018/05/word-image-4344.png" class="wp-image-4823" srcset="/wp-content/uploads/2018/05/word-image-4344.png 981w, /wp-content/uploads/2018/05/word-image-4344-300x134.png 300w, /wp-content/uploads/2018/05/word-image-4344-768x342.png 768w" sizes="(max-width: 981px) 100vw, 981px" /></p>
+<p>
+  ②查看TP静态化的方法
+</p>
+<p><img loading="lazy" decoding="async" width="1137" height="714" src="/wp-content/uploads/2018/05/word-image-4345.png" class="wp-image-4824" srcset="/wp-content/uploads/2018/05/word-image-4345.png 1137w, /wp-content/uploads/2018/05/word-image-4345-300x188.png 300w, /wp-content/uploads/2018/05/word-image-4345-768x482.png 768w, /wp-content/uploads/2018/05/word-image-4345-1024x643.png 1024w" sizes="(max-width: 1137px) 100vw, 1137px" /></p>
+<p>
+  ③修改方法实现静态化
+</p>
+<p><img loading="lazy" decoding="async" width="1130" height="695" src="/wp-content/uploads/2018/05/word-image-4346.png" class="wp-image-4825" srcset="/wp-content/uploads/2018/05/word-image-4346.png 1130w, /wp-content/uploads/2018/05/word-image-4346-300x185.png 300w, /wp-content/uploads/2018/05/word-image-4346-768x472.png 768w, /wp-content/uploads/2018/05/word-image-4346-1024x630.png 1024w" sizes="(max-width: 1130px) 100vw, 1130px" /></p>
+<p>
+  ④修改首页的模板
+</p>
+<p><img loading="lazy" decoding="async" width="1135" height="697" src="/wp-content/uploads/2018/05/word-image-4347.png" class="wp-image-4826" srcset="/wp-content/uploads/2018/05/word-image-4347.png 1135w, /wp-content/uploads/2018/05/word-image-4347-300x184.png 300w, /wp-content/uploads/2018/05/word-image-4347-768x472.png 768w, /wp-content/uploads/2018/05/word-image-4347-1024x629.png 1024w" sizes="(max-width: 1135px) 100vw, 1135px" /></p>
+<p>
+  ⑤修改footer模板
+</p>
+<p><img loading="lazy" decoding="async" width="935" height="310" src="/wp-content/uploads/2018/05/word-image-4348.png" class="wp-image-4827" srcset="/wp-content/uploads/2018/05/word-image-4348.png 935w, /wp-content/uploads/2018/05/word-image-4348-300x99.png 300w, /wp-content/uploads/2018/05/word-image-4348-768x255.png 768w" sizes="(max-width: 935px) 100vw, 935px" /></p>
+<p>
+  ⑥访问方法触发生产操作
+</p>
+<p><img loading="lazy" decoding="async" width="683" height="181" src="/wp-content/uploads/2018/05/word-image-4349.png" class="wp-image-4828" srcset="/wp-content/uploads/2018/05/word-image-4349.png 683w, /wp-content/uploads/2018/05/word-image-4349-300x80.png 300w" sizes="(max-width: 683px) 100vw, 683px" /></p>
+<p>
+  结果
+</p>
+<p><img loading="lazy" decoding="async" width="1361" height="516" src="/wp-content/uploads/2018/05/word-image-4350.png" class="wp-image-4829" srcset="/wp-content/uploads/2018/05/word-image-4350.png 1361w, /wp-content/uploads/2018/05/word-image-4350-300x114.png 300w, /wp-content/uploads/2018/05/word-image-4350-768x291.png 768w, /wp-content/uploads/2018/05/word-image-4350-1024x388.png 1024w" sizes="(max-width: 1361px) 100vw, 1361px" /><br />
+<img loading="lazy" decoding="async" width="1233" height="578" src="/wp-content/uploads/2018/05/word-image-4351.png" class="wp-image-4830" srcset="/wp-content/uploads/2018/05/word-image-4351.png 1233w, /wp-content/uploads/2018/05/word-image-4351-300x141.png 300w, /wp-content/uploads/2018/05/word-image-4351-768x360.png 768w, /wp-content/uploads/2018/05/word-image-4351-1024x480.png 1024w" sizes="(max-width: 1233px) 100vw, 1233px" /></p>
+<p>
+  注意使用静态化一定要注意更新
+</p>
+<h3>4.8.2、商城公告使用静态化</h3>
+<p>
+  ①创建数据表
+</p>
+<p>
+  CREATE TABLE `news` (
+</p>
+<p>
+    `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+</p>
+<p>
+    `title` varchar(255) NOT NULL DEFAULT &#8221;,
+</p>
+<p>
+    `body` varchar(255) NOT NULL DEFAULT &#8221;,
+</p>
+<p>
+    PRIMARY KEY (`id`)
+</p>
+<p>
+  ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+</p>
+<p>
+  ②创建更新的方法
+</p>
+<p><img loading="lazy" decoding="async" width="1097" height="499" src="/wp-content/uploads/2018/05/word-image-4352.png" class="wp-image-4831" srcset="/wp-content/uploads/2018/05/word-image-4352.png 1097w, /wp-content/uploads/2018/05/word-image-4352-300x136.png 300w, /wp-content/uploads/2018/05/word-image-4352-768x349.png 768w, /wp-content/uploads/2018/05/word-image-4352-1024x466.png 1024w" sizes="(max-width: 1097px) 100vw, 1097px" /></p>
+<p>
+  ③根据更新的方法创建模板文件
+</p>
+<p><img loading="lazy" decoding="async" width="1061" height="676" src="/wp-content/uploads/2018/05/word-image-4353.png" class="wp-image-4832" srcset="/wp-content/uploads/2018/05/word-image-4353.png 1061w, /wp-content/uploads/2018/05/word-image-4353-300x191.png 300w, /wp-content/uploads/2018/05/word-image-4353-768x489.png 768w, /wp-content/uploads/2018/05/word-image-4353-1024x652.png 1024w" sizes="(max-width: 1061px) 100vw, 1061px" /></p>
+<p>
+  ④访问触发更新
+</p>
+<p><img loading="lazy" decoding="async" width="904" height="307" src="/wp-content/uploads/2018/05/word-image-4354.png" class="wp-image-4833" srcset="/wp-content/uploads/2018/05/word-image-4354.png 904w, /wp-content/uploads/2018/05/word-image-4354-300x102.png 300w, /wp-content/uploads/2018/05/word-image-4354-768x261.png 768w" sizes="(max-width: 904px) 100vw, 904px" /></p>
+<p>
+  ⑤查看目录文件
+</p>
+<p><img loading="lazy" decoding="async" width="870" height="177" src="/wp-content/uploads/2018/05/word-image-4355.png" class="wp-image-4834" srcset="/wp-content/uploads/2018/05/word-image-4355.png 870w, /wp-content/uploads/2018/05/word-image-4355-300x61.png 300w, /wp-content/uploads/2018/05/word-image-4355-768x156.png 768w" sizes="(max-width: 870px) 100vw, 870px" /></p>
+<p>
+  ⑥修改首页显示的公告
+</p>
+<p><img loading="lazy" decoding="async" width="1060" height="691" src="/wp-content/uploads/2018/05/word-image-4356.png" class="wp-image-4835" srcset="/wp-content/uploads/2018/05/word-image-4356.png 1060w, /wp-content/uploads/2018/05/word-image-4356-300x196.png 300w, /wp-content/uploads/2018/05/word-image-4356-768x501.png 768w, /wp-content/uploads/2018/05/word-image-4356-1024x668.png 1024w" sizes="(max-width: 1060px) 100vw, 1060px" /></p>
+<p>
+  ⑦修改模板显示数据
+</p>
+<p><img loading="lazy" decoding="async" width="1100" height="548" src="/wp-content/uploads/2018/05/word-image-4357.png" class="wp-image-4836" srcset="/wp-content/uploads/2018/05/word-image-4357.png 1100w, /wp-content/uploads/2018/05/word-image-4357-300x149.png 300w, /wp-content/uploads/2018/05/word-image-4357-768x383.png 768w, /wp-content/uploads/2018/05/word-image-4357-1024x510.png 1024w" sizes="(max-width: 1100px) 100vw, 1100px" /></p>
+<p>
+  ⑧增加公共函数
+</p>
+<p><img loading="lazy" decoding="async" width="1017" height="441" src="/wp-content/uploads/2018/05/word-image-4358.png" class="wp-image-4837" srcset="/wp-content/uploads/2018/05/word-image-4358.png 1017w, /wp-content/uploads/2018/05/word-image-4358-300x130.png 300w, /wp-content/uploads/2018/05/word-image-4358-768x333.png 768w" sizes="(max-width: 1017px) 100vw, 1017px" /></p>
+<p>
+  最终效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="1325" height="357" src="/wp-content/uploads/2018/05/word-image-4359.png" class="wp-image-4838" srcset="/wp-content/uploads/2018/05/word-image-4359.png 1325w, /wp-content/uploads/2018/05/word-image-4359-300x81.png 300w, /wp-content/uploads/2018/05/word-image-4359-768x207.png 768w, /wp-content/uploads/2018/05/word-image-4359-1024x276.png 1024w" sizes="(max-width: 1325px) 100vw, 1325px" /><br />
+<img loading="lazy" decoding="async" width="1055" height="401" src="/wp-content/uploads/2018/05/word-image-4360.png" class="wp-image-4839" srcset="/wp-content/uploads/2018/05/word-image-4360.png 1055w, /wp-content/uploads/2018/05/word-image-4360-300x114.png 300w, /wp-content/uploads/2018/05/word-image-4360-768x292.png 768w, /wp-content/uploads/2018/05/word-image-4360-1024x389.png 1024w" sizes="(max-width: 1055px) 100vw, 1055px" /></p>
+<h1>5、伪静态</h1>
+<h2>5.1、伪静态介绍</h2>
+<p>
+  从URL地址上查看类似真静态。但是在本质处理请求的还是有动态语言完成。对于伪静态的好处方便记忆并且符合搜索引擎优化
+</p>
+<h2>5.2、伪静态实现方式</h2>
+<p>
+  1、借助于web服务器的重写机制实现
+</p>
+<p>
+  2、借助于框架中的路由功能
+</p>
+<h2>5.3、Apache开启重写机制</h2>
+<p>
+  ①启用Apache的重写机制
+</p>
+<p><img loading="lazy" decoding="async" width="1024" height="435" src="/wp-content/uploads/2018/05/word-image-4361.png" class="wp-image-4840" srcset="/wp-content/uploads/2018/05/word-image-4361.png 1024w, /wp-content/uploads/2018/05/word-image-4361-300x127.png 300w, /wp-content/uploads/2018/05/word-image-4361-768x326.png 768w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<p>
+  ②设置虚拟主机可以重写
+</p>
+<p><img loading="lazy" decoding="async" width="973" height="433" src="/wp-content/uploads/2018/05/word-image-4362.png" class="wp-image-4841" srcset="/wp-content/uploads/2018/05/word-image-4362.png 973w, /wp-content/uploads/2018/05/word-image-4362-300x134.png 300w, /wp-content/uploads/2018/05/word-image-4362-768x342.png 768w" sizes="(max-width: 973px) 100vw, 973px" /></p>
+<p>
+  ③重启Apache
+</p>
+<p>
+  对于Apache重写机制借助于.htaccess文件实现
+</p>
+<h2>5.4、伪静态案例</h2>
+<h3>5.4.1、实现访问order.html由order.php进行解析</h3>
+<p>
+  ①创建虚拟主机
+</p>
+<p><img loading="lazy" decoding="async" width="868" height="321" src="/wp-content/uploads/2018/05/word-image-4363.png" class="wp-image-4842" srcset="/wp-content/uploads/2018/05/word-image-4363.png 868w, /wp-content/uploads/2018/05/word-image-4363-300x111.png 300w, /wp-content/uploads/2018/05/word-image-4363-768x284.png 768w" sizes="(max-width: 868px) 100vw, 868px" /></p>
+<p>
+  ②修改host
+</p>
+<p><img loading="lazy" decoding="async" width="505" height="428" src="/wp-content/uploads/2018/05/word-image-4364.png" class="wp-image-4843" srcset="/wp-content/uploads/2018/05/word-image-4364.png 505w, /wp-content/uploads/2018/05/word-image-4364-300x254.png 300w" sizes="(max-width: 505px) 100vw, 505px" /></p>
+<p>
+  ③重启Apache
+</p>
+<p>
+  ④创建文件
+</p>
+<p><img loading="lazy" decoding="async" width="794" height="303" src="/wp-content/uploads/2018/05/word-image-4365.png" class="wp-image-4844" srcset="/wp-content/uploads/2018/05/word-image-4365.png 794w, /wp-content/uploads/2018/05/word-image-4365-300x114.png 300w, /wp-content/uploads/2018/05/word-image-4365-768x293.png 768w" sizes="(max-width: 794px) 100vw, 794px" /></p>
+<p>
+  ⑤访问测试
+</p>
+<p><img loading="lazy" decoding="async" width="838" height="157" src="/wp-content/uploads/2018/05/word-image-4366.png" class="wp-image-4845" srcset="/wp-content/uploads/2018/05/word-image-4366.png 838w, /wp-content/uploads/2018/05/word-image-4366-300x56.png 300w, /wp-content/uploads/2018/05/word-image-4366-768x144.png 768w" sizes="(max-width: 838px) 100vw, 838px" /><br />
+<img loading="lazy" decoding="async" width="888" height="243" src="/wp-content/uploads/2018/05/word-image-4367.png" class="wp-image-4846" srcset="/wp-content/uploads/2018/05/word-image-4367.png 888w, /wp-content/uploads/2018/05/word-image-4367-300x82.png 300w, /wp-content/uploads/2018/05/word-image-4367-768x210.png 768w" sizes="(max-width: 888px) 100vw, 888px" /></p>
+<p>
+  ⑥创建重写规则文件
+</p>
+<p><img loading="lazy" decoding="async" width="988" height="520" src="/wp-content/uploads/2018/05/word-image-4368.png" class="wp-image-4847" srcset="/wp-content/uploads/2018/05/word-image-4368.png 988w, /wp-content/uploads/2018/05/word-image-4368-300x158.png 300w, /wp-content/uploads/2018/05/word-image-4368-768x404.png 768w" sizes="(max-width: 988px) 100vw, 988px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="599" height="177" src="/wp-content/uploads/2018/05/word-image-4369.png" class="wp-image-4848" srcset="/wp-content/uploads/2018/05/word-image-4369.png 599w, /wp-content/uploads/2018/05/word-image-4369-300x89.png 300w" sizes="(max-width: 599px) 100vw, 599px" /></p>
+<h3>5.4.2、实现带参数的伪静态</h3>
+<p>
+  目的：用户访问http://demo.com/goods/10/100.html最终有http://demo.com/goods.php
+</p>
+<p>
+  ①创建goods.php
+</p>
+<p><img loading="lazy" decoding="async" width="1005" height="289" src="/wp-content/uploads/2018/05/word-image-4370.png" class="wp-image-4849" srcset="/wp-content/uploads/2018/05/word-image-4370.png 1005w, /wp-content/uploads/2018/05/word-image-4370-300x86.png 300w, /wp-content/uploads/2018/05/word-image-4370-768x221.png 768w" sizes="(max-width: 1005px) 100vw, 1005px" /></p>
+<p>
+  ②修改重写规则文件
+</p>
+<p><img loading="lazy" decoding="async" width="1084" height="638" src="/wp-content/uploads/2018/05/word-image-4371.png" class="wp-image-4850" srcset="/wp-content/uploads/2018/05/word-image-4371.png 1084w, /wp-content/uploads/2018/05/word-image-4371-300x177.png 300w, /wp-content/uploads/2018/05/word-image-4371-768x452.png 768w, /wp-content/uploads/2018/05/word-image-4371-1024x603.png 1024w" sizes="(max-width: 1084px) 100vw, 1084px" /></p>
+<p>
+  ③效果
+</p>
+<p><img loading="lazy" decoding="async" width="851" height="140" src="/wp-content/uploads/2018/05/word-image-4372.png" class="wp-image-4851" srcset="/wp-content/uploads/2018/05/word-image-4372.png 851w, /wp-content/uploads/2018/05/word-image-4372-300x49.png 300w, /wp-content/uploads/2018/05/word-image-4372-768x126.png 768w" sizes="(max-width: 851px) 100vw, 851px" /></p>
+<h3>5.4.3、防盗链</h3>
+<p>
+  防止其他项目使用自己的资源文件
+</p>
+<p>
+  ①拷贝图片
+</p>
+<p><img loading="lazy" decoding="async" width="966" height="340" src="/wp-content/uploads/2018/05/word-image-4373.png" class="wp-image-4852" srcset="/wp-content/uploads/2018/05/word-image-4373.png 966w, /wp-content/uploads/2018/05/word-image-4373-300x106.png 300w, /wp-content/uploads/2018/05/word-image-4373-768x270.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<p>
+  ②修改重写规则文件
+</p>
+<p><img loading="lazy" decoding="async" width="1061" height="508" src="/wp-content/uploads/2018/05/word-image-4374.png" class="wp-image-4853" srcset="/wp-content/uploads/2018/05/word-image-4374.png 1061w, /wp-content/uploads/2018/05/word-image-4374-300x144.png 300w, /wp-content/uploads/2018/05/word-image-4374-768x368.png 768w, /wp-content/uploads/2018/05/word-image-4374-1024x490.png 1024w" sizes="(max-width: 1061px) 100vw, 1061px" /></p>
+<p>
+  ③访问查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="1188" height="600" src="/wp-content/uploads/2018/05/word-image-4375.png" class="wp-image-4854" srcset="/wp-content/uploads/2018/05/word-image-4375.png 1188w, /wp-content/uploads/2018/05/word-image-4375-300x152.png 300w, /wp-content/uploads/2018/05/word-image-4375-768x388.png 768w, /wp-content/uploads/2018/05/word-image-4375-1024x517.png 1024w" sizes="(max-width: 1188px) 100vw, 1188px" /></p>
+<h1>总结静态化与伪静态</h1>
+<h2>7.1、静态化</h2>
+<p>
+  1、运行速度快
+</p>
+<p>
+  2、更加安全
+</p>
+<p>
+  3、加载速度快
+</p>
+<p>
+  4、符合搜索引擎优化
+</p>
+<p>
+  5、受磁盘的IO性能影响
+</p>
+<p>
+  6、可扩展性不是特别高
+</p>
+<h2>7.2、伪静态</h2>
+<p>
+  1、符合搜索引擎优化
+</p>
+<p>
+  2、地址容易记忆
+</p>
+<p>
+  3、安全性略差一点
+</p>
+<p>
+  4、可扩展性高。由于解析请求的是动态的php因此可以使用各种其他技术进行加速</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/4777.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

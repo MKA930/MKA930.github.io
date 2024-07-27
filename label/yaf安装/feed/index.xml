@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Yaf安装 &#8211; 个人随笔</title>
+	<atom:link href="/label/yaf%E5%AE%89%E8%A3%85/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sun, 20 May 2018 01:09:44 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>Yaf安装 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Yaf框架 安装、PHP-ext引入、目录结构、路由、模型、视图、控制器</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6500.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6500.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 17:29:32 +0000</pubDate>
+				<category><![CDATA[Yaf]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[PHP-ext引入]]></category>
+		<category><![CDATA[Yaf安装]]></category>
+		<category><![CDATA[控制器]]></category>
+		<category><![CDATA[模型]]></category>
+		<category><![CDATA[目录结构]]></category>
+		<category><![CDATA[视图]]></category>
+		<category><![CDATA[路由]]></category>
+		<guid isPermaLink="false">/?p=6500</guid>
+
+					<description><![CDATA[写在前面 鸟哥是谁？ 注意：也是PHP核心开发者之一（目前的最新的PHP7参与其中，并且很大部分的代码都是他贡 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>写在前面</h1>
+<h2>鸟哥是谁？</h2>
+<p><img fetchpriority="high" decoding="async" width="684" height="216" class="wp-image-6667" src="/wp-content/uploads/2018/05/word-image-6074.png" srcset="/wp-content/uploads/2018/05/word-image-6074.png 684w, /wp-content/uploads/2018/05/word-image-6074-300x95.png 300w" sizes="(max-width: 684px) 100vw, 684px" /></p>
+<p>注意：也是PHP核心开发者之一（目前的最新的PHP7参与其中，并且很大部分的代码都是他贡献的）。和之前Linux私房菜鸟哥不是同一个人（这个鸟哥是台湾，主要是做Linux教程。）但我们yaf的鸟哥是惠新宸（风雪之隅）（之前是在百度工作的时候网名叫做雪候鸟，年龄相对大一点，所以被称为鸟哥。也在新浪微博工作。目前应该是在链家做架构师）</p>
+<p><img decoding="async" width="1046" height="474" class="wp-image-6669" src="/wp-content/uploads/2018/05/word-image-6076.png" srcset="/wp-content/uploads/2018/05/word-image-6076.png 1046w, /wp-content/uploads/2018/05/word-image-6076-300x136.png 300w, /wp-content/uploads/2018/05/word-image-6076-768x348.png 768w, /wp-content/uploads/2018/05/word-image-6076-1024x464.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /></p>
+<p>相关报道：</p>
+<p><a href="http://www.infoq.com/cn/articles/weibo-architect-on-php-development">http://www.infoq.com/cn/articles/weibo-architect-on-php-development</a></p>
+<h2>yaf是什么？</h2>
+<p><img decoding="async" width="1054" height="498" class="wp-image-6671" src="/wp-content/uploads/2018/05/word-image-6078.png" srcset="/wp-content/uploads/2018/05/word-image-6078.png 1054w, /wp-content/uploads/2018/05/word-image-6078-300x142.png 300w, /wp-content/uploads/2018/05/word-image-6078-768x363.png 768w, /wp-content/uploads/2018/05/word-image-6078-1024x484.png 1024w" sizes="(max-width: 1054px) 100vw, 1054px" /></p>
+<p>注意：yaf框架是使用C语言进行编写的，编程之后编程成一个dll文件作为PHP的扩展进行出现，当PHP引入该扩展后，就在PHP里面内置很多的类库。然后我们就可以直接调用这些类库（等价PHP里面内置的一些功能，例如内置的函数、stdClass内置标准类），注意：同类型的框架还有国外的phalcon框架，也是做为PHP的出现，也是一个高性能的扩展，这类框架的性能折损非常少，性能仅次于原生的PHP。看一下官方的简介：</p>
+<p><img loading="lazy" decoding="async" width="1601" height="771" class="wp-image-6673" src="/wp-content/uploads/2018/05/word-image-6080.png" srcset="/wp-content/uploads/2018/05/word-image-6080.png 1601w, /wp-content/uploads/2018/05/word-image-6080-300x144.png 300w, /wp-content/uploads/2018/05/word-image-6080-768x370.png 768w, /wp-content/uploads/2018/05/word-image-6080-1024x493.png 1024w" sizes="(max-width: 1601px) 100vw, 1601px" /></p>
+<h2>相关资源</h2>
+<p>yaf手册：<a href="http://yaf.laruence.com/">http://yaf.laruence.com/</a></p>
+<p>github地址：https://github.com/laruence/yaf</p>
+<p>作者博客：<a href="http://www.laruence.com/">http://www.laruence.com/</a></p>
+<h1>yaf安装</h1>
+<h2>dll扩展下载</h2>
+<p>yaf框架是作为PHP的一个扩展存在的，所以我们需要去下载对应的扩展文件，然后在php.ini文件引入即可。</p>
+<p>扩展下载地址：</p>
+<p><a href="http://pecl.php.net/package/yaf">http://pecl.php.net/package/yaf</a></p>
+<p><img loading="lazy" decoding="async" width="1554" height="853" class="wp-image-6675" src="/wp-content/uploads/2018/05/word-image-6082.png" srcset="/wp-content/uploads/2018/05/word-image-6082.png 1554w, /wp-content/uploads/2018/05/word-image-6082-300x165.png 300w, /wp-content/uploads/2018/05/word-image-6082-768x422.png 768w, /wp-content/uploads/2018/05/word-image-6082-1024x562.png 1024w" sizes="(max-width: 1554px) 100vw, 1554px" /></p>
+<p>这里我们假设使用的朋友都是使用的windows操作系统，点击DLL下载即可，这里我们一2.3.5为例。接下来我们来到具体的下载页面：</p>
+<p><img loading="lazy" decoding="async" width="1580" height="646" class="wp-image-6677" src="/wp-content/uploads/2018/05/word-image-6084.png" srcset="/wp-content/uploads/2018/05/word-image-6084.png 1580w, /wp-content/uploads/2018/05/word-image-6084-300x123.png 300w, /wp-content/uploads/2018/05/word-image-6084-768x314.png 768w, /wp-content/uploads/2018/05/word-image-6084-1024x419.png 1024w" sizes="(max-width: 1580px) 100vw, 1580px" /></p>
+<p>版本新的的选择需要严格的依赖phpinfo函数给出的信息</p>
+<h2>PHP-ext引入</h2>
+<p>将下载后的php_yaf.dll文件复制到PHP的ext扩展目录即可</p>
+<p><img loading="lazy" decoding="async" width="1000" height="389" class="wp-image-6680" src="/wp-content/uploads/2018/05/word-image-6087.png" srcset="/wp-content/uploads/2018/05/word-image-6087.png 1000w, /wp-content/uploads/2018/05/word-image-6087-300x117.png 300w, /wp-content/uploads/2018/05/word-image-6087-768x299.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" /></p>
+<h2>php.ini配置文件</h2>
+<p>最后在php.ini文件最后面中引入如下一段即可：</p>
+<p>[yaf]</p>
+<p>extension=php_yaf.dll</p>
+<p>yaf.environ=product</p>
+<p>重复apache后，使用phpinfo函数见到如下信息即代表扩展配置成功。</p>
+<p><img loading="lazy" decoding="async" width="1349" height="580" class="wp-image-6682" src="/wp-content/uploads/2018/05/word-image-6089.png" srcset="/wp-content/uploads/2018/05/word-image-6089.png 1349w, /wp-content/uploads/2018/05/word-image-6089-300x129.png 300w, /wp-content/uploads/2018/05/word-image-6089-768x330.png 768w, /wp-content/uploads/2018/05/word-image-6089-1024x440.png 1024w" sizes="(max-width: 1349px) 100vw, 1349px" /></p>
+<p>注意：当我们把PHP的yaf扩展引入后，PHP内部就会存在很多的yaf提供的类库，但是yaf官方并没有给出yaf框架的目录文件等信息，但是提供一个官方的建议：yaf框架的目录的组织结构应该如何实现。</p>
+<p><img loading="lazy" decoding="async" width="763" height="519" class="wp-image-6685" src="/wp-content/uploads/2018/05/word-image-6091.png" srcset="/wp-content/uploads/2018/05/word-image-6091.png 763w, /wp-content/uploads/2018/05/word-image-6091-300x204.png 300w, /wp-content/uploads/2018/05/word-image-6091-220x150.png 220w" sizes="(max-width: 763px) 100vw, 763px" /></p>
+<h1>yaf快速入门</h1>
+<h2>项目目录结构</h2>
+<p>在成功安装扩展后，我们就可以使用yaf进行开发，但是在开发之前，我们需要规划一个项目开发目录。</p>
+<p>当让我们也可以使用官方提供的代码生成工具进行自动生成：</p>
+<p><a href="http://www.laruence.com/manual/tutorial.last.html">http://www.laruence.com/manual/tutorial.last.html</a></p>
+<p>官方的建议目录如下：</p>
+<p>application</p>
+<p>│ │ Bootstrap.php</p>
+<p>│ ├─common</p>
+<p>│ │ functions.php</p>
+<p>│ ├─controllers</p>
+<p>│ │ Index.php</p>
+<p>│ ├─library</p>
+<p>│ ├─models</p>
+<p>│ │ │ User.php</p>
+<p>│ │ │</p>
+<p>│ │ └─Db</p>
+<p>│ │ Medoo.php</p>
+<p>│ ├─modules</p>
+<p>│ │ └─Admin</p>
+<p>│ │ ├─controllers</p>
+<p>│ │ │ Back.php</p>
+<p>│ │ └─views</p>
+<p>│ ├─plugins</p>
+<p>│ └─views</p>
+<p>│ └─index</p>
+<p>│ index.phtml</p>
+<p>├─conf</p>
+<p>│ application.ini</p>
+<p>│</p>
+<p>└─public</p>
+<p>index.php</p>
+<h2>虚拟主机配置</h2>
+<p>需要注意的是，项目的入口文件是放在public目录下的，则我们建立的项目的虚拟主机的目录应该是指定到public目录。一个示例的虚拟主机的配置如下：</p>
+<p>&lt;VirtualHost *:80&gt;</p>
+<p>DocumentRoot &#8220;C:\phpStudy\WWW\yaf.dev\public&#8221;</p>
+<p>ServerName yaf.dev</p>
+<p>ServerAlias</p>
+<p>&lt;Directory &#8220;C:\phpStudy\WWW\yaf.dev\public&#8221;&gt;</p>
+<p>Options Indexes FollowSymLinks ExecCGI</p>
+<p>AllowOverride All</p>
+<p>Order allow,deny</p>
+<p>Allow from all</p>
+<p>Require all granted</p>
+<p>&lt;/Directory&gt;</p>
+<p>&lt;/VirtualHost&gt;</p>
+<h2>入口文件编写</h2>
+<p>在public目录的index.php文件的内容如下：</p>
+<p>需要注意的是，只需要在该文件定义一个常量，然后实例化Yaf_application()，同时传递一个配置文件即可。</p>
+<p>&lt;?php</p>
+<p>define(&#8220;APPLICATION_PATH&#8221;, realpath(dirname(__FILE__) . &#8216;/../&#8217;));</p>
+<p>define(&#8220;APPLICATION_COINFIG_FILE&#8221;,APPLICATION_PATH . &#8220;/conf/application.ini&#8221;);</p>
+<p>date_default_timezone_set(&#8216;Asia/Shanghai&#8217;);</p>
+<p>$app = new Yaf_Application(APPLICATION_COINFIG_FILE);</p>
+<p>$app-&gt;bootstrap()-&gt;run();</p>
+<h2>配置文件</h2>
+<p>在config目录的application.ini文件里面只需要定义如下的配置内容即可。</p>
+<p>[product]</p>
+<p>;分号代表注释，支持直接写PHP中的已定义常量</p>
+<p>application.directory=APPLICATION_PATH &#8220;/application/&#8221;</p>
+<p>通过刚才的手工目录创建和yaf官方提供的代码生成器的创建，我们发现目录创建还是比较繁琐不适合入门的人去捯饬，那我们可以使用默认的目录结构来进行学习。</p>
+<p><img loading="lazy" decoding="async" width="789" height="261" class="wp-image-6686" src="/wp-content/uploads/2018/05/word-image-6092.png" srcset="/wp-content/uploads/2018/05/word-image-6092.png 789w, /wp-content/uploads/2018/05/word-image-6092-300x99.png 300w, /wp-content/uploads/2018/05/word-image-6092-768x254.png 768w" sizes="(max-width: 789px) 100vw, 789px" /></p>
+<h1>composer管理</h1>
+<p>简介</p>
+<p>网站：<a href="https://packagist.org/packages/gogery/yaf">https://packagist.org/packages/gogery/yaf</a></p>
+<p><img loading="lazy" decoding="async" width="697" height="307" class="wp-image-6688" src="/wp-content/uploads/2018/05/word-image-6094.png" srcset="/wp-content/uploads/2018/05/word-image-6094.png 697w, /wp-content/uploads/2018/05/word-image-6094-300x132.png 300w" sizes="(max-width: 697px) 100vw, 697px" /></p>
+<ol>
+<li>使用命令创建本地项目 local.yaf.com</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1689" height="518" class="wp-image-6690" src="/wp-content/uploads/2018/05/word-image-6096.png" srcset="/wp-content/uploads/2018/05/word-image-6096.png 1689w, /wp-content/uploads/2018/05/word-image-6096-300x92.png 300w, /wp-content/uploads/2018/05/word-image-6096-768x236.png 768w, /wp-content/uploads/2018/05/word-image-6096-1024x314.png 1024w" sizes="(max-width: 1689px) 100vw, 1689px" /></p>
+<p>&gt; composer create-project gogery/yaf local.yaf.com</p>
+<ol>
+<li>生成目录结构</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="850" height="376" class="wp-image-6692" src="/wp-content/uploads/2018/05/word-image-6098.png" srcset="/wp-content/uploads/2018/05/word-image-6098.png 850w, /wp-content/uploads/2018/05/word-image-6098-300x133.png 300w, /wp-content/uploads/2018/05/word-image-6098-768x340.png 768w" sizes="(max-width: 850px) 100vw, 850px" /></p>
+<ol>
+<li>配置虚拟主机</li>
+</ol>
+<p>&lt;VirtualHost *:80&gt;</p>
+<p>DocumentRoot &#8220;C:\phpStudy\WWW\local.yaf.com\public&#8221;</p>
+<p>ServerName local.yaf.com</p>
+<p>ServerAlias</p>
+<p>&lt;Directory &#8220;C:\phpStudy\WWW\local.yaf.com\public&#8221;&gt;</p>
+<p>Options FollowSymLinks ExecCGI</p>
+<p>AllowOverride All</p>
+<p>Order allow,deny</p>
+<p>Allow from all</p>
+<p>Require all granted</p>
+<p>&lt;/Directory&gt;</p>
+<p>&lt;/VirtualHost&gt;</p>
+<ol>
+<li>浏览器访问效果</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="660" height="308" class="wp-image-6694" src="/wp-content/uploads/2018/05/word-image-6100.png" srcset="/wp-content/uploads/2018/05/word-image-6100.png 660w, /wp-content/uploads/2018/05/word-image-6100-300x140.png 300w" sizes="(max-width: 660px) 100vw, 660px" /></p>
+<p>建议大家直接使用composer进行目录的管理。</p>
+<h1>IDE配置</h1>
+<p>注意：yaf框架扩展的引入，在使用的时候内置了很多的类文件，如果没有一个IDE进行代码的提示，我们是很难记得住到底存在哪些类，哪些方法，则我们可以为IDE配置一下代码提示。yaf代码提示的插件。</p>
+<p>网站：<a href="https://github.com/elad-yosifon/php-yaf-doc">https://github.com/elad-yosifon/php-yaf-doc</a></p>
+<ol>
+<li>插件解压</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1020" height="415" class="wp-image-6696" src="/wp-content/uploads/2018/05/word-image-6102.png" srcset="/wp-content/uploads/2018/05/word-image-6102.png 1020w, /wp-content/uploads/2018/05/word-image-6102-300x122.png 300w, /wp-content/uploads/2018/05/word-image-6102-768x312.png 768w" sizes="(max-width: 1020px) 100vw, 1020px" /></p>
+<ol>
+<li>配置phpstorm的插件目录</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1869" height="524" class="wp-image-6698" src="/wp-content/uploads/2018/05/word-image-6104.png" srcset="/wp-content/uploads/2018/05/word-image-6104.png 1869w, /wp-content/uploads/2018/05/word-image-6104-300x84.png 300w, /wp-content/uploads/2018/05/word-image-6104-768x215.png 768w, /wp-content/uploads/2018/05/word-image-6104-1024x287.png 1024w" sizes="(max-width: 1869px) 100vw, 1869px" /></p>
+<p>配置插件的目录</p>
+<p><img loading="lazy" decoding="async" width="1857" height="520" class="wp-image-6700" src="/wp-content/uploads/2018/05/word-image-6106.png" srcset="/wp-content/uploads/2018/05/word-image-6106.png 1857w, /wp-content/uploads/2018/05/word-image-6106-300x84.png 300w, /wp-content/uploads/2018/05/word-image-6106-768x215.png 768w, /wp-content/uploads/2018/05/word-image-6106-1024x287.png 1024w" sizes="(max-width: 1857px) 100vw, 1857px" /></p>
+<p>目录结构以及插件都安装完成后，则可以正式的学习yaf框架（yaf框架也是一个单一入口 + MVC架构）。</p>
+<p>学习框架主要是从如下几个方面进行学习：（MVC CVM）</p>
+<ol>
+<li>学习控制器</li>
+<li>学习视图</li>
+<li>学习模型（但是需要注意的，yaf框架本身是没有提供模型，这个需要用户自己去完成，因为作者觉得pdo已经是一个很好的操作数据库的工具，没必要在写一个，我们会单独的学习一个第三方的模型类 Medoo）</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1270" height="424" class="wp-image-6703" src="/wp-content/uploads/2018/05/word-image-6109.png" srcset="/wp-content/uploads/2018/05/word-image-6109.png 1270w, /wp-content/uploads/2018/05/word-image-6109-300x100.png 300w, /wp-content/uploads/2018/05/word-image-6109-768x256.png 768w, /wp-content/uploads/2018/05/word-image-6109-1024x342.png 1024w" sizes="(max-width: 1270px) 100vw, 1270px" /></p>
+<ol>
+<li>配置文件</li>
+<li>&#8230;..</li>
+</ol>
+<h1>控制器-constrollers</h1>
+<p>经过上面的操作，基本的目录结构已经搭建完毕，接下来我们完成我们的第一个控制器的编写。在正式编写控制器之前，我们只要弄清楚如下几个问题，即可快速掌握控制器的使用。</p>
+<ol>
+<li>控制器写在哪里？</li>
+<li>控制器的文件如何命名？</li>
+<li>控制器里面的内容如何编写？</li>
+<li>控制器里面的方法如何命名？</li>
+<li>控制器里面如何载入视图？</li>
+<li>控制器里面如何给视图赋值？</li>
+<li>如何在视图里面显示控制器的赋值变量？</li>
+</ol>
+<p>实操：</p>
+<ol>
+<li>控制器写在哪里？（application/controllers目录）</li>
+<li>控制器的文件如何命名？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="897" height="252" class="wp-image-6705" src="/wp-content/uploads/2018/05/word-image-6111.png" srcset="/wp-content/uploads/2018/05/word-image-6111.png 897w, /wp-content/uploads/2018/05/word-image-6111-300x84.png 300w, /wp-content/uploads/2018/05/word-image-6111-768x216.png 768w" sizes="(max-width: 897px) 100vw, 897px" /></p>
+<ol>
+<li>控制器里面的内容如何编写？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1212" height="711" class="wp-image-6706" src="/wp-content/uploads/2018/05/word-image-6112.png" srcset="/wp-content/uploads/2018/05/word-image-6112.png 1212w, /wp-content/uploads/2018/05/word-image-6112-300x176.png 300w, /wp-content/uploads/2018/05/word-image-6112-768x451.png 768w, /wp-content/uploads/2018/05/word-image-6112-1024x601.png 1024w" sizes="(max-width: 1212px) 100vw, 1212px" /></p>
+<ol>
+<li>控制器里面的方法如何命名？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1702" height="653" class="wp-image-6708" src="/wp-content/uploads/2018/05/word-image-6114.png" srcset="/wp-content/uploads/2018/05/word-image-6114.png 1702w, /wp-content/uploads/2018/05/word-image-6114-300x115.png 300w, /wp-content/uploads/2018/05/word-image-6114-768x295.png 768w, /wp-content/uploads/2018/05/word-image-6114-1024x393.png 1024w" sizes="(max-width: 1702px) 100vw, 1702px" /></p>
+<ol>
+<li>控制器里面如何载入视图？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1265" height="522" class="wp-image-6710" src="/wp-content/uploads/2018/05/word-image-6116.png" srcset="/wp-content/uploads/2018/05/word-image-6116.png 1265w, /wp-content/uploads/2018/05/word-image-6116-300x124.png 300w, /wp-content/uploads/2018/05/word-image-6116-768x317.png 768w, /wp-content/uploads/2018/05/word-image-6116-1024x423.png 1024w" sizes="(max-width: 1265px) 100vw, 1265px" /></p>
+<p>视图创建</p>
+<p><img loading="lazy" decoding="async" width="1226" height="646" class="wp-image-6713" src="/wp-content/uploads/2018/05/word-image-6119.png" srcset="/wp-content/uploads/2018/05/word-image-6119.png 1226w, /wp-content/uploads/2018/05/word-image-6119-300x158.png 300w, /wp-content/uploads/2018/05/word-image-6119-768x405.png 768w, /wp-content/uploads/2018/05/word-image-6119-1024x540.png 1024w" sizes="(max-width: 1226px) 100vw, 1226px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="770" height="251" class="wp-image-6715" src="/wp-content/uploads/2018/05/word-image-6121.png" srcset="/wp-content/uploads/2018/05/word-image-6121.png 770w, /wp-content/uploads/2018/05/word-image-6121-300x98.png 300w, /wp-content/uploads/2018/05/word-image-6121-768x250.png 768w" sizes="(max-width: 770px) 100vw, 770px" /></p>
+<ol>
+<li>控制器里面如何给视图赋值？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1838" height="987" class="wp-image-6717" src="/wp-content/uploads/2018/05/word-image-6123.png" srcset="/wp-content/uploads/2018/05/word-image-6123.png 1838w, /wp-content/uploads/2018/05/word-image-6123-300x161.png 300w, /wp-content/uploads/2018/05/word-image-6123-768x412.png 768w, /wp-content/uploads/2018/05/word-image-6123-1024x550.png 1024w" sizes="(max-width: 1838px) 100vw, 1838px" /></p>
+<ol>
+<li>如何在视图里面显示控制器的赋值变量？（直接使用原生的PHP输出、yaf内置的模板引擎只支持原生的PHP语法）</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1463" height="802" class="wp-image-6719" src="/wp-content/uploads/2018/05/word-image-6125.png" srcset="/wp-content/uploads/2018/05/word-image-6125.png 1463w, /wp-content/uploads/2018/05/word-image-6125-300x164.png 300w, /wp-content/uploads/2018/05/word-image-6125-768x421.png 768w, /wp-content/uploads/2018/05/word-image-6125-1024x561.png 1024w" sizes="(max-width: 1463px) 100vw, 1463px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="995" height="351" class="wp-image-6721" src="/wp-content/uploads/2018/05/word-image-6127.png" srcset="/wp-content/uploads/2018/05/word-image-6127.png 995w, /wp-content/uploads/2018/05/word-image-6127-300x106.png 300w, /wp-content/uploads/2018/05/word-image-6127-768x271.png 768w" sizes="(max-width: 995px) 100vw, 995px" /></p>
+<h1>视图-views</h1>
+<p>视图主要是用户来展示数据和收集用户的数据。</p>
+<p><img loading="lazy" decoding="async" width="1110" height="814" class="wp-image-6722" src="/wp-content/uploads/2018/05/word-image-6128.png" srcset="/wp-content/uploads/2018/05/word-image-6128.png 1110w, /wp-content/uploads/2018/05/word-image-6128-300x220.png 300w, /wp-content/uploads/2018/05/word-image-6128-768x563.png 768w, /wp-content/uploads/2018/05/word-image-6128-1024x751.png 1024w" sizes="(max-width: 1110px) 100vw, 1110px" /></p>
+<p>在正式学习视图之前，我们先思考如下几个问题：</p>
+<p>1. 视图文件写在哪里？</p>
+<p>2. 视图文件如何命名？</p>
+<p>3. 如何在控制器里面调用视图，如何获取视图里面的内容？</p>
+<p>4. 在控制器里面如何给视图赋值？</p>
+<p>5. 如何在视图里面显示控制器的赋值变量？</p>
+<p>实操：</p>
+<ol>
+<li>视图文件写在哪里？（注意：需要注意是存在模块，如果有模块，则写在模块的对应的views目录，没有则写在application/views/目录下）</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1499" height="580" class="wp-image-6723" src="/wp-content/uploads/2018/05/word-image-6129.png" srcset="/wp-content/uploads/2018/05/word-image-6129.png 1499w, /wp-content/uploads/2018/05/word-image-6129-300x116.png 300w, /wp-content/uploads/2018/05/word-image-6129-768x297.png 768w, /wp-content/uploads/2018/05/word-image-6129-1024x396.png 1024w" sizes="(max-width: 1499px) 100vw, 1499px" /></p>
+<ol>
+<li>视图文件如何命名？</li>
+</ol>
+<p>答：文件的命名满足和方法同名，并且后缀是 phtml</p>
+<ol>
+<li>如何在控制器里面调用视图，如何获取视图里面的内容？</li>
+</ol>
+<p>答：yaf框架默认会自动载入视图</p>
+<p>如果终止return false 或者 Yaf_Dispatcher::getInstance()-&gt;disableView();</p>
+<ol>
+<li>在控制器里面如何给视图赋值？</li>
+</ol>
+<p>答：$this-&gt;getView()-&gt;assign(&#8216;视图调用名称&#8217;, $变量名称)</p>
+<ol>
+<li>如何在视图里面显示控制器的赋值变量？</li>
+</ol>
+<p>答：原生的PHP</p>
+<p>注意：Yaf_View_Simple 常见方法使用：</p>
+<p><img loading="lazy" decoding="async" width="1830" height="950" class="wp-image-6724" src="/wp-content/uploads/2018/05/word-image-6130.png" srcset="/wp-content/uploads/2018/05/word-image-6130.png 1830w, /wp-content/uploads/2018/05/word-image-6130-300x156.png 300w, /wp-content/uploads/2018/05/word-image-6130-768x399.png 768w, /wp-content/uploads/2018/05/word-image-6130-1024x532.png 1024w" sizes="(max-width: 1830px) 100vw, 1830px" /></p>
+<h1>yaf模型-models</h1>
+<h2>注意</h2>
+<p>需要注意的是yaf框架并没有提供模型类，这个需要用户自己去实现，我们可以自己封装一个模型，也可以使用被人提供好的模型类文件，例如如下的一个模型类：</p>
+<p>相关文档：<a href="http://medoo.lvtao.net/doc.php">http://medoo.lvtao.net/doc.php</a></p>
+<h2>Medoo基本使用</h2>
+<ol>
+<li>下载</li>
+<li>引入</li>
+<li>实例化（进行数据库配置）</li>
+</ol>
+<p>实操：</p>
+<p>具体代码参考</p>
+<p><img loading="lazy" decoding="async" width="1188" height="695" class="wp-image-6725" src="/wp-content/uploads/2018/05/word-image-6131.png" srcset="/wp-content/uploads/2018/05/word-image-6131.png 1188w, /wp-content/uploads/2018/05/word-image-6131-300x176.png 300w, /wp-content/uploads/2018/05/word-image-6131-768x449.png 768w, /wp-content/uploads/2018/05/word-image-6131-1024x599.png 1024w" sizes="(max-width: 1188px) 100vw, 1188px" /></p>
+<h2>模型命名</h2>
+<p>注意：yaf框架并没有模型类，但是规定了模型的书写的规则以及加载的实现。</p>
+<p>命名、实例化如何加载。</p>
+<p>例如：我们打算在application/models/目录下创建一个Goods.php类文件，则类名应该如下：</p>
+<p><img loading="lazy" decoding="async" width="1607" height="946" class="wp-image-6726" src="/wp-content/uploads/2018/05/word-image-6132.png" srcset="/wp-content/uploads/2018/05/word-image-6132.png 1607w, /wp-content/uploads/2018/05/word-image-6132-300x177.png 300w, /wp-content/uploads/2018/05/word-image-6132-768x452.png 768w, /wp-content/uploads/2018/05/word-image-6132-1024x603.png 1024w" sizes="(max-width: 1607px) 100vw, 1607px" /></p>
+<p>通过上面的操作我们可以很方面的完成模型类的定义，当我们定义好了之后，直接在控制器里面进行实例化即可，yaf框架会自动进行类的载入。</p>
+<p>问题：通过上面的操作定义的模型类是直接在application/models目录下定义的，如果现在我们需要在该目录下在建立子目录，然后在子目录里面定义模型，则模型的类名该如何定义？</p>
+<p><img loading="lazy" decoding="async" width="1819" height="803" class="wp-image-6727" src="/wp-content/uploads/2018/05/word-image-6133.png" srcset="/wp-content/uploads/2018/05/word-image-6133.png 1819w, /wp-content/uploads/2018/05/word-image-6133-300x132.png 300w, /wp-content/uploads/2018/05/word-image-6133-768x339.png 768w, /wp-content/uploads/2018/05/word-image-6133-1024x452.png 1024w" sizes="(max-width: 1819px) 100vw, 1819px" /></p>
+<p>总结：在yaf里面模型的命名是通过下划线来查找类的目录结构。</p>
+<h1>yaf模块化-modules</h1>
+<h2>配置</h2>
+<p>注意：yaf框架默认的目录结构里面使用的Index模块，如果我们需要进行其他的模块的创建，例如配置后台Admin模块，Member模块。则我们需要在application.ini里面进行配置，然后在application/modules/目录创建对应的模块目录，模块目录下创建对应的controllers目录和views目录。</p>
+<p>假如我们要新增加一个Member模块用来做后台管理（需要注意的是如果我们使用模块功能，则必须加上Index模块）。则我们需要在application.ini的某个节里面配置如下信息：</p>
+<p>application.modules = &#8220;Index,Member&#8221;</p>
+<p><img loading="lazy" decoding="async" width="1474" height="642" class="wp-image-6728" src="/wp-content/uploads/2018/05/word-image-6134.png" srcset="/wp-content/uploads/2018/05/word-image-6134.png 1474w, /wp-content/uploads/2018/05/word-image-6134-300x131.png 300w, /wp-content/uploads/2018/05/word-image-6134-768x335.png 768w, /wp-content/uploads/2018/05/word-image-6134-1024x446.png 1024w" sizes="(max-width: 1474px) 100vw, 1474px" /></p>
+<h2>新建模块</h2>
+<p>需要注意的是：其中Admin目录就和配置的模块名称一致，每个模块目录下都可以新建controllers和views目录用作控制器和视图，但是模块下的models内的文件不支持自动载入，所以在该模块下的一些业务方法只能放在application/models目录下。</p>
+<p><img loading="lazy" decoding="async" width="1416" height="583" class="wp-image-6729" src="/wp-content/uploads/2018/05/word-image-6135.png" srcset="/wp-content/uploads/2018/05/word-image-6135.png 1416w, /wp-content/uploads/2018/05/word-image-6135-300x124.png 300w, /wp-content/uploads/2018/05/word-image-6135-768x316.png 768w, /wp-content/uploads/2018/05/word-image-6135-1024x422.png 1024w" sizes="(max-width: 1416px) 100vw, 1416px" /></p>
+<p>模块里面的控制器和视图同上面的控制器的使用一致。</p>
+<h2>访问</h2>
+<p>小写URL访问：</p>
+<p>域名/index.php/模块名称/控制器名称/方法名称</p>
+<h1>yaf表单-Yaf_Request_Http</h1>
+<h2>简介</h2>
+<p>在前后台进行交互的过程中，后端程序不可避免的需要接收用户提交的数据，常见的数据有</p>
+<ol>
+<li>get提交数据</li>
+<li>post提交数据</li>
+<li>上传文件数据</li>
+<li>get查询字符串</li>
+<li>cookie数据等等</li>
+</ol>
+<h2>数据接收</h2>
+<p>在控制器里面我们可以通过$this-&gt;getRequest()来进行数据的接收，该方法返回的是<strong><em>Yaf_Request_Http</em></strong>的实例。</p>
+<h1>yaf之session-Yaf_Session</h1>
+<h2>简介</h2>
+<p>由于http请求是无状态的，则在页面交互的过程中，有的时候我们需要跨脚本共享数据，则我们可以使用cookie或者session进行处理，session相对来说更加的安全，yaf框架内置了一个session处理类，可以非常方便的帮助我们进行session的处理。</p>
+<h2>使用</h2>
+<p>Yaf_Session::getInstance()-&gt;get(&#8216;name&#8217;)</p>
+<h1>yaf配置篇-Yaf_Config_Ini</h1>
+<h2>简介</h2>
+<p>配置文件基本可以说是每个项目都会有，在配置文件中我们通常会配置数据库访问地址、redis连接、url地址等等。</p>
+<p>yaf对于配置文件的解析提供了节（section）的支持，并且还支持节之间的继承功能，将节的设置和yaf运行环境（yaf.environ）结合起来就可以达到很好的配置效果，且看如何实现。</p>
+<h2>php.ini配置</h2>
+<p>在配置php支持yaf的时候，可以设置一个参数yaf.environ：把本地开发设置成develop、测试环境配置成test、生产环境配置成product，如：</p>
+<p><img loading="lazy" decoding="async" width="593" height="226" class="wp-image-6730" src="/wp-content/uploads/2018/05/word-image-6136.png" srcset="/wp-content/uploads/2018/05/word-image-6136.png 593w, /wp-content/uploads/2018/05/word-image-6136-300x114.png 300w" sizes="(max-width: 593px) 100vw, 593px" /></p>
+<h2>application.ini文件配置</h2>
+<p>yaf配置文件一般都放在项目的conf文件夹下。Yaf _Application实例化的时候需要传递一个配置文件路径，假设我们的配置文件叫application.ini，先看下application.ini的结构：</p>
+<p>[common]</p>
+<p>; 通用配置，数据库配置</p>
+<p>resources.database.params.driver = &#8220;pdo_mysql&#8221;</p>
+<p>resources.database.params.hostname = &#8220;127.0.0.1&#8221;</p>
+<p>resources.database.params.port = 3306</p>
+<p>resources.database.params.database = &#8220;database&#8221;</p>
+<p>resources.database.params.username = &#8220;username&#8221;</p>
+<p>resources.database.params.password = &#8220;password&#8221;</p>
+<p>[product : common]</p>
+<p>; 生产环境配置，这里的配置除了节之外，节和节之间还有继承关系。例如[product : common]就表示product的配置会继承common的配置。先配置一个数据库连接看看。</p>
+<p>[test : common]</p>
+<p>; 测试环境配置</p>
+<p>[develop : common]</p>
+<p>; 开发环境配置</p>
+<p>resources.database.params.hostname = &#8220;127.0.0.1&#8221;</p>
+<p>resources.database.params.database = &#8220;database&#8221;</p>
+<p>resources.database.params.username = &#8220;username&#8221;</p>
+<p>resources.database.params.password = &#8220;password&#8221;</p>
+<p>这样当项目运行环境在develop下的时候，会优先读取[develop : common]内的配置，如果没有则会从[common]中获取。在项目中任何地方都可以通过如下的方法获取application.ini里面的配置信息：</p>
+<p>Yaf_Application::app()-&gt;getConfig();</p>
+<h2>额外的配置</h2>
+<p>随着项目越来越庞大，配置也会越来越复杂，如果都放在项目默认的配置文件application.ini中，可能配置会有好几百行，这样就不容易维护了。</p>
+<p>一般我们会考虑新建配置文件用来存储额外的配置。yaf中提供了Yaf_Config_Ini类来处理这些额外的配置文件。</p>
+<p>$config = new Yaf_Config_Ini( APPLICATION_PATH . &#8216;/conf/url.ini&#8217;,  ini_get(&#8216;yaf.environ&#8217;) );</p>
+<h1>类的自动载入机制-libraris</h1>
+<h2>简介</h2>
+<p>在yaf里面类库的默认目录是application下的library目录，比如我们要写一个Page.php类文件，那么我们需要建立这样的application/library/Page.php类文件。</p>
+<p>但是需要注意的是，如果我们需要目录进行嵌套，则类的名称应该是使用下划线进行连接，并且路径的首字母应该大写。</p>
+<p>例如：我们打算在application/library/目录下，建议一个Dao目录，然后在该目录下建议一个Mysql目录，并在Mysql目录下建立一个Query.php类文件，则类名应该如下：</p>
+<p>class Dao_Mysql_Query{</p>
+<p>}</p>
+<p>通过这样定义的类，yaf框架则可以根据我们的类名来获取对于的路径，实现对应的自动加载机制。</p>
+<h1>助手函数扩展-Yaf_Loader</h1>
+<p>在Bootstrap.php文件定义一个加载助手函数的公共方法，使用Yaf_Loader进行助手函数文件导入。</p>
+<p>public function _initCommonFunctions(){</p>
+<p>// 加载定义助手函数</p>
+<p>Yaf_Loader::import(APPLICATION_PATH . &#8216;/application/common/functions.php&#8217;);</p>
+<p>}</p>
+<h1>响应-Yaf_Response_Abstract</h1>
+<p>有的时候我们需要进行URL的跳转，则可以使用该类进行响应处理</p>
+<h1>路由-Yaf_Route-*</h1>
+<h2>简介</h2>
+<p>yaf框架支持如下五种路由：</p>
+<ol>
+<li>Yaf_Route_Simple</li>
+</ol>
+<p>例如：<a href="http://local.yaf.com/index.php?m=index&amp;c=index&amp;a=index">http://local.yaf.com/index.php?m=index&amp;c=index&amp;a=index</a> （普通路由）</p>
+<ol>
+<li>Yaf_Route_Supervar</li>
+<li>Yaf_Route_Static</li>
+<li>Yaf_Route_Rewrite</li>
+<li>Yaf_Route_Regex</li>
+</ol>
+<p>例如：http://local.yaf.com/list-12.html</p>
+<h2>简单路由使用-方式一</h2>
+<p>创建路由规则的步骤：</p>
+<ol>
+<li>在Bootstrap.php文件创建一个路由器对象</li>
+<li>设置路由规则</li>
+<li>调用路由对象的addRoute方法添加路由规则</li>
+</ol>
+<p>public function _initDefineRouter()</p>
+<p>{</p>
+<p>$router = Yaf_Dispatcher::getInstance()-&gt;getRouter();</p>
+<p>$mac = new Yaf_Route_Simple(&#8216;m&#8217;, &#8216;c&#8217;, &#8216;a&#8217;);</p>
+<p>$router-&gt;addRoute(&#8216;mac&#8217;, $mac);</p>
+<p>}</p>
+<h2>简单路由使用-方式二</h2>
+<ol>
+<li>在application.ini定义路由段</li>
+</ol>
+<p>[route]</p>
+<p>routes.simple.type=&#8221;simple&#8221;</p>
+<p>routes.simple.module=md</p>
+<p>routes.simple.controller=c</p>
+<p>routes.simple.action=as</p>
+<p>[product:route]</p>
+<ol>
+<li>在Bootstrap.php里面进行配置注册</li>
+</ol>
+<p>public function _initConfig()</p>
+<p>{</p>
+<p>$config = new Yaf_Config_Ini(APPLICATION_COINFIG_FILE);</p>
+<p>Yaf_Registry::set(&#8220;config&#8221;, $config);</p>
+<p>}</p>
+<p>public function _initDefineRouter()</p>
+<p>{</p>
+<p>$router = Yaf_Dispatcher::getInstance()-&gt;getRouter();</p>
+<p>$router-&gt;addConfig( Yaf_Registry::get(&#8216;config&#8217;)-&gt;route-&gt;routes );</p>
+<p>}</p>
+<h2>正则路由-方式一</h2>
+<p>1. 直接使用正则类进行生成</p>
+<p>$router = Yaf_Dispatcher::getInstance()-&gt;getRouter();</p>
+<p>$route = new Yaf_Route_Regex(</p>
+<p>&#8216;#^/product/([a-zA-Z-_0-9]+)$#&#8217;,</p>
+<p>array(</p>
+<p>&#8216;module&#8217; =&gt; &#8216;index&#8217;,</p>
+<p>&#8216;controller&#8217; =&gt; &#8216;index&#8217;,</p>
+<p>&#8216;action&#8217; =&gt; &#8216;index&#8217;</p>
+<p>),</p>
+<p>array(</p>
+<p>//完成数字到字符变量的映射</p>
+<p>1 =&gt; &#8216;ident&#8217;</p>
+<p>)</p>
+<p>);</p>
+<p>$router-&gt;addRoute(&#8216;reg&#8217;, $route);</p>
+<h2>正则路由-方式二</h2>
+<ol>
+<li>在application.ini定义正则路由段</li>
+</ol>
+<p>[route]</p>
+<p>routes.regex.type=&#8221;regex&#8221;</p>
+<p>routes.regex.match=&#8221;#^/list/([0-9])+\/([a-z0-9]+)$#&#8221;</p>
+<p>routes.regex.route.module=Index</p>
+<p>routes.regex.route.controller=Index</p>
+<p>routes.regex.route.action=index</p>
+<p>routes.regex.map.1=name</p>
+<p>routes.regex.map.2=value</p>
+<p>[product:route]</p>
+<p>2. 在Bootstrap.php里面进行配置注册</p>
+<h1>相关学习资料</h1>
+<p><a href="http://wiki.phpboy.net/">http://wiki.phpboy.net/</a></p>
+<p><a href="http://www.phpabc.cn/yaf-kuang-jia-zhi-phpstrom-dai-ma-zi-dong-bu-quan-yaf-ide-auto-complete-2.html">http://www.phpabc.cn/yaf-kuang-jia-zhi-phpstrom-dai-ma-zi-dong-bu-quan-yaf-ide-auto-complete-2.html</a></p>
+<p><a href="http://www.01happy.com/">http://www.01happy.com/</a></p>
+<p><a href="http://www.widuu.com/archives/category/yaf-framework-2">http://www.widuu.com/archives/category/yaf-framework-2</a></p>
+<p><a href="https://www.mengzhidu.com/">https://www.mengzhidu.com/</a></p>
+<p><a href="http://www.php1.cn/detail/php-wentis-c817f8fa3d.html">http://www.php1.cn/detail/php-wentis-c817f8fa3d.html</a></p>
+<p><a href="https://segmentfault.com/a/1190000004016373">https://segmentfault.com/a/1190000004016373</a></p>
+<p><a href="https://devhub.io/repos/xudianyang-yaf.app">https://devhub.io/repos/xudianyang-yaf.app</a></p>
+<p><a href="http://www.oss.io/p/xudianyang/yaf.app">http://www.oss.io/p/xudianyang/yaf.app</a></p>
+<h1>案例演示</h1>
+<p>使用yaf完成一套curd操作，同时做用户的登录和退出，可以理解完成一个后台的用户模块</p>
+<h2>用户展示</h2>
+<ol>
+<li>定义一个init方法，完成初始化操作</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1762" height="752" class="wp-image-6731" src="/wp-content/uploads/2018/05/word-image-6137.png" srcset="/wp-content/uploads/2018/05/word-image-6137.png 1762w, /wp-content/uploads/2018/05/word-image-6137-300x128.png 300w, /wp-content/uploads/2018/05/word-image-6137-768x328.png 768w, /wp-content/uploads/2018/05/word-image-6137-1024x437.png 1024w" sizes="(max-width: 1762px) 100vw, 1762px" /></p>
+<ol>
+<li>定义一个lst方法，完成数据展示</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1327" height="619" class="wp-image-6732" src="/wp-content/uploads/2018/05/word-image-6138.png" srcset="/wp-content/uploads/2018/05/word-image-6138.png 1327w, /wp-content/uploads/2018/05/word-image-6138-300x140.png 300w, /wp-content/uploads/2018/05/word-image-6138-768x358.png 768w, /wp-content/uploads/2018/05/word-image-6138-1024x478.png 1024w" sizes="(max-width: 1327px) 100vw, 1327px" /></p>
+<ol>
+<li>定义一个lst.phtml视图文件</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1857" height="941" class="wp-image-6733" src="/wp-content/uploads/2018/05/word-image-6139.png" srcset="/wp-content/uploads/2018/05/word-image-6139.png 1857w, /wp-content/uploads/2018/05/word-image-6139-300x152.png 300w, /wp-content/uploads/2018/05/word-image-6139-768x389.png 768w, /wp-content/uploads/2018/05/word-image-6139-1024x519.png 1024w" sizes="(max-width: 1857px) 100vw, 1857px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="1213" height="728" class="wp-image-6734" src="/wp-content/uploads/2018/05/word-image-6140.png" srcset="/wp-content/uploads/2018/05/word-image-6140.png 1213w, /wp-content/uploads/2018/05/word-image-6140-300x180.png 300w, /wp-content/uploads/2018/05/word-image-6140-768x461.png 768w, /wp-content/uploads/2018/05/word-image-6140-1024x615.png 1024w" sizes="(max-width: 1213px) 100vw, 1213px" /></p>
+<h2>用户添加</h2>
+<ol>
+<li>定义一个add方法，完成用户添加</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1615" height="961" class="wp-image-6735" src="/wp-content/uploads/2018/05/word-image-6141.png" srcset="/wp-content/uploads/2018/05/word-image-6141.png 1615w, /wp-content/uploads/2018/05/word-image-6141-300x179.png 300w, /wp-content/uploads/2018/05/word-image-6141-768x457.png 768w, /wp-content/uploads/2018/05/word-image-6141-1024x609.png 1024w" sizes="(max-width: 1615px) 100vw, 1615px" /></p>
+<ol>
+<li>定义一个add.phtml视图文件，展示添加表单</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1862" height="962" class="wp-image-6736" src="/wp-content/uploads/2018/05/word-image-6142.png" srcset="/wp-content/uploads/2018/05/word-image-6142.png 1862w, /wp-content/uploads/2018/05/word-image-6142-300x155.png 300w, /wp-content/uploads/2018/05/word-image-6142-768x397.png 768w, /wp-content/uploads/2018/05/word-image-6142-1024x529.png 1024w" sizes="(max-width: 1862px) 100vw, 1862px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="926" height="730" class="wp-image-6737" src="/wp-content/uploads/2018/05/word-image-6143.png" srcset="/wp-content/uploads/2018/05/word-image-6143.png 926w, /wp-content/uploads/2018/05/word-image-6143-300x237.png 300w, /wp-content/uploads/2018/05/word-image-6143-768x605.png 768w" sizes="(max-width: 926px) 100vw, 926px" /></p>
+<h2>用户删除</h2>
+<ol>
+<li>定义一个del方法，完成用户删除</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1453" height="766" class="wp-image-6738" src="/wp-content/uploads/2018/05/word-image-6144.png" srcset="/wp-content/uploads/2018/05/word-image-6144.png 1453w, /wp-content/uploads/2018/05/word-image-6144-300x158.png 300w, /wp-content/uploads/2018/05/word-image-6144-768x405.png 768w, /wp-content/uploads/2018/05/word-image-6144-1024x540.png 1024w" sizes="(max-width: 1453px) 100vw, 1453px" /></p>
+<h2>用户编辑</h2>
+<ol>
+<li>定义一个edt方法，完成用户编辑</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1420" height="1002" class="wp-image-6739" src="/wp-content/uploads/2018/05/word-image-6145.png" srcset="/wp-content/uploads/2018/05/word-image-6145.png 1420w, /wp-content/uploads/2018/05/word-image-6145-300x212.png 300w, /wp-content/uploads/2018/05/word-image-6145-768x542.png 768w, /wp-content/uploads/2018/05/word-image-6145-1024x723.png 1024w" sizes="(max-width: 1420px) 100vw, 1420px" /></p>
+<ol>
+<li>定义一个edt.phtml视图页面，展示待编辑的数据</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1867" height="974" class="wp-image-6740" src="/wp-content/uploads/2018/05/word-image-6146.png" srcset="/wp-content/uploads/2018/05/word-image-6146.png 1867w, /wp-content/uploads/2018/05/word-image-6146-300x157.png 300w, /wp-content/uploads/2018/05/word-image-6146-768x401.png 768w, /wp-content/uploads/2018/05/word-image-6146-1024x534.png 1024w" sizes="(max-width: 1867px) 100vw, 1867px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="930" height="590" class="wp-image-6741" src="/wp-content/uploads/2018/05/word-image-6147.png" srcset="/wp-content/uploads/2018/05/word-image-6147.png 930w, /wp-content/uploads/2018/05/word-image-6147-300x190.png 300w, /wp-content/uploads/2018/05/word-image-6147-768x487.png 768w" sizes="(max-width: 930px) 100vw, 930px" /></p>
+<h2>用户登录</h2>
+<ol>
+<li>定义一个login方法，完成用户的登录处理</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1640" height="888" class="wp-image-6742" src="/wp-content/uploads/2018/05/word-image-6148.png" srcset="/wp-content/uploads/2018/05/word-image-6148.png 1640w, /wp-content/uploads/2018/05/word-image-6148-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6148-768x416.png 768w, /wp-content/uploads/2018/05/word-image-6148-1024x554.png 1024w" sizes="(max-width: 1640px) 100vw, 1640px" /></p>
+<h2>用户退出</h2>
+<ol>
+<li>定义一个logout方法，完成用户退出</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1898" height="922" class="wp-image-6743" src="/wp-content/uploads/2018/05/word-image-6149.png" srcset="/wp-content/uploads/2018/05/word-image-6149.png 1898w, /wp-content/uploads/2018/05/word-image-6149-300x146.png 300w, /wp-content/uploads/2018/05/word-image-6149-768x373.png 768w, /wp-content/uploads/2018/05/word-image-6149-1024x497.png 1024w" sizes="(max-width: 1898px) 100vw, 1898px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6500.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

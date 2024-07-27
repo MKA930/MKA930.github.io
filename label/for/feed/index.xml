@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>for &#8211; 个人随笔</title>
+	<atom:link href="/label/for/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 06:25:01 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>for &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>JS初级（三）do-while、 for、 for-in、 while、 三元运算符、 循环、 最值、 流程控制、 跳转语句、 遍历</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/377.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/377.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 14:14:31 +0000</pubDate>
+				<category><![CDATA[Javascript]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[do-while]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[for-in]]></category>
+		<category><![CDATA[while]]></category>
+		<category><![CDATA[三元运算符]]></category>
+		<category><![CDATA[循环]]></category>
+		<category><![CDATA[最值]]></category>
+		<category><![CDATA[流程控制]]></category>
+		<category><![CDATA[跳转语句]]></category>
+		<category><![CDATA[遍历]]></category>
+		<guid isPermaLink="false">/?p=377</guid>
+
+					<description><![CDATA[回顾 运算符 算术运算符 一元运算符：++ &#8212; 二元运算符 + &#8211; * / % 关系运 [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h2>回顾</h2>
+<ol>
+<li>
+  运算符</p>
+<ol>
+<li>
+    算术运算符</p>
+<ol>
+<li>
+      一元运算符：++			&#8212;
+    </li>
+<li>
+      二元运算符	+	&#8211;	*	/	%
+    </li>
+</ol>
+</li>
+<li>
+    关系运算符：&gt;  &gt;=  &lt;  &lt;=  ==  !=
+  </li>
+<li>
+    逻辑运算符：&amp;&amp;	||	!
+  </li>
+<li>
+    赋值运算符：= += -+ *= /= %=
+  </li>
+<li>
+    点运算符   document.write()
+  </li>
+</ol>
+</li>
+<li>
+  判断语句（条件语句）</p>
+<ol>
+<li>
+    if：单分支
+  </li>
+<li>
+    if-else-：双分支
+  </li>
+<li>
+    else if：多分支
+  </li>
+<li>
+    switch-case ：多路选择
+  </li>
+</ol>
+</li>
+<li>
+  数组：</p>
+<ol>
+<li>
+    内存中一组连续的空间
+  </li>
+<li>
+    通过下标来区分各个空间，下标从0开始
+  </li>
+<li>
+    声明数组：</p>
+<ol>
+<li>
+      var 数组名=[]
+    </li>
+<li>
+      var 数组名=new Array([元素1,元素2]);
+    </li>
+</ol>
+</li>
+<li>
+    数组的方法：</p>
+<ol>
+<li>
+      数组名.sort()		数组排序
+    </li>
+<li>
+      数组名.reverse()：数组翻转
+    </li>
+<li>
+      数组名.join()：	数组连接成字符串
+    </li>
+<li>
+      数组.length：		数组的长度
+    </li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+  函数</p>
+<ol>
+<li>
+    函数是一个代码块，可以多次调用，能够很容易的实现模块化编程
+  </li>
+<li>
+    函数分为预定义函数和自定义函数
+  </li>
+<li>
+    预定义函数：isNaN()，indexOf()，parseInt()，parseFloat(),select()
+  </li>
+<li>
+    自定义函数语法
+  </li>
+</ol>
+</li>
+</ol>
+<p>
+  function 函数名([参数]){
+</p>
+<p>
+  	//函数体
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+<ol>
+<li>
+      参数分为形式形数（形参）和实际参数（实参）
+    </li>
+<li>
+      通过函数名来调用函数
+    </li>
+<li>
+      函数定义的时候不执行，调用的时候才执行函数
+    </li>
+</ol>
+</li>
+</ul>
+<h2>三元运算符（?:）</h2>
+<p>
+  语法：表达式?值1:值2
+</p>
+<p>
+  描述：如果表达式的结果为真，返回值1，否则返回值2
+</p>
+<p><img fetchpriority="high" decoding="async" width="681" height="118" src="/wp-content/uploads/2018/05/word-image-342.png" class="wp-image-379" srcset="/wp-content/uploads/2018/05/word-image-342.png 681w, /wp-content/uploads/2018/05/word-image-342-300x52.png 300w" sizes="(max-width: 681px) 100vw, 681px" /></p>
+<h2>循环</h2>
+<p>
+  重复执行称为循环
+</p>
+<h3>循环的分类</h3>
+<ol>
+<li>
+  for循环
+</li>
+<li>
+  while循环
+</li>
+<li>
+  do-while循环
+</li>
+<li>
+  for-in循环
+</li>
+</ol>
+<h3>for循环</h3>
+<p>
+  语法：
+</p>
+<p>
+  for(初始值;条件;增量){
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  }
+</p>
+<p>
+  只要条件为真，就一直循环，一直循环到条件不成立为止
+</p>
+<p>
+  最简单的例题（输出十句字符串）
+</p>
+<p><img decoding="async" width="710" height="188" src="/wp-content/uploads/2018/05/word-image-343.png" class="wp-image-380" srcset="/wp-content/uploads/2018/05/word-image-343.png 710w, /wp-content/uploads/2018/05/word-image-343-300x79.png 300w" sizes="(max-width: 710px) 100vw, 710px" /></p>
+<p>
+  调整一下增量
+</p>
+<p><img decoding="async" width="682" height="107" src="/wp-content/uploads/2018/05/word-image-344.png" class="wp-image-381" srcset="/wp-content/uploads/2018/05/word-image-344.png 682w, /wp-content/uploads/2018/05/word-image-344-300x47.png 300w" sizes="(max-width: 682px) 100vw, 682px" /></p>
+<p>
+  分析题：
+</p>
+<ol>
+<li>
+  如下循环输出什么？
+</li>
+</ol>
+<p>
+  for(var j=1;j&lt;=10;j&#8211;){
+</p>
+<p>
+  	document.write(&#8221;);
+</p>
+<p>
+  }
+</p>
+<p>
+  答：死循环，j&#8211;,j永远小于10
+</p>
+<ol>
+<li>
+  如下循环输出什么？
+</li>
+</ol>
+<p>
+  for(var j=1;j&lt;=10;){
+</p>
+<p>
+  	alert(&#8221;);
+</p>
+<p>
+  }
+</p>
+<p>
+  答：死循环，因为j永远等于1,1永远小于10
+</p>
+<ol>
+<li>
+  如下循环输出什么？
+</li>
+</ol>
+<p>
+  for(var j=1;;j&#8211;){
+</p>
+<p>
+  	alert(&#8221;);
+</p>
+<p>
+  }
+</p>
+<p>
+  答：没有条件永远为true，这也是死循环
+</p>
+<ol>
+<li>
+  一个典型的死循环
+</li>
+</ol>
+<p>
+  for(;;){
+</p>
+<p>
+  	alert(&#8216;我注意你好久了&#8217;);
+</p>
+<p>
+  }
+</p>
+<p>
+  脚下留心：循环必须要有出口，不能出现死循环。
+</p>
+<p>
+  思考：在一个循环了n次的循环中，初始值执行了几次？条件执行了几次？增量执行了几次？
+</p>
+<p>
+  答：初始值1次，条件n+1次，增量n次
+</p>
+<p>
+  for循环括号中可以放多个表达式
+</p>
+<p><img loading="lazy" decoding="async" width="776" height="140" src="/wp-content/uploads/2018/05/word-image-345.png" class="wp-image-382" srcset="/wp-content/uploads/2018/05/word-image-345.png 776w, /wp-content/uploads/2018/05/word-image-345-300x54.png 300w, /wp-content/uploads/2018/05/word-image-345-768x139.png 768w" sizes="(max-width: 776px) 100vw, 776px" /></p>
+<h3>while循环</h3>
+<p>
+  语法：
+</p>
+<p>
+  while(条件){
+</p>
+<p>
+  	//代码
+</p>
+<p>
+  }
+</p>
+<p>
+  只要条件为true，就一直循环，一直循环到条件为false
+</p>
+<p>
+  简单的例题
+</p>
+<p><img loading="lazy" decoding="async" width="793" height="139" src="/wp-content/uploads/2018/05/word-image-346.png" class="wp-image-383" srcset="/wp-content/uploads/2018/05/word-image-346.png 793w, /wp-content/uploads/2018/05/word-image-346-300x53.png 300w, /wp-content/uploads/2018/05/word-image-346-768x135.png 768w" sizes="(max-width: 793px) 100vw, 793px" /></p>
+<p>
+  多学一招：如果for和while的循环体就一句代码，大括号可以省略。
+</p>
+<h3>do-while</h3>
+<p>
+  语法：
+</p>
+<p>
+  do
+</p>
+<p>
+  {
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  }while(条件)
+</p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="648" height="188" src="/wp-content/uploads/2018/05/word-image-347.png" class="wp-image-384" srcset="/wp-content/uploads/2018/05/word-image-347.png 648w, /wp-content/uploads/2018/05/word-image-347-300x87.png 300w" sizes="(max-width: 648px) 100vw, 648px" /></p>
+<p>
+  可以更改成如下：
+</p>
+<p><img loading="lazy" decoding="async" width="652" height="162" src="/wp-content/uploads/2018/05/word-image-348.png" class="wp-image-385" srcset="/wp-content/uploads/2018/05/word-image-348.png 652w, /wp-content/uploads/2018/05/word-image-348-300x75.png 300w" sizes="(max-width: 652px) 100vw, 652px" /></p>
+<p>
+  也可以更改如下：
+</p>
+<p><img loading="lazy" decoding="async" width="677" height="166" src="/wp-content/uploads/2018/05/word-image-349.png" class="wp-image-386" srcset="/wp-content/uploads/2018/05/word-image-349.png 677w, /wp-content/uploads/2018/05/word-image-349-300x74.png 300w" sizes="(max-width: 677px) 100vw, 677px" /></p>
+<h3>for-in循环</h3>
+<p>
+  for-in循环用了遍历数组和对象
+</p>
+<p>
+  语法：
+</p>
+<p>
+  for(变量 in 数组){
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  }
+</p>
+<p>
+  脚下留心：变量保存的不是数组中的值，而是数组值的下标
+</p>
+<p>
+  例题：
+</p>
+<p><img loading="lazy" decoding="async" width="551" height="139" src="/wp-content/uploads/2018/05/word-image-350.png" class="wp-image-387" srcset="/wp-content/uploads/2018/05/word-image-350.png 551w, /wp-content/uploads/2018/05/word-image-350-300x76.png 300w" sizes="(max-width: 551px) 100vw, 551px" /></p>
+<h3>例题（打印金字塔直线）</h3>
+<ol>
+<li>
+  代码
+</li>
+</ol>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  for(var i=20;i&lt;=780;i+=40){
+</p>
+<p>
+  	document.write(&#8216;&lt;hr width=&#8221;&#8216;+i+&#8217;px&#8221;&gt;&#8217;);
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<ol>
+<li>
+  拼接后的字符串
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="335" height="63" src="/wp-content/uploads/2018/05/word-image-351.png" class="wp-image-388" srcset="/wp-content/uploads/2018/05/word-image-351.png 335w, /wp-content/uploads/2018/05/word-image-351-300x56.png 300w" sizes="(max-width: 335px) 100vw, 335px" /></p>
+<ol>
+<li>
+  运行结果
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="336" height="75" src="/wp-content/uploads/2018/05/word-image-352.png" class="wp-image-389" srcset="/wp-content/uploads/2018/05/word-image-352.png 336w, /wp-content/uploads/2018/05/word-image-352-300x67.png 300w" sizes="(max-width: 336px) 100vw, 336px" /></p>
+<h3>例题（遍历一维数组）</h3>
+<p><img loading="lazy" decoding="async" width="660" height="142" src="/wp-content/uploads/2018/05/word-image-353.png" class="wp-image-390" srcset="/wp-content/uploads/2018/05/word-image-353.png 660w, /wp-content/uploads/2018/05/word-image-353-300x65.png 300w" sizes="(max-width: 660px) 100vw, 660px" /></p>
+<p>
+  脚下留心：数组的长度是4，下标最大值是3，因为下标是从0开始的。
+</p>
+<p>
+  在上面的例题中，stu.length执行了n+1次，效率低了，其实stu.length只要执行一次就可以。
+</p>
+<p><img loading="lazy" decoding="async" width="762" height="78" src="/wp-content/uploads/2018/05/word-image-354.png" class="wp-image-391" srcset="/wp-content/uploads/2018/05/word-image-354.png 762w, /wp-content/uploads/2018/05/word-image-354-300x31.png 300w" sizes="(max-width: 762px) 100vw, 762px" /></p>
+<h3>例题（求数组中的最大值）</h3>
+<p>
+  思路：声明一个变量（num）用来保存最大值，首先假设第0个数据是最大的，然后从第一个元素开始依次和num比较，如果有个数大于num,就将这个数付给num，这样就保证num中的数据肯定是最大的。
+</p>
+<p>
+  实现代码：
+</p>
+<p><img loading="lazy" decoding="async" width="823" height="236" src="/wp-content/uploads/2018/05/word-image-355.png" class="wp-image-392" srcset="/wp-content/uploads/2018/05/word-image-355.png 823w, /wp-content/uploads/2018/05/word-image-355-300x86.png 300w, /wp-content/uploads/2018/05/word-image-355-768x220.png 768w" sizes="(max-width: 823px) 100vw, 823px" /></p>
+<h3>例题：(求数组的平均值)</h3>
+<p>
+  思路：声明一个变量（sum）用来保存数组的和，然后依次从第0个元素依次向后加，每次加的和都付给sum。
+</p>
+<p><img loading="lazy" decoding="async" width="896" height="145" src="/wp-content/uploads/2018/05/word-image-356.png" class="wp-image-393" srcset="/wp-content/uploads/2018/05/word-image-356.png 896w, /wp-content/uploads/2018/05/word-image-356-300x49.png 300w, /wp-content/uploads/2018/05/word-image-356-768x124.png 768w" sizes="(max-width: 896px) 100vw, 896px" /></p>
+<p>
+  分析
+</p>
+<p>
+  i值 			sum值
+</p>
+<p>
+  0			score[0]
+</p>
+<p>
+  1			score[0]+score[1]
+</p>
+<p>
+  2			score[0]+score[1]+score[2]
+</p>
+<p>
+  3			score[0]+score[1]+score[2]+score[3]
+</p>
+<p>
+  4			score[0]+score[1]+score[2]+score[3]+score[4]
+</p>
+<h2>跳转语句</h2>
+<ol>
+<li>
+  break（中断）：	中断循环
+</li>
+<li>
+  continue（继续）：中断当前循环，进入下一个循环
+</li>
+</ol>
+<p>
+  例题一：
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  for(var i=1;i&lt;=10;i++){
+</p>
+<p>
+  	if(i==5)		//i==5的时候中断循环，输出4句
+</p>
+<p>
+  		break;		//中断循环
+</p>
+<p>
+  	document.write(i+&#8217;锄禾日当午&lt;br&gt;&#8217;);
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="106" height="78" src="/wp-content/uploads/2018/05/word-image-357.png" class="wp-image-394" /></p>
+<p>
+  例题二：
+</p>
+<p><img loading="lazy" decoding="async" width="758" height="192" src="/wp-content/uploads/2018/05/word-image-358.png" class="wp-image-395" srcset="/wp-content/uploads/2018/05/word-image-358.png 758w, /wp-content/uploads/2018/05/word-image-358-300x76.png 300w" sizes="(max-width: 758px) 100vw, 758px" /></p>
+<h2>总结流程控制语句的分类</h2>
+<ol>
+<li>
+  判断语句</p>
+<ol>
+<li>
+    if				单分支
+  </li>
+<li>
+    if-else		双分支
+  </li>
+<li>
+    else if		多分支
+  </li>
+<li>
+    switch-case	多路选择，多路判定
+  </li>
+</ol>
+</li>
+<li>
+  循环语句</p>
+<ol>
+<li>
+    for
+  </li>
+<li>
+    while
+  </li>
+<li>
+    do-whlie
+  </li>
+<li>
+    for-in			就是用来遍历数组和对象
+  </li>
+</ol>
+</li>
+<li>
+  跳转语句</p>
+<ol>
+<li>
+    break			中断循环
+  </li>
+<li>
+    continue		跳出当前循环，进入下一个循环
+  </li>
+</ol>
+</li>
+</ol>
+<p>
+  思考：for、while、do-while的区别？
+</p>
+<p>
+  答：
+</p>
+<ol>
+<li>
+  这三种循环是相通的，相互可以替代。
+</li>
+<li>
+  如果明确知道循环多少次首选for循环,while和do-while用于循环到条件不成立为止。
+</li>
+<li>
+  While是先判断再执行，do-while先执行再判断
+</li>
+<li>
+  While条件不成立就不执行，do-while条件不成立也要执行一次。
+</li>
+</ol>
+<h2>循环的例题</h2>
+<h3>例题一：打印埃及图像</h3>
+<p>
+  每个字母对应一个埃及图像，输入n或N退出
+</p>
+<p>
+  do-while实现（首选）
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  body{
+</p>
+<p>
+  	font-family:Webdings;
+</p>
+<p>
+  	font-size:80px;
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  do{
+</p>
+<p>
+  	var str=prompt(&#8216;请输入一个字符，输入n或N退出&#8217;,&#8221;);
+</p>
+<p>
+  	if(str==&#8217;n&#8217; || str==&#8217;N&#8217;)
+</p>
+<p>
+  		break;
+</p>
+<p>
+  	document.write(str);
+</p>
+<p>
+  }while(str!=&#8217;n&#8217; &amp;&amp; str!=&#8217;N&#8217;);
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  while循环实现
+</p>
+<p>
+  var str=prompt(&#8216;请输入一个字符，输入n或N退出&#8217;,&#8221;);
+</p>
+<p>
+  while(str!=&#8217;n&#8217; &amp;&amp; str!=&#8217;N&#8217;){
+</p>
+<p>
+  	document.write(str);
+</p>
+<p>
+  	str=prompt(&#8216;请输入一个字符，输入n或N退出&#8217;,&#8221;);
+</p>
+<p>
+  }
+</p>
+<p>
+  for循环实现
+</p>
+<p>
+  for(;;){
+</p>
+<p>
+  	var str=prompt(&#8216;请输入一个字符，输入n或N退出&#8217;,&#8221;);
+</p>
+<p>
+  	if(str==&#8217;n&#8217; || str==&#8217;N&#8217;)
+</p>
+<p>
+  		break;
+</p>
+<p>
+  	document.write(str);
+</p>
+<p>
+  }
+</p>
+<h3>例题二：从1加到100</h3>
+<p>
+  for循环实现
+</p>
+<p><img loading="lazy" decoding="async" width="703" height="93" src="/wp-content/uploads/2018/05/word-image-359.png" class="wp-image-396" srcset="/wp-content/uploads/2018/05/word-image-359.png 703w, /wp-content/uploads/2018/05/word-image-359-300x40.png 300w" sizes="(max-width: 703px) 100vw, 703px" /></p>
+<p>
+  分析
+</p>
+<p><img loading="lazy" decoding="async" width="382" height="163" src="/wp-content/uploads/2018/05/word-image-360.png" class="wp-image-397" srcset="/wp-content/uploads/2018/05/word-image-360.png 382w, /wp-content/uploads/2018/05/word-image-360-300x128.png 300w" sizes="(max-width: 382px) 100vw, 382px" /></p>
+<p>
+  While循环实现
+</p>
+<p><img loading="lazy" decoding="async" width="706" height="103" src="/wp-content/uploads/2018/05/word-image-361.png" class="wp-image-398" srcset="/wp-content/uploads/2018/05/word-image-361.png 706w, /wp-content/uploads/2018/05/word-image-361-300x44.png 300w" sizes="(max-width: 706px) 100vw, 706px" /></p>
+<p>
+  Do-while循环实现
+</p>
+<p><img loading="lazy" decoding="async" width="683" height="115" src="/wp-content/uploads/2018/05/word-image-362.png" class="wp-image-399" srcset="/wp-content/uploads/2018/05/word-image-362.png 683w, /wp-content/uploads/2018/05/word-image-362-300x51.png 300w" sizes="(max-width: 683px) 100vw, 683px" /></p>
+<h3>例题三：（自动分行）</h3>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  	table{
+</p>
+<p>
+  		width: 780px;
+</p>
+<p>
+  		margin: auto;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	table,td{
+</p>
+<p>
+  		border: #000 solid 1px;
+</p>
+<p>
+  		border-collapse: collapse;  /*collapse:塌陷*/
+</p>
+<p>
+  	}
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;table&gt;
+</p>
+<p>
+  &lt;tr&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  	for(var i=1;i&lt;=100;i++){
+</p>
+<p>
+  		document.write(&#8216;&lt;td&gt;&lt;img src=&#8221;images/&#8217;+i+&#8217;.bmp&#8221;/&gt;&lt;/td&gt;&#8217;);
+</p>
+<p>
+  		if(i%10==0)	//一行放10个
+</p>
+<p>
+  			document.write(&#8216;&lt;/tr&gt;&lt;tr&gt;&#8217;);
+</p>
+<p>
+  	}
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/tr&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="794" height="479" src="/wp-content/uploads/2018/05/word-image-363.png" class="wp-image-400" srcset="/wp-content/uploads/2018/05/word-image-363.png 794w, /wp-content/uploads/2018/05/word-image-363-300x181.png 300w, /wp-content/uploads/2018/05/word-image-363-768x463.png 768w" sizes="(max-width: 794px) 100vw, 794px" /></p>
+<h2>多重循环</h2>
+<p>
+  两重以上称为多重循环，最常用的就是两重循环
+</p>
+<h3>例题（打印阶梯数字）</h3>
+<p><img loading="lazy" decoding="async" width="605" height="185" src="/wp-content/uploads/2018/05/word-image-364.png" class="wp-image-401" srcset="/wp-content/uploads/2018/05/word-image-364.png 605w, /wp-content/uploads/2018/05/word-image-364-300x92.png 300w" sizes="(max-width: 605px) 100vw, 605px" /></p>
+<h3>例题（遍历二维数组）</h3>
+<p>
+  分析：
+</p>
+<p><img loading="lazy" decoding="async" width="886" height="143" src="/wp-content/uploads/2018/05/word-image-365.png" class="wp-image-402" srcset="/wp-content/uploads/2018/05/word-image-365.png 886w, /wp-content/uploads/2018/05/word-image-365-300x48.png 300w, /wp-content/uploads/2018/05/word-image-365-768x124.png 768w" sizes="(max-width: 886px) 100vw, 886px" /></p>
+<p>
+  代码：
+</p>
+<p><img loading="lazy" decoding="async" width="654" height="257" src="/wp-content/uploads/2018/05/word-image-366.png" class="wp-image-403" srcset="/wp-content/uploads/2018/05/word-image-366.png 654w, /wp-content/uploads/2018/05/word-image-366-300x118.png 300w" sizes="(max-width: 654px) 100vw, 654px" /></p>
+<h2>作业</h2>
+<ol>
+<li>
+  去除字符串中的空格
+</li>
+<li>
+  九九乘法表
+</li>
+<li>
+  打印水仙花数（三位数abc  a<sup>3</sup>+b<sup>3</sup>+c<sup>3</sup>=abc）
+</li>
+</ol>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/377.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

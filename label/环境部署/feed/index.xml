@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>环境部署 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sun, 10 Jun 2018 10:54:01 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>环境部署 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP5 商城（一）环境部署、数据表、后台首页、用户 CURD、Ajax 状态切换、后台登录、后台退出、后台防翻墙、RBAC</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7682.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7682.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 09 Jun 2018 00:40:08 +0000</pubDate>
+				<category><![CDATA[TP5.0]]></category>
+		<category><![CDATA[TP5.0商城]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[Ajax 状态切换]]></category>
+		<category><![CDATA[RBAC]]></category>
+		<category><![CDATA[后台登录]]></category>
+		<category><![CDATA[后台退出]]></category>
+		<category><![CDATA[后台防翻墙]]></category>
+		<category><![CDATA[后台首页]]></category>
+		<category><![CDATA[数据表]]></category>
+		<category><![CDATA[环境部署]]></category>
+		<category><![CDATA[用户 CURD]]></category>
+		<guid isPermaLink="false">/?p=7682</guid>
+
+					<description><![CDATA[商城实战第一天 电商介绍 电子商务模式介绍 现在的电子商务平台主要分为以下几种类型： B2C ：全称-Busi [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>商城实战第一天</h1>
+<h1>电商介绍</h1>
+<h2>电子商务模式介绍</h2>
+<p>现在的电子商务平台主要分为以下几种类型：</p>
+<ul>
+<li>B2C ：全称-Business to Consumer , 即企业与消费者之间的电子商务。</li>
+</ul>
+<p>常见的有B2C网站有：天猫（商家入驻（实体店,保证金20W），需要营业许可证等资料）、京东(商家也可入驻)、当当网、唯品会、凡客、小米、华为、oppo等</p>
+<ul>
+<li>C2C: 全称-Consumer to Consumer，即消费者与消费者之间的电子商务。</li>
+</ul>
+<p>典型的C2C网站就是国内的淘宝（需要交保证金2000元左右），还有58同城，二手交易网站如：闲鱼二手交易网。</p>
+<ul>
+<li>O2O: 全称-Online to Offline,线上与线下相结合的电子商务。</li>
+</ul>
+<p>常见的有：苏宁、美团、国美、滴滴打车等。</p>
+<ul>
+<li>B2B：全称-Business to Business 即企业与企业之间的电子商务。（阿里妈妈）</li>
+</ul>
+<h2>常见的开源商城</h2>
+<h3>（1）Ecshop</h3>
+<p>ECShop是一款B2C独立网店系统，适合企业及个人快速构建个性化网上商店。系统是基于PHP语言及MYSQL数据库构架开发的跨平台开源程序。</p>
+<p>网址：<a href="/goto/c9pa" rel="nofollow">http://www.ecshop.com/</a></p>
+<p><img fetchpriority="high" decoding="async" width="1105" height="498" class="wp-image-7684" src="/wp-content/uploads/2018/06/word-image-286.png" srcset="/wp-content/uploads/2018/06/word-image-286.png 1105w, /wp-content/uploads/2018/06/word-image-286-300x135.png 300w, /wp-content/uploads/2018/06/word-image-286-768x346.png 768w, /wp-content/uploads/2018/06/word-image-286-1024x461.png 1024w" sizes="(max-width: 1105px) 100vw, 1105px" /></p>
+<p>特点：开源、免费(个人学习使用没有任何问题)。但是企业使用用来盈利的话需要一定的授权费用（3000元左右）。</p>
+<h3>（2）shopex</h3>
+<p>网址：<a href="/goto/zptp" rel="nofollow">http://www.shopex.cn/</a></p>
+<p>&nbsp;</p>
+<p><img decoding="async" width="1087" height="468" class="wp-image-7685" src="/wp-content/uploads/2018/06/word-image-287.png" srcset="/wp-content/uploads/2018/06/word-image-287.png 1087w, /wp-content/uploads/2018/06/word-image-287-300x129.png 300w, /wp-content/uploads/2018/06/word-image-287-768x331.png 768w, /wp-content/uploads/2018/06/word-image-287-1024x441.png 1024w" sizes="(max-width: 1087px) 100vw, 1087px" /></p>
+<p>特点：商业版，代码是加密过的。</p>
+<h3>（3）shopnc</h3>
+<p>网址: <a href="/goto/ajli" rel="nofollow">http://www.shopnc.net/</a></p>
+<p>演示地址： <a href="/goto/ubug" rel="nofollow">http://b2b2c.shopnctest.com/dema/shop/index.php</a></p>
+<p><img decoding="async" width="1104" height="416" class="wp-image-7686" src="/wp-content/uploads/2018/06/word-image-288.png" srcset="/wp-content/uploads/2018/06/word-image-288.png 1104w, /wp-content/uploads/2018/06/word-image-288-300x113.png 300w, /wp-content/uploads/2018/06/word-image-288-768x289.png 768w, /wp-content/uploads/2018/06/word-image-288-1024x386.png 1024w" sizes="(max-width: 1104px) 100vw, 1104px" /></p>
+<p>特点：不开源、不免费</p>
+<p>小结：</p>
+<p>开源不代表免费，可以自己学习研究使用，但是以盈利为目的使用需要交一定的授权费用。</p>
+<h2>安装Ecshop开源商城</h2>
+<p>现在的Ecshop主要有以下两个版本：</p>
+<ul>
+<li>3.0版本：需要php5.4版本以上</li>
+<li>2.7版本：需要在php5.3以下（如：phpstudy集成环境进行php降级），当然5.4、5、5版本也是可以的，只是需要修改部分代码。</li>
+</ul>
+<p>这里建议安装Ecshop的兼容版本，已经兼容各个php版本。</p>
+<p><img loading="lazy" decoding="async" width="246" height="27" class="wp-image-7687" src="/wp-content/uploads/2018/06/word-image-289.png" /></p>
+<h3>域名部署访问 ecshop</h3>
+<p>一般把第三方开源项目部署在自己的机子上面域名前建议加个vendor,如：vendor.shop.com。明确知道这个程序是第三方程序。本地自己开发的项目话建议使用local进行开头，如:local.shop.com。</p>
+<p>步骤1：把ecshop开源程序的所有的文件复制到我们的项目目录</p>
+<p><img loading="lazy" decoding="async" width="841" height="424" class="wp-image-7688" src="/wp-content/uploads/2018/06/word-image-290.png" srcset="/wp-content/uploads/2018/06/word-image-290.png 841w, /wp-content/uploads/2018/06/word-image-290-300x151.png 300w, /wp-content/uploads/2018/06/word-image-290-768x387.png 768w" sizes="(max-width: 841px) 100vw, 841px" /></p>
+<p>步骤2：配置虚拟主机，如域名为上面的vendor.ecshop.com</p>
+<ol>
+<li>phpstudy设置虚拟主机</li>
+<li>设置host文件映射</li>
+<li>重启phpstudy</li>
+</ol>
+<p>步骤3：输入域名进行安装配置</p>
+<ol>
+<li>勾选</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1088" height="661" class="wp-image-7689" src="/wp-content/uploads/2018/06/word-image-291.png" srcset="/wp-content/uploads/2018/06/word-image-291.png 1088w, /wp-content/uploads/2018/06/word-image-291-300x182.png 300w, /wp-content/uploads/2018/06/word-image-291-768x467.png 768w, /wp-content/uploads/2018/06/word-image-291-1024x622.png 1024w" sizes="(max-width: 1088px) 100vw, 1088px" /></p>
+<p>b、配置系统</p>
+<p><img loading="lazy" decoding="async" width="861" height="267" class="wp-image-7690" src="/wp-content/uploads/2018/06/word-image-292.png" srcset="/wp-content/uploads/2018/06/word-image-292.png 861w, /wp-content/uploads/2018/06/word-image-292-300x93.png 300w, /wp-content/uploads/2018/06/word-image-292-768x238.png 768w" sizes="(max-width: 861px) 100vw, 861px" /></p>
+<p>c、配置数据库的信息</p>
+<p><img loading="lazy" decoding="async" width="777" height="650" class="wp-image-7691" src="/wp-content/uploads/2018/06/word-image-293.png" srcset="/wp-content/uploads/2018/06/word-image-293.png 777w, /wp-content/uploads/2018/06/word-image-293-300x251.png 300w, /wp-content/uploads/2018/06/word-image-293-768x642.png 768w" sizes="(max-width: 777px) 100vw, 777px" /> <img loading="lazy" decoding="async" width="834" height="242" class="wp-image-7692" src="/wp-content/uploads/2018/06/word-image-294.png" srcset="/wp-content/uploads/2018/06/word-image-294.png 834w, /wp-content/uploads/2018/06/word-image-294-300x87.png 300w, /wp-content/uploads/2018/06/word-image-294-768x223.png 768w" sizes="(max-width: 834px) 100vw, 834px" /></p>
+<p>访问ecshop前台：<a href="/goto/z1k0" rel="nofollow">http:/域名/</a></p>
+<p>访问ecshop后台：<a href="/goto/1knx" rel="nofollow">http:/域名/admin/</a></p>
+<p><img loading="lazy" decoding="async" width="781" height="382" class="wp-image-7693" src="/wp-content/uploads/2018/06/word-image-295.png" srcset="/wp-content/uploads/2018/06/word-image-295.png 781w, /wp-content/uploads/2018/06/word-image-295-300x147.png 300w, /wp-content/uploads/2018/06/word-image-295-768x376.png 768w" sizes="(max-width: 781px) 100vw, 781px" /></p>
+<h1>部署tp5商城项目环境</h1>
+<h2>部署虚拟主机</h2>
+<p>三步：</p>
+<p>步骤1：把tp5项目程序复制指定虚拟目录</p>
+<p>步骤2：使用phpstudy配置域名如为：<a href="/goto/x9uh" rel="nofollow">www.php15shop.com</a>，虚拟目录需要绑定到public目录下面</p>
+<p>步骤3：设置hosts文件映射</p>
+<p>最后访问如下，说明配置成功：</p>
+<p><img loading="lazy" decoding="async" width="693" height="379" class="wp-image-7694" src="/wp-content/uploads/2018/06/word-image-296.png" srcset="/wp-content/uploads/2018/06/word-image-296.png 693w, /wp-content/uploads/2018/06/word-image-296-300x164.png 300w" sizes="(max-width: 693px) 100vw, 693px" /></p>
+<h2>导入商城项目所有数据表</h2>
+<p>建议使用navicat可视化工具进行完成，找到对应的sql文件，进行导入。</p>
+<p>要先创建一个数据库，如php15shop</p>
+<p><img loading="lazy" decoding="async" width="736" height="210" class="wp-image-7695" src="/wp-content/uploads/2018/06/word-image-297.png" srcset="/wp-content/uploads/2018/06/word-image-297.png 736w, /wp-content/uploads/2018/06/word-image-297-300x86.png 300w" sizes="(max-width: 736px) 100vw, 736px" /></p>
+<p>&nbsp;</p>
+<p>每张表的字段信息可以参考数据库文档：</p>
+<p><img loading="lazy" decoding="async" width="652" height="66" class="wp-image-7696" src="/wp-content/uploads/2018/06/word-image-298.png" srcset="/wp-content/uploads/2018/06/word-image-298.png 652w, /wp-content/uploads/2018/06/word-image-298-300x30.png 300w" sizes="(max-width: 652px) 100vw, 652px" /></p>
+<h2>项目前的一些配置</h2>
+<p>我们可以先把数据库、控制器后缀、静态资源目录等一些基本配置先定义好。</p>
+<ul>
+<li>数据库配置</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="935" height="629" class="wp-image-7697" src="/wp-content/uploads/2018/06/word-image-299.png" srcset="/wp-content/uploads/2018/06/word-image-299.png 935w, /wp-content/uploads/2018/06/word-image-299-300x202.png 300w, /wp-content/uploads/2018/06/word-image-299-768x517.png 768w" sizes="(max-width: 935px) 100vw, 935px" /></p>
+<ul>
+<li>控制器后缀</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="798" height="303" class="wp-image-7698" src="/wp-content/uploads/2018/06/word-image-300.png" srcset="/wp-content/uploads/2018/06/word-image-300.png 798w, /wp-content/uploads/2018/06/word-image-300-300x114.png 300w, /wp-content/uploads/2018/06/word-image-300-768x292.png 768w" sizes="(max-width: 798px) 100vw, 798px" /></p>
+<ul>
+<li>配置静态资源路径，把后台静态资源放到相应的目录,配置后台密码加密验salt</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="767" height="329" class="wp-image-7699" src="/wp-content/uploads/2018/06/word-image-301.png" srcset="/wp-content/uploads/2018/06/word-image-301.png 767w, /wp-content/uploads/2018/06/word-image-301-300x129.png 300w" sizes="(max-width: 767px) 100vw, 767px" /></p>
+<ul>
+<li>先设置默认模块为admin、开发前台时（项目上线）设置为home</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="785" height="161" class="wp-image-7700" src="/wp-content/uploads/2018/06/word-image-302.png" srcset="/wp-content/uploads/2018/06/word-image-302.png 785w, /wp-content/uploads/2018/06/word-image-302-300x62.png 300w, /wp-content/uploads/2018/06/word-image-302-768x158.png 768w" sizes="(max-width: 785px) 100vw, 785px" /></p>
+<ul>
+<li>并且开启调试模式,页面trace调试，看到错误的详细信息</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="866" height="277" class="wp-image-7701" src="/wp-content/uploads/2018/06/word-image-303.png" srcset="/wp-content/uploads/2018/06/word-image-303.png 866w, /wp-content/uploads/2018/06/word-image-303-300x96.png 300w, /wp-content/uploads/2018/06/word-image-303-768x246.png 768w" sizes="(max-width: 866px) 100vw, 866px" /></p>
+<p>开启页面trace调试，页面右下角多处一个图标。</p>
+<p><img loading="lazy" decoding="async" width="153" height="49" class="wp-image-7702" src="/wp-content/uploads/2018/06/word-image-304.png" srcset="/wp-content/uploads/2018/06/word-image-304.png 153w, /wp-content/uploads/2018/06/word-image-304-150x49.png 150w" sizes="(max-width: 153px) 100vw, 153px" /></p>
+<ul>
+<li>开启模型获取数据返回关联数组的配置</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="901" height="177" class="wp-image-7703" src="/wp-content/uploads/2018/06/word-image-305.png" srcset="/wp-content/uploads/2018/06/word-image-305.png 901w, /wp-content/uploads/2018/06/word-image-305-300x59.png 300w, /wp-content/uploads/2018/06/word-image-305-768x151.png 768w" sizes="(max-width: 901px) 100vw, 901px" /></p>
+<ul>
+<li>修改重写文件.htaccess隐藏单一入口文件访问</li>
+</ul>
+<p>这里需要在httpd.conf开启rewrite重写模块，和在虚拟主机中把 AllowOverride None改为 AllowOverride All，这两步在安装phpstudy的时候和配置虚拟主机时其已经帮我们设置好了。</p>
+<p>只需要改修改重写文件.htaccess，前面加个问号?</p>
+<h1>三、搭建后台首页</h1>
+<p><img loading="lazy" decoding="async" width="844" height="270" class="wp-image-7704" src="/wp-content/uploads/2018/06/word-image-306.png" srcset="/wp-content/uploads/2018/06/word-image-306.png 844w, /wp-content/uploads/2018/06/word-image-306-300x96.png 300w, /wp-content/uploads/2018/06/word-image-306-768x246.png 768w" sizes="(max-width: 844px) 100vw, 844px" /></p>
+<p>步骤1：在后台admin建立一个index控制器，分别建立top、main、left、index</p>
+<p><img loading="lazy" decoding="async" width="774" height="613" class="wp-image-7705" src="/wp-content/uploads/2018/06/word-image-307.png" srcset="/wp-content/uploads/2018/06/word-image-307.png 774w, /wp-content/uploads/2018/06/word-image-307-300x238.png 300w, /wp-content/uploads/2018/06/word-image-307-768x608.png 768w" sizes="(max-width: 774px) 100vw, 774px" /></p>
+<p>步骤2：复制后台指定的模板到指定的目录，并且修改每个模板的静态资源路径</p>
+<p><img loading="lazy" decoding="async" width="1264" height="457" class="wp-image-7706" src="/wp-content/uploads/2018/06/word-image-308.png" srcset="/wp-content/uploads/2018/06/word-image-308.png 1264w, /wp-content/uploads/2018/06/word-image-308-300x108.png 300w, /wp-content/uploads/2018/06/word-image-308-768x278.png 768w, /wp-content/uploads/2018/06/word-image-308-1024x370.png 1024w" sizes="(max-width: 1264px) 100vw, 1264px" /></p>
+<p>访问效果：</p>
+<p><img loading="lazy" decoding="async" width="744" height="432" class="wp-image-7707" src="/wp-content/uploads/2018/06/word-image-309.png" srcset="/wp-content/uploads/2018/06/word-image-309.png 744w, /wp-content/uploads/2018/06/word-image-309-300x174.png 300w" sizes="(max-width: 744px) 100vw, 744px" /></p>
+<h1>四、用户表的CURD操作</h1>
+<h3>完成用户的添加功能</h3>
+<p>步骤1：在后台创建User控制器，并建立一个add方法输出模板内容</p>
+<p><img loading="lazy" decoding="async" width="794" height="286" class="wp-image-7708" src="/wp-content/uploads/2018/06/word-image-310.png" srcset="/wp-content/uploads/2018/06/word-image-310.png 794w, /wp-content/uploads/2018/06/word-image-310-300x108.png 300w, /wp-content/uploads/2018/06/word-image-310-768x277.png 768w" sizes="(max-width: 794px) 100vw, 794px" /></p>
+<p>步骤2：修改add.html模板的name名称</p>
+<p><img loading="lazy" decoding="async" width="1286" height="622" class="wp-image-7709" src="/wp-content/uploads/2018/06/word-image-311.png" srcset="/wp-content/uploads/2018/06/word-image-311.png 1286w, /wp-content/uploads/2018/06/word-image-311-300x145.png 300w, /wp-content/uploads/2018/06/word-image-311-768x371.png 768w, /wp-content/uploads/2018/06/word-image-311-1024x495.png 1024w" sizes="(max-width: 1286px) 100vw, 1286px" /></p>
+<p>步骤3：定义当前表的验证器</p>
+<p><img loading="lazy" decoding="async" width="1209" height="714" class="wp-image-7710" src="/wp-content/uploads/2018/06/word-image-312.png" srcset="/wp-content/uploads/2018/06/word-image-312.png 1209w, /wp-content/uploads/2018/06/word-image-312-300x177.png 300w, /wp-content/uploads/2018/06/word-image-312-768x454.png 768w, /wp-content/uploads/2018/06/word-image-312-1024x605.png 1024w" sizes="(max-width: 1209px) 100vw, 1209px" /></p>
+<p>步骤4：在模型中定义前入库的钩子事件，完成密码字段的加密</p>
+<p><img loading="lazy" decoding="async" width="1101" height="436" class="wp-image-7711" src="/wp-content/uploads/2018/06/word-image-313.png" srcset="/wp-content/uploads/2018/06/word-image-313.png 1101w, /wp-content/uploads/2018/06/word-image-313-300x119.png 300w, /wp-content/uploads/2018/06/word-image-313-768x304.png 768w, /wp-content/uploads/2018/06/word-image-313-1024x406.png 1024w" sizes="(max-width: 1101px) 100vw, 1101px" /></p>
+<p>步骤5：控制器完成验证入库操作</p>
+<p><img loading="lazy" decoding="async" width="1191" height="699" class="wp-image-7712" src="/wp-content/uploads/2018/06/word-image-314.png" srcset="/wp-content/uploads/2018/06/word-image-314.png 1191w, /wp-content/uploads/2018/06/word-image-314-300x176.png 300w, /wp-content/uploads/2018/06/word-image-314-768x451.png 768w, /wp-content/uploads/2018/06/word-image-314-1024x601.png 1024w" sizes="(max-width: 1191px) 100vw, 1191px" /></p>
+<h3>完成用户列表功能及分页</h3>
+<p>步骤1：在后台User控制器建立一个index方法，取出所有的用户数据，并分配到模板中</p>
+<p><img loading="lazy" decoding="async" width="831" height="395" class="wp-image-7713" src="/wp-content/uploads/2018/06/word-image-315.png" srcset="/wp-content/uploads/2018/06/word-image-315.png 831w, /wp-content/uploads/2018/06/word-image-315-300x143.png 300w, /wp-content/uploads/2018/06/word-image-315-768x365.png 768w" sizes="(max-width: 831px) 100vw, 831px" /></p>
+<p>步骤2：模板遍历数据</p>
+<p><img loading="lazy" decoding="async" width="1039" height="601" class="wp-image-7714" src="/wp-content/uploads/2018/06/word-image-316.png" srcset="/wp-content/uploads/2018/06/word-image-316.png 1039w, /wp-content/uploads/2018/06/word-image-316-300x174.png 300w, /wp-content/uploads/2018/06/word-image-316-768x444.png 768w, /wp-content/uploads/2018/06/word-image-316-1024x592.png 1024w" sizes="(max-width: 1039px) 100vw, 1039px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="941" height="192" class="wp-image-7715" src="/wp-content/uploads/2018/06/word-image-317.png" srcset="/wp-content/uploads/2018/06/word-image-317.png 941w, /wp-content/uploads/2018/06/word-image-317-300x61.png 300w, /wp-content/uploads/2018/06/word-image-317-768x157.png 768w" sizes="(max-width: 941px) 100vw, 941px" /></p>
+<h3>完成用户的编辑功能</h3>
+<p>编辑用户的时候，密码选项需要考虑两种情况：</p>
+<p>①如密码和确认密码都为空，说明用户不想修改密码，则保留原来的密码。</p>
+<p>②如果两个密码有一个不为空，说明用户想修改密码，则必须要求用户两次密码一致。</p>
+<p>代码如下：</p>
+<p>步骤1：给编辑的设置一个链接地址，携带一个主键值</p>
+<p><img loading="lazy" decoding="async" width="1260" height="305" class="wp-image-7716" src="/wp-content/uploads/2018/06/word-image-318.png" srcset="/wp-content/uploads/2018/06/word-image-318.png 1260w, /wp-content/uploads/2018/06/word-image-318-300x73.png 300w, /wp-content/uploads/2018/06/word-image-318-768x186.png 768w, /wp-content/uploads/2018/06/word-image-318-1024x248.png 1024w" sizes="(max-width: 1260px) 100vw, 1260px" /></p>
+<p>步骤2：使用jquery-validate对密码字段进行验证</p>
+<p><img loading="lazy" decoding="async" width="1008" height="318" class="wp-image-7717" src="/wp-content/uploads/2018/06/word-image-319.png" srcset="/wp-content/uploads/2018/06/word-image-319.png 1008w, /wp-content/uploads/2018/06/word-image-319-300x95.png 300w, /wp-content/uploads/2018/06/word-image-319-768x242.png 768w" sizes="(max-width: 1008px) 100vw, 1008px" /></p>
+<p>规则如下：</p>
+<p><img loading="lazy" decoding="async" width="841" height="711" class="wp-image-7718" src="/wp-content/uploads/2018/06/word-image-320.png" srcset="/wp-content/uploads/2018/06/word-image-320.png 841w, /wp-content/uploads/2018/06/word-image-320-300x254.png 300w, /wp-content/uploads/2018/06/word-image-320-768x649.png 768w" sizes="(max-width: 841px) 100vw, 841px" /> <img loading="lazy" decoding="async" width="590" height="144" class="wp-image-7719" src="/wp-content/uploads/2018/06/word-image-321.png" srcset="/wp-content/uploads/2018/06/word-image-321.png 590w, /wp-content/uploads/2018/06/word-image-321-300x73.png 300w" sizes="(max-width: 590px) 100vw, 590px" /></p>
+<p>注：要修改style.css文件样式，因为有样式冲突</p>
+<p><img loading="lazy" decoding="async" width="1138" height="179" class="wp-image-7720" src="/wp-content/uploads/2018/06/word-image-322.png" srcset="/wp-content/uploads/2018/06/word-image-322.png 1138w, /wp-content/uploads/2018/06/word-image-322-300x47.png 300w, /wp-content/uploads/2018/06/word-image-322-768x121.png 768w, /wp-content/uploads/2018/06/word-image-322-1024x161.png 1024w" sizes="(max-width: 1138px) 100vw, 1138px" /></p>
+<p>设置upd.html模板内容回显数据：</p>
+<p><img loading="lazy" decoding="async" width="1270" height="671" class="wp-image-7721" src="/wp-content/uploads/2018/06/word-image-323.png" srcset="/wp-content/uploads/2018/06/word-image-323.png 1270w, /wp-content/uploads/2018/06/word-image-323-300x159.png 300w, /wp-content/uploads/2018/06/word-image-323-768x406.png 768w, /wp-content/uploads/2018/06/word-image-323-1024x541.png 1024w" sizes="(max-width: 1270px) 100vw, 1270px" /></p>
+<p>步骤3：upd方法中完成编辑的验证编辑入库</p>
+<p><img loading="lazy" decoding="async" width="1160" height="520" class="wp-image-7722" src="/wp-content/uploads/2018/06/word-image-324.png" srcset="/wp-content/uploads/2018/06/word-image-324.png 1160w, /wp-content/uploads/2018/06/word-image-324-300x134.png 300w, /wp-content/uploads/2018/06/word-image-324-768x344.png 768w, /wp-content/uploads/2018/06/word-image-324-1024x459.png 1024w" sizes="(max-width: 1160px) 100vw, 1160px" /></p>
+<p>同时修改编辑场景的验证器：</p>
+<p><img loading="lazy" decoding="async" width="1002" height="485" class="wp-image-7723" src="/wp-content/uploads/2018/06/word-image-325.png" srcset="/wp-content/uploads/2018/06/word-image-325.png 1002w, /wp-content/uploads/2018/06/word-image-325-300x145.png 300w, /wp-content/uploads/2018/06/word-image-325-768x372.png 768w" sizes="(max-width: 1002px) 100vw, 1002px" /></p>
+<h3>ajax控制用户的登录状态</h3>
+<p>步骤1：先给标签加一个a标签，并且阻止默认行为，同时加一个is_active和user_id属性，目的是获取当前记录的状态值和主键值，并且绑定类名为changeActive。</p>
+<p><img loading="lazy" decoding="async" width="1197" height="259" class="wp-image-7724" src="/wp-content/uploads/2018/06/word-image-326.png" srcset="/wp-content/uploads/2018/06/word-image-326.png 1197w, /wp-content/uploads/2018/06/word-image-326-300x65.png 300w, /wp-content/uploads/2018/06/word-image-326-768x166.png 768w, /wp-content/uploads/2018/06/word-image-326-1024x222.png 1024w" sizes="(max-width: 1197px) 100vw, 1197px" /></p>
+<p>步骤2：给class=changeActive 绑定单击事件，发送ajax请求</p>
+<p><img loading="lazy" decoding="async" width="1244" height="493" class="wp-image-7725" src="/wp-content/uploads/2018/06/word-image-327.png" srcset="/wp-content/uploads/2018/06/word-image-327.png 1244w, /wp-content/uploads/2018/06/word-image-327-300x119.png 300w, /wp-content/uploads/2018/06/word-image-327-768x304.png 768w, /wp-content/uploads/2018/06/word-image-327-1024x406.png 1024w" sizes="(max-width: 1244px) 100vw, 1244px" /></p>
+<p>步骤3：在User控制器建立一个ajaxChangeActive方法，完成状态的更改</p>
+<p><img loading="lazy" decoding="async" width="831" height="646" class="wp-image-7726" src="/wp-content/uploads/2018/06/word-image-328.png" srcset="/wp-content/uploads/2018/06/word-image-328.png 831w, /wp-content/uploads/2018/06/word-image-328-300x233.png 300w, /wp-content/uploads/2018/06/word-image-328-768x597.png 768w" sizes="(max-width: 831px) 100vw, 831px" /></p>
+<p>注意：由于更改状态值的时候会触发编辑的前钩子，这时候没有携带密码字段前钩子会直接报错，解决办法：对前钩子有没有密码字段进行isset判断即可:</p>
+<p><img loading="lazy" decoding="async" width="971" height="482" class="wp-image-7727" src="/wp-content/uploads/2018/06/word-image-329.png" srcset="/wp-content/uploads/2018/06/word-image-329.png 971w, /wp-content/uploads/2018/06/word-image-329-300x149.png 300w, /wp-content/uploads/2018/06/word-image-329-768x381.png 768w" sizes="(max-width: 971px) 100vw, 971px" /></p>
+<p>提示：调试ajax的时候，务必要打开控制器network进行调试。可以打开response选项看报啥错，这样可以快速定位到错误的原因。</p>
+<h1>五、完成后台用户登录|退出|防翻墙功能</h1>
+<h2>完成后台登录功能</h2>
+<p>步骤1：在后台建立一个Public控制器，并建立一个login方法，输出登录模板同时，同时完成登录的功能实现</p>
+<p><img loading="lazy" decoding="async" width="1135" height="651" class="wp-image-7728" src="/wp-content/uploads/2018/06/word-image-330.png" srcset="/wp-content/uploads/2018/06/word-image-330.png 1135w, /wp-content/uploads/2018/06/word-image-330-300x172.png 300w, /wp-content/uploads/2018/06/word-image-330-768x441.png 768w, /wp-content/uploads/2018/06/word-image-330-1024x587.png 1024w" sizes="(max-width: 1135px) 100vw, 1135px" /></p>
+<p>同时在User模型中，定义一个checkUser的方法，检测用户名和密码是否相等</p>
+<p><img loading="lazy" decoding="async" width="1030" height="529" class="wp-image-7729" src="/wp-content/uploads/2018/06/word-image-331.png" srcset="/wp-content/uploads/2018/06/word-image-331.png 1030w, /wp-content/uploads/2018/06/word-image-331-300x154.png 300w, /wp-content/uploads/2018/06/word-image-331-768x394.png 768w, /wp-content/uploads/2018/06/word-image-331-1024x526.png 1024w" sizes="(max-width: 1030px) 100vw, 1030px" /></p>
+<p>步骤2：修改login.html模板内容，显示验证码</p>
+<p><img loading="lazy" decoding="async" width="1267" height="689" class="wp-image-7730" src="/wp-content/uploads/2018/06/word-image-332.png" srcset="/wp-content/uploads/2018/06/word-image-332.png 1267w, /wp-content/uploads/2018/06/word-image-332-300x163.png 300w, /wp-content/uploads/2018/06/word-image-332-768x418.png 768w, /wp-content/uploads/2018/06/word-image-332-1024x557.png 1024w" sizes="(max-width: 1267px) 100vw, 1267px" /> <img loading="lazy" decoding="async" width="1167" height="425" class="wp-image-7731" src="/wp-content/uploads/2018/06/word-image-333.png" srcset="/wp-content/uploads/2018/06/word-image-333.png 1167w, /wp-content/uploads/2018/06/word-image-333-300x109.png 300w, /wp-content/uploads/2018/06/word-image-333-768x280.png 768w, /wp-content/uploads/2018/06/word-image-333-1024x373.png 1024w" sizes="(max-width: 1167px) 100vw, 1167px" /></p>
+<p>步骤3：在验证器中定义登录场景的验证规则</p>
+<p><img loading="lazy" decoding="async" width="1264" height="690" class="wp-image-7732" src="/wp-content/uploads/2018/06/word-image-334.png" srcset="/wp-content/uploads/2018/06/word-image-334.png 1264w, /wp-content/uploads/2018/06/word-image-334-300x164.png 300w, /wp-content/uploads/2018/06/word-image-334-768x419.png 768w, /wp-content/uploads/2018/06/word-image-334-1024x559.png 1024w" sizes="(max-width: 1264px) 100vw, 1264px" /></p>
+<p>登录成功，在top.html中回显用户名</p>
+<p><img loading="lazy" decoding="async" width="1024" height="214" class="wp-image-7733" src="/wp-content/uploads/2018/06/word-image-335.png" srcset="/wp-content/uploads/2018/06/word-image-335.png 1024w, /wp-content/uploads/2018/06/word-image-335-300x63.png 300w, /wp-content/uploads/2018/06/word-image-335-768x161.png 768w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h2>完成后台退出功能</h2>
+<p>步骤1：在后台Public控制器建立一个logout的退出方法</p>
+<p><img loading="lazy" decoding="async" width="831" height="296" class="wp-image-7734" src="/wp-content/uploads/2018/06/word-image-336.png" srcset="/wp-content/uploads/2018/06/word-image-336.png 831w, /wp-content/uploads/2018/06/word-image-336-300x107.png 300w, /wp-content/uploads/2018/06/word-image-336-768x274.png 768w" sizes="(max-width: 831px) 100vw, 831px" /></p>
+<h2>防用户翻墙</h2>
+<p>防翻墙思想：建立一个父控制器如：CommonController,在此控制器的构造函数中做session的判断，其他需要进行验证session的控制器就继承此公共控制器即可防止翻墙，某些控制器不需要session判断则不继承即可。（如:PublicController）</p>
+<p><img loading="lazy" decoding="async" width="991" height="358" class="wp-image-7735" src="/wp-content/uploads/2018/06/word-image-337.png" srcset="/wp-content/uploads/2018/06/word-image-337.png 991w, /wp-content/uploads/2018/06/word-image-337-300x108.png 300w, /wp-content/uploads/2018/06/word-image-337-768x277.png 768w" sizes="(max-width: 991px) 100vw, 991px" /></p>
+<p>其中Index 和User控制器需要继承Common，public不需要继承</p>
+<p><img loading="lazy" decoding="async" width="831" height="164" class="wp-image-7736" src="/wp-content/uploads/2018/06/word-image-338.png" srcset="/wp-content/uploads/2018/06/word-image-338.png 831w, /wp-content/uploads/2018/06/word-image-338-300x59.png 300w, /wp-content/uploads/2018/06/word-image-338-768x152.png 768w" sizes="(max-width: 831px) 100vw, 831px" /> <img loading="lazy" decoding="async" width="834" height="172" class="wp-image-7737" src="/wp-content/uploads/2018/06/word-image-339.png" srcset="/wp-content/uploads/2018/06/word-image-339.png 834w, /wp-content/uploads/2018/06/word-image-339-300x62.png 300w, /wp-content/uploads/2018/06/word-image-339-768x158.png 768w" sizes="(max-width: 834px) 100vw, 834px" /></p>
+<h1>六、RBAC权限控制</h1>
+<h2>RBAC介绍</h2>
+<p>RBAC: Role Based Access Controller ,即基于角色的访问权限控制。</p>
+<p>简单的说,用户登录可以属于不同的角色，不同的角色拥有的后台访问菜单权限也不一样。</p>
+<p>如：</p>
+<p>如下面的每个菜单就是一个权限。</p>
+<p><img loading="lazy" decoding="async" width="190" height="124" class="wp-image-7738" src="/wp-content/uploads/2018/06/word-image-340.png" /></p>
+<p>后台菜单中权限一般只控制到两级权限，权限级别太深难以维护，具体要看项目需求。</p>
+<p>一级权限：如：商品管理。</p>
+<p>二级权限：如：商品添加、商品列表。</p>
+<p>三级权限：如：商品列表中的编辑或删除操作</p>
+<h2>RBAC表的表设计</h2>
+<p>一般RBAC权限控制都3张表和5张表，其核心都是一样。</p>
+<p>3张表：后台用户表、角色表、权限表。</p>
+<p>而5张表仅把用户表和角色表、角色表和权限表其相关联的字段分别使用一个表来维护。且表多了维护起来更加繁琐。</p>
+<p>这里我们采用3张表来做权限控制。</p>
+<p>三张表的关系如下：</p>
+<p><img loading="lazy" decoding="async" width="749" height="293" class="wp-image-7739" src="/wp-content/uploads/2018/06/word-image-341.png" srcset="/wp-content/uploads/2018/06/word-image-341.png 749w, /wp-content/uploads/2018/06/word-image-341-300x117.png 300w" sizes="(max-width: 749px) 100vw, 749px" /></p>
+<p>分析：</p>
+<ul>
+<li>用户表通过角色字段role_id，找到与其关联的角色表role_id。</li>
+<li>角色表通过所拥有的所有权限字段auth_id_list，找到与其关联的权限表的auth_id。</li>
+</ul>
+<p>控制权限图解：</p>
+<p><img loading="lazy" decoding="async" width="1127" height="449" class="wp-image-7740" src="/wp-content/uploads/2018/06/word-image-342.png" srcset="/wp-content/uploads/2018/06/word-image-342.png 1127w, /wp-content/uploads/2018/06/word-image-342-300x120.png 300w, /wp-content/uploads/2018/06/word-image-342-768x306.png 768w, /wp-content/uploads/2018/06/word-image-342-1024x408.png 1024w" sizes="(max-width: 1127px) 100vw, 1127px" /></p>
+<p>可见，一个用户对应着一个角色，一个角色可以拥有多个权限。</p>
+<h1>七、RBAC功能实现</h1>
+<h2>权限表的curd操作</h2>
+<h3>（1）完成权限的添加</h3>
+<p>步骤1：在后台建立一个Auth控制器，并建立一个add方法，输出模板内容，并完成添加权限的实现</p>
+<p><img loading="lazy" decoding="async" width="1028" height="717" class="wp-image-7741" src="/wp-content/uploads/2018/06/word-image-343.png" srcset="/wp-content/uploads/2018/06/word-image-343.png 1028w, /wp-content/uploads/2018/06/word-image-343-300x209.png 300w, /wp-content/uploads/2018/06/word-image-343-768x536.png 768w, /wp-content/uploads/2018/06/word-image-343-1024x714.png 1024w" sizes="(max-width: 1028px) 100vw, 1028px" /></p>
+<p>同时在Auth模型中取出权限的无限级分类数据：</p>
+<p><img loading="lazy" decoding="async" width="965" height="680" class="wp-image-7742" src="/wp-content/uploads/2018/06/word-image-344.png" srcset="/wp-content/uploads/2018/06/word-image-344.png 965w, /wp-content/uploads/2018/06/word-image-344-300x211.png 300w, /wp-content/uploads/2018/06/word-image-344-768x541.png 768w" sizes="(max-width: 965px) 100vw, 965px" /></p>
+<p>步骤2：设置add.html模板内容</p>
+<p><img loading="lazy" decoding="async" width="1230" height="699" class="wp-image-7743" src="/wp-content/uploads/2018/06/word-image-345.png" srcset="/wp-content/uploads/2018/06/word-image-345.png 1230w, /wp-content/uploads/2018/06/word-image-345-300x170.png 300w, /wp-content/uploads/2018/06/word-image-345-768x436.png 768w, /wp-content/uploads/2018/06/word-image-345-1024x582.png 1024w" sizes="(max-width: 1230px) 100vw, 1230px" /></p>
+<p>当选择顶级权限时，控制器名和方法名不可用，否则可用。因为顶级权限没有控制器名和方法名。</p>
+<p><img loading="lazy" decoding="async" width="1179" height="481" class="wp-image-7744" src="/wp-content/uploads/2018/06/word-image-346.png" srcset="/wp-content/uploads/2018/06/word-image-346.png 1179w, /wp-content/uploads/2018/06/word-image-346-300x122.png 300w, /wp-content/uploads/2018/06/word-image-346-768x313.png 768w, /wp-content/uploads/2018/06/word-image-346-1024x418.png 1024w" sizes="(max-width: 1179px) 100vw, 1179px" /></p>
+<p>注意：表单input设置disabled和readonly的区别</p>
+<p>相同点：都不可以编辑input中的数据</p>
+<p>不同点：设置disabled时，php中通过$_POST接收不到input框name的属性值</p>
+<p>设置readonly时，php中通过$_POST可以收到input的name的属性值</p>
+<p>步骤3：定义Auth验证器，进行验证</p>
+<p><img loading="lazy" decoding="async" width="773" height="636" class="wp-image-7745" src="/wp-content/uploads/2018/06/word-image-347.png" srcset="/wp-content/uploads/2018/06/word-image-347.png 773w, /wp-content/uploads/2018/06/word-image-347-300x247.png 300w, /wp-content/uploads/2018/06/word-image-347-768x632.png 768w" sizes="(max-width: 773px) 100vw, 773px" /></p>
+<p>模板效果：</p>
+<p><img loading="lazy" decoding="async" width="542" height="323" class="wp-image-7746" src="/wp-content/uploads/2018/06/word-image-348.png" srcset="/wp-content/uploads/2018/06/word-image-348.png 542w, /wp-content/uploads/2018/06/word-image-348-300x180.png 300w" sizes="(max-width: 542px) 100vw, 542px" /></p>
+<h3>完成权限的列表展示</h3>
+<h3>完成权限的编辑</h3>
+<h3>完成权限的删除</h3>
+<h2>角色表的curd操作</h2>
+<h3>添加角色及分配权限</h3>
+<p>注：一般系统角色名为超级管理员都会拥有所有的权限，其权限字段auth_id_list可以手动设置为*。</p>
+<h3>（2）角色的列表展示</h3>
+<p>把一个角色所拥有的权限都查出来，这里需要利用到两个mysql函数：</p>
+<p>FIND_IN_SET和group_concat(字段)</p>
+<ul>
+<li>FIND_IN_SET(str,strlist) :</li>
+</ul>
+<p>作用：查询出子串str，是否在由逗号分隔的目标字符串strlist中存在。</p>
+<p>如：判断5是否在字符串1,2,3,4,5中存在：FIND_IN_SET(5,‘1,2,3,4,5’) ，存在则返回所在目标字符串strlist的所在位置，不存在则返回0。</p>
+<p><img loading="lazy" decoding="async" width="643" height="83" class="wp-image-7747" src="/wp-content/uploads/2018/06/word-image-349.png" srcset="/wp-content/uploads/2018/06/word-image-349.png 643w, /wp-content/uploads/2018/06/word-image-349-300x39.png 300w" sizes="(max-width: 643px) 100vw, 643px" /> <img loading="lazy" decoding="async" width="476" height="77" class="wp-image-7748" src="/wp-content/uploads/2018/06/word-image-350.png" srcset="/wp-content/uploads/2018/06/word-image-350.png 476w, /wp-content/uploads/2018/06/word-image-350-300x49.png 300w" sizes="(max-width: 476px) 100vw, 476px" /></p>
+<ul>
+<li>group_concat(字段)</li>
+</ul>
+<p>作用：主要根据某个字段进行分组，把相同字段的值连接在一起。</p>
+<p>默认连接符号是逗号 ，如果用|连接则：</p>
+<p>group_concat(字段名 SEPARATOR “|”)</p>
+<p>例：如下是表tp_article表中的一些数据</p>
+<p><img loading="lazy" decoding="async" width="400" height="150" class="wp-image-7749" src="/wp-content/uploads/2018/06/word-image-351.png" srcset="/wp-content/uploads/2018/06/word-image-351.png 400w, /wp-content/uploads/2018/06/word-image-351-300x113.png 300w" sizes="(max-width: 400px) 100vw, 400px" /></p>
+<p>根据cat_id字段进行分组，把具有相同cat_id的title字段值连接在一起。</p>
+<p><img loading="lazy" decoding="async" width="766" height="159" class="wp-image-7750" src="/wp-content/uploads/2018/06/word-image-352.png" srcset="/wp-content/uploads/2018/06/word-image-352.png 766w, /wp-content/uploads/2018/06/word-image-352-300x62.png 300w" sizes="(max-width: 766px) 100vw, 766px" /></p>
+<h3>（3）完成角色编辑功能</h3>
+<h3>（4）完成角色删除功能</h3>
+<h1>实现不同用户登录展示不同后台菜单</h1>
+<h1>八、权限防翻墙</h1>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7682.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

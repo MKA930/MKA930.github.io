@@ -1,0 +1,1306 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>增删改查 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 14:24:26 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>增删改查 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>MongoDB 存储方式、命令、增删改查、索引</title>
+		<link>/%e6%95%b0%e6%8d%ae%e5%ba%93/5082.html</link>
+					<comments>/%e6%95%b0%e6%8d%ae%e5%ba%93/5082.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 14:24:26 +0000</pubDate>
+				<category><![CDATA[MongoDB]]></category>
+		<category><![CDATA[数据库]]></category>
+		<category><![CDATA[命令]]></category>
+		<category><![CDATA[增删改查]]></category>
+		<category><![CDATA[存储方式]]></category>
+		<category><![CDATA[索引]]></category>
+		<guid isPermaLink="false">/?p=5082</guid>
+
+					<description><![CDATA[NoSQL（MongoDB） 一、了解MongoDB 1、什么是MongoDB？ 概念 MongoDB是NoS [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>NoSQL（MongoDB）</h1>
+<h1><a id="post-5082-_Toc427248665"></a>一、了解MongoDB</h1>
+<h2>1、什么是MongoDB？</h2>
+<h3>概念 </h3>
+<p>
+  MongoDB是NoSQL类型的文档型数据库。
+</p>
+<h3>2）什么是NoSQL？</h3>
+<p>
+  NoSQL是非关系型数据存储的广义定义，通常以key-value形式存储数据，没
+</p>
+<p>
+  有表结构（注：memcache和redis也市nosql产品）。
+</p>
+<h3>NoSQL优点</h3>
+<p>
+  易扩展
+</p>
+<p>
+  快速的读写
+</p>
+<p>
+  低廉的成本
+</p>
+<p>
+  架构的灵活性，没有复杂的关系
+</p>
+<h3>4）NoSQL缺点</h3>
+<p>
+  没有标准化
+</p>
+<p>
+  没有正式的官方支持
+</p>
+<h2>、MongoDB存储方式</h2>
+<p>
+  mongodb是文档型数据库，文件以BJSON格式存储在硬盘中。
+</p>
+<p>
+  BSON是JSON的一种二进制形式的存储格式.
+</p>
+<p>
+  mongodb内部执行引擎为JS解释器, 把文档存储成bson结构,在查询时,转换为JS对象,并可以通过熟悉的JS语法来操作.
+</p>
+<p><strong>简单总结：</strong>
+</p>
+<p><strong>mongodb是文档型数据库</strong>
+</p>
+<p><strong>mongodb、redis、memcache都属于nosql产品</strong>
+</p>
+<p><strong>什么是nosql：非关系型数据库的广泛定义、一般数据以键值对形式存储，没有表结构</strong>
+</p>
+<p>
+  redis和memcache存在内存中
+</p>
+<p>
+  mongodb存储在磁盘文件中
+</p>
+<h1>二、MongoDB的安装与配置</h1>
+<h2>1、下载</h2>
+<p><a href="http://www.mongodb.org/downloads">http://www.mongodb.org/downloads</a>
+</p>
+<p><img decoding="async" width="250" height="185" src="/wp-content/uploads/2018/05/word-image-4592.png" class="wp-image-5085" /></p>
+<p>
+  在32位系统上，数据库文件总共不能超过2G，否无法再插入数据。推荐使用64位操作系统。
+</p>
+<p>
+  安装成功后需要自己创建服务
+</p>
+<h2>2、安装</h2>
+<p><img fetchpriority="high" decoding="async" width="484" height="386" src="/wp-content/uploads/2018/05/word-image-4593.png" class="wp-image-5086" srcset="/wp-content/uploads/2018/05/word-image-4593.png 484w, /wp-content/uploads/2018/05/word-image-4593-300x239.png 300w" sizes="(max-width: 484px) 100vw, 484px" /><br />
+<img decoding="async" width="482" height="381" src="/wp-content/uploads/2018/05/word-image-4594.png" class="wp-image-5087" srcset="/wp-content/uploads/2018/05/word-image-4594.png 482w, /wp-content/uploads/2018/05/word-image-4594-300x237.png 300w" sizes="(max-width: 482px) 100vw, 482px" /><br />
+<img loading="lazy" decoding="async" width="476" height="384" src="/wp-content/uploads/2018/05/word-image-4595.png" class="wp-image-5088" srcset="/wp-content/uploads/2018/05/word-image-4595.png 476w, /wp-content/uploads/2018/05/word-image-4595-300x242.png 300w" sizes="(max-width: 476px) 100vw, 476px" /><br />
+<img loading="lazy" decoding="async" width="482" height="380" src="/wp-content/uploads/2018/05/word-image-4596.png" class="wp-image-5089" srcset="/wp-content/uploads/2018/05/word-image-4596.png 482w, /wp-content/uploads/2018/05/word-image-4596-300x237.png 300w" sizes="(max-width: 482px) 100vw, 482px" /><br />
+<img loading="lazy" decoding="async" width="487" height="381" src="/wp-content/uploads/2018/05/word-image-4597.png" class="wp-image-5090" srcset="/wp-content/uploads/2018/05/word-image-4597.png 487w, /wp-content/uploads/2018/05/word-image-4597-300x235.png 300w" sizes="(max-width: 487px) 100vw, 487px" /><br />
+<img loading="lazy" decoding="async" width="490" height="384" src="/wp-content/uploads/2018/05/word-image-4598.png" class="wp-image-5091" srcset="/wp-content/uploads/2018/05/word-image-4598.png 490w, /wp-content/uploads/2018/05/word-image-4598-300x235.png 300w" sizes="(max-width: 490px) 100vw, 490px" /><br />
+<img loading="lazy" decoding="async" width="481" height="379" src="/wp-content/uploads/2018/05/word-image-4599.png" class="wp-image-5092" srcset="/wp-content/uploads/2018/05/word-image-4599.png 481w, /wp-content/uploads/2018/05/word-image-4599-300x236.png 300w" sizes="(max-width: 481px) 100vw, 481px" /><br />
+<img loading="lazy" decoding="async" width="479" height="217" src="/wp-content/uploads/2018/05/word-image-4600.png" class="wp-image-5093" srcset="/wp-content/uploads/2018/05/word-image-4600.png 479w, /wp-content/uploads/2018/05/word-image-4600-300x136.png 300w" sizes="(max-width: 479px) 100vw, 479px" /></p>
+<h2>3、创建MongoDB 服务</h2>
+<ul>
+<li>
+    前    提：在mongodb安装目录下创建data目录用于存放后期数据
+  </li>
+<li>
+    创建服务：mongod &#8211;install &#8211;dbpath 数据目录 &#8211;logpath 日志文件
+  </li>
+<li>
+    删除服务：mongod &#8211;remove
+  </li>
+<li>
+    启动服务：net start MongoDB
+  </li>
+<li>
+    关闭服务：net stop MongoDB
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1012" height="670" src="/wp-content/uploads/2018/05/word-image-4601.png" class="wp-image-5094" srcset="/wp-content/uploads/2018/05/word-image-4601.png 1012w, /wp-content/uploads/2018/05/word-image-4601-300x199.png 300w, /wp-content/uploads/2018/05/word-image-4601-768x508.png 768w" sizes="(max-width: 1012px) 100vw, 1012px" /></p>
+<h2>4、连接MongoDB服务器</h2>
+<p>
+  语法：mongo 服务ip地址:端口/数据库名
+</p>
+<p>
+  简写：mongo
+</p>
+<p>
+  默认端口27017
+</p>
+<p><img loading="lazy" decoding="async" width="281" height="117" src="/wp-content/uploads/2018/05/word-image-4602.png" class="wp-image-5095" /></p>
+<p>
+  或者
+</p>
+<p><img loading="lazy" decoding="async" width="404" height="120" src="/wp-content/uploads/2018/05/word-image-4603.png" class="wp-image-5096" srcset="/wp-content/uploads/2018/05/word-image-4603.png 404w, /wp-content/uploads/2018/05/word-image-4603-300x89.png 300w" sizes="(max-width: 404px) 100vw, 404px" /></p>
+<h1>三、Mongodb基本概念</h1>
+<ul>
+<li>
+    MySQL数据库中有：数据库（Database）、表（table）、记录（Record）
+  </li>
+<li>
+    mongodb数据库中有：数据库（database）、集合（collection）、文档（document）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="459" height="251" src="/wp-content/uploads/2018/05/word-image-4604.png" class="wp-image-5097" srcset="/wp-content/uploads/2018/05/word-image-4604.png 459w, /wp-content/uploads/2018/05/word-image-4604-300x164.png 300w" sizes="(max-width: 459px) 100vw, 459px" /></p>
+<p>
+  MongoDB集合对应关系型数据库里的表，但是集合中没有列、行和关系概念，这体现了模式自由的特点。
+</p>
+<h1>四、入门命令</h1>
+<h2>1、库和集合操作</h2>
+<h3># 查看已有数据库</h3>
+<p>
+  语法：show databases; 或者 show dbs;
+</p>
+<p>
+  举例：
+</p>
+<p><img loading="lazy" decoding="async" width="272" height="169" src="/wp-content/uploads/2018/05/word-image-4605.png" class="wp-image-5098" /></p>
+<h3># 选择数据库</h3>
+<p>
+  语法：use 数据库
+</p>
+<p>
+  举例：
+</p>
+<p><img loading="lazy" decoding="async" width="463" height="335" src="/wp-content/uploads/2018/05/word-image-4606.png" class="wp-image-5099" srcset="/wp-content/uploads/2018/05/word-image-4606.png 463w, /wp-content/uploads/2018/05/word-image-4606-300x217.png 300w" sizes="(max-width: 463px) 100vw, 463px" /></p>
+<h3># 查看已有的集合/表</h3>
+<p>
+  语法：show collections 或者 show table
+</p>
+<p>
+  举例：
+</p>
+<p><img loading="lazy" decoding="async" width="256" height="114" src="/wp-content/uploads/2018/05/word-image-4607.png" class="wp-image-5100" /></p>
+<h3># 创建集合（表）</h3>
+<p>
+  语法：db.createCollection（集合名）
+</p>
+<p>
+  举例：
+</p>
+<p><img loading="lazy" decoding="async" width="430" height="195" src="/wp-content/uploads/2018/05/word-image-4608.png" class="wp-image-5101" srcset="/wp-content/uploads/2018/05/word-image-4608.png 430w, /wp-content/uploads/2018/05/word-image-4608-300x136.png 300w" sizes="(max-width: 430px) 100vw, 430px" /></p>
+<p>
+  ︴是否可以验证数据库是否自动创建
+</p>
+<p><img loading="lazy" decoding="async" width="449" height="334" src="/wp-content/uploads/2018/05/word-image-4609.png" class="wp-image-5102" srcset="/wp-content/uploads/2018/05/word-image-4609.png 449w, /wp-content/uploads/2018/05/word-image-4609-300x223.png 300w" sizes="(max-width: 449px) 100vw, 449px" /></p>
+<h3># 删除集合表</h3>
+<p>
+  语法：db.集合名.drop()
+</p>
+<p>
+  举例：
+</p>
+<p><img loading="lazy" decoding="async" width="307" height="236" src="/wp-content/uploads/2018/05/word-image-4610.png" class="wp-image-5103" srcset="/wp-content/uploads/2018/05/word-image-4610.png 307w, /wp-content/uploads/2018/05/word-image-4610-300x231.png 300w" sizes="(max-width: 307px) 100vw, 307px" /></p>
+<p>
+  删除库：db.dropDatabase();
+</p>
+<p><img loading="lazy" decoding="async" width="391" height="202" src="/wp-content/uploads/2018/05/word-image-4611.png" class="wp-image-5104" srcset="/wp-content/uploads/2018/05/word-image-4611.png 391w, /wp-content/uploads/2018/05/word-image-4611-300x155.png 300w" sizes="(max-width: 391px) 100vw, 391px" /></p>
+<h2>2、增删修查（CURD）</h2>
+<h3># C 增</h3>
+<ul>
+<li>
+    语法：db.集合名.insert（json数据）
+  </li>
+<li>
+    说明：集合存在-则直接插入数据，集合不存在-则插入数据时自动创建
+  </li>
+<li>
+    举例：插入到test集合中，姓名叫zs年龄18岁
+  </li>
+</ul>
+<p>
+  db.test.insert({name:&#8217;zs&#8217;,age:18});
+</p>
+<p><img loading="lazy" decoding="async" width="769" height="502" src="/wp-content/uploads/2018/05/word-image-4612.png" class="wp-image-5105" srcset="/wp-content/uploads/2018/05/word-image-4612.png 769w, /wp-content/uploads/2018/05/word-image-4612-300x196.png 300w, /wp-content/uploads/2018/05/word-image-4612-768x501.png 768w" sizes="(max-width: 769px) 100vw, 769px" /></p>
+<p>
+  插入成功自动创建一个唯一的ID
+</p>
+<p><img loading="lazy" decoding="async" width="503" height="88" src="/wp-content/uploads/2018/05/word-image.jpeg" class="wp-image-5106" srcset="/wp-content/uploads/2018/05/word-image.jpeg 503w, /wp-content/uploads/2018/05/word-image-300x52.jpeg 300w" sizes="(max-width: 503px) 100vw, 503px" /></p>
+<p><strong>︴思考1：是否可以自定义_id值？</strong>
+</p>
+<p>
+  答：可以，插入的时候增加_id键即可替换
+</p>
+<p><img loading="lazy" decoding="async" width="750" height="508" src="/wp-content/uploads/2018/05/word-image-4613.png" class="wp-image-5107" srcset="/wp-content/uploads/2018/05/word-image-4613.png 750w, /wp-content/uploads/2018/05/word-image-4613-300x203.png 300w, /wp-content/uploads/2018/05/word-image-4613-220x150.png 220w" sizes="(max-width: 750px) 100vw, 750px" /></p>
+<p><strong>︴思考2：如何插入多条记录？</strong>
+</p>
+<p>
+  答：可以
+</p>
+<p>
+  语法：db.集合名.insert([
+</p>
+<p>
+  {},
+</p>
+<p>
+  {},
+</p>
+<p>
+  {}
+</p>
+<p>
+  ]);
+</p>
+<p><img loading="lazy" decoding="async" width="757" height="573" src="/wp-content/uploads/2018/05/word-image-4614.png" class="wp-image-5108" srcset="/wp-content/uploads/2018/05/word-image-4614.png 757w, /wp-content/uploads/2018/05/word-image-4614-300x227.png 300w" sizes="(max-width: 757px) 100vw, 757px" /></p>
+<p><strong>︴扩展练习：结合js循环插入多条记录？</strong>
+</p>
+<p>
+  循环：for
+</p>
+<p>
+  打印：print(变量名);
+</p>
+<p>
+  案例：循环显示1-10
+</p>
+<p><img loading="lazy" decoding="async" width="531" height="288" src="/wp-content/uploads/2018/05/word-image-4615.png" class="wp-image-5110" srcset="/wp-content/uploads/2018/05/word-image-4615.png 531w, /wp-content/uploads/2018/05/word-image-4615-300x163.png 300w" sizes="(max-width: 531px) 100vw, 531px" /></p>
+<p>
+  需求：在test集合中循环插入8条数据：格式 name:heng自增  age:自增
+</p>
+<p>
+  for (var i =1; i&lt;=8; i++) {
+</p>
+<p>
+  db.test.insert({name:&#8221;heng&#8221;+i, age:i});
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="768" height="525" src="/wp-content/uploads/2018/05/word-image-4616.png" class="wp-image-5111" srcset="/wp-content/uploads/2018/05/word-image-4616.png 768w, /wp-content/uploads/2018/05/word-image-4616-300x205.png 300w, /wp-content/uploads/2018/05/word-image-4616-220x150.png 220w" sizes="(max-width: 768px) 100vw, 768px" /></p>
+<h3># D 删</h3>
+<ul>
+<li>
+    语法：db.集合名.remove（条件，是否删除一条）
+  </li>
+<li>
+    说明：
+  </li>
+<li>
+    条件，就是写json格式数据
+  </li>
+<li>
+    是否删除一条：true-是，false-否（默认）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="777" height="378" src="/wp-content/uploads/2018/05/word-image-4617.png" class="wp-image-5112" srcset="/wp-content/uploads/2018/05/word-image-4617.png 777w, /wp-content/uploads/2018/05/word-image-4617-300x146.png 300w, /wp-content/uploads/2018/05/word-image-4617-768x374.png 768w" sizes="(max-width: 777px) 100vw, 777px" /><br />
+<img loading="lazy" decoding="async" width="730" height="376" src="/wp-content/uploads/2018/05/word-image-4618.png" class="wp-image-5113" srcset="/wp-content/uploads/2018/05/word-image-4618.png 730w, /wp-content/uploads/2018/05/word-image-4618-300x155.png 300w" sizes="(max-width: 730px) 100vw, 730px" /><br />
+<img loading="lazy" decoding="async" width="359" height="105" src="/wp-content/uploads/2018/05/word-image-4619.png" class="wp-image-5114" srcset="/wp-content/uploads/2018/05/word-image-4619.png 359w, /wp-content/uploads/2018/05/word-image-4619-300x88.png 300w" sizes="(max-width: 359px) 100vw, 359px" /></p>
+<h3># U 改</h3>
+<p>
+  # 创建测试数据
+</p>
+<p>
+  use test1;
+</p>
+<p>
+  db.createCollection(&#8220;c1&#8221;);
+</p>
+<p>
+  for(var i = 1; i&lt;= 10; i++){
+</p>
+<p>
+      db.c1.insert( {&#8220;name&#8221;:&#8221;zs&#8221;+i,&#8221;age&#8221;:i} );
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    语法：db.集合名.update（条件，新数据，是否新增，是否只修改多条）
+  </li>
+<li>
+    说明：
+  </li>
+<li>
+    参数3：是否新增（true-找不到则插入，false-找不到就不管，默认）
+  </li>
+<li>
+    参数4：是否修改多条（true-全部修改，false-只修改一条，默认）
+  </li>
+</ul>
+<p><strong>︴练习1：将{name:</strong>&#8220;<strong>zs1</strong>&#8220;<strong>}改为{name:</strong>&#8220;<strong>zs2</strong>&#8220;<strong>}</strong>
+</p>
+<p>
+  db.c1.update({name:&#8221;zs1&#8243;}, {name:&#8221;zs2&#8243;});
+</p>
+<p><img loading="lazy" decoding="async" width="725" height="505" src="/wp-content/uploads/2018/05/word-image-4620.png" class="wp-image-5115" srcset="/wp-content/uploads/2018/05/word-image-4620.png 725w, /wp-content/uploads/2018/05/word-image-4620-300x209.png 300w" sizes="(max-width: 725px) 100vw, 725px" /></p>
+<p><strong>︴思考1：如何解决练习1的（替换）问题？</strong>
+</p>
+<p>
+  发现：上述代码不是修改，而是替换新数据
+</p>
+<p>
+  解决：通过（修改器）
+</p>
+<p>
+  语法：db.集合名.update（条件，<strong>{修改器:</strong>{键:值}<strong>}</strong>）
+</p>
+<p>
+  需求：将age=2的数据name改成zs22
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p><strong>原本操作：db.c1.update({age:2}, {name:&#8221;zs22&#8243;});</strong>
+</p>
+<p><strong>瑕疵：替换数据</strong>
+</p>
+<p><strong>解决：使用修改器（$set）</strong>
+</p>
+<p><strong>套用语法：db.c1.update（{age:2}，{$set:{name:&#8221;zs22&#8243;}}）</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="709" height="315" src="/wp-content/uploads/2018/05/word-image-4621.png" class="wp-image-5116" srcset="/wp-content/uploads/2018/05/word-image-4621.png 709w, /wp-content/uploads/2018/05/word-image-4621-300x133.png 300w" sizes="(max-width: 709px) 100vw, 709px" /></p>
+<p><strong>︴练习2：给{name:</strong>&#8220;<strong>zs10</strong>&#8220;<strong>}的年龄加2岁</strong>
+</p>
+<p>
+  db.c1.update({name:&#8221;zs10&#8243;},{$inc: {age:2}});
+</p>
+<p><img loading="lazy" decoding="async" width="733" height="482" src="/wp-content/uploads/2018/05/word-image-4622.png" class="wp-image-5117" srcset="/wp-content/uploads/2018/05/word-image-4622.png 733w, /wp-content/uploads/2018/05/word-image-4622-300x197.png 300w" sizes="(max-width: 733px) 100vw, 733px" /></p>
+<p>
+  多学一招：思考如何减年龄
+</p>
+<p>
+  回答：负数
+</p>
+<p>
+  db.c1.update({name:&#8221;zs10&#8243;},{$inc: {age:-2}});
+</p>
+<p><img loading="lazy" decoding="async" width="787" height="481" src="/wp-content/uploads/2018/05/word-image-4623.png" class="wp-image-5118" srcset="/wp-content/uploads/2018/05/word-image-4623.png 787w, /wp-content/uploads/2018/05/word-image-4623-300x183.png 300w, /wp-content/uploads/2018/05/word-image-4623-768x469.png 768w" sizes="(max-width: 787px) 100vw, 787px" /></p>
+<p><strong>︴练习3（修改器综合练习）：</strong>
+</p>
+<ul>
+<li>
+    数据：
+  </li>
+</ul>
+<p>
+  db.test3.insert( {name:&#8221;猪八戒&#8221;,age:888,who:&#8221;男&#8221;,other:&#8221;非国人&#8221;});
+</p>
+<ul>
+<li>
+    需求：
+  </li>
+</ul>
+<p>
+  name  改成  孙悟空      ( 修改器：$set)
+</p>
+<p>
+  age    增加  111	      ( 修改器：$inc)
+</p>
+<p>
+  who   改字段   sex	   ( 修改器：$rename)
+</p>
+<p>
+  other 删除			 	   (修改器：$unset)
+</p>
+<p>
+  db.test3.update(条件，                );
+</p>
+<p>
+                            {修改器:{键:值}}
+</p>
+<p>
+                            {$set:{name:&#8221;猴子&#8221;}}
+</p>
+<p>
+                            {$inc:{age:111}}
+</p>
+<p>
+                            {$rename:{who:&#8221;sex&#8221;}}
+</p>
+<p>
+                            {$unset:{other:&#8221;非国人&#8221;}}
+</p>
+<p>
+  组合一起使用修改器
+</p>
+<p>
+  db.test3.update({name:&#8221;猪八戒&#8221;}, {
+</p>
+<p>
+  $set:{name:&#8221;猴子&#8221;},
+</p>
+<p>
+  $inc:{age:111},
+</p>
+<p>
+  $rename:{who:&#8221;sex&#8221;},
+</p>
+<p>
+  $unset:{other:&#8221;非国人&#8221;}
+</p>
+<p>
+  });
+</p>
+<p><img loading="lazy" decoding="async" width="1081" height="292" src="/wp-content/uploads/2018/05/word-image-4624.png" class="wp-image-5119" srcset="/wp-content/uploads/2018/05/word-image-4624.png 1081w, /wp-content/uploads/2018/05/word-image-4624-300x81.png 300w, /wp-content/uploads/2018/05/word-image-4624-768x207.png 768w, /wp-content/uploads/2018/05/word-image-4624-1024x277.png 1024w" sizes="(max-width: 1081px) 100vw, 1081px" /></p>
+<p><strong>︴练习4：验证语法最后两个参数：</strong>是否新增[默认false], 是否修改多条[默认false]
+</p>
+<ul>
+<li>
+    验证是否新增：修改name 等于 zs30的年龄 30岁
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="835" height="597" src="/wp-content/uploads/2018/05/word-image-4625.png" class="wp-image-5120" srcset="/wp-content/uploads/2018/05/word-image-4625.png 835w, /wp-content/uploads/2018/05/word-image-4625-300x214.png 300w, /wp-content/uploads/2018/05/word-image-4625-768x549.png 768w" sizes="(max-width: 835px) 100vw, 835px" /></p>
+<ul>
+<li>
+    验证是否修改多条：修改name 等于 zs2的年龄 22岁
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="775" height="335" src="/wp-content/uploads/2018/05/word-image-4626.png" class="wp-image-5121" srcset="/wp-content/uploads/2018/05/word-image-4626.png 775w, /wp-content/uploads/2018/05/word-image-4626-300x130.png 300w, /wp-content/uploads/2018/05/word-image-4626-768x332.png 768w" sizes="(max-width: 775px) 100vw, 775px" /></p>
+<h3># R 查</h3>
+<ul>
+<li>
+    语法：db.集合名.find（条件[，查询的列]）
+  </li>
+<li>
+    查询条件说明：
+  </li>
+<li>
+    {name:&#8221;zs&#8221;}   		   查询name等于zs的数据
+  </li>
+<li>
+    {age:18}      			查询age等于18的数据
+  </li>
+<li>
+    {name:&#8221;zs&#8221;, age:18}     查询name等于zs并且age等于18的数据
+  </li>
+<li>
+    查询的列说明
+  </li>
+<li>
+    {name:1}   		   查询的数据只显示name字段
+  </li>
+<li>
+    {name:0}      		查询的数据显示所有字段，除name意外
+  </li>
+<li>
+    {name:1, age:0}     只查询name字段
+  </li>
+</ul>
+<p><strong>︴练习：查询所有数据</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="749" height="199" src="/wp-content/uploads/2018/05/word-image-4627.png" class="wp-image-5122" srcset="/wp-content/uploads/2018/05/word-image-4627.png 749w, /wp-content/uploads/2018/05/word-image-4627-300x80.png 300w" sizes="(max-width: 749px) 100vw, 749px" /></p>
+<p><strong>︴思考1：查询年龄大于5岁的数据？</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="749" height="397" src="/wp-content/uploads/2018/05/word-image-4628.png" class="wp-image-5123" srcset="/wp-content/uploads/2018/05/word-image-4628.png 749w, /wp-content/uploads/2018/05/word-image-4628-300x159.png 300w" sizes="(max-width: 749px) 100vw, 749px" /></p>
+<p>
+  语法：db.test.find({键:{修改器:值}});
+</p>
+<p>
+  案例：db.test.find({age:{$gt:5}});
+</p>
+<p><img loading="lazy" decoding="async" width="739" height="121" src="/wp-content/uploads/2018/05/word-image-4629.png" class="wp-image-5124" srcset="/wp-content/uploads/2018/05/word-image-4629.png 739w, /wp-content/uploads/2018/05/word-image-4629-300x49.png 300w" sizes="(max-width: 739px) 100vw, 739px" /></p>
+<p><strong>︴思考2：查询年龄是5岁、8岁、10岁的数据？</strong>
+</p>
+<p>
+  案例：db.test.find({age:{$in:[5,8,10]}});
+</p>
+<p><img loading="lazy" decoding="async" width="714" height="90" src="/wp-content/uploads/2018/05/word-image-4630.png" class="wp-image-5125" srcset="/wp-content/uploads/2018/05/word-image-4630.png 714w, /wp-content/uploads/2018/05/word-image-4630-300x38.png 300w" sizes="(max-width: 714px) 100vw, 714px" /></p>
+<h1>总结</h1>
+<p>
+  什么是Mongodb：nosql类型的文档型数据库
+</p>
+<p>
+  什么是nosql：非关系型数据库的广泛定义，一般以键值对象形式存储，不需要设计表结构的数据库可以称之为
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+</p>
+<p>
+  【安装】
+</p>
+<p>
+  安装服务：mongod &#8211;install &#8211;dbpath=数据目录 &#8211;logpath=日志文件
+</p>
+<p>
+  卸载服务：mongod &#8211;remove
+</p>
+<p>
+  启动服务：net start MongoDB
+</p>
+<p>
+  停止服务：net stop  MongoDB
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+</p>
+<p>
+  【入门命令】
+</p>
+<p>
+  查看数据库： show databases; 或 show dbs;
+</p>
+<p>
+  查看集合/表：show tables;  或  show collections;
+</p>
+<p>
+  选择数据库： use 数据库名（注：不存在不会报错，后期插入数据会自动创建）
+</p>
+<p>
+  创建集合：   db.createCollection（集合名）
+</p>
+<p>
+  删除集合：   db.集合名.drop();
+</p>
+<p>
+  删除数据库： db.dropDatabase();
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+</p>
+<p>
+  【增】
+</p>
+<p>
+  语法：db.集合名.insert（json数据）
+</p>
+<p>
+  说明：集合存在-则直接插入数据，不存在-则创建
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+</p>
+<p>
+  【删】
+</p>
+<p>
+  语法：db.集合名.remove（条件，是否删除一条）
+</p>
+<p>
+  说明：是否删除一条（true-是，false-否，默认）
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+</p>
+<p>
+  【改】
+</p>
+<p>
+  语法：db.集合名.update（条件，新数据，是否新增，是否删除多条）
+</p>
+<p>
+  说明：
+</p>
+<p>
+  参数3：是否新增（true-未匹配数据则新增，false匹配到数据则修改，默认）
+</p>
+<p>
+  参数4：是否删除多条（true-删除多条，false-只删一条，默认）
+</p>
+<p>
+  单修改器语法：db.集合名.update（条件，{修改器:{键:值}}）
+</p>
+<p>
+  多修改器语法：db.集合名.update（条件，{
+</p>
+<p>
+  修改器:{键:值},
+</p>
+<p>
+  修改器:{键:值},
+</p>
+<p>
+  修改器:{键:值}
+</p>
+<p>
+  }）
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  【查】
+</p>
+<p>
+  语法1：db.集合名.find(条件，查询的列)
+</p>
+<p>
+  语法2：db.集合名.findOne();
+</p>
+<p><img loading="lazy" decoding="async" width="492" height="165" src="/wp-content/uploads/2018/05/word-image-4631.png" class="wp-image-5126" srcset="/wp-content/uploads/2018/05/word-image-4631.png 492w, /wp-content/uploads/2018/05/word-image-4631-300x101.png 300w" sizes="(max-width: 492px) 100vw, 492px" /></p>
+<p>
+  格式化打印：find().pretty()
+</p>
+<h1>五、MongoDB的权限机制</h1>
+<h2><a id="post-5082-_Toc451356829"></a>1、权限机制概述</h2>
+<p>
+  在mongodb里面的用户是属于数据库的，每个数据库有自己的管理员，管理员登录后，只能操作所属的数据库。
+</p>
+<p><img loading="lazy" decoding="async" width="845" height="362" src="/wp-content/uploads/2018/05/word-image-4632.png" class="wp-image-5127" srcset="/wp-content/uploads/2018/05/word-image-4632.png 845w, /wp-content/uploads/2018/05/word-image-4632-300x129.png 300w, /wp-content/uploads/2018/05/word-image-4632-768x329.png 768w" sizes="(max-width: 845px) 100vw, 845px" /></p>
+<p>
+  3.x.x版本默认看不到admin数据库，但是可以选择并查看对应的表；
+</p>
+<p>
+  2.x.x版本 通过show dbs 可以直接查看admin数据库
+</p>
+<h2>开启验证模式</h2>
+<h3>1）概念</h3>
+<p>
+  开启验证模式：就是登陆需要输入账号密码
+</p>
+<p>
+  先登陆创建超级管理员
+</p>
+<p>
+  然后卸载服务
+</p>
+<p>
+  再通过验证模式开启服务（说白了，增加参数让后期输入账号密码才可以登陆）
+</p>
+<h3>2）添加超级管理员</h3>
+<ul>
+<li>
+    步骤1：登录
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="275" height="135" src="/wp-content/uploads/2018/05/word-image-4633.png" class="wp-image-5128" /></p>
+<ul>
+<li>
+    步骤2：选择admin数据库
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="218" height="104" src="/wp-content/uploads/2018/05/word-image-4634.png" class="wp-image-5129" /></p>
+<ul>
+<li>
+    步骤3：在admin数据库中添加用户（超级管理员）
+  </li>
+</ul>
+<p>
+  db.createUser({
+</p>
+<p>
+  &#8220;user&#8221; : &#8220;admin&#8221;,
+</p>
+<p>
+  &#8220;pwd&#8221;: &#8220;admin888&#8221;,
+</p>
+<p>
+  &#8220;customData&#8221; : {employeeId:&#8221;提示密码admin888&#8243;},
+</p>
+<p>
+  &#8220;roles&#8221; : [{
+</p>
+<p>
+  role: &#8220;root&#8221;,
+</p>
+<p>
+  db: &#8220;admin&#8221;
+</p>
+<p>
+  }]
+</p>
+<p>
+  })
+</p>
+<p><img loading="lazy" decoding="async" width="488" height="397" src="/wp-content/uploads/2018/05/word-image-4635.png" class="wp-image-5130" srcset="/wp-content/uploads/2018/05/word-image-4635.png 488w, /wp-content/uploads/2018/05/word-image-4635-300x244.png 300w" sizes="(max-width: 488px) 100vw, 488px" /></p>
+<p>
+  user 			代表登录的用户名
+</p>
+<p>
+  pwd  				代表登录的密码
+</p>
+<p>
+  customData	备注
+</p>
+<p>
+  role				角色
+</p>
+<p>
+  db					所属数据库
+</p>
+<p>
+  角色信息介绍
+</p>
+<p><img loading="lazy" decoding="async" width="662" height="334" src="/wp-content/uploads/2018/05/word-image-4636.png" class="wp-image-5131" srcset="/wp-content/uploads/2018/05/word-image-4636.png 662w, /wp-content/uploads/2018/05/word-image-4636-300x151.png 300w" sizes="(max-width: 662px) 100vw, 662px" /></p>
+<p>
+  角色作用
+</p>
+<p><img loading="lazy" decoding="async" width="869" height="336" src="/wp-content/uploads/2018/05/word-image-4637.png" class="wp-image-5132" srcset="/wp-content/uploads/2018/05/word-image-4637.png 869w, /wp-content/uploads/2018/05/word-image-4637-300x116.png 300w, /wp-content/uploads/2018/05/word-image-4637-768x297.png 768w" sizes="(max-width: 869px) 100vw, 869px" /></p>
+<h3>3）重新以验证模式启动mongod服务</h3>
+<ul>
+<li>
+    步骤1：卸载服务
+  </li>
+</ul>
+<p>
+  net stop MongoDB
+</p>
+<p>
+  mongod &#8211;remove
+</p>
+<ul>
+<li>
+    步骤2：开启验证模式服务（参数&#8211;auth）
+  </li>
+</ul>
+<p>
+  mongod &#8211;install &#8211;dbpath=E:\mongodb\data &#8211;logpath=E:\mongodb\log1.txt <strong>&#8211;auth</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="884" height="82" src="/wp-content/uploads/2018/05/word-image-4638.png" class="wp-image-5133" srcset="/wp-content/uploads/2018/05/word-image-4638.png 884w, /wp-content/uploads/2018/05/word-image-4638-300x28.png 300w, /wp-content/uploads/2018/05/word-image-4638-768x71.png 768w" sizes="(max-width: 884px) 100vw, 884px" /></p>
+<ul>
+<li>
+    步骤3：启动服务
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="770" height="407" src="/wp-content/uploads/2018/05/word-image-4639.png" class="wp-image-5134" srcset="/wp-content/uploads/2018/05/word-image-4639.png 770w, /wp-content/uploads/2018/05/word-image-4639-300x159.png 300w, /wp-content/uploads/2018/05/word-image-4639-768x406.png 768w" sizes="(max-width: 770px) 100vw, 770px" /></p>
+<h2>通过超级管理员账号登陆</h2>
+<ul>
+<li>
+    mongo 服务器IP地址:端口/数据库 -u 用户名 -p 密码
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="633" height="210" src="/wp-content/uploads/2018/05/word-image-4640.png" class="wp-image-5135" srcset="/wp-content/uploads/2018/05/word-image-4640.png 633w, /wp-content/uploads/2018/05/word-image-4640-300x100.png 300w" sizes="(max-width: 633px) 100vw, 633px" /></p>
+<ul>
+<li>
+    登录之后输入，db.auth（用户名，密码）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="621" height="539" src="/wp-content/uploads/2018/05/word-image-4641.png" class="wp-image-5136" srcset="/wp-content/uploads/2018/05/word-image-4641.png 621w, /wp-content/uploads/2018/05/word-image-4641-300x260.png 300w" sizes="(max-width: 621px) 100vw, 621px" /></p>
+<h2>︴课堂案例：</h2>
+<h3>■ 需求</h3>
+<p>
+  添加用户shop1可以读shop数据库
+</p>
+<p>
+  添加用户shop2可以读写shop数据库
+</p>
+<p>
+  脚下留心：必须在对应数据库创建用户
+</p>
+<h3>1）创建测试数据和测试用户（注：选择shop仓库创建用户）</h3>
+<p>
+  use shop;
+</p>
+<p>
+  for(var i=1; i&lt;=10; i++) {
+</p>
+<p>
+      db.goods.insert({&#8220;name&#8221;:&#8221;goodsName&#8221;+i,&#8221;price&#8221;:i});
+</p>
+<p>
+  }
+</p>
+<h3>2）添加用户并设置权限</h3>
+<p>
+  【shop1】
+</p>
+<p>
+  db.createUser({
+</p>
+<p>
+  &#8220;user&#8221; : &#8220;shop1&#8221;,
+</p>
+<p>
+  &#8220;pwd&#8221;: &#8220;admin888&#8221;,
+</p>
+<p>
+  &#8220;customData&#8221; : {employeeId:&#8221;提示密码admin888&#8243;},
+</p>
+<p>
+  &#8220;roles&#8221; : [{
+</p>
+<p>
+  role: &#8220;read&#8221;,
+</p>
+<p>
+  db: &#8220;shop&#8221;
+</p>
+<p>
+  }]
+</p>
+<p>
+  })
+</p>
+<p>
+  【shop2】
+</p>
+<p>
+  db.createUser({
+</p>
+<p>
+  &#8220;user&#8221; : &#8220;shop2&#8221;,
+</p>
+<p>
+  &#8220;pwd&#8221;: &#8220;admin888&#8221;,
+</p>
+<p>
+  &#8220;customData&#8221; : {employeeId:&#8221;提示密码admin888&#8243;},
+</p>
+<p>
+  &#8220;roles&#8221; : [{
+</p>
+<p>
+  role: &#8220;readWrite&#8221;,
+</p>
+<p>
+  db: &#8220;shop&#8221;
+</p>
+<p>
+  }]
+</p>
+<p>
+  })
+</p>
+<h3>验证：shop1可读</h3>
+<p><img loading="lazy" decoding="async" width="597" height="420" src="/wp-content/uploads/2018/05/word-image-4642.png" class="wp-image-5137" srcset="/wp-content/uploads/2018/05/word-image-4642.png 597w, /wp-content/uploads/2018/05/word-image-4642-300x211.png 300w" sizes="(max-width: 597px) 100vw, 597px" /></p>
+<h3>3）验证：shop2验证可读可写</h3>
+<p><img loading="lazy" decoding="async" width="821" height="573" src="/wp-content/uploads/2018/05/word-image-4643.png" class="wp-image-5138" srcset="/wp-content/uploads/2018/05/word-image-4643.png 821w, /wp-content/uploads/2018/05/word-image-4643-300x209.png 300w, /wp-content/uploads/2018/05/word-image-4643-768x536.png 768w" sizes="(max-width: 821px) 100vw, 821px" /></p>
+<h1>六、MongoDB的索引</h1>
+<h2>1、情景设置</h2>
+<p>
+  向数据库中新增十万条数据
+</p>
+<p>
+  //选择数据库
+</p>
+<p>
+  use test;
+</p>
+<p>
+  //向数据库中添加数据
+</p>
+<p>
+  for(var i=0;i&lt;100000;i++){
+</p>
+<p>
+  db.data1.insert({&#8216;name&#8217;:&#8221;aaa&#8221;+i,&#8221;age&#8221;:i});
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="661" height="168" src="/wp-content/uploads/2018/05/word-image-4644.png" class="wp-image-5139" srcset="/wp-content/uploads/2018/05/word-image-4644.png 661w, /wp-content/uploads/2018/05/word-image-4644-300x76.png 300w" sizes="(max-width: 661px) 100vw, 661px" /></p>
+<h2>2、索引的建立</h2>
+<h3>1）语法</h3>
+<ul>
+<li>
+    创建索引语法：db.集合名.createIndex（待创建索引字段，额外选项）
+  </li>
+<li>
+    参数：
+  </li>
+<li>
+    待创建索引字段，语法：{键:1，键:-1}（说明：1表示升序，-1表示降序） ，如：
+  </li>
+</ul>
+<p>
+  {age:1}表示给age创建索引并且按照升序的方式存储
+</p>
+<ul>
+<li>
+    额外选项，可以设置索引名称，设置唯一索引等
+  </li>
+<li>
+    删除索引语法：
+  </li>
+<li>
+    db.集合名.dropIndexes（）  		删除全部索引
+  </li>
+<li>
+    db.集合名.dropIndex（索引名）	删除指定索引
+  </li>
+<li>
+    查看索引语法：db.集合名.getIndexes（）
+  </li>
+</ul>
+<h3>创建普通索引</h3>
+<p>
+  需求：给name添加普通索引
+</p>
+<p>
+  语法：
+</p>
+<p><img loading="lazy" decoding="async" width="557" height="495" src="/wp-content/uploads/2018/05/word-image-4645.png" class="wp-image-5140" srcset="/wp-content/uploads/2018/05/word-image-4645.png 557w, /wp-content/uploads/2018/05/word-image-4645-300x267.png 300w" sizes="(max-width: 557px) 100vw, 557px" /></p>
+<p>
+  删除索引
+</p>
+<p><img loading="lazy" decoding="async" width="430" height="327" src="/wp-content/uploads/2018/05/word-image-4646.png" class="wp-image-5141" srcset="/wp-content/uploads/2018/05/word-image-4646.png 430w, /wp-content/uploads/2018/05/word-image-4646-300x228.png 300w" sizes="(max-width: 430px) 100vw, 430px" /></p>
+<p>
+  给name创建索引并起名chenheng
+</p>
+<p><img loading="lazy" decoding="async" width="610" height="520" src="/wp-content/uploads/2018/05/word-image-4647.png" class="wp-image-5142" srcset="/wp-content/uploads/2018/05/word-image-4647.png 610w, /wp-content/uploads/2018/05/word-image-4647-300x256.png 300w" sizes="(max-width: 610px) 100vw, 610px" /></p>
+<h3>创建复合/组合索引</h3>
+<p>
+  需求：给name和age添加组合索引
+</p>
+<p>
+  说明：组合/符合索引就是给两个字段同时加索引（复习：mysql中index(字段1，字段2)）
+</p>
+<p>
+  语法：db.集合名.createIndex({键:值,键:值});
+</p>
+<p><img loading="lazy" decoding="async" width="621" height="702" src="/wp-content/uploads/2018/05/word-image-4648.png" class="wp-image-5143" srcset="/wp-content/uploads/2018/05/word-image-4648.png 621w, /wp-content/uploads/2018/05/word-image-4648-265x300.png 265w" sizes="(max-width: 621px) 100vw, 621px" /></p>
+<h3>创建唯一索引</h3>
+<p>
+  需求：给name添加普通索引
+</p>
+<p>
+  语法：db.集合名.createIndex(待添加索引的字段，{unique:true})
+</p>
+<p>
+  【设置索引特性】
+</p>
+<p>
+  【测试唯一索引特性】
+</p>
+<p><img loading="lazy" decoding="async" width="936" height="431" src="/wp-content/uploads/2018/05/word-image-4649.png" class="wp-image-5144" srcset="/wp-content/uploads/2018/05/word-image-4649.png 936w, /wp-content/uploads/2018/05/word-image-4649-300x138.png 300w, /wp-content/uploads/2018/05/word-image-4649-768x354.png 768w" sizes="(max-width: 936px) 100vw, 936px" /></p>
+<h2>3、分析索引（explain） executionStats</h2>
+<ul>
+<li>
+    语法：db.集合名.find().explain(&#8216;executionStats&#8217;)
+  </li>
+<li>
+    说明：
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="675" height="672" src="/wp-content/uploads/2018/05/word-image-4650.png" class="wp-image-5145" srcset="/wp-content/uploads/2018/05/word-image-4650.png 675w, /wp-content/uploads/2018/05/word-image-4650-150x150.png 150w, /wp-content/uploads/2018/05/word-image-4650-300x300.png 300w" sizes="(max-width: 675px) 100vw, 675px" /></p>
+<p>
+  COLLSCAN 全表扫描
+</p>
+<p>
+  IXSCAN  索引扫描
+</p>
+<p>
+  FETCH   根据索引去检索指定document
+</p>
+<ul>
+<li>
+    练习：
+  </li>
+</ul>
+<p>
+  age未添加索引情况
+</p>
+<p><img loading="lazy" decoding="async" width="498" height="62" src="/wp-content/uploads/2018/05/word-image-4651.png" class="wp-image-5146" srcset="/wp-content/uploads/2018/05/word-image-4651.png 498w, /wp-content/uploads/2018/05/word-image-4651-300x37.png 300w" sizes="(max-width: 498px) 100vw, 498px" /><br />
+<img loading="lazy" decoding="async" width="639" height="370" src="/wp-content/uploads/2018/05/word-image-4652.png" class="wp-image-5147" srcset="/wp-content/uploads/2018/05/word-image-4652.png 639w, /wp-content/uploads/2018/05/word-image-4652-300x174.png 300w" sizes="(max-width: 639px) 100vw, 639px" /></p>
+<p>
+  age添加索引情况
+</p>
+<p><img loading="lazy" decoding="async" width="511" height="508" src="/wp-content/uploads/2018/05/word-image-4653.png" class="wp-image-5148" srcset="/wp-content/uploads/2018/05/word-image-4653.png 511w, /wp-content/uploads/2018/05/word-image-4653-150x150.png 150w, /wp-content/uploads/2018/05/word-image-4653-300x298.png 300w" sizes="(max-width: 511px) 100vw, 511px" /><br />
+<img loading="lazy" decoding="async" width="473" height="65" src="/wp-content/uploads/2018/05/word-image-4654.png" class="wp-image-5149" srcset="/wp-content/uploads/2018/05/word-image-4654.png 473w, /wp-content/uploads/2018/05/word-image-4654-300x41.png 300w" sizes="(max-width: 473px) 100vw, 473px" /><br />
+<img loading="lazy" decoding="async" width="391" height="234" src="/wp-content/uploads/2018/05/word-image-4655.png" class="wp-image-5150" srcset="/wp-content/uploads/2018/05/word-image-4655.png 391w, /wp-content/uploads/2018/05/word-image-4655-300x180.png 300w" sizes="(max-width: 391px) 100vw, 391px" /><br />
+<img loading="lazy" decoding="async" width="1021" height="547" src="/wp-content/uploads/2018/05/word-image-4656.png" class="wp-image-5151" srcset="/wp-content/uploads/2018/05/word-image-4656.png 1021w, /wp-content/uploads/2018/05/word-image-4656-300x161.png 300w, /wp-content/uploads/2018/05/word-image-4656-768x411.png 768w" sizes="(max-width: 1021px) 100vw, 1021px" /></p>
+<h1>七、数据库的备份和还原</h1>
+<h2>1、备份数据库（mongodump）</h2>
+<h3>1）语法</h3>
+<ul>
+<li>
+    导出数据语法：mongodump -h __ -port __ -u __ -p __ -d __ -o __
+  </li>
+<li>
+    说明
+  </li>
+<li>
+    -h  	服务器ip地址（默认：127.0.0.1）
+  </li>
+<li>
+    -port  端口号（默认：27017）
+  </li>
+<li>
+    -u     用户名（开启认证模式则必须）
+  </li>
+<li>
+    -p     密码（开启认证模式则必须）
+  </li>
+<li>
+    -d     备份数据库（注：不写则代表全部）
+  </li>
+<li>
+    -o     备份目录
+  </li>
+</ul>
+<h3>练习</h3>
+<ul>
+<li>
+    备份所有数据：mongodump -u admin -p admin888 -o E:\mongodb\bak
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1288" height="391" src="/wp-content/uploads/2018/05/word-image-4657.png" class="wp-image-5152" srcset="/wp-content/uploads/2018/05/word-image-4657.png 1288w, /wp-content/uploads/2018/05/word-image-4657-300x91.png 300w, /wp-content/uploads/2018/05/word-image-4657-768x233.png 768w, /wp-content/uploads/2018/05/word-image-4657-1024x311.png 1024w" sizes="(max-width: 1288px) 100vw, 1288px" /></p>
+<ul>
+<li>
+    备份指定数据：mongodump -u shop1 -p admin888 -d shop -o E:\mongodb\bak2
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1232" height="165" src="/wp-content/uploads/2018/05/word-image-4658.png" class="wp-image-5153" srcset="/wp-content/uploads/2018/05/word-image-4658.png 1232w, /wp-content/uploads/2018/05/word-image-4658-300x40.png 300w, /wp-content/uploads/2018/05/word-image-4658-768x103.png 768w, /wp-content/uploads/2018/05/word-image-4658-1024x137.png 1024w" sizes="(max-width: 1232px) 100vw, 1232px" /></p>
+<h2>2、还原数据库（mongorestore）</h2>
+<h3>1）语法</h3>
+<ul>
+<li>
+    还原数据语法：mongorestore -h __ -port __ -u __ -p __ -d__ &#8211;drop 原备份数据目录
+  </li>
+<li>
+    说明
+  </li>
+<li>
+    -h  	服务器ip地址（默认：127.0.0.1）
+  </li>
+<li>
+    -port  端口号（默认：27017）
+  </li>
+<li>
+    -u     用户名（开启认证模式则必须）
+  </li>
+<li>
+    -p     密码（开启认证模式则必须）
+  </li>
+<li>
+    -d  database  数据库（不写则还原全部数据库）
+  </li>
+<li>
+    &#8211;drop  先删除所有的记录，然后恢复
+  </li>
+</ul>
+<h3>2）练习</h3>
+<ul>
+<li>
+    还原所有数据：mongorestore -u admin -p admin888 &#8211;drop E:\mongodb\bak
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="409" height="236" src="/wp-content/uploads/2018/05/word-image-4659.png" class="wp-image-5154" srcset="/wp-content/uploads/2018/05/word-image-4659.png 409w, /wp-content/uploads/2018/05/word-image-4659-300x173.png 300w" sizes="(max-width: 409px) 100vw, 409px" /><br />
+<img loading="lazy" decoding="async" width="748" height="75" src="/wp-content/uploads/2018/05/word-image-4660.png" class="wp-image-5155" srcset="/wp-content/uploads/2018/05/word-image-4660.png 748w, /wp-content/uploads/2018/05/word-image-4660-300x30.png 300w" sizes="(max-width: 748px) 100vw, 748px" /><br />
+<img loading="lazy" decoding="async" width="712" height="262" src="/wp-content/uploads/2018/05/word-image-4661.png" class="wp-image-5156" srcset="/wp-content/uploads/2018/05/word-image-4661.png 712w, /wp-content/uploads/2018/05/word-image-4661-300x110.png 300w" sizes="(max-width: 712px) 100vw, 712px" /></p>
+<p>
+  切记不要删除admin数据库
+</p>
+<ul>
+<li>
+    还原指定数据：mongorestore -u admin -p admin888 -d shop &#8211;drop E:\mongodb\bak2
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="788" height="454" src="/wp-content/uploads/2018/05/word-image-4662.png" class="wp-image-5157" srcset="/wp-content/uploads/2018/05/word-image-4662.png 788w, /wp-content/uploads/2018/05/word-image-4662-300x173.png 300w, /wp-content/uploads/2018/05/word-image-4662-768x442.png 768w" sizes="(max-width: 788px) 100vw, 788px" /><br />
+<img loading="lazy" decoding="async" width="1328" height="258" src="/wp-content/uploads/2018/05/word-image-4663.png" class="wp-image-5158" srcset="/wp-content/uploads/2018/05/word-image-4663.png 1328w, /wp-content/uploads/2018/05/word-image-4663-300x58.png 300w, /wp-content/uploads/2018/05/word-image-4663-768x149.png 768w, /wp-content/uploads/2018/05/word-image-4663-1024x199.png 1024w" sizes="(max-width: 1328px) 100vw, 1328px" /><br />
+<img loading="lazy" decoding="async" width="676" height="272" src="/wp-content/uploads/2018/05/word-image-4664.png" class="wp-image-5159" srcset="/wp-content/uploads/2018/05/word-image-4664.png 676w, /wp-content/uploads/2018/05/word-image-4664-300x121.png 300w" sizes="(max-width: 676px) 100vw, 676px" /></p>
+<h1>八、PHP 操作MongoDB</h1>
+<h2>1、开启mongodb扩展</h2>
+<h3>1）查看PHP版本信息，选择对应mongodb扩展</h3>
+<p><img loading="lazy" decoding="async" width="991" height="686" src="/wp-content/uploads/2018/05/word-image-4665.png" class="wp-image-5160" srcset="/wp-content/uploads/2018/05/word-image-4665.png 991w, /wp-content/uploads/2018/05/word-image-4665-300x208.png 300w, /wp-content/uploads/2018/05/word-image-4665-768x532.png 768w" sizes="(max-width: 991px) 100vw, 991px" /></p>
+<h3>2）让PHP支持操作mongo扩展</h3>
+<p>
+  步骤1：将mongo.dll扩展文件移动到PHP的ext目录中
+</p>
+<p><img loading="lazy" decoding="async" width="944" height="481" src="/wp-content/uploads/2018/05/word-image-4666.png" class="wp-image-5161" srcset="/wp-content/uploads/2018/05/word-image-4666.png 944w, /wp-content/uploads/2018/05/word-image-4666-300x153.png 300w, /wp-content/uploads/2018/05/word-image-4666-768x391.png 768w" sizes="(max-width: 944px) 100vw, 944px" /></p>
+<p>
+  步骤2：修改php配置文件（php.ini）
+</p>
+<p><img loading="lazy" decoding="async" width="691" height="306" src="/wp-content/uploads/2018/05/word-image-4667.png" class="wp-image-5162" srcset="/wp-content/uploads/2018/05/word-image-4667.png 691w, /wp-content/uploads/2018/05/word-image-4667-300x133.png 300w" sizes="(max-width: 691px) 100vw, 691px" /></p>
+<p>
+  步骤3：重启服务
+</p>
+<h3>3）运行 phpinfo() 查询是否设置成功。</h3>
+<p><img loading="lazy" decoding="async" width="1146" height="577" src="/wp-content/uploads/2018/05/word-image-4668.png" class="wp-image-5163" srcset="/wp-content/uploads/2018/05/word-image-4668.png 1146w, /wp-content/uploads/2018/05/word-image-4668-300x151.png 300w, /wp-content/uploads/2018/05/word-image-4668-768x387.png 768w, /wp-content/uploads/2018/05/word-image-4668-1024x516.png 1024w" sizes="(max-width: 1146px) 100vw, 1146px" /></p>
+<h2>2、PHP代码</h2>
+<h3>1、php添加数据</h3>
+<p><img loading="lazy" decoding="async" width="801" height="490" src="/wp-content/uploads/2018/05/word-image-4669.png" class="wp-image-5164" srcset="/wp-content/uploads/2018/05/word-image-4669.png 801w, /wp-content/uploads/2018/05/word-image-4669-300x184.png 300w, /wp-content/uploads/2018/05/word-image-4669-768x470.png 768w" sizes="(max-width: 801px) 100vw, 801px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //1.创建对象
+</p>
+<p>
+  $username = &#8216;admin&#8217;;
+</p>
+<p>
+  $password = &#8216;admin888&#8217;;
+</p>
+<p>
+  $host = &#8216;127.0.0.1&#8217;;
+</p>
+<p>
+  $mongodb = new Mongo(&#8220;mongodb://{$username}:{$password}@{$host}&#8221;);
+</p>
+<p>
+  // var_dump($mongodb);
+</p>
+<p>
+  //MongoDB语法：$对象-&gt;数据库名-&gt;集合名-&gt;增查改删指令();
+</p>
+<p>
+  //多学一招：之前在mongodb窗口输入json数据，先通过php统一改成数据
+</p>
+<p>
+  //增：给php12数据库的test2集合中插入一条数据（name:l4，age:18）
+</p>
+<p>
+  $rs = $mongodb-&gt;php12-&gt;test2-&gt;insert(array(
+</p>
+<p>
+  	&#8216;name&#8217; =&gt; &#8216;l4&#8217;,
+</p>
+<p>
+  	&#8216;age&#8217; =&gt; 18
+</p>
+<p>
+  ));
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  //&#8212;&#8212;&#8212;&#8212;
+</p>
+<p>
+  echo &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+  发现：开启验证模式后通过PHP操作失败
+</p>
+<p>
+  解决：mongodb3版本存在一个bug，需要将currentVersion改成3，从新添加用户即可
+</p>
+<p>
+  步骤1：关闭并卸载服务
+</p>
+<p><img loading="lazy" decoding="async" width="834" height="260" src="/wp-content/uploads/2018/05/word-image-4670.png" class="wp-image-5165" srcset="/wp-content/uploads/2018/05/word-image-4670.png 834w, /wp-content/uploads/2018/05/word-image-4670-300x94.png 300w, /wp-content/uploads/2018/05/word-image-4670-768x239.png 768w" sizes="(max-width: 834px) 100vw, 834px" /></p>
+<p>
+  步骤2：创建服务（注：非验证模式）
+</p>
+<p>
+  mongod &#8211;install &#8211;dbpath=e:\mongodb\data &#8211;logpath=e:\mongodb\log1.txt
+</p>
+<p><img loading="lazy" decoding="async" width="797" height="178" src="/wp-content/uploads/2018/05/word-image-4671.png" class="wp-image-5166" srcset="/wp-content/uploads/2018/05/word-image-4671.png 797w, /wp-content/uploads/2018/05/word-image-4671-300x67.png 300w, /wp-content/uploads/2018/05/word-image-4671-768x172.png 768w" sizes="(max-width: 797px) 100vw, 797px" /></p>
+<p>
+  步骤3：登录将currentVersion的数字改成3即可
+</p>
+<p><img loading="lazy" decoding="async" width="729" height="341" src="/wp-content/uploads/2018/05/word-image-4672.png" class="wp-image-5167" srcset="/wp-content/uploads/2018/05/word-image-4672.png 729w, /wp-content/uploads/2018/05/word-image-4672-300x140.png 300w" sizes="(max-width: 729px) 100vw, 729px" /></p>
+<p>
+  步骤4：删除admin用户，创新创建
+</p>
+<p><img loading="lazy" decoding="async" width="760" height="315" src="/wp-content/uploads/2018/05/word-image-4673.png" class="wp-image-5168" srcset="/wp-content/uploads/2018/05/word-image-4673.png 760w, /wp-content/uploads/2018/05/word-image-4673-300x124.png 300w" sizes="(max-width: 760px) 100vw, 760px" /><br />
+<img loading="lazy" decoding="async" width="538" height="408" src="/wp-content/uploads/2018/05/word-image-4674.png" class="wp-image-5169" srcset="/wp-content/uploads/2018/05/word-image-4674.png 538w, /wp-content/uploads/2018/05/word-image-4674-300x228.png 300w" sizes="(max-width: 538px) 100vw, 538px" /></p>
+<p>
+  步骤5：退出、停止服务、并卸载服务
+</p>
+<p><img loading="lazy" decoding="async" width="885" height="308" src="/wp-content/uploads/2018/05/word-image-4675.png" class="wp-image-5170" srcset="/wp-content/uploads/2018/05/word-image-4675.png 885w, /wp-content/uploads/2018/05/word-image-4675-300x104.png 300w, /wp-content/uploads/2018/05/word-image-4675-768x267.png 768w" sizes="(max-width: 885px) 100vw, 885px" /></p>
+<p>
+  步骤6：重新创建验证模式即可
+</p>
+<p>
+  mongod &#8211;install &#8211;dbpath=e:\mongodb\data &#8211;logpath=e:\mongodb\log3.txt &#8211;auth
+</p>
+<p><img loading="lazy" decoding="async" width="893" height="224" src="/wp-content/uploads/2018/05/word-image-4676.png" class="wp-image-5171" srcset="/wp-content/uploads/2018/05/word-image-4676.png 893w, /wp-content/uploads/2018/05/word-image-4676-300x75.png 300w, /wp-content/uploads/2018/05/word-image-4676-768x193.png 768w" sizes="(max-width: 893px) 100vw, 893px" /></p>
+<h3>2、php修改数据</h3>
+<p><img loading="lazy" decoding="async" width="863" height="477" src="/wp-content/uploads/2018/05/word-image-4677.png" class="wp-image-5172" srcset="/wp-content/uploads/2018/05/word-image-4677.png 863w, /wp-content/uploads/2018/05/word-image-4677-300x166.png 300w, /wp-content/uploads/2018/05/word-image-4677-768x424.png 768w" sizes="(max-width: 863px) 100vw, 863px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //1.创建对象
+</p>
+<p>
+  $username = &#8216;admin&#8217;;
+</p>
+<p>
+  $password = &#8216;admin888&#8217;;
+</p>
+<p>
+  $host = &#8216;127.0.0.1&#8217;;
+</p>
+<p>
+  $mongodb = new Mongo(&#8220;mongodb://{$username}:{$password}@{$host}&#8221;);
+</p>
+<p>
+  // var_dump($mongodb);
+</p>
+<p>
+  //MongoDB语法：db.集合名.update（条件， {修改器:{键:值}}）；
+</p>
+<p>
+  //PHP中语法：$对象-&gt;数据库名-&gt;集合名-&gt;改(就是将花括号改成数组即可);
+</p>
+<p>
+  //需求：将php12数据库中的test2集合中的数据name改成 z3即可
+</p>
+<p>
+  $rs = $mongodb-&gt;php12-&gt;test2-&gt;update(
+</p>
+<p>
+  	array(),
+</p>
+<p>
+  	array(&#8216;$set&#8217;=&gt;array(&#8216;name&#8217;=&gt;&#8217;z3&#8217;)),
+</p>
+<p>
+  	<strong>array(&#8216;multiple&#8217; =&gt; true)</strong>
+</p>
+<p>
+  );
+</p>
+<p>
+  var_dump($rs);
+</p>
+<h3>3、PHP遍历数据</h3>
+<p><img loading="lazy" decoding="async" width="890" height="443" src="/wp-content/uploads/2018/05/word-image-4678.png" class="wp-image-5173" srcset="/wp-content/uploads/2018/05/word-image-4678.png 890w, /wp-content/uploads/2018/05/word-image-4678-300x149.png 300w, /wp-content/uploads/2018/05/word-image-4678-768x382.png 768w" sizes="(max-width: 890px) 100vw, 890px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //1.创建对象
+</p>
+<p>
+  $username = &#8216;admin&#8217;;
+</p>
+<p>
+  $password = &#8216;admin888&#8217;;
+</p>
+<p>
+  $host = &#8216;127.0.0.1&#8217;;
+</p>
+<p>
+  $mongodb = new Mongo(&#8220;mongodb://{$username}:{$password}@{$host}&#8221;);
+</p>
+<p>
+  // $rs = $mongodb-&gt;php12-&gt;test2-&gt;findOne();
+</p>
+<p>
+  // echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+  // print_r($rs);
+</p>
+<p>
+  echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+  $rs = $mongodb-&gt;php12-&gt;test2-&gt;find();
+</p>
+<p>
+  foreach ($rs as $data) {
+</p>
+<p>
+  	print_r($data);
+</p>
+<p>
+  }</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e6%95%b0%e6%8d%ae%e5%ba%93/5082.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

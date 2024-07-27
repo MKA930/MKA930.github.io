@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>钩子函数 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 09 Jun 2018 01:08:26 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>钩子函数 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP5.0（四）添加文章、添加验证、图片上传、缩略图、图片预览、文章列表展示、分页、文章编辑、文章删除、XSS 攻击、Jquery-Validate 验证插件、钩子函数</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7628.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7628.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 09 Jun 2018 00:41:37 +0000</pubDate>
+				<category><![CDATA[TP5.0]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[Jquery-Validate 验证插件]]></category>
+		<category><![CDATA[XSS 攻击]]></category>
+		<category><![CDATA[分页]]></category>
+		<category><![CDATA[图片上传]]></category>
+		<category><![CDATA[图片预览]]></category>
+		<category><![CDATA[文章列表展示]]></category>
+		<category><![CDATA[文章删除]]></category>
+		<category><![CDATA[文章编辑]]></category>
+		<category><![CDATA[添加文章]]></category>
+		<category><![CDATA[添加验证]]></category>
+		<category><![CDATA[缩略图]]></category>
+		<category><![CDATA[钩子函数]]></category>
+		<guid isPermaLink="false">/?p=7628</guid>
+
+					<description><![CDATA[TP5第四天 一、完成文章的添加 完成文章模板的展示 第一步：修改left.html模板，加一个添加分类的链接 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>TP5第四天</h1>
+<h1>一、完成文章的添加</h1>
+<h2>完成文章模板的展示</h2>
+<p>第一步：修改left.html模板，加一个添加分类的链接地址</p>
+<p><img fetchpriority="high" decoding="async" width="1262" height="365" class="wp-image-7629" src="/wp-content/uploads/2018/06/word-image-233.png" srcset="/wp-content/uploads/2018/06/word-image-233.png 1262w, /wp-content/uploads/2018/06/word-image-233-300x87.png 300w, /wp-content/uploads/2018/06/word-image-233-768x222.png 768w, /wp-content/uploads/2018/06/word-image-233-1024x296.png 1024w" sizes="(max-width: 1262px) 100vw, 1262px" /></p>
+<p>第二步：在后台admin创建一个Article控制器，并建立一个add方法，完成文章的入库操作</p>
+<p><img decoding="async" width="749" height="368" class="wp-image-7630" src="/wp-content/uploads/2018/06/word-image-234.png" srcset="/wp-content/uploads/2018/06/word-image-234.png 749w, /wp-content/uploads/2018/06/word-image-234-300x147.png 300w" sizes="(max-width: 749px) 100vw, 749px" /></p>
+<p>模板分配数据：</p>
+<p><img decoding="async" width="670" height="389" class="wp-image-7631" src="/wp-content/uploads/2018/06/word-image-235.png" srcset="/wp-content/uploads/2018/06/word-image-235.png 670w, /wp-content/uploads/2018/06/word-image-235-300x174.png 300w" sizes="(max-width: 670px) 100vw, 670px" /></p>
+<h2>使用富文本编辑器完成文章的内容添加</h2>
+<p>第一步：把课件中的相应的ueditor复制到网站根目录下面的插件目录plugin中</p>
+<p><img loading="lazy" decoding="async" width="771" height="251" class="wp-image-7632" src="/wp-content/uploads/2018/06/word-image-236.png" srcset="/wp-content/uploads/2018/06/word-image-236.png 771w, /wp-content/uploads/2018/06/word-image-236-300x98.png 300w, /wp-content/uploads/2018/06/word-image-236-768x250.png 768w" sizes="(max-width: 771px) 100vw, 771px" /></p>
+<p>第二步：引入核心js文件，并且给textarea 设置一个id=content</p>
+<p><img loading="lazy" decoding="async" width="1304" height="496" class="wp-image-7633" src="/wp-content/uploads/2018/06/word-image-237.png" srcset="/wp-content/uploads/2018/06/word-image-237.png 1304w, /wp-content/uploads/2018/06/word-image-237-300x114.png 300w, /wp-content/uploads/2018/06/word-image-237-768x292.png 768w, /wp-content/uploads/2018/06/word-image-237-1024x389.png 1024w" sizes="(max-width: 1304px) 100vw, 1304px" /></p>
+<p><img loading="lazy" decoding="async" width="1277" height="556" class="wp-image-7634" src="/wp-content/uploads/2018/06/word-image-238.png" srcset="/wp-content/uploads/2018/06/word-image-238.png 1277w, /wp-content/uploads/2018/06/word-image-238-300x131.png 300w, /wp-content/uploads/2018/06/word-image-238-768x334.png 768w, /wp-content/uploads/2018/06/word-image-238-1024x446.png 1024w" sizes="(max-width: 1277px) 100vw, 1277px" /></p>
+<p>效果如下：</p>
+<p><img loading="lazy" decoding="async" width="1040" height="418" class="wp-image-7635" src="/wp-content/uploads/2018/06/word-image-239.png" srcset="/wp-content/uploads/2018/06/word-image-239.png 1040w, /wp-content/uploads/2018/06/word-image-239-300x121.png 300w, /wp-content/uploads/2018/06/word-image-239-768x309.png 768w, /wp-content/uploads/2018/06/word-image-239-1024x412.png 1024w" sizes="(max-width: 1040px) 100vw, 1040px" /></p>
+<h2>完成文章数据的入库</h2>
+<p>第一步：设置表单name值</p>
+<p><img loading="lazy" decoding="async" width="1315" height="712" class="wp-image-7636" src="/wp-content/uploads/2018/06/word-image-240.png" srcset="/wp-content/uploads/2018/06/word-image-240.png 1315w, /wp-content/uploads/2018/06/word-image-240-300x162.png 300w, /wp-content/uploads/2018/06/word-image-240-768x416.png 768w, /wp-content/uploads/2018/06/word-image-240-1024x554.png 1024w" sizes="(max-width: 1315px) 100vw, 1315px" /></p>
+<p>第二步：在add方法中，完成数据的入库</p>
+<p><img loading="lazy" decoding="async" width="935" height="563" class="wp-image-7637" src="/wp-content/uploads/2018/06/word-image-241.png" srcset="/wp-content/uploads/2018/06/word-image-241.png 935w, /wp-content/uploads/2018/06/word-image-241-300x180.png 300w, /wp-content/uploads/2018/06/word-image-241-768x462.png 768w" sizes="(max-width: 935px) 100vw, 935px" /></p>
+<h2>使用验证器完成添加文章的验证</h2>
+<p>在后台的admin的validate目录建立一个Article 的验证器</p>
+<p><img loading="lazy" decoding="async" width="853" height="503" class="wp-image-7638" src="/wp-content/uploads/2018/06/word-image-242.png" srcset="/wp-content/uploads/2018/06/word-image-242.png 853w, /wp-content/uploads/2018/06/word-image-242-300x177.png 300w, /wp-content/uploads/2018/06/word-image-242-768x453.png 768w" sizes="(max-width: 853px) 100vw, 853px" /></p>
+<p>添加文章的时候，调用验证器的对应场景进行验证：</p>
+<p><img loading="lazy" decoding="async" width="977" height="645" class="wp-image-7639" src="/wp-content/uploads/2018/06/word-image-243.png" srcset="/wp-content/uploads/2018/06/word-image-243.png 977w, /wp-content/uploads/2018/06/word-image-243-300x198.png 300w, /wp-content/uploads/2018/06/word-image-243-768x507.png 768w" sizes="(max-width: 977px) 100vw, 977px" /></p>
+<h2>完成文章的图片上传</h2>
+<p>表单上传文件的要求：1、post提交 2、设置form的enctype=’multipart/form-data’</p>
+<p><img loading="lazy" decoding="async" width="747" height="155" class="wp-image-7640" src="/wp-content/uploads/2018/06/word-image-244.png" srcset="/wp-content/uploads/2018/06/word-image-244.png 747w, /wp-content/uploads/2018/06/word-image-244-300x62.png 300w" sizes="(max-width: 747px) 100vw, 747px" /></p>
+<p>设置上传文件的input标签</p>
+<p><img loading="lazy" decoding="async" width="882" height="213" class="wp-image-7641" src="/wp-content/uploads/2018/06/word-image-245.png" srcset="/wp-content/uploads/2018/06/word-image-245.png 882w, /wp-content/uploads/2018/06/word-image-245-300x72.png 300w, /wp-content/uploads/2018/06/word-image-245-768x185.png 768w" sizes="(max-width: 882px) 100vw, 882px" /></p>
+<p>控制器add方法处理上传文件的路径入库：</p>
+<p><img loading="lazy" decoding="async" width="1076" height="650" class="wp-image-7642" src="/wp-content/uploads/2018/06/word-image-246.png" srcset="/wp-content/uploads/2018/06/word-image-246.png 1076w, /wp-content/uploads/2018/06/word-image-246-300x180.png 300w, /wp-content/uploads/2018/06/word-image-246-768x464.png 768w, /wp-content/uploads/2018/06/word-image-246-1024x619.png 1024w" sizes="(max-width: 1076px) 100vw, 1076px" /></p>
+<p>数据库存储的路径形式如下：</p>
+<p><img loading="lazy" decoding="async" width="490" height="44" class="wp-image-7643" src="/wp-content/uploads/2018/06/word-image-247.png" srcset="/wp-content/uploads/2018/06/word-image-247.png 490w, /wp-content/uploads/2018/06/word-image-247-300x27.png 300w" sizes="(max-width: 490px) 100vw, 490px" /></p>
+<h2>6、完成文章图片缩略图生成</h2>
+<p>在有文件上传成功的前提下，处理缩略图生成：</p>
+<p><img loading="lazy" decoding="async" width="1208" height="664" class="wp-image-7644" src="/wp-content/uploads/2018/06/word-image-248.png" srcset="/wp-content/uploads/2018/06/word-image-248.png 1208w, /wp-content/uploads/2018/06/word-image-248-300x165.png 300w, /wp-content/uploads/2018/06/word-image-248-768x422.png 768w, /wp-content/uploads/2018/06/word-image-248-1024x563.png 1024w" sizes="(max-width: 1208px) 100vw, 1208px" /></p>
+<p>注：函数thumb(width，height,缩放比例) ，缩放比例默认为1为等比例缩放，为2则是填充补白。</p>
+<p>存储如下：</p>
+<p><img loading="lazy" decoding="async" width="394" height="139" class="wp-image-7645" src="/wp-content/uploads/2018/06/word-image-249.png" srcset="/wp-content/uploads/2018/06/word-image-249.png 394w, /wp-content/uploads/2018/06/word-image-249-300x106.png 300w" sizes="(max-width: 394px) 100vw, 394px" /></p>
+<p>数据库存储的路径：</p>
+<p><img loading="lazy" decoding="async" width="548" height="53" class="wp-image-7646" src="/wp-content/uploads/2018/06/word-image-250.png" srcset="/wp-content/uploads/2018/06/word-image-250.png 548w, /wp-content/uploads/2018/06/word-image-250-300x29.png 300w" sizes="(max-width: 548px) 100vw, 548px" /></p>
+<h2>实现上传图片的实时预览</h2>
+<p>引入核心js文件：</p>
+<p><img loading="lazy" decoding="async" width="765" height="177" class="wp-image-7647" src="/wp-content/uploads/2018/06/word-image-251.png" srcset="/wp-content/uploads/2018/06/word-image-251.png 765w, /wp-content/uploads/2018/06/word-image-251-300x69.png 300w" sizes="(max-width: 765px) 100vw, 765px" /></p>
+<p><img loading="lazy" decoding="async" width="1115" height="287" class="wp-image-7648" src="/wp-content/uploads/2018/06/word-image-252.png" srcset="/wp-content/uploads/2018/06/word-image-252.png 1115w, /wp-content/uploads/2018/06/word-image-252-300x77.png 300w, /wp-content/uploads/2018/06/word-image-252-768x198.png 768w, /wp-content/uploads/2018/06/word-image-252-1024x264.png 1024w" sizes="(max-width: 1115px) 100vw, 1115px" /></p>
+<p>在add.html模板文件设置预览的区域：<br />
+<img loading="lazy" decoding="async" width="1205" height="362" class="wp-image-7649" src="/wp-content/uploads/2018/06/word-image-253.png" srcset="/wp-content/uploads/2018/06/word-image-253.png 1205w, /wp-content/uploads/2018/06/word-image-253-300x90.png 300w, /wp-content/uploads/2018/06/word-image-253-768x231.png 768w, /wp-content/uploads/2018/06/word-image-253-1024x308.png 1024w" sizes="(max-width: 1205px) 100vw, 1205px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="554" height="367" class="wp-image-7650" src="/wp-content/uploads/2018/06/word-image-254.png" srcset="/wp-content/uploads/2018/06/word-image-254.png 554w, /wp-content/uploads/2018/06/word-image-254-300x199.png 300w" sizes="(max-width: 554px) 100vw, 554px" /></p>
+<h1>完成文章的列表展示</h1>
+<h2>数据展示</h2>
+<p>第一步：在后台admin的Article控制器中建立一个index方法，完成文章列表展示</p>
+<p><img loading="lazy" decoding="async" width="1003" height="370" class="wp-image-7651" src="/wp-content/uploads/2018/06/word-image-255.png" srcset="/wp-content/uploads/2018/06/word-image-255.png 1003w, /wp-content/uploads/2018/06/word-image-255-300x111.png 300w, /wp-content/uploads/2018/06/word-image-255-768x283.png 768w" sizes="(max-width: 1003px) 100vw, 1003px" /></p>
+<p>模板中index.php,循环输出</p>
+<p><img loading="lazy" decoding="async" width="1287" height="516" class="wp-image-7652" src="/wp-content/uploads/2018/06/word-image-256.png" srcset="/wp-content/uploads/2018/06/word-image-256.png 1287w, /wp-content/uploads/2018/06/word-image-256-300x120.png 300w, /wp-content/uploads/2018/06/word-image-256-768x308.png 768w, /wp-content/uploads/2018/06/word-image-256-1024x411.png 1024w" sizes="(max-width: 1287px) 100vw, 1287px" /></p>
+<h2>数据分页</h2>
+<p>把模型的select方法改为paginate(每页显示条数)即可</p>
+<p><img loading="lazy" decoding="async" width="976" height="366" class="wp-image-7653" src="/wp-content/uploads/2018/06/word-image-257.png" srcset="/wp-content/uploads/2018/06/word-image-257.png 976w, /wp-content/uploads/2018/06/word-image-257-300x113.png 300w, /wp-content/uploads/2018/06/word-image-257-768x288.png 768w" sizes="(max-width: 976px) 100vw, 976px" /></p>
+<p>模板中输出分页页码：</p>
+<p><img loading="lazy" decoding="async" width="1072" height="636" class="wp-image-7654" src="/wp-content/uploads/2018/06/word-image-258.png" srcset="/wp-content/uploads/2018/06/word-image-258.png 1072w, /wp-content/uploads/2018/06/word-image-258-300x178.png 300w, /wp-content/uploads/2018/06/word-image-258-768x456.png 768w, /wp-content/uploads/2018/06/word-image-258-1024x608.png 1024w" sizes="(max-width: 1072px) 100vw, 1072px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="581" height="249" class="wp-image-7655" src="/wp-content/uploads/2018/06/word-image-259.png" srcset="/wp-content/uploads/2018/06/word-image-259.png 581w, /wp-content/uploads/2018/06/word-image-259-300x129.png 300w" sizes="(max-width: 581px) 100vw, 581px" /></p>
+<h1>完成文章编辑</h1>
+<p>第一步：给编辑设置链接地址，携带文章的参数id</p>
+<p><img loading="lazy" decoding="async" width="1304" height="235" class="wp-image-7656" src="/wp-content/uploads/2018/06/word-image-260.png" srcset="/wp-content/uploads/2018/06/word-image-260.png 1304w, /wp-content/uploads/2018/06/word-image-260-300x54.png 300w, /wp-content/uploads/2018/06/word-image-260-768x138.png 768w, /wp-content/uploads/2018/06/word-image-260-1024x185.png 1024w" sizes="(max-width: 1304px) 100vw, 1304px" /></p>
+<p>第二步：建立一个upd方法完成数据回显到模板中</p>
+<p><img loading="lazy" decoding="async" width="848" height="400" class="wp-image-7657" src="/wp-content/uploads/2018/06/word-image-261.png" srcset="/wp-content/uploads/2018/06/word-image-261.png 848w, /wp-content/uploads/2018/06/word-image-261-300x142.png 300w, /wp-content/uploads/2018/06/word-image-261-768x362.png 768w" sizes="(max-width: 848px) 100vw, 848px" /></p>
+<p>第三步：模板中回显数据</p>
+<p><img loading="lazy" decoding="async" width="1226" height="660" class="wp-image-7658" src="/wp-content/uploads/2018/06/word-image-262.png" srcset="/wp-content/uploads/2018/06/word-image-262.png 1226w, /wp-content/uploads/2018/06/word-image-262-300x162.png 300w, /wp-content/uploads/2018/06/word-image-262-768x413.png 768w, /wp-content/uploads/2018/06/word-image-262-1024x551.png 1024w" sizes="(max-width: 1226px) 100vw, 1226px" /></p>
+<p><img loading="lazy" decoding="async" width="922" height="352" class="wp-image-7659" src="/wp-content/uploads/2018/06/word-image-263.png" srcset="/wp-content/uploads/2018/06/word-image-263.png 922w, /wp-content/uploads/2018/06/word-image-263-300x115.png 300w, /wp-content/uploads/2018/06/word-image-263-768x293.png 768w" sizes="(max-width: 922px) 100vw, 922px" /></p>
+<p>效果：<br />
+<img loading="lazy" decoding="async" width="516" height="399" class="wp-image-7660" src="/wp-content/uploads/2018/06/word-image-264.png" srcset="/wp-content/uploads/2018/06/word-image-264.png 516w, /wp-content/uploads/2018/06/word-image-264-300x232.png 300w" sizes="(max-width: 516px) 100vw, 516px" /></p>
+<p>第四步：在upd方法中判断是否是post请求，完成数据的编辑入库</p>
+<p><img loading="lazy" decoding="async" width="725" height="671" class="wp-image-7661" src="/wp-content/uploads/2018/06/word-image-265.png" srcset="/wp-content/uploads/2018/06/word-image-265.png 725w, /wp-content/uploads/2018/06/word-image-265-300x278.png 300w" sizes="(max-width: 725px) 100vw, 725px" /></p>
+<p>可以设置Article模型自动维护时间戳：<br />
+<img loading="lazy" decoding="async" width="504" height="236" class="wp-image-7662" src="/wp-content/uploads/2018/06/word-image-266.png" srcset="/wp-content/uploads/2018/06/word-image-266.png 504w, /wp-content/uploads/2018/06/word-image-266-300x140.png 300w" sizes="(max-width: 504px) 100vw, 504px" /></p>
+<h1>完成文章删除</h1>
+<p>第一步：给删除的链接地址设置链接，并且设置参数</p>
+<p><img loading="lazy" decoding="async" width="1249" height="475" class="wp-image-7663" src="/wp-content/uploads/2018/06/word-image-267.png" srcset="/wp-content/uploads/2018/06/word-image-267.png 1249w, /wp-content/uploads/2018/06/word-image-267-300x114.png 300w, /wp-content/uploads/2018/06/word-image-267-768x292.png 768w, /wp-content/uploads/2018/06/word-image-267-1024x389.png 1024w" sizes="(max-width: 1249px) 100vw, 1249px" /></p>
+<p>第二步：添加del方法完成删除</p>
+<p><img loading="lazy" decoding="async" width="942" height="544" class="wp-image-7664" src="/wp-content/uploads/2018/06/word-image-268.png" srcset="/wp-content/uploads/2018/06/word-image-268.png 942w, /wp-content/uploads/2018/06/word-image-268-300x173.png 300w, /wp-content/uploads/2018/06/word-image-268-768x444.png 768w" sizes="(max-width: 942px) 100vw, 942px" /></p>
+<h1>五、XSS攻击</h1>
+<h2>xss介绍</h2>
+<p><img loading="lazy" decoding="async" width="830" height="141" class="wp-image-7665" src="/wp-content/uploads/2018/06/word-image-269.png" srcset="/wp-content/uploads/2018/06/word-image-269.png 830w, /wp-content/uploads/2018/06/word-image-269-300x51.png 300w, /wp-content/uploads/2018/06/word-image-269-768x130.png 768w" sizes="(max-width: 830px) 100vw, 830px" /></p>
+<p>如在输入框输入js代码：</p>
+<p><img loading="lazy" decoding="async" width="551" height="67" class="wp-image-7666" src="/wp-content/uploads/2018/06/word-image-270.png" srcset="/wp-content/uploads/2018/06/word-image-270.png 551w, /wp-content/uploads/2018/06/word-image-270-300x36.png 300w" sizes="(max-width: 551px) 100vw, 551px" /></p>
+<p>&lt;script&gt;</p>
+<p>var cookie = document.cookie</p>
+<p>//发送一个jsonp请求</p>
+<p>&lt;/script&gt;</p>
+<p>访问此标题的时候就会弹出1，从而达成攻击；</p>
+<p><img loading="lazy" decoding="async" width="423" height="122" class="wp-image-7667" src="/wp-content/uploads/2018/06/word-image-271.png" srcset="/wp-content/uploads/2018/06/word-image-271.png 423w, /wp-content/uploads/2018/06/word-image-271-300x87.png 300w" sizes="(max-width: 423px) 100vw, 423px" /></p>
+<h2>防止xss攻击（防止js攻击）</h2>
+<h3>使用htmlspecialchars函数防止</h3>
+<p>注： 百度富文本编辑器ueditor自动将危险的代码如js进行转化为实体符号。</p>
+<p>htmlspecialchars函数的作用：将html标签符号转化为实体符号。</p>
+<p>如：大于号“&gt;”会被转化为 “&amp;gt;”</p>
+<p>如：大于号“&lt;”会被转化为 “&amp;lt;”</p>
+<p>可以在配置文件config,添加全局的过滤函数：</p>
+<p><img loading="lazy" decoding="async" width="933" height="232" class="wp-image-7668" src="/wp-content/uploads/2018/06/word-image-272.png" srcset="/wp-content/uploads/2018/06/word-image-272.png 933w, /wp-content/uploads/2018/06/word-image-272-300x75.png 300w, /wp-content/uploads/2018/06/word-image-272-768x191.png 768w" sizes="(max-width: 933px) 100vw, 933px" /></p>
+<p>此种缺点：会把html和js代码的特殊符号都进行转移，不满足我们的要求。我们只需要转移js代码。如下所示：</p>
+<p><img loading="lazy" decoding="async" width="1068" height="134" class="wp-image-7669" src="/wp-content/uploads/2018/06/word-image-273.png" srcset="/wp-content/uploads/2018/06/word-image-273.png 1068w, /wp-content/uploads/2018/06/word-image-273-300x38.png 300w, /wp-content/uploads/2018/06/word-image-273-768x96.png 768w, /wp-content/uploads/2018/06/word-image-273-1024x128.png 1024w" sizes="(max-width: 1068px) 100vw, 1068px" /></p>
+<p>解决办法：</p>
+<ol>
+<li>不使用函数htmlspecialchars()进行处理，但可能会出现xss攻击。</li>
+<li>使用htmlspecialchars()函数处理，页面的数据（富文本html）又不能正常显示出来，可以借助htmlspecialchars_decode()反转，把html实体符号转化为html标签，但这又可能会造成xss攻击。</li>
+</ol>
+<p>我们的希望是HTML可以正常显示，但是又不希望js代码被执行。</p>
+<p>这时可以借助第三方防止xss攻击的插件如：HTMLPurifier，此插件会把浏览器提交过来的数据有选择性的过滤。只过滤危险的js代码，保留html代码，这就刚好满足我们的需求。</p>
+<h3>使用插件HTMLPurifier防止</h3>
+<p>复制防止xss攻击的库到项目extend目录中。</p>
+<p><img loading="lazy" decoding="async" width="965" height="325" class="wp-image-7670" src="/wp-content/uploads/2018/06/word-image-274.png" srcset="/wp-content/uploads/2018/06/word-image-274.png 965w, /wp-content/uploads/2018/06/word-image-274-300x101.png 300w, /wp-content/uploads/2018/06/word-image-274-768x259.png 768w" sizes="(max-width: 965px) 100vw, 965px" /></p>
+<p>把HTMLPurifier中的example.php文件中函数定义在common.php中，并且修改路径</p>
+<p><img loading="lazy" decoding="async" width="966" height="455" class="wp-image-7671" src="/wp-content/uploads/2018/06/word-image-275.png" srcset="/wp-content/uploads/2018/06/word-image-275.png 966w, /wp-content/uploads/2018/06/word-image-275-300x141.png 300w, /wp-content/uploads/2018/06/word-image-275-768x362.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<p>需要把函数名为removeXSS设置为tp的全局的默认过滤函数</p>
+<p><img loading="lazy" decoding="async" width="928" height="290" class="wp-image-7672" src="/wp-content/uploads/2018/06/word-image-276.png" srcset="/wp-content/uploads/2018/06/word-image-276.png 928w, /wp-content/uploads/2018/06/word-image-276-300x94.png 300w, /wp-content/uploads/2018/06/word-image-276-768x240.png 768w" sizes="(max-width: 928px) 100vw, 928px" /></p>
+<p>使用之后，只会把js代码进行过滤，保留html代码：</p>
+<p><img loading="lazy" decoding="async" width="1001" height="163" class="wp-image-7673" src="/wp-content/uploads/2018/06/word-image-277.png" srcset="/wp-content/uploads/2018/06/word-image-277.png 1001w, /wp-content/uploads/2018/06/word-image-277-300x49.png 300w, /wp-content/uploads/2018/06/word-image-277-768x125.png 768w" sizes="(max-width: 1001px) 100vw, 1001px" /></p>
+<p>显示就不会造成攻击，html正常显示：</p>
+<p><img loading="lazy" decoding="async" width="913" height="159" class="wp-image-7674" src="/wp-content/uploads/2018/06/word-image-278.png" srcset="/wp-content/uploads/2018/06/word-image-278.png 913w, /wp-content/uploads/2018/06/word-image-278-300x52.png 300w, /wp-content/uploads/2018/06/word-image-278-768x134.png 768w" sizes="(max-width: 913px) 100vw, 913px" /></p>
+<h1>扩展-验证插件jquery-validate的使用</h1>
+<p>前端验证目的：减轻服务器压力，提高用户体验。</p>
+<p>后端验证：主要保证数据的安全（不要信任浏览器携带过来的任何数据）</p>
+<p>具体使用：<a href="/goto/6kfy" rel="nofollow">https://www.jianshu.com/p/e1d5f0dc2f5d</a></p>
+<p>手册：</p>
+<p><img loading="lazy" decoding="async" width="261" height="25" class="wp-image-7675" src="/wp-content/uploads/2018/06/word-image-279.png" /></p>
+<h1>模型的事件（钩子）</h1>
+<p>所谓的事件就类似于svn中的钩子一样，做一件事情都有前事件和后事情发生。</p>
+<p>给表tp_category添加一个zhujian字段，目的是记录当前记录的主键值。</p>
+<p><img loading="lazy" decoding="async" width="637" height="223" class="wp-image-7676" src="/wp-content/uploads/2018/06/word-image-280.png" srcset="/wp-content/uploads/2018/06/word-image-280.png 637w, /wp-content/uploads/2018/06/word-image-280-300x105.png 300w" sizes="(max-width: 637px) 100vw, 637px" /></p>
+<p>让zhujian字段和cat_id的值保持一致，我们一把入库成功后要更新:</p>
+<p>常规做法如下：</p>
+<p><img loading="lazy" decoding="async" width="770" height="139" class="wp-image-7677" src="/wp-content/uploads/2018/06/word-image-281.png" srcset="/wp-content/uploads/2018/06/word-image-281.png 770w, /wp-content/uploads/2018/06/word-image-281-300x54.png 300w, /wp-content/uploads/2018/06/word-image-281-768x139.png 768w" sizes="(max-width: 770px) 100vw, 770px" /></p>
+<p>但是不建议上面写，我们希望只把业务逻辑写在控制器，我们把数据有关的操作写在模型的事件中。</p>
+<p>模型中注册事件：</p>
+<p><img loading="lazy" decoding="async" width="993" height="349" class="wp-image-7678" src="/wp-content/uploads/2018/06/word-image-282.png" srcset="/wp-content/uploads/2018/06/word-image-282.png 993w, /wp-content/uploads/2018/06/word-image-282-300x105.png 300w, /wp-content/uploads/2018/06/word-image-282-768x270.png 768w" sizes="(max-width: 993px) 100vw, 993px" /></p>
+<p>我们可以在模型中注册after_insert事件，即入库成功之后，把zhujian的字段和cat_id的保持一致。</p>
+<p><img loading="lazy" decoding="async" width="1076" height="562" class="wp-image-7679" src="/wp-content/uploads/2018/06/word-image-283.png" srcset="/wp-content/uploads/2018/06/word-image-283.png 1076w, /wp-content/uploads/2018/06/word-image-283-300x157.png 300w, /wp-content/uploads/2018/06/word-image-283-768x401.png 768w, /wp-content/uploads/2018/06/word-image-283-1024x535.png 1024w" sizes="(max-width: 1076px) 100vw, 1076px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="698" height="34" class="wp-image-7680" src="/wp-content/uploads/2018/06/word-image-284.png" srcset="/wp-content/uploads/2018/06/word-image-284.png 698w, /wp-content/uploads/2018/06/word-image-284-300x15.png 300w" sizes="(max-width: 698px) 100vw, 698px" /></p>
+<p>触发事件的流程：入库前事件&#8212;&gt;save()&#8212;-&gt;入库后的事件，</p>
+<p>如果在入库前事件前返回false,则事件不会继续执行。</p>
+<p><img loading="lazy" decoding="async" width="995" height="443" class="wp-image-7681" src="/wp-content/uploads/2018/06/word-image-285.png" srcset="/wp-content/uploads/2018/06/word-image-285.png 995w, /wp-content/uploads/2018/06/word-image-285-300x134.png 300w, /wp-content/uploads/2018/06/word-image-285-768x342.png 768w" sizes="(max-width: 995px) 100vw, 995px" /></p>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7628.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

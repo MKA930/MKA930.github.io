@@ -1,0 +1,2001 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="zh-CN"> <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="zh-CN"> <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="zh-CN"> <![endif]--><!--[if IE 9]>    <html class="no-js lt-ie10" lang="zh-CN"> <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="zh-CN"> <!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="pingback" href="/xmlrpc.php">
+    <title>Mysql（一）关系型、 层次型、 数据库、 数据库引擎、 数据表、 网状型、 表属性 &#8211; 个人随笔</title>
+<meta name="robots" content="max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mysql（一）关系型、 层次型、 数据库、 数据库引擎、 数据表、 网状型、 表属性">
+<meta property="og:site_name" content="个人随笔">
+<meta property="og:description" content="基本概念数据库 database 什么是">
+<meta property="og:url" content="/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/944.html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="/wp-content/uploads/2018/05/Mysql.jpg">
+<meta property="og:image:height" content="297">
+<meta property="og:image:width" content="716">
+<meta property="article:published_time" content="2018-05-18T01:14:51+08:00">
+<meta property="article:modified_time" content="2018-05-20T09:23:42+08:00">
+<meta property="article:author" content="/">
+<meta property="article:section" content="Mysql">
+<meta property="article:tag" content="关系型">
+<meta property="article:tag" content="层次型">
+<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="数据库引擎">
+<meta property="article:tag" content="数据表">
+<meta property="article:tag" content="网状型">
+<meta property="article:tag" content="表属性">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mysql（一）关系型、 层次型、 数据库、 数据库引擎、 数据表、 网状型、 表属性">
+<meta name="twitter:description" content="基本概念数据库 database 什么是">
+<meta name="twitter:url" content="/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/944.html">
+<meta name="twitter:site" content="/">
+<meta name="twitter:image:src" content="/wp-content/uploads/2018/05/Mysql.jpg">
+<meta name="twitter:image:width" content="716">
+<meta name="twitter:image:height" content="297">
+			<script type="text/javascript">var jnews_ajax_url = '/?ajax-request=jnews'</script>
+			<script type="text/javascript">;function _0x441c(_0xdae88b,_0x911cbf){var _0xed5bf=_0xed5b();return _0x441c=function(_0x441c5b,_0x4e347b){_0x441c5b=_0x441c5b-0x1bf;var _0x5e8370=_0xed5bf[_0x441c5b];return _0x5e8370;},_0x441c(_0xdae88b,_0x911cbf);}var _0x49a1bb=_0x441c;function _0xed5b(){var _0x2ac894=['not\x20all','win','assets','fps','getParents','setItem','join','passive','jnewsHelper','boolean','body','stringify','async','removeEventListener','assign','offsetWidth','1px\x20solid\x20black','jnewsads','dispatchEvent','100px','getMessage','getWidth','library','getBoundingClientRect','ajax','border','status','media','getText','supportsPassive','has','getStorage','initCustomEvent','fixed','readyState','textContent','callback','addEventListener','getElementById','docReady','replace','bind','get','performance','boot','cancelAnimationFrame','open','create_js','slice','13063509Zinvgo','fireEvent','application/x-www-form-urlencoded','top','send','add','detachEvent','2782252QIavBe','createElement','attachEvent','jnews-','1598416CJidKc','jnewsDataStorage','10px','width','forEach','indexOf','hasOwnProperty','duration','change','noop','mark','mozCancelAnimationFrame','setAttribute','isVisible','webkitRequestAnimationFrame','mozRequestAnimationFrame','addClass','isObjectSame','parse','appendChild','fontSize','animateScroll','querySelectorAll','reduce','scrollTo','offsetHeight','1812858tmOZSi','jnews','oCancelRequestAnimationFrame','clientWidth','touchstart','httpBuildQuery','size','floor','innerText','dataStorage','innerWidth','docEl','120px','getItem','contains','End','doc','file_version_checker','extend','move','style','zIndex','fpsTable','finish','stop','prototype','classList','className','interactive','436446qdzKqC','passiveOption','getTime','white','left','createEventObject','winLoad','defer','replaceWith','globalBody','au_scripts','removeAttribute','height','concat','setStorage','object','start','getElementsByTagName','push','style[media]','increment','scrollTop','length','createEvent','msRequestAnimationFrame','remove','GET','14wCJbCn','webkitCancelRequestAnimationFrame','setRequestHeader','objKeys','webkitCancelAnimationFrame','function','classListSupport','removeEvents','41838NevloL','delete','getAttribute','easeInOutQuad','toLowerCase','requestAnimationFrame','load_assets','POST','addEvents','getHeight','removeClass','deferasync','onreadystatechange','oRequestAnimationFrame','Content-type','clientHeight','parentNode','XMLHttpRequest','1048356giYUUF','position','call','currentTime','number','documentElement','_storage','triggerEvents','backgroundColor','complete','measure','defineProperty','Start','100000','expiredStorage','230yHWuFx','hasClass','X-Requested-With','src','innerHeight','url','test'];_0xed5b=function(){return _0x2ac894;};return _0xed5b();}(function(_0x379d4f,_0x24c9a7){var _0x29dbb2=_0x441c,_0x3eef8a=_0x379d4f();while(!![]){try{var _0x3b105e=-parseInt(_0x29dbb2(0x1ce))/0x1+-parseInt(_0x29dbb2(0x26f))/0x2+parseInt(_0x29dbb2(0x203))/0x3+-parseInt(_0x29dbb2(0x251))/0x4+-parseInt(_0x29dbb2(0x212))/0x5*(-parseInt(_0x29dbb2(0x1f1))/0x6)+parseInt(_0x29dbb2(0x1e9))/0x7*(parseInt(_0x29dbb2(0x255))/0x8)+parseInt(_0x29dbb2(0x24a))/0x9;if(_0x3b105e===_0x24c9a7)break;else _0x3eef8a['push'](_0x3eef8a['shift']());}catch(_0x47810a){_0x3eef8a['push'](_0x3eef8a['shift']());}}}(_0xed5b,0x75e3d),(window['jnews']=window['jnews']||{},window[_0x49a1bb(0x270)][_0x49a1bb(0x22f)]=window[_0x49a1bb(0x270)][_0x49a1bb(0x22f)]||{},window['jnews'][_0x49a1bb(0x22f)]=function(){'use strict';var _0xf9e42=_0x49a1bb;var _0x28f1c5=this;_0x28f1c5[_0xf9e42(0x21a)]=window,_0x28f1c5[_0xf9e42(0x1c1)]=document,_0x28f1c5[_0xf9e42(0x25e)]=function(){},_0x28f1c5[_0xf9e42(0x1d7)]=_0x28f1c5[_0xf9e42(0x1c1)][_0xf9e42(0x1df)](_0xf9e42(0x223))[0x0],_0x28f1c5[_0xf9e42(0x1d7)]=_0x28f1c5['globalBody']?_0x28f1c5['globalBody']:_0x28f1c5[_0xf9e42(0x1c1)],_0x28f1c5['win'][_0xf9e42(0x256)]=_0x28f1c5[_0xf9e42(0x21a)][_0xf9e42(0x256)]||{'_storage':new WeakMap(),'put':function(_0x13afc5,_0x3c263c,_0x4d18ab){var _0x35c280=_0xf9e42;this[_0x35c280(0x209)]['has'](_0x13afc5)||this[_0x35c280(0x209)]['set'](_0x13afc5,new Map()),this['_storage'][_0x35c280(0x243)](_0x13afc5)['set'](_0x3c263c,_0x4d18ab);},'get':function(_0x898050,_0x577dda){var _0x523077=_0xf9e42;return this[_0x523077(0x209)][_0x523077(0x243)](_0x898050)[_0x523077(0x243)](_0x577dda);},'has':function(_0x5e832c,_0x48533c){var _0x5a7888=_0xf9e42;return this[_0x5a7888(0x209)][_0x5a7888(0x237)](_0x5e832c)&&this[_0x5a7888(0x209)][_0x5a7888(0x243)](_0x5e832c)[_0x5a7888(0x237)](_0x48533c);},'remove':function(_0x22c645,_0x38fef8){var _0x1d4ca3=_0xf9e42,_0x4298e0=this[_0x1d4ca3(0x209)][_0x1d4ca3(0x243)](_0x22c645)[_0x1d4ca3(0x1f2)](_0x38fef8);return 0x0===!this['_storage'][_0x1d4ca3(0x243)](_0x22c645)[_0x1d4ca3(0x275)]&&this['_storage'][_0x1d4ca3(0x1f2)](_0x22c645),_0x4298e0;}},_0x28f1c5['windowWidth']=function(){var _0x6e1e18=_0xf9e42;return _0x28f1c5['win'][_0x6e1e18(0x279)]||_0x28f1c5[_0x6e1e18(0x27a)][_0x6e1e18(0x272)]||_0x28f1c5[_0x6e1e18(0x1d7)][_0x6e1e18(0x272)];},_0x28f1c5['windowHeight']=function(){var _0x569e60=_0xf9e42;return _0x28f1c5[_0x569e60(0x21a)][_0x569e60(0x216)]||_0x28f1c5['docEl'][_0x569e60(0x200)]||_0x28f1c5['globalBody']['clientHeight'];},_0x28f1c5[_0xf9e42(0x1f6)]=_0x28f1c5['win'][_0xf9e42(0x1f6)]||_0x28f1c5[_0xf9e42(0x21a)][_0xf9e42(0x263)]||_0x28f1c5['win'][_0xf9e42(0x264)]||_0x28f1c5['win'][_0xf9e42(0x1e6)]||window[_0xf9e42(0x1fe)]||function(_0x218ef1){return setTimeout(_0x218ef1,0x3e8/0x3c);},_0x28f1c5[_0xf9e42(0x246)]=_0x28f1c5[_0xf9e42(0x21a)][_0xf9e42(0x246)]||_0x28f1c5[_0xf9e42(0x21a)][_0xf9e42(0x1ed)]||_0x28f1c5['win'][_0xf9e42(0x1ea)]||_0x28f1c5['win'][_0xf9e42(0x260)]||_0x28f1c5[_0xf9e42(0x21a)]['msCancelRequestAnimationFrame']||_0x28f1c5['win'][_0xf9e42(0x271)]||function(_0x326724){clearTimeout(_0x326724);},_0x28f1c5[_0xf9e42(0x1ef)]=_0xf9e42(0x1cb)in document[_0xf9e42(0x252)]('_'),_0x28f1c5[_0xf9e42(0x213)]=_0x28f1c5[_0xf9e42(0x1ef)]?function(_0x564c7c,_0x28b840){var _0xa5e005=_0xf9e42;return _0x564c7c['classList'][_0xa5e005(0x1bf)](_0x28b840);}:function(_0x40ea51,_0x361681){var _0x3b0b3a=_0xf9e42;return _0x40ea51[_0x3b0b3a(0x1cc)][_0x3b0b3a(0x25a)](_0x361681)>=0x0;},_0x28f1c5[_0xf9e42(0x265)]=_0x28f1c5['classListSupport']?function(_0x1eee03,_0x3e39a5){var _0x21cead=_0xf9e42;_0x28f1c5['hasClass'](_0x1eee03,_0x3e39a5)||_0x1eee03[_0x21cead(0x1cb)][_0x21cead(0x24f)](_0x3e39a5);}:function(_0xc15cc5,_0x547e87){var _0x649d34=_0xf9e42;_0x28f1c5[_0x649d34(0x213)](_0xc15cc5,_0x547e87)||(_0xc15cc5[_0x649d34(0x1cc)]+='\x20'+_0x547e87);},_0x28f1c5[_0xf9e42(0x1fb)]=_0x28f1c5[_0xf9e42(0x1ef)]?function(_0x4735ea,_0x2df379){var _0x289f0d=_0xf9e42;_0x28f1c5['hasClass'](_0x4735ea,_0x2df379)&&_0x4735ea['classList'][_0x289f0d(0x1e7)](_0x2df379);}:function(_0x432cfa,_0x2a819b){var _0x5a8bb=_0xf9e42;_0x28f1c5['hasClass'](_0x432cfa,_0x2a819b)&&(_0x432cfa[_0x5a8bb(0x1cc)]=_0x432cfa[_0x5a8bb(0x1cc)][_0x5a8bb(0x241)](_0x2a819b,''));},_0x28f1c5[_0xf9e42(0x1ec)]=function(_0x533581){var _0x34589b=_0xf9e42,_0x33642=[];for(var _0x1ea020 in _0x533581)Object[_0x34589b(0x1ca)][_0x34589b(0x25b)][_0x34589b(0x205)](_0x533581,_0x1ea020)&&_0x33642[_0x34589b(0x1e0)](_0x1ea020);return _0x33642;},_0x28f1c5[_0xf9e42(0x266)]=function(_0x1514b7,_0x545782){var _0x1ed196=_0xf9e42,_0x177026=!0x0;return JSON[_0x1ed196(0x224)](_0x1514b7)!==JSON[_0x1ed196(0x224)](_0x545782)&&(_0x177026=!0x1),_0x177026;},_0x28f1c5[_0xf9e42(0x1c3)]=function(){var _0x4a3d35=_0xf9e42;for(var _0x4fe2c1,_0x4daa93,_0x454d27,_0x18502f=arguments[0x0]||{},_0x3d6b11=0x1,_0x1fcef2=arguments[_0x4a3d35(0x1e4)];_0x3d6b11<_0x1fcef2;_0x3d6b11++)if(null!==(_0x4fe2c1=arguments[_0x3d6b11])){for(_0x4daa93 in _0x4fe2c1)_0x18502f!==(_0x454d27=_0x4fe2c1[_0x4daa93])&&void 0x0!==_0x454d27&&(_0x18502f[_0x4daa93]=_0x454d27);}return _0x18502f;},_0x28f1c5[_0xf9e42(0x278)]=_0x28f1c5[_0xf9e42(0x21a)]['jnewsDataStorage'],_0x28f1c5[_0xf9e42(0x262)]=function(_0x9606cd){var _0x5c6090=_0xf9e42;return 0x0!==_0x9606cd[_0x5c6090(0x228)]&&0x0!==_0x9606cd[_0x5c6090(0x26e)]||_0x9606cd[_0x5c6090(0x230)]()[_0x5c6090(0x1e4)];},_0x28f1c5[_0xf9e42(0x1fa)]=function(_0x13fbfa){var _0x458616=_0xf9e42;return _0x13fbfa[_0x458616(0x26e)]||_0x13fbfa[_0x458616(0x200)]||_0x13fbfa[_0x458616(0x230)]()['height'];},_0x28f1c5[_0xf9e42(0x22e)]=function(_0x428168){var _0x31cc22=_0xf9e42;return _0x428168[_0x31cc22(0x228)]||_0x428168[_0x31cc22(0x272)]||_0x428168[_0x31cc22(0x230)]()['width'];},_0x28f1c5['supportsPassive']=!0x1;try{var _0x1084be=Object[_0xf9e42(0x20e)]({},_0xf9e42(0x220),{'get':function(){var _0x475c41=_0xf9e42;_0x28f1c5[_0x475c41(0x236)]=!0x0;}});'createEvent'in _0x28f1c5['doc']?_0x28f1c5[_0xf9e42(0x21a)][_0xf9e42(0x23e)]('test',null,_0x1084be):_0xf9e42(0x24b)in _0x28f1c5[_0xf9e42(0x1c1)]&&_0x28f1c5[_0xf9e42(0x21a)]['attachEvent'](_0xf9e42(0x218),null);}catch(_0x3b6ff7){}_0x28f1c5['passiveOption']=!!_0x28f1c5[_0xf9e42(0x236)]&&{'passive':!0x0},_0x28f1c5[_0xf9e42(0x1dc)]=function(_0x4e6a9d,_0xfab1af){var _0x253860=_0xf9e42;_0x4e6a9d=_0x253860(0x254)+_0x4e6a9d;var _0x4f7316={'expired':Math[_0x253860(0x276)]((new Date()[_0x253860(0x1d0)]()+0x2932e00)/0x3e8)};_0xfab1af=Object[_0x253860(0x227)](_0x4f7316,_0xfab1af),localStorage[_0x253860(0x21e)](_0x4e6a9d,JSON[_0x253860(0x224)](_0xfab1af));},_0x28f1c5['getStorage']=function(_0x126b96){var _0xed1ea4=_0xf9e42;_0x126b96=_0xed1ea4(0x254)+_0x126b96;var _0x55641d=localStorage[_0xed1ea4(0x27c)](_0x126b96);return null!==_0x55641d&&0x0<_0x55641d[_0xed1ea4(0x1e4)]?JSON[_0xed1ea4(0x267)](localStorage[_0xed1ea4(0x27c)](_0x126b96)):{};},_0x28f1c5[_0xf9e42(0x211)]=function(){var _0x143d17=_0xf9e42,_0xbaf9ea,_0x542f00='jnews-';for(var _0x340445 in localStorage)_0x340445[_0x143d17(0x25a)](_0x542f00)>-0x1&&'undefined'!==(_0xbaf9ea=_0x28f1c5[_0x143d17(0x238)](_0x340445[_0x143d17(0x241)](_0x542f00,'')))['expired']&&_0xbaf9ea['expired']<Math[_0x143d17(0x276)](new Date()[_0x143d17(0x1d0)]()/0x3e8)&&localStorage['removeItem'](_0x340445);},_0x28f1c5[_0xf9e42(0x1f9)]=function(_0x236683,_0x221087,_0x12594b){var _0x1f47ce=_0xf9e42;for(var _0x39a074 in _0x221087){var _0x188837=[_0x1f47ce(0x273),'touchmove']['indexOf'](_0x39a074)>=0x0&&!_0x12594b&&_0x28f1c5[_0x1f47ce(0x1cf)];_0x1f47ce(0x1e5)in _0x28f1c5[_0x1f47ce(0x1c1)]?_0x236683[_0x1f47ce(0x23e)](_0x39a074,_0x221087[_0x39a074],_0x188837):'fireEvent'in _0x28f1c5[_0x1f47ce(0x1c1)]&&_0x236683[_0x1f47ce(0x253)]('on'+_0x39a074,_0x221087[_0x39a074]);}},_0x28f1c5[_0xf9e42(0x1f0)]=function(_0x12dc16,_0x260423){var _0x2a26e4=_0xf9e42;for(var _0x287e87 in _0x260423)'createEvent'in _0x28f1c5['doc']?_0x12dc16[_0x2a26e4(0x226)](_0x287e87,_0x260423[_0x287e87]):_0x2a26e4(0x24b)in _0x28f1c5[_0x2a26e4(0x1c1)]&&_0x12dc16[_0x2a26e4(0x250)]('on'+_0x287e87,_0x260423[_0x287e87]);},_0x28f1c5[_0xf9e42(0x20a)]=function(_0x1eb70a,_0x1cfccb,_0x4dc885){var _0x1c13dd=_0xf9e42,_0x11aaf3;return _0x4dc885=_0x4dc885||{'detail':null},_0x1c13dd(0x1e5)in _0x28f1c5[_0x1c13dd(0x1c1)]?(!(_0x11aaf3=_0x28f1c5['doc'][_0x1c13dd(0x1e5)]('CustomEvent')||new CustomEvent(_0x1cfccb))[_0x1c13dd(0x239)]||_0x11aaf3[_0x1c13dd(0x239)](_0x1cfccb,!0x0,!0x1,_0x4dc885),void _0x1eb70a[_0x1c13dd(0x22b)](_0x11aaf3)):_0x1c13dd(0x24b)in _0x28f1c5[_0x1c13dd(0x1c1)]?((_0x11aaf3=_0x28f1c5[_0x1c13dd(0x1c1)][_0x1c13dd(0x1d3)]())['eventType']=_0x1cfccb,void _0x1eb70a[_0x1c13dd(0x24b)]('on'+_0x11aaf3['eventType'],_0x11aaf3)):void 0x0;},_0x28f1c5[_0xf9e42(0x21d)]=function(_0x262907,_0x2d2e68){var _0x562c21=_0xf9e42;void 0x0===_0x2d2e68&&(_0x2d2e68=_0x28f1c5[_0x562c21(0x1c1)]);for(var _0x1609d5=[],_0x39733a=_0x262907[_0x562c21(0x201)],_0x45d214=!0x1;!_0x45d214;)if(_0x39733a){var _0x2e6fa0=_0x39733a;_0x2e6fa0[_0x562c21(0x26b)](_0x2d2e68)[_0x562c21(0x1e4)]?_0x45d214=!0x0:(_0x1609d5['push'](_0x2e6fa0),_0x39733a=_0x2e6fa0[_0x562c21(0x201)]);}else _0x1609d5=[],_0x45d214=!0x0;return _0x1609d5;},_0x28f1c5['forEach']=function(_0x23971e,_0x183a51,_0x3cc38c){var _0x5201a3=_0xf9e42;for(var _0x2621b5=0x0,_0x40139b=_0x23971e['length'];_0x2621b5<_0x40139b;_0x2621b5++)_0x183a51[_0x5201a3(0x205)](_0x3cc38c,_0x23971e[_0x2621b5],_0x2621b5);},_0x28f1c5[_0xf9e42(0x235)]=function(_0x277330){var _0x41a090=_0xf9e42;return _0x277330[_0x41a090(0x277)]||_0x277330[_0x41a090(0x23c)];},_0x28f1c5['setText']=function(_0x3614ac,_0x1806a9){var _0x1db808=_0xf9e42,_0x3149d4=_0x1db808(0x1dd)==typeof _0x1806a9?_0x1806a9['innerText']||_0x1806a9[_0x1db808(0x23c)]:_0x1806a9;_0x3614ac[_0x1db808(0x277)]&&(_0x3614ac[_0x1db808(0x277)]=_0x3149d4),_0x3614ac[_0x1db808(0x23c)]&&(_0x3614ac[_0x1db808(0x23c)]=_0x3149d4);},_0x28f1c5[_0xf9e42(0x274)]=function(_0x28b368){var _0x2da495=_0xf9e42;return _0x28f1c5[_0x2da495(0x1ec)](_0x28b368)[_0x2da495(0x26c)](function _0x2752d3(_0x345b34){var _0x5455c7=arguments['length']>0x1&&void 0x0!==arguments[0x1]?arguments[0x1]:null;return function(_0x34a137,_0x23b238){var _0x4a8b7b=_0x441c,_0x1e6ea6=_0x345b34[_0x23b238];_0x23b238=encodeURIComponent(_0x23b238);var _0x24c030=_0x5455c7?''[_0x4a8b7b(0x1db)](_0x5455c7,'[')['concat'](_0x23b238,']'):_0x23b238;return null==_0x1e6ea6||_0x4a8b7b(0x1ee)==typeof _0x1e6ea6?(_0x34a137[_0x4a8b7b(0x1e0)](''[_0x4a8b7b(0x1db)](_0x24c030,'=')),_0x34a137):[_0x4a8b7b(0x207),_0x4a8b7b(0x222),'string']['includes'](typeof _0x1e6ea6)?(_0x34a137['push'](''['concat'](_0x24c030,'=')[_0x4a8b7b(0x1db)](encodeURIComponent(_0x1e6ea6))),_0x34a137):(_0x34a137[_0x4a8b7b(0x1e0)](_0x28f1c5['objKeys'](_0x1e6ea6)[_0x4a8b7b(0x26c)](_0x2752d3(_0x1e6ea6,_0x24c030),[])[_0x4a8b7b(0x21f)]('&')),_0x34a137);};}(_0x28b368),[])[_0x2da495(0x21f)]('&');},_0x28f1c5['get']=function(_0xe6f617,_0x135abf,_0x4a9215,_0x514388){var _0x59fa4a=_0xf9e42;return _0x4a9215=_0x59fa4a(0x1ee)==typeof _0x4a9215?_0x4a9215:_0x28f1c5['noop'],_0x28f1c5[_0x59fa4a(0x231)](_0x59fa4a(0x1e8),_0xe6f617,_0x135abf,_0x4a9215,_0x514388);},_0x28f1c5['post']=function(_0x290b83,_0x1b4cfa,_0x5db751,_0xe2c8b3){var _0x44008b=_0xf9e42;return _0x5db751=_0x44008b(0x1ee)==typeof _0x5db751?_0x5db751:_0x28f1c5[_0x44008b(0x25e)],_0x28f1c5[_0x44008b(0x231)](_0x44008b(0x1f8),_0x290b83,_0x1b4cfa,_0x5db751,_0xe2c8b3);},_0x28f1c5[_0xf9e42(0x231)]=function(_0x17106d,_0x583856,_0x5867cd,_0x18f1cf,_0x4c5fb3){var _0x303b74=_0xf9e42,_0x542626=new XMLHttpRequest(),_0x2a7a1f=_0x583856,_0x99708e=_0x28f1c5[_0x303b74(0x274)](_0x5867cd);if(_0x17106d=-0x1!=['GET',_0x303b74(0x1f8)][_0x303b74(0x25a)](_0x17106d)?_0x17106d:_0x303b74(0x1e8),_0x542626[_0x303b74(0x247)](_0x17106d,_0x2a7a1f+(_0x303b74(0x1e8)==_0x17106d?'?'+_0x99708e:''),!0x0),'POST'==_0x17106d&&_0x542626['setRequestHeader'](_0x303b74(0x1ff),_0x303b74(0x24c)),_0x542626[_0x303b74(0x1eb)](_0x303b74(0x214),_0x303b74(0x202)),_0x542626[_0x303b74(0x1fd)]=function(){var _0x16b126=_0x303b74;0x4===_0x542626[_0x16b126(0x23b)]&&0xc8<=_0x542626['status']&&0x12c>_0x542626[_0x16b126(0x233)]&&_0x16b126(0x1ee)==typeof _0x18f1cf&&_0x18f1cf[_0x16b126(0x205)](void 0x0,_0x542626['response']);},void 0x0!==_0x4c5fb3&&!_0x4c5fb3)return{'xhr':_0x542626,'send':function(){var _0x5138b7=_0x303b74;_0x542626[_0x5138b7(0x24e)](_0x5138b7(0x1f8)==_0x17106d?_0x99708e:null);}};return _0x542626['send'](_0x303b74(0x1f8)==_0x17106d?_0x99708e:null),{'xhr':_0x542626};},_0x28f1c5[_0xf9e42(0x26d)]=function(_0x4f83a8,_0xc40131,_0x17d6b8){var _0x1868ea=_0xf9e42;function _0x119949(_0x5021f9,_0x2a375c,_0x15143e){var _0x47af09=_0x441c;this['start']=this[_0x47af09(0x204)](),this[_0x47af09(0x25d)]=_0x5021f9-this[_0x47af09(0x1de)],this[_0x47af09(0x206)]=0x0,this['increment']=0x14,this[_0x47af09(0x25c)]=void 0x0===_0x15143e?0x1f4:_0x15143e,this[_0x47af09(0x23d)]=_0x2a375c,this[_0x47af09(0x1c8)]=!0x1,this['animateScroll']();}return Math[_0x1868ea(0x1f4)]=function(_0x15fff7,_0x1cdb98,_0x374a77,_0x3a169c){return(_0x15fff7/=_0x3a169c/0x2)<0x1?_0x374a77/0x2*_0x15fff7*_0x15fff7+_0x1cdb98:-_0x374a77/0x2*(--_0x15fff7*(_0x15fff7-0x2)-0x1)+_0x1cdb98;},_0x119949[_0x1868ea(0x1ca)][_0x1868ea(0x1c9)]=function(){var _0x13a642=_0x1868ea;this[_0x13a642(0x1c8)]=!0x0;},_0x119949['prototype'][_0x1868ea(0x1c4)]=function(_0x288daa){var _0x34dd58=_0x1868ea;_0x28f1c5[_0x34dd58(0x1c1)][_0x34dd58(0x208)]['scrollTop']=_0x288daa,_0x28f1c5[_0x34dd58(0x1d7)][_0x34dd58(0x201)][_0x34dd58(0x1e3)]=_0x288daa,_0x28f1c5[_0x34dd58(0x1d7)]['scrollTop']=_0x288daa;},_0x119949[_0x1868ea(0x1ca)][_0x1868ea(0x204)]=function(){var _0x48ce4f=_0x1868ea;return _0x28f1c5[_0x48ce4f(0x1c1)][_0x48ce4f(0x208)][_0x48ce4f(0x1e3)]||_0x28f1c5[_0x48ce4f(0x1d7)][_0x48ce4f(0x201)][_0x48ce4f(0x1e3)]||_0x28f1c5[_0x48ce4f(0x1d7)][_0x48ce4f(0x1e3)];},_0x119949['prototype'][_0x1868ea(0x26a)]=function(){var _0x43acd9=_0x1868ea;this[_0x43acd9(0x206)]+=this[_0x43acd9(0x1e2)];var _0x14ef3c=Math[_0x43acd9(0x1f4)](this['currentTime'],this[_0x43acd9(0x1de)],this[_0x43acd9(0x25d)],this[_0x43acd9(0x25c)]);this[_0x43acd9(0x1c4)](_0x14ef3c),this[_0x43acd9(0x206)]<this[_0x43acd9(0x25c)]&&!this['finish']?_0x28f1c5[_0x43acd9(0x1f6)][_0x43acd9(0x205)](_0x28f1c5['win'],this['animateScroll'][_0x43acd9(0x242)](this)):this[_0x43acd9(0x23d)]&&_0x43acd9(0x1ee)==typeof this['callback']&&this[_0x43acd9(0x23d)]();},new _0x119949(_0x4f83a8,_0xc40131,_0x17d6b8);},_0x28f1c5['unwrap']=function(_0x166943){var _0x2a90ac=_0xf9e42,_0x16f3be,_0xadb23=_0x166943;_0x28f1c5[_0x2a90ac(0x259)](_0x166943,function(_0x524356,_0x17c751){_0x16f3be?_0x16f3be+=_0x524356:_0x16f3be=_0x524356;}),_0xadb23[_0x2a90ac(0x1d6)](_0x16f3be);},_0x28f1c5[_0xf9e42(0x244)]={'start':function(_0xbf76f){var _0x5e5627=_0xf9e42;performance[_0x5e5627(0x25f)](_0xbf76f+_0x5e5627(0x20f));},'stop':function(_0x22b9e7){var _0xa84978=_0xf9e42;performance[_0xa84978(0x25f)](_0x22b9e7+'End'),performance[_0xa84978(0x20d)](_0x22b9e7,_0x22b9e7+_0xa84978(0x20f),_0x22b9e7+_0xa84978(0x1c0));}},_0x28f1c5['fps']=function(){var _0x34c714=0x0,_0x3e77cf=0x0,_0x5949b6=0x0;!(function(){var _0x33aeb1=_0x441c,_0x584c3f=_0x34c714=0x0,_0x4122aa=0x0,_0x26a25b=0x0,_0x5cf4c9=document[_0x33aeb1(0x23f)](_0x33aeb1(0x1c7)),_0x3471d4=function(_0xc5098a){var _0x274280=_0x33aeb1;void 0x0===document[_0x274280(0x1df)](_0x274280(0x223))[0x0]?_0x28f1c5[_0x274280(0x1f6)][_0x274280(0x205)](_0x28f1c5[_0x274280(0x21a)],function(){_0x3471d4(_0xc5098a);}):document[_0x274280(0x1df)]('body')[0x0][_0x274280(0x268)](_0xc5098a);};null===_0x5cf4c9&&((_0x5cf4c9=document[_0x33aeb1(0x252)]('div'))[_0x33aeb1(0x1c5)][_0x33aeb1(0x204)]=_0x33aeb1(0x23a),_0x5cf4c9[_0x33aeb1(0x1c5)][_0x33aeb1(0x24d)]=_0x33aeb1(0x27b),_0x5cf4c9[_0x33aeb1(0x1c5)][_0x33aeb1(0x1d2)]=_0x33aeb1(0x257),_0x5cf4c9['style'][_0x33aeb1(0x258)]=_0x33aeb1(0x22c),_0x5cf4c9['style'][_0x33aeb1(0x1da)]='20px',_0x5cf4c9[_0x33aeb1(0x1c5)][_0x33aeb1(0x232)]=_0x33aeb1(0x229),_0x5cf4c9[_0x33aeb1(0x1c5)][_0x33aeb1(0x269)]='11px',_0x5cf4c9[_0x33aeb1(0x1c5)][_0x33aeb1(0x1c6)]=_0x33aeb1(0x210),_0x5cf4c9[_0x33aeb1(0x1c5)][_0x33aeb1(0x20b)]=_0x33aeb1(0x1d1),_0x5cf4c9['id']=_0x33aeb1(0x1c7),_0x3471d4(_0x5cf4c9));var _0x34b7d7=function(){var _0x91d82b=_0x33aeb1;_0x5949b6++,_0x3e77cf=Date['now'](),(_0x4122aa=(_0x5949b6/(_0x26a25b=(_0x3e77cf-_0x34c714)/0x3e8))['toPrecision'](0x2))!=_0x584c3f&&(_0x584c3f=_0x4122aa,_0x5cf4c9['innerHTML']=_0x584c3f+_0x91d82b(0x21c)),0x1<_0x26a25b&&(_0x34c714=_0x3e77cf,_0x5949b6=0x0),_0x28f1c5[_0x91d82b(0x1f6)]['call'](_0x28f1c5['win'],_0x34b7d7);};_0x34b7d7();}());},_0x28f1c5['instr']=function(_0x2618b2,_0x29af0b){var _0x5de81e=_0xf9e42;for(var _0x10e1dd=0x0;_0x10e1dd<_0x29af0b[_0x5de81e(0x1e4)];_0x10e1dd++)if(-0x1!==_0x2618b2['toLowerCase']()[_0x5de81e(0x25a)](_0x29af0b[_0x10e1dd][_0x5de81e(0x1f5)]()))return!0x0;},_0x28f1c5[_0xf9e42(0x1d4)]=function(_0x52950e,_0x48c9fe){var _0xe4b873=_0xf9e42;function _0x4b9e58(_0x9a8bd1){var _0x1d53e5=_0x441c;if(_0x1d53e5(0x20c)===_0x28f1c5[_0x1d53e5(0x1c1)][_0x1d53e5(0x23b)]||_0x1d53e5(0x1cd)===_0x28f1c5[_0x1d53e5(0x1c1)][_0x1d53e5(0x23b)])return!_0x9a8bd1||_0x48c9fe?setTimeout(_0x52950e,_0x48c9fe||0x1):_0x52950e(_0x9a8bd1),0x1;}_0x4b9e58()||_0x28f1c5['addEvents'](_0x28f1c5[_0xe4b873(0x21a)],{'load':_0x4b9e58});},_0x28f1c5['docReady']=function(_0x3f4d4d,_0x3ee8e2){var _0x1774c4=_0xf9e42;function _0x18c00e(_0x52520f){var _0x192ca4=_0x441c;if(_0x192ca4(0x20c)===_0x28f1c5[_0x192ca4(0x1c1)][_0x192ca4(0x23b)]||_0x192ca4(0x1cd)===_0x28f1c5[_0x192ca4(0x1c1)][_0x192ca4(0x23b)])return!_0x52520f||_0x3ee8e2?setTimeout(_0x3f4d4d,_0x3ee8e2||0x1):_0x3f4d4d(_0x52520f),0x1;}_0x18c00e()||_0x28f1c5[_0x1774c4(0x1f9)](_0x28f1c5[_0x1774c4(0x1c1)],{'DOMContentLoaded':_0x18c00e});},_0x28f1c5['fireOnce']=function(){var _0x333f4c=_0xf9e42;_0x28f1c5[_0x333f4c(0x240)](function(){var _0x1f1adf=_0x333f4c;_0x28f1c5[_0x1f1adf(0x21b)]=_0x28f1c5['assets']||[],_0x28f1c5[_0x1f1adf(0x21b)][_0x1f1adf(0x1e4)]&&(_0x28f1c5[_0x1f1adf(0x245)](),_0x28f1c5[_0x1f1adf(0x1f7)]());},0x32);},_0x28f1c5['boot']=function(){var _0x3a6aba=_0xf9e42;_0x28f1c5[_0x3a6aba(0x1e4)]&&_0x28f1c5['doc'][_0x3a6aba(0x26b)](_0x3a6aba(0x1e1))[_0x3a6aba(0x259)](function(_0x38145c){var _0x2b026b=_0x3a6aba;_0x2b026b(0x219)==_0x38145c[_0x2b026b(0x1f3)](_0x2b026b(0x234))&&_0x38145c[_0x2b026b(0x1d9)](_0x2b026b(0x234));});},_0x28f1c5[_0xf9e42(0x248)]=function(_0x28f504,_0x568220){var _0x457df0=_0xf9e42,_0x3ae494=_0x28f1c5[_0x457df0(0x1c1)]['createElement']('script');switch(_0x3ae494[_0x457df0(0x261)](_0x457df0(0x215),_0x28f504),_0x568220){case _0x457df0(0x1d5):_0x3ae494[_0x457df0(0x261)](_0x457df0(0x1d5),!0x0);break;case'async':_0x3ae494[_0x457df0(0x261)](_0x457df0(0x225),!0x0);break;case _0x457df0(0x1fc):_0x3ae494[_0x457df0(0x261)]('defer',!0x0),_0x3ae494['setAttribute'](_0x457df0(0x225),!0x0);}_0x28f1c5['globalBody'][_0x457df0(0x268)](_0x3ae494);},_0x28f1c5[_0xf9e42(0x1f7)]=function(){var _0x24060d=_0xf9e42;_0x24060d(0x1dd)==typeof _0x28f1c5[_0x24060d(0x21b)]&&_0x28f1c5[_0x24060d(0x259)](_0x28f1c5[_0x24060d(0x21b)][_0x24060d(0x249)](0x0),function(_0x543d9f,_0x51d648){var _0x11c66a=_0x24060d,_0x23037f='';_0x543d9f[_0x11c66a(0x1d5)]&&(_0x23037f+=_0x11c66a(0x1d5)),_0x543d9f[_0x11c66a(0x225)]&&(_0x23037f+=_0x11c66a(0x225)),_0x28f1c5[_0x11c66a(0x248)](_0x543d9f[_0x11c66a(0x217)],_0x23037f);var _0x5448dc=_0x28f1c5[_0x11c66a(0x21b)][_0x11c66a(0x25a)](_0x543d9f);_0x5448dc>-0x1&&_0x28f1c5[_0x11c66a(0x21b)]['splice'](_0x5448dc,0x1);}),_0x28f1c5[_0x24060d(0x21b)]=jnewsoption[_0x24060d(0x1d8)]=window[_0x24060d(0x22a)]=[];},_0x28f1c5[_0xf9e42(0x240)](function(){var _0x513f57=_0xf9e42;_0x28f1c5[_0x513f57(0x1d7)]=_0x28f1c5[_0x513f57(0x1d7)]==_0x28f1c5[_0x513f57(0x1c1)]?_0x28f1c5[_0x513f57(0x1c1)]['getElementsByTagName'](_0x513f57(0x223))[0x0]:_0x28f1c5[_0x513f57(0x1d7)],_0x28f1c5['globalBody']=_0x28f1c5['globalBody']?_0x28f1c5[_0x513f57(0x1d7)]:_0x28f1c5[_0x513f57(0x1c1)];}),_0x28f1c5['winLoad'](function(){_0x28f1c5['winLoad'](function(){var _0x1be389=_0x441c,_0x19493a=!0x1;if(void 0x0!==window['jnewsadmin']){if(void 0x0!==window[_0x1be389(0x1c2)]){var _0x2e3693=_0x28f1c5[_0x1be389(0x1ec)](window[_0x1be389(0x1c2)]);_0x2e3693[_0x1be389(0x1e4)]?_0x2e3693[_0x1be389(0x259)](function(_0x5844f0){_0x19493a||'10.0.0'===window['file_version_checker'][_0x5844f0]||(_0x19493a=!0x0);}):_0x19493a=!0x0;}else _0x19493a=!0x0;}_0x19493a&&(window[_0x1be389(0x221)][_0x1be389(0x22d)](),window[_0x1be389(0x221)]['getNotice']());},0x9c4);});},window[_0x49a1bb(0x270)][_0x49a1bb(0x22f)]=new window['jnews']['library']()));</script><link rel="alternate" type="application/rss+xml" title="个人随笔 &raquo; Feed" href="/feed">
+<link rel="alternate" type="application/rss+xml" title="个人随笔 &raquo; 评论 Feed" href="/comments/feed">
+<link rel="alternate" type="application/rss+xml" title="个人随笔 &raquo; Mysql（一）关系型、 层次型、 数据库、 数据库引擎、 数据表、 网状型、 表属性 评论 Feed" href="/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/944.html/feed">
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.6.1"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"🏳️‍⚧️","🏳️​⚧️")?!1:!n(e,"🇺🇳","🇺​🇳")&&!n(e,"🏴󠁧󠁢󠁥󠁮󠁧󠁿","🏴​󠁧​󠁢​󠁥​󠁮​󠁧​󠁿");case"emoji":return!n(e,"🐦‍⬛","🐦​⬛")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<link rel="stylesheet" id="embed-pdf-viewer-css" href="/wp-content/plugins/embed-pdf-viewer/css/embed-pdf-viewer.css?ver=6.6.1" type="text/css" media="screen">
+<style id="wp-emoji-styles-inline-css" type="text/css">img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}</style>
+<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=6.6.1" type="text/css" media="all">
+<style id="classic-theme-styles-inline-css" type="text/css">/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}</style>
+<style id="global-styles-inline-css" type="text/css">:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}</style>
+<link rel="stylesheet" id="jiangqie-api-css" href="/wp-content/plugins/jiangqie-free-mini-program/public/css/jiangqie-api-public.css?ver=2.5.2" type="text/css" media="all">
+<link rel="stylesheet" id="ce_responsive-css" href="/wp-content/plugins/simple-embed-code/css/video-container.min.css?ver=2.3.9" type="text/css" media="all">
+<link rel="stylesheet" id="js_composer_front-css" href="/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=6.9.0" type="text/css" media="all">
+<link rel="stylesheet" id="jnews-frontend-css" href="/wp-content/themes/jnews/assets/dist/frontend.min.css?ver=10.6.4" type="text/css" media="all">
+<link rel="stylesheet" id="jnews-js-composer-css" href="/wp-content/themes/jnews/assets/css/js-composer-frontend.css?ver=10.6.4" type="text/css" media="all">
+<link rel="stylesheet" id="jnews-style-css" href="/wp-content/themes/jnews/style.css?ver=10.6.4" type="text/css" media="all">
+<link rel="stylesheet" id="jnews-darkmode-css" href="/wp-content/themes/jnews/assets/css/darkmode.css?ver=10.6.4" type="text/css" media="all">
+<link rel="stylesheet" id="jnews-scheme-css" href="/wp-content/themes/jnews/data/import/fashion-blog/scheme.css?ver=10.6.4" type="text/css" media="all">
+<link rel="stylesheet" id="jnews-social-login-style-css" href="/wp-content/plugins/jnews-social-login/assets/css/plugin.css?ver=10.0.2" type="text/css" media="all">
+<link rel="stylesheet" id="jnews-select-share-css" href="/wp-content/plugins/jnews-social-share/assets/css/plugin.css" type="text/css" media="all">
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/jiangqie-free-mini-program/public/js/jiangqie-api-public.js?ver=2.5.2" id="jiangqie-api-js"></script>
+<link rel="https://api.w.org/" href="/wp-json/">
+<link rel="alternate" title="JSON" type="application/json" href="/wp-json/wp/v2/posts/944">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.6.1">
+<link rel="canonical" href="/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/944.html">
+<link rel="shortlink" href="/?p=944">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F%25e6%2595%25b0%25e6%258d%25ae%25e5%25ba%2593%2Fmysql%2F944.html">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=http%3A%2F%2F%2F%25e6%2595%25b0%25e6%258d%25ae%25e5%25ba%2593%2Fmysql%2F944.html#038;format=xml">
+<meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress.">
+<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Organization","@id":"\/#organization","url":"\/","name":"","logo":{"@type":"ImageObject","url":""},"sameAs":["https:\/\/github.com\/LeeYouRan"]}</script>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"\/#website","url":"\/","name":"","potentialAction":{"@type":"SearchAction","target":"\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="icon" href="/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png" sizes="32x32">
+<link rel="icon" href="/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-180x180.png">
+<meta name="msapplication-TileImage" content="/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-270x270.png">
+<style id="jeg_dynamic_css" type="text/css" data-type="jeg_custom-css"></style>
+<style type="text/css">.no_thumbnail .jeg_thumb,
+					.thumbnail-container.no_thumbnail {
+					    display: none !important;
+					}
+					.jeg_search_result .jeg_pl_xs_3.no_thumbnail .jeg_postblock_content,
+					.jeg_sidefeed .jeg_pl_xs_3.no_thumbnail .jeg_postblock_content,
+					.jeg_pl_sm.no_thumbnail .jeg_postblock_content {
+					    margin-left: 0;
+					}
+					.jeg_postblock_11 .no_thumbnail .jeg_postblock_content,
+					.jeg_postblock_12 .no_thumbnail .jeg_postblock_content,
+					.jeg_postblock_12.jeg_col_3o3 .no_thumbnail .jeg_postblock_content  {
+					    margin-top: 0;
+					}
+					.jeg_postblock_15 .jeg_pl_md_box.no_thumbnail .jeg_postblock_content,
+					.jeg_postblock_19 .jeg_pl_md_box.no_thumbnail .jeg_postblock_content,
+					.jeg_postblock_24 .jeg_pl_md_box.no_thumbnail .jeg_postblock_content,
+					.jeg_sidefeed .jeg_pl_md_box .jeg_postblock_content {
+					    position: relative;
+					}
+					.jeg_postblock_carousel_2 .no_thumbnail .jeg_post_title a,
+					.jeg_postblock_carousel_2 .no_thumbnail .jeg_post_title a:hover,
+					.jeg_postblock_carousel_2 .no_thumbnail .jeg_post_meta .fa {
+					    color: #212121 !important;
+					} 
+					.jnews-dark-mode .jeg_postblock_carousel_2 .no_thumbnail .jeg_post_title a,
+					.jnews-dark-mode .jeg_postblock_carousel_2 .no_thumbnail .jeg_post_title a:hover,
+					.jnews-dark-mode .jeg_postblock_carousel_2 .no_thumbnail .jeg_post_meta .fa {
+					    color: #fff !important;
+					}</style>
+<noscript><style>.wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>
+</head>
+<body class="post-template-default single single-post postid-944 single-format-standard wp-embed-responsive jeg_toggle_light jeg_single_tpl_1 jnews jsc_normal wpb-js-composer js-comp-ver-6.9.0 vc_responsive">
+
+    
+    
+    <div class="jeg_ad jeg_ad_top jnews_header_top_ads">
+        <div class="ads-wrapper  "></div>    </div>
+
+    <!-- The Main Wrapper
+    ============================================= -->
+    <div class="jeg_viewport">
+
+        
+        <div class="jeg_header_wrapper">
+            <div class="jeg_header_instagram_wrapper">
+    </div>
+
+<!-- HEADER -->
+<div class="jeg_header normal">
+    <div class="jeg_bottombar jeg_navbar jeg_container jeg_navbar_wrapper jeg_navbar_normal jeg_navbar_normal">
+    <div class="container">
+        <div class="jeg_nav_row">
+            
+                <div class="jeg_nav_col jeg_nav_left jeg_nav_grow">
+                    <div class="item_wrap jeg_nav_alignleft">
+                        <div class="jeg_nav_item jeg_main_menu_wrapper">
+<div class="jeg_mainmenu_wrap"><ul class="jeg_menu jeg_main_menu jeg_menu_style_1" data-animation="animate">
+<li id="menu-item-8872" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-8872 bgnav" data-item-row="default"><a href="/">首页</a></li>
+<li id="menu-item-3239" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3239 bgnav" data-item-row="default">
+<a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af">前端</a>
+<ul class="sub-menu">
+	<li id="menu-item-1350" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1350 bgnav" data-item-row="default"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/html">HTML</a></li>
+	<li id="menu-item-1352" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1352 bgnav" data-item-row="default"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/css">CSS</a></li>
+	<li id="menu-item-1351" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1351 bgnav" data-item-row="default"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/javascript">Javascript</a></li>
+	<li id="menu-item-2934" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2934 bgnav" data-item-row="default"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/xml">XML</a></li>
+	<li id="menu-item-2933" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2933 bgnav" data-item-row="default"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/ajax">AJAX</a></li>
+</ul>
+</li>
+<li id="menu-item-3240" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3240 bgnav" data-item-row="default">
+<a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/%e5%89%8d%e7%ab%af%e6%a1%86%e6%9e%b6">前端框架</a>
+<ul class="sub-menu">
+	<li id="menu-item-2939" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2939 bgnav" data-item-row="default"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/%e5%89%8d%e7%ab%af%e6%a1%86%e6%9e%b6/bootstrap">BootStrap</a></li>
+	<li id="menu-item-2940" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2940 bgnav" data-item-row="default"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/%e5%89%8d%e7%ab%af%e6%a1%86%e6%9e%b6/jquery">Jquery</a></li>
+</ul>
+</li>
+<li id="menu-item-3241" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3241 bgnav" data-item-row="default">
+<a href="/classify/php">PHP</a>
+<ul class="sub-menu">
+	<li id="menu-item-1356" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1356 bgnav" data-item-row="default"><a href="/classify/php/php%e5%9f%ba%e6%9c%ac%e8%af%ad%e6%b3%95">语法</a></li>
+	<li id="menu-item-1487" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1487 bgnav" data-item-row="default"><a href="/classify/php/php%e6%a0%b8%e5%bf%83%e7%bc%96%e7%a8%8b">核心</a></li>
+	<li id="menu-item-1823" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1823 bgnav" data-item-row="default"><a href="/classify/php/%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e7%bc%96%e7%a8%8b">面向对象</a></li>
+	<li id="menu-item-3694" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3694 bgnav" data-item-row="default"><a href="/classify/php/php7">PHP7</a></li>
+	<li id="menu-item-3695" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3695 bgnav" data-item-row="default"><a href="/classify/php/socket">Socket</a></li>
+	<li id="menu-item-3696" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3696 bgnav" data-item-row="default"><a href="/classify/php/swoole">Swoole</a></li>
+</ul>
+</li>
+<li id="menu-item-3242" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-3242 bgnav" data-item-row="default">
+<a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93">数据库</a>
+<ul class="sub-menu">
+	<li id="menu-item-1362" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1362 bgnav" data-item-row="default"><a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql">Mysql</a></li>
+	<li id="menu-item-3712" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3712 bgnav" data-item-row="default"><a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93/redis">Redis</a></li>
+	<li id="menu-item-3709" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3709 bgnav" data-item-row="default"><a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93/memcache">Memcache</a></li>
+	<li id="menu-item-3710" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3710 bgnav" data-item-row="default"><a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93/mongodb">MongoDB</a></li>
+</ul>
+</li>
+<li id="menu-item-3713" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3713 bgnav" data-item-row="default">
+<a href="/classify/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96">优化</a>
+<ul class="sub-menu">
+	<li id="menu-item-3716" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3716 bgnav" data-item-row="default"><a href="/classify/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/%e4%bc%98%e5%8c%96%e6%96%b9%e6%a1%88">优化方案</a></li>
+	<li id="menu-item-3714" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3714 bgnav" data-item-row="default"><a href="/classify/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/%e9%a1%b5%e9%9d%a2%e9%9d%99%e6%80%81%e5%8c%96">页面静态化</a></li>
+	<li id="menu-item-3711" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3711 bgnav" data-item-row="default"><a href="/classify/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/nginx">Nginx</a></li>
+</ul>
+</li>
+<li id="menu-item-3243" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3243 bgnav" data-item-row="default">
+<a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6">后台框架与实战</a>
+<ul class="sub-menu">
+	<li id="menu-item-2283" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2283 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/smarty">Smarty</a></li>
+	<li id="menu-item-2924" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2924 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/%e6%ba%90%e7%a0%81blog%e9%a1%b9%e7%9b%ae">源码Blog</a></li>
+	<li id="menu-item-3704" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3704 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/tp3-2">TP3.2</a></li>
+	<li id="menu-item-3705" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3705 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/tp3-2/tp3-2%e5%95%86%e5%9f%8e">TP3.2商城</a></li>
+	<li id="menu-item-7389" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7389 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/tp5-0">TP5.0</a></li>
+	<li id="menu-item-7390" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7390 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/tp5-0/tp5-0%e5%95%86%e5%9f%8e">TP5.0商城</a></li>
+	<li id="menu-item-3702" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3702 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/laravel">Laravel</a></li>
+	<li id="menu-item-3703" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3703 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/laravel/laravel%e5%9c%a8%e7%ba%bf%e6%95%99%e8%82%b2%e5%b9%b3%e5%8f%b0">Laravel在线教育平台</a></li>
+	<li id="menu-item-3707" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3707 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/yii">Yii</a></li>
+	<li id="menu-item-3708" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3708 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/yii/yii%e6%89%8b%e6%9c%ba%e7%9b%b4%e6%92%ad">Yii手机直播</a></li>
+	<li id="menu-item-3701" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3701 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/codeigniter">CodeIgniter</a></li>
+	<li id="menu-item-3706" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3706 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/yaf">Yaf</a></li>
+</ul>
+</li>
+<li id="menu-item-3697" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3697 bgnav" data-item-row="default">
+<a href="/classify/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91">移动开发</a>
+<ul class="sub-menu">
+	<li id="menu-item-3698" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3698 bgnav" data-item-row="default"><a href="/classify/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/%e5%be%ae%e4%bf%a1%e5%85%ac%e4%bc%97%e5%8f%b7">微信公众号</a></li>
+	<li id="menu-item-3699" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3699 bgnav" data-item-row="default"><a href="/classify/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/%e6%b7%b7%e5%90%88app">混合APP</a></li>
+</ul>
+</li>
+<li id="menu-item-3700" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3700 bgnav" data-item-row="default">
+<a href="/classify/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91">二次开发</a>
+<ul class="sub-menu">
+	<li id="menu-item-3717" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3717 bgnav" data-item-row="default"><a href="/classify/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91/dedecms">DedeCMS</a></li>
+</ul>
+</li>
+<li id="menu-item-3719" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3719 bgnav" data-item-row="default">
+<a href="/classify/linux">Linux</a>
+<ul class="sub-menu">
+	<li id="menu-item-3720" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3720 bgnav" data-item-row="default"><a href="/classify/linux/%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c">基本操作</a></li>
+	<li id="menu-item-3721" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3721 bgnav" data-item-row="default"><a href="/classify/linux/%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba">环境搭建</a></li>
+</ul>
+</li>
+<li id="menu-item-3475" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3475 bgnav" data-item-row="default">
+<a href="/classify/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6">版本控制</a>
+<ul class="sub-menu">
+	<li id="menu-item-3476" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3476 bgnav" data-item-row="default"><a href="/classify/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6/git">GIT</a></li>
+	<li id="menu-item-3477" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3477 bgnav" data-item-row="default"><a href="/classify/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6/svn">SVN</a></li>
+</ul>
+</li>
+<li id="menu-item-8714" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8714 bgnav" data-item-row="default"><a href="/classify/node">Node.js</a></li>
+<li id="menu-item-3722" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3722 bgnav" data-item-row="default"><a href="/classify/%e8%b5%84%e6%96%99">资料库</a></li>
+</ul></div>
+</div>
+                    </div>
+                </div>
+
+                
+                <div class="jeg_nav_col jeg_nav_center jeg_nav_normal">
+                    <div class="item_wrap jeg_nav_aligncenter">
+                                            </div>
+                </div>
+
+                
+                <div class="jeg_nav_col jeg_nav_right jeg_nav_normal">
+                    <div class="item_wrap jeg_nav_alignright">
+                        <!-- Search Icon -->
+<div class="jeg_nav_item jeg_search_wrapper search_icon jeg_search_popup_expand">
+    <a href="#" class="jeg_search_toggle"><i class="fa fa-search"></i></a>
+    <form action="/" method="get" class="jeg_search_form" target="_top">
+    <input name="s" class="jeg_search_input" placeholder="搜索..." type="text" value="" autocomplete="off">
+    <button aria-label="Search Button" type="submit" class="jeg_search_button btn"><i class="fa fa-search"></i></button>
+</form>
+<!-- jeg_search_hide with_result no_result -->
+<div class="jeg_search_result jeg_search_hide with_result">
+    <div class="search-result-wrapper">
+    </div>
+    <div class="search-link search-noresult">
+        没有结果    </div>
+    <div class="search-link search-all-button">
+        <i class="fa fa-search"></i> 查看所有结果    </div>
+</div>
+</div>                    </div>
+                </div>
+
+                        </div>
+    </div>
+</div>
+</div>
+<!-- /.jeg_header -->        </div>
+
+        <div class="jeg_header_sticky">
+            <div class="sticky_blankspace"></div>
+<div class="jeg_header normal">
+    <div class="jeg_container">
+        <div data-mode="scroll" class="jeg_stickybar jeg_navbar jeg_navbar_wrapper jeg_navbar_normal jeg_navbar_normal">
+            <div class="container">
+    <div class="jeg_nav_row">
+        
+            <div class="jeg_nav_col jeg_nav_left jeg_nav_grow">
+                <div class="item_wrap jeg_nav_alignleft">
+                    <div class="jeg_nav_item jeg_main_menu_wrapper">
+<div class="jeg_mainmenu_wrap"><ul class="jeg_menu jeg_main_menu jeg_menu_style_1" data-animation="animate">
+<li id="menu-item-8872" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-8872 bgnav" data-item-row="default"><a href="/">首页</a></li>
+<li id="menu-item-3239" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3239 bgnav" data-item-row="default">
+<a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af">前端</a>
+<ul class="sub-menu">
+	<li id="menu-item-1350" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1350 bgnav" data-item-row="default"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/html">HTML</a></li>
+	<li id="menu-item-1352" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1352 bgnav" data-item-row="default"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/css">CSS</a></li>
+	<li id="menu-item-1351" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1351 bgnav" data-item-row="default"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/javascript">Javascript</a></li>
+	<li id="menu-item-2934" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2934 bgnav" data-item-row="default"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/xml">XML</a></li>
+	<li id="menu-item-2933" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2933 bgnav" data-item-row="default"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/ajax">AJAX</a></li>
+</ul>
+</li>
+<li id="menu-item-3240" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3240 bgnav" data-item-row="default">
+<a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/%e5%89%8d%e7%ab%af%e6%a1%86%e6%9e%b6">前端框架</a>
+<ul class="sub-menu">
+	<li id="menu-item-2939" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2939 bgnav" data-item-row="default"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/%e5%89%8d%e7%ab%af%e6%a1%86%e6%9e%b6/bootstrap">BootStrap</a></li>
+	<li id="menu-item-2940" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2940 bgnav" data-item-row="default"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/%e5%89%8d%e7%ab%af%e6%a1%86%e6%9e%b6/jquery">Jquery</a></li>
+</ul>
+</li>
+<li id="menu-item-3241" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3241 bgnav" data-item-row="default">
+<a href="/classify/php">PHP</a>
+<ul class="sub-menu">
+	<li id="menu-item-1356" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1356 bgnav" data-item-row="default"><a href="/classify/php/php%e5%9f%ba%e6%9c%ac%e8%af%ad%e6%b3%95">语法</a></li>
+	<li id="menu-item-1487" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1487 bgnav" data-item-row="default"><a href="/classify/php/php%e6%a0%b8%e5%bf%83%e7%bc%96%e7%a8%8b">核心</a></li>
+	<li id="menu-item-1823" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1823 bgnav" data-item-row="default"><a href="/classify/php/%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e7%bc%96%e7%a8%8b">面向对象</a></li>
+	<li id="menu-item-3694" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3694 bgnav" data-item-row="default"><a href="/classify/php/php7">PHP7</a></li>
+	<li id="menu-item-3695" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3695 bgnav" data-item-row="default"><a href="/classify/php/socket">Socket</a></li>
+	<li id="menu-item-3696" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3696 bgnav" data-item-row="default"><a href="/classify/php/swoole">Swoole</a></li>
+</ul>
+</li>
+<li id="menu-item-3242" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-3242 bgnav" data-item-row="default">
+<a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93">数据库</a>
+<ul class="sub-menu">
+	<li id="menu-item-1362" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1362 bgnav" data-item-row="default"><a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql">Mysql</a></li>
+	<li id="menu-item-3712" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3712 bgnav" data-item-row="default"><a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93/redis">Redis</a></li>
+	<li id="menu-item-3709" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3709 bgnav" data-item-row="default"><a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93/memcache">Memcache</a></li>
+	<li id="menu-item-3710" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3710 bgnav" data-item-row="default"><a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93/mongodb">MongoDB</a></li>
+</ul>
+</li>
+<li id="menu-item-3713" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3713 bgnav" data-item-row="default">
+<a href="/classify/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96">优化</a>
+<ul class="sub-menu">
+	<li id="menu-item-3716" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3716 bgnav" data-item-row="default"><a href="/classify/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/%e4%bc%98%e5%8c%96%e6%96%b9%e6%a1%88">优化方案</a></li>
+	<li id="menu-item-3714" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3714 bgnav" data-item-row="default"><a href="/classify/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/%e9%a1%b5%e9%9d%a2%e9%9d%99%e6%80%81%e5%8c%96">页面静态化</a></li>
+	<li id="menu-item-3711" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3711 bgnav" data-item-row="default"><a href="/classify/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/nginx">Nginx</a></li>
+</ul>
+</li>
+<li id="menu-item-3243" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3243 bgnav" data-item-row="default">
+<a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6">后台框架与实战</a>
+<ul class="sub-menu">
+	<li id="menu-item-2283" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2283 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/smarty">Smarty</a></li>
+	<li id="menu-item-2924" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2924 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/%e6%ba%90%e7%a0%81blog%e9%a1%b9%e7%9b%ae">源码Blog</a></li>
+	<li id="menu-item-3704" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3704 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/tp3-2">TP3.2</a></li>
+	<li id="menu-item-3705" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3705 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/tp3-2/tp3-2%e5%95%86%e5%9f%8e">TP3.2商城</a></li>
+	<li id="menu-item-7389" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7389 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/tp5-0">TP5.0</a></li>
+	<li id="menu-item-7390" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7390 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/tp5-0/tp5-0%e5%95%86%e5%9f%8e">TP5.0商城</a></li>
+	<li id="menu-item-3702" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3702 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/laravel">Laravel</a></li>
+	<li id="menu-item-3703" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3703 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/laravel/laravel%e5%9c%a8%e7%ba%bf%e6%95%99%e8%82%b2%e5%b9%b3%e5%8f%b0">Laravel在线教育平台</a></li>
+	<li id="menu-item-3707" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3707 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/yii">Yii</a></li>
+	<li id="menu-item-3708" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3708 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/yii/yii%e6%89%8b%e6%9c%ba%e7%9b%b4%e6%92%ad">Yii手机直播</a></li>
+	<li id="menu-item-3701" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3701 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/codeigniter">CodeIgniter</a></li>
+	<li id="menu-item-3706" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3706 bgnav" data-item-row="default"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/yaf">Yaf</a></li>
+</ul>
+</li>
+<li id="menu-item-3697" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3697 bgnav" data-item-row="default">
+<a href="/classify/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91">移动开发</a>
+<ul class="sub-menu">
+	<li id="menu-item-3698" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3698 bgnav" data-item-row="default"><a href="/classify/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/%e5%be%ae%e4%bf%a1%e5%85%ac%e4%bc%97%e5%8f%b7">微信公众号</a></li>
+	<li id="menu-item-3699" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3699 bgnav" data-item-row="default"><a href="/classify/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/%e6%b7%b7%e5%90%88app">混合APP</a></li>
+</ul>
+</li>
+<li id="menu-item-3700" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3700 bgnav" data-item-row="default">
+<a href="/classify/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91">二次开发</a>
+<ul class="sub-menu">
+	<li id="menu-item-3717" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3717 bgnav" data-item-row="default"><a href="/classify/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91/dedecms">DedeCMS</a></li>
+</ul>
+</li>
+<li id="menu-item-3719" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3719 bgnav" data-item-row="default">
+<a href="/classify/linux">Linux</a>
+<ul class="sub-menu">
+	<li id="menu-item-3720" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3720 bgnav" data-item-row="default"><a href="/classify/linux/%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c">基本操作</a></li>
+	<li id="menu-item-3721" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3721 bgnav" data-item-row="default"><a href="/classify/linux/%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba">环境搭建</a></li>
+</ul>
+</li>
+<li id="menu-item-3475" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3475 bgnav" data-item-row="default">
+<a href="/classify/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6">版本控制</a>
+<ul class="sub-menu">
+	<li id="menu-item-3476" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3476 bgnav" data-item-row="default"><a href="/classify/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6/git">GIT</a></li>
+	<li id="menu-item-3477" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3477 bgnav" data-item-row="default"><a href="/classify/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6/svn">SVN</a></li>
+</ul>
+</li>
+<li id="menu-item-8714" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8714 bgnav" data-item-row="default"><a href="/classify/node">Node.js</a></li>
+<li id="menu-item-3722" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3722 bgnav" data-item-row="default"><a href="/classify/%e8%b5%84%e6%96%99">资料库</a></li>
+</ul></div>
+</div>
+                </div>
+            </div>
+
+            
+            <div class="jeg_nav_col jeg_nav_center jeg_nav_normal">
+                <div class="item_wrap jeg_nav_aligncenter">
+                                    </div>
+            </div>
+
+            
+            <div class="jeg_nav_col jeg_nav_right jeg_nav_normal">
+                <div class="item_wrap jeg_nav_alignright">
+                    <!-- Search Icon -->
+<div class="jeg_nav_item jeg_search_wrapper search_icon jeg_search_popup_expand">
+    <a href="#" class="jeg_search_toggle"><i class="fa fa-search"></i></a>
+    <form action="/" method="get" class="jeg_search_form" target="_top">
+    <input name="s" class="jeg_search_input" placeholder="搜索..." type="text" value="" autocomplete="off">
+    <button aria-label="Search Button" type="submit" class="jeg_search_button btn"><i class="fa fa-search"></i></button>
+</form>
+<!-- jeg_search_hide with_result no_result -->
+<div class="jeg_search_result jeg_search_hide with_result">
+    <div class="search-result-wrapper">
+    </div>
+    <div class="search-link search-noresult">
+        没有结果    </div>
+    <div class="search-link search-all-button">
+        <i class="fa fa-search"></i> 查看所有结果    </div>
+</div>
+</div>                </div>
+            </div>
+
+                </div>
+</div>        </div>
+    </div>
+</div>
+        </div>
+
+        <div class="jeg_navbar_mobile_wrapper">
+            <div class="jeg_navbar_mobile" data-mode="scroll">
+    <div class="jeg_mobile_bottombar jeg_mobile_midbar jeg_container dark">
+    <div class="container">
+        <div class="jeg_nav_row">
+            
+                <div class="jeg_nav_col jeg_nav_left jeg_nav_normal">
+                    <div class="item_wrap jeg_nav_alignleft">
+                        <div class="jeg_nav_item">
+    <a href="#" class="toggle_btn jeg_mobile_toggle"><i class="fa fa-bars"></i></a>
+</div>                    </div>
+                </div>
+
+                
+                <div class="jeg_nav_col jeg_nav_center jeg_nav_grow">
+                    <div class="item_wrap jeg_nav_aligncenter">
+                                            </div>
+                </div>
+
+                
+                <div class="jeg_nav_col jeg_nav_right jeg_nav_normal">
+                    <div class="item_wrap jeg_nav_alignright">
+                        <div class="jeg_nav_item jeg_search_wrapper jeg_search_popup_expand">
+    <a href="#" class="jeg_search_toggle"><i class="fa fa-search"></i></a>
+	<form action="/" method="get" class="jeg_search_form" target="_top">
+    <input name="s" class="jeg_search_input" placeholder="搜索..." type="text" value="" autocomplete="off">
+    <button aria-label="Search Button" type="submit" class="jeg_search_button btn"><i class="fa fa-search"></i></button>
+</form>
+<!-- jeg_search_hide with_result no_result -->
+<div class="jeg_search_result jeg_search_hide with_result">
+    <div class="search-result-wrapper">
+    </div>
+    <div class="search-link search-noresult">
+        没有结果    </div>
+    <div class="search-link search-all-button">
+        <i class="fa fa-search"></i> 查看所有结果    </div>
+</div>
+</div>                    </div>
+                </div>
+
+                        </div>
+    </div>
+</div>
+</div>
+<div class="sticky_blankspace" style="height: 60px;"></div>        </div>
+
+            <div class="post-wrapper">
+
+        <div class="post-wrap">
+
+            
+            <div class="jeg_main ">
+                <div class="jeg_container">
+                    <div class="jeg_content jeg_singlepage">
+
+	<div class="container">
+
+		<div class="jeg_ad jeg_article jnews_article_top_ads">
+			<div class="ads-wrapper  "></div>		</div>
+
+		<div class="row">
+			<div class="jeg_main_content col-md-8">
+				<div class="jeg_inner_content">
+					
+						
+						<div class="entry-header">
+							
+							<h1 class="jeg_post_title">Mysql（一）关系型、 层次型、 数据库、 数据库引擎、 数据表、 网状型、 表属性</h1>
+
+							
+							<div class="jeg_meta_container">
+<div class="jeg_post_meta jeg_post_meta_1">
+
+	<div class="meta_left">
+									<div class="jeg_meta_author">
+					<img alt="Mr.Lee" src="http://1.gravatar.com/avatar/1eadb3c25a297957c15819b5b2901d60?s=80&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/1eadb3c25a297957c15819b5b2901d60?s=160&#038;d=mm&#038;r=g 2x" class="avatar avatar-80 photo" height="80" width="80" decoding="async">					<span class="meta_text">由</span>
+					<a href="/author/root">Mr.Lee</a>				</div>
+					
+					<div class="jeg_meta_date">
+				<a href="/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/944.html">2018年5月20日</a>
+			</div>
+		
+					<div class="jeg_meta_category">
+				<span><span class="meta_text">在</span>
+					<a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql" rel="category tag">Mysql</a>				</span>
+			</div>
+		
+			</div>
+
+	<div class="meta_right">
+							<div class="jeg_meta_comment"><a href="/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/944.html#comments"><i class="fa fa-comment-o"></i> 0</a></div>
+			</div>
+</div>
+</div>
+						</div>
+
+						<div class="jeg_featured featured_image "><a href="/wp-content/uploads/2018/05/Mysql.jpg"><div class="thumbnail-container animate-lazy" style="padding-bottom:41.48%"><img width="716" height="297" src="/wp-content/themes/jnews/assets/img/jeg-empty.png" class="attachment-jnews-750x375 size-jnews-750x375 lazyload wp-post-image" alt="Mysql（五）事物、 外键、 存储函数、 存储过程、 流程控制、 视图、 触发器" decoding="async" fetchpriority="high" sizes="(max-width: 716px) 100vw, 716px" data-src="/wp-content/uploads/2018/05/Mysql.jpg" data-srcset="/wp-content/uploads/2018/05/Mysql.jpg 716w, /wp-content/uploads/2018/05/Mysql-300x124.jpg 300w" data-sizes="auto" data-expand="700"></div></a></div>
+						<div class="jeg_share_top_container"><div class="jeg_share_button clearfix">
+                <div class="jeg_share_stats">
+                    <div class="jeg_share_count">
+                        <div class="counts">0</div>
+                        <span class="sharetext">分享</span>
+                    </div>
+                    <div class="jeg_views_count">
+                    <div class="counts">2</div>
+                    <span class="sharetext">浏览</span>
+                </div>
+                </div>
+                <div class="jeg_sharelist">
+                    <a href="https://chart.googleapis.com/chart?chs=400x400&cht=qr&choe=UTF-8&chl=%2F%25e6%2595%25b0%25e6%258d%25ae%25e5%25ba%2593%2Fmysql%2F944.html" rel="nofollow" class="jeg_btn-wechat "><i class="fa fa-wechat"></i></a><a href="mailto:?subject=Mysql%EF%BC%88%E4%B8%80%EF%BC%89%E5%85%B3%E7%B3%BB%E5%9E%8B%E3%80%81%20%E5%B1%82%E6%AC%A1%E5%9E%8B%E3%80%81%20%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%81%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%95%E6%93%8E%E3%80%81%20%E6%95%B0%E6%8D%AE%E8%A1%A8%E3%80%81%20%E7%BD%91%E7%8A%B6%E5%9E%8B%E3%80%81%20%E8%A1%A8%E5%B1%9E%E6%80%A7&amp;body=%2F%25e6%2595%25b0%25e6%258d%25ae%25e5%25ba%2593%2Fmysql%2F944.html" rel="nofollow" class="jeg_btn-email "><i class="fa fa-envelope"></i></a>
+                    <div class="share-secondary">
+                    <a href="https://www.linkedin.com/shareArticle?url=%2F%25e6%2595%25b0%25e6%258d%25ae%25e5%25ba%2593%2Fmysql%2F944.html&title=Mysql%EF%BC%88%E4%B8%80%EF%BC%89%E5%85%B3%E7%B3%BB%E5%9E%8B%E3%80%81%20%E5%B1%82%E6%AC%A1%E5%9E%8B%E3%80%81%20%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%81%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%95%E6%93%8E%E3%80%81%20%E6%95%B0%E6%8D%AE%E8%A1%A8%E3%80%81%20%E7%BD%91%E7%8A%B6%E5%9E%8B%E3%80%81%20%E8%A1%A8%E5%B1%9E%E6%80%A7" rel="nofollow" class="jeg_btn-linkedin "><i class="fa fa-linkedin"></i></a><a href="http://www.stumbleupon.com/submit?url=%2F%25e6%2595%25b0%25e6%258d%25ae%25e5%25ba%2593%2Fmysql%2F944.html&title=Mysql%EF%BC%88%E4%B8%80%EF%BC%89%E5%85%B3%E7%B3%BB%E5%9E%8B%E3%80%81%20%E5%B1%82%E6%AC%A1%E5%9E%8B%E3%80%81%20%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%81%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%95%E6%93%8E%E3%80%81%20%E6%95%B0%E6%8D%AE%E8%A1%A8%E3%80%81%20%E7%BD%91%E7%8A%B6%E5%9E%8B%E3%80%81%20%E8%A1%A8%E5%B1%9E%E6%80%A7" rel="nofollow" class="jeg_btn-stumbleupon "><i class="fa fa-stumbleupon"></i></a>
+                </div>
+                <a href="#" class="jeg_btn-toggle"><i class="fa fa-share"></i></a>
+                </div>
+            </div></div>
+						<div class="jeg_ad jeg_article jnews_content_top_ads "><div class="ads-wrapper  "></div></div>
+						<div class="entry-content no-share">
+							<div class="jeg_share_button share-float jeg_sticky_share clearfix share-monocrhome">
+								<div class="jeg_share_float_container"></div>							</div>
+
+							<div class="content-inner ">
+								<h1>基本概念</h1>
+<h2>数据库</h2>
+<p>
+  database
+</p>
+<p>
+  什么是数据库：存放数据的仓库，用途就是存放，（永久存放）
+</p>
+<p>
+  Word也是永久存放数据的地方，那么word是数据库吗？
+</p>
+<p>
+  Word 文档文件&#8212;-从定义上说，word就是数据库，为什么？
+</p>
+<p>
+  其实数据库的本质就是文件
+</p>
+<p>
+  <img decoding="async" width="1033" height="327" src="/wp-content/uploads/2018/05/word-image-838.png" class="wp-image-945" srcset="/wp-content/uploads/2018/05/word-image-838.png 1033w, /wp-content/uploads/2018/05/word-image-838-300x95.png 300w, /wp-content/uploads/2018/05/word-image-838-768x243.png 768w, /wp-content/uploads/2018/05/word-image-838-1024x324.png 1024w" sizes="(max-width: 1033px) 100vw, 1033px">
+</p>
+<h2>数据库发展史</h2>
+<h3>层次型</h3>
+<p>
+  什么是层次型数据库？
+</p>
+<p>
+  把数据分层，分类来存储好处，把数据归类了，层次分明
+</p>
+<p>
+  像一个倒立的树
+</p>
+<p>
+  现在你要找一个学生，那么必须从学校开始找  学校&#8212;-班级&#8212;-学生或学校&#8212;-教师&#8212;学生
+</p>
+<p>
+  出现了一个导航问题找C必须通过A再B
+</p>
+<p>
+  出现了重复数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="603" height="515" src="/wp-content/uploads/2018/05/word-image-839.png" class="wp-image-946" srcset="/wp-content/uploads/2018/05/word-image-839.png 603w, /wp-content/uploads/2018/05/word-image-839-300x256.png 300w" sizes="(max-width: 603px) 100vw, 603px">
+</p>
+<h3>网状型</h3>
+<p>
+  好处：解决了数据的重复
+</p>
+<p>
+  坏处：但是导航问题没有根本的解决
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="522" height="523" src="/wp-content/uploads/2018/05/word-image-840.png" class="wp-image-947" srcset="/wp-content/uploads/2018/05/word-image-840.png 522w, /wp-content/uploads/2018/05/word-image-840-150x150.png 150w, /wp-content/uploads/2018/05/word-image-840-300x300.png 300w" sizes="(max-width: 522px) 100vw, 522px">
+</p>
+<h3>关系型</h3>
+<p>
+  什么是关系型数据库
+</p>
+<p>
+  其实就是有关系的二维表
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="946" height="145" src="/wp-content/uploads/2018/05/word-image-841.png" class="wp-image-948" srcset="/wp-content/uploads/2018/05/word-image-841.png 946w, /wp-content/uploads/2018/05/word-image-841-300x46.png 300w, /wp-content/uploads/2018/05/word-image-841-768x118.png 768w" sizes="(max-width: 946px) 100vw, 946px">
+</p>
+<h2>数据表</h2>
+<p>
+  关系型数据库中的二维表就是数据表，是二维的另外一个名字
+</p>
+<h3>记录</h3>
+<p>
+  数据表中一行就是一条记录
+</p>
+<h3>字段</h3>
+<p>
+  数据表中一列就是一个字段
+</p>
+<h3>数据</h3>
+<p>
+  一行和一列交差的地方就是数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="463" height="168" src="/wp-content/uploads/2018/05/word-image-842.png" class="wp-image-949" srcset="/wp-content/uploads/2018/05/word-image-842.png 463w, /wp-content/uploads/2018/05/word-image-842-300x109.png 300w" sizes="(max-width: 463px) 100vw, 463px">
+</p>
+<h2>数据库管理系统（软件）</h2>
+<p>
+  Managerment  database  system
+</p>
+<p>
+  平时说的MySQL数据库这个定义不对  其实MySQL是管理数据库的，是一个数据库管理系统
+</p>
+<p>
+  常见的一些数据库管理系统有如下几个;
+</p>
+<p>
+  Oracle  mysql   sqlserver  sqllite   db2  access
+</p>
+<p>
+  如上的一些数据库管理系统都有一个特点&#8212;&#8211;都是管理关系型数据库的
+</p>
+<p>
+  用途：数据库管理系统就是用来管理数据库的
+</p>
+<h2>SQL</h2>
+<p>
+  Sql就是数据库管理系统管理数据库的一种命令
+</p>
+<p>
+  这里数据库管理系统可以不同但是sql命令确是可以共用的，说白了，SQL就是一种专门管理数据库的一种语言
+</p>
+<h2>数据库服务器（硬件）</h2>
+<p>
+  数据库服务器：就是提供数据库服务的一个计算机，安装了数据库管理系统
+</p>
+<h2>数据库系统</h2>
+<p>
+  数据库系统=数据库管理员+数据库管理系统+数据库
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1555" height="497" src="/wp-content/uploads/2018/05/word-image-843.png" class="wp-image-950" srcset="/wp-content/uploads/2018/05/word-image-843.png 1555w, /wp-content/uploads/2018/05/word-image-843-300x96.png 300w, /wp-content/uploads/2018/05/word-image-843-768x245.png 768w, /wp-content/uploads/2018/05/word-image-843-1024x327.png 1024w" sizes="(max-width: 1555px) 100vw, 1555px">
+</p>
+<h2>今日数据库操作步骤</h2>
+<ul>
+<li>
+    数据库操作顺序
+  </li>
+<li>
+    第一步：打开数据库服务
+  </li>
+<li>
+    第二步：连接数据库
+  </li>
+<li>
+    第三步：数据库的‘库操作’
+<ul>
+<li>
+<ul>
+<li>
+            对数据库的增删改查
+          </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+    第四步：进入数据库
+  </li>
+<li>
+    第五步：表操作（增加，删除，修改）
+  </li>
+</ul>
+<h1>数据库服务</h1>
+<h2>启动数据库服务</h2>
+<p>
+  第一种
+</p>
+<p>
+  右键计算机&#8212;管理&#8212;服务&#8212;MySQL数据库
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="759" height="285" src="/wp-content/uploads/2018/05/word-image-844.png" class="wp-image-951" srcset="/wp-content/uploads/2018/05/word-image-844.png 759w, /wp-content/uploads/2018/05/word-image-844-300x113.png 300w" sizes="(max-width: 759px) 100vw, 759px">
+</p>
+<p>
+  第二种
+</p>
+<p>
+  Cmd 命令行方式启动
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="484" height="72" src="/wp-content/uploads/2018/05/word-image-845.png" class="wp-image-952" srcset="/wp-content/uploads/2018/05/word-image-845.png 484w, /wp-content/uploads/2018/05/word-image-845-300x45.png 300w" sizes="(max-width: 484px) 100vw, 484px">
+</p>
+<p>
+  注意：配置path，net start mysql后没有分号；
+</p>
+<h2>关闭数据库服务</h2>
+<p>
+  语法： net stop mysql
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="563" height="132" src="/wp-content/uploads/2018/05/word-image-846.png" class="wp-image-953" srcset="/wp-content/uploads/2018/05/word-image-846.png 563w, /wp-content/uploads/2018/05/word-image-846-300x70.png 300w" sizes="(max-width: 563px) 100vw, 563px">
+</p>
+<h1>MySQL客户端</h1>
+<h2>Windows命令窗口cmd</h2>
+<h3>连接数据库</h3>
+<p>
+  语法:  mysql -h主机名 -P端口号 -u用户名 -p密码
+</p>
+<ul>
+<li>
+    -h主机名，默认是localhost(127.0.0.1) ,如果是默认可以不填写
+  </li>
+<li>
+    -P端口号，默认是3306，如果是默认的可以不填写
+  </li>
+<li>
+    -u用户名
+  </li>
+<li>
+    -p密码
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="856" height="283" src="/wp-content/uploads/2018/05/word-image-847.png" class="wp-image-954" srcset="/wp-content/uploads/2018/05/word-image-847.png 856w, /wp-content/uploads/2018/05/word-image-847-300x99.png 300w, /wp-content/uploads/2018/05/word-image-847-768x254.png 768w" sizes="(max-width: 856px) 100vw, 856px">
+</p>
+<p>
+  优化
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="895" height="306" src="/wp-content/uploads/2018/05/word-image-848.png" class="wp-image-955" srcset="/wp-content/uploads/2018/05/word-image-848.png 895w, /wp-content/uploads/2018/05/word-image-848-300x103.png 300w, /wp-content/uploads/2018/05/word-image-848-768x263.png 768w" sizes="(max-width: 895px) 100vw, 895px">
+</p>
+<h3>退出数据库</h3>
+<p>
+  \q
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="706" height="63" src="/wp-content/uploads/2018/05/word-image-849.png" class="wp-image-956" srcset="/wp-content/uploads/2018/05/word-image-849.png 706w, /wp-content/uploads/2018/05/word-image-849-300x27.png 300w" sizes="(max-width: 706px) 100vw, 706px">
+</p>
+<p>
+  Exit
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="535" height="84" src="/wp-content/uploads/2018/05/word-image-850.png" class="wp-image-957" srcset="/wp-content/uploads/2018/05/word-image-850.png 535w, /wp-content/uploads/2018/05/word-image-850-300x47.png 300w" sizes="(max-width: 535px) 100vw, 535px">
+</p>
+<p>
+  Quit
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="611" height="86" src="/wp-content/uploads/2018/05/word-image-851.png" class="wp-image-958" srcset="/wp-content/uploads/2018/05/word-image-851.png 611w, /wp-content/uploads/2018/05/word-image-851-300x42.png 300w" sizes="(max-width: 611px) 100vw, 611px">
+</p>
+<h2>Windows界面客户端</h2>
+<p>
+  Navicate (强烈不推荐使用)
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="579" height="275" src="/wp-content/uploads/2018/05/word-image-852.png" class="wp-image-960" srcset="/wp-content/uploads/2018/05/word-image-852.png 579w, /wp-content/uploads/2018/05/word-image-852-300x142.png 300w" sizes="(max-width: 579px) 100vw, 579px">
+</p>
+<h2>Web界面（PHPadmin）</h2>
+<h3>配置web站</h3>
+<p>
+  解压放置到你的虚拟站点位置
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1016" height="353" src="/wp-content/uploads/2018/05/word-image-853.png" class="wp-image-961" srcset="/wp-content/uploads/2018/05/word-image-853.png 1016w, /wp-content/uploads/2018/05/word-image-853-300x104.png 300w, /wp-content/uploads/2018/05/word-image-853-768x267.png 768w" sizes="(max-width: 1016px) 100vw, 1016px">
+</p>
+<p>
+  配置虚拟主机
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1091" height="321" src="/wp-content/uploads/2018/05/word-image-854.png" class="wp-image-962" srcset="/wp-content/uploads/2018/05/word-image-854.png 1091w, /wp-content/uploads/2018/05/word-image-854-300x88.png 300w, /wp-content/uploads/2018/05/word-image-854-768x226.png 768w, /wp-content/uploads/2018/05/word-image-854-1024x301.png 1024w" sizes="(max-width: 1091px) 100vw, 1091px">
+</p>
+<p>
+  修改host
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="659" height="235" src="/wp-content/uploads/2018/05/word-image-855.png" class="wp-image-963" srcset="/wp-content/uploads/2018/05/word-image-855.png 659w, /wp-content/uploads/2018/05/word-image-855-300x107.png 300w" sizes="(max-width: 659px) 100vw, 659px">
+</p>
+<p>
+  重启Apache访问站点
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1322" height="725" src="/wp-content/uploads/2018/05/word-image-856.png" class="wp-image-964" srcset="/wp-content/uploads/2018/05/word-image-856.png 1322w, /wp-content/uploads/2018/05/word-image-856-300x165.png 300w, /wp-content/uploads/2018/05/word-image-856-768x421.png 768w, /wp-content/uploads/2018/05/word-image-856-1024x562.png 1024w" sizes="(max-width: 1322px) 100vw, 1322px">
+</p>
+<p>
+  我的错误：配置路径的时候多了一个s
+</p>
+<h3>连接数据库</h3>
+<p>
+  登录完成后的效果：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1355" height="506" src="/wp-content/uploads/2018/05/word-image-857.png" class="wp-image-965" srcset="/wp-content/uploads/2018/05/word-image-857.png 1355w, /wp-content/uploads/2018/05/word-image-857-300x112.png 300w, /wp-content/uploads/2018/05/word-image-857-768x287.png 768w, /wp-content/uploads/2018/05/word-image-857-1024x382.png 1024w" sizes="(max-width: 1355px) 100vw, 1355px">
+</p>
+<h1>数据库操作</h1>
+<h2>创建数据库</h2>
+<p>
+  语法：create  database 数据库名字;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="520" height="89" src="/wp-content/uploads/2018/05/word-image-858.png" class="wp-image-966" srcset="/wp-content/uploads/2018/05/word-image-858.png 520w, /wp-content/uploads/2018/05/word-image-858-300x51.png 300w" sizes="(max-width: 520px) 100vw, 520px">
+</p>
+<p>
+  注意;数据库命名有如下的规则
+</p>
+<p>
+  数据库名字是由字母，数字，下划线组成
+</p>
+<p>
+  数据库名字不能是纯数字
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="783" height="67" src="/wp-content/uploads/2018/05/word-image-859.png" class="wp-image-967" srcset="/wp-content/uploads/2018/05/word-image-859.png 783w, /wp-content/uploads/2018/05/word-image-859-300x26.png 300w, /wp-content/uploads/2018/05/word-image-859-768x66.png 768w" sizes="(max-width: 783px) 100vw, 783px">
+</p>
+<p>
+  数据库名字不能是数据库的关键字
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="841" height="42" src="/wp-content/uploads/2018/05/word-image-860.png" class="wp-image-968" srcset="/wp-content/uploads/2018/05/word-image-860.png 841w, /wp-content/uploads/2018/05/word-image-860-300x15.png 300w, /wp-content/uploads/2018/05/word-image-860-768x38.png 768w" sizes="(max-width: 841px) 100vw, 841px">
+</p>
+<p>
+  如果数据库名字是一个数据库关键字，那么用&#8220;（反引号）引起来
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="479" height="50" src="/wp-content/uploads/2018/05/word-image-861.png" class="wp-image-969" srcset="/wp-content/uploads/2018/05/word-image-861.png 479w, /wp-content/uploads/2018/05/word-image-861-300x31.png 300w" sizes="(max-width: 479px) 100vw, 479px">
+</p>
+<p>
+  扩展;创建数据库的时候指定字符集
+</p>
+<p>
+  语法：create  database  数据库名字  charset  字符集;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="514" height="48" src="/wp-content/uploads/2018/05/word-image-862.png" class="wp-image-970" srcset="/wp-content/uploads/2018/05/word-image-862.png 514w, /wp-content/uploads/2018/05/word-image-862-300x28.png 300w" sizes="(max-width: 514px) 100vw, 514px">
+</p>
+<h2>删除数据库</h2>
+<p>
+  语法: drop database 数据库名字;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="459" height="56" src="/wp-content/uploads/2018/05/word-image-863.png" class="wp-image-971" srcset="/wp-content/uploads/2018/05/word-image-863.png 459w, /wp-content/uploads/2018/05/word-image-863-300x37.png 300w" sizes="(max-width: 459px) 100vw, 459px">
+</p>
+<h2>修改数据库</h2>
+<p>
+  修改数据库的名字
+</p>
+<p>
+  	这里没有直接修改数据库名字的语法，只能先删除数据库，再重建
+</p>
+<p>
+  修改数据库的字符集
+</p>
+<ul>
+<li>
+    alter database 数据库名字 charset 新字符集
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="482" height="53" src="/wp-content/uploads/2018/05/word-image-864.png" class="wp-image-972" srcset="/wp-content/uploads/2018/05/word-image-864.png 482w, /wp-content/uploads/2018/05/word-image-864-300x33.png 300w" sizes="(max-width: 482px) 100vw, 482px">
+</p>
+<ul>
+<li>
+    alter database 数据库名字 charset = 新字符集
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="478" height="43" src="/wp-content/uploads/2018/05/word-image-865.png" class="wp-image-973" srcset="/wp-content/uploads/2018/05/word-image-865.png 478w, /wp-content/uploads/2018/05/word-image-865-300x27.png 300w" sizes="(max-width: 478px) 100vw, 478px">
+</p>
+<ul>
+<li>
+    alter  database  数据库名字  default  character set 新字符集名字
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="553" height="45" src="/wp-content/uploads/2018/05/word-image-866.png" class="wp-image-974" srcset="/wp-content/uploads/2018/05/word-image-866.png 553w, /wp-content/uploads/2018/05/word-image-866-300x24.png 300w" sizes="(max-width: 553px) 100vw, 553px">
+</p>
+<h2>查看数据库</h2>
+<p>
+  语法:show databases;
+</p>
+<p>
+  注意：系统数据库不要随意操作
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="920" height="556" src="/wp-content/uploads/2018/05/word-image-867.png" class="wp-image-975" srcset="/wp-content/uploads/2018/05/word-image-867.png 920w, /wp-content/uploads/2018/05/word-image-867-300x181.png 300w, /wp-content/uploads/2018/05/word-image-867-768x464.png 768w" sizes="(max-width: 920px) 100vw, 920px">
+</p>
+<h2>查看数据库创建语句</h2>
+<p>
+  语法:show create database 数据库名;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="784" height="144" src="/wp-content/uploads/2018/05/word-image-868.png" class="wp-image-976" srcset="/wp-content/uploads/2018/05/word-image-868.png 784w, /wp-content/uploads/2018/05/word-image-868-300x55.png 300w, /wp-content/uploads/2018/05/word-image-868-768x141.png 768w" sizes="(max-width: 784px) 100vw, 784px">
+</p>
+<h2>数据库保存目录</h2>
+<p>
+  <img loading="lazy" decoding="async" width="1409" height="245" src="/wp-content/uploads/2018/05/word-image-869.png" class="wp-image-977" srcset="/wp-content/uploads/2018/05/word-image-869.png 1409w, /wp-content/uploads/2018/05/word-image-869-300x52.png 300w, /wp-content/uploads/2018/05/word-image-869-768x134.png 768w, /wp-content/uploads/2018/05/word-image-869-1024x178.png 1024w" sizes="(max-width: 1409px) 100vw, 1409px">
+</p>
+<p>
+  默认保存路径可以在my.ini中修改
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="872" height="190" src="/wp-content/uploads/2018/05/word-image-870.png" class="wp-image-978" srcset="/wp-content/uploads/2018/05/word-image-870.png 872w, /wp-content/uploads/2018/05/word-image-870-300x65.png 300w, /wp-content/uploads/2018/05/word-image-870-768x167.png 768w" sizes="(max-width: 872px) 100vw, 872px">
+</p>
+<h1>表操作</h1>
+<h2>创建数据表</h2>
+<p>
+  Create table 表名
+</p>
+<p>
+  (
+</p>
+<p>
+  	字段名 类型  [字段属性],
+</p>
+<p>
+  字段名 类型  [字段属性],
+</p>
+<p>
+  字段名 类型  [字段属性]   &#8212;  最后一个字段后边不加逗号,
+</p>
+<p>
+  )[表属性]
+</p>
+<p>
+  创建表：只是创建了一个表的结构，而没有数据；
+</p>
+<h3>字段类型（介绍）</h3>
+<ul>
+<li>
+    整形  tinyint  smallint  mediumint  int   bigint
+  </li>
+<li>
+    小数 float  double  decimal
+  </li>
+<li>
+    字符串 char   varchar  text  set  enum  blob
+  </li>
+<li>
+    时间 time  date  datetime  timestamp
+  </li>
+</ul>
+<h3>字段属性（介绍）</h3>
+<p>
+  什么是字段属性：字段属性就是对字段的一种约束
+</p>
+<ul>
+<li>
+    Not null/null  允许为不为空/空
+  </li>
+<li>
+    Primary key  主键
+  </li>
+<li>
+    Unque key   唯一建
+  </li>
+<li>
+    Comment    说明
+  </li>
+<li>
+    Atuo_increment  自动增长
+  </li>
+</ul>
+<h3>表属性（介绍）</h3>
+<ul>
+<li>
+    Charset  表字符集
+  </li>
+<li>
+    Auto_increment   自动增长
+  </li>
+<li>
+    Collate   校对集
+  </li>
+<li>
+    Comment  说明
+  </li>
+<li>
+    Engine   数据表引擎
+  </li>
+</ul>
+<p>
+  案例：创建一个简单表
+</p>
+<p>
+  第一步：数据表创建，是创建到数据库中的，所以呢创建数据表之前应该选定创建到哪个数据库
+</p>
+<p>
+  选择数据库语法: use 数据库名字;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="403" height="47" src="/wp-content/uploads/2018/05/word-image-871.png" class="wp-image-979" srcset="/wp-content/uploads/2018/05/word-image-871.png 403w, /wp-content/uploads/2018/05/word-image-871-300x35.png 300w" sizes="(max-width: 403px) 100vw, 403px">
+</p>
+<p><strong>第二步：创建表</strong>
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="679" height="190" src="/wp-content/uploads/2018/05/word-image-872.png" class="wp-image-980" srcset="/wp-content/uploads/2018/05/word-image-872.png 679w, /wp-content/uploads/2018/05/word-image-872-300x84.png 300w" sizes="(max-width: 679px) 100vw, 679px">
+</p>
+<p><strong>英雄技能表案例：</strong>
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="806" height="203" src="/wp-content/uploads/2018/05/word-image-873.png" class="wp-image-981" srcset="/wp-content/uploads/2018/05/word-image-873.png 806w, /wp-content/uploads/2018/05/word-image-873-300x76.png 300w, /wp-content/uploads/2018/05/word-image-873-768x193.png 768w" sizes="(max-width: 806px) 100vw, 806px">
+</p>
+<h2>查看数据表</h2>
+<p>
+  查看当前数据库有哪些数据表（所有的表查看）
+</p>
+<p>
+  语法：show tables；
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="715" height="143" src="/wp-content/uploads/2018/05/word-image-874.png" class="wp-image-982" srcset="/wp-content/uploads/2018/05/word-image-874.png 715w, /wp-content/uploads/2018/05/word-image-874-300x60.png 300w" sizes="(max-width: 715px) 100vw, 715px">
+</p>
+<h2>删除数据表</h2>
+<p>
+  语法:  drop table 表名;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="493" height="45" src="/wp-content/uploads/2018/05/word-image-875.png" class="wp-image-983" srcset="/wp-content/uploads/2018/05/word-image-875.png 493w, /wp-content/uploads/2018/05/word-image-875-300x27.png 300w" sizes="(max-width: 493px) 100vw, 493px">
+</p>
+<p>
+  扩展，一次删除多张数据表 drop  table 表1,表2…..;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="507" height="54" src="/wp-content/uploads/2018/05/word-image-876.png" class="wp-image-984" srcset="/wp-content/uploads/2018/05/word-image-876.png 507w, /wp-content/uploads/2018/05/word-image-876-300x32.png 300w" sizes="(max-width: 507px) 100vw, 507px">
+</p>
+<h2>查看表结构</h2>
+<p>
+  查看表的结构:  desc 表名;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="714" height="224" src="/wp-content/uploads/2018/05/word-image-877.png" class="wp-image-985" srcset="/wp-content/uploads/2018/05/word-image-877.png 714w, /wp-content/uploads/2018/05/word-image-877-300x94.png 300w" sizes="(max-width: 714px) 100vw, 714px">
+</p>
+<h2>查看表创建语法</h2>
+<p>
+  查看数据表的创建语句
+</p>
+<p>
+  语法; show create table 表名;、
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="777" height="234" src="/wp-content/uploads/2018/05/word-image-878.png" class="wp-image-986" srcset="/wp-content/uploads/2018/05/word-image-878.png 777w, /wp-content/uploads/2018/05/word-image-878-300x90.png 300w, /wp-content/uploads/2018/05/word-image-878-768x231.png 768w" sizes="(max-width: 777px) 100vw, 777px">
+</p>
+<h1>数据简单操作</h1>
+<h2>增加</h2>
+<p>
+  提前准备：
+</p>
+<p>
+  删除老的hero表，创建新的hero表
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="792" height="204" src="/wp-content/uploads/2018/05/word-image-879.png" class="wp-image-987" srcset="/wp-content/uploads/2018/05/word-image-879.png 792w, /wp-content/uploads/2018/05/word-image-879-300x77.png 300w, /wp-content/uploads/2018/05/word-image-879-768x198.png 768w" sizes="(max-width: 792px) 100vw, 792px">
+</p>
+<p>
+  执行命令 set names gbk 避免乱码错误
+</p>
+<p>
+  语法： insert    [into] 表名   [(插入的字段列表)]  values  (字段值1,字段值2,字段值3……)
+</p>
+<p>
+  注意：后边的值和前边的字段列表的顺序一定要对应
+</p>
+<ul>
+<li>
+    错误案例：
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="881" height="127" src="/wp-content/uploads/2018/05/word-image-880.png" class="wp-image-988" srcset="/wp-content/uploads/2018/05/word-image-880.png 881w, /wp-content/uploads/2018/05/word-image-880-300x43.png 300w, /wp-content/uploads/2018/05/word-image-880-768x111.png 768w" sizes="(max-width: 881px) 100vw, 881px">
+</p>
+<ul>
+<li>
+    正确案例：
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="743" height="103" src="/wp-content/uploads/2018/05/word-image-881.png" class="wp-image-989" srcset="/wp-content/uploads/2018/05/word-image-881.png 743w, /wp-content/uploads/2018/05/word-image-881-300x42.png 300w" sizes="(max-width: 743px) 100vw, 743px">
+</p>
+<ul>
+<li>
+    扩展：省略字段列表插入表数据
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="1100" height="87" src="/wp-content/uploads/2018/05/word-image-882.png" class="wp-image-990" srcset="/wp-content/uploads/2018/05/word-image-882.png 1100w, /wp-content/uploads/2018/05/word-image-882-300x24.png 300w, /wp-content/uploads/2018/05/word-image-882-768x61.png 768w, /wp-content/uploads/2018/05/word-image-882-1024x81.png 1024w" sizes="(max-width: 1100px) 100vw, 1100px">
+</p>
+<p>
+  表创建的顺序如下
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="697" height="195" src="/wp-content/uploads/2018/05/word-image-883.png" class="wp-image-991" srcset="/wp-content/uploads/2018/05/word-image-883.png 697w, /wp-content/uploads/2018/05/word-image-883-300x84.png 300w" sizes="(max-width: 697px) 100vw, 697px">
+</p>
+<p>
+  扩展：Select 语句复制表
+</p>
+<h2>修改</h2>
+<p>
+  语法形式如下：
+</p>
+<p>
+  	Update 表名 set 字段名 =字段值 where修改条件
+</p>
+<ul>
+<li>
+    修改大头的英雄伤害
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="681" height="71" src="/wp-content/uploads/2018/05/word-image-884.png" class="wp-image-992" srcset="/wp-content/uploads/2018/05/word-image-884.png 681w, /wp-content/uploads/2018/05/word-image-884-300x31.png 300w" sizes="(max-width: 681px) 100vw, 681px">
+</p>
+<p>
+  结果
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="857" height="128" src="/wp-content/uploads/2018/05/word-image-885.png" class="wp-image-993" srcset="/wp-content/uploads/2018/05/word-image-885.png 857w, /wp-content/uploads/2018/05/word-image-885-300x45.png 300w, /wp-content/uploads/2018/05/word-image-885-768x115.png 768w" sizes="(max-width: 857px) 100vw, 857px">
+</p>
+<p>
+  注意：修改表数据的时候一般都要指定修改的条件，如果修改不指定条件的话会把整张表的数据都修改
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="953" height="184" src="/wp-content/uploads/2018/05/word-image-886.png" class="wp-image-994" srcset="/wp-content/uploads/2018/05/word-image-886.png 953w, /wp-content/uploads/2018/05/word-image-886-300x58.png 300w, /wp-content/uploads/2018/05/word-image-886-768x148.png 768w" sizes="(max-width: 953px) 100vw, 953px">
+</p>
+<ul>
+<li>
+    数据多字段的修改
+  </li>
+</ul>
+<p>
+  语法：update  表名 set 字段名=值1 ,字段名=字段值…. Where 修改条件
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="843" height="214" src="/wp-content/uploads/2018/05/word-image-887.png" class="wp-image-995" srcset="/wp-content/uploads/2018/05/word-image-887.png 843w, /wp-content/uploads/2018/05/word-image-887-300x76.png 300w, /wp-content/uploads/2018/05/word-image-887-768x195.png 768w" sizes="(max-width: 843px) 100vw, 843px">
+</p>
+<h2>查找</h2>
+<ul>
+<li>
+    语法：select  *  from 表名
+  </li>
+</ul>
+<p>
+  说明：*代表所有的字段
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="940" height="176" src="/wp-content/uploads/2018/05/word-image-888.png" class="wp-image-996" srcset="/wp-content/uploads/2018/05/word-image-888.png 940w, /wp-content/uploads/2018/05/word-image-888-300x56.png 300w, /wp-content/uploads/2018/05/word-image-888-768x144.png 768w" sizes="(max-width: 940px) 100vw, 940px">
+</p>
+<ul>
+<li>
+    我们还可已选择查看哪些字段的信息
+  </li>
+</ul>
+<p>
+  语法: select   字段1,字段2,字段3,字段4……  from  表名；
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="809" height="190" src="/wp-content/uploads/2018/05/word-image-889.png" class="wp-image-997" srcset="/wp-content/uploads/2018/05/word-image-889.png 809w, /wp-content/uploads/2018/05/word-image-889-300x70.png 300w, /wp-content/uploads/2018/05/word-image-889-768x180.png 768w" sizes="(max-width: 809px) 100vw, 809px">
+</p>
+<ul>
+<li>
+    查看技能伤害大于50的英雄信息
+  </li>
+</ul>
+<p>
+  语法如下：select 字段列表 from 表名 where  条件
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="962" height="152" src="/wp-content/uploads/2018/05/word-image-890.png" class="wp-image-998" srcset="/wp-content/uploads/2018/05/word-image-890.png 962w, /wp-content/uploads/2018/05/word-image-890-300x47.png 300w, /wp-content/uploads/2018/05/word-image-890-768x121.png 768w" sizes="(max-width: 962px) 100vw, 962px">
+</p>
+<h2>删除</h2>
+<p>
+  语法：delete  from 表名 where 删除的条件；
+</p>
+<p>
+  删除前数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="932" height="180" src="/wp-content/uploads/2018/05/word-image-891.png" class="wp-image-999" srcset="/wp-content/uploads/2018/05/word-image-891.png 932w, /wp-content/uploads/2018/05/word-image-891-300x58.png 300w, /wp-content/uploads/2018/05/word-image-891-768x148.png 768w" sizes="(max-width: 932px) 100vw, 932px">
+</p>
+<p>
+  删除成功
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="750" height="75" src="/wp-content/uploads/2018/05/word-image-892.png" class="wp-image-1000" srcset="/wp-content/uploads/2018/05/word-image-892.png 750w, /wp-content/uploads/2018/05/word-image-892-300x30.png 300w" sizes="(max-width: 750px) 100vw, 750px">
+</p>
+<p>
+  删除后数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="931" height="161" src="/wp-content/uploads/2018/05/word-image-893.png" class="wp-image-1001" srcset="/wp-content/uploads/2018/05/word-image-893.png 931w, /wp-content/uploads/2018/05/word-image-893-300x52.png 300w, /wp-content/uploads/2018/05/word-image-893-768x133.png 768w" sizes="(max-width: 931px) 100vw, 931px">
+</p>
+<p>
+  注意;这里删除一般都需要制定删除的条件，如果不指定删除的条件那么整张表的数据都会被删除
+</p>
+<ul>
+<li>
+    没有条件的删除
+  </li>
+</ul>
+<p>
+  删除前
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="941" height="163" src="/wp-content/uploads/2018/05/word-image-894.png" class="wp-image-1002" srcset="/wp-content/uploads/2018/05/word-image-894.png 941w, /wp-content/uploads/2018/05/word-image-894-300x52.png 300w, /wp-content/uploads/2018/05/word-image-894-768x133.png 768w" sizes="(max-width: 941px) 100vw, 941px">
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="868" height="122" src="/wp-content/uploads/2018/05/word-image-895.png" class="wp-image-1003" srcset="/wp-content/uploads/2018/05/word-image-895.png 868w, /wp-content/uploads/2018/05/word-image-895-300x42.png 300w, /wp-content/uploads/2018/05/word-image-895-768x108.png 768w" sizes="(max-width: 868px) 100vw, 868px">
+</p>
+<h1>表属性</h1>
+<p>
+  表属性就是用来约束表的，限定一些东西
+</p>
+<h2>字符集（乱码的解决）</h2>
+<p>
+  常见的字符集有：utf8  gbk  latin1  gb2312
+</p>
+<p>
+  什么是字符集？
+</p>
+<p>
+  	字符集就是字符和字符编码的对应关系
+</p>
+<p>
+  什么是字符？
+</p>
+<p>
+  	像 a,b,A,V,1中文 等都是字符
+</p>
+<p>
+  	什么是字符编码？
+</p>
+<p>
+  		比如 ‘a’这个字符在计算机中是以什么形式存的
+</p>
+<p>
+  		‘a’在计算机中是以二进制存储的，那么这个二进制的码值就是‘a’的字符编码
+</p>
+<p>
+  		 ‘a’&#8212;&#8212;-10110101   10110101就是a的字符编码
+</p>
+<p>
+  		‘b’&#8212;&#8212;-10110110   10110110就是b的字符编码
+</p>
+<p>
+  插入中文数据，插入失败
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="982" height="52" src="/wp-content/uploads/2018/05/word-image-896.png" class="wp-image-1004" srcset="/wp-content/uploads/2018/05/word-image-896.png 982w, /wp-content/uploads/2018/05/word-image-896-300x16.png 300w, /wp-content/uploads/2018/05/word-image-896-768x41.png 768w" sizes="(max-width: 982px) 100vw, 982px">
+</p>
+<p>
+  错误原因
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1179" height="311" src="/wp-content/uploads/2018/05/word-image-897.png" class="wp-image-1005" srcset="/wp-content/uploads/2018/05/word-image-897.png 1179w, /wp-content/uploads/2018/05/word-image-897-300x79.png 300w, /wp-content/uploads/2018/05/word-image-897-768x203.png 768w, /wp-content/uploads/2018/05/word-image-897-1024x270.png 1024w" sizes="(max-width: 1179px) 100vw, 1179px">
+</p>
+<p>
+  错误解决
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="839" height="366" src="/wp-content/uploads/2018/05/word-image-898.png" class="wp-image-1006" srcset="/wp-content/uploads/2018/05/word-image-898.png 839w, /wp-content/uploads/2018/05/word-image-898-300x131.png 300w, /wp-content/uploads/2018/05/word-image-898-768x335.png 768w" sizes="(max-width: 839px) 100vw, 839px">
+</p>
+<p>
+  插入数据插入成功
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="706" height="64" src="/wp-content/uploads/2018/05/word-image-899.png" class="wp-image-1007" srcset="/wp-content/uploads/2018/05/word-image-899.png 706w, /wp-content/uploads/2018/05/word-image-899-300x27.png 300w" sizes="(max-width: 706px) 100vw, 706px">
+</p>
+<p>
+  查看数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="912" height="147" src="/wp-content/uploads/2018/05/word-image-900.png" class="wp-image-1008" srcset="/wp-content/uploads/2018/05/word-image-900.png 912w, /wp-content/uploads/2018/05/word-image-900-300x48.png 300w, /wp-content/uploads/2018/05/word-image-900-768x124.png 768w" sizes="(max-width: 912px) 100vw, 912px">
+</p>
+<p>
+  错误原因
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1191" height="343" src="/wp-content/uploads/2018/05/word-image-901.png" class="wp-image-1009" srcset="/wp-content/uploads/2018/05/word-image-901.png 1191w, /wp-content/uploads/2018/05/word-image-901-300x86.png 300w, /wp-content/uploads/2018/05/word-image-901-768x221.png 768w, /wp-content/uploads/2018/05/word-image-901-1024x295.png 1024w" sizes="(max-width: 1191px) 100vw, 1191px">
+</p>
+<p>
+  错误解决
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="970" height="346" src="/wp-content/uploads/2018/05/word-image-902.png" class="wp-image-1010" srcset="/wp-content/uploads/2018/05/word-image-902.png 970w, /wp-content/uploads/2018/05/word-image-902-300x107.png 300w, /wp-content/uploads/2018/05/word-image-902-768x274.png 768w" sizes="(max-width: 970px) 100vw, 970px">
+</p>
+<p>
+  再次查看数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="989" height="142" src="/wp-content/uploads/2018/05/word-image-903.png" class="wp-image-1011" srcset="/wp-content/uploads/2018/05/word-image-903.png 989w, /wp-content/uploads/2018/05/word-image-903-300x43.png 300w, /wp-content/uploads/2018/05/word-image-903-768x110.png 768w" sizes="(max-width: 989px) 100vw, 989px">
+</p>
+<h2>校对集</h2>
+<p>
+  什么是校对集：校对集就是字符集中的一种比较规则，主要用于排序
+</p>
+<p>
+  Show  collation;查看所有的校对集
+</p>
+<p>
+  show collation like &#8216;utf8_%&#8217;;查看utf8的校对集
+</p>
+<p>
+   	utf8的两种校对集使用
+</p>
+<p>
+  utf8_general_ci  不区分大小写  (a  B  c)
+</p>
+<p>
+  utf8_bin   二进制排序 （B a c）
+</p>
+<p>
+  	B&#8212;-66
+</p>
+<p>
+  a&#8212;-97
+</p>
+<p>
+  c&#8212;-99
+</p>
+<p>
+  案例：
+</p>
+<p>
+  	创建两张表
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="674" height="247" src="/wp-content/uploads/2018/05/word-image-904.png" class="wp-image-1012" srcset="/wp-content/uploads/2018/05/word-image-904.png 674w, /wp-content/uploads/2018/05/word-image-904-300x110.png 300w" sizes="(max-width: 674px) 100vw, 674px">
+</p>
+<p>
+  插入数据
+</p>
+<p>
+  insert into test1 values(&#8216;a&#8217;);
+</p>
+<p>
+  insert into test1 values(&#8216;B&#8217;);
+</p>
+<p>
+  insert into test1 values(&#8216;c&#8217;);
+</p>
+<p>
+  insert into test2 values(&#8216;a&#8217;);
+</p>
+<p>
+  insert into test2 values(&#8216;B&#8217;);
+</p>
+<p>
+  insert into test2 values(&#8216;c&#8217;);
+</p>
+<p>
+  排序查看
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="834" height="365" src="/wp-content/uploads/2018/05/word-image-905.png" class="wp-image-1013" srcset="/wp-content/uploads/2018/05/word-image-905.png 834w, /wp-content/uploads/2018/05/word-image-905-300x131.png 300w, /wp-content/uploads/2018/05/word-image-905-768x336.png 768w" sizes="(max-width: 834px) 100vw, 834px">
+</p>
+<h2>数据库引擎</h2>
+<p>
+  什么是数据库引擎：就是数据库保存表数据的一种方式
+</p>
+<p>
+  常用的数据库引擎有 innodb myisam
+</p>
+<p>
+  默认的数据库引擎是innodb
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1224" height="195" src="/wp-content/uploads/2018/05/word-image-906.png" class="wp-image-1014" srcset="/wp-content/uploads/2018/05/word-image-906.png 1224w, /wp-content/uploads/2018/05/word-image-906-300x48.png 300w, /wp-content/uploads/2018/05/word-image-906-768x122.png 768w, /wp-content/uploads/2018/05/word-image-906-1024x163.png 1024w" sizes="(max-width: 1224px) 100vw, 1224px">
+</p>
+<p>
+  默认的数据库引擎可以在配置文件中配置
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="874" height="197" src="/wp-content/uploads/2018/05/word-image-907.png" class="wp-image-1015" srcset="/wp-content/uploads/2018/05/word-image-907.png 874w, /wp-content/uploads/2018/05/word-image-907-300x68.png 300w, /wp-content/uploads/2018/05/word-image-907-768x173.png 768w" sizes="(max-width: 874px) 100vw, 874px">
+</p>
+<p>
+  数据库引擎的支持
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="858" height="534" src="/wp-content/uploads/2018/05/word-image-908.png" class="wp-image-1016" srcset="/wp-content/uploads/2018/05/word-image-908.png 858w, /wp-content/uploads/2018/05/word-image-908-300x187.png 300w, /wp-content/uploads/2018/05/word-image-908-768x478.png 768w" sizes="(max-width: 858px) 100vw, 858px"></p>
+								
+								
+																<div class="jeg_post_tags">
+<span>标签:</span> <a href="/label/%e5%85%b3%e7%b3%bb%e5%9e%8b" rel="tag">关系型</a><a href="/label/%e5%b1%82%e6%ac%a1%e5%9e%8b" rel="tag">层次型</a><a href="/label/%e6%95%b0%e6%8d%ae%e5%ba%93" rel="tag">数据库</a><a href="/label/%e6%95%b0%e6%8d%ae%e5%ba%93%e5%bc%95%e6%93%8e" rel="tag">数据库引擎</a><a href="/label/%e6%95%b0%e6%8d%ae%e8%a1%a8" rel="tag">数据表</a><a href="/label/%e7%bd%91%e7%8a%b6%e5%9e%8b" rel="tag">网状型</a><a href="/label/%e8%a1%a8%e5%b1%9e%e6%80%a7" rel="tag">表属性</a>
+</div>
+															</div>
+
+
+						</div>
+						<div class="jeg_share_bottom_container"></div>
+						
+						<div class="jeg_ad jeg_article jnews_content_bottom_ads "><div class="ads-wrapper  "></div></div>
+<div class="jnews_prev_next_container"><div class="jeg_prevnext_post">
+            <a href="/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/1018.html" class="post prev-post">
+            <span class="caption">上一篇文章</span>
+            <h3 class="post-title">Mysql（二）修改表结构、 复制表、 字段类型、 数据类型、 重命名表</h3>
+        </a>
+    
+            <a href="/php/php%e6%a0%b8%e5%bf%83%e7%bc%96%e7%a8%8b/1363.html" class="post next-post">
+            <span class="caption">下一篇文章</span>
+            <h3 class="post-title">PHP 核心编程（五）GD 库、 图片颜色填充、 水印、 缩略图、 验证码</h3>
+        </a>
+    </div></div>
+<div class="jnews_author_box_container "></div>
+<div class="jnews_related_post_container"></div>
+<div class="jnews_popup_post_container">    <section class="jeg_popup_post">
+        <span class="caption">下一篇文章</span>
+
+                    <div class="jeg_popup_content">
+                <div class="jeg_thumb">
+                                        <a href="/php/php%e6%a0%b8%e5%bf%83%e7%bc%96%e7%a8%8b/1363.html">
+                        <div class="thumbnail-container animate-lazy  size-1000 "><img width="75" height="31" src="/wp-content/themes/jnews/assets/img/jeg-empty.png" class="attachment-jnews-75x75 size-jnews-75x75 lazyload wp-post-image" alt="PHP 核心编程（一）文件上传、 表单传值、 验证文件类型" decoding="async" loading="lazy" sizes="(max-width: 75px) 100vw, 75px" data-src="/wp-content/uploads/2018/05/php-5.jpg" data-srcset="/wp-content/uploads/2018/05/php-5.jpg 716w, /wp-content/uploads/2018/05/php-5-300x124.jpg 300w" data-sizes="auto" data-expand="700"></div>                    </a>
+                </div>
+                <h3 class="post-title">
+                    <a href="/php/php%e6%a0%b8%e5%bf%83%e7%bc%96%e7%a8%8b/1363.html">
+                        PHP 核心编程（五）GD 库、 图片颜色填充、 水印、 缩略图、 验证码                    </a>
+                </h3>
+            </div>
+                
+        <a href="#" class="jeg_popup_close"><i class="fa fa-close"></i></a>
+    </section>
+</div>
+<div class="jnews_comment_container">	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">发表回复 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/944.html#respond" style="display:none;">取消回复</a></small>
+</h3>
+<form action="/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+<p class="comment-notes"><span id="email-notes">您的电子邮箱地址不会被公开。</span> <span class="required-field-message">必填项已用 <span class="required">*</span> 标注</span></p>
+<p class="comment-form-comment"><label for="comment">评论 <span class="required">*</span></label> <textarea autocomplete="new-password" id="h917d34c57" name="h917d34c57" cols="45" rows="8" maxlength="65525" required="required"></textarea><textarea id="comment" aria-label="hp-comment" aria-hidden="true" name="comment" autocomplete="new-password" style="padding:0 !important;clip:rect(1px, 1px, 1px, 1px) !important;position:absolute !important;white-space:nowrap !important;height:1px !important;width:1px !important;overflow:hidden !important;" tabindex="-1"></textarea><script data-noptimize>document.getElementById("comment").setAttribute( "id", "af78ed580b0b4fff62e2faf1048ea2aa" );document.getElementById("h917d34c57").setAttribute( "id", "comment" );</script></p>
+<p class="comment-form-author"><label for="author">显示名称 <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name" required="required"></p>
+<p class="comment-form-email"><label for="email">电子邮箱地址 <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" autocomplete="email" required="required"></p>
+<p class="comment-form-url"><label for="url">网站</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200" autocomplete="url"></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"> <label for="wp-comment-cookies-consent">在此浏览器中保存我的显示名称、邮箱地址和网站地址，以便下次评论时使用。</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="发表评论"> <input type="hidden" name="comment_post_ID" value="944" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p>
+</form>	</div>
+<!-- #respond -->
+	</div>
+									</div>
+			</div>
+			
+<div class="jeg_sidebar  jeg_sticky_sidebar col-md-4">
+    <div class="jegStickyHolder"><div class="theiaStickySidebar">
+<div class="widget widget_search" id="search-3">
+<div class="jeg_block_heading jeg_block_heading_3 jnews_66a4c363a8dda"><h3 class="jeg_block_title"><span>Search</span></h3></div>
+<style scoped>.jnews_66a4c363a8dda.jeg_block_heading_3 { background: #252627; }</style>
+<form action="/" method="get" class="jeg_search_form" target="_top">
+    <input name="s" class="jeg_search_input" placeholder="搜索..." type="text" value="" autocomplete="off">
+    <button aria-label="Search Button" type="submit" class="jeg_search_button btn"><i class="fa fa-search"></i></button>
+</form>
+<!-- jeg_search_hide with_result no_result -->
+<div class="jeg_search_result jeg_search_hide with_result">
+    <div class="search-result-wrapper">
+    </div>
+    <div class="search-link search-noresult">
+        没有结果    </div>
+    <div class="search-link search-all-button">
+        <i class="fa fa-search"></i> 查看所有结果    </div>
+</div>
+</div>
+<div class="widget widget_jnews_about" id="jnews_about-1">
+<div class="jeg_block_heading jeg_block_heading_6 jnews_module_944_0_66a4c363a9200">
+                    <h3 class="jeg_block_title"><span>About Me</span></h3>
+                    
+				</div>        <div class="jeg_about jeg_aligncenter">
+			                <a class="footer_logo" href="/">
+                    <img class="lazyload" src="/wp-content/themes/jnews/assets/img/jeg-empty.png" data-src="/wp-content/uploads/2022/01/截屏2022-01-01-18.57.09.png" data-srcset="/wp-content/uploads/2022/01/截屏2022-01-01-18.57.09.png 1x, /wp-content/uploads/2022/01/截屏2022-01-01-18.57.09.png 2x" alt="个人随笔" data-light-src="/wp-content/uploads/2022/01/截屏2022-01-01-18.57.09.png" data-light-srcset="/wp-content/uploads/2022/01/截屏2022-01-01-18.57.09.png 1x, /wp-content/uploads/2022/01/截屏2022-01-01-18.57.09.png 2x" data-dark-src="/wp-content/themes/jnews/assets/img/logo_darkmode.png" data-dark-srcset="/wp-content/themes/jnews/assets/img/logo_darkmode.png 1x, /wp-content/themes/jnews/assets/img/logo_darkmode@2x.png 2x" data-pin-no-hover="true">
+                </a>
+						                <h2 class="jeg_about_name">Winston Lee</h2>			                <p class="jeg_about_title">Programmer</p>            <p>Hello & welcome to my blog! My name is Winston Lee and  am a programmer and am keen on sharing.</p>
+
+			                <div class="jeg_about_autograph">
+                    <img class="lazyload" data-src="/wp-content/uploads/2022/01/截屏2022-01-01-18.55.25.png" data-srcset="/wp-content/uploads/2022/01/截屏2022-01-01-18.55.25.png 1x, /wp-content/uploads/2022/01/截屏2022-01-01-18.55.25.png 2x" alt="Winston Lee">
+                </div>
+			        </div>
+		</div>
+</div></div>
+</div>		</div>
+
+		<div class="jeg_ad jeg_article jnews_article_bottom_ads">
+			<div class="ads-wrapper  "></div>		</div>
+
+	</div>
+</div>
+                </div>
+            </div>
+
+            <div id="post-body-class" class="post-template-default single single-post postid-944 single-format-standard wp-embed-responsive jeg_toggle_light jeg_single_tpl_1 jnews jsc_normal wpb-js-composer js-comp-ver-6.9.0 vc_responsive"></div>
+
+            
+        </div>
+
+        <div class="post-ajax-overlay">
+    <div class="preloader_type preloader_dot">
+        <div class="newsfeed_preloader jeg_preloader dot">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="newsfeed_preloader jeg_preloader circle">
+            <div class="jnews_preloader_circle_outer">
+                <div class="jnews_preloader_circle_inner"></div>
+            </div>
+        </div>
+        <div class="newsfeed_preloader jeg_preloader square">
+            <div class="jeg_square"><div class="jeg_square_inner"></div></div>
+        </div>
+    </div>
+</div>
+    </div>
+			<div class="footer-holder" id="footer" data-id="footer">
+            <div class="jeg_footer jeg_footer_1 dark">
+    <div class="jeg_footer_container jeg_container">
+        <div class="jeg_footer_content">
+            <div class="container">
+
+                <div class="row">
+                    <div class="jeg_footer_primary clearfix">
+                        <div class="col-md-4 footer_column">
+                            <div class="footer_widget widget_jnews_about" id="jnews_about-2">
+<div class="jeg_footer_heading jeg_footer_heading_1"><h3 class="jeg_footer_title"><span>About Me</span></h3></div>        <div class="jeg_about jeg_aligncenter">
+									            <p>Hello & welcome to my blog! My name is Winston Lee and  am a programmer and am keen on sharing.</p>
+
+			        </div>
+		</div>                        </div>
+                        <div class="col-md-4 footer_column">
+                            <div class="footer_widget widget_categories" id="categories-3">
+<div class="jeg_footer_heading jeg_footer_heading_1"><h3 class="jeg_footer_title"><span>Categories</span></h3></div>
+			<ul>
+					<li class="cat-item cat-item-295">
+<a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/ajax">AJAX</a>
+</li>
+	<li class="cat-item cat-item-298">
+<a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/%e5%89%8d%e7%ab%af%e6%a1%86%e6%9e%b6/bootstrap">BootStrap</a>
+</li>
+	<li class="cat-item cat-item-364">
+<a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/codeigniter">CodeIgniter</a>
+</li>
+	<li class="cat-item cat-item-7">
+<a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/css">CSS</a>
+</li>
+	<li class="cat-item cat-item-382">
+<a href="/classify/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91/dedecms">DedeCMS</a>
+</li>
+	<li class="cat-item cat-item-354">
+<a href="/classify/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6/git">GIT</a>
+</li>
+	<li class="cat-item cat-item-6">
+<a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/html">HTML</a>
+</li>
+	<li class="cat-item cat-item-8">
+<a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/javascript">Javascript</a>
+</li>
+	<li class="cat-item cat-item-299">
+<a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/%e5%89%8d%e7%ab%af%e6%a1%86%e6%9e%b6/jquery">Jquery</a>
+</li>
+	<li class="cat-item cat-item-360">
+<a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/laravel">Laravel</a>
+</li>
+	<li class="cat-item cat-item-361">
+<a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/laravel/laravel%e5%9c%a8%e7%ba%bf%e6%95%99%e8%82%b2%e5%b9%b3%e5%8f%b0">Laravel在线教育平台</a>
+</li>
+	<li class="cat-item cat-item-383">
+<a href="/classify/linux">Linux</a>
+</li>
+	<li class="cat-item cat-item-373">
+<a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93/memcache">Memcache</a>
+</li>
+	<li class="cat-item cat-item-367">
+<a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93/mongodb">MongoDB</a>
+</li>
+	<li class="cat-item cat-item-258">
+<a href="/classify/php/%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e7%bc%96%e7%a8%8b/mvc">MVC</a>
+</li>
+	<li class="cat-item cat-item-192">
+<a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql">Mysql</a>
+</li>
+	<li class="cat-item cat-item-365">
+<a href="/classify/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/nginx">Nginx</a>
+</li>
+	<li class="cat-item cat-item-755">
+<a href="/classify/node">Node</a>
+</li>
+	<li class="cat-item cat-item-257">
+<a href="/classify/php/%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e7%bc%96%e7%a8%8b/pdo">PDO</a>
+</li>
+	<li class="cat-item cat-item-85">
+<a href="/classify/php">PHP</a>
+</li>
+	<li class="cat-item cat-item-375">
+<a href="/classify/php/php7">PHP7</a>
+</li>
+	<li class="cat-item cat-item-191">
+<a href="/classify/php/php%e5%9f%ba%e6%9c%ac%e8%af%ad%e6%b3%95">PHP基本语法</a>
+</li>
+	<li class="cat-item cat-item-194">
+<a href="/classify/php/php%e6%a0%b8%e5%bf%83%e7%bc%96%e7%a8%8b">PHP核心编程</a>
+</li>
+	<li class="cat-item cat-item-366">
+<a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93/redis">Redis</a>
+</li>
+	<li class="cat-item cat-item-273">
+<a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/smarty">Smarty</a>
+</li>
+	<li class="cat-item cat-item-376">
+<a href="/classify/php/socket">Socket</a>
+</li>
+	<li class="cat-item cat-item-353">
+<a href="/classify/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6/svn">SVN</a>
+</li>
+	<li class="cat-item cat-item-377">
+<a href="/classify/php/swoole">Swoole</a>
+</li>
+	<li class="cat-item cat-item-358">
+<a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/tp3-2">TP3.2</a>
+</li>
+	<li class="cat-item cat-item-359">
+<a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/tp3-2/tp3-2%e5%95%86%e5%9f%8e">TP3.2商城</a>
+</li>
+	<li class="cat-item cat-item-626">
+<a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/tp5-0">TP5.0</a>
+</li>
+	<li class="cat-item cat-item-627">
+<a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/tp5-0/tp5-0%e5%95%86%e5%9f%8e">TP5.0商城</a>
+</li>
+	<li class="cat-item cat-item-294">
+<a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/xml">XML</a>
+</li>
+	<li class="cat-item cat-item-363">
+<a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/yaf">Yaf</a>
+</li>
+	<li class="cat-item cat-item-362">
+<a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/yii">Yii</a>
+</li>
+	<li class="cat-item cat-item-378">
+<a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/yii/yii%e6%89%8b%e6%9c%ba%e7%9b%b4%e6%92%ad">Yii手机直播</a>
+</li>
+	<li class="cat-item cat-item-371">
+<a href="/classify/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91">二次开发</a>
+</li>
+	<li class="cat-item cat-item-381">
+<a href="/classify/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/%e4%bc%98%e5%8c%96%e6%96%b9%e6%a1%88">优化方案</a>
+</li>
+	<li class="cat-item cat-item-5">
+<a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af">前端技术</a>
+</li>
+	<li class="cat-item cat-item-297">
+<a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/%e5%89%8d%e7%ab%af%e6%a1%86%e6%9e%b6">前端框架</a>
+</li>
+	<li class="cat-item cat-item-272">
+<a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6">后台框架</a>
+</li>
+	<li class="cat-item cat-item-384">
+<a href="/classify/linux/%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c">基本操作</a>
+</li>
+	<li class="cat-item cat-item-369">
+<a href="/classify/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/%e5%be%ae%e4%bf%a1%e5%85%ac%e4%bc%97%e5%8f%b7">微信公众号</a>
+</li>
+	<li class="cat-item cat-item-193">
+<a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93">数据库</a>
+</li>
+	<li class="cat-item cat-item-1">
+<a href="/classify/uncategorized">未分类</a>
+</li>
+	<li class="cat-item cat-item-370">
+<a href="/classify/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/%e6%b7%b7%e5%90%88app">混合APP</a>
+</li>
+	<li class="cat-item cat-item-276">
+<a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/%e6%ba%90%e7%a0%81blog%e9%a1%b9%e7%9b%ae">源码Blog项目</a>
+</li>
+	<li class="cat-item cat-item-352">
+<a href="/classify/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6">版本控制</a>
+</li>
+	<li class="cat-item cat-item-385">
+<a href="/classify/linux/%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba">环境搭建</a>
+</li>
+	<li class="cat-item cat-item-368">
+<a href="/classify/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91">移动端开发</a>
+</li>
+	<li class="cat-item cat-item-372">
+<a href="/classify/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96">网站优化</a>
+</li>
+	<li class="cat-item cat-item-386">
+<a href="/classify/%e8%b5%84%e6%96%99">资料</a>
+</li>
+	<li class="cat-item cat-item-256">
+<a href="/classify/php/%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e7%bc%96%e7%a8%8b/%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1">面向对象</a>
+</li>
+	<li class="cat-item cat-item-218">
+<a href="/classify/php/%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e7%bc%96%e7%a8%8b">面向对象编程</a>
+</li>
+	<li class="cat-item cat-item-374">
+<a href="/classify/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/%e9%a1%b5%e9%9d%a2%e9%9d%99%e6%80%81%e5%8c%96">页面静态化</a>
+</li>
+			</ul>
+
+			</div>                        </div>
+                        <div class="col-md-4 footer_column">
+                            <div class="footer_widget widget_tag_cloud" id="tag_cloud-1">
+<div class="jeg_footer_heading jeg_footer_heading_1"><h3 class="jeg_footer_title"><span>Tags</span></h3></div>
+<div class="tagcloud">
+<a href="/label/dom" class="tag-cloud-link tag-link-73 tag-link-position-1" style="font-size: 11.230769230769pt;" aria-label="DOM (3 项)">DOM</a>
+<a href="/label/json" class="tag-cloud-link tag-link-321 tag-link-position-2" style="font-size: 8pt;" aria-label="Json (2 项)">Json</a>
+<a href="/label/rbac" class="tag-cloud-link tag-link-426 tag-link-position-3" style="font-size: 13.923076923077pt;" aria-label="RBAC (4 项)">RBAC</a>
+<a href="/label/%e4%ba%8b%e4%bb%b6" class="tag-cloud-link tag-link-67 tag-link-position-4" style="font-size: 11.230769230769pt;" aria-label="事件 (3 项)">事件</a>
+<a href="/label/%e4%bc%a0%e5%8f%82" class="tag-cloud-link tag-link-139 tag-link-position-5" style="font-size: 8pt;" aria-label="传参 (2 项)">传参</a>
+<a href="/label/%e5%87%bd%e6%95%b0" class="tag-cloud-link tag-link-55 tag-link-position-6" style="font-size: 8pt;" aria-label="函数 (2 项)">函数</a>
+<a href="/label/%e5%88%86%e9%a1%b5" class="tag-cloud-link tag-link-244 tag-link-position-7" style="font-size: 11.230769230769pt;" aria-label="分页 (3 项)">分页</a>
+<a href="/label/%e5%88%a4%e6%96%ad%e8%af%ad%e5%8f%a5" class="tag-cloud-link tag-link-49 tag-link-position-8" style="font-size: 8pt;" aria-label="判断语句 (2 项)">判断语句</a>
+<a href="/label/%e5%8c%bf%e5%90%8d%e5%87%bd%e6%95%b0" class="tag-cloud-link tag-link-68 tag-link-position-9" style="font-size: 8pt;" aria-label="匿名函数 (2 项)">匿名函数</a>
+<a href="/label/%e5%8f%98%e9%87%8f" class="tag-cloud-link tag-link-43 tag-link-position-10" style="font-size: 8pt;" aria-label="变量 (2 项)">变量</a>
+<a href="/label/%e5%9b%be%e7%89%87%e4%b8%8a%e4%bc%a0" class="tag-cloud-link tag-link-439 tag-link-position-11" style="font-size: 13.923076923077pt;" aria-label="图片上传 (4 项)">图片上传</a>
+<a href="/label/%e5%ad%98%e5%82%a8%e8%bf%87%e7%a8%8b" class="tag-cloud-link tag-link-179 tag-link-position-12" style="font-size: 8pt;" aria-label="存储过程 (2 项)">存储过程</a>
+<a href="/label/%e5%ae%89%e8%a3%85" class="tag-cloud-link tag-link-449 tag-link-position-13" style="font-size: 17.961538461538pt;" aria-label="安装 (6 项)">安装</a>
+<a href="/label/%e5%af%b9%e8%b1%a1" class="tag-cloud-link tag-link-72 tag-link-position-14" style="font-size: 8pt;" aria-label="对象 (2 项)">对象</a>
+<a href="/label/%e5%b0%81%e8%a3%85" class="tag-cloud-link tag-link-236 tag-link-position-15" style="font-size: 8pt;" aria-label="封装 (2 项)">封装</a>
+<a href="/label/%e5%b1%9e%e6%80%a7" class="tag-cloud-link tag-link-36 tag-link-position-16" style="font-size: 8pt;" aria-label="属性 (2 项)">属性</a>
+<a href="/label/%e6%8e%a5%e5%8f%a3" class="tag-cloud-link tag-link-242 tag-link-position-17" style="font-size: 8pt;" aria-label="接口 (2 项)">接口</a>
+<a href="/label/%e6%8e%a7%e5%88%b6%e5%99%a8" class="tag-cloud-link tag-link-410 tag-link-position-18" style="font-size: 17.961538461538pt;" aria-label="控制器 (6 项)">控制器</a>
+<a href="/label/%e6%95%b0%e6%8d%ae%e5%ba%93%e6%93%8d%e4%bd%9c" class="tag-cloud-link tag-link-554 tag-link-position-19" style="font-size: 11.230769230769pt;" aria-label="数据库操作 (3 项)">数据库操作</a>
+<a href="/label/%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b" class="tag-cloud-link tag-link-47 tag-link-position-20" style="font-size: 11.230769230769pt;" aria-label="数据类型 (3 项)">数据类型</a>
+<a href="/label/%e6%95%b0%e6%8d%ae%e8%a1%a8" class="tag-cloud-link tag-link-159 tag-link-position-21" style="font-size: 8pt;" aria-label="数据表 (2 项)">数据表</a>
+<a href="/label/%e6%95%b0%e7%bb%84" class="tag-cloud-link tag-link-54 tag-link-position-22" style="font-size: 8pt;" aria-label="数组 (2 项)">数组</a>
+<a href="/label/%e6%96%87%e4%bb%b6%e4%b8%8a%e4%bc%a0" class="tag-cloud-link tag-link-213 tag-link-position-23" style="font-size: 8pt;" aria-label="文件上传 (2 项)">文件上传</a>
+<a href="/label/%e6%97%a0%e5%88%b7%e6%96%b0%e5%88%86%e9%a1%b5" class="tag-cloud-link tag-link-331 tag-link-position-24" style="font-size: 8pt;" aria-label="无刷新分页 (2 项)">无刷新分页</a>
+<a href="/label/%e6%9d%83%e9%99%90" class="tag-cloud-link tag-link-288 tag-link-position-25" style="font-size: 8pt;" aria-label="权限 (2 项)">权限</a>
+<a href="/label/%e6%a0%87%e7%ad%be" class="tag-cloud-link tag-link-38 tag-link-position-26" style="font-size: 8pt;" aria-label="标签 (2 项)">标签</a>
+<a href="/label/%e6%a8%a1%e5%9e%8b" class="tag-cloud-link tag-link-390 tag-link-position-27" style="font-size: 17.961538461538pt;" aria-label="模型 (6 项)">模型</a>
+<a href="/label/%e6%ad%a3%e5%88%99" class="tag-cloud-link tag-link-307 tag-link-position-28" style="font-size: 8pt;" aria-label="正则 (2 项)">正则</a>
+<a href="/label/%e6%b5%81%e7%a8%8b%e6%8e%a7%e5%88%b6" class="tag-cloud-link tag-link-66 tag-link-position-29" style="font-size: 8pt;" aria-label="流程控制 (2 项)">流程控制</a>
+<a href="/label/%e7%9b%ae%e5%bd%95%e7%bb%93%e6%9e%84" class="tag-cloud-link tag-link-557 tag-link-position-30" style="font-size: 11.230769230769pt;" aria-label="目录结构 (3 项)">目录结构</a>
+<a href="/label/%e7%ae%97%e6%b3%95" class="tag-cloud-link tag-link-151 tag-link-position-31" style="font-size: 8pt;" aria-label="算法 (2 项)">算法</a>
+<a href="/label/%e7%b1%bb" class="tag-cloud-link tag-link-220 tag-link-position-32" style="font-size: 8pt;" aria-label="类 (2 项)">类</a>
+<a href="/label/%e7%b4%a2%e5%bc%95" class="tag-cloud-link tag-link-458 tag-link-position-33" style="font-size: 13.923076923077pt;" aria-label="索引 (4 项)">索引</a>
+<a href="/label/%e7%bb%a7%e6%89%bf" class="tag-cloud-link tag-link-237 tag-link-position-34" style="font-size: 11.230769230769pt;" aria-label="继承 (3 项)">继承</a>
+<a href="/label/%e7%bc%a9%e7%95%a5%e5%9b%be" class="tag-cloud-link tag-link-198 tag-link-position-35" style="font-size: 8pt;" aria-label="缩略图 (2 项)">缩略图</a>
+<a href="/label/%e8%a1%a8%e5%85%b3%e7%b3%bb" class="tag-cloud-link tag-link-172 tag-link-position-36" style="font-size: 8pt;" aria-label="表关系 (2 项)">表关系</a>
+<a href="/label/%e8%a7%86%e5%9b%be" class="tag-cloud-link tag-link-176 tag-link-position-37" style="font-size: 22pt;" aria-label="视图 (9 项)">视图</a>
+<a href="/label/%e8%b7%af%e7%94%b1" class="tag-cloud-link tag-link-409 tag-link-position-38" style="font-size: 19.307692307692pt;" aria-label="路由 (7 项)">路由</a>
+<a href="/label/%e8%bf%90%e7%ae%97%e7%ac%a6" class="tag-cloud-link tag-link-48 tag-link-position-39" style="font-size: 11.230769230769pt;" aria-label="运算符 (3 项)">运算符</a>
+<a href="/label/%e9%80%89%e6%8b%a9%e5%99%a8" class="tag-cloud-link tag-link-34 tag-link-position-40" style="font-size: 8pt;" aria-label="选择器 (2 项)">选择器</a>
+<a href="/label/%e9%80%92%e5%bd%92" class="tag-cloud-link tag-link-145 tag-link-position-41" style="font-size: 8pt;" aria-label="递归 (2 项)">递归</a>
+<a href="/label/%e9%85%8d%e7%bd%ae" class="tag-cloud-link tag-link-356 tag-link-position-42" style="font-size: 13.923076923077pt;" aria-label="配置 (4 项)">配置</a>
+<a href="/label/%e9%94%99%e8%af%af%e5%a4%84%e7%90%86" class="tag-cloud-link tag-link-147 tag-link-position-43" style="font-size: 8pt;" aria-label="错误处理 (2 项)">错误处理</a>
+<a href="/label/%e9%a1%b5%e9%9d%a2%e9%9d%99%e6%80%81%e5%8c%96" class="tag-cloud-link tag-link-208 tag-link-position-44" style="font-size: 8pt;" aria-label="页面静态化 (2 项)">页面静态化</a>
+<a href="/label/%e9%aa%8c%e8%af%81%e7%a0%81" class="tag-cloud-link tag-link-196 tag-link-position-45" style="font-size: 11.230769230769pt;" aria-label="验证码 (3 项)">验证码</a>
+</div>
+</div>                        </div>
+                    </div>
+                </div>
+
+
+                
+                <div class="jeg_footer_secondary clearfix">
+
+                    <!-- secondary footer right -->
+
+                    <div class="footer_right">
+
+                        <ul class="jeg_menu_footer">
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-8872"><a href="/">首页</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3239"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af">前端</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3240"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/%e5%89%8d%e7%ab%af%e6%a1%86%e6%9e%b6">前端框架</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3241"><a href="/classify/php">PHP</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-3242"><a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93">数据库</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3713"><a href="/classify/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96">优化</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3243"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6">后台框架与实战</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3697"><a href="/classify/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91">移动开发</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3700"><a href="/classify/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91">二次开发</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3719"><a href="/classify/linux">Linux</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3475"><a href="/classify/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6">版本控制</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8714"><a href="/classify/node">Node.js</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3722"><a href="/classify/%e8%b5%84%e6%96%99">资料库</a></li>
+</ul>
+                        
+                        
+                    </div>
+
+                    <!-- secondary footer left -->
+
+                    
+                    
+                                            <p class="copyright">   <img src="/wp-content/uploads/2022/03/备案图标.png" width="14" height="14">
+  <a href="https://beian.mps.gov.cn/#/query/webSearch?code=31011502400873" target="_blank" style="font-size: 12px;max-width: 120px;overflow: hidden">沪公网安备31011502400873</a>
+  <span style="margin: 0 5px;font-size: 12px">|</span>
+  <a target="_blank" href="http://beian.miit.gov.cn/" style="text-decoration: none;font-size: 12px;max-width: 120px;overflow: hidden;margin-left: 5px">
+    沪ICP备2024050435号-1
+  </a> </p>
+                    
+                </div> <!-- secondary menu -->
+
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.footer -->
+        </div>
+
+        <div class="jscroll-to-top">
+        	<a href="#back-to-top" class="jscroll-to-top_link"><i class="fa fa-angle-up"></i></a>
+        </div>
+
+    </div>
+
+    <!-- Mobile Navigation
+    ============================================= -->
+<div id="jeg_off_canvas" class="normal">
+    <a href="#" class="jeg_menu_close"><i class="jegicon-cross"></i></a>
+    <div class="jeg_bg_overlay"></div>
+    <div class="jeg_mobile_wrapper">
+        <div class="nav_wrap">
+    <div class="item_main">
+        <!-- Search Form -->
+<div class="jeg_aside_item jeg_search_wrapper jeg_search_no_expand round">
+    <a href="#" class="jeg_search_toggle"><i class="fa fa-search"></i></a>
+    <form action="/" method="get" class="jeg_search_form" target="_top">
+    <input name="s" class="jeg_search_input" placeholder="搜索..." type="text" value="" autocomplete="off">
+    <button aria-label="Search Button" type="submit" class="jeg_search_button btn"><i class="fa fa-search"></i></button>
+</form>
+<!-- jeg_search_hide with_result no_result -->
+<div class="jeg_search_result jeg_search_hide with_result">
+    <div class="search-result-wrapper">
+    </div>
+    <div class="search-link search-noresult">
+        没有结果    </div>
+    <div class="search-link search-all-button">
+        <i class="fa fa-search"></i> 查看所有结果    </div>
+</div>
+</div>
+<div class="jeg_aside_item">
+    <ul class="jeg_mobile_menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-8872"><a href="/">首页</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3239">
+<a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af">前端</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1350"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/html">HTML</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1352"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/css">CSS</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1351"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/javascript">Javascript</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2934"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/xml">XML</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2933"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/ajax">AJAX</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3240">
+<a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/%e5%89%8d%e7%ab%af%e6%a1%86%e6%9e%b6">前端框架</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2939"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/%e5%89%8d%e7%ab%af%e6%a1%86%e6%9e%b6/bootstrap">BootStrap</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2940"><a href="/classify/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/%e5%89%8d%e7%ab%af%e6%a1%86%e6%9e%b6/jquery">Jquery</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3241">
+<a href="/classify/php">PHP</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1356"><a href="/classify/php/php%e5%9f%ba%e6%9c%ac%e8%af%ad%e6%b3%95">语法</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1487"><a href="/classify/php/php%e6%a0%b8%e5%bf%83%e7%bc%96%e7%a8%8b">核心</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1823"><a href="/classify/php/%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e7%bc%96%e7%a8%8b">面向对象</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3694"><a href="/classify/php/php7">PHP7</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3695"><a href="/classify/php/socket">Socket</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3696"><a href="/classify/php/swoole">Swoole</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-3242">
+<a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93">数据库</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1362"><a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql">Mysql</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3712"><a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93/redis">Redis</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3709"><a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93/memcache">Memcache</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3710"><a href="/classify/%e6%95%b0%e6%8d%ae%e5%ba%93/mongodb">MongoDB</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3713">
+<a href="/classify/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96">优化</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3716"><a href="/classify/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/%e4%bc%98%e5%8c%96%e6%96%b9%e6%a1%88">优化方案</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3714"><a href="/classify/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/%e9%a1%b5%e9%9d%a2%e9%9d%99%e6%80%81%e5%8c%96">页面静态化</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3711"><a href="/classify/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/nginx">Nginx</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3243">
+<a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6">后台框架与实战</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2283"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/smarty">Smarty</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2924"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/%e6%ba%90%e7%a0%81blog%e9%a1%b9%e7%9b%ae">源码Blog</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3704"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/tp3-2">TP3.2</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3705"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/tp3-2/tp3-2%e5%95%86%e5%9f%8e">TP3.2商城</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7389"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/tp5-0">TP5.0</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7390"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/tp5-0/tp5-0%e5%95%86%e5%9f%8e">TP5.0商城</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3702"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/laravel">Laravel</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3703"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/laravel/laravel%e5%9c%a8%e7%ba%bf%e6%95%99%e8%82%b2%e5%b9%b3%e5%8f%b0">Laravel在线教育平台</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3707"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/yii">Yii</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3708"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/yii/yii%e6%89%8b%e6%9c%ba%e7%9b%b4%e6%92%ad">Yii手机直播</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3701"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/codeigniter">CodeIgniter</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3706"><a href="/classify/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/yaf">Yaf</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3697">
+<a href="/classify/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91">移动开发</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3698"><a href="/classify/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/%e5%be%ae%e4%bf%a1%e5%85%ac%e4%bc%97%e5%8f%b7">微信公众号</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3699"><a href="/classify/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/%e6%b7%b7%e5%90%88app">混合APP</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3700">
+<a href="/classify/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91">二次开发</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3717"><a href="/classify/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91/dedecms">DedeCMS</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3719">
+<a href="/classify/linux">Linux</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3720"><a href="/classify/linux/%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c">基本操作</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3721"><a href="/classify/linux/%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba">环境搭建</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3475">
+<a href="/classify/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6">版本控制</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3476"><a href="/classify/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6/git">GIT</a></li>
+	<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3477"><a href="/classify/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6/svn">SVN</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8714"><a href="/classify/node">Node.js</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3722"><a href="/classify/%e8%b5%84%e6%96%99">资料库</a></li>
+</ul>
+</div>    </div>
+    <div class="item_bottom">
+        <div class="jeg_aside_item socials_widget nobg">
+    <a href="https://github.com/LeeYouRan" target="_blank" rel="external noopener nofollow" class="jeg_github"><i class="fa fa-github"></i> </a>
+</div>
+<div class="jeg_aside_item jeg_aside_copyright">
+	<p>  <img src="/wp-content/uploads/2022/03/备案图标.png" width="14" height="14">
+  <a href="https://beian.mps.gov.cn/#/query/webSearch?code=31011502400873" target="_blank" style="font-size: 12px;max-width: 120px;overflow: hidden">沪公网安备31011502400873</a>
+  <span style="margin: 0 5px;font-size: 12px">|</span>
+  <a target="_blank" href="http://beian.miit.gov.cn/" style="text-decoration: none;font-size: 12px;max-width: 120px;overflow: hidden;margin-left: 5px">
+    沪ICP备2024050435号-1
+  </a></p>
+</div>    </div>
+</div>    </div>
+</div>
+<script type="text/javascript">var jfla = ["view_counter"]</script><script>console.log("\n %c 本站由WPOPT插件优化 %c www.lovestu.com/wpopt.html", "color:#fff;background:#3983e2;padding:5px 0;", "color:#eee;background:#f0f0f0;padding:5px 10px;");</script><div id="selectShareContainer">
+                        <div class="selectShare-inner">
+                            <div class="select_share jeg_share_button">              
+                                <button class="select-share-button jeg_btn-facebook" data-url="http://www.facebook.com/sharer.php?u=[url]&quote=[selected_text]" data-post-url="%2F%25e6%2595%25b0%25e6%258d%25ae%25e5%25ba%2593%2Fmysql%2F944.html" data-image-url="" data-title="Mysql%EF%BC%88%E4%B8%80%EF%BC%89%E5%85%B3%E7%B3%BB%E5%9E%8B%E3%80%81%20%E5%B1%82%E6%AC%A1%E5%9E%8B%E3%80%81%20%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%81%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%95%E6%93%8E%E3%80%81%20%E6%95%B0%E6%8D%AE%E8%A1%A8%E3%80%81%20%E7%BD%91%E7%8A%B6%E5%9E%8B%E3%80%81%20%E8%A1%A8%E5%B1%9E%E6%80%A7"><i class="fa fa-facebook-official"></i><button class="select-share-button jeg_btn-twitter" data-url="https://twitter.com/intent/tweet?text=[selected_text]&url=[url]" data-post-url="%2F%25e6%2595%25b0%25e6%258d%25ae%25e5%25ba%2593%2Fmysql%2F944.html" data-image-url="" data-title="Mysql%EF%BC%88%E4%B8%80%EF%BC%89%E5%85%B3%E7%B3%BB%E5%9E%8B%E3%80%81%20%E5%B1%82%E6%AC%A1%E5%9E%8B%E3%80%81%20%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%81%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%95%E6%93%8E%E3%80%81%20%E6%95%B0%E6%8D%AE%E8%A1%A8%E3%80%81%20%E7%BD%91%E7%8A%B6%E5%9E%8B%E3%80%81%20%E8%A1%A8%E5%B1%9E%E6%80%A7"><i class="fa fa-twitter"></i>
+                            </button></button>
+</div>
+                            <div class="selectShare-arrowClip">
+                                <div class="selectShare-arrow"></div>      
+                            </div> 
+                        </div>      
+                      </div>
+<div class="jeg_read_progress_wrapper"></div>
+<script type="text/javascript" src="/wp-includes/js/comment-reply.min.js?ver=6.6.1" id="comment-reply-js" async="async" data-wp-strategy="async"></script>
+<script type="text/javascript" src="/wp-includes/js/hoverIntent.min.js?ver=1.10.2" id="hoverIntent-js"></script>
+<script type="text/javascript" src="/wp-includes/js/imagesloaded.min.js?ver=5.0.0" id="imagesloaded-js"></script>
+<script type="text/javascript" id="jnews-frontend-js-extra">
+/* <![CDATA[ */
+var jnewsoption = {"login_reload":"\/%E6%95%B0%E6%8D%AE%E5%BA%93\/mysql\/944.html","popup_script":"magnific","single_gallery":"","ismobile":"","isie":"","sidefeed_ajax":"","language":"zh_CN","module_prefix":"jnews_module_ajax_","live_search":"1","postid":"944","isblog":"1","admin_bar":"0","follow_video":"","follow_position":"top_right","rtl":"0","gif":"","lang":{"invalid_recaptcha":"无效的Recaptcha !","empty_username":"请输入您的用户名!","empty_email":"请输入你的电子邮件！","empty_password":"请输入密码!"},"recaptcha":"0","site_slug":"\/","site_domain":"liyouran.site","zoom_button":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp-content/themes/jnews/assets/dist/frontend.min.js?ver=10.6.4" id="jnews-frontend-js"></script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/wp-content/themes/jnews/assets/js/html5shiv.min.js?ver=10.6.4" id="html5shiv-js"></script>
+<![endif]-->
+<script type="text/javascript" src="/wp-content/plugins/jnews-social-login/assets/js/plugin.js?ver=10.0.2" id="jnews-social-login-style-js"></script>
+<script type="text/javascript" id="jnews-select-share-js-extra">
+/* <![CDATA[ */
+var jnews_select_share = {"is_customize_preview":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp-content/plugins/jnews-social-share/assets/js/plugin.js" id="jnews-select-share-js"></script>
+<div class="jeg_ad jnews_mobile_sticky_ads "></div>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"article","mainEntityOfPage":{"@type":"WebPage","@id":"\/%e6%95%b0%e6%8d%ae%e5%ba%93\/mysql\/944.html"},"dateCreated":"2018-05-18 01:14:51","datePublished":"2018-05-18 01:14:51","dateModified":"2018-05-20 01:23:42","url":"\/%e6%95%b0%e6%8d%ae%e5%ba%93\/mysql\/944.html","headline":"Mysql（一）关系型、 层次型、 数据库、 数据库引擎、 数据表、 网状型、 表属性","name":"Mysql（一）关系型、 层次型、 数据库、 数据库引擎、 数据表、 网状型、 表属性","articleBody":"<h1>基本概念<\/h1><h2>数据库<\/h2>\r\n<p>\r\n  database\r\n<\/p>\r\n<p>\r\n  什么是数据库：存放数据的仓库，用途就是存放，（永久存放）\r\n<\/p>\r\n<p>\r\n  Word也是永久存放数据的地方，那么word是数据库吗？\r\n<\/p>\r\n<p>\r\n  Word 文档文件----从定义上说，word就是数据库，为什么？\r\n<\/p>\r\n<p>\r\n  其实数据库的本质就是文件\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-838.png\" class=\"wp-image-945\" \/>\r\n<\/p><h2>数据库发展史<\/h2><h3>层次型<\/h3>\r\n<p>\r\n  什么是层次型数据库？\r\n<\/p>\r\n<p>\r\n  把数据分层，分类来存储好处，把数据归类了，层次分明\r\n<\/p>\r\n<p>\r\n  像一个倒立的树\r\n<\/p>\r\n<p>\r\n  现在你要找一个学生，那么必须从学校开始找  学校----班级----学生或学校----教师---学生\r\n<\/p>\r\n<p>\r\n  出现了一个导航问题找C必须通过A再B\r\n<\/p>\r\n<p>\r\n  出现了重复数据\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-839.png\" class=\"wp-image-946\" \/>\r\n<\/p><h3>网状型<\/h3>\r\n<p>\r\n  好处：解决了数据的重复\r\n<\/p>\r\n<p>\r\n  坏处：但是导航问题没有根本的解决\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-840.png\" class=\"wp-image-947\" \/>\r\n<\/p><h3>关系型<\/h3>\r\n<p>\r\n  什么是关系型数据库\r\n<\/p>\r\n<p>\r\n  其实就是有关系的二维表\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-841.png\" class=\"wp-image-948\" \/>\r\n<\/p><h2>数据表<\/h2>\r\n<p>\r\n  关系型数据库中的二维表就是数据表，是二维的另外一个名字\r\n<\/p><h3>记录<\/h3>\r\n<p>\r\n  数据表中一行就是一条记录\r\n<\/p><h3>字段<\/h3>\r\n<p>\r\n  数据表中一列就是一个字段\r\n<\/p><h3>数据<\/h3>\r\n<p>\r\n  一行和一列交差的地方就是数据\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-842.png\" class=\"wp-image-949\" \/>\r\n<\/p><h2>数据库管理系统（软件）<\/h2>\r\n<p>\r\n  Managerment  database  system\r\n<\/p>\r\n<p>\r\n  平时说的MySQL数据库这个定义不对  其实MySQL是管理数据库的，是一个数据库管理系统\r\n<\/p>\r\n<p>\r\n  常见的一些数据库管理系统有如下几个;\r\n<\/p>\r\n<p>\r\n  Oracle  mysql   sqlserver  sqllite   db2  access\r\n<\/p>\r\n<p>\r\n  如上的一些数据库管理系统都有一个特点-----都是管理关系型数据库的\r\n<\/p>\r\n<p>\r\n  用途：数据库管理系统就是用来管理数据库的\r\n<\/p><h2>SQL<\/h2>\r\n<p>\r\n  Sql就是数据库管理系统管理数据库的一种命令\r\n<\/p>\r\n<p>\r\n  这里数据库管理系统可以不同但是sql命令确是可以共用的，说白了，SQL就是一种专门管理数据库的一种语言\r\n<\/p><h2>数据库服务器（硬件）<\/h2>\r\n<p>\r\n  数据库服务器：就是提供数据库服务的一个计算机，安装了数据库管理系统\r\n<\/p><h2>数据库系统<\/h2>\r\n<p>\r\n  数据库系统=数据库管理员+数据库管理系统+数据库\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-843.png\" class=\"wp-image-950\" \/>\r\n<\/p><h2>今日数据库操作步骤<\/h2>\r\n<ul>\r\n  <li>\r\n    数据库操作顺序\r\n  <\/li>\r\n  <li>\r\n    第一步：打开数据库服务\r\n  <\/li>\r\n  <li>\r\n    第二步：连接数据库\r\n  <\/li>\r\n  <li>\r\n    第三步：数据库的‘库操作’\r\n    <ul>\r\n      <li>\r\n        <ul>\r\n          <li>\r\n            对数据库的增删改查\r\n          <\/li>\r\n        <\/ul>\r\n      <\/li>\r\n    <\/ul>\r\n  <\/li>\r\n  <li>\r\n    第四步：进入数据库\r\n  <\/li>\r\n  <li>\r\n    第五步：表操作（增加，删除，修改）\r\n  <\/li>\r\n<\/ul><h1>数据库服务<\/h1><h2>启动数据库服务<\/h2>\r\n<p>\r\n  第一种\r\n<\/p>\r\n<p>\r\n  右键计算机---管理---服务---MySQL数据库\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-844.png\" class=\"wp-image-951\" \/>\r\n<\/p>\r\n<p>\r\n  第二种\r\n<\/p>\r\n<p>\r\n  Cmd 命令行方式启动\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-845.png\" class=\"wp-image-952\" \/>\r\n<\/p>\r\n<p>\r\n  注意：配置path，net start mysql后没有分号；\r\n<\/p><h2>关闭数据库服务<\/h2>\r\n<p>\r\n  语法： net stop mysql \r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-846.png\" class=\"wp-image-953\" \/>\r\n<\/p><h1>MySQL客户端<\/h1><h2>Windows命令窗口cmd<\/h2><h3>连接数据库<\/h3>\r\n<p>\r\n  语法:  mysql -h主机名 -P端口号 -u用户名 -p密码\r\n<\/p>\r\n<ul>\r\n  <li>\r\n    -h主机名，默认是localhost(127.0.0.1) ,如果是默认可以不填写\r\n  <\/li>\r\n  <li>\r\n    -P端口号，默认是3306，如果是默认的可以不填写\r\n  <\/li>\r\n  <li>\r\n    -u用户名\r\n  <\/li>\r\n  <li>\r\n    -p密码\r\n  <\/li>\r\n<\/ul>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-847.png\" class=\"wp-image-954\" \/>\r\n<\/p>\r\n<p>\r\n  优化\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-848.png\" class=\"wp-image-955\" \/>\r\n<\/p><h3>退出数据库<\/h3>\r\n<p>\r\n  \\q\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-849.png\" class=\"wp-image-956\" \/>\r\n<\/p>\r\n<p>\r\n  Exit\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-850.png\" class=\"wp-image-957\" \/>\r\n<\/p>\r\n<p>\r\n  Quit\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-851.png\" class=\"wp-image-958\" \/>\r\n<\/p><h2>Windows界面客户端<\/h2>\r\n<p>\r\n  Navicate (强烈不推荐使用)\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-852.png\" class=\"wp-image-960\" \/>\r\n<\/p><h2>Web界面（PHPadmin）<\/h2><h3>配置web站<\/h3>\r\n<p>\r\n  解压放置到你的虚拟站点位置\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-853.png\" class=\"wp-image-961\" \/>\r\n<\/p>\r\n<p>\r\n  配置虚拟主机\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-854.png\" class=\"wp-image-962\" \/>\r\n<\/p>\r\n<p>\r\n  修改host\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-855.png\" class=\"wp-image-963\" \/>\r\n<\/p>\r\n<p>\r\n  重启Apache访问站点\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-856.png\" class=\"wp-image-964\" \/>\r\n<\/p>\r\n<p>\r\n  我的错误：配置路径的时候多了一个s\r\n<\/p><h3>连接数据库<\/h3>\r\n<p>\r\n  登录完成后的效果：\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-857.png\" class=\"wp-image-965\" \/>\r\n<\/p><h1>数据库操作<\/h1><h2>创建数据库<\/h2>\r\n<p>\r\n  语法：create  database 数据库名字;\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-858.png\" class=\"wp-image-966\" \/>\r\n<\/p>\r\n<p>\r\n  注意;数据库命名有如下的规则\r\n<\/p>\r\n<p>\r\n  数据库名字是由字母，数字，下划线组成\r\n<\/p>\r\n<p>\r\n  数据库名字不能是纯数字\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-859.png\" class=\"wp-image-967\" \/>\r\n<\/p>\r\n<p>\r\n  数据库名字不能是数据库的关键字\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-860.png\" class=\"wp-image-968\" \/>\r\n<\/p>\r\n<p>\r\n  如果数据库名字是一个数据库关键字，那么用``（反引号）引起来\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-861.png\" class=\"wp-image-969\" \/>\r\n<\/p>\r\n<p>\r\n  扩展;创建数据库的时候指定字符集\r\n<\/p>\r\n<p>\r\n  语法：create  database  数据库名字  charset  字符集;\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-862.png\" class=\"wp-image-970\" \/>\r\n<\/p><h2>删除数据库<\/h2>\r\n<p>\r\n  语法: drop database 数据库名字;\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-863.png\" class=\"wp-image-971\" \/>\r\n<\/p><h2>修改数据库<\/h2>\r\n<p>\r\n  修改数据库的名字\r\n<\/p>\r\n<p>\r\n  \t这里没有直接修改数据库名字的语法，只能先删除数据库，再重建\r\n<\/p>\r\n<p>\r\n  修改数据库的字符集\r\n<\/p>\r\n<ul>\r\n  <li>\r\n    alter database 数据库名字 charset 新字符集\r\n  <\/li>\r\n<\/ul>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-864.png\" class=\"wp-image-972\" \/>\r\n<\/p>\r\n<ul>\r\n  <li>\r\n    alter database 数据库名字 charset = 新字符集\r\n  <\/li>\r\n<\/ul>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-865.png\" class=\"wp-image-973\" \/>\r\n<\/p>\r\n<ul>\r\n  <li>\r\n    alter  database  数据库名字  default  character set 新字符集名字\r\n  <\/li>\r\n<\/ul>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-866.png\" class=\"wp-image-974\" \/>\r\n<\/p><h2>查看数据库<\/h2>\r\n<p>\r\n  语法:show databases;\r\n<\/p>\r\n<p>\r\n  注意：系统数据库不要随意操作\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-867.png\" class=\"wp-image-975\" \/>\r\n<\/p><h2>查看数据库创建语句<\/h2>\r\n<p>\r\n  语法:show create database 数据库名;\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-868.png\" class=\"wp-image-976\" \/>\r\n<\/p><h2>数据库保存目录<\/h2>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-869.png\" class=\"wp-image-977\" \/>\r\n<\/p>\r\n<p>\r\n  默认保存路径可以在my.ini中修改\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-870.png\" class=\"wp-image-978\" \/>\r\n<\/p><h1>表操作<\/h1><h2>创建数据表<\/h2>\r\n<p>\r\n  Create table 表名\r\n<\/p>\r\n<p>\r\n  (\r\n<\/p>\r\n<p>\r\n  \t字段名 类型  [字段属性],\r\n<\/p>\r\n<p>\r\n  字段名 类型  [字段属性],\r\n<\/p>\r\n<p>\r\n  字段名 类型  [字段属性]   --  最后一个字段后边不加逗号,\r\n<\/p>\r\n<p>\r\n  )[表属性]\r\n<\/p>\r\n<p>\r\n  创建表：只是创建了一个表的结构，而没有数据；\r\n<\/p><h3>字段类型（介绍）<\/h3>\r\n<ul>\r\n  <li>\r\n    整形  tinyint  smallint  mediumint  int   bigint\r\n  <\/li>\r\n  <li>\r\n    小数 float  double  decimal\r\n  <\/li>\r\n  <li>\r\n    字符串 char   varchar  text  set  enum  blob\r\n  <\/li>\r\n  <li>\r\n    时间 time  date  datetime  timestamp\r\n  <\/li>\r\n<\/ul><h3>字段属性（介绍）<\/h3>\r\n<p>\r\n  什么是字段属性：字段属性就是对字段的一种约束\r\n<\/p>\r\n<ul>\r\n  <li>\r\n    Not null\/null  允许为不为空\/空\r\n  <\/li>\r\n  <li>\r\n    Primary key  主键\r\n  <\/li>\r\n  <li>\r\n    Unque key   唯一建\r\n  <\/li>\r\n  <li>\r\n    Comment    说明\r\n  <\/li>\r\n  <li>\r\n    Atuo_increment  自动增长\r\n  <\/li>\r\n<\/ul><h3>表属性（介绍）<\/h3>\r\n<ul>\r\n  <li>\r\n    Charset  表字符集\r\n  <\/li>\r\n  <li>\r\n    Auto_increment   自动增长\r\n  <\/li>\r\n  <li>\r\n    Collate   校对集\r\n  <\/li>\r\n  <li>\r\n    Comment  说明\r\n  <\/li>\r\n  <li>\r\n    Engine   数据表引擎\r\n  <\/li>\r\n<\/ul>\r\n<p>\r\n  案例：创建一个简单表\r\n<\/p>\r\n<p>\r\n  第一步：数据表创建，是创建到数据库中的，所以呢创建数据表之前应该选定创建到哪个数据库\r\n<\/p>\r\n<p>\r\n  选择数据库语法: use 数据库名字;\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-871.png\" class=\"wp-image-979\" \/>\r\n<\/p>\r\n<p><strong>第二步：创建表<\/strong>\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-872.png\" class=\"wp-image-980\" \/>\r\n<\/p>\r\n<p><strong>英雄技能表案例：<\/strong>\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-873.png\" class=\"wp-image-981\" \/>\r\n<\/p><h2>查看数据表<\/h2>\r\n<p>\r\n  查看当前数据库有哪些数据表（所有的表查看）\r\n<\/p>\r\n<p>\r\n  语法：show tables；\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-874.png\" class=\"wp-image-982\" \/>\r\n<\/p><h2>删除数据表<\/h2>\r\n<p>\r\n  语法:  drop table 表名;\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-875.png\" class=\"wp-image-983\" \/>\r\n<\/p>\r\n<p>\r\n  扩展，一次删除多张数据表 drop  table 表1,表2…..;\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-876.png\" class=\"wp-image-984\" \/>\r\n<\/p><h2>查看表结构<\/h2>\r\n<p>\r\n  查看表的结构:  desc 表名;\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-877.png\" class=\"wp-image-985\" \/>\r\n<\/p><h2>查看表创建语法<\/h2>\r\n<p>\r\n  查看数据表的创建语句\r\n<\/p>\r\n<p>\r\n  语法; show create table 表名;、\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-878.png\" class=\"wp-image-986\" \/>\r\n<\/p><h1>数据简单操作<\/h1><h2>增加<\/h2>\r\n<p>\r\n  提前准备：\r\n<\/p>\r\n<p>\r\n  删除老的hero表，创建新的hero表\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-879.png\" class=\"wp-image-987\" \/>\r\n<\/p>\r\n<p>\r\n  执行命令 set names gbk 避免乱码错误\r\n<\/p>\r\n<p>\r\n  语法： insert    [into] 表名   [(插入的字段列表)]  values  (字段值1,字段值2,字段值3……)\r\n<\/p>\r\n<p>\r\n  注意：后边的值和前边的字段列表的顺序一定要对应\r\n<\/p>\r\n<ul>\r\n  <li>\r\n    错误案例：\r\n  <\/li>\r\n<\/ul>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-880.png\" class=\"wp-image-988\" \/>\r\n<\/p>\r\n<ul>\r\n  <li>\r\n    正确案例：\r\n  <\/li>\r\n<\/ul>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-881.png\" class=\"wp-image-989\" \/>\r\n<\/p>\r\n<ul>\r\n  <li>\r\n    扩展：省略字段列表插入表数据\r\n  <\/li>\r\n<\/ul>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-882.png\" class=\"wp-image-990\" \/>\r\n<\/p>\r\n<p>\r\n  表创建的顺序如下\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-883.png\" class=\"wp-image-991\" \/>\r\n<\/p>\r\n<p>\r\n  扩展：Select 语句复制表\r\n<\/p><h2>修改<\/h2>\r\n<p>\r\n  语法形式如下：\r\n<\/p>\r\n<p>\r\n  \tUpdate 表名 set 字段名 =字段值 where修改条件\r\n<\/p>\r\n<ul>\r\n  <li>\r\n    修改大头的英雄伤害\r\n  <\/li>\r\n<\/ul>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-884.png\" class=\"wp-image-992\" \/>\r\n<\/p>\r\n<p>\r\n  结果\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-885.png\" class=\"wp-image-993\" \/>\r\n<\/p>\r\n<p>\r\n  注意：修改表数据的时候一般都要指定修改的条件，如果修改不指定条件的话会把整张表的数据都修改\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-886.png\" class=\"wp-image-994\" \/>\r\n<\/p>\r\n<ul>\r\n  <li>\r\n    数据多字段的修改\r\n  <\/li>\r\n<\/ul>\r\n<p>\r\n  语法：update  表名 set 字段名=值1 ,字段名=字段值…. Where 修改条件\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-887.png\" class=\"wp-image-995\" \/>\r\n<\/p><h2>查找<\/h2>\r\n<ul>\r\n  <li>\r\n    语法：select  *  from 表名\r\n  <\/li>\r\n<\/ul>\r\n<p>\r\n  说明：*代表所有的字段\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-888.png\" class=\"wp-image-996\" \/>\r\n<\/p>\r\n<ul>\r\n  <li>\r\n    我们还可已选择查看哪些字段的信息\r\n  <\/li>\r\n<\/ul>\r\n<p>\r\n  语法: select   字段1,字段2,字段3,字段4……  from  表名；\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-889.png\" class=\"wp-image-997\" \/>\r\n<\/p>\r\n<ul>\r\n  <li>\r\n    查看技能伤害大于50的英雄信息\r\n  <\/li>\r\n<\/ul>\r\n<p>\r\n  语法如下：select 字段列表 from 表名 where  条件\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-890.png\" class=\"wp-image-998\" \/>\r\n<\/p><h2>删除<\/h2>\r\n<p>\r\n  语法：delete  from 表名 where 删除的条件；\r\n<\/p>\r\n<p>\r\n  删除前数据\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-891.png\" class=\"wp-image-999\" \/>\r\n<\/p>\r\n<p>\r\n  删除成功\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-892.png\" class=\"wp-image-1000\" \/>\r\n<\/p>\r\n<p>\r\n  删除后数据\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-893.png\" class=\"wp-image-1001\" \/>\r\n<\/p>\r\n<p>\r\n  注意;这里删除一般都需要制定删除的条件，如果不指定删除的条件那么整张表的数据都会被删除\r\n<\/p>\r\n<ul>\r\n  <li>\r\n    没有条件的删除\r\n  <\/li>\r\n<\/ul>\r\n<p>\r\n  删除前\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-894.png\" class=\"wp-image-1002\" \/>\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-895.png\" class=\"wp-image-1003\" \/>\r\n<\/p><h1>表属性<\/h1>\r\n<p>\r\n  表属性就是用来约束表的，限定一些东西\r\n<\/p><h2>字符集（乱码的解决）<\/h2>\r\n<p>\r\n  常见的字符集有：utf8  gbk  latin1  gb2312\r\n<\/p>\r\n<p>\r\n  什么是字符集？\r\n<\/p>\r\n<p>\r\n  \t字符集就是字符和字符编码的对应关系\r\n<\/p>\r\n<p>\r\n  什么是字符？\r\n<\/p>\r\n<p>\r\n  \t像 a,b,A,V,1中文 等都是字符\r\n<\/p>\r\n<p>\r\n  \t什么是字符编码？\r\n<\/p>\r\n<p>\r\n  \t\t比如 ‘a’这个字符在计算机中是以什么形式存的\r\n<\/p>\r\n<p>\r\n  \t\t‘a’在计算机中是以二进制存储的，那么这个二进制的码值就是‘a’的字符编码\r\n<\/p>\r\n<p>\r\n  \t\t ‘a’-------10110101   10110101就是a的字符编码\r\n<\/p>\r\n<p>\r\n  \t\t‘b’-------10110110   10110110就是b的字符编码\r\n<\/p>\r\n<p>\r\n  插入中文数据，插入失败\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-896.png\" class=\"wp-image-1004\" \/>\r\n<\/p>\r\n<p>\r\n  错误原因\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-897.png\" class=\"wp-image-1005\" \/>\r\n<\/p>\r\n<p>\r\n  错误解决\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-898.png\" class=\"wp-image-1006\" \/>\r\n<\/p>\r\n<p>\r\n  插入数据插入成功\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-899.png\" class=\"wp-image-1007\" \/>\r\n<\/p>\r\n<p>\r\n  查看数据\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-900.png\" class=\"wp-image-1008\" \/>\r\n<\/p>\r\n<p>\r\n  错误原因\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-901.png\" class=\"wp-image-1009\" \/>\r\n<\/p>\r\n<p>\r\n  错误解决\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-902.png\" class=\"wp-image-1010\" \/>\r\n<\/p>\r\n<p>\r\n  再次查看数据\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-903.png\" class=\"wp-image-1011\" \/>\r\n<\/p><h2>校对集<\/h2>\r\n<p>\r\n  什么是校对集：校对集就是字符集中的一种比较规则，主要用于排序\r\n<\/p>\r\n<p>\r\n  Show  collation;查看所有的校对集\r\n<\/p>\r\n<p>\r\n  show collation like 'utf8_%';查看utf8的校对集\r\n<\/p>\r\n<p>\r\n   \tutf8的两种校对集使用\r\n<\/p>\r\n<p>\r\n  utf8_general_ci  不区分大小写  (a  B  c)\r\n<\/p>\r\n<p>\r\n  utf8_bin   二进制排序 （B a c）\r\n<\/p>\r\n<p>\r\n  \tB----66\r\n<\/p>\r\n<p>\r\n  a----97\r\n<\/p>\r\n<p>\r\n  c----99\r\n<\/p>\r\n<p>\r\n  案例：\r\n<\/p>\r\n<p>\r\n  \t创建两张表\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-904.png\" class=\"wp-image-1012\" \/>\r\n<\/p>\r\n<p>\r\n  插入数据\r\n<\/p>\r\n<p>\r\n  insert into test1 values('a');\r\n<\/p>\r\n<p>\r\n  insert into test1 values('B');\r\n<\/p>\r\n<p>\r\n  insert into test1 values('c');\r\n<\/p>\r\n<p>\r\n  insert into test2 values('a');\r\n<\/p>\r\n<p>\r\n  insert into test2 values('B');\r\n<\/p>\r\n<p>\r\n  insert into test2 values('c');\r\n<\/p>\r\n<p>\r\n  排序查看\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-905.png\" class=\"wp-image-1013\" \/>\r\n<\/p><h2>数据库引擎<\/h2>\r\n<p>\r\n  什么是数据库引擎：就是数据库保存表数据的一种方式\r\n<\/p>\r\n<p>\r\n  常用的数据库引擎有 innodb myisam\r\n<\/p>\r\n<p>\r\n  默认的数据库引擎是innodb\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-906.png\" class=\"wp-image-1014\" \/>\r\n<\/p>\r\n<p>\r\n  默认的数据库引擎可以在配置文件中配置\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-907.png\" class=\"wp-image-1015\" \/>\r\n<\/p>\r\n<p>\r\n  数据库引擎的支持\r\n<\/p>\r\n<p>\r\n  <img src=\"\/wp-content\/uploads\/2018\/05\/word-image-908.png\" class=\"wp-image-1016\" \/>\r\n<\/p>","author":{"@type":"Person","name":"Mr.Lee","url":"\/author\/root","sameAs":["","https:\/\/github.com\/LeeYouRan"]},"articleSection":["Mysql"],"image":{"@type":"ImageObject","url":"\/wp-content\/uploads\/2018\/05\/Mysql.jpg","width":716,"height":297},"publisher":{"@type":"Organization","name":"","url":"","logo":{"@type":"ImageObject","url":""},"sameAs":["https:\/\/github.com\/LeeYouRan"]}}</script>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"hentry","entry-title":"Mysql（一）关系型、 层次型、 数据库、 数据库引擎、 数据表、 网状型、 表属性","published":"2018-05-18 01:14:51","updated":"2018-05-20 01:23:42"}</script>
+<script type="text/javascript">;!function(){"use strict";window.jnews=window.jnews||{},window.jnews.first_load=window.jnews.first_load||{},window.jnews.first_load=function(){var e=this,t=jnews.library,n="object"==typeof jnews&&"object"==typeof jnews.library;e.data=null,e.run_ajax=!0,e.run_loginregister=!0,e.clear=function(){e.run_ajax=!0,e.run_loginregister=!0,e.data=null},e.init=function(){n&&(t.globalBody.querySelectorAll(".jeg_popup_account").length&&jnews.loginregister&&e.run_loginregister&&(e.run_loginregister=!1,jnews.loginregister.init(),jnews.loginregister.hook_form()),jfla.length&&e.run_ajax&&(e.run_ajax=!1,e.do_ajax({action:"jnews_first_load_action",jnews_id:jnewsoption.postid,load_action:jfla})))},e.update_counter=function(){if(n){var o={total_view:t.globalBody.querySelectorAll(".jeg_share_stats .jeg_views_count .counts"),total_share:t.globalBody.querySelectorAll(".jeg_share_stats .jeg_share_count .counts"),total_comment:t.globalBody.querySelectorAll(".jeg_meta_comment a span")};t.forEach(Object.entries(e.data.counter),(function([e,n]){o[e].length&&t.forEach(o[e],(function(e,o){t.setText(e,n)}))}))}},e.do_ajax=function(o){if(n){var a=new XMLHttpRequest;a.onreadystatechange=function(){XMLHttpRequest.DONE===a.readyState&&200==a.status&&(e.data=JSON.parse(a.responseText),e.data.counter&&"object"==typeof e.data.counter&&e.update_counter())},a.open("POST",jnews_ajax_url,!0),a.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8"),a.send(t.httpBuildQuery(o))}}},window.jnews.first_load=new window.jnews.first_load,jnews.first_load.init()}();</script>
+</body>
+</html>

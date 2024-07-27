@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>推流地址 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E6%8E%A8%E6%B5%81%E5%9C%B0%E5%9D%80/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 15:36:37 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>推流地址 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Laravel在线教育平台（五）直播课程管理、图片上传、首页点播、对象存储、日期插件、推流地址</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/5792.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/5792.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 15:36:37 +0000</pubDate>
+				<category><![CDATA[Laravel]]></category>
+		<category><![CDATA[Laravel在线教育平台]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[图片上传]]></category>
+		<category><![CDATA[对象存储]]></category>
+		<category><![CDATA[推流地址]]></category>
+		<category><![CDATA[日期插件]]></category>
+		<category><![CDATA[直播课程管理]]></category>
+		<category><![CDATA[首页点播]]></category>
+		<guid isPermaLink="false">/?p=5792</guid>
+
+					<description><![CDATA[Laravel框架实战-在线教育平台（5） 一、直播课程管理（获取推流地址、日期插件） 1、获取推流地址 步骤 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1><a id="post-5792-_Toc488249285"></a>Laravel框架实战-在线教育平台（5）</h1>
+<h1><a id="post-5792-_Toc488249288"></a>一、直播课程管理（获取推流地址、日期插件）</h1>
+<h2><a id="post-5792-_Toc488249289"></a>1、获取推流地址</h2>
+<p>
+  步骤1：定义模型
+</p>
+<p><img fetchpriority="high" decoding="async" width="1053" height="416" src="/wp-content/uploads/2018/05/word-image-5257.png" class="wp-image-5793" srcset="/wp-content/uploads/2018/05/word-image-5257.png 1053w, /wp-content/uploads/2018/05/word-image-5257-300x119.png 300w, /wp-content/uploads/2018/05/word-image-5257-768x303.png 768w, /wp-content/uploads/2018/05/word-image-5257-1024x405.png 1024w" sizes="(max-width: 1053px) 100vw, 1053px" /></p>
+<p>
+  /**
+</p>
+<p>
+   * 关联直播流模型（1:1）
+</p>
+<p>
+   * 语法：模型名::with（&#8217;role&#8217;）-&gt;first()
+</p>
+<p>
+   * @return \Illuminate\Database\Eloquent\Relations\HasOne
+</p>
+<p>
+   */
+</p>
+<p>
+  public function stream()
+</p>
+<p>
+  {
+</p>
+<p>
+      #return $this-&gt;hasOne(关联模型名，关联模型公共字段，本模型公共字段)
+</p>
+<p>
+      return $this-&gt;hasOne(&#8216;App\Http\Model\Stream&#8217;,&#8217;id&#8217;, &#8216;stream_id&#8217;);
+</p>
+<p>
+  }
+</p>
+<p>
+  步骤2：修改控制器
+</p>
+<p><img decoding="async" width="993" height="421" src="/wp-content/uploads/2018/05/word-image-5258.png" class="wp-image-5794" srcset="/wp-content/uploads/2018/05/word-image-5258.png 993w, /wp-content/uploads/2018/05/word-image-5258-300x127.png 300w, /wp-content/uploads/2018/05/word-image-5258-768x326.png 768w" sizes="(max-width: 993px) 100vw, 993px" /></p>
+<p>
+  步骤3：修改视图
+</p>
+<p><img decoding="async" width="1235" height="533" src="/wp-content/uploads/2018/05/word-image-5259.png" class="wp-image-5795" srcset="/wp-content/uploads/2018/05/word-image-5259.png 1235w, /wp-content/uploads/2018/05/word-image-5259-300x129.png 300w, /wp-content/uploads/2018/05/word-image-5259-768x331.png 768w, /wp-content/uploads/2018/05/word-image-5259-1024x442.png 1024w" sizes="(max-width: 1235px) 100vw, 1235px" /></p>
+<h2>日期插件</h2>
+<p>
+  配置手册：<a href="http://www.my97.net/demo/index.htm">http://www.my97.net/demo/index.htm</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1101" height="335" src="/wp-content/uploads/2018/05/word-image-5260.png" class="wp-image-5796" srcset="/wp-content/uploads/2018/05/word-image-5260.png 1101w, /wp-content/uploads/2018/05/word-image-5260-300x91.png 300w, /wp-content/uploads/2018/05/word-image-5260-768x234.png 768w, /wp-content/uploads/2018/05/word-image-5260-1024x312.png 1024w" sizes="(max-width: 1101px) 100vw, 1101px" /></p>
+<h2>图片上传【★★★】</h2>
+<h3>webuploader插件介绍</h3>
+<p>
+  说明：就是由百度团队开发的一个上传插件
+</p>
+<p>
+  地址：<a href="http://fex.baidu.com/webuploader/">http://fex.baidu.com/webuploader/</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1134" height="495" src="/wp-content/uploads/2018/05/word-image-5261.png" class="wp-image-5797" srcset="/wp-content/uploads/2018/05/word-image-5261.png 1134w, /wp-content/uploads/2018/05/word-image-5261-300x131.png 300w, /wp-content/uploads/2018/05/word-image-5261-768x335.png 768w, /wp-content/uploads/2018/05/word-image-5261-1024x447.png 1024w" sizes="(max-width: 1134px) 100vw, 1134px" /></p>
+<h3>使用</h3>
+<ul>
+<li>
+    语法：
+  </li>
+</ul>
+<p>
+  检查是否存在指定键：$request-&gt;hasFile(&#8216;file&#8217;)
+</p>
+<p>
+  检查是否上传成功：  $request-&gt;file(&#8216;file&#8217;)-&gt;isValid()
+</p>
+<p>
+  存储文件：    $request-&gt;file(&#8216;file&#8217;)-&gt;store(&#8216;子路径&#8217;，存储驱动器的名称);
+</p>
+<ul>
+<li>
+    实现步骤：
+  </li>
+</ul>
+<p>
+  步骤1：将官方下载的文件移动到public目录下的webuploader文件夹中
+</p>
+<p><img loading="lazy" decoding="async" width="335" height="317" src="/wp-content/uploads/2018/05/word-image-5262.png" class="wp-image-5798" srcset="/wp-content/uploads/2018/05/word-image-5262.png 335w, /wp-content/uploads/2018/05/word-image-5262-300x284.png 300w" sizes="(max-width: 335px) 100vw, 335px" /></p>
+<p>
+  步骤2：（视图代码）打开手册引入静态资源并复制初始化代码
+</p>
+<p><img loading="lazy" decoding="async" width="1038" height="501" src="/wp-content/uploads/2018/05/word-image-5263.png" class="wp-image-5799" srcset="/wp-content/uploads/2018/05/word-image-5263.png 1038w, /wp-content/uploads/2018/05/word-image-5263-300x145.png 300w, /wp-content/uploads/2018/05/word-image-5263-768x371.png 768w, /wp-content/uploads/2018/05/word-image-5263-1024x494.png 1024w" sizes="(max-width: 1038px) 100vw, 1038px" /><br />
+<img loading="lazy" decoding="async" width="953" height="673" src="/wp-content/uploads/2018/05/word-image-5264.png" class="wp-image-5800" srcset="/wp-content/uploads/2018/05/word-image-5264.png 953w, /wp-content/uploads/2018/05/word-image-5264-300x212.png 300w, /wp-content/uploads/2018/05/word-image-5264-768x542.png 768w" sizes="(max-width: 953px) 100vw, 953px" /></p>
+<p>
+  &lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  	&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;封面&lt;/label&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;formControls col-xs-8 col-sm-9&#8243;&gt;
+</p>
+<p>
+  		&lt;!&#8211;dom结构部分&#8211;&gt;
+</p>
+<p>
+  		&lt;div id=&#8221;uploader-demo&#8221;&gt;
+</p>
+<p>
+  		    &lt;!&#8211;用来存放item&#8211;&gt;
+</p>
+<p>
+  		    &lt;div id=&#8221;fileList&#8221; class=&#8221;uploader-list&#8221;&gt;&lt;/div&gt;
+</p>
+<p>
+  		    &lt;div id=&#8221;filePicker&#8221;&gt;选择图片&lt;/div&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  		&lt;div id=&#8221;showimg&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  		&lt;div id=&#8221;uploading&#8221; style=&#8221;width:0%;height:20px;background: blue;&#8221;&gt;&lt;/div&gt;
+</p>
+<p>
+  		&lt;input required type=&#8221;text&#8221; class=&#8221;input-text&#8221; value=&#8221;&#8221; placeholder=&#8221;&#8221; id=&#8221;img&#8221; name=&#8221;img&#8221;&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;!&#8211;引入CSS&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;webuploader&#8217;) }}/webuploader.css&#8221;&gt;
+</p>
+<p>
+  &lt;!&#8211;引入JS&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;webuploader&#8217;) }}/webuploader.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  // 初始化Web Uploader
+</p>
+<p>
+  var uploader = WebUploader.create({
+</p>
+<p>
+  	// 设置自定义请求数据
+</p>
+<p>
+  	formData: {
+</p>
+<p>
+  		_token: &#8216;{{ csrf_token() }}&#8217;
+</p>
+<p>
+  	},
+</p>
+<p>
+      // 选完文件后，是否自动上传。
+</p>
+<p>
+      auto: true,
+</p>
+<p>
+      // swf文件路径
+</p>
+<p>
+      swf: &#8216;{{ asset(&#8220;webuploader&#8221;) }}/Uploader.swf&#8217;,
+</p>
+<p>
+      // 文件接收服务端。
+</p>
+<p>
+      server: &#8221; {{ url(&#8216;admin/upload/file&#8217;) }}&#8221;,
+</p>
+<p>
+      // 选择文件的按钮。可选。
+</p>
+<p>
+      // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+</p>
+<p>
+      pick: &#8216;#filePicker&#8217;,
+</p>
+<p>
+      // 只允许选择图片文件。
+</p>
+<p>
+      accept: {
+</p>
+<p>
+          title: &#8216;Images&#8217;,
+</p>
+<p>
+          extensions: &#8216;gif,jpg,jpeg,bmp,png&#8217;,
+</p>
+<p>
+          mimeTypes: &#8216;image/*&#8217;
+</p>
+<p>
+      }
+</p>
+<p>
+  });
+</p>
+<p>
+  // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+</p>
+<p>
+  uploader.on( &#8216;uploadSuccess&#8217;, function( file, response ) {
+</p>
+<p>
+     //file是原上传文件信息，相当于php的$_FILES数据
+</p>
+<p>
+     //response是php上传文件响应的数据
+</p>
+<p>
+     console.log(response);
+</p>
+<p>
+     $(&#8216;#img&#8217;).val(response.info);
+</p>
+<p>
+     var imgSrc = &#8220;{{asset(&#8216;uploads&#8217;)}}&#8221; + &#8216;/&#8217; + response.info;
+</p>
+<p>
+     $(&#8216;#showimg&#8217;).html(&#8216;&lt;img src=&#8221;&#8216;+imgSrc+'&#8221; width=&#8221;120&#8243; height=&#8221;80&#8243; /&gt;&#8217;)
+</p>
+<p>
+  });
+</p>
+<p>
+  // 文件上传过程中创建进度条实时显示。
+</p>
+<p>
+  uploader.on( &#8216;uploadProgress&#8217;, function( file, percentage ) {
+</p>
+<p>
+      $(&#8216;#uploading&#8217;).css( &#8216;width&#8217;, percentage * 100 + &#8216;%&#8217; );
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  步骤3：定义路由，并创建控制器书写上传功能代码
+</p>
+<p><img loading="lazy" decoding="async" width="1114" height="446" src="/wp-content/uploads/2018/05/word-image-5265.png" class="wp-image-5801" srcset="/wp-content/uploads/2018/05/word-image-5265.png 1114w, /wp-content/uploads/2018/05/word-image-5265-300x120.png 300w, /wp-content/uploads/2018/05/word-image-5265-768x307.png 768w, /wp-content/uploads/2018/05/word-image-5265-1024x410.png 1024w" sizes="(max-width: 1114px) 100vw, 1114px" /><br />
+<img loading="lazy" decoding="async" width="1225" height="579" src="/wp-content/uploads/2018/05/word-image-5266.png" class="wp-image-5802" srcset="/wp-content/uploads/2018/05/word-image-5266.png 1225w, /wp-content/uploads/2018/05/word-image-5266-300x142.png 300w, /wp-content/uploads/2018/05/word-image-5266-768x363.png 768w, /wp-content/uploads/2018/05/word-image-5266-1024x484.png 1024w" sizes="(max-width: 1225px) 100vw, 1225px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class UploadController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //上传文件
+</p>
+<p>
+      public function file(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.判断$_FILES[file键]是否存在，并且$_FILES[键][error] 等于0 （也就是没有错误）
+</p>
+<p>
+          if ($request-&gt;hasFile(&#8216;file&#8217;) &amp;&amp; $request-&gt;file(&#8216;file&#8217;)-&gt;isValid()) {
+</p>
+<p>
+              //2.上传文件
+</p>
+<p>
+              //语法：     request-&gt;file(&#8216;file&#8217;)-&gt;store(&#8216;子路径&#8217;，存储驱动器的名称);
+</p>
+<p>
+              //store是官方存储文件方法
+</p>
+<p>
+              //存储驱动器的名称：对应config/filesystems.php文件
+</p>
+<p>
+              //子路径：          指会在config/filesystems.php文件声明的上传文件夹下再创建一个文件
+</p>
+<p>
+              $filename = $request-&gt;file(&#8216;file&#8217;)-&gt;store(&#8216;img&#8217;, &#8216;upload&#8217;);
+</p>
+<p>
+              return [&#8216;info&#8217; =&gt; $filename];
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="936" height="566" src="/wp-content/uploads/2018/05/word-image-5267.png" class="wp-image-5803" srcset="/wp-content/uploads/2018/05/word-image-5267.png 936w, /wp-content/uploads/2018/05/word-image-5267-300x181.png 300w, /wp-content/uploads/2018/05/word-image-5267-768x464.png 768w" sizes="(max-width: 936px) 100vw, 936px" /></p>
+<h2>更改图片上传规则到七牛云【★★★】</h2>
+<h3>1）对象存储介绍</h3>
+<p>
+  对象存储简单理解：就是用来存放静态资源的服务器
+</p>
+<p>
+  好处：减少冗余，便于维护
+</p>
+<h3>2）使用（zgldh/qiniu-laravel-storage）</h3>
+<p>
+  步骤1：下载并配置根据下图文档 composer reqiure zgldh/qiniu-laravel-storage
+</p>
+<p><img loading="lazy" decoding="async" width="951" height="574" src="/wp-content/uploads/2018/05/word-image-5268.png" class="wp-image-5804" srcset="/wp-content/uploads/2018/05/word-image-5268.png 951w, /wp-content/uploads/2018/05/word-image-5268-300x181.png 300w, /wp-content/uploads/2018/05/word-image-5268-768x464.png 768w" sizes="(max-width: 951px) 100vw, 951px" /><br />
+<img loading="lazy" decoding="async" width="1117" height="539" src="/wp-content/uploads/2018/05/word-image-5269.png" class="wp-image-5805" srcset="/wp-content/uploads/2018/05/word-image-5269.png 1117w, /wp-content/uploads/2018/05/word-image-5269-300x145.png 300w, /wp-content/uploads/2018/05/word-image-5269-768x371.png 768w, /wp-content/uploads/2018/05/word-image-5269-1024x494.png 1024w" sizes="(max-width: 1117px) 100vw, 1117px" /></p>
+<p>
+  步骤2：打开控制器方法将上传到laravel项目代码更改为上传到七牛云即可
+</p>
+<p><img loading="lazy" decoding="async" width="652" height="432" src="/wp-content/uploads/2018/05/word-image-5270.png" class="wp-image-5806" srcset="/wp-content/uploads/2018/05/word-image-5270.png 652w, /wp-content/uploads/2018/05/word-image-5270-300x199.png 300w" sizes="(max-width: 652px) 100vw, 652px" /><br />
+<img loading="lazy" decoding="async" width="596" height="55" src="/wp-content/uploads/2018/05/word-image-5271.png" class="wp-image-5807" srcset="/wp-content/uploads/2018/05/word-image-5271.png 596w, /wp-content/uploads/2018/05/word-image-5271-300x28.png 300w" sizes="(max-width: 596px) 100vw, 596px" /><br />
+<img loading="lazy" decoding="async" width="1236" height="606" src="/wp-content/uploads/2018/05/word-image-5272.png" class="wp-image-5808" srcset="/wp-content/uploads/2018/05/word-image-5272.png 1236w, /wp-content/uploads/2018/05/word-image-5272-300x147.png 300w, /wp-content/uploads/2018/05/word-image-5272-768x377.png 768w, /wp-content/uploads/2018/05/word-image-5272-1024x502.png 1024w" sizes="(max-width: 1236px) 100vw, 1236px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class UploadController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //上传文件
+</p>
+<p>
+      public function file(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.判断$_FILES[file键]是否存在，并且$_FILES[键][error] 等于0 （也就是没有错误）
+</p>
+<p>
+          if ($request-&gt;hasFile(&#8216;file&#8217;) &amp;&amp; $request-&gt;file(&#8216;file&#8217;)-&gt;isValid()) {
+</p>
+<p>
+              //2.上传文件
+</p>
+<p>
+              //语法：     request-&gt;file(&#8216;file&#8217;)-&gt;store(&#8216;子路径&#8217;，存储驱动器的名称);
+</p>
+<p>
+              //store是官方存储文件方法
+</p>
+<p>
+              //存储驱动器的名称：对应config/filesystems.php文件
+</p>
+<p>
+              //子路径：          指会在config/filesystems.php文件声明的上传文件夹下再创建一个文件
+</p>
+<p>
+              //$filename = $request-&gt;file(&#8216;file&#8217;)-&gt;store(&#8216;img&#8217;, &#8216;upload&#8217;);
+</p>
+</p>
+<p>
+              ###更改七牛云存储图片
+</p>
+<p>
+              //定义上传文件名称
+</p>
+<p>
+              $filename = uniqid(&#8216;goods&#8217;.date(&#8216;YmdHis&#8217;,time()));
+</p>
+<p>
+              //从临时文件中获取图片数据
+</p>
+<p>
+              $imgData = file_get_contents($request-&gt;file(&#8216;file&#8217;)-&gt;getPathName());
+</p>
+<p>
+              //上传
+</p>
+<p>
+              \Storage::disk(&#8216;qiniu&#8217;)-&gt;put($filename, $imgData); //上传文件 file_get_contents(XX.PNG)
+</p>
+<p>
+              //获取下载地址（图片地址）
+</p>
+<p>
+              $downloadUrl = \Storage::disk(&#8216;qiniu&#8217;)-&gt;getDriver()-&gt;downloadUrl($filename);
+</p>
+</p>
+<p>
+              return [&#8216;info&#8217; =&gt; $downloadUrl];
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h1>更改直播播放视图</h1>
+<p>
+  步骤1：将直播详情页静态代码替换edu项目中的直播详情页
+</p>
+<p><img loading="lazy" decoding="async" width="596" height="222" src="/wp-content/uploads/2018/05/word-image-5273.png" class="wp-image-5809" srcset="/wp-content/uploads/2018/05/word-image-5273.png 596w, /wp-content/uploads/2018/05/word-image-5273-300x112.png 300w" sizes="(max-width: 596px) 100vw, 596px" /></p>
+<p>
+  步骤：将直播地址更改为变量
+</p>
+<p><img loading="lazy" decoding="async" width="917" height="485" src="/wp-content/uploads/2018/05/word-image-5274.png" class="wp-image-5810" srcset="/wp-content/uploads/2018/05/word-image-5274.png 917w, /wp-content/uploads/2018/05/word-image-5274-300x159.png 300w, /wp-content/uploads/2018/05/word-image-5274-768x406.png 768w" sizes="(max-width: 917px) 100vw, 917px" /></p>
+<h1>首页点播功能</h1>
+<p>
+  快进看视频，主要理解思路，最好自己写一写
+</p>
+<p>
+  图片懒加载：<a href="http://www.jq22.com/jquery-info390">http://www.jq22.com/jquery-info390</a>
+</p>
+<h1><a id="post-5792-_Toc488330851"></a>四、总结</h1>
+<p>
+  本项目中使用了以下几个插件/功能：
+</p>
+<p>
+  Laravel自带组件：
+</p>
+<p>
+  DebugBar（调试工具）、
+</p>
+<p>
+  laravelexcel（导出导入excel文件）、
+</p>
+<p>
+  QiniuSDK（云存储）、
+</p>
+<p>
+  GuzzleHttp（发送请求）
+</p>
+<p>
+  JQuery插件：
+</p>
+<p>
+  datatables（数据表格无刷新分页）、
+</p>
+<p>
+  webuploader（上传文件）、
+</p>
+<p>
+  validate（表单验证插件）、
+</p>
+<p>
+  layer（弹框插件）
+</p>
+<p>
+  直播内容
+</p>
+<p>
+  	七牛直播云
+</p>
+<p>
+  	OBS推流软件使用
+</p>
+<p>
+  	视频播放器Ckplayer（拉流）</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/5792.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

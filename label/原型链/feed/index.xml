@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>原型链 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%8E%9F%E5%9E%8B%E9%93%BE/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 06:50:44 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>原型链 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>JS高级（四）原型链、定义类或对象、私有和封装、静态属性和方法、继承、操作符 instanceof、for…in、顶层函数、贪吃蛇</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3053.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3053.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 06:50:44 +0000</pubDate>
+				<category><![CDATA[Javascript]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[for…in]]></category>
+		<category><![CDATA[原型链]]></category>
+		<category><![CDATA[定义类或对象]]></category>
+		<category><![CDATA[操作符 instanceof]]></category>
+		<category><![CDATA[私有和封装]]></category>
+		<category><![CDATA[继承]]></category>
+		<category><![CDATA[贪吃蛇]]></category>
+		<category><![CDATA[静态属性和方法]]></category>
+		<category><![CDATA[顶层函数]]></category>
+		<guid isPermaLink="false">/?p=3053</guid>
+
+					<description><![CDATA[JavaScript面向对象（4） https://developer.mozilla.org/zh-CN/d [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>
+  JavaScript面向对象（4）
+</p>
+<p>
+  https://developer.mozilla.org/zh-CN/docs/Web/JavaScript
+</p>
+<p>
+  http://javascript.ruanyifeng.com/
+</p>
+<h1>一、原型（原型链）</h1>
+<p>
+  1、原型对象
+</p>
+<p>
+  案例：根据构造方法创建两个对象，看内存中的存在形式
+</p>
+<p>
+  <img fetchpriority="high" decoding="async" width="547" height="264" src="/wp-content/uploads/2018/05/word-image-2679.png" class="wp-image-3054" srcset="/wp-content/uploads/2018/05/word-image-2679.png 547w, /wp-content/uploads/2018/05/word-image-2679-300x145.png 300w" sizes="(max-width: 547px) 100vw, 547px" />
+</p>
+<p>
+  内存存在形式：
+</p>
+<p>
+  <img decoding="async" width="460" height="290" src="/wp-content/uploads/2018/05/word-image-2680.png" class="wp-image-3055" srcset="/wp-content/uploads/2018/05/word-image-2680.png 460w, /wp-content/uploads/2018/05/word-image-2680-300x189.png 300w" sizes="(max-width: 460px) 100vw, 460px" />
+</p>
+<p>
+  根据内存图，可以看出，在内存中，两个对象的成员方法占用了两个空间，但实际上这两个方法完全一样，没有必要占用两个空间。
+</p>
+<p><strong>解决的办法就是使用原型对象。把两个对象相同的内容都放到构造方法的原型对象中</strong>。
+</p>
+<p>
+  <img decoding="async" width="619" height="288" src="/wp-content/uploads/2018/05/word-image-2681.png" class="wp-image-3056" srcset="/wp-content/uploads/2018/05/word-image-2681.png 619w, /wp-content/uploads/2018/05/word-image-2681-300x140.png 300w" sizes="(max-width: 619px) 100vw, 619px" />
+</p>
+<p>
+  原型对象和构造器的关系：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="481" height="96" src="/wp-content/uploads/2018/05/word-image-2682.png" class="wp-image-3057" srcset="/wp-content/uploads/2018/05/word-image-2682.png 481w, /wp-content/uploads/2018/05/word-image-2682-300x60.png 300w" sizes="(max-width: 481px) 100vw, 481px" />
+</p>
+<p>
+  原型对象和构造器的关系：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="930" height="253" src="/wp-content/uploads/2018/05/word-image-2683.png" class="wp-image-3058" srcset="/wp-content/uploads/2018/05/word-image-2683.png 930w, /wp-content/uploads/2018/05/word-image-2683-300x82.png 300w, /wp-content/uploads/2018/05/word-image-2683-768x209.png 768w" sizes="(max-width: 930px) 100vw, 930px" />
+</p>
+<p>
+  将person中的jineng方法放到它的原型对象中。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="995" height="421" src="/wp-content/uploads/2018/05/word-image-2684.png" class="wp-image-3059" srcset="/wp-content/uploads/2018/05/word-image-2684.png 995w, /wp-content/uploads/2018/05/word-image-2684-300x127.png 300w, /wp-content/uploads/2018/05/word-image-2684-768x325.png 768w" sizes="(max-width: 995px) 100vw, 995px" />
+</p>
+<p>
+  2、原型链
+</p>
+<p>
+  原型对象也是对象。它也可以充当其他构造器的原型对象。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="749" height="324" src="/wp-content/uploads/2018/05/word-image-2685.png" class="wp-image-3060" srcset="/wp-content/uploads/2018/05/word-image-2685.png 749w, /wp-content/uploads/2018/05/word-image-2685-300x130.png 300w" sizes="(max-width: 749px) 100vw, 749px" />
+</p>
+<p>
+  上图中，Object对象是person的原型对象，根据person实例化得到p1对象，p1对象是Boy构造器的原型对象，根据Boy实例化得到b1.
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="693" height="336" src="/wp-content/uploads/2018/05/word-image-2686.png" class="wp-image-3061" srcset="/wp-content/uploads/2018/05/word-image-2686.png 693w, /wp-content/uploads/2018/05/word-image-2686-300x145.png 300w" sizes="(max-width: 693px) 100vw, 693px" />
+</p>
+<p>
+  在查找一个对象的成员属性的时候，优先从对象自身查找，如果没有从它的构造方法中查找，如果构造方法中也没有，那么去构造方法的原型对象中查找，如果还没有，那么都构造器的原型对象的构造器中查找，一直找到Object对象为止。这种链式的查找方式就是原型链。
+</p>
+<p>
+  3、扩展内置对象
+</p>
+<p>
+  内置对象有：String、Array、Date、Math、等。
+</p>
+<p>
+  比如使用String对象的方法：
+</p>
+<p>
+  var s = new String(&#8216;hello&#8217;);
+</p>
+<p>
+  s.substr();
+</p>
+<p>
+  String是JavaScript内置的一个构造函数。
+</p>
+<p>
+  如果在String这个构造函数的原型对象上绑定一个方法的话，那么所有的字符串都可以使用这个方法。
+</p>
+<p>
+  其他我们所学的哪些String对象中的方法，都是String的原型中的方法。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1114" height="276" src="/wp-content/uploads/2018/05/word-image-2687.png" class="wp-image-3062" srcset="/wp-content/uploads/2018/05/word-image-2687.png 1114w, /wp-content/uploads/2018/05/word-image-2687-300x74.png 300w, /wp-content/uploads/2018/05/word-image-2687-768x190.png 768w, /wp-content/uploads/2018/05/word-image-2687-1024x254.png 1024w" sizes="(max-width: 1114px) 100vw, 1114px" />
+</p>
+<p>
+  4、DOM对象的原型对象
+</p>
+<p>
+  DOM对象实际上就是通过getElement….这类方法获取页面中的元素、属性等生产的对象。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="834" height="180" src="/wp-content/uploads/2018/05/word-image-2688.png" class="wp-image-3063" srcset="/wp-content/uploads/2018/05/word-image-2688.png 834w, /wp-content/uploads/2018/05/word-image-2688-300x65.png 300w, /wp-content/uploads/2018/05/word-image-2688-768x166.png 768w" sizes="(max-width: 834px) 100vw, 834px" />
+</p>
+<p>
+  完成链式的设置dom对象的css的方法：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1065" height="462" src="/wp-content/uploads/2018/05/word-image-2689.png" class="wp-image-3064" srcset="/wp-content/uploads/2018/05/word-image-2689.png 1065w, /wp-content/uploads/2018/05/word-image-2689-300x130.png 300w, /wp-content/uploads/2018/05/word-image-2689-768x333.png 768w, /wp-content/uploads/2018/05/word-image-2689-1024x444.png 1024w" sizes="(max-width: 1065px) 100vw, 1065px" />
+</p>
+<h1>三、定义类或对象多种方式</h1>
+<p>
+  手册位置：上面JavaScript  左侧的JavaScript  到页面最下方点击“马上学生JavaScript高级教程吧”  左侧找到定义类或对象
+</p>
+<p>
+  1、原始的定义对象的方式（构造函数方式）
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="706" height="204" src="/wp-content/uploads/2018/05/word-image-2690.png" class="wp-image-3065" srcset="/wp-content/uploads/2018/05/word-image-2690.png 706w, /wp-content/uploads/2018/05/word-image-2690-300x87.png 300w" sizes="(max-width: 706px) 100vw, 706px" />
+</p>
+<p>
+  这种方式创建对象，如果创建多个对象的话，会为每个对象在内存中生成一个新的空间，比较占内存。
+</p>
+<p>
+  2、原型对象方式
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="837" height="292" src="/wp-content/uploads/2018/05/word-image-2691.png" class="wp-image-3066" srcset="/wp-content/uploads/2018/05/word-image-2691.png 837w, /wp-content/uploads/2018/05/word-image-2691-300x105.png 300w, /wp-content/uploads/2018/05/word-image-2691-768x268.png 768w" sizes="(max-width: 837px) 100vw, 837px" />
+</p>
+<p>
+  3、混合方式（构造方法方式+原型对象方式）
+</p>
+<p>
+  原则是：
+</p>
+<p>
+  把所有的对象的成员属性全部写到构造方法中，
+</p>
+<p>
+  把所有的对象的成员方法全部写到原型对象上。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="771" height="288" src="/wp-content/uploads/2018/05/word-image-2692.png" class="wp-image-3067" srcset="/wp-content/uploads/2018/05/word-image-2692.png 771w, /wp-content/uploads/2018/05/word-image-2692-300x112.png 300w, /wp-content/uploads/2018/05/word-image-2692-768x287.png 768w" sizes="(max-width: 771px) 100vw, 771px" />
+</p>
+<p>
+  4、动态混合方式
+</p>
+<p>
+  有些开发人员认为混合方式看起来不想是一个类，因为成员方法的绑定在构造函数外面，使用动态混合方式可以解决。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="785" height="492" src="/wp-content/uploads/2018/05/word-image-2693.png" class="wp-image-3068" srcset="/wp-content/uploads/2018/05/word-image-2693.png 785w, /wp-content/uploads/2018/05/word-image-2693-300x188.png 300w, /wp-content/uploads/2018/05/word-image-2693-768x481.png 768w" sizes="(max-width: 785px) 100vw, 785px" />
+</p>
+<p>
+  5、到底采用哪种方式
+</p>
+<p>
+  在开发中，用的最多的就是混合方式和动态混合方式。
+</p>
+<h1>四、私有和封装</h1>
+<p>
+  在JavaScript中，没有类，那么只能模拟私有的成员。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="599" height="358" src="/wp-content/uploads/2018/05/word-image-2694.png" class="wp-image-3069" srcset="/wp-content/uploads/2018/05/word-image-2694.png 599w, /wp-content/uploads/2018/05/word-image-2694-300x179.png 300w" sizes="(max-width: 599px) 100vw, 599px" />
+</p>
+<h1>五、静态属性和方法</h1>
+<p>
+  PHP中调用静态成员：类名::成员
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="747" height="189" src="/wp-content/uploads/2018/05/word-image-2695.png" class="wp-image-3070" srcset="/wp-content/uploads/2018/05/word-image-2695.png 747w, /wp-content/uploads/2018/05/word-image-2695-300x76.png 300w" sizes="(max-width: 747px) 100vw, 747px" />
+</p>
+<h1>六、继承</h1>
+<p>
+  1、原型链方式继承
+</p>
+<p>
+  通过指定构造函数的原型对象方式，可以实现继承。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="749" height="272" src="/wp-content/uploads/2018/05/word-image-2696.png" class="wp-image-3071" srcset="/wp-content/uploads/2018/05/word-image-2696.png 749w, /wp-content/uploads/2018/05/word-image-2696-300x109.png 300w" sizes="(max-width: 749px) 100vw, 749px" />
+</p>
+<p>
+  2、对象冒充方式继承
+</p>
+<p>
+  1、原始的对象冒充
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="906" height="470" src="/wp-content/uploads/2018/05/word-image-2697.png" class="wp-image-3072" srcset="/wp-content/uploads/2018/05/word-image-2697.png 906w, /wp-content/uploads/2018/05/word-image-2697-300x156.png 300w, /wp-content/uploads/2018/05/word-image-2697-768x398.png 768w" sizes="(max-width: 906px) 100vw, 906px" />
+</p>
+<p>
+  2、call和apply完成继承
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1076" height="317" src="/wp-content/uploads/2018/05/word-image-2698.png" class="wp-image-3073" srcset="/wp-content/uploads/2018/05/word-image-2698.png 1076w, /wp-content/uploads/2018/05/word-image-2698-300x88.png 300w, /wp-content/uploads/2018/05/word-image-2698-768x226.png 768w, /wp-content/uploads/2018/05/word-image-2698-1024x302.png 1024w" sizes="(max-width: 1076px) 100vw, 1076px" />
+</p>
+<p>
+  3、实际开发中，使用哪种方式实现继承
+</p>
+<p>
+  答案是使用混合方式，对于成员属性，使用对象冒充方式，对于成员方法，使用原型链方式
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="757" height="320" src="/wp-content/uploads/2018/05/word-image-2699.png" class="wp-image-3074" srcset="/wp-content/uploads/2018/05/word-image-2699.png 757w, /wp-content/uploads/2018/05/word-image-2699-300x127.png 300w" sizes="(max-width: 757px) 100vw, 757px" />
+</p>
+<h1>七、操作符instanceof</h1>
+<p>
+  用来判断一个对象的构造器是否是xxx
+</p>
+<p>
+  语法：Obj instanceof Constructor
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="680" height="335" src="/wp-content/uploads/2018/05/word-image-2700.png" class="wp-image-3075" srcset="/wp-content/uploads/2018/05/word-image-2700.png 680w, /wp-content/uploads/2018/05/word-image-2700-300x148.png 300w" sizes="(max-width: 680px) 100vw, 680px" />
+</p>
+<p>
+  person的prototype是Object对象，Object对象的构造器是Object函数，所以检测p1的构造器的时候，person和Object都返回true。
+</p>
+<h1>八、for…in</h1>
+<p>
+  用来遍历数组和对象的。
+</p>
+<p>
+  语法：
+</p>
+<p>
+  for(var x in arr){
+</p>
+<p>
+  	//通过指定下标的形式，找到数组的每个单元，如 arr[x];
+</p>
+<p>
+  }
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="973" height="352" src="/wp-content/uploads/2018/05/word-image-2701.png" class="wp-image-3076" srcset="/wp-content/uploads/2018/05/word-image-2701.png 973w, /wp-content/uploads/2018/05/word-image-2701-300x109.png 300w, /wp-content/uploads/2018/05/word-image-2701-768x278.png 768w" sizes="(max-width: 973px) 100vw, 973px" />
+</p>
+<h1>九、顶层函数</h1>
+<p>
+  顶层函数也就是全局函数，这些函数的调用不需要使用对象去调用。
+</p>
+<p>
+  比如有Number()、String()。
+</p>
+<p>
+  在手册的位置：上方的JavaScript  左侧的JavaScript  右侧的参考书  左侧JavaScript对象列表中有一个Functions.
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1218" height="181" src="/wp-content/uploads/2018/05/word-image-2702.png" class="wp-image-3077" srcset="/wp-content/uploads/2018/05/word-image-2702.png 1218w, /wp-content/uploads/2018/05/word-image-2702-300x45.png 300w, /wp-content/uploads/2018/05/word-image-2702-768x114.png 768w, /wp-content/uploads/2018/05/word-image-2702-1024x152.png 1024w" sizes="(max-width: 1218px) 100vw, 1218px" />
+</p>
+<p>
+  encodeURI()不会对“：;/?:@&amp;=+$,#”进行编码，如果要对这些字符进行编码的话，使用encodeURIComponent()；
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="800" height="184" src="/wp-content/uploads/2018/05/word-image-2703.png" class="wp-image-3078" srcset="/wp-content/uploads/2018/05/word-image-2703.png 800w, /wp-content/uploads/2018/05/word-image-2703-300x69.png 300w, /wp-content/uploads/2018/05/word-image-2703-768x177.png 768w" sizes="(max-width: 800px) 100vw, 800px" />
+</p>
+<h1>十、面向对象应用案例 – 贪吃蛇</h1>
+<p>
+  1、分析
+</p>
+<p>
+  游戏有有三个对象，一个地图、一个食物、一条蛇。
+</p>
+<p>
+  所以默认先创建三个对象。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="400" height="261" src="/wp-content/uploads/2018/05/word-image-2704.png" class="wp-image-3079" srcset="/wp-content/uploads/2018/05/word-image-2704.png 400w, /wp-content/uploads/2018/05/word-image-2704-300x196.png 300w" sizes="(max-width: 400px) 100vw, 400px" />
+</p>
+<p>
+  2、完成地图类（构造函数）
+</p>
+<p>
+  地图有宽、高、背景颜色。这都是地图这个对象属性。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="900" height="551" src="/wp-content/uploads/2018/05/word-image-2705.png" class="wp-image-3080" srcset="/wp-content/uploads/2018/05/word-image-2705.png 900w, /wp-content/uploads/2018/05/word-image-2705-300x184.png 300w, /wp-content/uploads/2018/05/word-image-2705-768x470.png 768w" sizes="(max-width: 900px) 100vw, 900px" />
+</p>
+<p>
+  3、完成食物类
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="939" height="565" src="/wp-content/uploads/2018/05/word-image-2706.png" class="wp-image-3081" srcset="/wp-content/uploads/2018/05/word-image-2706.png 939w, /wp-content/uploads/2018/05/word-image-2706-300x181.png 300w, /wp-content/uploads/2018/05/word-image-2706-768x462.png 768w" sizes="(max-width: 939px) 100vw, 939px" />
+</p>
+<p>
+  计算食物的left和top的方案：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1143" height="603" src="/wp-content/uploads/2018/05/word-image-2707.png" class="wp-image-3082" srcset="/wp-content/uploads/2018/05/word-image-2707.png 1143w, /wp-content/uploads/2018/05/word-image-2707-300x158.png 300w, /wp-content/uploads/2018/05/word-image-2707-768x405.png 768w, /wp-content/uploads/2018/05/word-image-2707-1024x540.png 1024w" sizes="(max-width: 1143px) 100vw, 1143px" />
+</p>
+<p>
+  把食物放到地图中：
+</p>
+<p>
+  首先把Map类的对象，升级为全局变量。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="596" height="106" src="/wp-content/uploads/2018/05/word-image-2708.png" class="wp-image-3083" srcset="/wp-content/uploads/2018/05/word-image-2708.png 596w, /wp-content/uploads/2018/05/word-image-2708-300x53.png 300w" sizes="(max-width: 596px) 100vw, 596px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="570" height="149" src="/wp-content/uploads/2018/05/word-image-2709.png" class="wp-image-3084" srcset="/wp-content/uploads/2018/05/word-image-2709.png 570w, /wp-content/uploads/2018/05/word-image-2709-300x78.png 300w" sizes="(max-width: 570px) 100vw, 570px" />
+</p>
+<p>
+  在地图类中用一个成员属性_map表示地图那个div
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="829" height="416" src="/wp-content/uploads/2018/05/word-image-2710.png" class="wp-image-3085" srcset="/wp-content/uploads/2018/05/word-image-2710.png 829w, /wp-content/uploads/2018/05/word-image-2710-300x151.png 300w, /wp-content/uploads/2018/05/word-image-2710-768x385.png 768w" sizes="(max-width: 829px) 100vw, 829px" />
+</p>
+<p>
+  把食物放到地图上：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="762" height="389" src="/wp-content/uploads/2018/05/word-image-2711.png" class="wp-image-3086" srcset="/wp-content/uploads/2018/05/word-image-2711.png 762w, /wp-content/uploads/2018/05/word-image-2711-300x153.png 300w" sizes="(max-width: 762px) 100vw, 762px" />
+</p>
+<p>
+  4、开发一条静态的小蛇
+</p>
+<p>
+  蛇是由三个小div组成，每个小div都有宽度、高度、背景颜色、定位。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1028" height="523" src="/wp-content/uploads/2018/05/word-image-2712.png" class="wp-image-3087" srcset="/wp-content/uploads/2018/05/word-image-2712.png 1028w, /wp-content/uploads/2018/05/word-image-2712-300x153.png 300w, /wp-content/uploads/2018/05/word-image-2712-768x391.png 768w, /wp-content/uploads/2018/05/word-image-2712-1024x521.png 1024w" sizes="(max-width: 1028px) 100vw, 1028px" />
+</p>
+<p>
+  将蛇显示在地图上：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="612" height="180" src="/wp-content/uploads/2018/05/word-image-2713.png" class="wp-image-3088" srcset="/wp-content/uploads/2018/05/word-image-2713.png 612w, /wp-content/uploads/2018/05/word-image-2713-300x88.png 300w" sizes="(max-width: 612px) 100vw, 612px" />
+</p>
+<p>
+  5、蛇移动
+</p>
+<p>
+  写一个蛇移动的方法，这个方法实际上就是改变蛇的坐标即可。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="817" height="393" src="/wp-content/uploads/2018/05/word-image-2714.png" class="wp-image-3089" srcset="/wp-content/uploads/2018/05/word-image-2714.png 817w, /wp-content/uploads/2018/05/word-image-2714-300x144.png 300w, /wp-content/uploads/2018/05/word-image-2714-768x369.png 768w" sizes="(max-width: 817px) 100vw, 817px" />
+</p>
+<p>
+  每隔两秒调用一个move方法，并重新生成蛇。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="650" height="249" src="/wp-content/uploads/2018/05/word-image-2715.png" class="wp-image-3090" srcset="/wp-content/uploads/2018/05/word-image-2715.png 650w, /wp-content/uploads/2018/05/word-image-2715-300x115.png 300w" sizes="(max-width: 650px) 100vw, 650px" />
+</p>
+<p>
+  从新显示蛇的时候，会发现蛇越来越长，原因是每次显示蛇（show方法调用的时候），都会重新创建一个div，这样的话，div会越来越多，解决的办法是判断：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1051" height="557" src="/wp-content/uploads/2018/05/word-image-2716.png" class="wp-image-3091" srcset="/wp-content/uploads/2018/05/word-image-2716.png 1051w, /wp-content/uploads/2018/05/word-image-2716-300x159.png 300w, /wp-content/uploads/2018/05/word-image-2716-768x407.png 768w, /wp-content/uploads/2018/05/word-image-2716-1024x543.png 1024w" sizes="(max-width: 1051px) 100vw, 1051px" />
+</p>
+<p>
+  6、控制蛇的方向
+</p>
+<p>
+  通过按键（上下左右键）控制蛇的运动方向
+</p>
+<p>
+  1、通过按键获取键盘的keyCode
+</p>
+<p>
+  2、将keyCode传递给snake类的direct方法<br />
+  <img loading="lazy" decoding="async" width="574" height="332" src="/wp-content/uploads/2018/05/word-image-2717.png" class="wp-image-3092" srcset="/wp-content/uploads/2018/05/word-image-2717.png 574w, /wp-content/uploads/2018/05/word-image-2717-300x174.png 300w" sizes="(max-width: 574px) 100vw, 574px" />
+</p>
+<p>
+  3、direct方法设置蛇的方向的属性directtion
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="746" height="505" src="/wp-content/uploads/2018/05/word-image-2718.png" class="wp-image-3093" srcset="/wp-content/uploads/2018/05/word-image-2718.png 746w, /wp-content/uploads/2018/05/word-image-2718-300x203.png 300w, /wp-content/uploads/2018/05/word-image-2718-220x150.png 220w" sizes="(max-width: 746px) 100vw, 746px" />
+</p>
+<p>
+  4、在move方法中，根据directtion属性，设置蛇头的坐标
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="795" height="512" src="/wp-content/uploads/2018/05/word-image-2719.png" class="wp-image-3094" srcset="/wp-content/uploads/2018/05/word-image-2719.png 795w, /wp-content/uploads/2018/05/word-image-2719-300x193.png 300w, /wp-content/uploads/2018/05/word-image-2719-768x495.png 768w" sizes="(max-width: 795px) 100vw, 795px" />
+</p>
+<p>
+  7、吃食物
+</p>
+<p>
+  判断，如果蛇头的坐标和食物的坐标一致，就表示吃到了
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="900" height="215" src="/wp-content/uploads/2018/05/word-image-2720.png" class="wp-image-3095" srcset="/wp-content/uploads/2018/05/word-image-2720.png 900w, /wp-content/uploads/2018/05/word-image-2720-300x72.png 300w, /wp-content/uploads/2018/05/word-image-2720-768x183.png 768w" sizes="(max-width: 900px) 100vw, 900px" />
+</p>
+<p>
+  解决食物不会减少的问题：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="804" height="537" src="/wp-content/uploads/2018/05/word-image-2721.png" class="wp-image-3096" srcset="/wp-content/uploads/2018/05/word-image-2721.png 804w, /wp-content/uploads/2018/05/word-image-2721-300x200.png 300w, /wp-content/uploads/2018/05/word-image-2721-768x513.png 768w" sizes="(max-width: 804px) 100vw, 804px" />
+</p>
+<p>
+  8、其他问题还有，越来越快，快到某一个点应该保持这个速度就可以了
+</p>
+<p>
+  9、边界问题，判断蛇头的坐标是否超出边界的坐标
+</p>
+<p>
+  10、不能撞自身，判断蛇头坐标是否和蛇身中的某一节坐标相同</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3053.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

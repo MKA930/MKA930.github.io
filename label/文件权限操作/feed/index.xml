@@ -1,0 +1,1437 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>文件权限操作 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E6%93%8D%E4%BD%9C/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 13:22:57 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>文件权限操作 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Linux（二）vi编辑器、用户和用户组管理、文件权限操作、计划任务、硬链接、软连接、Shell脚本</title>
+		<link>/linux/4921.html</link>
+					<comments>/linux/4921.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 13:22:57 +0000</pubDate>
+				<category><![CDATA[Linux]]></category>
+		<category><![CDATA[基本操作]]></category>
+		<category><![CDATA[Shell脚本]]></category>
+		<category><![CDATA[vi编辑器]]></category>
+		<category><![CDATA[文件权限操作]]></category>
+		<category><![CDATA[用户和用户组管理]]></category>
+		<category><![CDATA[硬链接]]></category>
+		<category><![CDATA[计划任务]]></category>
+		<category><![CDATA[软连接]]></category>
+		<guid isPermaLink="false">/?p=4921</guid>
+
+					<description><![CDATA[Linux2 复习 什么是Linux：就是一个操作系统 文件夹命名 创建文件夹：mkdir -p 路径及目录名 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>Linux2</h1>
+<h1>复习</h1>
+<p>
+  什么是Linux：就是一个操作系统
+</p>
+<p>
+  文件夹命名
+</p>
+<p>
+  创建文件夹：mkdir -p  路径及目录名
+</p>
+<p>
+  移动文件：mv 旧文件/目录 新文件/目录
+</p>
+<p>
+  复制文件：cp -r 旧文件/目录 新文件/目录
+</p>
+<p>
+  删除文件: rm -rf 路径及文件
+</p>
+<p>
+  文件命令：
+</p>
+<p>
+  查看文件
+</p>
+<p>
+  cat 路径及文件名
+</p>
+<p>
+  less
+</p>
+<p>
+  more
+</p>
+<p>
+  创建文件
+</p>
+<p>
+  方法1：touch 路径及文件名
+</p>
+<p>
+  方法2：vi 路径及文件名(注：按【i】键输入，按【:wq】保存并退出)
+</p>
+<p>
+  重定向
+</p>
+<p>
+  echo 内容 &gt; 路径文件名
+</p>
+<p>
+  echo 内容 &gt;&gt; 路径文件名
+</p>
+<p>
+  ctrl + c【强制退出】
+</p>
+<p>
+  ctrl + a【光标回到行首】
+</p>
+<p>
+  ctrl + e【光标回到行尾】
+</p>
+<h1>vi编辑器【重要】</h1>
+<h2>1、介绍</h2>
+<p>
+  vi是linux下一款强大的编辑器，相当于win下的记事本，但是功能比记事本强大N倍
+</p>
+<h2>初体验</h2>
+<ul>
+<li>
+    需求：通过vi创建/php.txt文件，写入“张三i李四”
+  </li>
+<li>
+    语法：vi 路径及文件名
+  </li>
+<li>
+    说明：文件存在-修改，不存在-创建
+  </li>
+</ul>
+<p>
+  步骤1：vi /php.txt
+</p>
+<p>
+  步骤2：按【i】键盘，最下角会出现insert则可以输入内容
+</p>
+<p>
+  步骤3：输入完毕后按【esc】键这时候最下角insert消失，再按【:wq】保存并退出即可
+</p>
+<h2>vi三种模式</h2>
+<p><img fetchpriority="high" decoding="async" width="538" height="340" src="/wp-content/uploads/2018/05/word-image-4438.png" class="wp-image-4922" srcset="/wp-content/uploads/2018/05/word-image-4438.png 538w, /wp-content/uploads/2018/05/word-image-4438-300x190.png 300w" sizes="(max-width: 538px) 100vw, 538px" /></p>
+<h2><a id="post-4921-_Toc440642447"></a><a id="post-4921-_Toc448764499"></a>使用vi操作</h2>
+<h3>1）尾行模式（按esc返回到该模式）</h3>
+<ul>
+<li>
+    退出 和 强制退出		  （:q   和   :q!）  quit    css中（!important）
+  </li>
+<li>
+    保存并退出				  （:wq）
+  </li>
+<li>
+    查找  并继续向下查找   （/搜索的内容 按回车进行搜索，搜索更多按n键） next
+  </li>
+<li>
+    显示行号  和  隐藏行号 （set nu  和  set nonu）set number  和 set nonumber
+  </li>
+<li>
+    跳转指定行				  （:数字）
+  </li>
+<li>
+    跳转行首行位			  （:0  和  :$）   正则表达式$
+  </li>
+</ul>
+<h3>命令行模式</h3>
+<ul>
+<li>
+    复制（yy）			cop<strong>y</strong>
+  </li>
+</ul>
+<p>
+  数字+yy 当前光标向下复制n行
+</p>
+<ul>
+<li>
+    粘贴（p）
+  </li>
+<li>
+    撤销（u）
+  </li>
+<li>
+    删除（dd）       <strong>d</strong>elete
+  </li>
+</ul>
+<p>
+  数字+yy 当前光标向下删除n行
+</p>
+<h3>编辑模式</h3>
+<p>
+  【a】：光标后一位
+</p>
+<p>
+  【A】：光标最后
+</p>
+<p>
+  【i】：插入（光标签一位）
+</p>
+<p>
+  【I】：最前插入
+</p>
+<p>
+  【o】：下另一起行
+</p>
+<p>
+  【O】：上另一起行
+</p>
+<h2>5、打开文件</h2>
+<ul>
+<li>
+    【vi        路径及文件名】打开文件（文件存在则修改，不存在则创建）
+  </li>
+<li>
+    【vi  +     路径及文件名】打开文件，把光标定位到最后一行。
+  </li>
+<li>
+    【vi  +数字 路径及文件名】打开文件，把光标定位到第n行。
+  </li>
+<li>
+    【vi  /搜索内容 路径及文件名】打开文件，把光标定位到string 字符串所在的行
+  </li>
+</ul>
+<p><img decoding="async" width="541" height="146" src="/wp-content/uploads/2018/05/word-image-4439.png" class="wp-image-4923" srcset="/wp-content/uploads/2018/05/word-image-4439.png 541w, /wp-content/uploads/2018/05/word-image-4439-300x81.png 300w" sizes="(max-width: 541px) 100vw, 541px" /></p>
+<h2>︴vim的扩展补充</h2>
+<h3>什么是VIM</h3>
+<p>
+  vim同vi都是linux下的编辑器，但是功能比vi强大，如：代码高亮或补全代码等
+</p>
+<h3>使用</h3>
+<p>
+  命令：vim 路径及文件名
+</p>
+<p>
+  说明：除了将vi关键词替换成vim其他命令都一样
+</p>
+<p><img decoding="async" width="237" height="41" src="/wp-content/uploads/2018/05/word-image-4440.png" class="wp-image-4924" /><br />
+<img loading="lazy" decoding="async" width="242" height="126" src="/wp-content/uploads/2018/05/word-image-4441.png" class="wp-image-4925" /></p>
+<h1>二、用户和用户组管理【重要】</h1>
+<h2>1、说明</h2>
+<p>
+  Linux通过配置文件管理用户和用户组
+</p>
+<p>
+  存储用户配置文件：/etc/passwd
+</p>
+<p>
+  php:		  x:		500:		  500:   itcast:	/home/php:			/bin/bash
+</p>
+<p>
+  用户名	密码占位	用户编号	用户组编号		 备注	用户家目录路径   shell
+</p>
+<p>
+  存储用户组配置文件：/etc/group
+</p>
+<p>
+  php:  x: 500:
+</p>
+<p>
+  组名     组编号
+</p>
+<h2><a id="post-4921-_Toc448850950"></a>2. 用户管理</h2>
+<h3><a id="post-4921-_Toc448850951"></a>1）添加用户 （user add）</h3>
+<ul>
+<li>
+    语法： useradd 参数 用户名
+  </li>
+<li>
+    参数：
+  </li>
+<li>
+    -g  设置所属用户组（group） 注：创建用户默认也会创建同名用户组
+  </li>
+<li>
+    -d  设置用户家目录（dir） 注：默认创建用户会在/home下创建同名文件夹
+  </li>
+<li>
+    -c  设置用户备注（comment）
+  </li>
+</ul>
+<p>
+  #需求：创建php1用户
+</p>
+<p>
+  useradd php1
+</p>
+<p>
+  #需求：创建php2用户并设置用户备注（php12）
+</p>
+<p>
+  useradd -c php12 php2
+</p>
+<p><img loading="lazy" decoding="async" width="445" height="163" src="/wp-content/uploads/2018/05/word-image-4442.png" class="wp-image-4926" srcset="/wp-content/uploads/2018/05/word-image-4442.png 445w, /wp-content/uploads/2018/05/word-image-4442-300x110.png 300w" sizes="(max-width: 445px) 100vw, 445px" /><br />
+<img loading="lazy" decoding="async" width="562" height="86" src="/wp-content/uploads/2018/05/word-image-4443.png" class="wp-image-4927" srcset="/wp-content/uploads/2018/05/word-image-4443.png 562w, /wp-content/uploads/2018/05/word-image-4443-300x46.png 300w" sizes="(max-width: 562px) 100vw, 562px" /><br />
+<img loading="lazy" decoding="async" width="419" height="102" src="/wp-content/uploads/2018/05/word-image-4444.png" class="wp-image-4928" srcset="/wp-content/uploads/2018/05/word-image-4444.png 419w, /wp-content/uploads/2018/05/word-image-4444-300x73.png 300w" sizes="(max-width: 419px) 100vw, 419px" /></p>
+<h3><a id="post-4921-_Toc448850952"></a>2）修改用户 （modify）</h3>
+<ul>
+<li>
+    语法：usermod  参数  用户名
+  </li>
+<li>
+    参数：
+  </li>
+<li>
+    -g  设置所属用户组（group）
+  </li>
+<li>
+    -d  设置用户家目录（dir） 注：默认创建用户会在/home下创建同名文件夹
+  </li>
+<li>
+    -c  设置用户备注（comment）
+  </li>
+<li>
+    -l  更改用户名（login_name）
+  </li>
+</ul>
+<p>
+  #将php1更改为php1_update 并且修改备注为【66】
+</p>
+<p>
+  usermod -l php1_update -c 66 php1
+</p>
+<p><img loading="lazy" decoding="async" width="808" height="66" src="/wp-content/uploads/2018/05/word-image-4445.png" class="wp-image-4929" srcset="/wp-content/uploads/2018/05/word-image-4445.png 808w, /wp-content/uploads/2018/05/word-image-4445-300x25.png 300w, /wp-content/uploads/2018/05/word-image-4445-768x63.png 768w" sizes="(max-width: 808px) 100vw, 808px" /><br />
+<img loading="lazy" decoding="async" width="660" height="41" src="/wp-content/uploads/2018/05/word-image-4446.png" class="wp-image-4930" srcset="/wp-content/uploads/2018/05/word-image-4446.png 660w, /wp-content/uploads/2018/05/word-image-4446-300x19.png 300w" sizes="(max-width: 660px) 100vw, 660px" /><br />
+<img loading="lazy" decoding="async" width="657" height="132" src="/wp-content/uploads/2018/05/word-image-4447.png" class="wp-image-4931" srcset="/wp-content/uploads/2018/05/word-image-4447.png 657w, /wp-content/uploads/2018/05/word-image-4447-300x60.png 300w" sizes="(max-width: 657px) 100vw, 657px" /></p>
+<h3><a id="post-4921-_Toc448850953"></a>3）删除用户 （delete）</h3>
+<p>
+  语法：userdel 参数 用户名
+</p>
+<p>
+  注意：-r 表示同时删除家目录（注：默认不删家目录）
+</p>
+<p><img loading="lazy" decoding="async" width="643" height="344" src="/wp-content/uploads/2018/05/word-image-4448.png" class="wp-image-4932" srcset="/wp-content/uploads/2018/05/word-image-4448.png 643w, /wp-content/uploads/2018/05/word-image-4448-300x160.png 300w" sizes="(max-width: 643px) 100vw, 643px" /></p>
+<h2><a id="post-4921-_Toc448764510"></a>3、用户组管理</h2>
+<h3>1）添加用户组 （add）</h3>
+<ul>
+<li>
+    语法：groupadd  参数 组名
+  </li>
+<li>
+    参数：
+  </li>
+<li>
+    -g 设置用户组编号
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1032" height="239" src="/wp-content/uploads/2018/05/word-image-4449.png" class="wp-image-4933" srcset="/wp-content/uploads/2018/05/word-image-4449.png 1032w, /wp-content/uploads/2018/05/word-image-4449-300x69.png 300w, /wp-content/uploads/2018/05/word-image-4449-768x178.png 768w, /wp-content/uploads/2018/05/word-image-4449-1024x237.png 1024w" sizes="(max-width: 1032px) 100vw, 1032px" /><br />
+<img loading="lazy" decoding="async" width="335" height="118" src="/wp-content/uploads/2018/05/word-image-4450.png" class="wp-image-4934" srcset="/wp-content/uploads/2018/05/word-image-4450.png 335w, /wp-content/uploads/2018/05/word-image-4450-300x106.png 300w" sizes="(max-width: 335px) 100vw, 335px" /></p>
+<h3><a id="post-4921-_Toc448764512"></a>2）修改用户组信息 </h3>
+<ul>
+<li><a id="post-4921-_Toc448764513"></a><br />
+    语法：groupmod 参数 组名
+  </li>
+<li>
+    参数：
+  </li>
+<li>
+    -g 设置用户组编号
+  </li>
+<li>
+    -n 更改用户组名（name）
+  </li>
+</ul>
+<p>
+  需求：将php3组更名为php3_update 并且用户组编号为503
+</p>
+<p>
+  groupmod -g 503 -n php3_update php3
+</p>
+<p><img loading="lazy" decoding="async" width="507" height="189" src="/wp-content/uploads/2018/05/word-image-4451.png" class="wp-image-4935" srcset="/wp-content/uploads/2018/05/word-image-4451.png 507w, /wp-content/uploads/2018/05/word-image-4451-300x112.png 300w" sizes="(max-width: 507px) 100vw, 507px" /><br />
+<img loading="lazy" decoding="async" width="624" height="88" src="/wp-content/uploads/2018/05/word-image-4452.png" class="wp-image-4936" srcset="/wp-content/uploads/2018/05/word-image-4452.png 624w, /wp-content/uploads/2018/05/word-image-4452-300x42.png 300w" sizes="(max-width: 624px) 100vw, 624px" /><br />
+<img loading="lazy" decoding="async" width="302" height="53" src="/wp-content/uploads/2018/05/word-image-4453.png" class="wp-image-4937" srcset="/wp-content/uploads/2018/05/word-image-4453.png 302w, /wp-content/uploads/2018/05/word-image-4453-300x53.png 300w" sizes="(max-width: 302px) 100vw, 302px" /></p>
+<h3>3）删除用户组 </h3>
+<p>
+  语法：groupdel 组名
+</p>
+<p>
+  说明：如果用户组下有用户则不能删除
+</p>
+<p><img loading="lazy" decoding="async" width="927" height="269" src="/wp-content/uploads/2018/05/word-image-4454.png" class="wp-image-4938" srcset="/wp-content/uploads/2018/05/word-image-4454.png 927w, /wp-content/uploads/2018/05/word-image-4454-300x87.png 300w, /wp-content/uploads/2018/05/word-image-4454-768x223.png 768w" sizes="(max-width: 927px) 100vw, 927px" /></p>
+<h2>4. 用户管理（补充）</h2>
+<h3><a id="post-4921-_Toc448850954"></a>1）密码管理</h3>
+<ul>
+<li>
+    语法：passwd 参数 用户名
+  </li>
+<li>
+    参数：
+  </li>
+<li>
+    不加参数直接回车则设置用户密码
+  </li>
+<li>
+    -S 查看用户状态
+  </li>
+<li>
+    -l  冻结用户不能登录（lock）
+  </li>
+<li>
+    -u  解冻（unlock）
+  </li>
+</ul>
+<p>
+  创建php1用户并设置密码123
+</p>
+<p>
+  useradd php1
+</p>
+<p>
+  passwd php1  回车
+</p>
+<p><img loading="lazy" decoding="async" width="1201" height="583" src="/wp-content/uploads/2018/05/word-image-4455.png" class="wp-image-4939" srcset="/wp-content/uploads/2018/05/word-image-4455.png 1201w, /wp-content/uploads/2018/05/word-image-4455-300x146.png 300w, /wp-content/uploads/2018/05/word-image-4455-768x373.png 768w, /wp-content/uploads/2018/05/word-image-4455-1024x497.png 1024w" sizes="(max-width: 1201px) 100vw, 1201px" /></p>
+<h3>︴案例1</h3>
+<p>
+  新建一个songjiang用户，初始组为liangshan组，
+</p>
+<p>
+  并设置密码为 songjiang123
+</p>
+<p>
+  步骤1：创建lianshan组
+</p>
+<p>
+  groupadd lianshan
+</p>
+<p>
+  步骤2：创建宋江用户
+</p>
+<p>
+  useradd -g liangshan songjiang
+</p>
+<p>
+  步骤3：设置密码
+</p>
+<p>
+  passwd songjiang  回车输入密码
+</p>
+<h3>︴案例2</h3>
+<p>
+  把songjiang用户锁定（相当于禁止账号登陆），
+</p>
+<p>
+  passwd -l songjiang
+</p>
+<h2>总结</h2>
+<p>
+  【用户管理】
+</p>
+<p>
+  添加用户：useradd  参数  用户名  （-d 设置家目录，-g 设置所属用户组，-c 设置备注）
+</p>
+<p>
+  修改用户：usermod  参数  用户名（-d 设置家目录，-g 设置所属用户组，-c 设置备注，-l 更改用户名）
+</p>
+<p>
+  删除用户：usedel 参数  用户名 （-r 同时删除用户家目录）
+</p>
+<p>
+  脚下留心：创建用户会同时创建同名家目录和用户组
+</p>
+<p>
+  【用户组管理】
+</p>
+<p>
+  添加用户组：groupadd 参数 组名  （-g 设置用户组编号）
+</p>
+<p>
+  修改用户组：groupmod 参数 组名  （-g 设置用户组编号，-n 修改组名）
+</p>
+<p>
+  删除用户组：groupdel 组名      （用户组有用户不能删除）
+</p>
+</p>
+<p>
+  【用户管理补充】
+</p>
+<p>
+  设置密码： passwd 用户名   回车设置密码
+</p>
+<p>
+  冻结用户：passwd -l 用户名		（lock）
+</p>
+<p>
+  解冻用户：passwd -u 用户名		（unlock）
+</p>
+<p>
+  查看状态：passwd -S 用户名		（status 和 state）
+</p>
+<p>
+  #创建phpn用户并且属于phpn用户组（注：该用户不能登录）
+</p>
+<p>
+  useradd -s /sbin/nologin phpn
+</p>
+<h1>三、权限操作【重要】</h1>
+<h2><a id="post-4921-_Toc440815547"></a><a id="post-4921-_Toc448850959"></a>1、文件目录权限 </h2>
+<h3>概念</h3>
+<p>
+  从文件本身来说，权限分为：执行（exec）、写（write）、读（read）
+</p>
+<p>
+  从用户角度来锁，权限分为：文件拥有者、同组用户、其他组用户
+</p>
+<p><img loading="lazy" decoding="async" width="437" height="199" src="/wp-content/uploads/2018/05/word-image-4456.png" class="wp-image-4940" srcset="/wp-content/uploads/2018/05/word-image-4456.png 437w, /wp-content/uploads/2018/05/word-image-4456-300x137.png 300w" sizes="(max-width: 437px) 100vw, 437px" /></p>
+<p>
+  相对于文件而言，有r权限就有x权限（一般工作中x忽略直接r）
+</p>
+<h3>第一列：表示文件的类型，</h3>
+<p><img loading="lazy" decoding="async" width="421" height="331" src="/wp-content/uploads/2018/05/word-image-4457.png" class="wp-image-4941" srcset="/wp-content/uploads/2018/05/word-image-4457.png 421w, /wp-content/uploads/2018/05/word-image-4457-300x236.png 300w" sizes="(max-width: 421px) 100vw, 421px" /></p>
+<p>
+  d &#8211; 表示文件夹
+</p>
+<p>
+  &#8211; &#8211; 表示文件
+</p>
+<p>
+  l &#8211; 表示软链接（相当于win下的创建方式）   下午验证
+</p>
+<h3>第二大列分（成三组）表示是权限的设置，</h3>
+<p><img loading="lazy" decoding="async" width="753" height="345" src="/wp-content/uploads/2018/05/word-image-4458.png" class="wp-image-4942" srcset="/wp-content/uploads/2018/05/word-image-4458.png 753w, /wp-content/uploads/2018/05/word-image-4458-300x137.png 300w" sizes="(max-width: 753px) 100vw, 753px" /></p>
+<p>
+  红色表示文件主人
+</p>
+<p>
+  绿色表示同组用户
+</p>
+<p>
+  蓝色表示其他组用户
+</p>
+<h3>其他列</h3>
+<p><img loading="lazy" decoding="async" width="726" height="317" src="/wp-content/uploads/2018/05/word-image-4459.png" class="wp-image-4943" srcset="/wp-content/uploads/2018/05/word-image-4459.png 726w, /wp-content/uploads/2018/05/word-image-4459-300x131.png 300w" sizes="(max-width: 726px) 100vw, 726px" /><br />
+<img loading="lazy" decoding="async" width="760" height="371" src="/wp-content/uploads/2018/05/word-image-4460.png" class="wp-image-4944" srcset="/wp-content/uploads/2018/05/word-image-4460.png 760w, /wp-content/uploads/2018/05/word-image-4460-300x146.png 300w" sizes="(max-width: 760px) 100vw, 760px" /></p>
+<h3>︴生活案例</h3>
+<p>
+  用户名 liming ，创建了一个歌词文件 《今夜你会不会来.txt》；四大天王可以查看修改该文件，但是不可以唱
+</p>
+<p>
+    文件主人： liming 	 权限：rwx可读、可写、可执行（唱）
+</p>
+<p>
+    同组用户： xueyou	 权限：rw- 可读、可写
+</p>
+<p>
+  其他组用户： wukong	 权限：r&#8211;  可读
+</p>
+<p>
+  【代码】
+</p>
+<p>
+  步骤1：创建用户组
+</p>
+<p>
+  group add fourKing
+</p>
+<p>
+  步骤2：创建用户
+</p>
+<p>
+  useradd -g fourKing liming
+</p>
+<p>
+  useradd -g fourKing xueyou
+</p>
+<p>
+  useradd wukong
+</p>
+<p>
+  步骤3：授权
+</p>
+<p>
+  touch /今夜你来不来.txt
+</p>
+<p>
+  chmod -R  764 /今夜你来不来.txt
+</p>
+<h2><a id="post-4921-_Toc448850960"></a>2、更改文件权限</h2>
+<h3><a id="post-4921-_Toc448850961"></a>1）更改文件权限 （change mod）</h3>
+<ul>
+<li>
+    语法1：chmod  -R  ABC&lt;用数字表示&gt;  待授权的文件
+  </li>
+<li>
+    说明1：
+  </li>
+<li>
+    ABC分别表示：A-文件主人、B-同组用户、C-其他组用户
+  </li>
+<li>
+    声明：读（4）、写（2）、执行（1）
+  </li>
+<li>
+    用数字表示
+  </li>
+</ul>
+<ol>
+<li>
+  &#8211; 无权限
+</li>
+<li>
+  &#8211; 可执行
+</li>
+<li>
+  &#8211; 可写
+</li>
+<li>
+  &#8211; 可写 +  可执行
+</li>
+<li>
+  &#8211; 可读
+</li>
+<li>
+  &#8211; 可读 + 可执行
+</li>
+<li>
+  &#8211; 可读 + 可写
+</li>
+<li>
+  &#8211; 可读 + 可写 + 可执行
+</li>
+</ol>
+<p>
+  【	案  例】：新建一个文件，对该文件的权限是7(所有者)  5（同组）5（其他组）
+</p>
+<p>
+  chmod -R 755 /xxx.php
+</p>
+<ul>
+<li>
+    语法2：chmod  -R {&lt;augo&gt;&lt;+=-&gt;&lt;rwx&gt;,&#8230;,&lt;augo&gt;&lt;+=-&gt;&lt;rwx&gt;} 待授权文件
+  </li>
+<li>
+    说明2：
+  </li>
+<li>
+    augo分别代表：
+  </li>
+<li>
+    a-所有用户（all），u-文件主人（user），g-同组用户（group），o-其他组用户（other）
+  </li>
+<li>
+    &lt;权限范围&gt;+&lt;权限设置&gt; 　指定范围追加权限
+  </li>
+<li>
+    &lt;权限范围&gt;-&lt;权限设置&gt; 　指定范围删除权限
+  </li>
+<li>
+    &lt;权限范围&gt;=&lt;权限设置&gt; 　指定范围修改权限
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="842" height="648" src="/wp-content/uploads/2018/05/word-image-4461.png" class="wp-image-4945" srcset="/wp-content/uploads/2018/05/word-image-4461.png 842w, /wp-content/uploads/2018/05/word-image-4461-300x231.png 300w, /wp-content/uploads/2018/05/word-image-4461-768x591.png 768w" sizes="(max-width: 842px) 100vw, 842px" /><br />
+<img loading="lazy" decoding="async" width="755" height="252" src="/wp-content/uploads/2018/05/word-image-4462.png" class="wp-image-4946" srcset="/wp-content/uploads/2018/05/word-image-4462.png 755w, /wp-content/uploads/2018/05/word-image-4462-300x100.png 300w" sizes="(max-width: 755px) 100vw, 755px" /></p>
+<p>
+  【案例1】比如把 hello.txt 文件，对其他组用户添加 w权限。
+</p>
+<p>
+  touch /hello.txt
+</p>
+<p>
+  chmod -R o+w /hello.txt
+</p>
+<p>
+  【案例2】比如把 hello.txt 文件，对所属组添加 w权限，对其他组删除 w权限
+</p>
+<p>
+  touch /hello.txt
+</p>
+<p>
+  chmod -R g+w,o-w /hello.txt
+</p>
+<h3><a id="post-4921-_Toc448850962"></a>2）更改文件拥有者 （change own）</h3>
+<p>
+  语法：chown  -R  新拥有者名  待更改拥有者的文件
+</p>
+<p>
+  说明：只能文件主人或者超级管理员设置
+</p>
+<p><img loading="lazy" decoding="async" width="782" height="384" src="/wp-content/uploads/2018/05/word-image-4463.png" class="wp-image-4947" srcset="/wp-content/uploads/2018/05/word-image-4463.png 782w, /wp-content/uploads/2018/05/word-image-4463-300x147.png 300w, /wp-content/uploads/2018/05/word-image-4463-768x377.png 768w" sizes="(max-width: 782px) 100vw, 782px" /></p>
+<h3><a id="post-4921-_Toc448850963"></a>3）更改文件所属组 （change group）</h3>
+<p>
+  语法：chgrp  -R  新所属组  待更改组的文件
+</p>
+<p>
+  说明：仅文件组人或者超级管理员
+</p>
+<p><img loading="lazy" decoding="async" width="745" height="414" src="/wp-content/uploads/2018/05/word-image-4464.png" class="wp-image-4948" srcset="/wp-content/uploads/2018/05/word-image-4464.png 745w, /wp-content/uploads/2018/05/word-image-4464-300x167.png 300w" sizes="(max-width: 745px) 100vw, 745px" /></p>
+<h2>小总结</h2>
+<p>
+  文件权限分为：读（r  4）、写（w  2）、执行（x  1）
+</p>
+<p>
+  文件用户概念：文件主人、同组用户、其他组用户
+</p>
+<p>
+  问：我怎么知道当前文件属于哪个用户或者哪个用户组
+</p>
+<p>
+  答：ls -l（文件类型 &#8212;  &#8212;  &#8212;）
+</p>
+<p>
+  授权语法1：chmod -R ABC&lt;用数字表示&gt; 待授权的文件
+</p>
+<p>
+  说明：
+</p>
+<p>
+  ABC分别表示：主人、同组用户、其他组用户
+</p>
+<p>
+  数字权限：
+</p>
+<p>
+  授权语法2：chmod -R  &lt;augo&gt;&lt;+-=&gt;&lt;rwx&gt;,&#8230;,&lt;augo&gt;&lt;+-=&gt;&lt;rwx&gt; 待授权的文件
+</p>
+<p>
+  更改拥有者（change own）：chown -R 新主人 文件
+</p>
+<p>
+  更改所属组（change group）：chgrp  -R 新组 文件
+</p>
+<p>
+  linux创建执行文件
+</p>
+<p>
+  vi test.sh  （运行 sh 文件名.sh）
+</p>
+<p>
+  #!/bin/bash
+</p>
+<p>
+  echo 6666
+</p>
+<p><img loading="lazy" decoding="async" width="208" height="126" src="/wp-content/uploads/2018/05/word-image-4465.png" class="wp-image-4949" /></p>
+<p>
+  【目录】
+</p>
+<p>
+  x 进入目录
+</p>
+<p>
+  r 看目录内容
+</p>
+<p>
+  w 目录创建删除文件
+</p>
+<p>
+  【文件】：一般都设置r权限
+</p>
+<p>
+  r   	 可以查看文件内容、可执行
+</p>
+<p>
+  r + w   可读、可写文件、可执行
+</p>
+<p>
+  x    	 单独用（.sh不行， .out可以 等）
+</p>
+<p>
+  【C代码】
+</p>
+<p>
+  vi test.c
+</p>
+<p>
+  #include &lt;stdio.h&gt;
+</p>
+<p>
+  int main()
+</p>
+<p>
+  {
+</p>
+<p>
+          printf(&#8220;hello word!\n&#8221;);
+</p>
+<p>
+          return 0;
+</p>
+<p>
+  }
+</p>
+<p>
+  输出 hello word  ，
+</p>
+<p>
+  gcc test.c
+</p>
+<p>
+  ./test.out
+</p>
+<h1>计划任务</h1>
+<h2>1、Linux计划任务【重要】</h2>
+<h3>1）说明</h3>
+<ul>
+<li>
+    概念：在指定时间内去完成指定任务的表现称之为计划任务
+  </li>
+<li>
+    举例1：通过计划任务定时发布文章
+  </li>
+<li>
+    举例2：项目开发dev测试完毕通过计划任务指定3点线上服务器更新master分支
+  </li>
+</ul>
+<h3>2）设置（crontab）</h3>
+<ul>
+<li>
+    设置语法：crontab -e  			（edit）
+  </li>
+<li>
+    查看语法：crontab -l				（list）
+  </li>
+</ul>
+<p>
+  crontab -e相当于vi命令，只不过打开后需要输入指定内容
+</p>
+<h3>3）语法</h3>
+<p>
+  *   *    *      *   *  		 任务
+</p>
+<p>
+  分  时  日期   月  星期几
+</p>
+<p><img loading="lazy" decoding="async" width="420" height="184" src="/wp-content/uploads/2018/05/word-image-4466.png" class="wp-image-4950" srcset="/wp-content/uploads/2018/05/word-image-4466.png 420w, /wp-content/uploads/2018/05/word-image-4466-300x131.png 300w" sizes="(max-width: 420px) 100vw, 420px" /></p>
+<h3>︴案例：当前时间+1分钟，给/php12/tmp.txt文件追加内容</h3>
+<p>
+  步骤1：cronta -e
+</p>
+<p>
+  步骤2：输入
+</p>
+<p>
+  * * * * * echo &gt;&gt; /php12/tmp.txt
+</p>
+<p><img loading="lazy" decoding="async" width="633" height="420" src="/wp-content/uploads/2018/05/word-image-4467.png" class="wp-image-4951" srcset="/wp-content/uploads/2018/05/word-image-4467.png 633w, /wp-content/uploads/2018/05/word-image-4467-300x199.png 300w" sizes="(max-width: 633px) 100vw, 633px" /></p>
+<p>
+  查看服务器时间：date
+</p>
+<p>
+  修改服务器时间
+</p>
+<p>
+  步骤1：date -s &#8216;日期&#8217;
+</p>
+<p>
+  步骤2：clock -w          写入系统即可
+</p>
+<p><img loading="lazy" decoding="async" width="470" height="112" src="/wp-content/uploads/2018/05/word-image-4468.png" class="wp-image-4952" srcset="/wp-content/uploads/2018/05/word-image-4468.png 470w, /wp-content/uploads/2018/05/word-image-4468-300x71.png 300w" sizes="(max-width: 470px) 100vw, 470px" /></p>
+<h3>︴案例：每隔1分钟，给/qz1/tmp.txt文件追加内容</h3>
+<p><img loading="lazy" decoding="async" width="439" height="178" src="/wp-content/uploads/2018/05/word-image-4469.png" class="wp-image-4953" srcset="/wp-content/uploads/2018/05/word-image-4469.png 439w, /wp-content/uploads/2018/05/word-image-4469-300x122.png 300w" sizes="(max-width: 439px) 100vw, 439px" /></p>
+<p>
+  #语法
+</p>
+<p>
+  #* * * * * 任务
+</p>
+<p>
+  */1 * * * * echo 8 &gt;&gt; /php12/tmp.txt
+</p>
+<h3>︴综合案例说明</h3>
+<p><img loading="lazy" decoding="async" width="425" height="193" src="/wp-content/uploads/2018/05/word-image-4470.png" class="wp-image-4954" srcset="/wp-content/uploads/2018/05/word-image-4470.png 425w, /wp-content/uploads/2018/05/word-image-4470-300x136.png 300w" sizes="(max-width: 425px) 100vw, 425px" /></p>
+<p>
+  #语法
+</p>
+<p>
+  # *  *  *    *  * 		任务
+</p>
+<p>
+  # 分 时 日期 月 星期几
+</p>
+<p>
+  45   22  *    *  * 		任务
+</p>
+<p>
+  0    17  *    *  1 		任务
+</p>
+<p>
+  0    5  1,15  *  * 		任务
+</p>
+<p>
+  40   4  *     *  1-5		任务
+</p>
+<p>
+  */10 4  *     *  * 		任务
+</p>
+<p>
+  0    0  1,15  *  1 		任务
+</p>
+<h3>︴案例</h3>
+<p>
+  定于4月19号，23点45分，开始商品上架（执行一个php文件）
+</p>
+<p>
+  45  23  19  4  *  /server/php/php.exe /server/www/shop.php
+</p>
+<p>
+  shop.php里面写mysql修改数据库 上架：1-上架，0-下架
+</p>
+<h2>2、window计划任务【了解】</h2>
+<p>
+  控制面板-&gt; 系统和安全-&gt;管理工具-&gt;任务计划
+</p>
+<p><img loading="lazy" decoding="async" width="890" height="520" src="/wp-content/uploads/2018/05/word-image-4471.png" class="wp-image-4955" srcset="/wp-content/uploads/2018/05/word-image-4471.png 890w, /wp-content/uploads/2018/05/word-image-4471-300x175.png 300w, /wp-content/uploads/2018/05/word-image-4471-768x449.png 768w" sizes="(max-width: 890px) 100vw, 890px" /><br />
+<img loading="lazy" decoding="async" width="764" height="440" src="/wp-content/uploads/2018/05/word-image-4472.png" class="wp-image-4956" srcset="/wp-content/uploads/2018/05/word-image-4472.png 764w, /wp-content/uploads/2018/05/word-image-4472-300x173.png 300w" sizes="(max-width: 764px) 100vw, 764px" /><br />
+<img loading="lazy" decoding="async" width="419" height="344" src="/wp-content/uploads/2018/05/word-image-4473.png" class="wp-image-4957" srcset="/wp-content/uploads/2018/05/word-image-4473.png 419w, /wp-content/uploads/2018/05/word-image-4473-300x246.png 300w" sizes="(max-width: 419px) 100vw, 419px" /><br />
+<img loading="lazy" decoding="async" width="987" height="629" src="/wp-content/uploads/2018/05/word-image-4474.png" class="wp-image-4958" srcset="/wp-content/uploads/2018/05/word-image-4474.png 987w, /wp-content/uploads/2018/05/word-image-4474-300x191.png 300w, /wp-content/uploads/2018/05/word-image-4474-768x489.png 768w" sizes="(max-width: 987px) 100vw, 987px" /><br />
+<img loading="lazy" decoding="async" width="1128" height="624" src="/wp-content/uploads/2018/05/word-image-4475.png" class="wp-image-4959" srcset="/wp-content/uploads/2018/05/word-image-4475.png 1128w, /wp-content/uploads/2018/05/word-image-4475-300x166.png 300w, /wp-content/uploads/2018/05/word-image-4475-768x425.png 768w, /wp-content/uploads/2018/05/word-image-4475-1024x566.png 1024w" sizes="(max-width: 1128px) 100vw, 1128px" /><br />
+<img loading="lazy" decoding="async" width="677" height="568" src="/wp-content/uploads/2018/05/word-image-4476.png" class="wp-image-4960" srcset="/wp-content/uploads/2018/05/word-image-4476.png 677w, /wp-content/uploads/2018/05/word-image-4476-300x252.png 300w" sizes="(max-width: 677px) 100vw, 677px" /><br />
+<img loading="lazy" decoding="async" width="1237" height="627" src="/wp-content/uploads/2018/05/word-image-4477.png" class="wp-image-4961" srcset="/wp-content/uploads/2018/05/word-image-4477.png 1237w, /wp-content/uploads/2018/05/word-image-4477-300x152.png 300w, /wp-content/uploads/2018/05/word-image-4477-768x389.png 768w, /wp-content/uploads/2018/05/word-image-4477-1024x519.png 1024w" sizes="(max-width: 1237px) 100vw, 1237px" /><br />
+<img loading="lazy" decoding="async" width="1187" height="483" src="/wp-content/uploads/2018/05/word-image-4478.png" class="wp-image-4962" srcset="/wp-content/uploads/2018/05/word-image-4478.png 1187w, /wp-content/uploads/2018/05/word-image-4478-300x122.png 300w, /wp-content/uploads/2018/05/word-image-4478-768x313.png 768w, /wp-content/uploads/2018/05/word-image-4478-1024x417.png 1024w" sizes="(max-width: 1187px) 100vw, 1187px" /></p>
+<h1>Linux运行模式【了解】</h1>
+<h2>1、概念</h2>
+<ul>
+<li>
+    单用户：一台计算机在同一时间仅一个用户可以使用
+  </li>
+<li>
+    多用户：一台计算机在同一时间多个用户可以使用
+  </li>
+<li>
+    单任务：用户在同一时间只能运行一个应用程序
+  </li>
+<li>
+    多任务：用户在同一时间运行多个应用程序
+  </li>
+<li>
+    现在操作系统一般都是多用户多任务
+  </li>
+</ul>
+<h2>Linux运行模式</h2>
+<p>
+  在Linux中一共有7中运行方式/模式，用数字0-6表示，分别为：
+</p>
+<p>
+  0：关机模式（永久禁用）
+</p>
+<p>
+  1：单用户模式
+</p>
+<p>
+  2：多用户模式
+</p>
+<p>
+  3：命令行模式（推荐）
+</p>
+<p>
+  4：保留，未使用
+</p>
+<p>
+  5：桌面模式	 （不推荐，仅学习看一下）
+</p>
+<p>
+  6：重启模式（永久禁用）
+</p>
+<h2>更改运行模式</h2>
+<ul>
+<li>
+    临时更改：init 数字
+  </li>
+<li>
+    永久更改：修改vi /etc/inittab即可
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="391" height="413" src="/wp-content/uploads/2018/05/word-image-4479.png" class="wp-image-4963" srcset="/wp-content/uploads/2018/05/word-image-4479.png 391w, /wp-content/uploads/2018/05/word-image-4479-284x300.png 284w" sizes="(max-width: 391px) 100vw, 391px" /></p>
+<h1>六、软链接和硬链接</h1>
+<h2>1、概念</h2>
+<ul>
+<li>
+    软链接 &#8211; 相当于win创建快捷方式（快速操作，注：删除源文件，无法继续操作）
+  </li>
+<li>
+    硬链接 &#8211; 相当于将源文件拷贝一份（避免误删，注：数据共享，删除一个另一个还在）
+  </li>
+</ul>
+<h2>语法</h2>
+<ul>
+<li>
+    软链接 &#8211; 【ln -s 源文件 目标文件】
+  </li>
+<li>
+    硬链接 &#8211; 【ln 源文件 目标文件】
+  </li>
+</ul>
+<h2>练习</h2>
+<h3>1）软链接</h3>
+<p>
+  rm -rf /test
+</p>
+<p>
+  mkdir -p /test
+</p>
+<p>
+  echo 123 &gt; /test/a.php
+</p>
+<p>
+  ln -s /test/a.php /test/b.php   #软链接
+</p>
+<p>
+  echo 4 &gt;&gt; /test/b.php
+</p>
+<p>
+  cat /test/a.php  <strong>#？？？？？  1234</strong>
+</p>
+<p>
+  rm -rf /test/a.php
+</p>
+<p>
+  cat /test/b.php  <strong>#？？？？？  报错</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="517" height="306" src="/wp-content/uploads/2018/05/word-image-4480.png" class="wp-image-4964" srcset="/wp-content/uploads/2018/05/word-image-4480.png 517w, /wp-content/uploads/2018/05/word-image-4480-300x178.png 300w" sizes="(max-width: 517px) 100vw, 517px" /></p>
+<h3>2）硬链接</h3>
+<p>
+  rm -rf /test
+</p>
+<p>
+  mkdir -p /test
+</p>
+<p>
+  echo 123 &gt; /test/a.php
+</p>
+<p>
+  ln /test/a.php /test/b.php #硬
+</p>
+<p>
+  echo 4 &gt;&gt; /test/a.php
+</p>
+<p>
+  cat /test/b.php <strong>#？？？？？ 1234</strong>
+</p>
+<p>
+  rm -rf /test/a.php
+</p>
+<p>
+  cat /test/b.php <strong>#？？？？？1234</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="424" height="286" src="/wp-content/uploads/2018/05/word-image-4481.png" class="wp-image-4965" srcset="/wp-content/uploads/2018/05/word-image-4481.png 424w, /wp-content/uploads/2018/05/word-image-4481-300x202.png 300w" sizes="(max-width: 424px) 100vw, 424px" /></p>
+<h1>七、shell脚本（补充）</h1>
+<h2>1、什么是shell脚本</h2>
+<ul>
+<li>
+    Shell脚本与Windows/Dos下的批处理相似，它是一个用 C 语言编写的程序
+  </li>
+</ul>
+<p>
+  shell指linux指令，如：ls、pwd等
+</p>
+<p>
+  shell脚本可以理解为一堆shell的集合
+</p>
+<p><a href="http://www.runoob.com/linux/linux-shell.html">http://www.runoob.com/linux/linux-shell.html</a>
+</p>
+<h2>2、初体验（创建第一个shell脚本）</h2>
+<p>
+  #步骤1：创建一个以sh结尾的文件
+</p>
+<p>
+  #步骤2：在sh结尾的文件头部写入脚本声明
+</p>
+<p>
+  #!/bin/bash
+</p>
+<p>
+  #步骤3：在头声明后面写入shell指令即可【<strong>运行脚本：sh 绝对路径/文件名.sh</strong>】
+</p>
+<p><img loading="lazy" decoding="async" width="832" height="284" src="/wp-content/uploads/2018/05/word-image-4482.png" class="wp-image-4966" srcset="/wp-content/uploads/2018/05/word-image-4482.png 832w, /wp-content/uploads/2018/05/word-image-4482-300x102.png 300w, /wp-content/uploads/2018/05/word-image-4482-768x262.png 768w" sizes="(max-width: 832px) 100vw, 832px" /></p>
+<h2>判断</h2>
+<p><img loading="lazy" decoding="async" width="847" height="362" src="/wp-content/uploads/2018/05/word-image-4483.png" class="wp-image-4967" srcset="/wp-content/uploads/2018/05/word-image-4483.png 847w, /wp-content/uploads/2018/05/word-image-4483-300x128.png 300w, /wp-content/uploads/2018/05/word-image-4483-768x328.png 768w" sizes="(max-width: 847px) 100vw, 847px" /></p>
+<p>
+  Select_Id=3
+</p>
+<p>
+  if [ $Select_Id == 1 ]; then
+</p>
+<p>
+      echo d111
+</p>
+<p>
+  elif [ $Select_Id == 2 ]; then
+</p>
+<p>
+      echo 2222
+</p>
+<p>
+  elif [ $Select_Id == 3 ]; then
+</p>
+<p>
+      echo 3333
+</p>
+<p>
+  else
+</p>
+<p>
+      echo &#8216;no select id, exit&#8230;&#8217;
+</p>
+<p>
+      exit 1
+</p>
+<p>
+  fi
+</p>
+<h2>菜单选择</h2>
+<p><img loading="lazy" decoding="async" width="409" height="300" src="/wp-content/uploads/2018/05/word-image-4484.png" class="wp-image-4968" srcset="/wp-content/uploads/2018/05/word-image-4484.png 409w, /wp-content/uploads/2018/05/word-image-4484-300x220.png 300w" sizes="(max-width: 409px) 100vw, 409px" /></p>
+<p>
+  echo &#8221;
+</p>
+<p>
+               Please Select Install
+</p>
+<p>
+      # &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+</p>
+<p>
+      1 &#8212; Linux + Apache + MySql + PHP5.3 &#8212;
+</p>
+<p>
+      2 &#8212; Linux + Apache + MySql + PHP5.4 &#8212;
+</p>
+<p>
+      3 &#8212; Linux + Apache + MySql + PHP5.5 &#8212;
+</p>
+<p>
+        &#8212;                                 &#8212;
+</p>
+<p>
+      4 &#8212; PHP UPD 5.3                     &#8212;
+</p>
+<p>
+      5 &#8212; PHP UPD 5.4                     &#8212;
+</p>
+<p>
+      6 &#8212; PHP UPD 5.5                     &#8212;
+</p>
+<p>
+        &#8212;                                 &#8212;
+</p>
+<p>
+      7 &#8212;     don&#8217;t install is now        &#8212;
+</p>
+<p>
+      # &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+</p>
+<p>
+  &#8221;
+</p>
+<p>
+  sleep 0.1
+</p>
+<p>
+  read -p &#8220;Please Input 1,2,3: &#8221; Select_Id
+</p>
+<p>
+  if [ $Select_Id == 1 ]; then
+</p>
+<p>
+      #bash $sk/lamp/init.sh
+</p>
+<p>
+      echo &#8216;Linux + Apache + MySql + PHP5.3&#8217;
+</p>
+<p>
+  elif [ $Select_Id == 2 ]; then
+</p>
+<p>
+      echo &#8216;222222&#8217;
+</p>
+<p>
+  elif [ $Select_Id == 3 ]; then
+</p>
+<p>
+      echo &#8216;33333&#8217;
+</p>
+<p>
+  elif [ $Select_Id == 4 ]; then
+</p>
+<p>
+      echo &#8216;44444&#8217;
+</p>
+<p>
+  elif [ $Select_Id == 5 ]; then
+</p>
+<p>
+      echo &#8216;555&#8217;
+</p>
+<p>
+  else
+</p>
+<p>
+      echo &#8216;no select id, exit&#8230;&#8217;
+</p>
+<p>
+      exit 1
+</p>
+<p>
+  fi
+</p>
+<h1>总结</h1>
+<p>
+  【vi编辑器】
+</p>
+<p>
+   #vi编辑器三种模式：命令行模式、尾行模式、编辑模式
+</p>
+<p>
+   #命令行模式
+</p>
+<p>
+   &gt; yy   	复制
+</p>
+<p>
+   &gt; 数字 + yy    复制指定行
+</p>
+<p>
+   &gt; p		粘贴
+</p>
+<p>
+   &gt; u	        撤销
+</p>
+<p>
+   &gt; dd           删除
+</p>
+<p>
+   &gt; 数字 + dd    删除指定行
+</p>
+<p>
+   #尾行模式
+</p>
+<p>
+   &gt; :wq   	保存并退出
+</p>
+<p>
+   &gt; :q		退出
+</p>
+<p>
+   &gt; :q!		强制退出
+</p>
+<p>
+   &gt; /字符串	搜索，按n向下匹配
+</p>
+<p>
+   &gt; :set nu      显示行号
+</p>
+<p>
+   &gt; :set nonu	隐藏行号
+</p>
+<p>
+   &gt; :数字        跳转指定号（行首:0 ，行尾:$）
+</p>
+<p>
+   #编辑模式
+</p>
+<p>
+   &gt; a   后一个
+</p>
+<p>
+   &gt; A   最后
+</p>
+<p>
+   &gt; i   前一个
+</p>
+<p>
+   &gt; I   最前
+</p>
+<p>
+   &gt; o   下一行
+</p>
+<p>
+   &gt; O   上一行
+</p>
+<p>
+   #打开文件多种方式
+</p>
+<p>
+   # vi        路径及文件         光标第一行
+</p>
+<p>
+   # vi +      路径及文件         光标最后一行
+</p>
+<p>
+   # vi +数字  路径及文件         光标指定行
+</p>
+<p>
+   # vi +/内容 路径及文件		光标匹配行
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+</p>
+<p>
+  【用户命令】
+</p>
+<p>
+  &gt; #添加用户： useradd 参数 用户名 （-d指定家目录，-c备注，-g用户组）
+</p>
+<p>
+  &gt; #修改用户： usermod 参数 用户名 （-d改家目录，-c改备注，-g改用户组，-l改用户名）
+</p>
+<p>
+  &gt; #删除用户： userdel -r   用户名  （-r表示删除用户家目录）
+</p>
+<p>
+  &gt; #查看用户： cat /etc/passwd
+</p>
+<p>
+  【用户组命令】
+</p>
+<p>
+  &gt; #添加组： groupadd 参数 用户名 （-g用户组编号）
+</p>
+<p>
+  &gt; #修改组： groupmod 参数 用户名 （-g用户组编号，-n改组名）
+</p>
+<p>
+  &gt; #删除组： groupdel     用户名  （注：用户存在则不能删除）
+</p>
+<p>
+  &gt; #查看组： cat /etc/group
+</p>
+<p>
+  【用户补充】
+</p>
+<p>
+   &gt; passwd     用户名  回车设置密码
+</p>
+<p>
+   &gt; passwd -S  用户名  查看用户状态
+</p>
+<p>
+   &gt; passwd -l  用户名  冻结用户
+</p>
+<p>
+   &gt; passwd -u  用户名  解冻
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+</p>
+<p>
+  【权限】
+</p>
+<p>
+  #语法1：chmod -R  ABC&lt;用数字表示&gt;  待授权的文件
+</p>
+<p>
+  #说明1：ABC分别表示（A-文件拥有者，B-同组用户，C-其他组用户）
+</p>
+<p>
+  #说明1：数字含义
+</p>
+<p>
+  0 &#8211; 无权限
+</p>
+<p>
+  1 &#8211; 可执行
+</p>
+<p>
+  2 &#8211; 可写
+</p>
+<p>
+  3 &#8211; 可写、可执行
+</p>
+<p>
+  4 &#8211; 可读
+</p>
+<p>
+  5 &#8211; 可读、可执行
+</p>
+<p>
+  6 &#8211; 可读、可写
+</p>
+<p>
+  7 &#8211; 可读、可写、可执行
+</p>
+<p>
+  #语法2：chmod -R {augo}{=-+}{wrx},&#8230;,{augo}{=-+}{wrx} 待授权的文件
+</p>
+<p>
+  #说明2：augo分别表示（a-所有用户，u-拥有者，g-同组用户，o-其他组用户）
+</p>
+<p>
+  #说明2：权限范围
+</p>
+<p>
+  &lt;augo&gt;+&lt;wrx&gt;  追加权限
+</p>
+<p>
+  &lt;augo&gt;-&lt;wrx&gt;  移除权限
+</p>
+<p>
+  &lt;augo&gt;=&lt;wrx&gt;  修改权限（覆盖）
+</p>
+<p>
+  #  更改拥有者：chown -R 新主人 文件
+</p>
+<p>
+  #更改同组用户：chgrp -R 新组 文件
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+</p>
+<p>
+  【运行模式】
+</p>
+<p>
+  init 3  命令行模式
+</p>
+<p>
+  init 5  桌面模式
+</p>
+<p>
+  init 6  重启
+</p>
+<p>
+  修改永久的运行模式：vi /etc/inittab文件
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+</p>
+<p>
+  软链接：相当于win创建快捷方式【快速操作】
+</p>
+<p>
+  硬链接：相当于复制一份源文件【防止误删】（注：数据共享，删除一个另一个还在）
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+</p>
+<p>
+  【shell脚本】
+</p>
+<p>
+  什么是shell脚本：一堆shell的集合
+</p>
+<p>
+  以sh结尾，用【#!/bin/bash】声明的文件
+</p>
+<p>
+  运行shell脚本：sh 绝对路径/文件名.sh</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/linux/4921.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

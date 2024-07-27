@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>高级删除 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E9%AB%98%E7%BA%A7%E5%88%A0%E9%99%A4/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 12:19:27 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>高级删除 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Mysql（三）联合查询、 运算符、 高级修改、 高级删除、 高级新增、 高级查询</title>
+		<link>/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/1121.html</link>
+					<comments>/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/1121.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 17:12:34 +0000</pubDate>
+				<category><![CDATA[Mysql]]></category>
+		<category><![CDATA[联合查询]]></category>
+		<category><![CDATA[运算符]]></category>
+		<category><![CDATA[高级修改]]></category>
+		<category><![CDATA[高级删除]]></category>
+		<category><![CDATA[高级新增]]></category>
+		<category><![CDATA[高级查询]]></category>
+		<guid isPermaLink="false">/?p=1121</guid>
+
+					<description><![CDATA[思考题 手机号码一般使用什么数据类型存储? char（11） QQ号 varchar（12） 性别一般使用什么 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>思考题</h1>
+<ul>
+<li>
+    手机号码一般使用什么数据类型存储?			char（11）
+  </li>
+<li>
+    QQ号										    varchar（12）
+  </li>
+<li>
+    性别一般使用什么数据类型存储?				tinyint(1)   1-男，2-女   char(1) 男，enum 单选女
+  </li>
+<li>
+    年龄信息一般使用什么数据类型存储?			Unsigned tinyint(3)
+  </li>
+<li>
+    照片信息一般使用什么数据类型存储?			varchar(60)  直接存唯一的图片名
+  </li>
+<li>
+    薪水一般使用什么数据类型存储?				decimal(10,2) php要判断小数位不能有第三位
+  </li>
+<li>
+    学员姓名允许为空吗?							不能（使用情况）
+  </li>
+<li>
+    家庭地址允许为空吗?							个人中心设置可以为空，购物不能为空
+  </li>
+<li>
+    电子邮件信息允许为空吗?						可个人中心可以，用邮箱注册账号
+  </li>
+<li>
+    考试成绩允许为空吗?							不可以 给一个默认值0
+  </li>
+<li>
+    在主键列输入的数值，允许为空吗?				不能
+  </li>
+<li>
+    一个表可以有多个主键吗?						不能
+  </li>
+<li>
+    在一个学校数据库中，如果一个学校内允许重名的学员，但是一个班级内不允许学员重名，可以组合班级和姓名两个字段一起来作为主键吗？		        primary key(id,name)
+  </li>
+<li>
+    表中没有合适的列作为主键怎么办？	    给他添加一个编号id
+  </li>
+<li>
+    一个表可以没有主键吗？   可以，一般使用没有主键的表都是中间表（存储两个表之间的关系）
+  </li>
+<li>
+    如果标识列A的初始值为1，增量为1，则输入三行数据以后，再删除两行，下次再输入数据行的时候，标识值从多少开始？					4
+  </li>
+</ul>
+<h1>运算符</h1>
+<h2>算术运算符</h2>
+<p>
+  + 加
+</p>
+<p>
+  &#8211; 减
+</p>
+<p>
+  *乘
+</p>
+<p>
+  / 除    如果除数为0怎么办？  得出的结果是null
+</p>
+<p>
+  % 取模(求余) 如果除数为0怎么办？  得出的结果是null
+</p>
+<p>
+  <img decoding="async" width="330" height="114" src="/wp-content/uploads/2018/05/word-image-1010.png" class="wp-image-1122" srcset="/wp-content/uploads/2018/05/word-image-1010.png 330w, /wp-content/uploads/2018/05/word-image-1010-300x104.png 300w" sizes="(max-width: 330px) 100vw, 330px" /></p>
+<p>  <img fetchpriority="high" decoding="async" width="439" height="118" src="/wp-content/uploads/2018/05/word-image-1011.png" class="wp-image-1123" srcset="/wp-content/uploads/2018/05/word-image-1011.png 439w, /wp-content/uploads/2018/05/word-image-1011-300x81.png 300w" sizes="(max-width: 439px) 100vw, 439px" />
+</p>
+<p>
+  算术运算符一般是应用到，结果字段运算上
+</p>
+<p>
+  Select   (字段运算)字段表达式   [from ] [where]
+</p>
+<p>
+  <img decoding="async" width="903" height="168" src="/wp-content/uploads/2018/05/word-image-1012.png" class="wp-image-1124" srcset="/wp-content/uploads/2018/05/word-image-1012.png 903w, /wp-content/uploads/2018/05/word-image-1012-300x56.png 300w, /wp-content/uploads/2018/05/word-image-1012-768x143.png 768w" sizes="(max-width: 903px) 100vw, 903px" />
+</p>
+<h2>关系运算符</h2>
+<p>
+  &lt; 小于
+</p>
+<p>
+  &gt;大于
+</p>
+<p>
+  &lt;= 小于等于
+</p>
+<p>
+  &gt;=大于等于
+</p>
+<p>
+  = 等于(比较)
+</p>
+<p>
+  &lt;&gt;   !=  不等于
+</p>
+<p>
+  关系运算符主要用在哪个类型上 数值类型，也可以用在字符串类型
+</p>
+<p>
+  Select * from 表名 id&gt;5
+</p>
+<p>
+  Select * from  表名 name=’李明’;
+</p>
+<p>
+  Select * from  表名 name!=’李明’;
+</p>
+<h2>逻辑运算符</h2>
+<p>
+   and 条件同时满足为真
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="788" height="131" src="/wp-content/uploads/2018/05/word-image-1013.png" class="wp-image-1125" srcset="/wp-content/uploads/2018/05/word-image-1013.png 788w, /wp-content/uploads/2018/05/word-image-1013-300x50.png 300w, /wp-content/uploads/2018/05/word-image-1013-768x128.png 768w" sizes="(max-width: 788px) 100vw, 788px" />
+</p>
+<p>
+   or  条件有一个满足为真
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="866" height="290" src="/wp-content/uploads/2018/05/word-image-1014.png" class="wp-image-1126" srcset="/wp-content/uploads/2018/05/word-image-1014.png 866w, /wp-content/uploads/2018/05/word-image-1014-300x100.png 300w, /wp-content/uploads/2018/05/word-image-1014-768x257.png 768w" sizes="(max-width: 866px) 100vw, 866px" />
+</p>
+<p>
+   not 取反
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="925" height="279" src="/wp-content/uploads/2018/05/word-image-1015.png" class="wp-image-1127" srcset="/wp-content/uploads/2018/05/word-image-1015.png 925w, /wp-content/uploads/2018/05/word-image-1015-300x90.png 300w, /wp-content/uploads/2018/05/word-image-1015-768x232.png 768w" sizes="(max-width: 925px) 100vw, 925px" />
+</p>
+<h1>高级查询</h1>
+<p>
+  高级查询的格式
+</p>
+<p>
+  Select  [all/distinct]  字段/字段表达式
+</p>
+<p>
+  [from 子句]
+</p>
+<p>
+  [where子句]
+</p>
+<p>
+  [group by 子句]
+</p>
+<p>
+  [having子句]
+</p>
+<p>
+  [order by子句]
+</p>
+<p>
+  [limit 子句]
+</p>
+<p>
+  子句的顺序固定
+</p>
+<h2>All</h2>
+<p>
+  含义就是把查询出来的结果全部展示出来
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="849" height="313" src="/wp-content/uploads/2018/05/word-image-1016.png" class="wp-image-1128" srcset="/wp-content/uploads/2018/05/word-image-1016.png 849w, /wp-content/uploads/2018/05/word-image-1016-300x111.png 300w, /wp-content/uploads/2018/05/word-image-1016-768x283.png 768w" sizes="(max-width: 849px) 100vw, 849px" />
+</p>
+<h2>distinct去除重复数据</h2>
+<p>
+  <img loading="lazy" decoding="async" width="775" height="297" src="/wp-content/uploads/2018/05/word-image-1017.png" class="wp-image-1129" srcset="/wp-content/uploads/2018/05/word-image-1017.png 775w, /wp-content/uploads/2018/05/word-image-1017-300x115.png 300w, /wp-content/uploads/2018/05/word-image-1017-768x294.png 768w" sizes="(max-width: 775px) 100vw, 775px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="647" height="210" src="/wp-content/uploads/2018/05/word-image-1018.png" class="wp-image-1130" srcset="/wp-content/uploads/2018/05/word-image-1018.png 647w, /wp-content/uploads/2018/05/word-image-1018-300x97.png 300w" sizes="(max-width: 647px) 100vw, 647px" />
+</p>
+<h2>as别名</h2>
+<p>
+   使用方式 as  新名字，as关键字可以省略
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="686" height="219" src="/wp-content/uploads/2018/05/word-image-1019.png" class="wp-image-1131" srcset="/wp-content/uploads/2018/05/word-image-1019.png 686w, /wp-content/uploads/2018/05/word-image-1019-300x96.png 300w" sizes="(max-width: 686px) 100vw, 686px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="689" height="218" src="/wp-content/uploads/2018/05/word-image-1020.png" class="wp-image-1132" srcset="/wp-content/uploads/2018/05/word-image-1020.png 689w, /wp-content/uploads/2018/05/word-image-1020-300x95.png 300w" sizes="(max-width: 689px) 100vw, 689px" />
+</p>
+<h2>Where条件</h2>
+<h3>In </h3>
+<p>
+  在某个范围内
+</p>
+<p>
+  找出type 是打野，或输出的英雄信息
+</p>
+<p>
+  一般会：select * from hero where type=&#8217;打野&#8217; or type=&#8217;输出&#8217;;查询
+</p>
+<p>
+  其实还可以使用in来查询
+</p>
+<p>
+  字段名  In (值1，值2….);含义就是  该字段的值是小括号里边的任意一个
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="851" height="210" src="/wp-content/uploads/2018/05/word-image-1021.png" class="wp-image-1133" srcset="/wp-content/uploads/2018/05/word-image-1021.png 851w, /wp-content/uploads/2018/05/word-image-1021-300x74.png 300w, /wp-content/uploads/2018/05/word-image-1021-768x190.png 768w" sizes="(max-width: 851px) 100vw, 851px" />
+</p>
+<p>
+  	比较：or 和in
+</p>
+<p>
+  		In比or使用更方便，如果需要再加满足的条件，只需要在小括号里边加一个值就行了而or需要使用两次or运算这样执行效率慢，语法繁琐
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="861" height="260" src="/wp-content/uploads/2018/05/word-image-1022.png" class="wp-image-1134" srcset="/wp-content/uploads/2018/05/word-image-1022.png 861w, /wp-content/uploads/2018/05/word-image-1022-300x91.png 300w, /wp-content/uploads/2018/05/word-image-1022-768x232.png 768w" sizes="(max-width: 861px) 100vw, 861px" />
+</p>
+<h3>Is null /is not null</h3>
+<p>
+  Is是判断，一般只和null连用，判断字段的值是否是null，如果是null就返回1，如果不是就返回0；
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="822" height="369" src="/wp-content/uploads/2018/05/word-image-1023.png" class="wp-image-1135" srcset="/wp-content/uploads/2018/05/word-image-1023.png 822w, /wp-content/uploads/2018/05/word-image-1023-300x135.png 300w, /wp-content/uploads/2018/05/word-image-1023-768x345.png 768w" sizes="(max-width: 822px) 100vw, 822px" />
+</p>
+<h3>between…and </h3>
+<p>
+  在什么范围之内，这个范围主要指数字
+</p>
+<p>
+  大于3小于8
+</p>
+<p>
+  Between 3 and 8;  包括3和8的<br />
+  <img loading="lazy" decoding="async" width="829" height="250" src="/wp-content/uploads/2018/05/word-image-1024.png" class="wp-image-1136" srcset="/wp-content/uploads/2018/05/word-image-1024.png 829w, /wp-content/uploads/2018/05/word-image-1024-300x90.png 300w, /wp-content/uploads/2018/05/word-image-1024-768x232.png 768w" sizes="(max-width: 829px) 100vw, 829px" />
+</p>
+<p>
+  Between…and…表示不了不连续的范围，比如 在这些数字里边的  1,6,8,9
+</p>
+<h3>like模糊查询</h3>
+<p>
+  模糊查询就是知道要查询信息的一部分内容，不是精确的内容的查询
+</p>
+<p>
+  英雄名字我只知道第一个是‘牛’ 那么我怎么查到这些英雄的信息呢？
+</p>
+<h4>通配符</h4>
+<p>
+  就是占位的符号，有一定含义
+</p>
+<table>
+<tr>
+<td>
+<p>
+  通配符
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  _  (下划线)
+</p>
+</td>
+<td>
+<p>
+  表示任意<strong>一个</strong>字符
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  %
+</p>
+</td>
+<td>
+<p>
+  表示任意多个或一个或0个字符
+</p>
+</td>
+</tr>
+</table>
+<p>
+  1、’t_m’下列选项符合的条件的是（）
+</p>
+<p>
+  A：tm 	B：tom 	C:toom	D:tam		E:tmo
+</p>
+<p>
+  2、’张%’ 下列选项符合的条件的是（）
+</p>
+<p>
+  A：张三	B：张三丰	C：张牙舞爪  D：张   E：小张
+</p>
+<p>
+  3、’%诺基亚%’  下列选项符合的条件的是（）
+</p>
+<p>
+  A：诺基亚2100   B :2100诺基亚  C：我的诺基亚质量很好 D：诺基亚
+</p>
+<p>
+  4、SELECT * FROM 数据表 WHERE 编号 LIKE &#8217;00_A5%C’ （）
+</p>
+<p>
+  A、0890AC   B、007_A51C    C、00A54C   D、00AA5C
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="758" height="302" src="/wp-content/uploads/2018/05/word-image-1025.png" class="wp-image-1137" srcset="/wp-content/uploads/2018/05/word-image-1025.png 758w, /wp-content/uploads/2018/05/word-image-1025-300x120.png 300w" sizes="(max-width: 758px) 100vw, 758px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="703" height="160" src="/wp-content/uploads/2018/05/word-image-1026.png" class="wp-image-1138" srcset="/wp-content/uploads/2018/05/word-image-1026.png 703w, /wp-content/uploads/2018/05/word-image-1026-300x68.png 300w" sizes="(max-width: 703px) 100vw, 703px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="613" height="184" src="/wp-content/uploads/2018/05/word-image-1027.png" class="wp-image-1139" srcset="/wp-content/uploads/2018/05/word-image-1027.png 613w, /wp-content/uploads/2018/05/word-image-1027-300x90.png 300w" sizes="(max-width: 613px) 100vw, 613px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="852" height="185" src="/wp-content/uploads/2018/05/word-image-1028.png" class="wp-image-1140" srcset="/wp-content/uploads/2018/05/word-image-1028.png 852w, /wp-content/uploads/2018/05/word-image-1028-300x65.png 300w, /wp-content/uploads/2018/05/word-image-1028-768x167.png 768w" sizes="(max-width: 852px) 100vw, 852px" />
+</p>
+<h2>group by分组</h2>
+<p>
+  什么是group  by分组查询，作用
+</p>
+<p>
+  分组查询是按照指定的字段来分组，分组的目的是为了统计
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1415" height="395" src="/wp-content/uploads/2018/05/word-image-1029.png" class="wp-image-1141" srcset="/wp-content/uploads/2018/05/word-image-1029.png 1415w, /wp-content/uploads/2018/05/word-image-1029-300x84.png 300w, /wp-content/uploads/2018/05/word-image-1029-768x214.png 768w, /wp-content/uploads/2018/05/word-image-1029-1024x286.png 1024w" sizes="(max-width: 1415px) 100vw, 1415px" />
+</p>
+<h3>聚合函数</h3>
+<p>
+  聚合函数就在分组的基础上求某一个字段的相关信息，返回的是一个单独的数据，也就是  ‘一行一列’
+</p>
+<p>
+  Sum求和
+</p>
+<p>
+  Avg平均值
+</p>
+<p>
+  Max最大值
+</p>
+<p>
+  Min 最小值
+</p>
+<p>
+  Count 数量
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1039" height="231" src="/wp-content/uploads/2018/05/word-image-1030.png" class="wp-image-1142" srcset="/wp-content/uploads/2018/05/word-image-1030.png 1039w, /wp-content/uploads/2018/05/word-image-1030-300x67.png 300w, /wp-content/uploads/2018/05/word-image-1030-768x171.png 768w, /wp-content/uploads/2018/05/word-image-1030-1024x228.png 1024w" sizes="(max-width: 1039px) 100vw, 1039px" />
+</p>
+<h3>having条件</h3>
+<p>
+  在原有查询出来的结果上过滤
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="999" height="228" src="/wp-content/uploads/2018/05/word-image-1031.png" class="wp-image-1143" srcset="/wp-content/uploads/2018/05/word-image-1031.png 999w, /wp-content/uploads/2018/05/word-image-1031-300x68.png 300w, /wp-content/uploads/2018/05/word-image-1031-768x175.png 768w" sizes="(max-width: 999px) 100vw, 999px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="869" height="129" src="/wp-content/uploads/2018/05/word-image-1032.png" class="wp-image-1144" srcset="/wp-content/uploads/2018/05/word-image-1032.png 869w, /wp-content/uploads/2018/05/word-image-1032-300x45.png 300w, /wp-content/uploads/2018/05/word-image-1032-768x114.png 768w" sizes="(max-width: 869px) 100vw, 869px" />
+</p>
+<h3>比较having和where的区别</h3>
+<p>
+  相似的地方都是条件&#8212;&#8211;过滤数据
+</p>
+<p>
+  不同的地方
+</p>
+<ul>
+<li>
+    Where在分组之前执行，having在分组之后执行说白了，having就是在where过滤之后的结果之上，再次过滤数据
+  </li>
+<li>
+    Having过滤只能使用查询结果中有的字段，where过滤数据能使用表中的任何字段
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="995" height="44" src="/wp-content/uploads/2018/05/word-image-1033.png" class="wp-image-1145" srcset="/wp-content/uploads/2018/05/word-image-1033.png 995w, /wp-content/uploads/2018/05/word-image-1033-300x13.png 300w, /wp-content/uploads/2018/05/word-image-1033-768x34.png 768w" sizes="(max-width: 995px) 100vw, 995px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="777" height="248" src="/wp-content/uploads/2018/05/word-image-1034.png" class="wp-image-1146" srcset="/wp-content/uploads/2018/05/word-image-1034.png 777w, /wp-content/uploads/2018/05/word-image-1034-300x96.png 300w, /wp-content/uploads/2018/05/word-image-1034-768x245.png 768w" sizes="(max-width: 777px) 100vw, 777px" />
+</p>
+<h3>回溯查询  with rollup</h3>
+<p>
+  就是在分组的结果基础之上，再次进行相同的分组查询
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1755" height="620" src="/wp-content/uploads/2018/05/word-image-1035.png" class="wp-image-1147" srcset="/wp-content/uploads/2018/05/word-image-1035.png 1755w, /wp-content/uploads/2018/05/word-image-1035-300x106.png 300w, /wp-content/uploads/2018/05/word-image-1035-768x271.png 768w, /wp-content/uploads/2018/05/word-image-1035-1024x362.png 1024w" sizes="(max-width: 1755px) 100vw, 1755px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="920" height="201" src="/wp-content/uploads/2018/05/word-image-1036.png" class="wp-image-1148" srcset="/wp-content/uploads/2018/05/word-image-1036.png 920w, /wp-content/uploads/2018/05/word-image-1036-300x66.png 300w, /wp-content/uploads/2018/05/word-image-1036-768x168.png 768w" sizes="(max-width: 920px) 100vw, 920px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="737" height="120" src="/wp-content/uploads/2018/05/word-image-1037.png" class="wp-image-1149" srcset="/wp-content/uploads/2018/05/word-image-1037.png 737w, /wp-content/uploads/2018/05/word-image-1037-300x49.png 300w" sizes="(max-width: 737px) 100vw, 737px" />
+</p>
+<p>
+  扩展：我想在一次结果中查看到不同英雄的平均伤害，和所有英雄的平均伤害
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="965" height="234" src="/wp-content/uploads/2018/05/word-image-1038.png" class="wp-image-1150" srcset="/wp-content/uploads/2018/05/word-image-1038.png 965w, /wp-content/uploads/2018/05/word-image-1038-300x73.png 300w, /wp-content/uploads/2018/05/word-image-1038-768x186.png 768w" sizes="(max-width: 965px) 100vw, 965px" />
+</p>
+<h2>order by排序</h2>
+<p>
+  排序，按照某一字段从大到小排，从小到大排<br />
+  <br />
+  从大到小排序 desc   order by 字段名  desc  按照某个字段从大到小排序
+</p>
+<p>
+  从小到大排序 asc    order by 字段名  asc按照某个字段从小到大排序
+</p>
+<p>
+  如果没有设置排序，会按照id从小到大排序展示出来
+</p>
+<p>
+  Id从大到小排序
+</p>
+<p>  <img loading="lazy" decoding="async" width="941" height="387" src="/wp-content/uploads/2018/05/word-image-1039.png" class="wp-image-1151" srcset="/wp-content/uploads/2018/05/word-image-1039.png 941w, /wp-content/uploads/2018/05/word-image-1039-300x123.png 300w, /wp-content/uploads/2018/05/word-image-1039-768x316.png 768w" sizes="(max-width: 941px) 100vw, 941px" />
+</p>
+<h2>limit限定 </h2>
+<p>
+  限定查询出来的结果显示多少条，从第几条开始显示显示多少条
+</p>
+<p>
+  Limit 数字  &#8211;从第一条开始显示多少条数据
+</p>
+<p>
+  Limit 数字 ，数字 &#8212;从第几条开始显示，显示多少条  不包括开始的那一条
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="948" height="345" src="/wp-content/uploads/2018/05/word-image-1040.png" class="wp-image-1152" srcset="/wp-content/uploads/2018/05/word-image-1040.png 948w, /wp-content/uploads/2018/05/word-image-1040-300x109.png 300w, /wp-content/uploads/2018/05/word-image-1040-768x279.png 768w" sizes="(max-width: 948px) 100vw, 948px" />
+</p>
+<p>
+  实现：显示前四条数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="803" height="193" src="/wp-content/uploads/2018/05/word-image-1041.png" class="wp-image-1153" srcset="/wp-content/uploads/2018/05/word-image-1041.png 803w, /wp-content/uploads/2018/05/word-image-1041-300x72.png 300w, /wp-content/uploads/2018/05/word-image-1041-768x185.png 768w" sizes="(max-width: 803px) 100vw, 803px" />
+</p>
+<p>
+  实现：从第5条开始，显示3条
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="776" height="191" src="/wp-content/uploads/2018/05/word-image-1042.png" class="wp-image-1154" srcset="/wp-content/uploads/2018/05/word-image-1042.png 776w, /wp-content/uploads/2018/05/word-image-1042-300x74.png 300w, /wp-content/uploads/2018/05/word-image-1042-768x189.png 768w" sizes="(max-width: 776px) 100vw, 776px" />
+</p>
+<h1>高级查询案例</h1>
+<p>
+  测试数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="840" height="337" src="/wp-content/uploads/2018/05/word-image-1043.png" class="wp-image-1155" srcset="/wp-content/uploads/2018/05/word-image-1043.png 840w, /wp-content/uploads/2018/05/word-image-1043-300x120.png 300w, /wp-content/uploads/2018/05/word-image-1043-768x308.png 768w" sizes="(max-width: 840px) 100vw, 840px" />
+</p>
+<ul>
+<li>
+    找出伤害是前三的英雄信息
+  </li>
+</ul>
+<p>
+  select name from hero order by hurt desc limit 3;
+</p>
+<ul>
+<li>
+    找出英雄名字中有&#8217;德&#8217;字的英雄
+  </li>
+</ul>
+<p>
+  select name from hero where name like &#8216;%德%&#8217;;
+</p>
+<ul>
+<li>
+    找出每种技能的平均伤害
+  </li>
+</ul>
+<p>
+  select skill,avg(hurt) from hero group by skill;
+</p>
+<ul>
+<li>
+    找出每种技能的平均伤害 和所有技能的平均伤害
+  </li>
+</ul>
+<p>
+  select skill,avg(hurt) from hero group by skill with rollup;
+</p>
+<ul>
+<li>
+    找出平均技能伤害大于60的技能
+  </li>
+</ul>
+<p>
+  select skill,avg(hurt) as 平均伤害 from hero group by skill having 平均伤害&gt;60;
+</p>
+<ul>
+<li>
+    找出伤害最高的英雄信息（不要求掌握）
+  </li>
+</ul>
+<p>
+  select name,hurt from hero where hurt= (select max(hurt) from hero);
+</p>
+<h1>高级新增</h1>
+<p>
+  之前学的新增:insert [into]  表名  [(字段列表)]    values  (值列表);
+</p>
+<p>
+  要求，字段列表和值列表一致，每一次执行插入一条数据的
+</p>
+<h2>多值插入</h2>
+<p>
+  语法： insert [into] 表名  [(字段列表)]
+</p>
+<p>
+  values (值列表), (值列表), (值列表)……;
+</p>
+<p>
+   例如：
+</p>
+<p>
+  insert into hero  values
+</p>
+<p>
+  	(null,&#8217;a&#8217;,1,2,50,60),
+</p>
+<p>
+  	(null,&#8217;b&#8217;,1,2,50,60),
+</p>
+<p>
+  	(null,&#8217;c&#8217;,1,2,50,60);
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="650" height="141" src="/wp-content/uploads/2018/05/word-image-1044.png" class="wp-image-1156" srcset="/wp-content/uploads/2018/05/word-image-1044.png 650w, /wp-content/uploads/2018/05/word-image-1044-300x65.png 300w" sizes="(max-width: 650px) 100vw, 650px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="814" height="378" src="/wp-content/uploads/2018/05/word-image-1045.png" class="wp-image-1157" srcset="/wp-content/uploads/2018/05/word-image-1045.png 814w, /wp-content/uploads/2018/05/word-image-1045-300x139.png 300w, /wp-content/uploads/2018/05/word-image-1045-768x357.png 768w" sizes="(max-width: 814px) 100vw, 814px" />
+</p>
+<h2>set方式插入</h2>
+<p>
+  很少用，只需要知道就可以了
+</p>
+<p>
+  语法： insert 表名 set  字段1=值1，字段2=值2…；每次只插入一条数据
+</p>
+<p>
+  例如：
+</p>
+<p>
+  insert into hero set name=&#8217;d&#8217;,type=1,skill=2,hurt=23,waittime=6;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="784" height="61" src="/wp-content/uploads/2018/05/word-image-1046.png" class="wp-image-1158" srcset="/wp-content/uploads/2018/05/word-image-1046.png 784w, /wp-content/uploads/2018/05/word-image-1046-300x23.png 300w, /wp-content/uploads/2018/05/word-image-1046-768x60.png 768w" sizes="(max-width: 784px) 100vw, 784px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="816" height="404" src="/wp-content/uploads/2018/05/word-image-1047.png" class="wp-image-1159" srcset="/wp-content/uploads/2018/05/word-image-1047.png 816w, /wp-content/uploads/2018/05/word-image-1047-300x149.png 300w, /wp-content/uploads/2018/05/word-image-1047-768x380.png 768w" sizes="(max-width: 816px) 100vw, 816px" />
+</p>
+<h2>蠕虫复制</h2>
+<p>
+  什么是蠕虫复制，这个类似细胞分裂
+</p>
+<p>
+  1 变 2
+</p>
+<p>
+  2 变 4
+</p>
+<p>
+  4 变 8
+</p>
+<p>
+  每次进行一个蠕虫复制的话，数据表的数据就是成倍的增加
+</p>
+<p>
+  当前表有10条数据，蠕虫复制了10次&#8212;-现在有多少条数据？1024*10
+</p>
+<p>
+  再蠕虫复制10次   1024*1024*10&#8212;-千万级数据
+</p>
+<p>
+  所以蠕虫复制需要防止；
+</p>
+<p>
+  例如：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="586" height="209" src="/wp-content/uploads/2018/05/word-image-1048.png" class="wp-image-1160" srcset="/wp-content/uploads/2018/05/word-image-1048.png 586w, /wp-content/uploads/2018/05/word-image-1048-300x107.png 300w" sizes="(max-width: 586px) 100vw, 586px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="835" height="71" src="/wp-content/uploads/2018/05/word-image-1049.png" class="wp-image-1161" srcset="/wp-content/uploads/2018/05/word-image-1049.png 835w, /wp-content/uploads/2018/05/word-image-1049-300x26.png 300w, /wp-content/uploads/2018/05/word-image-1049-768x65.png 768w" sizes="(max-width: 835px) 100vw, 835px" /></p>
+<p>
+  <img loading="lazy" decoding="async" width="794" height="259" src="/wp-content/uploads/2018/05/word-image-1050.png" class="wp-image-1162" srcset="/wp-content/uploads/2018/05/word-image-1050.png 794w, /wp-content/uploads/2018/05/word-image-1050-300x98.png 300w, /wp-content/uploads/2018/05/word-image-1050-768x251.png 768w" sizes="(max-width: 794px) 100vw, 794px" />
+</p>
+<p>
+  语法 insert [into] 表名 values select 语句
+</p>
+<p>
+  Select 语句的查询结果字段和插入的字段列表一致（数量，类型）;
+</p>
+<p>
+  扩展：怎么防止蠕虫复制
+</p>
+<p>
+  	加入unique key
+</p>
+<h2>replace插入</h2>
+<p>
+  替换插入，如果插入的数据中在表中有（一个字段上—<strong><em>唯一建</em></strong>），那么会先把表中已有的数据删除，然后再插入
+</p>
+<p>
+  Replace[ into]  表名  [(字段列表)]  values  (值列表);
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="573" height="157" src="/wp-content/uploads/2018/05/word-image-1051.png" class="wp-image-1163" srcset="/wp-content/uploads/2018/05/word-image-1051.png 573w, /wp-content/uploads/2018/05/word-image-1051-300x82.png 300w" sizes="(max-width: 573px) 100vw, 573px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="821" height="83" src="/wp-content/uploads/2018/05/word-image-1052.png" class="wp-image-1164" srcset="/wp-content/uploads/2018/05/word-image-1052.png 821w, /wp-content/uploads/2018/05/word-image-1052-300x30.png 300w, /wp-content/uploads/2018/05/word-image-1052-768x78.png 768w" sizes="(max-width: 821px) 100vw, 821px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="562" height="159" src="/wp-content/uploads/2018/05/word-image-1053.png" class="wp-image-1165" srcset="/wp-content/uploads/2018/05/word-image-1053.png 562w, /wp-content/uploads/2018/05/word-image-1053-300x85.png 300w" sizes="(max-width: 562px) 100vw, 562px" />
+</p>
+<h1>高级修改</h1>
+<p>
+  Update 表名 set 字段1=值1 ,字段2=值2…  where 修改条件;
+</p>
+<h2>排序限定条数修改</h2>
+<p>
+  语法：update 表名 set 字段1=值1 ,字段2=值2…  [where 条件]  [order by 子句]  [limit子句]
+</p>
+<p>
+  在修改的过程中可以限定修改的条数，和排序
+</p>
+<p>
+  我要修改英雄前三的伤害值 ，让伤害值加倍；
+</p>
+<p>
+  这里用到了排序   英雄伤害从高到低排序    order by desc
+</p>
+<p>
+  限定  		     修改前三条信息，让信息值加倍  limit 3
+</p>
+<p>
+  Update hero set hurt=hurt*2 [hurt+hurt] order by hurt desc limit3;
+</p>
+<p>
+  修改前，伤害前三的英雄信息
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="717" height="164" src="/wp-content/uploads/2018/05/word-image-1054.png" class="wp-image-1166" srcset="/wp-content/uploads/2018/05/word-image-1054.png 717w, /wp-content/uploads/2018/05/word-image-1054-300x69.png 300w" sizes="(max-width: 717px) 100vw, 717px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="813" height="269" src="/wp-content/uploads/2018/05/word-image-1055.png" class="wp-image-1167" srcset="/wp-content/uploads/2018/05/word-image-1055.png 813w, /wp-content/uploads/2018/05/word-image-1055-300x99.png 300w, /wp-content/uploads/2018/05/word-image-1055-768x254.png 768w" sizes="(max-width: 813px) 100vw, 813px" />
+</p>
+<p>
+  扩展：
+</p>
+<p>
+  	回想limit  3；
+</p>
+<p>
+  		Limit 4,2;   修改英雄伤害排名是5,6的伤害，让其加倍&#8212;update修改没有这样的用法
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1042" height="75" src="/wp-content/uploads/2018/05/word-image-1056.png" class="wp-image-1168" srcset="/wp-content/uploads/2018/05/word-image-1056.png 1042w, /wp-content/uploads/2018/05/word-image-1056-300x22.png 300w, /wp-content/uploads/2018/05/word-image-1056-768x55.png 768w, /wp-content/uploads/2018/05/word-image-1056-1024x74.png 1024w" sizes="(max-width: 1042px) 100vw, 1042px" />
+</p>
+<h1>高级删除</h1>
+<p>
+  delete from 表名 [where 条件] [order by 子句] [limit 子句]
+</p>
+<h2>排序限定条数删除</h2>
+<p>
+  英雄伤害前2两名，英雄删除
+</p>
+<p>
+  Delete from hero  order by hurt desc  limit 2
+</p>
+<p>
+  删除前数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="914" height="392" src="/wp-content/uploads/2018/05/word-image-1057.png" class="wp-image-1169" srcset="/wp-content/uploads/2018/05/word-image-1057.png 914w, /wp-content/uploads/2018/05/word-image-1057-300x129.png 300w, /wp-content/uploads/2018/05/word-image-1057-768x329.png 768w" sizes="(max-width: 914px) 100vw, 914px" />
+</p>
+<p>
+  删除伤害排名前两位的英雄，如果成功，德玛和诺克消失
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="999" height="455" src="/wp-content/uploads/2018/05/word-image-1058.png" class="wp-image-1170" srcset="/wp-content/uploads/2018/05/word-image-1058.png 999w, /wp-content/uploads/2018/05/word-image-1058-300x137.png 300w, /wp-content/uploads/2018/05/word-image-1058-768x350.png 768w" sizes="(max-width: 999px) 100vw, 999px" />
+</p>
+<p>
+  扩展：能不能指定从第几条开始删除？
+</p>
+<p>
+  	也就是delete语句中支不支持 limit  数字,数字;的用法
+</p>
+<p>
+  测试；删除伤害排名在第3，4的两个英雄
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="930" height="388" src="/wp-content/uploads/2018/05/word-image-1059.png" class="wp-image-1171" srcset="/wp-content/uploads/2018/05/word-image-1059.png 930w, /wp-content/uploads/2018/05/word-image-1059-300x125.png 300w, /wp-content/uploads/2018/05/word-image-1059-768x320.png 768w" sizes="(max-width: 930px) 100vw, 930px" />
+</p>
+<p>
+  Sql: delete from hero order by hurt desc limit 2,2;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="882" height="66" src="/wp-content/uploads/2018/05/word-image-1060.png" class="wp-image-1172" srcset="/wp-content/uploads/2018/05/word-image-1060.png 882w, /wp-content/uploads/2018/05/word-image-1060-300x22.png 300w, /wp-content/uploads/2018/05/word-image-1060-768x57.png 768w" sizes="(max-width: 882px) 100vw, 882px" />
+</p>
+<h2>Truncate删除</h2>
+<p>
+  清空表，除了清空表中的数据，还可以把表的自动增长归成1
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="795" height="207" src="/wp-content/uploads/2018/05/word-image-1061.png" class="wp-image-1173" srcset="/wp-content/uploads/2018/05/word-image-1061.png 795w, /wp-content/uploads/2018/05/word-image-1061-300x78.png 300w, /wp-content/uploads/2018/05/word-image-1061-768x200.png 768w" sizes="(max-width: 795px) 100vw, 795px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="975" height="217" src="/wp-content/uploads/2018/05/word-image-1062.png" class="wp-image-1174" srcset="/wp-content/uploads/2018/05/word-image-1062.png 975w, /wp-content/uploads/2018/05/word-image-1062-300x67.png 300w, /wp-content/uploads/2018/05/word-image-1062-768x171.png 768w" sizes="(max-width: 975px) 100vw, 975px" />
+</p>
+<p>
+  Truncate请空表
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="501" height="51" src="/wp-content/uploads/2018/05/word-image-1063.png" class="wp-image-1175" srcset="/wp-content/uploads/2018/05/word-image-1063.png 501w, /wp-content/uploads/2018/05/word-image-1063-300x31.png 300w" sizes="(max-width: 501px) 100vw, 501px" />
+</p>
+<p>
+  清空完成的效果
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="722" height="67" src="/wp-content/uploads/2018/05/word-image-1064.png" class="wp-image-1176" srcset="/wp-content/uploads/2018/05/word-image-1064.png 722w, /wp-content/uploads/2018/05/word-image-1064-300x28.png 300w" sizes="(max-width: 722px) 100vw, 722px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="710" height="205" src="/wp-content/uploads/2018/05/word-image-1065.png" class="wp-image-1177" srcset="/wp-content/uploads/2018/05/word-image-1065.png 710w, /wp-content/uploads/2018/05/word-image-1065-300x87.png 300w" sizes="(max-width: 710px) 100vw, 710px" />
+</p>
+<h1>联合查询</h1>
+<h2>含义</h2>
+<p>
+  什么是联合查询
+</p>
+<p>
+  联合查询是把两个查询结果放在一起来显示
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="568" height="282" src="/wp-content/uploads/2018/05/word-image-1066.png" class="wp-image-1178" srcset="/wp-content/uploads/2018/05/word-image-1066.png 568w, /wp-content/uploads/2018/05/word-image-1066-300x149.png 300w" sizes="(max-width: 568px) 100vw, 568px" />
+</p>
+<p>
+  联合查询就是把这个两个展示出来的结果放在一块展示
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="792" height="247" src="/wp-content/uploads/2018/05/word-image-1067.png" class="wp-image-1179" srcset="/wp-content/uploads/2018/05/word-image-1067.png 792w, /wp-content/uploads/2018/05/word-image-1067-300x94.png 300w, /wp-content/uploads/2018/05/word-image-1067-768x240.png 768w" sizes="(max-width: 792px) 100vw, 792px" />
+</p>
+<p>
+  既然是纵向的连接：首先是字段的个数必须一致
+</p>
+<h2>基本形式</h2>
+<p>
+  语法：select 语句  union [all/distinct]  select 语句
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="612" height="165" src="/wp-content/uploads/2018/05/word-image-1068.png" class="wp-image-1180" srcset="/wp-content/uploads/2018/05/word-image-1068.png 612w, /wp-content/uploads/2018/05/word-image-1068-300x81.png 300w" sizes="(max-width: 612px) 100vw, 612px" />
+</p>
+<h2>注意点</h2>
+<ul>
+<li>
+    第一纵向连接，两个结果集字段数量必须一致
+  </li>
+<li>
+    第二如果需要对连接过后的结果集 进行排序那么必须把两个select语句用小括号包括起来
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="741" height="41" src="/wp-content/uploads/2018/05/word-image-1069.png" class="wp-image-1181" srcset="/wp-content/uploads/2018/05/word-image-1069.png 741w, /wp-content/uploads/2018/05/word-image-1069-300x17.png 300w" sizes="(max-width: 741px) 100vw, 741px" />
+</p>
+<p>
+  这个order by是对联合过后的结果进行排序
+</p>
+<ul>
+<li>
+    第三如果我们前边的select 语句查询的结果字段名，有别名，那么排序的时候必须用别名
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="916" height="49" src="/wp-content/uploads/2018/05/word-image-1070.png" class="wp-image-1182" srcset="/wp-content/uploads/2018/05/word-image-1070.png 916w, /wp-content/uploads/2018/05/word-image-1070-300x16.png 300w, /wp-content/uploads/2018/05/word-image-1070-768x41.png 768w" sizes="(max-width: 916px) 100vw, 916px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="910" height="48" src="/wp-content/uploads/2018/05/word-image-1071.png" class="wp-image-1183" srcset="/wp-content/uploads/2018/05/word-image-1071.png 910w, /wp-content/uploads/2018/05/word-image-1071-300x16.png 300w, /wp-content/uploads/2018/05/word-image-1071-768x41.png 768w" sizes="(max-width: 910px) 100vw, 910px" />
+</p>
+<p>
+  错误原因：因为联合查询出来的结果集中没有id这个字段名，原来的id改成了编号，如果想用id进行排序，难么只能使用 ‘编号’这个名称；
+</p>
+<ul>
+<li>
+    第四联合查询结果的字段名，默认是第一个select语句查询出来的字段名
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="710" height="477" src="/wp-content/uploads/2018/05/word-image-1072.png" class="wp-image-1184" srcset="/wp-content/uploads/2018/05/word-image-1072.png 710w, /wp-content/uploads/2018/05/word-image-1072-300x202.png 300w" sizes="(max-width: 710px) 100vw, 710px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/1121.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

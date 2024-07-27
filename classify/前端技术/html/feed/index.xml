@@ -1,0 +1,1416 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>HTML &#8211; 个人随笔</title>
+	<atom:link href="/classify/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/html/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sun, 20 May 2018 01:23:26 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>HTML &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>HTML（一）客户端、 服务端、 标记、 滚动、 编辑器、 网站基本框架、 网页执行过程、 超链接、 锚点</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/1.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/1.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 13:53:48 +0000</pubDate>
+				<category><![CDATA[HTML]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[客户端]]></category>
+		<category><![CDATA[服务端]]></category>
+		<category><![CDATA[标记]]></category>
+		<category><![CDATA[滚动]]></category>
+		<category><![CDATA[编辑器]]></category>
+		<category><![CDATA[网站基本框架]]></category>
+		<category><![CDATA[网页执行过程]]></category>
+		<category><![CDATA[超链接]]></category>
+		<category><![CDATA[锚点]]></category>
+		<guid isPermaLink="false">/?p=1</guid>
+
+					<description><![CDATA[HTML（一） 三组概念 客户端、服务器端 客户端：用来访问服务器的计算机（后面还会细化这个概念） 服务器端： [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>HTML（一）</h1>
+<h2>三组概念</h2>
+<h3>客户端、服务器端</h3>
+<h2><img fetchpriority="high" decoding="async" width="849" height="143" class="wp-image-56" src="/wp-content/uploads/2018/05/word-image-40.png" srcset="/wp-content/uploads/2018/05/word-image-40.png 849w, /wp-content/uploads/2018/05/word-image-40-300x51.png 300w, /wp-content/uploads/2018/05/word-image-40-768x129.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></h2>
+<p>客户端：用来访问服务器的计算机（后面还会细化这个概念）</p>
+<p>服务器端：用来存放数据的计算机</p>
+<p>在WEB（网页）技术中，客户端和服务器端的通讯是通过http协议进行的</p>
+<h2><img decoding="async" width="1189" height="184" class="wp-image-57" src="/wp-content/uploads/2018/05/word-image-41.png" srcset="/wp-content/uploads/2018/05/word-image-41.png 1189w, /wp-content/uploads/2018/05/word-image-41-300x46.png 300w, /wp-content/uploads/2018/05/word-image-41-768x119.png 768w, /wp-content/uploads/2018/05/word-image-41-1024x158.png 1024w" sizes="(max-width: 1189px) 100vw, 1189px" /></h2>
+<h3>网页的执行过程</h3>
+<p>客户端给服务器发送一个请求，服务器将代码（HTML,CSS,JS）到送到客户端，这些代码通过浏览器解析执行，就形成了我们看到界面。</p>
+<h2><img decoding="async" width="793" height="168" class="wp-image-59" src="/wp-content/uploads/2018/05/word-image-43.png" srcset="/wp-content/uploads/2018/05/word-image-43.png 793w, /wp-content/uploads/2018/05/word-image-43-300x64.png 300w, /wp-content/uploads/2018/05/word-image-43-768x163.png 768w" sizes="(max-width: 793px) 100vw, 793px" /> <img loading="lazy" decoding="async" width="645" height="296" class="wp-image-61" src="/wp-content/uploads/2018/05/word-image-45.png" srcset="/wp-content/uploads/2018/05/word-image-45.png 645w, /wp-content/uploads/2018/05/word-image-45-300x138.png 300w" sizes="(max-width: 645px) 100vw, 645px" /> <img loading="lazy" decoding="async" width="976" height="99" class="wp-image-63" src="/wp-content/uploads/2018/05/word-image-47.png" srcset="/wp-content/uploads/2018/05/word-image-47.png 976w, /wp-content/uploads/2018/05/word-image-47-300x30.png 300w, /wp-content/uploads/2018/05/word-image-47-768x78.png 768w" sizes="(max-width: 976px) 100vw, 976px" /></h2>
+<h3>浏览器（浏览器的种类，浏览器的内核）</h3>
+<p>浏览器就是一个软件，这个软件用来解析服务器发送到客户端的代码。</p>
+<p>浏览器的种类：</p>
+<p>1、IE（微软公司）</p>
+<h2><img loading="lazy" decoding="async" width="80" height="84" class="wp-image-65" src="/wp-content/uploads/2018/05/word-image-49.png" /></h2>
+<p>2、火狐（firefox）</p>
+<h2><img loading="lazy" decoding="async" width="55" height="85" class="wp-image-67" src="/wp-content/uploads/2018/05/word-image-51.png" /></h2>
+<p>3、Chrome（谷歌）</p>
+<h2><img loading="lazy" decoding="async" width="66" height="88" class="wp-image-69" src="/wp-content/uploads/2018/05/word-image-53.png" /></h2>
+<p>4、Opera</p>
+<p>5、Safari（苹果）</p>
+<p>浏览器的内核：浏览器中的核心代码，360的核心代码就是ie</p>
+<h3>文件名、基本名、扩展名</h3>
+<p>文件名由基本名和扩展名组成，比如face.jpg，文件名：face.jpg文件基本名face，扩展名是jpg</p>
+<h2><img loading="lazy" decoding="async" width="81" height="23" class="wp-image-71" src="/wp-content/uploads/2018/05/word-image-55.png" /></h2>
+<p>扩展名：扩展名是表示文件的类别</p>
+<p>Jpg：图片</p>
+<p>Txt:文本</p>
+<p>Doc：word文档</p>
+<h2>HTML介绍</h2>
+<h3>什么是HTML</h3>
+<p>HyperText Mark-up Language（超文本标记语言）</p>
+<h3>HTML的作用</h3>
+<p>HTML是组成服务器发送到客户端内容的一门语言，</p>
+<p>HTML：做网页页面结构的</p>
+<h3>查看网页的HTML</h3>
+<p>IE浏览器——查看——源</p>
+<h2><img loading="lazy" decoding="async" width="599" height="329" class="wp-image-72" src="/wp-content/uploads/2018/05/word-image-56.png" srcset="/wp-content/uploads/2018/05/word-image-56.png 599w, /wp-content/uploads/2018/05/word-image-56-300x165.png 300w" sizes="(max-width: 599px) 100vw, 599px" /></h2>
+<h2>站点介绍</h2>
+<p>一个网站有很多网页页面组成，还有图片等等资源，我们为了便于管理，要将这些资源放到一个文件夹下，这个文件夹就叫站点</p>
+<p>做网站的第一步想建站点。</p>
+<p>站点就是文件夹。</p>
+<h2>HTML语言的规则</h2>
+<ol>
+<li>所有的标记都要放在&lt;&gt;里面</li>
+<li>大部分标记成对出现</li>
+<li>语法：&lt;标记&gt; &lt;/标记&gt;</li>
+<li>HTML语言不区分大小写</li>
+</ol>
+<p>多学一招：虽然HTML不区分大小写，但是W3C（万维网联盟）定义了一套标准，在这套标准中建议区分大小写。</p>
+<p>World Wide Web Consortium ——（wwwc）——（3wc）——（w3c）</p>
+<p>其中与我们有关的标准</p>
+<ol>
+<li>区分大小写</li>
+<li>所有的标记都成对出现</li>
+</ol>
+<h2>网页的基本框架</h2>
+<h2><img loading="lazy" decoding="async" width="701" height="434" class="wp-image-73" src="/wp-content/uploads/2018/05/word-image-57.png" srcset="/wp-content/uploads/2018/05/word-image-57.png 701w, /wp-content/uploads/2018/05/word-image-57-300x186.png 300w" sizes="(max-width: 701px) 100vw, 701px" /></h2>
+<p>&lt;html&gt;：表示HTML页面的开始</p>
+<p>&lt;head&gt;：页面的头</p>
+<p>&lt;body&gt;：页面的身体</p>
+<p>&lt;title&gt;：页面的标题</p>
+<h2>第一个网页</h2>
+<p>网页的扩展名是html或htm</p>
+<p>第一步：创建站点文件夹</p>
+<h2><img loading="lazy" decoding="async" width="97" height="18" class="wp-image-74" src="/wp-content/uploads/2018/05/word-image-58.png" /></h2>
+<p>第二步：在站点文件夹中，右键—创建记事本</p>
+<h2><img loading="lazy" decoding="async" width="629" height="98" class="wp-image-75" src="/wp-content/uploads/2018/05/word-image-59.png" srcset="/wp-content/uploads/2018/05/word-image-59.png 629w, /wp-content/uploads/2018/05/word-image-59-300x47.png 300w" sizes="(max-width: 629px) 100vw, 629px" /></h2>
+<p>第三步：打开记事本，写入HTML框架结构</p>
+<h2><img loading="lazy" decoding="async" width="547" height="196" class="wp-image-76" src="/wp-content/uploads/2018/05/word-image-60.png" srcset="/wp-content/uploads/2018/05/word-image-60.png 547w, /wp-content/uploads/2018/05/word-image-60-300x107.png 300w" sizes="(max-width: 547px) 100vw, 547px" /></h2>
+<p>第四步：将扩展名改成html</p>
+<h2><img loading="lazy" decoding="async" width="587" height="97" class="wp-image-77" src="/wp-content/uploads/2018/05/word-image-61.png" srcset="/wp-content/uploads/2018/05/word-image-61.png 587w, /wp-content/uploads/2018/05/word-image-61-300x50.png 300w" sizes="(max-width: 587px) 100vw, 587px" /></h2>
+<p>第五步：双击打开此文件，默认通过浏览器打开，浏览器打开此页面的时候就会执行页面中的HTML代码，解析后就会生成我们的看到的界面</p>
+<h2><img loading="lazy" decoding="async" width="993" height="196" class="wp-image-78" src="/wp-content/uploads/2018/05/word-image-62.png" srcset="/wp-content/uploads/2018/05/word-image-62.png 993w, /wp-content/uploads/2018/05/word-image-62-300x59.png 300w, /wp-content/uploads/2018/05/word-image-62-768x152.png 768w" sizes="(max-width: 993px) 100vw, 993px" /></h2>
+<p>脚下留心：HTML语言是不认空格，不认回车。也就说HTML语言对空白字符不敏感。</p>
+<p>脚下留心：右键创建文件的时候如果看不到文件的扩展名，肯定是扩展名被隐藏了，我们更改设置将扩展名显示出来即可。</p>
+<h2><img loading="lazy" decoding="async" width="588" height="142" class="wp-image-79" src="/wp-content/uploads/2018/05/word-image-63.png" srcset="/wp-content/uploads/2018/05/word-image-63.png 588w, /wp-content/uploads/2018/05/word-image-63-300x72.png 300w" sizes="(max-width: 588px) 100vw, 588px" /></h2>
+<p>Window宽口——查看——文件扩展名</p>
+<h2><img loading="lazy" decoding="async" width="924" height="157" class="wp-image-80" src="/wp-content/uploads/2018/05/word-image-64.png" srcset="/wp-content/uploads/2018/05/word-image-64.png 924w, /wp-content/uploads/2018/05/word-image-64-300x51.png 300w, /wp-content/uploads/2018/05/word-image-64-768x130.png 768w" sizes="(max-width: 924px) 100vw, 924px" /></h2>
+<h2>注释</h2>
+<p>在代码中我们需要对代码进行备注，以便于多个程序员之间的交流和后期的文件更改。</p>
+<p>语法：&lt;!&#8211; 注释的内容 &#8211;&gt;</p>
+<p>浏览器不执行注释中的内容</p>
+<h2><img loading="lazy" decoding="async" width="734" height="215" class="wp-image-81" src="/wp-content/uploads/2018/05/word-image-65.png" srcset="/wp-content/uploads/2018/05/word-image-65.png 734w, /wp-content/uploads/2018/05/word-image-65-300x88.png 300w" sizes="(max-width: 734px) 100vw, 734px" /></h2>
+<h2>常见的标记</h2>
+<ol>
+<li>排版标记
+<ol>
+<li>&lt;p&gt;&lt;/p&gt; ：段落，排版标签</li>
+<li>&lt;br&gt;：换行</li>
+</ol>
+</li>
+</ol>
+<h2><img loading="lazy" decoding="async" width="1064" height="237" class="wp-image-82" src="/wp-content/uploads/2018/05/word-image-66.png" srcset="/wp-content/uploads/2018/05/word-image-66.png 1064w, /wp-content/uploads/2018/05/word-image-66-300x67.png 300w, /wp-content/uploads/2018/05/word-image-66-768x171.png 768w, /wp-content/uploads/2018/05/word-image-66-1024x228.png 1024w" sizes="(max-width: 1064px) 100vw, 1064px" /></h2>
+<p>注意一下换段和换行的区别</p>
+<ul>
+<li>
+<ol>
+<li>&lt;hr&gt;：水平线</li>
+</ol>
+</li>
+</ul>
+<h2><img loading="lazy" decoding="async" width="530" height="23" class="wp-image-83" src="/wp-content/uploads/2018/05/word-image-67.png" srcset="/wp-content/uploads/2018/05/word-image-67.png 530w, /wp-content/uploads/2018/05/word-image-67-300x13.png 300w" sizes="(max-width: 530px) 100vw, 530px" /></h2>
+<ol>
+<li>字体标记
+<ol>
+<li>&lt;b&gt;：粗体</li>
+<li>&lt;i&gt;：斜体</li>
+<li>&lt;u&gt;：下划线</li>
+</ol>
+</li>
+</ol>
+<h2><img loading="lazy" decoding="async" width="512" height="84" class="wp-image-84" src="/wp-content/uploads/2018/05/word-image-68.png" srcset="/wp-content/uploads/2018/05/word-image-68.png 512w, /wp-content/uploads/2018/05/word-image-68-300x49.png 300w" sizes="(max-width: 512px) 100vw, 512px" /></h2>
+<ol>
+<li>强调标记
+<ol>
+<li>&lt;strong&gt;：强调标记，通过加粗来强调</li>
+<li>&lt;em&gt;：强调标记，通过倾斜来强调</li>
+<li>&lt;ins&gt;：强调标记，通过下划线来强调</li>
+</ol>
+</li>
+</ol>
+<h2><img loading="lazy" decoding="async" width="710" height="95" class="wp-image-85" src="/wp-content/uploads/2018/05/word-image-69.png" srcset="/wp-content/uploads/2018/05/word-image-69.png 710w, /wp-content/uploads/2018/05/word-image-69-300x40.png 300w" sizes="(max-width: 710px) 100vw, 710px" /></h2>
+<p>脚下留心：&lt;b&gt;和&lt;strong&gt;，&lt;i&gt;和&lt;em&gt;，&lt;u&gt;和&lt;ins&gt;外表看是一样的，但是他们的含义是有区别的，&lt;b&gt;&lt;i&gt;&lt;u&gt;表示是字体，&lt;strong&gt;，&lt;em&gt;,&lt;ins&gt;表示强调。推荐使用强调标记，从SEO（搜索引擎优化）的角度来说，强调标记的权重会更高。</p>
+<ol>
+<li>上标（sup）、下标（sub）</li>
+</ol>
+<p>p：top b:bottom</p>
+<h2><img loading="lazy" decoding="async" width="598" height="63" class="wp-image-86" src="/wp-content/uploads/2018/05/word-image-70.png" srcset="/wp-content/uploads/2018/05/word-image-70.png 598w, /wp-content/uploads/2018/05/word-image-70-300x32.png 300w" sizes="(max-width: 598px) 100vw, 598px" /></h2>
+<ol>
+<li>预格式化文本&lt;pre&gt;</li>
+</ol>
+<h2><img loading="lazy" decoding="async" width="759" height="94" class="wp-image-87" src="/wp-content/uploads/2018/05/word-image-71.png" srcset="/wp-content/uploads/2018/05/word-image-71.png 759w, /wp-content/uploads/2018/05/word-image-71-300x37.png 300w" sizes="(max-width: 759px) 100vw, 759px" /></h2>
+<h2>标记的分类</h2>
+<p>HTML标记分成两类：</p>
+<ol>
+<li>成对出现，我们称为容器标记，也叫围堵标记，也叫双标记</li>
+<li>不成对出现：称为空标记，也叫单标记</li>
+</ol>
+<h2>属性</h2>
+<ol>
+<li>一个标签就是一个对象，每个对象都有自己的属性（特性）</li>
+<li>一个对象可以有多个属性</li>
+<li>每个属性都有对应的值，属性值要用单引号或者双引号引起来。</li>
+<li>属性和属性之间用空格分开</li>
+<li>属性是没有顺序的</li>
+</ol>
+<h3>使用属性</h3>
+<p>&lt;标签 属性=’属性的值’ 属性=’属性的值’&gt; &lt;/标签&gt;</p>
+<h2><img loading="lazy" decoding="async" width="1000" height="168" class="wp-image-88" src="/wp-content/uploads/2018/05/word-image-72.png" srcset="/wp-content/uploads/2018/05/word-image-72.png 1000w, /wp-content/uploads/2018/05/word-image-72-300x50.png 300w, /wp-content/uploads/2018/05/word-image-72-768x129.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" /></h2>
+<h2>编辑器介绍</h2>
+<ol>
+<li>dreamweaver
+<ol>
+<li>优点：写HTML和CSS比较方便</li>
+<li>缺点：体积大，打开速度稍微优点慢，需要花钱买</li>
+</ol>
+</li>
+</ol>
+<h2><img loading="lazy" decoding="async" width="70" height="109" class="wp-image-89" src="/wp-content/uploads/2018/05/word-image-73.png" /></h2>
+<ol>
+<li>editplus：
+<ol>
+<li>优点：体积小，打开速度快，开源</li>
+<li>缺点：提示需要自己去配置</li>
+</ol>
+</li>
+</ol>
+<h2><img loading="lazy" decoding="async" width="75" height="67" class="wp-image-90" src="/wp-content/uploads/2018/05/word-image-74.png" /></h2>
+<ol>
+<li>Sublime，写JS很方便
+<ol>
+<li>优点:体积小，打开速度快，开源，有提示</li>
+</ol>
+</li>
+</ol>
+<h2><img loading="lazy" decoding="async" width="92" height="78" class="wp-image-91" src="/wp-content/uploads/2018/05/word-image-75.png" /></h2>
+<ol>
+<li>Netbeans和PHPstrom：对PHP提示比较好</li>
+</ol>
+<p>&nbsp;</p>
+<h2><img loading="lazy" decoding="async" width="60" height="88" class="wp-image-92" src="/wp-content/uploads/2018/05/word-image-76.png" /> <img loading="lazy" decoding="async" width="72" height="75" class="wp-image-93" src="/wp-content/uploads/2018/05/word-image-77.png" /></h2>
+<p>上面5个工具，在后面学习中会一一带大家使用，在HTML+CSS阶段我们学习DW。</p>
+<h3>Dreamweaver介绍</h3>
+<p>在使用DW软件来管理文件的时候，需要建立软件和站点文件夹的关联</p>
+<h2><img loading="lazy" decoding="async" width="645" height="106" class="wp-image-94" src="/wp-content/uploads/2018/05/word-image-78.png" srcset="/wp-content/uploads/2018/05/word-image-78.png 645w, /wp-content/uploads/2018/05/word-image-78-300x49.png 300w" sizes="(max-width: 645px) 100vw, 645px" /></h2>
+<h3>在DW中新建站点</h3>
+<p>在DW中新建站点是创建的软件和文件夹的关联</p>
+<h2><img loading="lazy" decoding="async" width="814" height="99" class="wp-image-95" src="/wp-content/uploads/2018/05/word-image-79.png" srcset="/wp-content/uploads/2018/05/word-image-79.png 814w, /wp-content/uploads/2018/05/word-image-79-300x36.png 300w, /wp-content/uploads/2018/05/word-image-79-768x93.png 768w" sizes="(max-width: 814px) 100vw, 814px" /> <img loading="lazy" decoding="async" width="682" height="440" class="wp-image-96" src="/wp-content/uploads/2018/05/word-image-80.png" srcset="/wp-content/uploads/2018/05/word-image-80.png 682w, /wp-content/uploads/2018/05/word-image-80-300x194.png 300w" sizes="(max-width: 682px) 100vw, 682px" /></h2>
+<p>思考一：dw是否可以创建多个站点（多个关联）</p>
+<p>答：可以</p>
+<h2><img loading="lazy" decoding="async" width="220" height="168" class="wp-image-97" src="/wp-content/uploads/2018/05/word-image-81.png" /></h2>
+<p>思考二：删除DW站点的时候会不会将文件夹中的文件删除？</p>
+<p>答：不会，只是删除的是软件和文件夹的关联。</p>
+<h3>DW的使用</h3>
+<p>打开DW软件——点击HTML——在代码模式中写代码</p>
+<h2><img loading="lazy" decoding="async" width="742" height="235" class="wp-image-98" src="/wp-content/uploads/2018/05/word-image-82.png" srcset="/wp-content/uploads/2018/05/word-image-82.png 742w, /wp-content/uploads/2018/05/word-image-82-300x95.png 300w" sizes="(max-width: 742px) 100vw, 742px" /></h2>
+<p>多学一招：DW中F12是预览的快捷键</p>
+<h2>滚动文字的设置</h2>
+<p>&lt;marquee direction=&#8221;right&#8221; scrollamount=&#8221;20&#8243; width=&#8221;300&#8243; onmouseover=&#8221;stop()&#8221; onmouseout=&#8221;start()&#8221;&gt;锄禾日当午&lt;/marquee&gt;</p>
+<p>direction：方向</p>
+<p>up:上 down：下 left：左 right：右</p>
+<p>scroll：滚动 amount：数值</p>
+<p>width：宽度 height：高度</p>
+<p>onmouseover：当鼠标移上去</p>
+<p>onmouseout：当鼠标离开</p>
+<p>stop()：停止</p>
+<p>start()：开始</p>
+<h2>路径</h2>
+<p>绝对路径：c:\face.txt</p>
+<h2><img loading="lazy" decoding="async" width="413" height="42" class="wp-image-99" src="/wp-content/uploads/2018/05/word-image-83.png" srcset="/wp-content/uploads/2018/05/word-image-83.png 413w, /wp-content/uploads/2018/05/word-image-83-300x31.png 300w" sizes="(max-width: 413px) 100vw, 413px" /></h2>
+<p>相对路径：相对于当前的文件的地址</p>
+<p>例题一：</p>
+<h2><img loading="lazy" decoding="async" width="729" height="42" class="wp-image-100" src="/wp-content/uploads/2018/05/word-image-84.png" srcset="/wp-content/uploads/2018/05/word-image-84.png 729w, /wp-content/uploads/2018/05/word-image-84-300x17.png 300w" sizes="(max-width: 729px) 100vw, 729px" /></h2>
+<p>例题二：</p>
+<h2><img loading="lazy" decoding="async" width="740" height="131" class="wp-image-101" src="/wp-content/uploads/2018/05/word-image-85.png" srcset="/wp-content/uploads/2018/05/word-image-85.png 740w, /wp-content/uploads/2018/05/word-image-85-300x53.png 300w" sizes="(max-width: 740px) 100vw, 740px" /></h2>
+<p>例题三：</p>
+<h2><img loading="lazy" decoding="async" width="799" height="103" class="wp-image-102" src="/wp-content/uploads/2018/05/word-image-86.png" srcset="/wp-content/uploads/2018/05/word-image-86.png 799w, /wp-content/uploads/2018/05/word-image-86-300x39.png 300w, /wp-content/uploads/2018/05/word-image-86-768x99.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></h2>
+<p>思考：../是表示上一级目录，那么../../表示什么？</p>
+<p>答：表示上一级目录的上一级目录，也就是上两级目录</p>
+<h2>超链接</h2>
+<p>所有的超链接都是&lt;a&gt;标记</p>
+<h3>内部链接</h3>
+<p>在同一个站点内页面之间的链接</p>
+<h2><img loading="lazy" decoding="async" width="905" height="80" class="wp-image-103" src="/wp-content/uploads/2018/05/word-image-87.png" srcset="/wp-content/uploads/2018/05/word-image-87.png 905w, /wp-content/uploads/2018/05/word-image-87-300x27.png 300w, /wp-content/uploads/2018/05/word-image-87-768x68.png 768w" sizes="(max-width: 905px) 100vw, 905px" /></h2>
+<p>target：目标</p>
+<p>blank：空白的</p>
+<p>注意：要掌握a标记的href,target,title属性</p>
+<h3>外部链接</h3>
+<p>跳转到其他网站的链接称为外部链接</p>
+<h2><img loading="lazy" decoding="async" width="810" height="41" class="wp-image-104" src="/wp-content/uploads/2018/05/word-image-88.png" srcset="/wp-content/uploads/2018/05/word-image-88.png 810w, /wp-content/uploads/2018/05/word-image-88-300x15.png 300w, /wp-content/uploads/2018/05/word-image-88-768x39.png 768w" sizes="(max-width: 810px) 100vw, 810px" /></h2>
+<h3>空链接</h3>
+<p>有链接的样子，但是没有链接的地址</p>
+<h2><img loading="lazy" decoding="async" width="216" height="26" class="wp-image-105" src="/wp-content/uploads/2018/05/word-image-89.png" /></h2>
+<h3>下载链接</h3>
+<p>当链接一个浏览器无法打开的文件时，就会自动出现下载界面。</p>
+<h3>锚点链接</h3>
+<p>就像用轮船的锚将两个点链接起来。</p>
+<p>第一步：在需要跳转的地方添加一个锚点</p>
+<h2><img loading="lazy" decoding="async" width="374" height="87" class="wp-image-106" src="/wp-content/uploads/2018/05/word-image-90.png" srcset="/wp-content/uploads/2018/05/word-image-90.png 374w, /wp-content/uploads/2018/05/word-image-90-300x70.png 300w" sizes="(max-width: 374px) 100vw, 374px" /></h2>
+<p>id:是唯一的编号，每一个标签都有id属性，因为ID号是唯一的编号，所以不能重复。</p>
+<p>第二步：点击超链接，跳转到指定的锚点处（id）</p>
+<h2><img loading="lazy" decoding="async" width="741" height="62" class="wp-image-107" src="/wp-content/uploads/2018/05/word-image-91.png" srcset="/wp-content/uploads/2018/05/word-image-91.png 741w, /wp-content/uploads/2018/05/word-image-91-300x25.png 300w" sizes="(max-width: 741px) 100vw, 741px" /></h2>
+<p>注意：#表示id</p>
+<h2>作业</h2>
+<p>跳转到其他页面的指定锚点处</p>
+<h3>客户端、服务器端</h3>
+<p><img loading="lazy" decoding="async" width="849" height="143" class="wp-image-17" src="/wp-content/uploads/2018/05/word-image-1.png" srcset="/wp-content/uploads/2018/05/word-image-1.png 849w, /wp-content/uploads/2018/05/word-image-1-300x51.png 300w, /wp-content/uploads/2018/05/word-image-1-768x129.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<p>客户端：用来访问服务器的计算机（后面还会细化这个概念）</p>
+<p>服务器端：用来存放数据的计算机</p>
+<p>在WEB（网页）技术中，客户端和服务器端的通讯是通过http协议进行的</p>
+<p><img loading="lazy" decoding="async" width="1189" height="184" class="wp-image-18" src="/wp-content/uploads/2018/05/word-image-2.png" srcset="/wp-content/uploads/2018/05/word-image-2.png 1189w, /wp-content/uploads/2018/05/word-image-2-300x46.png 300w, /wp-content/uploads/2018/05/word-image-2-768x119.png 768w, /wp-content/uploads/2018/05/word-image-2-1024x158.png 1024w" sizes="(max-width: 1189px) 100vw, 1189px" /></p>
+<h3>网页的执行过程</h3>
+<p>客户端给服务器发送一个请求，服务器将代码（HTML,CSS,JS）到送到客户端，这些代码通过浏览器解析执行，就形成了我们看到界面。</p>
+<p><img loading="lazy" decoding="async" width="793" height="168" class="wp-image-19" src="/wp-content/uploads/2018/05/word-image-3.png" srcset="/wp-content/uploads/2018/05/word-image-3.png 793w, /wp-content/uploads/2018/05/word-image-3-300x64.png 300w, /wp-content/uploads/2018/05/word-image-3-768x163.png 768w" sizes="(max-width: 793px) 100vw, 793px" /> <img loading="lazy" decoding="async" width="645" height="296" class="wp-image-20" src="/wp-content/uploads/2018/05/word-image-4.png" srcset="/wp-content/uploads/2018/05/word-image-4.png 645w, /wp-content/uploads/2018/05/word-image-4-300x138.png 300w" sizes="(max-width: 645px) 100vw, 645px" /> <img loading="lazy" decoding="async" width="976" height="99" class="wp-image-21" src="/wp-content/uploads/2018/05/word-image-5.png" srcset="/wp-content/uploads/2018/05/word-image-5.png 976w, /wp-content/uploads/2018/05/word-image-5-300x30.png 300w, /wp-content/uploads/2018/05/word-image-5-768x78.png 768w" sizes="(max-width: 976px) 100vw, 976px" /></p>
+<h3>浏览器（浏览器的种类，浏览器的内核）</h3>
+<p>浏览器就是一个软件，这个软件用来解析服务器发送到客户端的代码。</p>
+<p>浏览器的种类：</p>
+<p>1、IE（微软公司）</p>
+<p><img loading="lazy" decoding="async" width="80" height="84" class="wp-image-22" src="/wp-content/uploads/2018/05/word-image-6.png" /></p>
+<p>2、火狐（firefox）</p>
+<p><img loading="lazy" decoding="async" width="55" height="85" class="wp-image-23" src="/wp-content/uploads/2018/05/word-image-7.png" /></p>
+<p>3、Chrome（谷歌）</p>
+<p><img loading="lazy" decoding="async" width="66" height="88" class="wp-image-24" src="/wp-content/uploads/2018/05/word-image-8.png" /></p>
+<p>4、Opera</p>
+<p>5、Safari（苹果）</p>
+<p>浏览器的内核：浏览器中的核心代码，360的核心代码就是ie</p>
+<h3>文件名、基本名、扩展名</h3>
+<p>文件名由基本名和扩展名组成，比如face.jpg，文件名：face.jpg文件基本名face，扩展名是jpg</p>
+<p><img loading="lazy" decoding="async" width="81" height="23" class="wp-image-25" src="/wp-content/uploads/2018/05/word-image-9.png" /></p>
+<p>扩展名：扩展名是表示文件的类别</p>
+<p>Jpg：图片</p>
+<p>Txt:文本</p>
+<p>Doc：word文档</p>
+<h2>HTML介绍</h2>
+<h3>什么是HTML</h3>
+<p>HyperText Mark-up Language（超文本标记语言）</p>
+<h3>HTML的作用</h3>
+<p>HTML是组成服务器发送到客户端内容的一门语言，</p>
+<p>HTML：做网页页面结构的</p>
+<h3>查看网页的HTML</h3>
+<p>IE浏览器——查看——源</p>
+<p><img loading="lazy" decoding="async" width="599" height="329" class="wp-image-26" src="/wp-content/uploads/2018/05/word-image-10.png" srcset="/wp-content/uploads/2018/05/word-image-10.png 599w, /wp-content/uploads/2018/05/word-image-10-300x165.png 300w" sizes="(max-width: 599px) 100vw, 599px" /></p>
+<h2>站点介绍</h2>
+<p>一个网站有很多网页页面组成，还有图片等等资源，我们为了便于管理，要将这些资源放到一个文件夹下，这个文件夹就叫站点</p>
+<p>做网站的第一步想建站点。</p>
+<p>站点就是文件夹。</p>
+<h2>HTML语言的规则</h2>
+<ol>
+<li>所有的标记都要放在&lt;&gt;里面</li>
+<li>大部分标记成对出现</li>
+<li>语法：&lt;标记&gt; &lt;/标记&gt;</li>
+<li>HTML语言不区分大小写</li>
+</ol>
+<p>多学一招：虽然HTML不区分大小写，但是W3C（万维网联盟）定义了一套标准，在这套标准中建议区分大小写。</p>
+<p>World Wide Web Consortium ——（wwwc）——（3wc）——（w3c）</p>
+<p>其中与我们有关的标准</p>
+<ol>
+<li>区分大小写</li>
+<li>所有的标记都成对出现</li>
+</ol>
+<h2>网页的基本框架</h2>
+<p><img loading="lazy" decoding="async" width="701" height="434" class="wp-image-27" src="/wp-content/uploads/2018/05/word-image-11.png" srcset="/wp-content/uploads/2018/05/word-image-11.png 701w, /wp-content/uploads/2018/05/word-image-11-300x186.png 300w" sizes="(max-width: 701px) 100vw, 701px" /></p>
+<p>&lt;html&gt;：表示HTML页面的开始</p>
+<p>&lt;head&gt;：页面的头</p>
+<p>&lt;body&gt;：页面的身体</p>
+<p>&lt;title&gt;：页面的标题</p>
+<h2>第一个网页</h2>
+<p>网页的扩展名是html或htm</p>
+<p>第一步：创建站点文件夹</p>
+<p><img loading="lazy" decoding="async" width="97" height="18" class="wp-image-28" src="/wp-content/uploads/2018/05/word-image-12.png" /></p>
+<p>第二步：在站点文件夹中，右键—创建记事本</p>
+<p><img loading="lazy" decoding="async" width="629" height="98" class="wp-image-29" src="/wp-content/uploads/2018/05/word-image-13.png" srcset="/wp-content/uploads/2018/05/word-image-13.png 629w, /wp-content/uploads/2018/05/word-image-13-300x47.png 300w" sizes="(max-width: 629px) 100vw, 629px" /></p>
+<p>第三步：打开记事本，写入HTML框架结构</p>
+<p><img loading="lazy" decoding="async" width="547" height="196" class="wp-image-30" src="/wp-content/uploads/2018/05/word-image-14.png" srcset="/wp-content/uploads/2018/05/word-image-14.png 547w, /wp-content/uploads/2018/05/word-image-14-300x107.png 300w" sizes="(max-width: 547px) 100vw, 547px" /></p>
+<p>第四步：将扩展名改成html</p>
+<p><img loading="lazy" decoding="async" width="587" height="97" class="wp-image-31" src="/wp-content/uploads/2018/05/word-image-15.png" srcset="/wp-content/uploads/2018/05/word-image-15.png 587w, /wp-content/uploads/2018/05/word-image-15-300x50.png 300w" sizes="(max-width: 587px) 100vw, 587px" /></p>
+<p>第五步：双击打开此文件，默认通过浏览器打开，浏览器打开此页面的时候就会执行页面中的HTML代码，解析后就会生成我们的看到的界面</p>
+<p><img loading="lazy" decoding="async" width="993" height="196" class="wp-image-32" src="/wp-content/uploads/2018/05/word-image-16.png" srcset="/wp-content/uploads/2018/05/word-image-16.png 993w, /wp-content/uploads/2018/05/word-image-16-300x59.png 300w, /wp-content/uploads/2018/05/word-image-16-768x152.png 768w" sizes="(max-width: 993px) 100vw, 993px" /></p>
+<p>脚下留心：HTML语言是不认空格，不认回车。也就说HTML语言对空白字符不敏感。</p>
+<p>脚下留心：右键创建文件的时候如果看不到文件的扩展名，肯定是扩展名被隐藏了，我们更改设置将扩展名显示出来即可。</p>
+<p><img loading="lazy" decoding="async" width="588" height="142" class="wp-image-33" src="/wp-content/uploads/2018/05/word-image-17.png" srcset="/wp-content/uploads/2018/05/word-image-17.png 588w, /wp-content/uploads/2018/05/word-image-17-300x72.png 300w" sizes="(max-width: 588px) 100vw, 588px" /></p>
+<p>Window宽口——查看——文件扩展名</p>
+<p><img loading="lazy" decoding="async" width="924" height="157" class="wp-image-34" src="/wp-content/uploads/2018/05/word-image-18.png" srcset="/wp-content/uploads/2018/05/word-image-18.png 924w, /wp-content/uploads/2018/05/word-image-18-300x51.png 300w, /wp-content/uploads/2018/05/word-image-18-768x130.png 768w" sizes="(max-width: 924px) 100vw, 924px" /></p>
+<h2>注释</h2>
+<p>在代码中我们需要对代码进行备注，以便于多个程序员之间的交流和后期的文件更改。</p>
+<p>语法：&lt;!&#8211; 注释的内容 &#8211;&gt;</p>
+<p>浏览器不执行注释中的内容</p>
+<p><img loading="lazy" decoding="async" width="734" height="215" class="wp-image-35" src="/wp-content/uploads/2018/05/word-image-19.png" srcset="/wp-content/uploads/2018/05/word-image-19.png 734w, /wp-content/uploads/2018/05/word-image-19-300x88.png 300w" sizes="(max-width: 734px) 100vw, 734px" /></p>
+<h2>常见的标记</h2>
+<ol>
+<li>排版标记
+<ol>
+<li>&lt;p&gt;&lt;/p&gt; ：段落，排版标签</li>
+<li>&lt;br&gt;：换行</li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1064" height="237" class="wp-image-36" src="/wp-content/uploads/2018/05/word-image-20.png" srcset="/wp-content/uploads/2018/05/word-image-20.png 1064w, /wp-content/uploads/2018/05/word-image-20-300x67.png 300w, /wp-content/uploads/2018/05/word-image-20-768x171.png 768w, /wp-content/uploads/2018/05/word-image-20-1024x228.png 1024w" sizes="(max-width: 1064px) 100vw, 1064px" /></p>
+<p>注意一下换段和换行的区别</p>
+<ul>
+<li>
+<ol>
+<li>&lt;hr&gt;：水平线</li>
+</ol>
+</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="530" height="23" class="wp-image-37" src="/wp-content/uploads/2018/05/word-image-21.png" srcset="/wp-content/uploads/2018/05/word-image-21.png 530w, /wp-content/uploads/2018/05/word-image-21-300x13.png 300w" sizes="(max-width: 530px) 100vw, 530px" /></p>
+<ol>
+<li>字体标记
+<ol>
+<li>&lt;b&gt;：粗体</li>
+<li>&lt;i&gt;：斜体</li>
+<li>&lt;u&gt;：下划线</li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="512" height="84" class="wp-image-38" src="/wp-content/uploads/2018/05/word-image-22.png" srcset="/wp-content/uploads/2018/05/word-image-22.png 512w, /wp-content/uploads/2018/05/word-image-22-300x49.png 300w" sizes="(max-width: 512px) 100vw, 512px" /></p>
+<ol>
+<li>强调标记
+<ol>
+<li>&lt;strong&gt;：强调标记，通过加粗来强调</li>
+<li>&lt;em&gt;：强调标记，通过倾斜来强调</li>
+<li>&lt;ins&gt;：强调标记，通过下划线来强调</li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="710" height="95" class="wp-image-39" src="/wp-content/uploads/2018/05/word-image-23.png" srcset="/wp-content/uploads/2018/05/word-image-23.png 710w, /wp-content/uploads/2018/05/word-image-23-300x40.png 300w" sizes="(max-width: 710px) 100vw, 710px" /></p>
+<p>脚下留心：&lt;b&gt;和&lt;strong&gt;，&lt;i&gt;和&lt;em&gt;，&lt;u&gt;和&lt;ins&gt;外表看是一样的，但是他们的含义是有区别的，&lt;b&gt;&lt;i&gt;&lt;u&gt;表示是字体，&lt;strong&gt;，&lt;em&gt;,&lt;ins&gt;表示强调。推荐使用强调标记，从SEO（搜索引擎优化）的角度来说，强调标记的权重会更高。</p>
+<ol>
+<li>上标（sup）、下标（sub）</li>
+</ol>
+<p>p：top b:bottom</p>
+<p><img loading="lazy" decoding="async" width="598" height="63" class="wp-image-40" src="/wp-content/uploads/2018/05/word-image-24.png" srcset="/wp-content/uploads/2018/05/word-image-24.png 598w, /wp-content/uploads/2018/05/word-image-24-300x32.png 300w" sizes="(max-width: 598px) 100vw, 598px" /></p>
+<ol>
+<li>预格式化文本&lt;pre&gt;</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="759" height="94" class="wp-image-41" src="/wp-content/uploads/2018/05/word-image-25.png" srcset="/wp-content/uploads/2018/05/word-image-25.png 759w, /wp-content/uploads/2018/05/word-image-25-300x37.png 300w" sizes="(max-width: 759px) 100vw, 759px" /></p>
+<h2>标记的分类</h2>
+<p>HTML标记分成两类：</p>
+<ol>
+<li>成对出现，我们称为容器标记，也叫围堵标记，也叫双标记</li>
+<li>不成对出现：称为空标记，也叫单标记</li>
+</ol>
+<h2>属性</h2>
+<ol>
+<li>一个标签就是一个对象，每个对象都有自己的属性（特性）</li>
+<li>一个对象可以有多个属性</li>
+<li>每个属性都有对应的值，属性值要用单引号或者双引号引起来。</li>
+<li>属性和属性之间用空格分开</li>
+<li>属性是没有顺序的</li>
+</ol>
+<h3>使用属性</h3>
+<p>&lt;标签 属性=’属性的值’ 属性=’属性的值’&gt; &lt;/标签&gt;</p>
+<p><img loading="lazy" decoding="async" width="1000" height="168" class="wp-image-42" src="/wp-content/uploads/2018/05/word-image-26.png" srcset="/wp-content/uploads/2018/05/word-image-26.png 1000w, /wp-content/uploads/2018/05/word-image-26-300x50.png 300w, /wp-content/uploads/2018/05/word-image-26-768x129.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" /></p>
+<h2>编辑器介绍</h2>
+<ol>
+<li>dreamweaver
+<ol>
+<li>优点：写HTML和CSS比较方便</li>
+<li>缺点：体积大，打开速度稍微优点慢，需要花钱买</li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="70" height="109" class="wp-image-43" src="/wp-content/uploads/2018/05/word-image-27.png" /></p>
+<ol>
+<li>editplus：
+<ol>
+<li>优点：体积小，打开速度快，开源</li>
+<li>缺点：提示需要自己去配置</li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="75" height="67" class="wp-image-44" src="/wp-content/uploads/2018/05/word-image-28.png" /></p>
+<ol>
+<li>Sublime，写JS很方便
+<ol>
+<li>优点:体积小，打开速度快，开源，有提示</li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="92" height="78" class="wp-image-45" src="/wp-content/uploads/2018/05/word-image-29.png" /></p>
+<ol>
+<li>Netbeans和PHPstrom：对PHP提示比较好</li>
+</ol>
+<p>&nbsp;</p>
+<p><img loading="lazy" decoding="async" width="60" height="88" class="wp-image-46" src="/wp-content/uploads/2018/05/word-image-30.png" /> <img loading="lazy" decoding="async" width="72" height="75" class="wp-image-47" src="/wp-content/uploads/2018/05/word-image-31.png" /></p>
+<p>上面5个工具，在后面学习中会一一带大家使用，在HTML+CSS阶段我们学习DW。</p>
+<h3>Dreamweaver介绍</h3>
+<p>在使用DW软件来管理文件的时候，需要建立软件和站点文件夹的关联</p>
+<p><img loading="lazy" decoding="async" width="645" height="106" class="wp-image-48" src="/wp-content/uploads/2018/05/word-image-32.png" srcset="/wp-content/uploads/2018/05/word-image-32.png 645w, /wp-content/uploads/2018/05/word-image-32-300x49.png 300w" sizes="(max-width: 645px) 100vw, 645px" /></p>
+<h3>在DW中新建站点</h3>
+<p>在DW中新建站点是创建的软件和文件夹的关联</p>
+<p><img loading="lazy" decoding="async" width="814" height="99" class="wp-image-49" src="/wp-content/uploads/2018/05/word-image-33.png" srcset="/wp-content/uploads/2018/05/word-image-33.png 814w, /wp-content/uploads/2018/05/word-image-33-300x36.png 300w, /wp-content/uploads/2018/05/word-image-33-768x93.png 768w" sizes="(max-width: 814px) 100vw, 814px" /> <img loading="lazy" decoding="async" width="682" height="440" class="wp-image-50" src="/wp-content/uploads/2018/05/word-image-34.png" srcset="/wp-content/uploads/2018/05/word-image-34.png 682w, /wp-content/uploads/2018/05/word-image-34-300x194.png 300w" sizes="(max-width: 682px) 100vw, 682px" /></p>
+<p>思考一：dw是否可以创建多个站点（多个关联）</p>
+<p>答：可以</p>
+<p><img loading="lazy" decoding="async" width="220" height="168" class="wp-image-51" src="/wp-content/uploads/2018/05/word-image-35.png" /></p>
+<p>思考二：删除DW站点的时候会不会将文件夹中的文件删除？</p>
+<p>答：不会，只是删除的是软件和文件夹的关联。</p>
+<h3>DW的使用</h3>
+<p>打开DW软件——点击HTML——在代码模式中写代码</p>
+<p><img loading="lazy" decoding="async" width="742" height="235" class="wp-image-52" src="/wp-content/uploads/2018/05/word-image-36.png" srcset="/wp-content/uploads/2018/05/word-image-36.png 742w, /wp-content/uploads/2018/05/word-image-36-300x95.png 300w" sizes="(max-width: 742px) 100vw, 742px" /></p>
+<p>多学一招：DW中F12是预览的快捷键</p>
+<h2>滚动文字的设置</h2>
+<p>&lt;marquee direction=&#8221;right&#8221; scrollamount=&#8221;20&#8243; width=&#8221;300&#8243; onmouseover=&#8221;stop()&#8221; onmouseout=&#8221;start()&#8221;&gt;锄禾日当午&lt;/marquee&gt;</p>
+<p>direction：方向</p>
+<p>up:上 down：下 left：左 right：右</p>
+<p>scroll：滚动 amount：数值</p>
+<p>width：宽度 height：高度</p>
+<p>onmouseover：当鼠标移上去</p>
+<p>onmouseout：当鼠标离开</p>
+<p>stop()：停止</p>
+<p>start()：开始</p>
+<h2>路径</h2>
+<p>绝对路径：c:\face.txt</p>
+<p><img loading="lazy" decoding="async" width="413" height="42" class="wp-image-54" src="/wp-content/uploads/2018/05/word-image-38.png" srcset="/wp-content/uploads/2018/05/word-image-38.png 413w, /wp-content/uploads/2018/05/word-image-38-300x31.png 300w" sizes="(max-width: 413px) 100vw, 413px" /></p>
+<p>相对路径：相对于当前的文件的地址</p>
+<p>例题一：</p>
+<p><img loading="lazy" decoding="async" width="729" height="42" class="wp-image-55" src="/wp-content/uploads/2018/05/word-image-39.png" srcset="/wp-content/uploads/2018/05/word-image-39.png 729w, /wp-content/uploads/2018/05/word-image-39-300x17.png 300w" sizes="(max-width: 729px) 100vw, 729px" /></p>
+<p>例题二：</p>
+<p><img loading="lazy" decoding="async" width="740" height="131" class="wp-image-58" src="/wp-content/uploads/2018/05/word-image-42.png" srcset="/wp-content/uploads/2018/05/word-image-42.png 740w, /wp-content/uploads/2018/05/word-image-42-300x53.png 300w" sizes="(max-width: 740px) 100vw, 740px" /></p>
+<p>例题三：</p>
+<p><img loading="lazy" decoding="async" width="799" height="103" class="wp-image-60" src="/wp-content/uploads/2018/05/word-image-44.png" srcset="/wp-content/uploads/2018/05/word-image-44.png 799w, /wp-content/uploads/2018/05/word-image-44-300x39.png 300w, /wp-content/uploads/2018/05/word-image-44-768x99.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+<p>思考：../是表示上一级目录，那么../../表示什么？</p>
+<p>答：表示上一级目录的上一级目录，也就是上两级目录</p>
+<h2>超链接</h2>
+<p>所有的超链接都是&lt;a&gt;标记</p>
+<h3>内部链接</h3>
+<p>在同一个站点内页面之间的链接</p>
+<p><img loading="lazy" decoding="async" width="905" height="80" class="wp-image-62" src="/wp-content/uploads/2018/05/word-image-46.png" srcset="/wp-content/uploads/2018/05/word-image-46.png 905w, /wp-content/uploads/2018/05/word-image-46-300x27.png 300w, /wp-content/uploads/2018/05/word-image-46-768x68.png 768w" sizes="(max-width: 905px) 100vw, 905px" /></p>
+<p>target：目标</p>
+<p>blank：空白的</p>
+<p>注意：要掌握a标记的href,target,title属性</p>
+<h3>外部链接</h3>
+<p>跳转到其他网站的链接称为外部链接</p>
+<p><img loading="lazy" decoding="async" width="810" height="41" class="wp-image-64" src="/wp-content/uploads/2018/05/word-image-48.png" srcset="/wp-content/uploads/2018/05/word-image-48.png 810w, /wp-content/uploads/2018/05/word-image-48-300x15.png 300w, /wp-content/uploads/2018/05/word-image-48-768x39.png 768w" sizes="(max-width: 810px) 100vw, 810px" /></p>
+<h3>空链接</h3>
+<p>有链接的样子，但是没有链接的地址</p>
+<p><img loading="lazy" decoding="async" width="216" height="26" class="wp-image-66" src="/wp-content/uploads/2018/05/word-image-50.png" /></p>
+<h3>下载链接</h3>
+<p>当链接一个浏览器无法打开的文件时，就会自动出现下载界面。</p>
+<h3>锚点链接</h3>
+<p>就像用轮船的锚将两个点链接起来。</p>
+<p>第一步：在需要跳转的地方添加一个锚点</p>
+<p><img loading="lazy" decoding="async" width="374" height="87" class="wp-image-68" src="/wp-content/uploads/2018/05/word-image-52.png" srcset="/wp-content/uploads/2018/05/word-image-52.png 374w, /wp-content/uploads/2018/05/word-image-52-300x70.png 300w" sizes="(max-width: 374px) 100vw, 374px" /></p>
+<p>id:是唯一的编号，每一个标签都有id属性，因为ID号是唯一的编号，所以不能重复。</p>
+<p>第二步：点击超链接，跳转到指定的锚点处（id）</p>
+<p><img loading="lazy" decoding="async" width="741" height="62" class="wp-image-70" src="/wp-content/uploads/2018/05/word-image-54.png" srcset="/wp-content/uploads/2018/05/word-image-54.png 741w, /wp-content/uploads/2018/05/word-image-54-300x25.png 300w" sizes="(max-width: 741px) 100vw, 741px" /></p>
+<p>注意：#表示id</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/1.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>HTML（二）HTML、 六级标题、 列表、 实体、 插入图片、 热点、 表格</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/110.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/110.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 13:48:10 +0000</pubDate>
+				<category><![CDATA[HTML]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[六级标题]]></category>
+		<category><![CDATA[列表]]></category>
+		<category><![CDATA[实体]]></category>
+		<category><![CDATA[插入图片]]></category>
+		<category><![CDATA[热点]]></category>
+		<category><![CDATA[表格]]></category>
+		<guid isPermaLink="false">/?p=110</guid>
+
+					<description><![CDATA[HTML（二） 回顾 三组概念 客户端和服务器端 脚下留心： 管理员访问服务器，管理员用的计算机是客户端 通过 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>HTML（二）</h1>
+<h2>回顾</h2>
+<ol>
+<li>三组概念
+<ol>
+<li>客户端和服务器端</li>
+</ol>
+</li>
+</ol>
+<p>脚下留心：</p>
+<ol>
+<li>管理员访问服务器，管理员用的计算机是客户端</li>
+<li>通过服务器上的浏览器访问服务器的网站，这台计算机既是客户端也是服务器端。
+<ol>
+<li>浏览器和浏览器的内核
+<ol>
+<li>浏览器是一个用来解析HTML、CSS、JS的一个软件</li>
+<li>浏览器内核：浏览器的核心代码</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>脚下留心：不同的浏览器内核可以是一样的。</p>
+<ul>
+<li>
+<ol>
+<li>文件名、文件基本名、文件扩展名</li>
+</ol>
+</li>
+</ul>
+<p>文件名=基本名+扩展名</p>
+<ol>
+<li>HTML：超文本标记语言</li>
+<li>网页的执行过程</li>
+<li>Web之间的通讯通过HTTP协议。</li>
+<li>HTML语法规则：
+<ol>
+<li>标签都要放在&lt;&gt;内</li>
+<li>大部分标签都是成对出现</li>
+<li>&lt;标签&gt;：表示标签开始，&lt;/标签&gt;表示标签结束</li>
+<li>不区分大小写</li>
+</ol>
+</li>
+<li>常用标签
+<ol>
+<li>&lt;p&gt;：段落</li>
+<li>&lt;br&gt;：换行</li>
+<li>&lt;hr&gt;：水平线</li>
+<li>&lt;b&gt;：粗体</li>
+<li>&lt;i&gt;：斜体</li>
+<li>&lt;u&gt;：下划线</li>
+<li>&lt;strong&gt;：加粗强调</li>
+<li>&lt;em&gt;：倾斜强调</li>
+<li>&lt;ins&gt;：下划线强调</li>
+<li>&lt;sup&gt;：上标</li>
+<li>&lt;sub&gt;：下标</li>
+<li>&lt;pre&gt;：预格式化</li>
+<li>&lt;font color=’’ size=’’ face=’’&gt;</li>
+</ol>
+</li>
+<li>标签的分类：
+<ol>
+<li>成对：双标签，容器标签，围堵标签</li>
+<li>不成对：空标签，单标记</li>
+</ol>
+</li>
+<li>标签的属性，每个标签都有自己多个属性，各自的属性跟在各自的后面，属性和属性自己通过空格来分开，每个属性都有值，属性的值通过单引号或双引号引起来。属性之间是没有顺序的。</li>
+<li>DW编辑器
+<ol>
+<li>设置自动补全功能：编辑——首选参数（ctrl+U）</li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="690" height="191" class="wp-image-112" src="/wp-content/uploads/2018/05/word-image-93.png" srcset="/wp-content/uploads/2018/05/word-image-93.png 690w, /wp-content/uploads/2018/05/word-image-93-300x83.png 300w" sizes="(max-width: 690px) 100vw, 690px" /></p>
+<ul>
+<li>
+<ol>
+<li>添加删除浏览器</li>
+</ol>
+</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="695" height="160" class="wp-image-113" src="/wp-content/uploads/2018/05/word-image-94.png" srcset="/wp-content/uploads/2018/05/word-image-94.png 695w, /wp-content/uploads/2018/05/word-image-94-300x69.png 300w" sizes="(max-width: 695px) 100vw, 695px" /> <img loading="lazy" decoding="async" width="626" height="210" class="wp-image-114" src="/wp-content/uploads/2018/05/word-image-95.png" srcset="/wp-content/uploads/2018/05/word-image-95.png 626w, /wp-content/uploads/2018/05/word-image-95-300x101.png 300w" sizes="(max-width: 626px) 100vw, 626px" /></p>
+<ol>
+<li>滚动的文字：&lt;marquee&gt;</li>
+<li>路径
+<ol>
+<li>绝对路径：从一个不变的地址出发去寻找目标，比如c:\aa.jpg</li>
+<li>相对路径：从自身的地址出发去寻找目标</li>
+</ol>
+</li>
+</ol>
+<p>目录结构如下：</p>
+<p>aa</p>
+<p>aa.html</p>
+<p>bb</p>
+<p>bb.html</p>
+<p>cc</p>
+<p>cc.html</p>
+<p>dd</p>
+<p>dd.html</p>
+<p>test.html</p>
+<p>问题：</p>
+<p>1、test.html跳转aa.html aa/aa.html</p>
+<p>2、test.html跳转bb.html aa/bb/bb.html</p>
+<p>3、test.html跳转cc.html aa/bb/cc/cc.html</p>
+<p>4、aa.html跳转test.html ../test.html</p>
+<p>5、bb.thml跳转test.html ../../test.html</p>
+<p>6、cc.html跳转test.html ../../../test.html</p>
+<p>7、dd.html跳转到bb.html ../bb/bb.html</p>
+<p>8、dd．Html跳转到cc.html ../bb/cc/cc.html</p>
+<ol>
+<li>超链接
+<ol>
+<li>内部链接：链接到网站内部</li>
+<li>外部链接：链接到外部网站</li>
+<li>空连接：只有链接的样子，没有链接的地址，#</li>
+<li>下载链接：连接到无法打开的文件自动出现下载界面</li>
+<li>锚点链接：</li>
+</ol>
+</li>
+</ol>
+<h2>作业</h2>
+<p>跳转到其他页面指定的锚点处。</p>
+<p>第一步：在B页面创建锚点</p>
+<p><img loading="lazy" decoding="async" width="384" height="65" class="wp-image-115" src="/wp-content/uploads/2018/05/word-image-96.png" srcset="/wp-content/uploads/2018/05/word-image-96.png 384w, /wp-content/uploads/2018/05/word-image-96-300x51.png 300w" sizes="(max-width: 384px) 100vw, 384px" /></p>
+<p>第二步：在A页面跳转到B页面的锚点处</p>
+<p><img loading="lazy" decoding="async" width="576" height="61" class="wp-image-116" src="/wp-content/uploads/2018/05/word-image-97.png" srcset="/wp-content/uploads/2018/05/word-image-97.png 576w, /wp-content/uploads/2018/05/word-image-97-300x32.png 300w" sizes="(max-width: 576px) 100vw, 576px" /></p>
+<h2>六级标题</h2>
+<p>h1~h6</p>
+<p><img loading="lazy" decoding="async" width="415" height="273" class="wp-image-117" src="/wp-content/uploads/2018/05/word-image-98.png" srcset="/wp-content/uploads/2018/05/word-image-98.png 415w, /wp-content/uploads/2018/05/word-image-98-300x197.png 300w" sizes="(max-width: 415px) 100vw, 415px" /></p>
+<p>多学一招：在DW中，ctrl+1就是一级标题的快捷键，ctrl+2是二级标题，以此类推。</p>
+<p>多学一招：从SEO的角度说，h1的权重更大。</p>
+<h2>列表</h2>
+<h3>有序列表（&lt;ol&gt;） order list</h3>
+<p>有序列表中的每一项目是&lt;li&gt;</p>
+<p>tpye属性</p>
+<p><img loading="lazy" decoding="async" width="705" height="70" class="wp-image-118" src="/wp-content/uploads/2018/05/word-image-99.png" srcset="/wp-content/uploads/2018/05/word-image-99.png 705w, /wp-content/uploads/2018/05/word-image-99-300x30.png 300w" sizes="(max-width: 705px) 100vw, 705px" /></p>
+<p>例题</p>
+<p><img loading="lazy" decoding="async" width="811" height="123" class="wp-image-119" src="/wp-content/uploads/2018/05/word-image-100.png" srcset="/wp-content/uploads/2018/05/word-image-100.png 811w, /wp-content/uploads/2018/05/word-image-100-300x45.png 300w, /wp-content/uploads/2018/05/word-image-100-768x116.png 768w" sizes="(max-width: 811px) 100vw, 811px" /></p>
+<h3>无序列表（ul） unorder list</h3>
+<p>type属性</p>
+<p><img loading="lazy" decoding="async" width="663" height="45" class="wp-image-120" src="/wp-content/uploads/2018/05/word-image-101.png" srcset="/wp-content/uploads/2018/05/word-image-101.png 663w, /wp-content/uploads/2018/05/word-image-101-300x20.png 300w" sizes="(max-width: 663px) 100vw, 663px" /></p>
+<p>例题</p>
+<p><img loading="lazy" decoding="async" width="505" height="113" class="wp-image-121" src="/wp-content/uploads/2018/05/word-image-102.png" srcset="/wp-content/uploads/2018/05/word-image-102.png 505w, /wp-content/uploads/2018/05/word-image-102-300x67.png 300w" sizes="(max-width: 505px) 100vw, 505px" /></p>
+<h3>自定义列表（dl） define list</h3>
+<p>dl：自定义列表</p>
+<p>dt：自定义列表中的标题</p>
+<p>dd：自定义列表中的项</p>
+<p><img loading="lazy" decoding="async" width="563" height="153" class="wp-image-122" src="/wp-content/uploads/2018/05/word-image-103.png" srcset="/wp-content/uploads/2018/05/word-image-103.png 563w, /wp-content/uploads/2018/05/word-image-103-300x82.png 300w" sizes="(max-width: 563px) 100vw, 563px" /></p>
+<h2>&lt;!DOCTYPE&gt;标签</h2>
+<p>文档声明，用来声明文档遵循的规范</p>
+<p>document 文档</p>
+<p>type 类别</p>
+<p><img loading="lazy" decoding="async" width="765" height="88" class="wp-image-123" src="/wp-content/uploads/2018/05/word-image-104.png" srcset="/wp-content/uploads/2018/05/word-image-104.png 765w, /wp-content/uploads/2018/05/word-image-104-300x35.png 300w" sizes="(max-width: 765px) 100vw, 765px" /></p>
+<p>脚下留心：</p>
+<p>1、&lt;!doctype&gt;必须放在页面的最顶端</p>
+<p>2、&lt;!doctype&gt;标签本身不是HTML标签，是用来声明文档遵循的规范，也告知浏览器通过此规范来解析此页面中的代码。</p>
+<p>详细资料：http://www.w3school.com.cn/tags/tag_doctype.asp</p>
+<h3>常用的 DOCTYPE 声明</h3>
+<p><img loading="lazy" decoding="async" width="686" height="85" class="wp-image-124" src="/wp-content/uploads/2018/05/word-image-105.png" srcset="/wp-content/uploads/2018/05/word-image-105.png 686w, /wp-content/uploads/2018/05/word-image-105-300x37.png 300w" sizes="(max-width: 686px) 100vw, 686px" /> <img loading="lazy" decoding="async" width="835" height="178" class="wp-image-125" src="/wp-content/uploads/2018/05/word-image-106.png" srcset="/wp-content/uploads/2018/05/word-image-106.png 835w, /wp-content/uploads/2018/05/word-image-106-300x64.png 300w, /wp-content/uploads/2018/05/word-image-106-768x164.png 768w" sizes="(max-width: 835px) 100vw, 835px" /> <img loading="lazy" decoding="async" width="834" height="176" class="wp-image-126" src="/wp-content/uploads/2018/05/word-image-107.png" srcset="/wp-content/uploads/2018/05/word-image-107.png 834w, /wp-content/uploads/2018/05/word-image-107-300x63.png 300w, /wp-content/uploads/2018/05/word-image-107-768x162.png 768w" sizes="(max-width: 834px) 100vw, 834px" /></p>
+<p>注意：使用最多的是HTML5和XHTML1.0过渡型的声明。</p>
+<h3>XHTML和HTML的区别</h3>
+<p>xHTML就是满足W3C定义的规范的HTML。</p>
+<p>XHTML=规范+HTML</p>
+<h3>DW中更改文档规范</h3>
+<p>Ctrl+U，打开首选参数</p>
+<p><img loading="lazy" decoding="async" width="708" height="276" class="wp-image-127" src="/wp-content/uploads/2018/05/word-image-108.png" srcset="/wp-content/uploads/2018/05/word-image-108.png 708w, /wp-content/uploads/2018/05/word-image-108-300x117.png 300w" sizes="(max-width: 708px) 100vw, 708px" /></p>
+<h2><a id="post-110-_Toc425176120"></a>&lt;meta&gt;</h2>
+<h3>遇到的问题</h3>
+<p><img loading="lazy" decoding="async" width="629" height="188" class="wp-image-128" src="/wp-content/uploads/2018/05/word-image-109.png" srcset="/wp-content/uploads/2018/05/word-image-109.png 629w, /wp-content/uploads/2018/05/word-image-109-300x90.png 300w" sizes="(max-width: 629px) 100vw, 629px" /></p>
+<h3>分析</h3>
+<p><img loading="lazy" decoding="async" width="577" height="153" class="wp-image-129" src="/wp-content/uploads/2018/05/word-image-110.png" srcset="/wp-content/uploads/2018/05/word-image-110.png 577w, /wp-content/uploads/2018/05/word-image-110-300x80.png 300w" sizes="(max-width: 577px) 100vw, 577px" /></p>
+<p>结论：服务器发送什么格式的编码，浏览器就需要使用什么样的编码来解析。如果编码格式不一样，就会出现乱码。</p>
+<h3>常用编码</h3>
+<p>GBK：简体中文</p>
+<p>GB2312：简体中文</p>
+<p>UTF-8：国际统一编码（推荐）</p>
+<p>ANSI ：中文操作系统就用中文编码，日文的操作系统就用日文的编码，换句话说什么样的操作系统就用什么样的编码格式。</p>
+<h3>作用一：通过meta标记控制浏览器编码</h3>
+<p>&lt;meta charset=&#8221;utf-8&#8243;&gt;</p>
+<p>告知浏览器通过utf-8的字符编码来解析。</p>
+<h3>作用二：给搜索引擎使用</h3>
+<p><img loading="lazy" decoding="async" width="1253" height="94" class="wp-image-130" src="/wp-content/uploads/2018/05/word-image-111.png" srcset="/wp-content/uploads/2018/05/word-image-111.png 1253w, /wp-content/uploads/2018/05/word-image-111-300x23.png 300w, /wp-content/uploads/2018/05/word-image-111-768x58.png 768w, /wp-content/uploads/2018/05/word-image-111-1024x77.png 1024w" sizes="(max-width: 1253px) 100vw, 1253px" /></p>
+<p>例题</p>
+<p><img loading="lazy" decoding="async" width="964" height="100" class="wp-image-131" src="/wp-content/uploads/2018/05/word-image-112.png" srcset="/wp-content/uploads/2018/05/word-image-112.png 964w, /wp-content/uploads/2018/05/word-image-112-300x31.png 300w, /wp-content/uploads/2018/05/word-image-112-768x80.png 768w" sizes="(max-width: 964px) 100vw, 964px" /></p>
+<p>多学一招：搜索引擎上的描述可能是&lt;meta&gt;标记的description部分，也可能是这个页面上的一段话。</p>
+<h2><a id="post-110-_Toc425176121"></a>插入图片（img）</h2>
+<p>语法：&lt;img src=’图片的源’ alt=’’ title=’’ width=’’ height=’’ /&gt;</p>
+<p><img loading="lazy" decoding="async" width="946" height="29" class="wp-image-132" src="/wp-content/uploads/2018/05/word-image-113.png" srcset="/wp-content/uploads/2018/05/word-image-113.png 946w, /wp-content/uploads/2018/05/word-image-113-300x9.png 300w, /wp-content/uploads/2018/05/word-image-113-768x24.png 768w" sizes="(max-width: 946px) 100vw, 946px" /></p>
+<p>src：图片的地址</p>
+<p>alt：当图片无法显示的时候，将alt后面的文字显示在图片的位置上</p>
+<p>title：当鼠标放到图片的位置的时候显示提醒性文字。</p>
+<p><img loading="lazy" decoding="async" width="976" height="57" class="wp-image-133" src="/wp-content/uploads/2018/05/word-image-114.png" srcset="/wp-content/uploads/2018/05/word-image-114.png 976w, /wp-content/uploads/2018/05/word-image-114-300x18.png 300w, /wp-content/uploads/2018/05/word-image-114-768x45.png 768w" sizes="(max-width: 976px) 100vw, 976px" /></p>
+<p>脚下留心：如果一个图片很大，要在图片引入之前先调整好尺寸，不要将图片进入后再通过width和height来调整尺寸。</p>
+<h2><a id="post-110-_Toc425176122"></a>热点（了解）</h2>
+<p>热点：带有超链接的区域</p>
+<p>DW创建热点非常简单</p>
+<p>第一步：在设计模式下选择图片</p>
+<p><img loading="lazy" decoding="async" width="590" height="371" class="wp-image-134" src="/wp-content/uploads/2018/05/word-image-115.png" srcset="/wp-content/uploads/2018/05/word-image-115.png 590w, /wp-content/uploads/2018/05/word-image-115-300x189.png 300w" sizes="(max-width: 590px) 100vw, 590px" /></p>
+<p>第二步：选择热点选区工具在图片上画出热点区域</p>
+<p><img loading="lazy" decoding="async" width="251" height="148" class="wp-image-135" src="/wp-content/uploads/2018/05/word-image-116.png" /></p>
+<p>第三步：将每个热点链接到指定目标即可。</p>
+<h2><a id="post-110-_Toc425176123"></a>Object标签（了解）</h2>
+<p>&lt;object type=&#8221;application/x-shockwave-flash&#8221; data=&#8221;地址&#8221; width=&#8221;&#8221; height=&#8221;&#8221;&gt;&lt;/object&gt;</p>
+<p>例题</p>
+<p><img loading="lazy" decoding="async" width="1019" height="69" class="wp-image-136" src="/wp-content/uploads/2018/05/word-image-117.png" srcset="/wp-content/uploads/2018/05/word-image-117.png 1019w, /wp-content/uploads/2018/05/word-image-117-300x20.png 300w, /wp-content/uploads/2018/05/word-image-117-768x52.png 768w" sizes="(max-width: 1019px) 100vw, 1019px" /></p>
+<h2><a id="post-110-_Toc425176125"></a>实体</h2>
+<p>实体就是一个固定不变的值，通过&amp;去调用实体，分号表示调用结束。</p>
+<p>空格：&amp;nbsp;</p>
+<p>&lt;：lt less than &amp;lt;</p>
+<p>&gt;：gt greater than &amp;gt;</p>
+<p><img loading="lazy" decoding="async" width="524" height="74" class="wp-image-137" src="/wp-content/uploads/2018/05/word-image-118.png" srcset="/wp-content/uploads/2018/05/word-image-118.png 524w, /wp-content/uploads/2018/05/word-image-118-300x42.png 300w" sizes="(max-width: 524px) 100vw, 524px" /></p>
+<h2><a id="post-110-_Toc425176126"></a>使用表格</h2>
+<p>网页默认情况下，使用的流布局，使用表格可以实现页面布局。</p>
+<p><img loading="lazy" decoding="async" width="767" height="317" class="wp-image-138" src="/wp-content/uploads/2018/05/word-image-119.png" srcset="/wp-content/uploads/2018/05/word-image-119.png 767w, /wp-content/uploads/2018/05/word-image-119-300x124.png 300w" sizes="(max-width: 767px) 100vw, 767px" /></p>
+<h2><a id="post-110-_Toc425176127"></a>与表相关的标记</h2>
+<p>&lt;table&gt;&lt;/table&gt; 表格</p>
+<p>&lt;tr&gt;&lt;/tr&gt; 行</p>
+<p>&lt;td&gt;&lt;/td&gt; 单元格</p>
+<p>&lt;th&gt;&lt;/th&gt; 标题</p>
+<h2><a id="post-110-_Toc425176128"></a>使用表的相关标记创建表</h2>
+<p>&lt;table border=&#8221;1&#8243; width=&#8221;500&#8243; height=&#8221;300&#8243; bordercolor=&#8221;#0000FF&#8221;&gt;</p>
+<p>&lt;tr&gt;</p>
+<p>&lt;th&gt;姓名&lt;/th&gt;</p>
+<p>&lt;th&gt;性别&lt;/th&gt;</p>
+<p>&lt;th&gt;年龄&lt;/th&gt;</p>
+<p>&lt;/tr&gt;</p>
+<p>&lt;tr&gt;</p>
+<p>&lt;td&gt;令狐冲&lt;/td&gt;</p>
+<p>&lt;td&gt;男&lt;/td&gt;</p>
+<p>&lt;td&gt;22&lt;/td&gt;</p>
+<p>&lt;/tr&gt;</p>
+<p>&lt;tr&gt;</p>
+<p>&lt;td&gt;任盈盈&lt;/td&gt;</p>
+<p>&lt;td&gt;女&lt;/td&gt;</p>
+<p>&lt;td&gt;18&lt;/td&gt;</p>
+<p>&lt;/tr&gt;</p>
+<p>&lt;tr&gt;</p>
+<p>&lt;td&gt;任我行&lt;/td&gt;</p>
+<p>&lt;td&gt;男&lt;/td&gt;</p>
+<p>&lt;td&gt;55&lt;/td&gt;</p>
+<p>&lt;/tr&gt;</p>
+<p>&lt;tr&gt;</p>
+<p>&lt;td&gt;岳不群&lt;/td&gt;</p>
+<p>&lt;td&gt;男&lt;/td&gt;</p>
+<p>&lt;td&gt;50&lt;/td&gt;</p>
+<p>&lt;/tr&gt;</p>
+<p>&lt;/table&gt;</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="517" height="344" class="wp-image-139" src="/wp-content/uploads/2018/05/word-image-120.png" srcset="/wp-content/uploads/2018/05/word-image-120.png 517w, /wp-content/uploads/2018/05/word-image-120-300x200.png 300w" sizes="(max-width: 517px) 100vw, 517px" /></p>
+<h2><a id="post-110-_Toc425176129"></a>单元格中数据的对齐方式</h2>
+<h3>水平对齐</h3>
+<p>使用标签的align属性</p>
+<p>align=”center”：水平居中</p>
+<p>align=”left”：水平居左（默认）</p>
+<p>align=”right”：水平居右</p>
+<h3>垂直对齐</h3>
+<p>valign=’top’：垂直居顶</p>
+<p>valign=’ middle’：垂直居中（默认）</p>
+<p>valign=’bottom’：垂直居底</p>
+<p><img loading="lazy" decoding="async" width="1025" height="132" class="wp-image-140" src="/wp-content/uploads/2018/05/word-image-121.png" srcset="/wp-content/uploads/2018/05/word-image-121.png 1025w, /wp-content/uploads/2018/05/word-image-121-300x39.png 300w, /wp-content/uploads/2018/05/word-image-121-768x99.png 768w, /wp-content/uploads/2018/05/word-image-121-1024x132.png 1024w" sizes="(max-width: 1025px) 100vw, 1025px" /></p>
+<h2><a id="post-110-_Toc425176130"></a>单元间距和单元填充</h2>
+<p>单元格间距（cellspacing）：单元格和单元格距离，默认是2像素</p>
+<p>单元格填充（cellpadding）：单元格和内容的距离，默认是1像素</p>
+<p><img loading="lazy" decoding="async" width="707" height="239" class="wp-image-141" src="/wp-content/uploads/2018/05/word-image-122.png" srcset="/wp-content/uploads/2018/05/word-image-122.png 707w, /wp-content/uploads/2018/05/word-image-122-300x101.png 300w" sizes="(max-width: 707px) 100vw, 707px" /></p>
+<p>例题</p>
+<p><img loading="lazy" decoding="async" width="963" height="45" class="wp-image-142" src="/wp-content/uploads/2018/05/word-image-123.png" srcset="/wp-content/uploads/2018/05/word-image-123.png 963w, /wp-content/uploads/2018/05/word-image-123-300x14.png 300w, /wp-content/uploads/2018/05/word-image-123-768x36.png 768w" sizes="(max-width: 963px) 100vw, 963px" /></p>
+<h2><a id="post-110-_Toc425176131"></a>合并单元格</h2>
+<p>合并行(rowspan)：把不同的行合并起来</p>
+<p>合并列(colspan)：把不同列合并起来</p>
+<p>row：行</p>
+<p>span：跨度</p>
+<p>col：column（柱状体，列）</p>
+<h3>例题</h3>
+<p>&lt;table border=&#8221;1&#8243; align=&#8221;center&#8221; width=&#8221;500&#8243; height=&#8221;300&#8243;&gt;</p>
+<p>&lt;tr&gt;</p>
+<p>&lt;th colspan=&#8221;3&#8243;&gt;学生证&lt;/th&gt;</p>
+<p>&lt;/tr&gt;</p>
+<p>&lt;tr&gt;</p>
+<p>&lt;th width=&#8221;30%&#8221;&gt;姓名&lt;/th&gt;</p>
+<p>&lt;td width=&#8221;30%&#8221;&gt;&amp;nbsp;&lt;/td&gt;</p>
+<p>&lt;td rowspan=&#8221;3&#8243; align=&#8221;center&#8221;&gt;照&lt;br /&gt;&lt;br /&gt;片&lt;/td&gt;</p>
+<p>&lt;/tr&gt;</p>
+<p>&lt;tr&gt;</p>
+<p>&lt;th&gt;性别&lt;/th&gt;</p>
+<p>&lt;td&gt;&amp;nbsp;&lt;/td&gt;</p>
+<p>&lt;/tr&gt;</p>
+<p>&lt;tr&gt;</p>
+<p>&lt;th&gt;年龄&lt;/th&gt;</p>
+<p>&lt;td&gt;&amp;nbsp;&lt;/td&gt;</p>
+<p>&lt;/tr&gt;</p>
+<p>&lt;/table&gt;</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="510" height="305" class="wp-image-143" src="/wp-content/uploads/2018/05/word-image-124.png" srcset="/wp-content/uploads/2018/05/word-image-124.png 510w, /wp-content/uploads/2018/05/word-image-124-300x179.png 300w" sizes="(max-width: 510px) 100vw, 510px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/110.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>HTML（三）HTML 发展史、 下拉菜单、 内嵌框架、 复选框、 框架、 表单</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/147.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/147.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 13:00:40 +0000</pubDate>
+				<category><![CDATA[HTML]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[HTML 发展史]]></category>
+		<category><![CDATA[下拉菜单]]></category>
+		<category><![CDATA[内嵌框架]]></category>
+		<category><![CDATA[复选框]]></category>
+		<category><![CDATA[框架]]></category>
+		<category><![CDATA[表单]]></category>
+		<guid isPermaLink="false">/?p=147</guid>
+
+					<description><![CDATA[HTML（三） 回顾 六级标题 &#60;h1&#62;&#60;/h1&#62;一级标题 权重最高 &#60;h2&#038;g [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>HTML（三）</h1>
+<h2>回顾</h2>
+<ol>
+<li>六级标题
+<ol>
+<li>&lt;h1&gt;&lt;/h1&gt;一级标题 权重最高</li>
+<li>&lt;h2&gt;：二级标题</li>
+<li>…</li>
+<li>&lt;h6&gt;：六级标题</li>
+</ol>
+</li>
+<li>列表
+<ol>
+<li>有序列表：&lt;ol&gt; 每一项是li
+<ol>
+<li>默认是以数字为顺序，通过type属性来更改标号的类型（字母，罗马数字）</li>
+<li>通过start属性设置从第几个数字（字母）开始</li>
+</ol>
+</li>
+<li>无序列表：&lt;ul&gt; 每一项是li</li>
+<li>自定义列表：&lt;dl&gt;
+<ol>
+<li>&lt;dt&gt;自定义列表的标题</li>
+<li>&lt;dd&gt;自定义列表的项</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>&lt;!DOCTYPE&gt;文档声明
+<ol>
+<li>必须放在页面的第一行</li>
+<li>告知浏览器这个页面按照什么样的标准来解析</li>
+</ol>
+</li>
+<li>&lt;meta&gt;
+<ol>
+<li>告知浏览器用什么样的字符编码来解析</li>
+<li>给搜索引擎搜索</li>
+</ol>
+</li>
+<li>&lt;img&gt;：插入图片
+<ol>
+<li>&lt;Img src=’路径’ alt=’当图片无法显示的时候显示的内容’ title=’当鼠标移到图片上的时候显示内容’ width=’’ height=’’&gt;</li>
+</ol>
+</li>
+<li>热点：带有超链接的区域</li>
+<li>&lt;object&gt;:&lt;object type=&#8221;application/x-shockwave-flash&#8221; data=&#8221;地址&#8221; width=&#8221;&#8221; height=&#8221;&#8221;&gt;&lt;/object&gt; 插入flash</li>
+<li>实体：固定的字符串
+<ol>
+<li>&amp;lt; &lt;</li>
+<li>&amp;gt; &gt;</li>
+<li>&amp;nbsp; 空格</li>
+</ol>
+</li>
+<li>表格
+<ol>
+<li>表格作用：排版</li>
+<li>与表格相关标签
+<ol>
+<li>Table表格</li>
+<li>Tr 行</li>
+<li>Td 单元格</li>
+<li>Th 标题</li>
+</ol>
+</li>
+<li>单元格数据对齐
+<ol>
+<li>水平对齐 align=center left right</li>
+<li>垂直对齐 valign=top middle bottom</li>
+</ol>
+</li>
+<li>单元格间距和单元格填充
+<ol>
+<li>间距：cellspacing 单元格和单元格的距离，默认2像素</li>
+<li>填充：cellpadding：单元格的内容和距离单元格的距离，默认1像素</li>
+</ol>
+</li>
+<li>合并单元格
+<ol>
+<li>合并行：rowspan</li>
+<li>合并列：colspan</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2>标签的通用属性</h2>
+<p>有的属性是多个标签都具有的</p>
+<ol>
+<li>id：唯一的编号</li>
+<li>class：标签属于哪个类别</li>
+<li>width：宽度</li>
+<li>height：高度</li>
+<li>title：当鼠标移上去的时候显示提示性文字</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="169" height="39" class="wp-image-149" src="/wp-content/uploads/2018/05/word-image-127.png" /></p>
+<h2><a id="post-147-_Toc425176132"></a>表单</h2>
+<p><img loading="lazy" decoding="async" width="552" height="377" class="wp-image-150" src="/wp-content/uploads/2018/05/word-image-128.png" srcset="/wp-content/uploads/2018/05/word-image-128.png 552w, /wp-content/uploads/2018/05/word-image-128-300x205.png 300w, /wp-content/uploads/2018/05/word-image-128-220x150.png 220w" sizes="(max-width: 552px) 100vw, 552px" /></p>
+<p>表单作用：客户端使用表单向服务器提交数据。</p>
+<h2><a id="post-147-_Toc425176133"></a>表单域</h2>
+<p>表单域就是表单的区域</p>
+<p>标签：&lt;form&gt;&lt;/form&gt;</p>
+<h2><a id="post-147-_Toc425176134"></a>表单元素</h2>
+<h3>文本框（单行文本 &lt;input&gt;）</h3>
+<p>&lt;input type=&#8221;text&#8221; name=&#8221;username&#8221; size=&#8221;30&#8243; maxlength=&#8221;6&#8243; /&gt;</p>
+<ol>
+<li>input：输入</li>
+<li>type：类别，类型</li>
+<li>text：文本</li>
+<li>name：必须给每个表单元素取名字，因为服务器是通过名字来获取表单元素的值的。（每一个表单元素都要取名字）</li>
+<li>size=30：单行文本的宽度是30个字符的宽度</li>
+<li>maxlength=6：单行文本中最多只能输入6个字符。</li>
+</ol>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="331" height="33" class="wp-image-151" src="/wp-content/uploads/2018/05/word-image-129.png" srcset="/wp-content/uploads/2018/05/word-image-129.png 331w, /wp-content/uploads/2018/05/word-image-129-300x30.png 300w" sizes="(max-width: 331px) 100vw, 331px" /></p>
+<h3>密码框（&lt;input&gt;）</h3>
+<p><img loading="lazy" decoding="async" width="956" height="26" class="wp-image-152" src="/wp-content/uploads/2018/05/word-image-130.png" srcset="/wp-content/uploads/2018/05/word-image-130.png 956w, /wp-content/uploads/2018/05/word-image-130-300x8.png 300w, /wp-content/uploads/2018/05/word-image-130-768x21.png 768w" sizes="(max-width: 956px) 100vw, 956px" /></p>
+<p>&lt;input type=&#8221;password&#8221; name=&#8221;pwd&#8221; maxlength=&#8221;3&#8243; /&gt;</p>
+<h3>单选按钮（&lt;input&gt;）</h3>
+<p>&lt;input type=&#8221;radio&#8221; name=&#8221;sex&#8221; value=&#8221;1&#8243; checked=&#8221;checked&#8221; /&gt;男</p>
+<p>&lt;input type=&#8221;radio&#8221; name=&#8221;sex&#8221; value=&#8221;0&#8243;/&gt;女radio：单选按钮</p>
+<ol>
+<li>value：值</li>
+<li>checked：选中</li>
+</ol>
+<p>注意：</p>
+<ol>
+<li>同一组的单选按钮名字必须要一致</li>
+<li>无法输入的表单元素必须要赋值</li>
+<li>checked属性用来默认选择单选按钮，简写成checked也可以</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="595" height="51" class="wp-image-153" src="/wp-content/uploads/2018/05/word-image-131.png" srcset="/wp-content/uploads/2018/05/word-image-131.png 595w, /wp-content/uploads/2018/05/word-image-131-300x26.png 300w" sizes="(max-width: 595px) 100vw, 595px" /></p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="208" height="23" class="wp-image-154" src="/wp-content/uploads/2018/05/word-image-132.png" /></p>
+<p>思考：思考如下代码，结果是什么？</p>
+<p><img loading="lazy" decoding="async" width="976" height="113" class="wp-image-155" src="/wp-content/uploads/2018/05/word-image-133.png" srcset="/wp-content/uploads/2018/05/word-image-133.png 976w, /wp-content/uploads/2018/05/word-image-133-300x35.png 300w, /wp-content/uploads/2018/05/word-image-133-768x89.png 768w" sizes="(max-width: 976px) 100vw, 976px" /></p>
+<p>分析：程序的执行是从上往下依次执行，当执行的第二个单选按钮的时候会选择第二个单选按钮，由于是单选，在选择第二个的时候会取消对第一个按钮的选择，以此类推，最后选择最后一个单选按钮。</p>
+<h3>复选框（多选按钮 &lt;input&gt;）</h3>
+<p>&lt;input type=&#8221;checkbox&#8221; name=&#8221;hobby&#8221; value=&#8221;读书&#8221; checked=&#8221;checked&#8221; /&gt;读书</p>
+<p>&lt;input type=&#8221;checkbox&#8221; name=&#8221;hobby&#8221; value=&#8221;爬山&#8221; /&gt;爬山</p>
+<p>&lt;input type=&#8221;checkbox&#8221; name=&#8221;hobby&#8221; value=&#8221;游泳&#8221; /&gt;游泳</p>
+<p>&lt;input type=&#8221;checkbox&#8221; name=&#8221;hobby&#8221; value=&#8221;看报&#8221; /&gt;看报</p>
+<ol>
+<li>check：选择</li>
+<li>box:盒子</li>
+</ol>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="332" height="28" class="wp-image-156" src="/wp-content/uploads/2018/05/word-image-134.png" srcset="/wp-content/uploads/2018/05/word-image-134.png 332w, /wp-content/uploads/2018/05/word-image-134-300x25.png 300w" sizes="(max-width: 332px) 100vw, 332px" /></p>
+<h3>下拉菜单（&lt;select&gt;）</h3>
+<p>&lt;select name=&#8221;jiguan&#8221;&gt;</p>
+<p>&lt;option value=&#8221;上海&#8221;&gt;上海&lt;/option&gt;</p>
+<p>&lt;option value=&#8221;北京&#8221; selected=&#8221;selected&#8221;&gt;北京&lt;/option&gt;</p>
+<p>&lt;option value=&#8221;天津&#8221;&gt;天津&lt;/option&gt;</p>
+<p>&lt;/select&gt;</p>
+<ol>
+<li>select：选择</li>
+<li>option：选项</li>
+<li>selected：已经选中</li>
+</ol>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="174" height="25" class="wp-image-157" src="/wp-content/uploads/2018/05/word-image-135.png" /></p>
+<h3>下拉列表（&lt;select&gt;）</h3>
+<p>下拉菜单和下拉列表的标签是一样的，他们的区别下拉列表一次可以选择多个选项</p>
+<p><img loading="lazy" decoding="async" width="754" height="105" class="wp-image-158" src="/wp-content/uploads/2018/05/word-image-136.png" srcset="/wp-content/uploads/2018/05/word-image-136.png 754w, /wp-content/uploads/2018/05/word-image-136-300x42.png 300w" sizes="(max-width: 754px) 100vw, 754px" /></p>
+<ol>
+<li>size：一次显示的选项个数</li>
+<li>multiple：多选</li>
+</ol>
+<h3>文本域（多行文本 &lt;textarea&gt;）</h3>
+<p>&lt;textarea name=&#8221;jianyi&#8221; cols=&#8221;30&#8243; rows=&#8221;5&#8243;&gt;&lt;/textarea&gt;</p>
+<ol>
+<li>text：文本</li>
+<li>area：区域</li>
+<li>cols=’30’：文本域的宽度是30个列的宽度</li>
+<li>rows=’5’：文本域的高度是5行的高度</li>
+</ol>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="366" height="91" class="wp-image-159" src="/wp-content/uploads/2018/05/word-image-137.png" srcset="/wp-content/uploads/2018/05/word-image-137.png 366w, /wp-content/uploads/2018/05/word-image-137-300x75.png 300w" sizes="(max-width: 366px) 100vw, 366px" /></p>
+<h3>提交按钮（&lt;input&gt;）</h3>
+<p>点击提交按钮将表单元素的数据发送到服务器</p>
+<p>&lt;input type=&#8221;submit&#8221; name=&#8221;submit&#8221; value=&#8221;注册&#8221; /&gt;</p>
+<p>1、submit：提交</p>
+<p>运行结果：</p>
+<p><img loading="lazy" decoding="async" width="1005" height="30" class="wp-image-160" src="/wp-content/uploads/2018/05/word-image-138.png" srcset="/wp-content/uploads/2018/05/word-image-138.png 1005w, /wp-content/uploads/2018/05/word-image-138-300x9.png 300w, /wp-content/uploads/2018/05/word-image-138-768x23.png 768w" sizes="(max-width: 1005px) 100vw, 1005px" /></p>
+<p>脚下留心：按钮上显示什么内容取决于的value的值</p>
+<h3>重置按钮（&lt;input&gt;）</h3>
+<p>点击重置按钮，将表单元素的数据恢复到初始值。</p>
+<p>&lt;input type=&#8221;reset&#8221; name=&#8221;reset&#8221; value=&#8221;重置&#8221; /&gt;</p>
+<p>1、reset：重置</p>
+<p>运行结果：</p>
+<p><img loading="lazy" decoding="async" width="1024" height="32" class="wp-image-161" src="/wp-content/uploads/2018/05/word-image-139.png" srcset="/wp-content/uploads/2018/05/word-image-139.png 1024w, /wp-content/uploads/2018/05/word-image-139-300x9.png 300w, /wp-content/uploads/2018/05/word-image-139-768x24.png 768w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>普通按钮（&lt;input&gt;）</h3>
+<p>普通按钮本身不具备任何功能，后面和JS结合起来写自定义功能</p>
+<p>&lt;input type=&#8221;button&#8221; name=&#8221;btn&#8221; value=&#8221;普通按钮&#8221; /&gt;</p>
+<p>1、button：按钮</p>
+<p>运行结果：</p>
+<p><img loading="lazy" decoding="async" width="1039" height="65" class="wp-image-162" src="/wp-content/uploads/2018/05/word-image-140.png" srcset="/wp-content/uploads/2018/05/word-image-140.png 1039w, /wp-content/uploads/2018/05/word-image-140-300x19.png 300w, /wp-content/uploads/2018/05/word-image-140-768x48.png 768w, /wp-content/uploads/2018/05/word-image-140-1024x64.png 1024w" sizes="(max-width: 1039px) 100vw, 1039px" /></p>
+<h3>表单元素总结：</h3>
+<p>在表单的中我们学的标签有：&lt;form&gt;,&lt;input&gt;,&lt;select&gt;,&lt;option&gt;,&lt;textarea&gt;</p>
+<p>input标签的type属性</p>
+<ol>
+<li>text：文本框</li>
+<li>password：密码框</li>
+<li>radio：单选按钮</li>
+<li>checkbox：复选框</li>
+<li>submit：提交按钮</li>
+<li>reset：重置按钮</li>
+<li>button：普通按钮</li>
+</ol>
+<h2><a id="post-147-_Toc425176146"></a>使用表单</h2>
+<h3>表单的属性</h3>
+<ol>
+<li>action：表单元素提交的地址</li>
+</ol>
+<p>多学一招：action=””表示将数据提交给当前页面</p>
+<ol>
+<li>method：数据提交的方法，method有两个值，一个是get，一个是post</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="900" height="76" class="wp-image-163" src="/wp-content/uploads/2018/05/word-image-141.png" srcset="/wp-content/uploads/2018/05/word-image-141.png 900w, /wp-content/uploads/2018/05/word-image-141-300x25.png 300w, /wp-content/uploads/2018/05/word-image-141-768x65.png 768w" sizes="(max-width: 900px) 100vw, 900px" /> <img loading="lazy" decoding="async" width="739" height="56" class="wp-image-164" src="/wp-content/uploads/2018/05/word-image-142.png" srcset="/wp-content/uploads/2018/05/word-image-142.png 739w, /wp-content/uploads/2018/05/word-image-142-300x23.png 300w" sizes="(max-width: 739px) 100vw, 739px" /></p>
+<p>get和post提交的区别</p>
+<table>
+<tbody>
+<tr>
+<td></td>
+<td>get</td>
+<td>post</td>
+</tr>
+<tr>
+<td>外观上</td>
+<td>地址栏上有？，?后面跟的是传输的数据</td>
+<td>地址栏上看不到数据</td>
+</tr>
+<tr>
+<td>提交原理</td>
+<td>将表单元素的数据一个一个的提交</td>
+<td>将所有数据作为一个整体一起提交</td>
+</tr>
+<tr>
+<td>提交的数据量上</td>
+<td>少量数据（最少255字节）</td>
+<td>大量数据</td>
+</tr>
+<tr>
+<td>安全性上</td>
+<td>不安全</td>
+<td>安全</td>
+</tr>
+<tr>
+<td>灵活性</td>
+<td>很灵活</td>
+<td>不灵活</td>
+</tr>
+</tbody>
+</table>
+<p>多学一招：get使用的频率远远大于post，原因是get很灵活。</p>
+<h2>框架</h2>
+<p><img loading="lazy" decoding="async" width="1269" height="264" class="wp-image-165" src="/wp-content/uploads/2018/05/word-image-143.png" srcset="/wp-content/uploads/2018/05/word-image-143.png 1269w, /wp-content/uploads/2018/05/word-image-143-300x62.png 300w, /wp-content/uploads/2018/05/word-image-143-768x160.png 768w, /wp-content/uploads/2018/05/word-image-143-1024x213.png 1024w" sizes="(max-width: 1269px) 100vw, 1269px" /></p>
+<p>在同一个浏览器上显示多个多个框架。在每一个框架中放了一个页面。</p>
+<h3>使用的标签</h3>
+<ol>
+<li>&lt;frameset&gt;：框架集</li>
+<li>&lt;frame&gt;：框架</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="579" height="116" class="wp-image-166" src="/wp-content/uploads/2018/05/word-image-144.png" srcset="/wp-content/uploads/2018/05/word-image-144.png 579w, /wp-content/uploads/2018/05/word-image-144-300x60.png 300w" sizes="(max-width: 579px) 100vw, 579px" /></p>
+<p>例题一：在浏览器上显示3个框架，他们分成3行</p>
+<p><img loading="lazy" decoding="async" width="670" height="172" class="wp-image-167" src="/wp-content/uploads/2018/05/word-image-145.png" srcset="/wp-content/uploads/2018/05/word-image-145.png 670w, /wp-content/uploads/2018/05/word-image-145-300x77.png 300w" sizes="(max-width: 670px) 100vw, 670px" /></p>
+<p>例题二：在浏览器上显示3个框架，他们分成3列，如下格式：</p>
+<p><img loading="lazy" decoding="async" width="251" height="78" class="wp-image-168" src="/wp-content/uploads/2018/05/word-image-146.png" /></p>
+<p>实现：</p>
+<p><img loading="lazy" decoding="async" width="693" height="137" class="wp-image-169" src="/wp-content/uploads/2018/05/word-image-147.png" srcset="/wp-content/uploads/2018/05/word-image-147.png 693w, /wp-content/uploads/2018/05/word-image-147-300x59.png 300w" sizes="(max-width: 693px) 100vw, 693px" /></p>
+<p>例题三：实现如下框架结构</p>
+<p><img loading="lazy" decoding="async" width="301" height="109" class="wp-image-170" src="/wp-content/uploads/2018/05/word-image-148.png" srcset="/wp-content/uploads/2018/05/word-image-148.png 301w, /wp-content/uploads/2018/05/word-image-148-300x109.png 300w" sizes="(max-width: 301px) 100vw, 301px" /></p>
+<p>分析</p>
+<p><img loading="lazy" decoding="async" width="644" height="94" class="wp-image-171" src="/wp-content/uploads/2018/05/word-image-149.png" srcset="/wp-content/uploads/2018/05/word-image-149.png 644w, /wp-content/uploads/2018/05/word-image-149-300x44.png 300w" sizes="(max-width: 644px) 100vw, 644px" /></p>
+<p>实现：</p>
+<p><img loading="lazy" decoding="async" width="604" height="164" class="wp-image-172" src="/wp-content/uploads/2018/05/word-image-150.png" srcset="/wp-content/uploads/2018/05/word-image-150.png 604w, /wp-content/uploads/2018/05/word-image-150-300x81.png 300w" sizes="(max-width: 604px) 100vw, 604px" /></p>
+<p>脚下留心：</p>
+<p>1、&lt;frameset&gt;不能放在&lt;body&gt;中，放在&lt;html&gt;中</p>
+<p>2、&lt;noframes&gt;&lt;/noframes&gt;，当浏览器不支持框架标签的时候就执行此标签中的内容。</p>
+<p>&lt;noframes&gt;此浏览器不支持框架，请升级&lt;/noframes&gt;</p>
+<p>3、在HTML5中，框架标签现在已经淘汰</p>
+<p>例题：实现在一个框架中点击，目标页面在另一个框架中出现</p>
+<p><img loading="lazy" decoding="async" width="645" height="134" class="wp-image-173" src="/wp-content/uploads/2018/05/word-image-151.png" srcset="/wp-content/uploads/2018/05/word-image-151.png 645w, /wp-content/uploads/2018/05/word-image-151-300x62.png 300w" sizes="(max-width: 645px) 100vw, 645px" /></p>
+<p>第一步：给目标框架取名字</p>
+<p><img loading="lazy" decoding="async" width="712" height="134" class="wp-image-174" src="/wp-content/uploads/2018/05/word-image-152.png" srcset="/wp-content/uploads/2018/05/word-image-152.png 712w, /wp-content/uploads/2018/05/word-image-152-300x56.png 300w" sizes="(max-width: 712px) 100vw, 712px" /></p>
+<p>第二步：将超链接的target属性的值写成目标框架的名字</p>
+<p><img loading="lazy" decoding="async" width="749" height="32" class="wp-image-175" src="/wp-content/uploads/2018/05/word-image-153.png" srcset="/wp-content/uploads/2018/05/word-image-153.png 749w, /wp-content/uploads/2018/05/word-image-153-300x13.png 300w" sizes="(max-width: 749px) 100vw, 749px" /></p>
+<p>运行结果：</p>
+<p><img loading="lazy" decoding="async" width="531" height="62" class="wp-image-176" src="/wp-content/uploads/2018/05/word-image-154.png" srcset="/wp-content/uploads/2018/05/word-image-154.png 531w, /wp-content/uploads/2018/05/word-image-154-300x35.png 300w" sizes="(max-width: 531px) 100vw, 531px" /></p>
+<h2>内嵌框架（&lt;iframe&gt;）</h2>
+<p>内嵌框架就是页面中嵌套的框架</p>
+<p>&lt;iframe src=&#8221;1-表单.html&#8221; width=&#8221;100&#8243; height=&#8221;100&#8243; marginwidth=&#8221;0&#8243; marginheight=&#8221;0&#8243; frameborder=&#8221;0&#8243;&gt;&lt;/iframe&gt;</p>
+<ol>
+<li>src：内嵌框架中存放的页面</li>
+<li>width和height：内嵌框架的宽度和高度</li>
+<li>marginwidth：内嵌框架中的页面距离内嵌框架的宽度</li>
+<li>marginheight：内嵌框架中的页面距离内嵌框架的高度</li>
+<li>frameborder：内嵌框架边框</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="384" height="170" class="wp-image-177" src="/wp-content/uploads/2018/05/word-image-155.png" srcset="/wp-content/uploads/2018/05/word-image-155.png 384w, /wp-content/uploads/2018/05/word-image-155-300x133.png 300w" sizes="(max-width: 384px) 100vw, 384px" /></p>
+<h2>HTML发展史</h2>
+<p>HTML5的发展</p>
+<p><img loading="lazy" decoding="async" width="507" height="318" class="wp-image-178" src="/wp-content/uploads/2018/05/word-image-156.png" srcset="/wp-content/uploads/2018/05/word-image-156.png 507w, /wp-content/uploads/2018/05/word-image-156-300x188.png 300w" sizes="(max-width: 507px) 100vw, 507px" /></p>
+<p>脚下留心：在ie9以上（包含）、crome、火狐支持HTML5，老版本的浏览器不支持。</p>
+<p>由于HTML5目前还没有正式发布，所以同一个标签在不同的浏览器上解析可能会不同。</p>
+<h2>HTML新的特点</h2>
+<ol>
+<li>语法更加简单
+<ol>
+<li>头部声明</li>
+</ol>
+</li>
+</ol>
+<p>&lt;!doctype html&gt;</p>
+<ul>
+<li>
+<ol>
+<li>简化了字符集声明</li>
+</ol>
+</li>
+</ul>
+<p>&lt;meta charset=&#8221;utf-8&#8243;&gt;</p>
+<ol>
+<li>语法更宽松
+<ol>
+<li>可以省略结束符的标签</li>
+</ol>
+</li>
+</ol>
+<p>li、dt、dd、p、optgroup、option、tr、td、th</p>
+<ul>
+<li>
+<ol>
+<li>可以完全省略的标签</li>
+</ol>
+</li>
+</ul>
+<p>html、head、body</p>
+<ol>
+<li>标签语义化，在原来的拼版过程中，通过&lt;div&gt;&lt;/div&gt;中来存放内容，在HTML5中添加了很多标签，其实作用和&lt;div&gt;一样，但是它更加具有语义。HTML5增加如下常用新标签
+<ol>
+<li>&lt;header&gt; 标记定义一个页面或一个区域的头部</li>
+<li>&lt;nav&gt; 标记定义导航链接</li>
+<li>&lt;article&gt; 标记定义一篇文章内容</li>
+<li>&lt;section&gt; 标记定义网页中一块区域</li>
+<li>&lt;aside&gt; 标记定义页面内容部分的侧边栏</li>
+<li>&lt;footer&gt; 标记定义一个页面或一个区域的底部</li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="558" height="436" class="wp-image-179" src="/wp-content/uploads/2018/05/word-image-157.png" srcset="/wp-content/uploads/2018/05/word-image-157.png 558w, /wp-content/uploads/2018/05/word-image-157-300x234.png 300w" sizes="(max-width: 558px) 100vw, 558px" /></p>
+<h2>html5新增常用新属性</h2>
+<p>required：必填</p>
+<p>placeholder：默认显示内容</p>
+<p>autofocus：自动获取焦点</p>
+<p><img loading="lazy" decoding="async" width="1071" height="118" class="wp-image-180" src="/wp-content/uploads/2018/05/word-image-158.png" srcset="/wp-content/uploads/2018/05/word-image-158.png 1071w, /wp-content/uploads/2018/05/word-image-158-300x33.png 300w, /wp-content/uploads/2018/05/word-image-158-768x85.png 768w, /wp-content/uploads/2018/05/word-image-158-1024x113.png 1024w" sizes="(max-width: 1071px) 100vw, 1071px" /></p>
+<h2>input标签新增的type属性值</h2>
+<ol>
+<li>type=&#8221;email&#8221;，文本框中只能输入email地址
+<ol>
+<li>代码</li>
+</ol>
+</li>
+</ol>
+<p>&lt;input type=&#8221;email&#8221; name=&#8221;email&#8221;&gt;</p>
+<ul>
+<li>
+<ol>
+<li>运行结果</li>
+</ol>
+</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="483" height="96" class="wp-image-181" src="/wp-content/uploads/2018/05/word-image-159.png" srcset="/wp-content/uploads/2018/05/word-image-159.png 483w, /wp-content/uploads/2018/05/word-image-159-300x60.png 300w" sizes="(max-width: 483px) 100vw, 483px" /></p>
+<ol>
+<li>type=&#8221;date&#8221;（目前只有chrome有效）
+<ol>
+<li>代码：</li>
+</ol>
+</li>
+</ol>
+<p>&lt;input type=&#8221;date&#8221; name=&#8221;date&#8221;&gt;</p>
+<ul>
+<li>
+<ol>
+<li>运行结果</li>
+</ol>
+</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="378" height="206" class="wp-image-182" src="/wp-content/uploads/2018/05/word-image-160.png" srcset="/wp-content/uploads/2018/05/word-image-160.png 378w, /wp-content/uploads/2018/05/word-image-160-300x163.png 300w" sizes="(max-width: 378px) 100vw, 378px" /></p>
+<ol>
+<li>type=&#8221;time&#8221;
+<ol>
+<li>代码</li>
+</ol>
+</li>
+</ol>
+<p>&lt;input type=&#8221;time&#8221; name=&#8221;time&#8221;&gt;</p>
+<ul>
+<li>
+<ol>
+<li>运行结果</li>
+</ol>
+</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="212" height="27" class="wp-image-183" src="/wp-content/uploads/2018/05/word-image-161.png" /></p>
+<ol>
+<li>type=&#8221;month&#8221;
+<ol>
+<li>代码</li>
+</ol>
+</li>
+</ol>
+<p>&lt;input type=&#8221;month&#8221; name=&#8221;month&#8221;&gt;</p>
+<ul>
+<li>
+<ol>
+<li>运行结果</li>
+</ol>
+</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="376" height="191" class="wp-image-184" src="/wp-content/uploads/2018/05/word-image-162.png" srcset="/wp-content/uploads/2018/05/word-image-162.png 376w, /wp-content/uploads/2018/05/word-image-162-300x152.png 300w" sizes="(max-width: 376px) 100vw, 376px" /></p>
+<ol>
+<li>type=&#8221;week&#8221;
+<ol>
+<li>代码</li>
+</ol>
+</li>
+</ol>
+<p>&lt;input type=&#8221;week&#8221; name=&#8221;week&#8221;&gt;</p>
+<ul>
+<li>
+<ol>
+<li>运行结果</li>
+</ol>
+</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="426" height="205" class="wp-image-185" src="/wp-content/uploads/2018/05/word-image-163.png" srcset="/wp-content/uploads/2018/05/word-image-163.png 426w, /wp-content/uploads/2018/05/word-image-163-300x144.png 300w" sizes="(max-width: 426px) 100vw, 426px" /></p>
+<ol>
+<li>type=&#8221;number&#8221;
+<ol>
+<li>代码：</li>
+</ol>
+</li>
+</ol>
+<p>&lt;input type=&#8221;number&#8221; name=&#8221;number&#8221;&gt;</p>
+<ul>
+<li>
+<ol>
+<li>运行结果</li>
+</ol>
+</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="309" height="29" class="wp-image-186" src="/wp-content/uploads/2018/05/word-image-164.png" srcset="/wp-content/uploads/2018/05/word-image-164.png 309w, /wp-content/uploads/2018/05/word-image-164-300x28.png 300w" sizes="(max-width: 309px) 100vw, 309px" /></p>
+<ol>
+<li>type=&#8221;range&#8221;
+<ol>
+<li>代码</li>
+</ol>
+</li>
+</ol>
+<p>&lt;input type=&#8221;range&#8221; name=&#8221;range&#8221; min=&#8221;18&#8243; max=&#8221;25&#8243;&gt;</p>
+<ul>
+<li>
+<ol>
+<li>运行结果</li>
+</ol>
+</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="399" height="82" class="wp-image-187" src="/wp-content/uploads/2018/05/word-image-165.png" srcset="/wp-content/uploads/2018/05/word-image-165.png 399w, /wp-content/uploads/2018/05/word-image-165-300x62.png 300w" sizes="(max-width: 399px) 100vw, 399px" /></p>
+<ol>
+<li>type=&#8221;color&#8221;
+<ol>
+<li>代码</li>
+</ol>
+</li>
+</ol>
+<p>&lt;input type=&#8221;color&#8221; name=&#8221;color&#8221;&gt;</p>
+<ul>
+<li>
+<ol>
+<li>运行结果</li>
+</ol>
+</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="193" height="35" class="wp-image-188" src="/wp-content/uploads/2018/05/word-image-166.png" /></p>
+<h2>多媒体标签</h2>
+<h3>&lt;embed&gt;</h3>
+<p>这个标签不是HTML5的，在HTML4中就已经存在，主要用来播放音频和视频</p>
+<ol>
+<li>音频</li>
+</ol>
+<p>&lt;embed src=&#8221;music/music.mp3&#8243; autoplay=&#8217;0&#8242;&gt;&lt;/embed&gt;</p>
+<p><img loading="lazy" decoding="async" width="297" height="46" class="wp-image-189" src="/wp-content/uploads/2018/05/word-image-167.png" /></p>
+<p>Autoplay=’0’或者false 表示不自动播放</p>
+<p>Autoplay=’1’或者true 表示自动播放</p>
+<ol>
+<li>视频</li>
+</ol>
+<p>&lt;embed src=&#8221;video/movie.mp4&#8243; width=&#8221;300&#8243; height=&#8221;300&#8243;&gt;&lt;/embed&gt;</p>
+<p><img loading="lazy" decoding="async" width="305" height="310" class="wp-image-190" src="/wp-content/uploads/2018/05/word-image-168.png" srcset="/wp-content/uploads/2018/05/word-image-168.png 305w, /wp-content/uploads/2018/05/word-image-168-295x300.png 295w" sizes="(max-width: 305px) 100vw, 305px" /></p>
+<h3>&lt;audio&gt;</h3>
+<p>HTML5中专门用来播放音频的</p>
+<p>方法一：</p>
+<p>&lt;audio src=&#8221;music/music.mp3&#8243; controls autoplay=&#8221;autoplay&#8221;&gt;&lt;/audio&gt;</p>
+<ol>
+<li>controls表示显示控制面板</li>
+<li>autoplay=&#8221;autoplay&#8221;：自动播放，也可以就写一个autoplay</li>
+</ol>
+<p>方法二：</p>
+<p>&lt;audio controls autoplay&gt;</p>
+<p>&lt;source src=&#8221;music/music.mp3&#8243;&gt;</p>
+<p>&lt;source src=&#8221;music/music.ogg&#8221;&gt;</p>
+<p>&lt;/audio&gt;</p>
+<p>如果第一个音频找不到，就会播放第二个音频，如果第一个音频播放了，不会播放第二个音频。</p>
+<h3>&lt;video&gt;</h3>
+<p>HTML5中专门用来播放视频的</p>
+<p>&lt;video controls autoplay&gt;</p>
+<p>&lt;source src=&#8221;video/movie.mp4&#8243;&gt;</p>
+<p>&lt;source src=&#8221;video/movie.ogg&#8221;&gt;</p>
+<p>&lt;source src=&#8221;video/movie.webm&#8221;&gt;</p>
+<p>&lt;/video&gt;</p>
+<p>原理和&lt;audio&gt;一样。</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/147.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

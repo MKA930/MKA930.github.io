@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>字符串转换 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Tue, 29 Mar 2022 15:21:20 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>字符串转换 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>PHP7 太空船、const 定数组、匿名函数和匿名类、字符串转换、函数调用类里面的方法、不同的名空间调用类、数组的赋值、函数的参数、多异常抛出、list 给数组赋值</title>
+		<link>/php/6502.html</link>
+					<comments>/php/6502.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 17:29:48 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP7]]></category>
+		<category><![CDATA[const 定数组]]></category>
+		<category><![CDATA[list 给数组赋值]]></category>
+		<category><![CDATA[不同的名空间调用类]]></category>
+		<category><![CDATA[函数的参数]]></category>
+		<category><![CDATA[函数调用类里面的方法]]></category>
+		<category><![CDATA[匿名函数和匿名类]]></category>
+		<category><![CDATA[多异常抛出]]></category>
+		<category><![CDATA[太空船]]></category>
+		<category><![CDATA[字符串转换]]></category>
+		<category><![CDATA[数组的赋值]]></category>
+		<guid isPermaLink="false">/?p=6502</guid>
+
+					<description><![CDATA[PHP5.4~PHP7的新特性 官方文档：http://php.net/ 在bing.com中搜索PHP new [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>PHP5.4~PHP7的新特性</h1>
+<p>官方文档：<a href="/goto/iccs" rel="nofollow">http://php.net/</a></p>
+<p>在bing.com中搜索PHP new feature</p>
+<h1>PHP5.5</h1>
+<h2>生成器</h2>
+<p>Yield：在for循环中使用，将循环里面的内容输出出来，不会终止代码继续执行</p>
+<p>代码：</p>
+<p>//在函数中使用return可以将值返回出来</p>
+<p>// function aa(){</p>
+<p>// return 11;</p>
+<p>// }</p>
+<p>//使用php5.4可以生成数据</p>
+<p>function text(){</p>
+<p>for($i=1;$i&lt;5;$i++){</p>
+<p>echo &#8220;当前的是第&#8221;.$i.&#8221;次循环&#8221;;</p>
+<p>yield $i; //将循环里面的内容输出出来，不会终止代码继续执行</p>
+<p>}</p>
+<p>}</p>
+<p>$i=text();</p>
+<p>var_dump($i); //object(Generator)#1 (0) { }</p>
+<p>echo &#8220;&lt;br&gt;&#8221;;</p>
+<p>//通过循环将内容输出出来</p>
+<p>foreach($i as $value){</p>
+<p>echo $value.&#8221;&lt;br&gt;&#8221;;</p>
+<p>}</p>
+<p><img decoding="async" width="236" height="130" class="wp-image-6804" src="/wp-content/uploads/2018/05/word-image-6204.png" /></p>
+<h2>Finally</h2>
+<p>将代码继续执行完毕，即使上面有报错的情况</p>
+<p>代码：</p>
+<p>//finally关键字的使用</p>
+<p>try{</p>
+<p>throw new Exception(&#8220;这里出现了异常&#8221;);</p>
+<p>}catch(Exception $e){ //捕获出现的异常</p>
+<p>var_dump($e);</p>
+<p>//在处理异常的的时候再次出现异常</p>
+<p>throw new Exception(&#8220;这里又出现了异常&#8221;);</p>
+<p>}finally{</p>
+<p>echo &#8220;这是finally执行的代码&#8221;;</p>
+<p>}</p>
+<p>echo &#8220;代码执行到这里&#8221;;</p>
+<h2>Foreach和list</h2>
+<p>代码：</p>
+<p>&lt;?php</p>
+<p>//创建一个二维数组</p>
+<p>$arr=[</p>
+<p>[1,2],</p>
+<p>[3,4],</p>
+<p>[5,6]</p>
+<p>];</p>
+<p>//使用foreach将二维数组中的内容全部拿出来</p>
+<p>foreach($arr as $value){</p>
+<p>echo $value[0].&#8221;&lt;br&gt;&#8221;;</p>
+<p>echo $value[1].&#8221;&lt;br&gt;&#8221;;</p>
+<p>}</p>
+<p>//使用foreach和list配合使用</p>
+<p>foreach($arr as list($a,$b)){</p>
+<p>echo $a.&#8221;&lt;br&gt;&#8221;;</p>
+<p>echo $b.&#8221;&lt;br&gt;&#8221;;</p>
+<p>}</p>
+<h2>Empty</h2>
+<p>可以在empty中存放表达式来做判断</p>
+<p>代码：</p>
+<p>&lt;?php</p>
+<p>//empty()函数的升级，empty()函数可以放任何合法的表达式</p>
+<p>var_dump(empty(1+2)); //false</p>
+<p>var_dump(empty(null)); //ture</p>
+<p>var_dump(empty(&#8221;)); //ture</p>
+<h2>php中数组和字符串的简化使用方法</h2>
+<p><img fetchpriority="high" decoding="async" width="324" height="261" class="wp-image-6808" src="/wp-content/uploads/2018/05/word-image-6208.png" srcset="/wp-content/uploads/2018/05/word-image-6208.png 324w, /wp-content/uploads/2018/05/word-image-6208-300x242.png 300w" sizes="(max-width: 324px) 100vw, 324px" /></p>
+<p>在php中使用</p>
+<p>&lt;?php</p>
+<p>echo [1,2,3,4,5,6][3].&#8221;\r\n&#8221;;</p>
+<p>echo &#8220;iamaboy&#8221;[1];</p>
+<p>echo &#8220;this is a string&#8221;[-1];//下表使用负数的时候获取的是嘴一个往前数</p>
+<p>echo &#8220;this is a string&#8221;[-2];</p>
+<h2>password_hash</h2>
+<p>用于给内容加密</p>
+<p>代码：</p>
+<p>&lt;?php</p>
+<p>//以往加密方式md5加密方式，相同的内容加密之后加密数据是一样的</p>
+<p>//password_hash,不能反解密，并且每次加密的结果都不一样</p>
+<p>//password_hash加密方式有好多种，推荐使用的是PASSWORD_BCRYPT</p>
+<p>$num=123456;</p>
+<p>//第一个参数是需要加密的内容，第二个参数是加密的方式</p>
+<p>$pass=password_hash($num,PASSWORD_BCRYPT);</p>
+<p>echo $pass;</p>
+<p>//password_verify()验证加密的内容</p>
+<p>$num2=123456;</p>
+<p>$result=password_verify($num2,$pass);</p>
+<p>var_dump($result);</p>
+<h2>const定义常量</h2>
+<p><img decoding="async" width="613" height="194" class="wp-image-6811" src="/wp-content/uploads/2018/05/word-image-6211.png" srcset="/wp-content/uploads/2018/05/word-image-6211.png 613w, /wp-content/uploads/2018/05/word-image-6211-300x95.png 300w" sizes="(max-width: 613px) 100vw, 613px" /></p>
+<h2>不定参数otherParams</h2>
+<p>代码</p>
+<p>&lt;?php</p>
+<p>//在php可以定义otherParams来确定多个实参</p>
+<p>function text($a,$b,&#8230;$otherParams){</p>
+<p>var_dump($a);</p>
+<p>var_dump($b);</p>
+<p>var_dump($otherParams);</p>
+<p>}</p>
+<p>text(1,2);</p>
+<p>echo &#8220;&lt;br&gt;&#8221;;</p>
+<p>text(1,2,3);</p>
+<p>echo &#8220;&lt;br&gt;&#8221;;</p>
+<p>text(1,2,3,4,5,6,7,8,9,10);</p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="963" height="89" class="wp-image-6815" src="/wp-content/uploads/2018/05/word-image-6215.png" srcset="/wp-content/uploads/2018/05/word-image-6215.png 963w, /wp-content/uploads/2018/05/word-image-6215-300x28.png 300w, /wp-content/uploads/2018/05/word-image-6215-768x71.png 768w" sizes="(max-width: 963px) 100vw, 963px" /></p>
+<h2>php中求次方</h2>
+<p>写出一个数值的次方可以使用两个乘号加上多少次方的值</p>
+<p><img loading="lazy" decoding="async" width="570" height="185" class="wp-image-6819" src="/wp-content/uploads/2018/05/word-image-6219.png" srcset="/wp-content/uploads/2018/05/word-image-6219.png 570w, /wp-content/uploads/2018/05/word-image-6219-300x97.png 300w" sizes="(max-width: 570px) 100vw, 570px" /></p>
+<h2>namespace命名空间</h2>
+<p><img loading="lazy" decoding="async" width="853" height="480" class="wp-image-6823" src="/wp-content/uploads/2018/05/word-image-6223.png" srcset="/wp-content/uploads/2018/05/word-image-6223.png 853w, /wp-content/uploads/2018/05/word-image-6223-300x169.png 300w, /wp-content/uploads/2018/05/word-image-6223-768x432.png 768w" sizes="(max-width: 853px) 100vw, 853px" /></p>
+<h2>function形参的定义</h2>
+<p>代码</p>
+<p>&lt;?php</p>
+<p>function text(string $username,int $age) : string</p>
+<p>{</p>
+<p>var_dump($username);</p>
+<p>var_dump($age);</p>
+<p>}</p>
+<p>text(&#8216;zhangsan&#8217;,&#8221;22&#8243;);</p>
+<p>// text(22,&#8221;zhangsan&#8221;);</p>
+<h2>isset和三元运算符的简写</h2>
+<p><img loading="lazy" decoding="async" width="1065" height="371" class="wp-image-6827" src="/wp-content/uploads/2018/05/word-image-6227.png" srcset="/wp-content/uploads/2018/05/word-image-6227.png 1065w, /wp-content/uploads/2018/05/word-image-6227-300x105.png 300w, /wp-content/uploads/2018/05/word-image-6227-768x268.png 768w, /wp-content/uploads/2018/05/word-image-6227-1024x357.png 1024w" sizes="(max-width: 1065px) 100vw, 1065px" /></p>
+<h1>php7</h1>
+<h2>太空船</h2>
+<p>当两个数字进行比较大于则返回1 等于返回0 小于返回-1</p>
+<p><img loading="lazy" decoding="async" width="732" height="554" class="wp-image-6831" src="/wp-content/uploads/2018/05/word-image-6231.png" srcset="/wp-content/uploads/2018/05/word-image-6231.png 732w, /wp-content/uploads/2018/05/word-image-6231-300x227.png 300w" sizes="(max-width: 732px) 100vw, 732px" /></p>
+<h2>const定数组</h2>
+<p>数组里面的内容要求，必须是字符串或者数字类型</p>
+<p><img loading="lazy" decoding="async" width="793" height="203" class="wp-image-6835" src="/wp-content/uploads/2018/05/word-image-6235.png" srcset="/wp-content/uploads/2018/05/word-image-6235.png 793w, /wp-content/uploads/2018/05/word-image-6235-300x77.png 300w, /wp-content/uploads/2018/05/word-image-6235-768x197.png 768w" sizes="(max-width: 793px) 100vw, 793px" /></p>
+<h2>匿名函数和匿名类</h2>
+<p>&lt;?php</p>
+<p>//使用 define定义数组</p>
+<p>define(&#8216;NUMS&#8217;,[1,2]);</p>
+<p>var_dump(NUMS);</p>
+<p>//定义一个匿名函数，将这个匿名函数复制给变量</p>
+<p>$func=function(){</p>
+<p>echo &#8220;这是匿名函数&#8221;;</p>
+<p>};</p>
+<p>//调用匿名函数</p>
+<p>$func();</p>
+<p>//顶一个匿名类</p>
+<p>$bb=new class{</p>
+<p>public $name=&#8221;zhangsan&#8221;;</p>
+<p>public function __construct(){</p>
+<p>echo &#8220;这是匿名类&#8221;;</p>
+<p>}</p>
+<p>};</p>
+<p>//调用类里面的内容</p>
+<p>var_dump($bb-&gt;name);</p>
+<p><img loading="lazy" decoding="async" width="649" height="80" class="wp-image-6839" src="/wp-content/uploads/2018/05/word-image-6239.png" srcset="/wp-content/uploads/2018/05/word-image-6239.png 649w, /wp-content/uploads/2018/05/word-image-6239-300x37.png 300w" sizes="(max-width: 649px) 100vw, 649px" /></p>
+<h2>字符串转换</h2>
+<p>小明=&gt; 5c0f 660e</p>
+<p>&lt;?php</p>
+<p>//转码必须加上\u unicode 必须加上{uniclde编码}</p>
+<p>echo &#8220;\u{5c0f}&#8221;; //小</p>
+<p>echo &#8220;\u{660e}&#8221;; //明</p>
+<h2>函数调用类里面的方法</h2>
+<p>$aa=55;</p>
+<p>//使用use可以当成形参使用</p>
+<p>$bb=function() use($aa)</p>
+<p>{</p>
+<p>echo $aa;</p>
+<p>//可以直接拿到类里面的方法</p>
+<p>$this-&gt;Hi();</p>
+<p>};</p>
+<p>// $bb();</p>
+<p>//定义一个类</p>
+<p>class Hello{</p>
+<p>public function Hi(){</p>
+<p>echo &#8220;hello~~&#8221;;</p>
+<p>}</p>
+<p>}</p>
+<p>//使用函数调用类里面的方法</p>
+<p>//先实例化类</p>
+<p>$he=new Hello();</p>
+<p>//在使用函数调用类里面的方法是不能在单独实例化函数</p>
+<p>$bb-&gt;call($he);</p>
+<h2>不同的名空间调用类</h2>
+<p><img loading="lazy" decoding="async" width="1265" height="553" class="wp-image-6843" src="/wp-content/uploads/2018/05/word-image-6243.png" srcset="/wp-content/uploads/2018/05/word-image-6243.png 1265w, /wp-content/uploads/2018/05/word-image-6243-300x131.png 300w, /wp-content/uploads/2018/05/word-image-6243-768x336.png 768w, /wp-content/uploads/2018/05/word-image-6243-1024x448.png 1024w" sizes="(max-width: 1265px) 100vw, 1265px" /></p>
+<h2>数组的赋值</h2>
+<p><img loading="lazy" decoding="async" width="678" height="396" class="wp-image-6846" src="/wp-content/uploads/2018/05/word-image-6246.png" srcset="/wp-content/uploads/2018/05/word-image-6246.png 678w, /wp-content/uploads/2018/05/word-image-6246-300x175.png 300w" sizes="(max-width: 678px) 100vw, 678px" /></p>
+<h2>函数的参数（数组）</h2>
+<p><img loading="lazy" decoding="async" width="547" height="309" class="wp-image-6849" src="/wp-content/uploads/2018/05/word-image-6249.png" srcset="/wp-content/uploads/2018/05/word-image-6249.png 547w, /wp-content/uploads/2018/05/word-image-6249-300x169.png 300w" sizes="(max-width: 547px) 100vw, 547px" /></p>
+<h2>类里面的常量可以不是public公有的</h2>
+<p><img loading="lazy" decoding="async" width="1292" height="230" class="wp-image-6852" src="/wp-content/uploads/2018/05/word-image-6252.png" srcset="/wp-content/uploads/2018/05/word-image-6252.png 1292w, /wp-content/uploads/2018/05/word-image-6252-300x53.png 300w, /wp-content/uploads/2018/05/word-image-6252-768x137.png 768w, /wp-content/uploads/2018/05/word-image-6252-1024x182.png 1024w" sizes="(max-width: 1292px) 100vw, 1292px" /></p>
+<h2>多异常抛出</h2>
+<p>可以抓取多个异常类</p>
+<p>&lt;?php</p>
+<p>class my extends Exception{};</p>
+<p>class he extends Exception{};</p>
+<p>class she extends Exception{};</p>
+<p>try{</p>
+<p>throw new my(&#8220;我的错误&#8221;);</p>
+<p>throw new she(&#8220;我的错误&#8221;);</p>
+<p>//可以在下面抓取异常的内容中设置任意一个异常</p>
+<p>}catch(my | she | he $e){</p>
+<p>var_dump($e);</p>
+<p>}</p>
+<h2>通过list给数组的赋值</h2>
+<p><img loading="lazy" decoding="async" width="993" height="242" class="wp-image-6855" src="/wp-content/uploads/2018/05/word-image-6255.png" srcset="/wp-content/uploads/2018/05/word-image-6255.png 993w, /wp-content/uploads/2018/05/word-image-6255-300x73.png 300w, /wp-content/uploads/2018/05/word-image-6255-768x187.png 768w" sizes="(max-width: 993px) 100vw, 993px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/6502.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

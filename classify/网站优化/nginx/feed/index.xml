@@ -1,0 +1,1151 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Nginx &#8211; 个人随笔</title>
+	<atom:link href="/classify/%E7%BD%91%E7%AB%99%E4%BC%98%E5%8C%96/nginx/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Mon, 21 May 2018 11:35:37 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>Nginx &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Nginx 服务器集群、负载均衡、CDN</title>
+		<link>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/nginx/5046.html</link>
+					<comments>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/nginx/5046.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 13:34:08 +0000</pubDate>
+				<category><![CDATA[Nginx]]></category>
+		<category><![CDATA[网站优化]]></category>
+		<category><![CDATA[CDN]]></category>
+		<category><![CDATA[服务器集群]]></category>
+		<category><![CDATA[负载均衡]]></category>
+		<guid isPermaLink="false">/?p=5046</guid>
+
+					<description><![CDATA[Nginx与服务器集群 服务器介绍 1、概念（通俗理解） 服务器：就是没有显示器的电脑（比普通电脑配置高，并且 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>Nginx与服务器集群</h1>
+<h1>服务器介绍</h1>
+<h2>1、概念（通俗理解）</h2>
+<p>
+  服务器：就是没有显示器的电脑（比普通电脑配置高，并且有一个唯一的公网ip）
+</p>
+<p>
+  web服务器：就是一个软件（一般监听80端口，用户接口用户请求，响应请求给用户）
+</p>
+<h2>2、常用Web服务器</h2>
+<ul>
+<li>
+    Apache
+  </li>
+</ul>
+<p>
+  1）是世界上用的最多的Web服务器，它的优势在开源代码开放，功能完善，历史悠久，模块支持非常丰富，跨平台；缺点在于比其他web服务器内存占用高；
+</p>
+<p>
+  2）适用于动态网站。
+</p>
+<ul>
+<li>
+    Nginx
+  </li>
+</ul>
+<p>
+  1）是一款轻量级的Web 服务器/反向代理服务器及电子邮件代理服务器，其特点是占有内存少，并发能力强，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等；
+</p>
+<p>
+  2）适用于反向代理服务器和静态资源服务器（注：线上公司都使用Linux安装）
+</p>
+<ul>
+<li>
+    IIS：
+  </li>
+</ul>
+<p>
+  是windows系统上的服务器产品（微软公司提供）。主要是给.net和asp语言使用的，经过扩展也是可以支持PHP语言（不推荐使用）。
+</p>
+<ul>
+<li>
+    Lighttpd：（图片服务器）
+  </li>
+</ul>
+<p>
+  是一个德国人领导的开源Web服务器软件，具有非常低的内存开销、cpu占用率低、效能好以及丰富的模块等特点。
+</p>
+<p>
+  web服务器市场使用排行：<a href="https://w3techs.com/">https://w3techs.com/</a>
+</p>
+<p><a href="http://www.lvse.com/site/w3techs-com-83.html">http://www.lvse.com/site/w3techs-com-83.html</a>
+</p>
+<h2>3、静态资源服务器</h2>
+<ul>
+<li>
+    场景：
+  </li>
+</ul>
+<p>
+  传统的web项目，一般都将静态资源存放在项目Public的目录下，这样做很方便获取静态资源，但是如果说web项目很大，用户很多，静态资源也很多时，服务器的性能明显下降。这种情况下一般都会需要一个静态资源的服务器。
+</p>
+<ul>
+<li>
+    实现：通过nginx搭建，或者通过阿里云、七牛的对象存储
+  </li>
+<li>
+    大型项目分离好处（注：推荐静态资源使用新域名）：
+  </li>
+</ul>
+<p>
+  1、便于维护使用（举例：一个项目图片可以方便所有项目使用，如：jq等）
+</p>
+<p>
+  2、动静分离有利于CDN加速 （注：动静分离指后端处理数据文件和静态文件分离）
+</p>
+<p>
+  3、【新域名好处】便于缓存    （举例：请求的是同一文件，就不用再下载了）
+</p>
+<p>
+  4、【新域名好处】静态资源的http请求中不会携带无用的cookie。
+</p>
+<p>
+  5、【新域名好处】优化浏览器对同一域名进行请求的最大并发连接数限制（注：不同浏览器限制不同）
+</p>
+<p>
+  什么是静态资源服务器：就是单独存放静态资源资源的服务器（如：css、js、图片等）
+</p>
+<p>
+  如何搭建静态资源服务器：通过nginx
+</p>
+<p>
+  好处：比传统快
+</p>
+<h2>CDN服务器</h2>
+<ul>
+<li>
+    作用：大型项目加速网站访问速度
+  </li>
+<li>
+    说明：CDN服务器供应商在全国各个城市都有一个机房，用于后期缓存静态资源，
+  </li>
+</ul>
+<p>
+  网站老板购买了CDN后，其网站用户访问时第一次去源服务器访问并缓存到用户最近的机房，下次直接去最近的机房（节点）访问。
+</p>
+<p><img fetchpriority="high" decoding="async" width="928" height="346" src="/wp-content/uploads/2018/05/word-image-4559.png" class="wp-image-5047" srcset="/wp-content/uploads/2018/05/word-image-4559.png 928w, /wp-content/uploads/2018/05/word-image-4559-300x112.png 300w, /wp-content/uploads/2018/05/word-image-4559-768x286.png 768w" sizes="(max-width: 928px) 100vw, 928px" /></p>
+<h2>5、大型项目架构</h2>
+<p>
+  集群技术/冗余技术：将多台服务器集中在一起，实现同一业务。
+</p>
+<p>
+  负载均衡技术：将任务按照指定策略分布到集群环境中的服务器上。
+</p>
+<p>
+  主从复制：一主或多主一从或多从，当主服务器insert/update/delete动作，从服务器自动同步。
+</p>
+<p>
+  动静分离：动态资源和后端程序在不同的服务器上
+</p>
+<p>
+  读写分离：增/删/改在操作一台数据库，读操作另一个数据库
+</p>
+<p><img decoding="async" width="1172" height="470" src="/wp-content/uploads/2018/05/word-image-4560.png" class="wp-image-5048" srcset="/wp-content/uploads/2018/05/word-image-4560.png 1172w, /wp-content/uploads/2018/05/word-image-4560-300x120.png 300w, /wp-content/uploads/2018/05/word-image-4560-768x308.png 768w, /wp-content/uploads/2018/05/word-image-4560-1024x411.png 1024w" sizes="(max-width: 1172px) 100vw, 1172px" /></p>
+<h1>二、Nginx服务器</h1>
+<h2>1、Nginx概述</h2>
+<p>
+  Nginx是一款轻量级、高性能的Web 服务器或反向代理服务器或邮件服务器，因它的稳定性、丰富的功能集和低系统资源的消耗而闻名。
+</p>
+<p>
+  Tengine是由淘宝网发起的Web服务器项目。它在Nginx的基础上，针对大访问量网站的需求添
+</p>
+<p>
+  加了很多高级功能和特性。成功案例：淘宝网，天猫商城等。
+</p>
+<p>
+  官网：http://tengine.taobao.org/faq_cn.html
+</p>
+<h2>Nginx特点</h2>
+<p>
+  占有内存少，并发能力强
+</p>
+<h2>3、Apache与Nginx服务器区别</h2>
+<ul>
+<li>
+    Nginx相对 Apache的优点
+  </li>
+</ul>
+<p>
+  轻量级，同样起web 服务，比apache 占用更少的内存及资源;
+</p>
+<p>
+  抗并发，nginx 处理请求是异步非阻塞的，而apache 则是阻塞型的，在高并发下nginx 能保持低资源低消耗高性能
+</p>
+<p>
+  高度模块化的设计，编写模块相对简单;
+</p>
+<p>
+  社区活跃，各种高性能模块出品迅速;
+</p>
+<ul>
+<li>
+    Apache相对Nginx的优点
+  </li>
+</ul>
+<p>
+  rewrite ，比nginx 的rewrite 强大;
+</p>
+<p>
+  模块超多，基本想到的都可以找到;
+</p>
+<p>
+  少bug ，nginx 的bug 相对较多;
+</p>
+<p>
+  超稳定;
+</p>
+<ul>
+<li>
+    总结
+  </li>
+</ul>
+<p>
+  Nginx   &#8211;  静态资源服务器或反向代理服务器使用（对象存储代替）
+</p>
+<p>
+  Apache  &#8211;  后端服务器
+</p>
+<h1>三、LNMP的安装与配置</h1>
+<h2>1、Nginx的安装</h2>
+<h3>1）依赖注意</h3>
+<p>
+  模块依赖性：Nginx的一些模块需要其他第三方库的支持，例如gzip模块需要zlib 库，rewrite模块需要pcre库，ssl功能需要openssl库等。
+</p>
+<h3>pcre安装</h3>
+<p><em>shell&gt;</em>  cd /php/tools
+</p>
+<p><em>shell&gt;</em>  tar -zxvf pcre-8.34.tar.gz       		#解压
+</p>
+<p><em>shell&gt;</em>  cd pcre-8.34				      		#进入解压目录
+</p>
+<p><em>shell&gt;</em>  ./configure &amp;&amp; make &amp;&amp; make install  #配置、编译和安装
+</p>
+<p><img decoding="async" width="535" height="117" src="/wp-content/uploads/2018/05/word-image-4561.png" class="wp-image-5049" srcset="/wp-content/uploads/2018/05/word-image-4561.png 535w, /wp-content/uploads/2018/05/word-image-4561-300x66.png 300w" sizes="(max-width: 535px) 100vw, 535px" /><br />
+<img loading="lazy" decoding="async" width="625" height="118" src="/wp-content/uploads/2018/05/word-image-4562.png" class="wp-image-5050" srcset="/wp-content/uploads/2018/05/word-image-4562.png 625w, /wp-content/uploads/2018/05/word-image-4562-300x57.png 300w" sizes="(max-width: 625px) 100vw, 625px" /></p>
+<h3>3）zlib压缩库</h3>
+<p><em>shell&gt;</em>  cd /php/tools
+</p>
+<p>
+  shell<em>&gt;</em>  tar -zxvf zlib-1.2.5.tar.gz
+</p>
+<p><em>shell&gt;</em>  cd zlib-1.2.5
+</p>
+<p><em>shell&gt;</em>  ./configure 	      		# 这个配置编译命令不要加目录参数
+</p>
+<p><em>shell&gt;</em>  make &amp;&amp; make install
+</p>
+<p><img loading="lazy" decoding="async" width="613" height="130" src="/wp-content/uploads/2018/05/word-image-4563.png" class="wp-image-5051" srcset="/wp-content/uploads/2018/05/word-image-4563.png 613w, /wp-content/uploads/2018/05/word-image-4563-300x64.png 300w" sizes="(max-width: 613px) 100vw, 613px" /></p>
+<h3>4）Nginx安装</h3>
+<p><em>shell&gt;</em> cd /php/tools
+</p>
+<p>
+  shell<em>&gt;</em> tar -zxvf nginx-1.8.1.tar.gz
+</p>
+<p>
+  shell<em>&gt;</em> cd nginx-1.8.1
+</p>
+<p>
+  shell<em>&gt;</em> mkdir -p /php/server/nginx
+</p>
+<p>
+  shell<em>&gt;</em> ./configure  &#8211;prefix=/php/server/nginx
+</p>
+<p><img loading="lazy" decoding="async" width="562" height="412" src="/wp-content/uploads/2018/05/word-image-4564.png" class="wp-image-5052" srcset="/wp-content/uploads/2018/05/word-image-4564.png 562w, /wp-content/uploads/2018/05/word-image-4564-300x220.png 300w" sizes="(max-width: 562px) 100vw, 562px" /></p>
+<p>
+  shell<em>&gt;</em> make &amp;&amp; make install
+</p>
+<p><img loading="lazy" decoding="async" width="642" height="415" src="/wp-content/uploads/2018/05/word-image-4565.png" class="wp-image-5053" srcset="/wp-content/uploads/2018/05/word-image-4565.png 642w, /wp-content/uploads/2018/05/word-image-4565-300x194.png 300w" sizes="(max-width: 642px) 100vw, 642px" /></p>
+<h2>2、管理Nginx</h2>
+<h3>1）启动Nginx</h3>
+<p>
+  shell<em>&gt;</em> /php/server/nginx/sbin/nginx
+</p>
+<p>
+  通过浏览器查询是否启动成功，出现如下内容，则启动成功。
+</p>
+<p><img loading="lazy" decoding="async" width="840" height="286" src="/wp-content/uploads/2018/05/word-image-4566.png" class="wp-image-5054" srcset="/wp-content/uploads/2018/05/word-image-4566.png 840w, /wp-content/uploads/2018/05/word-image-4566-300x102.png 300w, /wp-content/uploads/2018/05/word-image-4566-768x261.png 768w" sizes="(max-width: 840px) 100vw, 840px" /></p>
+<p>
+  Nginx服务器默认80端口
+</p>
+<p>
+  需要关闭Linux服务器防火墙或者添加80端口例外（service iptables stop）
+</p>
+<p><strong>︴如果启动Nginx报错：libpcre.so.1: cannot</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="645" height="125" src="/wp-content/uploads/2018/05/word-image-4567.png" class="wp-image-5055" srcset="/wp-content/uploads/2018/05/word-image-4567.png 645w, /wp-content/uploads/2018/05/word-image-4567-300x58.png 300w" sizes="(max-width: 645px) 100vw, 645px" /></p>
+<p>
+  解决：
+</p>
+<p>
+  shell&gt; ln -s /lib/libpcre.so.0.0.1 /lib/libpcre.so.1  （再重新启动nginx即可）
+</p>
+<p><img loading="lazy" decoding="async" width="377" height="70" src="/wp-content/uploads/2018/05/word-image-4568.png" class="wp-image-5056" srcset="/wp-content/uploads/2018/05/word-image-4568.png 377w, /wp-content/uploads/2018/05/word-image-4568-300x56.png 300w" sizes="(max-width: 377px) 100vw, 377px" /></p>
+<h3>2）关闭Nginx服务</h3>
+<p>
+  shell<em>&gt;</em> /php/server/nginx/sbin/nginx -s stop
+</p>
+<h3>重启服务</h3>
+<p>
+  shell<em>&gt;</em> /php/server/nginx/sbin/nginx -s reload
+</p>
+<h2>3、配置文件（nginx.conf）</h2>
+<h3>1）位置</h3>
+<p><img loading="lazy" decoding="async" width="542" height="165" src="/wp-content/uploads/2018/05/word-image-4569.png" class="wp-image-5057" srcset="/wp-content/uploads/2018/05/word-image-4569.png 542w, /wp-content/uploads/2018/05/word-image-4569-300x91.png 300w" sizes="(max-width: 542px) 100vw, 542px" /></p>
+<h3>2）说明</h3>
+<p>
+  user  用户  用户组;
+</p>
+<p>
+  #有1个工作子进程，可以自行修改，一般为当前机器总cpu核心数的1到2倍
+</p>
+<p>
+  worker_processes 8;
+</p>
+<p>
+  events {
+</p>
+<p>
+  #单个后台worker process进程的最大并发链接数
+</p>
+<p>
+  #最大连接数 = worker_processes * worker_connections
+</p>
+<p>
+      worker_connections  1024; #这里指一个子进程最大允许连接1024
+</p>
+<p>
+  }
+</p>
+<p>
+  http { #这是配置http服务器的主要段
+</p>
+<p>
+  server { #虚拟主机段
+</p>
+<p>
+  location {  #定位，把特殊的文件再次定位，如image目录单独处理或php单独处理
+</p>
+<p>
+  }
+</p>
+<p>
+  }
+</p>
+<p>
+  server { #虚拟主机段
+</p>
+<p>
+  location {  #定位，把特殊的文件再次定位，如image目录单独处理或php单独处理
+</p>
+<p>
+  }
+</p>
+<p>
+  }
+</p>
+<p>
+  &#8230;&#8230;.
+</p>
+<p>
+  }
+</p>
+<p>
+  每新增一个server则添加一个虚拟主机（推荐：使用include方式引入外部虚拟主机配置文件）
+</p>
+<h2>4、配置虚拟主机（Nginx）</h2>
+<h3>1）概念（无需操作）</h3>
+<p>
+  在nginx下配置虚拟主机非常简单，只需在nginx下http {} 中 增加一个server（填入如下配置）即可新增一个虚拟主机
+</p>
+<p>
+  server {
+</p>
+<p>
+      # 监听端口
+</p>
+<p>
+      listen 80;
+</p>
+<p>
+      # 绑定域名（多个之间用空格隔开）
+</p>
+<p>
+      server_name 待绑定的域名;
+</p>
+<p>
+      location / {
+</p>
+<p>
+          # 项目根目录
+</p>
+<p>
+          root /php/wwwroot/web1;
+</p>
+<p>
+          # 默认首页
+</p>
+<p>
+          index index.html index.htm;
+</p>
+<p>
+     }
+</p>
+<p>
+  }
+</p>
+<h3>主配置（nginx.conf）文件新增2个虚拟主机</h3>
+<ul>
+<li>
+    步骤1：打开Nginx主配置文件（nginx.conf）引入外部虚拟主机配置文件
+  </li>
+</ul>
+<p>
+  shell<em>&gt;</em> vi /php/server/nginx/conf/nginx.conf
+</p>
+<p>
+  在http{}中加入下属代码：
+</p>
+<p><img loading="lazy" decoding="async" width="540" height="677" src="/wp-content/uploads/2018/05/word-image-4570.png" class="wp-image-5058" srcset="/wp-content/uploads/2018/05/word-image-4570.png 540w, /wp-content/uploads/2018/05/word-image-4570-239x300.png 239w" sizes="(max-width: 540px) 100vw, 540px" /></p>
+<p>
+      server {
+</p>
+<p>
+          # 监听端口
+</p>
+<p>
+          listen 80;
+</p>
+<p>
+          # 绑定域名（多个之间用空格隔开）
+</p>
+<p>
+          server_name n1.com;
+</p>
+<p>
+          location / {
+</p>
+<p>
+              # 项目根目录
+</p>
+<p>
+              root /php/wwwroot/web1;
+</p>
+<p>
+              # 默认首页
+</p>
+<p>
+              index index.html index.htm;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+      server {
+</p>
+<p>
+          # 监听端口
+</p>
+<p>
+          listen 80;
+</p>
+<p>
+          # 绑定域名（多个之间用空格隔开）
+</p>
+<p>
+          server_name n2.com;
+</p>
+<p>
+          location / {
+</p>
+<p>
+              # 项目根目录
+</p>
+<p>
+              root /php/wwwroot/web2;
+</p>
+<p>
+              # 默认首页
+</p>
+<p>
+              index index.html index.htm;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  修改nginx.conf主配置文件强烈推荐先备份，如：cp -r nginx.conf nginx.conf.bak
+</p>
+<ul>
+<li>
+    步骤2：创建虚拟主机目录
+  </li>
+</ul>
+<p>
+  shell<em>&gt;</em> mkdir -p /php/wwwroot/web1 /php/wwwroot/web2
+</p>
+<p>
+  shell<em>&gt;</em> echo &#8216;this is n1.com&#8217; &gt; /php/wwwroot/web1/index.html
+</p>
+<p>
+  shell<em>&gt;</em> echo &#8216;this is n2.com&#8217; &gt; /php/wwwroot/web2/index.html
+</p>
+<ul>
+<li>
+    步骤3：重启服务即可
+  </li>
+</ul>
+<p>
+  shell<em>&gt;</em> /php/server/nginx/sbin/nginx -s reload
+</p>
+<ul>
+<li>
+    步骤4：在<strong>本机</strong>修改hosts文件
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="809" height="133" src="/wp-content/uploads/2018/05/word-image-4571.png" class="wp-image-5059" srcset="/wp-content/uploads/2018/05/word-image-4571.png 809w, /wp-content/uploads/2018/05/word-image-4571-300x49.png 300w, /wp-content/uploads/2018/05/word-image-4571-768x126.png 768w" sizes="(max-width: 809px) 100vw, 809px" /></p>
+<p>
+  流程：当打开本机浏览器输入n1.com或者n2.com会访问对用的IP的Linux服务器的80端口软件Nginx会让其访问对应的web项目。
+</p>
+<p>
+  注：后期需要增加虚拟主机，则继续上述步骤添加server即可
+</p>
+<h3>︴扩展：引入外部配置文件（同apache开启httpd-vhosts）</h3>
+<ul>
+<li>
+    说明：在主配置文件中新增多个虚拟主机，导致配置文件越来越大，不便于管理，
+  </li>
+</ul>
+<p>
+  所以建议采取下述方案：一个虚拟主机对应一个配置文件。
+</p>
+<ul>
+<li>
+    步骤1：打开Nginx主配置文件（nginx.conf）将刚新增的两个虚拟主机删除或注释
+  </li>
+<li>
+    步骤2：打开Nginx主配置文件（nginx.conf）引入外部虚拟主机配置文件
+  </li>
+</ul>
+<p>
+  shell<em>&gt;</em> vi /php/server/nginx/conf/nginx.conf
+</p>
+<p>
+  在http{}中加入：【include vhosts/*.conf;】
+</p>
+<p><img loading="lazy" decoding="async" width="685" height="440" src="/wp-content/uploads/2018/05/word-image-4572.png" class="wp-image-5060" srcset="/wp-content/uploads/2018/05/word-image-4572.png 685w, /wp-content/uploads/2018/05/word-image-4572-300x193.png 300w" sizes="(max-width: 685px) 100vw, 685px" /></p>
+<ul>
+<li>
+    步骤3：新建外部虚拟主机目录（vhosts）
+  </li>
+</ul>
+<p>
+  shell<em>&gt;</em> mkdir -p /php/server/nginx/conf/vhosts  #用于存放虚拟主机文件（一个文件对应一个虚拟主机）
+</p>
+<ul>
+<li>
+    步骤4：新建新建虚拟主机
+  </li>
+</ul>
+<p>
+  shell<em>&gt;</em> cd /php/server/nginx/conf/vhosts
+</p>
+<p>
+  shell<em>&gt;</em> vi nginx1.conf
+</p>
+<p>
+  server {
+</p>
+<p>
+      # 监听端口
+</p>
+<p>
+      listen 80;
+</p>
+<p>
+      # 绑定域名（多个之间用空格隔开）
+</p>
+<p>
+      server_name n1.com;
+</p>
+<p>
+      location / {
+</p>
+<p>
+          # 项目根目录
+</p>
+<p>
+          root /php/wwwroot/web1;
+</p>
+<p>
+          # 默认首页
+</p>
+<p>
+          index index.html index.htm;
+</p>
+<p>
+     }
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤4：重启服务即可
+  </li>
+</ul>
+<p>
+  shell<em>&gt;</em> /php/server/nginx/sbin/nginx -s reload
+</p>
+<p>
+  注：后期需要增加虚拟主机，则在【/php/server/nginx/conf/vhosts】目录下新建【xxx.conf】以conf
+</p>
+<p>
+  结尾的文件然后填写server即可。
+</p>
+<h2>5. 安装php并与nginx整合（php-fpm）</h2>
+<h3>1）说明</h3>
+<p>
+  php安装可以作为Apache模块存在，同时也可以单独的作为一个服务运行（端口是9000端口），这种单独运行的模式叫做php-fpm模式，在5.3.3+以后的版本都默认支持，以前的版本需要打补丁。
+</p>
+<h3>2）安装libxml2（否则配置php报错）</h3>
+<p><em>shell&gt;</em> cd /php/tools
+</p>
+<p><em>shell&gt;</em> tar zxvf libxml2-2.7.2.tar.gz
+</p>
+<p><em>shell&gt;</em> cd libxml2-2.7.2
+</p>
+<p><em>shell&gt;</em> ./configure
+</p>
+<p><em>shell&gt;</em> make &amp;&amp; make install
+</p>
+<p><img loading="lazy" decoding="async" width="443" height="350" src="/wp-content/uploads/2018/05/word-image-4573.png" class="wp-image-5061" srcset="/wp-content/uploads/2018/05/word-image-4573.png 443w, /wp-content/uploads/2018/05/word-image-4573-300x237.png 300w" sizes="(max-width: 443px) 100vw, 443px" /></p>
+<h3>3）安装PHP</h3>
+<p>
+  shell<em>&gt;</em> cd /php/tools
+</p>
+<p>
+  shell<em>&gt;</em> tar -zxvf php-5.6.31.tar.gz
+</p>
+<p>
+  shell<em>&gt;</em> cd php-5.6.31
+</p>
+<p>
+  shell<em>&gt;</em> ./configure &#8211;prefix=/php/server/php  &#8211;enable-fpm
+</p>
+<p>
+  注意：&#8211;enable-fpm该选项是指，以独立进程的方式来安装PHP。
+</p>
+<p><img loading="lazy" decoding="async" width="579" height="485" src="/wp-content/uploads/2018/05/word-image-4574.png" class="wp-image-5062" srcset="/wp-content/uploads/2018/05/word-image-4574.png 579w, /wp-content/uploads/2018/05/word-image-4574-300x251.png 300w" sizes="(max-width: 579px) 100vw, 579px" /></p>
+<p>
+  shell<em>&gt;</em> make &amp;&amp; make install
+</p>
+<p><img loading="lazy" decoding="async" width="638" height="286" src="/wp-content/uploads/2018/05/word-image-4575.png" class="wp-image-5063" srcset="/wp-content/uploads/2018/05/word-image-4575.png 638w, /wp-content/uploads/2018/05/word-image-4575-300x134.png 300w" sizes="(max-width: 638px) 100vw, 638px" /></p>
+<p>
+  复制php.ini配置文件到指定目
+</p>
+<p>
+  shell<em>&gt;</em> \cp php.ini-development /php/server/php/lib/php.ini
+</p>
+<p>
+  php.ini 在php源代码解压文件目录里
+</p>
+<h3>4）管理PHP服务</h3>
+<p>
+  shell<em>&gt;</em> /php/server/php/sbin/php-fpm  # 启动服务
+</p>
+<p>
+  shell<em>&gt;</em> killall php-fpm  					# 关闭服务
+</p>
+<p>
+  ︴启动服务报错：
+</p>
+<p>
+  ERROR: failed to open configuration file &#8216;/xxxx/php/etc/php-fpm.conf
+</p>
+<p>
+  cp \
+</p>
+<p>
+  /php/server/php/etc/php-fpm.conf.default \
+</p>
+<p>
+  /php/server/php/etc/php-fpm.conf
+</p>
+<p>
+  注：注意修改红色PHP安装路径
+</p>
+<p>
+  查看是否启动成功
+</p>
+<p><img loading="lazy" decoding="async" width="443" height="100" src="/wp-content/uploads/2018/05/word-image-4576.png" class="wp-image-5064" srcset="/wp-content/uploads/2018/05/word-image-4576.png 443w, /wp-content/uploads/2018/05/word-image-4576-300x68.png 300w" sizes="(max-width: 443px) 100vw, 443px" /></p>
+<h3>5）让nginx支持PHP</h3>
+<p>
+  步骤1：虚拟主机添加
+</p>
+<p>
+  location ~ \.php$ {
+</p>
+<p>
+      root             虚拟主机路径;
+</p>
+<p>
+      fastcgi_pass   127.0.0.1:9000;
+</p>
+<p>
+      fastcgi_index  index.php;
+</p>
+<p>
+      fastcgi_param  SCRIPT_FILENAME  虚拟主机路径/$fastcgi_script_name;
+</p>
+<p>
+      include        fastcgi_params;
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="666" height="370" src="/wp-content/uploads/2018/05/word-image-4577.png" class="wp-image-5065" srcset="/wp-content/uploads/2018/05/word-image-4577.png 666w, /wp-content/uploads/2018/05/word-image-4577-300x167.png 300w" sizes="(max-width: 666px) 100vw, 666px" /></p>
+<p>
+  步骤2：重启nginx即可
+</p>
+<p>
+  shell<em>&gt;</em> /php/server/nginx/sbin/nginx -s reload
+</p>
+<h1>四、配置expires缓存功能		</h1>
+<h2>1、expires缓存功能概述</h2>
+<ul>
+<li>
+    作用：设置expires减少不必要的http请求
+  </li>
+<li>
+    场景：将静态资源（css、js、图片）等缓存到客户端，减轻服务区压力
+  </li>
+</ul>
+<p>
+  浏览器默认也有缓存机制，通过expires统一缓存时间
+</p>
+<p>
+  校验文件缓存是否过期	    Expires（http1.0）、Cache-Control:max-age=秒（http1.1）
+</p>
+<p>
+  协议中Etag头信息校验       Etag               （请求：If-None-Match）
+</p>
+<p>
+  Last-Modified头信息校验   Last-Modified    （请求：If-Modified-Since）
+</p>
+<p><img loading="lazy" decoding="async" width="564" height="356" src="/wp-content/uploads/2018/05/word-image-4578.png" class="wp-image-5066" srcset="/wp-content/uploads/2018/05/word-image-4578.png 564w, /wp-content/uploads/2018/05/word-image-4578-300x189.png 300w" sizes="(max-width: 564px) 100vw, 564px" /><br />
+<img loading="lazy" decoding="async" width="824" height="968" src="/wp-content/uploads/2018/05/word-image-4579.png" class="wp-image-5067" srcset="/wp-content/uploads/2018/05/word-image-4579.png 824w, /wp-content/uploads/2018/05/word-image-4579-255x300.png 255w, /wp-content/uploads/2018/05/word-image-4579-768x902.png 768w" sizes="(max-width: 824px) 100vw, 824px" /></p>
+<h2>2、详细配置</h2>
+<p>
+  对nginx 来说，实现的方法很简单，只要在location段中，使用 expires 就可以了
+</p>
+<p>
+  格式。
+</p>
+<p>
+  步骤1：打开虚拟主机配置
+</p>
+<p>
+  location ~ \.(gif|jpg|jpeg|png|bmp|ico)$ {
+</p>
+<p>
+      root /php/wwwroot/web1;
+</p>
+<p>
+      expires 1d;  #1d （天）  1h（时）  1m（分）  1s（秒）
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="401" height="361" src="/wp-content/uploads/2018/05/word-image-4580.png" class="wp-image-5068" srcset="/wp-content/uploads/2018/05/word-image-4580.png 401w, /wp-content/uploads/2018/05/word-image-4580-300x270.png 300w" sizes="(max-width: 401px) 100vw, 401px" /></p>
+<p>
+  步骤2：重启nginx
+</p>
+<h2>案例</h2>
+<p><img loading="lazy" decoding="async" width="852" height="419" src="/wp-content/uploads/2018/05/word-image-4581.png" class="wp-image-5069" srcset="/wp-content/uploads/2018/05/word-image-4581.png 852w, /wp-content/uploads/2018/05/word-image-4581-300x148.png 300w, /wp-content/uploads/2018/05/word-image-4581-768x378.png 768w" sizes="(max-width: 852px) 100vw, 852px" /></p>
+<p>
+  谷歌浏览器不出现：from cache可能是系统时间导致
+</p>
+<p>
+  验证：
+</p>
+<p>
+  date命令		 &#8211; 查看系统时间
+</p>
+<p>
+  步骤：
+</p>
+<p>
+  date -s &#8216;日期&#8217; &#8211; 修改系统时间（注：执行该命令后必须clock -w   写入到系统中）
+</p>
+<h1>总结</h1>
+<p>
+  expires作用：减少不必要的http请求
+</p>
+<p>
+  问：部分浏览器默认支持expires功能，为甚还需要自己设置？
+</p>
+<p>
+  答：自定义过期时间
+</p>
+<p>
+  问：如何验证expires是否设置成功？
+</p>
+<p>
+  答：看network的响应头信息 cache-control
+</p>
+<h1>五、开启gzip压缩</h1>
+<h2>1、开启gzip的好处</h2>
+<p>
+  gzip开启以后会将输出到用户浏览器的数据进行压缩的处理，这样就会减小通过网络传输的数据量，提高浏览的速度。（以空间换时间，以时间换空间）
+</p>
+<p><img loading="lazy" decoding="async" width="1187" height="231" src="/wp-content/uploads/2018/05/word-image-4582.png" class="wp-image-5070" srcset="/wp-content/uploads/2018/05/word-image-4582.png 1187w, /wp-content/uploads/2018/05/word-image-4582-300x58.png 300w, /wp-content/uploads/2018/05/word-image-4582-768x149.png 768w, /wp-content/uploads/2018/05/word-image-4582-1024x199.png 1024w" sizes="(max-width: 1187px) 100vw, 1187px" /></p>
+<h2>配置</h2>
+<p>
+  步骤1：打开虚拟主机配置文件
+</p>
+<p>
+  gzip on;			     #开启Gzip压缩
+</p>
+<p>
+  gzip_min_length 1k;	 #不压缩临界值，大于1K的才压缩
+</p>
+<p>
+  gzip_comp_level 6;   #压缩级别（1-9）越大越慢，同时也最消耗CPU
+</p>
+<p>
+  #声明压缩文件（MIME类型）
+</p>
+<p>
+  gzip_types text/plain application/x-javascript text/css application/xml text/javascript image/jpeg;
+</p>
+<p>
+  gzip_disable &#8220;MSIE [1-6]\.&#8221;; #禁用IE1-6
+</p>
+<p><img loading="lazy" decoding="async" width="879" height="308" src="/wp-content/uploads/2018/05/word-image-4583.png" class="wp-image-5071" srcset="/wp-content/uploads/2018/05/word-image-4583.png 879w, /wp-content/uploads/2018/05/word-image-4583-300x105.png 300w, /wp-content/uploads/2018/05/word-image-4583-768x269.png 768w" sizes="(max-width: 879px) 100vw, 879px" /></p>
+<p>
+  步骤2：重启nginx
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  开启成功标识
+</p>
+<p><img loading="lazy" decoding="async" width="558" height="246" src="/wp-content/uploads/2018/05/word-image-4584.png" class="wp-image-5072" srcset="/wp-content/uploads/2018/05/word-image-4584.png 558w, /wp-content/uploads/2018/05/word-image-4584-300x132.png 300w" sizes="(max-width: 558px) 100vw, 558px" /></p>
+<p>
+  压缩前
+</p>
+<p><img loading="lazy" decoding="async" width="623" height="41" src="/wp-content/uploads/2018/05/word-image-4585.png" class="wp-image-5073" srcset="/wp-content/uploads/2018/05/word-image-4585.png 623w, /wp-content/uploads/2018/05/word-image-4585-300x20.png 300w" sizes="(max-width: 623px) 100vw, 623px" /></p>
+<p>
+  压缩后
+</p>
+<p><img loading="lazy" decoding="async" width="1121" height="59" src="/wp-content/uploads/2018/05/word-image-4586.png" class="wp-image-5075" srcset="/wp-content/uploads/2018/05/word-image-4586.png 1121w, /wp-content/uploads/2018/05/word-image-4586-300x16.png 300w, /wp-content/uploads/2018/05/word-image-4586-768x40.png 768w, /wp-content/uploads/2018/05/word-image-4586-1024x54.png 1024w" sizes="(max-width: 1121px) 100vw, 1121px" /></p>
+<h1>负载均衡配置</h1>
+<h2>1、负载均衡图</h2>
+<p><img loading="lazy" decoding="async" width="624" height="427" src="/wp-content/uploads/2018/05/word-image-4587.png" class="wp-image-5076" srcset="/wp-content/uploads/2018/05/word-image-4587.png 624w, /wp-content/uploads/2018/05/word-image-4587-300x205.png 300w, /wp-content/uploads/2018/05/word-image-4587-220x150.png 220w" sizes="(max-width: 624px) 100vw, 624px" /></p>
+<h2>2、nginx支持的三种负载均衡策略</h2>
+<p>
+  轮询：将请求依次轮询发给每个服务器。
+</p>
+<p>
+  最少链接：将请求发送给持有最少活动链接的服务器。
+</p>
+<p>
+  ip哈希：通过哈希函数决定请求发送给哪个服务器。
+</p>
+<p>
+  权重：服务器的权重越高，处理请求的概率越大。
+</p>
+<h2>3、轮询负载均衡</h2>
+<p>
+  http {
+</p>
+<p>
+      #设定负载均衡的服务器列表 phpServers 可以写网址或ip或其他英文
+</p>
+<p>
+      upstream phpServers {
+</p>
+<p>
+          server 服务器IP:端口;
+</p>
+<p>
+          server 服务器IP:端口;
+</p>
+<p>
+          server 服务器IP:端口;
+</p>
+<p>
+      }
+</p>
+<p>
+      server {
+</p>
+<p>
+          listen 80;
+</p>
+<p>
+          location / {
+</p>
+<p>
+              # 当80端口有请求的时候交给上面定义的负载均衡器处理（phpServers ）
+</p>
+<p>
+              proxy_pass http://phpServers/ ;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="887" height="567" src="/wp-content/uploads/2018/05/word-image-4588.png" class="wp-image-5077" srcset="/wp-content/uploads/2018/05/word-image-4588.png 887w, /wp-content/uploads/2018/05/word-image-4588-300x192.png 300w, /wp-content/uploads/2018/05/word-image-4588-768x491.png 768w" sizes="(max-width: 887px) 100vw, 887px" /></p>
+<h2>4、最少链接负载均衡</h2>
+<p>
+  http {
+</p>
+<p>
+      upstream CashServers {
+</p>
+<p>
+        	<strong>least_conn;</strong>
+</p>
+<p>
+          server 服务器IP:端口;
+</p>
+<p>
+          server 服务器IP:端口;
+</p>
+<p>
+          server 服务器IP:端口;
+</p>
+<p>
+      }
+</p>
+<p>
+      server {
+</p>
+<p>
+          listen 80;
+</p>
+<p>
+          location / {
+</p>
+<p>
+              proxy_pass http://CashServers;/
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p>
+  最少链接负载均衡通过least_conn指令定义;
+</p>
+<p>
+  此负载均衡策略适合请求处理时间长短不一造成服务器过载的情况;
+</p>
+<h2>5、ip哈希负载均衡</h2>
+<p>
+  http {
+</p>
+<p>
+      upstream CashServers {
+</p>
+<p>
+        	<strong>ip_hash;</strong>
+</p>
+<p>
+          server 服务器IP:端口;
+</p>
+<p>
+          server 服务器IP:端口;
+</p>
+<p>
+          server 服务器IP:端口;
+</p>
+<p>
+      }
+</p>
+<p>
+      server {
+</p>
+<p>
+          listen 80;
+</p>
+<p>
+          location / {
+</p>
+<p>
+              proxy_pass http://CashServers;/
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p>
+  ip哈希负载均衡使用ip_hash指令定义;
+</p>
+<p>
+  nginx使用请求客户端的ip地址进行哈希计算，确保使用同一个服务器响应请求;
+</p>
+<p>
+  此策略适合有状态服务，比如session;
+</p>
+<h2>6、权重</h2>
+<p>
+  http {
+</p>
+<p>
+  upstream CashServers {
+</p>
+<p>
+      可以加最少连接负载均衡参数
+</p>
+<p>
+      或者加ip哈希负载均衡参数
+</p>
+<p>
+          server 服务器IP:端口 <strong>weight=3;</strong>
+</p>
+<p>
+          server 服务器IP:端口 <strong>weight=2;</strong>
+</p>
+<p>
+          server 服务器IP:端口 <strong>weight=1;</strong>
+</p>
+<p>
+      }
+</p>
+<p>
+      server {
+</p>
+<p>
+          listen 80;
+</p>
+<p>
+          location / {
+</p>
+<p>
+              proxy_pass http://CashServers;/
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p>
+  权重负载均衡需要使用weight指令定义;
+</p>
+<p>
+  权重越高分配到需要处理的请求越多;
+</p>
+<p>
+  此策略可以与最少链接负载和ip哈希策略结合使用;
+</p>
+<p>
+  此策略比较适合服务器的硬件配置差别比较大的情况;
+</p>
+<h1>七、动静分离</h1>
+<p>
+  步骤1：打开负载均衡服务器主配置文件（vi /php/server/nginx/conf/nginx.conf）
+</p>
+<p><img loading="lazy" decoding="async" width="649" height="707" src="/wp-content/uploads/2018/05/word-image-4589.png" class="wp-image-5078" srcset="/wp-content/uploads/2018/05/word-image-4589.png 649w, /wp-content/uploads/2018/05/word-image-4589-275x300.png 275w" sizes="(max-width: 649px) 100vw, 649px" /></p>
+<p>
+  步骤2：重启nginx即可
+</p>
+<h1>八、SESSION共享</h1>
+<h2>1、说明</h2>
+<p>
+  明确：session存储在服务端
+</p>
+<p>
+  发现：由于实现了负载均衡导致，如果是轮询策略导致session丢失
+</p>
+<h2>解决</h2>
+<ul>
+<li>
+     使用ip哈希负载均衡策略
+  </li>
+<li>
+     session入库（将session保存到数据库中）
+  </li>
+</ul>
+<p>
+  如果有a网站和b网站，希望a网站登录成功后b网站自动登录（注：登录肯定用session存储）
+</p>
+<p>
+  答：大公司解决方法，修改session存储方式数据库（memcache）
+</p>
+<h1>扩展</h1>
+<ul>
+<li>
+    一键安装包网站：<a href="http://lnmp.org/">http://lnmp.org/</a>
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="777" height="391" src="/wp-content/uploads/2018/05/word-image-4590.png" class="wp-image-5079" srcset="/wp-content/uploads/2018/05/word-image-4590.png 777w, /wp-content/uploads/2018/05/word-image-4590-300x151.png 300w, /wp-content/uploads/2018/05/word-image-4590-768x386.png 768w" sizes="(max-width: 777px) 100vw, 777px" /></p>
+<ul>
+<li>
+    淘宝的tengine：<a href="http://tengine.taobao.org/">http://tengine.taobao.org/</a>
+  </li>
+<li>
+    中文站点：<a href="http://www.nginx.cn/doc/" class="broken_link">http://www.nginx.cn/doc/</a>
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="966" height="340" src="/wp-content/uploads/2018/05/word-image-4591.png" class="wp-image-5080" srcset="/wp-content/uploads/2018/05/word-image-4591.png 966w, /wp-content/uploads/2018/05/word-image-4591-300x106.png 300w, /wp-content/uploads/2018/05/word-image-4591-768x270.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/nginx/5046.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

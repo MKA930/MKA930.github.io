@@ -1,0 +1,1098 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Each 循环 &#8211; 个人随笔</title>
+	<atom:link href="/label/each-%E5%BE%AA%E7%8E%AF/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sun, 20 May 2018 01:24:07 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>Each 循环 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Jquery（一）选择器、操作类、直接样式操作、偏移、操作 HTML 和文本、值操作、Each 循环、复选框选择</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3458.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3458.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 09:51:01 +0000</pubDate>
+				<category><![CDATA[Jquery]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[前端框架]]></category>
+		<category><![CDATA[Each 循环]]></category>
+		<category><![CDATA[值操作]]></category>
+		<category><![CDATA[偏移]]></category>
+		<category><![CDATA[复选框选择]]></category>
+		<category><![CDATA[操作 HTML 和文本]]></category>
+		<category><![CDATA[操作类]]></category>
+		<category><![CDATA[直接样式操作]]></category>
+		<category><![CDATA[选择器]]></category>
+		<guid isPermaLink="false">/?p=3458</guid>
+
+					<description><![CDATA[JQuery第一讲 jQuery简介 jQuery是一个开源的，JavaScript脚本库。 jQuery体系 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>JQuery第一讲</h1>
+<h2>jQuery简介</h2>
+<p>
+  jQuery是一个开源的，JavaScript脚本库。
+</p>
+<h2>jQuery体系</h2>
+<p><img fetchpriority="high" decoding="async" width="1000" height="206" src="/wp-content/uploads/2018/05/word-image-3059.png" class="wp-image-3460" srcset="/wp-content/uploads/2018/05/word-image-3059.png 1000w, /wp-content/uploads/2018/05/word-image-3059-300x62.png 300w, /wp-content/uploads/2018/05/word-image-3059-768x158.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" /></p>
+<h2>部署jQuery开发环境</h2>
+<ol>
+<li>
+  去网站下载jquery代码
+</li>
+</ol>
+<p><img decoding="async" width="871" height="37" src="/wp-content/uploads/2018/05/word-image-3060.png" class="wp-image-3461" srcset="/wp-content/uploads/2018/05/word-image-3060.png 871w, /wp-content/uploads/2018/05/word-image-3060-300x13.png 300w, /wp-content/uploads/2018/05/word-image-3060-768x33.png 768w" sizes="(max-width: 871px) 100vw, 871px" /></p>
+<p>
+  脚下留心：从官方网站同一个版本可以下载2个文件，一个是源文件，一个是压缩文件，我们开发的时候使用压缩文件。
+</p>
+<ol>
+<li>
+  在页面引入jQuery文件
+</li>
+</ol>
+<p><img decoding="async" width="962" height="95" src="/wp-content/uploads/2018/05/word-image-3061.png" class="wp-image-3462" srcset="/wp-content/uploads/2018/05/word-image-3061.png 962w, /wp-content/uploads/2018/05/word-image-3061-300x30.png 300w, /wp-content/uploads/2018/05/word-image-3061-768x76.png 768w" sizes="(max-width: 962px) 100vw, 962px" /></p>
+<h2>jQuery选择器</h2>
+<p>
+  jQuery中，所有的操作都要转成jQuery对象进行操作。通过$()将元素转成JQuery对象。
+</p>
+<p>
+  $()=jQuery()
+</p>
+<h3>基本选择器</h3>
+<p>
+  id选择器、class选择器、标签选择器、组合选择器、后代选择器，子类选择器
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  .rose{
+</p>
+<p>
+  	background-color:#11e4e1;
+</p>
+<p>
+  }
+</p>
+<p>
+  .indianred{
+</p>
+<p>
+  	background-color:#cd5d5c;
+</p>
+<p>
+  }
+</p>
+<p>
+  .red{
+</p>
+<p>
+  	color:#F00;
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;!—引入jQuery文件&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8217;js/jquery-1.11.3.min.js&#8217;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  //但页面加载完成时
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+  	//当按钮点击的时候
+</p>
+<p>
+  	$(&#8216;#btn&#8217;).click(function(e) {
+</p>
+<p>
+          //$(&#8216;#first&#8217;).addClass(&#8216;indianred&#8217;);		//id选择器
+</p>
+<p>
+  		//$(&#8216;.second&#8217;).addClass(&#8216;indianred&#8217;);		//class样式
+</p>
+<p>
+  		//$(&#8216;th&#8217;).addClass(&#8216;indianred&#8217;);			//标签选择器
+</p>
+<p>
+  		//$(&#8216;#first,.second&#8217;).addClass(&#8216;rose&#8217;);		//组合选择器
+</p>
+<p>
+  		//$(&#8216;.second td&#8217;).addClass(&#8216;red&#8217;);			//后代选择器
+</p>
+<p>
+  		//$(&#8216;.second&gt;td&#8217;).addClass(&#8216;red&#8217;);			//后代选择器
+</p>
+<p>
+  		//$(&#8216;#first+.second&#8217;).addClass(&#8216;indianred&#8217;);	//紧挨着#first的.second
+</p>
+<p>
+  		$(&#8216;#first~.second&#8217;).addClass(&#8216;indianred&#8217;);	//#first后所有的.second
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;table border=&#8217;1&#8242; bordercolor=&#8217;#000&#8242; align=&#8217;center&#8217; width=&#8217;500&#8242;&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;th&gt;姓名&lt;/th&gt;
+</p>
+<p>
+  		&lt;th&gt;性别&lt;/th&gt;
+</p>
+<p>
+  		&lt;th&gt;年龄&lt;/th&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  	&lt;tr id=&#8217;first&#8217;&gt;
+</p>
+<p>
+  		&lt;td&gt;张三&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;男&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;22&lt;/td&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  	&lt;tr class=&#8217;second&#8217;&gt;
+</p>
+<p>
+  		&lt;td&gt;李四&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;男&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;33&lt;/td&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  	&lt;tr class=&#8217;second&#8217;&gt;
+</p>
+<p>
+  		&lt;td&gt;王五&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;女&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;20&lt;/td&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+      &lt;tr  class=&#8217;second&#8217;&gt;
+</p>
+<p>
+  		&lt;th colspan=&#8221;3&#8243;&gt;&lt;table width=&#8221;100%&#8221; border=&#8221;1&#8243;&gt;
+</p>
+<p>
+  		  &lt;tr&gt;
+</p>
+<p>
+  		    &lt;td&gt;aa&lt;/td&gt;
+</p>
+<p>
+  		    &lt;td&gt;bb&lt;/td&gt;
+</p>
+<p>
+  		    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+</p>
+<p>
+  	      &lt;/tr&gt;
+</p>
+<p>
+  	    &lt;/table&gt;&lt;/th&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;点击&#8221; id=&#8221;btn&#8221;&gt;
+</p>
+<h3>过滤选择器</h3>
+<ol>
+<li>
+  位置过滤</p>
+<ol>
+<li>
+    :first——第一个元素
+  </li>
+<li>
+    :last——最后一个元素
+  </li>
+<li>
+    :even——第偶数个元素（下标从0开始）
+  </li>
+<li>
+    :odd——第奇数个元素
+  </li>
+<li>
+    :eq(index)——第index元素
+  </li>
+<li>
+    :gt(index)——大于第index的元素
+  </li>
+<li>
+    :lt(index)——小于第index的元素
+  </li>
+</ol>
+</li>
+</ol>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  .rose{
+</p>
+<p>
+  	background-color:#11e4e1;
+</p>
+<p>
+  }
+</p>
+<p>
+  .indianred{
+</p>
+<p>
+  	background-color:#cd5d5c;
+</p>
+<p>
+  }
+</p>
+<p>
+  .red{
+</p>
+<p>
+  	color:#F00;
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;js/jquery-1.11.3.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+      $(&#8216;#btn&#8217;).click(function(e) {
+</p>
+<p>
+          //$(&#8216;tr:first&#8217;).addClass(&#8216;indianred&#8217;);			//第一个tr
+</p>
+<p>
+  		//$(&#8216;tr:last&#8217;).addClass(&#8216;indianred&#8217;);			//最后一个tr
+</p>
+<p>
+  		//$(&#8216;tr:even&#8217;).addClass(&#8220;indianred&#8221;);			//第偶数个元素（下标从0开始)
+</p>
+<p>
+  		//$(&#8216;tr:odd&#8217;).addClass(&#8220;indianred&#8221;);			//第奇数个元素
+</p>
+<p>
+  		//$(&#8216;tr:eq(2)&#8217;).addClass(&#8216;indianred&#8217;);			//第2个元素
+</p>
+<p>
+  		$(&#8216;tr:gt(1)&#8217;).addClass(&#8216;indianred&#8217;);			//大于1的元素
+</p>
+<p>
+  		$(&#8216;tr:lt(1)&#8217;).addClass(&#8216;rose&#8217;);					//小于1的元素
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;table border=&#8217;1&#8242; bordercolor=&#8217;#000&#8242; align=&#8217;center&#8217; width=&#8217;500&#8242;&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;th&gt;姓名&lt;/th&gt;
+</p>
+<p>
+  		&lt;th&gt;性别&lt;/th&gt;
+</p>
+<p>
+  		&lt;th&gt;年龄&lt;/th&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  	&lt;tr id=&#8217;first&#8217;&gt;
+</p>
+<p>
+  		&lt;td&gt;张三&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;男&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;22&lt;/td&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  	&lt;tr class=&#8217;second&#8217;&gt;
+</p>
+<p>
+  		&lt;td&gt;李四&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;男&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;33&lt;/td&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  	&lt;tr class=&#8217;second&#8217;&gt;
+</p>
+<p>
+  		&lt;td&gt;王五&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;女&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;20&lt;/td&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;点击&#8221; id=&#8221;btn&#8221;&gt;
+</p>
+<ol>
+<li>
+  内容过滤</p>
+<ol>
+<li>
+    :contains(‘内容’)，包含指定内容的元素
+  </li>
+<li>
+    :has()   包含某个子元素
+  </li>
+<li>
+    : not()		去除某个元素
+  </li>
+<li>
+    :header		匹配所有标题h1~h6
+  </li>
+<li>
+    :empty		匹配所有空元素
+  </li>
+<li>
+    :parent		匹配父节点
+  </li>
+</ol>
+</li>
+</ol>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+      $(&#8216;#btn&#8217;).click(function(e) {
+</p>
+<p>
+          //$(&#8216;div:contains(&#8220;锄禾&#8221;)&#8217;).addClass(&#8216;indianred&#8217;);		//包含&#8221;锄禾&#8221;的div
+</p>
+<p>
+  		//$(&#8216;div:has(p)&#8217;).addClass(&#8216;indianred&#8217;);				//含有p标记的div
+</p>
+<p>
+  		//$(&#8216;div:has(#first)&#8217;).addClass(&#8216;indianred&#8217;);				//含有#first的div
+</p>
+<p>
+  		//$(&#8216;div:not(.no1)&#8217;).addClass(&#8216;indianred&#8217;);				//去除掉.no1的div
+</p>
+<p>
+  		//$(&#8216;:header&#8217;).addClass(&#8216;indianred&#8217;);						//选中所有的h1~h6
+</p>
+<p>
+  		//$(&#8216;:empty&#8217;).addClass(&#8217;empty&#8217;);							//匹配所有空元素
+</p>
+<p>
+  		$(&#8216;#first:parent&#8217;).addClass(&#8217;empty&#8217;);					//匹配#first的父节点
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;div class=&#8221;first no1&#8243;&gt;&lt;p&gt;锄禾日当午&lt;/p&gt;&lt;/div&gt;
+</p>
+<p>
+  &lt;div class=&#8221;first&#8221;&gt;&lt;p id=&#8221;first&#8221;&gt;汗滴禾下土&lt;/p&gt;&lt;/div&gt;
+</p>
+<p>
+  &lt;h1&gt;一级标题&lt;/h1&gt;
+</p>
+<p>
+  &lt;h2&gt;二级标题&lt;/h2&gt;
+</p>
+<p>
+  &lt;div&gt;&lt;/div&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;点击&#8221; id=&#8221;btn&#8221; /&gt;
+</p>
+<ol>
+<li>
+  子元素过滤选择器</p>
+<ol>
+<li>
+    :first-child——父元素的第一个子元素
+  </li>
+<li>
+    :last-child——父元素的最后一个子元素
+  </li>
+<li>
+    :only-child——父元素只有一个元素的节点
+  </li>
+<li>
+    :nth-child(编号,even,odd)——父元素下的指定编号，偶数，奇数的子元素
+  </li>
+</ol>
+</li>
+</ol>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+      $(&#8216;#btn&#8217;).click(function(e) {
+</p>
+<p>
+          //$(&#8216;li:first-child&#8217;).addClass(&#8216;indianred&#8217;);		//li父元素的第一个子元素
+</p>
+<p>
+  		//$(&#8216;li:last-child&#8217;).addClass(&#8216;indianred&#8217;);			//li父元素的最后一子元素
+</p>
+<p>
+  		//$(&#8216;li:only-child&#8217;).addClass(&#8216;indianred&#8217;);			//li父元素只有一个元素的节点
+</p>
+<p>
+  		//$(&#8216;li:nth-child(2)&#8217;).addClass(&#8216;indianred&#8217;);			//li父元素下第2个子元素，从1开始
+</p>
+<p>
+  		//$(&#8216;li:nth-child(even)&#8217;).addClass(&#8216;indianred&#8217;);		//li父元素下第偶数个子元素
+</p>
+<p>
+  		$(&#8216;li:nth-child(odd)&#8217;).addClass(&#8216;indianred&#8217;);		//li父元素下第奇数个子元素
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;ul&gt;
+</p>
+<p>
+  	&lt;li&gt;三国演义&lt;/li&gt;
+</p>
+<p>
+      &lt;li&gt;水浒传&lt;/li&gt;
+</p>
+<p>
+      &lt;li&gt;西游记&lt;/li&gt;
+</p>
+<p>
+  &lt;/ul&gt;
+</p>
+<p>
+  &lt;ul&gt;
+</p>
+<p>
+  	&lt;li&gt;钢铁侠&lt;/li&gt;
+</p>
+<p>
+      &lt;li&gt;超人&lt;/li&gt;
+</p>
+<p>
+  &lt;/ul&gt;
+</p>
+<p>
+  &lt;ul&gt;
+</p>
+<p>
+  	&lt;li&gt;大棒子&lt;/li&gt;
+</p>
+<p>
+  &lt;/ul&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;点击&#8221; id=&#8221;btn&#8221; /&gt;
+</p>
+<ol>
+<li>
+  表单过滤选择器</p>
+<ol>
+<li>
+    :input——匹配input, select, textarea，button标签
+  </li>
+<li>
+    :text——匹配文本框
+  </li>
+<li>
+    :password——匹配密码框
+  </li>
+<li>
+    :enabled——可以的元素
+  </li>
+<li>
+    :radio——单选按钮
+  </li>
+<li>
+    :checkbox——复选框
+  </li>
+<li>
+    :checked——选中的元素
+  </li>
+</ol>
+</li>
+</ol>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+      $(&#8216;#btn&#8217;).click(function(e) {
+</p>
+<p>
+          //$(&#8216;:input&#8217;).addClass(&#8216;indianred&#8217;);		//表示input,select,textarea，button标签
+</p>
+<p>
+  		//$(&#8216;:text&#8217;).addClass(&#8216;indianred&#8217;);			//文本框
+</p>
+<p>
+  		//$(&#8216;:password&#8217;).addClass(&#8216;indianred&#8217;);		//密码框
+</p>
+<p>
+  		//$(&#8216;:enabled&#8217;).addClass(&#8216;indianred&#8217;);		//可用的元素
+</p>
+<p>
+  		//$(&#8216;:radio,:checkbox&#8217;).addClass(&#8216;style1&#8217;);	//单选按钮和复选框
+</p>
+<p>
+  		$(&#8216;:checked&#8217;).addClass(&#8216;style1&#8217;);		//选中的元素
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  姓名：&lt;input type=&#8221;text&#8221; disabled=&#8221;disabled&#8221;/&gt;&lt;br /&gt;
+</p>
+<p>
+  密码：&lt;input type=&#8221;password&#8221; /&gt;&lt;br /&gt;
+</p>
+<p>
+  性别：&lt;input type=&#8221;radio&#8221; name=&#8221;sex&#8221; value=&#8221;男&#8221; checked=&#8221;checked&#8221; /&gt;男
+</p>
+<p>
+  	&lt;input type=&#8221;radio&#8221; name=&#8221;sex&#8221; value=&#8221;女&#8221; /&gt;女&lt;br /&gt;
+</p>
+<p>
+  爱好：&lt;input type=&#8221;checkbox&#8221; value=&#8221;爬山&#8221; checked=&#8221;checked&#8221; /&gt;爬山
+</p>
+<p>
+  	&lt;input type=&#8221;checkbox&#8221; value=&#8221;游泳&#8221; /&gt;游泳 &lt;br /&gt;
+</p>
+<p>
+  籍贯：&lt;select&gt;
+</p>
+<p>
+  		&lt;option&gt;上海&lt;/option&gt;
+</p>
+<p>
+          &lt;option&gt;北京&lt;/option&gt;
+</p>
+<p>
+  &lt;/select&gt;&lt;br /&gt;
+</p>
+<p>
+  意见和建议：&lt;textarea&gt;&lt;/textarea&gt; &lt;br /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;submit&#8221; value=&#8221;提交&#8221; /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;reset&#8221; value=&#8221;重置&#8221; /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;点击&#8221; id=&#8221;btn&#8221; /&gt;
+</p>
+<p>
+  &lt;button&gt;这也是按钮&lt;/button&gt;
+</p>
+<ol>
+<li>
+  属性过滤选择器</p>
+<ol>
+<li>
+    [属性]：匹配带有指定属性的元素
+  </li>
+<li>
+    [属性=value]：匹配属性=value的元素
+  </li>
+<li>
+    [属性!=value]：匹配属性!=value的元素
+  </li>
+<li>
+    [属性^=value]：匹配属性以value开头的元素
+  </li>
+<li>
+    [属性$=value]：匹配属性以value结尾的元素
+  </li>
+<li>
+    [属性*=value]：匹配属性以包含value的元素
+  </li>
+<li>
+    [属性1=value1][属性2=value2]：同时具有属性1和属性2的元素
+  </li>
+</ol>
+</li>
+</ol>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+      $(&#8216;#btn&#8217;).click(function(e) {
+</p>
+<p>
+          //$(&#8216;:text[class]&#8217;).addClass(&#8216;indianred&#8217;);	//带有class属性的文本框元素
+</p>
+<p>
+  		//$(&#8216;[class]&#8217;).addClass(&#8216;indianred&#8217;);			//带有class属性的所有元素
+</p>
+<p>
+  		//$(&#8216;:text[name=firstname]&#8217;).addClass(&#8216;indianred&#8217;);	//name=firstname的文本框元素
+</p>
+<p>
+  		//$(&#8216;:text[name!=firstname]&#8217;).addClass(&#8216;indianred&#8217;);	//name!=firstname的文本框元素
+</p>
+<p>
+  		//$(&#8216;:text[name^=first]&#8217;).addClass(&#8216;indianred&#8217;);		//name属性的值以first开头的元素
+</p>
+<p>
+  		//$(&#8216;:text[name$=name]&#8217;).addClass(&#8216;indianred&#8217;);		//name属性的值以name结尾的元素
+</p>
+<p>
+  		//$(&#8216;:text[name*=stna]&#8217;).addClass(&#8216;indianred&#8217;);		//name属性中带有stna的元素
+</p>
+<p>
+  		$(&#8216;:text[name$=name][class]&#8217;).addClass(&#8216;indianred&#8217;);//name属性的值以name结尾的元素，同时带有class属性
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;input type=&#8221;text&#8221; name=&#8221;firstname&#8221; value=&#8221;张&#8221; class=&#8217;stu&#8217;  /&gt; &lt;br /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;text&#8221; name=&#8221;middlename&#8221; value=&#8221;三&#8221; /&gt;&lt;br /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;text&#8221; name=&#8221;lastname&#8221; value=&#8221;峰&#8221; /&gt;&lt;br /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;text&#8221; name=&#8221;firstcity&#8221; value=&#8221;上海&#8221; class /&gt;&lt;br /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;点击&#8221; id=&#8221;btn&#8221; /&gt;
+</p>
+<p>
+  &lt;div class=&#8221;&#8221;&gt;锄禾日当午&lt;/div&gt;
+</p>
+<h2>操作属性</h2>
+<ol>
+<li>
+  jQuery对象.attr(属性)：获取对象的属性值，只获取第一个元素
+</li>
+<li>
+  jQuery对象.attr(属性,值)：将值付给所有的jQuery对象
+</li>
+<li>
+  jQuery对象.attr(属性,function(){});	//将函数的返回值付给属性
+</li>
+<li>
+  jQuery对象.attr({属性:属性值,属性:属性值})
+</li>
+<li>
+  jQuery对象.removeAttr(属性名)
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1058" height="386" src="/wp-content/uploads/2018/05/word-image-3062.png" class="wp-image-3463" srcset="/wp-content/uploads/2018/05/word-image-3062.png 1058w, /wp-content/uploads/2018/05/word-image-3062-300x109.png 300w, /wp-content/uploads/2018/05/word-image-3062-768x280.png 768w, /wp-content/uploads/2018/05/word-image-3062-1024x374.png 1024w" sizes="(max-width: 1058px) 100vw, 1058px" /></p>
+<h2>操作类</h2>
+<ol>
+<li>
+  addClass(类名)——添加类
+</li>
+<li>
+  removeClass(类名)——删除类
+</li>
+<li>
+  toggleClass(类名)——交替
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="779" height="379" src="/wp-content/uploads/2018/05/word-image-3063.png" class="wp-image-3464" srcset="/wp-content/uploads/2018/05/word-image-3063.png 779w, /wp-content/uploads/2018/05/word-image-3063-300x146.png 300w, /wp-content/uploads/2018/05/word-image-3063-768x374.png 768w" sizes="(max-width: 779px) 100vw, 779px" /></p>
+<h2>直接样式操作</h2>
+<ol>
+<li>
+  css(name)：获取样式的值
+</li>
+<li>
+  css(name,value)：给样式赋值
+</li>
+<li>
+  css({样式:值，样式:值})
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="808" height="228" src="/wp-content/uploads/2018/05/word-image-3064.png" class="wp-image-3465" srcset="/wp-content/uploads/2018/05/word-image-3064.png 808w, /wp-content/uploads/2018/05/word-image-3064-300x85.png 300w, /wp-content/uploads/2018/05/word-image-3064-768x217.png 768w" sizes="(max-width: 808px) 100vw, 808px" /></p>
+<h2>offset()：偏移</h2>
+<p>
+  坐标原点是浏览器客户端的左上角
+</p>
+<p><img loading="lazy" decoding="async" width="892" height="344" src="/wp-content/uploads/2018/05/word-image-3065.png" class="wp-image-3466" srcset="/wp-content/uploads/2018/05/word-image-3065.png 892w, /wp-content/uploads/2018/05/word-image-3065-300x116.png 300w, /wp-content/uploads/2018/05/word-image-3065-768x296.png 768w" sizes="(max-width: 892px) 100vw, 892px" /></p>
+<p>
+  注意：
+</p>
+<p><img loading="lazy" decoding="async" width="574" height="179" src="/wp-content/uploads/2018/05/word-image-3066.png" class="wp-image-3467" srcset="/wp-content/uploads/2018/05/word-image-3066.png 574w, /wp-content/uploads/2018/05/word-image-3066-300x94.png 300w" sizes="(max-width: 574px) 100vw, 574px" /></p>
+<h2>宽度、高度操作</h2>
+<ol>
+<li>
+  width()：获取宽度
+</li>
+<li>
+  width(value)：设置宽度
+</li>
+<li>
+  height()：获取高度
+</li>
+<li>
+  height(value)：设置高度
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1019" height="397" src="/wp-content/uploads/2018/05/word-image-3067.png" class="wp-image-3468" srcset="/wp-content/uploads/2018/05/word-image-3067.png 1019w, /wp-content/uploads/2018/05/word-image-3067-300x117.png 300w, /wp-content/uploads/2018/05/word-image-3067-768x299.png 768w" sizes="(max-width: 1019px) 100vw, 1019px" /></p>
+<h2>操作HTML和文本</h2>
+<ol>
+<li>
+  html()：获取HTML代码
+</li>
+<li>
+  html(value)：将value作为HTML付给元素
+</li>
+<li>
+  text()：获取文本
+</li>
+<li>
+  text(value)：将value的值作为文本付给元素
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="759" height="227" src="/wp-content/uploads/2018/05/word-image-3068.png" class="wp-image-3469" srcset="/wp-content/uploads/2018/05/word-image-3068.png 759w, /wp-content/uploads/2018/05/word-image-3068-300x90.png 300w" sizes="(max-width: 759px) 100vw, 759px" /></p>
+<h2>值操作</h2>
+<ol>
+<li>
+  val()：获取值
+</li>
+<li>
+  val(value)：给value属性赋值
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="628" height="190" src="/wp-content/uploads/2018/05/word-image-3069.png" class="wp-image-3470" srcset="/wp-content/uploads/2018/05/word-image-3069.png 628w, /wp-content/uploads/2018/05/word-image-3069-300x91.png 300w" sizes="(max-width: 628px) 100vw, 628px" /></p>
+<h2>each循环</h2>
+<p>
+  方法一：$.each(数组/对象，回调函数)
+</p>
+<p>
+  方法二：jQuery元素.each(回调函数)
+</p>
+<p><img loading="lazy" decoding="async" width="798" height="226" src="/wp-content/uploads/2018/05/word-image-3070.png" class="wp-image-3471" srcset="/wp-content/uploads/2018/05/word-image-3070.png 798w, /wp-content/uploads/2018/05/word-image-3070-300x85.png 300w, /wp-content/uploads/2018/05/word-image-3070-768x218.png 768w" sizes="(max-width: 798px) 100vw, 798px" /></p>
+<h2>例题（复选框选择）</h2>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;js/jquery-1.8.3.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+  	//全选
+</p>
+<p>
+      $(&#8216;:button:first&#8217;).click(function(e) {
+</p>
+<p>
+          $(&#8216;:checkbox&#8217;).attr(&#8216;checked&#8217;,&#8217;checked&#8217;);
+</p>
+<p>
+      });
+</p>
+<p>
+  	//反选
+</p>
+<p>
+  	$(&#8216;:button:eq(1)&#8217;).click(function(e) {
+</p>
+<p>
+          $(&#8216;:checkbox&#8217;).each(function(index, element) {
+</p>
+<p>
+             	$(this).attr(&#8216;checked&#8217;,!$(this).attr(&#8216;checked&#8217;));
+</p>
+<p>
+          });
+</p>
+<p>
+      });
+</p>
+<p>
+  	//取消全选
+</p>
+<p>
+  	$(&#8216;:button:last&#8217;).click(function(e) {
+</p>
+<p>
+          $(&#8216;:checkbox&#8217;).removeAttr(&#8216;checked&#8217;);
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;全选&#8221; /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;反选&#8221; /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;取消全选&#8221; /&gt;
+</p>
+<p>
+  &lt;form&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;checkbox&#8221; value=&#8221;读书&#8221; name=&#8221;hobby&#8221; /&gt;读书&lt;br /&gt;
+</p>
+<p>
+      &lt;input type=&#8221;checkbox&#8221; value=&#8221;游泳&#8221; name=&#8221;hobby&#8221;/&gt;游泳&lt;br /&gt;
+</p>
+<p>
+      &lt;input type=&#8221;checkbox&#8221; value=&#8221;看报&#8221; name=&#8221;hobby&#8221;/&gt;看报&lt;br /&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p>
+  脚下留心：jQuery版本不同，有少部分方法也会有差异。
+</p>
+<p>
+  多学一招：通过val()实现选中功能
+</p>
+<p><img loading="lazy" decoding="async" width="751" height="366" src="/wp-content/uploads/2018/05/word-image-3071.png" class="wp-image-3472" srcset="/wp-content/uploads/2018/05/word-image-3071.png 751w, /wp-content/uploads/2018/05/word-image-3071-300x146.png 300w" sizes="(max-width: 751px) 100vw, 751px" /></p>
+<ol>
+<li>
+  能够在html代码中引入jQuery库
+</li>
+<li>
+  能够理解选择器的作用
+</li>
+<li>
+  能够说出或使用多种选择器
+</li>
+<li>
+  能够组合使用选择器
+</li>
+<li>
+  能够使用jQuery操作html属性
+</li>
+<li>
+  能够使用jQuery操作css属性
+</li>
+<li>
+  能够熟练使用jQuery()的页面载入事件ready()
+</li>
+<li>
+  能够理解each()的作用
+</li>
+<li>
+  能够使用each()方法遍历jQuery对象
+</li>
+<li>
+  能够解释dom对象和jQuery对象的区别
+</li>
+<li>
+  能够将dom对象和jQuery对象相互转换
+</li>
+<li>
+  能够使用bind()方法绑定事件
+</li>
+<li>
+  能够熟练使用jQuery的常规事件绑定语法
+</li>
+<li>
+  能够使用事件切换方法hover(),toggle()
+</li>
+<li>
+  能够使用jQuery的基本特效方法 show(),hide(),toggle()
+</li>
+<li>
+  能够使用jQuery的滑动特效方法 slideDown(),slideUp(),slideToggle()
+</li>
+<li>
+  能够使用jQuery的淡入淡出特效方法
+</li>
+<li>
+  能够将内容插入到元素内部或外部
+</li>
+<li>
+  能够清空元素内容或删除元素本身
+</li>
+<li>
+  能够使用replaceWith()替换元素
+</li>
+<li>
+  能够复制指定元素
+</li>
+<li>
+  能够把内容从外面包裹上新元素
+</li>
+<li>
+  能够使用元素查找或匹配的多个方法
+</li>
+<li>
+  能够理解jQuery中插件的作用
+</li>
+<li>
+  能够制作自定义插件
+</li>
+<li>
+  能够使用jQuery实现ajax的get请求
+</li>
+<li>
+  能够使用jQuery实现ajax的post请求
+</li>
+</ol>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3458.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

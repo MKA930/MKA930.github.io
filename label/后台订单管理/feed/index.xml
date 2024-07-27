@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>后台订单管理 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%90%8E%E5%8F%B0%E8%AE%A2%E5%8D%95%E7%AE%A1%E7%90%86/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 22 Jun 2018 10:34:46 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>后台订单管理 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP5 商城（九）订单入库、支付宝支付、支付宝引入项目、支付页面唤起、订单支付、支付成功订单状态修改、订单入库验证、查看个人订单、订单付款、后台订单管理、无刷新分页</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8570.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8570.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 08 Jun 2018 00:32:43 +0000</pubDate>
+				<category><![CDATA[TP5.0]]></category>
+		<category><![CDATA[TP5.0商城]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[后台订单管理]]></category>
+		<category><![CDATA[支付宝引入项目]]></category>
+		<category><![CDATA[支付宝支付]]></category>
+		<category><![CDATA[支付成功订单状态修改]]></category>
+		<category><![CDATA[支付页面唤起]]></category>
+		<category><![CDATA[无刷新分页]]></category>
+		<category><![CDATA[查看个人订单]]></category>
+		<category><![CDATA[订单付款]]></category>
+		<category><![CDATA[订单入库]]></category>
+		<category><![CDATA[订单入库验证]]></category>
+		<category><![CDATA[订单支付]]></category>
+		<guid isPermaLink="false">/?p=8570</guid>
+
+					<description><![CDATA[商城第九天 商城难点重点 构造数组结构（看业务场景，查看数据表现形式） rbac获取所有的权限&#8212;》 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>商城第九天</h1>
+<h1>商城难点重点</h1>
+<ol>
+<li>构造数组结构（看业务场景，查看数据表现形式）</li>
+</ol>
+<p>rbac获取所有的权限&#8212;》两个技巧</p>
+<p>商品详情页单选属性&#8212;》通过attr_id分组</p>
+<p>购物车列表 &#8211;》加两个下标 goodsInfo attrInfo</p>
+<p>后台商品添加动态拼接商品类型属性&#8211;》动态属性入库（表单name拼接[]）</p>
+<h1>完成订单数据入库</h1>
+<p><img fetchpriority="high" decoding="async" width="1110" height="546" class="wp-image-8571" src="/wp-content/uploads/2018/06/word-image-1141.png" srcset="/wp-content/uploads/2018/06/word-image-1141.png 1110w, /wp-content/uploads/2018/06/word-image-1141-300x148.png 300w, /wp-content/uploads/2018/06/word-image-1141-768x378.png 768w, /wp-content/uploads/2018/06/word-image-1141-1024x504.png 1024w" sizes="(max-width: 1110px) 100vw, 1110px" /></p>
+<h2>订单数据入库的顺序</h2>
+<p>订单商品入库的顺序：</p>
+<p>第一步：先把订单基本数据入库到订单表sh_order</p>
+<p>第二步：订单表数据入库成功之后才能把订单商品入库到订单商品表中sh_order_goods中</p>
+<p>如果保证上面两步执行过程中都没有问题呢，这里需要借助到mysql的事务，可以保持数据的一致性。当发生异常的时候，会自动回滚。</p>
+<p>注意：只有表的引擎是innodb引擎才支持事务操作。</p>
+<p>TP5中有关事务操作的相关方法：</p>
+<p>启动事务：Db::startTrans()</p>
+<p>提交事务：Db::commit()</p>
+<p>事务回滚：Db::rollback()</p>
+<p>手册示例：</p>
+<p><img decoding="async" width="422" height="252" class="wp-image-8572" src="/wp-content/uploads/2018/06/word-image-1142.png" srcset="/wp-content/uploads/2018/06/word-image-1142.png 422w, /wp-content/uploads/2018/06/word-image-1142-300x180.png 300w" sizes="(max-width: 422px) 100vw, 422px" /></p>
+<p>订单商品入库的顺序：</p>
+<p>第一步：先把订单基本数据入库到订单表sh_order</p>
+<p>第二步：订单表数据入库成功之后才能把订单商品入库到订单商品表中sh_order_goods中</p>
+<p>如果保证上面两步执行过程中都没有问题呢，这里需要借助到mysql的事务，可以保持数据的一致性。当发生异常的时候，会自动回滚。</p>
+<p>注意：只有表的引擎是innodb引擎才支持事务操作。</p>
+<p>订单表（sh_order）和订单商品表(sh_order_goods)的关系：</p>
+<p><img decoding="async" width="432" height="302" class="wp-image-8573" src="/wp-content/uploads/2018/06/word-image-1143.png" srcset="/wp-content/uploads/2018/06/word-image-1143.png 432w, /wp-content/uploads/2018/06/word-image-1143-300x210.png 300w" sizes="(max-width: 432px) 100vw, 432px" /></p>
+<p>TP5中有关事务操作的相关方法：</p>
+<p>启动事务：Db::startTrans()</p>
+<p>提交事务：Db::commit()</p>
+<p>事务回滚：Db::rollback()</p>
+<p>手册示例：</p>
+<p><img loading="lazy" decoding="async" width="422" height="252" class="wp-image-8574" src="/wp-content/uploads/2018/06/word-image-1144.png" srcset="/wp-content/uploads/2018/06/word-image-1144.png 422w, /wp-content/uploads/2018/06/word-image-1144-300x180.png 300w" sizes="(max-width: 422px) 100vw, 422px" /></p>
+<p>注：只要在try{}中抛出出一个异常throw new \Exception(‘失败信息’) ，就会执行catch中的回滚操作，$e-&gt;getMessage(失败信息);</p>
+<h2>订单表和订单商品表的数据入库</h2>
+<p>入库流程图：</p>
+<p><img loading="lazy" decoding="async" width="835" height="386" class="wp-image-8575" src="/wp-content/uploads/2018/06/word-image-1145.png" srcset="/wp-content/uploads/2018/06/word-image-1145.png 835w, /wp-content/uploads/2018/06/word-image-1145-300x139.png 300w, /wp-content/uploads/2018/06/word-image-1145-768x355.png 768w" sizes="(max-width: 835px) 100vw, 835px" /></p>
+<ol>
+<li>在订单结算页面，设置好表单的name字段，或收货人的基本信息（收货地址、电话、邮编）</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="549" height="210" class="wp-image-8576" src="/wp-content/uploads/2018/06/word-image-1146.png" srcset="/wp-content/uploads/2018/06/word-image-1146.png 549w, /wp-content/uploads/2018/06/word-image-1146-300x115.png 300w" sizes="(max-width: 549px) 100vw, 549px" /> <img loading="lazy" decoding="async" width="1130" height="529" class="wp-image-8577" src="/wp-content/uploads/2018/06/word-image-1147.png" srcset="/wp-content/uploads/2018/06/word-image-1147.png 1130w, /wp-content/uploads/2018/06/word-image-1147-300x140.png 300w, /wp-content/uploads/2018/06/word-image-1147-768x360.png 768w, /wp-content/uploads/2018/06/word-image-1147-1024x479.png 1024w" sizes="(max-width: 1130px) 100vw, 1130px" /></p>
+<p>给提交按钮，绑定单击事件，让上面的表单进行提交：</p>
+<p><img loading="lazy" decoding="async" width="392" height="63" class="wp-image-8578" src="/wp-content/uploads/2018/06/word-image-1148.png" srcset="/wp-content/uploads/2018/06/word-image-1148.png 392w, /wp-content/uploads/2018/06/word-image-1148-300x48.png 300w" sizes="(max-width: 392px) 100vw, 392px" /> <img loading="lazy" decoding="async" width="960" height="205" class="wp-image-8579" src="/wp-content/uploads/2018/06/word-image-1149.png" srcset="/wp-content/uploads/2018/06/word-image-1149.png 960w, /wp-content/uploads/2018/06/word-image-1149-300x64.png 300w, /wp-content/uploads/2018/06/word-image-1149-768x164.png 768w" sizes="(max-width: 960px) 100vw, 960px" /> <img loading="lazy" decoding="async" width="775" height="234" class="wp-image-8580" src="/wp-content/uploads/2018/06/word-image-1150.png" srcset="/wp-content/uploads/2018/06/word-image-1150.png 775w, /wp-content/uploads/2018/06/word-image-1150-300x91.png 300w, /wp-content/uploads/2018/06/word-image-1150-768x232.png 768w" sizes="(max-width: 775px) 100vw, 775px" /></p>
+<p>注：表单跳转还是跳转到当前控制器方法，属于post方式提交（method=post）</p>
+<ol>
+<li>在方法_writeOrder中，开启事务，保证订单商品入库成功</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="657" height="430" class="wp-image-8581" src="/wp-content/uploads/2018/06/word-image-1151.png" srcset="/wp-content/uploads/2018/06/word-image-1151.png 657w, /wp-content/uploads/2018/06/word-image-1151-300x196.png 300w" sizes="(max-width: 657px) 100vw, 657px" /> <img loading="lazy" decoding="async" width="1258" height="633" class="wp-image-8582" src="/wp-content/uploads/2018/06/word-image-1152.png" srcset="/wp-content/uploads/2018/06/word-image-1152.png 1258w, /wp-content/uploads/2018/06/word-image-1152-300x151.png 300w, /wp-content/uploads/2018/06/word-image-1152-768x386.png 768w, /wp-content/uploads/2018/06/word-image-1152-1024x515.png 1024w" sizes="(max-width: 1258px) 100vw, 1258px" /></p>
+<ol>
+<li>在try{}中进行订单表的数据入库，和订单商品表数据的入库</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1242" height="565" class="wp-image-8583" src="/wp-content/uploads/2018/06/word-image-1153.png" srcset="/wp-content/uploads/2018/06/word-image-1153.png 1242w, /wp-content/uploads/2018/06/word-image-1153-300x136.png 300w, /wp-content/uploads/2018/06/word-image-1153-768x349.png 768w, /wp-content/uploads/2018/06/word-image-1153-1024x466.png 1024w" sizes="(max-width: 1242px) 100vw, 1242px" /> <img loading="lazy" decoding="async" width="1240" height="690" class="wp-image-8584" src="/wp-content/uploads/2018/06/word-image-1154.png" srcset="/wp-content/uploads/2018/06/word-image-1154.png 1240w, /wp-content/uploads/2018/06/word-image-1154-300x167.png 300w, /wp-content/uploads/2018/06/word-image-1154-768x427.png 768w, /wp-content/uploads/2018/06/word-image-1154-1024x570.png 1024w" sizes="(max-width: 1240px) 100vw, 1240px" /></p>
+<p>注：上面的代码需要引入Db类</p>
+<p>同时建立订单表和订单商品表的模型：</p>
+<p><img loading="lazy" decoding="async" width="752" height="253" class="wp-image-8585" src="/wp-content/uploads/2018/06/word-image-1155.png" srcset="/wp-content/uploads/2018/06/word-image-1155.png 752w, /wp-content/uploads/2018/06/word-image-1155-300x101.png 300w" sizes="(max-width: 752px) 100vw, 752px" /> <img loading="lazy" decoding="async" width="660" height="224" class="wp-image-8586" src="/wp-content/uploads/2018/06/word-image-1156.png" srcset="/wp-content/uploads/2018/06/word-image-1156.png 660w, /wp-content/uploads/2018/06/word-image-1156-300x102.png 300w" sizes="(max-width: 660px) 100vw, 660px" /> <img loading="lazy" decoding="async" width="512" height="67" class="wp-image-8587" src="/wp-content/uploads/2018/06/word-image-1157.png" srcset="/wp-content/uploads/2018/06/word-image-1157.png 512w, /wp-content/uploads/2018/06/word-image-1157-300x39.png 300w" sizes="(max-width: 512px) 100vw, 512px" /></p>
+<h1>二、支付技术介绍</h1>
+<h2>1、早期网站支付</h2>
+<p>早期的电商都是送货上门，邮政汇款，这样的话，商家会承担很大的风险。</p>
+<p>后面的时候有部分网站和银行进行签约，使用网银、手机银行等。</p>
+<p>再往后，就是支付宝、微信。</p>
+<p>早期的公司如果想申请网银需要直接去找银行申请相关的支付接口，而且现在银行这么多公司不可能去每家银行申请支付接口，这样未免也太麻烦了。</p>
+<p><img loading="lazy" decoding="async" width="493" height="189" class="wp-image-8588" src="/wp-content/uploads/2018/06/word-image-1158.png" srcset="/wp-content/uploads/2018/06/word-image-1158.png 493w, /wp-content/uploads/2018/06/word-image-1158-300x115.png 300w" sizes="(max-width: 493px) 100vw, 493px" /></p>
+<p>如果有的网站的资金流动比较少的话，有的银行都不会和这些小公司进行合作，因为从中赚不到什么利润。所以就有了第三方支付平台（微信、支付宝、京东钱包、qq财付通、百度钱包）来解决这些问题。</p>
+<p><img loading="lazy" decoding="async" width="625" height="173" class="wp-image-8589" src="/wp-content/uploads/2018/06/word-image-1159.png" srcset="/wp-content/uploads/2018/06/word-image-1159.png 625w, /wp-content/uploads/2018/06/word-image-1159-300x83.png 300w" sizes="(max-width: 625px) 100vw, 625px" /></p>
+<h2>2、现在的网站支付</h2>
+<p>为了解决早期网站支付的问题，避免了商家繁琐的去每家银行获取支付接口。现在有些公司专门集合了所有银行的支付接口，这些公司进而在提供支付接口给我们企业或开发者使用，这些公司就是第三方支付平台。</p>
+<p>常见的第三方支付平台：微信、支付宝、京东钱包、qq财付通、百度钱包等</p>
+<p>有了这些第三方支付平台，我们企业或开发者就不需要独自跑去银行去申请支付接口了，直接利用第三方支付平台，在参考他们的支付接口文档即可完成我们的支付了！</p>
+<h1>三、支付宝支付</h1>
+<p>注意一点：现在的支付宝支付需要企业或个体工商户可申请才，个人是没法申请的。</p>
+<p>企业或个体工商户申请的条件如下：</p>
+<p>1. 提供真实有效的营业执照，且支付宝账户名称需与营业执照主体一致；</p>
+<p>2. 网站能正常访问且页面信息有完整商品内容；</p>
+<p>3. 网站必须通过ICP备案，个体户备案需与账户主体一致。</p>
+<p>（团购类网站不支持个体工商户签约）</p>
+<p>不过好处的个人开发者我们可以使用支付宝提供的沙箱环境进行模拟支付。</p>
+<p>那么什么是沙箱环境？</p>
+<p>答：就是支付宝提供给我们开发者一个虚拟的支付环境。其中的操作和真实支付环境是完全一样的。买家账号和卖家账号沙箱环境都给我们提供好了。</p>
+<p>后面的沙箱环境支付，支付宝会提供一个商家账户和个人买家账户给我们，我们在配合支付接口文档即可完成支付。</p>
+<h2>企业或个体工商户申请支付</h2>
+<p>申请的网址：<a href="/goto/pv02" rel="nofollow">https://b.alipay.com/</a> （b: business企业）</p>
+<p>点击下面的电脑网站支付的接入按钮：</p>
+<p><img loading="lazy" decoding="async" width="1277" height="644" class="wp-image-8590" src="/wp-content/uploads/2018/06/word-image-1160.png" srcset="/wp-content/uploads/2018/06/word-image-1160.png 1277w, /wp-content/uploads/2018/06/word-image-1160-300x151.png 300w, /wp-content/uploads/2018/06/word-image-1160-768x387.png 768w, /wp-content/uploads/2018/06/word-image-1160-1024x516.png 1024w" sizes="(max-width: 1277px) 100vw, 1277px" /></p>
+<p>这里支付宝提供了5种支付方式给我们使用，网站就要使用电脑网站支付。</p>
+<p>早期支付宝只有两种支付方式：</p>
+<p>即时到帐：我们上面看到的5个支付方式都是这个衍生出来的 ，一旦付款，立马到账。</p>
+<p>担保支付： 7天担保，早期淘宝网，买家买东西的钱先到了淘宝的帐号呆够7天，商家才收到款，担保支付支付宝已经取消了。</p>
+<p>企业或个体户点击上面电脑网站支付，需要以下申请条件：</p>
+<p><img loading="lazy" decoding="async" width="739" height="367" class="wp-image-8591" src="/wp-content/uploads/2018/06/word-image-1161.png" srcset="/wp-content/uploads/2018/06/word-image-1161.png 739w, /wp-content/uploads/2018/06/word-image-1161-300x149.png 300w" sizes="(max-width: 739px) 100vw, 739px" /></p>
+<p>上面的申请条件，以后去企业上班，公司都会帮我们申请好的。</p>
+<p>上面是企业或个体工商户申请的基本步骤，我们个人没法申请，所以这里我们只能使用沙箱环境进行支付测试。</p>
+<h2>申请沙箱应用</h2>
+<p>首页，登陆支付宝开放平台，进入到如下的开发者中心</p>
+<p><a href="/goto/kris" rel="nofollow">https://openhome.alipay.com/platform/developerIndex.htm</a></p>
+<p><img loading="lazy" decoding="async" width="825" height="208" class="wp-image-8592" src="/wp-content/uploads/2018/06/word-image-1162.png" srcset="/wp-content/uploads/2018/06/word-image-1162.png 825w, /wp-content/uploads/2018/06/word-image-1162-300x76.png 300w, /wp-content/uploads/2018/06/word-image-1162-768x194.png 768w" sizes="(max-width: 825px) 100vw, 825px" /></p>
+<p>点击开发者中心-&gt;研发服务，进入如下的沙箱环境：</p>
+<p>去创建沙箱应用,如下是已经创建的沙箱环境：</p>
+<p><img loading="lazy" decoding="async" width="1088" height="623" class="wp-image-8593" src="/wp-content/uploads/2018/06/word-image-1163.png" srcset="/wp-content/uploads/2018/06/word-image-1163.png 1088w, /wp-content/uploads/2018/06/word-image-1163-300x172.png 300w, /wp-content/uploads/2018/06/word-image-1163-768x440.png 768w, /wp-content/uploads/2018/06/word-image-1163-1024x586.png 1024w" sizes="(max-width: 1088px) 100vw, 1088px" /></p>
+<p>沙箱中的提供两个测试账户：商家账户 和 买家账户，其账户余额都是虚拟的</p>
+<p>成功付款的时候，钱会从买家账户打到商家账户</p>
+<p>商家账号：</p>
+<p><img loading="lazy" decoding="async" width="999" height="445" class="wp-image-8594" src="/wp-content/uploads/2018/06/word-image-1164.png" srcset="/wp-content/uploads/2018/06/word-image-1164.png 999w, /wp-content/uploads/2018/06/word-image-1164-300x134.png 300w, /wp-content/uploads/2018/06/word-image-1164-768x342.png 768w" sizes="(max-width: 999px) 100vw, 999px" /></p>
+<p>买家账号：</p>
+<p><img loading="lazy" decoding="async" width="570" height="363" class="wp-image-8595" src="/wp-content/uploads/2018/06/word-image-1165.png" srcset="/wp-content/uploads/2018/06/word-image-1165.png 570w, /wp-content/uploads/2018/06/word-image-1165-300x191.png 300w" sizes="(max-width: 570px) 100vw, 570px" /></p>
+<p>特别注意一点：</p>
+<p><img loading="lazy" decoding="async" width="738" height="60" class="wp-image-8596" src="/wp-content/uploads/2018/06/word-image-1166.png" srcset="/wp-content/uploads/2018/06/word-image-1166.png 738w, /wp-content/uploads/2018/06/word-image-1166-300x24.png 300w" sizes="(max-width: 738px) 100vw, 738px" /></p>
+<h2>3、下载支付宝支付的开发包SDK&amp;Demo</h2>
+<p>下载地址：<a href="/goto/9m2k" rel="nofollow">https://docs.open.alipay.com/270/106291</a></p>
+<p><img loading="lazy" decoding="async" width="1178" height="403" class="wp-image-8597" src="/wp-content/uploads/2018/06/word-image-1167.png" srcset="/wp-content/uploads/2018/06/word-image-1167.png 1178w, /wp-content/uploads/2018/06/word-image-1167-300x103.png 300w, /wp-content/uploads/2018/06/word-image-1167-768x263.png 768w, /wp-content/uploads/2018/06/word-image-1167-1024x350.png 1024w" sizes="(max-width: 1178px) 100vw, 1178px" /></p>
+<p>下载回来的压缩包如下：</p>
+<p><img loading="lazy" decoding="async" width="224" height="28" class="wp-image-8598" src="/wp-content/uploads/2018/06/word-image-1168.png" /></p>
+<p>解压下来如下所示：</p>
+<p><img loading="lazy" decoding="async" width="275" height="293" class="wp-image-8599" src="/wp-content/uploads/2018/06/word-image-1169.png" /></p>
+<p>aop：包含<strong>支付宝核心的支付文</strong>件。</p>
+<p>lotusphp_runtime： 这是一个国外的PHP框架，这里是支付宝默认使用的。</p>
+<p>pagepay：具体的实现支付接口的代码文件</p>
+<p>config.php：配置文件，填写应用配置APPID、应用密钥、支付宝、支付网关的文件</p>
+<p>notify_url.php：支付成功以后支付宝post方式异步跳转的地址，获取支付结果的地址</p>
+<p>return_url.php：支付成功以后支付宝get方式同步跳转的地址，获取支付结果的地址</p>
+<p>注：支付宝接口对我们的PHP版本有要求，必须在PHP5.5以上，可以使用phpStudy集成环境进行切换。且需要开启对应php版本的php.ini配置文件中的openssl扩展，去掉前面的分号，并重启apache服务器：</p>
+<p><img loading="lazy" decoding="async" width="660" height="204" class="wp-image-8600" src="/wp-content/uploads/2018/06/word-image-1170.png" srcset="/wp-content/uploads/2018/06/word-image-1170.png 660w, /wp-content/uploads/2018/06/word-image-1170-300x93.png 300w" sizes="(max-width: 660px) 100vw, 660px" /></p>
+<h1>四、集成支付宝到项目中</h1>
+<h2>1、引入支付宝到项目中</h2>
+<p>1、把下载下来的压缩包进行解压，把所有的文件复制到/public/alipay/目录下面</p>
+<p><img loading="lazy" decoding="async" width="894" height="410" class="wp-image-8601" src="/wp-content/uploads/2018/06/word-image-1171.png" srcset="/wp-content/uploads/2018/06/word-image-1171.png 894w, /wp-content/uploads/2018/06/word-image-1171-300x138.png 300w, /wp-content/uploads/2018/06/word-image-1171-768x352.png 768w" sizes="(max-width: 894px) 100vw, 894px" /></p>
+<h2>支付前的相关参数配置</h2>
+<p>几个重要的配置参数：</p>
+<ul>
+<li>APPID:可以从支付宝的沙箱应用中获取到</li>
+<li>支付宝支付网关</li>
+</ul>
+<p>沙箱环境：<a href="/goto/56zy" rel="nofollow">https://openapi.alipaydev.com/gateway.do</a></p>
+<p>正式环境：<a href="/goto/56zy" rel="nofollow">https://openapi.alipay.com/gateway.do</a></p>
+<p>提示：以后去公司做支付宝支付时，上线要使用正式环境的支付网关</p>
+<ul>
+<li>应用私钥</li>
+<li>应用公钥</li>
+</ul>
+<p>其中应用私钥和公钥可通过支付宝提供的相关工具生成。</p>
+<p><img loading="lazy" decoding="async" width="504" height="155" class="wp-image-8602" src="/wp-content/uploads/2018/06/word-image-1172.png" srcset="/wp-content/uploads/2018/06/word-image-1172.png 504w, /wp-content/uploads/2018/06/word-image-1172-300x92.png 300w" sizes="(max-width: 504px) 100vw, 504px" /></p>
+<ul>
+<li>支付宝公钥</li>
+</ul>
+<p>我们直接运行RSA签名验签工具</p>
+<p><img loading="lazy" decoding="async" width="340" height="216" class="wp-image-8603" src="/wp-content/uploads/2018/06/word-image-1173.png" srcset="/wp-content/uploads/2018/06/word-image-1173.png 340w, /wp-content/uploads/2018/06/word-image-1173-300x191.png 300w" sizes="(max-width: 340px) 100vw, 340px" /></p>
+<p>签名：说白了就是加密</p>
+<p>验签：说白了判断加密是否正确，</p>
+<p>例如:</p>
+<p>我们注册会员的时候，会给会员密码加密，你可以理解，我们给会员的密码进行签名，</p>
+<p>会员会在网站登录，我们直接从数据库找出密码的加密串 和 会员注册时的密码加密后进行判断，这个动作可以理解为验签</p>
+<p>我们使用RSA签名验签工具生成应用的私钥和公钥：</p>
+<p><img loading="lazy" decoding="async" width="788" height="661" class="wp-image-8604" src="/wp-content/uploads/2018/06/word-image-1174.png" srcset="/wp-content/uploads/2018/06/word-image-1174.png 788w, /wp-content/uploads/2018/06/word-image-1174-300x252.png 300w, /wp-content/uploads/2018/06/word-image-1174-768x644.png 768w" sizes="(max-width: 788px) 100vw, 788px" /></p>
+<p>商户的私钥：复制到config.php中。</p>
+<p>商户的公钥：复制到支付宝网站中，再获取支付宝的公钥复制到config.php中</p>
+<p>应用私钥和应用公钥，支付宝公钥说明：</p>
+<p><img loading="lazy" decoding="async" width="1201" height="681" class="wp-image-8605" src="/wp-content/uploads/2018/06/word-image-1175.png" srcset="/wp-content/uploads/2018/06/word-image-1175.png 1201w, /wp-content/uploads/2018/06/word-image-1175-300x170.png 300w, /wp-content/uploads/2018/06/word-image-1175-768x435.png 768w, /wp-content/uploads/2018/06/word-image-1175-1024x581.png 1024w" sizes="(max-width: 1201px) 100vw, 1201px" /></p>
+<p>修改config.php文件：</p>
+<p><img loading="lazy" decoding="async" width="1250" height="527" class="wp-image-8606" src="/wp-content/uploads/2018/06/word-image-1176.png" srcset="/wp-content/uploads/2018/06/word-image-1176.png 1250w, /wp-content/uploads/2018/06/word-image-1176-300x126.png 300w, /wp-content/uploads/2018/06/word-image-1176-768x324.png 768w, /wp-content/uploads/2018/06/word-image-1176-1024x432.png 1024w" sizes="(max-width: 1250px) 100vw, 1250px" /> <img loading="lazy" decoding="async" width="1253" height="351" class="wp-image-8607" src="/wp-content/uploads/2018/06/word-image-1177.png" srcset="/wp-content/uploads/2018/06/word-image-1177.png 1253w, /wp-content/uploads/2018/06/word-image-1177-300x84.png 300w, /wp-content/uploads/2018/06/word-image-1177-768x215.png 768w, /wp-content/uploads/2018/06/word-image-1177-1024x287.png 1024w" sizes="(max-width: 1253px) 100vw, 1253px" /></p>
+<p>配置好之后，进行访问，如果能够出现一个支付宝的支付页面，说明配置参数成功：</p>
+<p><img loading="lazy" decoding="async" width="820" height="321" class="wp-image-8608" src="/wp-content/uploads/2018/06/word-image-1178.png" srcset="/wp-content/uploads/2018/06/word-image-1178.png 820w, /wp-content/uploads/2018/06/word-image-1178-300x117.png 300w, /wp-content/uploads/2018/06/word-image-1178-768x301.png 768w" sizes="(max-width: 820px) 100vw, 820px" /> <img loading="lazy" decoding="async" width="1080" height="562" class="wp-image-8609" src="/wp-content/uploads/2018/06/word-image-1179.png" srcset="/wp-content/uploads/2018/06/word-image-1179.png 1080w, /wp-content/uploads/2018/06/word-image-1179-300x156.png 300w, /wp-content/uploads/2018/06/word-image-1179-768x400.png 768w, /wp-content/uploads/2018/06/word-image-1179-1024x533.png 1024w" sizes="(max-width: 1080px) 100vw, 1080px" /></p>
+<p>之后通过沙箱中的买家账号和密码进行支付即可。</p>
+<h2>分析如何唤起支付宝支付页面</h2>
+<p>支付流程图解：</p>
+<p><img loading="lazy" decoding="async" width="882" height="586" class="wp-image-8610" src="/wp-content/uploads/2018/06/word-image-1180.png" srcset="/wp-content/uploads/2018/06/word-image-1180.png 882w, /wp-content/uploads/2018/06/word-image-1180-300x199.png 300w, /wp-content/uploads/2018/06/word-image-1180-768x510.png 768w" sizes="(max-width: 882px) 100vw, 882px" /></p>
+<p>当单击支付按钮的时候，跳转到pagepay/pagepay.php文件中进行支付，此页面才是跳转到支付宝的真正支付页面。</p>
+<p><img loading="lazy" decoding="async" width="943" height="610" class="wp-image-8611" src="/wp-content/uploads/2018/06/word-image-1181.png" srcset="/wp-content/uploads/2018/06/word-image-1181.png 943w, /wp-content/uploads/2018/06/word-image-1181-300x194.png 300w, /wp-content/uploads/2018/06/word-image-1181-768x497.png 768w" sizes="(max-width: 943px) 100vw, 943px" /></p>
+<p>文件如下：</p>
+<p><img loading="lazy" decoding="async" width="1142" height="405" class="wp-image-8612" src="/wp-content/uploads/2018/06/word-image-1182.png" srcset="/wp-content/uploads/2018/06/word-image-1182.png 1142w, /wp-content/uploads/2018/06/word-image-1182-300x106.png 300w, /wp-content/uploads/2018/06/word-image-1182-768x272.png 768w, /wp-content/uploads/2018/06/word-image-1182-1024x363.png 1024w" sizes="(max-width: 1142px) 100vw, 1142px" /></p>
+<p>即，后面只要在支付的时候，引入上面的pagepay/pagepay.php文件即可完成支付。</p>
+<h2>实现商城订单的支付</h2>
+<p>1、上面配置没有问题的话，且可以出现支付页面，我们就可以把/public/alipay目录复制到extend/目录下面：</p>
+<p><img loading="lazy" decoding="async" width="704" height="326" class="wp-image-8613" src="/wp-content/uploads/2018/06/word-image-1183.png" srcset="/wp-content/uploads/2018/06/word-image-1183.png 704w, /wp-content/uploads/2018/06/word-image-1183-300x139.png 300w" sizes="(max-width: 704px) 100vw, 704px" /></p>
+<ol>
+<li>当订单数据入库成功之后，需要引入上面的pagepay/pagepay.php文件进行支付，这里我们封装在一个支付的方法_payMoney()中。方便后面支付调用</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1201" height="540" class="wp-image-8614" src="/wp-content/uploads/2018/06/word-image-1184.png" srcset="/wp-content/uploads/2018/06/word-image-1184.png 1201w, /wp-content/uploads/2018/06/word-image-1184-300x135.png 300w, /wp-content/uploads/2018/06/word-image-1184-768x345.png 768w, /wp-content/uploads/2018/06/word-image-1184-1024x460.png 1024w" sizes="(max-width: 1201px) 100vw, 1201px" /></p>
+<p>同时需要把pagepay.php文件中的原本是$_POST的变量改为我们上面定义的$payData变量。</p>
+<p>之所以要更改是因为后面个人订单支付也可以采用get方式进行传参支付。这样支付就更加灵活。</p>
+<p><img loading="lazy" decoding="async" width="1089" height="529" class="wp-image-8615" src="/wp-content/uploads/2018/06/word-image-1185.png" srcset="/wp-content/uploads/2018/06/word-image-1185.png 1089w, /wp-content/uploads/2018/06/word-image-1185-300x146.png 300w, /wp-content/uploads/2018/06/word-image-1185-768x373.png 768w, /wp-content/uploads/2018/06/word-image-1185-1024x497.png 1024w" sizes="(max-width: 1089px) 100vw, 1089px" /></p>
+<p>测试下商品加入购物车进行订单支付，如果下面付款的总金额一致，说明集成项目中成功</p>
+<p><img loading="lazy" decoding="async" width="975" height="544" class="wp-image-8616" src="/wp-content/uploads/2018/06/word-image-1186.png" srcset="/wp-content/uploads/2018/06/word-image-1186.png 975w, /wp-content/uploads/2018/06/word-image-1186-300x167.png 300w, /wp-content/uploads/2018/06/word-image-1186-768x429.png 768w" sizes="(max-width: 975px) 100vw, 975px" /></p>
+<h2>支付成功修改订单状态</h2>
+<p>在上面的支付宝页面进行支付成功之后，会跳转到我们在config.php中设置好的return_url配置项的同步回调地址。</p>
+<p><img loading="lazy" decoding="async" width="1152" height="367" class="wp-image-8617" src="/wp-content/uploads/2018/06/word-image-1187.png" srcset="/wp-content/uploads/2018/06/word-image-1187.png 1152w, /wp-content/uploads/2018/06/word-image-1187-300x96.png 300w, /wp-content/uploads/2018/06/word-image-1187-768x245.png 768w, /wp-content/uploads/2018/06/word-image-1187-1024x326.png 1024w" sizes="(max-width: 1152px) 100vw, 1152px" /></p>
+<p>只要支付宝支付成功之后，就会往同步地址和异步地址进行跳转：</p>
+<p><img loading="lazy" decoding="async" width="717" height="481" class="wp-image-8618" src="/wp-content/uploads/2018/06/word-image-1188.png" srcset="/wp-content/uploads/2018/06/word-image-1188.png 717w, /wp-content/uploads/2018/06/word-image-1188-300x201.png 300w" sizes="(max-width: 717px) 100vw, 717px" /></p>
+<p>同步通知和异步通知的区别：</p>
+<p>同步和异步通知携带的支付参数没有本质的区别：</p>
+<p>同步通知：支付成功后返回到指定callback回调域，同时携带支付状态的get参数，让自己的网站用于验证（更新支付的状态）。</p>
+<p>异步通知：其实是双保险机制，主要是防止意外情况。因为交易涉及到钱的问题，支付宝考虑到如果同步通知的过程中，用户不小心关闭浏览器或者浏览器卡死的情况，这样就无法实现同步通知，从而也就无法更新用户的支付状态(用户支付成功，但显示未付款)。而支付宝服务器会在一段时间内持续的往我们的服务器发送异步通知。直到返回给支付宝success即可，这个一段时间在1-2天内通知8次左右。</p>
+<ol>
+<li>在config.php中设置好同步的回调地址</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1236" height="424" class="wp-image-8619" src="/wp-content/uploads/2018/06/word-image-1189.png" srcset="/wp-content/uploads/2018/06/word-image-1189.png 1236w, /wp-content/uploads/2018/06/word-image-1189-300x103.png 300w, /wp-content/uploads/2018/06/word-image-1189-768x263.png 768w, /wp-content/uploads/2018/06/word-image-1189-1024x351.png 1024w" sizes="(max-width: 1236px) 100vw, 1236px" /></p>
+<ol>
+<li>建立一个同步回调的方法returnurl,打印get方法带来的支付成功参数</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1035" height="631" class="wp-image-8620" src="/wp-content/uploads/2018/06/word-image-1190.png" srcset="/wp-content/uploads/2018/06/word-image-1190.png 1035w, /wp-content/uploads/2018/06/word-image-1190-300x183.png 300w, /wp-content/uploads/2018/06/word-image-1190-768x468.png 768w, /wp-content/uploads/2018/06/word-image-1190-1024x624.png 1024w" sizes="(max-width: 1035px) 100vw, 1035px" /></p>
+<p>打印get携带的支付成功的参数如下：</p>
+<p><img loading="lazy" decoding="async" width="1085" height="313" class="wp-image-8621" src="/wp-content/uploads/2018/06/word-image-1191.png" srcset="/wp-content/uploads/2018/06/word-image-1191.png 1085w, /wp-content/uploads/2018/06/word-image-1191-300x87.png 300w, /wp-content/uploads/2018/06/word-image-1191-768x222.png 768w, /wp-content/uploads/2018/06/word-image-1191-1024x295.png 1024w" sizes="(max-width: 1085px) 100vw, 1085px" /></p>
+<p>两个重要的参数：</p>
+<p>out_trade_no :自己网站的订单号</p>
+<p>trade_no:支付宝那么支付成功返回来的订单号</p>
+<p>这里我们可以通过out_trade_no订单号进行修改订单的支付状态，把支付状态的字段pay_status改为1.</p>
+<ol>
+<li>修改订单的支付状态：</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="983" height="659" class="wp-image-8622" src="/wp-content/uploads/2018/06/word-image-1192.png" srcset="/wp-content/uploads/2018/06/word-image-1192.png 983w, /wp-content/uploads/2018/06/word-image-1192-300x201.png 300w, /wp-content/uploads/2018/06/word-image-1192-768x515.png 768w" sizes="(max-width: 983px) 100vw, 983px" /></p>
+<p>更改用户的支付状态和支付宝返回的订单号：</p>
+<p><img loading="lazy" decoding="async" width="498" height="92" class="wp-image-8623" src="/wp-content/uploads/2018/06/word-image-1193.png" srcset="/wp-content/uploads/2018/06/word-image-1193.png 498w, /wp-content/uploads/2018/06/word-image-1193-300x55.png 300w" sizes="(max-width: 498px) 100vw, 498px" /></p>
+<p>注：如果是线上环境，支付宝还会以post方式进行异步通知我们在config.php设置的异步回调地址。</p>
+<p><img loading="lazy" decoding="async" width="1232" height="295" class="wp-image-8624" src="/wp-content/uploads/2018/06/word-image-1194.png" srcset="/wp-content/uploads/2018/06/word-image-1194.png 1232w, /wp-content/uploads/2018/06/word-image-1194-300x72.png 300w, /wp-content/uploads/2018/06/word-image-1194-768x184.png 768w, /wp-content/uploads/2018/06/word-image-1194-1024x245.png 1024w" sizes="(max-width: 1232px) 100vw, 1232px" /></p>
+<p>异步代码也是更新订单的支付状态，只是把get接收方式改为post,且最后支付成功一定要echo一个success字符串给支付宝那边，否则支付宝在一段时间会一直通知，这个一段时间在1-2天内通知8次左右。</p>
+<p><img loading="lazy" decoding="async" width="1033" height="664" class="wp-image-8625" src="/wp-content/uploads/2018/06/word-image-1195.png" srcset="/wp-content/uploads/2018/06/word-image-1195.png 1033w, /wp-content/uploads/2018/06/word-image-1195-300x193.png 300w, /wp-content/uploads/2018/06/word-image-1195-768x494.png 768w, /wp-content/uploads/2018/06/word-image-1195-1024x658.png 1024w" sizes="(max-width: 1033px) 100vw, 1033px" /></p>
+<h2>6、订单数据入库验证补充</h2>
+<ol>
+<li>定义Order验证器即规则</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="730" height="462" class="wp-image-8626" src="/wp-content/uploads/2018/06/word-image-1196.png" srcset="/wp-content/uploads/2018/06/word-image-1196.png 730w, /wp-content/uploads/2018/06/word-image-1196-300x190.png 300w" sizes="(max-width: 730px) 100vw, 730px" /></p>
+<ol>
+<li>写入订单数据的时候进行验证</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="972" height="475" class="wp-image-8627" src="/wp-content/uploads/2018/06/word-image-1197.png" srcset="/wp-content/uploads/2018/06/word-image-1197.png 972w, /wp-content/uploads/2018/06/word-image-1197-300x147.png 300w, /wp-content/uploads/2018/06/word-image-1197-768x375.png 768w" sizes="(max-width: 972px) 100vw, 972px" /></p>
+<h1>查看个人订单</h1>
+<p><img loading="lazy" decoding="async" width="351" height="47" class="wp-image-8628" src="/wp-content/uploads/2018/06/word-image-1198.png" srcset="/wp-content/uploads/2018/06/word-image-1198.png 351w, /wp-content/uploads/2018/06/word-image-1198-300x40.png 300w" sizes="(max-width: 351px) 100vw, 351px" /></p>
+<ol>
+<li>修改模板（nav.html）我的订单的链接地址</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1159" height="276" class="wp-image-8629" src="/wp-content/uploads/2018/06/word-image-1199.png" srcset="/wp-content/uploads/2018/06/word-image-1199.png 1159w, /wp-content/uploads/2018/06/word-image-1199-300x71.png 300w, /wp-content/uploads/2018/06/word-image-1199-768x183.png 768w, /wp-content/uploads/2018/06/word-image-1199-1024x244.png 1024w" sizes="(max-width: 1159px) 100vw, 1159px" /></p>
+<ol>
+<li>在前台的home的order控制器，建立一个selfOrder方法，查询个人的所有订单，并分配到模板中。</li>
+<li>把前台模板order.html复制到/home/view/order/目录下面，并改名为selforder.html</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="897" height="520" class="wp-image-8630" src="/wp-content/uploads/2018/06/word-image-1200.png" srcset="/wp-content/uploads/2018/06/word-image-1200.png 897w, /wp-content/uploads/2018/06/word-image-1200-300x174.png 300w, /wp-content/uploads/2018/06/word-image-1200-768x445.png 768w" sizes="(max-width: 897px) 100vw, 897px" /></p>
+<p>b、selfOrder方法</p>
+<p><img loading="lazy" decoding="async" width="958" height="313" class="wp-image-8631" src="/wp-content/uploads/2018/06/word-image-1201.png" srcset="/wp-content/uploads/2018/06/word-image-1201.png 958w, /wp-content/uploads/2018/06/word-image-1201-300x98.png 300w, /wp-content/uploads/2018/06/word-image-1201-768x251.png 768w" sizes="(max-width: 958px) 100vw, 958px" /></p>
+<p>我们可以把用户的付款状态和发货状态对应的文本值定义在配置文件中，这样非常方便后期状态的维护。</p>
+<p><img loading="lazy" decoding="async" width="853" height="412" class="wp-image-8632" src="/wp-content/uploads/2018/06/word-image-1202.png" srcset="/wp-content/uploads/2018/06/word-image-1202.png 853w, /wp-content/uploads/2018/06/word-image-1202-300x145.png 300w, /wp-content/uploads/2018/06/word-image-1202-768x371.png 768w" sizes="(max-width: 853px) 100vw, 853px" /></p>
+<ol>
+<li>模板selfOrder.html遍历订单数据</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1248" height="464" class="wp-image-8633" src="/wp-content/uploads/2018/06/word-image-1203.png" srcset="/wp-content/uploads/2018/06/word-image-1203.png 1248w, /wp-content/uploads/2018/06/word-image-1203-300x112.png 300w, /wp-content/uploads/2018/06/word-image-1203-768x286.png 768w, /wp-content/uploads/2018/06/word-image-1203-1024x381.png 1024w" sizes="(max-width: 1248px) 100vw, 1248px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="1014" height="414" class="wp-image-8634" src="/wp-content/uploads/2018/06/word-image-1204.png" srcset="/wp-content/uploads/2018/06/word-image-1204.png 1014w, /wp-content/uploads/2018/06/word-image-1204-300x122.png 300w, /wp-content/uploads/2018/06/word-image-1204-768x314.png 768w" sizes="(max-width: 1014px) 100vw, 1014px" /></p>
+<h1>完成订单付款</h1>
+<ol>
+<li>给去付款按钮设置一个链接地址</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1247" height="327" class="wp-image-8635" src="/wp-content/uploads/2018/06/word-image-1205.png" srcset="/wp-content/uploads/2018/06/word-image-1205.png 1247w, /wp-content/uploads/2018/06/word-image-1205-300x79.png 300w, /wp-content/uploads/2018/06/word-image-1205-768x201.png 768w, /wp-content/uploads/2018/06/word-image-1205-1024x269.png 1024w" sizes="(max-width: 1247px) 100vw, 1247px" /></p>
+<ol>
+<li>在payMoney的方法中，完成付款的操作</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="943" height="350" class="wp-image-8636" src="/wp-content/uploads/2018/06/word-image-1206.png" srcset="/wp-content/uploads/2018/06/word-image-1206.png 943w, /wp-content/uploads/2018/06/word-image-1206-300x111.png 300w, /wp-content/uploads/2018/06/word-image-1206-768x285.png 768w" sizes="(max-width: 943px) 100vw, 943px" /></p>
+<p>修改支付成功的get同步回调的方法returnurl,支付成功，跳转到用户的订单列表</p>
+<p><img loading="lazy" decoding="async" width="1004" height="704" class="wp-image-8637" src="/wp-content/uploads/2018/06/word-image-1207.png" srcset="/wp-content/uploads/2018/06/word-image-1207.png 1004w, /wp-content/uploads/2018/06/word-image-1207-300x210.png 300w, /wp-content/uploads/2018/06/word-image-1207-768x539.png 768w" sizes="(max-width: 1004px) 100vw, 1004px" /></p>
+<h1>七、后台订单管理</h1>
+<h2>1、订单列表无刷新分页</h2>
+<p>分析：</p>
+<p><img loading="lazy" decoding="async" width="1149" height="204" class="wp-image-8638" src="/wp-content/uploads/2018/06/word-image-1208.png" srcset="/wp-content/uploads/2018/06/word-image-1208.png 1149w, /wp-content/uploads/2018/06/word-image-1208-300x53.png 300w, /wp-content/uploads/2018/06/word-image-1208-768x136.png 768w, /wp-content/uploads/2018/06/word-image-1208-1024x182.png 1024w" sizes="(max-width: 1149px) 100vw, 1149px" /></p>
+<p>无属性分页只需要发送ajax请求，只需获取需要的数据返回来进行替换即可。</p>
+<ol>
+<li>给分页的超练级a标签绑定单击事件，需要获取到其href属性值，并且阻止默认行为，用ajax请求地址即可，获取所需要的上面两部分数据，进行替换即可</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1096" height="476" class="wp-image-8639" src="/wp-content/uploads/2018/06/word-image-1209.png" srcset="/wp-content/uploads/2018/06/word-image-1209.png 1096w, /wp-content/uploads/2018/06/word-image-1209-300x130.png 300w, /wp-content/uploads/2018/06/word-image-1209-768x334.png 768w, /wp-content/uploads/2018/06/word-image-1209-1024x445.png 1024w" sizes="(max-width: 1096px) 100vw, 1096px" /></p>
+<ol>
+<li>为了获取独立的分页主体数据，我们可以抽离到一个html模板中</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="821" height="436" class="wp-image-8640" src="/wp-content/uploads/2018/06/word-image-1210.png" srcset="/wp-content/uploads/2018/06/word-image-1210.png 821w, /wp-content/uploads/2018/06/word-image-1210-300x159.png 300w, /wp-content/uploads/2018/06/word-image-1210-768x408.png 768w" sizes="(max-width: 821px) 100vw, 821px" /></p>
+<p>3、在index方法判断是否是ajax请求，返回所需要的数据即可。</p>
+<p><img loading="lazy" decoding="async" width="1009" height="601" class="wp-image-8641" src="/wp-content/uploads/2018/06/word-image-1211.png" srcset="/wp-content/uploads/2018/06/word-image-1211.png 1009w, /wp-content/uploads/2018/06/word-image-1211-300x180.png 300w, /wp-content/uploads/2018/06/word-image-1211-768x457.png 768w" sizes="(max-width: 1009px) 100vw, 1009px" /></p>
+<p>核心利用fetch方法：此方法其实做了3件事件；</p>
+<ol>
+<li>获取到模板内容 2.把分配到此模板中的变量进行替换 3.把替换好的模板内返回</li>
+</ol>
+<p>注：由于无刷新分页的页码是ajax动态返回来的，要给动态增加元素绑定事件只能是用委托方式去绑定：</p>
+<p>父选择器.on(事件名,子选择器，callback)</p>
+<h2>2、分配订单物流信息</h2>
+<h2>3、查询订单物流信息</h2>
+<h2>4、订单无刷新搜索</h2>
+<h2>5、搜索关键字高亮显示</h2>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8570.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

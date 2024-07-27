@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Session防翻墙 &#8211; 个人随笔</title>
+	<atom:link href="/label/session%E9%98%B2%E7%BF%BB%E5%A2%99/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 06:15:30 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>Session防翻墙 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>博客项目（二）显示登录信息、权限、Cookie存储信息、验证码、Session防翻墙</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/2862.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/2862.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 06:15:30 +0000</pubDate>
+				<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[源码Blog项目]]></category>
+		<category><![CDATA[Cookie存储信息]]></category>
+		<category><![CDATA[Session防翻墙]]></category>
+		<category><![CDATA[显示登录信息]]></category>
+		<category><![CDATA[权限]]></category>
+		<category><![CDATA[验证码]]></category>
+		<guid isPermaLink="false">/?p=2862</guid>
+
+					<description><![CDATA[博客项目（二） 显示登录的信息 登录成功后，在管理员页面显示登录的信息。 用户的登录信息保存在会话中，从会话中 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>博客项目（二）</h1>
+<h2>显示登录的信息</h2>
+<p>
+  登录成功后，在管理员页面显示登录的信息。
+</p>
+<p>
+  用户的登录信息保存在会话中，从会话中取出对应的值就可以了。
+</p>
+<p><img fetchpriority="high" decoding="async" width="1029" height="137" src="/wp-content/uploads/2018/05/word-image-2516.png" class="wp-image-2863" srcset="/wp-content/uploads/2018/05/word-image-2516.png 1029w, /wp-content/uploads/2018/05/word-image-2516-300x40.png 300w, /wp-content/uploads/2018/05/word-image-2516-768x102.png 768w, /wp-content/uploads/2018/05/word-image-2516-1024x136.png 1024w" sizes="(max-width: 1029px) 100vw, 1029px" /><br />
+<img decoding="async" width="1032" height="159" src="/wp-content/uploads/2018/05/word-image-2517.png" class="wp-image-2864" srcset="/wp-content/uploads/2018/05/word-image-2517.png 1032w, /wp-content/uploads/2018/05/word-image-2517-300x46.png 300w, /wp-content/uploads/2018/05/word-image-2517-768x118.png 768w, /wp-content/uploads/2018/05/word-image-2517-1024x158.png 1024w" sizes="(max-width: 1032px) 100vw, 1032px" /></p>
+<p>
+  运行结果
+</p>
+<p><img decoding="async" width="1359" height="356" src="/wp-content/uploads/2018/05/word-image-2518.png" class="wp-image-2865" srcset="/wp-content/uploads/2018/05/word-image-2518.png 1359w, /wp-content/uploads/2018/05/word-image-2518-300x79.png 300w, /wp-content/uploads/2018/05/word-image-2518-768x201.png 768w, /wp-content/uploads/2018/05/word-image-2518-1024x268.png 1024w" sizes="(max-width: 1359px) 100vw, 1359px" /></p>
+<h2>退出和安全退出</h2>
+<p>
+  退出：退出不销毁会话
+</p>
+<p>
+  安全退出：退出并销毁会话
+</p>
+<ol>
+<li>
+  在LoginController控制器中，添加安全退出的方法
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1171" height="252" src="/wp-content/uploads/2018/05/word-image-2519.png" class="wp-image-2866" srcset="/wp-content/uploads/2018/05/word-image-2519.png 1171w, /wp-content/uploads/2018/05/word-image-2519-300x65.png 300w, /wp-content/uploads/2018/05/word-image-2519-768x165.png 768w, /wp-content/uploads/2018/05/word-image-2519-1024x220.png 1024w" sizes="(max-width: 1171px) 100vw, 1171px" /></p>
+<ol>
+<li>
+  点击top.html页面中安全退出，跳转到logout()方法上
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="815" height="93" src="/wp-content/uploads/2018/05/word-image-2520.png" class="wp-image-2867" srcset="/wp-content/uploads/2018/05/word-image-2520.png 815w, /wp-content/uploads/2018/05/word-image-2520-300x34.png 300w, /wp-content/uploads/2018/05/word-image-2520-768x88.png 768w" sizes="(max-width: 815px) 100vw, 815px" /></p>
+<h2>不同级别的用户显示不同的导航</h2>
+<p><img loading="lazy" decoding="async" width="797" height="318" src="/wp-content/uploads/2018/05/word-image-2521.png" class="wp-image-2868" srcset="/wp-content/uploads/2018/05/word-image-2521.png 797w, /wp-content/uploads/2018/05/word-image-2521-300x120.png 300w, /wp-content/uploads/2018/05/word-image-2521-768x306.png 768w" sizes="(max-width: 797px) 100vw, 797px" /></p>
+<p>
+  测试：
+</p>
+<ol>
+<li>
+  用管理员身份登录
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="602" height="257" src="/wp-content/uploads/2018/05/word-image-2522.png" class="wp-image-2869" srcset="/wp-content/uploads/2018/05/word-image-2522.png 602w, /wp-content/uploads/2018/05/word-image-2522-300x128.png 300w" sizes="(max-width: 602px) 100vw, 602px" /></p>
+<ol>
+<li>
+  用普通身份登录
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="747" height="283" src="/wp-content/uploads/2018/05/word-image-2523.png" class="wp-image-2870" srcset="/wp-content/uploads/2018/05/word-image-2523.png 747w, /wp-content/uploads/2018/05/word-image-2523-300x114.png 300w" sizes="(max-width: 747px) 100vw, 747px" /></p>
+<h2>记住密码</h2>
+<p>
+  登录成功后，将用户信息保存到客户端，后面登录的时候就不需要再输入用户信息。
+</p>
+<p><img loading="lazy" decoding="async" width="642" height="310" src="/wp-content/uploads/2018/05/word-image-2524.png" class="wp-image-2871" srcset="/wp-content/uploads/2018/05/word-image-2524.png 642w, /wp-content/uploads/2018/05/word-image-2524-300x145.png 300w" sizes="(max-width: 642px) 100vw, 642px" /></p>
+<h3>代码实现</h3>
+<ol>
+<li>
+  在配置文件中添加秘钥
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1015" height="273" src="/wp-content/uploads/2018/05/word-image-2525.png" class="wp-image-2872" srcset="/wp-content/uploads/2018/05/word-image-2525.png 1015w, /wp-content/uploads/2018/05/word-image-2525-300x81.png 300w, /wp-content/uploads/2018/05/word-image-2525-768x207.png 768w" sizes="(max-width: 1015px) 100vw, 1015px" /></p>
+<ol>
+<li>
+  在UserModel模型中，将用户信息记录在cookie中
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1104" height="288" src="/wp-content/uploads/2018/05/word-image-2526.png" class="wp-image-2873" srcset="/wp-content/uploads/2018/05/word-image-2526.png 1104w, /wp-content/uploads/2018/05/word-image-2526-300x78.png 300w, /wp-content/uploads/2018/05/word-image-2526-768x200.png 768w, /wp-content/uploads/2018/05/word-image-2526-1024x267.png 1024w" sizes="(max-width: 1104px) 100vw, 1104px" /></p>
+<p>
+  脚下留心：不能直接将用户名和密码记录在cookie中，不安全（可以直接在浏览器中查看）。
+</p>
+<ol>
+<li>
+  在UserModel模型中，通过cookie的值获取用户的信息
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1332" height="426" src="/wp-content/uploads/2018/05/word-image-2527.png" class="wp-image-2874" srcset="/wp-content/uploads/2018/05/word-image-2527.png 1332w, /wp-content/uploads/2018/05/word-image-2527-300x96.png 300w, /wp-content/uploads/2018/05/word-image-2527-768x246.png 768w, /wp-content/uploads/2018/05/word-image-2527-1024x327.png 1024w" sizes="(max-width: 1332px) 100vw, 1332px" /></p>
+<ol>
+<li>
+  登录成功后，如果选择了记录密码就将信息保存到cookie中
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1165" height="314" src="/wp-content/uploads/2018/05/word-image-2528.png" class="wp-image-2875" srcset="/wp-content/uploads/2018/05/word-image-2528.png 1165w, /wp-content/uploads/2018/05/word-image-2528-300x81.png 300w, /wp-content/uploads/2018/05/word-image-2528-768x207.png 768w, /wp-content/uploads/2018/05/word-image-2528-1024x276.png 1024w" sizes="(max-width: 1165px) 100vw, 1165px" /></p>
+<ol>
+<li>
+  请求登录页面并且不是从其他页面跳转过来，就试图通过cookie获取用户
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1277" height="378" src="/wp-content/uploads/2018/05/word-image-2529.png" class="wp-image-2876" srcset="/wp-content/uploads/2018/05/word-image-2529.png 1277w, /wp-content/uploads/2018/05/word-image-2529-300x89.png 300w, /wp-content/uploads/2018/05/word-image-2529-768x227.png 768w, /wp-content/uploads/2018/05/word-image-2529-1024x303.png 1024w" sizes="(max-width: 1277px) 100vw, 1277px" /></p>
+<h2>验证码</h2>
+<p><img loading="lazy" decoding="async" width="814" height="180" src="/wp-content/uploads/2018/05/word-image-2530.png" class="wp-image-2877" srcset="/wp-content/uploads/2018/05/word-image-2530.png 814w, /wp-content/uploads/2018/05/word-image-2530-300x66.png 300w, /wp-content/uploads/2018/05/word-image-2530-768x170.png 768w" sizes="(max-width: 814px) 100vw, 814px" /></p>
+<h3>思路</h3>
+<p>
+  第一步：生成随机字符串
+</p>
+<p>
+  第二步：将字符串写到图片资源上
+</p>
+<p>
+  第三步：显示图片
+</p>
+<h3>代码实现</h3>
+<ol>
+<li>
+  在Lib文件夹下创建Captcha.class.php页面
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace Lib;
+</p>
+<p>
+  class Captcha{
+</p>
+<p>
+      private $len;   //验证码位数
+</p>
+<p>
+      private $font;  //内置字体 1,2,3,4,5
+</p>
+<p>
+      public function __construct($len=4,$font=5) {
+</p>
+<p>
+          $this-&gt;len=$len;
+</p>
+<p>
+          $this-&gt;font=$font;
+</p>
+<p>
+      }
+</p>
+<p>
+      //生成随机字符串
+</p>
+<p>
+      private function createRandomString(){
+</p>
+<p>
+         $char_array=  array_merge(range(&#8216;a&#8217;, &#8216;z&#8217;),  range(&#8216;A&#8217;, &#8216;Z&#8217;),  range(0, 9));
+</p>
+<p>
+         $index=array_rand($char_array,  $this-&gt;len); //随机取出字符串，返回下标数组
+</p>
+<p>
+         shuffle($index); //打乱数组
+</p>
+<p>
+         $str=&#8221;;
+</p>
+<p>
+         foreach($index as $i){
+</p>
+<p>
+             $str.=$char_array[$i];
+</p>
+<p>
+         }
+</p>
+<p>
+         $_SESSION[&#8216;verify&#8217;]=$str;
+</p>
+<p>
+         return $str;
+</p>
+<p>
+      }
+</p>
+<p>
+      //创建验证码
+</p>
+<p>
+      public function createVerify(){
+</p>
+<p>
+          $str=  $this-&gt;createRandomString();
+</p>
+<p>
+          $image=  imagecreate(80, 30);
+</p>
+<p>
+          imagecolorallocate($image, 255, 255, 255);
+</p>
+<p>
+          $color=  imagecolorallocate($image, 255, 0, 0);
+</p>
+<p>
+          $x=(imagesx($image)-imagefontwidth($this-&gt;font)*$this-&gt;len)/2;
+</p>
+<p>
+          $y=(imagesy($image)-imagefontheight($this-&gt;font))/2;
+</p>
+<p>
+          imagestring($image, $this-&gt;font, $x, $y, $str, $color);
+</p>
+<p>
+          header(&#8216;Content-Type:image/png&#8217;);
+</p>
+<p>
+          imagepng($image);
+</p>
+<p>
+          imagedestroy($image);
+</p>
+<p>
+      }
+</p>
+<p>
+      //检查验证码是否正确
+</p>
+<p>
+      public function checkVerify($code){
+</p>
+<p>
+          return strtoupper($code)==strtoupper($_SESSION[&#8216;verify&#8217;]);
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  调用生成验证码类
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1030" height="260" src="/wp-content/uploads/2018/05/word-image-2531.png" class="wp-image-2878" srcset="/wp-content/uploads/2018/05/word-image-2531.png 1030w, /wp-content/uploads/2018/05/word-image-2531-300x76.png 300w, /wp-content/uploads/2018/05/word-image-2531-768x194.png 768w, /wp-content/uploads/2018/05/word-image-2531-1024x258.png 1024w" sizes="(max-width: 1030px) 100vw, 1030px" /></p>
+<ol>
+<li>
+  在login.html页面中显示验证码
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1114" height="95" src="/wp-content/uploads/2018/05/word-image-2532.png" class="wp-image-2879" srcset="/wp-content/uploads/2018/05/word-image-2532.png 1114w, /wp-content/uploads/2018/05/word-image-2532-300x26.png 300w, /wp-content/uploads/2018/05/word-image-2532-768x65.png 768w, /wp-content/uploads/2018/05/word-image-2532-1024x87.png 1024w" sizes="(max-width: 1114px) 100vw, 1114px" /></p>
+<ol>
+<li>
+  验证输入的验证码
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1270" height="306" src="/wp-content/uploads/2018/05/word-image-2533.png" class="wp-image-2880" srcset="/wp-content/uploads/2018/05/word-image-2533.png 1270w, /wp-content/uploads/2018/05/word-image-2533-300x72.png 300w, /wp-content/uploads/2018/05/word-image-2533-768x185.png 768w, /wp-content/uploads/2018/05/word-image-2533-1024x247.png 1024w" sizes="(max-width: 1270px) 100vw, 1270px" /></p>
+<h2>session入库</h2>
+<p>
+  将会话保存到数据库中
+</p>
+<h3>创建会话表</h3>
+<p>
+  drop table if exists `session`;
+</p>
+<p>
+  create table `session`(
+</p>
+<p>
+         sess_id varchar(50) primary key comment &#8216;会话id&#8217;,
+</p>
+<p>
+         sess_value varchar(2000) comment &#8216;会话的值&#8217;,
+</p>
+<p>
+         sess_time int not null comment &#8216;会话产生的时间&#8217;
+</p>
+<p>
+  )engine=memory charset=utf8 comment &#8216;会话表&#8217;;
+</p>
+<p>
+  表结构
+</p>
+<p><img loading="lazy" decoding="async" width="769" height="82" src="/wp-content/uploads/2018/05/word-image-2534.png" class="wp-image-2881" srcset="/wp-content/uploads/2018/05/word-image-2534.png 769w, /wp-content/uploads/2018/05/word-image-2534-300x32.png 300w, /wp-content/uploads/2018/05/word-image-2534-768x82.png 768w" sizes="(max-width: 769px) 100vw, 769px" /></p>
+<h3>代码实现</h3>
+<p>
+  1、在Lib文件下创建Session.class.php页面
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  /*
+</p>
+<p>
+   * session入库
+</p>
+<p>
+   */
+</p>
+<p>
+  namespace Lib;
+</p>
+<p>
+  class Session{
+</p>
+<p>
+      private $mypdo;
+</p>
+<p>
+      public function __construct() {
+</p>
+<p>
+          //设置会话存储方式
+</p>
+<p>
+          session_set_save_handler(
+</p>
+<p>
+              array($this,&#8217;open&#8217;),
+</p>
+<p>
+              array($this,&#8217;close&#8217;),
+</p>
+<p>
+              array($this,&#8217;read&#8217;),
+</p>
+<p>
+              array($this,&#8217;write&#8217;),
+</p>
+<p>
+              array($this,&#8217;destroy&#8217;),
+</p>
+<p>
+              array($this,&#8217;gc&#8217;)
+</p>
+<p>
+          );
+</p>
+<p>
+          session_start();    //开启会话
+</p>
+<p>
+      }
+</p>
+<p>
+      public function open(){
+</p>
+<p>
+          $this-&gt;mypdo=  \Core\MyPDO::getInstance($GLOBALS[&#8216;config&#8217;][&#8216;database&#8217;]);
+</p>
+<p>
+      }
+</p>
+<p>
+      public function close(){
+</p>
+<p>
+          return true;
+</p>
+<p>
+      }
+</p>
+<p>
+      public function read($sess_id){
+</p>
+<p>
+          $sql=&#8221;select sess_value from `session` where sess_id=&#8217;$sess_id'&#8221;;
+</p>
+<p>
+          return $this-&gt;mypdo-&gt;fetchColumn($sql);
+</p>
+<p>
+      }
+</p>
+<p>
+      public function write($sess_id,$sess_value){
+</p>
+<p>
+          $time=  time();
+</p>
+<p>
+          $sql=&#8221;insert into `session` values (&#8216;$sess_id&#8217;,&#8217;$sess_value&#8217;,$time) on duplicate key update sess_value=&#8217;$sess_value'&#8221;;
+</p>
+<p>
+          return $this-&gt;mypdo-&gt;exec($sql);
+</p>
+<p>
+      }
+</p>
+<p>
+      public function destroy($sess_id){
+</p>
+<p>
+          $sql=&#8221;delete from `session` where sess_id=&#8217;$sess_id'&#8221;;
+</p>
+<p>
+          return $this-&gt;mypdo-&gt;exec($sql);
+</p>
+<p>
+      }
+</p>
+<p>
+      public function gc($maxlifetime){
+</p>
+<p>
+          $expires=time()-$maxlifetime;   //过期时间的临界点
+</p>
+<p>
+          $sql=&#8221;delete from `session` where sess_time&lt;$expires&#8221;;
+</p>
+<p>
+          return $this-&gt;mypdo-&gt;exec($sql);
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p>
+  2、在Controller控制器中实例化session入库类
+</p>
+<p><img loading="lazy" decoding="async" width="875" height="376" src="/wp-content/uploads/2018/05/word-image-2535.png" class="wp-image-2882" srcset="/wp-content/uploads/2018/05/word-image-2535.png 875w, /wp-content/uploads/2018/05/word-image-2535-300x129.png 300w, /wp-content/uploads/2018/05/word-image-2535-768x330.png 768w" sizes="(max-width: 875px) 100vw, 875px" /></p>
+<p>
+  查看数据库中的会话
+</p>
+<p><img loading="lazy" decoding="async" width="882" height="72" src="/wp-content/uploads/2018/05/word-image-2536.png" class="wp-image-2883" srcset="/wp-content/uploads/2018/05/word-image-2536.png 882w, /wp-content/uploads/2018/05/word-image-2536-300x24.png 300w, /wp-content/uploads/2018/05/word-image-2536-768x63.png 768w" sizes="(max-width: 882px) 100vw, 882px" /></p>
+<ol>
+<li>
+  能够完成后台登录的验证码功能
+</li>
+<li>
+  能够完成添加文章分类的增删改功能
+</li>
+<li>
+  能够以递归方式树状显示文章分类列表
+</li>
+<li>
+  能够完成文章的增删改和显示功能
+</li>
+<li>
+  能够完成文章列表的翻页功能
+</li>
+<li>
+  能够实现博客前台首页显示功能
+</li>
+<li>
+  能够实现博客前台文章列表功能
+</li>
+<li>
+  能够实现博客前台显示文章详情功能
+</li>
+<li>
+  能够实现博客文章的踩赞功能
+</li>
+<li>
+  能够实现博客文章的上一篇下一篇功能
+</li>
+<li>
+  能够实现博客文章的评论功能
+</li>
+<li>
+  能够实现博客文章的搜索功能
+</li>
+<li>
+  能够实现博客文章的标签功能
+</li>
+<li>
+  能够理解博客项目的主要功能
+</li>
+<li>
+  能够根据功能要求画出有关数据表的ER图
+</li>
+<li>
+  能够针对项目要求设计适当的数据表
+</li>
+</ol>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/2862.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

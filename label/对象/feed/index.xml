@@ -1,0 +1,1620 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>对象 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%AF%B9%E8%B1%A1/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sun, 20 May 2018 01:23:47 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>对象 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>面向对象（一）$This、 子类、 实例化、 对象、 封装、 属性操作、 构造函数、 析构函数、 父类、 类、 继承、 访问修饰符</title>
+		<link>/php/1789.html</link>
+					<comments>/php/1789.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 13:04:34 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[面向对象]]></category>
+		<category><![CDATA[面向对象编程]]></category>
+		<category><![CDATA[$This]]></category>
+		<category><![CDATA[子类]]></category>
+		<category><![CDATA[实例化]]></category>
+		<category><![CDATA[对象]]></category>
+		<category><![CDATA[封装]]></category>
+		<category><![CDATA[属性操作]]></category>
+		<category><![CDATA[构造函数]]></category>
+		<category><![CDATA[析构函数]]></category>
+		<category><![CDATA[父类]]></category>
+		<category><![CDATA[类]]></category>
+		<category><![CDATA[继承]]></category>
+		<category><![CDATA[访问修饰符]]></category>
+		<guid isPermaLink="false">/?p=1789</guid>
+
+					<description><![CDATA[面向对象（一） 常见的编程思想 面向过程思想 通过程序的执行顺序为主线开发代码 优点：简单，易学，上手快。 缺 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>面向对象（一）</h1>
+<h2>常见的编程思想</h2>
+<h3>面向过程思想</h3>
+<p>
+  通过程序的执行顺序为主线开发代码
+</p>
+<p>
+  优点：简单，易学，上手快。
+</p>
+<p>
+  缺点：多人合作不方便
+</p>
+<h3>面向对象思想</h3>
+<p>
+  以组成项目的对象为主线进行开发。在面向对象的思想里面，所有的事物都看成对象。
+</p>
+<p>
+  优点：多人合作方便，代码冗余很少
+</p>
+<p>
+  缺点：学起来比面向过程复杂。
+</p>
+<h2>面向对象简介</h2>
+<p>
+  OOP：面向对象编程（Object Oriented Programming），OOP，面向对象编程
+</p>
+<p>
+  OOAD：OOA和OOD
+</p>
+<p>
+  OOA: 面向对象分析(Object-Oriented Analysis,OOA)
+</p>
+<p>
+  OOD: 面向对象设计（Object-Oriented Design，OOD）
+</p>
+<h3>对象</h3>
+<p>
+  对象是由属性和方法组成的
+</p>
+<p>
+  属性的本质就是变量
+</p>
+<p>
+  方法的本质就是函数
+</p>
+<p><img fetchpriority="high" decoding="async" width="666" height="269" src="/wp-content/uploads/2018/05/word-image-1568.png" class="wp-image-1791" srcset="/wp-content/uploads/2018/05/word-image-1568.png 666w, /wp-content/uploads/2018/05/word-image-1568-300x121.png 300w" sizes="(max-width: 666px) 100vw, 666px" /></p>
+<h3>类</h3>
+<p>
+  类是所有对象共同的属性和方法的组合。
+</p>
+<p>
+  我们在开发时候是通过调用对象的方法或属性来实现某个效果，要调用方法必须先有对象，要想有对象必须先有类。
+</p>
+<p>
+  开发顺序：类——（实例化）对象——调用对象的方法和属性。
+</p>
+<h3>类和对象的关系</h3>
+<p>
+  通过类可以创建多个对象，类就类似于模具，一个模具制造很多形状一致的对象。
+</p>
+<p><img decoding="async" width="456" height="304" src="/wp-content/uploads/2018/05/word-image-1569.png" class="wp-image-1792" srcset="/wp-content/uploads/2018/05/word-image-1569.png 456w, /wp-content/uploads/2018/05/word-image-1569-300x200.png 300w" sizes="(max-width: 456px) 100vw, 456px" /></p>
+<h3>类是有父类和子类之分的</h3>
+<p><img decoding="async" width="692" height="245" src="/wp-content/uploads/2018/05/word-image-1570.png" class="wp-image-1793" srcset="/wp-content/uploads/2018/05/word-image-1570.png 692w, /wp-content/uploads/2018/05/word-image-1570-300x106.png 300w" sizes="(max-width: 692px) 100vw, 692px" /></p>
+<p>
+  再比如：老师是类，语文老师也是类，老师是父类，语文老师是子类。
+</p>
+<h2>在PHP中实现类</h2>
+<h3>语法</h3>
+<p>
+  class 类名{
+</p>
+<p>
+  	//属性
+</p>
+<p>
+  	//方法
+</p>
+<p>
+  	//常量
+</p>
+<p>
+  }
+</p>
+<h3>类名的命名规则</h3>
+<ol>
+<li>
+  以字母、下划线开头，后面跟的是字母、数字、下划线
+</li>
+<li>
+  一般用帕斯卡命名法
+</li>
+<li>
+  不能用PHP关键字做类名
+</li>
+<li>
+  类名不区分大小写
+</li>
+</ol>
+<h3>实例化对象</h3>
+<p>
+  实例化：创造实例（对象）的过程
+</p>
+<p>
+  通过new关键字实例化
+</p>
+<p>
+  $对象名=new 类名()
+</p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="542" height="248" src="/wp-content/uploads/2018/05/word-image-1571.png" class="wp-image-1794" srcset="/wp-content/uploads/2018/05/word-image-1571.png 542w, /wp-content/uploads/2018/05/word-image-1571-300x137.png 300w" sizes="(max-width: 542px) 100vw, 542px" /></p>
+<h2>对象的传递</h2>
+<p>
+  对象的传递的地址传递
+</p>
+<p><img loading="lazy" decoding="async" width="839" height="206" src="/wp-content/uploads/2018/05/word-image-1572.png" class="wp-image-1795" srcset="/wp-content/uploads/2018/05/word-image-1572.png 839w, /wp-content/uploads/2018/05/word-image-1572-300x74.png 300w, /wp-content/uploads/2018/05/word-image-1572-768x189.png 768w" sizes="(max-width: 839px) 100vw, 839px" /></p>
+<h2>操作属性</h2>
+<p>
+  对象调用属性和方法使用“-&gt;”，
+</p>
+<p>
+  语法：
+</p>
+<p>
+  对象名-&gt;属性
+</p>
+<p>
+  对象名-&gt;方法名()
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //类
+</p>
+<p>
+  class Student {
+</p>
+<p>
+  	public $name;	     //语法结构：访问修饰符+变量名
+</p>
+<p>
+  }
+</p>
+<p>
+  //实例化
+</p>
+<p>
+  $stu1=new Student;						//类名后不加()也可以
+</p>
+<p>
+  $stu2=new Student();					//类名后加()也可以
+</p>
+<p>
+  $stu1-&gt;name=&#8217;tom&#8217;;						//操作1、给属性赋值
+</p>
+<p>
+  echo $stu1-&gt;name,'&lt;br&gt;&#8217;;	//tom		//操作2、显示属性的值
+</p>
+<p>
+  $stu1-&gt;add=&#8217;beijing&#8217;;					//操作3、给stu1对象添加add属性
+</p>
+<p>
+  unset($stu2-&gt;name);						//操作4、删除stu2对象的name属性
+</p>
+<p>
+  var_dump(isset($stu1-&gt;name));//bool(true) 	//操作5：判断属性是否存在
+</p>
+<h2>定义方法</h2>
+<p>
+  语法结构
+</p>
+<p>
+  访问修饰符 function 方法名(参数){
+</p>
+<p>
+  	//方法体
+</p>
+<p>
+  }
+</p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="567" height="214" src="/wp-content/uploads/2018/05/word-image-1573.png" class="wp-image-1796" srcset="/wp-content/uploads/2018/05/word-image-1573.png 567w, /wp-content/uploads/2018/05/word-image-1573-300x113.png 300w" sizes="(max-width: 567px) 100vw, 567px" /></p>
+<h2>对象的比较</h2>
+<p>
+  全等：指向同一个对象是全等
+</p>
+<p>
+  相等：只要属于同一个类，结构和属性值都一致才相等
+</p>
+<p><img loading="lazy" decoding="async" width="777" height="345" src="/wp-content/uploads/2018/05/word-image-1574.png" class="wp-image-1797" srcset="/wp-content/uploads/2018/05/word-image-1574.png 777w, /wp-content/uploads/2018/05/word-image-1574-300x133.png 300w, /wp-content/uploads/2018/05/word-image-1574-768x341.png 768w" sizes="(max-width: 777px) 100vw, 777px" /><br />
+<img loading="lazy" decoding="async" width="724" height="381" src="/wp-content/uploads/2018/05/word-image-1575.png" class="wp-image-1798" srcset="/wp-content/uploads/2018/05/word-image-1575.png 724w, /wp-content/uploads/2018/05/word-image-1575-300x158.png 300w" sizes="(max-width: 724px) 100vw, 724px" /></p>
+<h2>访问修饰符</h2>
+<p>
+  用来修饰属性和方法，控制属性和方法的权限
+</p>
+<table>
+<tr>
+<td>
+<p>
+  访问修饰符
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+   Public（公有的）
+</p>
+</td>
+<td>
+<p>
+  在类的内部和外部都能访问
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+   private（私有的）
+</p>
+</td>
+<td>
+<p>
+  只能在类的内部访问
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  protected（受保护的）
+</p>
+</td>
+<td>
+<p>
+  在整个继承链上访问
+</p>
+</td>
+</tr>
+</table>
+<p>
+  例题一
+</p>
+<p><img loading="lazy" decoding="async" width="1080" height="240" src="/wp-content/uploads/2018/05/word-image-1576.png" class="wp-image-1799" srcset="/wp-content/uploads/2018/05/word-image-1576.png 1080w, /wp-content/uploads/2018/05/word-image-1576-300x67.png 300w, /wp-content/uploads/2018/05/word-image-1576-768x171.png 768w, /wp-content/uploads/2018/05/word-image-1576-1024x228.png 1024w" sizes="(max-width: 1080px) 100vw, 1080px" /></p>
+<p>
+  脚下留心：一般来说，属性都是私有的，通过公有的方法对私有的属性进行赋值和取值。这样做可以在方法中对数据进行过滤，提高数据安全性。
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Student {
+</p>
+<p>
+  	public $name;	//私有属性
+</p>
+<p>
+  	public $sex;	//私有属性
+</p>
+<p>
+  	//通过公有的方法进行赋值
+</p>
+<p>
+  	public function setInfo($name,$sex) {
+</p>
+<p>
+  		if($sex!=&#8217;男&#8217; &amp;&amp; $sex!=&#8217;女&#8217;){
+</p>
+<p>
+  			echo &#8216;性别只能是男或女&lt;br&gt;&#8217;;
+</p>
+<p>
+  			return;
+</p>
+<p>
+  		}
+</p>
+<p>
+  		$this-&gt;name=$name;  //$this表示调用当前方法的对象
+</p>
+<p>
+  		$this-&gt;sex=$sex;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//通过公有的方法进行取值
+</p>
+<p>
+  	public function getInfo() {
+</p>
+<p>
+  		echo &#8216;姓名：&#8217;.$this-&gt;name,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  		echo &#8216;性别：&#8217;.$this-&gt;sex.'&lt;hr&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //调用
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $stu1=new Student;
+</p>
+<p>
+  $stu1-&gt;setInfo(&#8216;tom&#8217;,&#8217;男&#8217;);
+</p>
+<p>
+  $stu1-&gt;getInfo();
+</p>
+<p>
+  $stu2=new Student;
+</p>
+<p>
+  $stu2-&gt;setInfo(&#8216;berry&#8217;,&#8217;女&#8217;);
+</p>
+<p>
+  $stu2-&gt;getInfo();
+</p>
+<p><img loading="lazy" decoding="async" width="510" height="189" src="/wp-content/uploads/2018/05/word-image-1577.png" class="wp-image-1800" srcset="/wp-content/uploads/2018/05/word-image-1577.png 510w, /wp-content/uploads/2018/05/word-image-1577-300x111.png 300w" sizes="(max-width: 510px) 100vw, 510px" /></p>
+<h2>$this</h2>
+<p>
+  $this在方法的内部使用，表示调用当前方法的对象。
+</p>
+<h2>构造函数</h2>
+<p>
+  普通方法不调用就不执行
+</p>
+<p>
+  构造函数也叫构造方法，在实例化对象的时候自动调用执行
+</p>
+<h3>语法一：</h3>
+<p>
+  Public function __construct(){
+</p>
+<p>
+  }
+</p>
+<p>
+  脚下留心：__construct()前面是两个下划线。
+</p>
+<p><img loading="lazy" decoding="async" width="597" height="171" src="/wp-content/uploads/2018/05/word-image-1578.png" class="wp-image-1801" srcset="/wp-content/uploads/2018/05/word-image-1578.png 597w, /wp-content/uploads/2018/05/word-image-1578-300x86.png 300w" sizes="(max-width: 597px) 100vw, 597px" /></p>
+<h3>语法二：和类名同名的函数是构造函数</h3>
+<p>
+  Public function 类名(){
+</p>
+<p>
+  }
+</p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="660" height="173" src="/wp-content/uploads/2018/05/word-image-1579.png" class="wp-image-1802" srcset="/wp-content/uploads/2018/05/word-image-1579.png 660w, /wp-content/uploads/2018/05/word-image-1579-300x79.png 300w" sizes="(max-width: 660px) 100vw, 660px" /></p>
+<p>
+  脚下留心：推荐使用__construct(),因为__construct()的优先级最高。
+</p>
+<p><img loading="lazy" decoding="async" width="843" height="198" src="/wp-content/uploads/2018/05/word-image-1580.png" class="wp-image-1803" srcset="/wp-content/uploads/2018/05/word-image-1580.png 843w, /wp-content/uploads/2018/05/word-image-1580-300x70.png 300w, /wp-content/uploads/2018/05/word-image-1580-768x180.png 768w" sizes="(max-width: 843px) 100vw, 843px" /></p>
+<h3>构造函数用来初始化成员变量</h3>
+<p>
+  成员变量就是属性
+</p>
+<p><img loading="lazy" decoding="async" width="845" height="415" src="/wp-content/uploads/2018/05/word-image-1581.png" class="wp-image-1804" srcset="/wp-content/uploads/2018/05/word-image-1581.png 845w, /wp-content/uploads/2018/05/word-image-1581-300x147.png 300w, /wp-content/uploads/2018/05/word-image-1581-768x377.png 768w" sizes="(max-width: 845px) 100vw, 845px" /></p>
+<h2>析构函数</h2>
+<p>
+  当对象销毁的时候自动调用
+</p>
+<h3>语法</h3>
+<p>
+  Public function __destruct(){
+</p>
+<p>
+  }
+</p>
+<h3>代码</h3>
+<p><img loading="lazy" decoding="async" width="788" height="419" src="/wp-content/uploads/2018/05/word-image-1582.png" class="wp-image-1805" srcset="/wp-content/uploads/2018/05/word-image-1582.png 788w, /wp-content/uploads/2018/05/word-image-1582-300x160.png 300w, /wp-content/uploads/2018/05/word-image-1582-768x408.png 768w" sizes="(max-width: 788px) 100vw, 788px" /></p>
+<p>
+  脚下留心：
+</p>
+<ol>
+<li>
+  构造函数和析构函数是PHP自己调用，不能手动调用
+</li>
+<li>
+  构造函数可以带有参数，析构函数不能带有参数。
+</li>
+</ol>
+<p>
+  多学一招：数据的存储和销毁分为两种情况:先进先出（队列）
+</p>
+<p><img loading="lazy" decoding="async" width="643" height="124" src="/wp-content/uploads/2018/05/word-image-1583.png" class="wp-image-1806" srcset="/wp-content/uploads/2018/05/word-image-1583.png 643w, /wp-content/uploads/2018/05/word-image-1583-300x58.png 300w" sizes="(max-width: 643px) 100vw, 643px" /></p>
+<p>
+  先进后出（出入栈）
+</p>
+<p><img loading="lazy" decoding="async" width="311" height="189" src="/wp-content/uploads/2018/05/word-image-1584.png" class="wp-image-1807" srcset="/wp-content/uploads/2018/05/word-image-1584.png 311w, /wp-content/uploads/2018/05/word-image-1584-300x182.png 300w" sizes="(max-width: 311px) 100vw, 311px" /></p>
+<h2>对象在内存中的分布</h2>
+<p>
+  对象的本质就是复杂变量
+</p>
+<p>
+  类的本质就是复杂的数据类型
+</p>
+<p>
+  分析如下代码
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Student {
+</p>
+<p>
+  	private $name;
+</p>
+<p>
+  	private $sex;
+</p>
+<p>
+  	public function show() {
+</p>
+<p>
+  		echo &#8216;i am a student&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  $stu1=new Student();	//将堆区的地址付给栈区的$stu1
+</p>
+<p>
+  $stu1-&gt;show();
+</p>
+<p>
+  $stu2=new Student();
+</p>
+<p>
+  $stu2-&gt;show();
+</p>
+<p>
+  在内存中结构
+</p>
+<p><img loading="lazy" decoding="async" width="1032" height="281" src="/wp-content/uploads/2018/05/word-image-1585.png" class="wp-image-1808" srcset="/wp-content/uploads/2018/05/word-image-1585.png 1032w, /wp-content/uploads/2018/05/word-image-1585-300x82.png 300w, /wp-content/uploads/2018/05/word-image-1585-768x209.png 768w, /wp-content/uploads/2018/05/word-image-1585-1024x279.png 1024w" sizes="(max-width: 1032px) 100vw, 1032px" /></p>
+<p>
+  堆区特点：体积大，查询速度慢
+</p>
+<p>
+  栈区特点：体积小，查询速度快
+</p>
+<p>
+  基本数据类型的数据都存放在栈区中；复杂数据类型都存储在堆区中，但是堆区中的地址保存到栈区中。
+</p>
+<h2>继承</h2>
+<ol>
+<li>
+  代码具有层次结构
+</li>
+<li>
+  子类继承了父类的属性和方法，实现了代码的可重用性。
+</li>
+</ol>
+<h3>语法</h3>
+<p>
+  Class 子类 extends 父类{
+</p>
+<p>
+  }
+</p>
+<h3>继承的例题</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  //父类
+</p>
+<p>
+  class Person {
+</p>
+<p>
+  	public $name=&#8217;tom&#8217;;
+</p>
+<p>
+  	public function show() {
+</p>
+<p>
+  		echo &#8216;i am a boy!&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //子类
+</p>
+<p>
+  class Student extends Person {
+</p>
+<p>
+  }
+</p>
+<p>
+  //测试
+</p>
+<p>
+  $stu=new Student();
+</p>
+<p>
+  echo $stu-&gt;name,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  $stu-&gt;show();
+</p>
+<p><img loading="lazy" decoding="async" width="375" height="66" src="/wp-content/uploads/2018/05/word-image-1586.png" class="wp-image-1809" srcset="/wp-content/uploads/2018/05/word-image-1586.png 375w, /wp-content/uploads/2018/05/word-image-1586-300x53.png 300w" sizes="(max-width: 375px) 100vw, 375px" /></p>
+<p>
+  分析：$stu-&gt;name执行过程，首先在Student中寻找$name,如果找到就访问，如果找不到，就到Person类中找$name。
+</p>
+<h3>调用父类的属性和方法</h3>
+<p>
+  在子类中通过$this关键字可以调用父类属性和方法
+</p>
+<p><img loading="lazy" decoding="async" width="964" height="398" src="/wp-content/uploads/2018/05/word-image-1587.png" class="wp-image-1810" srcset="/wp-content/uploads/2018/05/word-image-1587.png 964w, /wp-content/uploads/2018/05/word-image-1587-300x124.png 300w, /wp-content/uploads/2018/05/word-image-1587-768x317.png 768w" sizes="(max-width: 964px) 100vw, 964px" /></p>
+<h3>调用父类的构造方法</h3>
+<table>
+<tr>
+<td>
+<p>
+  父类的构造方法
+</p>
+</td>
+<td>
+<p>
+  子类的构造方法
+</p>
+</td>
+<td>
+<p>
+  实例化子类
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  没有
+</p>
+</td>
+<td>
+<p>
+  有
+</p>
+</td>
+<td>
+<p>
+  调用子类构造方法
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  有
+</p>
+</td>
+<td>
+<p>
+  没有
+</p>
+</td>
+<td>
+<p>
+  调用父类构造方法
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  有
+</p>
+</td>
+<td>
+<p>
+  有
+</p>
+</td>
+<td>
+<p>
+  调用子类构造方法
+</p>
+</td>
+</tr>
+</table>
+<p>
+  总结一句话：如果子类有构造方法就调用子类的，如果子类没有就调用父类的。
+</p>
+<p>
+  通过parent::__construct()调用父类的构造函数
+</p>
+<p><img loading="lazy" decoding="async" width="993" height="430" src="/wp-content/uploads/2018/05/word-image-1588.png" class="wp-image-1811" srcset="/wp-content/uploads/2018/05/word-image-1588.png 993w, /wp-content/uploads/2018/05/word-image-1588-300x130.png 300w, /wp-content/uploads/2018/05/word-image-1588-768x333.png 768w" sizes="(max-width: 993px) 100vw, 993px" /></p>
+<p>
+  Parent表示父类的名字
+</p>
+<h3>给父类传递参数</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  //父类
+</p>
+<p>
+  class Person {
+</p>
+<p>
+  	protected $name;
+</p>
+<p>
+  	protected $sex;
+</p>
+<p>
+  	public function __construct($name,$sex) {
+</p>
+<p>
+  		$this-&gt;name=$name;
+</p>
+<p>
+  		$this-&gt;sex=$sex;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //子类
+</p>
+<p>
+  class Student extends Person {
+</p>
+<p>
+  	private $score;
+</p>
+<p>
+  	public function __construct($name,$sex,$score) {
+</p>
+<p>
+  		parent::__construct($name,$sex);//调用父类的构造函数
+</p>
+<p>
+  		$this-&gt;score=$score;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	public function show() {
+</p>
+<p>
+  		echo &#8220;姓名：{$this-&gt;name}&lt;br&gt;&#8221;;
+</p>
+<p>
+  		echo &#8220;性别：{$this-&gt;sex}&lt;br&gt;&#8221;;
+</p>
+<p>
+  		echo &#8220;成绩：{$this-&gt;score}&lt;br&gt;&#8221;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //测试
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $stu=new Student(&#8216;tom&#8217;,&#8217;男&#8217;,88);
+</p>
+<p>
+  $stu-&gt;show();
+</p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="204" height="76" src="/wp-content/uploads/2018/05/word-image-1589.png" class="wp-image-1812" /></p>
+<h2>parent表示父类的名字</h2>
+<p><img loading="lazy" decoding="async" width="653" height="280" src="/wp-content/uploads/2018/05/word-image-1590.png" class="wp-image-1813" srcset="/wp-content/uploads/2018/05/word-image-1590.png 653w, /wp-content/uploads/2018/05/word-image-1590-300x129.png 300w" sizes="(max-width: 653px) 100vw, 653px" /></p>
+<p>
+  提醒：使用parent关键字可以降低程序的耦合性。
+</p>
+<h2> protected（受保护的）</h2>
+<p>
+  protected修饰的在整个继承链上访问
+</p>
+<p><img loading="lazy" decoding="async" width="711" height="257" src="/wp-content/uploads/2018/05/word-image-1591.png" class="wp-image-1814" srcset="/wp-content/uploads/2018/05/word-image-1591.png 711w, /wp-content/uploads/2018/05/word-image-1591-300x108.png 300w" sizes="(max-width: 711px) 100vw, 711px" /></p>
+<h2>$this</h2>
+<p>
+  $this表示当前对象的引用（地址）
+</p>
+<p><img loading="lazy" decoding="async" width="488" height="228" src="/wp-content/uploads/2018/05/word-image-1592.png" class="wp-image-1815" srcset="/wp-content/uploads/2018/05/word-image-1592.png 488w, /wp-content/uploads/2018/05/word-image-1592-300x140.png 300w" sizes="(max-width: 488px) 100vw, 488px" /></p>
+<h2>封装</h2>
+<p>
+  通过访问修饰符来封装，有选择性的提供数据。
+</p>
+<p><img loading="lazy" decoding="async" width="956" height="565" src="/wp-content/uploads/2018/05/word-image-1593.png" class="wp-image-1816" srcset="/wp-content/uploads/2018/05/word-image-1593.png 956w, /wp-content/uploads/2018/05/word-image-1593-300x177.png 300w, /wp-content/uploads/2018/05/word-image-1593-768x454.png 768w" sizes="(max-width: 956px) 100vw, 956px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/1789.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>JS初级（五）BOM、 DOM、 定时器、 对象、 时钟周期</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/440.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/440.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 14:12:06 +0000</pubDate>
+				<category><![CDATA[Javascript]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[BOM]]></category>
+		<category><![CDATA[DOM]]></category>
+		<category><![CDATA[定时器]]></category>
+		<category><![CDATA[对象]]></category>
+		<category><![CDATA[时钟周期]]></category>
+		<guid isPermaLink="false">/?p=440</guid>
+
+					<description><![CDATA[回顾 函数预加载：在页面编译的时候就将函数编译到内存中，就可以先调用，再定义。 通过arguments关键字可 [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h2>回顾</h2>
+<ol>
+<li>
+  函数预加载：在页面编译的时候就将函数编译到内存中，就可以先调用，再定义。
+</li>
+<li>
+  通过arguments关键字可以实现传递的参数个数不一样
+</li>
+<li>
+  事件：以on开头的都是事件
+</li>
+<li>
+  事件后面肯定有事件处理程序，事件处理程序一般都是函数
+</li>
+<li>
+  函数调用</p>
+<ol>
+<li>
+    方法一：&lt;标签 事件=’函数()’&gt;
+  </li>
+<li>
+    方法二：对象.事件=函数
+  </li>
+</ol>
+</li>
+<li>
+  匿名函数：没有名字的函数
+</li>
+<li>
+  匿名函数自调用   (匿名函数)();
+</li>
+<li>
+  return</p>
+<ol>
+<li>
+    作用一：终止函数的执行
+  </li>
+<li>
+    作用二：从函数内部将值返回到调用处
+  </li>
+</ol>
+</li>
+<li>
+  变量的作用域</p>
+<ol>
+<li>
+    全局变量：供整个页面使用
+  </li>
+<li>
+    局部变量：在函数内部使用变量，注意在函数内部通过var声明的变量是局部变量，不通过var声明的是全局变量。
+  </li>
+</ol>
+</li>
+<li>
+  Js嵌入到页面的方法</p>
+<ol>
+<li>
+    方法一：直接写在事件处理程序中 &lt;p onclick=’alert(‘锄禾日当午’)’&gt;
+  </li>
+<li>
+    方法二：通过&lt;script&gt;开头，&lt;/script&gt;结束嵌套在页面的内部
+  </li>
+<li>
+    方法三：写在页面的外部，通过&lt;script&gt;标记引入到页面内部
+  </li>
+</ol>
+</li>
+<li>
+  特殊含义的字符</p>
+<ol>
+<li>
+    \r：回车
+  </li>
+<li>
+    \n：换行
+  </li>
+<li>
+    \t：制表位
+  </li>
+</ol>
+</li>
+<li>
+  转义字符：\  将具有特殊含义的字符转成普通字符
+</li>
+<li>
+  对象：由属性（变量）和方法（函数）组成的组合。</p>
+<ol>
+<li>
+    对象.属性
+  </li>
+<li>
+    对象.方法()
+  </li>
+</ol>
+</li>
+</ol>
+<h2>对象的分类</h2>
+<ol>
+<li>
+  HTML：就是HTML元素
+</li>
+<li>
+  脚本对象
+</li>
+<li>
+  浏览器对象
+</li>
+</ol>
+<h2>脚本对象</h2>
+<h3>Array（数组）</h3>
+<p>
+  数组也属于对象
+</p>
+<p><img loading="lazy" decoding="async" width="612" height="52" src="/wp-content/uploads/2018/05/word-image-401.png" class="wp-image-442" srcset="/wp-content/uploads/2018/05/word-image-401.png 612w, /wp-content/uploads/2018/05/word-image-401-300x25.png 300w" sizes="(max-width: 612px) 100vw, 612px" /></p>
+<p>
+  常用的一些方法与属性
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  var stu=new Array(&#8216;tom&#8217;,&#8217;berry&#8217;,&#8217;ketty&#8217;);
+</p>
+<p>
+  document.write(&#8216;排序后:&#8217;+stu.sort()+'&lt;br&gt;&#8217;);		//排序
+</p>
+<p>
+  document.write(&#8216;翻转后:&#8217;+stu.reverse()+'&lt;br&gt;&#8217;);		//反转
+</p>
+<p>
+  document.write(&#8216;连接后：&#8217;+stu.join(&#8216;&gt;&gt;&gt;&#8217;)+'&lt;br&gt;&#8217;)	//将数组元素连接起来
+</p>
+<p>
+  document.write(&#8216;数组长度：&#8217;+stu.length+'&lt;br&gt;&#8217;);		//数组的长度
+</p>
+<p>
+  stu.unshift(&#8216;李白&#8217;);//在数组的前面插入
+</p>
+<p>
+  document.write(&#8216;unshift：&#8217;+stu+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  stu.shift();		//将数组的第一个元素删除
+</p>
+<p>
+  document.write(&#8216;shift：&#8217;+stu+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  stu.push(&#8216;杜甫&#8217;);	//将元素插入到数组的后面
+</p>
+<p>
+  document.write(&#8216;push：&#8217;+stu+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  stu.pop();			//删除数组的最后一个元素
+</p>
+<p>
+  document.write(stu);
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<h3>String（字符串）</h3>
+<p>
+  字符串的声明
+</p>
+<p>
+  方法一：把字符串当成基本类型直接赋值
+</p>
+<p><img loading="lazy" decoding="async" width="176" height="24" src="/wp-content/uploads/2018/05/word-image-402.png" class="wp-image-443" /></p>
+<p>
+  方法二：把字符串当成对象来声明
+</p>
+<p><img loading="lazy" decoding="async" width="804" height="29" src="/wp-content/uploads/2018/05/word-image-403.png" class="wp-image-444" srcset="/wp-content/uploads/2018/05/word-image-403.png 804w, /wp-content/uploads/2018/05/word-image-403-300x11.png 300w, /wp-content/uploads/2018/05/word-image-403-768x28.png 768w" sizes="(max-width: 804px) 100vw, 804px" /></p>
+<p>
+  字符串是基本类型，在字符串运行的时候会在内存中生成一个临时对象，通过临时对象调用属性和方法
+</p>
+<ol>
+<li>
+  截取子字符串   语法： 字符串.substr(开始位置,[截取长度])
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="869" height="140" src="/wp-content/uploads/2018/05/word-image-404.png" class="wp-image-445" srcset="/wp-content/uploads/2018/05/word-image-404.png 869w, /wp-content/uploads/2018/05/word-image-404-300x48.png 300w, /wp-content/uploads/2018/05/word-image-404-768x124.png 768w" sizes="(max-width: 869px) 100vw, 869px" /></p>
+<ol>
+<li>
+  截取子字符串   语法：字符串.substring(起始位置，结束位置)
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="752" height="107" src="/wp-content/uploads/2018/05/word-image-405.png" class="wp-image-446" srcset="/wp-content/uploads/2018/05/word-image-405.png 752w, /wp-content/uploads/2018/05/word-image-405-300x43.png 300w" sizes="(max-width: 752px) 100vw, 752px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="615" height="97" src="/wp-content/uploads/2018/05/word-image-406.png" class="wp-image-447" srcset="/wp-content/uploads/2018/05/word-image-406.png 615w, /wp-content/uploads/2018/05/word-image-406-300x47.png 300w" sizes="(max-width: 615px) 100vw, 615px" /></p>
+<ol>
+<li>
+  indexOf()：返回 <strong>String</strong> 对象内第一次出现子字符串的字符位置
+</li>
+<li>
+  lastIndexOf（）：返回字符串最后出现的位置
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="866" height="94" src="/wp-content/uploads/2018/05/word-image-407.png" class="wp-image-448" srcset="/wp-content/uploads/2018/05/word-image-407.png 866w, /wp-content/uploads/2018/05/word-image-407-300x33.png 300w, /wp-content/uploads/2018/05/word-image-407-768x83.png 768w" sizes="(max-width: 866px) 100vw, 866px" /></p>
+<ol>
+<li>
+  toLowerCase()：转成小写
+</li>
+<li>
+  toUpperCase()：转成大写
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="665" height="70" src="/wp-content/uploads/2018/05/word-image-408.png" class="wp-image-449" srcset="/wp-content/uploads/2018/05/word-image-408.png 665w, /wp-content/uploads/2018/05/word-image-408-300x32.png 300w" sizes="(max-width: 665px) 100vw, 665px" /></p>
+<ol>
+<li>
+  字符串长度
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="579" height="22" src="/wp-content/uploads/2018/05/word-image-409.png" class="wp-image-450" srcset="/wp-content/uploads/2018/05/word-image-409.png 579w, /wp-content/uploads/2018/05/word-image-409-300x11.png 300w" sizes="(max-width: 579px) 100vw, 579px" /></p>
+<p>
+  多学一招：字符串可以当成字符数组来使用
+</p>
+<p><img loading="lazy" decoding="async" width="489" height="75" src="/wp-content/uploads/2018/05/word-image-410.png" class="wp-image-451" srcset="/wp-content/uploads/2018/05/word-image-410.png 489w, /wp-content/uploads/2018/05/word-image-410-300x46.png 300w" sizes="(max-width: 489px) 100vw, 489px" /></p>
+<h3>Math（数学）</h3>
+<p><img loading="lazy" decoding="async" width="943" height="277" src="/wp-content/uploads/2018/05/word-image-411.png" class="wp-image-452" srcset="/wp-content/uploads/2018/05/word-image-411.png 943w, /wp-content/uploads/2018/05/word-image-411-300x88.png 300w, /wp-content/uploads/2018/05/word-image-411-768x226.png 768w" sizes="(max-width: 943px) 100vw, 943px" /></p>
+<p>
+  例题：产生一个1~100的随机整数
+</p>
+<p><img loading="lazy" decoding="async" width="763" height="263" src="/wp-content/uploads/2018/05/word-image-412.png" class="wp-image-453" srcset="/wp-content/uploads/2018/05/word-image-412.png 763w, /wp-content/uploads/2018/05/word-image-412-300x103.png 300w" sizes="(max-width: 763px) 100vw, 763px" /></p>
+<h3>Date（日期）</h3>
+<p><img loading="lazy" decoding="async" width="598" height="128" src="/wp-content/uploads/2018/05/word-image-413.png" class="wp-image-454" srcset="/wp-content/uploads/2018/05/word-image-413.png 598w, /wp-content/uploads/2018/05/word-image-413-300x64.png 300w" sizes="(max-width: 598px) 100vw, 598px" /></p>
+<p>
+  Date()对象的方法有很多，我们可以把它分为3组
+</p>
+<p>
+  第一组：setXXX：设置时间
+</p>
+<p>
+  第二组：getXXX：获取时间
+</p>
+<p>
+  第三组：toXXX：转化时间格式
+</p>
+<p>
+  例题：获取当前时间
+</p>
+<p><img loading="lazy" decoding="async" width="854" height="260" src="/wp-content/uploads/2018/05/word-image-414.png" class="wp-image-455" srcset="/wp-content/uploads/2018/05/word-image-414.png 854w, /wp-content/uploads/2018/05/word-image-414-300x91.png 300w, /wp-content/uploads/2018/05/word-image-414-768x234.png 768w" sizes="(max-width: 854px) 100vw, 854px" /><br />
+<img loading="lazy" decoding="async" width="1031" height="28" src="/wp-content/uploads/2018/05/word-image-415.png" class="wp-image-456" srcset="/wp-content/uploads/2018/05/word-image-415.png 1031w, /wp-content/uploads/2018/05/word-image-415-300x8.png 300w, /wp-content/uploads/2018/05/word-image-415-768x21.png 768w, /wp-content/uploads/2018/05/word-image-415-1024x28.png 1024w" sizes="(max-width: 1031px) 100vw, 1031px" /></p>
+<p>
+  例题：转换时间格式
+</p>
+<p><img loading="lazy" decoding="async" width="949" height="93" src="/wp-content/uploads/2018/05/word-image-416.png" class="wp-image-457" srcset="/wp-content/uploads/2018/05/word-image-416.png 949w, /wp-content/uploads/2018/05/word-image-416-300x29.png 300w, /wp-content/uploads/2018/05/word-image-416-768x75.png 768w" sizes="(max-width: 949px) 100vw, 949px" /><br />
+<img loading="lazy" decoding="async" width="199" height="56" src="/wp-content/uploads/2018/05/word-image-417.png" class="wp-image-458" /></p>
+<p>
+  例题：上月的1号是星期几？
+</p>
+<p><img loading="lazy" decoding="async" width="941" height="165" src="/wp-content/uploads/2018/05/word-image-418.png" class="wp-image-459" srcset="/wp-content/uploads/2018/05/word-image-418.png 941w, /wp-content/uploads/2018/05/word-image-418-300x53.png 300w, /wp-content/uploads/2018/05/word-image-418-768x135.png 768w" sizes="(max-width: 941px) 100vw, 941px" /></p>
+<h2>浏览器对象</h2>
+<p><img loading="lazy" decoding="async" width="508" height="194" src="/wp-content/uploads/2018/05/word-image-419.png" class="wp-image-460" srcset="/wp-content/uploads/2018/05/word-image-419.png 508w, /wp-content/uploads/2018/05/word-image-419-300x115.png 300w" sizes="(max-width: 508px) 100vw, 508px" /></p>
+<h3>浏览器的分层结构</h3>
+<p><img loading="lazy" decoding="async" width="491" height="257" src="/wp-content/uploads/2018/05/word-image-420.png" class="wp-image-461" srcset="/wp-content/uploads/2018/05/word-image-420.png 491w, /wp-content/uploads/2018/05/word-image-420-300x157.png 300w" sizes="(max-width: 491px) 100vw, 491px" /></p>
+<h3>window（窗口）</h3>
+<p>
+  在浏览器对象中最顶层的对象。
+</p>
+<p><img loading="lazy" decoding="async" width="482" height="135" src="/wp-content/uploads/2018/05/word-image-421.png" class="wp-image-462" srcset="/wp-content/uploads/2018/05/word-image-421.png 482w, /wp-content/uploads/2018/05/word-image-421-300x84.png 300w" sizes="(max-width: 482px) 100vw, 482px" /></p>
+<p>
+  脚下留心：由于window是最顶层对象，所以window可以省略。
+</p>
+<h3>document（文档）【重点】</h3>
+<ol>
+<li>
+  window.document.write(‘’)；将字符串输出到浏览器上
+</li>
+<li>
+  document.bgColor=&#8217;#cccccc&#8217;;	//背景色
+</li>
+<li>
+  document.fgColor=&#8217;#FF0000&#8242;;	//前景色
+</li>
+<li>
+  获取网页标签对象（重点）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="951" height="321" src="/wp-content/uploads/2018/05/word-image-422.png" class="wp-image-463" srcset="/wp-content/uploads/2018/05/word-image-422.png 951w, /wp-content/uploads/2018/05/word-image-422-300x101.png 300w, /wp-content/uploads/2018/05/word-image-422-768x259.png 768w" sizes="(max-width: 951px) 100vw, 951px" /></p>
+<p>
+  例题：标签属性进行取值赋值
+</p>
+<p>
+  &lt;input type=&#8221;text&#8221; id=&#8221;txt&#8221;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  window.onload=function(){
+</p>
+<p>
+  	var oTxt=document.getElementById(&#8216;txt&#8217;);
+</p>
+<p>
+  	oTxt.onblur=function(){
+</p>
+<p>
+  		//alert(oTxt.value);
+</p>
+<p>
+  		//alert(oTxt.type);		//text
+</p>
+<p>
+  		oTxt.type=&#8217;button&#8217;;		//给属性赋值
+</p>
+<p>
+  		oTxt.value=&#8217;确定&#8217;;		//给属性赋值
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  结果：当文本框失去焦点的时候变成按钮
+</p>
+<h3>history（历史）</h3>
+<p>
+  back ( ) 方法相当于后退按钮
+</p>
+<p>
+  forward ( ) 方法相当于前进按钮
+</p>
+<p>
+  go (1)代表前进1页，等价于forward( )方法；
+</p>
+<p>
+  go(-1) 代表后退1页，等价于back( )方法；
+</p>
+<p>
+  第一页
+</p>
+<p>
+  当前是第一页
+</p>
+<p>
+  &lt;a href=&#8221;11-history2.html&#8221;&gt;跳转到第二页&lt;/a&gt;
+</p>
+<p>
+  第二页
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  function myforward(){
+</p>
+<p>
+  	//history.forward();	//前进一级  等价于
+</p>
+<p>
+  	history.go(1);
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  当前是第二页
+</p>
+<p>
+  &lt;a href=&#8221;11-history3.html&#8221;&gt;跳转到第三页&lt;/a&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;前进一级&#8221; onclick=&#8217;myforward()&#8217;&gt;
+</p>
+<p>
+  第三页
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  function myback(){
+</p>
+<p>
+  	//history.back();	//返回上一级，等价于下一句
+</p>
+<p>
+  	history.go(-1);
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  这是第三页&lt;br&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;返回一级&#8221; onclick=&#8217;myback()&#8217;&gt;&lt;br&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;返回两级&#8221; onclick=&#8217;history.go(-2)&#8217;&gt;
+</p>
+<h3>location（地址）</h3>
+<p>
+  location对象主要用来做页面的跳转
+</p>
+<p>
+  属性：href——设置或检索完整的 URL 字符串
+</p>
+<p>
+  方法：
+</p>
+<p>
+  assign(&#8220;url&#8221;)：跳转到指定页面
+</p>
+<p>
+  reload()：重新加载当前页面
+</p>
+<p>
+  replace(&#8220;url&#8221;) ：通过加载 URL 指定的文档来替换当前文档
+</p>
+<p>
+  例题：
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  function jump1(){
+</p>
+<p>
+  	//通过更改location的属性来跳转
+</p>
+<p>
+  	alert(location.href);	//当前的url地址
+</p>
+<p>
+  	location.href=&#8217;4-生成1~100的随机整数.html&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  function jump2(){
+</p>
+<p>
+  	//通过方法来跳转
+</p>
+<p>
+  	location.assign(&#8216;4-生成1~100的随机整数.html&#8217;);
+</p>
+<p>
+  }
+</p>
+<p>
+  function jump3(){
+</p>
+<p>
+  	//将其他页面加载到当前窗口上来，reload()是用来做刷新的
+</p>
+<p>
+  	//location.reload(&#8216;4-生成1~100的随机整数.html&#8217;);
+</p>
+<p>
+  	location.reload();	//刷新本页面
+</p>
+<p>
+  }
+</p>
+<p>
+  function jump4(){
+</p>
+<p>
+  	//跳转完毕后不能点击&#8221;后退&#8221;按钮
+</p>
+<p>
+  	location.replace(&#8216;4-生成1~100的随机整数.html&#8217;);
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;href属性跳转&#8221; onclick=&#8217;jump1()&#8217;&gt; &lt;br&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;assign()跳转&#8221; onclick=&#8217;jump2()&#8217;&gt; &lt;br&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;reload()【刷新】&#8221; onclick=&#8217;jump3()&#8217;&gt; &lt;br&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;replace()&#8221; onclick=&#8217;jump4()&#8217;&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="450" height="95" src="/wp-content/uploads/2018/05/word-image-423.png" class="wp-image-464" srcset="/wp-content/uploads/2018/05/word-image-423.png 450w, /wp-content/uploads/2018/05/word-image-423-300x63.png 300w" sizes="(max-width: 450px) 100vw, 450px" /></p>
+<h3>screen（屏幕）【了解】</h3>
+<p>
+  包含有关客户端显示屏幕的信息
+</p>
+<p>
+  注意：没有应用于 screen 对象的公开标准，不过所有浏览器都支持该对象。
+</p>
+<p>
+  width：返回显示器屏幕的宽度。
+</p>
+<p>
+  height：返回显示屏幕的高度。
+</p>
+<p>
+  availWidth：返回显示屏幕的宽度 (除 Windows 任务栏之外)。
+</p>
+<p>
+  availHeight：返回显示屏幕的高度 (除 Windows 任务栏之外)。
+</p>
+<p><img loading="lazy" decoding="async" width="749" height="421" src="/wp-content/uploads/2018/05/word-image-424.png" class="wp-image-465" srcset="/wp-content/uploads/2018/05/word-image-424.png 749w, /wp-content/uploads/2018/05/word-image-424-300x169.png 300w" sizes="(max-width: 749px) 100vw, 749px" /></p>
+<p>
+  例题
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  document.write(&#8216;屏幕宽度：&#8217;+screen.width+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  document.write(&#8216;屏幕高度：&#8217;+screen.height+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  document.write(&#8216;屏幕宽度(不包含任务栏)：&#8217;+screen.availWidth+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  document.write(&#8216;屏幕高度(不包含任务栏)：&#8217;+screen.availHeight+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  脚下留心：screen对象的属性都是只读属性
+</p>
+<h3>navigator（导航）【了解】</h3>
+<p>
+  navigator 对象包含有关浏览器的信息。
+</p>
+<p>
+  注意：没有应用于 navigator 对象的公开标准，不过所有浏览器都支持该对象。
+</p>
+<p>
+  appCodeName：返回浏览器的代码名。
+</p>
+<p>
+  在所有以 Netscape 代码为基础的浏览器中，它的值是 &#8220;Mozilla&#8221;。为了兼容起见，在 Microsoft 的浏览器中，它的值也是 &#8220;Mozilla&#8221;。
+</p>
+<p>
+  appName：返回浏览器的名称。
+</p>
+<p>
+  appVersion：返回浏览器的平台和版本信息。
+</p>
+<p><img loading="lazy" decoding="async" width="1046" height="114" src="/wp-content/uploads/2018/05/word-image-425.png" class="wp-image-466" srcset="/wp-content/uploads/2018/05/word-image-425.png 1046w, /wp-content/uploads/2018/05/word-image-425-300x33.png 300w, /wp-content/uploads/2018/05/word-image-425-768x84.png 768w, /wp-content/uploads/2018/05/word-image-425-1024x112.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /></p>
+<h2>对象操作语句</h2>
+<h3>this语句</h3>
+<p>
+  this表示当前对象
+</p>
+<p><img loading="lazy" decoding="async" width="905" height="168" src="/wp-content/uploads/2018/05/word-image-426.png" class="wp-image-467" srcset="/wp-content/uploads/2018/05/word-image-426.png 905w, /wp-content/uploads/2018/05/word-image-426-300x56.png 300w, /wp-content/uploads/2018/05/word-image-426-768x143.png 768w" sizes="(max-width: 905px) 100vw, 905px" /></p>
+<h3>with语句</h3>
+<p>
+  with用来执行一组方法和属性，所有的属性和方法都属于with后面的对象
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  with(document){
+</p>
+<p>
+  	write(&#8216;锄禾日当午&lt;br&gt;&#8217;);
+</p>
+<p>
+  	write(&#8216;汗滴禾下土&lt;hr&gt;&#8217;);
+</p>
+<p>
+  	bgColor=&#8217;#cccccc&#8217;;
+</p>
+<p>
+  	fgColor=&#8217;#FF0000&#8242;;
+</p>
+<p>
+  }
+</p>
+<p>
+  with(Math){
+</p>
+<p>
+  	document.write(PI+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  	document.write(abs(-10)+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="246" height="100" src="/wp-content/uploads/2018/05/word-image-427.png" class="wp-image-468" /></p>
+<h3>eval语句</h3>
+<p>
+  用来执行字符串表达式
+</p>
+<p><img loading="lazy" decoding="async" width="976" height="50" src="/wp-content/uploads/2018/05/word-image-428.png" class="wp-image-469" srcset="/wp-content/uploads/2018/05/word-image-428.png 976w, /wp-content/uploads/2018/05/word-image-428-300x15.png 300w, /wp-content/uploads/2018/05/word-image-428-768x39.png 768w" sizes="(max-width: 976px) 100vw, 976px" /></p>
+<h2>DOM和BOM</h2>
+<p>
+  DOM：document object model 文档对象模型
+</p>
+<p><img loading="lazy" decoding="async" width="697" height="260" src="/wp-content/uploads/2018/05/word-image-429.png" class="wp-image-470" srcset="/wp-content/uploads/2018/05/word-image-429.png 697w, /wp-content/uploads/2018/05/word-image-429-300x112.png 300w" sizes="(max-width: 697px) 100vw, 697px" /></p>
+<p>
+  BOM：brower object model 浏览器对象模型
+</p>
+<p><img loading="lazy" decoding="async" width="672" height="85" src="/wp-content/uploads/2018/05/word-image-430.png" class="wp-image-471" srcset="/wp-content/uploads/2018/05/word-image-430.png 672w, /wp-content/uploads/2018/05/word-image-430-300x38.png 300w" sizes="(max-width: 672px) 100vw, 672px" /></p>
+<p>
+  DOM由HTMDOM，XMLDOM，CSSDOM组成
+</p>
+<p>
+  CSSDOM的语法结构：对象.style.样式属性
+</p>
+<p>
+  oDiv.style.width
+</p>
+<p>
+  oDiv.style.height
+</p>
+<p><img loading="lazy" decoding="async" width="449" height="49" src="/wp-content/uploads/2018/05/word-image-431.png" class="wp-image-472" srcset="/wp-content/uploads/2018/05/word-image-431.png 449w, /wp-content/uploads/2018/05/word-image-431-300x33.png 300w" sizes="(max-width: 449px) 100vw, 449px" /></p>
+<h2>例题</h2>
+<h3>表单验证</h3>
+<p>
+  难点：
+</p>
+<ol>
+<li>
+  验证表单的函数在表单提交的时候调用，表单提交的事件是onsubmit
+</li>
+<li>
+  Onsubmit事件后面如果return fasle就终止提交，return true就提交
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="678" height="67" src="/wp-content/uploads/2018/05/word-image-432.png" class="wp-image-473" srcset="/wp-content/uploads/2018/05/word-image-432.png 678w, /wp-content/uploads/2018/05/word-image-432-300x30.png 300w" sizes="(max-width: 678px) 100vw, 678px" /></p>
+<p>
+  代码
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  function check(){
+</p>
+<p>
+  	//验证用户名
+</p>
+<p>
+  	var oUser=document.getElementById(&#8216;username&#8217;);	//获取用户名的文本框对象
+</p>
+<p>
+  	if(oUser.value==&#8221;){
+</p>
+<p>
+  		alert(&#8216;用户名不能为空&#8217;);
+</p>
+<p>
+  		oUser.focus();	//获取焦点
+</p>
+<p>
+  		return false;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//验证密码
+</p>
+<p>
+  	var oPwd=document.getElementById(&#8216;pwd&#8217;);	//获取密码对象
+</p>
+<p>
+  	if(oPwd.value==&#8221;){
+</p>
+<p>
+  		alert(&#8216;密码不能为空&#8217;);
+</p>
+<p>
+  		oPwd.focus();
+</p>
+<p>
+  		return false
+</p>
+<p>
+  	}else{
+</p>
+<p>
+  		if(oPwd.value.length!=6 || isNaN(oPwd.value)){
+</p>
+<p>
+  			alert(&#8216;密码必须是6位的数字&#8217;);
+</p>
+<p>
+  			oPwd.select();	//选中文本框的内容
+</p>
+<p>
+  			return false;
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  	return true;
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;form action=&#8221;&#8221; method=&#8217;post&#8217; onsubmit=&#8217;return check()&#8217;&gt;
+</p>
+<p>
+  	&lt;table&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td&gt;用户名：&lt;/td&gt;
+</p>
+<p>
+  			&lt;td&gt;&lt;input type=&#8221;text&#8221; id=&#8221;username&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td&gt;密码：&lt;/td&gt;
+</p>
+<p>
+  			&lt;td&gt;&lt;input type=&#8221;password&#8221; id=&#8221;pwd&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td colspan=&#8217;2&#8242; align=&#8217;center&#8217;&gt;
+</p>
+<p>
+  				&lt;input type=&#8221;submit&#8221; value=&#8221;提交&#8221;&gt;
+</p>
+<p>
+  			&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  	&lt;/table&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="243" height="90" src="/wp-content/uploads/2018/05/word-image-433.png" class="wp-image-474" /></p>
+<h3>设置时钟周期</h3>
+<p><img loading="lazy" decoding="async" width="984" height="243" src="/wp-content/uploads/2018/05/word-image-434.png" class="wp-image-475" srcset="/wp-content/uploads/2018/05/word-image-434.png 984w, /wp-content/uploads/2018/05/word-image-434-300x74.png 300w, /wp-content/uploads/2018/05/word-image-434-768x190.png 768w" sizes="(max-width: 984px) 100vw, 984px" /><br />
+<img loading="lazy" decoding="async" width="177" height="30" src="/wp-content/uploads/2018/05/word-image-435.png" class="wp-image-476" /></p>
+<h3>设置定时器</h3>
+<p><img loading="lazy" decoding="async" width="749" height="163" src="/wp-content/uploads/2018/05/word-image-436.png" class="wp-image-477" srcset="/wp-content/uploads/2018/05/word-image-436.png 749w, /wp-content/uploads/2018/05/word-image-436-300x65.png 300w" sizes="(max-width: 749px) 100vw, 749px" /><br />
+<img loading="lazy" decoding="async" width="173" height="29" src="/wp-content/uploads/2018/05/word-image-437.png" class="wp-image-478" /></p>
+<h2>作业</h2>
+<ol>
+<li>
+  打印100以内的6的倍数，一行放7个
+</li>
+<li>
+  求一元二次方程的根
+</li>
+<li>
+  倒计时
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="339" height="34" src="/wp-content/uploads/2018/05/word-image-438.png" class="wp-image-479" srcset="/wp-content/uploads/2018/05/word-image-438.png 339w, /wp-content/uploads/2018/05/word-image-438-300x30.png 300w" sizes="(max-width: 339px) 100vw, 339px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/440.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

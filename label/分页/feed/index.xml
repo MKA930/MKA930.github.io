@@ -1,0 +1,1543 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>分页 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%88%86%E9%A1%B5/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 09 Jun 2018 01:08:26 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>分页 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP5.0（四）添加文章、添加验证、图片上传、缩略图、图片预览、文章列表展示、分页、文章编辑、文章删除、XSS 攻击、Jquery-Validate 验证插件、钩子函数</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7628.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7628.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 09 Jun 2018 00:41:37 +0000</pubDate>
+				<category><![CDATA[TP5.0]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[Jquery-Validate 验证插件]]></category>
+		<category><![CDATA[XSS 攻击]]></category>
+		<category><![CDATA[分页]]></category>
+		<category><![CDATA[图片上传]]></category>
+		<category><![CDATA[图片预览]]></category>
+		<category><![CDATA[文章列表展示]]></category>
+		<category><![CDATA[文章删除]]></category>
+		<category><![CDATA[文章编辑]]></category>
+		<category><![CDATA[添加文章]]></category>
+		<category><![CDATA[添加验证]]></category>
+		<category><![CDATA[缩略图]]></category>
+		<category><![CDATA[钩子函数]]></category>
+		<guid isPermaLink="false">/?p=7628</guid>
+
+					<description><![CDATA[TP5第四天 一、完成文章的添加 完成文章模板的展示 第一步：修改left.html模板，加一个添加分类的链接 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>TP5第四天</h1>
+<h1>一、完成文章的添加</h1>
+<h2>完成文章模板的展示</h2>
+<p>第一步：修改left.html模板，加一个添加分类的链接地址</p>
+<p><img fetchpriority="high" decoding="async" width="1262" height="365" class="wp-image-7629" src="/wp-content/uploads/2018/06/word-image-233.png" srcset="/wp-content/uploads/2018/06/word-image-233.png 1262w, /wp-content/uploads/2018/06/word-image-233-300x87.png 300w, /wp-content/uploads/2018/06/word-image-233-768x222.png 768w, /wp-content/uploads/2018/06/word-image-233-1024x296.png 1024w" sizes="(max-width: 1262px) 100vw, 1262px" /></p>
+<p>第二步：在后台admin创建一个Article控制器，并建立一个add方法，完成文章的入库操作</p>
+<p><img decoding="async" width="749" height="368" class="wp-image-7630" src="/wp-content/uploads/2018/06/word-image-234.png" srcset="/wp-content/uploads/2018/06/word-image-234.png 749w, /wp-content/uploads/2018/06/word-image-234-300x147.png 300w" sizes="(max-width: 749px) 100vw, 749px" /></p>
+<p>模板分配数据：</p>
+<p><img decoding="async" width="670" height="389" class="wp-image-7631" src="/wp-content/uploads/2018/06/word-image-235.png" srcset="/wp-content/uploads/2018/06/word-image-235.png 670w, /wp-content/uploads/2018/06/word-image-235-300x174.png 300w" sizes="(max-width: 670px) 100vw, 670px" /></p>
+<h2>使用富文本编辑器完成文章的内容添加</h2>
+<p>第一步：把课件中的相应的ueditor复制到网站根目录下面的插件目录plugin中</p>
+<p><img loading="lazy" decoding="async" width="771" height="251" class="wp-image-7632" src="/wp-content/uploads/2018/06/word-image-236.png" srcset="/wp-content/uploads/2018/06/word-image-236.png 771w, /wp-content/uploads/2018/06/word-image-236-300x98.png 300w, /wp-content/uploads/2018/06/word-image-236-768x250.png 768w" sizes="(max-width: 771px) 100vw, 771px" /></p>
+<p>第二步：引入核心js文件，并且给textarea 设置一个id=content</p>
+<p><img loading="lazy" decoding="async" width="1304" height="496" class="wp-image-7633" src="/wp-content/uploads/2018/06/word-image-237.png" srcset="/wp-content/uploads/2018/06/word-image-237.png 1304w, /wp-content/uploads/2018/06/word-image-237-300x114.png 300w, /wp-content/uploads/2018/06/word-image-237-768x292.png 768w, /wp-content/uploads/2018/06/word-image-237-1024x389.png 1024w" sizes="(max-width: 1304px) 100vw, 1304px" /></p>
+<p><img loading="lazy" decoding="async" width="1277" height="556" class="wp-image-7634" src="/wp-content/uploads/2018/06/word-image-238.png" srcset="/wp-content/uploads/2018/06/word-image-238.png 1277w, /wp-content/uploads/2018/06/word-image-238-300x131.png 300w, /wp-content/uploads/2018/06/word-image-238-768x334.png 768w, /wp-content/uploads/2018/06/word-image-238-1024x446.png 1024w" sizes="(max-width: 1277px) 100vw, 1277px" /></p>
+<p>效果如下：</p>
+<p><img loading="lazy" decoding="async" width="1040" height="418" class="wp-image-7635" src="/wp-content/uploads/2018/06/word-image-239.png" srcset="/wp-content/uploads/2018/06/word-image-239.png 1040w, /wp-content/uploads/2018/06/word-image-239-300x121.png 300w, /wp-content/uploads/2018/06/word-image-239-768x309.png 768w, /wp-content/uploads/2018/06/word-image-239-1024x412.png 1024w" sizes="(max-width: 1040px) 100vw, 1040px" /></p>
+<h2>完成文章数据的入库</h2>
+<p>第一步：设置表单name值</p>
+<p><img loading="lazy" decoding="async" width="1315" height="712" class="wp-image-7636" src="/wp-content/uploads/2018/06/word-image-240.png" srcset="/wp-content/uploads/2018/06/word-image-240.png 1315w, /wp-content/uploads/2018/06/word-image-240-300x162.png 300w, /wp-content/uploads/2018/06/word-image-240-768x416.png 768w, /wp-content/uploads/2018/06/word-image-240-1024x554.png 1024w" sizes="(max-width: 1315px) 100vw, 1315px" /></p>
+<p>第二步：在add方法中，完成数据的入库</p>
+<p><img loading="lazy" decoding="async" width="935" height="563" class="wp-image-7637" src="/wp-content/uploads/2018/06/word-image-241.png" srcset="/wp-content/uploads/2018/06/word-image-241.png 935w, /wp-content/uploads/2018/06/word-image-241-300x180.png 300w, /wp-content/uploads/2018/06/word-image-241-768x462.png 768w" sizes="(max-width: 935px) 100vw, 935px" /></p>
+<h2>使用验证器完成添加文章的验证</h2>
+<p>在后台的admin的validate目录建立一个Article 的验证器</p>
+<p><img loading="lazy" decoding="async" width="853" height="503" class="wp-image-7638" src="/wp-content/uploads/2018/06/word-image-242.png" srcset="/wp-content/uploads/2018/06/word-image-242.png 853w, /wp-content/uploads/2018/06/word-image-242-300x177.png 300w, /wp-content/uploads/2018/06/word-image-242-768x453.png 768w" sizes="(max-width: 853px) 100vw, 853px" /></p>
+<p>添加文章的时候，调用验证器的对应场景进行验证：</p>
+<p><img loading="lazy" decoding="async" width="977" height="645" class="wp-image-7639" src="/wp-content/uploads/2018/06/word-image-243.png" srcset="/wp-content/uploads/2018/06/word-image-243.png 977w, /wp-content/uploads/2018/06/word-image-243-300x198.png 300w, /wp-content/uploads/2018/06/word-image-243-768x507.png 768w" sizes="(max-width: 977px) 100vw, 977px" /></p>
+<h2>完成文章的图片上传</h2>
+<p>表单上传文件的要求：1、post提交 2、设置form的enctype=’multipart/form-data’</p>
+<p><img loading="lazy" decoding="async" width="747" height="155" class="wp-image-7640" src="/wp-content/uploads/2018/06/word-image-244.png" srcset="/wp-content/uploads/2018/06/word-image-244.png 747w, /wp-content/uploads/2018/06/word-image-244-300x62.png 300w" sizes="(max-width: 747px) 100vw, 747px" /></p>
+<p>设置上传文件的input标签</p>
+<p><img loading="lazy" decoding="async" width="882" height="213" class="wp-image-7641" src="/wp-content/uploads/2018/06/word-image-245.png" srcset="/wp-content/uploads/2018/06/word-image-245.png 882w, /wp-content/uploads/2018/06/word-image-245-300x72.png 300w, /wp-content/uploads/2018/06/word-image-245-768x185.png 768w" sizes="(max-width: 882px) 100vw, 882px" /></p>
+<p>控制器add方法处理上传文件的路径入库：</p>
+<p><img loading="lazy" decoding="async" width="1076" height="650" class="wp-image-7642" src="/wp-content/uploads/2018/06/word-image-246.png" srcset="/wp-content/uploads/2018/06/word-image-246.png 1076w, /wp-content/uploads/2018/06/word-image-246-300x180.png 300w, /wp-content/uploads/2018/06/word-image-246-768x464.png 768w, /wp-content/uploads/2018/06/word-image-246-1024x619.png 1024w" sizes="(max-width: 1076px) 100vw, 1076px" /></p>
+<p>数据库存储的路径形式如下：</p>
+<p><img loading="lazy" decoding="async" width="490" height="44" class="wp-image-7643" src="/wp-content/uploads/2018/06/word-image-247.png" srcset="/wp-content/uploads/2018/06/word-image-247.png 490w, /wp-content/uploads/2018/06/word-image-247-300x27.png 300w" sizes="(max-width: 490px) 100vw, 490px" /></p>
+<h2>6、完成文章图片缩略图生成</h2>
+<p>在有文件上传成功的前提下，处理缩略图生成：</p>
+<p><img loading="lazy" decoding="async" width="1208" height="664" class="wp-image-7644" src="/wp-content/uploads/2018/06/word-image-248.png" srcset="/wp-content/uploads/2018/06/word-image-248.png 1208w, /wp-content/uploads/2018/06/word-image-248-300x165.png 300w, /wp-content/uploads/2018/06/word-image-248-768x422.png 768w, /wp-content/uploads/2018/06/word-image-248-1024x563.png 1024w" sizes="(max-width: 1208px) 100vw, 1208px" /></p>
+<p>注：函数thumb(width，height,缩放比例) ，缩放比例默认为1为等比例缩放，为2则是填充补白。</p>
+<p>存储如下：</p>
+<p><img loading="lazy" decoding="async" width="394" height="139" class="wp-image-7645" src="/wp-content/uploads/2018/06/word-image-249.png" srcset="/wp-content/uploads/2018/06/word-image-249.png 394w, /wp-content/uploads/2018/06/word-image-249-300x106.png 300w" sizes="(max-width: 394px) 100vw, 394px" /></p>
+<p>数据库存储的路径：</p>
+<p><img loading="lazy" decoding="async" width="548" height="53" class="wp-image-7646" src="/wp-content/uploads/2018/06/word-image-250.png" srcset="/wp-content/uploads/2018/06/word-image-250.png 548w, /wp-content/uploads/2018/06/word-image-250-300x29.png 300w" sizes="(max-width: 548px) 100vw, 548px" /></p>
+<h2>实现上传图片的实时预览</h2>
+<p>引入核心js文件：</p>
+<p><img loading="lazy" decoding="async" width="765" height="177" class="wp-image-7647" src="/wp-content/uploads/2018/06/word-image-251.png" srcset="/wp-content/uploads/2018/06/word-image-251.png 765w, /wp-content/uploads/2018/06/word-image-251-300x69.png 300w" sizes="(max-width: 765px) 100vw, 765px" /></p>
+<p><img loading="lazy" decoding="async" width="1115" height="287" class="wp-image-7648" src="/wp-content/uploads/2018/06/word-image-252.png" srcset="/wp-content/uploads/2018/06/word-image-252.png 1115w, /wp-content/uploads/2018/06/word-image-252-300x77.png 300w, /wp-content/uploads/2018/06/word-image-252-768x198.png 768w, /wp-content/uploads/2018/06/word-image-252-1024x264.png 1024w" sizes="(max-width: 1115px) 100vw, 1115px" /></p>
+<p>在add.html模板文件设置预览的区域：<br />
+<img loading="lazy" decoding="async" width="1205" height="362" class="wp-image-7649" src="/wp-content/uploads/2018/06/word-image-253.png" srcset="/wp-content/uploads/2018/06/word-image-253.png 1205w, /wp-content/uploads/2018/06/word-image-253-300x90.png 300w, /wp-content/uploads/2018/06/word-image-253-768x231.png 768w, /wp-content/uploads/2018/06/word-image-253-1024x308.png 1024w" sizes="(max-width: 1205px) 100vw, 1205px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="554" height="367" class="wp-image-7650" src="/wp-content/uploads/2018/06/word-image-254.png" srcset="/wp-content/uploads/2018/06/word-image-254.png 554w, /wp-content/uploads/2018/06/word-image-254-300x199.png 300w" sizes="(max-width: 554px) 100vw, 554px" /></p>
+<h1>完成文章的列表展示</h1>
+<h2>数据展示</h2>
+<p>第一步：在后台admin的Article控制器中建立一个index方法，完成文章列表展示</p>
+<p><img loading="lazy" decoding="async" width="1003" height="370" class="wp-image-7651" src="/wp-content/uploads/2018/06/word-image-255.png" srcset="/wp-content/uploads/2018/06/word-image-255.png 1003w, /wp-content/uploads/2018/06/word-image-255-300x111.png 300w, /wp-content/uploads/2018/06/word-image-255-768x283.png 768w" sizes="(max-width: 1003px) 100vw, 1003px" /></p>
+<p>模板中index.php,循环输出</p>
+<p><img loading="lazy" decoding="async" width="1287" height="516" class="wp-image-7652" src="/wp-content/uploads/2018/06/word-image-256.png" srcset="/wp-content/uploads/2018/06/word-image-256.png 1287w, /wp-content/uploads/2018/06/word-image-256-300x120.png 300w, /wp-content/uploads/2018/06/word-image-256-768x308.png 768w, /wp-content/uploads/2018/06/word-image-256-1024x411.png 1024w" sizes="(max-width: 1287px) 100vw, 1287px" /></p>
+<h2>数据分页</h2>
+<p>把模型的select方法改为paginate(每页显示条数)即可</p>
+<p><img loading="lazy" decoding="async" width="976" height="366" class="wp-image-7653" src="/wp-content/uploads/2018/06/word-image-257.png" srcset="/wp-content/uploads/2018/06/word-image-257.png 976w, /wp-content/uploads/2018/06/word-image-257-300x113.png 300w, /wp-content/uploads/2018/06/word-image-257-768x288.png 768w" sizes="(max-width: 976px) 100vw, 976px" /></p>
+<p>模板中输出分页页码：</p>
+<p><img loading="lazy" decoding="async" width="1072" height="636" class="wp-image-7654" src="/wp-content/uploads/2018/06/word-image-258.png" srcset="/wp-content/uploads/2018/06/word-image-258.png 1072w, /wp-content/uploads/2018/06/word-image-258-300x178.png 300w, /wp-content/uploads/2018/06/word-image-258-768x456.png 768w, /wp-content/uploads/2018/06/word-image-258-1024x608.png 1024w" sizes="(max-width: 1072px) 100vw, 1072px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="581" height="249" class="wp-image-7655" src="/wp-content/uploads/2018/06/word-image-259.png" srcset="/wp-content/uploads/2018/06/word-image-259.png 581w, /wp-content/uploads/2018/06/word-image-259-300x129.png 300w" sizes="(max-width: 581px) 100vw, 581px" /></p>
+<h1>完成文章编辑</h1>
+<p>第一步：给编辑设置链接地址，携带文章的参数id</p>
+<p><img loading="lazy" decoding="async" width="1304" height="235" class="wp-image-7656" src="/wp-content/uploads/2018/06/word-image-260.png" srcset="/wp-content/uploads/2018/06/word-image-260.png 1304w, /wp-content/uploads/2018/06/word-image-260-300x54.png 300w, /wp-content/uploads/2018/06/word-image-260-768x138.png 768w, /wp-content/uploads/2018/06/word-image-260-1024x185.png 1024w" sizes="(max-width: 1304px) 100vw, 1304px" /></p>
+<p>第二步：建立一个upd方法完成数据回显到模板中</p>
+<p><img loading="lazy" decoding="async" width="848" height="400" class="wp-image-7657" src="/wp-content/uploads/2018/06/word-image-261.png" srcset="/wp-content/uploads/2018/06/word-image-261.png 848w, /wp-content/uploads/2018/06/word-image-261-300x142.png 300w, /wp-content/uploads/2018/06/word-image-261-768x362.png 768w" sizes="(max-width: 848px) 100vw, 848px" /></p>
+<p>第三步：模板中回显数据</p>
+<p><img loading="lazy" decoding="async" width="1226" height="660" class="wp-image-7658" src="/wp-content/uploads/2018/06/word-image-262.png" srcset="/wp-content/uploads/2018/06/word-image-262.png 1226w, /wp-content/uploads/2018/06/word-image-262-300x162.png 300w, /wp-content/uploads/2018/06/word-image-262-768x413.png 768w, /wp-content/uploads/2018/06/word-image-262-1024x551.png 1024w" sizes="(max-width: 1226px) 100vw, 1226px" /></p>
+<p><img loading="lazy" decoding="async" width="922" height="352" class="wp-image-7659" src="/wp-content/uploads/2018/06/word-image-263.png" srcset="/wp-content/uploads/2018/06/word-image-263.png 922w, /wp-content/uploads/2018/06/word-image-263-300x115.png 300w, /wp-content/uploads/2018/06/word-image-263-768x293.png 768w" sizes="(max-width: 922px) 100vw, 922px" /></p>
+<p>效果：<br />
+<img loading="lazy" decoding="async" width="516" height="399" class="wp-image-7660" src="/wp-content/uploads/2018/06/word-image-264.png" srcset="/wp-content/uploads/2018/06/word-image-264.png 516w, /wp-content/uploads/2018/06/word-image-264-300x232.png 300w" sizes="(max-width: 516px) 100vw, 516px" /></p>
+<p>第四步：在upd方法中判断是否是post请求，完成数据的编辑入库</p>
+<p><img loading="lazy" decoding="async" width="725" height="671" class="wp-image-7661" src="/wp-content/uploads/2018/06/word-image-265.png" srcset="/wp-content/uploads/2018/06/word-image-265.png 725w, /wp-content/uploads/2018/06/word-image-265-300x278.png 300w" sizes="(max-width: 725px) 100vw, 725px" /></p>
+<p>可以设置Article模型自动维护时间戳：<br />
+<img loading="lazy" decoding="async" width="504" height="236" class="wp-image-7662" src="/wp-content/uploads/2018/06/word-image-266.png" srcset="/wp-content/uploads/2018/06/word-image-266.png 504w, /wp-content/uploads/2018/06/word-image-266-300x140.png 300w" sizes="(max-width: 504px) 100vw, 504px" /></p>
+<h1>完成文章删除</h1>
+<p>第一步：给删除的链接地址设置链接，并且设置参数</p>
+<p><img loading="lazy" decoding="async" width="1249" height="475" class="wp-image-7663" src="/wp-content/uploads/2018/06/word-image-267.png" srcset="/wp-content/uploads/2018/06/word-image-267.png 1249w, /wp-content/uploads/2018/06/word-image-267-300x114.png 300w, /wp-content/uploads/2018/06/word-image-267-768x292.png 768w, /wp-content/uploads/2018/06/word-image-267-1024x389.png 1024w" sizes="(max-width: 1249px) 100vw, 1249px" /></p>
+<p>第二步：添加del方法完成删除</p>
+<p><img loading="lazy" decoding="async" width="942" height="544" class="wp-image-7664" src="/wp-content/uploads/2018/06/word-image-268.png" srcset="/wp-content/uploads/2018/06/word-image-268.png 942w, /wp-content/uploads/2018/06/word-image-268-300x173.png 300w, /wp-content/uploads/2018/06/word-image-268-768x444.png 768w" sizes="(max-width: 942px) 100vw, 942px" /></p>
+<h1>五、XSS攻击</h1>
+<h2>xss介绍</h2>
+<p><img loading="lazy" decoding="async" width="830" height="141" class="wp-image-7665" src="/wp-content/uploads/2018/06/word-image-269.png" srcset="/wp-content/uploads/2018/06/word-image-269.png 830w, /wp-content/uploads/2018/06/word-image-269-300x51.png 300w, /wp-content/uploads/2018/06/word-image-269-768x130.png 768w" sizes="(max-width: 830px) 100vw, 830px" /></p>
+<p>如在输入框输入js代码：</p>
+<p><img loading="lazy" decoding="async" width="551" height="67" class="wp-image-7666" src="/wp-content/uploads/2018/06/word-image-270.png" srcset="/wp-content/uploads/2018/06/word-image-270.png 551w, /wp-content/uploads/2018/06/word-image-270-300x36.png 300w" sizes="(max-width: 551px) 100vw, 551px" /></p>
+<p>&lt;script&gt;</p>
+<p>var cookie = document.cookie</p>
+<p>//发送一个jsonp请求</p>
+<p>&lt;/script&gt;</p>
+<p>访问此标题的时候就会弹出1，从而达成攻击；</p>
+<p><img loading="lazy" decoding="async" width="423" height="122" class="wp-image-7667" src="/wp-content/uploads/2018/06/word-image-271.png" srcset="/wp-content/uploads/2018/06/word-image-271.png 423w, /wp-content/uploads/2018/06/word-image-271-300x87.png 300w" sizes="(max-width: 423px) 100vw, 423px" /></p>
+<h2>防止xss攻击（防止js攻击）</h2>
+<h3>使用htmlspecialchars函数防止</h3>
+<p>注： 百度富文本编辑器ueditor自动将危险的代码如js进行转化为实体符号。</p>
+<p>htmlspecialchars函数的作用：将html标签符号转化为实体符号。</p>
+<p>如：大于号“&gt;”会被转化为 “&amp;gt;”</p>
+<p>如：大于号“&lt;”会被转化为 “&amp;lt;”</p>
+<p>可以在配置文件config,添加全局的过滤函数：</p>
+<p><img loading="lazy" decoding="async" width="933" height="232" class="wp-image-7668" src="/wp-content/uploads/2018/06/word-image-272.png" srcset="/wp-content/uploads/2018/06/word-image-272.png 933w, /wp-content/uploads/2018/06/word-image-272-300x75.png 300w, /wp-content/uploads/2018/06/word-image-272-768x191.png 768w" sizes="(max-width: 933px) 100vw, 933px" /></p>
+<p>此种缺点：会把html和js代码的特殊符号都进行转移，不满足我们的要求。我们只需要转移js代码。如下所示：</p>
+<p><img loading="lazy" decoding="async" width="1068" height="134" class="wp-image-7669" src="/wp-content/uploads/2018/06/word-image-273.png" srcset="/wp-content/uploads/2018/06/word-image-273.png 1068w, /wp-content/uploads/2018/06/word-image-273-300x38.png 300w, /wp-content/uploads/2018/06/word-image-273-768x96.png 768w, /wp-content/uploads/2018/06/word-image-273-1024x128.png 1024w" sizes="(max-width: 1068px) 100vw, 1068px" /></p>
+<p>解决办法：</p>
+<ol>
+<li>不使用函数htmlspecialchars()进行处理，但可能会出现xss攻击。</li>
+<li>使用htmlspecialchars()函数处理，页面的数据（富文本html）又不能正常显示出来，可以借助htmlspecialchars_decode()反转，把html实体符号转化为html标签，但这又可能会造成xss攻击。</li>
+</ol>
+<p>我们的希望是HTML可以正常显示，但是又不希望js代码被执行。</p>
+<p>这时可以借助第三方防止xss攻击的插件如：HTMLPurifier，此插件会把浏览器提交过来的数据有选择性的过滤。只过滤危险的js代码，保留html代码，这就刚好满足我们的需求。</p>
+<h3>使用插件HTMLPurifier防止</h3>
+<p>复制防止xss攻击的库到项目extend目录中。</p>
+<p><img loading="lazy" decoding="async" width="965" height="325" class="wp-image-7670" src="/wp-content/uploads/2018/06/word-image-274.png" srcset="/wp-content/uploads/2018/06/word-image-274.png 965w, /wp-content/uploads/2018/06/word-image-274-300x101.png 300w, /wp-content/uploads/2018/06/word-image-274-768x259.png 768w" sizes="(max-width: 965px) 100vw, 965px" /></p>
+<p>把HTMLPurifier中的example.php文件中函数定义在common.php中，并且修改路径</p>
+<p><img loading="lazy" decoding="async" width="966" height="455" class="wp-image-7671" src="/wp-content/uploads/2018/06/word-image-275.png" srcset="/wp-content/uploads/2018/06/word-image-275.png 966w, /wp-content/uploads/2018/06/word-image-275-300x141.png 300w, /wp-content/uploads/2018/06/word-image-275-768x362.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<p>需要把函数名为removeXSS设置为tp的全局的默认过滤函数</p>
+<p><img loading="lazy" decoding="async" width="928" height="290" class="wp-image-7672" src="/wp-content/uploads/2018/06/word-image-276.png" srcset="/wp-content/uploads/2018/06/word-image-276.png 928w, /wp-content/uploads/2018/06/word-image-276-300x94.png 300w, /wp-content/uploads/2018/06/word-image-276-768x240.png 768w" sizes="(max-width: 928px) 100vw, 928px" /></p>
+<p>使用之后，只会把js代码进行过滤，保留html代码：</p>
+<p><img loading="lazy" decoding="async" width="1001" height="163" class="wp-image-7673" src="/wp-content/uploads/2018/06/word-image-277.png" srcset="/wp-content/uploads/2018/06/word-image-277.png 1001w, /wp-content/uploads/2018/06/word-image-277-300x49.png 300w, /wp-content/uploads/2018/06/word-image-277-768x125.png 768w" sizes="(max-width: 1001px) 100vw, 1001px" /></p>
+<p>显示就不会造成攻击，html正常显示：</p>
+<p><img loading="lazy" decoding="async" width="913" height="159" class="wp-image-7674" src="/wp-content/uploads/2018/06/word-image-278.png" srcset="/wp-content/uploads/2018/06/word-image-278.png 913w, /wp-content/uploads/2018/06/word-image-278-300x52.png 300w, /wp-content/uploads/2018/06/word-image-278-768x134.png 768w" sizes="(max-width: 913px) 100vw, 913px" /></p>
+<h1>扩展-验证插件jquery-validate的使用</h1>
+<p>前端验证目的：减轻服务器压力，提高用户体验。</p>
+<p>后端验证：主要保证数据的安全（不要信任浏览器携带过来的任何数据）</p>
+<p>具体使用：<a href="/goto/6kfy" rel="nofollow">https://www.jianshu.com/p/e1d5f0dc2f5d</a></p>
+<p>手册：</p>
+<p><img loading="lazy" decoding="async" width="261" height="25" class="wp-image-7675" src="/wp-content/uploads/2018/06/word-image-279.png" /></p>
+<h1>模型的事件（钩子）</h1>
+<p>所谓的事件就类似于svn中的钩子一样，做一件事情都有前事件和后事情发生。</p>
+<p>给表tp_category添加一个zhujian字段，目的是记录当前记录的主键值。</p>
+<p><img loading="lazy" decoding="async" width="637" height="223" class="wp-image-7676" src="/wp-content/uploads/2018/06/word-image-280.png" srcset="/wp-content/uploads/2018/06/word-image-280.png 637w, /wp-content/uploads/2018/06/word-image-280-300x105.png 300w" sizes="(max-width: 637px) 100vw, 637px" /></p>
+<p>让zhujian字段和cat_id的值保持一致，我们一把入库成功后要更新:</p>
+<p>常规做法如下：</p>
+<p><img loading="lazy" decoding="async" width="770" height="139" class="wp-image-7677" src="/wp-content/uploads/2018/06/word-image-281.png" srcset="/wp-content/uploads/2018/06/word-image-281.png 770w, /wp-content/uploads/2018/06/word-image-281-300x54.png 300w, /wp-content/uploads/2018/06/word-image-281-768x139.png 768w" sizes="(max-width: 770px) 100vw, 770px" /></p>
+<p>但是不建议上面写，我们希望只把业务逻辑写在控制器，我们把数据有关的操作写在模型的事件中。</p>
+<p>模型中注册事件：</p>
+<p><img loading="lazy" decoding="async" width="993" height="349" class="wp-image-7678" src="/wp-content/uploads/2018/06/word-image-282.png" srcset="/wp-content/uploads/2018/06/word-image-282.png 993w, /wp-content/uploads/2018/06/word-image-282-300x105.png 300w, /wp-content/uploads/2018/06/word-image-282-768x270.png 768w" sizes="(max-width: 993px) 100vw, 993px" /></p>
+<p>我们可以在模型中注册after_insert事件，即入库成功之后，把zhujian的字段和cat_id的保持一致。</p>
+<p><img loading="lazy" decoding="async" width="1076" height="562" class="wp-image-7679" src="/wp-content/uploads/2018/06/word-image-283.png" srcset="/wp-content/uploads/2018/06/word-image-283.png 1076w, /wp-content/uploads/2018/06/word-image-283-300x157.png 300w, /wp-content/uploads/2018/06/word-image-283-768x401.png 768w, /wp-content/uploads/2018/06/word-image-283-1024x535.png 1024w" sizes="(max-width: 1076px) 100vw, 1076px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="698" height="34" class="wp-image-7680" src="/wp-content/uploads/2018/06/word-image-284.png" srcset="/wp-content/uploads/2018/06/word-image-284.png 698w, /wp-content/uploads/2018/06/word-image-284-300x15.png 300w" sizes="(max-width: 698px) 100vw, 698px" /></p>
+<p>触发事件的流程：入库前事件&#8212;&gt;save()&#8212;-&gt;入库后的事件，</p>
+<p>如果在入库前事件前返回false,则事件不会继续执行。</p>
+<p><img loading="lazy" decoding="async" width="995" height="443" class="wp-image-7681" src="/wp-content/uploads/2018/06/word-image-285.png" srcset="/wp-content/uploads/2018/06/word-image-285.png 995w, /wp-content/uploads/2018/06/word-image-285-300x134.png 300w, /wp-content/uploads/2018/06/word-image-285-768x342.png 768w" sizes="(max-width: 995px) 100vw, 995px" /></p>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7628.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>博客项目（五）分页、 前台显示、 回复、 封装分页、 文本编辑器、 点赞、 阅读</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/2667.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/2667.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 06:02:00 +0000</pubDate>
+				<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[源码Blog项目]]></category>
+		<category><![CDATA[分页]]></category>
+		<category><![CDATA[前台显示]]></category>
+		<category><![CDATA[回复]]></category>
+		<category><![CDATA[封装分页]]></category>
+		<category><![CDATA[文本编辑器]]></category>
+		<category><![CDATA[点赞]]></category>
+		<category><![CDATA[阅读]]></category>
+		<guid isPermaLink="false">/?p=2667</guid>
+
+					<description><![CDATA[博客项目（五） 封装分页类 回顾分页的步骤 获取总记录数 $rowscount=select count(*) [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>博客项目（五）</h1>
+<h2>封装分页类</h2>
+<h3>回顾分页的步骤</h3>
+<ol>
+<li>获取总记录数 $rowscount=select count(*) from 表</li>
+<li>求的总页码 $pagecount=ceil($rowscount/$pagesize)</li>
+<li>获取当前页码（$pageno） 点击分页页码传递当前页码值</li>
+<li>求出$startno $startno=($pagesize-1)*$pagesize</li>
+<li>查询当前页的数据 Select * from 表 limit $startno,$pagesize</li>
+</ol>
+<h3>封装分页类</h3>
+<p>分页类有两个功能</p>
+<ol>
+<li>求分页需要的数据</li>
+<li>拼接分页字符串</li>
+<li>在Lib文件夹下创建Page.class.php页面</li>
+</ol>
+<p>&lt;?php</p>
+<p>namespace Lib;</p>
+<p>class Page{</p>
+<p>private $rowscount; //总记录数</p>
+<p>private $pagecount; //页面总数</p>
+<p>private $pageno; //当前页码</p>
+<p>public $pagesize; //页面大小</p>
+<p>public $startno; //起始位置</p>
+<p>public function __construct($rowscount,$pagesize) {</p>
+<p>$this-&gt;initParam($rowscount, $pagesize);</p>
+<p>}</p>
+<p>//初始化分页数据</p>
+<p>private function initParam($rowscount,$pagesize){</p>
+<p>$this-&gt;rowscount=$rowscount; //总记录数</p>
+<p>$this-&gt;pagesize=$pagesize; //页面大小</p>
+<p>$this-&gt;pagecount=ceil($this-&gt;rowscount/$this-&gt;pagesize); //总页数</p>
+<p>$this-&gt;pageno=isset($_REQUEST[&#8216;pageno&#8217;])?(int)$_REQUEST[&#8216;pageno&#8217;]:1; //当前页</p>
+<p>if($this-&gt;pageno&lt;1)</p>
+<p>$this-&gt;pageno=1;</p>
+<p>if($this-&gt;pageno&gt;$this-&gt;pagecount)</p>
+<p>$this-&gt;pageno= $this-&gt;pagecount;</p>
+<p>$this-&gt;startno=($this-&gt;pageno-1)*$this-&gt;pagesize; //起始值</p>
+<p>}</p>
+<p>//拼接分页字符串</p>
+<p>public function show(){</p>
+<p>$url=&#8217;index.php?p=&#8217;.PLATFORM_NAME.&#8217;&amp;c=&#8217;.CONTROLLER_NAME.&#8217;&amp;a=&#8217;.ACTION_NAME.&#8217;&amp;pageno=&#8217;;</p>
+<p>$str='&lt;div class=&#8221;panel-foot text-center&#8221;&gt;&#8217;;</p>
+<p>$str.='&lt;ul class=&#8221;pagination&#8221;&gt;&lt;li&gt;&lt;a href=&#8221;&#8216;.$url.($this-&gt;pageno-1).'&#8221;&gt;上一页&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&#8217;;</p>
+<p>$str.='&lt;ul class=&#8221;pagination pagination-group&#8221;&gt;&#8217;;</p>
+<p>for($i=1;$i&lt;=$this-&gt;pagecount;$i++){</p>
+<p>if($i==$this-&gt;pageno)</p>
+<p>$str.='&lt;li class=&#8221;active&#8221;&gt;&lt;a href=&#8221;&#8216;.($url.$i).'&#8221;&gt;&#8217;.$i.'&lt;/a&gt;&lt;/li&gt;&#8217;;</p>
+<p>else</p>
+<p>$str.='&lt;li&gt;&lt;a href=&#8221;&#8216;.($url.$i).'&#8221;&gt;&#8217;.$i.'&lt;/a&gt;&lt;/li&gt;&#8217;;</p>
+<p>}</p>
+<p>$str.='&lt;/ul&gt;&#8217;;</p>
+<p>$str.='&lt;ul class=&#8221;pagination&#8221;&gt;&lt;li&gt;&lt;a href=&#8221;&#8216;.$url.($this-&gt;pageno+1).'&#8221;&gt;下一页&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&#8217;;</p>
+<p>$str.='&lt;/div&gt;&#8217;;</p>
+<p>return $str;</p>
+<p>}</p>
+<p>}</p>
+<ol>
+<li>更改ArticleModel模型</li>
+</ol>
+<p>&lt;?php</p>
+<p>namespace Model;</p>
+<p>class ArticleModel extends \Core\Model{</p>
+<p>//获取article和category表的数据</p>
+<p>public function getArticleList(){</p>
+<p>$sql= &#8216;select a.art_id,a.art_title,a.is_top,is_public,c.cat_name,a.art_time from article a,category c where a.cat_id=c.cat_id and is_recycle=0 order by is_top desc,art_id desc&#8217;;</p>
+<p>return $this-&gt;mypdo-&gt;fetchAll($sql);</p>
+<p>}</p>
+<p>/*</p>
+<p>* 删除文章</p>
+<p>* @param $ids string 删除id通过逗号连接的字符串</p>
+<p>*/</p>
+<p>public function deleteArticle($ids){</p>
+<p>$sql=&#8221;update article set is_recycle=1 where art_id in ($ids)&#8221;;</p>
+<p>return $this-&gt;mypdo-&gt;exec($sql);</p>
+<p>}</p>
+<p>/*</p>
+<p>* 拼接查询的SQL语句</p>
+<p>* @param $condition array 查询条件</p>
+<p>* @param $is_list bool true:查询结果SQL，false：查询数量SQL</p>
+<p>*/</p>
+<p>private function createSQL($condition,$is_list=true){</p>
+<p>if($is_list)</p>
+<p>$sql= &#8216;select a.art_id,a.art_title,a.art_content,a.is_top,is_public,c.cat_name,a.art_time&#8217;;</p>
+<p>else</p>
+<p>$sql=&#8217;select count(*)&#8217;;</p>
+<p>$sql.=&#8217; from article a,category c where a.cat_id=c.cat_id and is_recycle=0 and user_id=&#8217;.$_SESSION[&#8216;user&#8217;][&#8216;user_id&#8217;];</p>
+<p>/*************通过类别查找************/</p>
+<p>$cat_array=array(); // 保存类别id数组</p>
+<p>if(isset($condition[&#8216;cat_id&#8217;])){</p>
+<p>$cat_id=$condition[&#8216;cat_id&#8217;]; //选中的cat_id</p>
+<p>$cat_model=new \Model\CategoryModel();</p>
+<p>$sub_cat=$cat_model-&gt;getCategoryTree($cat_id); //获取cat_id的子级</p>
+<p>foreach ($sub_cat as $rows){ //子级下面所有cat_id</p>
+<p>$cat_array[]=$rows[&#8216;cat_id&#8217;];</p>
+<p>}</p>
+<p>$cat_array[]=$cat_id; //当前cat_id和所有的子级cat_id数组</p>
+<p>$cat_ids=implode(&#8216;,&#8217;, $cat_array); //将cat_id数组转成逗号连接的字符串</p>
+<p>if($cat_ids!=&#8221;)</p>
+<p>$sql.=&#8221; and c.cat_id in ($cat_ids)&#8221;;</p>
+<p>}</p>
+<p>/*************通过标题查找************/</p>
+<p>if(isset($condition[&#8216;title&#8217;]))</p>
+<p>$sql.=&#8221; and art_title like &#8216;%{$condition[&#8216;title&#8217;]}%'&#8221;;</p>
+<p>/*************通过内容查找************/</p>
+<p>if(isset($condition[&#8216;content&#8217;]))</p>
+<p>$sql.=&#8221; and art_content like &#8216;%{$condition[&#8216;content&#8217;]}%'&#8221;;</p>
+<p>/*************通过是否公开查找************/</p>
+<p>if(isset($condition[&#8216;is_public&#8217;]))</p>
+<p>$sql.=&#8221; and is_public=&#8221;.$condition[&#8216;is_public&#8217;];</p>
+<p>/*************通过是否置顶查找************/</p>
+<p>if(isset($condition[&#8216;is_top&#8217;]))</p>
+<p>$sql.=&#8221; and is_top=&#8221;.$condition[&#8216;is_top&#8217;];</p>
+<p>if($is_list)</p>
+<p>$sql.=&#8217; order by is_top desc,art_id desc&#8217;;</p>
+<p>return $sql;</p>
+<p>}</p>
+<p>//通过条件获取满足条件的记录数</p>
+<p>public function getArticleCount($condition){</p>
+<p>$sql=$this-&gt;createSQL($condition,false);</p>
+<p>return $this-&gt;mypdo-&gt;fetchColumn($sql);</p>
+<p>}</p>
+<p>//通过条件检索文章</p>
+<p>public function getArticleListByCondition($condition,$startno,$pagesize){</p>
+<p>$sql=$this-&gt;createSQL($condition,true);</p>
+<p>$sql.=&#8221; limit $startno,$pagesize&#8221;;</p>
+<p>return $this-&gt;mypdo-&gt;fetchAll($sql);</p>
+<p>}</p>
+<p>}</p>
+<ol>
+<li>更改ArticleController控制器</li>
+</ol>
+<p>namespace Controller\Admin;</p>
+<p>class ArticleController extends \Controller\Admin\BaseController{</p>
+<p>//显示文章列表</p>
+<p>public function listAction(){</p>
+<p>$data=array(); //条件数组</p>
+<p>if(!empty($_POST)){</p>
+<p>//去除提交值的空格</p>
+<p>foreach($_POST as $k=&gt;$v){</p>
+<p>if(trim($v)==&#8221;)</p>
+<p>continue;</p>
+<p>$data[$k]=trim($v);</p>
+<p>}</p>
+<p>}</p>
+<p>$art_model=new \Model\ArticleModel();</p>
+<p>$rowscount=$art_model-&gt;getArticleCount($data); //获取文章数量</p>
+<p>$page=new \Lib\Page($rowscount, 1);</p>
+<p>$list=$art_model-&gt;getArticleListByCondition($data,$page-&gt;startno,$page-&gt;pagesize);</p>
+<p>$page_str=$page-&gt;show();</p>
+<p>$this-&gt;smarty-&gt;assign(&#8216;page_str&#8217;,$page_str);</p>
+<p>$cat_model=new \Model\CategoryModel();</p>
+<p>$cat_list=$cat_model-&gt;getCategoryTree();</p>
+<p>$this-&gt;smarty-&gt;assign(&#8216;cat_list&#8217;,$cat_list);</p>
+<p>$this-&gt;smarty-&gt;assign(&#8216;list&#8217;,$list);</p>
+<p>$this-&gt;smarty-&gt;display(&#8216;article_list.html&#8217;);</p>
+<p>}</p>
+<p>…</p>
+<p>在视图页面art_list.html中，显示分页</p>
+<p><img loading="lazy" decoding="async" width="1091" height="72" class="wp-image-2669" src="/wp-content/uploads/2018/05/word-image-2331.png" srcset="/wp-content/uploads/2018/05/word-image-2331.png 1091w, /wp-content/uploads/2018/05/word-image-2331-300x20.png 300w, /wp-content/uploads/2018/05/word-image-2331-768x51.png 768w, /wp-content/uploads/2018/05/word-image-2331-1024x68.png 1024w" sizes="(max-width: 1091px) 100vw, 1091px" /></p>
+<h2>封装错误提示</h2>
+<p>开发模式：错误显示在浏览器上，不用记录在日志中</p>
+<p>运行模式：错误记录在日志中，不显示在浏览器上</p>
+<ol>
+<li>在config.conf文件，通过degbug来设定开发模式和运行模式</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1143" height="152" class="wp-image-2670" src="/wp-content/uploads/2018/05/word-image-2332.png" srcset="/wp-content/uploads/2018/05/word-image-2332.png 1143w, /wp-content/uploads/2018/05/word-image-2332-300x40.png 300w, /wp-content/uploads/2018/05/word-image-2332-768x102.png 768w, /wp-content/uploads/2018/05/word-image-2332-1024x136.png 1024w" sizes="(max-width: 1143px) 100vw, 1143px" /></p>
+<ol>
+<li>在Framework中初始化错误显示方式</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1247" height="576" class="wp-image-2671" src="/wp-content/uploads/2018/05/word-image-2333.png" srcset="/wp-content/uploads/2018/05/word-image-2333.png 1247w, /wp-content/uploads/2018/05/word-image-2333-300x139.png 300w, /wp-content/uploads/2018/05/word-image-2333-768x355.png 768w, /wp-content/uploads/2018/05/word-image-2333-1024x473.png 1024w" sizes="(max-width: 1247px) 100vw, 1247px" /></p>
+<h2>文本编辑器</h2>
+<p>常用的文本编辑器有：CKEditor，UEditor，KingEditor</p>
+<h3>CKEditor</h3>
+<p>第一步：下载ckeditor</p>
+<p>第二步：解压，将ckeditor拷贝到Public目录下</p>
+<p>第三步：将ckeditor核心文件引入到网页中</p>
+<p>&lt;script src=&#8221;/Public/ckeditor/ckeditor.js&#8221;&gt;&lt;/script&gt;</p>
+<p>&lt;textarea name=&#8221;art_content&#8221; cols=&#8221;50&#8243; rows=&#8221;5&#8243; class=&#8221;input&#8221; id=&#8221;art_content&#8221; placeholder=&#8221;内容&#8221;&gt;&lt;/textarea&gt;</p>
+<p>&lt;script type=&#8221;text/javascript&#8221;&gt;</p>
+<p>CKEDITOR.replace(&#8216;art_content&#8217;);</p>
+<p>&lt;/script&gt;</p>
+<p>注意：CkEditor不能上传图片，要配合CKFinder才能上传图片</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="1182" height="138" class="wp-image-2672" src="/wp-content/uploads/2018/05/word-image-2334.png" srcset="/wp-content/uploads/2018/05/word-image-2334.png 1182w, /wp-content/uploads/2018/05/word-image-2334-300x35.png 300w, /wp-content/uploads/2018/05/word-image-2334-768x90.png 768w, /wp-content/uploads/2018/05/word-image-2334-1024x120.png 1024w" sizes="(max-width: 1182px) 100vw, 1182px" /></p>
+<h3>UEditor</h3>
+<p>UEditor是百度开发的文本编辑器，UM是UE的迷你版</p>
+<p>第一步：解压UM，将解压的文件夹拷贝大Public目录下，并改名umeditor</p>
+<p><img loading="lazy" decoding="async" width="185" height="24" class="wp-image-2673" src="/wp-content/uploads/2018/05/word-image-2335.png" /></p>
+<p>第二步：在文件中引入UM的核心文件</p>
+<p><img loading="lazy" decoding="async" width="1093" height="177" class="wp-image-2674" src="/wp-content/uploads/2018/05/word-image-2336.png" srcset="/wp-content/uploads/2018/05/word-image-2336.png 1093w, /wp-content/uploads/2018/05/word-image-2336-300x49.png 300w, /wp-content/uploads/2018/05/word-image-2336-768x124.png 768w, /wp-content/uploads/2018/05/word-image-2336-1024x166.png 1024w" sizes="(max-width: 1093px) 100vw, 1093px" /></p>
+<p>设定文本编辑器的宽高</p>
+<p><img loading="lazy" decoding="async" width="936" height="122" class="wp-image-2675" src="/wp-content/uploads/2018/05/word-image-2337.png" srcset="/wp-content/uploads/2018/05/word-image-2337.png 936w, /wp-content/uploads/2018/05/word-image-2337-300x39.png 300w, /wp-content/uploads/2018/05/word-image-2337-768x100.png 768w" sizes="(max-width: 936px) 100vw, 936px" /></p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="826" height="141" class="wp-image-2676" src="/wp-content/uploads/2018/05/word-image-2338.png" srcset="/wp-content/uploads/2018/05/word-image-2338.png 826w, /wp-content/uploads/2018/05/word-image-2338-300x51.png 300w, /wp-content/uploads/2018/05/word-image-2338-768x131.png 768w" sizes="(max-width: 826px) 100vw, 826px" /></p>
+<h3>KingEditor</h3>
+<p>第一步：解压KingEditor，并拷贝到Public目录下，改名kindeditor</p>
+<p>第二步：引入核心文件</p>
+<p><img loading="lazy" decoding="async" width="1166" height="329" class="wp-image-2677" src="/wp-content/uploads/2018/05/word-image-2339.png" srcset="/wp-content/uploads/2018/05/word-image-2339.png 1166w, /wp-content/uploads/2018/05/word-image-2339-300x85.png 300w, /wp-content/uploads/2018/05/word-image-2339-768x217.png 768w, /wp-content/uploads/2018/05/word-image-2339-1024x289.png 1024w" sizes="(max-width: 1166px) 100vw, 1166px" /></p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="784" height="78" class="wp-image-2678" src="/wp-content/uploads/2018/05/word-image-2340.png" srcset="/wp-content/uploads/2018/05/word-image-2340.png 784w, /wp-content/uploads/2018/05/word-image-2340-300x30.png 300w, /wp-content/uploads/2018/05/word-image-2340-768x76.png 768w" sizes="(max-width: 784px) 100vw, 784px" /></p>
+<h2>首页显示</h2>
+<ol>
+<li>将静态资源拷贝到对应的目录中</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="714" height="218" class="wp-image-2679" src="/wp-content/uploads/2018/05/word-image-2341.png" srcset="/wp-content/uploads/2018/05/word-image-2341.png 714w, /wp-content/uploads/2018/05/word-image-2341-300x92.png 300w" sizes="(max-width: 714px) 100vw, 714px" /></p>
+<h3>控制器</h3>
+<ol>
+<li>在Controller/Home文件夹下创建BaseController.class.php页面（前台基础控制器）</li>
+</ol>
+<p>&lt;?php</p>
+<p>/*</p>
+<p>* 前台基础控制器</p>
+<p>*/</p>
+<p>namespace Controller\Home;</p>
+<p>class BaseController extends \Core\Controller{</p>
+<p>&nbsp;</p>
+<p>}</p>
+<ol>
+<li>在Controller/Home文件夹下IndexController.class.php（首页控制器）</li>
+</ol>
+<p>&lt;?php</p>
+<p>namespace Controller\Home;</p>
+<p>class IndexController extends BaseController{</p>
+<p>public function indexAction(){</p>
+<p>$art_model=new \Model\ArticleModel();</p>
+<p>$art_list=$art_model-&gt;getArticleList();</p>
+<p>$label_list=$art_model-&gt;getLabel();</p>
+<p>$this-&gt;smarty-&gt;assign(&#8216;data&#8217;,array(</p>
+<p>&#8216;art_list&#8217; =&gt; $art_list,</p>
+<p>&#8216;label_list&#8217;=&gt;$label_list</p>
+<p>));</p>
+<p>$this-&gt;smarty-&gt;display(&#8216;index.html&#8217;);</p>
+<p>}</p>
+<p>}</p>
+<h3>模型</h3>
+<p>更改ArticleModel.class.php</p>
+<p>&lt;?php</p>
+<p>namespace Model;</p>
+<p>class ArticleModel extends \Core\Model{</p>
+<p>//获取article和category表、user表的数据</p>
+<p>public function getArticleList(){</p>
+<p>$sql= &#8216;select * from article a,category c,user u where a.cat_id=c.cat_id and u.user_id=a.user_id and is_recycle=0 and is_public=1 order by is_top desc,art_id desc&#8217;;</p>
+<p>return $this-&gt;mypdo-&gt;fetchAll($sql);</p>
+<p>}</p>
+<p>//创建索引词</p>
+<p>public function getLabel(){</p>
+<p>$sql=&#8221;select art_label from article where is_public=1 and is_recycle=0&#8243;;</p>
+<p>$rs= $this-&gt;mypdo-&gt;fetchAll($sql,&#8217;num&#8217;);</p>
+<p>foreach($rs as $rows){</p>
+<p>$result=preg_split(&#8216;/,|，/&#8217;,$rows[0],0,PREG_SPLIT_NO_EMPTY);</p>
+<p>foreach($result as $r){</p>
+<p>$r= strtoupper($r);</p>
+<p>if(isset($array[$r]))</p>
+<p>$array[$r]++;</p>
+<p>else</p>
+<p>$array[$r]=1;</p>
+<p>}</p>
+<p>}</p>
+<p>arsort($array); //保持原来的键，反向排序</p>
+<p>return $array;</p>
+<p>}</p>
+<p>。。。</p>
+<h3>视图（index.html）</h3>
+<p><img loading="lazy" decoding="async" width="1311" height="314" class="wp-image-2680" src="/wp-content/uploads/2018/05/word-image-2342.png" srcset="/wp-content/uploads/2018/05/word-image-2342.png 1311w, /wp-content/uploads/2018/05/word-image-2342-300x72.png 300w, /wp-content/uploads/2018/05/word-image-2342-768x184.png 768w, /wp-content/uploads/2018/05/word-image-2342-1024x245.png 1024w" sizes="(max-width: 1311px) 100vw, 1311px" /> <img loading="lazy" decoding="async" width="820" height="120" class="wp-image-2681" src="/wp-content/uploads/2018/05/word-image-2343.png" srcset="/wp-content/uploads/2018/05/word-image-2343.png 820w, /wp-content/uploads/2018/05/word-image-2343-300x44.png 300w, /wp-content/uploads/2018/05/word-image-2343-768x112.png 768w" sizes="(max-width: 820px) 100vw, 820px" /></p>
+<p>Config：</p>
+<p>//应用程序配置<br />
+&#8216;app&#8217; =&gt; array(<br />
+&#8216;upload_path&#8217; =&gt; &#8216;./Public/Uploads/&#8217;,<br />
+&#8216;upload_size&#8217; =&gt; 1024*1024,<br />
+&#8216;upload_type&#8217; =&gt; array(&#8216;image/jpeg&#8217;,&#8217;image/png&#8217;,&#8217;image/gif&#8217;),</p>
+<p>&#8216;default_platform&#8217; =&gt; &#8216;home&#8217;,<br />
+&#8216;default_controller&#8217; =&gt; &#8216;Index&#8217;,<br />
+&#8216;default_action&#8217; =&gt; &#8216;index&#8217;,<br />
+&#8216;secure_key&#8217; =&gt; &#8216;123&#8217;, //秘钥<br />
+&#8216;debug&#8217; =&gt; false //开发模式</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="1189" height="475" class="wp-image-2682" src="/wp-content/uploads/2018/05/word-image-2344.png" srcset="/wp-content/uploads/2018/05/word-image-2344.png 1189w, /wp-content/uploads/2018/05/word-image-2344-300x120.png 300w, /wp-content/uploads/2018/05/word-image-2344-768x307.png 768w, /wp-content/uploads/2018/05/word-image-2344-1024x409.png 1024w" sizes="(max-width: 1189px) 100vw, 1189px" /></p>
+<p>需要用到的知识点（正则表达式）</p>
+<p><img loading="lazy" decoding="async" width="771" height="64" class="wp-image-2683" src="/wp-content/uploads/2018/05/word-image-2345.png" srcset="/wp-content/uploads/2018/05/word-image-2345.png 771w, /wp-content/uploads/2018/05/word-image-2345-300x25.png 300w, /wp-content/uploads/2018/05/word-image-2345-768x64.png 768w" sizes="(max-width: 771px) 100vw, 771px" /></p>
+<h2>显示文章列表</h2>
+<p>入口</p>
+<p><img loading="lazy" decoding="async" width="265" height="248" class="wp-image-2684" src="/wp-content/uploads/2018/05/word-image-2346.png" /></p>
+<p>对应的代码</p>
+<p><img loading="lazy" decoding="async" width="1160" height="194" class="wp-image-2685" src="/wp-content/uploads/2018/05/word-image-2347.png" srcset="/wp-content/uploads/2018/05/word-image-2347.png 1160w, /wp-content/uploads/2018/05/word-image-2347-300x50.png 300w, /wp-content/uploads/2018/05/word-image-2347-768x128.png 768w, /wp-content/uploads/2018/05/word-image-2347-1024x171.png 1024w" sizes="(max-width: 1160px) 100vw, 1160px" /></p>
+<p>模型（ArticleModel）</p>
+<p><img loading="lazy" decoding="async" width="1048" height="183" class="wp-image-2686" src="/wp-content/uploads/2018/05/word-image-2348.png" srcset="/wp-content/uploads/2018/05/word-image-2348.png 1048w, /wp-content/uploads/2018/05/word-image-2348-300x52.png 300w, /wp-content/uploads/2018/05/word-image-2348-768x134.png 768w, /wp-content/uploads/2018/05/word-image-2348-1024x179.png 1024w" sizes="(max-width: 1048px) 100vw, 1048px" /></p>
+<p>控制器（ArticleController）</p>
+<p><img loading="lazy" decoding="async" width="1040" height="442" class="wp-image-2687" src="/wp-content/uploads/2018/05/word-image-2349.png" srcset="/wp-content/uploads/2018/05/word-image-2349.png 1040w, /wp-content/uploads/2018/05/word-image-2349-300x128.png 300w, /wp-content/uploads/2018/05/word-image-2349-768x326.png 768w, /wp-content/uploads/2018/05/word-image-2349-1024x435.png 1024w" sizes="(max-width: 1040px) 100vw, 1040px" /></p>
+<p>视图（art_list.html）</p>
+<p><img loading="lazy" decoding="async" width="1324" height="315" class="wp-image-2688" src="/wp-content/uploads/2018/05/word-image-2350.png" srcset="/wp-content/uploads/2018/05/word-image-2350.png 1324w, /wp-content/uploads/2018/05/word-image-2350-300x71.png 300w, /wp-content/uploads/2018/05/word-image-2350-768x183.png 768w, /wp-content/uploads/2018/05/word-image-2350-1024x244.png 1024w" sizes="(max-width: 1324px) 100vw, 1324px" /></p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="1262" height="585" class="wp-image-2689" src="/wp-content/uploads/2018/05/word-image-2351.png" srcset="/wp-content/uploads/2018/05/word-image-2351.png 1262w, /wp-content/uploads/2018/05/word-image-2351-300x139.png 300w, /wp-content/uploads/2018/05/word-image-2351-768x356.png 768w, /wp-content/uploads/2018/05/word-image-2351-1024x475.png 1024w" sizes="(max-width: 1262px) 100vw, 1262px" /></p>
+<p>知识点</p>
+<p><img loading="lazy" decoding="async" width="732" height="76" class="wp-image-2690" src="/wp-content/uploads/2018/05/word-image-2352.png" srcset="/wp-content/uploads/2018/05/word-image-2352.png 732w, /wp-content/uploads/2018/05/word-image-2352-300x31.png 300w" sizes="(max-width: 732px) 100vw, 732px" /></p>
+<h2>内容页</h2>
+<p>模型</p>
+<p>无</p>
+<p>控制器（ArticleController）</p>
+<p><img loading="lazy" decoding="async" width="979" height="329" class="wp-image-2691" src="/wp-content/uploads/2018/05/word-image-2353.png" srcset="/wp-content/uploads/2018/05/word-image-2353.png 979w, /wp-content/uploads/2018/05/word-image-2353-300x101.png 300w, /wp-content/uploads/2018/05/word-image-2353-768x258.png 768w" sizes="(max-width: 979px) 100vw, 979px" /></p>
+<p>视图</p>
+<p><img loading="lazy" decoding="async" width="1165" height="276" class="wp-image-2692" src="/wp-content/uploads/2018/05/word-image-2354.png" srcset="/wp-content/uploads/2018/05/word-image-2354.png 1165w, /wp-content/uploads/2018/05/word-image-2354-300x71.png 300w, /wp-content/uploads/2018/05/word-image-2354-768x182.png 768w, /wp-content/uploads/2018/05/word-image-2354-1024x243.png 1024w" sizes="(max-width: 1165px) 100vw, 1165px" /></p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="1180" height="357" class="wp-image-2693" src="/wp-content/uploads/2018/05/word-image-2355.png" srcset="/wp-content/uploads/2018/05/word-image-2355.png 1180w, /wp-content/uploads/2018/05/word-image-2355-300x91.png 300w, /wp-content/uploads/2018/05/word-image-2355-768x232.png 768w, /wp-content/uploads/2018/05/word-image-2355-1024x310.png 1024w" sizes="(max-width: 1180px) 100vw, 1180px" /></p>
+<h2>阅读数</h2>
+<p>点击文章标题，显示文章的时候阅读数就加1.</p>
+<p>更改ArticleController控制器中的ArticleAction()方法</p>
+<p><img loading="lazy" decoding="async" width="1069" height="441" class="wp-image-2694" src="/wp-content/uploads/2018/05/word-image-2356.png" srcset="/wp-content/uploads/2018/05/word-image-2356.png 1069w, /wp-content/uploads/2018/05/word-image-2356-300x124.png 300w, /wp-content/uploads/2018/05/word-image-2356-768x317.png 768w, /wp-content/uploads/2018/05/word-image-2356-1024x422.png 1024w" sizes="(max-width: 1069px) 100vw, 1069px" /></p>
+<h2>实现点赞</h2>
+<p>模型</p>
+<p><img loading="lazy" decoding="async" width="851" height="291" class="wp-image-2695" src="/wp-content/uploads/2018/05/word-image-2357.png" srcset="/wp-content/uploads/2018/05/word-image-2357.png 851w, /wp-content/uploads/2018/05/word-image-2357-300x103.png 300w, /wp-content/uploads/2018/05/word-image-2357-768x263.png 768w" sizes="(max-width: 851px) 100vw, 851px" /></p>
+<p>视图（article.html）</p>
+<p><img loading="lazy" decoding="async" width="1126" height="163" class="wp-image-2696" src="/wp-content/uploads/2018/05/word-image-2358.png" srcset="/wp-content/uploads/2018/05/word-image-2358.png 1126w, /wp-content/uploads/2018/05/word-image-2358-300x43.png 300w, /wp-content/uploads/2018/05/word-image-2358-768x111.png 768w, /wp-content/uploads/2018/05/word-image-2358-1024x148.png 1024w" sizes="(max-width: 1126px) 100vw, 1126px" /></p>
+<p>控制器（ArticleController）</p>
+<p><img loading="lazy" decoding="async" width="944" height="381" class="wp-image-2697" src="/wp-content/uploads/2018/05/word-image-2359.png" srcset="/wp-content/uploads/2018/05/word-image-2359.png 944w, /wp-content/uploads/2018/05/word-image-2359-300x121.png 300w, /wp-content/uploads/2018/05/word-image-2359-768x310.png 768w" sizes="(max-width: 944px) 100vw, 944px" /></p>
+<p>同理，可以实现踩一下（自己去完成）</p>
+<h2>上一篇和下一篇</h2>
+<p>模型（ArticleModel）</p>
+<p>public function getArticlePrevOrNext($art_id,$prev){</p>
+<p>if($prev){</p>
+<p>$sql=&#8221;select * from article where art_id&lt;$art_id and is_public=1 and is_recycle=0 order by art_id desc limit 1&#8243;;</p>
+<p>}else{</p>
+<p>$sql=&#8221;select * from article where art_id&gt;$art_id and is_public=1 and is_recycle=0 order by art_id asc limit 1&#8243;;</p>
+<p>}</p>
+<p>return $this-&gt;mypdo-&gt;fetchRow($sql);</p>
+<p>}</p>
+<p>视图（article.html）</p>
+<p><img loading="lazy" decoding="async" width="1179" height="180" class="wp-image-2698" src="/wp-content/uploads/2018/05/word-image-2360.png" srcset="/wp-content/uploads/2018/05/word-image-2360.png 1179w, /wp-content/uploads/2018/05/word-image-2360-300x46.png 300w, /wp-content/uploads/2018/05/word-image-2360-768x117.png 768w, /wp-content/uploads/2018/05/word-image-2360-1024x156.png 1024w" sizes="(max-width: 1179px) 100vw, 1179px" /> <img loading="lazy" decoding="async" width="215" height="39" class="wp-image-2699" src="/wp-content/uploads/2018/05/word-image-2361.png" /></p>
+<p>控制器（ArticleController）</p>
+<p><img loading="lazy" decoding="async" width="912" height="427" class="wp-image-2700" src="/wp-content/uploads/2018/05/word-image-2362.png" srcset="/wp-content/uploads/2018/05/word-image-2362.png 912w, /wp-content/uploads/2018/05/word-image-2362-300x140.png 300w, /wp-content/uploads/2018/05/word-image-2362-768x360.png 768w" sizes="(max-width: 912px) 100vw, 912px" /></p>
+<h2>发表评论</h2>
+<h3>创建回复表</h3>
+<p>CREATE table reply(</p>
+<p>reply_id int unsigned auto_increment primary key comment &#8216;回复id&#8217;,</p>
+<p>reply_content text not null comment &#8216;回复内容&#8217;,</p>
+<p>reply_time int unsigned not null comment &#8216;回复时间&#8217;,</p>
+<p>art_id int unsigned not null comment &#8216;文章id&#8217;,</p>
+<p>user_id int unsigned not null comment &#8216;用户id&#8217;,</p>
+<p>parent_id int unsigned not null comment &#8216;父级id&#8217;</p>
+<p>)engine=innodb charset=utf8 comment &#8216;评论表&#8217;</p>
+<p>结构</p>
+<p><img loading="lazy" decoding="async" width="582" height="128" class="wp-image-2701" src="/wp-content/uploads/2018/05/word-image-2363.png" srcset="/wp-content/uploads/2018/05/word-image-2363.png 582w, /wp-content/uploads/2018/05/word-image-2363-300x66.png 300w" sizes="(max-width: 582px) 100vw, 582px" /></p>
+<h3>发表主评论</h3>
+<p>模型</p>
+<p>没有</p>
+<p>视图（article.html）</p>
+<p><img loading="lazy" decoding="async" width="1176" height="282" class="wp-image-2702" src="/wp-content/uploads/2018/05/word-image-2364.png" srcset="/wp-content/uploads/2018/05/word-image-2364.png 1176w, /wp-content/uploads/2018/05/word-image-2364-300x72.png 300w, /wp-content/uploads/2018/05/word-image-2364-768x184.png 768w, /wp-content/uploads/2018/05/word-image-2364-1024x246.png 1024w" sizes="(max-width: 1176px) 100vw, 1176px" /></p>
+<p>控制器（ReplyController）</p>
+<p><img loading="lazy" decoding="async" width="1290" height="541" class="wp-image-2703" src="/wp-content/uploads/2018/05/word-image-2365.png" srcset="/wp-content/uploads/2018/05/word-image-2365.png 1290w, /wp-content/uploads/2018/05/word-image-2365-300x126.png 300w, /wp-content/uploads/2018/05/word-image-2365-768x322.png 768w, /wp-content/uploads/2018/05/word-image-2365-1024x429.png 1024w" sizes="(max-width: 1290px) 100vw, 1290px" /></p>
+<h2>在文章页取出回复</h2>
+<p>模型（ReplyModel）</p>
+<p>&lt;?php</p>
+<p>namespace Model;</p>
+<p>class ReplyModel extends \Core\Model{</p>
+<p>public function getReplyTree($art_id){</p>
+<p>$sql=&#8221;select * from reply,user where reply.user_id=user.user_id and art_id=$art_id&#8221;;</p>
+<p>$list= $this-&gt;mypdo-&gt;fetchAll($sql);</p>
+<p>$list= $this-&gt;createTree($list);</p>
+<p>return $list;</p>
+<p>}</p>
+<p>private function createTree($list,$parent_id=0,$deep=0){</p>
+<p>static $tree=array();</p>
+<p>foreach($list as $rows){</p>
+<p>if($rows[&#8216;parent_id&#8217;]==$parent_id){</p>
+<p>$rows[&#8216;deep&#8217;]=$deep;</p>
+<p>$tree[]=$rows;</p>
+<p>$this-&gt;createTree($list,$rows[&#8216;reply_id&#8217;],$deep+1);</p>
+<p>}</p>
+<p>}</p>
+<p>return $tree;</p>
+<p>}</p>
+<p>}</p>
+<p>控制器（ArticleController）</p>
+<p><img loading="lazy" decoding="async" width="1055" height="557" class="wp-image-2704" src="/wp-content/uploads/2018/05/word-image-2366.png" srcset="/wp-content/uploads/2018/05/word-image-2366.png 1055w, /wp-content/uploads/2018/05/word-image-2366-300x158.png 300w, /wp-content/uploads/2018/05/word-image-2366-768x405.png 768w, /wp-content/uploads/2018/05/word-image-2366-1024x541.png 1024w" sizes="(max-width: 1055px) 100vw, 1055px" /></p>
+<p>视图（article..html）</p>
+<p><img loading="lazy" decoding="async" width="1182" height="290" class="wp-image-2705" src="/wp-content/uploads/2018/05/word-image-2367.png" srcset="/wp-content/uploads/2018/05/word-image-2367.png 1182w, /wp-content/uploads/2018/05/word-image-2367-300x74.png 300w, /wp-content/uploads/2018/05/word-image-2367-768x188.png 768w, /wp-content/uploads/2018/05/word-image-2367-1024x251.png 1024w" sizes="(max-width: 1182px) 100vw, 1182px" /></p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="608" height="145" class="wp-image-2706" src="/wp-content/uploads/2018/05/word-image-2368.png" srcset="/wp-content/uploads/2018/05/word-image-2368.png 608w, /wp-content/uploads/2018/05/word-image-2368-300x72.png 300w" sizes="(max-width: 608px) 100vw, 608px" /></p>
+<h2>添加子回复</h2>
+<p>入口（article.html）</p>
+<p><img loading="lazy" decoding="async" width="1132" height="258" class="wp-image-2707" src="/wp-content/uploads/2018/05/word-image-2369.png" srcset="/wp-content/uploads/2018/05/word-image-2369.png 1132w, /wp-content/uploads/2018/05/word-image-2369-300x68.png 300w, /wp-content/uploads/2018/05/word-image-2369-768x175.png 768w, /wp-content/uploads/2018/05/word-image-2369-1024x233.png 1024w" sizes="(max-width: 1132px) 100vw, 1132px" /></p>
+<p>视图（addReply.html）</p>
+<p><img loading="lazy" decoding="async" width="1340" height="435" class="wp-image-2708" src="/wp-content/uploads/2018/05/word-image-2370.png" srcset="/wp-content/uploads/2018/05/word-image-2370.png 1340w, /wp-content/uploads/2018/05/word-image-2370-300x97.png 300w, /wp-content/uploads/2018/05/word-image-2370-768x249.png 768w, /wp-content/uploads/2018/05/word-image-2370-1024x332.png 1024w" sizes="(max-width: 1340px) 100vw, 1340px" /></p>
+<p>模型</p>
+<p>无</p>
+<p>控制器</p>
+<p><img loading="lazy" decoding="async" width="1111" height="464" class="wp-image-2709" src="/wp-content/uploads/2018/05/word-image-2371.png" srcset="/wp-content/uploads/2018/05/word-image-2371.png 1111w, /wp-content/uploads/2018/05/word-image-2371-300x125.png 300w, /wp-content/uploads/2018/05/word-image-2371-768x321.png 768w, /wp-content/uploads/2018/05/word-image-2371-1024x428.png 1024w" sizes="(max-width: 1111px) 100vw, 1111px" /></p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="735" height="265" class="wp-image-2710" src="/wp-content/uploads/2018/05/word-image-2372.png" srcset="/wp-content/uploads/2018/05/word-image-2372.png 735w, /wp-content/uploads/2018/05/word-image-2372-300x108.png 300w" sizes="(max-width: 735px) 100vw, 735px" /></p>
+<h2>项目总结</h2>
+<p>结构参见“项目结构.png”文件</p>
+<h2>E-R图</h2>
+<p>E（Entity）实体</p>
+<p>R（Relationship）：关系</p>
+<h3>设计数据库的步骤</h3>
+<p>第一步：标识实体</p>
+<p><img loading="lazy" decoding="async" width="770" height="285" class="wp-image-2711" src="/wp-content/uploads/2018/05/word-image-2373.png" srcset="/wp-content/uploads/2018/05/word-image-2373.png 770w, /wp-content/uploads/2018/05/word-image-2373-300x111.png 300w, /wp-content/uploads/2018/05/word-image-2373-768x284.png 768w" sizes="(max-width: 770px) 100vw, 770px" /></p>
+<p>第二步：标识实体的属性</p>
+<p><img loading="lazy" decoding="async" width="867" height="464" class="wp-image-2712" src="/wp-content/uploads/2018/05/word-image-2374.png" srcset="/wp-content/uploads/2018/05/word-image-2374.png 867w, /wp-content/uploads/2018/05/word-image-2374-300x161.png 300w, /wp-content/uploads/2018/05/word-image-2374-768x411.png 768w" sizes="(max-width: 867px) 100vw, 867px" /></p>
+<p>可以将实体和实体的属性用E-R标识</p>
+<p><img loading="lazy" decoding="async" width="692" height="412" class="wp-image-2713" src="/wp-content/uploads/2018/05/word-image-2375.png" srcset="/wp-content/uploads/2018/05/word-image-2375.png 692w, /wp-content/uploads/2018/05/word-image-2375-300x179.png 300w" sizes="(max-width: 692px) 100vw, 692px" /></p>
+<p>绘制E-R图</p>
+<p><img loading="lazy" decoding="async" width="541" height="253" class="wp-image-2714" src="/wp-content/uploads/2018/05/word-image-2376.png" srcset="/wp-content/uploads/2018/05/word-image-2376.png 541w, /wp-content/uploads/2018/05/word-image-2376-300x140.png 300w" sizes="(max-width: 541px) 100vw, 541px" /></p>
+<p>完整的E-R图</p>
+<p><img loading="lazy" decoding="async" width="900" height="536" class="wp-image-2715" src="/wp-content/uploads/2018/05/word-image-2377.png" srcset="/wp-content/uploads/2018/05/word-image-2377.png 900w, /wp-content/uploads/2018/05/word-image-2377-300x179.png 300w, /wp-content/uploads/2018/05/word-image-2377-768x457.png 768w" sizes="(max-width: 900px) 100vw, 900px" /></p>
+<p>第三步：将实体转成表名，将属性转成字段名</p>
+<ol>
+<li>能够实现博客前台首页显示功能</li>
+<li>能够实现博客前台文章列表功能</li>
+<li>能够实现博客前台显示文章详情功能</li>
+<li>能够实现博客文章的踩赞功能</li>
+<li>能够实现博客文章的上一篇下一篇功能</li>
+<li>能够实现博客文章的标签功能</li>
+<li>能够完成文章列表的翻页功能</li>
+<li>能够实现博客文章的评论功能</li>
+<li>能够理解博客项目的主要功能</li>
+<li>能够根据功能要求画出有关数据表的ER图</li>
+<li>能够针对项目要求设计适当的数据表</li>
+</ol>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/2667.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>面向对象（二）分页、 多态、 封装、 接口、 方法修饰符、 方法重写、 方法重载、 类常量、 继承</title>
+		<link>/php/1759.html</link>
+					<comments>/php/1759.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 13:01:26 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[面向对象]]></category>
+		<category><![CDATA[面向对象编程]]></category>
+		<category><![CDATA[分页]]></category>
+		<category><![CDATA[多态]]></category>
+		<category><![CDATA[封装]]></category>
+		<category><![CDATA[接口]]></category>
+		<category><![CDATA[方法修饰符]]></category>
+		<category><![CDATA[方法重写]]></category>
+		<category><![CDATA[方法重载]]></category>
+		<category><![CDATA[类常量]]></category>
+		<category><![CDATA[继承]]></category>
+		<guid isPermaLink="false">/?p=1759</guid>
+
+					<description><![CDATA[面向对象（二） 多态 多种形态，多态分为两种，方法重写和方法重载，PHP不支持方法重载 方法重写 子类重写了父 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>面向对象（二）</h1>
+<h2>多态</h2>
+<p>
+  多种形态，多态分为两种，方法重写和方法重载，PHP不支持方法重载
+</p>
+<h3>方法重写</h3>
+<p>
+  子类重写了父类的同名方法
+</p>
+<p><img loading="lazy" decoding="async" width="849" height="364" src="/wp-content/uploads/2018/05/word-image-1540.png" class="wp-image-1761" srcset="/wp-content/uploads/2018/05/word-image-1540.png 849w, /wp-content/uploads/2018/05/word-image-1540-300x129.png 300w, /wp-content/uploads/2018/05/word-image-1540-768x329.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<p>
+  规则：
+</p>
+<ol>
+<li>
+  子类中的方法必须和父类中的方法同名
+</li>
+<li>
+  子类可以拥有和父类不同数量的参数
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1099" height="362" src="/wp-content/uploads/2018/05/word-image-1541.png" class="wp-image-1762" srcset="/wp-content/uploads/2018/05/word-image-1541.png 1099w, /wp-content/uploads/2018/05/word-image-1541-300x99.png 300w, /wp-content/uploads/2018/05/word-image-1541-768x253.png 768w, /wp-content/uploads/2018/05/word-image-1541-1024x337.png 1024w" sizes="(max-width: 1099px) 100vw, 1099px" /></p>
+<ol>
+<li>
+  子类中覆盖的方法不能比父类中被覆盖的方法更加严格
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1010" height="261" src="/wp-content/uploads/2018/05/word-image-1542.png" class="wp-image-1763" srcset="/wp-content/uploads/2018/05/word-image-1542.png 1010w, /wp-content/uploads/2018/05/word-image-1542-300x78.png 300w, /wp-content/uploads/2018/05/word-image-1542-768x198.png 768w" sizes="(max-width: 1010px) 100vw, 1010px" /></p>
+<h3>方法重载</h3>
+<p>
+  通过参数的个数来区分不同的方法，PHP不支持。
+</p>
+<p><img loading="lazy" decoding="async" width="938" height="169" src="/wp-content/uploads/2018/05/word-image-1543.png" class="wp-image-1764" srcset="/wp-content/uploads/2018/05/word-image-1543.png 938w, /wp-content/uploads/2018/05/word-image-1543-300x54.png 300w, /wp-content/uploads/2018/05/word-image-1543-768x138.png 768w" sizes="(max-width: 938px) 100vw, 938px" /></p>
+<h2>面向对象的三大特性</h2>
+<ol>
+<li>
+  封装，通过访问修饰符来实现封装</p>
+<ol>
+<li>
+    Public
+  </li>
+<li>
+    Private
+  </li>
+<li>
+    protected
+  </li>
+</ol>
+</li>
+<li>
+  继承：子类继承了父类的属性和方法
+</li>
+<li>
+  多态：多种形态</p>
+<ol>
+<li>
+    方法重写
+  </li>
+<li>
+    方法重载（PHP不支持）
+  </li>
+</ol>
+</li>
+</ol>
+<h2>私有属性的继承和重写</h2>
+<p>
+  私有属性可以被继承，但是不能被重写
+</p>
+<p><img loading="lazy" decoding="async" width="688" height="273" src="/wp-content/uploads/2018/05/word-image-1544.png" class="wp-image-1765" srcset="/wp-content/uploads/2018/05/word-image-1544.png 688w, /wp-content/uploads/2018/05/word-image-1544-300x119.png 300w" sizes="(max-width: 688px) 100vw, 688px" /></p>
+<p>
+  思考如下例题
+</p>
+<p><img loading="lazy" decoding="async" width="745" height="280" src="/wp-content/uploads/2018/05/word-image-1545.png" class="wp-image-1766" srcset="/wp-content/uploads/2018/05/word-image-1545.png 745w, /wp-content/uploads/2018/05/word-image-1545-300x113.png 300w" sizes="(max-width: 745px) 100vw, 745px" /></p>
+<h2>方法修饰符</h2>
+<ol>
+<li>
+  static：静态的
+</li>
+<li>
+  final：最终的
+</li>
+<li>
+  abstract：抽象的
+</li>
+</ol>
+<h2>static修饰符</h2>
+<ol>
+<li>
+  static修饰属性叫静态属性，static修饰方法叫静态方法
+</li>
+<li>
+  静态属性在加载类的时候分配空间（普通属性在实例化的时候分配空间）,所以不需要实例化就可以访问
+</li>
+<li>
+  因为静态成员属于类，不属于某个对象，所以通过类名来调用静态成员</p>
+<ol>
+<li>
+    类名::静态属性
+  </li>
+<li>
+    类名::静态方法()
+  </li>
+</ol>
+</li>
+<li>
+  静态成员在内存中就一份。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="944" height="191" src="/wp-content/uploads/2018/05/word-image-1546.png" class="wp-image-1767" srcset="/wp-content/uploads/2018/05/word-image-1546.png 944w, /wp-content/uploads/2018/05/word-image-1546-300x61.png 300w, /wp-content/uploads/2018/05/word-image-1546-768x155.png 768w" sizes="(max-width: 944px) 100vw, 944px" /></p>
+<p>
+  多学一招： 由于普通方法在加载类的时候也加载了，所以也可以通过静态调用的方式来调用普通方法。
+</p>
+<p><img loading="lazy" decoding="async" width="1009" height="158" src="/wp-content/uploads/2018/05/word-image-1547.png" class="wp-image-1768" srcset="/wp-content/uploads/2018/05/word-image-1547.png 1009w, /wp-content/uploads/2018/05/word-image-1547-300x47.png 300w, /wp-content/uploads/2018/05/word-image-1547-768x120.png 768w" sizes="(max-width: 1009px) 100vw, 1009px" /></p>
+<h3>静态成员可以被继承</h3>
+<p><img loading="lazy" decoding="async" width="743" height="301" src="/wp-content/uploads/2018/05/word-image-1548.png" class="wp-image-1769" srcset="/wp-content/uploads/2018/05/word-image-1548.png 743w, /wp-content/uploads/2018/05/word-image-1548-300x122.png 300w" sizes="(max-width: 743px) 100vw, 743px" /></p>
+<h3>静态延时绑定</h3>
+<p>
+  static也可以表示类名，表示调用当前访问的对象所属的类。
+</p>
+<p><img loading="lazy" decoding="async" width="771" height="469" src="/wp-content/uploads/2018/05/word-image-1549.png" class="wp-image-1770" srcset="/wp-content/uploads/2018/05/word-image-1549.png 771w, /wp-content/uploads/2018/05/word-image-1549-300x182.png 300w, /wp-content/uploads/2018/05/word-image-1549-768x467.png 768w" sizes="(max-width: 771px) 100vw, 771px" /></p>
+<h2>self：当前类的名字</h2>
+<p><img loading="lazy" decoding="async" width="727" height="396" src="/wp-content/uploads/2018/05/word-image-1550.png" class="wp-image-1771" srcset="/wp-content/uploads/2018/05/word-image-1550.png 727w, /wp-content/uploads/2018/05/word-image-1550-300x163.png 300w" sizes="(max-width: 727px) 100vw, 727px" /></p>
+<h3>self总是表示当前类的名字</h3>
+<p><img loading="lazy" decoding="async" width="626" height="204" src="/wp-content/uploads/2018/05/word-image-1551.png" class="wp-image-1772" srcset="/wp-content/uploads/2018/05/word-image-1551.png 626w, /wp-content/uploads/2018/05/word-image-1551-300x98.png 300w" sizes="(max-width: 626px) 100vw, 626px" /></p>
+<h2>final修饰符</h2>
+<p>
+  final修饰的类不能被继承
+</p>
+<p><img loading="lazy" decoding="async" width="899" height="91" src="/wp-content/uploads/2018/05/word-image-1552.png" class="wp-image-1773" srcset="/wp-content/uploads/2018/05/word-image-1552.png 899w, /wp-content/uploads/2018/05/word-image-1552-300x30.png 300w, /wp-content/uploads/2018/05/word-image-1552-768x78.png 768w" sizes="(max-width: 899px) 100vw, 899px" /></p>
+<p>
+  final修饰的方法不能被重写
+</p>
+<p><img loading="lazy" decoding="async" width="824" height="172" src="/wp-content/uploads/2018/05/word-image-1553.png" class="wp-image-1774" srcset="/wp-content/uploads/2018/05/word-image-1553.png 824w, /wp-content/uploads/2018/05/word-image-1553-300x63.png 300w, /wp-content/uploads/2018/05/word-image-1553-768x160.png 768w" sizes="(max-width: 824px) 100vw, 824px" /></p>
+<h2>abstract修饰符</h2>
+<ol>
+<li>
+  abstract修饰的方法叫抽象方法，abstract修饰的类叫抽象类
+</li>
+<li>
+  只有方法的声明，没有方法的实现称为抽象方法。
+</li>
+<li>
+  一个类中只要只要有一个方法是抽象方法，这个类必须是抽象类
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="799" height="90" src="/wp-content/uploads/2018/05/word-image-1554.png" class="wp-image-1775" srcset="/wp-content/uploads/2018/05/word-image-1554.png 799w, /wp-content/uploads/2018/05/word-image-1554-300x34.png 300w, /wp-content/uploads/2018/05/word-image-1554-768x87.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+<ol>
+<li>
+  抽象类不可以被实例化，必须在子类中重新实现抽象方法
+</li>
+<li>
+  抽象方法的作用：用来定义命名规范的。
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  //类中只要有一个方法是抽象的，这个类就是抽象类
+</p>
+<p>
+  abstract class Goods {
+</p>
+<p>
+  	protected $name;	//商品名
+</p>
+<p>
+  	public function setName($name) {
+</p>
+<p>
+  		$this-&gt;name=$name;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	public abstract function show();	//只有方法的声明，没有方法的实现
+</p>
+<p>
+  }
+</p>
+<p>
+  //手机类继承商品类
+</p>
+<p>
+  class Mobile extends Goods {
+</p>
+<p>
+  	public function show() {	//实现父类的抽象方法
+</p>
+<p>
+  		echo $this-&gt;name,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //图书类继承商品类
+</p>
+<p>
+  class Book extends Goods {
+</p>
+<p>
+  	public function show() {	//实现父类的抽象方法
+</p>
+<p>
+  		echo &#8220;《{$this-&gt;name}》&lt;br&gt;&#8221;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //测试
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $mobile=new Mobile();
+</p>
+<p>
+  $mobile-&gt;setName(&#8216;iPhone7&#8217;);
+</p>
+<p>
+  $mobile-&gt;show();
+</p>
+<p>
+  $book=new Book();
+</p>
+<p>
+  $book-&gt;setName(&#8216;PHP入门与精通&#8217;);
+</p>
+<p>
+  $book-&gt;show();
+</p>
+<p><img loading="lazy" decoding="async" width="175" height="52" src="/wp-content/uploads/2018/05/word-image-1555.png" class="wp-image-1776" /></p>
+<p>
+  多学一招：类中一个抽象方法都没有也可以声明成抽象类。可以通过这种方法阻止类的实例化。
+</p>
+<p><img loading="lazy" decoding="async" width="591" height="148" src="/wp-content/uploads/2018/05/word-image-1556.png" class="wp-image-1777" srcset="/wp-content/uploads/2018/05/word-image-1556.png 591w, /wp-content/uploads/2018/05/word-image-1556-300x75.png 300w" sizes="(max-width: 591px) 100vw, 591px" /></p>
+<h2>接口（interface）</h2>
+<ol>
+<li>
+  如果一个类中所有的方法都是抽象方法，这个类就可以声明成接口。
+</li>
+<li>
+  使用interface关键字声明接口
+</li>
+<li>
+  接口中的抽象方法只能是public的，默认也是public。
+</li>
+<li>
+  接口不能继承，而是实现接口（implements）
+</li>
+<li>
+  abstract和final不能修饰接口中的抽象方法
+</li>
+<li>
+  接口的作用也是用来定义命名规范
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="789" height="407" src="/wp-content/uploads/2018/05/word-image-1557.png" class="wp-image-1778" srcset="/wp-content/uploads/2018/05/word-image-1557.png 789w, /wp-content/uploads/2018/05/word-image-1557-300x155.png 300w, /wp-content/uploads/2018/05/word-image-1557-768x396.png 768w" sizes="(max-width: 789px) 100vw, 789px" /></p>
+<h3>类不允许多重继承</h3>
+<p>
+  一个父类可以有多个子类
+</p>
+<p><img loading="lazy" decoding="async" width="803" height="227" src="/wp-content/uploads/2018/05/word-image-1558.png" class="wp-image-1779" srcset="/wp-content/uploads/2018/05/word-image-1558.png 803w, /wp-content/uploads/2018/05/word-image-1558-300x85.png 300w, /wp-content/uploads/2018/05/word-image-1558-768x217.png 768w" sizes="(max-width: 803px) 100vw, 803px" /></p>
+<p>
+  一个子类不能有多个父类（只有c++可以多重继承，其他语言都不允许多重继承。）
+</p>
+<p><img loading="lazy" decoding="async" width="732" height="169" src="/wp-content/uploads/2018/05/word-image-1559.png" class="wp-image-1780" srcset="/wp-content/uploads/2018/05/word-image-1559.png 732w, /wp-content/uploads/2018/05/word-image-1559-300x69.png 300w" sizes="(max-width: 732px) 100vw, 732px" /></p>
+<p>
+  多学一招：为什么很多语言不支持多重继承，因为多重继承容易产生二义性。
+</p>
+<h3>接口的多重实现</h3>
+<p><img loading="lazy" decoding="async" width="966" height="429" src="/wp-content/uploads/2018/05/word-image-1560.png" class="wp-image-1781" srcset="/wp-content/uploads/2018/05/word-image-1560.png 966w, /wp-content/uploads/2018/05/word-image-1560-300x133.png 300w, /wp-content/uploads/2018/05/word-image-1560-768x341.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<h3>继承类同时实现接口</h3>
+<p>
+  必须是先继承类再实现接口
+</p>
+<p><img loading="lazy" decoding="async" width="952" height="427" src="/wp-content/uploads/2018/05/word-image-1561.png" class="wp-image-1782" srcset="/wp-content/uploads/2018/05/word-image-1561.png 952w, /wp-content/uploads/2018/05/word-image-1561-300x135.png 300w, /wp-content/uploads/2018/05/word-image-1561-768x344.png 768w" sizes="(max-width: 952px) 100vw, 952px" /></p>
+<h2>类常量</h2>
+<p>
+  常量也是加载代码的时候加载，所以也是通过类名来方法
+</p>
+<p>
+  类常量用const声明
+</p>
+<p><img loading="lazy" decoding="async" width="716" height="167" src="/wp-content/uploads/2018/05/word-image-1562.png" class="wp-image-1783" srcset="/wp-content/uploads/2018/05/word-image-1562.png 716w, /wp-content/uploads/2018/05/word-image-1562-300x70.png 300w" sizes="(max-width: 716px) 100vw, 716px" /></p>
+<p>
+  const常量也可以放在接口中（接口中只能放抽象方法和常量）
+</p>
+<p><img loading="lazy" decoding="async" width="338" height="100" src="/wp-content/uploads/2018/05/word-image-1563.png" class="wp-image-1784" srcset="/wp-content/uploads/2018/05/word-image-1563.png 338w, /wp-content/uploads/2018/05/word-image-1563-300x89.png 300w" sizes="(max-width: 338px) 100vw, 338px" /></p>
+<h2>参数约束</h2>
+<ol>
+<li>
+  参数约束在PHP5.3以后才支持
+</li>
+<li>
+  只能约束对象，不能约束基本类型
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="596" height="172" src="/wp-content/uploads/2018/05/word-image-1564.png" class="wp-image-1785" srcset="/wp-content/uploads/2018/05/word-image-1564.png 596w, /wp-content/uploads/2018/05/word-image-1564-300x87.png 300w" sizes="(max-width: 596px) 100vw, 596px" /></p>
+<h2>父类可以指向子类的引用</h2>
+<p>
+  父类可以保存子类对象的地址
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Person {
+</p>
+<p>
+  }
+</p>
+<p>
+  class Student extends Person {
+</p>
+<p>
+  }
+</p>
+<p>
+  class Employee extends Person {
+</p>
+<p>
+  }
+</p>
+<p>
+  function show(Person $obj) {
+</p>
+<p>
+  }
+</p>
+<p>
+  //测试
+</p>
+<p>
+  show(new Student);
+</p>
+<p>
+  show(new Employee);
+</p>
+<h2>分页功能</h2>
+<p>
+  知识点：select * from 表名 limit 起始位置，记录数
+</p>
+<p>
+  起始位置从0开始。
+</p>
+<h3>分析：起始位置和页码的关系</h3>
+<p>
+  一页放10条记录（$pagesize=10）
+</p>
+<table>
+<tr>
+<td>
+<p>
+  页码（$pageno）
+</p>
+</td>
+<td>
+<p>
+  SQL语句
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  select * from contents limit 0,10
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  2
+</p>
+</td>
+<td>
+<p>
+  select * from contents limit 10,10
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  3
+</p>
+</td>
+<td>
+<p>
+  select * from contents limit 20,10
+</p>
+</td>
+</tr>
+</table>
+<p>
+  推导公式：$startno(起始位置)=($pageno-1)*$pagesize;
+</p>
+<h3>分析：总共有多少页</h3>
+<table>
+<tr>
+<td>
+<p>
+  记录数($rowcount)
+</p>
+</td>
+<td>
+<p>
+  页面总数($pagecount)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  30
+</p>
+</td>
+<td>
+<p>
+  3
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  31
+</p>
+</td>
+<td>
+<p>
+  4
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  1
+</p>
+</td>
+</tr>
+</table>
+<p>
+  推导公式：$pagecount=ceil($rowcount/$pagesize)
+</p>
+<h3>实现第一步：输出页码</h3>
+<p>
+  点击页码——获取页码——通过页码获取页码的内容
+</p>
+<p><img loading="lazy" decoding="async" width="706" height="31" src="/wp-content/uploads/2018/05/word-image-1565.png" class="wp-image-1786" srcset="/wp-content/uploads/2018/05/word-image-1565.png 706w, /wp-content/uploads/2018/05/word-image-1565-300x13.png 300w" sizes="(max-width: 706px) 100vw, 706px" /></p>
+<p>
+  代码实现
+</p>
+<p>
+  //第一步：获取总记录数
+</p>
+<p>
+  $sql=&#8221;select count(*) from contents where title=$titleid&#8221;;
+</p>
+<p>
+  $rs=mysql_query($sql);
+</p>
+<p>
+  $rows=mysql_fetch_row($rs);
+</p>
+<p>
+  $rowcount=$rows[0];	//获取到总记录数
+</p>
+<p>
+  //第二步：求得总页数
+</p>
+<p>
+  $pagesize=10;		//页码大小
+</p>
+<p>
+  $pagecount=ceil($rowcount/$pagesize);	//求得总页数
+</p>
+<p>
+  在页码底部循环输出页码
+</p>
+<p>
+  &lt;tr&gt;
+</p>
+<p>
+  	&lt;td colspan=&#8217;3&#8242;&gt;
+</p>
+<p>
+  	&lt;?php for($i=1;$i&lt;=$pagecount;$i++):?&gt;
+</p>
+<p>
+  		&lt;?php if($pageno==$i):?&gt;
+</p>
+<p>
+  			&lt;span class=&#8221;pageno&#8221;&gt;&lt;?php echo $i?&gt;&lt;/span&gt; &amp;nbsp;
+</p>
+<p>
+  		&lt;?php else:?&gt;
+</p>
+<p>
+  			&lt;a href=&#8221;?pageno=&lt;?php echo $i?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;&lt;?php echo $i?&gt;&lt;/a&gt;&amp;nbsp;
+</p>
+<p>
+  		&lt;?php endif;?&gt;
+</p>
+</p>
+<p>
+  	&lt;?php endfor;?&gt;
+</p>
+<p>
+  	&lt;a href=&#8221;?pageno=1&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【首页】&lt;/a&gt;
+</p>
+<p>
+  	&lt;a href=&#8221;?pageno=&lt;?php echo $pageno-1?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【上一页】&lt;/a&gt;
+</p>
+<p>
+  	&lt;a href=&#8221;?pageno=&lt;?php echo $pageno+1?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【下一页】&lt;/a&gt;
+</p>
+<p>
+  	&lt;a href=&#8221;?pageno=&lt;?php echo $pagecount?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【末页】&lt;/a&gt;
+</p>
+<p>
+  	&lt;/td&gt;
+</p>
+<p>
+  &lt;/tr&gt;
+</p>
+<h3>实现第二步：获取页码，并取出当前页面中的内容</h3>
+<p>
+  代码
+</p>
+<p>
+  //第三步：获取当前页的内容
+</p>
+<p>
+  $pageno=isset($_GET[&#8216;pageno&#8217;])?$_GET[&#8216;pageno&#8217;]:1;		//获取当前页码
+</p>
+<p>
+  $pageno=$pageno&lt;1?1:$pageno;		//如果页码小于1，定位到第一页
+</p>
+<p>
+  $pageno=$pageno&gt;$pagecount?$pagecount:$pageno; //页码大于总页数，定位到最后一页
+</p>
+<p>
+  $startno=($pageno-1)*$pagesize;	//计算当前页的起始位置
+</p>
+<p>
+  $sql=&#8221;select * from contents where title=$titleid limit {$startno},{$pagesize}&#8221;;
+</p>
+<p>
+  $rs=mysql_query($sql);
+</p>
+<h3>完整代码</h3>
+<p>
+  &lt;!doctype html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;title&gt;无标题文档&lt;/title&gt;
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  	table{
+</p>
+<p>
+  		width:980px;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	table,td,th{
+</p>
+<p>
+  		border:solid 1px #000;
+</p>
+<p>
+  		margin:auto;
+</p>
+<p>
+  		font-size:14px;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	.pageno{
+</p>
+<p>
+  		font-size:24px;
+</p>
+<p>
+  		color:#FF0000;
+</p>
+<p>
+  	}
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //连接数据库
+</p>
+<p>
+  mysql_connect(&#8216;localhost&#8217;,&#8217;root&#8217;,&#8217;root&#8217;) or die(&#8216;数据库连接失败&#8217;);
+</p>
+<p>
+  mysql_select_db(&#8216;jokedb&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;set names utf8&#8217;);
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;!&#8211;显示分类&#8211;&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	$rs=mysql_query(&#8216;select * from title&#8217;);
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;table&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  	&lt;?php
+</p>
+<p>
+  	$n=0;
+</p>
+<p>
+  	while($rows=mysql_fetch_assoc($rs)):
+</p>
+<p>
+  	?&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;a href=&#8221;?titleid=&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&#8221;&gt;&lt;?php echo $rows[&#8216;Title&#8217;]?&gt;&lt;/a&gt;&lt;/td&gt;
+</p>
+<p>
+  	&lt;?php
+</p>
+<p>
+  		if(++$n%9==0)
+</p>
+<p>
+  			echo &#8216;&lt;/tr&gt;&lt;tr&gt;&#8217;;
+</p>
+<p>
+  	endwhile;
+</p>
+<p>
+  	?&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p>
+  &lt;!&#8211;显示内容&#8211;&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	$titleid=isset($_GET[&#8216;titleid&#8217;])?$_GET[&#8216;titleid&#8217;]:1;
+</p>
+<p>
+  	//第一步：获取总记录数
+</p>
+<p>
+  	$sql=&#8221;select count(*) from contents where title=$titleid&#8221;;
+</p>
+<p>
+  	$rs=mysql_query($sql);
+</p>
+<p>
+  	$rows=mysql_fetch_row($rs);
+</p>
+<p>
+  	$rowcount=$rows[0];	//获取到总记录数
+</p>
+<p>
+  	//第二步：求得总页数
+</p>
+<p>
+  	$pagesize=10;		//页码大小
+</p>
+<p>
+  	$pagecount=ceil($rowcount/$pagesize);	//求得总页数
+</p>
+<p>
+  	//第三步：获取当前页的内容
+</p>
+<p>
+  	$pageno=isset($_GET[&#8216;pageno&#8217;])?$_GET[&#8216;pageno&#8217;]:1;		//获取当前页码
+</p>
+<p>
+  	$pageno=$pageno&lt;1?1:$pageno;		//如果页码小于1，定位到第一页
+</p>
+<p>
+  	$pageno=$pageno&gt;$pagecount?$pagecount:$pageno; //页码大于总页数，定位到最后一页
+</p>
+<p>
+  	$startno=($pageno-1)*$pagesize;	//计算当前页的起始位置
+</p>
+<p>
+  	$sql=&#8221;select * from contents where title=$titleid limit {$startno},{$pagesize}&#8221;;
+</p>
+<p>
+  	$rs=mysql_query($sql);
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;table&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;th&gt;编号&lt;/th&gt; &lt;th&gt;内容&lt;/th&gt; &lt;th&gt;作者&lt;/th&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  	&lt;?php while($rows=mysql_fetch_assoc($rs)):?&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Contents&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Author&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  	&lt;?php endwhile;?&gt;
+</p>
+<p>
+  &lt;!&#8211;输出页码&#8211;&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;td colspan=&#8217;3&#8242;&gt;
+</p>
+<p>
+  		&lt;?php for($i=1;$i&lt;=$pagecount;$i++):?&gt;
+</p>
+<p>
+  			&lt;?php if($pageno==$i):?&gt;
+</p>
+<p>
+  				&lt;span class=&#8221;pageno&#8221;&gt;&lt;?php echo $i?&gt;&lt;/span&gt; &amp;nbsp;
+</p>
+<p>
+  			&lt;?php else:?&gt;
+</p>
+<p>
+  				&lt;a href=&#8221;?pageno=&lt;?php echo $i?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;&lt;?php echo $i?&gt;&lt;/a&gt;&amp;nbsp;
+</p>
+<p>
+  			&lt;?php endif;?&gt;
+</p>
+</p>
+<p>
+  		&lt;?php endfor;?&gt;
+</p>
+<p>
+  		&lt;a href=&#8221;?pageno=1&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【首页】&lt;/a&gt;
+</p>
+<p>
+  		&lt;a href=&#8221;?pageno=&lt;?php echo $pageno-1?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【上一页】&lt;/a&gt;
+</p>
+<p>
+  		&lt;a href=&#8221;?pageno=&lt;?php echo $pageno+1?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【下一页】&lt;/a&gt;
+</p>
+<p>
+  		&lt;a href=&#8221;?pageno=&lt;?php echo $pagecount?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【末页】&lt;/a&gt;
+</p>
+<p>
+  		&lt;/td&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="1023" height="423" src="/wp-content/uploads/2018/05/word-image-1566.png" class="wp-image-1787" srcset="/wp-content/uploads/2018/05/word-image-1566.png 1023w, /wp-content/uploads/2018/05/word-image-1566-300x124.png 300w, /wp-content/uploads/2018/05/word-image-1566-768x318.png 768w" sizes="(max-width: 1023px) 100vw, 1023px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/1759.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

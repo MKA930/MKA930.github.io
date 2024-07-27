@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>入门 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%85%A5%E9%97%A8/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 06:42:23 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>入门 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>XML 概述、入门、用途、语法、接口调用、电子词典、DOM操作XML</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/2947.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/2947.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 06:42:23 +0000</pubDate>
+				<category><![CDATA[XML]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[DOM操作XML]]></category>
+		<category><![CDATA[入门]]></category>
+		<category><![CDATA[接口调用]]></category>
+		<category><![CDATA[概述]]></category>
+		<category><![CDATA[用途]]></category>
+		<category><![CDATA[电子词典]]></category>
+		<category><![CDATA[语法]]></category>
+		<guid isPermaLink="false">/?p=2947</guid>
+
+					<description><![CDATA[万能的数据传输格式XML 目录 未找到目录项。 一、XML概述 1、发展史 GML 通用标记语言 1969年， [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>
+  万能的数据传输格式XML
+</p>
+<p>
+  目录
+</p>
+<p><strong>未找到目录项。</strong>
+</p>
+<h1>一、XML概述</h1>
+<p>
+  1、发展史
+</p>
+<p>
+  GML    通用标记语言
+</p>
+<p>
+  1969年，IBM公司的一些砖家为了解决不同系统中文档格式的问题而开发的一种文档描述语言。
+</p>
+<p>
+  SGML   标准通用标记语言
+</p>
+<p>
+  1986年，ANSI组织对GML进行整理并升级为SGML。但是SGML是一种非常严谨的文档描述语言，其结构非常复杂（标准手册就有500多页），难以理解和学习，进而影响其推广与应用。
+</p>
+<p>
+  1993年   HTML   超文本标记语言（W3C）
+</p>
+<p>
+  HTML继承了SGML的许多重要的特点，比如结构化、实现独立和可描述性，但是同时它也存在很多缺陷：比如它只能使用固定的有限的标记，而且它只侧重于对内容的显示。
+</p>
+<p>
+  1998年   XML
+</p>
+<p>
+  随着Web上数据的增多，这些HTML存在的缺点就变的不可被忽略。为了解决这些问题， W3C组织又基于SGML语言开发一款新的标记语言，并称之为XML。是xml1.0.到目前为止，xml的版本还是1.0
+</p>
+<p>
+  html4.01  -&gt; xhtml1.0  -&gt;  xhtml1.1（终止）
+</p>
+<p>
+  html5
+</p>
+<p>
+  2、什么是XML
+</p>
+<p>
+  XML（eXtensible Markup Language）：可扩展标记语言
+</p>
+<p>
+  用于标记电子文件使其具有结构性的标记语言，可以用来标记数据、定义数据类型，是一种允许用户对自己的标记语言进行定义的源语言。
+</p>
+<p>
+  xml也是一种标记（标签）语言。也是使用&lt;table&gt;&lt;/table&gt;这种标签
+</p>
+<p>
+  xml的标签可扩展。也就是说xml的标签可以自定义。
+</p>
+<p>
+  xml侧重于描述数据，html侧重于展示数据。
+</p>
+<p>
+  3、XML的应用场景举例
+</p>
+<p>
+  飞秋的配置文件：
+</p>
+<p>
+  <img fetchpriority="high" decoding="async" width="966" height="575" src="/wp-content/uploads/2018/05/word-image-2581.png" class="wp-image-2950" srcset="/wp-content/uploads/2018/05/word-image-2581.png 966w, /wp-content/uploads/2018/05/word-image-2581-300x179.png 300w, /wp-content/uploads/2018/05/word-image-2581-768x457.png 768w" sizes="(max-width: 966px) 100vw, 966px" />
+</p>
+<h1>二、XML快速入门</h1>
+<p>
+  1、使用XML语言描述一个人的信息
+</p>
+<p>
+  人有什么特点？
+</p>
+<p>
+  姓名、年龄、性别
+</p>
+<p>
+  &lt;person&gt;
+</p>
+<p>
+  	&lt;name&gt;Tom&lt;/name&gt;
+</p>
+<p>
+  	&lt;age&gt;22&lt;/age&gt;
+</p>
+<p>
+  	&lt;sex&gt;男&lt;/sex&gt;
+</p>
+<p>
+  &lt;/person&gt;
+</p>
+<p>
+  2、使用XML语言描述一本书的信息
+</p>
+<p>
+  &lt;book&gt;
+</p>
+<p>
+  	&lt;name&gt;斗破苍穹&lt;/name&gt;
+</p>
+<p>
+  	&lt;author&gt;天蚕土豆&lt;/author&gt;
+</p>
+<p>
+  	&lt;type&gt;修仙&lt;/type&gt;
+</p>
+<p>
+  &lt;/book&gt;
+</p>
+<h1>三、XML基本语法</h1>
+<p>
+  1、文档声明
+</p>
+<p>
+  &lt;?xml version=&#8221;1.0&#8243; encoding=&#8221;UTF-8&#8243;?&gt;
+</p>
+<p>
+  <img decoding="async" width="553" height="89" src="/wp-content/uploads/2018/05/word-image-2582.png" class="wp-image-2951" srcset="/wp-content/uploads/2018/05/word-image-2582.png 553w, /wp-content/uploads/2018/05/word-image-2582-300x48.png 300w" sizes="(max-width: 553px) 100vw, 553px" />
+</p>
+<p>
+  2、元素说明
+</p>
+<p>
+  元素就是标签、就是标记。就是类似于&lt;table&gt;&lt;/table&gt;这种标签。
+</p>
+<p>
+  元素在HTML中叫做元素、标记、标签都可以。
+</p>
+<p>
+  元素在DOM中叫做节点。
+</p>
+<p>
+  ① 一个XML文档必须有且仅有一个根标签，其他标签都是这个根标签的子标签
+</p>
+<p>
+  <img decoding="async" width="693" height="468" src="/wp-content/uploads/2018/05/word-image-2583.png" class="wp-image-2952" srcset="/wp-content/uploads/2018/05/word-image-2583.png 693w, /wp-content/uploads/2018/05/word-image-2583-300x203.png 300w, /wp-content/uploads/2018/05/word-image-2583-220x150.png 220w" sizes="(max-width: 693px) 100vw, 693px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="702" height="417" src="/wp-content/uploads/2018/05/word-image-2584.png" class="wp-image-2953" srcset="/wp-content/uploads/2018/05/word-image-2584.png 702w, /wp-content/uploads/2018/05/word-image-2584-300x178.png 300w" sizes="(max-width: 702px) 100vw, 702px" />
+</p>
+<p>
+  ② 一个标签必须闭合
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="646" height="290" src="/wp-content/uploads/2018/05/word-image-2585.png" class="wp-image-2954" srcset="/wp-content/uploads/2018/05/word-image-2585.png 646w, /wp-content/uploads/2018/05/word-image-2585-300x135.png 300w" sizes="(max-width: 646px) 100vw, 646px" />
+</p>
+<p>
+  ③ 标签不允许有交叉嵌套
+</p>
+<p>
+  正确的写法：&lt;b&gt;&lt;i&gt;hello&lt;/i&gt;&lt;/b&gt;   错误的写法：&lt;b&gt;&lt;i&gt;hello&lt;/b&gt;&lt;/i&gt;
+</p>
+<p>
+  3、元素命名规则
+</p>
+<p>
+  ① 元素(标签)的名称可以包含字母、数字、中横线、下划线和英文句点；
+</p>
+<p>
+  ② 只能以字母或下划线开头；
+</p>
+<p>
+  ③ 严格区分大小写；
+</p>
+<p>
+  ④ 名称字符之间不能有空格或制表符；
+</p>
+<p>
+  ⑤ 名称字符之间不能使用冒号，冒号有特殊含义。
+</p>
+<p>
+  4、属性
+</p>
+<p>
+  ① 属性名称的命名规范与元素的命名规范相同
+</p>
+<p>
+  ② 属性值一定要用引号(单引号或双引号)引起来
+</p>
+<p>
+  ③ 一个元素可以有多个属性
+</p>
+<p>
+  ④ 元素中的属性是不允许重复的
+</p>
+<p>
+  ⑤ 标签属性所代表的信息也可以被改成用子元素的形式来描述
+</p>
+<p>
+  5、注释
+</p>
+<p>
+  和html注释一样：&lt;!&#8211;注释的内容&#8211;&gt;
+</p>
+<p>
+  在xml中，注释的内容也会显示在页面上。
+</p>
+<p>
+  6、特殊符号
+</p>
+<p>
+  在xml文档描述信息中，不要使用特殊符号，如果使用特殊符号的话，可以使用实体符号代替，如小于号&lt;可以用实体符号&amp;lt;表示
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="666" height="431" src="/wp-content/uploads/2018/05/word-image-2586.png" class="wp-image-2955" srcset="/wp-content/uploads/2018/05/word-image-2586.png 666w, /wp-content/uploads/2018/05/word-image-2586-300x194.png 300w" sizes="(max-width: 666px) 100vw, 666px" />
+</p>
+<p>
+  如果说一个内容区有大段的文字，文字中有很多特殊符号，一个一个的替换肯定是比较麻烦，解决的办法是使用CDATA。
+</p>
+<p>
+  7、CDATA节
+</p>
+<p>
+  CDATA节里面的内容可以原样输出，解决了大段内容中有很多特殊符号的问题。
+</p>
+<p>
+  语法：
+</p>
+<p>
+  &lt;![CDATA[这里面写内容]]&gt;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="703" height="101" src="/wp-content/uploads/2018/05/word-image-2587.png" class="wp-image-2956" srcset="/wp-content/uploads/2018/05/word-image-2587.png 703w, /wp-content/uploads/2018/05/word-image-2587-300x43.png 300w" sizes="(max-width: 703px) 100vw, 703px" />
+</p>
+<p>
+  8、其他指令
+</p>
+<p>
+  基本语法：
+</p>
+<p>
+  必须以“&lt;?”作为开头，以“?&gt;”作为结尾。
+</p>
+<p>
+  在实际应用中，其处理指令主要有：
+</p>
+<p>
+  xml-stylesheet指令
+</p>
+<p>
+  &lt;?xml-stylesheet type=&#8217;text/css&#8217; href=&#8217;demo.css&#8217; ?&gt;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1087" height="221" src="/wp-content/uploads/2018/05/word-image-2588.png" class="wp-image-2957" srcset="/wp-content/uploads/2018/05/word-image-2588.png 1087w, /wp-content/uploads/2018/05/word-image-2588-300x61.png 300w, /wp-content/uploads/2018/05/word-image-2588-768x156.png 768w, /wp-content/uploads/2018/05/word-image-2588-1024x208.png 1024w" sizes="(max-width: 1087px) 100vw, 1087px" />
+</p>
+<p>
+  这样的话，xml在页面中就不会显示为树状结构了。
+</p>
+<h1>四、总结XML与HTML的区别</h1>
+<p>
+  1、xml语法比较严格，html不是很严格
+</p>
+<p>
+  2、html侧重于展示数据，是有样式的。xml侧重于描述数据，没有样式。
+</p>
+<h1>五、XML的用途</h1>
+<p>
+  ① 程序间交互的中间件
+</p>
+<p>
+  传输数据时的中间介质，媒介。
+</p>
+<p>
+  在程序中，比如说，php从MySQL数据库获取了数据，要把数据传递给JavaScript处理。必须找一个中间的介质转化，xml就可以充当这个介质。也就是说php能够认识xml，JavaScript也认识xml。
+</p>
+<p>
+  ② 配置文件
+</p>
+<p>
+  比如飞秋的配置文件。
+</p>
+<p>
+  ③ 存储数据 – 充当小型数据库
+</p>
+<p>
+  比如用xml表示article数据表：
+</p>
+<p>
+  article表中的字段有：id,title,content,author,time
+</p>
+<p>
+  用xml表示：
+</p>
+<p>
+  &lt;articles&gt;
+</p>
+<p>
+  	&lt;article&gt;
+</p>
+<p>
+  		&lt;id&gt;1&lt;/id&gt;
+</p>
+<p>
+  		&lt;title&gt;母猪为和常常半夜惨叫&lt;/title&gt;
+</p>
+<p>
+  	&lt;/article&gt;
+</p>
+<p>
+  &lt;article&gt;
+</p>
+<p>
+  		&lt;id&gt;2&lt;/id&gt;
+</p>
+<p>
+  		&lt;title&gt;昨天晚上我看到某某同学去了猪圈&lt;/title&gt;
+</p>
+<p>
+  	&lt;/article&gt;
+</p>
+<p>
+  &lt;/articles&gt;
+</p>
+<p>
+  ④ 其他用途
+</p>
+<p>
+  应用在化学领域，比如用xml表示一个化学分子Fe<sub>3</sub>O<sub>4 </sub>
+</p>
+<h1>六、使用PHP解析XML数据</h1>
+<p>
+  1、解析xml
+</p>
+<p>
+  什么是解析：解析就是对xml进行增删改查保存的工作。
+</p>
+<p>
+  为什么要解析xml：就是要获取（增删改查）xml中的数据，以便使用xml。
+</p>
+<p>
+  怎样解析xml：方法非常多，涉及到的语言也非常多。
+</p>
+<p>
+  各个语言都能够解析xml，每种语言又有很多办法。比如PHP就有好几种办法，如下图。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="731" height="353" src="/wp-content/uploads/2018/05/word-image-2589.png" class="wp-image-2958" srcset="/wp-content/uploads/2018/05/word-image-2589.png 731w, /wp-content/uploads/2018/05/word-image-2589-300x145.png 300w" sizes="(max-width: 731px) 100vw, 731px" />
+</p>
+<p>
+  2、SimpleXML解析XML工作原理
+</p>
+<p>
+  ① 开辟内存空间
+</p>
+<p>
+  ② 载入XML文件到内存形成DOM树结构
+</p>
+<p>
+  ③ 生成SimpleXMLElement对象
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1038" height="394" src="/wp-content/uploads/2018/05/word-image-2590.png" class="wp-image-2959" srcset="/wp-content/uploads/2018/05/word-image-2590.png 1038w, /wp-content/uploads/2018/05/word-image-2590-300x114.png 300w, /wp-content/uploads/2018/05/word-image-2590-768x292.png 768w, /wp-content/uploads/2018/05/word-image-2590-1024x389.png 1024w" sizes="(max-width: 1038px) 100vw, 1038px" />
+</p>
+<p>
+  3、对元素节点进行增删改查
+</p>
+<p>
+  1、创建一个用于测试的xml文档
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="990" height="309" src="/wp-content/uploads/2018/05/word-image-2591.png" class="wp-image-2960" srcset="/wp-content/uploads/2018/05/word-image-2591.png 990w, /wp-content/uploads/2018/05/word-image-2591-300x94.png 300w, /wp-content/uploads/2018/05/word-image-2591-768x240.png 768w" sizes="(max-width: 990px) 100vw, 990px" />
+</p>
+<p>
+  2、读取节点中的内容
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1127" height="532" src="/wp-content/uploads/2018/05/word-image-2592.png" class="wp-image-2961" srcset="/wp-content/uploads/2018/05/word-image-2592.png 1127w, /wp-content/uploads/2018/05/word-image-2592-300x142.png 300w, /wp-content/uploads/2018/05/word-image-2592-768x363.png 768w, /wp-content/uploads/2018/05/word-image-2592-1024x483.png 1024w" sizes="(max-width: 1127px) 100vw, 1127px" />
+</p>
+<p>
+  把所有同学的姓名、性别、年龄显示在表格中：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1132" height="490" src="/wp-content/uploads/2018/05/word-image-2593.png" class="wp-image-2962" srcset="/wp-content/uploads/2018/05/word-image-2593.png 1132w, /wp-content/uploads/2018/05/word-image-2593-300x130.png 300w, /wp-content/uploads/2018/05/word-image-2593-768x332.png 768w, /wp-content/uploads/2018/05/word-image-2593-1024x443.png 1024w" sizes="(max-width: 1132px) 100vw, 1132px" />
+</p>
+<p>
+  3、添加节点
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1003" height="342" src="/wp-content/uploads/2018/05/word-image-2594.png" class="wp-image-2963" srcset="/wp-content/uploads/2018/05/word-image-2594.png 1003w, /wp-content/uploads/2018/05/word-image-2594-300x102.png 300w, /wp-content/uploads/2018/05/word-image-2594-768x262.png 768w" sizes="(max-width: 1003px) 100vw, 1003px" />
+</p>
+<p>
+  4、修改节点
+</p>
+<p>
+  重新赋值的方式来修改节点的值。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="801" height="318" src="/wp-content/uploads/2018/05/word-image-2595.png" class="wp-image-2964" srcset="/wp-content/uploads/2018/05/word-image-2595.png 801w, /wp-content/uploads/2018/05/word-image-2595-300x119.png 300w, /wp-content/uploads/2018/05/word-image-2595-768x305.png 768w" sizes="(max-width: 801px) 100vw, 801px" />
+</p>
+<p>
+  5、删除节点
+</p>
+<p>
+  先找到要删除的节点，unset即可。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="794" height="165" src="/wp-content/uploads/2018/05/word-image-2596.png" class="wp-image-2965" srcset="/wp-content/uploads/2018/05/word-image-2596.png 794w, /wp-content/uploads/2018/05/word-image-2596-300x62.png 300w, /wp-content/uploads/2018/05/word-image-2596-768x160.png 768w" sizes="(max-width: 794px) 100vw, 794px" />
+</p>
+<p>
+  4、对属性节点进行增删改查
+</p>
+<p>
+  1、获取元素的属性
+</p>
+<p>
+  使用的是SimpleXMLElement对象中的attributes方法，这个方法可以获取到一个标签的所有属性，返回值是一个对象。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1128" height="382" src="/wp-content/uploads/2018/05/word-image-2597.png" class="wp-image-2966" srcset="/wp-content/uploads/2018/05/word-image-2597.png 1128w, /wp-content/uploads/2018/05/word-image-2597-300x102.png 300w, /wp-content/uploads/2018/05/word-image-2597-768x260.png 768w, /wp-content/uploads/2018/05/word-image-2597-1024x347.png 1024w" sizes="(max-width: 1128px) 100vw, 1128px" />
+</p>
+<p>
+  2、添加属性
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="789" height="292" src="/wp-content/uploads/2018/05/word-image-2598.png" class="wp-image-2967" srcset="/wp-content/uploads/2018/05/word-image-2598.png 789w, /wp-content/uploads/2018/05/word-image-2598-300x111.png 300w, /wp-content/uploads/2018/05/word-image-2598-768x284.png 768w" sizes="(max-width: 789px) 100vw, 789px" />
+</p>
+<p>
+  3、修改属性
+</p>
+<p>
+  修改潘光明的身高为为157
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="944" height="271" src="/wp-content/uploads/2018/05/word-image-2599.png" class="wp-image-2968" srcset="/wp-content/uploads/2018/05/word-image-2599.png 944w, /wp-content/uploads/2018/05/word-image-2599-300x86.png 300w, /wp-content/uploads/2018/05/word-image-2599-768x220.png 768w" sizes="(max-width: 944px) 100vw, 944px" />
+</p>
+<p>
+  4、删除属性
+</p>
+<p>
+  使用unset。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="760" height="192" src="/wp-content/uploads/2018/05/word-image-2600.png" class="wp-image-2969" srcset="/wp-content/uploads/2018/05/word-image-2600.png 760w, /wp-content/uploads/2018/05/word-image-2600-300x76.png 300w" sizes="(max-width: 760px) 100vw, 760px" />
+</p>
+<p>
+  5、页面获取02test.xml中所有的信息，以表格的形式展示出来
+</p>
+<h1>五、案例-获取天气信息（接口调用）</h1>
+<p>
+  1、接口的调用说明
+</p>
+<p>
+  接口地址：
+</p>
+<p><a href="http://php.weather.sina.com.cn/xml.php?city=%B1%B1%BE%A9&amp;password=DJOYnieT8234jlsK&amp;day=0">http://php.weather.sina.com.cn/xml.php?city=%</a><a href="http://php.weather.sina.com.cn/xml.php?city=%B1%B1%BE%A9&amp;password=DJOYnieT8234jlsK&amp;day=0">B1%B1%BE%A9&amp;password=DJOYnieT8234jlsK&amp;day=0</a>
+</p>
+<p>
+  接口类型：HTTP GET请求
+</p>
+<p>
+  参数说明：
+</p>
+<p>
+  city ：要查询城市的名称，文本要进行格式转换，转换为utf-8格式且数据需要使用urlencode进行转码
+</p>
+<p>
+  password ：密钥，固定
+</p>
+<p>
+  day ：0代表要查询当天的天气情况
+</p>
+<p>
+  2、接口调用的具体实现
+</p>
+<p>
+  1、获取接口信息，并组合本网站的天气字符串
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1089" height="254" src="/wp-content/uploads/2018/05/word-image-2601.png" class="wp-image-2970" srcset="/wp-content/uploads/2018/05/word-image-2601.png 1089w, /wp-content/uploads/2018/05/word-image-2601-300x70.png 300w, /wp-content/uploads/2018/05/word-image-2601-768x179.png 768w, /wp-content/uploads/2018/05/word-image-2601-1024x239.png 1024w" sizes="(max-width: 1089px) 100vw, 1089px" />
+</p>
+<p>
+  2、改进，10分钟更新一次
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1325" height="559" src="/wp-content/uploads/2018/05/word-image-2602.png" class="wp-image-2971" srcset="/wp-content/uploads/2018/05/word-image-2602.png 1325w, /wp-content/uploads/2018/05/word-image-2602-300x127.png 300w, /wp-content/uploads/2018/05/word-image-2602-768x324.png 768w, /wp-content/uploads/2018/05/word-image-2602-1024x432.png 1024w" sizes="(max-width: 1325px) 100vw, 1325px" />
+</p>
+<h1>六、Xpath语言</h1>
+<p>
+  1、什么Xpath
+</p>
+<p>
+  简言之，XPath 是一种用来在内存中导航整个 XML 树的语言。XPath 的设计初衷是作为一种面向 XSLT 和 XPointer 的语言。XPath 1.0 在 1999 年成为了一种 W3C 标准。较新的 XPath 2.0 已于 2007 获得规范的状态。
+</p>
+<p>
+  随着 XML 其他规范的出现，XPath 的使用也相应出现。如今，XPath 已成为在 XML 模式、ISO Schematron、XQuery 和 XForms 中导航 XML 的首选语言。具有讽刺意味的是，有可依据的理由证明 XPath 并不是基于的 XML 语法。它使用了其自身的语法来避免与 URI 和其他与 XML 相关的语法的冲突。
+</p>
+<p>
+  XPath是一门在 XML 文档中查找信息的语言。
+</p>
+<p>
+  XPath可用来在 XML 文档中对元素和属性进行遍历。
+</p>
+<p>
+  而且Xpath并不仅仅应用于XML数据查询，其在很多语言中（PHP、Java、.NET以及Javascript），都可以广泛使用。
+</p>
+<p>
+  2、Xpath语言详解
+</p>
+<p>
+  1、基础查找
+</p>
+<p>
+  ①、使用绝对路径进行检索（/students）
+</p>
+<p>
+  使用斜线/打头的都属于绝对路径，从根元素开始找。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="684" height="242" src="/wp-content/uploads/2018/05/word-image-2603.png" class="wp-image-2972" srcset="/wp-content/uploads/2018/05/word-image-2603.png 684w, /wp-content/uploads/2018/05/word-image-2603-300x106.png 300w" sizes="(max-width: 684px) 100vw, 684px" />
+</p>
+<p>
+  ②、使用相对路径(//stu/name)
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1087" height="510" src="/wp-content/uploads/2018/05/word-image-2604.png" class="wp-image-2973" srcset="/wp-content/uploads/2018/05/word-image-2604.png 1087w, /wp-content/uploads/2018/05/word-image-2604-300x141.png 300w, /wp-content/uploads/2018/05/word-image-2604-768x360.png 768w, /wp-content/uploads/2018/05/word-image-2604-1024x480.png 1024w" sizes="(max-width: 1087px) 100vw, 1087px" />
+</p>
+<p>
+  ③、使用*递归查找，*表示全部
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="688" height="286" src="/wp-content/uploads/2018/05/word-image-2605.png" class="wp-image-2974" srcset="/wp-content/uploads/2018/05/word-image-2605.png 688w, /wp-content/uploads/2018/05/word-image-2605-300x125.png 300w" sizes="(max-width: 688px) 100vw, 688px" />
+</p>
+<p>
+  2、筛选查找
+</p>
+<p>
+  1、指定下标查询
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1091" height="506" src="/wp-content/uploads/2018/05/word-image-2606.png" class="wp-image-2975" srcset="/wp-content/uploads/2018/05/word-image-2606.png 1091w, /wp-content/uploads/2018/05/word-image-2606-300x139.png 300w, /wp-content/uploads/2018/05/word-image-2606-768x356.png 768w, /wp-content/uploads/2018/05/word-image-2606-1024x475.png 1024w" sizes="(max-width: 1091px) 100vw, 1091px" />
+</p>
+<p>
+  2、指定下标查询，查询最后一个学生
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1108" height="530" src="/wp-content/uploads/2018/05/word-image-2607.png" class="wp-image-2976" srcset="/wp-content/uploads/2018/05/word-image-2607.png 1108w, /wp-content/uploads/2018/05/word-image-2607-300x144.png 300w, /wp-content/uploads/2018/05/word-image-2607-768x367.png 768w, /wp-content/uploads/2018/05/word-image-2607-1024x490.png 1024w" sizes="(max-width: 1108px) 100vw, 1108px" />
+</p>
+<p>
+  3、指定下标，查找倒数第二个学生
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="690" height="262" src="/wp-content/uploads/2018/05/word-image-2608.png" class="wp-image-2977" srcset="/wp-content/uploads/2018/05/word-image-2608.png 690w, /wp-content/uploads/2018/05/word-image-2608-300x114.png 300w" sizes="(max-width: 690px) 100vw, 690px" />
+</p>
+<p>
+  4、查找stu节点，含有子节点name的stu节点
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="680" height="265" src="/wp-content/uploads/2018/05/word-image-2609.png" class="wp-image-2978" srcset="/wp-content/uploads/2018/05/word-image-2609.png 680w, /wp-content/uploads/2018/05/word-image-2609-300x117.png 300w" sizes="(max-width: 680px) 100vw, 680px" />
+</p>
+<p>
+  5、查询stu节点，子节点age的值大于20的stu
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="724" height="267" src="/wp-content/uploads/2018/05/word-image-2610.png" class="wp-image-2979" srcset="/wp-content/uploads/2018/05/word-image-2610.png 724w, /wp-content/uploads/2018/05/word-image-2610-300x111.png 300w" sizes="(max-width: 724px) 100vw, 724px" />
+</p>
+<p>
+  6、查询other标签，含有height属性的other
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="808" height="287" src="/wp-content/uploads/2018/05/word-image-2611.png" class="wp-image-2980" srcset="/wp-content/uploads/2018/05/word-image-2611.png 808w, /wp-content/uploads/2018/05/word-image-2611-300x107.png 300w, /wp-content/uploads/2018/05/word-image-2611-768x273.png 768w" sizes="(max-width: 808px) 100vw, 808px" />
+</p>
+<p>
+  7、查询other节点，含有height属性，并且height的值大于170
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="734" height="261" src="/wp-content/uploads/2018/05/word-image-2612.png" class="wp-image-2981" srcset="/wp-content/uploads/2018/05/word-image-2612.png 734w, /wp-content/uploads/2018/05/word-image-2612-300x107.png 300w" sizes="(max-width: 734px) 100vw, 734px" />
+</p>
+<p>
+  8、模糊查询
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="793" height="340" src="/wp-content/uploads/2018/05/word-image-2613.png" class="wp-image-2982" srcset="/wp-content/uploads/2018/05/word-image-2613.png 793w, /wp-content/uploads/2018/05/word-image-2613-300x129.png 300w, /wp-content/uploads/2018/05/word-image-2613-768x329.png 768w" sizes="(max-width: 793px) 100vw, 793px" />
+</p>
+<p>
+  9、多条件查询，查询名字中含有“飞”并年龄含有“2”的学生
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="883" height="268" src="/wp-content/uploads/2018/05/word-image-2614.png" class="wp-image-2983" srcset="/wp-content/uploads/2018/05/word-image-2614.png 883w, /wp-content/uploads/2018/05/word-image-2614-300x91.png 300w, /wp-content/uploads/2018/05/word-image-2614-768x233.png 768w" sizes="(max-width: 883px) 100vw, 883px" />
+</p>
+<h1>七、综合案例-SimpleXML+Xpath电子词典</h1>
+<p>
+  1、设计数据表（设置xml文档格式）
+</p>
+<p>
+  &lt;dict&gt;
+</p>
+<p>
+  	&lt;word&gt;
+</p>
+<p>
+  &lt;en&gt;dog&lt;/en&gt;
+</p>
+<p>
+  		&lt;cn&gt;狗&lt;/cn&gt;
+</p>
+<p>
+  &lt;/word&gt;
+</p>
+<p>
+  	&lt;word&gt;
+</p>
+<p>
+  		&lt;en&gt;cat&lt;/en&gt;
+</p>
+<p>
+  		&lt;cn&gt;猫&lt;/cn&gt;
+</p>
+<p>
+  &lt;/word&gt;
+</p>
+<p>
+  &lt;/dict&gt;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="698" height="633" src="/wp-content/uploads/2018/05/word-image-2615.png" class="wp-image-2984" srcset="/wp-content/uploads/2018/05/word-image-2615.png 698w, /wp-content/uploads/2018/05/word-image-2615-300x272.png 300w" sizes="(max-width: 698px) 100vw, 698px" />
+</p>
+<p>
+  2、设计词典的界面
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="553" height="134" src="/wp-content/uploads/2018/05/word-image-2616.png" class="wp-image-2985" srcset="/wp-content/uploads/2018/05/word-image-2616.png 553w, /wp-content/uploads/2018/05/word-image-2616-300x73.png 300w" sizes="(max-width: 553px) 100vw, 553px" />
+</p>
+<p>
+  具体代码：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="767" height="454" src="/wp-content/uploads/2018/05/word-image-2617.png" class="wp-image-2986" srcset="/wp-content/uploads/2018/05/word-image-2617.png 767w, /wp-content/uploads/2018/05/word-image-2617-300x178.png 300w" sizes="(max-width: 767px) 100vw, 767px" />
+</p>
+<p>
+  3、完成查询功能
+</p>
+<p>
+  使用get方法向当前页面提交数据进行查询，所以表单的action和method都省略不写。
+</p>
+<p>
+  判断用户是否是查询：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="689" height="209" src="/wp-content/uploads/2018/05/word-image-2618.png" class="wp-image-2987" srcset="/wp-content/uploads/2018/05/word-image-2618.png 689w, /wp-content/uploads/2018/05/word-image-2618-300x91.png 300w" sizes="(max-width: 689px) 100vw, 689px" />
+</p>
+<p>
+  根据英文查询汉语翻译：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="699" height="458" src="/wp-content/uploads/2018/05/word-image-2619.png" class="wp-image-2988" srcset="/wp-content/uploads/2018/05/word-image-2619.png 699w, /wp-content/uploads/2018/05/word-image-2619-300x197.png 300w" sizes="(max-width: 699px) 100vw, 699px" />
+</p>
+<p>
+  将结果写到span中：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="498" height="32" src="/wp-content/uploads/2018/05/word-image-2620.png" class="wp-image-2989" srcset="/wp-content/uploads/2018/05/word-image-2620.png 498w, /wp-content/uploads/2018/05/word-image-2620-300x19.png 300w" sizes="(max-width: 498px) 100vw, 498px" />
+</p>
+<p>
+  使用type，完成更加动态的查询：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="859" height="408" src="/wp-content/uploads/2018/05/word-image-2621.png" class="wp-image-2990" srcset="/wp-content/uploads/2018/05/word-image-2621.png 859w, /wp-content/uploads/2018/05/word-image-2621-300x142.png 300w, /wp-content/uploads/2018/05/word-image-2621-768x365.png 768w" sizes="(max-width: 859px) 100vw, 859px" />
+</p>
+<p>
+  将查询的词写到input输入框中：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="817" height="538" src="/wp-content/uploads/2018/05/word-image-2622.png" class="wp-image-2991" srcset="/wp-content/uploads/2018/05/word-image-2622.png 817w, /wp-content/uploads/2018/05/word-image-2622-300x198.png 300w, /wp-content/uploads/2018/05/word-image-2622-768x506.png 768w" sizes="(max-width: 817px) 100vw, 817px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="814" height="275" src="/wp-content/uploads/2018/05/word-image-2623.png" class="wp-image-2992" srcset="/wp-content/uploads/2018/05/word-image-2623.png 814w, /wp-content/uploads/2018/05/word-image-2623-300x101.png 300w, /wp-content/uploads/2018/05/word-image-2623-768x259.png 768w" sizes="(max-width: 814px) 100vw, 814px" />
+</p>
+<p>
+  设置option默认勾选值：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1266" height="321" src="/wp-content/uploads/2018/05/word-image-2624.png" class="wp-image-2993" srcset="/wp-content/uploads/2018/05/word-image-2624.png 1266w, /wp-content/uploads/2018/05/word-image-2624-300x76.png 300w, /wp-content/uploads/2018/05/word-image-2624-768x195.png 768w, /wp-content/uploads/2018/05/word-image-2624-1024x260.png 1024w" sizes="(max-width: 1266px) 100vw, 1266px" />
+</p>
+<p>
+  4、添加新词条
+</p>
+<p>
+  1、设计界面
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="577" height="253" src="/wp-content/uploads/2018/05/word-image-2625.png" class="wp-image-2994" srcset="/wp-content/uploads/2018/05/word-image-2625.png 577w, /wp-content/uploads/2018/05/word-image-2625-300x132.png 300w" sizes="(max-width: 577px) 100vw, 577px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="662" height="349" src="/wp-content/uploads/2018/05/word-image-2626.png" class="wp-image-2995" srcset="/wp-content/uploads/2018/05/word-image-2626.png 662w, /wp-content/uploads/2018/05/word-image-2626-300x158.png 300w" sizes="(max-width: 662px) 100vw, 662px" />
+</p>
+<p>
+  2、表单还是提交到当前页面，使用post方式提交
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="880" height="398" src="/wp-content/uploads/2018/05/word-image-2627.png" class="wp-image-2996" srcset="/wp-content/uploads/2018/05/word-image-2627.png 880w, /wp-content/uploads/2018/05/word-image-2627-300x136.png 300w, /wp-content/uploads/2018/05/word-image-2627-768x347.png 768w" sizes="(max-width: 880px) 100vw, 880px" />
+</p>
+<p>
+  3、具体添加操作
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="946" height="460" src="/wp-content/uploads/2018/05/word-image-2628.png" class="wp-image-2997" srcset="/wp-content/uploads/2018/05/word-image-2628.png 946w, /wp-content/uploads/2018/05/word-image-2628-300x146.png 300w, /wp-content/uploads/2018/05/word-image-2628-768x373.png 768w" sizes="(max-width: 946px) 100vw, 946px" />
+</p>
+<h1>八、使用DOM方式操作xml</h1>
+<p>
+  <img loading="lazy" decoding="async" width="1135" height="507" src="/wp-content/uploads/2018/05/word-image-2629.png" class="wp-image-2998" srcset="/wp-content/uploads/2018/05/word-image-2629.png 1135w, /wp-content/uploads/2018/05/word-image-2629-300x134.png 300w, /wp-content/uploads/2018/05/word-image-2629-768x343.png 768w, /wp-content/uploads/2018/05/word-image-2629-1024x457.png 1024w" sizes="(max-width: 1135px) 100vw, 1135px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/2947.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

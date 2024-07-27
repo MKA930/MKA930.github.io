@@ -1,0 +1,1440 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>锁机制 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E9%94%81%E6%9C%BA%E5%88%B6/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 14:46:06 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>锁机制 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>网站优化（三）MySQL优化 并发、锁机制、索引、缓存、分表、分区算法、分区管理</title>
+		<link>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5356.html</link>
+					<comments>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5356.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 14:46:06 +0000</pubDate>
+				<category><![CDATA[优化方案]]></category>
+		<category><![CDATA[网站优化]]></category>
+		<category><![CDATA[分区算法]]></category>
+		<category><![CDATA[分区管理]]></category>
+		<category><![CDATA[分表]]></category>
+		<category><![CDATA[并发]]></category>
+		<category><![CDATA[索引]]></category>
+		<category><![CDATA[缓存]]></category>
+		<category><![CDATA[锁机制]]></category>
+		<guid isPermaLink="false">/?p=5356</guid>
+
+					<description><![CDATA[大型网站核心优化之MySQL优化 复习 什么是三范式： 就是设计数据库的规则 三范式好处：减少冗余，加快读写效 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>大型网站核心优化之MySQL优化</h1>
+<h1>复习</h1>
+<ul>
+<li>
+    什么是三范式： 就是设计数据库的规则
+  </li>
+<li>
+    三范式好处：减少冗余，加快读写效率
+  </li>
+<li>
+    三范式有哪些：
+  </li>
+</ul>
+<ol>
+<li>
+  每个字段不可以再分
+</li>
+<li>
+  一个表必须有主键、一个表只描述一件事
+</li>
+<li>
+  一个表不能包含其他表的非主键字段（一个表只能包含其他表的主键）
+</li>
+</ol>
+<ul>
+<li>
+    逆范式：以空间换时间
+  </li>
+</ul>
+<p>
+  MyIsam和InnoDB存储引擎区别
+</p>
+<ul>
+<li>
+    存储结构：myisam三个文件、innodb2个文件
+  </li>
+<li>
+    事物和外键支持：myisam都不支持，innodb都支持
+  </li>
+<li>
+    CURD操作：
+  </li>
+</ul>
+<p>
+  myisam读快
+</p>
+<p>
+  innodb增、改快（注：如果需要删除整个表数据，直接用TRUNCATE语句删）
+</p>
+<ul>
+<li>
+    全文检索：mysql5.6+版本innodb和myisam都支持（都不支持中文）
+  </li>
+<li>
+    锁：myisam支持表锁，innodb支持行和表锁
+  </li>
+</ul>
+<p>
+  字段类型选择：略（重要）
+</p>
+<p>
+  #索引种类
+</p>
+<p>
+  普通索引（index）				&#8211;  仅仅为加速
+</p>
+<p>
+  唯一索引（unique）				&#8211;  保证唯一性
+</p>
+<p>
+  主键索引（primary key）  		&#8211;  既保证唯一性又不能为null
+</p>
+<p>
+  全文索引（fulltext）				&#8211;  提取指定字段的内容增加索引
+</p>
+<p>
+  组合索引							&#8211;  给两个字段同时设置索引
+</p>
+<p>
+  #建表创建索引
+</p>
+<p>
+  create table 表名(
+</p>
+<p>
+  index（字段名）,
+</p>
+<p>
+  unique（字段名），
+</p>
+<p>
+  primary key （字段名），
+</p>
+<p>
+  fulltext （字段名），
+</p>
+<p>
+  index（字段名1，字段名2）
+</p>
+<p>
+  );
+</p>
+<p>
+  #修改表创建索引
+</p>
+<p>
+  创建索引：alter table 表名 add 索引类型 索引名（字段名）
+</p>
+<p>
+  删除索引：drop index 索引名 on 表名
+</p>
+<p>
+  慢查询日志作用：记录慢SQL语句
+</p>
+<p>
+  如何开启：
+</p>
+<p>
+  show variables like &#8216;slow_query%&#8217;;
+</p>
+<p>
+  show variables like &#8216;%query_time&#8217;;
+</p>
+<p>
+  如何分析慢SQL语句：explain 待分析的SQL语句 \G
+</p>
+<h1>︴场景：并发</h1>
+<h2>1、概念</h2>
+<p>
+  场景：在实际工作中会出现负库存
+</p>
+<p>
+  原因：并发
+</p>
+<p>
+  并发：好比同时有n多人超市结账
+</p>
+<h2>负库存案例代码</h2>
+<h3>1）SQL语句</h3>
+<p>
+  create database shop;
+</p>
+<p>
+  use shop;
+</p>
+<p>
+  &#8212; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  &#8212; Table structure for `goods`
+</p>
+<p>
+  &#8212; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  DROP TABLE IF EXISTS `goods`;
+</p>
+<p>
+  CREATE TABLE `goods` (
+</p>
+<p>
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+</p>
+<p>
+    `num` int(11) NOT NULL DEFAULT &#8216;0&#8217;,
+</p>
+<p>
+    PRIMARY KEY (`id`)
+</p>
+<p>
+  ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+</p>
+<p>
+  &#8212; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  &#8212; Records of goods
+</p>
+<p>
+  &#8212; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  INSERT INTO `goods` VALUES (&#8216;1&#8217;, &#8216;100&#8217;);
+</p>
+<h3>2）代码</h3>
+<p>
+  // 语法：ab -n 1000 -c 100 http://localhost/test/test.php
+</p>
+<p>
+  // 说明：n &#8211; 请求总数 ,  c  &#8211; 并且
+</p>
+<p>
+  //http://localhost/test/test.php
+</p>
+<p>
+  $conn = @mysql_connect(&#8216;127.0.0.1&#8242;,&#8217;root&#8217;,&#8217;root&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;set names utf8&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;use shop&#8217;);
+</p>
+<p>
+  // $fp = fopen(&#8216;lock.txt&#8217;, &#8216;w&#8217;);
+</p>
+<p>
+  // flock($fp, LOCK_EX);
+</p>
+<p>
+  mysql_query(&#8216;lock table goods write;&#8217;);
+</p>
+<p>
+  $sql = &#8220;select num from goods where id = 1&#8221;;
+</p>
+<p>
+  $res = mysql_query($sql);
+</p>
+<p>
+  $tmp = mysql_fetch_assoc($res);
+</p>
+<p>
+  $num = $tmp[&#8216;num&#8217;];
+</p>
+<p>
+  if ($num) {
+</p>
+<p>
+  //减库存
+</p>
+<p>
+  $sql=&#8221;update goods set num=num-1 where id = 1&#8243;;
+</p>
+<p>
+  mysql_query($sql);
+</p>
+<p>
+  }
+</p>
+<p>
+  // flock($fp, LOCK_UN);
+</p>
+<p>
+  mysql_query(&#8216;unlock table;&#8217;);
+</p>
+<p>
+  echo &#8216;ok&#8217;;
+</p>
+<p>
+  die;
+</p>
+<h2>解决</h2>
+<h3>MySQL锁（强烈不推荐）</h3>
+<p><img fetchpriority="high" decoding="async" width="750" height="653" src="/wp-content/uploads/2018/05/word-image-4848.png" class="wp-image-5357" srcset="/wp-content/uploads/2018/05/word-image-4848.png 750w, /wp-content/uploads/2018/05/word-image-4848-300x261.png 300w" sizes="(max-width: 750px) 100vw, 750px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  // 语法：ab -n 1000 -c 100 http://localhost/test/test.php
+</p>
+<p>
+  // 说明：n &#8211; 请求总数 ,  c  &#8211; 并且
+</p>
+<p>
+  //http://localhost/test/test.php
+</p>
+<p>
+  $conn = @mysql_connect(&#8216;127.0.0.1&#8242;,&#8217;root&#8217;,&#8217;root&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;set names utf8&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;use shop&#8217;);
+</p>
+<p>
+  // mysql_query(&#8216;lock table goods write&#8217;);//开启排它锁
+</p>
+<p>
+  $sql = &#8220;select num from goods where id = 1&#8221;;
+</p>
+<p>
+  $res = mysql_query($sql);
+</p>
+<p>
+  $tmp = mysql_fetch_assoc($res);
+</p>
+<p>
+  $num = $tmp[&#8216;num&#8217;];
+</p>
+<p>
+  if ($num) {
+</p>
+<p>
+  	//减库存
+</p>
+<p>
+  	$sql=&#8221;update goods set num=num-1 where id = 1&#8243;;
+</p>
+<p>
+  	mysql_query($sql);
+</p>
+<p>
+  	// mysql_query(&#8216;unlock table&#8217;);//释放锁
+</p>
+<p>
+  }
+</p>
+<p>
+  echo &#8216;ok&#8217;;
+</p>
+<p>
+  die;
+</p>
+<h3>2）文件锁（不推荐）</h3>
+<p><img decoding="async" width="779" height="659" src="/wp-content/uploads/2018/05/word-image-4849.png" class="wp-image-5358" srcset="/wp-content/uploads/2018/05/word-image-4849.png 779w, /wp-content/uploads/2018/05/word-image-4849-300x254.png 300w, /wp-content/uploads/2018/05/word-image-4849-768x650.png 768w" sizes="(max-width: 779px) 100vw, 779px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  // 语法：ab -n 1000 -c 100 http://localhost/test/test.php
+</p>
+<p>
+  // 说明：n &#8211; 请求总数 ,  c  &#8211; 并且
+</p>
+<p>
+  //http://localhost/test/test.php
+</p>
+<p>
+  $conn = @mysql_connect(&#8216;127.0.0.1&#8242;,&#8217;root&#8217;,&#8217;root&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;set names utf8&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;use shop&#8217;);
+</p>
+<p>
+  // mysql_query(&#8216;lock table goods write&#8217;);//开启排它锁
+</p>
+<p>
+  $fp = fopen(&#8216;lock.txt&#8217;, &#8216;a+&#8217;);
+</p>
+<p>
+  flock($fp, LOCK_EX);
+</p>
+<p>
+  $sql = &#8220;select num from goods where id = 1&#8221;;
+</p>
+<p>
+  $res = mysql_query($sql);
+</p>
+<p>
+  $tmp = mysql_fetch_assoc($res);
+</p>
+<p>
+  $num = $tmp[&#8216;num&#8217;];
+</p>
+<p>
+  if ($num) {
+</p>
+<p>
+  	//减库存
+</p>
+<p>
+  	$sql=&#8221;update goods set num=num-1 where id = 1&#8243;;
+</p>
+<p>
+  	$rs = mysql_query($sql);
+</p>
+<p>
+  	// mysql_query(&#8216;unlock table&#8217;);//释放锁
+</p>
+<p>
+  	flock(LOCK_UN);
+</p>
+<p>
+  }
+</p>
+<p>
+  echo &#8216;ok&#8217;;
+</p>
+<p>
+  die;
+</p>
+<h3>3）消息队列（推荐）</h3>
+<h1>︴扩展：MySQL中锁机制【★★★】</h1>
+<h2>概念</h2>
+<p>
+  在MySQL数据库中MyISAM存储引擎采用的是表级锁，InnoDB存储引擎采用的是行级锁、也支表行级锁。（ps. 锁分两种模式，分别为：共享锁和排他锁）
+</p>
+<p>
+  共享读锁/共享锁（lock table 表名read;）    其他用户：读-可以，写-堵塞
+</p>
+<p>
+  独占写锁/排他锁（lock table 表名 write;）   其他用户：读-堵塞，写-堵塞
+</p>
+<p>
+  释放锁：unlock table
+</p>
+<h2>2、练习</h2>
+<h3>1）表锁的演示</h3>
+<ul>
+<li>
+    MyISAM表锁
+  </li>
+</ul>
+<p>
+  create table lock_t1 (
+</p>
+<p>
+  id int primary key auto_increment,
+</p>
+<p>
+  name varchar(30) not null
+</p>
+<p>
+  )engine=myisam charset=utf8;
+</p>
+<p>
+  #session1，开启共享锁
+</p>
+<p>
+  lock table lock_t1 read;
+</p>
+<p>
+  #session1，读（可以）
+</p>
+<p>
+  #session1，写（不可以，报错）
+</p>
+<p>
+  #session2，读（可以）
+</p>
+<p>
+  #session2，写（堵塞）
+</p>
+<p>
+  unlock table;
+</p>
+<p>
+  #session1，开启排他锁
+</p>
+<p>
+  lock table lock_t1 write;
+</p>
+<p>
+  #session1，读（可以）
+</p>
+<p>
+  #session1，写（可以）
+</p>
+<p>
+  #session2，读（堵塞）
+</p>
+<p>
+  #session2，写（堵塞）
+</p>
+<p>
+  unlock table;
+</p>
+<ul>
+<li>
+    InnoDB表锁
+  </li>
+</ul>
+<p>
+  create table lock_t2 (
+</p>
+<p>
+  id int primary key auto_increment,
+</p>
+<p>
+  name varchar(30) not null
+</p>
+<p>
+  )engine=innodb charset=utf8;
+</p>
+<p>
+  #session1，开启共享锁
+</p>
+<p>
+  lock table lock_t2 read;
+</p>
+<p>
+  #session1，读（可以）
+</p>
+<p>
+  #session1，写（不可以，报错）
+</p>
+<p>
+  #session2，读（可以）
+</p>
+<p>
+  #session2，写（堵塞）
+</p>
+<p>
+  unlock table;
+</p>
+<p>
+  #session1，开启排他锁
+</p>
+<p>
+  lock table lock_t2 write;
+</p>
+<p>
+  #session1，读（可以）
+</p>
+<p>
+  #session1，写（可以）
+</p>
+<p>
+  #session2，读（堵塞）
+</p>
+<p>
+  #session2，写（堵塞）
+</p>
+<p>
+  unlock table;
+</p>
+<ul>
+<li>
+    验证：MyISAM存储引擎默认是表级锁
+  </li>
+</ul>
+<p>
+  上一讲我们插入了1千万数据不适用主键索引查询需要3~4min，问A窗口查询过程中B窗口修改等待还是直接执行？
+</p>
+<p>
+  分析：因为myisam是表锁，所以写堵塞
+</p>
+<p>
+  回答：堵塞
+</p>
+<h3>2）行锁的演示</h3>
+<p>
+  create table t2 (
+</p>
+<p>
+  id int primary key auto_increment,
+</p>
+<p>
+  name varchar(30) not null
+</p>
+<p>
+  )engine=innodb charset=utf8;
+</p>
+<p>
+  insert into t2 value (null, &#8216;aaa&#8217;);
+</p>
+<p>
+  insert into t2 value (null, &#8216;aaa&#8217;);
+</p>
+<p>
+  begin;
+</p>
+<p>
+  update t2 set name = &#8216;bb&#8217; where id = 1;
+</p>
+<p>
+  update t2 set name = &#8216;ccc&#8217; where id = 1;
+</p>
+<h2><a id="post-5356-_Toc435371841"></a>3、锁的特点</h2>
+<ul>
+<li>
+    表级锁代表（MyISAM）：开销小，加锁快；不会出现死锁；锁定粒度大，发生锁
+  </li>
+</ul>
+<p>
+  冲突的概率最高，并发度最低（堵塞频率高）。
+</p>
+<p>
+  开销小：相对行级锁加锁资源较少
+</p>
+<p>
+  锁定颗粒度大：指锁的级别，最小的行级锁，最大的表锁
+</p>
+<p>
+  锁冲突高：因为针对整个表加锁，除非没有其他人操作否则冲突概率大
+</p>
+<ul>
+<li>
+    行级锁（InnoDB）：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突概
+  </li>
+</ul>
+<p>
+  率最低，并发度也最高（堵塞频率低）。
+</p>
+<p>
+  死锁：指开启事物不提交导致
+</p>
+<h1>︴扩展：PHP中的文件锁机制【★★★】</h1>
+<h2>1、说明</h2>
+<p>
+  文件锁机制一般在单独操作文件时看不到效果，需要多人同时操作（并发）
+</p>
+<h2>2、文件锁的用途（举例）</h2>
+<p>
+  若一个人在写入一个文件，另外一个人同时也打个了这个文件进行写入文件。
+</p>
+<p>
+  这情况下，很难明确谁的操作为准。因此，这个时候我们引入锁机制。若用户A在写入或者读取这个文件的时候，将文件加上共享锁。我可以读，其他人也可以读。但是，其他人不可以写。我使用独占锁/排它锁。这个文件归我了，你们都别动，除非我将文件锁进行释放。
+</p>
+<p>
+  A共享锁    B：读-可以，写-不行（堵塞）
+</p>
+<p>
+  A排它锁    B：读-不行（堵塞），写-不行（堵塞）
+</p>
+<h2>语法</h2>
+<ul>
+<li>
+    语法：flock（资源，锁类型）
+  </li>
+<li>
+    锁类型
+  </li>
+</ul>
+<p>
+  LOCK_SH    	取得共享锁定（读取的程序）
+</p>
+<p>
+  LOCK_EX		取得独占锁/排它锁定（写入的程序）
+</p>
+<p>
+  LOCK_UN    	释放锁定（无论共享或独占）
+</p>
+<p>
+  LOCK_NB		当被锁定时，不阻塞，而是提示锁定。
+</p>
+<p>
+  r   读  ，指针文件头
+</p>
+<p>
+  r+  读写，指针文件头（文件必须先存在）
+</p>
+<p>
+  w   写  ，清空数据，文件不存在自动创建
+</p>
+<p>
+  w+  读写，清空数据，文件不存在自动创建
+</p>
+<p>
+  a   写  ，追加数据，文件不存在自动创建
+</p>
+<p>
+  a+  读写，追加数据，文件不存在自动创建
+</p>
+<p>
+  脚下留心：加锁必须释放
+</p>
+<p>
+  浏览器机制：当前用户同一浏览器请求同一个文件，堵塞，所以使用两个文件测试
+</p>
+<ul>
+<li>
+    案例
+  </li>
+</ul>
+<p>
+  a.php
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  header(&#8216;content-type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  /**
+</p>
+<p>
+  r  只读，并且光标行首
+</p>
+<p>
+  r+ 读写（注：文件必须存在）
+</p>
+<p>
+  w  写  （清空数据，文件不存在自动创建）
+</p>
+<p>
+  w+ 读写（清空数据，文件不存在自动创建）
+</p>
+<p>
+  a  写  （追加数据，文件不存在自动创建）
+</p>
+<p>
+  a+ 读写（追加数据，文件不存在自动创建）
+</p>
+<p>
+  */
+</p>
+<p>
+  $fp = fopen(&#8216;./a.txt&#8217;, &#8216;a+&#8217;);
+</p>
+<p>
+  /**
+</p>
+<p>
+  LOCK_SH 获取读锁（共享锁）
+</p>
+<p>
+  LOCK_EX 获取写锁（排他锁）
+</p>
+<p>
+  LOCK_UN 释放锁
+</p>
+<p>
+  LOCK_NB 当被锁定时，不阻塞，而是提示锁定。
+</p>
+<p>
+  */
+</p>
+<p>
+  if (flock($fp, LOCK_EX)) {
+</p>
+<p>
+  	echo fread($fp, 20);
+</p>
+<p>
+  	sleep(15);
+</p>
+<p>
+  	echo fread($fp, 20);
+</p>
+<p>
+  	flock($fp, LOCK_UN);
+</p>
+<p>
+  }
+</p>
+<p>
+  b.php
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  $fp = fopen(&#8216;./a.txt&#8217;, &#8216;a+&#8217;);
+</p>
+<p>
+  /**
+</p>
+<p>
+  LOCK_SH 获取读锁（共享锁）
+</p>
+<p>
+  LOCK_EX 获取写锁（排他锁）
+</p>
+<p>
+  LOCK_UN 释放所
+</p>
+<p>
+  LOCK_NB 当被锁定时，不阻塞，而是提示锁定。
+</p>
+<p>
+  */
+</p>
+<p>
+  if (flock($fp, LOCK_EX | LOCK_NB)) {
+</p>
+<p>
+  	echo 11;die;
+</p>
+<p>
+  	// echo fread($fp, 20);
+</p>
+<p>
+  	$rs = fwrite($fp, 9);
+</p>
+<p>
+  	var_dump($rs);
+</p>
+<p>
+  	flock($fp, LOCK_UN);
+</p>
+<p>
+  }
+</p>
+<h2>应用场景</h2>
+<p>
+  秒杀项目，不推荐   -&gt;  可用 php + redis 消息队列代替
+</p>
+<p>
+  第三方支付通知文件锁案例
+</p>
+<h1>一、前缀索引</h1>
+<h2>1、什么是前缀索引</h2>
+<h3>1）概念</h3>
+<p>
+  前缀索引：指一个字段的内容，只需前面n个字符就可以具备唯一标识，将其创建为索引，最终形成“前缀索引”。
+</p>
+<p>
+  前缀索引好处：索引很长的字符列，它会使索引变大而且变慢，前缀索引能很好地减少索引的大小及提高速度。
+</p>
+<h3>举例</h3>
+<p>
+  name
+</p>
+<p>
+  啊增
+</p>
+<p>
+  小泽
+</p>
+<p>
+  玛丽
+</p>
+<p>
+  苍苍
+</p>
+<p>
+  姚姚
+</p>
+<p>
+  发现：以前需要把整个name字段看完，才能找到数据，现在因为姓名第一个字符【啊、小&#8230;】具备唯一性所以我们只要第一个字符就可以快速查找。
+</p>
+<h2>2、制作前缀索引</h2>
+<h3>1）创建数据</h3>
+<p>
+  create table qianzhui (
+</p>
+<p>
+  id int primary key auto_increment comment &#8216;编号&#8217;,
+</p>
+<p>
+  name varchar(30) not null comment &#8216;姓名&#8217;
+</p>
+<p>
+  )engine=myisam charset=utf8;
+</p>
+<p>
+  insert into qianzhui values (null, &#8216;张三&#8217;);
+</p>
+<p>
+  insert into qianzhui values (null, &#8216;王八三&#8217;);
+</p>
+<p>
+  insert into qianzhui values (null, &#8216;小三&#8217;);
+</p>
+<p>
+  insert into qianzhui values (null, &#8216;大三&#8217;);
+</p>
+<h3>2）创建前缀索引</h3>
+<p>
+  语法：alter table 表名 add  index 索引名(字段名(字符个数))
+</p>
+<p>
+  alter table qianzhui add index qianzhui(name(1));
+</p>
+<p><img decoding="async" width="579" height="374" src="/wp-content/uploads/2018/05/word-image-4850.png" class="wp-image-5359" srcset="/wp-content/uploads/2018/05/word-image-4850.png 579w, /wp-content/uploads/2018/05/word-image-4850-300x194.png 300w" sizes="(max-width: 579px) 100vw, 579px" /></p>
+<h3>3）验证</h3>
+<p><img loading="lazy" decoding="async" width="899" height="527" src="/wp-content/uploads/2018/05/word-image-4851.png" class="wp-image-5360" srcset="/wp-content/uploads/2018/05/word-image-4851.png 899w, /wp-content/uploads/2018/05/word-image-4851-300x176.png 300w, /wp-content/uploads/2018/05/word-image-4851-768x450.png 768w" sizes="(max-width: 899px) 100vw, 899px" /></p>
+<h1>二、全文索引（了解）</h1>
+<h2>1、什么是全文索引</h2>
+<p>
+  试想在1M大小的文件中搜索一个词，可能需要几秒，在100M的文件中可能需要几十秒，如果在更大的文件中搜索那么就需要更大的系统开销，这样的开销是不现实的。
+</p>
+<p>
+  全文索引：提取指定字段里面的内容添加索引
+</p>
+<p>
+  目的：加速like语句查询速度（注：mysql全文索引不支持中文）  sphinx
+</p>
+<p><img loading="lazy" decoding="async" width="820" height="105" src="/wp-content/uploads/2018/05/word-image-4852.png" class="wp-image-5361" srcset="/wp-content/uploads/2018/05/word-image-4852.png 820w, /wp-content/uploads/2018/05/word-image-4852-300x38.png 300w, /wp-content/uploads/2018/05/word-image-4852-768x98.png 768w" sizes="(max-width: 820px) 100vw, 820px" /></p>
+<h2>2、具体操作</h2>
+<h3>1）创建测试数据</h3>
+<p>
+  #创建文章表
+</p>
+<p>
+  create table articles2 (
+</p>
+<p>
+  id int unsigned primary key auto_increment comment &#8216;编号&#8217;,
+</p>
+<p>
+  title varchar(80) not null comment &#8216;标题&#8217;,
+</p>
+<p>
+  content text not null comment &#8216;内容&#8217;
+</p>
+<p>
+  )engine=myisam charset=utf8;
+</p>
+<p>
+  #插入文章数据（禁中文，不支持）
+</p>
+<p>
+  insert into articles2
+</p>
+<p>
+  (title,content)
+</p>
+<p>
+  value
+</p>
+<p>
+  (&#8216;MySQL Tutorial&#8217;,&#8217;DBMS stands for DataBase &#8230;&#8217;),
+</p>
+<p>
+  (&#8216;How To Use MySQL Well&#8217;,&#8217;After you went through a &#8230;&#8217;),
+</p>
+<p>
+  (&#8216;Optimizing MySQL&#8217;,&#8217;In this tutorial we will show &#8230;&#8217;),
+</p>
+<p>
+  (&#8216;1001 MySQL Tricks&#8217;,&#8217;1. Never run mysqld as root. 2. &#8230;&#8217;),
+</p>
+<p>
+  (&#8216;MySQL vs. YourSQL&#8217;,&#8217;In the following database comparison &#8230;&#8217;),
+</p>
+<p>
+  (&#8216;MySQL Security&#8217;,&#8217;When configured properly, MySQL &#8230;&#8217;);
+</p>
+<h3>添加全文所引</h3>
+<p>
+  alter table articles2 add fulltext title(title);
+</p>
+<h3>使用全文索引</h3>
+<ul>
+<li>
+    语法：select * from 表名where match(字段) against(‘内容’ IN BOOLEAN MODE);
+  </li>
+<li>
+    参数：
+  </li>
+<li>
+    如果添加全文索引是多个字段，如：fulltext（title，content）则查询语句字段处格
+  </li>
+</ul>
+<p>
+  式：match（字段1，字段2）
+</p>
+<ul>
+<li>
+    如果需要检索多个关键字，则内容处：‘内容1,内容2’
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="850" height="551" src="/wp-content/uploads/2018/05/word-image-4853.png" class="wp-image-5362" srcset="/wp-content/uploads/2018/05/word-image-4853.png 850w, /wp-content/uploads/2018/05/word-image-4853-300x194.png 300w, /wp-content/uploads/2018/05/word-image-4853-768x498.png 768w" sizes="(max-width: 850px) 100vw, 850px" /></p>
+<h1>三、limit分页优化（百万至千万级快速分页）</h1>
+<h2>1、概念</h2>
+<p>
+  当数据单表数据超过一定量后分页查询特别慢
+</p>
+<h2>分析</h2>
+<p><img loading="lazy" decoding="async" width="816" height="421" src="/wp-content/uploads/2018/05/word-image-4854.png" class="wp-image-5363" srcset="/wp-content/uploads/2018/05/word-image-4854.png 816w, /wp-content/uploads/2018/05/word-image-4854-300x155.png 300w, /wp-content/uploads/2018/05/word-image-4854-768x396.png 768w" sizes="(max-width: 816px) 100vw, 816px" /></p>
+<h2>思路</h2>
+<p>
+  1、从业务角度优化（百度、谷歌分页限制）
+</p>
+<p>
+  2、使用索引查询（where 条件 limit 数字）       索引+缓存（策略：功能+分页作为缓存唯一标识）
+</p>
+<ol>
+<li>
+  索引使用
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="863" height="546" src="/wp-content/uploads/2018/05/word-image-4855.png" class="wp-image-5364" srcset="/wp-content/uploads/2018/05/word-image-4855.png 863w, /wp-content/uploads/2018/05/word-image-4855-300x190.png 300w, /wp-content/uploads/2018/05/word-image-4855-768x486.png 768w" sizes="(max-width: 863px) 100vw, 863px" /><br />
+<img loading="lazy" decoding="async" width="1283" height="443" src="/wp-content/uploads/2018/05/word-image-4856.png" class="wp-image-5365" srcset="/wp-content/uploads/2018/05/word-image-4856.png 1283w, /wp-content/uploads/2018/05/word-image-4856-300x104.png 300w, /wp-content/uploads/2018/05/word-image-4856-768x265.png 768w, /wp-content/uploads/2018/05/word-image-4856-1024x354.png 1024w" sizes="(max-width: 1283px) 100vw, 1283px" /></p>
+<p>
+  发现：where通过主键赛选非常快，但是增加多个条件又慢了
+</p>
+<p><img loading="lazy" decoding="async" width="651" height="109" src="/wp-content/uploads/2018/05/word-image-4857.png" class="wp-image-5366" srcset="/wp-content/uploads/2018/05/word-image-4857.png 651w, /wp-content/uploads/2018/05/word-image-4857-300x50.png 300w" sizes="(max-width: 651px) 100vw, 651px" /></p>
+<p>
+  解决：添加组合索引
+</p>
+<p><img loading="lazy" decoding="async" width="877" height="654" src="/wp-content/uploads/2018/05/word-image-4858.png" class="wp-image-5367" srcset="/wp-content/uploads/2018/05/word-image-4858.png 877w, /wp-content/uploads/2018/05/word-image-4858-300x224.png 300w, /wp-content/uploads/2018/05/word-image-4858-768x573.png 768w" sizes="(max-width: 877px) 100vw, 877px" /></p>
+<h1>五、查询缓存（了解）</h1>
+<h2>1、概念</h2>
+<p>
+  MySQL第一次执行后保存缓存数据，第二次直接从缓存中读取。
+</p>
+<h2>相关SQL语句</h2>
+<p>
+  查看SQL缓存参数：show variables like &#8216;query_cache%&#8217;;
+</p>
+<p>
+  开启SQL缓存：set global query_cache_type = 1
+</p>
+<p>
+  关闭SQL缓存：set global query_cache_type = 0
+</p>
+<p>
+  设置缓存空间：set global query_cache_size = 1024*1024*64  #单位/M
+</p>
+<p>
+  固定SQL语句声明不适用缓存：select sql_no_cache * from 表名
+</p>
+<h2>开启缓存</h2>
+<p>
+  步骤1：测试数据库
+</p>
+<p><img loading="lazy" decoding="async" width="465" height="149" src="/wp-content/uploads/2018/05/word-image-4859.png" class="wp-image-5368" srcset="/wp-content/uploads/2018/05/word-image-4859.png 465w, /wp-content/uploads/2018/05/word-image-4859-300x96.png 300w" sizes="(max-width: 465px) 100vw, 465px" /></p>
+<p>
+  步骤2：开启缓存
+</p>
+<p>
+  set global query_cache_type = 1;
+</p>
+<p><img loading="lazy" decoding="async" width="425" height="450" src="/wp-content/uploads/2018/05/word-image-4860.png" class="wp-image-5369" srcset="/wp-content/uploads/2018/05/word-image-4860.png 425w, /wp-content/uploads/2018/05/word-image-4860-283x300.png 283w" sizes="(max-width: 425px) 100vw, 425px" /></p>
+<p>
+  步骤3：设置缓存空间
+</p>
+<p><img loading="lazy" decoding="async" width="480" height="300" src="/wp-content/uploads/2018/05/word-image-4861.png" class="wp-image-5370" srcset="/wp-content/uploads/2018/05/word-image-4861.png 480w, /wp-content/uploads/2018/05/word-image-4861-300x188.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></p>
+<p>
+  步骤4：测试
+</p>
+<p><img loading="lazy" decoding="async" width="513" height="313" src="/wp-content/uploads/2018/05/word-image-4862.png" class="wp-image-5371" srcset="/wp-content/uploads/2018/05/word-image-4862.png 513w, /wp-content/uploads/2018/05/word-image-4862-300x183.png 300w" sizes="(max-width: 513px) 100vw, 513px" /></p>
+<h2>4、不使用缓存</h2>
+<p><img loading="lazy" decoding="async" width="634" height="392" src="/wp-content/uploads/2018/05/word-image-4863.png" class="wp-image-5372" srcset="/wp-content/uploads/2018/05/word-image-4863.png 634w, /wp-content/uploads/2018/05/word-image-4863-300x185.png 300w" sizes="(max-width: 634px) 100vw, 634px" /></p>
+<h2>说明</h2>
+<p>
+  发现：该功能了解即可，这是从MySQL层面缓存不推荐使用，因为及时缓存了PHP操作MySQL还是有额外开销
+</p>
+<p>
+  解决：后期通过php直接操作内存缓存（内存缓存  &gt; 文件缓存  &gt;  数据库）
+</p>
+<p><img loading="lazy" decoding="async" width="832" height="706" src="/wp-content/uploads/2018/05/word-image-4864.png" class="wp-image-5373" srcset="/wp-content/uploads/2018/05/word-image-4864.png 832w, /wp-content/uploads/2018/05/word-image-4864-300x255.png 300w, /wp-content/uploads/2018/05/word-image-4864-768x652.png 768w" sizes="(max-width: 832px) 100vw, 832px" /></p>
+<h1>六、分表技术（重点）</h1>
+<h2>1、水平分表</h2>
+<h3>1）说明</h3>
+<p>
+  当一个表很大时我们创建索引后，查询速度还是很慢, 把一个巨大的表安装某个
+</p>
+<p>
+  标准分割成小表，这样可以提供查询的速度.
+</p>
+<p><img loading="lazy" decoding="async" width="551" height="384" src="/wp-content/uploads/2018/05/word-image-4865.png" class="wp-image-5374" srcset="/wp-content/uploads/2018/05/word-image-4865.png 551w, /wp-content/uploads/2018/05/word-image-4865-300x209.png 300w" sizes="(max-width: 551px) 100vw, 551px" /></p>
+<h3>2）原理</h3>
+<p><img loading="lazy" decoding="async" width="1128" height="534" src="/wp-content/uploads/2018/05/word-image-4866.png" class="wp-image-5375" srcset="/wp-content/uploads/2018/05/word-image-4866.png 1128w, /wp-content/uploads/2018/05/word-image-4866-300x142.png 300w, /wp-content/uploads/2018/05/word-image-4866-768x364.png 768w, /wp-content/uploads/2018/05/word-image-4866-1024x485.png 1024w" sizes="(max-width: 1128px) 100vw, 1128px" /></p>
+<h2>2、垂直分表</h2>
+<ul>
+<li>
+    目的：减少字段长度，加快查询速度。
+  </li>
+<li>
+    表中存在多个字段：常用字段和非常用字段
+  </li>
+<li>
+    例如：学生表可以分成，分为基础表和额外表，两张表中记录为1:1的关系。
+  </li>
+</ul>
+<p>
+  原表
+</p>
+<p>
+  id   name  pwd   age    sex   籍贯    政治面貌   &#8230;&#8230;
+</p>
+<p>
+  垂直分割表
+</p>
+<p>
+  基础信息表（student_base）
+</p>
+<p>
+  id	 	name	 age  pwd
+</p>
+<p>
+  额外信息表（student_extra）
+</p>
+<p>
+  id		籍贯	政治面貌
+</p>
+<h2><a id="post-5356-_Toc448765224"></a>3、为什么需要MySQL分表/分区</h2>
+<p>
+  假设一个数据表中存储1亿条记录，我们检索数据就必须检索1亿条记录，但
+</p>
+<p>
+  是这样是非常耗时的，因为MySQL本质还是以文件形式存储的，所以其读取
+</p>
+<p>
+  都要涉及到服务器的I/O开销，这就是MySQL的性能瓶颈。遇到这种情况，我
+</p>
+<p>
+  们就可以使用分表程序，把1亿条记录的数据表分割成10份：每一份只需要存
+</p>
+<p>
+  储1000万条数据，这样其数据的检索也会变得更加高效！
+</p>
+<h2>分区算法</h2>
+<h3>1）MySQL四种分区算法介绍</h3>
+<ul>
+<li>
+    求余（主键字段）：
+  </li>
+<li>
+    key  利用某个字段的值，进行求余，完成分区
+  </li>
+<li>
+    hash 利用某个整型表达式的值，完成分区
+  </li>
+<li>
+    条件：
+  </li>
+<li>
+    list   值在指定列表内的分区
+  </li>
+<li>
+    range 值在某个范围内的分区
+  </li>
+</ul>
+<h3>2）分区语法</h3>
+<p>
+  说明：在创建表都得时候进行分区，后期也可以增加和删除分区
+</p>
+<p>
+  语法：
+</p>
+<p>
+  create table 表名(
+</p>
+<p>
+  )engine=存储引擎 charset=编号
+</p>
+<p>
+  partition by 分区算法（字段） 分区选项；
+</p>
+<h3>key分区</h3>
+<p>
+  #创建数据库p1
+</p>
+<p>
+  create database p1;
+</p>
+<p>
+  #选择数据库
+</p>
+<p>
+  use p1;
+</p>
+<p>
+  #创建表
+</p>
+<p>
+  create table articles(
+</p>
+<p>
+    id int unsigned primary key auto_increment,
+</p>
+<p>
+    title varchar(50) not null,
+</p>
+<p>
+    content text
+</p>
+<p>
+  ) engine = myisam charset = utf8
+</p>
+<p>
+  partition by key(id) partitions <strong>10</strong>;
+</p>
+<p>
+  #根据key算法，创建10个分区（注：就相当于创建了10个表）
+</p>
+<p>
+  insert into articles values (null,&#8217;aaa&#8217;,&#8217;bb&#8217;);
+</p>
+<p>
+  flush table articles;
+</p>
+<p><img loading="lazy" decoding="async" width="1079" height="522" src="/wp-content/uploads/2018/05/word-image-4867.png" class="wp-image-5376" srcset="/wp-content/uploads/2018/05/word-image-4867.png 1079w, /wp-content/uploads/2018/05/word-image-4867-300x145.png 300w, /wp-content/uploads/2018/05/word-image-4867-768x372.png 768w, /wp-content/uploads/2018/05/word-image-4867-1024x495.png 1024w" sizes="(max-width: 1079px) 100vw, 1079px" /></p>
+<p>
+  多学一招：flush table 表名; 刷新表清除缓存
+</p>
+<h3>4）hash 分区</h3>
+<p>
+  #创建数据库p2
+</p>
+<p>
+  create database p2;
+</p>
+<p>
+  #选择数据库
+</p>
+<p>
+  use p2;
+</p>
+<p>
+  #创建表
+</p>
+<p>
+  create table articles(
+</p>
+<p>
+    id int unsigned primary key auto_increment,
+</p>
+<p>
+    title varchar(50) not null,
+</p>
+<p>
+    content text
+</p>
+<p>
+  ) engine = myisam charset = utf8
+</p>
+<p>
+  partition by hash (id) partitions <strong>4</strong>;
+</p>
+<p>
+  insert into articles values (null,&#8217;aaa&#8217;,&#8217;bb&#8217;);
+</p>
+<p>
+  flush table articles;
+</p>
+<p><img loading="lazy" decoding="async" width="1072" height="479" src="/wp-content/uploads/2018/05/word-image-4868.png" class="wp-image-5377" srcset="/wp-content/uploads/2018/05/word-image-4868.png 1072w, /wp-content/uploads/2018/05/word-image-4868-300x134.png 300w, /wp-content/uploads/2018/05/word-image-4868-768x343.png 768w, /wp-content/uploads/2018/05/word-image-4868-1024x458.png 1024w" sizes="(max-width: 1072px) 100vw, 1072px" /></p>
+<h3>5）list分区</h3>
+<p>
+  #创建数据库p3
+</p>
+<p>
+  create database p3;
+</p>
+<p>
+  #选择数据库
+</p>
+<p>
+  use p3;
+</p>
+<p>
+  #创建表
+</p>
+<p>
+  create table articles(
+</p>
+<p>
+    id int unsigned auto_increment,
+</p>
+<p>
+    title varchar(50) not null,
+</p>
+<p>
+    content text,
+</p>
+<p>
+    cid int unsigned,
+</p>
+<p>
+  primary key (id,cid)
+</p>
+<p>
+  ) engine = myisam charset = utf8
+</p>
+<p>
+  partition by list(cid) (
+</p>
+<p>
+  partition c1 values in (1,3),
+</p>
+<p>
+  partition c2 values in (2,4),
+</p>
+<p>
+  partition c3 values in (5,6,7)
+</p>
+<p>
+  );
+</p>
+<p>
+  #创建3个分区，当插入cid=1或者3进c1， 当插入cid=2或4进c2分区
+</p>
+<p>
+  insert into articles values (null,&#8217;aaa&#8217;,&#8217;bb&#8217;, 1);
+</p>
+<p>
+  flush table articles;
+</p>
+<p><img loading="lazy" decoding="async" width="1059" height="455" src="/wp-content/uploads/2018/05/word-image-4869.png" class="wp-image-5378" srcset="/wp-content/uploads/2018/05/word-image-4869.png 1059w, /wp-content/uploads/2018/05/word-image-4869-300x129.png 300w, /wp-content/uploads/2018/05/word-image-4869-768x330.png 768w, /wp-content/uploads/2018/05/word-image-4869-1024x440.png 1024w" sizes="(max-width: 1059px) 100vw, 1059px" /></p>
+<h3>5）range分区</h3>
+<p>
+  #创建一个数据库
+</p>
+<p>
+  create database p4;
+</p>
+<p>
+  #选择数据库
+</p>
+<p>
+  use p4;
+</p>
+<p>
+  #创建数据表并实现range分区
+</p>
+<p>
+  create table user(
+</p>
+<p>
+    id int not null auto_increment,
+</p>
+<p>
+    name varchar(40) not null,
+</p>
+<p>
+    birthday date not null default &#8216;0000-00-00&#8217;,
+</p>
+<p>
+    primary key(id,birthday)
+</p>
+<p>
+  ) engine = myisam default charset = utf8
+</p>
+<p>
+  partition by range(year(birthday)) (
+</p>
+<p>
+    partition 70hou values less than (1980),
+</p>
+<p>
+    partition 80hou values less than (1990),
+</p>
+<p>
+    partition 90hou values less than (2000),
+</p>
+<p>
+    partition 00hou values less than (2010)
+</p>
+<p>
+  );
+</p>
+<p>
+  insert into user values (null,&#8217;a&#8217;,&#8217;1970-01-01&#8242;);
+</p>
+<p>
+  insert into user values (null,&#8217;b&#8217;,&#8217;1980-01-01&#8242;);
+</p>
+<p>
+  insert into user values (null,&#8217;c&#8217;,&#8217;1990-01-01&#8242;);
+</p>
+<p>
+  # 有问题不符合条件
+</p>
+<p>
+  insert into user values (null,&#8217;d&#8217;,&#8217;2011-01-01&#8242;);
+</p>
+<p><img loading="lazy" decoding="async" width="340" height="160" src="/wp-content/uploads/2018/05/word-image-4870.png" class="wp-image-5379" srcset="/wp-content/uploads/2018/05/word-image-4870.png 340w, /wp-content/uploads/2018/05/word-image-4870-300x141.png 300w" sizes="(max-width: 340px) 100vw, 340px" /><br />
+<img loading="lazy" decoding="async" width="1052" height="553" src="/wp-content/uploads/2018/05/word-image-4871.png" class="wp-image-5380" srcset="/wp-content/uploads/2018/05/word-image-4871.png 1052w, /wp-content/uploads/2018/05/word-image-4871-300x158.png 300w, /wp-content/uploads/2018/05/word-image-4871-768x404.png 768w, /wp-content/uploads/2018/05/word-image-4871-1024x538.png 1024w" sizes="(max-width: 1052px) 100vw, 1052px" /></p>
+<h2>5、分区管理</h2>
+<h3>1、概念</h3>
+<ul>
+<li>
+    取余管理：增加分区-无影响，删除分区-无影响
+  </li>
+<li>
+    条件管理：增加分区-无影响，删除分区-数据丢失
+  </li>
+</ul>
+<h3>取余管理（key，hash）</h3>
+<p>
+  增加分区数量：alter table 表名 add partition partitions 增加分区的数量
+</p>
+<p>
+  减少分区数量：alter table 表名 coalesce partition 减少分区的数量
+</p>
+<p><img loading="lazy" decoding="async" width="1075" height="625" src="/wp-content/uploads/2018/05/word-image-4872.png" class="wp-image-5381" srcset="/wp-content/uploads/2018/05/word-image-4872.png 1075w, /wp-content/uploads/2018/05/word-image-4872-300x174.png 300w, /wp-content/uploads/2018/05/word-image-4872-768x447.png 768w, /wp-content/uploads/2018/05/word-image-4872-1024x595.png 1024w" sizes="(max-width: 1075px) 100vw, 1075px" /></p>
+<h3>3、条件管理（list，range）</h3>
+<p>
+  删除分区：alter  table  表名  drop  partition  10hou;
+</p>
+<p>
+  添加分区
+</p>
+<p>
+  alter table tp_user add partition(
+</p>
+<p>
+    partition 10hou values less than (maxvalue)
+</p>
+<p>
+  );
+</p>
+<p>
+  alter table tp_goods add partition(
+</p>
+<p>
+    partition c4 values in (8,9,10)
+</p>
+<p>
+  );
+</p>
+<p><img loading="lazy" decoding="async" width="930" height="616" src="/wp-content/uploads/2018/05/word-image-4873.png" class="wp-image-5382" srcset="/wp-content/uploads/2018/05/word-image-4873.png 930w, /wp-content/uploads/2018/05/word-image-4873-300x199.png 300w, /wp-content/uploads/2018/05/word-image-4873-768x509.png 768w" sizes="(max-width: 930px) 100vw, 930px" /><br />
+<img loading="lazy" decoding="async" width="1102" height="638" src="/wp-content/uploads/2018/05/word-image-4874.png" class="wp-image-5383" srcset="/wp-content/uploads/2018/05/word-image-4874.png 1102w, /wp-content/uploads/2018/05/word-image-4874-300x174.png 300w, /wp-content/uploads/2018/05/word-image-4874-768x445.png 768w, /wp-content/uploads/2018/05/word-image-4874-1024x593.png 1024w" sizes="(max-width: 1102px) 100vw, 1102px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5356.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>文章分类编辑 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB%E7%BC%96%E8%BE%91/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 09 Jun 2018 01:08:19 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>文章分类编辑 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP5.0（三）Composer 安装验证码、登录验证码、AR 模式操作数据库、文章分类添加、文章分类列表展示、文章分类编辑、Ajax 无刷新分类删除、文章添加、富文本编辑器</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7568.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7568.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 09 Jun 2018 00:42:59 +0000</pubDate>
+				<category><![CDATA[TP5.0]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[Ajax 无刷新分类删除]]></category>
+		<category><![CDATA[AR 模式操作数据库]]></category>
+		<category><![CDATA[Composer 安装验证码]]></category>
+		<category><![CDATA[富文本编辑器]]></category>
+		<category><![CDATA[文章分类列表展示]]></category>
+		<category><![CDATA[文章分类添加]]></category>
+		<category><![CDATA[文章分类编辑]]></category>
+		<category><![CDATA[文章添加]]></category>
+		<category><![CDATA[登录验证码]]></category>
+		<guid isPermaLink="false">/?p=7568</guid>
+
+					<description><![CDATA[TP5第三天 composer 什么是composer Composer 是 PHP 的一个依赖管理工具。它允 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>TP5第三天</h1>
+<h1>composer</h1>
+<h2>什么是composer</h2>
+<p>Composer 是 PHP 的一个依赖管理工具。它允许你申明项目所依赖的类库，它会在你的项目中为你安装他们。</p>
+<p>假设有个文件A.php,我们项目中使用需要就include A.php 包含进来，但是A.php又基于B.php,所以我们在A.php文件中又需要include B,但是不幸的B.php又基于C.php和D.php,于是又要在B.php进行include C.php和D.php 。假设C和D文件又基于其他文件，那么这样互相依赖的引入是非常麻烦的。</p>
+<p><img fetchpriority="high" decoding="async" width="881" height="132" class="wp-image-7569" src="/wp-content/uploads/2018/06/word-image-174.png" srcset="/wp-content/uploads/2018/06/word-image-174.png 881w, /wp-content/uploads/2018/06/word-image-174-300x45.png 300w, /wp-content/uploads/2018/06/word-image-174-768x115.png 768w" sizes="(max-width: 881px) 100vw, 881px" /></p>
+<p>那么在项目中使用composer就可以解决各个文件互相依赖的问题。除了解决文件依赖的关系，它还有更多的优点：</p>
+<ul>
+<li>下载网络上我们项目所需要的类库。</li>
+<li>可对下载的类库进行管理，如：删除、更新等众多便利的操作。</li>
+</ul>
+<p>其实composer也就类似与Linux中yum，前端中的npm、bower等操作。这些工具都是可以用来管理我们的代码的。</p>
+<h2>安装composer</h2>
+<p>安装方式一般有两种方式：</p>
+<p>第一种：去composer官网( <a href="/goto/poxn" rel="nofollow">https://getcomposer.org/download/</a> )下载Composer-setup.exe进行安装，由于此软件安装需要联网且服务器在国外安装很难成功，所以这里推荐使用下面第二种方式进行安装。</p>
+<p><img decoding="async" width="520" height="174" class="wp-image-7570" src="/wp-content/uploads/2018/06/word-image-175.png" srcset="/wp-content/uploads/2018/06/word-image-175.png 520w, /wp-content/uploads/2018/06/word-image-175-300x100.png 300w" sizes="(max-width: 520px) 100vw, 520px" /></p>
+<p>我们使用下面的安装方式</p>
+<p>第二种：去官网https://getcomposer.org/download 下载composer.phar文件。</p>
+<p><img decoding="async" width="509" height="448" class="wp-image-7571" src="/wp-content/uploads/2018/06/word-image-176.png" srcset="/wp-content/uploads/2018/06/word-image-176.png 509w, /wp-content/uploads/2018/06/word-image-176-300x264.png 300w" sizes="(max-width: 509px) 100vw, 509px" /></p>
+<p>找到并进入 PHP 的安装目录,将下载的composer.phar 复制到 PHP 的安装目录下面，也就是和 php.exe 在同一级目录。</p>
+<p><img loading="lazy" decoding="async" width="715" height="462" class="wp-image-7572" src="/wp-content/uploads/2018/06/word-image-177.png" srcset="/wp-content/uploads/2018/06/word-image-177.png 715w, /wp-content/uploads/2018/06/word-image-177-300x194.png 300w" sizes="(max-width: 715px) 100vw, 715px" /></p>
+<p>在 PHP 安装目录（D:\phpStudy\php\php-5.6.27-nts）下新建一个 composer.bat 文件，并将下列代码保存到此文件中。</p>
+<p>@php &#8220;%~dp0composer.phar&#8221; %*</p>
+<p>至此composer的安装就完成。</p>
+<p>进入目录D:\phpStudy\php\php-5.6.27-nts中输入composer指令，出现如下提示代表安装成功：</p>
+<p><img loading="lazy" decoding="async" width="826" height="366" class="wp-image-7573" src="/wp-content/uploads/2018/06/word-image-178.png" srcset="/wp-content/uploads/2018/06/word-image-178.png 826w, /wp-content/uploads/2018/06/word-image-178-300x133.png 300w, /wp-content/uploads/2018/06/word-image-178-768x340.png 768w" sizes="(max-width: 826px) 100vw, 826px" /></p>
+<p>为了可以全局（任意位置）访问composer，可以把php.exe的所在目录（D:\phpStudy\php\php-5.6.27-nts）定义在环境变量path选项中。</p>
+<p><img loading="lazy" decoding="async" width="418" height="255" class="wp-image-7574" src="/wp-content/uploads/2018/06/word-image-179.png" srcset="/wp-content/uploads/2018/06/word-image-179.png 418w, /wp-content/uploads/2018/06/word-image-179-300x183.png 300w" sizes="(max-width: 418px) 100vw, 418px" /></p>
+<p>设置好后输入php -v即可看到php版本号。</p>
+<p><img loading="lazy" decoding="async" width="526" height="76" class="wp-image-7575" src="/wp-content/uploads/2018/06/word-image-180.png" srcset="/wp-content/uploads/2018/06/word-image-180.png 526w, /wp-content/uploads/2018/06/word-image-180-300x43.png 300w" sizes="(max-width: 526px) 100vw, 526px" /></p>
+<p>cmd中任意位置输入composer指令：</p>
+<p><img loading="lazy" decoding="async" width="513" height="114" class="wp-image-7576" src="/wp-content/uploads/2018/06/word-image-181.png" srcset="/wp-content/uploads/2018/06/word-image-181.png 513w, /wp-content/uploads/2018/06/word-image-181-300x67.png 300w" sizes="(max-width: 513px) 100vw, 513px" /></p>
+<h2>配置composer为国内镜像</h2>
+<p>由于composer需要去网址为https://packagist.org获取代码库地址，再通过地址去github上去下载代码到我们项目本地，由于这两个地址服务器都在国外，访问比较慢，也不稳定。/</p>
+<p><img loading="lazy" decoding="async" width="674" height="360" class="wp-image-7577" src="/wp-content/uploads/2018/06/word-image-182.png" srcset="/wp-content/uploads/2018/06/word-image-182.png 674w, /wp-content/uploads/2018/06/word-image-182-300x160.png 300w" sizes="(max-width: 674px) 100vw, 674px" /></p>
+<p>配置国内镜像：输入命令</p>
+<p>全局配置：composer config -g repo.packagist composer https://packagist.phpcomposer.com/</p>
+<p><img loading="lazy" decoding="async" width="782" height="116" class="wp-image-7578" src="/wp-content/uploads/2018/06/word-image-183.png" srcset="/wp-content/uploads/2018/06/word-image-183.png 782w, /wp-content/uploads/2018/06/word-image-183-300x45.png 300w, /wp-content/uploads/2018/06/word-image-183-768x114.png 768w" sizes="(max-width: 782px) 100vw, 782px" /></p>
+<p>局部配置：若只想在当前项目中有效，把上面的命令去掉 -g 即可。</p>
+<p>几个有关的composer命令：</p>
+<p>查看全局配置信息：composer config -gl</p>
+<p>取消镜像：composer config -g &#8211;unset repos.packagist</p>
+<p>查看当前版本：composer -v</p>
+<p>升级版本：composer selfupdate</p>
+<h1>使用composer安装tp5验证码</h1>
+<p>手册位置：杂项&#8211;&gt;验证码</p>
+<p>composer.json的文件说明和具体使用：</p>
+<p>参考网址：http://docs.phpcomposer.com/04-schema.html#archive</p>
+<p>第一步：切换到tp5的composer.json 所在的目录，输入指令 composer require topthink/think-captcha进行安装</p>
+<p>在当前目录打开cmd：ctrl+shfit+鼠标右键</p>
+<p><img loading="lazy" decoding="async" width="356" height="49" class="wp-image-7579" src="/wp-content/uploads/2018/06/word-image-184.png" srcset="/wp-content/uploads/2018/06/word-image-184.png 356w, /wp-content/uploads/2018/06/word-image-184-300x41.png 300w" sizes="(max-width: 356px) 100vw, 356px" /></p>
+<p><img loading="lazy" decoding="async" width="712" height="328" class="wp-image-7580" src="/wp-content/uploads/2018/06/word-image-185.png" srcset="/wp-content/uploads/2018/06/word-image-185.png 712w, /wp-content/uploads/2018/06/word-image-185-300x138.png 300w" sizes="(max-width: 712px) 100vw, 712px" /></p>
+<p>安装成功后，会在vendor目录多出think-captcha</p>
+<p><img loading="lazy" decoding="async" width="701" height="283" class="wp-image-7581" src="/wp-content/uploads/2018/06/word-image-186.png" srcset="/wp-content/uploads/2018/06/word-image-186.png 701w, /wp-content/uploads/2018/06/word-image-186-300x121.png 300w" sizes="(max-width: 701px) 100vw, 701px" /></p>
+<p>注：默认下载的tp5框架已经帮我们下载好了验证码，直接使用即可。</p>
+<h1>完成登录的验证码功能</h1>
+<p>我们需要把通过composer下载下来的验证码应用到我们tp5项目中。</p>
+<p>手册位置：杂项&#8211;&gt;验证码</p>
+<p>或：<a href="/goto/8fls" rel="nofollow">https://packagist.org/packages/topthink/think-captcha</a></p>
+<p>第一步：在login.html显示验证码</p>
+<p><img loading="lazy" decoding="async" width="1172" height="519" class="wp-image-7582" src="/wp-content/uploads/2018/06/word-image-187.png" srcset="/wp-content/uploads/2018/06/word-image-187.png 1172w, /wp-content/uploads/2018/06/word-image-187-300x133.png 300w, /wp-content/uploads/2018/06/word-image-187-768x340.png 768w, /wp-content/uploads/2018/06/word-image-187-1024x453.png 1024w" sizes="(max-width: 1172px) 100vw, 1172px" /></p>
+<p>第二步：通过配置定义验证码的显示配置</p>
+<p><img loading="lazy" decoding="async" width="731" height="422" class="wp-image-7583" src="/wp-content/uploads/2018/06/word-image-188.png" srcset="/wp-content/uploads/2018/06/word-image-188.png 731w, /wp-content/uploads/2018/06/word-image-188-300x173.png 300w" sizes="(max-width: 731px) 100vw, 731px" /></p>
+<p>第三步：登录时，判断验证码是否匹配成功</p>
+<p><img loading="lazy" decoding="async" width="771" height="629" class="wp-image-7584" src="/wp-content/uploads/2018/06/word-image-189.png" srcset="/wp-content/uploads/2018/06/word-image-189.png 771w, /wp-content/uploads/2018/06/word-image-189-300x245.png 300w, /wp-content/uploads/2018/06/word-image-189-768x627.png 768w" sizes="(max-width: 771px) 100vw, 771px" /></p>
+<h1>四、AR模式操作数据库</h1>
+<h2>1、AR介绍</h2>
+<p>Active Record (AR) 模式 是一个流行的 对象-关系映射 (ORM) 技术。 每个 AR 类代表一个数据表（或视图），数据表（或视图）的列在 AR 类中体现为类的属性，一个 AR 实例则表示表中的一行。 常见的 CRUD 操作作为 AR 的方法实现。因此，我们可以以一种更加面向对象的方式操作数据库。</p>
+<p>AR模式三个核心：</p>
+<p>表&#8211;&gt;模型类</p>
+<p>表中一行&#8211;&gt;模型对象</p>
+<p>行的某列&#8211;&gt;模型对象属性</p>
+<p><img loading="lazy" decoding="async" width="616" height="259" class="wp-image-7585" src="/wp-content/uploads/2018/06/word-image-190.png" srcset="/wp-content/uploads/2018/06/word-image-190.png 616w, /wp-content/uploads/2018/06/word-image-190-300x126.png 300w" sizes="(max-width: 616px) 100vw, 616px" /></p>
+<h2>AR模式完成CURD操作</h2>
+<h3>AR完成新增</h3>
+<p>手册示例：</p>
+<p><img loading="lazy" decoding="async" width="397" height="207" class="wp-image-7586" src="/wp-content/uploads/2018/06/word-image-191.png" srcset="/wp-content/uploads/2018/06/word-image-191.png 397w, /wp-content/uploads/2018/06/word-image-191-300x156.png 300w" sizes="(max-width: 397px) 100vw, 397px" /></p>
+<p><img loading="lazy" decoding="async" width="577" height="238" class="wp-image-7587" src="/wp-content/uploads/2018/06/word-image-192.png" srcset="/wp-content/uploads/2018/06/word-image-192.png 577w, /wp-content/uploads/2018/06/word-image-192-300x124.png 300w" sizes="(max-width: 577px) 100vw, 577px" /></p>
+<h3>AR完成删除</h3>
+<p>手册示例：</p>
+<p><img loading="lazy" decoding="async" width="456" height="146" class="wp-image-7588" src="/wp-content/uploads/2018/06/word-image-193.png" srcset="/wp-content/uploads/2018/06/word-image-193.png 456w, /wp-content/uploads/2018/06/word-image-193-300x96.png 300w" sizes="(max-width: 456px) 100vw, 456px" /></p>
+<p><img loading="lazy" decoding="async" width="589" height="174" class="wp-image-7589" src="/wp-content/uploads/2018/06/word-image-194.png" srcset="/wp-content/uploads/2018/06/word-image-194.png 589w, /wp-content/uploads/2018/06/word-image-194-300x89.png 300w" sizes="(max-width: 589px) 100vw, 589px" /></p>
+<h3>AR完成更新</h3>
+<p><img loading="lazy" decoding="async" width="630" height="276" class="wp-image-7590" src="/wp-content/uploads/2018/06/word-image-195.png" srcset="/wp-content/uploads/2018/06/word-image-195.png 630w, /wp-content/uploads/2018/06/word-image-195-300x131.png 300w" sizes="(max-width: 630px) 100vw, 630px" /></p>
+<h3>AR完成查询</h3>
+<p><img loading="lazy" decoding="async" width="517" height="248" class="wp-image-7591" src="/wp-content/uploads/2018/06/word-image-196.png" srcset="/wp-content/uploads/2018/06/word-image-196.png 517w, /wp-content/uploads/2018/06/word-image-196-300x144.png 300w" sizes="(max-width: 517px) 100vw, 517px" /></p>
+<h1>完成文章分类的添加</h1>
+<h2>1、完成模板数据的展示</h2>
+<p>第一步：修改后台的链接地址（left.html）</p>
+<p><img loading="lazy" decoding="async" width="1254" height="314" class="wp-image-7592" src="/wp-content/uploads/2018/06/word-image-197.png" srcset="/wp-content/uploads/2018/06/word-image-197.png 1254w, /wp-content/uploads/2018/06/word-image-197-300x75.png 300w, /wp-content/uploads/2018/06/word-image-197-768x192.png 768w, /wp-content/uploads/2018/06/word-image-197-1024x256.png 1024w" sizes="(max-width: 1254px) 100vw, 1254px" /></p>
+<p>第二步:在后台admin建立一个Category的控制器，并建立一个add方法完成添加分类的功能</p>
+<p><img loading="lazy" decoding="async" width="921" height="410" class="wp-image-7593" src="/wp-content/uploads/2018/06/word-image-198.png" srcset="/wp-content/uploads/2018/06/word-image-198.png 921w, /wp-content/uploads/2018/06/word-image-198-300x134.png 300w, /wp-content/uploads/2018/06/word-image-198-768x342.png 768w" sizes="(max-width: 921px) 100vw, 921px" /></p>
+<p>第三步：在当前模型的中，建立一个无限极分类的函数，完成栏目之间额层级缩进</p>
+<p><img loading="lazy" decoding="async" width="1091" height="585" class="wp-image-7594" src="/wp-content/uploads/2018/06/word-image-199.png" srcset="/wp-content/uploads/2018/06/word-image-199.png 1091w, /wp-content/uploads/2018/06/word-image-199-300x161.png 300w, /wp-content/uploads/2018/06/word-image-199-768x412.png 768w, /wp-content/uploads/2018/06/word-image-199-1024x549.png 1024w" sizes="(max-width: 1091px) 100vw, 1091px" /></p>
+<p>第四步：模板中显示数据</p>
+<p><img loading="lazy" decoding="async" width="1241" height="604" class="wp-image-7595" src="/wp-content/uploads/2018/06/word-image-200.png" srcset="/wp-content/uploads/2018/06/word-image-200.png 1241w, /wp-content/uploads/2018/06/word-image-200-300x146.png 300w, /wp-content/uploads/2018/06/word-image-200-768x374.png 768w, /wp-content/uploads/2018/06/word-image-200-1024x498.png 1024w" sizes="(max-width: 1241px) 100vw, 1241px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="700" height="359" class="wp-image-7596" src="/wp-content/uploads/2018/06/word-image-201.png" srcset="/wp-content/uploads/2018/06/word-image-201.png 700w, /wp-content/uploads/2018/06/word-image-201-300x154.png 300w" sizes="(max-width: 700px) 100vw, 700px" /></p>
+<h2>完成数据的入库</h2>
+<p>第一步：在add方法中判断是否是post请求，完成数据的入库</p>
+<p><img loading="lazy" decoding="async" width="799" height="662" class="wp-image-7597" src="/wp-content/uploads/2018/06/word-image-202.png" srcset="/wp-content/uploads/2018/06/word-image-202.png 799w, /wp-content/uploads/2018/06/word-image-202-300x249.png 300w, /wp-content/uploads/2018/06/word-image-202-768x636.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+<p>第二步：使用验证器Validate进行入库前的数据验证过滤</p>
+<p><img loading="lazy" decoding="async" width="797" height="558" class="wp-image-7598" src="/wp-content/uploads/2018/06/word-image-203.png" srcset="/wp-content/uploads/2018/06/word-image-203.png 797w, /wp-content/uploads/2018/06/word-image-203-300x210.png 300w, /wp-content/uploads/2018/06/word-image-203-768x538.png 768w" sizes="(max-width: 797px) 100vw, 797px" /></p>
+<p>建议把上面的验证写在一个验证器中，进行统计管理，也方便后期代码的维护，也可以增加代码的可读性。</p>
+<p>所以，我们可以把上面的规则和提示信息抽离出来，写在独立的验证器中：</p>
+<p><img loading="lazy" decoding="async" width="812" height="650" class="wp-image-7599" src="/wp-content/uploads/2018/06/word-image-204.png" srcset="/wp-content/uploads/2018/06/word-image-204.png 812w, /wp-content/uploads/2018/06/word-image-204-300x240.png 300w, /wp-content/uploads/2018/06/word-image-204-768x615.png 768w" sizes="(max-width: 812px) 100vw, 812px" /></p>
+<p>在add的方法中使用上面的验证器进行验证即可：</p>
+<p><img loading="lazy" decoding="async" width="1030" height="693" class="wp-image-7600" src="/wp-content/uploads/2018/06/word-image-205.png" srcset="/wp-content/uploads/2018/06/word-image-205.png 1030w, /wp-content/uploads/2018/06/word-image-205-300x202.png 300w, /wp-content/uploads/2018/06/word-image-205-768x517.png 768w, /wp-content/uploads/2018/06/word-image-205-1024x689.png 1024w" sizes="(max-width: 1030px) 100vw, 1030px" /></p>
+<p>validate方法的源码位置：</p>
+<p><img loading="lazy" decoding="async" width="1088" height="412" class="wp-image-7601" src="/wp-content/uploads/2018/06/word-image-206.png" srcset="/wp-content/uploads/2018/06/word-image-206.png 1088w, /wp-content/uploads/2018/06/word-image-206-300x114.png 300w, /wp-content/uploads/2018/06/word-image-206-768x291.png 768w, /wp-content/uploads/2018/06/word-image-206-1024x388.png 1024w" sizes="(max-width: 1088px) 100vw, 1088px" /></p>
+<p>此方法验证成功会返回true。</p>
+<p>验证失败会返回错误信息，若不是批量验证返回一个字符串的错误信息，批量验证则返回一个错误的数组，可以使用implode拼接成一个字符串进行提示。</p>
+<h1>完成文章分类的列表展示</h1>
+<p>第一步：修改left.html加一个链接地址</p>
+<p><img loading="lazy" decoding="async" width="1257" height="257" class="wp-image-7602" src="/wp-content/uploads/2018/06/word-image-207.png" srcset="/wp-content/uploads/2018/06/word-image-207.png 1257w, /wp-content/uploads/2018/06/word-image-207-300x61.png 300w, /wp-content/uploads/2018/06/word-image-207-768x157.png 768w, /wp-content/uploads/2018/06/word-image-207-1024x209.png 1024w" sizes="(max-width: 1257px) 100vw, 1257px" /></p>
+<p>第二步：在Category控制器加一个index 的方法完成分类的列表数据输出给模板</p>
+<p><img loading="lazy" decoding="async" width="601" height="546" class="wp-image-7603" src="/wp-content/uploads/2018/06/word-image-208.png" srcset="/wp-content/uploads/2018/06/word-image-208.png 601w, /wp-content/uploads/2018/06/word-image-208-300x273.png 300w" sizes="(max-width: 601px) 100vw, 601px" /></p>
+<p>其中$newlists的数据打印如下：以每个元素cat_id作为下标。</p>
+<p><img loading="lazy" decoding="async" width="439" height="254" class="wp-image-7604" src="/wp-content/uploads/2018/06/word-image-209.png" srcset="/wp-content/uploads/2018/06/word-image-209.png 439w, /wp-content/uploads/2018/06/word-image-209-300x174.png 300w" sizes="(max-width: 439px) 100vw, 439px" /></p>
+<p>第三步：模板中显示数据</p>
+<p><img loading="lazy" decoding="async" width="1262" height="696" class="wp-image-7605" src="/wp-content/uploads/2018/06/word-image-210.png" srcset="/wp-content/uploads/2018/06/word-image-210.png 1262w, /wp-content/uploads/2018/06/word-image-210-300x165.png 300w, /wp-content/uploads/2018/06/word-image-210-768x424.png 768w, /wp-content/uploads/2018/06/word-image-210-1024x565.png 1024w" sizes="(max-width: 1262px) 100vw, 1262px" /></p>
+<p>上面的由于数组$lists下标0不存在，所以需要isset判断一下，但是这样写较麻烦，可以通过配置不报这种错误。修改common.php即可。</p>
+<p><img loading="lazy" decoding="async" width="811" height="293" class="wp-image-7606" src="/wp-content/uploads/2018/06/word-image-211.png" srcset="/wp-content/uploads/2018/06/word-image-211.png 811w, /wp-content/uploads/2018/06/word-image-211-300x108.png 300w, /wp-content/uploads/2018/06/word-image-211-768x277.png 768w" sizes="(max-width: 811px) 100vw, 811px" /></p>
+<p>效果：<br />
+<img loading="lazy" decoding="async" width="896" height="234" class="wp-image-7607" src="/wp-content/uploads/2018/06/word-image-212.png" srcset="/wp-content/uploads/2018/06/word-image-212.png 896w, /wp-content/uploads/2018/06/word-image-212-300x78.png 300w, /wp-content/uploads/2018/06/word-image-212-768x201.png 768w" sizes="(max-width: 896px) 100vw, 896px" /></p>
+<p>注：其中create_time和update_time在数据库中是时间戳的格式，但是受到配置文件database.php 的影响，获取数据时，自动转化为日期格式：</p>
+<p><img loading="lazy" decoding="async" width="856" height="256" class="wp-image-7608" src="/wp-content/uploads/2018/06/word-image-213.png" srcset="/wp-content/uploads/2018/06/word-image-213.png 856w, /wp-content/uploads/2018/06/word-image-213-300x90.png 300w, /wp-content/uploads/2018/06/word-image-213-768x230.png 768w" sizes="(max-width: 856px) 100vw, 856px" /></p>
+<h1>完成文章分类的编辑</h1>
+<p>第一步：修改列表的编辑的链接地址</p>
+<p><img loading="lazy" decoding="async" width="1228" height="238" class="wp-image-7609" src="/wp-content/uploads/2018/06/word-image-214.png" srcset="/wp-content/uploads/2018/06/word-image-214.png 1228w, /wp-content/uploads/2018/06/word-image-214-300x58.png 300w, /wp-content/uploads/2018/06/word-image-214-768x149.png 768w, /wp-content/uploads/2018/06/word-image-214-1024x198.png 1024w" sizes="(max-width: 1228px) 100vw, 1228px" /></p>
+<p>第二步：在Controller控制器建立一个upd方法，完成编辑的功能</p>
+<p><img loading="lazy" decoding="async" width="820" height="716" class="wp-image-7610" src="/wp-content/uploads/2018/06/word-image-215.png" srcset="/wp-content/uploads/2018/06/word-image-215.png 820w, /wp-content/uploads/2018/06/word-image-215-300x262.png 300w, /wp-content/uploads/2018/06/word-image-215-768x671.png 768w" sizes="(max-width: 820px) 100vw, 820px" /></p>
+<p>第三步：模板upd.html设置</p>
+<p><img loading="lazy" decoding="async" width="1183" height="717" class="wp-image-7611" src="/wp-content/uploads/2018/06/word-image-216.png" srcset="/wp-content/uploads/2018/06/word-image-216.png 1183w, /wp-content/uploads/2018/06/word-image-216-300x182.png 300w, /wp-content/uploads/2018/06/word-image-216-768x465.png 768w, /wp-content/uploads/2018/06/word-image-216-1024x621.png 1024w" sizes="(max-width: 1183px) 100vw, 1183px" /></p>
+<p>小技巧：$(&#8220;select[name=&#8217;pid&#8217;]&#8221;).val(3); //代表把option标签value等于3的父分类默认选中</p>
+<p>当然也可以使用下面的eq来判断，但是不推荐，因为比较麻烦，而且还要模板标签还要编译效率低。</p>
+<p><img loading="lazy" decoding="async" width="846" height="302" class="wp-image-7612" src="/wp-content/uploads/2018/06/word-image-217.png" srcset="/wp-content/uploads/2018/06/word-image-217.png 846w, /wp-content/uploads/2018/06/word-image-217-300x107.png 300w, /wp-content/uploads/2018/06/word-image-217-768x274.png 768w" sizes="(max-width: 846px) 100vw, 846px" /></p>
+<h1>使用Ajax完成文章分类的无刷新删除</h1>
+<h2>传统删除</h2>
+<p>第一步：给删除设置链接地址</p>
+<p><img loading="lazy" decoding="async" width="1259" height="278" class="wp-image-7613" src="/wp-content/uploads/2018/06/word-image-218.png" srcset="/wp-content/uploads/2018/06/word-image-218.png 1259w, /wp-content/uploads/2018/06/word-image-218-300x66.png 300w, /wp-content/uploads/2018/06/word-image-218-768x170.png 768w, /wp-content/uploads/2018/06/word-image-218-1024x226.png 1024w" sizes="(max-width: 1259px) 100vw, 1259px" /></p>
+<p>第二步：在Category控制器建立一个del方法，完成分类的删除</p>
+<p><img loading="lazy" decoding="async" width="777" height="337" class="wp-image-7614" src="/wp-content/uploads/2018/06/word-image-219.png" srcset="/wp-content/uploads/2018/06/word-image-219.png 777w, /wp-content/uploads/2018/06/word-image-219-300x130.png 300w, /wp-content/uploads/2018/06/word-image-219-768x333.png 768w" sizes="(max-width: 777px) 100vw, 777px" /></p>
+<p>作业：删除分类考虑的两点</p>
+<ol>
+<li>当前分类下面是否有子分类</li>
+<li>当前分类下面是否存在文章</li>
+</ol>
+<p>满足上面两个条件之一都不能删除。</p>
+<h2>2、ajax无刷新删除</h2>
+<p>删除分类考虑的两点</p>
+<ol>
+<li>当前分类下面是否有子分类</li>
+<li>当前分类下面是否存在文章</li>
+</ol>
+<p>满足上面两个条件之一都不能删除。</p>
+<p>第一步：给删除的a标签阻止默认行为，并且加一个自定义的属性cat_id,为了记录当前要删除的分类cat_id,同时设置一个delCat,目的给这一类的元素绑定单击事件</p>
+<p><img loading="lazy" decoding="async" width="1253" height="210" class="wp-image-7615" src="/wp-content/uploads/2018/06/word-image-220.png" srcset="/wp-content/uploads/2018/06/word-image-220.png 1253w, /wp-content/uploads/2018/06/word-image-220-300x50.png 300w, /wp-content/uploads/2018/06/word-image-220-768x129.png 768w, /wp-content/uploads/2018/06/word-image-220-1024x172.png 1024w" sizes="(max-width: 1253px) 100vw, 1253px" /></p>
+<p>第二步：给class=’delCat’,绑定单击事件，获取属性cat_id,发送ajax请求</p>
+<p><img loading="lazy" decoding="async" width="1009" height="431" class="wp-image-7616" src="/wp-content/uploads/2018/06/word-image-221.png" srcset="/wp-content/uploads/2018/06/word-image-221.png 1009w, /wp-content/uploads/2018/06/word-image-221-300x128.png 300w, /wp-content/uploads/2018/06/word-image-221-768x328.png 768w" sizes="(max-width: 1009px) 100vw, 1009px" /></p>
+<p>第三步：去Category控制器，建立一个ajaxDelCat的方法</p>
+<p><img loading="lazy" decoding="async" width="842" height="715" class="wp-image-7617" src="/wp-content/uploads/2018/06/word-image-222.png" srcset="/wp-content/uploads/2018/06/word-image-222.png 842w, /wp-content/uploads/2018/06/word-image-222-300x255.png 300w, /wp-content/uploads/2018/06/word-image-222-768x652.png 768w" sizes="(max-width: 842px) 100vw, 842px" /></p>
+<p>第四步：ajax根据服务端响应的json数据，删除成功把当前tr给移除掉</p>
+<p><img loading="lazy" decoding="async" width="1000" height="605" class="wp-image-7618" src="/wp-content/uploads/2018/06/word-image-223.png" srcset="/wp-content/uploads/2018/06/word-image-223.png 1000w, /wp-content/uploads/2018/06/word-image-223-300x182.png 300w, /wp-content/uploads/2018/06/word-image-223-768x465.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" /></p>
+<h1>完成文章的添加</h1>
+<h2>完成文章模板的展示</h2>
+<p>第一步：修改left.html模板，加一个添加分类的链接地址</p>
+<p><img loading="lazy" decoding="async" width="1262" height="365" class="wp-image-7619" src="/wp-content/uploads/2018/06/word-image-224.png" srcset="/wp-content/uploads/2018/06/word-image-224.png 1262w, /wp-content/uploads/2018/06/word-image-224-300x87.png 300w, /wp-content/uploads/2018/06/word-image-224-768x222.png 768w, /wp-content/uploads/2018/06/word-image-224-1024x296.png 1024w" sizes="(max-width: 1262px) 100vw, 1262px" /></p>
+<p>第二步：在后台admin创建一个Article控制器，并建立一个add方法，完成文章的入库操作</p>
+<p><img loading="lazy" decoding="async" width="749" height="368" class="wp-image-7620" src="/wp-content/uploads/2018/06/word-image-225.png" srcset="/wp-content/uploads/2018/06/word-image-225.png 749w, /wp-content/uploads/2018/06/word-image-225-300x147.png 300w" sizes="(max-width: 749px) 100vw, 749px" /></p>
+<p>模板分配数据：</p>
+<p><img loading="lazy" decoding="async" width="670" height="389" class="wp-image-7621" src="/wp-content/uploads/2018/06/word-image-226.png" srcset="/wp-content/uploads/2018/06/word-image-226.png 670w, /wp-content/uploads/2018/06/word-image-226-300x174.png 300w" sizes="(max-width: 670px) 100vw, 670px" /></p>
+<h2>使用富文本编辑器完成文章的内容添加</h2>
+<p>第一步：把课件中的相应的ueditor复制到网站根目录下面的插件目录plugin中</p>
+<p><img loading="lazy" decoding="async" width="771" height="251" class="wp-image-7622" src="/wp-content/uploads/2018/06/word-image-227.png" srcset="/wp-content/uploads/2018/06/word-image-227.png 771w, /wp-content/uploads/2018/06/word-image-227-300x98.png 300w, /wp-content/uploads/2018/06/word-image-227-768x250.png 768w" sizes="(max-width: 771px) 100vw, 771px" /></p>
+<p>第二步：引入核心js文件，并且给textarea 设置一个id=content</p>
+<p><img loading="lazy" decoding="async" width="1304" height="496" class="wp-image-7623" src="/wp-content/uploads/2018/06/word-image-228.png" srcset="/wp-content/uploads/2018/06/word-image-228.png 1304w, /wp-content/uploads/2018/06/word-image-228-300x114.png 300w, /wp-content/uploads/2018/06/word-image-228-768x292.png 768w, /wp-content/uploads/2018/06/word-image-228-1024x389.png 1024w" sizes="(max-width: 1304px) 100vw, 1304px" /></p>
+<p><img loading="lazy" decoding="async" width="1277" height="556" class="wp-image-7624" src="/wp-content/uploads/2018/06/word-image-229.png" srcset="/wp-content/uploads/2018/06/word-image-229.png 1277w, /wp-content/uploads/2018/06/word-image-229-300x131.png 300w, /wp-content/uploads/2018/06/word-image-229-768x334.png 768w, /wp-content/uploads/2018/06/word-image-229-1024x446.png 1024w" sizes="(max-width: 1277px) 100vw, 1277px" /></p>
+<p>效果如下：</p>
+<p><img loading="lazy" decoding="async" width="1040" height="418" class="wp-image-7625" src="/wp-content/uploads/2018/06/word-image-230.png" srcset="/wp-content/uploads/2018/06/word-image-230.png 1040w, /wp-content/uploads/2018/06/word-image-230-300x121.png 300w, /wp-content/uploads/2018/06/word-image-230-768x309.png 768w, /wp-content/uploads/2018/06/word-image-230-1024x412.png 1024w" sizes="(max-width: 1040px) 100vw, 1040px" /></p>
+<h2>完成文章数据的入库</h2>
+<p>第一步：设置表单name值</p>
+<p><img loading="lazy" decoding="async" width="1315" height="712" class="wp-image-7626" src="/wp-content/uploads/2018/06/word-image-231.png" srcset="/wp-content/uploads/2018/06/word-image-231.png 1315w, /wp-content/uploads/2018/06/word-image-231-300x162.png 300w, /wp-content/uploads/2018/06/word-image-231-768x416.png 768w, /wp-content/uploads/2018/06/word-image-231-1024x554.png 1024w" sizes="(max-width: 1315px) 100vw, 1315px" /></p>
+<p>第二步：在add方法中，完成数据的入库</p>
+<p><img loading="lazy" decoding="async" width="935" height="563" class="wp-image-7627" src="/wp-content/uploads/2018/06/word-image-232.png" srcset="/wp-content/uploads/2018/06/word-image-232.png 935w, /wp-content/uploads/2018/06/word-image-232-300x180.png 300w, /wp-content/uploads/2018/06/word-image-232-768x462.png 768w" sizes="(max-width: 935px) 100vw, 935px" /></p>
+<h2>4、使用验证器完成添加文章的验证</h2>
+<h2>5、完成文章的图片上传</h2>
+<h2>6、完成文章图片缩略图生成</h2>
+<h1>十、完成文章的列表展示</h1>
+<h2>数据展示</h2>
+<h2>2、数据分页</h2>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7568.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

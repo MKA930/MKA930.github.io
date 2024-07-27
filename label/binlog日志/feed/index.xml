@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>binlog日志 &#8211; 个人随笔</title>
+	<atom:link href="/label/binlog%E6%97%A5%E5%BF%97/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 14:43:28 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>binlog日志 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>网站优化（四）MySQL读写分离 原理、binlog日志、配置、TP中实现读写分离</title>
+		<link>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5342.html</link>
+					<comments>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5342.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 14:43:28 +0000</pubDate>
+				<category><![CDATA[优化方案]]></category>
+		<category><![CDATA[网站优化]]></category>
+		<category><![CDATA[binlog日志]]></category>
+		<category><![CDATA[TP中实现读写分离]]></category>
+		<category><![CDATA[原理]]></category>
+		<category><![CDATA[配置]]></category>
+		<guid isPermaLink="false">/?p=5342</guid>
+
+					<description><![CDATA[MySQL读写分离技术 一、读写分离（主从复制） 1、什么是主从复制、读写分离 主从复制：指定一台MySQL服 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>MySQL读写分离技术</h1>
+<h1><a id="post-5342-_Toc477016872"></a>一、读写分离（主从复制）</h1>
+<h2><a id="post-5342-_Toc477016873"></a><a id="post-5342-_Toc451441600"></a>1、什么是主从复制、读写分离</h2>
+<ul>
+<li>
+    主从复制：指定一台MySQL服务器专门写入数据，其他毫秒级自动复制（同步）
+  </li>
+<li>
+    读写分离：在主服务器增/改/删，从服务器查询
+  </li>
+</ul>
+<p><img fetchpriority="high" decoding="async" width="982" height="463" src="/wp-content/uploads/2018/05/word-image-4836.png" class="wp-image-5343" srcset="/wp-content/uploads/2018/05/word-image-4836.png 982w, /wp-content/uploads/2018/05/word-image-4836-300x141.png 300w, /wp-content/uploads/2018/05/word-image-4836-768x362.png 768w" sizes="(max-width: 982px) 100vw, 982px" /></p>
+<h2><a id="post-5342-_Toc451441601"></a><a id="post-5342-_Toc477016874"></a>2、实现原理</h2>
+<p><img decoding="async" width="640" height="303" src="/wp-content/uploads/2018/05/word-image-4837.png" class="wp-image-5344" srcset="/wp-content/uploads/2018/05/word-image-4837.png 640w, /wp-content/uploads/2018/05/word-image-4837-300x142.png 300w" sizes="(max-width: 640px) 100vw, 640px" /></p>
+<h1>二、bin-log日志</h1>
+<h2>什么是bin-log日志</h2>
+<p>
+  binlog是以二进制存储的日志，直接打开无法查看，可以通过SQL查看，里面存储的是增、改、删SQL语句，后期可以通过binlog日志里面的SQL语句实现主从复制、或者灾难恢复。
+</p>
+<h2>开启binlog日志</h2>
+<p>
+  步骤1：vi  /etc/my.cnf
+</p>
+<p><img decoding="async" width="418" height="190" src="/wp-content/uploads/2018/05/word-image-4838.png" class="wp-image-5345" srcset="/wp-content/uploads/2018/05/word-image-4838.png 418w, /wp-content/uploads/2018/05/word-image-4838-300x136.png 300w" sizes="(max-width: 418px) 100vw, 418px" /></p>
+<p>
+  步骤2：重启即可 + 验证
+</p>
+<p><img loading="lazy" decoding="async" width="577" height="239" src="/wp-content/uploads/2018/05/word-image-4839.png" class="wp-image-5346" srcset="/wp-content/uploads/2018/05/word-image-4839.png 577w, /wp-content/uploads/2018/05/word-image-4839-300x124.png 300w" sizes="(max-width: 577px) 100vw, 577px" /></p>
+<h2>2、查看logbin日志里面的内容</h2>
+<ul>
+<li>
+    列表（show master logs）
+  </li>
+<li>
+    清空（reset master）
+  </li>
+<li>
+    刷新（flush logs）      生成一个新编号的binlog日志文件
+  </li>
+<li>
+    查看指定日志（show binlog events in &#8216;mysql-bin.000002&#8217;）
+  </li>
+</ul>
+<h1><a id="post-5342-_Toc451441609"></a><a id="post-5342-_Toc477016882"></a>三、具体的配置步骤</h1>
+<h2><a id="post-5342-_Toc477016883"></a><a id="post-5342-_Toc451441610"></a>1、配置主服务器</h2>
+<ul>
+<li>
+    步骤1：开启bin日志；
+  </li>
+<li>
+    步骤2：设置一个server-id  该值必须唯一不能和从服务器相同；
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="408" height="236" src="/wp-content/uploads/2018/05/word-image-4840.png" class="wp-image-5347" srcset="/wp-content/uploads/2018/05/word-image-4840.png 408w, /wp-content/uploads/2018/05/word-image-4840-300x174.png 300w" sizes="(max-width: 408px) 100vw, 408px" /></p>
+<ul>
+<li>
+    步骤3：重启服务器
+  </li>
+<li>
+    步骤4：授权用户可以从从服务器登陆
+  </li>
+</ul>
+<p>
+  语法：create user &#8216;username&#8217;@&#8217;host&#8217; IDENTIFIED BY &#8216;password&#8217;;
+</p>
+<p>
+  语法：grant 权限列表 on 数据库名.表名 to &#8216;用户民&#8217;@&#8217;IP地址&#8217; identified by 密码
+</p>
+<p>
+  create user &#8216;laolu&#8217;@&#8217;%&#8217; IDENTIFIED BY &#8216;admin888&#8217;;
+</p>
+<p>
+  grant all on *.* to &#8216;laolu&#8217;@&#8217;%&#8217; identified by &#8216;admin888&#8217;;
+</p>
+<p>
+  FLUSH PRIVILEGES;
+</p>
+<p>
+  查看可登陆用户：select Host,user,password from mysql.user;
+</p>
+<ul>
+<li>
+    步骤5：添加3306防火墙例外
+  </li>
+</ul>
+<p>
+  service iptables stop
+</p>
+<h2><a id="post-5342-_Toc451441611"></a><a id="post-5342-_Toc477016884"></a>配置从服务器</h2>
+<ul>
+<li>
+    步骤1：设置一个server-id  该值必须唯一不能和从服务器相同；
+  </li>
+<li>
+    步骤2：重启服务器
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="413" height="243" src="/wp-content/uploads/2018/05/word-image-4841.png" class="wp-image-5348" srcset="/wp-content/uploads/2018/05/word-image-4841.png 413w, /wp-content/uploads/2018/05/word-image-4841-300x177.png 300w" sizes="(max-width: 413px) 100vw, 413px" /></p>
+<ul>
+<li>
+    步骤3：change master 语句指定同步位置
+  </li>
+</ul>
+<ol>
+<li>
+  切换到主服务器，查询相关信息，通过SQL语句【show master status;】
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="608" height="220" src="/wp-content/uploads/2018/05/word-image-4842.png" class="wp-image-5349" srcset="/wp-content/uploads/2018/05/word-image-4842.png 608w, /wp-content/uploads/2018/05/word-image-4842-300x109.png 300w" sizes="(max-width: 608px) 100vw, 608px" /></p>
+<p>
+  2）切换到所有从服务器执行下属命令
+</p>
+<p>
+  change master to
+</p>
+<p>
+  master_host=&#8217;<em>192.168.21.136</em>&#8216;,master_user=&#8217;laolu&#8217;,master_password=&#8217;admin888&#8242;,master_log_file=&#8217;<strong>mysql-bin.000005</strong>&#8216;,master_log_pos=<strong>120</strong>;
+</p>
+<p><img loading="lazy" decoding="async" width="1007" height="677" src="/wp-content/uploads/2018/05/word-image-4843.png" class="wp-image-5350" srcset="/wp-content/uploads/2018/05/word-image-4843.png 1007w, /wp-content/uploads/2018/05/word-image-4843-300x202.png 300w, /wp-content/uploads/2018/05/word-image-4843-768x516.png 768w" sizes="(max-width: 1007px) 100vw, 1007px" /></p>
+<ul>
+<li>
+    步骤4：启动主动同步
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="924" height="659" src="/wp-content/uploads/2018/05/word-image-4844.png" class="wp-image-5351" srcset="/wp-content/uploads/2018/05/word-image-4844.png 924w, /wp-content/uploads/2018/05/word-image-4844-300x214.png 300w, /wp-content/uploads/2018/05/word-image-4844-768x548.png 768w" sizes="(max-width: 924px) 100vw, 924px" /></p>
+<ul>
+<li>
+    步骤5：验证是否成功即可
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="600" height="318" src="/wp-content/uploads/2018/05/word-image-4845.png" class="wp-image-5352" srcset="/wp-content/uploads/2018/05/word-image-4845.png 600w, /wp-content/uploads/2018/05/word-image-4845-300x159.png 300w" sizes="(max-width: 600px) 100vw, 600px" /></p>
+<h2><a id="post-5342-_Toc477016885"></a><a id="post-5342-_Toc451441612"></a>3、测试</h2>
+<h1><a id="post-5342-_Toc477016887"></a><a id="post-5342-_Toc451441614"></a>三、TP框架里实现读写分离</h1>
+<p><img loading="lazy" decoding="async" width="1217" height="417" src="/wp-content/uploads/2018/05/word-image-4846.png" class="wp-image-5353" srcset="/wp-content/uploads/2018/05/word-image-4846.png 1217w, /wp-content/uploads/2018/05/word-image-4846-300x103.png 300w, /wp-content/uploads/2018/05/word-image-4846-768x263.png 768w, /wp-content/uploads/2018/05/word-image-4846-1024x351.png 1024w" sizes="(max-width: 1217px) 100vw, 1217px" /><br />
+<img loading="lazy" decoding="async" width="1189" height="598" src="/wp-content/uploads/2018/05/word-image-4847.png" class="wp-image-5354" srcset="/wp-content/uploads/2018/05/word-image-4847.png 1189w, /wp-content/uploads/2018/05/word-image-4847-300x151.png 300w, /wp-content/uploads/2018/05/word-image-4847-768x386.png 768w, /wp-content/uploads/2018/05/word-image-4847-1024x515.png 1024w" sizes="(max-width: 1189px) 100vw, 1189px" /></p>
+<h1>MySQL管理命令</h1>
+<p>
+  【mysql配置文件】
+</p>
+<p>
+  /etc/my.cnf
+</p>
+<p>
+  【开启mysql服务】
+</p>
+<p>
+  /php/server/mysql/bin/mysqld_safe &#8211;user=mysql &amp;
+</p>
+<p>
+  【关闭mysql服务】
+</p>
+<p>
+  ps -A | grep mysql        # 查看mysql进程
+</p>
+<p>
+  kill -9 进程PID 进程PID   #  结束进程  关闭mysql服务
+</p>
+<p>
+  【登陆MySQL数据库】
+</p>
+<p>
+   /php/server/mysql/bin/mysql -uroot -p</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5342.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

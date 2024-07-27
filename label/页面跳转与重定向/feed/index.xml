@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>页面跳转与重定向 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC%E4%B8%8E%E9%87%8D%E5%AE%9A%E5%90%91/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 09 Jun 2018 01:08:03 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>页面跳转与重定向 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP5.0（一）部署、控制器、模块、命令行、路由、视图、模板赋值、常用标签、搭建后台首页、搭建登录页、页面跳转与重定向、Request 对象</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7391.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7391.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 09 Jun 2018 00:44:26 +0000</pubDate>
+				<category><![CDATA[TP5.0]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[Request 对象]]></category>
+		<category><![CDATA[命令行]]></category>
+		<category><![CDATA[常用标签]]></category>
+		<category><![CDATA[控制器]]></category>
+		<category><![CDATA[搭建后台首页]]></category>
+		<category><![CDATA[搭建登录页]]></category>
+		<category><![CDATA[模块]]></category>
+		<category><![CDATA[模板赋值]]></category>
+		<category><![CDATA[视图]]></category>
+		<category><![CDATA[路由]]></category>
+		<category><![CDATA[部署]]></category>
+		<category><![CDATA[页面跳转与重定向]]></category>
+		<guid isPermaLink="false">/?p=7391</guid>
+
+					<description><![CDATA[一、框架概述 1、什么是框架 框架即英文名为Framework,它是许多代码文件的集合，这些代码文件是程序结构 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>一、框架概述</h1>
+<h2>1、什么是框架</h2>
+<p>框架即英文名为Framework,它是许多代码文件的集合，这些代码文件是程序结构的代码，不是业务代码，里面包含了许多函数、类库(分页类、验证码类、文件上传类、DB类、Image类&#8230;)、设计模式(mvc、单例、AR..)等。</p>
+<p>以后使用框架开发项目只需要写业务代码即可。</p>
+<p>现在企业中开发模式基本有三种:</p>
+<p>从快到慢排序：二次开发(需要修改源码)&#8212;&gt;框架开发&#8212;-&gt;源码开发</p>
+<p>源码开发建房子：从0开始，打地基.、浇筑水泥、、</p>
+<p>框架开发建房子：相当于毛坯房,各种装修。</p>
+<p>源码开发建房子：相当于精装修的房子，只需要拎包入住.</p>
+<p>现在企业开发较多的模式属框架开发。</p>
+<h2>2、框架开发的好处</h2>
+<ul>
+<li>框架能节省开发时间</li>
+</ul>
+<p>每个项目中常用的类库框架都已经封装好，如分页类、图像类,文件上传类等，直接调用即可,非常方便。（减少重复造轮子）</p>
+<ul>
+<li>利于团队的合作开发</li>
+</ul>
+<p>因为框架都是mvc设计模式,模块划分清晰，可以帮助我们快速、稳定、高效搭建web应用，从而提高开发效率。</p>
+<ul>
+<li>使用框架的过程中可以使得我们的注意力全部集中在业务层面，而无需关心程序的底层架构。</li>
+</ul>
+<h2>3、框架的设计模式(MVC)</h2>
+<p>基本现在主流的框架(CI、TP、laravel、YII、zend framework、symfony、cakephp),都是采用单一入口(index.php),且都是采用mvc的设计模式，把一个web应用程序分为三块,控制器、模型、视图。</p>
+<p>C-Controller 控制器</p>
+<p>主要作用:就是接收用户的请求,在模型和视图之间起一个调度的作用</p>
+<p>M-Model 模型</p>
+<p>作用:对数据库做增删改查(curd)的</p>
+<p>V-View视图</p>
+<p>展示模板内容,给用户一个可操作的界面</p>
+<p><strong>mvc(框架)形象理解-酒店（难以理解的东西一定要把抽象的东西给生活化）：</strong></p>
+<p><img fetchpriority="high" decoding="async" width="1185" height="451" class="wp-image-7392" src="/wp-content/uploads/2018/06/word-image.png" srcset="/wp-content/uploads/2018/06/word-image.png 1185w, /wp-content/uploads/2018/06/word-image-300x114.png 300w, /wp-content/uploads/2018/06/word-image-768x292.png 768w, /wp-content/uploads/2018/06/word-image-1024x390.png 1024w" sizes="(max-width: 1185px) 100vw, 1185px" /></p>
+<h2>常见的php开发框架</h2>
+<h3>ThinkPHP框架（TP框架）</h3>
+<p>TP框架的logo：</p>
+<p><img decoding="async" width="102" height="70" class="wp-image-7393" src="/wp-content/uploads/2018/06/word-image-1.png" /></p>
+<p>主要开发中小型项目</p>
+<p>ThinkPHP框架是我们国人开发采用mvc模式设计的一款比较优秀的框架。在我们国内使用量较多，且开发文档也多，方便学习。</p>
+<h3>（2）CodeIgniter 框架</h3>
+<p>CodeIgniter框架：简称CI框架,</p>
+<p>主要开发中小型项目</p>
+<p><img decoding="async" width="823" height="376" class="wp-image-7394" src="/wp-content/uploads/2018/06/word-image-2.png" srcset="/wp-content/uploads/2018/06/word-image-2.png 823w, /wp-content/uploads/2018/06/word-image-2-300x137.png 300w, /wp-content/uploads/2018/06/word-image-2-768x351.png 768w" sizes="(max-width: 823px) 100vw, 823px" /></p>
+<h3>YII(易框架)</h3>
+<p>YII(简称易框架):主要开发大型的web应用程序:</p>
+<p><img loading="lazy" decoding="async" width="818" height="417" class="wp-image-7395" src="/wp-content/uploads/2018/06/word-image-3.png" srcset="/wp-content/uploads/2018/06/word-image-3.png 818w, /wp-content/uploads/2018/06/word-image-3-300x153.png 300w, /wp-content/uploads/2018/06/word-image-3-768x392.png 768w" sizes="(max-width: 818px) 100vw, 818px" /></p>
+<h3>Laravel框架</h3>
+<p>此框架使用量世界排名第一,有最”优雅”的框架称号。</p>
+<p>注：Laravel底层代码很多都是借鉴了SymFony的优点。</p>
+<p><img loading="lazy" decoding="async" width="727" height="477" class="wp-image-7396" src="/wp-content/uploads/2018/06/word-image-4.png" srcset="/wp-content/uploads/2018/06/word-image-4.png 727w, /wp-content/uploads/2018/06/word-image-4-300x197.png 300w" sizes="(max-width: 727px) 100vw, 727px" /></p>
+<p>&nbsp;</p>
+<h3>（5）Zend官方框架</h3>
+<p>Zend Framework：php官方提供的框架，非常笨重，主要开发大型的web应用程序。</p>
+<p><img loading="lazy" decoding="async" width="729" height="346" class="wp-image-7397" src="/wp-content/uploads/2018/06/word-image-5.png" srcset="/wp-content/uploads/2018/06/word-image-5.png 729w, /wp-content/uploads/2018/06/word-image-5-300x142.png 300w" sizes="(max-width: 729px) 100vw, 729px" /></p>
+<h3>（6）Symfony国外框架</h3>
+<p><img loading="lazy" decoding="async" width="687" height="480" class="wp-image-7398" src="/wp-content/uploads/2018/06/word-image-6.png" srcset="/wp-content/uploads/2018/06/word-image-6.png 687w, /wp-content/uploads/2018/06/word-image-6-300x210.png 300w" sizes="(max-width: 687px) 100vw, 687px" /></p>
+<p>框架只有最合适的，没有最好的，需结合自己的系统业务去选择最合适的。</p>
+<p>国内使用最多的框架是TP、laravel、CI。YII框架外企使用较多</p>
+<h1>ThinkPHP5框架</h1>
+<h2>下载TP5框架</h2>
+<p>下载地址：<a href="/goto/rc3y" rel="nofollow">http://www.thinkphp.cn/down.html</a></p>
+<p><img loading="lazy" decoding="async" width="671" height="101" class="wp-image-7399" src="/wp-content/uploads/2018/06/word-image-7.png" srcset="/wp-content/uploads/2018/06/word-image-7.png 671w, /wp-content/uploads/2018/06/word-image-7-300x45.png 300w" sizes="(max-width: 671px) 100vw, 671px" /></p>
+<p><img loading="lazy" decoding="async" width="192" height="27" class="wp-image-7400" src="/wp-content/uploads/2018/06/word-image-8.png" /></p>
+<h2>TP5框架的目录认识</h2>
+<p>手册位置：基础&#8211;&gt;目录结构</p>
+<ol>
+<li>project 应用部署目录</li>
+<li>├─application 应用目录（可设置）</li>
+<li>│ ├─common 公共模块目录（可更改）</li>
+<li>│ ├─index 模块目录(可更改)</li>
+<li>│ │ ├─config.php 模块配置文件</li>
+<li>│ │ ├─common.php 模块函数文件</li>
+<li>│ │ ├─controller 控制器目录</li>
+<li>│ │ ├─model 模型目录</li>
+<li>│ │ ├─view 视图目录</li>
+<li>│ │ └─ &#8230; 更多类库目录</li>
+<li>│ ├─command.php 命令行工具配置文件</li>
+<li>│ ├─common.php 应用公共（函数）文件</li>
+<li>│ ├─config.php 应用（公共）配置文件</li>
+<li>│ ├─database.php 数据库配置文件</li>
+<li>│ ├─tags.php 应用行为扩展定义文件</li>
+<li>│ └─route.php 路由配置文件</li>
+<li>├─extend 扩展类库目录（可定义）</li>
+<li>├─public WEB 部署目录（对外访问目录）</li>
+<li>│ ├─static 静态资源存放目录(css,js,image)</li>
+<li>│ ├─index.php 应用入口文件</li>
+<li>│ ├─router.php 快速测试文件</li>
+<li>│ └─.htaccess 用于 apache 的重写</li>
+<li>├─runtime 应用的运行时目录（可写，可设置）</li>
+<li>├─vendor 第三方类库目录（Composer）</li>
+<li>├─thinkphp 框架系统目录</li>
+<li>│ ├─lang 语言包目录</li>
+<li>│ ├─library 框架核心类库目录</li>
+<li>│ │ ├─think Think 类库包目录</li>
+<li>│ │ └─traits 系统 Traits 目录</li>
+<li>│ ├─tpl 系统模板目录</li>
+<li>│ ├─.htaccess 用于 apache 的重写</li>
+<li>│ ├─.travis.yml CI 定义文件</li>
+<li>│ ├─base.php 基础定义文件</li>
+<li>│ ├─composer.json composer 定义文件</li>
+<li>│ ├─console.php 控制台入口文件</li>
+<li>│ ├─convention.php 惯例配置文件</li>
+<li>│ ├─helper.php 助手函数文件（可选）</li>
+<li>│ ├─LICENSE.txt 授权说明文件</li>
+<li>│ ├─phpunit.xml 单元测试配置文件</li>
+<li>│ ├─README.md README 文件</li>
+<li>│ └─start.php 框架引导文件</li>
+<li>├─build.php 自动生成定义文件（参考）</li>
+<li>├─composer.json composer 定义文件</li>
+<li>├─LICENSE.txt 授权说明文件</li>
+<li>├─README.md README 文件</li>
+<li>├─think 命令行入口文件</li>
+</ol>
+<p>每个application下面的模块目录都有mvc分层结构：</p>
+<p><img loading="lazy" decoding="async" width="380" height="187" class="wp-image-7401" src="/wp-content/uploads/2018/06/word-image-9.png" srcset="/wp-content/uploads/2018/06/word-image-9.png 380w, /wp-content/uploads/2018/06/word-image-9-300x148.png 300w" sizes="(max-width: 380px) 100vw, 380px" /></p>
+<p>可参考手册：</p>
+<p><img loading="lazy" decoding="async" width="979" height="138" class="wp-image-7402" src="/wp-content/uploads/2018/06/word-image-10.png" srcset="/wp-content/uploads/2018/06/word-image-10.png 979w, /wp-content/uploads/2018/06/word-image-10-300x42.png 300w, /wp-content/uploads/2018/06/word-image-10-768x108.png 768w" sizes="(max-width: 979px) 100vw, 979px" /></p>
+<h1>三、使用TP5框架部署项目</h1>
+<p>我们是使用ThinkPHP5+ajax+jquery以及和第三方插件结合起来，做一个文章管理系统，掌握怎样使用ThinkPHP5快速开发一个项目。</p>
+<h2>配置项目虚拟主机</h2>
+<p>主要三个核心步骤：1、使用phpStudy建立虚拟主机 2、设置hosts文件映射 3、重启apache服务器</p>
+<p>把框架的文件复制到我们的虚拟主机目录中去：</p>
+<p><img loading="lazy" decoding="async" width="652" height="417" class="wp-image-7403" src="/wp-content/uploads/2018/06/word-image-11.png" srcset="/wp-content/uploads/2018/06/word-image-11.png 652w, /wp-content/uploads/2018/06/word-image-11-300x192.png 300w" sizes="(max-width: 652px) 100vw, 652px" /></p>
+<ol>
+<li>使用phpStudy建立虚拟主机 (www.article.com)</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="287" height="109" class="wp-image-7404" src="/wp-content/uploads/2018/06/word-image-12.png" /></p>
+<p>最终生成的虚拟主机文件（vhosts.conf）配置如下：</p>
+<p><img loading="lazy" decoding="async" width="488" height="206" class="wp-image-7405" src="/wp-content/uploads/2018/06/word-image-13.png" srcset="/wp-content/uploads/2018/06/word-image-13.png 488w, /wp-content/uploads/2018/06/word-image-13-300x127.png 300w" sizes="(max-width: 488px) 100vw, 488px" /></p>
+<ol>
+<li>设置hosts文件映射</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="374" height="27" class="wp-image-7406" src="/wp-content/uploads/2018/06/word-image-14.png" srcset="/wp-content/uploads/2018/06/word-image-14.png 374w, /wp-content/uploads/2018/06/word-image-14-300x22.png 300w" sizes="(max-width: 374px) 100vw, 374px" /></p>
+<ol>
+<li>重启apache服务器</li>
+</ol>
+<h2>2、访问虚拟主机</h2>
+<p>输入配置的域名直接访问：</p>
+<p><img loading="lazy" decoding="async" width="806" height="368" class="wp-image-7407" src="/wp-content/uploads/2018/06/word-image-15.png" srcset="/wp-content/uploads/2018/06/word-image-15.png 806w, /wp-content/uploads/2018/06/word-image-15-300x137.png 300w, /wp-content/uploads/2018/06/word-image-15-768x351.png 768w" sizes="(max-width: 806px) 100vw, 806px" /></p>
+<p>为什么会出现上面的一个笑脸？</p>
+<p>答：那是因为受到框架的配置文件application/config.php的影响，默认访问index模块的index控制器的index方法，如下：</p>
+<p><img loading="lazy" decoding="async" width="682" height="269" class="wp-image-7408" src="/wp-content/uploads/2018/06/word-image-16.png" srcset="/wp-content/uploads/2018/06/word-image-16.png 682w, /wp-content/uploads/2018/06/word-image-16-300x118.png 300w" sizes="(max-width: 682px) 100vw, 682px" /></p>
+<p>可以对index控制器的index方法的内容进行更改：</p>
+<p><img loading="lazy" decoding="async" width="668" height="231" class="wp-image-7409" src="/wp-content/uploads/2018/06/word-image-17.png" srcset="/wp-content/uploads/2018/06/word-image-17.png 668w, /wp-content/uploads/2018/06/word-image-17-300x104.png 300w" sizes="(max-width: 668px) 100vw, 668px" /></p>
+<p>再次访问如下：</p>
+<p><img loading="lazy" decoding="async" width="230" height="70" class="wp-image-7410" src="/wp-content/uploads/2018/06/word-image-18.png" /></p>
+<p>注：tp5默认值支持老本tp3的pathinfo模式进行访问。</p>
+<p>如：<a href="/goto/sbfh" rel="nofollow">http://域名/index.php/</a><a href="/goto/sbfh" rel="nofollow">模块/控制器/方法名</a><a href="/goto/sbfh" rel="nofollow">/参数1/值1/参数2/值2/</a></p>
+<p>例：访问index模块的index 控制器的index方法</p>
+<p>http://域名/index.php/index/index/index/参数1/值1/参数2/值2/</p>
+<h2>3、响应输出</h2>
+<p>控制器的所有操作方法都是return返回而不是直接输出，系统会调用Response::send方法将最终的应用返回的数据输出到页面或者客户端，并自动转换成default_return_type参数配置的格式。所以，应用执行的数据输出只需要返回一个正常的PHP数据即可。</p>
+<p>tp5也是建议统一使用return返回数据，而不是echo输出，如非必要，请不要使用exit或者die中断执行。</p>
+<p><img loading="lazy" decoding="async" width="509" height="59" class="wp-image-7411" src="/wp-content/uploads/2018/06/word-image-19.png" srcset="/wp-content/uploads/2018/06/word-image-19.png 509w, /wp-content/uploads/2018/06/word-image-19-300x35.png 300w" sizes="(max-width: 509px) 100vw, 509px" /></p>
+<h1>四、控制器</h1>
+<h2>控制器的作用</h2>
+<p>C：Controller</p>
+<p>作用：主要是接受用户的请求，在模型和视图之间起调度的作用。</p>
+<h2>创建控制器</h2>
+<h3>（1）修改控制器后缀</h3>
+<p>由于国人命名的习惯，我们可以通过以下配置文件给控制器文件名加个Controller后缀。</p>
+<p>打开配置文件，[项目目录]/application/config.php，做如下修改：</p>
+<p><img loading="lazy" decoding="async" width="999" height="207" class="wp-image-7412" src="/wp-content/uploads/2018/06/word-image-20.png" srcset="/wp-content/uploads/2018/06/word-image-20.png 999w, /wp-content/uploads/2018/06/word-image-20-300x62.png 300w, /wp-content/uploads/2018/06/word-image-20-768x159.png 768w" sizes="(max-width: 999px) 100vw, 999px" /></p>
+<h3>创建控制器语法</h3>
+<p>语法规则：</p>
+<p>控制器类名：控制器名+Controller</p>
+<p>控制器文件名：控制器名+Controller.php</p>
+<p>控制器文件所在路径：application/模块名/controller/</p>
+<p>如在index模块下定义一个Test控制器：</p>
+<p>控制器类名： TestController</p>
+<p>控制器类文件名： TestController.php</p>
+<p>文件定义位置：index/controller/TestController.php</p>
+<p>注：类名首字母大写</p>
+<p>代码如下：</p>
+<p><img loading="lazy" decoding="async" width="683" height="298" class="wp-image-7413" src="/wp-content/uploads/2018/06/word-image-21.png" srcset="/wp-content/uploads/2018/06/word-image-21.png 683w, /wp-content/uploads/2018/06/word-image-21-300x131.png 300w" sizes="(max-width: 683px) 100vw, 683px" /></p>
+<p>访问：</p>
+<p><img loading="lazy" decoding="async" width="499" height="64" class="wp-image-7414" src="/wp-content/uploads/2018/06/word-image-22.png" srcset="/wp-content/uploads/2018/06/word-image-22.png 499w, /wp-content/uploads/2018/06/word-image-22-300x38.png 300w" sizes="(max-width: 499px) 100vw, 499px" /></p>
+<h3>访问控制器</h3>
+<p>1、可以通过tp3老版本的pathInfo模式进行访问。</p>
+<p><a href="/goto/ghx2" rel="nofollow">http://网址/index.php/分组/控制器名称/操作方法名称</a></p>
+<p>如访问Index模块的index控制器的test1方法</p>
+<p><img loading="lazy" decoding="async" width="795" height="74" class="wp-image-7415" src="/wp-content/uploads/2018/06/word-image-23.png" srcset="/wp-content/uploads/2018/06/word-image-23.png 795w, /wp-content/uploads/2018/06/word-image-23-300x28.png 300w, /wp-content/uploads/2018/06/word-image-23-768x71.png 768w" sizes="(max-width: 795px) 100vw, 795px" /></p>
+<p>2、也可以把index.php入口文件给隐藏掉，变为下边的路由形式：</p>
+<p><a href="/goto/ghx2" rel="nofollow">http://网址/分组/控制器名称/操作方法名称</a></p>
+<p>省去index.php入口访问，修改项目的重写文件.htaaccess。</p>
+<p>第一步：文件位置：[项目根目录]/Public/.htaccess ,做如下修改：</p>
+<p><img loading="lazy" decoding="async" width="514" height="211" class="wp-image-7416" src="/wp-content/uploads/2018/06/word-image-24.png" srcset="/wp-content/uploads/2018/06/word-image-24.png 514w, /wp-content/uploads/2018/06/word-image-24-300x123.png 300w" sizes="(max-width: 514px) 100vw, 514px" /></p>
+<p>(注：上图在index.php后边加”?”号)</p>
+<p>重写文件.htaccsee解释：</p>
+<p>&lt;IfModule mod_rewrite.c&gt;</p>
+<p>Options +FollowSymlinks -Multiviews</p>
+<p>RewriteEngine On #开启重写规则</p>
+<p>RewriteCond %{REQUEST_FILENAME} !-d #如果请求的不是一个目录（-d 代表目录）</p>
+<p>RewriteCond %{REQUEST_FILENAME} !-f #且如果请求的不是一个文件（-f 代表文件）</p>
+<p>RewriteRule ^(.*)$ index.php?/$1 [QSA,PT,L] #上面两个条件都不满足，执行RewriteRule重写规则</p>
+<p>&lt;/IfModule&gt;</p>
+<p>重写规则: RewriteRule 虚拟规则（正则写） 服务器真实文件路径</p>
+<p>即用户输入的域名后面的规则若满足虚拟规则，就会访问对应的真实文件。</p>
+<p>第二步：修改虚拟主机vhosts.conf的配置：加上AllowOverride All ，默认phpstudy创建的虚拟主机自带这一行。</p>
+<p><img loading="lazy" decoding="async" width="558" height="213" class="wp-image-7417" src="/wp-content/uploads/2018/06/word-image-25.png" srcset="/wp-content/uploads/2018/06/word-image-25.png 558w, /wp-content/uploads/2018/06/word-image-25-300x115.png 300w" sizes="(max-width: 558px) 100vw, 558px" /></p>
+<p>第三步。再去httpd.conf开启重写文件：</p>
+<p><img loading="lazy" decoding="async" width="747" height="169" class="wp-image-7418" src="/wp-content/uploads/2018/06/word-image-26.png" srcset="/wp-content/uploads/2018/06/word-image-26.png 747w, /wp-content/uploads/2018/06/word-image-26-300x68.png 300w" sizes="(max-width: 747px) 100vw, 747px" /></p>
+<p>重启apache服务器，省去入口文件index.php进行访问:</p>
+<p><img loading="lazy" decoding="async" width="352" height="74" class="wp-image-7419" src="/wp-content/uploads/2018/06/word-image-27.png" srcset="/wp-content/uploads/2018/06/word-image-27.png 352w, /wp-content/uploads/2018/06/word-image-27-300x63.png 300w" sizes="(max-width: 352px) 100vw, 352px" /></p>
+<h3>开启调试模式</h3>
+<p>为了在开发过程中，开发者能够及时看到详细的错误信息，我们在开发阶段可以把以下config配置文件中的app_debug配置设置为true,</p>
+<p><img loading="lazy" decoding="async" width="700" height="173" class="wp-image-7420" src="/wp-content/uploads/2018/06/word-image-28.png" srcset="/wp-content/uploads/2018/06/word-image-28.png 700w, /wp-content/uploads/2018/06/word-image-28-300x74.png 300w" sizes="(max-width: 700px) 100vw, 700px" /></p>
+<p>访问一个不存在的方法,会报详细的错误。</p>
+<p><img loading="lazy" decoding="async" width="955" height="167" class="wp-image-7421" src="/wp-content/uploads/2018/06/word-image-29.png" srcset="/wp-content/uploads/2018/06/word-image-29.png 955w, /wp-content/uploads/2018/06/word-image-29-300x52.png 300w, /wp-content/uploads/2018/06/word-image-29-768x134.png 768w" sizes="(max-width: 955px) 100vw, 955px" /></p>
+<p>若设置为false,则会出现友好的提示：</p>
+<p><img loading="lazy" decoding="async" width="461" height="147" class="wp-image-7422" src="/wp-content/uploads/2018/06/word-image-30.png" srcset="/wp-content/uploads/2018/06/word-image-30.png 461w, /wp-content/uploads/2018/06/word-image-30-300x96.png 300w" sizes="(max-width: 461px) 100vw, 461px" /></p>
+<p>所以，项目上线后，我们要把此配置改为false。不要让用户看到我们网站报错。</p>
+<h1>五、项目分组（模块）</h1>
+<h2>1、创建分组</h2>
+<p>一个项目中一般都有Home、Admin分组，即前台和后台，那对应框架中就是一个具体的文件夹，每个项目文件夹都有对应的控制器、模型、视图对应的文件夹，tp5框架中默认有一个分组index。</p>
+<p>我们只需要把index分组复制一份改名（如admin）放在Application目录下即可，同时修改对应类所在分组的命名空间即可。</p>
+<p><img loading="lazy" decoding="async" width="689" height="231" class="wp-image-7423" src="/wp-content/uploads/2018/06/word-image-31.png" srcset="/wp-content/uploads/2018/06/word-image-31.png 689w, /wp-content/uploads/2018/06/word-image-31-300x101.png 300w" sizes="(max-width: 689px) 100vw, 689px" /></p>
+<p>也需要改对应类的命名空间：</p>
+<p><img loading="lazy" decoding="async" width="808" height="332" class="wp-image-7424" src="/wp-content/uploads/2018/06/word-image-32.png" srcset="/wp-content/uploads/2018/06/word-image-32.png 808w, /wp-content/uploads/2018/06/word-image-32-300x123.png 300w, /wp-content/uploads/2018/06/word-image-32-768x316.png 768w" sizes="(max-width: 808px) 100vw, 808px" /></p>
+<p>访问如下：</p>
+<p><img loading="lazy" decoding="async" width="454" height="64" class="wp-image-7425" src="/wp-content/uploads/2018/06/word-image-33.png" srcset="/wp-content/uploads/2018/06/word-image-33.png 454w, /wp-content/uploads/2018/06/word-image-33-300x42.png 300w" sizes="(max-width: 454px) 100vw, 454px" /></p>
+<h2>2、默认分组的设置</h2>
+<p>需修改框架的application/config.php的配置文件，如默认访问admin分组的index控制器的index方法，做如下修改：</p>
+<p><img loading="lazy" decoding="async" width="834" height="301" class="wp-image-7426" src="/wp-content/uploads/2018/06/word-image-34.png" srcset="/wp-content/uploads/2018/06/word-image-34.png 834w, /wp-content/uploads/2018/06/word-image-34-300x108.png 300w, /wp-content/uploads/2018/06/word-image-34-768x277.png 768w" sizes="(max-width: 834px) 100vw, 834px" /></p>
+<p>直接输入域名访问的则是admin模块下的index控制器的index方法：</p>
+<p><img loading="lazy" decoding="async" width="416" height="103" class="wp-image-7427" src="/wp-content/uploads/2018/06/word-image-35.png" srcset="/wp-content/uploads/2018/06/word-image-35.png 416w, /wp-content/uploads/2018/06/word-image-35-300x74.png 300w" sizes="(max-width: 416px) 100vw, 416px" /></p>
+<h2>3、分组的访问权限控制</h2>
+<p>需修改框架的application/config.php的配置文件：</p>
+<p><img loading="lazy" decoding="async" width="612" height="78" class="wp-image-7428" src="/wp-content/uploads/2018/06/word-image-36.png" srcset="/wp-content/uploads/2018/06/word-image-36.png 612w, /wp-content/uploads/2018/06/word-image-36-300x38.png 300w" sizes="(max-width: 612px) 100vw, 612px" /></p>
+<p>上图是设置禁止访问common和index分组。</p>
+<p>再次访问index模块，会报错。</p>
+<p><img loading="lazy" decoding="async" width="625" height="210" class="wp-image-7429" src="/wp-content/uploads/2018/06/word-image-37.png" srcset="/wp-content/uploads/2018/06/word-image-37.png 625w, /wp-content/uploads/2018/06/word-image-37-300x101.png 300w" sizes="(max-width: 625px) 100vw, 625px" /></p>
+<h1>六、【了解】命令行操作</h1>
+<h2>命令行创建分组</h2>
+<p>创建文件application/build.php并填充内容，可以参考根目录 build.php</p>
+<p>[项目根目录] &gt; php think build</p>
+<p>创建application/build.php并填充如下内容：</p>
+<p><img loading="lazy" decoding="async" width="1209" height="397" class="wp-image-7430" src="/wp-content/uploads/2018/06/word-image-38.png" srcset="/wp-content/uploads/2018/06/word-image-38.png 1209w, /wp-content/uploads/2018/06/word-image-38-300x99.png 300w, /wp-content/uploads/2018/06/word-image-38-768x252.png 768w, /wp-content/uploads/2018/06/word-image-38-1024x336.png 1024w" sizes="(max-width: 1209px) 100vw, 1209px" /></p>
+<p>执行命令</p>
+<p><img loading="lazy" decoding="async" width="365" height="79" class="wp-image-7431" src="/wp-content/uploads/2018/06/word-image-39.png" srcset="/wp-content/uploads/2018/06/word-image-39.png 365w, /wp-content/uploads/2018/06/word-image-39-300x65.png 300w" sizes="(max-width: 365px) 100vw, 365px" /></p>
+<p>创建分组的效果</p>
+<h2>命令行创建控制器</h2>
+<p>[项目根目录] &gt; php think make:controller 分组/名称</p>
+<p>注：不写分组名会直接创建在common分组中</p>
+<p>例：在Common中生成一个Demo的控制器</p>
+<p><img loading="lazy" decoding="async" width="433" height="44" class="wp-image-7432" src="/wp-content/uploads/2018/06/word-image-40.png" srcset="/wp-content/uploads/2018/06/word-image-40.png 433w, /wp-content/uploads/2018/06/word-image-40-300x30.png 300w" sizes="(max-width: 433px) 100vw, 433px" /></p>
+<p>生成如下所示：</p>
+<p><img loading="lazy" decoding="async" width="881" height="331" class="wp-image-7433" src="/wp-content/uploads/2018/06/word-image-41.png" srcset="/wp-content/uploads/2018/06/word-image-41.png 881w, /wp-content/uploads/2018/06/word-image-41-300x113.png 300w, /wp-content/uploads/2018/06/word-image-41-768x289.png 768w" sizes="(max-width: 881px) 100vw, 881px" /></p>
+<p>例如下述，要给index分组创建UserController.php控制器文件</p>
+<p>[项目根目录] &gt; php think make:controller index/User</p>
+<p>命令如下；</p>
+<p><img loading="lazy" decoding="async" width="494" height="48" class="wp-image-7434" src="/wp-content/uploads/2018/06/word-image-42.png" srcset="/wp-content/uploads/2018/06/word-image-42.png 494w, /wp-content/uploads/2018/06/word-image-42-300x29.png 300w" sizes="(max-width: 494px) 100vw, 494px" /></p>
+<p>生成的文件：</p>
+<p><img loading="lazy" decoding="async" width="817" height="341" class="wp-image-7435" src="/wp-content/uploads/2018/06/word-image-43.png" srcset="/wp-content/uploads/2018/06/word-image-43.png 817w, /wp-content/uploads/2018/06/word-image-43-300x125.png 300w, /wp-content/uploads/2018/06/word-image-43-768x321.png 768w" sizes="(max-width: 817px) 100vw, 817px" /></p>
+<h1>七、使用路由访问</h1>
+<p>老版本TP3.2多种访问模式（了解）：</p>
+<ul>
+<li>pathinfo模式（默认形式,,重点掌握）：http://域名/index.php/模块/控制器名/方法名/参数名/参数值/参数名/参数值&#8230;</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="578" height="38" class="wp-image-7436" src="/wp-content/uploads/2018/06/word-image-44.png" srcset="/wp-content/uploads/2018/06/word-image-44.png 578w, /wp-content/uploads/2018/06/word-image-44-300x20.png 300w" sizes="(max-width: 578px) 100vw, 578px" /></p>
+<ul>
+<li>普通模式（get形式）：http://域名/index.php?m=模块&amp;c=控制器名&amp;a=方法名&amp;参数名=参数值&#8230;</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="605" height="79" class="wp-image-7437" src="/wp-content/uploads/2018/06/word-image-45.png" srcset="/wp-content/uploads/2018/06/word-image-45.png 605w, /wp-content/uploads/2018/06/word-image-45-300x39.png 300w" sizes="(max-width: 605px) 100vw, 605px" /></p>
+<ul>
+<li>rewrite模式（隐藏入口文件）：<a href="/goto/98sz" rel="nofollow">http://域名/模块/控制器名/方法名/参数名/参数值/参数名/参数值&#8230;</a></li>
+</ul>
+<p><img loading="lazy" decoding="async" width="515" height="82" class="wp-image-7438" src="/wp-content/uploads/2018/06/word-image-46.png" srcset="/wp-content/uploads/2018/06/word-image-46.png 515w, /wp-content/uploads/2018/06/word-image-46-300x48.png 300w" sizes="(max-width: 515px) 100vw, 515px" /></p>
+<ul>
+<li>兼容模式：http://域名/inde.php?s=/模块/控制器名/方法名/参数名/参数值&#8230;</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="534" height="83" class="wp-image-7439" src="/wp-content/uploads/2018/06/word-image-47.png" srcset="/wp-content/uploads/2018/06/word-image-47.png 534w, /wp-content/uploads/2018/06/word-image-47-300x47.png 300w" sizes="(max-width: 534px) 100vw, 534px" /></p>
+<p>上面的四种模式在tp5默认都是支持的。其在tp5框架中还可以单独定义路由规则来访问某个控制器中的某个方法。</p>
+<p>只要配置文件config.php中开启路由功能，访问的时候就会经过路由规则，根据定义的路由规则从而访问到某个控制器中的方法。</p>
+<p>路由图解：</p>
+<p><img loading="lazy" decoding="async" width="697" height="91" class="wp-image-7440" src="/wp-content/uploads/2018/06/word-image-48.png" srcset="/wp-content/uploads/2018/06/word-image-48.png 697w, /wp-content/uploads/2018/06/word-image-48-300x39.png 300w" sizes="(max-width: 697px) 100vw, 697px" /></p>
+<ol>
+<li>开启路由，修改application/config.php配置文件</li>
+</ol>
+<p>&#8216;url_route_on&#8217; =&gt; true, // 开启路由</p>
+<p>&#8216;url_route_must&#8217; =&gt; true, // 必须使用路由(即不能使用之前的pathinfo模式访问)</p>
+<p>注：若url_route_must设置为true,就不就可以通过上面四种模式来访问，只能通过定义的路由规则访问。</p>
+<p>2、定义路由规则，定义在application/route.php文件中</p>
+<p>Route::rule(&#8216;路由表达式&#8217;,&#8217;路由地址&#8217;,&#8217;请求类型&#8217;,&#8217;路由参数(数组)&#8217;,&#8217;变量规则(数组)&#8217;);</p>
+<p>说明：</p>
+<p><strong>路由表达式</strong>：静态地址、动态地址、可选动态地址</p>
+<p><strong>路由地址</strong>：表示路由表达式最终需要路由到的地址，有多种定义方式，常用的是”模块/控制器/操作?额外参数1=值1&amp;额外参数2=值2”形式</p>
+<p><strong>请求类型</strong>：GET、POST 必须是大写的</p>
+<p><strong>路由参数</strong>：</p>
+<p>method:请求类型</p>
+<p>ext:允许的后缀</p>
+<p>deny_ext:禁止的访问后缀</p>
+<p>domain:允许什么样的域名访问有效</p>
+<p>https:检测是否是https请求</p>
+<p>before_behavior:行为发生前，进行路由检查</p>
+<p>after_behavior:行为发生后，要执行的动作</p>
+<p>&#8230;</p>
+<p>详情参考：手册路由&#8211;&gt;路由参数</p>
+<p>变量规则：检查传递的变量是否符合某个(正则)规则,规则可以通过正则定义</p>
+<p>例如规则：</p>
+<p>Route::rule(‘login’,’home/User/login’,’GET’,[‘ext’=&gt;’html’]);</p>
+<p>访问：<a href="/goto/dzl6" rel="nofollow">http://servername/index.php/login</a>.html</p>
+<p>路由到：<a href="/goto/5h9l" rel="nofollow">http://servername/index.php/home/User/login</a></p>
+<p>Route::rule(‘login/:id’,’home/User/login’,’GET’,[‘ext’=&gt;’html’],[‘id’=&gt;’\d+’]);</p>
+<p>访问：<a href="/goto/dzl6" rel="nofollow">http://servername/index.php/login</a>/101.html</p>
+<p>路由到：<a href="/goto/5h9l" rel="nofollow">http://servername/index.php/home/User/login</a>/id/101</p>
+<p>Route::rule(‘login/:id/:name’,’home/User/login’,’GET’,[‘ext’=&gt;’html’],[‘id’=&gt;’\d+’,’name’=&gt;’[a-zA-Z]+’]);</p>
+<p>访问：<a href="/goto/dzl6" rel="nofollow">http://servername/index.php/login</a>/101/tom.html</p>
+<p>路由到：</p>
+<p><a href="/goto/5h9l" rel="nofollow">http://servername/index.php/home/User/login</a>/id/101/name/tom</p>
+<p>也可以像下边这样定义:</p>
+<p>Route::get(&#8216;路由表达式&#8217;,&#8217;路由地址&#8217;,&#8217;路由参数(数组)&#8217;,&#8217;变量规则(数组)&#8217;);</p>
+<p>Route::post(&#8216;路由表达式&#8217;,&#8217;路由地址&#8217;,&#8217;路由参数(数组)&#8217;,&#8217;变量规则(数组)&#8217;);</p>
+<p>如一个控制器中的方法在路由规则中没有定义则是不允许被访问，报以下错误：</p>
+<p><img loading="lazy" decoding="async" width="701" height="144" class="wp-image-7441" src="/wp-content/uploads/2018/06/word-image-49.png" srcset="/wp-content/uploads/2018/06/word-image-49.png 701w, /wp-content/uploads/2018/06/word-image-49-300x62.png 300w" sizes="(max-width: 701px) 100vw, 701px" /></p>
+<p>解决办法，把application/config.php文件中的以下配置改为false,就说明路由规则和pathinfo形式两者都可以进行访问。</p>
+<p>&#8216;url_route_must&#8217; =&gt; false, // 是否强制使用路由</p>
+<p>在application/route.php中定义路由规则：</p>
+<p><img loading="lazy" decoding="async" width="1171" height="392" class="wp-image-7442" src="/wp-content/uploads/2018/06/word-image-50.png" srcset="/wp-content/uploads/2018/06/word-image-50.png 1171w, /wp-content/uploads/2018/06/word-image-50-300x100.png 300w, /wp-content/uploads/2018/06/word-image-50-768x257.png 768w, /wp-content/uploads/2018/06/word-image-50-1024x343.png 1024w" sizes="(max-width: 1171px) 100vw, 1171px" /></p>
+<p>访问如下：</p>
+<p><img loading="lazy" decoding="async" width="323" height="71" class="wp-image-7443" src="/wp-content/uploads/2018/06/word-image-51.png" srcset="/wp-content/uploads/2018/06/word-image-51.png 323w, /wp-content/uploads/2018/06/word-image-51-300x66.png 300w" sizes="(max-width: 323px) 100vw, 323px" /></p>
+<p><img loading="lazy" decoding="async" width="328" height="64" class="wp-image-7444" src="/wp-content/uploads/2018/06/word-image-52.png" srcset="/wp-content/uploads/2018/06/word-image-52.png 328w, /wp-content/uploads/2018/06/word-image-52-300x59.png 300w" sizes="(max-width: 328px) 100vw, 328px" /></p>
+<p><img loading="lazy" decoding="async" width="317" height="66" class="wp-image-7445" src="/wp-content/uploads/2018/06/word-image-53.png" srcset="/wp-content/uploads/2018/06/word-image-53.png 317w, /wp-content/uploads/2018/06/word-image-53-300x62.png 300w" sizes="(max-width: 317px) 100vw, 317px" /></p>
+<h1>展示视图</h1>
+<p>语法：控制器中调用fetch方法</p>
+<p>return $this -&gt; fetch(模块@控制器/操作);</p>
+<p>注意：</p>
+<p>控制器要想正常调用fetch方法，则必须继承Controller类：use think\Controller</p>
+<p>fetch()具体有下述5种用法：</p>
+<ul>
+<li>调用：view下当前控制器名/当前操作名.html模版文件</li>
+</ul>
+<p>return $this -&gt; fetch();</p>
+<ul>
+<li>调用：view下当前控制器的/add.html模版文件</li>
+</ul>
+<p>return $this -&gt; fetch(‘add’);</p>
+<ul>
+<li>找到view下边user目录的login.html模版文件[跨控制器]</li>
+</ul>
+<p>return $this -&gt; fetch(&#8216;user/login&#8217;);</p>
+<ul>
+<li>找到admin分组view目录的manager下边的login.html模版文件[跨分组]</li>
+</ul>
+<p>return $this -&gt; fetch(&#8216;admin@manager/login&#8217;);</p>
+<p>代码如下：</p>
+<p><img loading="lazy" decoding="async" width="879" height="322" class="wp-image-7446" src="/wp-content/uploads/2018/06/word-image-54.png" srcset="/wp-content/uploads/2018/06/word-image-54.png 879w, /wp-content/uploads/2018/06/word-image-54-300x110.png 300w, /wp-content/uploads/2018/06/word-image-54-768x281.png 768w" sizes="(max-width: 879px) 100vw, 879px" /></p>
+<p>结果：</p>
+<p><img loading="lazy" decoding="async" width="428" height="86" class="wp-image-7447" src="/wp-content/uploads/2018/06/word-image-55.png" srcset="/wp-content/uploads/2018/06/word-image-55.png 428w, /wp-content/uploads/2018/06/word-image-55-300x60.png 300w" sizes="(max-width: 428px) 100vw, 428px" /></p>
+<h1>九、模板赋值</h1>
+<p>语法：在控制器调用assign方法</p>
+<ol>
+<li>public function index()</li>
+<li>{</li>
+<li>// 模板变量赋值</li>
+<li>$this-&gt;assign(&#8216;name&#8217;,&#8217;ThinkPHP&#8217;);</li>
+<li>$this-&gt;assign(&#8217;email&#8217;,&#8217;thinkphp@qq.com&#8217;);</li>
+<li>// 或者批量赋值</li>
+<li>$this-&gt;assign([</li>
+<li>&#8216;name&#8217; =&gt; &#8216;ThinkPHP&#8217;,</li>
+<li>&#8217;email&#8217; =&gt; &#8216;thinkphp@qq.com&#8217;</li>
+<li>]);</li>
+<li>// 模板输出</li>
+<li>return $this-&gt;fetch(&#8216;index&#8217;);</li>
+<li>}</li>
+</ol>
+<p>或者把模板变量直接传递给fetch方法：</p>
+<ol>
+<li>public function index()</li>
+<li>{</li>
+<li>return $this-&gt;fetch(&#8216;index&#8217;, [</li>
+<li>&#8216;name&#8217; =&gt; &#8216;ThinkPHP&#8217;,</li>
+<li>&#8217;email&#8217; =&gt; &#8216;thinkphp@qq.com&#8217;</li>
+<li>]);</li>
+<li>}</li>
+</ol>
+<p>代码如下：</p>
+<p><img loading="lazy" decoding="async" width="611" height="174" class="wp-image-7448" src="/wp-content/uploads/2018/06/word-image-56.png" srcset="/wp-content/uploads/2018/06/word-image-56.png 611w, /wp-content/uploads/2018/06/word-image-56-300x85.png 300w" sizes="(max-width: 611px) 100vw, 611px" /></p>
+<p>模板中显示：</p>
+<p><img loading="lazy" decoding="async" width="392" height="94" class="wp-image-7449" src="/wp-content/uploads/2018/06/word-image-57.png" srcset="/wp-content/uploads/2018/06/word-image-57.png 392w, /wp-content/uploads/2018/06/word-image-57-300x72.png 300w" sizes="(max-width: 392px) 100vw, 392px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="414" height="132" class="wp-image-7450" src="/wp-content/uploads/2018/06/word-image-58.png" srcset="/wp-content/uploads/2018/06/word-image-58.png 414w, /wp-content/uploads/2018/06/word-image-58-300x96.png 300w" sizes="(max-width: 414px) 100vw, 414px" /></p>
+<p>建议使用如下方式，分配模板变量：<br />
+<img loading="lazy" decoding="async" width="735" height="212" class="wp-image-7451" src="/wp-content/uploads/2018/06/word-image-59.png" srcset="/wp-content/uploads/2018/06/word-image-59.png 735w, /wp-content/uploads/2018/06/word-image-59-300x87.png 300w" sizes="(max-width: 735px) 100vw, 735px" /></p>
+<p>模板中显示：</p>
+<p><img loading="lazy" decoding="async" width="630" height="265" class="wp-image-7452" src="/wp-content/uploads/2018/06/word-image-60.png" srcset="/wp-content/uploads/2018/06/word-image-60.png 630w, /wp-content/uploads/2018/06/word-image-60-300x126.png 300w" sizes="(max-width: 630px) 100vw, 630px" /></p>
+<h1>十、模板常用标签</h1>
+<h2>volist标签</h2>
+<p>作用：主要用来遍历数组</p>
+<p>语法：</p>
+<p><img loading="lazy" decoding="async" width="966" height="275" class="wp-image-7453" src="/wp-content/uploads/2018/06/word-image-61.png" srcset="/wp-content/uploads/2018/06/word-image-61.png 966w, /wp-content/uploads/2018/06/word-image-61-300x85.png 300w, /wp-content/uploads/2018/06/word-image-61-768x219.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<p>Volist标签的name属性表示模板赋值的变量名称，因此不可随意在模板文件中改变。id表示当前的循环变量，可以随意指定，但确保不要和name属性值冲突。</p>
+<p>代码如下：</p>
+<p>控制器对模板赋值：</p>
+<p><img loading="lazy" decoding="async" width="706" height="394" class="wp-image-7454" src="/wp-content/uploads/2018/06/word-image-62.png" srcset="/wp-content/uploads/2018/06/word-image-62.png 706w, /wp-content/uploads/2018/06/word-image-62-300x167.png 300w" sizes="(max-width: 706px) 100vw, 706px" /></p>
+<p>模板遍历：</p>
+<p><img loading="lazy" decoding="async" width="802" height="375" class="wp-image-7455" src="/wp-content/uploads/2018/06/word-image-63.png" srcset="/wp-content/uploads/2018/06/word-image-63.png 802w, /wp-content/uploads/2018/06/word-image-63-300x140.png 300w, /wp-content/uploads/2018/06/word-image-63-768x359.png 768w" sizes="(max-width: 802px) 100vw, 802px" /></p>
+<p>效果：<br />
+<img loading="lazy" decoding="async" width="448" height="272" class="wp-image-7456" src="/wp-content/uploads/2018/06/word-image-64.png" srcset="/wp-content/uploads/2018/06/word-image-64.png 448w, /wp-content/uploads/2018/06/word-image-64-300x182.png 300w" sizes="(max-width: 448px) 100vw, 448px" /></p>
+<p>循环数组序号（标号）：</p>
+<p><img loading="lazy" decoding="async" width="809" height="253" class="wp-image-7457" src="/wp-content/uploads/2018/06/word-image-65.png" srcset="/wp-content/uploads/2018/06/word-image-65.png 809w, /wp-content/uploads/2018/06/word-image-65-300x94.png 300w, /wp-content/uploads/2018/06/word-image-65-768x240.png 768w" sizes="(max-width: 809px) 100vw, 809px" /></p>
+<p>注：如果不知道key属性，默认{$key}从0开始，所以需要加1{$key+1}</p>
+<h2>比较标签</h2>
+<p>参考手册：</p>
+<p><img loading="lazy" decoding="async" width="788" height="449" class="wp-image-7458" src="/wp-content/uploads/2018/06/word-image-66.png" srcset="/wp-content/uploads/2018/06/word-image-66.png 788w, /wp-content/uploads/2018/06/word-image-66-300x171.png 300w, /wp-content/uploads/2018/06/word-image-66-768x438.png 768w" sizes="(max-width: 788px) 100vw, 788px" /></p>
+<p>使用范例：</p>
+<p><img loading="lazy" decoding="async" width="387" height="123" class="wp-image-7459" src="/wp-content/uploads/2018/06/word-image-67.png" srcset="/wp-content/uploads/2018/06/word-image-67.png 387w, /wp-content/uploads/2018/06/word-image-67-300x95.png 300w" sizes="(max-width: 387px) 100vw, 387px" /></p>
+<p>代码如下：</p>
+<p>模板赋值遍历：</p>
+<p><img loading="lazy" decoding="async" width="600" height="50" class="wp-image-7460" src="/wp-content/uploads/2018/06/word-image-68.png" srcset="/wp-content/uploads/2018/06/word-image-68.png 600w, /wp-content/uploads/2018/06/word-image-68-300x25.png 300w" sizes="(max-width: 600px) 100vw, 600px" /></p>
+<p>模板判断：</p>
+<p><img loading="lazy" decoding="async" width="326" height="146" class="wp-image-7461" src="/wp-content/uploads/2018/06/word-image-69.png" srcset="/wp-content/uploads/2018/06/word-image-69.png 326w, /wp-content/uploads/2018/06/word-image-69-300x134.png 300w" sizes="(max-width: 326px) 100vw, 326px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="165" height="83" class="wp-image-7462" src="/wp-content/uploads/2018/06/word-image-70.png" /></p>
+<h2>php标签</h2>
+<p>如果模板标签太多记不住，这里可以使用php标签统一进行一些代码的编写：</p>
+<p><img loading="lazy" decoding="async" width="716" height="258" class="wp-image-7463" src="/wp-content/uploads/2018/06/word-image-71.png" srcset="/wp-content/uploads/2018/06/word-image-71.png 716w, /wp-content/uploads/2018/06/word-image-71-300x108.png 300w" sizes="(max-width: 716px) 100vw, 716px" /></p>
+<p>例1：代码如下：</p>
+<p><img loading="lazy" decoding="async" width="885" height="546" class="wp-image-7464" src="/wp-content/uploads/2018/06/word-image-72.png" srcset="/wp-content/uploads/2018/06/word-image-72.png 885w, /wp-content/uploads/2018/06/word-image-72-300x185.png 300w, /wp-content/uploads/2018/06/word-image-72-768x474.png 768w" sizes="(max-width: 885px) 100vw, 885px" /></p>
+<p>例2：代码如下：</p>
+<p>控制器赋值：</p>
+<p><img loading="lazy" decoding="async" width="512" height="63" class="wp-image-7465" src="/wp-content/uploads/2018/06/word-image-73.png" srcset="/wp-content/uploads/2018/06/word-image-73.png 512w, /wp-content/uploads/2018/06/word-image-73-300x37.png 300w" sizes="(max-width: 512px) 100vw, 512px" /></p>
+<p>模板获取：</p>
+<p><img loading="lazy" decoding="async" width="549" height="191" class="wp-image-7466" src="/wp-content/uploads/2018/06/word-image-74.png" srcset="/wp-content/uploads/2018/06/word-image-74.png 549w, /wp-content/uploads/2018/06/word-image-74-300x104.png 300w" sizes="(max-width: 549px) 100vw, 549px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="100" height="77" class="wp-image-7467" src="/wp-content/uploads/2018/06/word-image-75.png" /></p>
+<h2>include包含标签</h2>
+<p><strong>作用</strong>：</p>
+<p>一般网站页面的头部或尾部的网页效果都是一样的，我们就可以把这些网页的代码抽离出来放在一个html文件中，需要使用这些文件的时候，在模板中用include标签引入即可，从而提高代码的复用性。</p>
+<p><strong>include语法：</strong></p>
+<p><img loading="lazy" decoding="async" width="482" height="57" class="wp-image-7468" src="/wp-content/uploads/2018/06/word-image-76.png" srcset="/wp-content/uploads/2018/06/word-image-76.png 482w, /wp-content/uploads/2018/06/word-image-76-300x35.png 300w" sizes="(max-width: 482px) 100vw, 482px" /></p>
+<p>注意：file的路径是从当前模块的view目录下开始找起。</p>
+<p>如：有一个header.html模板，其所在路径为：Admin/view/public/header.html</p>
+<p>在模板中引入此文件： &lt;include file=”public/header” /&gt;</p>
+<p><strong>代码如下：</strong></p>
+<p>控制器输出模板：</p>
+<p><img loading="lazy" decoding="async" width="567" height="202" class="wp-image-7469" src="/wp-content/uploads/2018/06/word-image-77.png" srcset="/wp-content/uploads/2018/06/word-image-77.png 567w, /wp-content/uploads/2018/06/word-image-77-300x107.png 300w" sizes="(max-width: 567px) 100vw, 567px" /></p>
+<p>在模板中引入公共的文件：</p>
+<p><img loading="lazy" decoding="async" width="1019" height="353" class="wp-image-7470" src="/wp-content/uploads/2018/06/word-image-78.png" srcset="/wp-content/uploads/2018/06/word-image-78.png 1019w, /wp-content/uploads/2018/06/word-image-78-300x104.png 300w, /wp-content/uploads/2018/06/word-image-78-768x266.png 768w" sizes="(max-width: 1019px) 100vw, 1019px" /></p>
+<p>注：文件名后缀不要加html</p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="136" height="66" class="wp-image-7471" src="/wp-content/uploads/2018/06/word-image-79.png" /></p>
+<h1>十一、搭建后台首页</h1>
+<p>第一步：在后台Admin建立一个Index的控制器，输出模板内容</p>
+<p><img loading="lazy" decoding="async" width="885" height="275" class="wp-image-7472" src="/wp-content/uploads/2018/06/word-image-80.png" srcset="/wp-content/uploads/2018/06/word-image-80.png 885w, /wp-content/uploads/2018/06/word-image-80-300x93.png 300w, /wp-content/uploads/2018/06/word-image-80-768x239.png 768w" sizes="(max-width: 885px) 100vw, 885px" /></p>
+<p>第二步：把我们的后台模板index.html复制到/admin/view/index/目录下面</p>
+<p><img loading="lazy" decoding="async" width="1028" height="383" class="wp-image-7473" src="/wp-content/uploads/2018/06/word-image-81.png" srcset="/wp-content/uploads/2018/06/word-image-81.png 1028w, /wp-content/uploads/2018/06/word-image-81-300x112.png 300w, /wp-content/uploads/2018/06/word-image-81-768x286.png 768w, /wp-content/uploads/2018/06/word-image-81-1024x382.png 1024w" sizes="(max-width: 1028px) 100vw, 1028px" /></p>
+<p>第三步：把后台模板的left.html 、 top.html 、main.html复复制到/admin/view/index/目录下面.</p>
+<p><img loading="lazy" decoding="async" width="744" height="472" class="wp-image-7474" src="/wp-content/uploads/2018/06/word-image-82.png" srcset="/wp-content/uploads/2018/06/word-image-82.png 744w, /wp-content/uploads/2018/06/word-image-82-300x190.png 300w" sizes="(max-width: 744px) 100vw, 744px" /></p>
+<p>第四步：在建立left、top、main三个方法</p>
+<p><img loading="lazy" decoding="async" width="835" height="533" class="wp-image-7475" src="/wp-content/uploads/2018/06/word-image-83.png" srcset="/wp-content/uploads/2018/06/word-image-83.png 835w, /wp-content/uploads/2018/06/word-image-83-300x191.png 300w, /wp-content/uploads/2018/06/word-image-83-768x490.png 768w" sizes="(max-width: 835px) 100vw, 835px" /></p>
+<p>第五步：设置index.html模板的iframe的src路径：</p>
+<p><img loading="lazy" decoding="async" width="1238" height="324" class="wp-image-7476" src="/wp-content/uploads/2018/06/word-image-84.png" srcset="/wp-content/uploads/2018/06/word-image-84.png 1238w, /wp-content/uploads/2018/06/word-image-84-300x79.png 300w, /wp-content/uploads/2018/06/word-image-84-768x201.png 768w, /wp-content/uploads/2018/06/word-image-84-1024x268.png 1024w" sizes="(max-width: 1238px) 100vw, 1238px" /></p>
+<p>注：助手函数：url(‘模块/控制器/方法’) 生成url地址，在模板中使用函数需要在一对花括号{}前面加个冒号：</p>
+<p>第六步：把后台资源（img、css、js）,复制到网站根目录public/admin/目录下面</p>
+<p><img loading="lazy" decoding="async" width="1062" height="209" class="wp-image-7477" src="/wp-content/uploads/2018/06/word-image-85.png" srcset="/wp-content/uploads/2018/06/word-image-85.png 1062w, /wp-content/uploads/2018/06/word-image-85-300x59.png 300w, /wp-content/uploads/2018/06/word-image-85-768x151.png 768w, /wp-content/uploads/2018/06/word-image-85-1024x202.png 1024w" sizes="(max-width: 1062px) 100vw, 1062px" /></p>
+<p>同时config.php配置文件中，定义一个后台资源目录的路径，在模板中进行统一替换：</p>
+<p><img loading="lazy" decoding="async" width="860" height="300" class="wp-image-7478" src="/wp-content/uploads/2018/06/word-image-86.png" srcset="/wp-content/uploads/2018/06/word-image-86.png 860w, /wp-content/uploads/2018/06/word-image-86-300x105.png 300w, /wp-content/uploads/2018/06/word-image-86-768x268.png 768w" sizes="(max-width: 860px) 100vw, 860px" /></p>
+<p>第七步：模板中替换使用config函数获取配置进行替换：</p>
+<p><img loading="lazy" decoding="async" width="1358" height="710" class="wp-image-7479" src="/wp-content/uploads/2018/06/word-image-87.png" srcset="/wp-content/uploads/2018/06/word-image-87.png 1358w, /wp-content/uploads/2018/06/word-image-87-300x157.png 300w, /wp-content/uploads/2018/06/word-image-87-768x402.png 768w, /wp-content/uploads/2018/06/word-image-87-1024x535.png 1024w" sizes="(max-width: 1358px) 100vw, 1358px" /></p>
+<p>和上面操作一样分别替换top.html、left.html、main.html的静态资源目录。</p>
+<p>最终效果：</p>
+<p><img loading="lazy" decoding="async" width="761" height="479" class="wp-image-7480" src="/wp-content/uploads/2018/06/word-image-88.png" srcset="/wp-content/uploads/2018/06/word-image-88.png 761w, /wp-content/uploads/2018/06/word-image-88-300x189.png 300w" sizes="(max-width: 761px) 100vw, 761px" /></p>
+<p>注：助手函数config(‘配置名’)，是获取配置文件中的值。模板中使用需要在{}前面加个冒号：。</p>
+<p>助手函数手册位置：附录&#8211;》助手函数</p>
+<h1>十二、搭建登录页</h1>
+<p>第一步：在后台admin建立一个Public控制器，并建立一个login的方法，输出模板内容</p>
+<p><img loading="lazy" decoding="async" width="815" height="262" class="wp-image-7482" src="/wp-content/uploads/2018/06/word-image-89.png" srcset="/wp-content/uploads/2018/06/word-image-89.png 815w, /wp-content/uploads/2018/06/word-image-89-300x96.png 300w, /wp-content/uploads/2018/06/word-image-89-768x247.png 768w" sizes="(max-width: 815px) 100vw, 815px" /></p>
+<p>第二步：把后台模板login.html赋值到/admin/view/public/目录下面，并替换静态资源文件路径</p>
+<p><img loading="lazy" decoding="async" width="1221" height="368" class="wp-image-7483" src="/wp-content/uploads/2018/06/word-image-90.png" srcset="/wp-content/uploads/2018/06/word-image-90.png 1221w, /wp-content/uploads/2018/06/word-image-90-300x90.png 300w, /wp-content/uploads/2018/06/word-image-90-768x231.png 768w, /wp-content/uploads/2018/06/word-image-90-1024x309.png 1024w" sizes="(max-width: 1221px) 100vw, 1221px" /></p>
+<p>效果：<br />
+<img loading="lazy" decoding="async" width="775" height="341" class="wp-image-7484" src="/wp-content/uploads/2018/06/word-image-91.png" srcset="/wp-content/uploads/2018/06/word-image-91.png 775w, /wp-content/uploads/2018/06/word-image-91-300x132.png 300w, /wp-content/uploads/2018/06/word-image-91-768x338.png 768w" sizes="(max-width: 775px) 100vw, 775px" /></p>
+<p>sublime快捷键：</p>
+<p>替换：ctrl+h</p>
+<p>找文件：ctrl+p</p>
+<h1>十三、控制器中的页面跳转和重定向</h1>
+<h2>1、跳转</h2>
+<p>在应用开发中，经常会遇到一些带有提示信息的跳转页面，例如操作成功或者操作错误页面，并且自动跳转到另外一个目标页面。系统的\think\Controller类内置了两个跳转方法success和error，用于页面跳转提示</p>
+<p>成功跳转：$this-&gt;success($msg,$url,$data,$time)</p>
+<p>失败跳转：$this-&gt;error($msg,$url,$data,$time))</p>
+<p>参数说明：</p>
+<ul>
+<li>msg:跳转的提示信息</li>
+<li>url:跳转的地址。 建议用助手函数url()生成地址。，失败默认跳回上一页。一般不需要指定</li>
+<li>data: 返回的数据，没有则留空</li>
+<li>time:默认成功和失败都是3秒，</li>
+</ul>
+<p>代码如下：</p>
+<p><img loading="lazy" decoding="async" width="786" height="379" class="wp-image-7485" src="/wp-content/uploads/2018/06/word-image-92.png" srcset="/wp-content/uploads/2018/06/word-image-92.png 786w, /wp-content/uploads/2018/06/word-image-92-300x145.png 300w, /wp-content/uploads/2018/06/word-image-92-768x370.png 768w" sizes="(max-width: 786px) 100vw, 786px" /></p>
+<p>success和error方法源码位置： <img loading="lazy" decoding="async" width="392" height="26" class="wp-image-7486" src="/wp-content/uploads/2018/06/word-image-93.png" srcset="/wp-content/uploads/2018/06/word-image-93.png 392w, /wp-content/uploads/2018/06/word-image-93-300x20.png 300w" sizes="(max-width: 392px) 100vw, 392px" /></p>
+<h2>重定向</h2>
+<p>语法:</p>
+<p>$this-&gt; redirect(url,[$params])</p>
+<p>参数说明：</p>
+<p>第一个参数必填，后面两个个参数可缺省。</p>
+<ul>
+<li>$url：跳转的地址, 形式为 “模块/控制器/方法&#8221; 。</li>
+</ul>
+<p>若直接写方法名如：$this-&gt; redirect(‘index’)，默认会重定向到当前模块的当前控制器的index方法。</p>
+<p>若直接写控制器名和方法名如：$this-&gt; redirect(‘index/index’)，默认会重定向到当前模块的index控制器的index方法。</p>
+<ul>
+<li>$params：跳转携带的参数，数组形式如：传id等于3，array(“id”=&gt;3)</li>
+</ul>
+<p>$this -&gt; redirect(分组/控制器/操作方法)</p>
+<p>跳转到的地址：http://网址/分组/控制器/操作方法</p>
+<p>$this -&gt; redirect(分组/控制器/操作方法,[参数1=&gt;值1,参数2=&gt;值2])</p>
+<p>跳转到的地址：<a href="/goto/8icy" rel="nofollow">http://网址/分组/控制器/操作方法/参数1/值1/参数2/值</a>2</p>
+<p>代码如下：</p>
+<p><img loading="lazy" decoding="async" width="800" height="196" class="wp-image-7487" src="/wp-content/uploads/2018/06/word-image-94.png" srcset="/wp-content/uploads/2018/06/word-image-94.png 800w, /wp-content/uploads/2018/06/word-image-94-300x74.png 300w, /wp-content/uploads/2018/06/word-image-94-768x188.png 768w" sizes="(max-width: 800px) 100vw, 800px" /></p>
+<p>问：什么时候使用跳转和重定向？</p>
+<p>答：</p>
+<p>1、需要给用户操作的提示信息，则用跳转。</p>
+<p>一般是删除或编辑失败的时候，这需要给用户提示错误信息，操作失败则用跳转error，成功用success。</p>
+<p>2、不需要给任何提示信息，则用重定向。</p>
+<p>如用户登录成功不需要给提示信息则直接redirect重定向到首页，登录失败就用error给用户提示错误信息。</p>
+<h1>请求Request</h1>
+<p>手册参考位置：请求&#8211;&gt;请求信息</p>
+<h2>获取Request对象</h2>
+<p>图解Request对象、response对象：</p>
+<p><img loading="lazy" decoding="async" width="744" height="109" class="wp-image-7488" src="/wp-content/uploads/2018/06/word-image-95.png" srcset="/wp-content/uploads/2018/06/word-image-95.png 744w, /wp-content/uploads/2018/06/word-image-95-300x44.png 300w" sizes="(max-width: 744px) 100vw, 744px" /></p>
+<p>图解说明：</p>
+<ul>
+<li>服务端server把客户端请求过来的相关信息都封装在一个Request对象中。如请求地址、请求参数、请求类型、上传的文件信息等。</li>
+<li>服务端server把响应给浏览器的相关信息都封装在一个Response对象。如响应http状态码200给客户端等。</li>
+</ul>
+<p>获取Request对象的方式：</p>
+<p>方式一：</p>
+<p>引用\think\Request类 ，$request = Request::instance();</p>
+<p><img loading="lazy" decoding="async" width="673" height="350" class="wp-image-7489" src="/wp-content/uploads/2018/06/word-image-96.png" srcset="/wp-content/uploads/2018/06/word-image-96.png 673w, /wp-content/uploads/2018/06/word-image-96-300x156.png 300w" sizes="(max-width: 673px) 100vw, 673px" /></p>
+<p>助手调试函数dump()；内部封装pre格式化标签。</p>
+<p>方式二（最简单的方式）：</p>
+<p>通过tp5框架提供的助手函数request()</p>
+<p>$request = request();</p>
+<p><img loading="lazy" decoding="async" width="698" height="240" class="wp-image-7490" src="/wp-content/uploads/2018/06/word-image-97.png" srcset="/wp-content/uploads/2018/06/word-image-97.png 698w, /wp-content/uploads/2018/06/word-image-97-300x103.png 300w" sizes="(max-width: 698px) 100vw, 698px" /></p>
+<p>方式三：</p>
+<p>通过依赖注入（闭包）的方式，把Request对象注入到方法内部</p>
+<p>public function 方法名(Request $request){}</p>
+<p><img loading="lazy" decoding="async" width="640" height="349" class="wp-image-7491" src="/wp-content/uploads/2018/06/word-image-98.png" srcset="/wp-content/uploads/2018/06/word-image-98.png 640w, /wp-content/uploads/2018/06/word-image-98-300x164.png 300w" sizes="(max-width: 640px) 100vw, 640px" /></p>
+<p>相当于把Request类的对象$request作为p4的参数。</p>
+<h2>2、获取请求信息</h2>
+<p>手册参考位置：请求&#8211;&gt;请求信息</p>
+<p>$request-&gt;domain(); // 获取当前域名</p>
+<p>$request-&gt;baseFile(); // 获取当前入口文件,不含域名</p>
+<p>$request-&gt;url(); // 获取当前URL地址</p>
+<p>$request-&gt;url(true); // 包含域名的完整URL地址</p>
+<p>$request-&gt;baseUrl(); // 获取当前URL地址 不含QUERY_STRING</p>
+<p>$request-&gt;pathinfo(); // 获取URL地址中的PATH_INFO信息</p>
+<p>$request-&gt;path(); // 获取URL地址中的PATH_INFO信息 不含后缀</p>
+<p>$request-&gt;ext(); // 获取URL地址中的后缀信息</p>
+<p>$request-&gt;header(); // 获取当前请求的HTTP 请求头信息</p>
+<p>$request-&gt;module(); // 获取当前模块名称</p>
+<p>$request-&gt;controller(); // 获取当前控制器名称</p>
+<p>$request-&gt;action(); // 获取当前操作名称</p>
+<p>$request-&gt;method(); // 获取请求方法</p>
+<p>$request-&gt;type(); // 获取资源类型</p>
+<p>$request-&gt;ip(); // 获取访问ip地址</p>
+<p>$request-&gt;isAjax(); // 判断 是否是ajax请求</p>
+<p>$request-&gt;isPost(); // 判断 是否是post请求</p>
+<p>$request-&gt;isGet(); // 判断 是否是get请求</p>
+<p>代码如下：</p>
+<p><img loading="lazy" decoding="async" width="967" height="334" class="wp-image-7492" src="/wp-content/uploads/2018/06/word-image-99.png" srcset="/wp-content/uploads/2018/06/word-image-99.png 967w, /wp-content/uploads/2018/06/word-image-99-300x104.png 300w, /wp-content/uploads/2018/06/word-image-99-768x265.png 768w" sizes="(max-width: 967px) 100vw, 967px" /></p>
+<h2>3、获取请求参数</h2>
+<p>手册参考位置：请求&#8211;&gt;输入变量</p>
+<p>语法：变量类型方法(&#8216;变量名/变量修饰符&#8217;,&#8217;默认值&#8217;,&#8217;过滤方法&#8217;)</p>
+<table>
+<thead>
+<tr>
+<th><strong>方法</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>param</td>
+<td>获取当前请求的变量信息</td>
+</tr>
+<tr>
+<td>get</td>
+<td>获取 $_GET 变量</td>
+</tr>
+<tr>
+<td>post</td>
+<td>获取 $_POST 变量</td>
+</tr>
+<tr>
+<td>session</td>
+<td>获取 $_SESSION 变量</td>
+</tr>
+<tr>
+<td>cookie</td>
+<td>获取 $_COOKIE 变量</td>
+</tr>
+<tr>
+<td>request</td>
+<td>获取 $_REQUEST 变量</td>
+</tr>
+<tr>
+<td>server</td>
+<td>获取 $_SERVER 变量</td>
+</tr>
+<tr>
+<td>env</td>
+<td>获取 $_ENV 变量</td>
+</tr>
+<tr>
+<td>route</td>
+<td>获取 路由（包括PATHINFO） 变量</td>
+</tr>
+<tr>
+<td>file</td>
+<td>获取 $_FILES 变量</td>
+</tr>
+</tbody>
+</table>
+<h3>（1）获取PARAM变量</h3>
+<p>PARAM变量是框架提供的用于自动识别GET、POST或者的一种变量获取方式，是系统推荐的获取请求参数的方法，用法如下：</p>
+<p>// 获取当前请求的name变量</p>
+<p>$request-&gt;param(&#8216;name&#8217;);</p>
+<p>// 获取当前请求的所有变量（经过过滤）</p>
+<p>$request-&gt;param();</p>
+<p>// 获取当前请求的所有变量（原始数据）</p>
+<p>$request-&gt;param(false);</p>
+<p>// 获取当前请求的所有变量（包含上传文件）</p>
+<p>$request-&gt;param(true);</p>
+<p>注：param方法会把当前请求类型的参数和PATH_INFO变量以及GET请求合并。</p>
+<p>或使用助手函数实现：</p>
+<p>input(&#8216;param.name&#8217;);</p>
+<p>input(&#8216;param.&#8217;);</p>
+<p>或者</p>
+<p>input(&#8216;name&#8217;);</p>
+<p>input(&#8221;);</p>
+<p>因为input函数默认底默认就采用PARAM方式进行读取变量。</p>
+<h3>（2）获取GET变量</h3>
+<p>使用内置的助手函数input获取get参数</p>
+<p>input(&#8216;id&#8217;);</p>
+<p>input(&#8216;name&#8217;);</p>
+<p>input(&#8216;get.&#8217;); //获取整个get数组参数</p>
+<p>代码如下：</p>
+<ol>
+<li>把表单设置get方式提交，不写action默认跳转到当前地址</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="844" height="299" class="wp-image-7493" src="/wp-content/uploads/2018/06/word-image-100.png" srcset="/wp-content/uploads/2018/06/word-image-100.png 844w, /wp-content/uploads/2018/06/word-image-100-300x106.png 300w, /wp-content/uploads/2018/06/word-image-100-768x272.png 768w" sizes="(max-width: 844px) 100vw, 844px" /></p>
+<p>假设输入的数据如下：</p>
+<p><img loading="lazy" decoding="async" width="492" height="230" class="wp-image-7494" src="/wp-content/uploads/2018/06/word-image-101.png" srcset="/wp-content/uploads/2018/06/word-image-101.png 492w, /wp-content/uploads/2018/06/word-image-101-300x140.png 300w" sizes="(max-width: 492px) 100vw, 492px" /></p>
+<p>b、在当前方法p3中接收整个get参数和单个get参数，结果</p>
+<p><img loading="lazy" decoding="async" width="1047" height="260" class="wp-image-7495" src="/wp-content/uploads/2018/06/word-image-102.png" srcset="/wp-content/uploads/2018/06/word-image-102.png 1047w, /wp-content/uploads/2018/06/word-image-102-300x74.png 300w, /wp-content/uploads/2018/06/word-image-102-768x191.png 768w, /wp-content/uploads/2018/06/word-image-102-1024x254.png 1024w" sizes="(max-width: 1047px) 100vw, 1047px" /></p>
+<h3>（3）获取POST变量</h3>
+<p>使用助手函数实现：</p>
+<p>input(&#8216;name&#8217;);</p>
+<p>input(&#8216;post.&#8217;); //获取整个post数组参数</p>
+<p>代码如下：</p>
+<p>a、把表单设置post方式提交，不写action默认跳转到当前地址</p>
+<p><img loading="lazy" decoding="async" width="756" height="285" class="wp-image-7496" src="/wp-content/uploads/2018/06/word-image-103.png" srcset="/wp-content/uploads/2018/06/word-image-103.png 756w, /wp-content/uploads/2018/06/word-image-103-300x113.png 300w" sizes="(max-width: 756px) 100vw, 756px" /></p>
+<p>假设输入的数据如下：</p>
+<p><img loading="lazy" decoding="async" width="426" height="126" class="wp-image-7497" src="/wp-content/uploads/2018/06/word-image-104.png" srcset="/wp-content/uploads/2018/06/word-image-104.png 426w, /wp-content/uploads/2018/06/word-image-104-300x89.png 300w" sizes="(max-width: 426px) 100vw, 426px" /></p>
+<p>b、在当前方法p3中判断是否是post请求，获取整个post参数和单个post参数</p>
+<p><img loading="lazy" decoding="async" width="939" height="355" class="wp-image-7498" src="/wp-content/uploads/2018/06/word-image-105.png" srcset="/wp-content/uploads/2018/06/word-image-105.png 939w, /wp-content/uploads/2018/06/word-image-105-300x113.png 300w, /wp-content/uploads/2018/06/word-image-105-768x290.png 768w" sizes="(max-width: 939px) 100vw, 939px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7391.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

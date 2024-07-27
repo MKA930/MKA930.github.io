@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>连接查询 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 12:19:12 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>连接查询 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Mysql（四）子查询数据库备份还原、 用户权限、 表关系、 连接查询</title>
+		<link>/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/1186.html</link>
+					<comments>/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/1186.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 17:11:12 +0000</pubDate>
+				<category><![CDATA[Mysql]]></category>
+		<category><![CDATA[子查询数据库备份还原]]></category>
+		<category><![CDATA[用户权限]]></category>
+		<category><![CDATA[表关系]]></category>
+		<category><![CDATA[连接查询]]></category>
+		<guid isPermaLink="false">/?p=1186</guid>
+
+					<description><![CDATA[连接查询 表与表的关系 公用的字段来关联表 一对一 一对多 多对多 一对一的关系 老婆和老公（法律上） 人和身 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>连接查询</h1>
+<h2>表与表的关系</h2>
+<p>
+  公用的字段来关联表
+</p>
+<h3>一对一</h3>
+<p>
+  <img fetchpriority="high" decoding="async" width="1248" height="177" src="/wp-content/uploads/2018/05/word-image-1073.png" class="wp-image-1187" srcset="/wp-content/uploads/2018/05/word-image-1073.png 1248w, /wp-content/uploads/2018/05/word-image-1073-300x43.png 300w, /wp-content/uploads/2018/05/word-image-1073-768x109.png 768w, /wp-content/uploads/2018/05/word-image-1073-1024x145.png 1024w" sizes="(max-width: 1248px) 100vw, 1248px" />
+</p>
+<h3>一对多</h3>
+<p>
+  <img decoding="async" width="1491" height="259" src="/wp-content/uploads/2018/05/word-image-1074.png" class="wp-image-1188" srcset="/wp-content/uploads/2018/05/word-image-1074.png 1491w, /wp-content/uploads/2018/05/word-image-1074-300x52.png 300w, /wp-content/uploads/2018/05/word-image-1074-768x133.png 768w, /wp-content/uploads/2018/05/word-image-1074-1024x178.png 1024w" sizes="(max-width: 1491px) 100vw, 1491px" />
+</p>
+<h3>多对多</h3>
+<p>
+  <img decoding="async" width="1197" height="312" src="/wp-content/uploads/2018/05/word-image-1075.png" class="wp-image-1189" srcset="/wp-content/uploads/2018/05/word-image-1075.png 1197w, /wp-content/uploads/2018/05/word-image-1075-300x78.png 300w, /wp-content/uploads/2018/05/word-image-1075-768x200.png 768w, /wp-content/uploads/2018/05/word-image-1075-1024x267.png 1024w" sizes="(max-width: 1197px) 100vw, 1197px" />
+</p>
+<ul>
+<li><strong>一对一的关系</strong>
+  </li>
+</ul>
+<p><strong>		    老婆和老公（法律上）</strong>
+</p>
+<p><strong>		    人和身份证号</strong>
+</p>
+<ul>
+<li><strong>一对多的关系</strong>
+  </li>
+</ul>
+<p><strong>		    父亲和孩子</strong>
+</p>
+<ul>
+<li><strong>多对多的关系</strong>
+  </li>
+</ul>
+<p><strong>		   学生和老师</strong>
+</p>
+<h2>连接查询的概念</h2>
+<p>
+  什么是连接查询
+</p>
+<p>
+  	【通过公用字段】把两张表进行横向的拼接就是连接查询
+</p>
+<p>
+  比如A表有3个字段，B表有5个字段，那么连接查询后的结果最多有8个字段
+</p>
+<h2>连接查询分类</h2>
+<h3>交叉连接</h3>
+<p>
+  [Cross] join   交差连接没有条件，这里没有公用字段
+</p>
+<p>
+  交差连接就是左边*右表
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1057" height="386" src="/wp-content/uploads/2018/05/word-image-1076.png" class="wp-image-1190" srcset="/wp-content/uploads/2018/05/word-image-1076.png 1057w, /wp-content/uploads/2018/05/word-image-1076-300x110.png 300w, /wp-content/uploads/2018/05/word-image-1076-768x280.png 768w, /wp-content/uploads/2018/05/word-image-1076-1024x374.png 1024w" sizes="(max-width: 1057px) 100vw, 1057px" />
+</p>
+<p>
+  语法实现: select ….from  A  cross join  B……….
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1049" height="261" src="/wp-content/uploads/2018/05/word-image-1077.png" class="wp-image-1191" srcset="/wp-content/uploads/2018/05/word-image-1077.png 1049w, /wp-content/uploads/2018/05/word-image-1077-300x75.png 300w, /wp-content/uploads/2018/05/word-image-1077-768x191.png 768w, /wp-content/uploads/2018/05/word-image-1077-1024x255.png 1024w" sizes="(max-width: 1049px) 100vw, 1049px" />
+</p>
+<h3>内连接</h3>
+<p>
+  Inner join /  join
+</p>
+<p>
+  根据公用字段来进行横向连接，只返回满足条件的部分
+</p>
+<p>
+  语法  select …. From 表1 inner join 表2  on 连接的条件….
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1013" height="180" src="/wp-content/uploads/2018/05/word-image-1078.png" class="wp-image-1192" srcset="/wp-content/uploads/2018/05/word-image-1078.png 1013w, /wp-content/uploads/2018/05/word-image-1078-300x53.png 300w, /wp-content/uploads/2018/05/word-image-1078-768x136.png 768w" sizes="(max-width: 1013px) 100vw, 1013px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1547" height="222" src="/wp-content/uploads/2018/05/word-image-1079.png" class="wp-image-1193" srcset="/wp-content/uploads/2018/05/word-image-1079.png 1547w, /wp-content/uploads/2018/05/word-image-1079-300x43.png 300w, /wp-content/uploads/2018/05/word-image-1079-768x110.png 768w, /wp-content/uploads/2018/05/word-image-1079-1024x147.png 1024w" sizes="(max-width: 1547px) 100vw, 1547px" />
+</p>
+<p>
+  内连接：只返回满足条件 （公用字段班级id相同的）记录横向连接的结果
+</p>
+<p>
+  内连接如果不加on条件就变成了交差连接
+</p>
+<p>
+  说白了，如果有条件就是内连接，没有条件就是交差连接
+</p>
+<h3>左连接</h3>
+<p>
+  左连接就是返回左表的全部数据，和满足条件的右表的数据
+</p>
+<p>
+  语法: select … from 表1 left join 表2  on条件  …….
+</p>
+<p>
+  select * from class left join student on  class.id=student.class_id;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="970" height="162" src="/wp-content/uploads/2018/05/word-image-1080.png" class="wp-image-1194" srcset="/wp-content/uploads/2018/05/word-image-1080.png 970w, /wp-content/uploads/2018/05/word-image-1080-300x50.png 300w, /wp-content/uploads/2018/05/word-image-1080-768x128.png 768w" sizes="(max-width: 970px) 100vw, 970px" />
+</p>
+<p>
+  如果左边表没有满足条件的右边表数据，会自动补null，并且显示出来
+</p>
+<h3>右连接</h3>
+<p>
+  右连接，返回右表全部数据，和满足条件的左表数据
+</p>
+<p><strong>右边表如果没有满足条件的左表数据，会在左边自动补充Null 并且显示出来</strong>
+</p>
+<p>
+  语法 :select … from 表1 right join 表2  on条件  …….
+</p>
+<p>
+  Select * from class right join student on class.id=student.class_id;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="960" height="162" src="/wp-content/uploads/2018/05/word-image-1081.png" class="wp-image-1195" srcset="/wp-content/uploads/2018/05/word-image-1081.png 960w, /wp-content/uploads/2018/05/word-image-1081-300x51.png 300w, /wp-content/uploads/2018/05/word-image-1081-768x130.png 768w" sizes="(max-width: 960px) 100vw, 960px" />
+</p>
+<h3>总结比较，内连接 左连接 右连接</h3>
+<p>
+  内连接：只返回满足条件的数据
+</p>
+<p>
+  左连接：返回满足条件的数据和左表的所有数据 （比内连接多数据&#8212;-左边中不满足条件的记录）
+</p>
+<p>
+  右连接：返回满足条件的数据和右表的所有数据 （比内连接多数据&#8212;-右表中不满足条件的数据）
+</p>
+<h3>全连接</h3>
+<p>
+  MySQL没有全连接  full  join
+</p>
+<p>
+  返回的是左表全内容，和右表全部内容，满足条件的内容
+</p>
+<p>
+  左连接的结果  union  右连接的结果
+</p>
+<h2>课堂练习</h2>
+<ul>
+<li>
+    谁考试不及格
+  </li>
+<li>
+    猪八戒都有哪些学生
+  </li>
+<li>
+    谁参加了2门以上的考试
+  </li>
+<li>
+    哪个几个班级有姓周的同学
+  </li>
+<li>
+    年龄最大前三位同学在那间教室上课
+  </li>
+</ul>
+<p>
+  以下练习：要求有能力的学生自己再琢磨一种更好的连接方式
+</p>
+<ul>
+<li>
+    列出相对应的班级名,学生名,考试成绩信息
+  </li>
+</ul>
+<h1>子查询</h1>
+<h2>子查询的概念</h2>
+<p>
+  子查询就在一个查询select语句中还有select语句，那么这些select都是子查询
+</p>
+<p>
+  一般来说子查询的结果一般在主查询中用于，数据来源，条件数，结果数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1003" height="81" src="/wp-content/uploads/2018/05/word-image-1082.png" class="wp-image-1196" srcset="/wp-content/uploads/2018/05/word-image-1082.png 1003w, /wp-content/uploads/2018/05/word-image-1082-300x24.png 300w, /wp-content/uploads/2018/05/word-image-1082-768x62.png 768w" sizes="(max-width: 1003px) 100vw, 1003px" />
+</p>
+<h3>主查询</h3>
+<p>
+  确定结果字段的select语句就是主查询
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="834" height="76" src="/wp-content/uploads/2018/05/word-image-1083.png" class="wp-image-1197" srcset="/wp-content/uploads/2018/05/word-image-1083.png 834w, /wp-content/uploads/2018/05/word-image-1083-300x27.png 300w, /wp-content/uploads/2018/05/word-image-1083-768x70.png 768w" sizes="(max-width: 834px) 100vw, 834px" />
+</p>
+<h2>子查询分类</h2>
+<h3>按返回结果</h3>
+<h4>标量子查询</h4>
+<p>
+  子查询返回的结果是一个数据，一行一列
+</p>
+<ul>
+<li>
+    301房间都有谁上课
+  </li>
+</ul>
+<p>
+  select * from t_student where class_id =(select id from t_class where classroom=&#8217;301房间&#8217;);
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1034" height="182" src="/wp-content/uploads/2018/05/word-image-1084.png" class="wp-image-1198" srcset="/wp-content/uploads/2018/05/word-image-1084.png 1034w, /wp-content/uploads/2018/05/word-image-1084-300x53.png 300w, /wp-content/uploads/2018/05/word-image-1084-768x135.png 768w, /wp-content/uploads/2018/05/word-image-1084-1024x180.png 1024w" sizes="(max-width: 1034px) 100vw, 1034px" />
+</p>
+<p>
+  子查询中返回的数据是一行一列，这种子查询就是标量查询
+</p>
+<ul>
+<li>
+    猪八戒都有哪些学生
+  </li>
+</ul>
+<h4>列子查询</h4>
+<p>
+  从子查询中返回的结果是多行一列就是列子查询
+</p>
+<ul>
+<li>
+    班级有女生的班主任是谁
+  </li>
+</ul>
+<p>
+  select * from t_class where id in (select class_id from t_student where sex=&#8217;女&#8217;);
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="968" height="163" src="/wp-content/uploads/2018/05/word-image-1085.png" class="wp-image-1199" srcset="/wp-content/uploads/2018/05/word-image-1085.png 968w, /wp-content/uploads/2018/05/word-image-1085-300x51.png 300w, /wp-content/uploads/2018/05/word-image-1085-768x129.png 768w" sizes="(max-width: 968px) 100vw, 968px" />
+</p>
+<p>
+  子查询返回的是多行一列的数据&#8212;列子查询
+</p>
+<ul>
+<li>
+    哪些班级学生年龄超过了30岁
+  </li>
+</ul>
+<p>
+  select * from t_class where id in (select class_id from t_student where age&gt;30);
+</p>
+<h4>行子查询</h4>
+<p>
+  子查询的结果返回的是多列一行
+</p>
+<ul>
+<li>
+    和周杰伦性别一样，在同一间教室上课的人
+  </li>
+</ul>
+<p>
+  第一步：找到周杰伦的性别和班级id
+</p>
+<p>
+  select sex,class_id from t_student where name=&#8217;周杰伦&#8217;;
+</p>
+<p>
+  第二步：构建子查询
+</p>
+<p>
+  select * from t_student where (sex,class_id)=(select sex,class_id from t_student where name=&#8217;周杰伦&#8217;);
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1142" height="217" src="/wp-content/uploads/2018/05/word-image-1086.png" class="wp-image-1200" srcset="/wp-content/uploads/2018/05/word-image-1086.png 1142w, /wp-content/uploads/2018/05/word-image-1086-300x57.png 300w, /wp-content/uploads/2018/05/word-image-1086-768x146.png 768w, /wp-content/uploads/2018/05/word-image-1086-1024x195.png 1024w" sizes="(max-width: 1142px) 100vw, 1142px" />
+</p>
+<p>
+  第三步：把周杰伦本省过滤掉
+</p>
+<p>
+  select * from t_student where (sex,class_id)=(select sex,class_id from t_student where name=&#8217;周杰伦&#8217;)
+</p>
+<p>
+  and name &lt;&gt; &#8216;周杰伦&#8217;;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1310" height="199" src="/wp-content/uploads/2018/05/word-image-1087.png" class="wp-image-1201" srcset="/wp-content/uploads/2018/05/word-image-1087.png 1310w, /wp-content/uploads/2018/05/word-image-1087-300x46.png 300w, /wp-content/uploads/2018/05/word-image-1087-768x117.png 768w, /wp-content/uploads/2018/05/word-image-1087-1024x156.png 1024w" sizes="(max-width: 1310px) 100vw, 1310px" />
+</p>
+<h4>表子查询</h4>
+<p>
+  子查询是作为数据的来源使用 一般是在from后边，返回的信息是多行多列
+</p>
+<ul>
+<li>
+    用表子查询，找所有姓周的男生
+  </li>
+</ul>
+<p>
+  select * from (select * from t_student where sex=&#8217;男&#8217;) as tb where tb.name like &#8216;周%&#8217;;
+</p>
+<p>
+  或select * from (select * from t_student where name like &#8216;周%&#8217;) as tb where tb.sex=&#8217;男&#8217;;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1172" height="355" src="/wp-content/uploads/2018/05/word-image-1088.png" class="wp-image-1202" srcset="/wp-content/uploads/2018/05/word-image-1088.png 1172w, /wp-content/uploads/2018/05/word-image-1088-300x91.png 300w, /wp-content/uploads/2018/05/word-image-1088-768x233.png 768w, /wp-content/uploads/2018/05/word-image-1088-1024x310.png 1024w" sizes="(max-width: 1172px) 100vw, 1172px" />
+</p>
+<h4>Exists子查询</h4>
+<p>
+  Exitsts 是存在，如果存在返回1，如果不存在返回0
+</p>
+<ul>
+<li>
+    有考试满分的学生显示所有班级名称
+  </li>
+</ul>
+<p>
+  select  class from t_class exists (select * from t_result where result=100);
+</p>
+<p>
+  如果查询出来的结果有那么条件成立
+</p>
+<p>
+  如果查询不出来信息那么条件不通过
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="996" height="212" src="/wp-content/uploads/2018/05/word-image-1089.png" class="wp-image-1203" srcset="/wp-content/uploads/2018/05/word-image-1089.png 996w, /wp-content/uploads/2018/05/word-image-1089-300x64.png 300w, /wp-content/uploads/2018/05/word-image-1089-768x163.png 768w" sizes="(max-width: 996px) 100vw, 996px" />
+</p>
+<h3>按试用场合</h3>
+<h4>作为主查询的结果数据</h4>
+<p>  <img loading="lazy" decoding="async" width="851" height="244" src="/wp-content/uploads/2018/05/word-image-1090.png" class="wp-image-1204" srcset="/wp-content/uploads/2018/05/word-image-1090.png 851w, /wp-content/uploads/2018/05/word-image-1090-300x86.png 300w, /wp-content/uploads/2018/05/word-image-1090-768x220.png 768w" sizes="(max-width: 851px) 100vw, 851px" />
+</p>
+<h4>作为主查询的条件数据</h4>
+<p>
+  	子查询在where条件里边
+</p>
+<p>
+  	Having
+</p>
+<p>
+  	on
+</p>
+<h4>作为主查询的来源数据</h4>
+<p>
+  	子查询在from后边
+</p>
+<h2>子查询中特定关键字</h2>
+<h3>in关键字</h3>
+<p>
+   在什么范围中
+</p>
+<p>
+   Not  in 标识不再范围中
+</p>
+<ul>
+<li>
+    有男生的班级都有哪些
+  </li>
+</ul>
+<p>
+  第一步：先找男生的班级id  去重
+</p>
+<p>
+     Select  distinct class_id from t_student where sex=’男’;
+</p>
+<p>
+  第二步：根据男生班级的id在班级表中找到班级的名字
+</p>
+<p>
+  select class from t_class where id in (Select distinct class_id from t_student where sex=&#8217;男&#8217;);
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1082" height="188" src="/wp-content/uploads/2018/05/word-image-1091.png" class="wp-image-1205" srcset="/wp-content/uploads/2018/05/word-image-1091.png 1082w, /wp-content/uploads/2018/05/word-image-1091-300x52.png 300w, /wp-content/uploads/2018/05/word-image-1091-768x133.png 768w, /wp-content/uploads/2018/05/word-image-1091-1024x178.png 1024w" sizes="(max-width: 1082px) 100vw, 1082px" />
+</p>
+<ul>
+<li>
+    没有男生的班级都有哪些
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="1120" height="185" src="/wp-content/uploads/2018/05/word-image-1092.png" class="wp-image-1206" srcset="/wp-content/uploads/2018/05/word-image-1092.png 1120w, /wp-content/uploads/2018/05/word-image-1092-300x50.png 300w, /wp-content/uploads/2018/05/word-image-1092-768x127.png 768w, /wp-content/uploads/2018/05/word-image-1092-1024x169.png 1024w" sizes="(max-width: 1120px) 100vw, 1120px" />
+</p>
+<h3>any关键字</h3>
+<p>
+  表示满足任意一个条件即可
+</p>
+<ul>
+<li>
+    找出比任意一个姓周的年龄大的学生
+  </li>
+</ul>
+<p>
+  第一步：找出所有姓周的年龄
+</p>
+<p>
+  select age from t_student where name like &#8216;周%&#8217;;
+</p>
+<p>
+  第二：根据所有姓周的学生年龄来找比其年龄大的人
+</p>
+<p>
+  select name,age from t_student where age &gt; any (select age from t_student where name like &#8216;周%&#8217;);
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1088" height="181" src="/wp-content/uploads/2018/05/word-image-1093.png" class="wp-image-1207" srcset="/wp-content/uploads/2018/05/word-image-1093.png 1088w, /wp-content/uploads/2018/05/word-image-1093-300x50.png 300w, /wp-content/uploads/2018/05/word-image-1093-768x128.png 768w, /wp-content/uploads/2018/05/word-image-1093-1024x170.png 1024w" sizes="(max-width: 1088px) 100vw, 1088px" />
+</p>
+<h3>all关键字</h3>
+<p>
+  表示满足所有的条件
+</p>
+<ul>
+<li>
+    找出比所有姓周的年龄小的学生
+  </li>
+</ul>
+<p>
+  第一步：找出所有姓周的年龄
+</p>
+<p>
+  select age from t_student where name like &#8216;周%&#8217;;
+</p>
+<p>
+  第二步：根据所有姓周年龄找结果字段数据
+</p>
+<p>
+  select name,age from t_student where age &lt; all (select age from t_student where name like &#8216;周%&#8217;);
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1119" height="254" src="/wp-content/uploads/2018/05/word-image-1094.png" class="wp-image-1208" srcset="/wp-content/uploads/2018/05/word-image-1094.png 1119w, /wp-content/uploads/2018/05/word-image-1094-300x68.png 300w, /wp-content/uploads/2018/05/word-image-1094-768x174.png 768w, /wp-content/uploads/2018/05/word-image-1094-1024x232.png 1024w" sizes="(max-width: 1119px) 100vw, 1119px" />
+</p>
+<h1>数据的备份还原</h1>
+<h2>备份还原的意义</h2>
+<p>
+  防范于未然，保证数据的安全性和完整性，网站最重要的就是数据，如果没有数据，你这个就是镜中花水中月
+</p>
+<h2>文件备份</h2>
+<p>
+  <img loading="lazy" decoding="async" width="847" height="68" src="/wp-content/uploads/2018/05/word-image-1095.png" class="wp-image-1209" srcset="/wp-content/uploads/2018/05/word-image-1095.png 847w, /wp-content/uploads/2018/05/word-image-1095-300x24.png 300w, /wp-content/uploads/2018/05/word-image-1095-768x62.png 768w" sizes="(max-width: 847px) 100vw, 847px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1018" height="414" src="/wp-content/uploads/2018/05/word-image-1096.png" class="wp-image-1210" srcset="/wp-content/uploads/2018/05/word-image-1096.png 1018w, /wp-content/uploads/2018/05/word-image-1096-300x122.png 300w, /wp-content/uploads/2018/05/word-image-1096-768x312.png 768w" sizes="(max-width: 1018px) 100vw, 1018px" />
+</p>
+<p>
+  数据库的本质就是文件，数据都是存放在文件中，我们把这个文件夹中的文件复制出来一份，是不是就是把当前数据库进行了备份呢？&#8212;&#8211;不一定
+</p>
+<p>
+  这样的备份是有要求的，要这个数据库的表数据引擎必须是myisam的
+</p>
+<p>
+  测试：
+</p>
+<p>
+  创建数据库，数据表
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="830" height="194" src="/wp-content/uploads/2018/05/word-image-1097.png" class="wp-image-1211" srcset="/wp-content/uploads/2018/05/word-image-1097.png 830w, /wp-content/uploads/2018/05/word-image-1097-300x70.png 300w, /wp-content/uploads/2018/05/word-image-1097-768x180.png 768w" sizes="(max-width: 830px) 100vw, 830px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="598" height="341" src="/wp-content/uploads/2018/05/word-image-1098.png" class="wp-image-1212" srcset="/wp-content/uploads/2018/05/word-image-1098.png 598w, /wp-content/uploads/2018/05/word-image-1098-300x171.png 300w" sizes="(max-width: 598px) 100vw, 598px" />
+</p>
+<p>
+  在test表中添加测试数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="731" height="202" src="/wp-content/uploads/2018/05/word-image-1099.png" class="wp-image-1213" srcset="/wp-content/uploads/2018/05/word-image-1099.png 731w, /wp-content/uploads/2018/05/word-image-1099-300x83.png 300w" sizes="(max-width: 731px) 100vw, 731px" />
+</p>
+<p>
+  复制lzh文件夹，重命名
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1133" height="288" src="/wp-content/uploads/2018/05/word-image-1100.png" class="wp-image-1214" srcset="/wp-content/uploads/2018/05/word-image-1100.png 1133w, /wp-content/uploads/2018/05/word-image-1100-300x76.png 300w, /wp-content/uploads/2018/05/word-image-1100-768x195.png 768w, /wp-content/uploads/2018/05/word-image-1100-1024x260.png 1024w" sizes="(max-width: 1133px) 100vw, 1133px" />
+</p>
+<p>
+  查看数据库
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="929" height="543" src="/wp-content/uploads/2018/05/word-image-1101.png" class="wp-image-1215" srcset="/wp-content/uploads/2018/05/word-image-1101.png 929w, /wp-content/uploads/2018/05/word-image-1101-300x175.png 300w, /wp-content/uploads/2018/05/word-image-1101-768x449.png 768w" sizes="(max-width: 929px) 100vw, 929px" />
+</p>
+<p>
+  操作lzh1数据库
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="911" height="329" src="/wp-content/uploads/2018/05/word-image-1102.png" class="wp-image-1216" srcset="/wp-content/uploads/2018/05/word-image-1102.png 911w, /wp-content/uploads/2018/05/word-image-1102-300x108.png 300w, /wp-content/uploads/2018/05/word-image-1102-768x277.png 768w" sizes="(max-width: 911px) 100vw, 911px" />
+</p>
+<p>
+  这种文件备份数据库只能备份myisam数据库引擎的数据表
+</p>
+<h2>整库备份</h2>
+<p>
+  用到了一个mysqldump工具来进行备份数据库，备份出来的数据是保存到一个.sql文件中的
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1110" height="358" src="/wp-content/uploads/2018/05/word-image-1103.png" class="wp-image-1217" srcset="/wp-content/uploads/2018/05/word-image-1103.png 1110w, /wp-content/uploads/2018/05/word-image-1103-300x97.png 300w, /wp-content/uploads/2018/05/word-image-1103-768x248.png 768w, /wp-content/uploads/2018/05/word-image-1103-1024x330.png 1024w" sizes="(max-width: 1110px) 100vw, 1110px" />
+</p>
+<p>
+  具体的使用方式是如下
+</p>
+<p>
+  Mysqldump -h主机名 -P端口 -u 用户名 -p  数据库名 &gt; sql文件的地址
+</p>
+<p>
+  如果主机名和端口号都是默认的那么可以省略
+</p>
+<p>
+  案例:把db1数据库备份
+</p>
+<p>
+  备份的时候一定要退出数据库连接
+</p>
+<p>
+   Mysqldump  -uroot  -proot  db1 &gt;C:/db1.sql;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1376" height="393" src="/wp-content/uploads/2018/05/word-image-1104.png" class="wp-image-1218" srcset="/wp-content/uploads/2018/05/word-image-1104.png 1376w, /wp-content/uploads/2018/05/word-image-1104-300x86.png 300w, /wp-content/uploads/2018/05/word-image-1104-768x219.png 768w, /wp-content/uploads/2018/05/word-image-1104-1024x292.png 1024w" sizes="(max-width: 1376px) 100vw, 1376px" />
+</p>
+<h2>单表备份</h2>
+<p>
+  使用MySQLdump工具来备份
+</p>
+<p>
+  使用方式
+</p>
+<p>
+  Mysqldump -h主机名 -P端口 -u 用户名 -p  数据库名 表名 &gt; sql文件的地址
+</p>
+<p>
+  如果主机名和端口号都是默认的那么可以省略
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1455" height="382" src="/wp-content/uploads/2018/05/word-image-1105.png" class="wp-image-1219" srcset="/wp-content/uploads/2018/05/word-image-1105.png 1455w, /wp-content/uploads/2018/05/word-image-1105-300x79.png 300w, /wp-content/uploads/2018/05/word-image-1105-768x202.png 768w, /wp-content/uploads/2018/05/word-image-1105-1024x269.png 1024w" sizes="(max-width: 1455px) 100vw, 1455px" />
+</p>
+<p>
+  Db1.sql里边只用class表的定义sql和数据插入的sql没有其他表的sql
+</p>
+<h2>多表备份</h2>
+<p>
+  使用MySQLdump工具来备份
+</p>
+<p>
+  使用方式
+</p>
+<p>
+  Mysqldump -h主机名 -P端口 -u 用户名 -p  数据库名 表名1   表名2….. &gt; sql文件的地址
+</p>
+<p>
+  如果主机名和端口号都是默认的那么可以省略
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1543" height="373" src="/wp-content/uploads/2018/05/word-image-1106.png" class="wp-image-1220" srcset="/wp-content/uploads/2018/05/word-image-1106.png 1543w, /wp-content/uploads/2018/05/word-image-1106-300x73.png 300w, /wp-content/uploads/2018/05/word-image-1106-768x186.png 768w, /wp-content/uploads/2018/05/word-image-1106-1024x248.png 1024w" sizes="(max-width: 1543px) 100vw, 1543px" />
+</p>
+<p>
+  Db1.sql文件中只有class 和 student表的相关sql语句没有其他表的sql
+</p>
+<h2>还原</h2>
+<h3>工具还原</h3>
+<p>
+  Mysql工具还原数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1193" height="390" src="/wp-content/uploads/2018/05/word-image-1107.png" class="wp-image-1221" srcset="/wp-content/uploads/2018/05/word-image-1107.png 1193w, /wp-content/uploads/2018/05/word-image-1107-300x98.png 300w, /wp-content/uploads/2018/05/word-image-1107-768x251.png 768w, /wp-content/uploads/2018/05/word-image-1107-1024x335.png 1024w" sizes="(max-width: 1193px) 100vw, 1193px" />
+</p>
+<p>
+  使用方式   使用还原的时候要退出mysql连接
+</p>
+<p>
+  	Mysql  -h主机名  -P端口号  -u用户名 -p密码  数据库名  &lt; sql文件的地址路径
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1467" height="346" src="/wp-content/uploads/2018/05/word-image-1108.png" class="wp-image-1222" srcset="/wp-content/uploads/2018/05/word-image-1108.png 1467w, /wp-content/uploads/2018/05/word-image-1108-300x71.png 300w, /wp-content/uploads/2018/05/word-image-1108-768x181.png 768w, /wp-content/uploads/2018/05/word-image-1108-1024x242.png 1024w" sizes="(max-width: 1467px) 100vw, 1467px" />
+</p>
+<p>
+  查看bbss数据库
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="764" height="131" src="/wp-content/uploads/2018/05/word-image-1109.png" class="wp-image-1223" srcset="/wp-content/uploads/2018/05/word-image-1109.png 764w, /wp-content/uploads/2018/05/word-image-1109-300x51.png 300w" sizes="(max-width: 764px) 100vw, 764px" />
+</p>
+<h3>source还原</h3>
+<p>
+  source是一个命令，用来还原数据文件到数据库
+</p>
+<p>
+  用法: source  数据库sql文件路径;
+</p>
+<p>
+  前提：你得连接数据库进入到你需要还原的数据库里边
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="840" height="184" src="/wp-content/uploads/2018/05/word-image-1110.png" class="wp-image-1224" srcset="/wp-content/uploads/2018/05/word-image-1110.png 840w, /wp-content/uploads/2018/05/word-image-1110-300x66.png 300w, /wp-content/uploads/2018/05/word-image-1110-768x168.png 768w" sizes="(max-width: 840px) 100vw, 840px" />
+</p>
+<h2>增量备份了解</h2>
+<p>
+  例如：
+</p>
+<p>
+  	九月份我备份了30次
+</p>
+<p>
+  	1号备份直到一号的数据库
+</p>
+<p>
+  	2号备份 一号到二号的数据 &#8212;-一号一天的数据
+</p>
+<p>
+  3号备份 二号到三号的数据 &#8212;-二号一天的数据
+</p>
+<p>
+  ………
+</p>
+<p>
+  这样的备份就是增量备份&#8212;每天只备份不重复的一部分，这些部分加起来就是整个数据库
+</p>
+<p>
+  每次备份，数据量小，备份速度快
+</p>
+<p>
+  还原的时候，比较麻烦，还有就是还原的数据有时间的先后问题，只能先还原先备份的数据，在根据时间的顺序还原，如果有一次还原失败，整体数据都会失败，也就是还原不成功
+</p>
+<h1>用户权限管理</h1>
+<h2>用户权限管理的必要性</h2>
+<p>
+  在项目开发中不同的人员对数据库有不同的权限需求，我们要尽量给这些工作人员小的权限
+</p>
+<p>
+  避免误删，或是破坏数据库的安全性和完整性
+</p>
+<h2>用户管理</h2>
+<h3>用户信息的保存&amp;含义</h3>
+<p>
+  <img loading="lazy" decoding="async" width="990" height="122" src="/wp-content/uploads/2018/05/word-image-1111.png" class="wp-image-1225" srcset="/wp-content/uploads/2018/05/word-image-1111.png 990w, /wp-content/uploads/2018/05/word-image-1111-300x37.png 300w, /wp-content/uploads/2018/05/word-image-1111-768x95.png 768w" sizes="(max-width: 990px) 100vw, 990px" />
+</p>
+<h3>创建用户</h3>
+<p>
+  语法：
+</p>
+<p>
+  Create user user1@’主机地址’  identified by ‘密码’
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="871" height="239" src="/wp-content/uploads/2018/05/word-image-1112.png" class="wp-image-1226" srcset="/wp-content/uploads/2018/05/word-image-1112.png 871w, /wp-content/uploads/2018/05/word-image-1112-300x82.png 300w, /wp-content/uploads/2018/05/word-image-1112-768x211.png 768w" sizes="(max-width: 871px) 100vw, 871px" />
+</p>
+<h3>删除用户</h3>
+<p>
+  语法：
+</p>
+<p>
+  	Drop  user 用户名@’主机地址’;
+</p>
+<p>
+  	<a href="mailto:测试删除uer1@'127.0.0.1">测试删除uer1@’127.0.0.1</a>’;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="450" height="56" src="/wp-content/uploads/2018/05/word-image-1113.png" class="wp-image-1227" srcset="/wp-content/uploads/2018/05/word-image-1113.png 450w, /wp-content/uploads/2018/05/word-image-1113-300x37.png 300w" sizes="(max-width: 450px) 100vw, 450px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="761" height="144" src="/wp-content/uploads/2018/05/word-image-1114.png" class="wp-image-1228" srcset="/wp-content/uploads/2018/05/word-image-1114.png 761w, /wp-content/uploads/2018/05/word-image-1114-300x57.png 300w" sizes="(max-width: 761px) 100vw, 761px" />
+</p>
+<h3>修改用户密码</h3>
+<p>
+  第一种直接修改mysql系统数据下的user表
+</p>
+<p>
+  update user set password=password(&#8216;root&#8217;) where user=&#8217;user1&#8242; and host=&#8217;127.0.0.1&#8242;;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1007" height="88" src="/wp-content/uploads/2018/05/word-image-1115.png" class="wp-image-1229" srcset="/wp-content/uploads/2018/05/word-image-1115.png 1007w, /wp-content/uploads/2018/05/word-image-1115-300x26.png 300w, /wp-content/uploads/2018/05/word-image-1115-768x67.png 768w" sizes="(max-width: 1007px) 100vw, 1007px" />
+</p>
+<p>
+  测试使用老密码登录（注意先关闭cmd ,在打开cmd）
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="859" height="85" src="/wp-content/uploads/2018/05/word-image-1116.png" class="wp-image-1230" srcset="/wp-content/uploads/2018/05/word-image-1116.png 859w, /wp-content/uploads/2018/05/word-image-1116-300x30.png 300w, /wp-content/uploads/2018/05/word-image-1116-768x76.png 768w" sizes="(max-width: 859px) 100vw, 859px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="793" height="282" src="/wp-content/uploads/2018/05/word-image-1117.png" class="wp-image-1231" srcset="/wp-content/uploads/2018/05/word-image-1117.png 793w, /wp-content/uploads/2018/05/word-image-1117-300x107.png 300w, /wp-content/uploads/2018/05/word-image-1117-768x273.png 768w" sizes="(max-width: 793px) 100vw, 793px" />
+</p>
+<p>
+  注意重启服务
+</p>
+<p>
+  第二种修改密码
+</p>
+<p>
+  给自己修改密码
+</p>
+<p>
+  Set  password=password(‘abc’);
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="754" height="90" src="/wp-content/uploads/2018/05/word-image-1118.png" class="wp-image-1232" srcset="/wp-content/uploads/2018/05/word-image-1118.png 754w, /wp-content/uploads/2018/05/word-image-1118-300x36.png 300w" sizes="(max-width: 754px) 100vw, 754px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="933" height="308" src="/wp-content/uploads/2018/05/word-image-1119.png" class="wp-image-1233" srcset="/wp-content/uploads/2018/05/word-image-1119.png 933w, /wp-content/uploads/2018/05/word-image-1119-300x99.png 300w, /wp-content/uploads/2018/05/word-image-1119-768x254.png 768w" sizes="(max-width: 933px) 100vw, 933px" />
+</p>
+<p>
+  给别修改密码（管理员权限）
+</p>
+<p>
+  set password for user1@&#8217;127.0.0.1&#8242; =password(&#8216;root&#8217;) ;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="723" height="138" src="/wp-content/uploads/2018/05/word-image-1120.png" class="wp-image-1234" srcset="/wp-content/uploads/2018/05/word-image-1120.png 723w, /wp-content/uploads/2018/05/word-image-1120-300x57.png 300w" sizes="(max-width: 723px) 100vw, 723px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="927" height="315" src="/wp-content/uploads/2018/05/word-image-1121.png" class="wp-image-1235" srcset="/wp-content/uploads/2018/05/word-image-1121.png 927w, /wp-content/uploads/2018/05/word-image-1121-300x102.png 300w, /wp-content/uploads/2018/05/word-image-1121-768x261.png 768w" sizes="(max-width: 927px) 100vw, 927px" />
+</p>
+<h2>权限管理</h2>
+<p>
+  <img loading="lazy" decoding="async" width="937" height="344" src="/wp-content/uploads/2018/05/word-image-1122.png" class="wp-image-1236" srcset="/wp-content/uploads/2018/05/word-image-1122.png 937w, /wp-content/uploads/2018/05/word-image-1122-300x110.png 300w, /wp-content/uploads/2018/05/word-image-1122-768x282.png 768w" sizes="(max-width: 937px) 100vw, 937px" />
+</p>
+<p>
+  Mysql权限表
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="613" height="298" src="/wp-content/uploads/2018/05/word-image-1123.png" class="wp-image-1237" srcset="/wp-content/uploads/2018/05/word-image-1123.png 613w, /wp-content/uploads/2018/05/word-image-1123-300x146.png 300w" sizes="(max-width: 613px) 100vw, 613px" />
+</p>
+<h3>给用户授权</h3>
+<p>
+  Grant  权限名 on  库名.表名  to 用户名@’主机地址’；
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="781" height="84" src="/wp-content/uploads/2018/05/word-image-1124.png" class="wp-image-1238" srcset="/wp-content/uploads/2018/05/word-image-1124.png 781w, /wp-content/uploads/2018/05/word-image-1124-300x32.png 300w, /wp-content/uploads/2018/05/word-image-1124-768x83.png 768w" sizes="(max-width: 781px) 100vw, 781px" />
+</p>
+<p>
+  如果想把某一个数据库下的所有表的select给user1怎么做呢？
+</p>
+<p>
+  grant select on bbss.* to <a href="mailto:user1@'127.0.0.1">user1@&#8217;127.0.0.1</a>&#8216;;  &#8212;*代表所有的表
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="773" height="69" src="/wp-content/uploads/2018/05/word-image-1125.png" class="wp-image-1239" srcset="/wp-content/uploads/2018/05/word-image-1125.png 773w, /wp-content/uploads/2018/05/word-image-1125-300x27.png 300w, /wp-content/uploads/2018/05/word-image-1125-768x69.png 768w" sizes="(max-width: 773px) 100vw, 773px" />
+</p>
+<p>
+  如果想把所有数据的所有数据表的select权限都给user1;
+</p>
+<p>
+  grant select on *.* to <a href="mailto:user1@'127.0.0.1">user1@&#8217;127.0.0.1</a>&#8216;;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="647" height="73" src="/wp-content/uploads/2018/05/word-image-1126.png" class="wp-image-1240" srcset="/wp-content/uploads/2018/05/word-image-1126.png 647w, /wp-content/uploads/2018/05/word-image-1126-300x34.png 300w" sizes="(max-width: 647px) 100vw, 647px" />
+</p>
+<p>
+  注意：赋予权限后，当前的连接不会生效，从新连接数据库后才会生效，有权限缓存的问题
+</p>
+<h3>收回权限</h3>
+<p>
+  Revoke 权限名on 数据库名.表名  from 用户名@’主机地址’；
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="733" height="91" src="/wp-content/uploads/2018/05/word-image-1127.png" class="wp-image-1241" srcset="/wp-content/uploads/2018/05/word-image-1127.png 733w, /wp-content/uploads/2018/05/word-image-1127-300x37.png 300w" sizes="(max-width: 733px) 100vw, 733px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="587" height="198" src="/wp-content/uploads/2018/05/word-image-1128.png" class="wp-image-1242" srcset="/wp-content/uploads/2018/05/word-image-1128.png 587w, /wp-content/uploads/2018/05/word-image-1128-300x101.png 300w" sizes="(max-width: 587px) 100vw, 587px" />
+</p>
+<h3>刷新权限</h3>
+<p>
+  把权限从数据表中刷新的内存
+</p>
+<p>
+  Flush  privilege;
+</p>
+<h2>用户密码丢失处理</h2>
+<ul>
+<li>
+    开启服务  跳过权限认证
+  </li>
+</ul>
+<p>
+  mysqld &#8211;skip-grant-tables
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="881" height="156" src="/wp-content/uploads/2018/05/word-image-1129.png" class="wp-image-1243" srcset="/wp-content/uploads/2018/05/word-image-1129.png 881w, /wp-content/uploads/2018/05/word-image-1129-300x53.png 300w, /wp-content/uploads/2018/05/word-image-1129-768x136.png 768w" sizes="(max-width: 881px) 100vw, 881px" />
+</p>
+<ul>
+<li>
+    连接服务器  这时候不需要用户名 和密码
+  </li>
+</ul>
+<p>
+  Mysql
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="840" height="298" src="/wp-content/uploads/2018/05/word-image-1130.png" class="wp-image-1244" srcset="/wp-content/uploads/2018/05/word-image-1130.png 840w, /wp-content/uploads/2018/05/word-image-1130-300x106.png 300w, /wp-content/uploads/2018/05/word-image-1130-768x272.png 768w" sizes="(max-width: 840px) 100vw, 840px" />
+</p>
+<ul>
+<li>
+    修改密码
+  </li>
+</ul>
+<p>
+  update mysql.user set password=password(&#8216;abc&#8217;) where user=&#8217;root&#8217; and host=&#8217;localhost&#8217;;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="973" height="237" src="/wp-content/uploads/2018/05/word-image-1131.png" class="wp-image-1245" srcset="/wp-content/uploads/2018/05/word-image-1131.png 973w, /wp-content/uploads/2018/05/word-image-1131-300x73.png 300w, /wp-content/uploads/2018/05/word-image-1131-768x187.png 768w" sizes="(max-width: 973px) 100vw, 973px" />
+</p>
+<ul>
+<li>
+    重启服务
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="801" height="345" src="/wp-content/uploads/2018/05/word-image-1132.png" class="wp-image-1246" srcset="/wp-content/uploads/2018/05/word-image-1132.png 801w, /wp-content/uploads/2018/05/word-image-1132-300x129.png 300w, /wp-content/uploads/2018/05/word-image-1132-768x331.png 768w" sizes="(max-width: 801px) 100vw, 801px" />
+</p>
+<ul>
+<li>
+    重新连接
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="1013" height="462" src="/wp-content/uploads/2018/05/word-image-1133.png" class="wp-image-1247" srcset="/wp-content/uploads/2018/05/word-image-1133.png 1013w, /wp-content/uploads/2018/05/word-image-1133-300x137.png 300w, /wp-content/uploads/2018/05/word-image-1133-768x350.png 768w" sizes="(max-width: 1013px) 100vw, 1013px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/1186.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

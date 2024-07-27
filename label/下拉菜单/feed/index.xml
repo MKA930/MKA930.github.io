@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>下拉菜单 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 12:13:38 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>下拉菜单 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>HTML（三）HTML 发展史、 下拉菜单、 内嵌框架、 复选框、 框架、 表单</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/147.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/147.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 13:00:40 +0000</pubDate>
+				<category><![CDATA[HTML]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[HTML 发展史]]></category>
+		<category><![CDATA[下拉菜单]]></category>
+		<category><![CDATA[内嵌框架]]></category>
+		<category><![CDATA[复选框]]></category>
+		<category><![CDATA[框架]]></category>
+		<category><![CDATA[表单]]></category>
+		<guid isPermaLink="false">/?p=147</guid>
+
+					<description><![CDATA[HTML（三） 回顾 六级标题 &#60;h1&#62;&#60;/h1&#62;一级标题 权重最高 &#60;h2&#038;g [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>HTML（三）</h1>
+<h2>回顾</h2>
+<ol>
+<li>六级标题
+<ol>
+<li>&lt;h1&gt;&lt;/h1&gt;一级标题 权重最高</li>
+<li>&lt;h2&gt;：二级标题</li>
+<li>…</li>
+<li>&lt;h6&gt;：六级标题</li>
+</ol>
+</li>
+<li>列表
+<ol>
+<li>有序列表：&lt;ol&gt; 每一项是li
+<ol>
+<li>默认是以数字为顺序，通过type属性来更改标号的类型（字母，罗马数字）</li>
+<li>通过start属性设置从第几个数字（字母）开始</li>
+</ol>
+</li>
+<li>无序列表：&lt;ul&gt; 每一项是li</li>
+<li>自定义列表：&lt;dl&gt;
+<ol>
+<li>&lt;dt&gt;自定义列表的标题</li>
+<li>&lt;dd&gt;自定义列表的项</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>&lt;!DOCTYPE&gt;文档声明
+<ol>
+<li>必须放在页面的第一行</li>
+<li>告知浏览器这个页面按照什么样的标准来解析</li>
+</ol>
+</li>
+<li>&lt;meta&gt;
+<ol>
+<li>告知浏览器用什么样的字符编码来解析</li>
+<li>给搜索引擎搜索</li>
+</ol>
+</li>
+<li>&lt;img&gt;：插入图片
+<ol>
+<li>&lt;Img src=’路径’ alt=’当图片无法显示的时候显示的内容’ title=’当鼠标移到图片上的时候显示内容’ width=’’ height=’’&gt;</li>
+</ol>
+</li>
+<li>热点：带有超链接的区域</li>
+<li>&lt;object&gt;:&lt;object type=&#8221;application/x-shockwave-flash&#8221; data=&#8221;地址&#8221; width=&#8221;&#8221; height=&#8221;&#8221;&gt;&lt;/object&gt; 插入flash</li>
+<li>实体：固定的字符串
+<ol>
+<li>&amp;lt; &lt;</li>
+<li>&amp;gt; &gt;</li>
+<li>&amp;nbsp; 空格</li>
+</ol>
+</li>
+<li>表格
+<ol>
+<li>表格作用：排版</li>
+<li>与表格相关标签
+<ol>
+<li>Table表格</li>
+<li>Tr 行</li>
+<li>Td 单元格</li>
+<li>Th 标题</li>
+</ol>
+</li>
+<li>单元格数据对齐
+<ol>
+<li>水平对齐 align=center left right</li>
+<li>垂直对齐 valign=top middle bottom</li>
+</ol>
+</li>
+<li>单元格间距和单元格填充
+<ol>
+<li>间距：cellspacing 单元格和单元格的距离，默认2像素</li>
+<li>填充：cellpadding：单元格的内容和距离单元格的距离，默认1像素</li>
+</ol>
+</li>
+<li>合并单元格
+<ol>
+<li>合并行：rowspan</li>
+<li>合并列：colspan</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2>标签的通用属性</h2>
+<p>有的属性是多个标签都具有的</p>
+<ol>
+<li>id：唯一的编号</li>
+<li>class：标签属于哪个类别</li>
+<li>width：宽度</li>
+<li>height：高度</li>
+<li>title：当鼠标移上去的时候显示提示性文字</li>
+</ol>
+<p><img decoding="async" width="169" height="39" class="wp-image-149" src="/wp-content/uploads/2018/05/word-image-127.png" /></p>
+<h2><a id="post-147-_Toc425176132"></a>表单</h2>
+<p><img fetchpriority="high" decoding="async" width="552" height="377" class="wp-image-150" src="/wp-content/uploads/2018/05/word-image-128.png" srcset="/wp-content/uploads/2018/05/word-image-128.png 552w, /wp-content/uploads/2018/05/word-image-128-300x205.png 300w, /wp-content/uploads/2018/05/word-image-128-220x150.png 220w" sizes="(max-width: 552px) 100vw, 552px" /></p>
+<p>表单作用：客户端使用表单向服务器提交数据。</p>
+<h2><a id="post-147-_Toc425176133"></a>表单域</h2>
+<p>表单域就是表单的区域</p>
+<p>标签：&lt;form&gt;&lt;/form&gt;</p>
+<h2><a id="post-147-_Toc425176134"></a>表单元素</h2>
+<h3>文本框（单行文本 &lt;input&gt;）</h3>
+<p>&lt;input type=&#8221;text&#8221; name=&#8221;username&#8221; size=&#8221;30&#8243; maxlength=&#8221;6&#8243; /&gt;</p>
+<ol>
+<li>input：输入</li>
+<li>type：类别，类型</li>
+<li>text：文本</li>
+<li>name：必须给每个表单元素取名字，因为服务器是通过名字来获取表单元素的值的。（每一个表单元素都要取名字）</li>
+<li>size=30：单行文本的宽度是30个字符的宽度</li>
+<li>maxlength=6：单行文本中最多只能输入6个字符。</li>
+</ol>
+<p>运行结果</p>
+<p><img decoding="async" width="331" height="33" class="wp-image-151" src="/wp-content/uploads/2018/05/word-image-129.png" srcset="/wp-content/uploads/2018/05/word-image-129.png 331w, /wp-content/uploads/2018/05/word-image-129-300x30.png 300w" sizes="(max-width: 331px) 100vw, 331px" /></p>
+<h3>密码框（&lt;input&gt;）</h3>
+<p><img loading="lazy" decoding="async" width="956" height="26" class="wp-image-152" src="/wp-content/uploads/2018/05/word-image-130.png" srcset="/wp-content/uploads/2018/05/word-image-130.png 956w, /wp-content/uploads/2018/05/word-image-130-300x8.png 300w, /wp-content/uploads/2018/05/word-image-130-768x21.png 768w" sizes="(max-width: 956px) 100vw, 956px" /></p>
+<p>&lt;input type=&#8221;password&#8221; name=&#8221;pwd&#8221; maxlength=&#8221;3&#8243; /&gt;</p>
+<h3>单选按钮（&lt;input&gt;）</h3>
+<p>&lt;input type=&#8221;radio&#8221; name=&#8221;sex&#8221; value=&#8221;1&#8243; checked=&#8221;checked&#8221; /&gt;男</p>
+<p>&lt;input type=&#8221;radio&#8221; name=&#8221;sex&#8221; value=&#8221;0&#8243;/&gt;女radio：单选按钮</p>
+<ol>
+<li>value：值</li>
+<li>checked：选中</li>
+</ol>
+<p>注意：</p>
+<ol>
+<li>同一组的单选按钮名字必须要一致</li>
+<li>无法输入的表单元素必须要赋值</li>
+<li>checked属性用来默认选择单选按钮，简写成checked也可以</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="595" height="51" class="wp-image-153" src="/wp-content/uploads/2018/05/word-image-131.png" srcset="/wp-content/uploads/2018/05/word-image-131.png 595w, /wp-content/uploads/2018/05/word-image-131-300x26.png 300w" sizes="(max-width: 595px) 100vw, 595px" /></p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="208" height="23" class="wp-image-154" src="/wp-content/uploads/2018/05/word-image-132.png" /></p>
+<p>思考：思考如下代码，结果是什么？</p>
+<p><img loading="lazy" decoding="async" width="976" height="113" class="wp-image-155" src="/wp-content/uploads/2018/05/word-image-133.png" srcset="/wp-content/uploads/2018/05/word-image-133.png 976w, /wp-content/uploads/2018/05/word-image-133-300x35.png 300w, /wp-content/uploads/2018/05/word-image-133-768x89.png 768w" sizes="(max-width: 976px) 100vw, 976px" /></p>
+<p>分析：程序的执行是从上往下依次执行，当执行的第二个单选按钮的时候会选择第二个单选按钮，由于是单选，在选择第二个的时候会取消对第一个按钮的选择，以此类推，最后选择最后一个单选按钮。</p>
+<h3>复选框（多选按钮 &lt;input&gt;）</h3>
+<p>&lt;input type=&#8221;checkbox&#8221; name=&#8221;hobby&#8221; value=&#8221;读书&#8221; checked=&#8221;checked&#8221; /&gt;读书</p>
+<p>&lt;input type=&#8221;checkbox&#8221; name=&#8221;hobby&#8221; value=&#8221;爬山&#8221; /&gt;爬山</p>
+<p>&lt;input type=&#8221;checkbox&#8221; name=&#8221;hobby&#8221; value=&#8221;游泳&#8221; /&gt;游泳</p>
+<p>&lt;input type=&#8221;checkbox&#8221; name=&#8221;hobby&#8221; value=&#8221;看报&#8221; /&gt;看报</p>
+<ol>
+<li>check：选择</li>
+<li>box:盒子</li>
+</ol>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="332" height="28" class="wp-image-156" src="/wp-content/uploads/2018/05/word-image-134.png" srcset="/wp-content/uploads/2018/05/word-image-134.png 332w, /wp-content/uploads/2018/05/word-image-134-300x25.png 300w" sizes="(max-width: 332px) 100vw, 332px" /></p>
+<h3>下拉菜单（&lt;select&gt;）</h3>
+<p>&lt;select name=&#8221;jiguan&#8221;&gt;</p>
+<p>&lt;option value=&#8221;上海&#8221;&gt;上海&lt;/option&gt;</p>
+<p>&lt;option value=&#8221;北京&#8221; selected=&#8221;selected&#8221;&gt;北京&lt;/option&gt;</p>
+<p>&lt;option value=&#8221;天津&#8221;&gt;天津&lt;/option&gt;</p>
+<p>&lt;/select&gt;</p>
+<ol>
+<li>select：选择</li>
+<li>option：选项</li>
+<li>selected：已经选中</li>
+</ol>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="174" height="25" class="wp-image-157" src="/wp-content/uploads/2018/05/word-image-135.png" /></p>
+<h3>下拉列表（&lt;select&gt;）</h3>
+<p>下拉菜单和下拉列表的标签是一样的，他们的区别下拉列表一次可以选择多个选项</p>
+<p><img loading="lazy" decoding="async" width="754" height="105" class="wp-image-158" src="/wp-content/uploads/2018/05/word-image-136.png" srcset="/wp-content/uploads/2018/05/word-image-136.png 754w, /wp-content/uploads/2018/05/word-image-136-300x42.png 300w" sizes="(max-width: 754px) 100vw, 754px" /></p>
+<ol>
+<li>size：一次显示的选项个数</li>
+<li>multiple：多选</li>
+</ol>
+<h3>文本域（多行文本 &lt;textarea&gt;）</h3>
+<p>&lt;textarea name=&#8221;jianyi&#8221; cols=&#8221;30&#8243; rows=&#8221;5&#8243;&gt;&lt;/textarea&gt;</p>
+<ol>
+<li>text：文本</li>
+<li>area：区域</li>
+<li>cols=’30’：文本域的宽度是30个列的宽度</li>
+<li>rows=’5’：文本域的高度是5行的高度</li>
+</ol>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="366" height="91" class="wp-image-159" src="/wp-content/uploads/2018/05/word-image-137.png" srcset="/wp-content/uploads/2018/05/word-image-137.png 366w, /wp-content/uploads/2018/05/word-image-137-300x75.png 300w" sizes="(max-width: 366px) 100vw, 366px" /></p>
+<h3>提交按钮（&lt;input&gt;）</h3>
+<p>点击提交按钮将表单元素的数据发送到服务器</p>
+<p>&lt;input type=&#8221;submit&#8221; name=&#8221;submit&#8221; value=&#8221;注册&#8221; /&gt;</p>
+<p>1、submit：提交</p>
+<p>运行结果：</p>
+<p><img loading="lazy" decoding="async" width="1005" height="30" class="wp-image-160" src="/wp-content/uploads/2018/05/word-image-138.png" srcset="/wp-content/uploads/2018/05/word-image-138.png 1005w, /wp-content/uploads/2018/05/word-image-138-300x9.png 300w, /wp-content/uploads/2018/05/word-image-138-768x23.png 768w" sizes="(max-width: 1005px) 100vw, 1005px" /></p>
+<p>脚下留心：按钮上显示什么内容取决于的value的值</p>
+<h3>重置按钮（&lt;input&gt;）</h3>
+<p>点击重置按钮，将表单元素的数据恢复到初始值。</p>
+<p>&lt;input type=&#8221;reset&#8221; name=&#8221;reset&#8221; value=&#8221;重置&#8221; /&gt;</p>
+<p>1、reset：重置</p>
+<p>运行结果：</p>
+<p><img loading="lazy" decoding="async" width="1024" height="32" class="wp-image-161" src="/wp-content/uploads/2018/05/word-image-139.png" srcset="/wp-content/uploads/2018/05/word-image-139.png 1024w, /wp-content/uploads/2018/05/word-image-139-300x9.png 300w, /wp-content/uploads/2018/05/word-image-139-768x24.png 768w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h3>普通按钮（&lt;input&gt;）</h3>
+<p>普通按钮本身不具备任何功能，后面和JS结合起来写自定义功能</p>
+<p>&lt;input type=&#8221;button&#8221; name=&#8221;btn&#8221; value=&#8221;普通按钮&#8221; /&gt;</p>
+<p>1、button：按钮</p>
+<p>运行结果：</p>
+<p><img loading="lazy" decoding="async" width="1039" height="65" class="wp-image-162" src="/wp-content/uploads/2018/05/word-image-140.png" srcset="/wp-content/uploads/2018/05/word-image-140.png 1039w, /wp-content/uploads/2018/05/word-image-140-300x19.png 300w, /wp-content/uploads/2018/05/word-image-140-768x48.png 768w, /wp-content/uploads/2018/05/word-image-140-1024x64.png 1024w" sizes="(max-width: 1039px) 100vw, 1039px" /></p>
+<h3>表单元素总结：</h3>
+<p>在表单的中我们学的标签有：&lt;form&gt;,&lt;input&gt;,&lt;select&gt;,&lt;option&gt;,&lt;textarea&gt;</p>
+<p>input标签的type属性</p>
+<ol>
+<li>text：文本框</li>
+<li>password：密码框</li>
+<li>radio：单选按钮</li>
+<li>checkbox：复选框</li>
+<li>submit：提交按钮</li>
+<li>reset：重置按钮</li>
+<li>button：普通按钮</li>
+</ol>
+<h2><a id="post-147-_Toc425176146"></a>使用表单</h2>
+<h3>表单的属性</h3>
+<ol>
+<li>action：表单元素提交的地址</li>
+</ol>
+<p>多学一招：action=””表示将数据提交给当前页面</p>
+<ol>
+<li>method：数据提交的方法，method有两个值，一个是get，一个是post</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="900" height="76" class="wp-image-163" src="/wp-content/uploads/2018/05/word-image-141.png" srcset="/wp-content/uploads/2018/05/word-image-141.png 900w, /wp-content/uploads/2018/05/word-image-141-300x25.png 300w, /wp-content/uploads/2018/05/word-image-141-768x65.png 768w" sizes="(max-width: 900px) 100vw, 900px" /> <img loading="lazy" decoding="async" width="739" height="56" class="wp-image-164" src="/wp-content/uploads/2018/05/word-image-142.png" srcset="/wp-content/uploads/2018/05/word-image-142.png 739w, /wp-content/uploads/2018/05/word-image-142-300x23.png 300w" sizes="(max-width: 739px) 100vw, 739px" /></p>
+<p>get和post提交的区别</p>
+<table>
+<tbody>
+<tr>
+<td></td>
+<td>get</td>
+<td>post</td>
+</tr>
+<tr>
+<td>外观上</td>
+<td>地址栏上有？，?后面跟的是传输的数据</td>
+<td>地址栏上看不到数据</td>
+</tr>
+<tr>
+<td>提交原理</td>
+<td>将表单元素的数据一个一个的提交</td>
+<td>将所有数据作为一个整体一起提交</td>
+</tr>
+<tr>
+<td>提交的数据量上</td>
+<td>少量数据（最少255字节）</td>
+<td>大量数据</td>
+</tr>
+<tr>
+<td>安全性上</td>
+<td>不安全</td>
+<td>安全</td>
+</tr>
+<tr>
+<td>灵活性</td>
+<td>很灵活</td>
+<td>不灵活</td>
+</tr>
+</tbody>
+</table>
+<p>多学一招：get使用的频率远远大于post，原因是get很灵活。</p>
+<h2>框架</h2>
+<p><img loading="lazy" decoding="async" width="1269" height="264" class="wp-image-165" src="/wp-content/uploads/2018/05/word-image-143.png" srcset="/wp-content/uploads/2018/05/word-image-143.png 1269w, /wp-content/uploads/2018/05/word-image-143-300x62.png 300w, /wp-content/uploads/2018/05/word-image-143-768x160.png 768w, /wp-content/uploads/2018/05/word-image-143-1024x213.png 1024w" sizes="(max-width: 1269px) 100vw, 1269px" /></p>
+<p>在同一个浏览器上显示多个多个框架。在每一个框架中放了一个页面。</p>
+<h3>使用的标签</h3>
+<ol>
+<li>&lt;frameset&gt;：框架集</li>
+<li>&lt;frame&gt;：框架</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="579" height="116" class="wp-image-166" src="/wp-content/uploads/2018/05/word-image-144.png" srcset="/wp-content/uploads/2018/05/word-image-144.png 579w, /wp-content/uploads/2018/05/word-image-144-300x60.png 300w" sizes="(max-width: 579px) 100vw, 579px" /></p>
+<p>例题一：在浏览器上显示3个框架，他们分成3行</p>
+<p><img loading="lazy" decoding="async" width="670" height="172" class="wp-image-167" src="/wp-content/uploads/2018/05/word-image-145.png" srcset="/wp-content/uploads/2018/05/word-image-145.png 670w, /wp-content/uploads/2018/05/word-image-145-300x77.png 300w" sizes="(max-width: 670px) 100vw, 670px" /></p>
+<p>例题二：在浏览器上显示3个框架，他们分成3列，如下格式：</p>
+<p><img loading="lazy" decoding="async" width="251" height="78" class="wp-image-168" src="/wp-content/uploads/2018/05/word-image-146.png" /></p>
+<p>实现：</p>
+<p><img loading="lazy" decoding="async" width="693" height="137" class="wp-image-169" src="/wp-content/uploads/2018/05/word-image-147.png" srcset="/wp-content/uploads/2018/05/word-image-147.png 693w, /wp-content/uploads/2018/05/word-image-147-300x59.png 300w" sizes="(max-width: 693px) 100vw, 693px" /></p>
+<p>例题三：实现如下框架结构</p>
+<p><img loading="lazy" decoding="async" width="301" height="109" class="wp-image-170" src="/wp-content/uploads/2018/05/word-image-148.png" srcset="/wp-content/uploads/2018/05/word-image-148.png 301w, /wp-content/uploads/2018/05/word-image-148-300x109.png 300w" sizes="(max-width: 301px) 100vw, 301px" /></p>
+<p>分析</p>
+<p><img loading="lazy" decoding="async" width="644" height="94" class="wp-image-171" src="/wp-content/uploads/2018/05/word-image-149.png" srcset="/wp-content/uploads/2018/05/word-image-149.png 644w, /wp-content/uploads/2018/05/word-image-149-300x44.png 300w" sizes="(max-width: 644px) 100vw, 644px" /></p>
+<p>实现：</p>
+<p><img loading="lazy" decoding="async" width="604" height="164" class="wp-image-172" src="/wp-content/uploads/2018/05/word-image-150.png" srcset="/wp-content/uploads/2018/05/word-image-150.png 604w, /wp-content/uploads/2018/05/word-image-150-300x81.png 300w" sizes="(max-width: 604px) 100vw, 604px" /></p>
+<p>脚下留心：</p>
+<p>1、&lt;frameset&gt;不能放在&lt;body&gt;中，放在&lt;html&gt;中</p>
+<p>2、&lt;noframes&gt;&lt;/noframes&gt;，当浏览器不支持框架标签的时候就执行此标签中的内容。</p>
+<p>&lt;noframes&gt;此浏览器不支持框架，请升级&lt;/noframes&gt;</p>
+<p>3、在HTML5中，框架标签现在已经淘汰</p>
+<p>例题：实现在一个框架中点击，目标页面在另一个框架中出现</p>
+<p><img loading="lazy" decoding="async" width="645" height="134" class="wp-image-173" src="/wp-content/uploads/2018/05/word-image-151.png" srcset="/wp-content/uploads/2018/05/word-image-151.png 645w, /wp-content/uploads/2018/05/word-image-151-300x62.png 300w" sizes="(max-width: 645px) 100vw, 645px" /></p>
+<p>第一步：给目标框架取名字</p>
+<p><img loading="lazy" decoding="async" width="712" height="134" class="wp-image-174" src="/wp-content/uploads/2018/05/word-image-152.png" srcset="/wp-content/uploads/2018/05/word-image-152.png 712w, /wp-content/uploads/2018/05/word-image-152-300x56.png 300w" sizes="(max-width: 712px) 100vw, 712px" /></p>
+<p>第二步：将超链接的target属性的值写成目标框架的名字</p>
+<p><img loading="lazy" decoding="async" width="749" height="32" class="wp-image-175" src="/wp-content/uploads/2018/05/word-image-153.png" srcset="/wp-content/uploads/2018/05/word-image-153.png 749w, /wp-content/uploads/2018/05/word-image-153-300x13.png 300w" sizes="(max-width: 749px) 100vw, 749px" /></p>
+<p>运行结果：</p>
+<p><img loading="lazy" decoding="async" width="531" height="62" class="wp-image-176" src="/wp-content/uploads/2018/05/word-image-154.png" srcset="/wp-content/uploads/2018/05/word-image-154.png 531w, /wp-content/uploads/2018/05/word-image-154-300x35.png 300w" sizes="(max-width: 531px) 100vw, 531px" /></p>
+<h2>内嵌框架（&lt;iframe&gt;）</h2>
+<p>内嵌框架就是页面中嵌套的框架</p>
+<p>&lt;iframe src=&#8221;1-表单.html&#8221; width=&#8221;100&#8243; height=&#8221;100&#8243; marginwidth=&#8221;0&#8243; marginheight=&#8221;0&#8243; frameborder=&#8221;0&#8243;&gt;&lt;/iframe&gt;</p>
+<ol>
+<li>src：内嵌框架中存放的页面</li>
+<li>width和height：内嵌框架的宽度和高度</li>
+<li>marginwidth：内嵌框架中的页面距离内嵌框架的宽度</li>
+<li>marginheight：内嵌框架中的页面距离内嵌框架的高度</li>
+<li>frameborder：内嵌框架边框</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="384" height="170" class="wp-image-177" src="/wp-content/uploads/2018/05/word-image-155.png" srcset="/wp-content/uploads/2018/05/word-image-155.png 384w, /wp-content/uploads/2018/05/word-image-155-300x133.png 300w" sizes="(max-width: 384px) 100vw, 384px" /></p>
+<h2>HTML发展史</h2>
+<p>HTML5的发展</p>
+<p><img loading="lazy" decoding="async" width="507" height="318" class="wp-image-178" src="/wp-content/uploads/2018/05/word-image-156.png" srcset="/wp-content/uploads/2018/05/word-image-156.png 507w, /wp-content/uploads/2018/05/word-image-156-300x188.png 300w" sizes="(max-width: 507px) 100vw, 507px" /></p>
+<p>脚下留心：在ie9以上（包含）、crome、火狐支持HTML5，老版本的浏览器不支持。</p>
+<p>由于HTML5目前还没有正式发布，所以同一个标签在不同的浏览器上解析可能会不同。</p>
+<h2>HTML新的特点</h2>
+<ol>
+<li>语法更加简单
+<ol>
+<li>头部声明</li>
+</ol>
+</li>
+</ol>
+<p>&lt;!doctype html&gt;</p>
+<ul>
+<li>
+<ol>
+<li>简化了字符集声明</li>
+</ol>
+</li>
+</ul>
+<p>&lt;meta charset=&#8221;utf-8&#8243;&gt;</p>
+<ol>
+<li>语法更宽松
+<ol>
+<li>可以省略结束符的标签</li>
+</ol>
+</li>
+</ol>
+<p>li、dt、dd、p、optgroup、option、tr、td、th</p>
+<ul>
+<li>
+<ol>
+<li>可以完全省略的标签</li>
+</ol>
+</li>
+</ul>
+<p>html、head、body</p>
+<ol>
+<li>标签语义化，在原来的拼版过程中，通过&lt;div&gt;&lt;/div&gt;中来存放内容，在HTML5中添加了很多标签，其实作用和&lt;div&gt;一样，但是它更加具有语义。HTML5增加如下常用新标签
+<ol>
+<li>&lt;header&gt; 标记定义一个页面或一个区域的头部</li>
+<li>&lt;nav&gt; 标记定义导航链接</li>
+<li>&lt;article&gt; 标记定义一篇文章内容</li>
+<li>&lt;section&gt; 标记定义网页中一块区域</li>
+<li>&lt;aside&gt; 标记定义页面内容部分的侧边栏</li>
+<li>&lt;footer&gt; 标记定义一个页面或一个区域的底部</li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="558" height="436" class="wp-image-179" src="/wp-content/uploads/2018/05/word-image-157.png" srcset="/wp-content/uploads/2018/05/word-image-157.png 558w, /wp-content/uploads/2018/05/word-image-157-300x234.png 300w" sizes="(max-width: 558px) 100vw, 558px" /></p>
+<h2>html5新增常用新属性</h2>
+<p>required：必填</p>
+<p>placeholder：默认显示内容</p>
+<p>autofocus：自动获取焦点</p>
+<p><img loading="lazy" decoding="async" width="1071" height="118" class="wp-image-180" src="/wp-content/uploads/2018/05/word-image-158.png" srcset="/wp-content/uploads/2018/05/word-image-158.png 1071w, /wp-content/uploads/2018/05/word-image-158-300x33.png 300w, /wp-content/uploads/2018/05/word-image-158-768x85.png 768w, /wp-content/uploads/2018/05/word-image-158-1024x113.png 1024w" sizes="(max-width: 1071px) 100vw, 1071px" /></p>
+<h2>input标签新增的type属性值</h2>
+<ol>
+<li>type=&#8221;email&#8221;，文本框中只能输入email地址
+<ol>
+<li>代码</li>
+</ol>
+</li>
+</ol>
+<p>&lt;input type=&#8221;email&#8221; name=&#8221;email&#8221;&gt;</p>
+<ul>
+<li>
+<ol>
+<li>运行结果</li>
+</ol>
+</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="483" height="96" class="wp-image-181" src="/wp-content/uploads/2018/05/word-image-159.png" srcset="/wp-content/uploads/2018/05/word-image-159.png 483w, /wp-content/uploads/2018/05/word-image-159-300x60.png 300w" sizes="(max-width: 483px) 100vw, 483px" /></p>
+<ol>
+<li>type=&#8221;date&#8221;（目前只有chrome有效）
+<ol>
+<li>代码：</li>
+</ol>
+</li>
+</ol>
+<p>&lt;input type=&#8221;date&#8221; name=&#8221;date&#8221;&gt;</p>
+<ul>
+<li>
+<ol>
+<li>运行结果</li>
+</ol>
+</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="378" height="206" class="wp-image-182" src="/wp-content/uploads/2018/05/word-image-160.png" srcset="/wp-content/uploads/2018/05/word-image-160.png 378w, /wp-content/uploads/2018/05/word-image-160-300x163.png 300w" sizes="(max-width: 378px) 100vw, 378px" /></p>
+<ol>
+<li>type=&#8221;time&#8221;
+<ol>
+<li>代码</li>
+</ol>
+</li>
+</ol>
+<p>&lt;input type=&#8221;time&#8221; name=&#8221;time&#8221;&gt;</p>
+<ul>
+<li>
+<ol>
+<li>运行结果</li>
+</ol>
+</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="212" height="27" class="wp-image-183" src="/wp-content/uploads/2018/05/word-image-161.png" /></p>
+<ol>
+<li>type=&#8221;month&#8221;
+<ol>
+<li>代码</li>
+</ol>
+</li>
+</ol>
+<p>&lt;input type=&#8221;month&#8221; name=&#8221;month&#8221;&gt;</p>
+<ul>
+<li>
+<ol>
+<li>运行结果</li>
+</ol>
+</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="376" height="191" class="wp-image-184" src="/wp-content/uploads/2018/05/word-image-162.png" srcset="/wp-content/uploads/2018/05/word-image-162.png 376w, /wp-content/uploads/2018/05/word-image-162-300x152.png 300w" sizes="(max-width: 376px) 100vw, 376px" /></p>
+<ol>
+<li>type=&#8221;week&#8221;
+<ol>
+<li>代码</li>
+</ol>
+</li>
+</ol>
+<p>&lt;input type=&#8221;week&#8221; name=&#8221;week&#8221;&gt;</p>
+<ul>
+<li>
+<ol>
+<li>运行结果</li>
+</ol>
+</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="426" height="205" class="wp-image-185" src="/wp-content/uploads/2018/05/word-image-163.png" srcset="/wp-content/uploads/2018/05/word-image-163.png 426w, /wp-content/uploads/2018/05/word-image-163-300x144.png 300w" sizes="(max-width: 426px) 100vw, 426px" /></p>
+<ol>
+<li>type=&#8221;number&#8221;
+<ol>
+<li>代码：</li>
+</ol>
+</li>
+</ol>
+<p>&lt;input type=&#8221;number&#8221; name=&#8221;number&#8221;&gt;</p>
+<ul>
+<li>
+<ol>
+<li>运行结果</li>
+</ol>
+</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="309" height="29" class="wp-image-186" src="/wp-content/uploads/2018/05/word-image-164.png" srcset="/wp-content/uploads/2018/05/word-image-164.png 309w, /wp-content/uploads/2018/05/word-image-164-300x28.png 300w" sizes="(max-width: 309px) 100vw, 309px" /></p>
+<ol>
+<li>type=&#8221;range&#8221;
+<ol>
+<li>代码</li>
+</ol>
+</li>
+</ol>
+<p>&lt;input type=&#8221;range&#8221; name=&#8221;range&#8221; min=&#8221;18&#8243; max=&#8221;25&#8243;&gt;</p>
+<ul>
+<li>
+<ol>
+<li>运行结果</li>
+</ol>
+</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="399" height="82" class="wp-image-187" src="/wp-content/uploads/2018/05/word-image-165.png" srcset="/wp-content/uploads/2018/05/word-image-165.png 399w, /wp-content/uploads/2018/05/word-image-165-300x62.png 300w" sizes="(max-width: 399px) 100vw, 399px" /></p>
+<ol>
+<li>type=&#8221;color&#8221;
+<ol>
+<li>代码</li>
+</ol>
+</li>
+</ol>
+<p>&lt;input type=&#8221;color&#8221; name=&#8221;color&#8221;&gt;</p>
+<ul>
+<li>
+<ol>
+<li>运行结果</li>
+</ol>
+</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="193" height="35" class="wp-image-188" src="/wp-content/uploads/2018/05/word-image-166.png" /></p>
+<h2>多媒体标签</h2>
+<h3>&lt;embed&gt;</h3>
+<p>这个标签不是HTML5的，在HTML4中就已经存在，主要用来播放音频和视频</p>
+<ol>
+<li>音频</li>
+</ol>
+<p>&lt;embed src=&#8221;music/music.mp3&#8243; autoplay=&#8217;0&#8242;&gt;&lt;/embed&gt;</p>
+<p><img loading="lazy" decoding="async" width="297" height="46" class="wp-image-189" src="/wp-content/uploads/2018/05/word-image-167.png" /></p>
+<p>Autoplay=’0’或者false 表示不自动播放</p>
+<p>Autoplay=’1’或者true 表示自动播放</p>
+<ol>
+<li>视频</li>
+</ol>
+<p>&lt;embed src=&#8221;video/movie.mp4&#8243; width=&#8221;300&#8243; height=&#8221;300&#8243;&gt;&lt;/embed&gt;</p>
+<p><img loading="lazy" decoding="async" width="305" height="310" class="wp-image-190" src="/wp-content/uploads/2018/05/word-image-168.png" srcset="/wp-content/uploads/2018/05/word-image-168.png 305w, /wp-content/uploads/2018/05/word-image-168-295x300.png 295w" sizes="(max-width: 305px) 100vw, 305px" /></p>
+<h3>&lt;audio&gt;</h3>
+<p>HTML5中专门用来播放音频的</p>
+<p>方法一：</p>
+<p>&lt;audio src=&#8221;music/music.mp3&#8243; controls autoplay=&#8221;autoplay&#8221;&gt;&lt;/audio&gt;</p>
+<ol>
+<li>controls表示显示控制面板</li>
+<li>autoplay=&#8221;autoplay&#8221;：自动播放，也可以就写一个autoplay</li>
+</ol>
+<p>方法二：</p>
+<p>&lt;audio controls autoplay&gt;</p>
+<p>&lt;source src=&#8221;music/music.mp3&#8243;&gt;</p>
+<p>&lt;source src=&#8221;music/music.ogg&#8221;&gt;</p>
+<p>&lt;/audio&gt;</p>
+<p>如果第一个音频找不到，就会播放第二个音频，如果第一个音频播放了，不会播放第二个音频。</p>
+<h3>&lt;video&gt;</h3>
+<p>HTML5中专门用来播放视频的</p>
+<p>&lt;video controls autoplay&gt;</p>
+<p>&lt;source src=&#8221;video/movie.mp4&#8243;&gt;</p>
+<p>&lt;source src=&#8221;video/movie.ogg&#8221;&gt;</p>
+<p>&lt;source src=&#8221;video/movie.webm&#8221;&gt;</p>
+<p>&lt;/video&gt;</p>
+<p>原理和&lt;audio&gt;一样。</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/147.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

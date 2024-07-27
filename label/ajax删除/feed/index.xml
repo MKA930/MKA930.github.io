@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Ajax删除 &#8211; 个人随笔</title>
+	<atom:link href="/label/ajax%E5%88%A0%E9%99%A4/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Wed, 20 Jun 2018 11:27:32 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>Ajax删除 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP5商城（八）购物车商品列表展示、Ajax删除、清空、更新购物车商品、展示订单结算页面、订单详情页商品展示</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8378.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8378.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 08 Jun 2018 00:33:49 +0000</pubDate>
+				<category><![CDATA[TP5.0]]></category>
+		<category><![CDATA[TP5.0商城]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[Ajax删除]]></category>
+		<category><![CDATA[展示订单结算页面]]></category>
+		<category><![CDATA[更新购物车商品]]></category>
+		<category><![CDATA[清空]]></category>
+		<category><![CDATA[订单详情页商品展示]]></category>
+		<category><![CDATA[购物车商品列表展示]]></category>
+		<guid isPermaLink="false">/?p=8378</guid>
+
+					<description><![CDATA[商城第八天 联表的三步： 需要关联表的表 表关联的字段 通过where筛选条件进行过滤 原生的sql语句： s [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>商城第八天</h1>
+<h1>联表的三步：</h1>
+<ol>
+<li>需要关联表的表</li>
+<li>表关联的字段</li>
+<li>通过where筛选条件进行过滤</li>
+</ol>
+<p>原生的sql语句： select * from table_name join 、where、group、having、order、limit</p>
+<h1>一、购物车商品列表展示</h1>
+<h2>1、分析</h2>
+<p><img fetchpriority="high" decoding="async" width="1109" height="474" class="wp-image-8507" src="/wp-content/uploads/2018/06/word-image-1078.png" srcset="/wp-content/uploads/2018/06/word-image-1078.png 1109w, /wp-content/uploads/2018/06/word-image-1078-300x128.png 300w, /wp-content/uploads/2018/06/word-image-1078-768x328.png 768w, /wp-content/uploads/2018/06/word-image-1078-1024x438.png 1024w" sizes="(max-width: 1109px) 100vw, 1109px" /></p>
+<p>上面的购物车数据从哪里来？</p>
+<ol>
+<li>先是从购物车表sh_cart</li>
+</ol>
+<p><img decoding="async" width="512" height="67" class="wp-image-8508" src="/wp-content/uploads/2018/06/word-image-1079.png" srcset="/wp-content/uploads/2018/06/word-image-1079.png 512w, /wp-content/uploads/2018/06/word-image-1079-300x39.png 300w" sizes="(max-width: 512px) 100vw, 512px" /></p>
+<p>通过上面一张表的数据，购物车数据是获取不到的，需要查询另外三张表:商品表、属性表、商品属性表</p>
+<p><img decoding="async" width="1094" height="139" class="wp-image-8509" src="/wp-content/uploads/2018/06/word-image-1080.png" srcset="/wp-content/uploads/2018/06/word-image-1080.png 1094w, /wp-content/uploads/2018/06/word-image-1080-300x38.png 300w, /wp-content/uploads/2018/06/word-image-1080-768x98.png 768w, /wp-content/uploads/2018/06/word-image-1080-1024x130.png 1024w" sizes="(max-width: 1094px) 100vw, 1094px" /></p>
+<p>499元：（商品的单价（goods_price）+所有单选属性价格总和）* goods_number</p>
+<h2>2、代码</h2>
+<p>1、在home-CartController-cartList，展示购物车模板页面</p>
+<p><img loading="lazy" decoding="async" width="689" height="242" class="wp-image-8510" src="/wp-content/uploads/2018/06/word-image-1081.png" srcset="/wp-content/uploads/2018/06/word-image-1081.png 689w, /wp-content/uploads/2018/06/word-image-1081-300x105.png 300w" sizes="(max-width: 689px) 100vw, 689px" /></p>
+<p>模板如下：</p>
+<p><img loading="lazy" decoding="async" width="795" height="372" class="wp-image-8511" src="/wp-content/uploads/2018/06/word-image-1082.png" srcset="/wp-content/uploads/2018/06/word-image-1082.png 795w, /wp-content/uploads/2018/06/word-image-1082-300x140.png 300w, /wp-content/uploads/2018/06/word-image-1082-768x359.png 768w" sizes="(max-width: 795px) 100vw, 795px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="988" height="250" class="wp-image-8512" src="/wp-content/uploads/2018/06/word-image-1083.png" srcset="/wp-content/uploads/2018/06/word-image-1083.png 988w, /wp-content/uploads/2018/06/word-image-1083-300x76.png 300w, /wp-content/uploads/2018/06/word-image-1083-768x194.png 768w" sizes="(max-width: 988px) 100vw, 988px" /></p>
+<ol>
+<li>把购物车数据取出来，组装成如下的数据结构，方便后面查询</li>
+</ol>
+<p>[</p>
+<p>[</p>
+<p>goods_id =&gt; 1</p>
+<p>goods_attr_ids =&gt; 1,5</p>
+<p>goods_number =&gt; 10</p>
+<p>]</p>
+<p>&#8230;&#8230;</p>
+<p>]</p>
+<p>代码如下：</p>
+<p><img loading="lazy" decoding="async" width="1055" height="420" class="wp-image-8513" src="/wp-content/uploads/2018/06/word-image-1084.png" srcset="/wp-content/uploads/2018/06/word-image-1084.png 1055w, /wp-content/uploads/2018/06/word-image-1084-300x119.png 300w, /wp-content/uploads/2018/06/word-image-1084-768x306.png 768w, /wp-content/uploads/2018/06/word-image-1084-1024x408.png 1024w" sizes="(max-width: 1055px) 100vw, 1055px" /></p>
+<ol>
+<li>在把上面的组装好的数组cartData变量，给其每个数组元素加下标goodsInfo和attrInfo，分别存储商品信息和商品属性信息。</li>
+</ol>
+<p>类似结构如下：</p>
+<p>[</p>
+<p>[</p>
+<p>goods_id =&gt; 1</p>
+<p>goods_attr_ids =&gt; 1,5</p>
+<p>goods_number =&gt; 10，</p>
+<p>goodsInfo =&gt; [goods_name,goods_price,goods_img,&#8230;&#8230;]</p>
+<p>attrInfo =&gt;[attr_name,attr_value,attr_price,&#8230;&#8230;]</p>
+<p>]</p>
+<p>&#8230;&#8230;</p>
+<p>]</p>
+<p>代码如下：</p>
+<p><img loading="lazy" decoding="async" width="1272" height="534" class="wp-image-8514" src="/wp-content/uploads/2018/06/word-image-1085.png" srcset="/wp-content/uploads/2018/06/word-image-1085.png 1272w, /wp-content/uploads/2018/06/word-image-1085-300x126.png 300w, /wp-content/uploads/2018/06/word-image-1085-768x322.png 768w, /wp-content/uploads/2018/06/word-image-1085-1024x430.png 1024w" sizes="(max-width: 1272px) 100vw, 1272px" /></p>
+<p>最终组装好的$cartData数组结构如下：</p>
+<p><img loading="lazy" decoding="async" width="656" height="536" class="wp-image-8515" src="/wp-content/uploads/2018/06/word-image-1086.png" srcset="/wp-content/uploads/2018/06/word-image-1086.png 656w, /wp-content/uploads/2018/06/word-image-1086-300x245.png 300w" sizes="(max-width: 656px) 100vw, 656px" /></p>
+<ol>
+<li>在cartList.html模板文件中，进行遍历购物车相关数据</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1227" height="647" class="wp-image-8516" src="/wp-content/uploads/2018/06/word-image-1087.png" srcset="/wp-content/uploads/2018/06/word-image-1087.png 1227w, /wp-content/uploads/2018/06/word-image-1087-300x158.png 300w, /wp-content/uploads/2018/06/word-image-1087-768x405.png 768w, /wp-content/uploads/2018/06/word-image-1087-1024x540.png 1024w" sizes="(max-width: 1227px) 100vw, 1227px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="1117" height="392" class="wp-image-8517" src="/wp-content/uploads/2018/06/word-image-1088.png" srcset="/wp-content/uploads/2018/06/word-image-1088.png 1117w, /wp-content/uploads/2018/06/word-image-1088-300x105.png 300w, /wp-content/uploads/2018/06/word-image-1088-768x270.png 768w, /wp-content/uploads/2018/06/word-image-1088-1024x359.png 1024w" sizes="(max-width: 1117px) 100vw, 1117px" /></p>
+<h1>ajax删除购物车商品</h1>
+<p><img loading="lazy" decoding="async" width="1060" height="197" class="wp-image-8518" src="/wp-content/uploads/2018/06/word-image-1089.png" srcset="/wp-content/uploads/2018/06/word-image-1089.png 1060w, /wp-content/uploads/2018/06/word-image-1089-300x56.png 300w, /wp-content/uploads/2018/06/word-image-1089-768x143.png 768w, /wp-content/uploads/2018/06/word-image-1089-1024x190.png 1024w" sizes="(max-width: 1060px) 100vw, 1060px" /></p>
+<ol>
+<li>给删除链接地址绑定单击事件，并阻止默认行为，还要获取商品goods_id和商品属性goods_attr_ids。</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1183" height="319" class="wp-image-8519" src="/wp-content/uploads/2018/06/word-image-1090.png" srcset="/wp-content/uploads/2018/06/word-image-1090.png 1183w, /wp-content/uploads/2018/06/word-image-1090-300x81.png 300w, /wp-content/uploads/2018/06/word-image-1090-768x207.png 768w, /wp-content/uploads/2018/06/word-image-1090-1024x276.png 1024w" sizes="(max-width: 1183px) 100vw, 1183px" /></p>
+<ol>
+<li>给class=’delCartGoods’绑定单击事件</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1207" height="485" class="wp-image-8520" src="/wp-content/uploads/2018/06/word-image-1091.png" srcset="/wp-content/uploads/2018/06/word-image-1091.png 1207w, /wp-content/uploads/2018/06/word-image-1091-300x121.png 300w, /wp-content/uploads/2018/06/word-image-1091-768x309.png 768w, /wp-content/uploads/2018/06/word-image-1091-1024x411.png 1024w" sizes="(max-width: 1207px) 100vw, 1207px" /></p>
+<p>注：要引入layer弹出层插件。</p>
+<ol>
+<li>在CartController控制器的ajaxDelGoods方法中，完成删除购物车商品</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1032" height="350" class="wp-image-8521" src="/wp-content/uploads/2018/06/word-image-1092.png" srcset="/wp-content/uploads/2018/06/word-image-1092.png 1032w, /wp-content/uploads/2018/06/word-image-1092-300x102.png 300w, /wp-content/uploads/2018/06/word-image-1092-768x260.png 768w, /wp-content/uploads/2018/06/word-image-1092-1024x347.png 1024w" sizes="(max-width: 1032px) 100vw, 1032px" /></p>
+<p>同时完善删除购物车商品的方法:</p>
+<p><img loading="lazy" decoding="async" width="862" height="366" class="wp-image-8522" src="/wp-content/uploads/2018/06/word-image-1093.png" srcset="/wp-content/uploads/2018/06/word-image-1093.png 862w, /wp-content/uploads/2018/06/word-image-1093-300x127.png 300w, /wp-content/uploads/2018/06/word-image-1093-768x326.png 768w" sizes="(max-width: 862px) 100vw, 862px" /></p>
+<h1>ajax清空购物车商品</h1>
+<ol>
+<li>在购物车页面加一个清空购物车的功能链接</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1252" height="393" class="wp-image-8523" src="/wp-content/uploads/2018/06/word-image-1094.png" srcset="/wp-content/uploads/2018/06/word-image-1094.png 1252w, /wp-content/uploads/2018/06/word-image-1094-300x94.png 300w, /wp-content/uploads/2018/06/word-image-1094-768x241.png 768w, /wp-content/uploads/2018/06/word-image-1094-1024x321.png 1024w" sizes="(max-width: 1252px) 100vw, 1252px" /></p>
+<ol>
+<li>给上面的按钮绑定单击事件</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1240" height="478" class="wp-image-8524" src="/wp-content/uploads/2018/06/word-image-1095.png" srcset="/wp-content/uploads/2018/06/word-image-1095.png 1240w, /wp-content/uploads/2018/06/word-image-1095-300x116.png 300w, /wp-content/uploads/2018/06/word-image-1095-768x296.png 768w, /wp-content/uploads/2018/06/word-image-1095-1024x395.png 1024w" sizes="(max-width: 1240px) 100vw, 1240px" /></p>
+<ol>
+<li>在CartController控制器的cartCart方法中调用购物车对象，清空购物车</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="951" height="293" class="wp-image-8525" src="/wp-content/uploads/2018/06/word-image-1096.png" srcset="/wp-content/uploads/2018/06/word-image-1096.png 951w, /wp-content/uploads/2018/06/word-image-1096-300x92.png 300w, /wp-content/uploads/2018/06/word-image-1096-768x237.png 768w" sizes="(max-width: 951px) 100vw, 951px" /></p>
+<p>注：上面的方法名字取得不合理，建议改为clearCart</p>
+<ol>
+<li>在购物车类中定义清空购物车的方法</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="962" height="383" class="wp-image-8526" src="/wp-content/uploads/2018/06/word-image-1097.png" srcset="/wp-content/uploads/2018/06/word-image-1097.png 962w, /wp-content/uploads/2018/06/word-image-1097-300x119.png 300w, /wp-content/uploads/2018/06/word-image-1097-768x306.png 768w" sizes="(max-width: 962px) 100vw, 962px" /></p>
+<h1>四、ajax更新购物车商品数量</h1>
+<p><img loading="lazy" decoding="async" width="1122" height="168" class="wp-image-8527" src="/wp-content/uploads/2018/06/word-image-1098.png" srcset="/wp-content/uploads/2018/06/word-image-1098.png 1122w, /wp-content/uploads/2018/06/word-image-1098-300x45.png 300w, /wp-content/uploads/2018/06/word-image-1098-768x115.png 768w, /wp-content/uploads/2018/06/word-image-1098-1024x153.png 1024w" sizes="(max-width: 1122px) 100vw, 1122px" /></p>
+<p>说明：当我们点击+-号的时候，价格已经自动给我们算好了，但是未更新到数据库。</p>
+<p>这其实一个另外一个js文件做好了cart1.js:</p>
+<p><img loading="lazy" decoding="async" width="736" height="377" class="wp-image-8528" src="/wp-content/uploads/2018/06/word-image-1099.png" srcset="/wp-content/uploads/2018/06/word-image-1099.png 736w, /wp-content/uploads/2018/06/word-image-1099-300x154.png 300w" sizes="(max-width: 736px) 100vw, 736px" /></p>
+<h2>ajax加更新数量</h2>
+<ol>
+<li>给当前+符号（class=add_num）的父元素，设置两个属性，记录商品的id和商品的属性id</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1270" height="337" class="wp-image-8529" src="/wp-content/uploads/2018/06/word-image-1100.png" srcset="/wp-content/uploads/2018/06/word-image-1100.png 1270w, /wp-content/uploads/2018/06/word-image-1100-300x80.png 300w, /wp-content/uploads/2018/06/word-image-1100-768x204.png 768w, /wp-content/uploads/2018/06/word-image-1100-1024x272.png 1024w" sizes="(max-width: 1270px) 100vw, 1270px" /></p>
+<p>2、需要修改增加数量的业务逻辑</p>
+<p><img loading="lazy" decoding="async" width="681" height="387" class="wp-image-8530" src="/wp-content/uploads/2018/06/word-image-1101.png" srcset="/wp-content/uploads/2018/06/word-image-1101.png 681w, /wp-content/uploads/2018/06/word-image-1101-300x170.png 300w" sizes="(max-width: 681px) 100vw, 681px" /> <img loading="lazy" decoding="async" width="1056" height="717" class="wp-image-8531" src="/wp-content/uploads/2018/06/word-image-1102.png" srcset="/wp-content/uploads/2018/06/word-image-1102.png 1056w, /wp-content/uploads/2018/06/word-image-1102-300x204.png 300w, /wp-content/uploads/2018/06/word-image-1102-768x521.png 768w, /wp-content/uploads/2018/06/word-image-1102-1024x695.png 1024w" sizes="(max-width: 1056px) 100vw, 1056px" /></p>
+<ol>
+<li>在CartController控制器建立一个changeCartNum的方法，调用购物车对象更新数量</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="979" height="452" class="wp-image-8532" src="/wp-content/uploads/2018/06/word-image-1103.png" srcset="/wp-content/uploads/2018/06/word-image-1103.png 979w, /wp-content/uploads/2018/06/word-image-1103-300x139.png 300w, /wp-content/uploads/2018/06/word-image-1103-768x355.png 768w" sizes="(max-width: 979px) 100vw, 979px" /></p>
+<ol>
+<li>在购物车类中完善更新商品的数量方法</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1107" height="364" class="wp-image-8533" src="/wp-content/uploads/2018/06/word-image-1104.png" srcset="/wp-content/uploads/2018/06/word-image-1104.png 1107w, /wp-content/uploads/2018/06/word-image-1104-300x99.png 300w, /wp-content/uploads/2018/06/word-image-1104-768x253.png 768w, /wp-content/uploads/2018/06/word-image-1104-1024x337.png 1024w" sizes="(max-width: 1107px) 100vw, 1107px" /></p>
+<p>setField(字段名，值)： 把字段名设置为指定的值</p>
+<p><img loading="lazy" decoding="async" width="547" height="44" class="wp-image-8534" src="/wp-content/uploads/2018/06/word-image-1105.png" srcset="/wp-content/uploads/2018/06/word-image-1105.png 547w, /wp-content/uploads/2018/06/word-image-1105-300x24.png 300w" sizes="(max-width: 547px) 100vw, 547px" /></p>
+<h2>ajax减更新数量</h2>
+<p>只需修改cart1.js文件，发送ajax进行更新</p>
+<p><img loading="lazy" decoding="async" width="1081" height="682" class="wp-image-8535" src="/wp-content/uploads/2018/06/word-image-1106.png" srcset="/wp-content/uploads/2018/06/word-image-1106.png 1081w, /wp-content/uploads/2018/06/word-image-1106-300x189.png 300w, /wp-content/uploads/2018/06/word-image-1106-768x485.png 768w, /wp-content/uploads/2018/06/word-image-1106-1024x646.png 1024w" sizes="(max-width: 1081px) 100vw, 1081px" /></p>
+<h2>ajax失焦更新数量</h2>
+<h3>（1）bug修复</h3>
+<p>当用户在输入框输入的数量不是纯数字的，失去焦点的时候，数量应该恢复之前的值。</p>
+<p>为了可以恢复之前数量，我们可以在输入框获得焦点的时候，设置一个自定义属性记录之前的数量。</p>
+<p><img loading="lazy" decoding="async" width="632" height="368" class="wp-image-8536" src="/wp-content/uploads/2018/06/word-image-1107.png" srcset="/wp-content/uploads/2018/06/word-image-1107.png 632w, /wp-content/uploads/2018/06/word-image-1107-300x175.png 300w" sizes="(max-width: 632px) 100vw, 632px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="678" height="87" class="wp-image-8537" src="/wp-content/uploads/2018/06/word-image-1108.png" srcset="/wp-content/uploads/2018/06/word-image-1108.png 678w, /wp-content/uploads/2018/06/word-image-1108-300x38.png 300w" sizes="(max-width: 678px) 100vw, 678px" /></p>
+<h3>（3）代码</h3>
+<p>也只需修改cart1.js文件即可：</p>
+<p><img loading="lazy" decoding="async" width="494" height="228" class="wp-image-8538" src="/wp-content/uploads/2018/06/word-image-1109.png" srcset="/wp-content/uploads/2018/06/word-image-1109.png 494w, /wp-content/uploads/2018/06/word-image-1109-300x138.png 300w" sizes="(max-width: 494px) 100vw, 494px" /></p>
+<p>代码：</p>
+<p><img loading="lazy" decoding="async" width="802" height="483" class="wp-image-8539" src="/wp-content/uploads/2018/06/word-image-1110.png" srcset="/wp-content/uploads/2018/06/word-image-1110.png 802w, /wp-content/uploads/2018/06/word-image-1110-300x180.png 300w, /wp-content/uploads/2018/06/word-image-1110-768x463.png 768w" sizes="(max-width: 802px) 100vw, 802px" /> <img loading="lazy" decoding="async" width="1070" height="323" class="wp-image-8540" src="/wp-content/uploads/2018/06/word-image-1111.png" srcset="/wp-content/uploads/2018/06/word-image-1111.png 1070w, /wp-content/uploads/2018/06/word-image-1111-300x91.png 300w, /wp-content/uploads/2018/06/word-image-1111-768x232.png 768w, /wp-content/uploads/2018/06/word-image-1111-1024x309.png 1024w" sizes="(max-width: 1070px) 100vw, 1070px" /></p>
+<h2>代码优化部分</h2>
+<p>由于增加、减少、失焦，都要触发ajax请求，更新商品的购买数量，我们把发送ajax的逻辑封装在一个函数中，同时设置一个回调函数callback处理对应业务逻辑;</p>
+<p><img loading="lazy" decoding="async" width="1204" height="367" class="wp-image-8541" src="/wp-content/uploads/2018/06/word-image-1112.png" srcset="/wp-content/uploads/2018/06/word-image-1112.png 1204w, /wp-content/uploads/2018/06/word-image-1112-300x91.png 300w, /wp-content/uploads/2018/06/word-image-1112-768x234.png 768w, /wp-content/uploads/2018/06/word-image-1112-1024x312.png 1024w" sizes="(max-width: 1204px) 100vw, 1204px" /></p>
+<p>如增加数量调用上面的方法：</p>
+<p><img loading="lazy" decoding="async" width="1258" height="690" class="wp-image-8542" src="/wp-content/uploads/2018/06/word-image-1113.png" srcset="/wp-content/uploads/2018/06/word-image-1113.png 1258w, /wp-content/uploads/2018/06/word-image-1113-300x165.png 300w, /wp-content/uploads/2018/06/word-image-1113-768x421.png 768w, /wp-content/uploads/2018/06/word-image-1113-1024x562.png 1024w" sizes="(max-width: 1258px) 100vw, 1258px" /></p>
+<h1>展示订单结算页面</h1>
+<h2>1、输出订单详情页模板</h2>
+<p>当在购物车点击结算按钮，跳转到页面订单详情页，主要输入用户的收货地址，还有确认购买的订单商品。</p>
+<p><img loading="lazy" decoding="async" width="1114" height="351" class="wp-image-8543" src="/wp-content/uploads/2018/06/word-image-1114.png" srcset="/wp-content/uploads/2018/06/word-image-1114.png 1114w, /wp-content/uploads/2018/06/word-image-1114-300x95.png 300w, /wp-content/uploads/2018/06/word-image-1114-768x242.png 768w, /wp-content/uploads/2018/06/word-image-1114-1024x323.png 1024w" sizes="(max-width: 1114px) 100vw, 1114px" /></p>
+<p>1、修改上面结算按钮的链接地址</p>
+<p><img loading="lazy" decoding="async" width="1108" height="186" class="wp-image-8544" src="/wp-content/uploads/2018/06/word-image-1115.png" srcset="/wp-content/uploads/2018/06/word-image-1115.png 1108w, /wp-content/uploads/2018/06/word-image-1115-300x50.png 300w, /wp-content/uploads/2018/06/word-image-1115-768x129.png 768w, /wp-content/uploads/2018/06/word-image-1115-1024x172.png 1024w" sizes="(max-width: 1108px) 100vw, 1108px" /></p>
+<ol>
+<li>在home模块的OrderController的控制器的orderInfo的方法，输出订单信息的页面。</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="816" height="366" class="wp-image-8545" src="/wp-content/uploads/2018/06/word-image-1116.png" srcset="/wp-content/uploads/2018/06/word-image-1116.png 816w, /wp-content/uploads/2018/06/word-image-1116-300x135.png 300w, /wp-content/uploads/2018/06/word-image-1116-768x344.png 768w" sizes="(max-width: 816px) 100vw, 816px" /></p>
+<ol>
+<li>把课件中的flow22.html调整好的模板复制到home/view/order/目录下面。并改名为orderinfo.html</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1054" height="216" class="wp-image-8546" src="/wp-content/uploads/2018/06/word-image-1117.png" srcset="/wp-content/uploads/2018/06/word-image-1117.png 1054w, /wp-content/uploads/2018/06/word-image-1117-300x61.png 300w, /wp-content/uploads/2018/06/word-image-1117-768x157.png 768w, /wp-content/uploads/2018/06/word-image-1117-1024x210.png 1024w" sizes="(max-width: 1054px) 100vw, 1054px" /></p>
+<p>最终效果如下：</p>
+<p><img loading="lazy" decoding="async" width="1072" height="668" class="wp-image-8547" src="/wp-content/uploads/2018/06/word-image-1118.png" srcset="/wp-content/uploads/2018/06/word-image-1118.png 1072w, /wp-content/uploads/2018/06/word-image-1118-300x187.png 300w, /wp-content/uploads/2018/06/word-image-1118-768x479.png 768w, /wp-content/uploads/2018/06/word-image-1118-1024x638.png 1024w" sizes="(max-width: 1072px) 100vw, 1072px" /></p>
+<h2>订单详情页商品显示</h2>
+<ol>
+<li>把之前获取购物车商品的信息封装在前台home的goods模型中的方法中</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1333" height="699" class="wp-image-8548" src="/wp-content/uploads/2018/06/word-image-1119.png" srcset="/wp-content/uploads/2018/06/word-image-1119.png 1333w, /wp-content/uploads/2018/06/word-image-1119-300x157.png 300w, /wp-content/uploads/2018/06/word-image-1119-768x403.png 768w, /wp-content/uploads/2018/06/word-image-1119-1024x537.png 1024w" sizes="(max-width: 1333px) 100vw, 1333px" /></p>
+<p>注：需要在上面的Goods模型引入Db类。</p>
+<ol>
+<li>在orderInfo的方法中，调用上面的方法，获取购物车商品的数据，并分配到模板中</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="885" height="331" class="wp-image-8549" src="/wp-content/uploads/2018/06/word-image-1120.png" srcset="/wp-content/uploads/2018/06/word-image-1120.png 885w, /wp-content/uploads/2018/06/word-image-1120-300x112.png 300w, /wp-content/uploads/2018/06/word-image-1120-768x287.png 768w" sizes="(max-width: 885px) 100vw, 885px" /></p>
+<ol>
+<li>在orderinfo.html模板中进行遍历输出</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1220" height="621" class="wp-image-8550" src="/wp-content/uploads/2018/06/word-image-1121.png" srcset="/wp-content/uploads/2018/06/word-image-1121.png 1220w, /wp-content/uploads/2018/06/word-image-1121-300x153.png 300w, /wp-content/uploads/2018/06/word-image-1121-768x391.png 768w, /wp-content/uploads/2018/06/word-image-1121-1024x521.png 1024w" sizes="(max-width: 1220px) 100vw, 1220px" /></p>
+<p>注：上面遍历的代码可以直接复制购物车列表模板cartlist.html的代码。续做修改就行。</p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="1085" height="535" class="wp-image-8551" src="/wp-content/uploads/2018/06/word-image-1122.png" srcset="/wp-content/uploads/2018/06/word-image-1122.png 1085w, /wp-content/uploads/2018/06/word-image-1122-300x148.png 300w, /wp-content/uploads/2018/06/word-image-1122-768x379.png 768w, /wp-content/uploads/2018/06/word-image-1122-1024x505.png 1024w" sizes="(max-width: 1085px) 100vw, 1085px" /></p>
+<h1>六、完成订单数据入库</h1>
+<h2>订单数据入库的顺序</h2>
+<p>订单商品入库的顺序：</p>
+<p>第一步：先把订单基本数据入库到订单表sh_order</p>
+<p>第二步：订单表数据入库成功之后才能把订单商品入库到订单商品表中sh_order_goods中</p>
+<p>如果保证上面两步执行过程中都没有问题呢，这里需要借助到mysql的事务，可以保持数据的一致性。当发生异常的时候，会自动回滚。</p>
+<p>注意：只有表的引擎是innodb引擎才支持事务操作。</p>
+<p>TP5中有关事务操作的相关方法：</p>
+<p>启动事务：Db::startTrans()</p>
+<p>提交事务：Db::commit()</p>
+<p>事务回滚：Db::rollback()</p>
+<p>手册示例：</p>
+<p><img loading="lazy" decoding="async" width="422" height="252" class="wp-image-8552" src="/wp-content/uploads/2018/06/word-image-1123.png" srcset="/wp-content/uploads/2018/06/word-image-1123.png 422w, /wp-content/uploads/2018/06/word-image-1123-300x180.png 300w" sizes="(max-width: 422px) 100vw, 422px" /></p>
+<h2>订单表和订单商品表的数据入库</h2>
+<h1>七、支付技术介绍</h1>
+<h2>1、早起网站支付</h2>
+<p>早期的电商都是送货上门，邮政汇款，这样的话，商家会承担很大的风险。</p>
+<p>后面的时候有部分网站和银行进行签约，使用网银、手机银行等。</p>
+<p>再往后，就是支付宝、微信。</p>
+<p>早期的公司如果想申请网银需要直接去找银行申请相关的支付接口，而且现在银行这么多公司不可能去每家银行申请支付接口，这样未免也太麻烦了。</p>
+<p><img loading="lazy" decoding="async" width="493" height="189" class="wp-image-8553" src="/wp-content/uploads/2018/06/word-image-1124.png" srcset="/wp-content/uploads/2018/06/word-image-1124.png 493w, /wp-content/uploads/2018/06/word-image-1124-300x115.png 300w" sizes="(max-width: 493px) 100vw, 493px" /></p>
+<p>如果有的网站的资金流动比较少的话，有的银行都不会和这些小公司进行合作，因为从中赚不到什么利润。所以就有了第三方支付平台（微信、支付宝、京东钱包、qq财付通、百度钱包）来解决这些问题。</p>
+<p><img loading="lazy" decoding="async" width="625" height="173" class="wp-image-8554" src="/wp-content/uploads/2018/06/word-image-1125.png" srcset="/wp-content/uploads/2018/06/word-image-1125.png 625w, /wp-content/uploads/2018/06/word-image-1125-300x83.png 300w" sizes="(max-width: 625px) 100vw, 625px" /></p>
+<h2>2、现在的网站支付</h2>
+<p>为了解决早期网站支付的问题，避免了商家繁琐的去每家银行获取支付接口。现在有些公司专门集合了所有银行的支付接口，这些公司进而在提供支付接口给我们企业或开发者使用，这些公司就是第三方支付平台。</p>
+<p>常见的第三方支付平台：微信、支付宝、京东钱包、qq财付通、百度钱包等</p>
+<p>有了这些第三方支付平台，我们企业或开发者就不需要独自跑去银行去申请支付接口了，直接利用第三方支付平台，在参考他们的支付接口文档即可完成我们的支付了！</p>
+<h1>八、支付宝支付</h1>
+<p>注意一点：现在的支付宝支付需要企业或个体工商户可申请才，个人是没法申请的。</p>
+<p>企业或个体工商户申请的条件如下：</p>
+<p>1. 提供真实有效的营业执照，且支付宝账户名称需与营业执照主体一致；</p>
+<p>2. 网站能正常访问且页面信息有完整商品内容；</p>
+<p>3. 网站必须通过ICP备案，个体户备案需与账户主体一致。</p>
+<p>（团购类网站不支持个体工商户签约）</p>
+<p>不过好处的个人开发者我们可以使用支付宝提供的沙箱环境进行模拟支付。</p>
+<p>那么什么是沙箱环境？</p>
+<p>答：就是支付宝提供给我们开发者一个虚拟的支付环境。其中的操作和真实支付环境是完全一样的。买家账号和卖家账号沙箱环境都给我们提供好了。</p>
+<p>后面的沙箱环境支付，支付宝会提供一个商家账户和个人买家账户给我们，我们在配合支付接口文档即可完成支付。</p>
+<h2>企业或个体工商户申请支付</h2>
+<p>申请的网址：<a href="/goto/pv02" rel="nofollow">https://b.alipay.com/</a> （b: business企业）</p>
+<p>点击下面的电脑网站支付的接入按钮：</p>
+<p><img loading="lazy" decoding="async" width="1277" height="644" class="wp-image-8555" src="/wp-content/uploads/2018/06/word-image-1126.png" srcset="/wp-content/uploads/2018/06/word-image-1126.png 1277w, /wp-content/uploads/2018/06/word-image-1126-300x151.png 300w, /wp-content/uploads/2018/06/word-image-1126-768x387.png 768w, /wp-content/uploads/2018/06/word-image-1126-1024x516.png 1024w" sizes="(max-width: 1277px) 100vw, 1277px" /></p>
+<p>这里支付宝提供了5种支付方式给我们使用，网站就要使用电脑网站支付。</p>
+<p>早期支付宝只有两种支付方式：</p>
+<p>即时到帐：我们上面看到的5个支付方式都是这个衍生出来的 ，一旦付款，立马到账。</p>
+<p>担保支付： 7天担保，早期淘宝网，买家买东西的钱先到了淘宝的帐号呆够7天，商家才收到款，担保支付支付宝已经取消了。</p>
+<p>企业或个体户点击上面电脑网站支付，需要以下申请条件：</p>
+<p><img loading="lazy" decoding="async" width="739" height="367" class="wp-image-8556" src="/wp-content/uploads/2018/06/word-image-1127.png" srcset="/wp-content/uploads/2018/06/word-image-1127.png 739w, /wp-content/uploads/2018/06/word-image-1127-300x149.png 300w" sizes="(max-width: 739px) 100vw, 739px" /></p>
+<p>上面的申请条件，以后去企业上班，公司都会帮我们申请好的。</p>
+<p>上面是企业或个体工商户申请的基本步骤，我们个人没法申请，所以这里我们只能使用沙箱环境进行支付测试。</p>
+<h2>申请沙箱应用</h2>
+<p>首页，登陆支付宝开放平台，进入到如下的开发者中心</p>
+<p><a href="/goto/kris" rel="nofollow">https://openhome.alipay.com/platform/developerIndex.htm</a></p>
+<p><img loading="lazy" decoding="async" width="825" height="208" class="wp-image-8557" src="/wp-content/uploads/2018/06/word-image-1128.png" srcset="/wp-content/uploads/2018/06/word-image-1128.png 825w, /wp-content/uploads/2018/06/word-image-1128-300x76.png 300w, /wp-content/uploads/2018/06/word-image-1128-768x194.png 768w" sizes="(max-width: 825px) 100vw, 825px" /></p>
+<p>点击开发者中心-&gt;研发服务，进入如下的沙箱环境：</p>
+<p>去创建沙箱应用,如下是已经创建的沙箱环境：</p>
+<p><img loading="lazy" decoding="async" width="1088" height="623" class="wp-image-8558" src="/wp-content/uploads/2018/06/word-image-1129.png" srcset="/wp-content/uploads/2018/06/word-image-1129.png 1088w, /wp-content/uploads/2018/06/word-image-1129-300x172.png 300w, /wp-content/uploads/2018/06/word-image-1129-768x440.png 768w, /wp-content/uploads/2018/06/word-image-1129-1024x586.png 1024w" sizes="(max-width: 1088px) 100vw, 1088px" /></p>
+<p>沙箱中的提供两个测试账户：商家账户 和 买家账户，其账户余额都是虚拟的</p>
+<p>成功付款的时候，钱会从买家账户打到商家账户</p>
+<p>商家账号：</p>
+<p><img loading="lazy" decoding="async" width="999" height="445" class="wp-image-8559" src="/wp-content/uploads/2018/06/word-image-1130.png" srcset="/wp-content/uploads/2018/06/word-image-1130.png 999w, /wp-content/uploads/2018/06/word-image-1130-300x134.png 300w, /wp-content/uploads/2018/06/word-image-1130-768x342.png 768w" sizes="(max-width: 999px) 100vw, 999px" /></p>
+<p>买家账号：</p>
+<p><img loading="lazy" decoding="async" width="570" height="363" class="wp-image-8560" src="/wp-content/uploads/2018/06/word-image-1131.png" srcset="/wp-content/uploads/2018/06/word-image-1131.png 570w, /wp-content/uploads/2018/06/word-image-1131-300x191.png 300w" sizes="(max-width: 570px) 100vw, 570px" /></p>
+<p>特别注意一点：</p>
+<p><img loading="lazy" decoding="async" width="738" height="60" class="wp-image-8561" src="/wp-content/uploads/2018/06/word-image-1132.png" srcset="/wp-content/uploads/2018/06/word-image-1132.png 738w, /wp-content/uploads/2018/06/word-image-1132-300x24.png 300w" sizes="(max-width: 738px) 100vw, 738px" /></p>
+<h2>3、下载支付宝支付的开发包SDK&amp;Demo</h2>
+<p>下载地址：<a href="/goto/9m2k" rel="nofollow">https://docs.open.alipay.com/270/106291</a></p>
+<p><img loading="lazy" decoding="async" width="1178" height="403" class="wp-image-8562" src="/wp-content/uploads/2018/06/word-image-1133.png" srcset="/wp-content/uploads/2018/06/word-image-1133.png 1178w, /wp-content/uploads/2018/06/word-image-1133-300x103.png 300w, /wp-content/uploads/2018/06/word-image-1133-768x263.png 768w, /wp-content/uploads/2018/06/word-image-1133-1024x350.png 1024w" sizes="(max-width: 1178px) 100vw, 1178px" /></p>
+<p>下载回来的压缩包如下：</p>
+<p><img loading="lazy" decoding="async" width="224" height="28" class="wp-image-8563" src="/wp-content/uploads/2018/06/word-image-1134.png" /></p>
+<p>解压下来如下所示：</p>
+<p><img loading="lazy" decoding="async" width="275" height="293" class="wp-image-8564" src="/wp-content/uploads/2018/06/word-image-1135.png" /></p>
+<p>aop：包含<strong>支付宝核心的支付文</strong>件。</p>
+<p>lotusphp_runtime： 这是一个国外的PHP框架，这里是支付宝默认使用的。</p>
+<p>pagepay：具体的实现支付接口的代码文件</p>
+<p>config.php：配置文件，填写应用配置APPID、应用密钥、支付宝、支付网关的文件</p>
+<p>notify_url.php：支付成功以后支付宝post方式异步跳转的地址，获取支付结果的地址</p>
+<p>return_url.php：支付成功以后支付宝get方式同步跳转的地址，获取支付结果的地址</p>
+<p>注：支付宝接口对我们的PHP版本有要求，必须在PHP5.5以上，可以使用phpStudy集成环境进行切换。且需要开启对应php版本的php.ini配置文件中的openssl扩展，去掉前面的分号，并重启apache服务器：</p>
+<p><img loading="lazy" decoding="async" width="660" height="204" class="wp-image-8565" src="/wp-content/uploads/2018/06/word-image-1136.png" srcset="/wp-content/uploads/2018/06/word-image-1136.png 660w, /wp-content/uploads/2018/06/word-image-1136-300x93.png 300w" sizes="(max-width: 660px) 100vw, 660px" /></p>
+<h1>集成支付宝到项目中</h1>
+<h2>1、引入支付宝到项目中</h2>
+<h2>2、支付前的相关参数配置</h2>
+<p>几个重要的配置参数：</p>
+<ul>
+<li>APPID:可以从支付宝的沙箱应用中获取到</li>
+<li>支付宝支付网关</li>
+</ul>
+<p>沙箱环境：<a href="/goto/56zy" rel="nofollow">https://openapi.alipaydev.com/gateway.do</a></p>
+<p>正式环境：<a href="/goto/56zy" rel="nofollow">https://openapi.alipay.com/gateway.do</a></p>
+<p>提示：以后去公司做支付宝支付时，上线要使用正式环境的支付网关</p>
+<ul>
+<li>应用私钥</li>
+<li>应用公钥</li>
+</ul>
+<p>其中应用私钥和公钥可通过支付宝提供的相关工具生成。</p>
+<p><img loading="lazy" decoding="async" width="504" height="155" class="wp-image-8566" src="/wp-content/uploads/2018/06/word-image-1137.png" srcset="/wp-content/uploads/2018/06/word-image-1137.png 504w, /wp-content/uploads/2018/06/word-image-1137-300x92.png 300w" sizes="(max-width: 504px) 100vw, 504px" /></p>
+<ul>
+<li>支付宝公钥</li>
+</ul>
+<p>我们直接运行RSA签名验签工具</p>
+<p><img loading="lazy" decoding="async" width="340" height="216" class="wp-image-8567" src="/wp-content/uploads/2018/06/word-image-1138.png" srcset="/wp-content/uploads/2018/06/word-image-1138.png 340w, /wp-content/uploads/2018/06/word-image-1138-300x191.png 300w" sizes="(max-width: 340px) 100vw, 340px" /></p>
+<p>签名：说白了就是加密</p>
+<p>验签：说白了判断加密是否正确，</p>
+<p>例如:</p>
+<p>我们注册会员的时候，会给会员密码加密，你可以理解，我们给会员的密码进行签名，</p>
+<p>会员会在网站登录，我们直接从数据库找出密码的加密串 和 会员注册时的密码加密后进行判断，这个动作可以理解为验签</p>
+<p>我们使用RSA签名验签工具生成应用的私钥和公钥：</p>
+<p><img loading="lazy" decoding="async" width="788" height="661" class="wp-image-8568" src="/wp-content/uploads/2018/06/word-image-1139.png" srcset="/wp-content/uploads/2018/06/word-image-1139.png 788w, /wp-content/uploads/2018/06/word-image-1139-300x252.png 300w, /wp-content/uploads/2018/06/word-image-1139-768x644.png 768w" sizes="(max-width: 788px) 100vw, 788px" /></p>
+<p>商户的私钥：复制到config.php中。</p>
+<p>商户的公钥：复制到支付宝网站中，再获取支付宝的公钥复制到config.php中</p>
+<p>应用私钥和应用公钥，支付宝公钥说明：</p>
+<p><img loading="lazy" decoding="async" width="1201" height="681" class="wp-image-8569" src="/wp-content/uploads/2018/06/word-image-1140.png" srcset="/wp-content/uploads/2018/06/word-image-1140.png 1201w, /wp-content/uploads/2018/06/word-image-1140-300x170.png 300w, /wp-content/uploads/2018/06/word-image-1140-768x435.png 768w, /wp-content/uploads/2018/06/word-image-1140-1024x581.png 1024w" sizes="(max-width: 1201px) 100vw, 1201px" /></p>
+<p>config.php配置文件如下：</p>
+<h2>分析如何唤起支付宝支付页面</h2>
+<h2>实现商城订单的支付</h2>
+<h1>十、查看个人订单列表</h1>
+<h1>十一、后台订单管理</h1>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8378.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,4845 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Datatables表格插件 &#8211; 个人随笔</title>
+	<atom:link href="/label/datatables%E8%A1%A8%E6%A0%BC%E6%8F%92%E4%BB%B6/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 15:54:11 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>Datatables表格插件 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Laravel在线教育平台（二） Datatables 表格插件、RBAC、权限分配数据处理、中间件鉴权</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/5944.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/5944.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 15:54:11 +0000</pubDate>
+				<category><![CDATA[Laravel]]></category>
+		<category><![CDATA[Laravel在线教育平台]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[Datatables表格插件]]></category>
+		<category><![CDATA[RBAC]]></category>
+		<category><![CDATA[中间件鉴权]]></category>
+		<category><![CDATA[权限分配数据处理]]></category>
+		<guid isPermaLink="false">/?p=5944</guid>
+
+					<description><![CDATA[Laravel框架实战-在线教育平台（2） 一、管理员管理 Datatables说明 Datatables是一 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1><a id="post-5944-_Toc487817413"></a>Laravel框架实战-在线教育平台（2）<a id="post-5944-_Toc487817414"></a></h1>
+<h1>一、管理员管理</h1>
+<h2>Datatables说明 </h2>
+<p>
+  Datatables是一款基于jQuery表格插件
+</p>
+<h2>管理员列表</h2>
+<h3>︴效果</h3>
+<p><img fetchpriority="high" decoding="async" width="1344" height="418" src="/wp-content/uploads/2018/05/word-image-5403.png" class="wp-image-5945" srcset="/wp-content/uploads/2018/05/word-image-5403.png 1344w, /wp-content/uploads/2018/05/word-image-5403-300x93.png 300w, /wp-content/uploads/2018/05/word-image-5403-768x239.png 768w, /wp-content/uploads/2018/05/word-image-5403-1024x318.png 1024w" sizes="(max-width: 1344px) 100vw, 1344px" /></p>
+<h3>显示视图</h3>
+<ul>
+<li>
+    步骤1：定义路由  admin\admin\index   AdminController@index
+  </li>
+</ul>
+<p><img decoding="async" width="1010" height="444" src="/wp-content/uploads/2018/05/word-image-5404.png" class="wp-image-5946" srcset="/wp-content/uploads/2018/05/word-image-5404.png 1010w, /wp-content/uploads/2018/05/word-image-5404-300x132.png 300w, /wp-content/uploads/2018/05/word-image-5404-768x338.png 768w" sizes="(max-width: 1010px) 100vw, 1010px" /></p>
+<ul>
+<li>
+    步骤2：创建控制器和方法  并且 调用视图
+  </li>
+</ul>
+<p><img decoding="async" width="1007" height="476" src="/wp-content/uploads/2018/05/word-image-5405.png" class="wp-image-5947" srcset="/wp-content/uploads/2018/05/word-image-5405.png 1007w, /wp-content/uploads/2018/05/word-image-5405-300x142.png 300w, /wp-content/uploads/2018/05/word-image-5405-768x363.png 768w" sizes="(max-width: 1007px) 100vw, 1007px" /></p>
+<ul>
+<li>
+    步骤3：创建视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1249" height="668" src="/wp-content/uploads/2018/05/word-image-5406.png" class="wp-image-5948" srcset="/wp-content/uploads/2018/05/word-image-5406.png 1249w, /wp-content/uploads/2018/05/word-image-5406-300x160.png 300w, /wp-content/uploads/2018/05/word-image-5406-768x411.png 768w, /wp-content/uploads/2018/05/word-image-5406-1024x548.png 1024w" sizes="(max-width: 1249px) 100vw, 1249px" /></p>
+<h3>数据处理：使用datatables插件展示数据（客户端分页）</h3>
+<ul>
+<li>
+    步骤1：修改路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1161" height="320" src="/wp-content/uploads/2018/05/word-image-5407.png" class="wp-image-5949" srcset="/wp-content/uploads/2018/05/word-image-5407.png 1161w, /wp-content/uploads/2018/05/word-image-5407-300x83.png 300w, /wp-content/uploads/2018/05/word-image-5407-768x212.png 768w, /wp-content/uploads/2018/05/word-image-5407-1024x282.png 1024w" sizes="(max-width: 1161px) 100vw, 1161px" /></p>
+<ul>
+<li>
+    步骤2：更改控制器方法
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1191" height="566" src="/wp-content/uploads/2018/05/word-image-5408.png" class="wp-image-5950" srcset="/wp-content/uploads/2018/05/word-image-5408.png 1191w, /wp-content/uploads/2018/05/word-image-5408-300x143.png 300w, /wp-content/uploads/2018/05/word-image-5408-768x365.png 768w, /wp-content/uploads/2018/05/word-image-5408-1024x487.png 1024w" sizes="(max-width: 1191px) 100vw, 1191px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use App\Http\Model\Admin;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class AdminController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function index(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.判断HTTP请求类型
+</p>
+<p>
+          if ($request-&gt;isMethod(&#8216;post&#8217;)) {
+</p>
+<p>
+              //2.获取数据
+</p>
+<p>
+              $admins = Admin::select(&#8216;id&#8217;, &#8216;username&#8217;, &#8216;mobile&#8217;, &#8217;email&#8217;, &#8216;role_id&#8217;, &#8216;state&#8217;, &#8216;created_at&#8217;)-&gt;get();
+</p>
+<p>
+              //3.响应json数据
+</p>
+<p>
+              return response()-&gt;json([
+</p>
+<p>
+                  &#8216;data&#8217; =&gt; $admins
+</p>
+<p>
+              ]);
+</p>
+<p>
+          } else {
+</p>
+<p>
+              //2.加载视图并传递数据
+</p>
+<p>
+              return view(&#8216;admin.admin.index&#8217;);
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤2：视图显示数据
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1233" height="684" src="/wp-content/uploads/2018/05/word-image-5409.png" class="wp-image-5951" srcset="/wp-content/uploads/2018/05/word-image-5409.png 1233w, /wp-content/uploads/2018/05/word-image-5409-300x166.png 300w, /wp-content/uploads/2018/05/word-image-5409-768x426.png 768w, /wp-content/uploads/2018/05/word-image-5409-1024x568.png 1024w" sizes="(max-width: 1233px) 100vw, 1233px" /></p>
+<p>
+  $(&#8216;table&#8217;).dataTable({
+</p>
+<p>
+      ajax: {
+</p>
+<p>
+  		url: &#8220;{{ url(&#8216;admin/admin/index&#8217;) }}&#8221;,
+</p>
+<p>
+          &#8220;type&#8221;: &#8220;post&#8221;,
+</p>
+<p>
+          &#8216;headers&#8217;: { &#8216;X-CSRF-TOKEN&#8217; : &#8216;{{ csrf_token() }}&#8217; },
+</p>
+<p>
+  		&#8220;data&#8221;: function (data) {
+</p>
+<p>
+  			// data.startTime = $(&#8216;#datemin&#8217;).val();
+</p>
+<p>
+  			// data.endTime = $(&#8216;#datemax&#8217;).val();
+</p>
+<p>
+  			// data.username = $(&#8216;#username&#8217;).val();
+</p>
+<p>
+  		}
+</p>
+<p>
+  	},
+</p>
+<p>
+      //columns
+</p>
+<p>
+      //作用：设置服务端返回数据填充规则
+</p>
+<p>
+      //语法：{&#8220;data&#8221;: &#8220;键&#8221;，&#8221;defaultContent&#8221;: &#8220;默认值&#8221;}
+</p>
+<p>
+      &#8220;columns&#8221;: [
+</p>
+<p>
+          { &#8220;data&#8221;: &#8220;tmp1&#8221;,  defaultContent: &#8220;占位，复选框&#8221; },
+</p>
+<p>
+          { &#8220;data&#8221;: &#8220;id&#8221; },
+</p>
+<p>
+          { &#8220;data&#8221;: &#8220;username&#8221; },
+</p>
+<p>
+          { &#8220;data&#8221;: &#8220;mobile&#8221; },
+</p>
+<p>
+          { &#8220;data&#8221;: &#8220;email&#8221; },
+</p>
+<p>
+          { &#8220;data&#8221;: &#8220;role_id&#8221; },
+</p>
+<p>
+          { &#8220;data&#8221;: &#8220;created_at&#8221; },
+</p>
+<p>
+          { &#8220;data&#8221;: &#8220;state&#8221; },
+</p>
+<p>
+          { &#8220;data&#8221;: &#8220;tmp2&#8221;, defaultContent: &#8220;占位，操作&#8221; },
+</p>
+<p>
+      ],
+</p>
+<p>
+      //createdRow
+</p>
+<p>
+      //作用：创建tr时回调
+</p>
+<p>
+      //row:创建好的tr的dom对象
+</p>
+<p>
+      //data:数据源，代表服务器端返回的每条记录的实体信息
+</p>
+<p>
+      //dataIndex:数据源的索引号码
+</p>
+<p>
+      &#8220;createdRow&#8221;: function(row, data, dataIndex) {
+</p>
+<p>
+  		//匹配每一行的第一列
+</p>
+<p>
+  		$(row).find(&#8220;td:first&#8221;).html(&#8220;&lt;input type=&#8217;checkbox&#8217; name=&#8217;choose[]&#8217; value='&#8221;+data.id+&#8221;&#8216; /&gt;&#8221;)
+</p>
+<p>
+  		//匹配每一行的第八列
+</p>
+<p>
+  		if (data.state == 1) {
+</p>
+<p>
+  			$(row).find(&#8220;td:eq(7)&#8221;).html(&#8216;&lt;span class=&#8221;label label-success radius&#8221;&gt;已启用&lt;/span&gt;&#8217;);
+</p>
+<p>
+  		} else {
+</p>
+<p>
+  			$(row).find(&#8220;td:eq(7)&#8221;).html(&#8216;&lt;span class=&#8221;label radius&#8221;&gt;已停用&lt;/span&gt;&#8217;);
+</p>
+<p>
+  		}
+</p>
+<p>
+  		//匹配每一行的最后一列
+</p>
+<p>
+  		var lastHtml = &#8216;&lt;a style=&#8221;text-decoration:none&#8221; onClick=&#8221;admin_start(this,10001)&#8221; href=&#8221;javascript:;&#8221; title=&#8221;启用&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe615;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;编辑&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_edit(\&#8217;管理员编辑\&#8217;,\&#8217;admin-add.html\&#8217;,2,800,500)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6df;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;删除&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_del(this,1)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt;&lt;/a&gt;&#8217;;
+</p>
+<p>
+  		$(row).find(&#8220;td:last&#8221;).html(lastHtml);
+</p>
+<p>
+  	},
+</p>
+<p>
+  	searching : false, 		 //禁用搜索
+</p>
+<p>
+      bLengthChange: false,   //去掉每页显示多少条数据方法
+</p>
+<p>
+  });
+</p>
+<p>
+  响应json数据：return response()-&gt;json([&#8216;data&#8217; =&gt; $admins]);
+</p>
+<h3>数据处理：使用datatables插件展示数据（服务端分页）</h3>
+<ul>
+<li>
+    步骤1：修改视图（搜索的id和name， datatables）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1146" height="423" src="/wp-content/uploads/2018/05/word-image-5410.png" class="wp-image-5952" srcset="/wp-content/uploads/2018/05/word-image-5410.png 1146w, /wp-content/uploads/2018/05/word-image-5410-300x111.png 300w, /wp-content/uploads/2018/05/word-image-5410-768x283.png 768w, /wp-content/uploads/2018/05/word-image-5410-1024x378.png 1024w" sizes="(max-width: 1146px) 100vw, 1146px" /><br />
+<img loading="lazy" decoding="async" width="911" height="337" src="/wp-content/uploads/2018/05/word-image-5411.png" class="wp-image-5953" srcset="/wp-content/uploads/2018/05/word-image-5411.png 911w, /wp-content/uploads/2018/05/word-image-5411-300x111.png 300w, /wp-content/uploads/2018/05/word-image-5411-768x284.png 768w" sizes="(max-width: 911px) 100vw, 911px" /><br />
+<img loading="lazy" decoding="async" width="709" height="390" src="/wp-content/uploads/2018/05/word-image-5412.png" class="wp-image-5954" srcset="/wp-content/uploads/2018/05/word-image-5412.png 709w, /wp-content/uploads/2018/05/word-image-5412-300x165.png 300w" sizes="(max-width: 709px) 100vw, 709px" /></p>
+<p>
+  var table  = $(&#8216;table&#8217;).dataTable({
+</p>
+<p>
+      //开启服务端分页（注：开启后发送的HTTP请求会携带起始位置和每页显示条数等信息）
+</p>
+<p>
+      &#8220;serverSide&#8221;: true,
+</p>
+<p>
+      ajax: {
+</p>
+<p>
+  		url: &#8220;{{ url(&#8216;admin/admin/index&#8217;) }}&#8221;,
+</p>
+<p>
+          &#8220;type&#8221;: &#8220;post&#8221;,
+</p>
+<p>
+          &#8216;headers&#8217;: { &#8216;X-CSRF-TOKEN&#8217; : &#8216;{{ csrf_token() }}&#8217; },
+</p>
+<p>
+  		&#8220;data&#8221;: function (data) {
+</p>
+<p>
+  			data.startTime = $(&#8216;#startTime&#8217;).val();
+</p>
+<p>
+  			data.endTime = $(&#8216;#endTime&#8217;).val();
+</p>
+<p>
+  			data.username = $(&#8216;#username&#8217;).val();
+</p>
+<p>
+  		}
+</p>
+<p>
+  	},
+</p>
+<p>
+      //columns
+</p>
+<p>
+      //作用：设置服务端返回数据填充规则
+</p>
+<p>
+      //语法：{&#8220;data&#8221;: &#8220;键&#8221;，&#8221;defaultContent&#8221;: &#8220;默认值&#8221;}
+</p>
+<p>
+      &#8220;columns&#8221;: [
+</p>
+<p>
+          { &#8220;data&#8221;: &#8220;tmp1&#8221;,  defaultContent: &#8220;&#8221; },
+</p>
+<p>
+          { &#8220;data&#8221;: &#8220;id&#8221; },
+</p>
+<p>
+          { &#8220;data&#8221;: &#8220;username&#8221; },
+</p>
+<p>
+          { &#8220;data&#8221;: &#8220;mobile&#8221; },
+</p>
+<p>
+          { &#8220;data&#8221;: &#8220;email&#8221; },
+</p>
+<p>
+          { &#8220;data&#8221;: &#8220;role_id&#8221; },
+</p>
+<p>
+          { &#8220;data&#8221;: &#8220;created_at&#8221; },
+</p>
+<p>
+          { &#8220;data&#8221;: &#8220;state&#8221; },
+</p>
+<p>
+          { &#8220;data&#8221;: &#8220;tmp2&#8221;, defaultContent: &#8220;操作&#8221; },
+</p>
+<p>
+      ],
+</p>
+<p>
+      //createdRow
+</p>
+<p>
+      //作用：创建tr时回调
+</p>
+<p>
+      //row:创建好的tr的dom对象
+</p>
+<p>
+      //data:数据源，代表服务器端返回的每条记录的实体信息
+</p>
+<p>
+      //dataIndex:数据源的索引号码
+</p>
+<p>
+      &#8220;createdRow&#8221;: function(row, data, dataIndex) {
+</p>
+<p>
+  		//匹配每一行的第一列
+</p>
+<p>
+  		$(row).find(&#8220;td:first&#8221;).html(&#8220;&lt;input type=&#8217;checkbox&#8217; name=&#8217;choose[]&#8217; value='&#8221;+data.id+&#8221;&#8216; /&gt;&#8221;)
+</p>
+<p>
+  		//匹配每一行的第八列
+</p>
+<p>
+  		if (data.state == 1) {
+</p>
+<p>
+  			$(row).find(&#8220;td:eq(7)&#8221;).html(&#8216;&lt;span class=&#8221;label label-success radius&#8221;&gt;已启用&lt;/span&gt;&#8217;);
+</p>
+<p>
+  		} else {
+</p>
+<p>
+  			$(row).find(&#8220;td:eq(7)&#8221;).html(&#8216;&lt;span class=&#8221;label radius&#8221;&gt;已停用&lt;/span&gt;&#8217;);
+</p>
+<p>
+  		}
+</p>
+<p>
+  		//匹配每一行的最后一列
+</p>
+<p>
+  		var lastHtml = &#8216;&lt;a style=&#8221;text-decoration:none&#8221; onClick=&#8221;admin_start(this,10001)&#8221; href=&#8221;javascript:;&#8221; title=&#8221;启用&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe615;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;编辑&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_edit(\&#8217;管理员编辑\&#8217;,\&#8217;admin-add.html\&#8217;,2,800,500)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6df;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;删除&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_del(this,1)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt;&lt;/a&gt;&#8217;;
+</p>
+<p>
+  		$(row).find(&#8220;td:last&#8221;).html(lastHtml);
+</p>
+<p>
+  	},
+</p>
+<p>
+  	searching : false, 		 //禁用搜索
+</p>
+<p>
+      bLengthChange: false,   //去掉每页显示多少条数据方法
+</p>
+<p>
+  });
+</p>
+<p>
+  //点击按钮后重新发送HTTP请求
+</p>
+<p>
+  $(&#8216;#searchd&#8217;).click(function(){
+</p>
+<p>
+      //需要重新带参数请求数据
+</p>
+<p>
+      table.api().ajax.reload();
+</p>
+<p>
+  });
+</p>
+<ul>
+<li>
+    步骤2：控制器方法（接受起始位置和结束位置）增加limit过滤
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1120" height="639" src="/wp-content/uploads/2018/05/word-image-5413.png" class="wp-image-5955" srcset="/wp-content/uploads/2018/05/word-image-5413.png 1120w, /wp-content/uploads/2018/05/word-image-5413-300x171.png 300w, /wp-content/uploads/2018/05/word-image-5413-768x438.png 768w, /wp-content/uploads/2018/05/word-image-5413-1024x584.png 1024w" sizes="(max-width: 1120px) 100vw, 1120px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use App\Http\Model\Admin;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class AdminController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function index(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.判断HTTP请求类型
+</p>
+<p>
+          if ($request-&gt;isMethod(&#8216;post&#8217;)) {
+</p>
+<p>
+              //2.接受数据
+</p>
+<p>
+              $postData = $request-&gt;only([&#8216;start&#8217;, &#8216;length&#8217;, &#8216;startTime&#8217;, &#8216;endTime&#8217;, &#8216;username&#8217;, &#8216;draw&#8217;]);
+</p>
+<p>
+              //3.组装模型
+</p>
+<p>
+              <strong>$admins = Admin::select(&#8216;id&#8217;, &#8216;username&#8217;, &#8216;mobile&#8217;, &#8217;email&#8217;, &#8216;role_id&#8217;, &#8216;state&#8217;, &#8216;created_at&#8217;);</strong>
+</p>
+<p>
+              //4.模型过滤组装
+</p>
+<p>
+              if ($postData[&#8216;username&#8217;]) $admins-&gt;where(&#8216;username&#8217;, &#8216;like&#8217;, &#8216;%&#8217;. $postData[&#8216;username&#8217;] .&#8217;%&#8217;);
+</p>
+<p>
+              if ($postData[&#8216;startTime&#8217;]) $admins-&gt;where(&#8216;created_at&#8217;, &#8216;&gt;&#8217;, strtotime($postData[&#8216;startTime&#8217;]));
+</p>
+<p>
+              if ($postData[&#8216;endTime&#8217;]) $admins-&gt;where(&#8216;created_at&#8217;, &#8216;&lt;&#8216;, strtotime($postData[&#8216;endTime&#8217;]));
+</p>
+<p>
+              //5.响应json数据
+</p>
+<p>
+              return response()-&gt;json([
+</p>
+<p>
+                  &#8216;draw&#8217; =&gt; (int)$postData[&#8216;draw&#8217;],       //必须，HTTP请求发送什么就响应什么
+</p>
+<p>
+                  &#8216;recordsTotal&#8217; =&gt; Admin::count(),       //必须，admin表总记录数
+</p>
+<p>
+                  &#8216;recordsFiltered&#8217; =&gt; $admins-&gt;count(),  //必须，admin表总记录数（增加where条件）
+</p>
+<p>
+                  &#8216;data&#8217; =&gt; $admins-&gt;offset($postData[&#8216;start&#8217;])-&gt;limit($postData[&#8216;length&#8217;])-&gt;get()
+</p>
+<p>
+              ]);
+</p>
+<p>
+          } else {
+</p>
+<p>
+              //2.加载视图并传递数据
+</p>
+<p>
+              return view(&#8216;admin.admin.index&#8217;);
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h1><a id="post-5944-_Toc487817417"></a>RBAC准备</h1>
+<h2>说明</h2>
+<p>
+  RBAC：role-based access control（角色权限控制）
+</p>
+<p>
+  在很多网站的后台会使用RBAC去实现权限管理。
+</p>
+<p>
+  常见的RBAC实现方式有：三表方式、五表方式。
+</p>
+<p>
+  三表：管理员表、角色表、权限表。
+</p>
+<p>
+  五表：管理员表、角色表、权限表、管理员和角色表、角色和权限表
+</p>
+<p><img loading="lazy" decoding="async" width="956" height="356" src="/wp-content/uploads/2018/05/word-image-5414.png" class="wp-image-5956" srcset="/wp-content/uploads/2018/05/word-image-5414.png 956w, /wp-content/uploads/2018/05/word-image-5414-300x112.png 300w, /wp-content/uploads/2018/05/word-image-5414-768x286.png 768w" sizes="(max-width: 956px) 100vw, 956px" /></p>
+<h2><a id="post-5944-_Toc487817418"></a>设计角色表和权限表</h2>
+<h3>1）设计角色表</h3>
+<p><strong>后台角色表</strong>
+</p>
+<table>
+<tr>
+<td>
+<p><strong>表名</strong>
+</p>
+</td>
+<td colspan="7">
+<p>
+  role
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>序号</strong>
+</p>
+</td>
+<td>
+<p><strong>字段</strong>
+</p>
+</td>
+<td>
+<p><strong>类型</strong>
+</p>
+</td>
+<td>
+<p><strong>说明</strong>
+</p>
+</td>
+<td>
+<p><strong>空</strong>
+</p>
+</td>
+<td>
+<p><strong>默认值</strong>
+</p>
+</td>
+<td>
+<p><strong>主键</strong>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  id
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  自增主键
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  N/A
+</p>
+</td>
+<td>
+<p>
+  是
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  2
+</p>
+</td>
+<td>
+<p>
+  role_name
+</p>
+</td>
+<td>
+<p>
+  varchar(20)
+</p>
+</td>
+<td>
+<p>
+  角色名称，如：超级管理员
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  3
+</p>
+</td>
+<td>
+<p>
+  auth_ids
+</p>
+</td>
+<td>
+<p>
+  varchar(255)
+</p>
+</td>
+<td>
+<p>
+  权限表主键id集合，如1,2,3
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  4
+</p>
+</td>
+<td>
+<p>
+  auth_ac
+</p>
+</td>
+<td>
+<p>
+  varchar(255)
+</p>
+</td>
+<td>
+<p>
+  权限对应的控制器方法集合,如：
+</p>
+<p>
+  admincontroller@index,indexcontroller@index
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  5
+</p>
+</td>
+<td>
+<p>
+  created_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  创建于
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  6
+</p>
+</td>
+<td>
+<p>
+  update_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  更新于
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+</table>
+<p>
+  步骤1：创建迁移文件并书写
+</p>
+<p><img loading="lazy" decoding="async" width="1277" height="573" src="/wp-content/uploads/2018/05/word-image-5415.png" class="wp-image-5957" srcset="/wp-content/uploads/2018/05/word-image-5415.png 1277w, /wp-content/uploads/2018/05/word-image-5415-300x135.png 300w, /wp-content/uploads/2018/05/word-image-5415-768x345.png 768w, /wp-content/uploads/2018/05/word-image-5415-1024x459.png 1024w" sizes="(max-width: 1277px) 100vw, 1277px" /></p>
+<p>
+  Schema::create(&#8216;role&#8217;, function (Blueprint $table) {
+</p>
+<p>
+      $table-&gt;increments(&#8216;id&#8217;);
+</p>
+<p>
+      $table-&gt;string(&#8216;role_name&#8217;, 20)-&gt;comment(&#8216;角色名称&#8217;);
+</p>
+<p>
+      $table-&gt;string(&#8216;auth_ids&#8217;)-&gt;comment(&#8216;权限表ID集合,如:1,2,3&#8217;);
+</p>
+<p>
+      $table-&gt;string(&#8216;auth_ac&#8217;)-&gt;comment(&#8216;权限表对应控制器方法集合,如:admincontroller@index,indexcontroller@index&#8217;);
+</p>
+<p>
+      $table-&gt;unsignedInteger(&#8216;created_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+      $table-&gt;unsignedInteger(&#8216;updated_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+  });
+</p>
+<p>
+  步骤2：执行
+</p>
+<p><img loading="lazy" decoding="async" width="516" height="321" src="/wp-content/uploads/2018/05/word-image-5416.png" class="wp-image-5958" srcset="/wp-content/uploads/2018/05/word-image-5416.png 516w, /wp-content/uploads/2018/05/word-image-5416-300x187.png 300w" sizes="(max-width: 516px) 100vw, 516px" /></p>
+<h3>2）设计权限表</h3>
+<p><strong>后台权限表</strong>
+</p>
+<table>
+<tr>
+<td>
+<p><strong>表名</strong>
+</p>
+</td>
+<td colspan="6">
+<p>
+  auth
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>序号</strong>
+</p>
+</td>
+<td>
+<p><strong>字段</strong>
+</p>
+</td>
+<td>
+<p><strong>类型</strong>
+</p>
+</td>
+<td>
+<p><strong>说明</strong>
+</p>
+</td>
+<td>
+<p><strong>空</strong>
+</p>
+</td>
+<td>
+<p><strong>默认值</strong>
+</p>
+</td>
+<td>
+<p><strong>主键</strong>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  id
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  自增主键
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  N/A
+</p>
+</td>
+<td>
+<p>
+  是
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  2
+</p>
+</td>
+<td>
+<p>
+  auth_name
+</p>
+</td>
+<td>
+<p>
+  varchar(20)
+</p>
+</td>
+<td>
+<p>
+  权限名称，如：管理员管理
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  3
+</p>
+</td>
+<td>
+<p>
+  controller
+</p>
+</td>
+<td>
+<p>
+  varchar(40)
+</p>
+</td>
+<td>
+<p>
+  控制器名
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  4
+</p>
+</td>
+<td>
+<p>
+  action
+</p>
+</td>
+<td>
+<p>
+  varchar(30)
+</p>
+</td>
+<td>
+<p>
+  权限对应的方法名称
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  5
+</p>
+</td>
+<td>
+<p>
+  pid
+</p>
+</td>
+<td>
+<p>
+  tinyint
+</p>
+</td>
+<td>
+<p>
+  等级：0-顶级，其他-子级（最多2级）
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  6
+</p>
+</td>
+<td>
+<p>
+  is_nav
+</p>
+</td>
+<td>
+<p>
+  tinyint
+</p>
+</td>
+<td>
+<p>
+  是否菜单显示：1-是，0-否
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  1
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  7
+</p>
+</td>
+<td>
+<p>
+  created_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  创建于
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  8
+</p>
+</td>
+<td>
+<p>
+  update_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  更新于
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+</table>
+<p>
+  步骤1：创建数据迁移并书写代码
+</p>
+<p><img loading="lazy" decoding="async" width="1236" height="432" src="/wp-content/uploads/2018/05/word-image-5417.png" class="wp-image-5959" srcset="/wp-content/uploads/2018/05/word-image-5417.png 1236w, /wp-content/uploads/2018/05/word-image-5417-300x105.png 300w, /wp-content/uploads/2018/05/word-image-5417-768x268.png 768w, /wp-content/uploads/2018/05/word-image-5417-1024x358.png 1024w" sizes="(max-width: 1236px) 100vw, 1236px" /></p>
+<p>
+  Schema::create(&#8216;auth&#8217;, function (Blueprint $table) {
+</p>
+<p>
+      $table-&gt;increments(&#8216;id&#8217;);
+</p>
+<p>
+      $table-&gt;string(&#8216;auth_name&#8217;, 20)-&gt;comment(&#8216;权限名称&#8217;);
+</p>
+<p>
+      $table-&gt;string(&#8216;controller&#8217;, 40)-&gt;comment(&#8216;控制器名&#8217;);
+</p>
+<p>
+      $table-&gt;string(&#8216;action&#8217;, 30)-&gt;comment(&#8216;方法名&#8217;);
+</p>
+<p>
+      $table-&gt;unsignedTinyInteger(&#8216;pid&#8217;)-&gt;default(0)-&gt;comment(&#8216;等级:0-顶级,其他-子级（最多2级）&#8217;);
+</p>
+<p>
+      $table-&gt;unsignedTinyInteger(&#8216;is_nav&#8217;)-&gt;default(1)-&gt;comment(&#8216;是否菜单显示:1-是,0-否&#8217;);
+</p>
+<p>
+      $table-&gt;unsignedInteger(&#8216;created_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+      $table-&gt;unsignedInteger(&#8216;updated_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+  });
+</p>
+<p>
+  步骤2：执行
+</p>
+<p><img loading="lazy" decoding="async" width="598" height="349" src="/wp-content/uploads/2018/05/word-image-5418.png" class="wp-image-5960" srcset="/wp-content/uploads/2018/05/word-image-5418.png 598w, /wp-content/uploads/2018/05/word-image-5418-300x175.png 300w" sizes="(max-width: 598px) 100vw, 598px" /></p>
+<h2><a id="post-5944-_Toc487817419"></a>3、了解三张表之间的关系</h2>
+<p><img loading="lazy" decoding="async" width="854" height="238" src="/wp-content/uploads/2018/05/word-image-5419.png" class="wp-image-5961" srcset="/wp-content/uploads/2018/05/word-image-5419.png 854w, /wp-content/uploads/2018/05/word-image-5419-300x84.png 300w, /wp-content/uploads/2018/05/word-image-5419-768x214.png 768w" sizes="(max-width: 854px) 100vw, 854px" /></p>
+<h2><a id="post-5944-_Toc487817420"></a>4、模拟数据</h2>
+<p><img loading="lazy" decoding="async" width="888" height="130" src="/wp-content/uploads/2018/05/word-image-5420.png" class="wp-image-5962" srcset="/wp-content/uploads/2018/05/word-image-5420.png 888w, /wp-content/uploads/2018/05/word-image-5420-300x44.png 300w, /wp-content/uploads/2018/05/word-image-5420-768x112.png 768w" sizes="(max-width: 888px) 100vw, 888px" /></p>
+<p>
+  INSERT INTO `admin` VALUES (null, &#8216;@php12&#8217;, &#8216;$2y$10$SZ50r80SEK4zMaHVkODqVupVLufzQuZQ4lHBm46QDsGwY5yeXL3lK&#8217;, &#8216;1&#8217;, &#8216;18888888888&#8217;, &#8216;8@itcast.cn&#8217;, &#8216;1&#8217;, &#8216;1515464653&#8217;, &#8216;1515464653&#8217;, &#8216;1&#8217;, &#8221;);
+</p>
+<p><strong>#密码是：admin888</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="1239" height="178" src="/wp-content/uploads/2018/05/word-image-5421.png" class="wp-image-5963" srcset="/wp-content/uploads/2018/05/word-image-5421.png 1239w, /wp-content/uploads/2018/05/word-image-5421-300x43.png 300w, /wp-content/uploads/2018/05/word-image-5421-768x110.png 768w, /wp-content/uploads/2018/05/word-image-5421-1024x147.png 1024w" sizes="(max-width: 1239px) 100vw, 1239px" /></p>
+<p>
+  INSERT INTO `role` VALUES (&#8216;1&#8217;, &#8216;超级管理员&#8217;, &#8216;1,2,3,4,5,6,7,8,10,9&#8217;, &#8216;OrderController@add,OrderController@update,OrderController@update,MemberController@add,MemberController@update,ArticleController@update,ArticleController@add&#8217;, &#8216;1515464653&#8217;, &#8216;1515464653&#8217;);
+</p>
+<p>
+  INSERT INTO `role` VALUES (&#8216;2&#8217;, &#8216;网站编辑&#8217;, &#8216;8,10,9&#8217;, &#8216;ArticleController@add,ArticleController@update&#8217;, &#8216;1515464653&#8217;, &#8216;1515464653&#8217;);
+</p>
+<p>
+  INSERT INTO `role` VALUES (&#8216;3&#8217;, &#8216;水电费&#8217;, &#8216;1,2,4,5,6,7,8,9&#8217;, &#8216;OrderController@add,OrderController@update,MemberController@add,MemberController@update,ArticleController@add&#8217;, &#8216;1515464653&#8217;, &#8216;1515464653&#8217;);
+</p>
+<p><img loading="lazy" decoding="async" width="749" height="327" src="/wp-content/uploads/2018/05/word-image-5422.png" class="wp-image-5964" srcset="/wp-content/uploads/2018/05/word-image-5422.png 749w, /wp-content/uploads/2018/05/word-image-5422-300x131.png 300w" sizes="(max-width: 749px) 100vw, 749px" /></p>
+<p>
+  INSERT INTO `auth` VALUES
+</p>
+<p>
+  (&#8216;1&#8217;, &#8216;订单管理&#8217;, &#8216;OrderController&#8217;, &#8221;, &#8216;0&#8217;, &#8216;0&#8217;, &#8216;1515464653&#8217;, &#8216;1515464653&#8217;),
+</p>
+<p>
+  (&#8216;2&#8217;, &#8216;订单添加&#8217;, &#8216;OrderController&#8217;, &#8216;add&#8217;, &#8216;1&#8217;, &#8216;0&#8217;, &#8216;1515464653&#8217;, &#8216;1515464653&#8217;),
+</p>
+<p>
+  (&#8216;3&#8217;, &#8216;订单修改&#8217;, &#8216;OrderController&#8217;, &#8216;update&#8217;, &#8216;1&#8217;, &#8216;0&#8217;, &#8216;1515464653&#8217;, &#8216;1515464653&#8217;),
+</p>
+<p>
+  (&#8216;4&#8217;, &#8216;订单列表&#8217;, &#8216;OrderController&#8217;, &#8216;update&#8217;, &#8216;1&#8217;, &#8216;0&#8217;, &#8216;1515464653&#8217;, &#8216;1515464653&#8217;),
+</p>
+<p>
+  (&#8216;5&#8217;, &#8216;会员管理&#8217;, &#8216;MemberController&#8217;, &#8221;, &#8216;0&#8217;, &#8216;0&#8217;, &#8216;1515464653&#8217;, &#8216;1515464653&#8217;),
+</p>
+<p>
+  (&#8216;6&#8217;, &#8216;会员添加&#8217;, &#8216;MemberController&#8217;, &#8216;add&#8217;, &#8216;5&#8217;, &#8216;0&#8217;, &#8216;1515464653&#8217;, &#8216;1515464653&#8217;),
+</p>
+<p>
+  (&#8216;7&#8217;, &#8216;会员修改&#8217;, &#8216;MemberController&#8217;, &#8216;update&#8217;, &#8216;5&#8217;, &#8216;0&#8217;, &#8216;1515464653&#8217;, &#8216;1515464653&#8217;),
+</p>
+<p>
+  (&#8216;8&#8217;, &#8216;文章管理&#8217;, &#8216;ArticleController&#8217;, &#8221;, &#8216;0&#8217;, &#8216;0&#8217;, &#8216;1515464653&#8217;, &#8216;1515464653&#8217;),
+</p>
+<p>
+  (&#8216;9&#8217;, &#8216;文章添加&#8217;, &#8216;ArticleController&#8217;, &#8216;add&#8217;, &#8216;8&#8217;, &#8216;0&#8217;, &#8216;1515464653&#8217;, &#8216;1515464653&#8217;),
+</p>
+<p>
+  (&#8217;10&#8217;, &#8216;文章修改&#8217;, &#8216;ArticleController&#8217;, &#8216;update&#8217;, &#8216;8&#8217;, &#8216;0&#8217;, &#8216;1515464653&#8217;, &#8216;1515464653&#8217;);
+</p>
+<p>
+  补充：在有数据的基础上，将之前遗留的管理员身份显示完全
+</p>
+<p><img loading="lazy" decoding="async" width="254" height="61" src="/wp-content/uploads/2018/05/word-image-5423.png" class="wp-image-5965" /></p>
+<p><strong>通过ORM解决这个问题</strong>（<strong>关联模型</strong>）：
+</p>
+<p>
+  用户表和角色表是一对一的关系：使用hasOne方法
+</p>
+<p><img loading="lazy" decoding="async" width="460" height="48" src="/wp-content/uploads/2018/05/word-image-5424.png" class="wp-image-5966" srcset="/wp-content/uploads/2018/05/word-image-5424.png 460w, /wp-content/uploads/2018/05/word-image-5424-300x31.png 300w" sizes="(max-width: 460px) 100vw, 460px" /></p>
+<p>
+  需要在Admin模型中关联Role模型：
+</p>
+<p><img loading="lazy" decoding="async" width="655" height="181" src="/wp-content/uploads/2018/05/word-image-5425.png" class="wp-image-5967" srcset="/wp-content/uploads/2018/05/word-image-5425.png 655w, /wp-content/uploads/2018/05/word-image-5425-300x83.png 300w" sizes="(max-width: 655px) 100vw, 655px" /></p>
+<p>
+  创建Role模型：
+</p>
+<p><img loading="lazy" decoding="async" width="405" height="82" src="/wp-content/uploads/2018/05/word-image-5426.png" class="wp-image-5968" srcset="/wp-content/uploads/2018/05/word-image-5426.png 405w, /wp-content/uploads/2018/05/word-image-5426-300x61.png 300w" sizes="(max-width: 405px) 100vw, 405px" /><br />
+<img loading="lazy" decoding="async" width="794" height="317" src="/wp-content/uploads/2018/05/word-image-5427.png" class="wp-image-5969" srcset="/wp-content/uploads/2018/05/word-image-5427.png 794w, /wp-content/uploads/2018/05/word-image-5427-300x120.png 300w, /wp-content/uploads/2018/05/word-image-5427-768x307.png 768w" sizes="(max-width: 794px) 100vw, 794px" /></p>
+<p>
+  去显示用户身份（模版文件admin/inedx/index.blade.php）：
+</p>
+<p>
+  在之前调用guard的时候其实已经实例化了Admin模型，所以可以直接调用Admin模型中的关联方法，取出结果集中的第1条记录，显示出角色名称：
+</p>
+<p><img loading="lazy" decoding="async" width="670" height="122" src="/wp-content/uploads/2018/05/word-image-5428.png" class="wp-image-5970" srcset="/wp-content/uploads/2018/05/word-image-5428.png 670w, /wp-content/uploads/2018/05/word-image-5428-300x55.png 300w" sizes="(max-width: 670px) 100vw, 670px" /></p>
+<p>
+  显示效果：
+</p>
+<p><img loading="lazy" decoding="async" width="183" height="67" src="/wp-content/uploads/2018/05/word-image-5429.png" class="wp-image-5971" /></p>
+<h1><a id="post-5944-_Toc487817421"></a>三、权限管理</h1>
+<h2>︴效果</h2>
+<p>
+  列表
+</p>
+<p><img loading="lazy" decoding="async" width="1311" height="629" src="/wp-content/uploads/2018/05/word-image-5430.png" class="wp-image-5972" srcset="/wp-content/uploads/2018/05/word-image-5430.png 1311w, /wp-content/uploads/2018/05/word-image-5430-300x144.png 300w, /wp-content/uploads/2018/05/word-image-5430-768x368.png 768w, /wp-content/uploads/2018/05/word-image-5430-1024x491.png 1024w" sizes="(max-width: 1311px) 100vw, 1311px" /></p>
+<p>
+  添加
+</p>
+<p><img loading="lazy" decoding="async" width="931" height="480" src="/wp-content/uploads/2018/05/word-image-5431.png" class="wp-image-5973" srcset="/wp-content/uploads/2018/05/word-image-5431.png 931w, /wp-content/uploads/2018/05/word-image-5431-300x155.png 300w, /wp-content/uploads/2018/05/word-image-5431-768x396.png 768w" sizes="(max-width: 931px) 100vw, 931px" /></p>
+<h2>列表功能</h2>
+<h3>1）显示列表（模板文件：admin-permission.html）</h3>
+<ul>
+<li>
+    步骤1：定义路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1117" height="263" src="/wp-content/uploads/2018/05/word-image-5432.png" class="wp-image-5974" srcset="/wp-content/uploads/2018/05/word-image-5432.png 1117w, /wp-content/uploads/2018/05/word-image-5432-300x71.png 300w, /wp-content/uploads/2018/05/word-image-5432-768x181.png 768w, /wp-content/uploads/2018/05/word-image-5432-1024x241.png 1024w" sizes="(max-width: 1117px) 100vw, 1117px" /></p>
+<p>
+  Route::get(&#8216;admin/auth/index&#8217;, &#8216;Admin\AuthController@index&#8217;);
+</p>
+<ul>
+<li>
+    步骤2：创建控制器和方法，并调用视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="978" height="491" src="/wp-content/uploads/2018/05/word-image-5433.png" class="wp-image-5975" srcset="/wp-content/uploads/2018/05/word-image-5433.png 978w, /wp-content/uploads/2018/05/word-image-5433-300x151.png 300w, /wp-content/uploads/2018/05/word-image-5433-768x386.png 768w" sizes="(max-width: 978px) 100vw, 978px" /></p>
+<ul>
+<li>
+    步骤3：创建视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1165" height="651" src="/wp-content/uploads/2018/05/word-image-5434.png" class="wp-image-5976" srcset="/wp-content/uploads/2018/05/word-image-5434.png 1165w, /wp-content/uploads/2018/05/word-image-5434-300x168.png 300w, /wp-content/uploads/2018/05/word-image-5434-768x429.png 768w, /wp-content/uploads/2018/05/word-image-5434-1024x572.png 1024w" sizes="(max-width: 1165px) 100vw, 1165px" /></p>
+<h3>数据处理</h3>
+<ul>
+<li>
+    步骤1：创建Auth模型
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="967" height="577" src="/wp-content/uploads/2018/05/word-image-5435.png" class="wp-image-5977" srcset="/wp-content/uploads/2018/05/word-image-5435.png 967w, /wp-content/uploads/2018/05/word-image-5435-300x179.png 300w, /wp-content/uploads/2018/05/word-image-5435-768x458.png 768w" sizes="(max-width: 967px) 100vw, 967px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Model;
+</p>
+<p>
+  use Illuminate\Database\Eloquent\Model;
+</p>
+<p>
+  class Auth extends Model
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明表名（注：laravel会自动加s所以自己声明覆盖）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $table = &#8216;auth&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Unix时间戳形式填充创建于和更新于（注：模型默认托管时间但是是datetime类型）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $dateFormat = &#8216;U&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明可批量设置的属性（注：当使用create静态方式时）
+</p>
+<p>
+       * @var array
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $fillable = [&#8216;auth_name&#8217;, &#8216;controller&#8217;, &#8216;action&#8217;, &#8216;pid&#8217;, &#8216;is_nav&#8217;];
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤2：修改控制器方法查询所有数据
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1076" height="478" src="/wp-content/uploads/2018/05/word-image-5436.png" class="wp-image-5978" srcset="/wp-content/uploads/2018/05/word-image-5436.png 1076w, /wp-content/uploads/2018/05/word-image-5436-300x133.png 300w, /wp-content/uploads/2018/05/word-image-5436-768x341.png 768w, /wp-content/uploads/2018/05/word-image-5436-1024x455.png 1024w" sizes="(max-width: 1076px) 100vw, 1076px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use App\Http\Model\Auth;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class AuthController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function index()
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.查询所有数据（注；因为权限节点数据不是很多所以直接显示）
+</p>
+<p>
+          $auths = Auth::get();
+</p>
+<p>
+          //2.加载视图并传递数据
+</p>
+<p>
+          return view(&#8216;admin.auth.index&#8217;, compact(&#8216;auths&#8217;));
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤1：实现视图客户端分页
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1270" height="387" src="/wp-content/uploads/2018/05/word-image-5437.png" class="wp-image-5979" srcset="/wp-content/uploads/2018/05/word-image-5437.png 1270w, /wp-content/uploads/2018/05/word-image-5437-300x91.png 300w, /wp-content/uploads/2018/05/word-image-5437-768x234.png 768w, /wp-content/uploads/2018/05/word-image-5437-1024x312.png 1024w" sizes="(max-width: 1270px) 100vw, 1270px" /><br />
+<img loading="lazy" decoding="async" width="1253" height="539" src="/wp-content/uploads/2018/05/word-image-5438.png" class="wp-image-5980" srcset="/wp-content/uploads/2018/05/word-image-5438.png 1253w, /wp-content/uploads/2018/05/word-image-5438-300x129.png 300w, /wp-content/uploads/2018/05/word-image-5438-768x330.png 768w, /wp-content/uploads/2018/05/word-image-5438-1024x440.png 1024w" sizes="(max-width: 1253px) 100vw, 1253px" /><br />
+<img loading="lazy" decoding="async" width="861" height="511" src="/wp-content/uploads/2018/05/word-image-5439.png" class="wp-image-5981" srcset="/wp-content/uploads/2018/05/word-image-5439.png 861w, /wp-content/uploads/2018/05/word-image-5439-300x178.png 300w, /wp-content/uploads/2018/05/word-image-5439-768x456.png 768w" sizes="(max-width: 861px) 100vw, 861px" /></p>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;renderer&#8221; content=&#8221;webkit|ie-comp|ie-stand&#8221;&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;X-UA-Compatible&#8221; content=&#8221;IE=edge,chrome=1&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&#8221; /&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Cache-Control&#8221; content=&#8221;no-siteapp&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if lt IE 9]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/html5shiv.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/respond.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/css/H-ui.min.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/H-ui.admin.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/Hui-iconfont/1.0.8/iconfont.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/skin/default/skin.css&#8221; id=&#8221;skin&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/style.css&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if IE 6]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/DD_belatedPNG_0.0.8a-min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script&gt;DD_belatedPNG.fix(&#8216;*&#8217;);&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;title&gt;权限管理&lt;/title&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;nav class=&#8221;breadcrumb&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe67f;&lt;/i&gt; 首页 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 管理员管理 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 权限管理 &lt;a class=&#8221;btn btn-success radius r&#8221; style=&#8221;line-height:1.6em;margin-top:3px&#8221; href=&#8221;javascript:location.replace(location.href);&#8221; title=&#8221;刷新&#8221; &gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe68f;&lt;/i&gt;&lt;/a&gt;&lt;/nav&gt;
+</p>
+<p>
+  &lt;div class=&#8221;page-container&#8221;&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  		&lt;form class=&#8221;Huiform&#8221; method=&#8221;post&#8221; action=&#8221;&#8221; target=&#8221;_self&#8221;&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;text&#8221; class=&#8221;input-text&#8221; style=&#8221;width:250px&#8221; placeholder=&#8221;权限名称&#8221; id=&#8221;search_content&#8221; name=&#8221;&#8221;&gt;
+</p>
+<p>
+  			&lt;button type=&#8221;button&#8221; class=&#8221;btn btn-success&#8221; id=&#8221;search&#8221; name=&#8221;&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe665;&lt;/i&gt; 搜权限节点&lt;/button&gt;
+</p>
+<p>
+  		&lt;/form&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;cl pd-5 bg-1 bk-gray mt-20&#8243;&gt; &lt;span class=&#8221;l&#8221;&gt;&lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;datadel()&#8221; class=&#8221;btn btn-danger radius&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt; 批量删除&lt;/a&gt; &lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_add(&#8216;添加权限节点&#8217;,&#8217;admin-permission-add.html&#8217;,&#8221;,&#8217;310&#8242;)&#8221; class=&#8221;btn btn-primary radius&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe600;&lt;/i&gt; 添加权限节点&lt;/a&gt;&lt;/span&gt; &lt;span class=&#8221;r&#8221;&gt;共有数据：&lt;strong&gt;54&lt;/strong&gt; 条&lt;/span&gt; &lt;/div&gt;
+</p>
+<p>
+  	&lt;table class=&#8221;table table-border table-bordered table-bg&#8221;&gt;
+</p>
+<p>
+  		&lt;thead&gt;
+</p>
+<p>
+  			&lt;tr&gt;
+</p>
+<p>
+  				&lt;th scope=&#8221;col&#8221; colspan=&#8221;8&#8243;&gt;权限节点&lt;/th&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  			&lt;tr class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;25&#8243;&gt;&lt;input type=&#8221;checkbox&#8221; name=&#8221;&#8221; value=&#8221;&#8221;&gt;&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;ID&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;权限名称&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;控制器名&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;方法名&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;上级权限ID&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;是否作为导航&lt;/th&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;100&#8243;&gt;操作&lt;/th&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  		&lt;/thead&gt;
+</p>
+<p>
+  		&lt;tbody&gt;
+</p>
+<p>
+  			@foreach ($auths as $auth)
+</p>
+<p>
+  			&lt;tr class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;input type=&#8221;checkbox&#8221; value=&#8221;{{ $auth-&gt;id }}&#8221; name=&#8221;&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $auth-&gt;id }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $auth-&gt;auth_name }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $auth-&gt;controller }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $auth-&gt;action }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $auth-&gt;pid }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;
+</p>
+<p>
+  					@if ($auth-&gt;is_nav)
+</p>
+<p>
+  						是
+</p>
+<p>
+  					@else
+</p>
+<p>
+  						否
+</p>
+<p>
+  					@endif
+</p>
+<p>
+  				&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;a title=&#8221;编辑&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_edit(&#8216;角色编辑&#8217;,&#8217;admin-permission-add.html&#8217;,&#8217;1&#8242;,&#8221;,&#8217;310&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6df;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;删除&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_del(this,&#8217;1&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  			@endforeach
+</p>
+<p>
+  		&lt;/tbody&gt;
+</p>
+<p>
+  	&lt;/table&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;!&#8211;_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery/1.9.1/jquery.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/layer/2.4/layer.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/js/H-ui.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/js/H-ui.admin.js&#8221;&gt;&lt;/script&gt; &lt;!&#8211;/_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;请在下方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/datatables/1.10.0/jquery.dataTables.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  var table = $(&#8216;table&#8217;).DataTable({
+</p>
+<p>
+      iDisplayLength:2,	    //限制每页显示条数
+</p>
+<p>
+      // searching : false, 		 //禁用搜索
+</p>
+<p>
+      bLengthChange: false,   //去掉每页显示多少条数据方法
+</p>
+<p>
+  });
+</p>
+<p>
+  //客户端搜索功能更
+</p>
+<p>
+  $(&#8216;#search&#8217;).click(function(){
+</p>
+<p>
+      var search_content = $(&#8216;#search_content&#8217;).val();
+</p>
+<p>
+      table.search(search_content).draw();
+</p>
+<p>
+  });
+</p>
+<p>
+  $(function(){
+</p>
+<p>
+      $(&#8216;#DataTables_Table_0_filter&#8217;).hide();
+</p>
+<p>
+  });
+</p>
+<p>
+  /*
+</p>
+<p>
+  	参数解释：
+</p>
+<p>
+  	title	标题
+</p>
+<p>
+  	url		请求的url
+</p>
+<p>
+  	id		需要操作的数据id
+</p>
+<p>
+  	w		弹出层宽度（缺省调默认值）
+</p>
+<p>
+  	h		弹出层高度（缺省调默认值）
+</p>
+<p>
+  */
+</p>
+<p>
+  /*管理员-权限-添加*/
+</p>
+<p>
+  function admin_permission_add(title,url,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-权限-编辑*/
+</p>
+<p>
+  function admin_permission_edit(title,url,id,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-权限-删除*/
+</p>
+<p>
+  function admin_permission_del(obj,id){
+</p>
+<p>
+  	layer.confirm(&#8216;确认要删除吗？&#8217;,function(index){
+</p>
+<p>
+  		$.ajax({
+</p>
+<p>
+  			type: &#8216;POST&#8217;,
+</p>
+<p>
+  			url: &#8221;,
+</p>
+<p>
+  			dataType: &#8216;json&#8217;,
+</p>
+<p>
+  			success: function(data){
+</p>
+<p>
+  				$(obj).parents(&#8220;tr&#8221;).remove();
+</p>
+<p>
+  				layer.msg(&#8216;已删除!&#8217;,{icon:1,time:1000});
+</p>
+<p>
+  			},
+</p>
+<p>
+  			error:function(data) {
+</p>
+<p>
+  				console.log(data.msg);
+</p>
+<p>
+  			},
+</p>
+<p>
+  		});
+</p>
+<p>
+  	});
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h2>添加功能</h2>
+<h3>1）显示添加页（模板文件：admin-add.html）</h3>
+<ul>
+<li>
+    步骤1：定义路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1027" height="269" src="/wp-content/uploads/2018/05/word-image-5440.png" class="wp-image-5982" srcset="/wp-content/uploads/2018/05/word-image-5440.png 1027w, /wp-content/uploads/2018/05/word-image-5440-300x79.png 300w, /wp-content/uploads/2018/05/word-image-5440-768x201.png 768w, /wp-content/uploads/2018/05/word-image-5440-1024x268.png 1024w" sizes="(max-width: 1027px) 100vw, 1027px" /></p>
+<ul>
+<li>
+    步骤2：创建控制器和方法、并获取所有顶级传递传递给视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="865" height="373" src="/wp-content/uploads/2018/05/word-image-5441.png" class="wp-image-5983" srcset="/wp-content/uploads/2018/05/word-image-5441.png 865w, /wp-content/uploads/2018/05/word-image-5441-300x129.png 300w, /wp-content/uploads/2018/05/word-image-5441-768x331.png 768w" sizes="(max-width: 865px) 100vw, 865px" /></p>
+<p>
+  //添加
+</p>
+<p>
+  public function add()
+</p>
+<p>
+  {
+</p>
+<p>
+      //1.查询所有顶级权限
+</p>
+<p>
+      $topAuths = Auth::where(&#8216;pid&#8217;, 0)-&gt;get();
+</p>
+<p>
+      //2.加载视图并传递数据
+</p>
+<p>
+      return view(&#8216;admin.auth.add&#8217;, compact(&#8216;topAuths&#8217;));
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤3：创建视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1210" height="662" src="/wp-content/uploads/2018/05/word-image-5442.png" class="wp-image-5984" srcset="/wp-content/uploads/2018/05/word-image-5442.png 1210w, /wp-content/uploads/2018/05/word-image-5442-300x164.png 300w, /wp-content/uploads/2018/05/word-image-5442-768x420.png 768w, /wp-content/uploads/2018/05/word-image-5442-1024x560.png 1024w" sizes="(max-width: 1210px) 100vw, 1210px" /><br />
+<img loading="lazy" decoding="async" width="799" height="532" src="/wp-content/uploads/2018/05/word-image-5443.png" class="wp-image-5985" srcset="/wp-content/uploads/2018/05/word-image-5443.png 799w, /wp-content/uploads/2018/05/word-image-5443-300x200.png 300w, /wp-content/uploads/2018/05/word-image-5443-768x511.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;renderer&#8221; content=&#8221;webkit|ie-comp|ie-stand&#8221;&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;X-UA-Compatible&#8221; content=&#8221;IE=edge,chrome=1&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&#8221; /&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Cache-Control&#8221; content=&#8221;no-siteapp&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if lt IE 9]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/html5shiv.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/respond.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/css/H-ui.min.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/H-ui.admin.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/Hui-iconfont/1.0.8/iconfont.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/skin/default/skin.css&#8221; id=&#8221;skin&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/style.css&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if IE 6]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/DD_belatedPNG_0.0.8a-min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script&gt;DD_belatedPNG.fix(&#8216;*&#8217;);&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;title&gt;添加管理员 &#8211; 管理员管理 &#8211; H-ui.admin v3.1&lt;/title&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;keywords&#8221; content=&#8221;H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载&#8221;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;description&#8221; content=&#8221;H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。&#8221;&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;article class=&#8221;page-container&#8221;&gt;
+</p>
+<p>
+  	&lt;form class=&#8221;form form-horizontal&#8221; id=&#8221;form-admin-add&#8221;&gt;
+</p>
+<p>
+  		{{ csrf_field() }}
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;&lt;span class=&#8221;c-red&#8221;&gt;*&lt;/span&gt;权限名称：&lt;/label&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;formControls col-xs-8 col-sm-9&#8243;&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;text&#8221; class=&#8221;input-text&#8221; value=&#8221;&#8221; placeholder=&#8221;&#8221; id=&#8221;auth_name&#8221; name=&#8221;auth_name&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;&lt;span class=&#8221;c-red&#8221;&gt;*&lt;/span&gt;控制器名称：&lt;/label&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;formControls col-xs-8 col-sm-9&#8243;&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;text&#8221; class=&#8221;input-text&#8221; autocomplete=&#8221;off&#8221; value=&#8221;&#8221; placeholder=&#8221;控制器名称&#8221; id=&#8221;controller&#8221; name=&#8221;controller&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;&lt;span class=&#8221;c-red&#8221;&gt;*&lt;/span&gt;方法名：&lt;/label&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;formControls col-xs-8 col-sm-9&#8243;&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;text&#8221; class=&#8221;input-text&#8221; autocomplete=&#8221;off&#8221;  placeholder=&#8221;方法名&#8221; id=&#8221;action&#8221; name=&#8221;action&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;&lt;span class=&#8221;c-red&#8221;&gt;*&lt;/span&gt;作为导航：&lt;/label&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;formControls col-xs-8 col-sm-9 skin-minimal&#8221;&gt;
+</p>
+<p>
+  			&lt;div class=&#8221;radio-box&#8221;&gt;
+</p>
+<p>
+  				&lt;input type=&#8221;radio&#8221; name=&#8221;is_nav&#8221; value=&#8221;1&#8243; id=&#8221;sex-1&#8243; checked&gt;
+</p>
+<p>
+  				&lt;label for=&#8221;sex-1&#8243;&gt;是&lt;/label&gt;
+</p>
+<p>
+  			&lt;/div&gt;
+</p>
+<p>
+  			&lt;div class=&#8221;radio-box&#8221;&gt;
+</p>
+<p>
+  				&lt;input type=&#8221;radio&#8221; name=&#8221;is_nav&#8221; value=&#8221;0&#8243; id=&#8221;sex-2&#8243; &gt;
+</p>
+<p>
+  				&lt;label for=&#8221;sex-2&#8243;&gt;否&lt;/label&gt;
+</p>
+<p>
+  			&lt;/div&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;上级权限：&lt;/label&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;formControls col-xs-8 col-sm-9&#8243;&gt; &lt;span class=&#8221;select-box&#8221; style=&#8221;width:150px;&#8221;&gt;
+</p>
+<p>
+  			&lt;select class=&#8221;select&#8221; name=&#8221;pid&#8221; size=&#8221;1&#8243;&gt;
+</p>
+<p>
+  				&lt;option value=&#8221;0&#8243;&gt;顶级权限&lt;/option&gt;
+</p>
+<p>
+  				@foreach ($topAuths as $topAuths)
+</p>
+<p>
+  				&lt;option value=&#8221;{{ $topAuths-&gt;id }}&#8221;&gt;{{ $topAuths-&gt;auth_name }}&lt;/option&gt;
+</p>
+<p>
+  				@endforeach
+</p>
+<p>
+  			&lt;/select&gt;
+</p>
+<p>
+  			&lt;/span&gt; &lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3&#8243;&gt;
+</p>
+<p>
+  			&lt;input class=&#8221;btn btn-primary radius&#8221; type=&#8221;submit&#8221; value=&#8221;&amp;nbsp;&amp;nbsp;提交&amp;nbsp;&amp;nbsp;&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;/form&gt;
+</p>
+<p>
+  &lt;/article&gt;
+</p>
+<p>
+  &lt;!&#8211;_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery/1.9.1/jquery.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/layer/2.4/layer.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/js/H-ui.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/js/H-ui.admin.js&#8221;&gt;&lt;/script&gt; &lt;!&#8211;/_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;请在下方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/jquery.validate.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/validate-methods.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/messages_zh.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(function(){
+</p>
+<p>
+  	$(&#8216;.skin-minimal input&#8217;).iCheck({
+</p>
+<p>
+  		checkboxClass: &#8216;icheckbox-blue&#8217;,
+</p>
+<p>
+  		radioClass: &#8216;iradio-blue&#8217;,
+</p>
+<p>
+  		increaseArea: &#8216;20%&#8217;
+</p>
+<p>
+  	});
+</p>
+</p>
+<p>
+  	$(&#8220;#form-admin-add&#8221;).validate({
+</p>
+<p>
+  		rules:{
+</p>
+<p>
+  			atuh_name:{
+</p>
+<p>
+  				required:true,
+</p>
+<p>
+  				minlength:4,
+</p>
+<p>
+  				maxlength:16
+</p>
+<p>
+  			},
+</p>
+<p>
+  			controller:{
+</p>
+<p>
+  				required:true,
+</p>
+<p>
+  			},
+</p>
+<p>
+  			action:{
+</p>
+<p>
+  				required:true,
+</p>
+<p>
+  			},
+</p>
+<p>
+  		},
+</p>
+<p>
+  		onkeyup:false,
+</p>
+<p>
+  		focusCleanup:true,
+</p>
+<p>
+  		success:&#8221;valid&#8221;,
+</p>
+<p>
+  		submitHandler:function(form){
+</p>
+<p>
+  			$(form).ajaxSubmit({
+</p>
+<p>
+  				type: &#8216;post&#8217;,
+</p>
+<p>
+  				url: &#8220;{{ url(&#8216;admin/auth/add&#8217;) }}&#8221;,
+</p>
+<p>
+  				success: function(data){
+</p>
+<p>
+  				    //在父元素提示
+</p>
+<p>
+                      parent.layer.msg(&#8216;添加成功!&#8217;,{icon:1,time:1000});
+</p>
+<p>
+  					//成功则关闭窗口
+</p>
+<p>
+                      var index = parent.layer.getFrameIndex(window.name);
+</p>
+<p>
+                      parent.$(&#8216;.btn-refresh&#8217;).click();
+</p>
+<p>
+                      parent.layer.close(index);
+</p>
+<p>
+  				},
+</p>
+<p>
+                  error: function(XmlHttpRequest, textStatus, errorThrown){
+</p>
+<p>
+  					layer.msg(&#8216;error!&#8217;,{icon:1,time:1000});
+</p>
+<p>
+  				}
+</p>
+<p>
+  			});
+</p>
+<p>
+  		}
+</p>
+<p>
+  	});
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;!&#8211;/请在上方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<ul>
+<li>
+    步骤4：打开列表页设置添加按钮连接
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="805" height="469" src="/wp-content/uploads/2018/05/word-image-5444.png" class="wp-image-5986" srcset="/wp-content/uploads/2018/05/word-image-5444.png 805w, /wp-content/uploads/2018/05/word-image-5444-300x175.png 300w, /wp-content/uploads/2018/05/word-image-5444-768x447.png 768w" sizes="(max-width: 805px) 100vw, 805px" /><br />
+<img loading="lazy" decoding="async" width="1207" height="424" src="/wp-content/uploads/2018/05/word-image-5445.png" class="wp-image-5987" srcset="/wp-content/uploads/2018/05/word-image-5445.png 1207w, /wp-content/uploads/2018/05/word-image-5445-300x105.png 300w, /wp-content/uploads/2018/05/word-image-5445-768x270.png 768w, /wp-content/uploads/2018/05/word-image-5445-1024x360.png 1024w" sizes="(max-width: 1207px) 100vw, 1207px" /></p>
+<p>
+  &lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_add(&#8216;添加权限节点&#8217;,'{{ url(&#8216;admin/auth/add&#8217;) }}&#8217;,&#8217;400&#8242;,&#8217;360&#8242;)&#8221; class=&#8221;btn btn-primary radius&#8221;&gt;
+</p>
+<p>
+  	&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe600;&lt;/i&gt; 添加权限节点
+</p>
+<p>
+  &lt;/a&gt;
+</p>
+<h3>1）添加数据处理</h3>
+<ul>
+<li>
+    步骤1：修改路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1015" height="423" src="/wp-content/uploads/2018/05/word-image-5446.png" class="wp-image-5988" srcset="/wp-content/uploads/2018/05/word-image-5446.png 1015w, /wp-content/uploads/2018/05/word-image-5446-300x125.png 300w, /wp-content/uploads/2018/05/word-image-5446-768x320.png 768w" sizes="(max-width: 1015px) 100vw, 1015px" /></p>
+<ul>
+<li>
+    步骤2：更改控制器方法代码
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1171" height="546" src="/wp-content/uploads/2018/05/word-image-5447.png" class="wp-image-5989" srcset="/wp-content/uploads/2018/05/word-image-5447.png 1171w, /wp-content/uploads/2018/05/word-image-5447-300x140.png 300w, /wp-content/uploads/2018/05/word-image-5447-768x358.png 768w, /wp-content/uploads/2018/05/word-image-5447-1024x477.png 1024w" sizes="(max-width: 1171px) 100vw, 1171px" /></p>
+<p>
+  //添加
+</p>
+<p>
+  public function add(Request $request)
+</p>
+<p>
+  {
+</p>
+<p>
+      //1.判断HTTP请求类型
+</p>
+<p>
+      if ($request-&gt;isMethod(&#8216;post&#8217;)) {
+</p>
+<p>
+          //2.接受数据
+</p>
+<p>
+          $postData = $request-&gt;only([&#8216;auth_name&#8217;, &#8216;controller&#8217;, &#8216;action&#8217;, &#8216;is_nav&#8217;, &#8216;pid&#8217;]);
+</p>
+<p>
+          //3.调用模型批量设置属性创建数据
+</p>
+<p>
+          $rs = Auth::create($postData);
+</p>
+<p>
+          //4.判断状态
+</p>
+<p>
+          echo $rs ? 1 : 0;
+</p>
+<p>
+      } else {
+</p>
+<p>
+          //2.查询所有顶级权限
+</p>
+<p>
+          $topAuths = Auth::where(&#8216;pid&#8217;, 0)-&gt;get();
+</p>
+<p>
+          //3.加载视图并传递数据
+</p>
+<p>
+          return view(&#8216;admin.auth.add&#8217;, compact(&#8216;topAuths&#8217;));
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h1><a id="post-5944-_Toc487817425"></a>四、角色管理</h1>
+<h2>︴效果</h2>
+<p>
+  列表
+</p>
+<p><img loading="lazy" decoding="async" width="1329" height="288" src="/wp-content/uploads/2018/05/word-image-5448.png" class="wp-image-5990" srcset="/wp-content/uploads/2018/05/word-image-5448.png 1329w, /wp-content/uploads/2018/05/word-image-5448-300x65.png 300w, /wp-content/uploads/2018/05/word-image-5448-768x166.png 768w, /wp-content/uploads/2018/05/word-image-5448-1024x222.png 1024w" sizes="(max-width: 1329px) 100vw, 1329px" /></p>
+<p>
+  添加
+</p>
+<p><img loading="lazy" decoding="async" width="1184" height="306" src="/wp-content/uploads/2018/05/word-image-5449.png" class="wp-image-5991" srcset="/wp-content/uploads/2018/05/word-image-5449.png 1184w, /wp-content/uploads/2018/05/word-image-5449-300x78.png 300w, /wp-content/uploads/2018/05/word-image-5449-768x198.png 768w, /wp-content/uploads/2018/05/word-image-5449-1024x265.png 1024w" sizes="(max-width: 1184px) 100vw, 1184px" /></p>
+<h2>1、列表功能</h2>
+<h3>1）显示列表（模板文件：admin-role.html）</h3>
+<ul>
+<li>
+    步骤1：定义路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1003" height="304" src="/wp-content/uploads/2018/05/word-image-5450.png" class="wp-image-5992" srcset="/wp-content/uploads/2018/05/word-image-5450.png 1003w, /wp-content/uploads/2018/05/word-image-5450-300x91.png 300w, /wp-content/uploads/2018/05/word-image-5450-768x233.png 768w" sizes="(max-width: 1003px) 100vw, 1003px" /></p>
+<ul>
+<li>
+    步骤2：创建控制器和方法，并调用视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="848" height="540" src="/wp-content/uploads/2018/05/word-image-5451.png" class="wp-image-5993" srcset="/wp-content/uploads/2018/05/word-image-5451.png 848w, /wp-content/uploads/2018/05/word-image-5451-300x191.png 300w, /wp-content/uploads/2018/05/word-image-5451-768x489.png 768w" sizes="(max-width: 848px) 100vw, 848px" /></p>
+<ul>
+<li>
+    步骤3：创建视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1040" height="590" src="/wp-content/uploads/2018/05/word-image-5452.png" class="wp-image-5994" srcset="/wp-content/uploads/2018/05/word-image-5452.png 1040w, /wp-content/uploads/2018/05/word-image-5452-300x170.png 300w, /wp-content/uploads/2018/05/word-image-5452-768x436.png 768w, /wp-content/uploads/2018/05/word-image-5452-1024x581.png 1024w" sizes="(max-width: 1040px) 100vw, 1040px" /></p>
+<h3>2）数据处理</h3>
+<ul>
+<li>
+    步骤1：创建模型
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="977" height="615" src="/wp-content/uploads/2018/05/word-image-5453.png" class="wp-image-5995" srcset="/wp-content/uploads/2018/05/word-image-5453.png 977w, /wp-content/uploads/2018/05/word-image-5453-300x189.png 300w, /wp-content/uploads/2018/05/word-image-5453-768x483.png 768w" sizes="(max-width: 977px) 100vw, 977px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Model;
+</p>
+<p>
+  use Illuminate\Database\Eloquent\Model;
+</p>
+<p>
+  class Role extends Model
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明表名（注：laravel会自动加s所以自己声明覆盖）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $table = &#8216;role&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Unix时间戳形式填充创建于和更新于（注：模型默认托管时间但是是datetime类型）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $dateFormat = &#8216;U&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明可批量设置的属性（注：当使用create静态方式时）
+</p>
+<p>
+       * @var array
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $fillable = [&#8216;role_name&#8217;, &#8216;auth_ids&#8217;, &#8216;auth_ac&#8217;];
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤2：控制器调用数据，并传递给视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="781" height="467" src="/wp-content/uploads/2018/05/word-image-5454.png" class="wp-image-5996" srcset="/wp-content/uploads/2018/05/word-image-5454.png 781w, /wp-content/uploads/2018/05/word-image-5454-300x179.png 300w, /wp-content/uploads/2018/05/word-image-5454-768x459.png 768w" sizes="(max-width: 781px) 100vw, 781px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use App\Http\Model\Role;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class RoleController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function index()
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.通过内置分页功能获取数据，每页显示2条
+</p>
+<p>
+          $roles = Role::paginate(2);
+</p>
+<p>
+          //2.加载视图
+</p>
+<p>
+          return view(&#8216;admin.role.index&#8217;, compact(&#8216;roles&#8217;));
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤3：循环显示
+  </li>
+<li><a href="https://www.cnblogs.com/lamp01/p/6869762.html">https://www.cnblogs.com/lamp01/p/6869762.html</a>
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="889" height="582" src="/wp-content/uploads/2018/05/word-image-5455.png" class="wp-image-5997" srcset="/wp-content/uploads/2018/05/word-image-5455.png 889w, /wp-content/uploads/2018/05/word-image-5455-300x196.png 300w, /wp-content/uploads/2018/05/word-image-5455-768x503.png 768w" sizes="(max-width: 889px) 100vw, 889px" /><br />
+<img loading="lazy" decoding="async" width="1184" height="530" src="/wp-content/uploads/2018/05/word-image-5456.png" class="wp-image-5998" srcset="/wp-content/uploads/2018/05/word-image-5456.png 1184w, /wp-content/uploads/2018/05/word-image-5456-300x134.png 300w, /wp-content/uploads/2018/05/word-image-5456-768x344.png 768w, /wp-content/uploads/2018/05/word-image-5456-1024x458.png 1024w" sizes="(max-width: 1184px) 100vw, 1184px" /></p>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;renderer&#8221; content=&#8221;webkit|ie-comp|ie-stand&#8221;&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;X-UA-Compatible&#8221; content=&#8221;IE=edge,chrome=1&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&#8221; /&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Cache-Control&#8221; content=&#8221;no-siteapp&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if lt IE 9]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/html5shiv.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/respond.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/css/H-ui.min.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/H-ui.admin.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/Hui-iconfont/1.0.8/iconfont.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/skin/default/skin.css&#8221; id=&#8221;skin&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/style.css&#8221; /&gt;
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  	/*分页CSS样式*/
+</p>
+<p>
+  	#pull_right{
+</p>
+<p>
+  		text-align:center;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	.pull-right {
+</p>
+<p>
+  		/*float: left!important;*/
+</p>
+<p>
+  	}
+</p>
+<p>
+  	.pagination {
+</p>
+<p>
+  		display: inline-block;
+</p>
+<p>
+  		padding-left: 0;
+</p>
+<p>
+  		margin: 20px 0;
+</p>
+<p>
+  		border-radius: 4px;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	.pagination &gt; li {
+</p>
+<p>
+  		display: inline;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	.pagination &gt; li &gt; a,
+</p>
+<p>
+  	.pagination &gt; li &gt; span {
+</p>
+<p>
+  		position: relative;
+</p>
+<p>
+  		float: left;
+</p>
+<p>
+  		padding: 6px 12px;
+</p>
+<p>
+  		margin-left: -1px;
+</p>
+<p>
+  		line-height: 1.42857143;
+</p>
+<p>
+  		color: #428bca;
+</p>
+<p>
+  		text-decoration: none;
+</p>
+<p>
+  		background-color: #fff;
+</p>
+<p>
+  		border: 1px solid #ddd;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	.pagination &gt; li:first-child &gt; a,
+</p>
+<p>
+  	.pagination &gt; li:first-child &gt; span {
+</p>
+<p>
+  		margin-left: 0;
+</p>
+<p>
+  		border-top-left-radius: 4px;
+</p>
+<p>
+  		border-bottom-left-radius: 4px;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	.pagination &gt; li:last-child &gt; a,
+</p>
+<p>
+  	.pagination &gt; li:last-child &gt; span {
+</p>
+<p>
+  		border-top-right-radius: 4px;
+</p>
+<p>
+  		border-bottom-right-radius: 4px;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	.pagination &gt; li &gt; a:hover,
+</p>
+<p>
+  	.pagination &gt; li &gt; span:hover,
+</p>
+<p>
+  	.pagination &gt; li &gt; a:focus,
+</p>
+<p>
+  	.pagination &gt; li &gt; span:focus {
+</p>
+<p>
+  		color: #2a6496;
+</p>
+<p>
+  		background-color: #eee;
+</p>
+<p>
+  		border-color: #ddd;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	.pagination &gt; .active &gt; a,
+</p>
+<p>
+  	.pagination &gt; .active &gt; span,
+</p>
+<p>
+  	.pagination &gt; .active &gt; a:hover,
+</p>
+<p>
+  	.pagination &gt; .active &gt; span:hover,
+</p>
+<p>
+  	.pagination &gt; .active &gt; a:focus,
+</p>
+<p>
+  	.pagination &gt; .active &gt; span:focus {
+</p>
+<p>
+  		z-index: 2;
+</p>
+<p>
+  		color: #fff;
+</p>
+<p>
+  		cursor: default;
+</p>
+<p>
+  		background-color: #428bca;
+</p>
+<p>
+  		border-color: #428bca;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	.pagination &gt; .disabled &gt; span,
+</p>
+<p>
+  	.pagination &gt; .disabled &gt; span:hover,
+</p>
+<p>
+  	.pagination &gt; .disabled &gt; span:focus,
+</p>
+<p>
+  	.pagination &gt; .disabled &gt; a,
+</p>
+<p>
+  	.pagination &gt; .disabled &gt; a:hover,
+</p>
+<p>
+  	.pagination &gt; .disabled &gt; a:focus {
+</p>
+<p>
+  		color: #777;
+</p>
+<p>
+  		cursor: not-allowed;
+</p>
+<p>
+  		background-color: #fff;
+</p>
+<p>
+  		border-color: #ddd;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	.clear{
+</p>
+<p>
+  		clear: both;
+</p>
+<p>
+  	}
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;!&#8211;[if IE 6]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/DD_belatedPNG_0.0.8a-min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script&gt;DD_belatedPNG.fix(&#8216;*&#8217;);&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;title&gt;角色管理&lt;/title&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;nav class=&#8221;breadcrumb&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe67f;&lt;/i&gt; 首页 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 管理员管理 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 角色管理 &lt;a class=&#8221;btn btn-success radius r&#8221; style=&#8221;line-height:1.6em;margin-top:3px&#8221; href=&#8221;javascript:location.replace(location.href);&#8221; title=&#8221;刷新&#8221; &gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe68f;&lt;/i&gt;&lt;/a&gt;&lt;/nav&gt;
+</p>
+<p>
+  &lt;div class=&#8221;page-container&#8221;&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;cl pd-5 bg-1 bk-gray&#8221;&gt; &lt;span class=&#8221;l&#8221;&gt; &lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;datadel()&#8221; class=&#8221;btn btn-danger radius&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt; 批量删除&lt;/a&gt; &lt;a class=&#8221;btn btn-primary radius&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_role_add(&#8216;添加角色&#8217;,&#8217;admin-role-add.html&#8217;,&#8217;800&#8242;)&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe600;&lt;/i&gt; 添加角色&lt;/a&gt; &lt;/span&gt; &lt;span class=&#8221;r&#8221;&gt;共有数据：&lt;strong&gt;54&lt;/strong&gt; 条&lt;/span&gt; &lt;/div&gt;
+</p>
+<p>
+  	&lt;table class=&#8221;table table-border table-bordered table-hover table-bg&#8221;&gt;
+</p>
+<p>
+  		&lt;thead&gt;
+</p>
+<p>
+  			&lt;tr&gt;
+</p>
+<p>
+  				&lt;th scope=&#8221;col&#8221; colspan=&#8221;6&#8243;&gt;角色管理&lt;/th&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  			&lt;tr class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;25&#8243;&gt;&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;&#8221;&gt;&lt;/th&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;40&#8243;&gt;ID&lt;/th&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;200&#8243;&gt;角色名&lt;/th&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;70&#8243;&gt;操作&lt;/th&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  		&lt;/thead&gt;
+</p>
+<p>
+  		&lt;tbody&gt;
+</p>
+<p>
+  			@foreach ($roles as $role)
+</p>
+<p>
+  			&lt;tr class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;input type=&#8221;checkbox&#8221; value=&#8221;{{ $role-&gt;id }}&#8221; name=&#8221;&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $role-&gt;id }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $role-&gt;role_name }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td class=&#8221;f-14&#8243;&gt;
+</p>
+<p>
+  					&lt;a title=&#8221;编辑&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_role_edit(&#8216;角色编辑&#8217;,&#8217;admin-role-add.html&#8217;,&#8217;1&#8242;)&#8221; style=&#8221;text-decoration:none&#8221;&gt;
+</p>
+<p>
+  						&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6df;&lt;/i&gt;
+</p>
+<p>
+  					&lt;/a&gt;
+</p>
+<p>
+  					&lt;a title=&#8221;删除&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_role_del(this,&#8217;1&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;
+</p>
+<p>
+  						&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt;
+</p>
+<p>
+  					&lt;/a&gt;
+</p>
+<p>
+  					&lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;admin_role_del(this,&#8217;1&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;
+</p>
+<p>
+  						分配权限
+</p>
+<p>
+  					&lt;/a&gt;
+</p>
+<p>
+  				&lt;/td&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  			@endforeach
+</p>
+<p>
+  		&lt;/tbody&gt;
+</p>
+<p>
+  	&lt;/table&gt;
+</p>
+<p>
+  	&lt;div id=&#8221;pull_right&#8221;&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;pull-right&#8221;&gt;
+</p>
+<p>
+  			{!! $roles-&gt;links() !!}
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;!&#8211;_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery/1.9.1/jquery.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/layer/2.4/layer.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/js/H-ui.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/js/H-ui.admin.js&#8221;&gt;&lt;/script&gt; &lt;!&#8211;/_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;请在下方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/datatables/1.10.0/jquery.dataTables.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  /*管理员-角色-添加*/
+</p>
+<p>
+  function admin_role_add(title,url,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-角色-编辑*/
+</p>
+<p>
+  function admin_role_edit(title,url,id,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-角色-删除*/
+</p>
+<p>
+  function admin_role_del(obj,id){
+</p>
+<p>
+  	layer.confirm(&#8216;角色删除须谨慎，确认要删除吗？&#8217;,function(index){
+</p>
+<p>
+  		$.ajax({
+</p>
+<p>
+  			type: &#8216;POST&#8217;,
+</p>
+<p>
+  			url: &#8221;,
+</p>
+<p>
+  			dataType: &#8216;json&#8217;,
+</p>
+<p>
+  			success: function(data){
+</p>
+<p>
+  				$(obj).parents(&#8220;tr&#8221;).remove();
+</p>
+<p>
+  				layer.msg(&#8216;已删除!&#8217;,{icon:1,time:1000});
+</p>
+<p>
+  			},
+</p>
+<p>
+  			error:function(data) {
+</p>
+<p>
+  				console.log(data.msg);
+</p>
+<p>
+  			},
+</p>
+<p>
+  		});
+</p>
+<p>
+  	});
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h2>2、权限分配数据处理【难点】</h2>
+<h3>1）显示分配视图（模板文件：admin-role-add.html）</h3>
+<ul>
+<li>
+    步骤1：打开角色列表，点击分配权限按钮弹框设置
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1149" height="188" src="/wp-content/uploads/2018/05/word-image-5457.png" class="wp-image-5999" srcset="/wp-content/uploads/2018/05/word-image-5457.png 1149w, /wp-content/uploads/2018/05/word-image-5457-300x49.png 300w, /wp-content/uploads/2018/05/word-image-5457-768x126.png 768w, /wp-content/uploads/2018/05/word-image-5457-1024x168.png 1024w" sizes="(max-width: 1149px) 100vw, 1149px" /></p>
+<p>
+  &lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;admin_role_assign(&#8216;分配权限&#8217;,'{{ url(&#8216;admin/role/assignAuth&#8217;) }}?role_id={{$role-&gt;id}}&#8217;,860,400)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;
+</p>
+<p>
+  分配权限
+</p>
+<p>
+  &lt;/a&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="647" height="232" src="/wp-content/uploads/2018/05/word-image-5458.png" class="wp-image-6000" srcset="/wp-content/uploads/2018/05/word-image-5458.png 647w, /wp-content/uploads/2018/05/word-image-5458-300x108.png 300w" sizes="(max-width: 647px) 100vw, 647px" /></p>
+<p>
+  /*管理员-角色-权限分配*/
+</p>
+<p>
+  function admin_role_assign(title,url,w,h){
+</p>
+<p>
+      layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤2：定义路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1144" height="160" src="/wp-content/uploads/2018/05/word-image-5459.png" class="wp-image-6001" srcset="/wp-content/uploads/2018/05/word-image-5459.png 1144w, /wp-content/uploads/2018/05/word-image-5459-300x42.png 300w, /wp-content/uploads/2018/05/word-image-5459-768x107.png 768w, /wp-content/uploads/2018/05/word-image-5459-1024x143.png 1024w" sizes="(max-width: 1144px) 100vw, 1144px" /></p>
+<ul>
+<li>
+    步骤2：创建控制器和方法，并调用视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="905" height="481" src="/wp-content/uploads/2018/05/word-image-5460.png" class="wp-image-6002" srcset="/wp-content/uploads/2018/05/word-image-5460.png 905w, /wp-content/uploads/2018/05/word-image-5460-300x159.png 300w, /wp-content/uploads/2018/05/word-image-5460-768x408.png 768w" sizes="(max-width: 905px) 100vw, 905px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use App\Http\Model\Auth;
+</p>
+<p>
+  use App\Http\Model\Role;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class RoleController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function index()
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.通过内置分页功能获取数据，每页显示2条
+</p>
+<p>
+          $roles = Role::paginate(2);
+</p>
+<p>
+          //2.加载视图
+</p>
+<p>
+          return view(&#8216;admin.role.index&#8217;, compact(&#8216;roles&#8217;));
+</p>
+<p>
+      }
+</p>
+<p>
+      //分配权限
+</p>
+<p>
+      public function assignAuth(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          return view(&#8216;admin.role.assignAuth&#8217;);
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤3：创建视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1147" height="612" src="/wp-content/uploads/2018/05/word-image-5461.png" class="wp-image-6003" srcset="/wp-content/uploads/2018/05/word-image-5461.png 1147w, /wp-content/uploads/2018/05/word-image-5461-300x160.png 300w, /wp-content/uploads/2018/05/word-image-5461-768x410.png 768w, /wp-content/uploads/2018/05/word-image-5461-1024x546.png 1024w" sizes="(max-width: 1147px) 100vw, 1147px" /></p>
+<p>
+  &lt;!&#8211;_meta 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;renderer&#8221; content=&#8221;webkit|ie-comp|ie-stand&#8221;&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;X-UA-Compatible&#8221; content=&#8221;IE=edge,chrome=1&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&#8221; /&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Cache-Control&#8221; content=&#8221;no-siteapp&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;Bookmark&#8221; href=&#8221;/favicon.ico&#8221; &gt;
+</p>
+<p>
+  &lt;link rel=&#8221;Shortcut Icon&#8221; href=&#8221;/favicon.ico&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if lt IE 9]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/html5shiv.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/respond.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/css/H-ui.min.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/H-ui.admin.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/Hui-iconfont/1.0.8/iconfont.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/skin/default/skin.css&#8221; id=&#8221;skin&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/style.css&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if IE 6]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/DD_belatedPNG_0.0.8a-min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script&gt;DD_belatedPNG.fix(&#8216;*&#8217;);&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;/meta 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;title&gt;新建网站角色 &#8211; 管理员管理 &#8211; H-ui.admin v3.1&lt;/title&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;keywords&#8221; content=&#8221;H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载&#8221;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;description&#8221; content=&#8221;H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。&#8221;&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;article class=&#8221;page-container&#8221;&gt;
+</p>
+<p>
+  	&lt;form action=&#8221;&#8221; method=&#8221;post&#8221; class=&#8221;form form-horizontal&#8221; id=&#8221;form-admin-role-add&#8221;&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  			&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;权限名称：&lt;/label&gt;
+</p>
+<p>
+  			&lt;div class=&#8221;formControls col-xs-8 col-sm-9&#8243;&gt;
+</p>
+<p>
+  				&lt;dl class=&#8221;permission-list&#8221;&gt;
+</p>
+<p>
+  					&lt;dt&gt;
+</p>
+<p>
+  						&lt;label&gt;
+</p>
+<p>
+  							&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-0&#8243; id=&#8221;user-Character-0&#8243;&gt;
+</p>
+<p>
+  							资讯管理&lt;/label&gt;
+</p>
+<p>
+  					&lt;/dt&gt;
+</p>
+<p>
+  					&lt;dd&gt;
+</p>
+<p>
+  						&lt;dl class=&#8221;cl permission-list2&#8243;&gt;
+</p>
+<p>
+  							&lt;dt&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-0-0&#8243; id=&#8221;user-Character-0-0&#8243;&gt;
+</p>
+<p>
+  									栏目管理&lt;/label&gt;
+</p>
+<p>
+  							&lt;/dt&gt;
+</p>
+<p>
+  							&lt;dd&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-0-0-0&#8243; id=&#8221;user-Character-0-0-0&#8243;&gt;
+</p>
+<p>
+  									添加&lt;/label&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-0-0-0&#8243; id=&#8221;user-Character-0-0-1&#8243;&gt;
+</p>
+<p>
+  									修改&lt;/label&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-0-0-0&#8243; id=&#8221;user-Character-0-0-2&#8243;&gt;
+</p>
+<p>
+  									删除&lt;/label&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-0-0-0&#8243; id=&#8221;user-Character-0-0-3&#8243;&gt;
+</p>
+<p>
+  									查看&lt;/label&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-0-0-0&#8243; id=&#8221;user-Character-0-0-4&#8243;&gt;
+</p>
+<p>
+  									审核&lt;/label&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;c-orange&#8221;&gt;&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-0-0-0&#8243; id=&#8221;user-Character-0-0-5&#8243;&gt; 只能操作自己发布的&lt;/label&gt;
+</p>
+<p>
+  							&lt;/dd&gt;
+</p>
+<p>
+  						&lt;/dl&gt;
+</p>
+<p>
+  						&lt;dl class=&#8221;cl permission-list2&#8243;&gt;
+</p>
+<p>
+  							&lt;dt&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-0-1&#8243; id=&#8221;user-Character-0-1&#8243;&gt;
+</p>
+<p>
+  									文章管理&lt;/label&gt;
+</p>
+<p>
+  							&lt;/dt&gt;
+</p>
+<p>
+  							&lt;dd&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-0-1-0&#8243; id=&#8221;user-Character-0-1-0&#8243;&gt;
+</p>
+<p>
+  									添加&lt;/label&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-0-1-0&#8243; id=&#8221;user-Character-0-1-1&#8243;&gt;
+</p>
+<p>
+  									修改&lt;/label&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-0-1-0&#8243; id=&#8221;user-Character-0-1-2&#8243;&gt;
+</p>
+<p>
+  									删除&lt;/label&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-0-1-0&#8243; id=&#8221;user-Character-0-1-3&#8243;&gt;
+</p>
+<p>
+  									查看&lt;/label&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-0-1-0&#8243; id=&#8221;user-Character-0-1-4&#8243;&gt;
+</p>
+<p>
+  									审核&lt;/label&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;c-orange&#8221;&gt;&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-0-2-0&#8243; id=&#8221;user-Character-0-2-5&#8243;&gt; 只能操作自己发布的&lt;/label&gt;
+</p>
+<p>
+  							&lt;/dd&gt;
+</p>
+<p>
+  						&lt;/dl&gt;
+</p>
+<p>
+  					&lt;/dd&gt;
+</p>
+<p>
+  				&lt;/dl&gt;
+</p>
+<p>
+  				&lt;dl class=&#8221;permission-list&#8221;&gt;
+</p>
+<p>
+  					&lt;dt&gt;
+</p>
+<p>
+  						&lt;label&gt;
+</p>
+<p>
+  							&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-0&#8243; id=&#8221;user-Character-1&#8243;&gt;
+</p>
+<p>
+  							用户中心&lt;/label&gt;
+</p>
+<p>
+  					&lt;/dt&gt;
+</p>
+<p>
+  					&lt;dd&gt;
+</p>
+<p>
+  						&lt;dl class=&#8221;cl permission-list2&#8243;&gt;
+</p>
+<p>
+  							&lt;dt&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-1-0&#8243; id=&#8221;user-Character-1-0&#8243;&gt;
+</p>
+<p>
+  									用户管理&lt;/label&gt;
+</p>
+<p>
+  							&lt;/dt&gt;
+</p>
+<p>
+  							&lt;dd&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-1-0-0&#8243; id=&#8221;user-Character-1-0-0&#8243;&gt;
+</p>
+<p>
+  									添加&lt;/label&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-1-0-0&#8243; id=&#8221;user-Character-1-0-1&#8243;&gt;
+</p>
+<p>
+  									修改&lt;/label&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-1-0-0&#8243; id=&#8221;user-Character-1-0-2&#8243;&gt;
+</p>
+<p>
+  									删除&lt;/label&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-1-0-0&#8243; id=&#8221;user-Character-1-0-3&#8243;&gt;
+</p>
+<p>
+  									查看&lt;/label&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input type=&#8221;checkbox&#8221; value=&#8221;&#8221; name=&#8221;user-Character-1-0-0&#8243; id=&#8221;user-Character-1-0-4&#8243;&gt;
+</p>
+<p>
+  									审核&lt;/label&gt;
+</p>
+<p>
+  							&lt;/dd&gt;
+</p>
+<p>
+  						&lt;/dl&gt;
+</p>
+<p>
+  					&lt;/dd&gt;
+</p>
+<p>
+  				&lt;/dl&gt;
+</p>
+<p>
+  			&lt;/div&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  			&lt;div class=&#8221;col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3&#8243;&gt;
+</p>
+<p>
+  				&lt;button type=&#8221;submit&#8221; class=&#8221;btn btn-success radius&#8221; id=&#8221;admin-role-save&#8221; name=&#8221;admin-role-save&#8221;&gt;&lt;i class=&#8221;icon-ok&#8221;&gt;&lt;/i&gt; 确定&lt;/button&gt;
+</p>
+<p>
+  			&lt;/div&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/form&gt;
+</p>
+<p>
+  &lt;/article&gt;
+</p>
+<p>
+  &lt;!&#8211;_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery/1.9.1/jquery.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/layer/2.4/layer.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/js/H-ui.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/js/H-ui.admin.js&#8221;&gt;&lt;/script&gt; &lt;!&#8211;/_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;请在下方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/jquery.validate.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/validate-methods.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/messages_zh.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(function(){
+</p>
+<p>
+  	$(&#8220;.permission-list dt input:checkbox&#8221;).click(function(){
+</p>
+<p>
+  		$(this).closest(&#8220;dl&#8221;).find(&#8220;dd input:checkbox&#8221;).prop(&#8220;checked&#8221;,$(this).prop(&#8220;checked&#8221;));
+</p>
+<p>
+  	});
+</p>
+<p>
+  	$(&#8220;.permission-list2 dd input:checkbox&#8221;).click(function(){
+</p>
+<p>
+  		var l =$(this).parent().parent().find(&#8220;input:checked&#8221;).length;
+</p>
+<p>
+  		var l2=$(this).parents(&#8220;.permission-list&#8221;).find(&#8220;.permission-list2 dd&#8221;).find(&#8220;input:checked&#8221;).length;
+</p>
+<p>
+  		if($(this).prop(&#8220;checked&#8221;)){
+</p>
+<p>
+  			$(this).closest(&#8220;dl&#8221;).find(&#8220;dt input:checkbox&#8221;).prop(&#8220;checked&#8221;,true);
+</p>
+<p>
+  			$(this).parents(&#8220;.permission-list&#8221;).find(&#8220;dt&#8221;).first().find(&#8220;input:checkbox&#8221;).prop(&#8220;checked&#8221;,true);
+</p>
+<p>
+  		}
+</p>
+<p>
+  		else{
+</p>
+<p>
+  			if(l==0){
+</p>
+<p>
+  				$(this).closest(&#8220;dl&#8221;).find(&#8220;dt input:checkbox&#8221;).prop(&#8220;checked&#8221;,false);
+</p>
+<p>
+  			}
+</p>
+<p>
+  			if(l2==0){
+</p>
+<p>
+  				$(this).parents(&#8220;.permission-list&#8221;).find(&#8220;dt&#8221;).first().find(&#8220;input:checkbox&#8221;).prop(&#8220;checked&#8221;,false);
+</p>
+<p>
+  			}
+</p>
+<p>
+  		}
+</p>
+<p>
+  	});
+</p>
+</p>
+<p>
+  	$(&#8220;#form-admin-role-add&#8221;).validate({
+</p>
+<p>
+  		rules:{
+</p>
+<p>
+  			roleName:{
+</p>
+<p>
+  				required:true,
+</p>
+<p>
+  			},
+</p>
+<p>
+  		},
+</p>
+<p>
+  		onkeyup:false,
+</p>
+<p>
+  		focusCleanup:true,
+</p>
+<p>
+  		success:&#8221;valid&#8221;,
+</p>
+<p>
+  		submitHandler:function(form){
+</p>
+<p>
+  			$(form).ajaxSubmit();
+</p>
+<p>
+  			var index = parent.layer.getFrameIndex(window.name);
+</p>
+<p>
+  			parent.layer.close(index);
+</p>
+<p>
+  		}
+</p>
+<p>
+  	});
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;!&#8211;/请在上方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h3>2）数据数据动态化（显示所有权限，和默认选中权限）</h3>
+<ul>
+<li>
+    步骤1：查询所有顶级权限和子级权限
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="901" height="217" src="/wp-content/uploads/2018/05/word-image-5462.png" class="wp-image-6004" srcset="/wp-content/uploads/2018/05/word-image-5462.png 901w, /wp-content/uploads/2018/05/word-image-5462-300x72.png 300w, /wp-content/uploads/2018/05/word-image-5462-768x185.png 768w" sizes="(max-width: 901px) 100vw, 901px" /></p>
+<p>
+  //分配权限
+</p>
+<p>
+  public function assignAuth(Request $request)
+</p>
+<p>
+  {
+</p>
+<p>
+      //【显示所有权限节点功能】
+</p>
+<p>
+      //1.查询所有顶级权限
+</p>
+<p>
+      $topAuths = Auth::where(&#8216;pid&#8217;, 0)-&gt;get();
+</p>
+<p>
+      //2.查询所有子级权限
+</p>
+<p>
+      $sonAuths = Auth::where(&#8216;pid&#8217;, &#8216;&lt;&gt;&#8217;, 0)-&gt;get();
+</p>
+<p>
+      //4.加载视图
+</p>
+<p>
+      return view(&#8216;admin.role.assignAuth&#8217;, compact(&#8216;topAuths&#8217;, &#8216;sonAuths&#8217;));
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤2：视图循环显示所有权限（规则：先老子后儿子）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="893" height="584" src="/wp-content/uploads/2018/05/word-image-5463.png" class="wp-image-6005" srcset="/wp-content/uploads/2018/05/word-image-5463.png 893w, /wp-content/uploads/2018/05/word-image-5463-300x196.png 300w, /wp-content/uploads/2018/05/word-image-5463-768x502.png 768w" sizes="(max-width: 893px) 100vw, 893px" /></p>
+<p>
+  &lt;form action=&#8221;&#8221; method=&#8221;post&#8221; class=&#8221;form form-horizontal&#8221; id=&#8221;form-admin-role-add&#8221;&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;权限名称：&lt;/label&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;formControls col-xs-8 col-sm-9&#8243;&gt;
+</p>
+<p>
+  			<strong>@foreach($topAuths as $topAuth)</strong>
+</p>
+<p><strong>			&lt;dl class=&#8221;permission-list&#8221;&gt;</strong>
+</p>
+<p><strong>				&lt;dd&gt;</strong>
+</p>
+<p><strong>					&lt;dl class=&#8221;cl permission-list2&#8243;&gt;</strong>
+</p>
+<p><strong>						&lt;dt&gt;</strong>
+</p>
+<p><strong>							&lt;label class=&#8221;&#8221;&gt;</strong>
+</p>
+<p><strong>								&lt;input </strong>
+</p>
+<p><strong>									type=&#8221;checkbox&#8221; </strong>
+</p>
+<p><strong>									value=&#8221;&#8221; </strong>
+</p>
+<p><strong>									name=&#8221;user-Character-1-0&#8243; </strong>
+</p>
+<p><strong>									id=&#8221;user-Character-1-0&#8243;</strong>
+</p>
+<p><strong>								&gt;</strong>
+</p>
+<p><strong>								{{ $topAuth-&gt;auth_name}}</strong>
+</p>
+<p><strong>							&lt;/label&gt;</strong>
+</p>
+<p><strong>						&lt;/dt&gt;</strong>
+</p>
+<p><strong>						&lt;dd&gt;</strong>
+</p>
+<p><strong>							@foreach($sonAuths as $sonAuth)</strong>
+</p>
+<p><strong>								&lt;!&#8211; 父元素的ID  == 子元素PID &#8211;&gt;</strong>
+</p>
+<p><strong>								@if ($topAuth-&gt;id == $sonAuth-&gt;pid) </strong>
+</p>
+<p><strong>								&lt;label class=&#8221;&#8221;&gt;</strong>
+</p>
+<p><strong>									&lt;input </strong>
+</p>
+<p><strong>										type=&#8221;checkbox&#8221; </strong>
+</p>
+<p><strong>										value=&#8221;&#8221; </strong>
+</p>
+<p><strong>										name=&#8221;user-Character-1-0-0&#8243; </strong>
+</p>
+<p><strong>										id=&#8221;user-Character-1-0-0&#8243;</strong>
+</p>
+<p><strong>									&gt;</strong>
+</p>
+<p><strong>									{{ $sonAuth-&gt;auth_name}}</strong>
+</p>
+<p><strong>								&lt;/label&gt;</strong>
+</p>
+<p><strong>								@endif</strong>
+</p>
+<p><strong>							@endforeach</strong>
+</p>
+<p><strong>						&lt;/dd&gt;</strong>
+</p>
+<p><strong>					&lt;/dl&gt;</strong>
+</p>
+<p><strong>				&lt;/dd&gt;</strong>
+</p>
+<p><strong>			&lt;/dl&gt;</strong>
+</p>
+<p><strong>			@endforeach</strong>
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3&#8243;&gt;
+</p>
+<p>
+  			&lt;button type=&#8221;submit&#8221; class=&#8221;btn btn-success radius&#8221; id=&#8221;admin-role-save&#8221; name=&#8221;admin-role-save&#8221;&gt;&lt;i class=&#8221;icon-ok&#8221;&gt;&lt;/i&gt; 确定&lt;/button&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<ul>
+<li>
+    步骤3：根据角色ID获取所有权限，默认选中已有权限
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1165" height="323" src="/wp-content/uploads/2018/05/word-image-5464.png" class="wp-image-6006" srcset="/wp-content/uploads/2018/05/word-image-5464.png 1165w, /wp-content/uploads/2018/05/word-image-5464-300x83.png 300w, /wp-content/uploads/2018/05/word-image-5464-768x213.png 768w, /wp-content/uploads/2018/05/word-image-5464-1024x284.png 1024w" sizes="(max-width: 1165px) 100vw, 1165px" /></p>
+<p>
+  //分配权限
+</p>
+<p>
+  public function assignAuth(Request $request)
+</p>
+<p>
+  {
+</p>
+<p>
+      //【显示所有权限节点功能】
+</p>
+<p>
+      //1.查询所有顶级权限
+</p>
+<p>
+      $topAuths = Auth::where(&#8216;pid&#8217;, 0)-&gt;get();
+</p>
+<p>
+      //2.查询所有子级权限
+</p>
+<p>
+      $sonAuths = Auth::where(&#8216;pid&#8217;, &#8216;&lt;&gt;&#8217;, 0)-&gt;get();
+</p>
+<p>
+      <strong>//【根据角色ID获取角色的所有权限】</strong>
+</p>
+<p><strong>    $role = Role::where(&#8216;id&#8217;, $request-&gt;input(&#8216;role_id&#8217;))-&gt;first();</strong>
+</p>
+<p><strong>    $authArr = !empty($role-&gt;auth_ids) ? explode(&#8216;,&#8217;, $role-&gt;auth_ids) : [];</strong>
+</p>
+<p>
+      //4.加载视图
+</p>
+<p>
+      return view(&#8216;admin.role.assignAuth&#8217;, compact(&#8216;topAuths&#8217;, &#8216;sonAuths&#8217;, <strong>&#8216;authArr&#8217;</strong>));
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="855" height="646" src="/wp-content/uploads/2018/05/word-image-5465.png" class="wp-image-6007" srcset="/wp-content/uploads/2018/05/word-image-5465.png 855w, /wp-content/uploads/2018/05/word-image-5465-300x227.png 300w, /wp-content/uploads/2018/05/word-image-5465-768x580.png 768w" sizes="(max-width: 855px) 100vw, 855px" /></p>
+<p>
+  @foreach($topAuths as $topAuth)
+</p>
+<p>
+  &lt;dl class=&#8221;permission-list&#8221;&gt;
+</p>
+<p>
+  	&lt;dd&gt;
+</p>
+<p>
+  		&lt;dl class=&#8221;cl permission-list2&#8243;&gt;
+</p>
+<p>
+  			&lt;dt&gt;
+</p>
+<p>
+  				&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  					&lt;input
+</p>
+<p>
+  						type=&#8221;checkbox&#8221;
+</p>
+<p>
+  						value=&#8221;&#8221;
+</p>
+<p>
+  						name=&#8221;user-Character-1-0&#8243;
+</p>
+<p>
+  						id=&#8221;user-Character-1-0&#8243;
+</p>
+<p>
+  						<strong>@if(in_array($topAuth-&gt;id, $authArr)) </strong>
+</p>
+<p><strong>							checked=checked</strong>
+</p>
+<p><strong>						@endif</strong>
+</p>
+<p>
+  					&gt;
+</p>
+<p>
+  					{{ $topAuth-&gt;auth_name}}
+</p>
+<p>
+  				&lt;/label&gt;
+</p>
+<p>
+  			&lt;/dt&gt;
+</p>
+<p>
+  			&lt;dd&gt;
+</p>
+<p>
+  				@foreach($sonAuths as $sonAuth)
+</p>
+<p>
+  					&lt;!&#8211; 父元素的ID  == 子元素PID &#8211;&gt;
+</p>
+<p>
+  					@if ($topAuth-&gt;id == $sonAuth-&gt;pid)
+</p>
+<p>
+  					&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  						&lt;input
+</p>
+<p>
+  							type=&#8221;checkbox&#8221;
+</p>
+<p>
+  							value=&#8221;&#8221;
+</p>
+<p>
+  							name=&#8221;user-Character-1-0-0&#8243;
+</p>
+<p>
+  							id=&#8221;user-Character-1-0-0&#8243;
+</p>
+<p>
+  							<strong>@if(in_array($sonAuth-&gt;id, $authArr)) </strong>
+</p>
+<p><strong>								checked=checked</strong>
+</p>
+<p><strong>							@endif</strong>
+</p>
+<p>
+  						&gt;
+</p>
+<p>
+  						{{ $sonAuth-&gt;auth_name}}
+</p>
+<p>
+  					&lt;/label&gt;
+</p>
+<p>
+  					@endif
+</p>
+<p>
+  				@endforeach
+</p>
+<p>
+  			&lt;/dd&gt;
+</p>
+<p>
+  		&lt;/dl&gt;
+</p>
+<p>
+  	&lt;/dd&gt;
+</p>
+<p>
+  &lt;/dl&gt;
+</p>
+<p>
+  @endforeach
+</p>
+<h3>3）保存更改角色权限</h3>
+<ul>
+<li>
+    步骤1：更改表单
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="865" height="606" src="/wp-content/uploads/2018/05/word-image-5466.png" class="wp-image-6008" srcset="/wp-content/uploads/2018/05/word-image-5466.png 865w, /wp-content/uploads/2018/05/word-image-5466-300x210.png 300w, /wp-content/uploads/2018/05/word-image-5466-768x538.png 768w" sizes="(max-width: 865px) 100vw, 865px" /><br />
+<img loading="lazy" decoding="async" width="964" height="502" src="/wp-content/uploads/2018/05/word-image-5467.png" class="wp-image-6009" srcset="/wp-content/uploads/2018/05/word-image-5467.png 964w, /wp-content/uploads/2018/05/word-image-5467-300x156.png 300w, /wp-content/uploads/2018/05/word-image-5467-768x400.png 768w" sizes="(max-width: 964px) 100vw, 964px" /></p>
+<p>
+  &lt;!&#8211;_meta 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;renderer&#8221; content=&#8221;webkit|ie-comp|ie-stand&#8221;&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;X-UA-Compatible&#8221; content=&#8221;IE=edge,chrome=1&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&#8221; /&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Cache-Control&#8221; content=&#8221;no-siteapp&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;Bookmark&#8221; href=&#8221;/favicon.ico&#8221; &gt;
+</p>
+<p>
+  &lt;link rel=&#8221;Shortcut Icon&#8221; href=&#8221;/favicon.ico&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if lt IE 9]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/html5shiv.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/respond.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/css/H-ui.min.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/H-ui.admin.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/Hui-iconfont/1.0.8/iconfont.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/skin/default/skin.css&#8221; id=&#8221;skin&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/style.css&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if IE 6]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/DD_belatedPNG_0.0.8a-min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script&gt;DD_belatedPNG.fix(&#8216;*&#8217;);&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;/meta 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;title&gt;新建网站角色 &#8211; 管理员管理 &#8211; H-ui.admin v3.1&lt;/title&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;keywords&#8221; content=&#8221;H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载&#8221;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;description&#8221; content=&#8221;H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。&#8221;&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;article class=&#8221;page-container&#8221;&gt;
+</p>
+<p>
+  	&lt;form action=&#8221;&#8221; method=&#8221;post&#8221; class=&#8221;form form-horizontal&#8221; id=&#8221;form-admin-role-add&#8221;&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  			&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;权限名称：&lt;/label&gt;
+</p>
+<p>
+  			&lt;div class=&#8221;formControls col-xs-8 col-sm-9&#8243;&gt;
+</p>
+<p>
+  				@foreach($topAuths as $topAuth)
+</p>
+<p>
+  				&lt;dl class=&#8221;permission-list&#8221;&gt;
+</p>
+<p>
+  					&lt;dd&gt;
+</p>
+<p>
+  						&lt;dl class=&#8221;cl permission-list2&#8243;&gt;
+</p>
+<p>
+  							&lt;dt&gt;
+</p>
+<p>
+  								&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  									&lt;input
+</p>
+<p>
+  										type=&#8221;checkbox&#8221;
+</p>
+<p><strong>										value=&#8221;{{ $topAuth-&gt;id }}&#8221; </strong>
+</p>
+<p><strong>										name=&#8221;auth[]&#8221; </strong>
+</p>
+<p>
+  										id=&#8221;user-Character-1-0&#8243;
+</p>
+<p>
+  										@if(in_array($topAuth-&gt;id, $authArr))
+</p>
+<p>
+  											checked=checked
+</p>
+<p>
+  										@endif
+</p>
+<p>
+  									&gt;
+</p>
+<p>
+  									{{ $topAuth-&gt;auth_name}}
+</p>
+<p>
+  								&lt;/label&gt;
+</p>
+<p>
+  							&lt;/dt&gt;
+</p>
+<p>
+  							&lt;dd&gt;
+</p>
+<p>
+  								@foreach($sonAuths as $sonAuth)
+</p>
+<p>
+  									&lt;!&#8211; 父元素的ID  == 子元素PID &#8211;&gt;
+</p>
+<p>
+  									@if ($topAuth-&gt;id == $sonAuth-&gt;pid)
+</p>
+<p>
+  									&lt;label class=&#8221;&#8221;&gt;
+</p>
+<p>
+  										&lt;input
+</p>
+<p>
+  											type=&#8221;checkbox&#8221;
+</p>
+<p><strong>											value=&#8221;{{ $sonAuth-&gt;id }}&#8221; </strong>
+</p>
+<p><strong>											name=&#8221;auth[]&#8221; </strong>
+</p>
+<p>
+  											id=&#8221;user-Character-1-0-0&#8243;
+</p>
+<p>
+  											@if(in_array($sonAuth-&gt;id, $authArr))
+</p>
+<p>
+  												checked=checked
+</p>
+<p>
+  											@endif
+</p>
+<p>
+  										&gt;
+</p>
+<p>
+  										{{ $sonAuth-&gt;auth_name}}
+</p>
+<p>
+  									&lt;/label&gt;
+</p>
+<p>
+  									@endif
+</p>
+<p>
+  								@endforeach
+</p>
+<p>
+  							&lt;/dd&gt;
+</p>
+<p>
+  						&lt;/dl&gt;
+</p>
+<p>
+  					&lt;/dd&gt;
+</p>
+<p>
+  				&lt;/dl&gt;
+</p>
+<p>
+  				@endforeach
+</p>
+<p>
+  			&lt;/div&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  			&lt;div class=&#8221;col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3&#8243;&gt;
+</p>
+<p>
+  				&lt;button type=&#8221;submit&#8221; class=&#8221;btn btn-success radius&#8221; id=&#8221;admin-role-save&#8221; name=&#8221;admin-role-save&#8221;&gt;&lt;i class=&#8221;icon-ok&#8221;&gt;&lt;/i&gt; 确定&lt;/button&gt;
+</p>
+<p>
+  			&lt;/div&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/form&gt;
+</p>
+<p>
+  &lt;/article&gt;
+</p>
+<p>
+  &lt;!&#8211;_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery/1.9.1/jquery.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/layer/2.4/layer.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/js/H-ui.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/js/H-ui.admin.js&#8221;&gt;&lt;/script&gt; &lt;!&#8211;/_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;请在下方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/jquery.validate.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/validate-methods.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/messages_zh.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(function(){
+</p>
+<p>
+  	$(&#8220;.permission-list dt input:checkbox&#8221;).click(function(){
+</p>
+<p>
+  		$(this).closest(&#8220;dl&#8221;).find(&#8220;dd input:checkbox&#8221;).prop(&#8220;checked&#8221;,$(this).prop(&#8220;checked&#8221;));
+</p>
+<p>
+  	});
+</p>
+<p>
+  	$(&#8220;.permission-list2 dd input:checkbox&#8221;).click(function(){
+</p>
+<p>
+  		var l =$(this).parent().parent().find(&#8220;input:checked&#8221;).length;
+</p>
+<p>
+  		var l2=$(this).parents(&#8220;.permission-list&#8221;).find(&#8220;.permission-list2 dd&#8221;).find(&#8220;input:checked&#8221;).length;
+</p>
+<p>
+  		if($(this).prop(&#8220;checked&#8221;)){
+</p>
+<p>
+  			$(this).closest(&#8220;dl&#8221;).find(&#8220;dt input:checkbox&#8221;).prop(&#8220;checked&#8221;,true);
+</p>
+<p>
+  			$(this).parents(&#8220;.permission-list&#8221;).find(&#8220;dt&#8221;).first().find(&#8220;input:checkbox&#8221;).prop(&#8220;checked&#8221;,true);
+</p>
+<p>
+  		}
+</p>
+<p>
+  		else{
+</p>
+<p>
+  			if(l==0){
+</p>
+<p>
+  				$(this).closest(&#8220;dl&#8221;).find(&#8220;dt input:checkbox&#8221;).prop(&#8220;checked&#8221;,false);
+</p>
+<p>
+  			}
+</p>
+<p>
+  			if(l2==0){
+</p>
+<p>
+  				$(this).parents(&#8220;.permission-list&#8221;).find(&#8220;dt&#8221;).first().find(&#8220;input:checkbox&#8221;).prop(&#8220;checked&#8221;,false);
+</p>
+<p>
+  			}
+</p>
+<p>
+  		}
+</p>
+<p>
+  	});
+</p>
+</p>
+<p>
+  	<strong>$(&#8220;#form-admin-role-add&#8221;).validate({</strong>
+</p>
+<p><strong>		rules:{</strong>
+</p>
+<p><strong>		},</strong>
+</p>
+<p><strong>		onkeyup:false,</strong>
+</p>
+<p><strong>		focusCleanup:true,</strong>
+</p>
+<p><strong>		success:&#8221;valid&#8221;,</strong>
+</p>
+<p><strong>		submitHandler:function(form){</strong>
+</p>
+<p><strong>			$(form).ajaxSubmit({</strong>
+</p>
+<p><strong>				type: &#8216;post&#8217;,</strong>
+</p>
+<p><strong>				url: window.location,</strong>
+</p>
+<p><strong>				success: function(data){</strong>
+</p>
+<p><strong>				    //在父元素提示</strong>
+</p>
+<p><strong>                    parent.layer.msg(&#8216;更新成功!&#8217;,{icon:1,time:1000});</strong>
+</p>
+<p><strong>					//成功则关闭窗口</strong>
+</p>
+<p><strong>                    var index = parent.layer.getFrameIndex(window.name);</strong>
+</p>
+<p><strong>                    parent.$(&#8216;.btn-refresh&#8217;).click();</strong>
+</p>
+<p><strong>                    parent.layer.close(index);</strong>
+</p>
+<p><strong>				},</strong>
+</p>
+<p><strong>                error: function(XmlHttpRequest, textStatus, errorThrown){</strong>
+</p>
+<p><strong>					layer.msg(&#8216;error!&#8217;,{icon:1,time:1000});</strong>
+</p>
+<p><strong>				}</strong>
+</p>
+<p><strong>			});</strong>
+</p>
+<p><strong>		}</strong>
+</p>
+<p><strong>	});</strong>
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;!&#8211;/请在上方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<ul>
+<li>
+    步骤2：更改路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1217" height="267" src="/wp-content/uploads/2018/05/word-image-5468.png" class="wp-image-6010" srcset="/wp-content/uploads/2018/05/word-image-5468.png 1217w, /wp-content/uploads/2018/05/word-image-5468-300x66.png 300w, /wp-content/uploads/2018/05/word-image-5468-768x168.png 768w, /wp-content/uploads/2018/05/word-image-5468-1024x225.png 1024w" sizes="(max-width: 1217px) 100vw, 1217px" /></p>
+<ul>
+<li>
+    步骤3：控制器方法接受处理数据
+  </li>
+</ul>
+<p><strong>控制器</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="1136" height="649" src="/wp-content/uploads/2018/05/word-image-5469.png" class="wp-image-6011" srcset="/wp-content/uploads/2018/05/word-image-5469.png 1136w, /wp-content/uploads/2018/05/word-image-5469-300x171.png 300w, /wp-content/uploads/2018/05/word-image-5469-768x439.png 768w, /wp-content/uploads/2018/05/word-image-5469-1024x585.png 1024w" sizes="(max-width: 1136px) 100vw, 1136px" /></p>
+<p>
+  //分配权限
+</p>
+<p>
+  public function assignAuth(Request $request)
+</p>
+<p>
+  {
+</p>
+<p>
+      //1.判断HTTP请求类型
+</p>
+<p>
+      if ($request-&gt;isMethod(&#8216;post&#8217;)) {
+</p>
+<p>
+          //2.获取数据
+</p>
+<p>
+          $postData = $request-&gt;only([&#8216;auth&#8217;]);
+</p>
+<p>
+          //3.更新数据
+</p>
+<p>
+          $rs = Role::updateAuth($request-&gt;input(&#8216;role_id&#8217;), $postData[&#8216;auth&#8217;]);
+</p>
+<p>
+          //4.判断状态
+</p>
+<p>
+          echo $rs ? 1 : 0;
+</p>
+<p>
+      } else {
+</p>
+<p>
+          //【显示所有权限节点功能】
+</p>
+<p>
+          //1.查询所有顶级权限
+</p>
+<p>
+          $topAuths = Auth::where(&#8216;pid&#8217;, 0)-&gt;get();
+</p>
+<p>
+          //2.查询所有子级权限
+</p>
+<p>
+          $sonAuths = Auth::where(&#8216;pid&#8217;, &#8216;&lt;&gt;&#8217;, 0)-&gt;get();
+</p>
+<p>
+          //【根据角色ID获取角色的所有权限】
+</p>
+<p>
+          $role = Role::where(&#8216;id&#8217;, $request-&gt;input(&#8216;role_id&#8217;))-&gt;first();
+</p>
+<p>
+          $authArr = !empty($role-&gt;auth_ids) ? explode(&#8216;,&#8217;, $role-&gt;auth_ids) : [];
+</p>
+<p>
+          //4.加载视图
+</p>
+<p>
+          return view(&#8216;admin.role.assignAuth&#8217;, compact(&#8216;topAuths&#8217;, &#8216;sonAuths&#8217;, &#8216;authArr&#8217;));
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p><strong>模型</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="1086" height="537" src="/wp-content/uploads/2018/05/word-image-5470.png" class="wp-image-6012" srcset="/wp-content/uploads/2018/05/word-image-5470.png 1086w, /wp-content/uploads/2018/05/word-image-5470-300x148.png 300w, /wp-content/uploads/2018/05/word-image-5470-768x380.png 768w, /wp-content/uploads/2018/05/word-image-5470-1024x506.png 1024w" sizes="(max-width: 1086px) 100vw, 1086px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Model;
+</p>
+<p>
+  use Illuminate\Database\Eloquent\Model;
+</p>
+<p>
+  class Role extends Model
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明表名（注：laravel会自动加s所以自己声明覆盖）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $table = &#8216;role&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Unix时间戳形式填充创建于和更新于（注：模型默认托管时间但是是datetime类型）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $dateFormat = &#8216;U&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明可批量设置的属性（注：当使用create静态方式时）
+</p>
+<p>
+       * @var array
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $fillable = [&#8216;role_name&#8217;, &#8216;auth_ids&#8217;, &#8216;auth_ac&#8217;];
+</p>
+<p>
+     <strong> /**</strong>
+</p>
+<p><strong>     * 更改角色权限</strong>
+</p>
+<p><strong>     * @param  int   $role_id  角色ID</strong>
+</p>
+<p><strong>     * @param  array $authArr  权限数组</strong>
+</p>
+<p><strong>     * @return bool</strong>
+</p>
+<p><strong>     */</strong>
+</p>
+<p><strong>    public static function updateAuth($role_id, $authArr)</strong>
+</p>
+<p><strong>    {</strong>
+</p>
+<p><strong>        //1.将选中的权限划分为字符串，逗号分隔</strong>
+</p>
+<p><strong>        $data[&#8216;auth_ids&#8217;] = implode(&#8216;,&#8217;, $authArr);</strong>
+</p>
+<p><strong>        //2.根据权限ID获取对应控制器方法</strong>
+</p>
+<p><strong>        $auths = Auth::select(&#8216;controller&#8217;, &#8216;action&#8217;)-&gt;whereIn(&#8216;id&#8217;, $authArr)-&gt;get();</strong>
+</p>
+<p><strong>        foreach ($auths as $auth) {</strong>
+</p>
+<p><strong>            $temp[] = $auth-&gt;controller .&#8217;@&#8217;.$auth-&gt;action;</strong>
+</p>
+<p><strong>        }</strong>
+</p>
+<p><strong>        //3.划分控制器和方法</strong>
+</p>
+<p><strong>        $data[&#8216;auth_ac&#8217;] = implode(&#8216;,&#8217;, $temp);</strong>
+</p>
+<p><strong>        //4.更新数据库</strong>
+</p>
+<p><strong>        return self::where(&#8216;id&#8217;, $role_id)-&gt;update($data);</strong>
+</p>
+<p><strong>    }</strong>
+</p>
+<p>
+  }
+</p>
+<h1>管理员登录系统显示所属角色</h1>
+<h2>︴效果（后台首页右上角）</h2>
+<p><img loading="lazy" decoding="async" width="819" height="176" src="/wp-content/uploads/2018/05/word-image-5471.png" class="wp-image-6013" srcset="/wp-content/uploads/2018/05/word-image-5471.png 819w, /wp-content/uploads/2018/05/word-image-5471-300x64.png 300w, /wp-content/uploads/2018/05/word-image-5471-768x165.png 768w" sizes="(max-width: 819px) 100vw, 819px" /></p>
+<h2>︴步骤</h2>
+<ul>
+<li>
+    步骤1：admin模型关联角色表
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="941" height="497" src="/wp-content/uploads/2018/05/word-image-5472.png" class="wp-image-6014" srcset="/wp-content/uploads/2018/05/word-image-5472.png 941w, /wp-content/uploads/2018/05/word-image-5472-300x158.png 300w, /wp-content/uploads/2018/05/word-image-5472-768x406.png 768w" sizes="(max-width: 941px) 100vw, 941px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Model;
+</p>
+<p>
+  use Illuminate\Auth\Authenticatable;
+</p>
+<p>
+  use Illuminate\Database\Eloquent\Model;
+</p>
+<p>
+  class Admin extends Model implements \Illuminate\Contracts\Auth\Authenticatable
+</p>
+<p>
+  {
+</p>
+<p>
+      use Authenticatable;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明表名
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $table = &#8216;admin&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 关联角色表（1:1）
+</p>
+<p>
+       * @return \Illuminate\Database\Eloquent\Relations\HasOne
+</p>
+<p>
+       */
+</p>
+<p>
+      public function role()
+</p>
+<p>
+      {
+</p>
+<p>
+          return $this -&gt; hasOne(&#8216;App\Http\Model\Role&#8217;, &#8216;id&#8217;, &#8216;role_id&#8217;);
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤2：视图修改显示角色
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1205" height="267" src="/wp-content/uploads/2018/05/word-image-5473.png" class="wp-image-6015" srcset="/wp-content/uploads/2018/05/word-image-5473.png 1205w, /wp-content/uploads/2018/05/word-image-5473-300x66.png 300w, /wp-content/uploads/2018/05/word-image-5473-768x170.png 768w, /wp-content/uploads/2018/05/word-image-5473-1024x227.png 1024w" sizes="(max-width: 1205px) 100vw, 1205px" /></p>
+<p>
+  {{ Auth::guard(&#8216;admin&#8217;)-&gt;user()-&gt;role()-&gt;first()-&gt;role_name }}
+</p>
+<p>
+  脚下留心：role()对应模型中的方法名
+</p>
+<h1><a id="post-5944-_Toc487817428"></a>使用中间件鉴权</h1>
+<h2>︴效果</h2>
+<p><img loading="lazy" decoding="async" width="881" height="229" src="/wp-content/uploads/2018/05/word-image-5474.png" class="wp-image-6016" srcset="/wp-content/uploads/2018/05/word-image-5474.png 881w, /wp-content/uploads/2018/05/word-image-5474-300x78.png 300w, /wp-content/uploads/2018/05/word-image-5474-768x200.png 768w" sizes="(max-width: 881px) 100vw, 881px" /></p>
+<h2>1、说明</h2>
+<p>
+  在ThinkPHP中使用RBAC鉴权的时候会创建一个基础/中间控制器的控制器，然后在其中的构造/初始化方法中来进行权限判断。
+</p>
+<p>
+  在laravel中可以通过中间件的方法来实现rbac鉴权，其原理和ThinkPHP中的原理是一样的，使用中间件可以省去更改控制器的继承关系。
+</p>
+<h2>2、使用</h2>
+<ul>
+<li>
+    步骤1：创建中间件并书写代码
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1262" height="600" src="/wp-content/uploads/2018/05/word-image-5475.png" class="wp-image-6017" srcset="/wp-content/uploads/2018/05/word-image-5475.png 1262w, /wp-content/uploads/2018/05/word-image-5475-300x143.png 300w, /wp-content/uploads/2018/05/word-image-5475-768x365.png 768w, /wp-content/uploads/2018/05/word-image-5475-1024x487.png 1024w" sizes="(max-width: 1262px) 100vw, 1262px" /></p>
+<p>
+  public function handle($request, Closure $next)
+</p>
+<p>
+  {
+</p>
+<p>
+      //1.获取当前的路由（包含控制器和方法的地址）
+</p>
+<p>
+      $route = strtolower(Route::currentRouteAction()); //&#8221;App\Http\Controllers\Admin\IndexController@index&#8221;
+</p>
+<p>
+      //2.获取当前角色权限
+</p>
+<p>
+      $ac = Auth::guard(&#8216;admin&#8217;)-&gt;user()-&gt;role()-&gt;first()-&gt;auth_ac;
+</p>
+<p>
+      //3.组装权限：默认全部用户都有后台首页路由的权限
+</p>
+<p>
+      $ac = strtolower($ac . &#8216;,IndexController@index,IndexController@welcome&#8217;);
+</p>
+<p>
+      //4.比较范围是否存在包含关系,可以使用strpos进行比较，也可以转化成数组进行in_array
+</p>
+<p>
+      $array = explode(&#8216;\\&#8217;,$route);
+</p>
+<p>
+      //dd(prev($array));
+</p>
+<p>
+      if(strpos($ac,end($array)) === false){    //end是将数组的指针移向最后一个元素并且返回其值
+</p>
+<p>
+          //echo &#8216;您没有访问权限&#8217;;die;
+</p>
+<p>
+          return redirect(&#8216;admin/login&#8217;)-&gt;withErrors([&#8216;errors&#8217; =&gt; &#8216;您没有访问权限&#8217;]);
+</p>
+<p>
+      }
+</p>
+<p>
+      return $next($request);
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤2：激活中间件
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1035" height="402" src="/wp-content/uploads/2018/05/word-image-5476.png" class="wp-image-6018" srcset="/wp-content/uploads/2018/05/word-image-5476.png 1035w, /wp-content/uploads/2018/05/word-image-5476-300x117.png 300w, /wp-content/uploads/2018/05/word-image-5476-768x298.png 768w, /wp-content/uploads/2018/05/word-image-5476-1024x398.png 1024w" sizes="(max-width: 1035px) 100vw, 1035px" /></p>
+<ul>
+<li>
+    步骤3：使用
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1217" height="606" src="/wp-content/uploads/2018/05/word-image-5477.png" class="wp-image-6019" srcset="/wp-content/uploads/2018/05/word-image-5477.png 1217w, /wp-content/uploads/2018/05/word-image-5477-300x149.png 300w, /wp-content/uploads/2018/05/word-image-5477-768x382.png 768w, /wp-content/uploads/2018/05/word-image-5477-1024x510.png 1024w" sizes="(max-width: 1217px) 100vw, 1217px" /></p>
+<h1><a id="post-5944-_Toc487817429"></a>︴作业</h1>
+<p>
+  1）实现今天的代码；
+</p>
+<p>
+  2）完善RBAC三部分管理模块的后续CURD操作；</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/5944.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

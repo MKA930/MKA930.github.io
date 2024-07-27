@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>虚拟主机 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 12:18:42 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>虚拟主机 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>PHP 简介与环境搭建  分布式部署、 虚拟主机</title>
+		<link>/php/576.html</link>
+					<comments>/php/576.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 16:49:54 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP基本语法]]></category>
+		<category><![CDATA[PHP 环境搭建]]></category>
+		<category><![CDATA[分布式部署]]></category>
+		<category><![CDATA[虚拟主机]]></category>
+		<guid isPermaLink="false">/?p=576</guid>
+
+					<description><![CDATA[PHP简介与环境搭建 PHP简介 PHP（“PHP: Hypertext Preprocessor”，超文本预 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>PHP简介与环境搭建</h1>
+<h2>PHP简介</h2>
+<ol>
+<li>PHP（“PHP: Hypertext Preprocessor”，超文本预处理器）</li>
+<li>PHP是一门运行在服务器端的脚本语言</li>
+</ol>
+<h3>lamp组合</h3>
+<p>Linux：开源的操作系统</p>
+<p>Apache：阿帕奇，给PHP的运行提供了运行环境，这是一个开源的软件</p>
+<p>PHP：开源的运行在服务器端的脚本语言</p>
+<p>MySQL：开源的数据库，用来保存数据</p>
+<p>思考：wamp组合是什么？</p>
+<p>答：windows+apche+mysql+php</p>
+<p>思考：PHP的运行我们需要安装apache，为什么HTML,CSS,JS的运行我们没有安装环境</p>
+<p>答：首页HTML,CSS,JS的运行是需要环境的，这三门语言是通过浏览器去解析执行的，所以浏览器为这三门语言提供了运行环境。</p>
+<p><img fetchpriority="high" decoding="async" width="724" height="167" class="wp-image-578" src="/wp-content/uploads/2018/05/word-image-490.png" srcset="/wp-content/uploads/2018/05/word-image-490.png 724w, /wp-content/uploads/2018/05/word-image-490-300x69.png 300w" sizes="(max-width: 724px) 100vw, 724px" /></p>
+<h2>六组概念</h2>
+<h3>客户端和服务器端</h3>
+<p>服务器端：从广义来说：用来保存数据并且为客户端提供服务的计算机；狭义上的服务器就是Apache。</p>
+<p>客户端：用来请求服务器端数据的计算机。</p>
+<p>思考：用新浪服务器上的浏览器访问新浪网站，客户端和服务器端是什么？</p>
+<p>答：这台计算机既做客户端也做服务器端。</p>
+<h3>静态网站和动态网站</h3>
+<p>网页：一个页面 网站：很多页面的组合</p>
+<p><strong>静态网站：</strong>没有能力进行数据交互的网站，.html就是静态页面</p>
+<p>缺点：不能做数据交互</p>
+<p>优点：因为服务器端不执行，所以执行效率最高</p>
+<p><strong>动态网站：</strong>可以进行数据交互的网站</p>
+<p>优点：可以进行数据交互</p>
+<p>缺点：因为服务器端要执行，所以执行效率偏低</p>
+<p>思考：动态网站中是否存在静态页面？</p>
+<p>答：可以的</p>
+<p>实现动态网站的技术</p>
+<table>
+<tbody>
+<tr>
+<td>实现技术</td>
+<td>页面后缀</td>
+</tr>
+<tr>
+<td>asp技术</td>
+<td>.asp，这个技术已经被淘汰</td>
+</tr>
+<tr>
+<td>PHP技术</td>
+<td>.php</td>
+</tr>
+<tr>
+<td>.net技术</td>
+<td>.aspx</td>
+</tr>
+<tr>
+<td>Java技术</td>
+<td>.jsp</td>
+</tr>
+</tbody>
+</table>
+<p>现在最常用的是php技术和java技术</p>
+<p><img decoding="async" width="642" height="51" class="wp-image-579" src="/wp-content/uploads/2018/05/word-image-491.png" srcset="/wp-content/uploads/2018/05/word-image-491.png 642w, /wp-content/uploads/2018/05/word-image-491-300x24.png 300w" sizes="(max-width: 642px) 100vw, 642px" /> <img decoding="async" width="615" height="55" class="wp-image-580" src="/wp-content/uploads/2018/05/word-image-492.png" srcset="/wp-content/uploads/2018/05/word-image-492.png 615w, /wp-content/uploads/2018/05/word-image-492-300x27.png 300w" sizes="(max-width: 615px) 100vw, 615px" /> <img loading="lazy" decoding="async" width="520" height="40" class="wp-image-581" src="/wp-content/uploads/2018/05/word-image-493.png" srcset="/wp-content/uploads/2018/05/word-image-493.png 520w, /wp-content/uploads/2018/05/word-image-493-300x23.png 300w" sizes="(max-width: 520px) 100vw, 520px" /> <img loading="lazy" decoding="async" width="474" height="67" class="wp-image-582" src="/wp-content/uploads/2018/05/word-image-494.png" srcset="/wp-content/uploads/2018/05/word-image-494.png 474w, /wp-content/uploads/2018/05/word-image-494-300x42.png 300w" sizes="(max-width: 474px) 100vw, 474px" /></p>
+<h3>BS架构和CS架构</h3>
+<p>B：browser（浏览器）</p>
+<p>S：server（服务器）</p>
+<p>C：client（客户端）</p>
+<p>BS：通过浏览器访问服务器，比如新浪，百度，传智官网</p>
+<p>CS：通过客户端软件访问服务器，比如QQ，微信，股票软件</p>
+<h3>前台和后台</h3>
+<p>前台：给浏览器访问的页面</p>
+<p><img loading="lazy" decoding="async" width="641" height="82" class="wp-image-583" src="/wp-content/uploads/2018/05/word-image-495.png" srcset="/wp-content/uploads/2018/05/word-image-495.png 641w, /wp-content/uploads/2018/05/word-image-495-300x38.png 300w" sizes="(max-width: 641px) 100vw, 641px" /></p>
+<p>后台：管理员操作的页面</p>
+<p><img loading="lazy" decoding="async" width="1114" height="344" class="wp-image-584" src="/wp-content/uploads/2018/05/word-image-496.png" srcset="/wp-content/uploads/2018/05/word-image-496.png 1114w, /wp-content/uploads/2018/05/word-image-496-300x93.png 300w, /wp-content/uploads/2018/05/word-image-496-768x237.png 768w, /wp-content/uploads/2018/05/word-image-496-1024x316.png 1024w" sizes="(max-width: 1114px) 100vw, 1114px" /></p>
+<h3>端口和端口号</h3>
+<p>一个服务器就像一个大楼，大楼中有很多房间，每个房间就是一个端口，端口上的编号成为端口号，端口的编号是从0-65535。</p>
+<p>端口号只有整数，范围是从0 到65535，端口号小于256的定义为常用端口，服务器一般都是通过常用端口号来识别的。所有TCP/IP实现所提供的服务都用1-1023之间，客户端口号因存在时间很短暂又称临时端口号，大多数TCP/IP实现给临时端口号分配1024-5000之间的端口号。大于5000的端口号是为其他服务器预留的</p>
+<p><img loading="lazy" decoding="async" width="574" height="141" class="wp-image-585" src="/wp-content/uploads/2018/05/word-image-497.png" srcset="/wp-content/uploads/2018/05/word-image-497.png 574w, /wp-content/uploads/2018/05/word-image-497-300x74.png 300w" sizes="(max-width: 574px) 100vw, 574px" /></p>
+<h3>IP地址和域名</h3>
+<p>IP：用来区分每台计算机的地址</p>
+<p><img loading="lazy" decoding="async" width="360" height="49" class="wp-image-586" src="/wp-content/uploads/2018/05/word-image-498.png" srcset="/wp-content/uploads/2018/05/word-image-498.png 360w, /wp-content/uploads/2018/05/word-image-498-300x41.png 300w" sizes="(max-width: 360px) 100vw, 360px" /></p>
+<p>域名：一个域名对应一个IP地址，就是IP地址的别名</p>
+<p><img loading="lazy" decoding="async" width="665" height="228" class="wp-image-587" src="/wp-content/uploads/2018/05/word-image-499.png" srcset="/wp-content/uploads/2018/05/word-image-499.png 665w, /wp-content/uploads/2018/05/word-image-499-300x103.png 300w" sizes="(max-width: 665px) 100vw, 665px" /></p>
+<h2>PHP优点</h2>
+<ol>
+<li>开源的，源码开放</li>
+<li>跨平台：PHP既能运行在windows上，也能运行在Linux上</li>
+<li>语法简单，上手快</li>
+</ol>
+<h2>需要用到的DOS命令</h2>
+<h3>打开命令行面板</h3>
+<p>方法一：直接点击命令提示符进入</p>
+<p><img loading="lazy" decoding="async" width="221" height="55" class="wp-image-588" src="/wp-content/uploads/2018/05/word-image-500.png" srcset="/wp-content/uploads/2018/05/word-image-500.png 221w, /wp-content/uploads/2018/05/word-image-500-220x55.png 220w" sizes="(max-width: 221px) 100vw, 221px" /></p>
+<p>方法二：花键+R，打开运行面板，输入cmd，点击确定</p>
+<p><img loading="lazy" decoding="async" width="411" height="230" class="wp-image-589" src="/wp-content/uploads/2018/05/word-image-501.png" srcset="/wp-content/uploads/2018/05/word-image-501.png 411w, /wp-content/uploads/2018/05/word-image-501-300x168.png 300w" sizes="(max-width: 411px) 100vw, 411px" /></p>
+<h3>两个命令</h3>
+<p><img loading="lazy" decoding="async" width="586" height="175" class="wp-image-590" src="/wp-content/uploads/2018/05/word-image-502.png" srcset="/wp-content/uploads/2018/05/word-image-502.png 586w, /wp-content/uploads/2018/05/word-image-502-300x90.png 300w" sizes="(max-width: 586px) 100vw, 586px" /></p>
+<h2>安装Apache</h2>
+<p>apache默认的端口是80。</p>
+<h3>查看80端口是否被占用</h3>
+<p>通过netstat –ano查看端口占用情况</p>
+<p><img loading="lazy" decoding="async" width="810" height="281" class="wp-image-591" src="/wp-content/uploads/2018/05/word-image-503.png" srcset="/wp-content/uploads/2018/05/word-image-503.png 810w, /wp-content/uploads/2018/05/word-image-503-300x104.png 300w, /wp-content/uploads/2018/05/word-image-503-768x266.png 768w" sizes="(max-width: 810px) 100vw, 810px" /></p>
+<p>如果80端口被占用，</p>
+<p>方法一（关闭占用80端口的进程）：通过进程编号（PID）查看一下是哪个进程占用了80端口，通过PID在任务管理器中找到对应的进程或服务，右键关闭对应的进程或服务即可。</p>
+<p>方法二：更改Apache的运行端口。</p>
+<p>&nbsp;</p>
+<p><img loading="lazy" decoding="async" width="502" height="180" class="wp-image-592" src="/wp-content/uploads/2018/05/word-image-504.png" srcset="/wp-content/uploads/2018/05/word-image-504.png 502w, /wp-content/uploads/2018/05/word-image-504-300x108.png 300w" sizes="(max-width: 502px) 100vw, 502px" /></p>
+<h3>获取Apache的安装文件</h3>
+<p><img loading="lazy" decoding="async" width="256" height="20" class="wp-image-593" src="/wp-content/uploads/2018/05/word-image-505.png" /></p>
+<h3>双击安装</h3>
+<ol>
+<li>新建wamp文件夹，用来部署PHP运行环境，</li>
+<li>在wamp文件夹下创建Apache文件夹，用来安装Apache软件</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="550" height="108" class="wp-image-594" src="/wp-content/uploads/2018/05/word-image-506.png" srcset="/wp-content/uploads/2018/05/word-image-506.png 550w, /wp-content/uploads/2018/05/word-image-506-300x59.png 300w" sizes="(max-width: 550px) 100vw, 550px" /></p>
+<ol>
+<li>双击安装</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="507" height="387" class="wp-image-595" src="/wp-content/uploads/2018/05/word-image-507.png" srcset="/wp-content/uploads/2018/05/word-image-507.png 507w, /wp-content/uploads/2018/05/word-image-507-300x229.png 300w" sizes="(max-width: 507px) 100vw, 507px" /> <img loading="lazy" decoding="async" width="510" height="388" class="wp-image-596" src="/wp-content/uploads/2018/05/word-image-508.png" srcset="/wp-content/uploads/2018/05/word-image-508.png 510w, /wp-content/uploads/2018/05/word-image-508-300x228.png 300w" sizes="(max-width: 510px) 100vw, 510px" /> <img loading="lazy" decoding="async" width="513" height="389" class="wp-image-597" src="/wp-content/uploads/2018/05/word-image-509.png" srcset="/wp-content/uploads/2018/05/word-image-509.png 513w, /wp-content/uploads/2018/05/word-image-509-300x227.png 300w" sizes="(max-width: 513px) 100vw, 513px" /> <img loading="lazy" decoding="async" width="503" height="389" class="wp-image-598" src="/wp-content/uploads/2018/05/word-image-510.png" srcset="/wp-content/uploads/2018/05/word-image-510.png 503w, /wp-content/uploads/2018/05/word-image-510-300x232.png 300w" sizes="(max-width: 503px) 100vw, 503px" /> <img loading="lazy" decoding="async" width="502" height="384" class="wp-image-599" src="/wp-content/uploads/2018/05/word-image-511.png" srcset="/wp-content/uploads/2018/05/word-image-511.png 502w, /wp-content/uploads/2018/05/word-image-511-300x229.png 300w" sizes="(max-width: 502px) 100vw, 502px" /> <img loading="lazy" decoding="async" width="506" height="382" class="wp-image-600" src="/wp-content/uploads/2018/05/word-image-512.png" srcset="/wp-content/uploads/2018/05/word-image-512.png 506w, /wp-content/uploads/2018/05/word-image-512-300x226.png 300w" sizes="(max-width: 506px) 100vw, 506px" /> <img loading="lazy" decoding="async" width="500" height="380" class="wp-image-601" src="/wp-content/uploads/2018/05/word-image-513.png" srcset="/wp-content/uploads/2018/05/word-image-513.png 500w, /wp-content/uploads/2018/05/word-image-513-300x228.png 300w" sizes="(max-width: 500px) 100vw, 500px" /> <img loading="lazy" decoding="async" width="508" height="388" class="wp-image-602" src="/wp-content/uploads/2018/05/word-image-514.png" srcset="/wp-content/uploads/2018/05/word-image-514.png 508w, /wp-content/uploads/2018/05/word-image-514-300x229.png 300w" sizes="(max-width: 508px) 100vw, 508px" /></p>
+<p>安装完毕后，在状态栏的右下角出现如下图标</p>
+<p><img loading="lazy" decoding="async" width="220" height="68" class="wp-image-603" src="/wp-content/uploads/2018/05/word-image-515.png" /></p>
+<h3>测试Apache服务器是否安装成功</h3>
+<p>访问服务器语法：<a href="http://IP/" class="broken_link">http://IP/</a>地址[:端口号]</p>
+<p>127.0.0.1表示本地电脑，也可以写成localhost（local：本地 host：主机）</p>
+<p>比如：<a href="http://127.0.0.1/">http://127.0.0.1/</a>:80</p>
+<p>在浏览器中输入<a href="http://127.0.0.1/">http://127.0.0.1/</a>[:端口号]或者<a href="http://localhost/" class="broken_link">http://localhost/</a>[:端口号]显示it works表示apache运行正常</p>
+<p><img loading="lazy" decoding="async" width="576" height="117" class="wp-image-604" src="/wp-content/uploads/2018/05/word-image-516.png" srcset="/wp-content/uploads/2018/05/word-image-516.png 576w, /wp-content/uploads/2018/05/word-image-516-300x61.png 300w" sizes="(max-width: 576px) 100vw, 576px" /> <img loading="lazy" decoding="async" width="594" height="112" class="wp-image-605" src="/wp-content/uploads/2018/05/word-image-517.png" srcset="/wp-content/uploads/2018/05/word-image-517.png 594w, /wp-content/uploads/2018/05/word-image-517-300x57.png 300w" sizes="(max-width: 594px) 100vw, 594px" /></p>
+<h3>Apache的启动\关闭\重启操作</h3>
+<p>方法一：鼠标左键点击Apache图标</p>
+<p><img loading="lazy" decoding="async" width="390" height="99" class="wp-image-606" src="/wp-content/uploads/2018/05/word-image-518.png" srcset="/wp-content/uploads/2018/05/word-image-518.png 390w, /wp-content/uploads/2018/05/word-image-518-300x76.png 300w" sizes="(max-width: 390px) 100vw, 390px" /></p>
+<p>方法二：鼠标右键Apache图标</p>
+<p><img loading="lazy" decoding="async" width="343" height="80" class="wp-image-607" src="/wp-content/uploads/2018/05/word-image-519.png" srcset="/wp-content/uploads/2018/05/word-image-519.png 343w, /wp-content/uploads/2018/05/word-image-519-300x70.png 300w" sizes="(max-width: 343px) 100vw, 343px" /> <img loading="lazy" decoding="async" width="532" height="322" class="wp-image-608" src="/wp-content/uploads/2018/05/word-image-520.png" srcset="/wp-content/uploads/2018/05/word-image-520.png 532w, /wp-content/uploads/2018/05/word-image-520-300x182.png 300w" sizes="(max-width: 532px) 100vw, 532px" /></p>
+<p>方法三：在控制面板——管理工具——服务</p>
+<p><img loading="lazy" decoding="async" width="769" height="262" class="wp-image-609" src="/wp-content/uploads/2018/05/word-image-521.png" srcset="/wp-content/uploads/2018/05/word-image-521.png 769w, /wp-content/uploads/2018/05/word-image-521-300x102.png 300w, /wp-content/uploads/2018/05/word-image-521-768x262.png 768w" sizes="(max-width: 769px) 100vw, 769px" /> <img loading="lazy" decoding="async" width="604" height="348" class="wp-image-610" src="/wp-content/uploads/2018/05/word-image-522.png" srcset="/wp-content/uploads/2018/05/word-image-522.png 604w, /wp-content/uploads/2018/05/word-image-522-300x173.png 300w" sizes="(max-width: 604px) 100vw, 604px" /></p>
+<p>方法四：通过apache命令，Apache的命令在bin目录中</p>
+<p>在wamp\Apache\bin目录中，有一个httpd.exe文件，这个文件用来执行Apache的命令。</p>
+<p><img loading="lazy" decoding="async" width="723" height="407" class="wp-image-611" src="/wp-content/uploads/2018/05/word-image-523.png" srcset="/wp-content/uploads/2018/05/word-image-523.png 723w, /wp-content/uploads/2018/05/word-image-523-300x169.png 300w" sizes="(max-width: 723px) 100vw, 723px" /></p>
+<p>在命令行中通过Apache的命令来控制服务</p>
+<p><img loading="lazy" decoding="async" width="744" height="308" class="wp-image-612" src="/wp-content/uploads/2018/05/word-image-524.png" srcset="/wp-content/uploads/2018/05/word-image-524.png 744w, /wp-content/uploads/2018/05/word-image-524-300x124.png 300w" sizes="(max-width: 744px) 100vw, 744px" /></p>
+<p>脚下留心：在安装apache的路径不能出现中文</p>
+<p><img loading="lazy" decoding="async" width="386" height="63" class="wp-image-613" src="/wp-content/uploads/2018/05/word-image-525.png" srcset="/wp-content/uploads/2018/05/word-image-525.png 386w, /wp-content/uploads/2018/05/word-image-525-300x49.png 300w" sizes="(max-width: 386px) 100vw, 386px" /></p>
+<h3>配置环境变量</h3>
+<p>我们现在执行httpd指令必须到apache/bin目录下，如果我们配置了环境变量就可以在任意的目录下执行httpd指令</p>
+<p>第一步：我的电脑——右键</p>
+<p><img loading="lazy" decoding="async" width="666" height="302" class="wp-image-614" src="/wp-content/uploads/2018/05/word-image-526.png" srcset="/wp-content/uploads/2018/05/word-image-526.png 666w, /wp-content/uploads/2018/05/word-image-526-300x136.png 300w" sizes="(max-width: 666px) 100vw, 666px" /></p>
+<p>第二步：点击“高级系统设置”</p>
+<p><img loading="lazy" decoding="async" width="540" height="186" class="wp-image-615" src="/wp-content/uploads/2018/05/word-image-527.png" srcset="/wp-content/uploads/2018/05/word-image-527.png 540w, /wp-content/uploads/2018/05/word-image-527-300x103.png 300w" sizes="(max-width: 540px) 100vw, 540px" /></p>
+<p>第三步：点击“环境变量”</p>
+<p><img loading="lazy" decoding="async" width="476" height="514" class="wp-image-616" src="/wp-content/uploads/2018/05/word-image-528.png" srcset="/wp-content/uploads/2018/05/word-image-528.png 476w, /wp-content/uploads/2018/05/word-image-528-278x300.png 278w" sizes="(max-width: 476px) 100vw, 476px" /></p>
+<p>第四步：选中Path，点击“编辑”</p>
+<p><img loading="lazy" decoding="async" width="448" height="477" class="wp-image-617" src="/wp-content/uploads/2018/05/word-image-529.png" srcset="/wp-content/uploads/2018/05/word-image-529.png 448w, /wp-content/uploads/2018/05/word-image-529-282x300.png 282w" sizes="(max-width: 448px) 100vw, 448px" /></p>
+<p>第五步：将httpd.exe文件所在的目录添加到path中</p>
+<p><img loading="lazy" decoding="async" width="396" height="172" class="wp-image-618" src="/wp-content/uploads/2018/05/word-image-530.png" srcset="/wp-content/uploads/2018/05/word-image-530.png 396w, /wp-content/uploads/2018/05/word-image-530-300x130.png 300w" sizes="(max-width: 396px) 100vw, 396px" /></p>
+<p><strong>测试：</strong></p>
+<p>重新开启命令行</p>
+<p><img loading="lazy" decoding="async" width="582" height="76" class="wp-image-619" src="/wp-content/uploads/2018/05/word-image-531.png" srcset="/wp-content/uploads/2018/05/word-image-531.png 582w, /wp-content/uploads/2018/05/word-image-531-300x39.png 300w" sizes="(max-width: 582px) 100vw, 582px" /></p>
+<p>执行原理：</p>
+<ol>
+<li>首先在当前目录下寻找httpd指令,如果有就执行，如果没有就到环境变量的Path中去找</li>
+<li>Path中的每个路径之间用分号隔开，从左往右依次寻找。</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="380" height="83" class="wp-image-620" src="/wp-content/uploads/2018/05/word-image-532.png" srcset="/wp-content/uploads/2018/05/word-image-532.png 380w, /wp-content/uploads/2018/05/word-image-532-300x66.png 300w" sizes="(max-width: 380px) 100vw, 380px" /></p>
+<h3>apache的目录结构</h3>
+<p><img loading="lazy" decoding="async" width="593" height="261" class="wp-image-621" src="/wp-content/uploads/2018/05/word-image-533.png" srcset="/wp-content/uploads/2018/05/word-image-533.png 593w, /wp-content/uploads/2018/05/word-image-533-300x132.png 300w" sizes="(max-width: 593px) 100vw, 593px" /></p>
+<p>Apache的配置文件</p>
+<p><img loading="lazy" decoding="async" width="487" height="157" class="wp-image-622" src="/wp-content/uploads/2018/05/word-image-534.png" srcset="/wp-content/uploads/2018/05/word-image-534.png 487w, /wp-content/uploads/2018/05/word-image-534-300x97.png 300w" sizes="(max-width: 487px) 100vw, 487px" /></p>
+<h3>Apache启动过程</h3>
+<p><img loading="lazy" decoding="async" width="781" height="446" class="wp-image-623" src="/wp-content/uploads/2018/05/word-image-535.png" srcset="/wp-content/uploads/2018/05/word-image-535.png 781w, /wp-content/uploads/2018/05/word-image-535-300x171.png 300w, /wp-content/uploads/2018/05/word-image-535-768x439.png 768w" sizes="(max-width: 781px) 100vw, 781px" /></p>
+<p>所以更改Apache的配置文件后要重新启动服务器</p>
+<h3>Apache三个常用的命令</h3>
+<p>httpd -v：显示apache的版本</p>
+<p><img loading="lazy" decoding="async" width="644" height="68" class="wp-image-624" src="/wp-content/uploads/2018/05/word-image-536.png" srcset="/wp-content/uploads/2018/05/word-image-536.png 644w, /wp-content/uploads/2018/05/word-image-536-300x32.png 300w" sizes="(max-width: 644px) 100vw, 644px" /></p>
+<p>httpd -t，用来检测apache的配置有无错误</p>
+<p><img loading="lazy" decoding="async" width="1022" height="86" class="wp-image-625" src="/wp-content/uploads/2018/05/word-image-537.png" srcset="/wp-content/uploads/2018/05/word-image-537.png 1022w, /wp-content/uploads/2018/05/word-image-537-300x25.png 300w, /wp-content/uploads/2018/05/word-image-537-768x65.png 768w" sizes="(max-width: 1022px) 100vw, 1022px" /></p>
+<p>httpd -M：显示加载的模块</p>
+<p><img loading="lazy" decoding="async" width="689" height="225" class="wp-image-626" src="/wp-content/uploads/2018/05/word-image-538.png" srcset="/wp-content/uploads/2018/05/word-image-538.png 689w, /wp-content/uploads/2018/05/word-image-538-300x98.png 300w" sizes="(max-width: 689px) 100vw, 689px" /></p>
+<p><strong>解决服务器名的问题</strong></p>
+<p><img loading="lazy" decoding="async" width="1010" height="81" class="wp-image-627" src="/wp-content/uploads/2018/05/word-image-539.png" srcset="/wp-content/uploads/2018/05/word-image-539.png 1010w, /wp-content/uploads/2018/05/word-image-539-300x24.png 300w, /wp-content/uploads/2018/05/word-image-539-768x62.png 768w" sizes="(max-width: 1010px) 100vw, 1010px" /></p>
+<p>打开httpd.conf配置文件</p>
+<p><img loading="lazy" decoding="async" width="596" height="29" class="wp-image-628" src="/wp-content/uploads/2018/05/word-image-540.png" srcset="/wp-content/uploads/2018/05/word-image-540.png 596w, /wp-content/uploads/2018/05/word-image-540-300x15.png 300w" sizes="(max-width: 596px) 100vw, 596px" /></p>
+<p>保存，并重启服务器</p>
+<p><img loading="lazy" decoding="async" width="576" height="53" class="wp-image-629" src="/wp-content/uploads/2018/05/word-image-541.png" srcset="/wp-content/uploads/2018/05/word-image-541.png 576w, /wp-content/uploads/2018/05/word-image-541-300x28.png 300w" sizes="(max-width: 576px) 100vw, 576px" /></p>
+<h3>Apache配置文件语法</h3>
+<ul>
+<li>配置文件中的指令是不区分大小写的</li>
+<li>指令的参数(argument) 是区分大小写的</li>
+<li>&#8220;#&#8221;是注解</li>
+</ul>
+<h2>PHP安装</h2>
+<h3>获取安装包</h3>
+<p><img loading="lazy" decoding="async" width="188" height="18" class="wp-image-630" src="/wp-content/uploads/2018/05/word-image-542.png" /></p>
+<p>将安装包拷贝WAMP下，并改名为php</p>
+<p><img loading="lazy" decoding="async" width="513" height="112" class="wp-image-631" src="/wp-content/uploads/2018/05/word-image-543.png" srcset="/wp-content/uploads/2018/05/word-image-543.png 513w, /wp-content/uploads/2018/05/word-image-543-300x65.png 300w" sizes="(max-width: 513px) 100vw, 513px" /></p>
+<p>到此，PHP安装完毕！</p>
+<h3>判断PHP版本</h3>
+<p><img loading="lazy" decoding="async" width="683" height="86" class="wp-image-632" src="/wp-content/uploads/2018/05/word-image-544.png" srcset="/wp-content/uploads/2018/05/word-image-544.png 683w, /wp-content/uploads/2018/05/word-image-544-300x38.png 300w" sizes="(max-width: 683px) 100vw, 683px" /></p>
+<h3>将PHP作为一个模块提供给apache加载</h3>
+<p>现在PHP和Apache之间是没有关联的，我们要让Apache启动的时候加载PHP</p>
+<p><img loading="lazy" decoding="async" width="847" height="406" class="wp-image-633" src="/wp-content/uploads/2018/05/word-image-545.png" srcset="/wp-content/uploads/2018/05/word-image-545.png 847w, /wp-content/uploads/2018/05/word-image-545-300x144.png 300w, /wp-content/uploads/2018/05/word-image-545-768x368.png 768w" sizes="(max-width: 847px) 100vw, 847px" /></p>
+<p>打开httpd.conf文件，添加导入模块的指令</p>
+<p><img loading="lazy" decoding="async" width="962" height="88" class="wp-image-634" src="/wp-content/uploads/2018/05/word-image-546.png" srcset="/wp-content/uploads/2018/05/word-image-546.png 962w, /wp-content/uploads/2018/05/word-image-546-300x27.png 300w, /wp-content/uploads/2018/05/word-image-546-768x70.png 768w" sizes="(max-width: 962px) 100vw, 962px" /></p>
+<p>重启服务器，测试加载是否成功（httpd -t）</p>
+<p><img loading="lazy" decoding="async" width="567" height="43" class="wp-image-635" src="/wp-content/uploads/2018/05/word-image-547.png" srcset="/wp-content/uploads/2018/05/word-image-547.png 567w, /wp-content/uploads/2018/05/word-image-547-300x23.png 300w" sizes="(max-width: 567px) 100vw, 567px" /></p>
+<p>具体代码参加帮助文档</p>
+<p><img loading="lazy" decoding="async" width="1143" height="375" class="wp-image-636" src="/wp-content/uploads/2018/05/word-image-548.png" srcset="/wp-content/uploads/2018/05/word-image-548.png 1143w, /wp-content/uploads/2018/05/word-image-548-300x98.png 300w, /wp-content/uploads/2018/05/word-image-548-768x252.png 768w, /wp-content/uploads/2018/05/word-image-548-1024x336.png 1024w" sizes="(max-width: 1143px) 100vw, 1143px" /></p>
+<p>测试：</p>
+<p>在htdocs文件夹下写个test.php页面</p>
+<p><img loading="lazy" decoding="async" width="488" height="100" class="wp-image-637" src="/wp-content/uploads/2018/05/word-image-549.png" srcset="/wp-content/uploads/2018/05/word-image-549.png 488w, /wp-content/uploads/2018/05/word-image-549-300x61.png 300w" sizes="(max-width: 488px) 100vw, 488px" /></p>
+<p>代码如下：</p>
+<p><img loading="lazy" decoding="async" width="447" height="79" class="wp-image-638" src="/wp-content/uploads/2018/05/word-image-550.png" srcset="/wp-content/uploads/2018/05/word-image-550.png 447w, /wp-content/uploads/2018/05/word-image-550-300x53.png 300w" sizes="(max-width: 447px) 100vw, 447px" /></p>
+<p>保存，并运行</p>
+<p><img loading="lazy" decoding="async" width="658" height="138" class="wp-image-639" src="/wp-content/uploads/2018/05/word-image-551.png" srcset="/wp-content/uploads/2018/05/word-image-551.png 658w, /wp-content/uploads/2018/05/word-image-551-300x63.png 300w" sizes="(max-width: 658px) 100vw, 658px" /></p>
+<p>原因：因为PHP模块不知道要在什么情况下去执行。</p>
+<h3>在请求PHP页面的时候调用PHP模块</h3>
+<p><img loading="lazy" decoding="async" width="921" height="75" class="wp-image-640" src="/wp-content/uploads/2018/05/word-image-552.png" srcset="/wp-content/uploads/2018/05/word-image-552.png 921w, /wp-content/uploads/2018/05/word-image-552-300x24.png 300w, /wp-content/uploads/2018/05/word-image-552-768x63.png 768w" sizes="(max-width: 921px) 100vw, 921px" /></p>
+<p>思考：如何执行HTML页面中PHP代码</p>
+<p><img loading="lazy" decoding="async" width="818" height="31" class="wp-image-641" src="/wp-content/uploads/2018/05/word-image-553.png" srcset="/wp-content/uploads/2018/05/word-image-553.png 818w, /wp-content/uploads/2018/05/word-image-553-300x11.png 300w, /wp-content/uploads/2018/05/word-image-553-768x29.png 768w" sizes="(max-width: 818px) 100vw, 818px" /></p>
+<h3>加载PHP配置文件</h3>
+<p>PHP的加载原理和Apache一样，也是先读取配置文件，然后加载各个模块（扩展）。</p>
+<p><img loading="lazy" decoding="async" width="709" height="109" class="wp-image-642" src="/wp-content/uploads/2018/05/word-image-554.png" srcset="/wp-content/uploads/2018/05/word-image-554.png 709w, /wp-content/uploads/2018/05/word-image-554-300x46.png 300w" sizes="(max-width: 709px) 100vw, 709px" /></p>
+<p>第一步：打开PHP目录</p>
+<p><img loading="lazy" decoding="async" width="921" height="415" class="wp-image-643" src="/wp-content/uploads/2018/05/word-image-555.png" srcset="/wp-content/uploads/2018/05/word-image-555.png 921w, /wp-content/uploads/2018/05/word-image-555-300x135.png 300w, /wp-content/uploads/2018/05/word-image-555-768x346.png 768w" sizes="(max-width: 921px) 100vw, 921px" /></p>
+<p>第二步：复制php.ini-development一份，并改名php.ini</p>
+<p><img loading="lazy" decoding="async" width="635" height="64" class="wp-image-644" src="/wp-content/uploads/2018/05/word-image-556.png" srcset="/wp-content/uploads/2018/05/word-image-556.png 635w, /wp-content/uploads/2018/05/word-image-556-300x30.png 300w" sizes="(max-width: 635px) 100vw, 635px" /></p>
+<p>第三步：将php.ini拷贝到c：\windows目录下（不推荐使用）</p>
+<p><img loading="lazy" decoding="async" width="658" height="104" class="wp-image-645" src="/wp-content/uploads/2018/05/word-image-557.png" srcset="/wp-content/uploads/2018/05/word-image-557.png 658w, /wp-content/uploads/2018/05/word-image-557-300x47.png 300w" sizes="(max-width: 658px) 100vw, 658px" /></p>
+<p>推荐方法：通过PHPIniDir指令指定php.ini的目录</p>
+<p><img loading="lazy" decoding="async" width="857" height="79" class="wp-image-646" src="/wp-content/uploads/2018/05/word-image-558.png" srcset="/wp-content/uploads/2018/05/word-image-558.png 857w, /wp-content/uploads/2018/05/word-image-558-300x28.png 300w, /wp-content/uploads/2018/05/word-image-558-768x71.png 768w" sizes="(max-width: 857px) 100vw, 857px" /></p>
+<p>测试结果：</p>
+<p><img loading="lazy" decoding="async" width="389" height="54" class="wp-image-647" src="/wp-content/uploads/2018/05/word-image-559.png" srcset="/wp-content/uploads/2018/05/word-image-559.png 389w, /wp-content/uploads/2018/05/word-image-559-300x42.png 300w" sizes="(max-width: 389px) 100vw, 389px" /></p>
+<h3>设置时区</h3>
+<p>当php.ini成功加载后，发现时区无法加载</p>
+<p><img loading="lazy" decoding="async" width="1347" height="153" class="wp-image-648" src="/wp-content/uploads/2018/05/word-image-560.png" srcset="/wp-content/uploads/2018/05/word-image-560.png 1347w, /wp-content/uploads/2018/05/word-image-560-300x34.png 300w, /wp-content/uploads/2018/05/word-image-560-768x87.png 768w, /wp-content/uploads/2018/05/word-image-560-1024x116.png 1024w" sizes="(max-width: 1347px) 100vw, 1347px" /></p>
+<p>打开php.ini</p>
+<p><img loading="lazy" decoding="async" width="735" height="102" class="wp-image-649" src="/wp-content/uploads/2018/05/word-image-561.png" srcset="/wp-content/uploads/2018/05/word-image-561.png 735w, /wp-content/uploads/2018/05/word-image-561-300x42.png 300w" sizes="(max-width: 735px) 100vw, 735px" /></p>
+<p>保存，重启服务器</p>
+<p><img loading="lazy" decoding="async" width="650" height="146" class="wp-image-650" src="/wp-content/uploads/2018/05/word-image-562.png" srcset="/wp-content/uploads/2018/05/word-image-562.png 650w, /wp-content/uploads/2018/05/word-image-562-300x67.png 300w" sizes="(max-width: 650px) 100vw, 650px" /></p>
+<h2>MySQL的安装</h2>
+<h3>获取安装文件</h3>
+<p><img loading="lazy" decoding="async" width="185" height="21" class="wp-image-651" src="/wp-content/uploads/2018/05/word-image-563.png" /></p>
+<h3>双击安装</h3>
+<p><img loading="lazy" decoding="async" width="509" height="396" class="wp-image-652" src="/wp-content/uploads/2018/05/word-image-564.png" srcset="/wp-content/uploads/2018/05/word-image-564.png 509w, /wp-content/uploads/2018/05/word-image-564-300x233.png 300w" sizes="(max-width: 509px) 100vw, 509px" /> <img loading="lazy" decoding="async" width="505" height="383" class="wp-image-653" src="/wp-content/uploads/2018/05/word-image-565.png" srcset="/wp-content/uploads/2018/05/word-image-565.png 505w, /wp-content/uploads/2018/05/word-image-565-300x228.png 300w" sizes="(max-width: 505px) 100vw, 505px" /> <img loading="lazy" decoding="async" width="487" height="386" class="wp-image-654" src="/wp-content/uploads/2018/05/word-image-566.png" srcset="/wp-content/uploads/2018/05/word-image-566.png 487w, /wp-content/uploads/2018/05/word-image-566-300x238.png 300w" sizes="(max-width: 487px) 100vw, 487px" /> <img loading="lazy" decoding="async" width="504" height="384" class="wp-image-655" src="/wp-content/uploads/2018/05/word-image-567.png" srcset="/wp-content/uploads/2018/05/word-image-567.png 504w, /wp-content/uploads/2018/05/word-image-567-300x229.png 300w" sizes="(max-width: 504px) 100vw, 504px" /> <img loading="lazy" decoding="async" width="494" height="385" class="wp-image-656" src="/wp-content/uploads/2018/05/word-image-568.png" srcset="/wp-content/uploads/2018/05/word-image-568.png 494w, /wp-content/uploads/2018/05/word-image-568-300x234.png 300w" sizes="(max-width: 494px) 100vw, 494px" /> <img loading="lazy" decoding="async" width="502" height="389" class="wp-image-657" src="/wp-content/uploads/2018/05/word-image-569.png" srcset="/wp-content/uploads/2018/05/word-image-569.png 502w, /wp-content/uploads/2018/05/word-image-569-300x232.png 300w" sizes="(max-width: 502px) 100vw, 502px" /> <img loading="lazy" decoding="async" width="509" height="385" class="wp-image-658" src="/wp-content/uploads/2018/05/word-image-570.png" srcset="/wp-content/uploads/2018/05/word-image-570.png 509w, /wp-content/uploads/2018/05/word-image-570-300x227.png 300w" sizes="(max-width: 509px) 100vw, 509px" /> <img loading="lazy" decoding="async" width="517" height="387" class="wp-image-659" src="/wp-content/uploads/2018/05/word-image-571.png" srcset="/wp-content/uploads/2018/05/word-image-571.png 517w, /wp-content/uploads/2018/05/word-image-571-300x225.png 300w" sizes="(max-width: 517px) 100vw, 517px" /> <img loading="lazy" decoding="async" width="504" height="386" class="wp-image-660" src="/wp-content/uploads/2018/05/word-image-572.png" srcset="/wp-content/uploads/2018/05/word-image-572.png 504w, /wp-content/uploads/2018/05/word-image-572-300x230.png 300w" sizes="(max-width: 504px) 100vw, 504px" /> <img loading="lazy" decoding="async" width="505" height="384" class="wp-image-661" src="/wp-content/uploads/2018/05/word-image-573.png" srcset="/wp-content/uploads/2018/05/word-image-573.png 505w, /wp-content/uploads/2018/05/word-image-573-300x228.png 300w" sizes="(max-width: 505px) 100vw, 505px" /> <img loading="lazy" decoding="async" width="506" height="387" class="wp-image-662" src="/wp-content/uploads/2018/05/word-image-574.png" srcset="/wp-content/uploads/2018/05/word-image-574.png 506w, /wp-content/uploads/2018/05/word-image-574-300x229.png 300w" sizes="(max-width: 506px) 100vw, 506px" /> <img loading="lazy" decoding="async" width="509" height="378" class="wp-image-663" src="/wp-content/uploads/2018/05/word-image-575.png" srcset="/wp-content/uploads/2018/05/word-image-575.png 509w, /wp-content/uploads/2018/05/word-image-575-300x223.png 300w" sizes="(max-width: 509px) 100vw, 509px" /> <img loading="lazy" decoding="async" width="520" height="387" class="wp-image-664" src="/wp-content/uploads/2018/05/word-image-576.png" srcset="/wp-content/uploads/2018/05/word-image-576.png 520w, /wp-content/uploads/2018/05/word-image-576-300x223.png 300w" sizes="(max-width: 520px) 100vw, 520px" /> <img loading="lazy" decoding="async" width="510" height="383" class="wp-image-665" src="/wp-content/uploads/2018/05/word-image-577.png" srcset="/wp-content/uploads/2018/05/word-image-577.png 510w, /wp-content/uploads/2018/05/word-image-577-300x225.png 300w" sizes="(max-width: 510px) 100vw, 510px" /> <img loading="lazy" decoding="async" width="509" height="383" class="wp-image-666" src="/wp-content/uploads/2018/05/word-image-578.png" srcset="/wp-content/uploads/2018/05/word-image-578.png 509w, /wp-content/uploads/2018/05/word-image-578-300x226.png 300w" sizes="(max-width: 509px) 100vw, 509px" /> <img loading="lazy" decoding="async" width="502" height="380" class="wp-image-667" src="/wp-content/uploads/2018/05/word-image-579.png" srcset="/wp-content/uploads/2018/05/word-image-579.png 502w, /wp-content/uploads/2018/05/word-image-579-300x227.png 300w" sizes="(max-width: 502px) 100vw, 502px" /> <img loading="lazy" decoding="async" width="506" height="381" class="wp-image-668" src="/wp-content/uploads/2018/05/word-image-580.png" srcset="/wp-content/uploads/2018/05/word-image-580.png 506w, /wp-content/uploads/2018/05/word-image-580-300x226.png 300w" sizes="(max-width: 506px) 100vw, 506px" /> <img loading="lazy" decoding="async" width="504" height="384" class="wp-image-669" src="/wp-content/uploads/2018/05/word-image-581.png" srcset="/wp-content/uploads/2018/05/word-image-581.png 504w, /wp-content/uploads/2018/05/word-image-581-300x229.png 300w" sizes="(max-width: 504px) 100vw, 504px" /> <img loading="lazy" decoding="async" width="504" height="385" class="wp-image-671" src="/wp-content/uploads/2018/05/word-image-582.png" srcset="/wp-content/uploads/2018/05/word-image-582.png 504w, /wp-content/uploads/2018/05/word-image-582-300x229.png 300w" sizes="(max-width: 504px) 100vw, 504px" /> <img loading="lazy" decoding="async" width="506" height="390" class="wp-image-672" src="/wp-content/uploads/2018/05/word-image-583.png" srcset="/wp-content/uploads/2018/05/word-image-583.png 506w, /wp-content/uploads/2018/05/word-image-583-300x231.png 300w" sizes="(max-width: 506px) 100vw, 506px" /></p>
+<h3>MySQL目录</h3>
+<p><img loading="lazy" decoding="async" width="610" height="326" class="wp-image-673" src="/wp-content/uploads/2018/05/word-image-584.png" srcset="/wp-content/uploads/2018/05/word-image-584.png 610w, /wp-content/uploads/2018/05/word-image-584-300x160.png 300w" sizes="(max-width: 610px) 100vw, 610px" /></p>
+<h2>加载PHP中的扩展</h2>
+<p>PHP本身没有功能，PHP功能是通过加载PHP扩展得来</p>
+<p><img loading="lazy" decoding="async" width="400" height="138" class="wp-image-674" src="/wp-content/uploads/2018/05/word-image-585.png" srcset="/wp-content/uploads/2018/05/word-image-585.png 400w, /wp-content/uploads/2018/05/word-image-585-300x104.png 300w" sizes="(max-width: 400px) 100vw, 400px" /></p>
+<p>默认PHP扩展加载位置</p>
+<p><img loading="lazy" decoding="async" width="788" height="33" class="wp-image-675" src="/wp-content/uploads/2018/05/word-image-586.png" srcset="/wp-content/uploads/2018/05/word-image-586.png 788w, /wp-content/uploads/2018/05/word-image-586-300x13.png 300w, /wp-content/uploads/2018/05/word-image-586-768x32.png 768w" sizes="(max-width: 788px) 100vw, 788px" /></p>
+<p>打开php.ini</p>
+<p><img loading="lazy" decoding="async" width="841" height="57" class="wp-image-676" src="/wp-content/uploads/2018/05/word-image-587.png" srcset="/wp-content/uploads/2018/05/word-image-587.png 841w, /wp-content/uploads/2018/05/word-image-587-300x20.png 300w, /wp-content/uploads/2018/05/word-image-587-768x52.png 768w" sizes="(max-width: 841px) 100vw, 841px" /></p>
+<p>保存并重启服务</p>
+<p><img loading="lazy" decoding="async" width="751" height="32" class="wp-image-677" src="/wp-content/uploads/2018/05/word-image-588.png" srcset="/wp-content/uploads/2018/05/word-image-588.png 751w, /wp-content/uploads/2018/05/word-image-588-300x13.png 300w" sizes="(max-width: 751px) 100vw, 751px" /></p>
+<p>加载PHP连接MySQL的扩展</p>
+<p><img loading="lazy" decoding="async" width="782" height="135" class="wp-image-678" src="/wp-content/uploads/2018/05/word-image-589.png" srcset="/wp-content/uploads/2018/05/word-image-589.png 782w, /wp-content/uploads/2018/05/word-image-589-300x52.png 300w, /wp-content/uploads/2018/05/word-image-589-768x133.png 768w" sizes="(max-width: 782px) 100vw, 782px" /></p>
+<p>测试（在PHP页面中写一段连接数据库的代码）</p>
+<p>&lt;?php</p>
+<p>mysql_connect(&#8216;localhost&#8217;,&#8217;root&#8217;,&#8217;aa&#8217;) or die(&#8216;error&#8217;);</p>
+<p>echo &#8216;success&#8217;;</p>
+<p>?&gt;</p>
+<p>运行</p>
+<p><img loading="lazy" decoding="async" width="590" height="127" class="wp-image-679" src="/wp-content/uploads/2018/05/word-image-590.png" srcset="/wp-content/uploads/2018/05/word-image-590.png 590w, /wp-content/uploads/2018/05/word-image-590-300x65.png 300w" sizes="(max-width: 590px) 100vw, 590px" /></p>
+<h2>更改apache虚拟目录</h2>
+<p>打开httpd.conf，通过DocumentRoot指令更改虚拟目录的位置</p>
+<p><img loading="lazy" decoding="async" width="550" height="32" class="wp-image-680" src="/wp-content/uploads/2018/05/word-image-591.png" srcset="/wp-content/uploads/2018/05/word-image-591.png 550w, /wp-content/uploads/2018/05/word-image-591-300x17.png 300w" sizes="(max-width: 550px) 100vw, 550px" /></p>
+<p>测试：在c:\www目录中创建aa.php，访问</p>
+<p><img loading="lazy" decoding="async" width="511" height="161" class="wp-image-681" src="/wp-content/uploads/2018/05/word-image-592.png" srcset="/wp-content/uploads/2018/05/word-image-592.png 511w, /wp-content/uploads/2018/05/word-image-592-300x95.png 300w" sizes="(max-width: 511px) 100vw, 511px" /></p>
+<p>原因：虚拟目录没有访问的权限</p>
+<h2>更改虚拟的目录的权限</h2>
+<p>给c:\www添加可以访问的权限</p>
+<p>&lt;Directory &#8220;C:\www&#8221;&gt;</p>
+<p>Allow from all #允许所有人访问</p>
+<p>&lt;/Directory&gt;</p>
+<p>再次测试就可以访问</p>
+<p><img loading="lazy" decoding="async" width="466" height="97" class="wp-image-682" src="/wp-content/uploads/2018/05/word-image-593.png" srcset="/wp-content/uploads/2018/05/word-image-593.png 466w, /wp-content/uploads/2018/05/word-image-593-300x62.png 300w" sizes="(max-width: 466px) 100vw, 466px" /></p>
+<p>如果不写具体的页面</p>
+<p><img loading="lazy" decoding="async" width="545" height="166" class="wp-image-683" src="/wp-content/uploads/2018/05/word-image-594.png" srcset="/wp-content/uploads/2018/05/word-image-594.png 545w, /wp-content/uploads/2018/05/word-image-594-300x91.png 300w" sizes="(max-width: 545px) 100vw, 545px" /></p>
+<p>通过Options Indexes指令显示文件夹文件的索引</p>
+<p>&lt;Directory &#8220;C:\www&#8221;&gt;</p>
+<p>Options Indexes</p>
+<p>Allow from all</p>
+<p>&lt;/Directory&gt;</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="566" height="186" class="wp-image-684" src="/wp-content/uploads/2018/05/word-image-595.png" srcset="/wp-content/uploads/2018/05/word-image-595.png 566w, /wp-content/uploads/2018/05/word-image-595-300x99.png 300w" sizes="(max-width: 566px) 100vw, 566px" /></p>
+<p>练习</p>
+<ol>
+<li>如下代码结果是什么</li>
+</ol>
+<p>&lt;Directory &#8220;C:\www&#8221;&gt;</p>
+<p>Order deny,allow</p>
+<p>Allow from all</p>
+<p>deny from all</p>
+<p>&lt;/Directory&gt;</p>
+<p>结果：允许所有人访问</p>
+<ol>
+<li>如下代码结果是什么</li>
+</ol>
+<p>&lt;Directory &#8220;C:\www&#8221;&gt;</p>
+<p>Order deny,allow</p>
+<p>Allow from 192.168.101.50</p>
+<p>Deny from 192.168</p>
+<p>&lt;/Directory&gt;</p>
+<p>结果：拒绝192.168开头的除了192.168.101.50以为的所有IP</p>
+<ol>
+<li>如下代码运行结果什么？</li>
+</ol>
+<p>&lt;Directory &#8220;C:\www&#8221;&gt;</p>
+<p>Order deny,allow</p>
+<p>deny from all</p>
+<p>Allow from 127.0.0.1</p>
+<p>&lt;/Directory&gt;</p>
+<p>结果：只允许127.0.0.1访问</p>
+<ol>
+<li>如下代码运行结果是什么</li>
+</ol>
+<p>&lt;Directory &#8220;C:\www&#8221;&gt;</p>
+<p>Order deny,allow</p>
+<p>deny from all</p>
+<p>Allow from www.php.com</p>
+<p>&lt;/Directory&gt;</p>
+<p>结果：只允许<a href="http://www.php.com/">www.php.com</a>的域名访问</p>
+<h2>更改默认首页</h2>
+<p>在httpd.conf中，通过DirectoryIndex指令指定默认首页</p>
+<p><img loading="lazy" decoding="async" width="792" height="72" class="wp-image-685" src="/wp-content/uploads/2018/05/word-image-596.png" srcset="/wp-content/uploads/2018/05/word-image-596.png 792w, /wp-content/uploads/2018/05/word-image-596-300x27.png 300w, /wp-content/uploads/2018/05/word-image-596-768x70.png 768w" sizes="(max-width: 792px) 100vw, 792px" /></p>
+<h2>更改端口</h2>
+<p>默认情况下，端口号是80</p>
+<p>通过Listen指令更改端口</p>
+<p><img loading="lazy" decoding="async" width="586" height="92" class="wp-image-686" src="/wp-content/uploads/2018/05/word-image-597.png" srcset="/wp-content/uploads/2018/05/word-image-597.png 586w, /wp-content/uploads/2018/05/word-image-597-300x47.png 300w" sizes="(max-width: 586px) 100vw, 586px" /></p>
+<p>访问测试</p>
+<p><img loading="lazy" decoding="async" width="433" height="104" class="wp-image-687" src="/wp-content/uploads/2018/05/word-image-598.png" srcset="/wp-content/uploads/2018/05/word-image-598.png 433w, /wp-content/uploads/2018/05/word-image-598-300x72.png 300w" sizes="(max-width: 433px) 100vw, 433px" /></p>
+<h2>DNS解析</h2>
+<p>DNS（Domain Name Server），将输入的域名解析成IP地址的过程。当输入域名的时候操作系统会寻找最近的DNS映射文件。每个计算机上都有个DNS的映射文件</p>
+<p><img loading="lazy" decoding="async" width="886" height="118" class="wp-image-688" src="/wp-content/uploads/2018/05/word-image-599.png" srcset="/wp-content/uploads/2018/05/word-image-599.png 886w, /wp-content/uploads/2018/05/word-image-599-300x40.png 300w, /wp-content/uploads/2018/05/word-image-599-768x102.png 768w" sizes="(max-width: 886px) 100vw, 886px" /></p>
+<p>打开hosts文件</p>
+<p><img loading="lazy" decoding="async" width="650" height="57" class="wp-image-689" src="/wp-content/uploads/2018/05/word-image-600.png" srcset="/wp-content/uploads/2018/05/word-image-600.png 650w, /wp-content/uploads/2018/05/word-image-600-300x26.png 300w" sizes="(max-width: 650px) 100vw, 650px" /></p>
+<p>输入<a href="http://www.baidu.com就会解析到127.0.0.1/" class="broken_link">www.baidu.com</a><a href="http://www.baidu.com就会解析到127.0.0.1/" class="broken_link">就会解析到</a><a href="http://www.baidu.com就会解析到127.0.0.1/" class="broken_link">127.0.0.1</a>的服务器上</p>
+<p><img loading="lazy" decoding="async" width="458" height="83" class="wp-image-690" src="/wp-content/uploads/2018/05/word-image-601.png" srcset="/wp-content/uploads/2018/05/word-image-601.png 458w, /wp-content/uploads/2018/05/word-image-601-300x54.png 300w" sizes="(max-width: 458px) 100vw, 458px" /></p>
+<h2>虚拟主机</h2>
+<p><img loading="lazy" decoding="async" width="349" height="212" class="wp-image-691" src="/wp-content/uploads/2018/05/word-image-602.png" srcset="/wp-content/uploads/2018/05/word-image-602.png 349w, /wp-content/uploads/2018/05/word-image-602-300x182.png 300w" sizes="(max-width: 349px) 100vw, 349px" /></p>
+<p>不同的网站部署在同一个服务器上，但是浏览器访问不同网站感觉是不同的服务器，感觉是每个网站都在不同的主机上，每个网站就是一个虚拟主机。</p>
+<h3>开启虚拟主机</h3>
+<p>打开httpd.conf文件</p>
+<p><img loading="lazy" decoding="async" width="969" height="70" class="wp-image-692" src="/wp-content/uploads/2018/05/word-image-603.png" srcset="/wp-content/uploads/2018/05/word-image-603.png 969w, /wp-content/uploads/2018/05/word-image-603-300x22.png 300w, /wp-content/uploads/2018/05/word-image-603-768x55.png 768w" sizes="(max-width: 969px) 100vw, 969px" /></p>
+<p>打开httpd-vhosts.conf文件，配置虚拟主机</p>
+<p><img loading="lazy" decoding="async" width="850" height="177" class="wp-image-693" src="/wp-content/uploads/2018/05/word-image-604.png" srcset="/wp-content/uploads/2018/05/word-image-604.png 850w, /wp-content/uploads/2018/05/word-image-604-300x62.png 300w, /wp-content/uploads/2018/05/word-image-604-768x160.png 768w" sizes="(max-width: 850px) 100vw, 850px" /></p>
+<p>在hosts中做DNS解析</p>
+<p><img loading="lazy" decoding="async" width="424" height="65" class="wp-image-694" src="/wp-content/uploads/2018/05/word-image-605.png" srcset="/wp-content/uploads/2018/05/word-image-605.png 424w, /wp-content/uploads/2018/05/word-image-605-300x46.png 300w" sizes="(max-width: 424px) 100vw, 424px" /></p>
+<p>测试</p>
+<p><img loading="lazy" decoding="async" width="237" height="86" class="wp-image-695" src="/wp-content/uploads/2018/05/word-image-606.png" /> <img loading="lazy" decoding="async" width="343" height="75" class="wp-image-696" src="/wp-content/uploads/2018/05/word-image-607.png" srcset="/wp-content/uploads/2018/05/word-image-607.png 343w, /wp-content/uploads/2018/05/word-image-607-300x66.png 300w" sizes="(max-width: 343px) 100vw, 343px" /> <img loading="lazy" decoding="async" width="313" height="80" class="wp-image-697" src="/wp-content/uploads/2018/05/word-image-608.png" srcset="/wp-content/uploads/2018/05/word-image-608.png 313w, /wp-content/uploads/2018/05/word-image-608-300x77.png 300w" sizes="(max-width: 313px) 100vw, 313px" /></p>
+<p>站点：存放与网站有关文件的文件夹</p>
+<p>虚拟目录=站点+文件夹的权限</p>
+<p>虚拟主机=虚拟目录+与主机有关的配置</p>
+<h2>分布式部署</h2>
+<p>更改apache和php的配置文件，Apache中的所有虚拟主机都会受到影响。也就是说Apache和PHP的配置作用于所有的虚拟主机。</p>
+<p><img loading="lazy" decoding="async" width="396" height="193" class="wp-image-698" src="/wp-content/uploads/2018/05/word-image-609.png" srcset="/wp-content/uploads/2018/05/word-image-609.png 396w, /wp-content/uploads/2018/05/word-image-609-300x146.png 300w" sizes="(max-width: 396px) 100vw, 396px" /></p>
+<h3>分布式部署文件</h3>
+<ol>
+<li>名字必须是.htaccess</li>
+<li>必须通过编辑器创建</li>
+<li>分布式部署文件在当前目录及子目录下起作用，每个目录中都可以存放分布式部署文件。</li>
+<li>更改.htaccess文件，更改后立即生效，不需要重启启动服务器</li>
+</ol>
+<p>作用：可以通过分布式部署文件更改Apache和PHP的配置</p>
+<h3>更改Apache配置</h3>
+<p>在虚拟主机中，拒绝访问服务器</p>
+<p><img loading="lazy" decoding="async" width="680" height="208" class="wp-image-699" src="/wp-content/uploads/2018/05/word-image-610.png" srcset="/wp-content/uploads/2018/05/word-image-610.png 680w, /wp-content/uploads/2018/05/word-image-610-300x92.png 300w" sizes="(max-width: 680px) 100vw, 680px" /></p>
+<p>在分布式部署文件中再允许访问</p>
+<p><img loading="lazy" decoding="async" width="600" height="126" class="wp-image-700" src="/wp-content/uploads/2018/05/word-image-611.png" srcset="/wp-content/uploads/2018/05/word-image-611.png 600w, /wp-content/uploads/2018/05/word-image-611-300x63.png 300w" sizes="(max-width: 600px) 100vw, 600px" /></p>
+<p>测试</p>
+<p><img loading="lazy" decoding="async" width="397" height="94" class="wp-image-701" src="/wp-content/uploads/2018/05/word-image-612.png" srcset="/wp-content/uploads/2018/05/word-image-612.png 397w, /wp-content/uploads/2018/05/word-image-612-300x71.png 300w" sizes="(max-width: 397px) 100vw, 397px" /></p>
+<h3>更改PHP配置</h3>
+<p>在分布式部署中有两个指令php_flag和php_value</p>
+<p>通过php_flag指令更改开关性质的配置</p>
+<p>通过php_value指令更改值性质的配置</p>
+<p><img loading="lazy" decoding="async" width="1063" height="95" class="wp-image-702" src="/wp-content/uploads/2018/05/word-image-613.png" srcset="/wp-content/uploads/2018/05/word-image-613.png 1063w, /wp-content/uploads/2018/05/word-image-613-300x27.png 300w, /wp-content/uploads/2018/05/word-image-613-768x69.png 768w, /wp-content/uploads/2018/05/word-image-613-1024x92.png 1024w" sizes="(max-width: 1063px) 100vw, 1063px" /></p>
+<h2>WAMP安装总结</h2>
+<p>第一步：安装Apache，输入<a href="http://localhost/" class="broken_link">http://localhost/</a>，显示it works成功</p>
+<p>第二步：安装PHP</p>
+<p>第三步：将PHP作为模块给Apache加载（LoadModule）</p>
+<p>第四步：在访问PHP页面的时候执行PHP模块 addType</p>
+<p>第五步：加载PHP配置文件，PHPIniDir指定php.ini的地址</p>
+<p>第六步：加载PHP扩展，extension_dir指定扩展的路径。</p>
+<h2>集成环境安装</h2>
+<p>集成环境一：</p>
+<p><img loading="lazy" decoding="async" width="179" height="27" class="wp-image-703" src="/wp-content/uploads/2018/05/word-image-614.png" /></p>
+<p>集成环境二：</p>
+<p><img loading="lazy" decoding="async" width="174" height="24" class="wp-image-704" src="/wp-content/uploads/2018/05/word-image-615.png" /></p>
+<h2>作业</h2>
+<ol>
+<li>配置一个虚拟主机用来做PHP站点，在配置一个虚拟主机用来支撑phpMyAdmin。</li>
+<li>如果配置服务器使得HTML中的php代码被解析。</li>
+</ol>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/576.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

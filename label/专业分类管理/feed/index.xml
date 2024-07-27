@@ -1,0 +1,5393 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>专业分类管理 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E4%B8%93%E4%B8%9A%E5%88%86%E7%B1%BB%E7%AE%A1%E7%90%86/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 15:47:15 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>专业分类管理 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Laravel在线教育平台（三）专业分类管理、课程管理、课时管理</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/5892.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/5892.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 15:47:15 +0000</pubDate>
+				<category><![CDATA[Laravel]]></category>
+		<category><![CDATA[Laravel在线教育平台]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[专业分类管理]]></category>
+		<category><![CDATA[课时管理]]></category>
+		<category><![CDATA[课程管理]]></category>
+		<guid isPermaLink="false">/?p=5892</guid>
+
+					<description><![CDATA[Laravel框架实战-在线教育平台（3） ︴准备 1、说明 专业分类数据表 前段 后端 web开发、编程、开 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1><a id="post-5892-_Toc487817413"></a>Laravel框架实战-在线教育平台（3）<a id="post-5892-_Toc487817414"></a></h1>
+<h1>︴准备</h1>
+<h2>1、说明  </h2>
+<p>
+  专业分类数据表
+</p>
+<p>
+  前段 后端  web开发、编程、开发、数据库、大数据
+</p>
+<p>
+  专业数据表（学科表）
+</p>
+<p>
+  PHP  Java   C++  Python    全栈   UI专业
+</p>
+<p>
+  课程数据表
+</p>
+<p>
+  如PHP专业下面有PHP核心编程，Javascript，jquery，ajax，商城项目,TP框架课程，等等
+</p>
+<p>
+  课时数据表
+</p>
+<p>
+  如PHP专业下面的PHP核心编程课程下面有，php的函数，PHP的数组，php的文件上传。
+</p>
+<p>
+  它们的关系如下图：
+</p>
+<p><img fetchpriority="high" decoding="async" width="862" height="391" src="/wp-content/uploads/2018/05/word-image-5353.png" class="wp-image-5893" srcset="/wp-content/uploads/2018/05/word-image-5353.png 862w, /wp-content/uploads/2018/05/word-image-5353-300x136.png 300w, /wp-content/uploads/2018/05/word-image-5353-768x348.png 768w" sizes="(max-width: 862px) 100vw, 862px" /></p>
+<p>
+  点播: 点击课时直接播放视频
+</p>
+<p>
+  直播：对面有人和你试试互动看到的画面
+</p>
+<h2>数据字典</h2>
+<h3>后台专业分类表（protype）</h3>
+<table>
+<tr>
+<td>
+<p><strong>表名</strong>
+</p>
+</td>
+<td colspan="6">
+<p>
+  protype
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>序号</strong>
+</p>
+</td>
+<td>
+<p><strong>字段</strong>
+</p>
+</td>
+<td>
+<p><strong>类型</strong>
+</p>
+</td>
+<td>
+<p><strong>说明</strong>
+</p>
+</td>
+<td>
+<p><strong>空</strong>
+</p>
+</td>
+<td>
+<p><strong>默认值</strong>
+</p>
+</td>
+<td>
+<p><strong>主键</strong>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  id
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  自增主键
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  N/A
+</p>
+</td>
+<td>
+<p>
+  是
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  2
+</p>
+</td>
+<td>
+<p>
+  protype_name
+</p>
+</td>
+<td>
+<p>
+  varchar(20)
+</p>
+</td>
+<td>
+<p>
+  分类名
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  3
+</p>
+</td>
+<td>
+<p>
+  sort
+</p>
+</td>
+<td>
+<p>
+  tinyint
+</p>
+</td>
+<td>
+<p>
+  排序编号
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  4
+</p>
+</td>
+<td>
+<p>
+  state
+</p>
+</td>
+<td>
+<p>
+  tinyint
+</p>
+</td>
+<td>
+<p>
+  状态：0-禁用，1-启用
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td>
+<p>
+  启用
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  5
+</p>
+</td>
+<td>
+<p>
+  created_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  记录创建时间
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  6
+</p>
+</td>
+<td>
+<p>
+  updated_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  记录更新时间
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</table>
+<h3>后台专业表（profession）</h3>
+<table>
+<tr>
+<td>
+<p><strong>表名</strong>
+</p>
+</td>
+<td colspan="6">
+<p>
+  profession
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>序号</strong>
+</p>
+</td>
+<td>
+<p><strong>字段</strong>
+</p>
+</td>
+<td>
+<p><strong>类型</strong>
+</p>
+</td>
+<td>
+<p><strong>说明</strong>
+</p>
+</td>
+<td>
+<p><strong>空</strong>
+</p>
+</td>
+<td>
+<p><strong>默认值</strong>
+</p>
+</td>
+<td>
+<p><strong>主键</strong>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  id
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  自增主键
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  N/A
+</p>
+</td>
+<td>
+<p>
+  是
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  2
+</p>
+</td>
+<td>
+<p>
+  protype_id
+</p>
+</td>
+<td>
+<p>
+  tinyint
+</p>
+</td>
+<td>
+<p>
+  专业分类表的主键
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  3
+</p>
+</td>
+<td>
+<p>
+  profession_name
+</p>
+</td>
+<td>
+<p>
+  varchar(32)
+</p>
+</td>
+<td>
+<p>
+  专业名称
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  4
+</p>
+</td>
+<td>
+<p>
+  profession_desc
+</p>
+</td>
+<td>
+<p>
+  varchar(255)
+</p>
+</td>
+<td>
+<p>
+  专业描述
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  5
+</p>
+</td>
+<td>
+<p>
+  img
+</p>
+</td>
+<td>
+<p>
+  varchar(255)
+</p>
+</td>
+<td>
+<p>
+  在列表页面展示的图片地址
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  6
+</p>
+</td>
+<td>
+<p>
+  updated_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  创建于
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  7
+</p>
+</td>
+<td>
+<p>
+  created_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  更新于
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+</table>
+<h3>后台课程表（course）</h3>
+<table>
+<tr>
+<td>
+<p><strong>表名</strong>
+</p>
+</td>
+<td colspan="6">
+<p>
+  course
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>序号</strong>
+</p>
+</td>
+<td>
+<p><strong>字段</strong>
+</p>
+</td>
+<td>
+<p><strong>类型</strong>
+</p>
+</td>
+<td>
+<p><strong>说明</strong>
+</p>
+</td>
+<td>
+<p><strong>空</strong>
+</p>
+</td>
+<td>
+<p><strong>默认值</strong>
+</p>
+</td>
+<td>
+<p><strong>主键</strong>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  id
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  自增主键
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  N/A
+</p>
+</td>
+<td>
+<p>
+  是
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  2
+</p>
+</td>
+<td>
+<p>
+  profession_id
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  关联专业id
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  3
+</p>
+</td>
+<td>
+<p>
+  course_name
+</p>
+</td>
+<td>
+<p>
+  varchar(30)
+</p>
+</td>
+<td>
+<p>
+  课程名称
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  4
+</p>
+</td>
+<td>
+<p>
+  course_price
+</p>
+</td>
+<td>
+<p>
+  decimal(9,2)
+</p>
+</td>
+<td>
+<p>
+  课程的价格
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  5
+</p>
+</td>
+<td>
+<p>
+  img
+</p>
+</td>
+<td>
+<p>
+  varchar(120)
+</p>
+</td>
+<td>
+<p>
+  封面地址
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  6
+</p>
+</td>
+<td>
+<p>
+  course_desc
+</p>
+</td>
+<td>
+<p>
+  varchar(255)
+</p>
+</td>
+<td>
+<p>
+  课程描述
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  7
+</p>
+</td>
+<td>
+<p>
+  created_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  记录创建时间
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  8
+</p>
+</td>
+<td>
+<p>
+  updated_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  记录更新时间
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+</table>
+<h3>后台课时点播表（lession）</h3>
+<table>
+<tr>
+<td>
+<p><strong>表名</strong>
+</p>
+</td>
+<td colspan="6">
+<p>
+  lession
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>序号</strong>
+</p>
+</td>
+<td>
+<p><strong>字段</strong>
+</p>
+</td>
+<td>
+<p><strong>类型</strong>
+</p>
+</td>
+<td>
+<p><strong>说明</strong>
+</p>
+</td>
+<td>
+<p><strong>空</strong>
+</p>
+</td>
+<td>
+<p><strong>默认值</strong>
+</p>
+</td>
+<td>
+<p><strong>主键</strong>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  id
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  自增主键
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  N/A
+</p>
+</td>
+<td>
+<p>
+  是
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  2
+</p>
+</td>
+<td>
+<p>
+  course_id
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  所属的课程id，关联课程表
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  3
+</p>
+</td>
+<td>
+<p>
+  img
+</p>
+</td>
+<td>
+<p>
+  varchar(120)
+</p>
+</td>
+<td>
+<p>
+  封面图
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  4
+</p>
+</td>
+<td>
+<p>
+  lession_name
+</p>
+</td>
+<td>
+<p>
+  varchar(50)
+</p>
+</td>
+<td>
+<p>
+  点播记录名
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  5
+</p>
+</td>
+<td>
+<p>
+  video_address
+</p>
+</td>
+<td>
+<p>
+  varchar(255)
+</p>
+</td>
+<td>
+<p>
+  点播视频的地址
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  6
+</p>
+</td>
+<td>
+<p>
+  video_time
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  视频的长度，单位秒
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  7
+</p>
+</td>
+<td>
+<p>
+  teacher_name
+</p>
+</td>
+<td>
+<p>
+  varchar(32)
+</p>
+</td>
+<td>
+<p>
+  讲师名称
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  8
+</p>
+</td>
+<td>
+<p>
+  lesson_desc
+</p>
+</td>
+<td>
+<p>
+  varchar(255)
+</p>
+</td>
+<td>
+<p>
+  课时描述
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  9
+</p>
+</td>
+<td>
+<p>
+  state
+</p>
+</td>
+<td>
+<p>
+  tinyint
+</p>
+</td>
+<td>
+<p>
+  状态：0-禁用，1-启用
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  启用
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  10
+</p>
+</td>
+<td>
+<p>
+  created_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  记录创建时间
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  11
+</p>
+</td>
+<td>
+<p>
+  updated_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  记录更新时间
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+</table>
+<h2>3、迁移</h2>
+<p>
+  步骤1：创建迁移文件 并复制下属代码
+</p>
+<p><img decoding="async" width="1294" height="593" src="/wp-content/uploads/2018/05/word-image-5354.png" class="wp-image-5894" srcset="/wp-content/uploads/2018/05/word-image-5354.png 1294w, /wp-content/uploads/2018/05/word-image-5354-300x137.png 300w, /wp-content/uploads/2018/05/word-image-5354-768x352.png 768w, /wp-content/uploads/2018/05/word-image-5354-1024x469.png 1024w" sizes="(max-width: 1294px) 100vw, 1294px" /></p>
+<p>
+  步骤2：运行
+</p>
+<p><img decoding="async" width="1112" height="467" src="/wp-content/uploads/2018/05/word-image-5355.png" class="wp-image-5895" srcset="/wp-content/uploads/2018/05/word-image-5355.png 1112w, /wp-content/uploads/2018/05/word-image-5355-300x126.png 300w, /wp-content/uploads/2018/05/word-image-5355-768x323.png 768w, /wp-content/uploads/2018/05/word-image-5355-1024x430.png 1024w" sizes="(max-width: 1112px) 100vw, 1112px" /></p>
+<p>
+  /**
+</p>
+<p>
+   * Run the migrations.
+</p>
+<p>
+   *
+</p>
+<p>
+   * @return void
+</p>
+<p>
+   */
+</p>
+<p>
+  public function up()
+</p>
+<p>
+  {
+</p>
+<p>
+  	//创建专业分类表
+</p>
+<p>
+  	Schema::create(&#8216;protype&#8217;,function($table){
+</p>
+<p>
+  		$table-&gt;increments(&#8216;id&#8217;);
+</p>
+<p>
+  		$table-&gt;string(&#8216;protype_name&#8217;,20)-&gt;comment(&#8216;分类名&#8217;);
+</p>
+<p>
+  		$table-&gt;tinyInteger(&#8216;sort&#8217;)-&gt;default(0);
+</p>
+<p>
+  		$table-&gt;unsignedTinyInteger(&#8216;state&#8217;)-&gt;default(1)-&gt;comment(&#8216;状态:0停用1开启&#8217;);
+</p>
+<p>
+  		$table-&gt;unsignedInteger(&#8216;created_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+  		$table-&gt;unsignedInteger(&#8216;updated_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+  	});
+</p>
+<p>
+  	//创建专业表
+</p>
+<p>
+  	Schema::create(&#8216;profession&#8217;, function (Blueprint $table) {
+</p>
+<p>
+  		$table-&gt;increments(&#8216;id&#8217;);
+</p>
+<p>
+  		$table-&gt;string(&#8216;profession_name&#8217;,32)-&gt;comment(&#8216;专业名称&#8217;);
+</p>
+<p>
+  		$table-&gt;unsignedTinyInteger(&#8216;protype_id&#8217;)-&gt;comment(&#8216;专业分类表的主键&#8217;);
+</p>
+<p>
+  		$table-&gt;string(&#8216;img&#8217;,120)-&gt;default(&#8221;)-&gt;comment(&#8216;封面图&#8217;);
+</p>
+<p>
+  		$table-&gt;string(&#8216;profession_desc&#8217;)-&gt;default(&#8221;)-&gt;comment(&#8216;描述&#8217;);
+</p>
+<p>
+             $table-&gt;unsignedInteger(&#8216;created_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+             $table-&gt;unsignedInteger(&#8216;updated_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+  	});
+</p>
+<p>
+  	//创建课程表
+</p>
+<p>
+  	Schema::create(&#8216;course&#8217;, function (Blueprint $table) {
+</p>
+<p>
+  		$table-&gt;increments(&#8216;id&#8217;);
+</p>
+<p>
+  		$table-&gt;string(&#8216;course_name&#8217;,32)-&gt;comment(&#8216;课程名称&#8217;);
+</p>
+<p>
+  		$table-&gt;integer(&#8216;profession_id&#8217;)-&gt;comment(&#8216;课程所属专业的id&#8217;);
+</p>
+<p>
+  		$table-&gt;decimal(&#8216;course_price&#8217;,9,2)-&gt;default(0)-&gt;comment(&#8216;课程的价格&#8217;);
+</p>
+<p>
+  		$table-&gt;string(&#8216;img&#8217;,120)-&gt;default(&#8221;)-&gt;comment(&#8216;封面图&#8217;);
+</p>
+<p>
+  		$table-&gt;string(&#8216;course_desc&#8217;)-&gt;default(&#8221;)-&gt;comment(&#8216;课程描述&#8217;);
+</p>
+<p>
+             $table-&gt;unsignedInteger(&#8216;created_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+             $table-&gt;unsignedInteger(&#8216;updated_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+  	});
+</p>
+<p>
+  	//创建课时表
+</p>
+<p>
+  	Schema::create(&#8216;lesson&#8217;, function (Blueprint $table) {
+</p>
+<p>
+  		$table-&gt;increments(&#8216;id&#8217;);
+</p>
+<p>
+  $table-&gt;integer(&#8216;course_id&#8217;)-&gt;comment(&#8216;课时所属课程的id&#8217;);
+</p>
+<p>
+  $table-&gt;string(&#8216;img&#8217;,120)-&gt;default(&#8221;)-&gt;comment(&#8216;封面图&#8217;);
+</p>
+<p>
+  $table-&gt;string(&#8216;lesson_name&#8217;,32)-&gt;comment(&#8216;课时名称&#8217;);
+</p>
+<p>
+  $table-&gt;string(&#8216;video_address&#8217;,120)-&gt;default(&#8221;)-&gt;comment(&#8216;视频的地址&#8217;);
+</p>
+<p>
+  $table-&gt;integer(&#8216;video_time&#8217;)-&gt;default(10)-&gt;comment(&#8216;课时的时长&#8217;);
+</p>
+<p>
+  $table-&gt;string(&#8216;teacher_name&#8217;,32)-&gt;default(&#8221;)-&gt;comment(&#8216;讲师名称&#8217;);
+</p>
+<p>
+  $table-&gt;string(&#8216;lesson_desc&#8217;)-&gt;default(&#8221;)-&gt;comment(&#8216;课时描述&#8217;);
+</p>
+<p>
+  $table-&gt;unsignedTinyInteger(&#8216;state&#8217;)-&gt;default(1)-&gt;comment(&#8216;状态:0停用1开启&#8217;);
+</p>
+<p>
+  $table-&gt;unsignedInteger(&#8216;created_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+  $table-&gt;unsignedInteger(&#8216;updated_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+  	});
+</p>
+<p>
+  }
+</p>
+<p>
+  /**
+</p>
+<p>
+   * Reverse the migrations.
+</p>
+<p>
+   *
+</p>
+<p>
+   * @return void
+</p>
+<p>
+   */
+</p>
+<p>
+  public function down()
+</p>
+<p>
+  {
+</p>
+<p>
+      Schema::drop(&#8216;protype&#8217;);
+</p>
+<p>
+  	Schema::drop(&#8216;profession&#8217;);
+</p>
+<p>
+  	Schema::drop(&#8216;course&#8217;);
+</p>
+<p>
+  	Schema::drop(&#8216;lesson&#8217;);
+</p>
+<p>
+  }
+</p>
+<h2>4、填充</h2>
+<h3>1）专业分类表（php artisan make:seeder ProtypeTableSeeder）</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  use Illuminate\Database\Seeder;
+</p>
+<p>
+  class ProtypeTableSeeder extends Seeder
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Run the database seeds.
+</p>
+<p>
+       *
+</p>
+<p>
+       * @return void
+</p>
+<p>
+       */
+</p>
+<p>
+      public function run()
+</p>
+<p>
+      {
+</p>
+<p>
+          DB::table(&#8216;protype&#8217;)-&gt;insert([
+</p>
+<p>
+                  [
+</p>
+<p>
+                      &#8216;protype_name&#8217;=&gt;&#8217;后端&#8217;
+</p>
+<p>
+                  ],
+</p>
+<p>
+                  [
+</p>
+<p>
+                      &#8216;protype_name&#8217;=&gt;&#8217;web开发&#8217;
+</p>
+<p>
+                  ],
+</p>
+<p>
+                  [
+</p>
+<p>
+                      &#8216;protype_name&#8217;=&gt;&#8217;运维&#8217;
+</p>
+<p>
+                  ],
+</p>
+<p>
+                  [
+</p>
+<p>
+                      &#8216;protype_name&#8217;=&gt;&#8217;数据库&#8217;
+</p>
+<p>
+                  ],
+</p>
+<p>
+                  [
+</p>
+<p>
+                      &#8216;protype_name&#8217;=&gt;&#8217;大数据&#8217;
+</p>
+<p>
+                  ]
+</p>
+<p>
+          ]);
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h3>2）专业表（php artisan make:seeder ProfessionTableSeeder ）</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  use Illuminate\Database\Seeder;
+</p>
+<p>
+  class ProfessionTableSeeder extends Seeder
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Run the database seeds.
+</p>
+<p>
+       *
+</p>
+<p>
+       * @return void
+</p>
+<p>
+       */
+</p>
+<p>
+      public function run()
+</p>
+<p>
+      {
+</p>
+<p>
+          DB::table(&#8216;profession&#8217;)-&gt;insert([
+</p>
+<p>
+          		[
+</p>
+<p>
+                      &#8216;protype_id&#8217;=&gt; 1,
+</p>
+<p>
+                      &#8216;profession_name&#8217;=&gt;&#8217;PHP学科&#8217;,
+</p>
+<p>
+          			&#8216;profession_desc&#8217;=&gt;&#8217;是世界上最好的语言&#8217;
+</p>
+<p>
+          		],
+</p>
+<p>
+          		[
+</p>
+<p>
+                      &#8216;protype_id&#8217;=&gt; 2,
+</p>
+<p>
+          			&#8216;profession_name&#8217;=&gt;&#8217;HTML5&amp;全栈&#8217;,
+</p>
+<p>
+          			&#8216;profession_desc&#8217;=&gt;&#8217;是世界上最好的语言&#8217;
+</p>
+<p>
+          		],
+</p>
+<p>
+          		[
+</p>
+<p>
+                      &#8216;protype_id&#8217;=&gt; 3,
+</p>
+<p>
+          			&#8216;profession_name&#8217;=&gt;&#8217;Python全栈&#8217;,
+</p>
+<p>
+          			&#8216;profession_desc&#8217;=&gt;&#8217;是世界上最好的语言&#8217;
+</p>
+<p>
+          		]
+</p>
+<p>
+          ]);
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h3>3）课程表（php artisan make:seeder CourseTableSeeder ）</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  use Illuminate\Database\Seeder;
+</p>
+<p>
+  class CourseTableSeeder extends Seeder
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Run the database seeds.
+</p>
+<p>
+       *
+</p>
+<p>
+       * @return void
+</p>
+<p>
+       */
+</p>
+<p>
+      public function run()
+</p>
+<p>
+      {
+</p>
+<p>
+         	DB::table(&#8216;course&#8217;)-&gt;insert([
+</p>
+<p>
+         		[
+</p>
+<p>
+         			&#8216;course_name&#8217;=&gt;&#8217;PHP核心编程&#8217;,
+</p>
+<p>
+         			&#8216;profession_id&#8217;=&gt;1,
+</p>
+<p>
+         			&#8216;course_price&#8217;=&gt;12.34,
+</p>
+<p>
+         			&#8216;course_desc&#8217;=&gt;&#8217;非常经典的课程&#8217;
+</p>
+<p>
+         		],
+</p>
+<p>
+         		[
+</p>
+<p>
+         			&#8216;course_name&#8217;=&gt;&#8217;LInux环境安装&#8217;,
+</p>
+<p>
+         			&#8216;profession_id&#8217;=&gt;2,
+</p>
+<p>
+         			&#8216;course_price&#8217;=&gt;4512.34,
+</p>
+<p>
+         			&#8216;course_desc&#8217;=&gt;&#8217;非常经典的课程&#8217;
+</p>
+<p>
+         		],
+</p>
+<p>
+         		[
+</p>
+<p>
+         			&#8216;course_name&#8217;=&gt;&#8217;PHP文件上传&#8217;,
+</p>
+<p>
+         			&#8216;profession_id&#8217;=&gt;3,
+</p>
+<p>
+         			&#8216;course_price&#8217;=&gt;6712.34,
+</p>
+<p>
+         			&#8216;course_desc&#8217;=&gt;&#8217;非常经典的课程&#8217;
+</p>
+<p>
+         		],
+</p>
+<p>
+         	]);
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h3>4）课时点播表（php artisan make:seeder LessonTableSeeder ）</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  use Illuminate\Database\Seeder;
+</p>
+<p>
+  class LessonTableSeeder extends Seeder
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Run the database seeds.
+</p>
+<p>
+       *
+</p>
+<p>
+       * @return void
+</p>
+<p>
+       */
+</p>
+<p>
+      public function run()
+</p>
+<p>
+      {
+</p>
+<p>
+          //填充lesson表里面的数据
+</p>
+<p>
+          DB::table(&#8216;lesson&#8217;)-&gt;insert([
+</p>
+<p>
+          	[
+</p>
+<p>
+          		&#8216;lesson_name&#8217;=&gt;&#8217;PHP文件上传&#8217;,
+</p>
+<p>
+          		&#8216;course_id&#8217;=&gt;1,
+</p>
+<p>
+          		&#8216;video_time&#8217;=&gt;20,
+</p>
+<p>
+          		&#8216;teacher_name&#8217;=&gt;&#8217;李白&#8217;,
+</p>
+<p>
+          		&#8216;lesson_desc&#8217;=&gt;&#8217;非常经典的课程&#8217;
+</p>
+<p>
+          	],
+</p>
+<p>
+          	[
+</p>
+<p>
+          		&#8216;lesson_name&#8217;=&gt;&#8217;PHP数组&#8217;,
+</p>
+<p>
+          		&#8216;course_id&#8217;=&gt;2,
+</p>
+<p>
+          		&#8216;video_time&#8217;=&gt;30,
+</p>
+<p>
+          		&#8216;teacher_name&#8217;=&gt;&#8217;刘备&#8217;,
+</p>
+<p>
+          		&#8216;lesson_desc&#8217;=&gt;&#8217;非常经典的课程&#8217;
+</p>
+<p>
+          	],
+</p>
+<p>
+          	[
+</p>
+<p>
+          		&#8216;lesson_name&#8217;=&gt;&#8217;ajax的前生今世&#8217;,
+</p>
+<p>
+          		&#8216;course_id&#8217;=&gt;1,
+</p>
+<p>
+          		&#8216;video_time&#8217;=&gt;10,
+</p>
+<p>
+          		&#8216;teacher_name&#8217;=&gt;&#8217;曹操&#8217;,
+</p>
+<p>
+          		&#8216;lesson_desc&#8217;=&gt;&#8217;非常经典的课程&#8217;
+</p>
+<p>
+          	],
+</p>
+<p>
+          	[
+</p>
+<p>
+          		&#8216;lesson_name&#8217;=&gt;&#8217;linux的环境安装&#8217;,
+</p>
+<p>
+          		&#8216;course_id&#8217;=&gt;1,
+</p>
+<p>
+          		&#8216;video_time&#8217;=&gt;15,
+</p>
+<p>
+          		&#8216;teacher_name&#8217;=&gt;&#8217;李逵&#8217;,
+</p>
+<p>
+          		&#8216;lesson_desc&#8217;=&gt;&#8217;非常经典的课程&#8217;
+</p>
+<p>
+          	],
+</p>
+<p>
+          ]);
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h3>︴操作步骤</h3>
+<ul>
+<li>
+    步骤1：创建上述4个填充器
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="862" height="430" src="/wp-content/uploads/2018/05/word-image-5356.png" class="wp-image-5896" srcset="/wp-content/uploads/2018/05/word-image-5356.png 862w, /wp-content/uploads/2018/05/word-image-5356-300x150.png 300w, /wp-content/uploads/2018/05/word-image-5356-768x383.png 768w" sizes="(max-width: 862px) 100vw, 862px" /></p>
+<ul>
+<li>
+    步骤2：创建完毕后将上述代码赋值粘贴到对应填充器中即可
+  </li>
+<li>
+    步骤3：执行所有填充器即可（插入数据）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="700" height="317" src="/wp-content/uploads/2018/05/word-image-5357.png" class="wp-image-5897" srcset="/wp-content/uploads/2018/05/word-image-5357.png 700w, /wp-content/uploads/2018/05/word-image-5357-300x136.png 300w" sizes="(max-width: 700px) 100vw, 700px" /></p>
+<p>
+  php artisan db:seed &#8211;class=ProtypeTableSeeder
+</p>
+<p>
+  php artisan db:seed &#8211;class=ProfessionTableSeeder
+</p>
+<p>
+  php artisan db:seed &#8211;class=CourseTableSeeder
+</p>
+<p>
+  php artisan db:seed &#8211;class=LessonTableSeeder
+</p>
+<h2>5、创建模型</h2>
+<h3>1）专业分类表</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Model;
+</p>
+<p>
+  use Illuminate\Database\Eloquent\Model;
+</p>
+<p>
+  class Protype extends Model
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明表名（注：laravel会自动加s所以自己声明覆盖）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $table = &#8216;protype&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Unix时间戳形式填充创建于和更新于（注：模型默认托管时间但是是datetime类型）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $dateFormat = &#8216;U&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明可批量设置的属性（注：当使用create静态方式时）
+</p>
+<p>
+       * @var array
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $fillable = [&#8216;protype_name&#8217;, &#8216;sort&#8217;, &#8216;state&#8217;];
+</p>
+<p>
+  }
+</p>
+<h3>2）专业表</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Model;
+</p>
+<p>
+  use Illuminate\Database\Eloquent\Model;
+</p>
+<p>
+  class Profession extends Model
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明表名（注：laravel会自动加s所以自己声明覆盖）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $table = &#8216;profession&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Unix时间戳形式填充创建于和更新于（注：模型默认托管时间但是是datetime类型）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $dateFormat = &#8216;U&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明可批量设置的属性（注：当使用create静态方式时）
+</p>
+<p>
+       * @var array
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $fillable = [&#8216;profession_name&#8217;, &#8216;protype_id&#8217;, &#8216;img&#8217;, &#8216;profession_desc&#8217;];
+</p>
+<p>
+  }
+</p>
+<h3>3）课程表</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Model;
+</p>
+<p>
+  use Illuminate\Database\Eloquent\Model;
+</p>
+<p>
+  class Course extends Model
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明表名（注：laravel会自动加s所以自己声明覆盖）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $table = &#8216;course&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Unix时间戳形式填充创建于和更新于（注：模型默认托管时间但是是datetime类型）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $dateFormat = &#8216;U&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明可批量设置的属性（注：当使用create静态方式时）
+</p>
+<p>
+       * @var array
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $fillable = [&#8216;course_name&#8217;, &#8216;profession_id&#8217;, &#8216;course_price&#8217;, &#8216;img&#8217;, &#8216;course_desc&#8217;];
+</p>
+<p>
+  }
+</p>
+<h3>4）课时点播</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Model;
+</p>
+<p>
+  use Illuminate\Database\Eloquent\Model;
+</p>
+<p>
+  class Lession extends Model
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明表名（注：laravel会自动加s所以自己声明覆盖）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $table = &#8216;lession&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Unix时间戳形式填充创建于和更新于（注：模型默认托管时间但是是datetime类型）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $dateFormat = &#8216;U&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明可批量设置的属性（注：当使用create静态方式时）
+</p>
+<p>
+       * @var array
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $fillable = [
+</p>
+<p>
+          &#8216;course_id&#8217;,
+</p>
+<p>
+          &#8216;img&#8217;,
+</p>
+<p>
+          &#8216;lesson_name&#8217;,
+</p>
+<p>
+          &#8216;video_address&#8217;,
+</p>
+<p>
+          &#8216;video_time&#8217;,
+</p>
+<p>
+          &#8216;teacher_name&#8217;,
+</p>
+<p>
+          &#8216;lesson_desc&#8217;,
+</p>
+<p>
+          &#8216;state&#8217;
+</p>
+<p>
+      ];
+</p>
+<p>
+  }
+</p>
+<h1><a id="post-5892-_Toc487989197"></a>一、专业分类管理</h1>
+<h2>︴效果</h2>
+<p>
+  列表
+</p>
+<p><img loading="lazy" decoding="async" width="1365" height="554" src="/wp-content/uploads/2018/05/word-image-5358.png" class="wp-image-5898" srcset="/wp-content/uploads/2018/05/word-image-5358.png 1365w, /wp-content/uploads/2018/05/word-image-5358-300x122.png 300w, /wp-content/uploads/2018/05/word-image-5358-768x312.png 768w, /wp-content/uploads/2018/05/word-image-5358-1024x416.png 1024w" sizes="(max-width: 1365px) 100vw, 1365px" /></p>
+<h2>列表功能</h2>
+<h3>1）显示列表（模板文件：admin-permission.html）</h3>
+<ul>
+<li>
+    步骤1：定义路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="992" height="260" src="/wp-content/uploads/2018/05/word-image-5359.png" class="wp-image-5899" srcset="/wp-content/uploads/2018/05/word-image-5359.png 992w, /wp-content/uploads/2018/05/word-image-5359-300x79.png 300w, /wp-content/uploads/2018/05/word-image-5359-768x201.png 768w" sizes="(max-width: 992px) 100vw, 992px" /></p>
+<ul>
+<li>
+    步骤2：创建控制器和方法，并调用视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="883" height="509" src="/wp-content/uploads/2018/05/word-image-5360.png" class="wp-image-5900" srcset="/wp-content/uploads/2018/05/word-image-5360.png 883w, /wp-content/uploads/2018/05/word-image-5360-300x173.png 300w, /wp-content/uploads/2018/05/word-image-5360-768x443.png 768w" sizes="(max-width: 883px) 100vw, 883px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class ProtypeController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function index()
+</p>
+<p>
+      {
+</p>
+<p>
+          //2.加载视图
+</p>
+<p>
+          return view(&#8216;admin.protype.index&#8217;);
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤3：创建视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1322" height="589" src="/wp-content/uploads/2018/05/word-image-5361.png" class="wp-image-5901" srcset="/wp-content/uploads/2018/05/word-image-5361.png 1322w, /wp-content/uploads/2018/05/word-image-5361-300x134.png 300w, /wp-content/uploads/2018/05/word-image-5361-768x342.png 768w, /wp-content/uploads/2018/05/word-image-5361-1024x456.png 1024w" sizes="(max-width: 1322px) 100vw, 1322px" /></p>
+<h3>2）数据处理</h3>
+<ul>
+<li>
+    步骤1：修改路由（注：datatables客户端分页也得发送一步请求）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1131" height="292" src="/wp-content/uploads/2018/05/word-image-5362.png" class="wp-image-5902" srcset="/wp-content/uploads/2018/05/word-image-5362.png 1131w, /wp-content/uploads/2018/05/word-image-5362-300x77.png 300w, /wp-content/uploads/2018/05/word-image-5362-768x198.png 768w, /wp-content/uploads/2018/05/word-image-5362-1024x264.png 1024w" sizes="(max-width: 1131px) 100vw, 1131px" /></p>
+<ul>
+<li>
+    步骤2：更改视图设置datatables
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1272" height="536" src="/wp-content/uploads/2018/05/word-image-5363.png" class="wp-image-5903" srcset="/wp-content/uploads/2018/05/word-image-5363.png 1272w, /wp-content/uploads/2018/05/word-image-5363-300x126.png 300w, /wp-content/uploads/2018/05/word-image-5363-768x324.png 768w, /wp-content/uploads/2018/05/word-image-5363-1024x431.png 1024w" sizes="(max-width: 1272px) 100vw, 1272px" /><br />
+<img loading="lazy" decoding="async" width="1044" height="506" src="/wp-content/uploads/2018/05/word-image-5364.png" class="wp-image-5904" srcset="/wp-content/uploads/2018/05/word-image-5364.png 1044w, /wp-content/uploads/2018/05/word-image-5364-300x145.png 300w, /wp-content/uploads/2018/05/word-image-5364-768x372.png 768w, /wp-content/uploads/2018/05/word-image-5364-1024x496.png 1024w" sizes="(max-width: 1044px) 100vw, 1044px" /><br />
+<img loading="lazy" decoding="async" width="1090" height="608" src="/wp-content/uploads/2018/05/word-image-5365.png" class="wp-image-5905" srcset="/wp-content/uploads/2018/05/word-image-5365.png 1090w, /wp-content/uploads/2018/05/word-image-5365-300x167.png 300w, /wp-content/uploads/2018/05/word-image-5365-768x428.png 768w, /wp-content/uploads/2018/05/word-image-5365-1024x571.png 1024w" sizes="(max-width: 1090px) 100vw, 1090px" /><br />
+<img loading="lazy" decoding="async" width="716" height="164" src="/wp-content/uploads/2018/05/word-image-5366.png" class="wp-image-5906" srcset="/wp-content/uploads/2018/05/word-image-5366.png 716w, /wp-content/uploads/2018/05/word-image-5366-300x69.png 300w" sizes="(max-width: 716px) 100vw, 716px" /></p>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;renderer&#8221; content=&#8221;webkit|ie-comp|ie-stand&#8221;&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;X-UA-Compatible&#8221; content=&#8221;IE=edge,chrome=1&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&#8221; /&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Cache-Control&#8221; content=&#8221;no-siteapp&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if lt IE 9]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/html5shiv.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/respond.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/css/H-ui.min.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/H-ui.admin.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/Hui-iconfont/1.0.8/iconfont.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/skin/default/skin.css&#8221; id=&#8221;skin&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/style.css&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if IE 6]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/DD_belatedPNG_0.0.8a-min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script&gt;DD_belatedPNG.fix(&#8216;*&#8217;);&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;title&gt;专业分类管理&lt;/title&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;nav class=&#8221;breadcrumb&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe67f;&lt;/i&gt; 首页 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 管理员管理 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 专业分类管理 &lt;a class=&#8221;btn btn-success radius r&#8221; style=&#8221;line-height:1.6em;margin-top:3px&#8221; href=&#8221;javascript:location.replace(location.href);&#8221; title=&#8221;刷新&#8221; &gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe68f;&lt;/i&gt;&lt;/a&gt;&lt;/nav&gt;
+</p>
+<p>
+  &lt;div class=&#8221;page-container&#8221;&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  		&lt;form class=&#8221;Huiform&#8221; method=&#8221;post&#8221; action=&#8221;&#8221; target=&#8221;_self&#8221;&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;text&#8221; class=&#8221;input-text&#8221; style=&#8221;width:250px&#8221; placeholder=&#8221;专业分类名称&#8221; id=&#8221;<strong>search_content</strong>&#8221; name=&#8221;&#8221;&gt;
+</p>
+<p>
+  			&lt;button type=&#8221;button&#8221; class=&#8221;btn btn-success&#8221; id=&#8221;<strong>search</strong>&#8221; name=&#8221;&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe665;&lt;/i&gt; 搜专业分类节点&lt;/button&gt;
+</p>
+<p>
+  		&lt;/form&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;cl pd-5 bg-1 bk-gray mt-20&#8243;&gt; &lt;span class=&#8221;l&#8221;&gt;&lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;datadel()&#8221; class=&#8221;btn btn-danger radius&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt; 批量删除&lt;/a&gt; &lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_add(&#8216;添加专业分类节点&#8217;,&#8217;admin-permission-add.html&#8217;,&#8221;,&#8217;310&#8242;)&#8221; class=&#8221;btn btn-primary radius&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe600;&lt;/i&gt; 添加专业分类节点&lt;/a&gt;&lt;/span&gt; &lt;span class=&#8221;r&#8221;&gt;共有数据：&lt;strong&gt;54&lt;/strong&gt; 条&lt;/span&gt; &lt;/div&gt;
+</p>
+<p>
+  	&lt;table class=&#8221;table table-border table-bordered table-bg&#8221;&gt;
+</p>
+<p>
+  		&lt;thead&gt;
+</p>
+<p>
+  			<strong>&lt;tr&gt;</strong>
+</p>
+<p><strong>				&lt;th scope=&#8221;col&#8221; colspan=&#8221;8&#8243;&gt;专业分类节点&lt;/th&gt;</strong>
+</p>
+<p><strong>			&lt;/tr&gt;</strong>
+</p>
+<p><strong>			&lt;tr class=&#8221;text-c&#8221;&gt;</strong>
+</p>
+<p><strong>				&lt;th width=&#8221;25&#8243;&gt;&lt;input type=&#8221;checkbox&#8221; name=&#8221;&#8221; value=&#8221;&#8221;&gt;&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th width=&#8221;40&#8243;&gt;ID&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th width=&#8221;200&#8243;&gt;分类名称&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;排序&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;状态&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;创建于&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;更新于&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th width=&#8221;100&#8243;&gt;操作&lt;/th&gt;</strong>
+</p>
+<p><strong>			&lt;/tr&gt;</strong>
+</p>
+<p>
+  		&lt;/thead&gt;
+</p>
+<p>
+  		&lt;tbody&gt;
+</p>
+<p>
+  			<strong>{{&#8211;&lt;tr class=&#8221;text-c&#8221;&gt;&#8211;}}</strong>
+</p>
+<p><strong>				{{&#8211;&lt;td&gt;&lt;input type=&#8221;checkbox&#8221; value=&#8221;1&#8243; name=&#8221;&#8221;&gt;&lt;/td&gt;&#8211;}}</strong>
+</p>
+<p><strong>				{{&#8211;&lt;td&gt;1&lt;/td&gt;&#8211;}}</strong>
+</p>
+<p><strong>				{{&#8211;&lt;td&gt;栏目添加&lt;/td&gt;&#8211;}}</strong>
+</p>
+<p><strong>				{{&#8211;&lt;td&gt;&lt;/td&gt;&#8211;}}</strong>
+</p>
+<p><strong>				{{&#8211;&lt;td&gt;&lt;a title=&#8221;编辑&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_edit(&#8216;角色编辑&#8217;,&#8217;admin-permission-add.html&#8217;,&#8217;1&#8242;,&#8221;,&#8217;310&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6df;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;删除&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_del(this,&#8217;1&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;&#8211;}}</strong>
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  		&lt;/tbody&gt;
+</p>
+<p>
+  	&lt;/table&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;!&#8211;_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery/1.9.1/jquery.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/layer/2.4/layer.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/js/H-ui.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/js/H-ui.admin.js&#8221;&gt;&lt;/script&gt; &lt;!&#8211;/_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;请在下方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/datatables/1.10.0/jquery.dataTables.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p><strong>//客户端分页大DD  服务端分页小DD</strong>
+</p>
+<p><strong>var table  = $(&#8216;table&#8217;).DataTable({</strong>
+</p>
+<p><strong>	//开启服务端分页（注：开启后发送的HTTP请求会携带起始位置和每页显示条数等信息）</strong>
+</p>
+<p><strong>	//&#8221;serverSide&#8221;: true,</strong>
+</p>
+<p><strong>	ajax: {</strong>
+</p>
+<p><strong>		url: &#8220;{{ url(&#8216;admin/protype/index&#8217;) }}&#8221;,</strong>
+</p>
+<p><strong>		&#8220;type&#8221;: &#8220;post&#8221;,</strong>
+</p>
+<p><strong>		&#8216;headers&#8217;: { &#8216;X-CSRF-TOKEN&#8217; : &#8216;{{ csrf_token() }}&#8217; },</strong>
+</p>
+<p><strong>		&#8220;data&#8221;: function (data) {</strong>
+</p>
+<p><strong>		}</strong>
+</p>
+<p><strong>	},</strong>
+</p>
+<p><strong>	//columns</strong>
+</p>
+<p><strong>	//作用：设置服务端返回数据填充规则</strong>
+</p>
+<p><strong>	//语法：{&#8220;data&#8221;: &#8220;键&#8221;，&#8221;defaultContent&#8221;: &#8220;默认值&#8221;}</strong>
+</p>
+<p><strong>	&#8220;columns&#8221;: [</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;tmp1&#8221;,  defaultContent: &#8220;占位，复选框&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;id&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;protype_name&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;sort&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;state&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;created_at&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;updated_at&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;tmp2&#8221;, defaultContent: &#8220;占位，操作&#8221; },</strong>
+</p>
+<p><strong>	],</strong>
+</p>
+<p><strong>	//createdRow</strong>
+</p>
+<p><strong>	//作用：创建tr时回调</strong>
+</p>
+<p><strong>	//row:创建好的tr的dom对象</strong>
+</p>
+<p><strong>	//data:数据源，代表服务器端返回的每条记录的实体信息</strong>
+</p>
+<p><strong>	//dataIndex:数据源的索引号码</strong>
+</p>
+<p><strong>	&#8220;createdRow&#8221;: function(row, data, dataIndex) {</strong>
+</p>
+<p><strong>		//匹配每一行的第一列</strong>
+</p>
+<p><strong>		$(row).find(&#8220;td:first&#8221;).html(&#8220;&lt;input type=&#8217;checkbox&#8217; name=&#8217;choose[]&#8217; value='&#8221;+data.id+&#8221;&#8216; /&gt;&#8221;)</strong>
+</p>
+<p><strong>		//匹配每一行的第八列</strong>
+</p>
+<p><strong>		if (data.state == 1) {</strong>
+</p>
+<p><strong>			$(row).find(&#8220;td:eq(4)&#8221;).html(&#8216;&lt;span class=&#8221;label label-success radius&#8221;&gt;已启用&lt;/span&gt;&#8217;);</strong>
+</p>
+<p><strong>		} else {</strong>
+</p>
+<p><strong>			$(row).find(&#8220;td:eq(4)&#8221;).html(&#8216;&lt;span class=&#8221;label radius&#8221;&gt;已停用&lt;/span&gt;&#8217;);</strong>
+</p>
+<p><strong>		}</strong>
+</p>
+<p><strong>		//匹配每一行的最后一列</strong>
+</p>
+<p><strong>		var lastHtml = &#8216;&lt;a style=&#8221;text-decoration:none&#8221; onClick=&#8221;admin_start(this,10001)&#8221; href=&#8221;javascript:;&#8221; title=&#8221;启用&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe615;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;编辑&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_edit(\&#8217;管理员编辑\&#8217;,\&#8217;admin-add.html\&#8217;,2,800,500)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6df;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;删除&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_del(this,1)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt;&lt;/a&gt;&#8217;;</strong>
+</p>
+<p><strong>		$(row).find(&#8220;td:last&#8221;).html(lastHtml);</strong>
+</p>
+<p><strong>        //让每一行居中</strong>
+</p>
+<p><strong>        $(row).addClass(&#8216;text-c&#8217;);</strong>
+</p>
+<p><strong>	},</strong>
+</p>
+<p><strong>	// searching : false, 		 //禁用搜索</strong>
+</p>
+<p><strong>	bLengthChange: false,   //去掉每页显示多少条数据方法</strong>
+</p>
+<p><strong>    // iDisplayLength:2,	    //限制每页显示条数</strong>
+</p>
+<p><strong>});</strong>
+</p>
+<p><strong>//客户端搜索功能更</strong>
+</p>
+<p><strong>$(&#8216;#search&#8217;).click(function(){</strong>
+</p>
+<p><strong>    var search_content = $(&#8216;#search_content&#8217;).val();</strong>
+</p>
+<p><strong>    table.search(search_content).draw();</strong>
+</p>
+<p><strong>});</strong>
+</p>
+<p><strong>$(&#8216;#DataTables_Table_0_filter&#8217;).hide();</strong>
+</p>
+<p>
+  /*
+</p>
+<p>
+  	参数解释：
+</p>
+<p>
+  	title	标题
+</p>
+<p>
+  	url		请求的url
+</p>
+<p>
+  	id		需要操作的数据id
+</p>
+<p>
+  	w		弹出层宽度（缺省调默认值）
+</p>
+<p>
+  	h		弹出层高度（缺省调默认值）
+</p>
+<p>
+  */
+</p>
+<p>
+  /*管理员-专业分类-添加*/
+</p>
+<p>
+  function admin_permission_add(title,url,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-专业分类-编辑*/
+</p>
+<p>
+  function admin_permission_edit(title,url,id,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-专业分类-删除*/
+</p>
+<p>
+  function admin_permission_del(obj,id){
+</p>
+<p>
+  	layer.confirm(&#8216;确认要删除吗？&#8217;,function(index){
+</p>
+<p>
+  		$.ajax({
+</p>
+<p>
+  			type: &#8216;POST&#8217;,
+</p>
+<p>
+  			url: &#8221;,
+</p>
+<p>
+  			dataType: &#8216;json&#8217;,
+</p>
+<p>
+  			success: function(data){
+</p>
+<p>
+  				$(obj).parents(&#8220;tr&#8221;).remove();
+</p>
+<p>
+  				layer.msg(&#8216;已删除!&#8217;,{icon:1,time:1000});
+</p>
+<p>
+  			},
+</p>
+<p>
+  			error:function(data) {
+</p>
+<p>
+  				console.log(data.msg);
+</p>
+<p>
+  			},
+</p>
+<p>
+  		});
+</p>
+<p>
+  	});
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<ul>
+<li>
+    步骤3：更改控制器方法
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1009" height="572" src="/wp-content/uploads/2018/05/word-image-5367.png" class="wp-image-5907" srcset="/wp-content/uploads/2018/05/word-image-5367.png 1009w, /wp-content/uploads/2018/05/word-image-5367-300x170.png 300w, /wp-content/uploads/2018/05/word-image-5367-768x435.png 768w" sizes="(max-width: 1009px) 100vw, 1009px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use App\Http\Model\Protype;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class ProtypeController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function index(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.判断HTTP请求类型（脚下留心：客户端分页直接向所有数据响应即可）
+</p>
+<p>
+          if ($request-&gt;isMethod(&#8216;post&#8217;)) {
+</p>
+<p>
+              //2.查询所有数据
+</p>
+<p>
+              $protypes = Protype::get();
+</p>
+<p>
+              //3.响应json数据
+</p>
+<p>
+              return response()-&gt;json([
+</p>
+<p>
+                  &#8216;data&#8217; =&gt; $protypes
+</p>
+<p>
+              ]);
+</p>
+<p>
+          } else {
+</p>
+<p>
+              //2.加载视图
+</p>
+<p>
+              return view(&#8216;admin.protype.index&#8217;);
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h1>专业管理</h1>
+<h2>︴效果</h2>
+<p>
+  列表
+</p>
+<p><img loading="lazy" decoding="async" width="1359" height="635" src="/wp-content/uploads/2018/05/word-image-5368.png" class="wp-image-5908" srcset="/wp-content/uploads/2018/05/word-image-5368.png 1359w, /wp-content/uploads/2018/05/word-image-5368-300x140.png 300w, /wp-content/uploads/2018/05/word-image-5368-768x359.png 768w, /wp-content/uploads/2018/05/word-image-5368-1024x478.png 1024w" sizes="(max-width: 1359px) 100vw, 1359px" /></p>
+<h2>1、列表功能（模板文件：admin-permission.html）</h2>
+<h3>1）显示页面</h3>
+<ul>
+<li>
+    步骤1：定义路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1176" height="256" src="/wp-content/uploads/2018/05/word-image-5369.png" class="wp-image-5909" srcset="/wp-content/uploads/2018/05/word-image-5369.png 1176w, /wp-content/uploads/2018/05/word-image-5369-300x65.png 300w, /wp-content/uploads/2018/05/word-image-5369-768x167.png 768w, /wp-content/uploads/2018/05/word-image-5369-1024x223.png 1024w" sizes="(max-width: 1176px) 100vw, 1176px" /></p>
+<ul>
+<li>
+    步骤2：创建控制器方法 并 加载视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="841" height="510" src="/wp-content/uploads/2018/05/word-image-5370.png" class="wp-image-5910" srcset="/wp-content/uploads/2018/05/word-image-5370.png 841w, /wp-content/uploads/2018/05/word-image-5370-300x182.png 300w, /wp-content/uploads/2018/05/word-image-5370-768x466.png 768w" sizes="(max-width: 841px) 100vw, 841px" /></p>
+<ul>
+<li>
+    步骤3：创建视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1109" height="593" src="/wp-content/uploads/2018/05/word-image-5371.png" class="wp-image-5911" srcset="/wp-content/uploads/2018/05/word-image-5371.png 1109w, /wp-content/uploads/2018/05/word-image-5371-300x160.png 300w, /wp-content/uploads/2018/05/word-image-5371-768x411.png 768w, /wp-content/uploads/2018/05/word-image-5371-1024x548.png 1024w" sizes="(max-width: 1109px) 100vw, 1109px" /></p>
+<h3>2）数据处理</h3>
+<ul>
+<li>
+    步骤1：修改路由（客户端分页）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="892" height="105" src="/wp-content/uploads/2018/05/word-image-5372.png" class="wp-image-5912" srcset="/wp-content/uploads/2018/05/word-image-5372.png 892w, /wp-content/uploads/2018/05/word-image-5372-300x35.png 300w, /wp-content/uploads/2018/05/word-image-5372-768x90.png 768w" sizes="(max-width: 892px) 100vw, 892px" /></p>
+<ul>
+<li>
+    步骤2：修改视图，设置datatables插件
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1201" height="418" src="/wp-content/uploads/2018/05/word-image-5373.png" class="wp-image-5913" srcset="/wp-content/uploads/2018/05/word-image-5373.png 1201w, /wp-content/uploads/2018/05/word-image-5373-300x104.png 300w, /wp-content/uploads/2018/05/word-image-5373-768x267.png 768w, /wp-content/uploads/2018/05/word-image-5373-1024x356.png 1024w" sizes="(max-width: 1201px) 100vw, 1201px" /><br />
+<img loading="lazy" decoding="async" width="921" height="669" src="/wp-content/uploads/2018/05/word-image-5374.png" class="wp-image-5914" srcset="/wp-content/uploads/2018/05/word-image-5374.png 921w, /wp-content/uploads/2018/05/word-image-5374-300x218.png 300w, /wp-content/uploads/2018/05/word-image-5374-768x558.png 768w" sizes="(max-width: 921px) 100vw, 921px" /></p>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;renderer&#8221; content=&#8221;webkit|ie-comp|ie-stand&#8221;&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;X-UA-Compatible&#8221; content=&#8221;IE=edge,chrome=1&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&#8221; /&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Cache-Control&#8221; content=&#8221;no-siteapp&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if lt IE 9]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/html5shiv.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/respond.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/css/H-ui.min.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/H-ui.admin.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/Hui-iconfont/1.0.8/iconfont.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/skin/default/skin.css&#8221; id=&#8221;skin&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/style.css&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if IE 6]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/DD_belatedPNG_0.0.8a-min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script&gt;DD_belatedPNG.fix(&#8216;*&#8217;);&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;title&gt;专业管理&lt;/title&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;nav class=&#8221;breadcrumb&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe67f;&lt;/i&gt; 首页 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 管理员管理 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 专业管理 &lt;a class=&#8221;btn btn-success radius r&#8221; style=&#8221;line-height:1.6em;margin-top:3px&#8221; href=&#8221;javascript:location.replace(location.href);&#8221; title=&#8221;刷新&#8221; &gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe68f;&lt;/i&gt;&lt;/a&gt;&lt;/nav&gt;
+</p>
+<p>
+  &lt;div class=&#8221;page-container&#8221;&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  		&lt;form class=&#8221;Huiform&#8221; method=&#8221;post&#8221; action=&#8221;&#8221; target=&#8221;_self&#8221;&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;text&#8221; class=&#8221;input-text&#8221; style=&#8221;width:250px&#8221; placeholder=&#8221;专业名称&#8221; id=&#8221;&#8221; name=&#8221;&#8221;&gt;
+</p>
+<p>
+  			&lt;button type=&#8221;submit&#8221; class=&#8221;btn btn-success&#8221; id=&#8221;&#8221; name=&#8221;&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe665;&lt;/i&gt; 搜专业节点&lt;/button&gt;
+</p>
+<p>
+  		&lt;/form&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;cl pd-5 bg-1 bk-gray mt-20&#8243;&gt; &lt;span class=&#8221;l&#8221;&gt;&lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;datadel()&#8221; class=&#8221;btn btn-danger radius&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt; 批量删除&lt;/a&gt; &lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_add(&#8216;添加专业节点&#8217;,&#8217;admin-permission-add.html&#8217;,&#8221;,&#8217;310&#8242;)&#8221; class=&#8221;btn btn-primary radius&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe600;&lt;/i&gt; 添加专业节点&lt;/a&gt;&lt;/span&gt; &lt;span class=&#8221;r&#8221;&gt;共有数据：&lt;strong&gt;54&lt;/strong&gt; 条&lt;/span&gt; &lt;/div&gt;
+</p>
+<p>
+  	&lt;table class=&#8221;table table-border table-bordered table-bg&#8221;&gt;
+</p>
+<p>
+  		&lt;thead&gt;
+</p>
+<p>
+  			&lt;tr&gt;
+</p>
+<p>
+  				&lt;th scope=&#8221;col&#8221; colspan=&#8221;7&#8243;&gt;专业节点&lt;/th&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  			&lt;tr class=&#8221;text-c&#8221;&gt;
+</p>
+<p><strong>				&lt;th width=&#8221;25&#8243;&gt;&lt;input type=&#8221;checkbox&#8221; name=&#8221;&#8221; value=&#8221;&#8221;&gt;&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th width=&#8221;40&#8243;&gt;ID&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th width=&#8221;200&#8243;&gt;封面&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;专业分类名称&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;专业名称&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;更新于&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;创建于&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th width=&#8221;100&#8243;&gt;操作&lt;/th&gt;</strong>
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  		&lt;/thead&gt;
+</p>
+<p>
+  		&lt;tbody&gt;
+</p>
+<p>
+  			&lt;!&#8211; &lt;tr class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;input type=&#8221;checkbox&#8221; value=&#8221;1&#8243; name=&#8221;&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;1&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;栏目添加&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;a title=&#8221;编辑&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_edit(&#8216;角色编辑&#8217;,&#8217;admin-permission-add.html&#8217;,&#8217;1&#8242;,&#8221;,&#8217;310&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6df;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;删除&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_del(this,&#8217;1&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+</p>
+<p>
+  			&lt;/tr&gt; &#8211;&gt;
+</p>
+<p>
+  		&lt;/tbody&gt;
+</p>
+<p>
+  	&lt;/table&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;!&#8211;_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery/1.9.1/jquery.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/layer/2.4/layer.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/js/H-ui.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/js/H-ui.admin.js&#8221;&gt;&lt;/script&gt; &lt;!&#8211;/_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;请在下方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/datatables/1.10.0/jquery.dataTables.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p><strong>&lt;script type=&#8221;text/javascript&#8221;&gt;</strong>
+</p>
+<p><strong>//客户端分页大DD  服务端分页小DD</strong>
+</p>
+<p><strong>var table  = $(&#8216;table&#8217;).DataTable({</strong>
+</p>
+<p><strong>    //开启服务端分页（注：开启后发送的HTTP请求会携带起始位置和每页显示条数等信息）</strong>
+</p>
+<p><strong>    //&#8221;serverSide&#8221;: true,</strong>
+</p>
+<p><strong>    ajax: {</strong>
+</p>
+<p><strong>        url: &#8220;{{ url(&#8216;admin/profession/index&#8217;) }}&#8221;,</strong>
+</p>
+<p><strong>        &#8220;type&#8221;: &#8220;post&#8221;,</strong>
+</p>
+<p><strong>        &#8216;headers&#8217;: { &#8216;X-CSRF-TOKEN&#8217; : &#8216;{{ csrf_token() }}&#8217; },</strong>
+</p>
+<p><strong>        &#8220;data&#8221;: function (data) {</strong>
+</p>
+<p><strong>        }</strong>
+</p>
+<p><strong>    },</strong>
+</p>
+<p><strong>    //columns</strong>
+</p>
+<p><strong>    //作用：设置服务端返回数据填充规则</strong>
+</p>
+<p><strong>    //语法：{&#8220;data&#8221;: &#8220;键&#8221;，&#8221;defaultContent&#8221;: &#8220;默认值&#8221;}</strong>
+</p>
+<p><strong>    &#8220;columns&#8221;: [</strong>
+</p>
+<p><strong>        { &#8220;data&#8221;: &#8220;tmp1&#8221;,  defaultContent: &#8220;占位，复选框&#8221; },</strong>
+</p>
+<p><strong>        { &#8220;data&#8221;: &#8220;id&#8221; },</strong>
+</p>
+<p><strong>        { &#8220;data&#8221;: &#8220;img&#8221;,  defaultContent: &#8220;占位，图片&#8221; },</strong>
+</p>
+<p><strong>        // { &#8220;data&#8221;: &#8220;protype_id&#8221; },</strong>
+</p>
+<p><strong>        { &#8220;data&#8221;: &#8220;protype.protype_name&#8221; },</strong>
+</p>
+<p><strong>        { &#8220;data&#8221;: &#8220;profession_name&#8221; },</strong>
+</p>
+<p><strong>        { &#8220;data&#8221;: &#8220;created_at&#8221; },</strong>
+</p>
+<p><strong>        { &#8220;data&#8221;: &#8220;updated_at&#8221; },</strong>
+</p>
+<p><strong>        { &#8220;data&#8221;: &#8220;tmp2&#8221;, defaultContent: &#8220;占位，操作&#8221; },</strong>
+</p>
+<p><strong>    ],</strong>
+</p>
+<p><strong>    //createdRow</strong>
+</p>
+<p><strong>    //作用：创建tr时回调</strong>
+</p>
+<p><strong>    //row:创建好的tr的dom对象</strong>
+</p>
+<p><strong>    //data:数据源，代表服务器端返回的每条记录的实体信息</strong>
+</p>
+<p><strong>    //dataIndex:数据源的索引号码</strong>
+</p>
+<p><strong>    &#8220;createdRow&#8221;: function(row, data, dataIndex) {</strong>
+</p>
+<p><strong>        //匹配每一行的第一列</strong>
+</p>
+<p><strong>        $(row).find(&#8220;td:first&#8221;).html(&#8220;&lt;input type=&#8217;checkbox&#8217; name=&#8217;choose[]&#8217; value='&#8221;+data.id+&#8221;&#8216; /&gt;&#8221;)</strong>
+</p>
+<p><strong>        //匹配每一行的第八列</strong>
+</p>
+<p><strong>        if (data.img) {</strong>
+</p>
+<p><strong>            $(row).find(&#8220;td:eq(2)&#8221;).html(&#8216;&lt;img src=&#8217;+data.img+&#8217; width=&#8221;120&#8243; height=&#8221;60&#8243;&gt;&#8217;);</strong>
+</p>
+<p><strong>        } else {</strong>
+</p>
+<p><strong>            var defaultImg = &#8220;{{ asset(&#8216;img/default.png&#8217;) }}&#8221;;</strong>
+</p>
+<p><strong>            $(row).find(&#8220;td:eq(2)&#8221;).html(&#8216;&lt;img src=&#8221;&#8216;+defaultImg+'&#8221; width=&#8221;120&#8243; height=&#8221;60&#8243;&gt;&#8217;);</strong>
+</p>
+<p><strong>        }</strong>
+</p>
+<p><strong>        //匹配每一行的最后一列</strong>
+</p>
+<p><strong>        var lastHtml = &#8216;&lt;a style=&#8221;text-decoration:none&#8221; onClick=&#8221;admin_start(this,10001)&#8221; href=&#8221;javascript:;&#8221; title=&#8221;启用&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe615;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;编辑&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_edit(\&#8217;管理员编辑\&#8217;,\&#8217;admin-add.html\&#8217;,2,800,500)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6df;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;删除&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_del(this,1)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt;&lt;/a&gt;&#8217;;</strong>
+</p>
+<p><strong>        $(row).find(&#8220;td:last&#8221;).html(lastHtml);</strong>
+</p>
+<p><strong>        //让每一行居中</strong>
+</p>
+<p><strong>        $(row).addClass(&#8216;text-c&#8217;);</strong>
+</p>
+<p><strong>    },</strong>
+</p>
+<p><strong>    // searching : false, 		 //禁用搜索</strong>
+</p>
+<p><strong>    bLengthChange: false,   //去掉每页显示多少条数据方法</strong>
+</p>
+<p><strong>    // iDisplayLength:2,	    //限制每页显示条数</strong>
+</p>
+<p><strong>});</strong>
+</p>
+<p>
+  /*
+</p>
+<p>
+  	参数解释：
+</p>
+<p>
+  	title	标题
+</p>
+<p>
+  	url		请求的url
+</p>
+<p>
+  	id		需要操作的数据id
+</p>
+<p>
+  	w		弹出层宽度（缺省调默认值）
+</p>
+<p>
+  	h		弹出层高度（缺省调默认值）
+</p>
+<p>
+  */
+</p>
+<p>
+  /*管理员-专业-添加*/
+</p>
+<p>
+  function admin_permission_add(title,url,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-专业-编辑*/
+</p>
+<p>
+  function admin_permission_edit(title,url,id,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-专业-删除*/
+</p>
+<p>
+  function admin_permission_del(obj,id){
+</p>
+<p>
+  	layer.confirm(&#8216;确认要删除吗？&#8217;,function(index){
+</p>
+<p>
+  		$.ajax({
+</p>
+<p>
+  			type: &#8216;POST&#8217;,
+</p>
+<p>
+  			url: &#8221;,
+</p>
+<p>
+  			dataType: &#8216;json&#8217;,
+</p>
+<p>
+  			success: function(data){
+</p>
+<p>
+  				$(obj).parents(&#8220;tr&#8221;).remove();
+</p>
+<p>
+  				layer.msg(&#8216;已删除!&#8217;,{icon:1,time:1000});
+</p>
+<p>
+  			},
+</p>
+<p>
+  			error:function(data) {
+</p>
+<p>
+  				console.log(data.msg);
+</p>
+<p>
+  			},
+</p>
+<p>
+  		});
+</p>
+<p>
+  	});
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<ul>
+<li>
+    步骤3：修改控制器方法响应数据
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="872" height="636" src="/wp-content/uploads/2018/05/word-image-5375.png" class="wp-image-5915" srcset="/wp-content/uploads/2018/05/word-image-5375.png 872w, /wp-content/uploads/2018/05/word-image-5375-300x219.png 300w, /wp-content/uploads/2018/05/word-image-5375-768x560.png 768w" sizes="(max-width: 872px) 100vw, 872px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use App\Http\Model\Profession;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class ProfessionController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function index(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.判断HTTP类型
+</p>
+<p>
+          if ($request-&gt;isMethod(&#8216;post&#8217;)) {
+</p>
+<p>
+              //2.查询所有数据
+</p>
+<p>
+              $professions = Profession::with(&#8216;protype&#8217;)-&gt;get();
+</p>
+<p>
+              //3.响应json数据
+</p>
+<p>
+              return response()-&gt;json([
+</p>
+<p>
+                  &#8216;data&#8217; =&gt; $professions
+</p>
+<p>
+              ]);
+</p>
+<p>
+          } else {
+</p>
+<p>
+              //2.加载视图
+</p>
+<p>
+              return view(&#8216;admin.profession.index&#8217;);
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="873" height="607" src="/wp-content/uploads/2018/05/word-image-5376.png" class="wp-image-5916" srcset="/wp-content/uploads/2018/05/word-image-5376.png 873w, /wp-content/uploads/2018/05/word-image-5376-300x209.png 300w, /wp-content/uploads/2018/05/word-image-5376-768x534.png 768w" sizes="(max-width: 873px) 100vw, 873px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Model;
+</p>
+<p>
+  use Illuminate\Database\Eloquent\Model;
+</p>
+<p>
+  class Profession extends Model
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明表名（注：laravel会自动加s所以自己声明覆盖）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $table = &#8216;profession&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Unix时间戳形式填充创建于和更新于（注：模型默认托管时间但是是datetime类型）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $dateFormat = &#8216;U&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明可批量设置的属性（注：当使用create静态方式时）
+</p>
+<p>
+       * @var array
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $fillable = [&#8216;profession_name&#8217;, &#8216;protype_id&#8217;, &#8216;img&#8217;, &#8216;profession_desc&#8217;];
+</p>
+<p>
+     <strong> /**</strong>
+</p>
+<p><strong>     * 关联模型（1:1）</strong>
+</p>
+<p><strong>     * @return \Illuminate\Database\Eloquent\Builder|static</strong>
+</p>
+<p><strong>     */</strong>
+</p>
+<p><strong>    public function protype()</strong>
+</p>
+<p><strong>    {</strong>
+</p>
+<p><strong>        return $this-&gt;hasOne(&#8216;App\Http\Model\Protype&#8217;, &#8216;id&#8217;, &#8216;protype_id&#8217;);</strong>
+</p>
+<p><strong>    }</strong>
+</p>
+<p>
+  }
+</p>
+<h1>三、课程管理</h1>
+<h2>︴效果</h2>
+<p>
+  列表
+</p>
+<p><img loading="lazy" decoding="async" width="1363" height="598" src="/wp-content/uploads/2018/05/word-image-5377.png" class="wp-image-5917" srcset="/wp-content/uploads/2018/05/word-image-5377.png 1363w, /wp-content/uploads/2018/05/word-image-5377-300x132.png 300w, /wp-content/uploads/2018/05/word-image-5377-768x337.png 768w, /wp-content/uploads/2018/05/word-image-5377-1024x449.png 1024w" sizes="(max-width: 1363px) 100vw, 1363px" /></p>
+<h2>列表功能（模板文件：admin-permission.html）</h2>
+<h3>1）显示页面</h3>
+<ul>
+<li>
+    步骤1：定义路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="666" height="88" src="/wp-content/uploads/2018/05/word-image-5378.png" class="wp-image-5918" srcset="/wp-content/uploads/2018/05/word-image-5378.png 666w, /wp-content/uploads/2018/05/word-image-5378-300x40.png 300w" sizes="(max-width: 666px) 100vw, 666px" /></p>
+<ul>
+<li>
+    步骤2：创建控制器和方法并调用视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="799" height="372" src="/wp-content/uploads/2018/05/word-image-5379.png" class="wp-image-5919" srcset="/wp-content/uploads/2018/05/word-image-5379.png 799w, /wp-content/uploads/2018/05/word-image-5379-300x140.png 300w, /wp-content/uploads/2018/05/word-image-5379-768x358.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+<ul>
+<li>
+    步骤2：创建视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1079" height="672" src="/wp-content/uploads/2018/05/word-image-5380.png" class="wp-image-5920" srcset="/wp-content/uploads/2018/05/word-image-5380.png 1079w, /wp-content/uploads/2018/05/word-image-5380-300x187.png 300w, /wp-content/uploads/2018/05/word-image-5380-768x478.png 768w, /wp-content/uploads/2018/05/word-image-5380-1024x638.png 1024w" sizes="(max-width: 1079px) 100vw, 1079px" /></p>
+<h3>2）数据处理</h3>
+<ul>
+<li>
+    步骤1：修改路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="833" height="105" src="/wp-content/uploads/2018/05/word-image-5381.png" class="wp-image-5921" srcset="/wp-content/uploads/2018/05/word-image-5381.png 833w, /wp-content/uploads/2018/05/word-image-5381-300x38.png 300w, /wp-content/uploads/2018/05/word-image-5381-768x97.png 768w" sizes="(max-width: 833px) 100vw, 833px" /></p>
+<ul>
+<li>
+    步骤2：修改视图，设置datatable
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1288" height="626" src="/wp-content/uploads/2018/05/word-image-5382.png" class="wp-image-5922" srcset="/wp-content/uploads/2018/05/word-image-5382.png 1288w, /wp-content/uploads/2018/05/word-image-5382-300x146.png 300w, /wp-content/uploads/2018/05/word-image-5382-768x373.png 768w, /wp-content/uploads/2018/05/word-image-5382-1024x498.png 1024w" sizes="(max-width: 1288px) 100vw, 1288px" /><br />
+<img loading="lazy" decoding="async" width="794" height="670" src="/wp-content/uploads/2018/05/word-image-5383.png" class="wp-image-5923" srcset="/wp-content/uploads/2018/05/word-image-5383.png 794w, /wp-content/uploads/2018/05/word-image-5383-300x253.png 300w, /wp-content/uploads/2018/05/word-image-5383-768x648.png 768w" sizes="(max-width: 794px) 100vw, 794px" /></p>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;renderer&#8221; content=&#8221;webkit|ie-comp|ie-stand&#8221;&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;X-UA-Compatible&#8221; content=&#8221;IE=edge,chrome=1&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&#8221; /&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Cache-Control&#8221; content=&#8221;no-siteapp&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if lt IE 9]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/html5shiv.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/respond.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/css/H-ui.min.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/H-ui.admin.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/Hui-iconfont/1.0.8/iconfont.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/skin/default/skin.css&#8221; id=&#8221;skin&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/style.css&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if IE 6]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/DD_belatedPNG_0.0.8a-min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script&gt;DD_belatedPNG.fix(&#8216;*&#8217;);&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;title&gt;课程管理&lt;/title&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;nav class=&#8221;breadcrumb&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe67f;&lt;/i&gt; 首页 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 管理员管理 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 课程管理 &lt;a class=&#8221;btn btn-success radius r&#8221; style=&#8221;line-height:1.6em;margin-top:3px&#8221; href=&#8221;javascript:location.replace(location.href);&#8221; title=&#8221;刷新&#8221; &gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe68f;&lt;/i&gt;&lt;/a&gt;&lt;/nav&gt;
+</p>
+<p>
+  &lt;div class=&#8221;page-container&#8221;&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  		&lt;form class=&#8221;Huiform&#8221; method=&#8221;post&#8221; action=&#8221;&#8221; target=&#8221;_self&#8221;&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;text&#8221; class=&#8221;input-text&#8221; style=&#8221;width:250px&#8221; placeholder=&#8221;课程名称&#8221; id=&#8221;&#8221; name=&#8221;&#8221;&gt;
+</p>
+<p>
+  			&lt;button type=&#8221;submit&#8221; class=&#8221;btn btn-success&#8221; id=&#8221;&#8221; name=&#8221;&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe665;&lt;/i&gt; 搜课程节点&lt;/button&gt;
+</p>
+<p>
+  		&lt;/form&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;cl pd-5 bg-1 bk-gray mt-20&#8243;&gt; &lt;span class=&#8221;l&#8221;&gt;&lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;datadel()&#8221; class=&#8221;btn btn-danger radius&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt; 批量删除&lt;/a&gt; &lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_add(&#8216;添加课程节点&#8217;,&#8217;admin-permission-add.html&#8217;,&#8221;,&#8217;310&#8242;)&#8221; class=&#8221;btn btn-primary radius&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe600;&lt;/i&gt; 添加课程节点&lt;/a&gt;&lt;/span&gt; &lt;span class=&#8221;r&#8221;&gt;共有数据：&lt;strong&gt;54&lt;/strong&gt; 条&lt;/span&gt; &lt;/div&gt;
+</p>
+<p>
+  	<strong>&lt;table class=&#8221;table table-border table-bordered table-bg&#8221;&gt;</strong>
+</p>
+<p><strong>		&lt;thead&gt;</strong>
+</p>
+<p><strong>			&lt;tr&gt;</strong>
+</p>
+<p><strong>				&lt;th scope=&#8221;col&#8221; colspan=&#8221;9&#8243;&gt;课程节点&lt;/th&gt;</strong>
+</p>
+<p><strong>			&lt;/tr&gt;</strong>
+</p>
+<p><strong>			&lt;tr class=&#8221;text-c&#8221;&gt;</strong>
+</p>
+<p><strong>				&lt;th width=&#8221;25&#8243;&gt;&lt;input type=&#8221;checkbox&#8221; name=&#8221;&#8221; value=&#8221;&#8221;&gt;&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th width=&#8221;40&#8243;&gt;ID&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;封面地址&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th width=&#8221;200&#8243;&gt;所属专业&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;课程名称&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;课程的价格&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;创建于&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;更新于&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th width=&#8221;100&#8243;&gt;操作&lt;/th&gt;</strong>
+</p>
+<p><strong>			&lt;/tr&gt;</strong>
+</p>
+<p><strong>		&lt;/thead&gt;</strong>
+</p>
+<p>
+  		&lt;tbody&gt;
+</p>
+<p>
+  			&lt;!&#8211; &lt;tr class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;input type=&#8221;checkbox&#8221; value=&#8221;1&#8243; name=&#8221;&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;1&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;栏目添加&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;a title=&#8221;编辑&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_edit(&#8216;角色编辑&#8217;,&#8217;admin-permission-add.html&#8217;,&#8217;1&#8242;,&#8221;,&#8217;310&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6df;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;删除&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_del(this,&#8217;1&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+</p>
+<p>
+  			&lt;/tr&gt; &#8211;&gt;
+</p>
+<p>
+  		&lt;/tbody&gt;
+</p>
+<p>
+  	&lt;/table&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;!&#8211;_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery/1.9.1/jquery.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/layer/2.4/layer.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/js/H-ui.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/js/H-ui.admin.js&#8221;&gt;&lt;/script&gt; &lt;!&#8211;/_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;请在下方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/datatables/1.10.0/jquery.dataTables.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p><strong>//客户端分页大DD  服务端分页小DD</strong>
+</p>
+<p><strong>var table  = $(&#8216;table&#8217;).dataTable({</strong>
+</p>
+<p><strong>	//开启服务端分页（注：开启后发送的HTTP请求会携带起始位置和每页显示条数等信息）</strong>
+</p>
+<p><strong>	&#8220;serverSide&#8221;: true,</strong>
+</p>
+<p><strong>	ajax: {</strong>
+</p>
+<p><strong>		url: &#8220;{{ url(&#8216;admin/course/index&#8217;) }}&#8221;,</strong>
+</p>
+<p><strong>		&#8220;type&#8221;: &#8220;post&#8221;,</strong>
+</p>
+<p><strong>		&#8216;headers&#8217;: { &#8216;X-CSRF-TOKEN&#8217; : &#8216;{{ csrf_token() }}&#8217; },</strong>
+</p>
+<p><strong>		&#8220;data&#8221;: function (data) {</strong>
+</p>
+<p><strong>			// data.startTime = $(&#8216;#startTime&#8217;).val();</strong>
+</p>
+<p><strong>			// data.endTime = $(&#8216;#endTime&#8217;).val();</strong>
+</p>
+<p><strong>			// data.username = $(&#8216;#username&#8217;).val();</strong>
+</p>
+<p><strong>		}</strong>
+</p>
+<p><strong>	},</strong>
+</p>
+<p><strong>	//作用：设置服务端返回数据填充规则</strong>
+</p>
+<p><strong>	//语法：{&#8220;data&#8221;: &#8220;键&#8221;，&#8221;defaultContent&#8221;: &#8220;默认值&#8221;}</strong>
+</p>
+<p><strong>	&#8220;columns&#8221;: [</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;tmp1&#8221;,  defaultContent: &#8220;占位，复选框&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;id&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;img&#8221; },</strong>
+</p>
+<p><strong>		// { &#8220;data&#8221;: &#8220;profession_id&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;profession.profession_name&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;course_name&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;course_price&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;created_at&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;updated_at&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;tmp2&#8221;, defaultContent: &#8220;占位，操作&#8221; },</strong>
+</p>
+<p><strong>	],</strong>
+</p>
+<p><strong>	//createdRow</strong>
+</p>
+<p><strong>	//作用：创建tr时回调</strong>
+</p>
+<p><strong>	//row:创建好的tr的dom对象</strong>
+</p>
+<p><strong>	//data:数据源，代表服务器端返回的每条记录的实体信息</strong>
+</p>
+<p><strong>	//dataIndex:数据源的索引号码</strong>
+</p>
+<p><strong>	&#8220;createdRow&#8221;: function(row, data, dataIndex) {</strong>
+</p>
+<p><strong>		//匹配每一行的第一列</strong>
+</p>
+<p><strong>		$(row).find(&#8220;td:first&#8221;).html(&#8220;&lt;input type=&#8217;checkbox&#8217; name=&#8217;choose[]&#8217; value='&#8221;+data.id+&#8221;&#8216; /&gt;&#8221;)</strong>
+</p>
+<p><strong>        //匹配每一行的第二列</strong>
+</p>
+<p><strong>        if (data.img) {</strong>
+</p>
+<p><strong>            $(row).find(&#8220;td:eq(2)&#8221;).html(&#8216;&lt;img src=&#8217;+data.img+&#8217; width=&#8221;120&#8243; height=&#8221;60&#8243;&gt;&#8217;);</strong>
+</p>
+<p><strong>        } else {</strong>
+</p>
+<p><strong>            var defaultImg = &#8220;{{ asset(&#8216;img/default.png&#8217;) }}&#8221;;</strong>
+</p>
+<p><strong>            $(row).find(&#8220;td:eq(2)&#8221;).html(&#8216;&lt;img src=&#8221;&#8216;+defaultImg+'&#8221; width=&#8221;120&#8243; height=&#8221;60&#8243;&gt;&#8217;);</strong>
+</p>
+<p><strong>        }</strong>
+</p>
+<p><strong>		//匹配每一行的最后一列</strong>
+</p>
+<p><strong>		var lastHtml = &#8216;&lt;a style=&#8221;text-decoration:none&#8221; onClick=&#8221;admin_start(this,10001)&#8221; href=&#8221;javascript:;&#8221; title=&#8221;启用&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe615;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;编辑&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_edit(\&#8217;管理员编辑\&#8217;,\&#8217;admin-add.html\&#8217;,2,800,500)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6df;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;删除&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_del(this,1)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt;&lt;/a&gt;&#8217;;</strong>
+</p>
+<p><strong>		$(row).find(&#8220;td:last&#8221;).html(lastHtml);</strong>
+</p>
+<p><strong>        //让每一行居中</strong>
+</p>
+<p><strong>        $(row).addClass(&#8216;text-c&#8217;);</strong>
+</p>
+<p><strong>	},</strong>
+</p>
+<p><strong>	searching : false, 		 //禁用搜索</strong>
+</p>
+<p><strong>	bLengthChange: false,    //去掉每页显示多少条数据方法</strong>
+</p>
+<p><strong>    iDisplayLength:6,	 	 //限制每页显示条数</strong>
+</p>
+<p><strong>});</strong>
+</p>
+<p>
+  /*
+</p>
+<p>
+  	参数解释：
+</p>
+<p>
+  	title	标题
+</p>
+<p>
+  	url		请求的url
+</p>
+<p>
+  	id		需要操作的数据id
+</p>
+<p>
+  	w		弹出层宽度（缺省调默认值）
+</p>
+<p>
+  	h		弹出层高度（缺省调默认值）
+</p>
+<p>
+  */
+</p>
+<p>
+  /*管理员-课程-添加*/
+</p>
+<p>
+  function admin_permission_add(title,url,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-课程-编辑*/
+</p>
+<p>
+  function admin_permission_edit(title,url,id,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-课程-删除*/
+</p>
+<p>
+  function admin_permission_del(obj,id){
+</p>
+<p>
+  	layer.confirm(&#8216;确认要删除吗？&#8217;,function(index){
+</p>
+<p>
+  		$.ajax({
+</p>
+<p>
+  			type: &#8216;POST&#8217;,
+</p>
+<p>
+  			url: &#8221;,
+</p>
+<p>
+  			dataType: &#8216;json&#8217;,
+</p>
+<p>
+  			success: function(data){
+</p>
+<p>
+  				$(obj).parents(&#8220;tr&#8221;).remove();
+</p>
+<p>
+  				layer.msg(&#8216;已删除!&#8217;,{icon:1,time:1000});
+</p>
+<p>
+  			},
+</p>
+<p>
+  			error:function(data) {
+</p>
+<p>
+  				console.log(data.msg);
+</p>
+<p>
+  			},
+</p>
+<p>
+  		});
+</p>
+<p>
+  	});
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<ul>
+<li>
+    步骤3：修改控制器方法响应数据
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1253" height="664" src="/wp-content/uploads/2018/05/word-image-5384.png" class="wp-image-5924" srcset="/wp-content/uploads/2018/05/word-image-5384.png 1253w, /wp-content/uploads/2018/05/word-image-5384-300x159.png 300w, /wp-content/uploads/2018/05/word-image-5384-768x407.png 768w, /wp-content/uploads/2018/05/word-image-5384-1024x543.png 1024w" sizes="(max-width: 1253px) 100vw, 1253px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use App\Http\Model\Course;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class CourseController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function index(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.判断HTTP请求类型
+</p>
+<p>
+          if ($request-&gt;isMethod(&#8216;post&#8217;)) {
+</p>
+<p>
+              //2.接受数据
+</p>
+<p>
+              $postData = $request-&gt;only([&#8216;start&#8217;, &#8216;length&#8217;, &#8216;draw&#8217;]);
+</p>
+<p>
+              //3.查询数据
+</p>
+<p>
+              $courses = Course::with(&#8216;profession&#8217;)-&gt;orderBy(&#8216;id&#8217;, &#8216;desc&#8217;);
+</p>
+<p>
+              //4.响应json数据
+</p>
+<p>
+              return response()-&gt;json([
+</p>
+<p>
+                  &#8216;draw&#8217; =&gt; (int)$postData[&#8216;draw&#8217;],       //必须，HTTP请求发送什么就响应什么
+</p>
+<p>
+                  &#8216;recordsTotal&#8217; =&gt; Course::count(),       //必须，admin表总记录数
+</p>
+<p>
+                  &#8216;recordsFiltered&#8217; =&gt; $courses-&gt;count(),  //必须，admin表总记录数（增加where条件）
+</p>
+<p>
+                  &#8216;data&#8217; =&gt; $courses-&gt;offset($postData[&#8216;start&#8217;])-&gt;limit($postData[&#8216;length&#8217;])-&gt;get()
+</p>
+<p>
+              ]);
+</p>
+<p>
+          } else {
+</p>
+<p>
+              //2.加载视图
+</p>
+<p>
+              return view(&#8216;admin.course.index&#8217;);
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="970" height="635" src="/wp-content/uploads/2018/05/word-image-5385.png" class="wp-image-5925" srcset="/wp-content/uploads/2018/05/word-image-5385.png 970w, /wp-content/uploads/2018/05/word-image-5385-300x196.png 300w, /wp-content/uploads/2018/05/word-image-5385-768x503.png 768w" sizes="(max-width: 970px) 100vw, 970px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Model;
+</p>
+<p>
+  use Illuminate\Database\Eloquent\Model;
+</p>
+<p>
+  class Course extends Model
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明表名（注：laravel会自动加s所以自己声明覆盖）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $table = &#8216;course&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Unix时间戳形式填充创建于和更新于（注：模型默认托管时间但是是datetime类型）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $dateFormat = &#8216;U&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明可批量设置的属性（注：当使用create静态方式时）
+</p>
+<p>
+       * @var array
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $fillable = [&#8216;course_name&#8217;, &#8216;profession_id&#8217;, &#8216;course_price&#8217;, &#8216;img&#8217;, &#8216;course_desc&#8217;];
+</p>
+<p>
+     <strong> /**</strong>
+</p>
+<p><strong>     * 关联专业模型（1:1）</strong>
+</p>
+<p><strong>     * 语法：模型名::with（&#8217;role&#8217;）-&gt;first()</strong>
+</p>
+<p><strong>     * @return \Illuminate\Database\Eloquent\Relations\HasOne</strong>
+</p>
+<p><strong>     */</strong>
+</p>
+<p><strong>    public function profession()</strong>
+</p>
+<p><strong>    {</strong>
+</p>
+<p><strong>        #return $this-&gt;hasOne(关联模型名，关联模型公共字段，本模型公共字段)</strong>
+</p>
+<p><strong>        return $this-&gt;hasOne(&#8216;App\Http\Model\Profession&#8217;,&#8217;id&#8217;, &#8216;profession_id&#8217;);</strong>
+</p>
+<p><strong>    }</strong>
+</p>
+<p>
+  }
+</p>
+<h1>四、课时管理（点播）</h1>
+<h2>︴效果</h2>
+<p>
+  列表
+</p>
+<p><img loading="lazy" decoding="async" width="1351" height="676" src="/wp-content/uploads/2018/05/word-image-5386.png" class="wp-image-5926" srcset="/wp-content/uploads/2018/05/word-image-5386.png 1351w, /wp-content/uploads/2018/05/word-image-5386-300x150.png 300w, /wp-content/uploads/2018/05/word-image-5386-768x384.png 768w, /wp-content/uploads/2018/05/word-image-5386-1024x512.png 1024w" sizes="(max-width: 1351px) 100vw, 1351px" /></p>
+<p>
+  播放
+</p>
+<p><img loading="lazy" decoding="async" width="1316" height="682" src="/wp-content/uploads/2018/05/word-image-5387.png" class="wp-image-5927" srcset="/wp-content/uploads/2018/05/word-image-5387.png 1316w, /wp-content/uploads/2018/05/word-image-5387-300x155.png 300w, /wp-content/uploads/2018/05/word-image-5387-768x398.png 768w, /wp-content/uploads/2018/05/word-image-5387-1024x531.png 1024w" sizes="(max-width: 1316px) 100vw, 1316px" /></p>
+<h2>列表功能（模板文件：admin-permission.html）</h2>
+<h3>1）显示页面</h3>
+<ul>
+<li>
+    步骤1：定义路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="989" height="269" src="/wp-content/uploads/2018/05/word-image-5388.png" class="wp-image-5928" srcset="/wp-content/uploads/2018/05/word-image-5388.png 989w, /wp-content/uploads/2018/05/word-image-5388-300x82.png 300w, /wp-content/uploads/2018/05/word-image-5388-768x209.png 768w" sizes="(max-width: 989px) 100vw, 989px" /></p>
+<ul>
+<li>
+    步骤2：创建控制器和方法、并且调用视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="661" height="431" src="/wp-content/uploads/2018/05/word-image-5389.png" class="wp-image-5929" srcset="/wp-content/uploads/2018/05/word-image-5389.png 661w, /wp-content/uploads/2018/05/word-image-5389-300x196.png 300w" sizes="(max-width: 661px) 100vw, 661px" /></p>
+<ul>
+<li>
+    步骤3：加载视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1016" height="636" src="/wp-content/uploads/2018/05/word-image-5390.png" class="wp-image-5930" srcset="/wp-content/uploads/2018/05/word-image-5390.png 1016w, /wp-content/uploads/2018/05/word-image-5390-300x188.png 300w, /wp-content/uploads/2018/05/word-image-5390-768x481.png 768w" sizes="(max-width: 1016px) 100vw, 1016px" /></p>
+<h3>2）数据处理</h3>
+<ul>
+<li>
+    步骤1：修改路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1129" height="344" src="/wp-content/uploads/2018/05/word-image-5391.png" class="wp-image-5931" srcset="/wp-content/uploads/2018/05/word-image-5391.png 1129w, /wp-content/uploads/2018/05/word-image-5391-300x91.png 300w, /wp-content/uploads/2018/05/word-image-5391-768x234.png 768w, /wp-content/uploads/2018/05/word-image-5391-1024x312.png 1024w" sizes="(max-width: 1129px) 100vw, 1129px" /></p>
+<ul>
+<li>
+    步骤2：修改视图，设置datatables
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1214" height="611" src="/wp-content/uploads/2018/05/word-image-5392.png" class="wp-image-5932" srcset="/wp-content/uploads/2018/05/word-image-5392.png 1214w, /wp-content/uploads/2018/05/word-image-5392-300x151.png 300w, /wp-content/uploads/2018/05/word-image-5392-768x387.png 768w, /wp-content/uploads/2018/05/word-image-5392-1024x515.png 1024w" sizes="(max-width: 1214px) 100vw, 1214px" /><br />
+<img loading="lazy" decoding="async" width="870" height="700" src="/wp-content/uploads/2018/05/word-image-5393.png" class="wp-image-5933" srcset="/wp-content/uploads/2018/05/word-image-5393.png 870w, /wp-content/uploads/2018/05/word-image-5393-300x241.png 300w, /wp-content/uploads/2018/05/word-image-5393-768x618.png 768w" sizes="(max-width: 870px) 100vw, 870px" /></p>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;renderer&#8221; content=&#8221;webkit|ie-comp|ie-stand&#8221;&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;X-UA-Compatible&#8221; content=&#8221;IE=edge,chrome=1&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&#8221; /&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Cache-Control&#8221; content=&#8221;no-siteapp&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if lt IE 9]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/html5shiv.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/respond.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/css/H-ui.min.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/H-ui.admin.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/Hui-iconfont/1.0.8/iconfont.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/skin/default/skin.css&#8221; id=&#8221;skin&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/style.css&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if IE 6]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/DD_belatedPNG_0.0.8a-min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script&gt;DD_belatedPNG.fix(&#8216;*&#8217;);&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;title&gt;课时管理&lt;/title&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;nav class=&#8221;breadcrumb&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe67f;&lt;/i&gt; 首页 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 管理员管理 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 课时管理 &lt;a class=&#8221;btn btn-success radius r&#8221; style=&#8221;line-height:1.6em;margin-top:3px&#8221; href=&#8221;javascript:location.replace(location.href);&#8221; title=&#8221;刷新&#8221; &gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe68f;&lt;/i&gt;&lt;/a&gt;&lt;/nav&gt;
+</p>
+<p>
+  &lt;div class=&#8221;page-container&#8221;&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  		&lt;form class=&#8221;Huiform&#8221; method=&#8221;post&#8221; action=&#8221;&#8221; target=&#8221;_self&#8221;&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;text&#8221; class=&#8221;input-text&#8221; style=&#8221;width:250px&#8221; placeholder=&#8221;课时名称&#8221; id=&#8221;&#8221; name=&#8221;&#8221;&gt;
+</p>
+<p>
+  			&lt;button type=&#8221;submit&#8221; class=&#8221;btn btn-success&#8221; id=&#8221;&#8221; name=&#8221;&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe665;&lt;/i&gt; 搜课时节点&lt;/button&gt;
+</p>
+<p>
+  		&lt;/form&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;cl pd-5 bg-1 bk-gray mt-20&#8243;&gt; &lt;span class=&#8221;l&#8221;&gt;&lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;datadel()&#8221; class=&#8221;btn btn-danger radius&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt; 批量删除&lt;/a&gt; &lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_add(&#8216;添加课时节点&#8217;,&#8217;admin-permission-add.html&#8217;,&#8221;,&#8217;310&#8242;)&#8221; class=&#8221;btn btn-primary radius&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe600;&lt;/i&gt; 添加课时节点&lt;/a&gt;&lt;/span&gt; &lt;span class=&#8221;r&#8221;&gt;共有数据：&lt;strong&gt;54&lt;/strong&gt; 条&lt;/span&gt; &lt;/div&gt;
+</p>
+<p>
+  	<strong>&lt;table class=&#8221;table table-border table-bordered table-bg&#8221;&gt;</strong>
+</p>
+<p><strong>		&lt;thead&gt;</strong>
+</p>
+<p><strong>			&lt;tr&gt;</strong>
+</p>
+<p><strong>				&lt;th scope=&#8221;col&#8221; colspan=&#8221;11&#8243;&gt;课时节点&lt;/th&gt;</strong>
+</p>
+<p><strong>			&lt;/tr&gt;</strong>
+</p>
+<p><strong>			&lt;tr class=&#8221;text-c&#8221;&gt;</strong>
+</p>
+<p><strong>				&lt;th width=&#8221;25&#8243;&gt;&lt;input type=&#8221;checkbox&#8221; name=&#8221;&#8221; value=&#8221;&#8221;&gt;&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th width=&#8221;40&#8243;&gt;ID&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th width=&#8221;40&#8243;&gt;封面图&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;所属课程&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;课时名称&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;预览视频&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;播放时间/s&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;讲师&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;状态&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;创建于&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th&gt;更新于&lt;/th&gt;</strong>
+</p>
+<p><strong>				&lt;th width=&#8221;100&#8243;&gt;操作&lt;/th&gt;</strong>
+</p>
+<p><strong>			&lt;/tr&gt;</strong>
+</p>
+<p><strong>		&lt;/thead&gt;</strong>
+</p>
+<p>
+  		&lt;tbody&gt;
+</p>
+<p>
+  			&lt;!&#8211; &lt;tr class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;input type=&#8221;checkbox&#8221; value=&#8221;1&#8243; name=&#8221;&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;1&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;栏目添加&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;a title=&#8221;编辑&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_edit(&#8216;角色编辑&#8217;,&#8217;admin-permission-add.html&#8217;,&#8217;1&#8242;,&#8221;,&#8217;310&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6df;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;删除&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_del(this,&#8217;1&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+</p>
+<p>
+  			&lt;/tr&gt; &#8211;&gt;
+</p>
+<p>
+  		&lt;/tbody&gt;
+</p>
+<p>
+  	&lt;/table&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;!&#8211;_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery/1.9.1/jquery.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/layer/2.4/layer.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/js/H-ui.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/js/H-ui.admin.js&#8221;&gt;&lt;/script&gt; &lt;!&#8211;/_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;请在下方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/datatables/1.10.0/jquery.dataTables.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p><strong>//客户端分页大DD  服务端分页小DD</strong>
+</p>
+<p><strong>var table  = $(&#8216;table&#8217;).dataTable({</strong>
+</p>
+<p><strong>	//开启服务端分页（注：开启后发送的HTTP请求会携带起始位置和每页显示条数等信息）</strong>
+</p>
+<p><strong>	&#8220;serverSide&#8221;: true,</strong>
+</p>
+<p><strong>	ajax: {</strong>
+</p>
+<p><strong>		url: &#8220;{{ url(&#8216;admin/lesson/index&#8217;) }}&#8221;,</strong>
+</p>
+<p><strong>		&#8220;type&#8221;: &#8220;post&#8221;,</strong>
+</p>
+<p><strong>		&#8216;headers&#8217;: { &#8216;X-CSRF-TOKEN&#8217; : &#8216;{{ csrf_token() }}&#8217; },</strong>
+</p>
+<p><strong>		&#8220;data&#8221;: function (data) {</strong>
+</p>
+<p><strong>		}</strong>
+</p>
+<p><strong>	},</strong>
+</p>
+<p><strong>	//作用：设置服务端返回数据填充规则</strong>
+</p>
+<p><strong>	//语法：{&#8220;data&#8221;: &#8220;键&#8221;，&#8221;defaultContent&#8221;: &#8220;默认值&#8221;}</strong>
+</p>
+<p><strong>	&#8220;columns&#8221;: [</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;tmp1&#8221;,  defaultContent: &#8220;占位，复选框&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;id&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;img&#8221; },</strong>
+</p>
+<p><strong>		// { &#8220;data&#8221;: &#8220;course_id&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;course.course_name&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;lesson_name&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;tmp3&#8221;,  defaultContent: &#8220;占位，播放按钮&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;video_time&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;teacher_name&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;state&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;created_at&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;updated_at&#8221; },</strong>
+</p>
+<p><strong>		{ &#8220;data&#8221;: &#8220;tmp2&#8221;, defaultContent: &#8220;占位，操作&#8221; },</strong>
+</p>
+<p><strong>	],</strong>
+</p>
+<p><strong>	//createdRow</strong>
+</p>
+<p><strong>	//作用：创建tr时回调</strong>
+</p>
+<p><strong>	//row:创建好的tr的dom对象</strong>
+</p>
+<p><strong>	//data:数据源，代表服务器端返回的每条记录的实体信息</strong>
+</p>
+<p><strong>	//dataIndex:数据源的索引号码</strong>
+</p>
+<p><strong>	&#8220;createdRow&#8221;: function(row, data, dataIndex) {</strong>
+</p>
+<p><strong>		//匹配每一行的第一列</strong>
+</p>
+<p><strong>		$(row).find(&#8220;td:first&#8221;).html(&#8220;&lt;input type=&#8217;checkbox&#8217; name=&#8217;choose[]&#8217; value='&#8221;+data.id+&#8221;&#8216; /&gt;&#8221;)</strong>
+</p>
+<p><strong>        //匹配每一行的第二列</strong>
+</p>
+<p><strong>        if (data.img) {</strong>
+</p>
+<p><strong>            $(row).find(&#8220;td:eq(2)&#8221;).html(&#8216;&lt;img src=&#8217;+data.img+&#8217; width=&#8221;120&#8243; height=&#8221;60&#8243;&gt;&#8217;);</strong>
+</p>
+<p><strong>        } else {</strong>
+</p>
+<p><strong>            var defaultImg = &#8220;{{ asset(&#8216;img/default.png&#8217;) }}&#8221;;</strong>
+</p>
+<p><strong>            $(row).find(&#8220;td:eq(2)&#8221;).html(&#8216;&lt;img src=&#8221;&#8216;+defaultImg+'&#8221; width=&#8221;120&#8243; height=&#8221;60&#8243;&gt;&#8217;);</strong>
+</p>
+<p><strong>        }</strong>
+</p>
+<p><strong>        //预览播放按钮</strong>
+</p>
+<p><strong>        $(row).find(&#8220;td:eq(5)&#8221;).html(&#8216;&lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;&#8221; class=&#8221;btn btn-primary radius&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e6;&lt;/i&gt;播放&lt;/a&gt;&#8217;);</strong>
+</p>
+<p><strong>        if (data.state == 1) {</strong>
+</p>
+<p><strong>			$(row).find(&#8220;td:eq(8)&#8221;).html(&#8216;&lt;span class=&#8221;label label-success radius&#8221;&gt;已启用&lt;/span&gt;&#8217;);</strong>
+</p>
+<p><strong>		} else {</strong>
+</p>
+<p><strong>			$(row).find(&#8220;td:eq(8)&#8221;).html(&#8216;&lt;span class=&#8221;label radius&#8221;&gt;已停用&lt;/span&gt;&#8217;);</strong>
+</p>
+<p><strong>		}</strong>
+</p>
+<p><strong>		//匹配每一行的最后一列</strong>
+</p>
+<p><strong>		var lastHtml = &#8216;&lt;a style=&#8221;text-decoration:none&#8221; onClick=&#8221;admin_start(this,10001)&#8221; href=&#8221;javascript:;&#8221; title=&#8221;启用&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe615;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;编辑&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_edit(\&#8217;管理员编辑\&#8217;,\&#8217;admin-add.html\&#8217;,2,800,500)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6df;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;删除&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_del(this,1)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt;&lt;/a&gt;&#8217;;</strong>
+</p>
+<p><strong>		$(row).find(&#8220;td:last&#8221;).html(lastHtml);</strong>
+</p>
+<p><strong>        //让每一行居中</strong>
+</p>
+<p><strong>        $(row).addClass(&#8216;text-c&#8217;);</strong>
+</p>
+<p><strong>	},</strong>
+</p>
+<p><strong>	searching : false, 		 //禁用搜索</strong>
+</p>
+<p><strong>	bLengthChange: false,    //去掉每页显示多少条数据方法</strong>
+</p>
+<p><strong>    iDisplayLength:6,	 	 //限制每页显示条数</strong>
+</p>
+<p><strong>});</strong>
+</p>
+<p>
+  /*
+</p>
+<p>
+  	参数解释：
+</p>
+<p>
+  	title	标题
+</p>
+<p>
+  	url		请求的url
+</p>
+<p>
+  	id		需要操作的数据id
+</p>
+<p>
+  	w		弹出层宽度（缺省调默认值）
+</p>
+<p>
+  	h		弹出层高度（缺省调默认值）
+</p>
+<p>
+  */
+</p>
+<p>
+  /*管理员-课时-添加*/
+</p>
+<p>
+  function admin_permission_add(title,url,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-课时-编辑*/
+</p>
+<p>
+  function admin_permission_edit(title,url,id,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-课时-删除*/
+</p>
+<p>
+  function admin_permission_del(obj,id){
+</p>
+<p>
+  	layer.confirm(&#8216;确认要删除吗？&#8217;,function(index){
+</p>
+<p>
+  		$.ajax({
+</p>
+<p>
+  			type: &#8216;POST&#8217;,
+</p>
+<p>
+  			url: &#8221;,
+</p>
+<p>
+  			dataType: &#8216;json&#8217;,
+</p>
+<p>
+  			success: function(data){
+</p>
+<p>
+  				$(obj).parents(&#8220;tr&#8221;).remove();
+</p>
+<p>
+  				layer.msg(&#8216;已删除!&#8217;,{icon:1,time:1000});
+</p>
+<p>
+  			},
+</p>
+<p>
+  			error:function(data) {
+</p>
+<p>
+  				console.log(data.msg);
+</p>
+<p>
+  			},
+</p>
+<p>
+  		});
+</p>
+<p>
+  	});
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<ul>
+<li>
+    步骤1：修改控制器方法响应数据
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1131" height="654" src="/wp-content/uploads/2018/05/word-image-5394.png" class="wp-image-5934" srcset="/wp-content/uploads/2018/05/word-image-5394.png 1131w, /wp-content/uploads/2018/05/word-image-5394-300x173.png 300w, /wp-content/uploads/2018/05/word-image-5394-768x444.png 768w, /wp-content/uploads/2018/05/word-image-5394-1024x592.png 1024w" sizes="(max-width: 1131px) 100vw, 1131px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use App\Http\Model\Lesson;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class LessonController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function index(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.判断HTTP请求类型
+</p>
+<p>
+          if ($request-&gt;isMethod(&#8216;post&#8217;)) {
+</p>
+<p>
+              //2.接受数据
+</p>
+<p>
+              $postData = $request-&gt;only([&#8216;start&#8217;, &#8216;length&#8217;, &#8216;draw&#8217;]);
+</p>
+<p>
+              //3.查询数据
+</p>
+<p>
+              $courses = Lesson::with(&#8216;course&#8217;)-&gt;orderBy(&#8216;id&#8217;, &#8216;desc&#8217;);
+</p>
+<p>
+              //4.响应json数据
+</p>
+<p>
+              return response()-&gt;json([
+</p>
+<p>
+                  &#8216;draw&#8217; =&gt; (int)$postData[&#8216;draw&#8217;],       //必须，HTTP请求发送什么就响应什么
+</p>
+<p>
+                  &#8216;recordsTotal&#8217; =&gt; Lesson::count(),       //必须，admin表总记录数
+</p>
+<p>
+                  &#8216;recordsFiltered&#8217; =&gt; $courses-&gt;count(),  //必须，admin表总记录数（增加where条件）
+</p>
+<p>
+                  &#8216;data&#8217; =&gt; $courses-&gt;offset($postData[&#8216;start&#8217;])-&gt;limit($postData[&#8216;length&#8217;])-&gt;get()
+</p>
+<p>
+              ]);
+</p>
+<p>
+          } else {
+</p>
+<p>
+              //2.加载视图
+</p>
+<p>
+              return view(&#8216;admin.lesson.index&#8217;);
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h2>列表播放功能</h2>
+<h3>1）思路</h3>
+<ul>
+<li>
+    步骤1：用户点击播放按钮弹框，打开admin/lesson/play页面（注：
+  </li>
+</ul>
+<p>
+  播放视频地址url，如：admin/lesson/play?video=xxxx.mp3）
+</p>
+<ul>
+<li>
+    步骤2：控制器方法 echo html播放标签即可
+  </li>
+</ul>
+<p>
+  &lt;video src=&#8221;/i/movie.ogg&#8221; controls=&#8221;controls&#8221;&gt;
+</p>
+<p>
+  your browser does not support the video tag
+</p>
+<p>
+  &lt;/video&gt;
+</p>
+<h3>代码步骤</h3>
+<ul>
+<li>
+    步骤1：绑定点击事件，点击后打开弹框（弹框加载页面）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1225" height="316" src="/wp-content/uploads/2018/05/word-image-5395.png" class="wp-image-5935" srcset="/wp-content/uploads/2018/05/word-image-5395.png 1225w, /wp-content/uploads/2018/05/word-image-5395-300x77.png 300w, /wp-content/uploads/2018/05/word-image-5395-768x198.png 768w, /wp-content/uploads/2018/05/word-image-5395-1024x264.png 1024w" sizes="(max-width: 1225px) 100vw, 1225px" /><br />
+<img loading="lazy" decoding="async" width="689" height="260" src="/wp-content/uploads/2018/05/word-image-5396.png" class="wp-image-5936" srcset="/wp-content/uploads/2018/05/word-image-5396.png 689w, /wp-content/uploads/2018/05/word-image-5396-300x113.png 300w" sizes="(max-width: 689px) 100vw, 689px" /></p>
+<p>
+   //预览播放按钮
+</p>
+<p>
+          var playurl = &#8220;{{ url(&#8216;admin/lesson/play&#8217;) }}?video=&#8221; + data.video_address;
+</p>
+<p>
+          $(row).find(&#8220;td:eq(5)&#8221;).html(&#8216;&lt;a href=&#8221;javascript:;&#8221; onclick=video_play(&#8220;&#8216;+data.lesson_name+&#8217;预览&#8221;,&#8221;&#8216;+playurl+'&#8221;,800,450) class=&#8221;btn btn-primary radius&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e6;&lt;/i&gt;播放&lt;/a&gt;&#8217;);
+</p>
+<p>
+  /*管理员-课时-播放*/
+</p>
+<p>
+  function video_play(title,url,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤2：设置路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1089" height="158" src="/wp-content/uploads/2018/05/word-image-5397.png" class="wp-image-5937" srcset="/wp-content/uploads/2018/05/word-image-5397.png 1089w, /wp-content/uploads/2018/05/word-image-5397-300x44.png 300w, /wp-content/uploads/2018/05/word-image-5397-768x111.png 768w, /wp-content/uploads/2018/05/word-image-5397-1024x149.png 1024w" sizes="(max-width: 1089px) 100vw, 1089px" /></p>
+<ul>
+<li>
+    步骤3：常见控制器方法获取播放地址
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1276" height="270" src="/wp-content/uploads/2018/05/word-image-5398.png" class="wp-image-5938" srcset="/wp-content/uploads/2018/05/word-image-5398.png 1276w, /wp-content/uploads/2018/05/word-image-5398-300x63.png 300w, /wp-content/uploads/2018/05/word-image-5398-768x163.png 768w, /wp-content/uploads/2018/05/word-image-5398-1024x217.png 1024w" sizes="(max-width: 1276px) 100vw, 1276px" /></p>
+<p>
+  //点播
+</p>
+<p>
+  public function play(Request $request)
+</p>
+<p>
+  {
+</p>
+<p>
+      //1.接受播放地址
+</p>
+<p>
+      //dd(asset(&#8216;img/default.mp4&#8217;));
+</p>
+<p>
+      $video_addr = $request-&gt;input(&#8216;video&#8217;) ? $request-&gt;input(&#8216;video&#8217;) : asset(&#8216;img/default.mp4&#8217;);
+</p>
+<p>
+      echo &#8220;&lt;video width=&#8217;100%&#8217; height=&#8217;390&#8242; src='{$video_addr}&#8217; autoplay controls=&#8217;controls&#8217;&gt;
+</p>
+<p>
+      您的浏览器不支持 video 标签。
+</p>
+<p>
+      &lt;/video&gt;&#8221;;
+</p>
+<p>
+  }
+</p>
+<h1>︴完善</h1>
+<h2>左侧菜单</h2>
+<p><img loading="lazy" decoding="async" width="787" height="578" src="/wp-content/uploads/2018/05/word-image-5399.png" class="wp-image-5939" srcset="/wp-content/uploads/2018/05/word-image-5399.png 787w, /wp-content/uploads/2018/05/word-image-5399-300x220.png 300w, /wp-content/uploads/2018/05/word-image-5399-768x564.png 768w" sizes="(max-width: 787px) 100vw, 787px" /></p>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;renderer&#8221; content=&#8221;webkit|ie-comp|ie-stand&#8221;&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;X-UA-Compatible&#8221; content=&#8221;IE=edge,chrome=1&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&#8221; /&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Cache-Control&#8221; content=&#8221;no-siteapp&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;Bookmark&#8221; href=&#8221;/favicon.ico&#8221; &gt;
+</p>
+<p>
+  &lt;link rel=&#8221;Shortcut Icon&#8221; href=&#8221;/favicon.ico&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if lt IE 9]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/html5shiv.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/respond.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/css/H-ui.min.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/H-ui.admin.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/Hui-iconfont/1.0.8/iconfont.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/skin/default/skin.css&#8221; id=&#8221;skin&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/style.css&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if IE 6]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/DD_belatedPNG_0.0.8a-min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script&gt;DD_belatedPNG.fix(&#8216;*&#8217;);&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;title&gt;H-ui.admin v3.1&lt;/title&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;keywords&#8221; content=&#8221;H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载&#8221;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;description&#8221; content=&#8221;H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。&#8221;&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;header class=&#8221;navbar-wrapper&#8221;&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;navbar navbar-fixed-top&#8221;&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;container-fluid cl&#8221;&gt; &lt;a class=&#8221;logo navbar-logo f-l mr-10 hidden-xs&#8221; href=&#8221;/aboutHui.shtml&#8221;&gt;H-ui.admin&lt;/a&gt; &lt;a class=&#8221;logo navbar-logo-m f-l mr-10 visible-xs&#8221; href=&#8221;/aboutHui.shtml&#8221;&gt;H-ui&lt;/a&gt;
+</p>
+<p>
+  			&lt;span class=&#8221;logo navbar-slogan f-l mr-10 hidden-xs&#8221;&gt;v3.1&lt;/span&gt;
+</p>
+<p>
+  			&lt;a aria-hidden=&#8221;false&#8221; class=&#8221;nav-toggle Hui-iconfont visible-xs&#8221; href=&#8221;javascript:;&#8221;&gt;&amp;#xe667;&lt;/a&gt;
+</p>
+<p>
+  			&lt;nav class=&#8221;nav navbar-nav&#8221;&gt;
+</p>
+<p>
+  				&lt;ul class=&#8221;cl&#8221;&gt;
+</p>
+<p>
+  					&lt;li class=&#8221;dropDown dropDown_hover&#8221;&gt;&lt;a href=&#8221;javascript:;&#8221; class=&#8221;dropDown_A&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe600;&lt;/i&gt; 新增 &lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6d5;&lt;/i&gt;&lt;/a&gt;
+</p>
+<p>
+  						&lt;ul class=&#8221;dropDown-menu menu radius box-shadow&#8221;&gt;
+</p>
+<p>
+  							&lt;li&gt;&lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;article_add(&#8216;添加资讯&#8217;,&#8217;article-add.html&#8217;)&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe616;&lt;/i&gt; 资讯&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  							&lt;li&gt;&lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;picture_add(&#8216;添加资讯&#8217;,&#8217;picture-add.html&#8217;)&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe613;&lt;/i&gt; 图片&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  							&lt;li&gt;&lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;product_add(&#8216;添加资讯&#8217;,&#8217;product-add.html&#8217;)&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe620;&lt;/i&gt; 产品&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  							&lt;li&gt;&lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;member_add(&#8216;添加用户&#8217;,&#8217;member-add.html&#8217;,&#8221;,&#8217;510&#8242;)&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe60d;&lt;/i&gt; 用户&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;/ul&gt;
+</p>
+<p>
+  				&lt;/li&gt;
+</p>
+<p>
+  			&lt;/ul&gt;
+</p>
+<p>
+  		&lt;/nav&gt;
+</p>
+<p>
+  		&lt;nav id=&#8221;Hui-userbar&#8221; class=&#8221;nav navbar-nav navbar-userbar hidden-xs&#8221;&gt;
+</p>
+<p>
+  			&lt;ul class=&#8221;cl&#8221;&gt;
+</p>
+<p>
+  				&lt;li&gt;{{ Auth::guard(&#8216;admin&#8217;)-&gt;user()-&gt;role()-&gt;first()-&gt;role_name }} &lt;/li&gt;
+</p>
+<p>
+  				&lt;li class=&#8221;dropDown dropDown_hover&#8221;&gt;
+</p>
+<p>
+  					&lt;a href=&#8221;#&#8221; class=&#8221;dropDown_A&#8221;&gt;{{ Auth::guard(&#8216;admin&#8217;)-&gt;user()-&gt;username }} &lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6d5;&lt;/i&gt;&lt;/a&gt;
+</p>
+<p>
+  					&lt;ul class=&#8221;dropDown-menu menu radius box-shadow&#8221;&gt;
+</p>
+<p>
+  						&lt;li&gt;&lt;a href=&#8221;javascript:;&#8221; onClick=&#8221;myselfinfo()&#8221;&gt;个人信息&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  						&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;切换账户&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  						&lt;li&gt;&lt;a href=&#8221;{{ url(&#8216;admin/loginout&#8217;) }}&#8221;&gt;退出&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  				&lt;/ul&gt;
+</p>
+<p>
+  			&lt;/li&gt;
+</p>
+<p>
+  				&lt;li id=&#8221;Hui-msg&#8221;&gt; &lt;a href=&#8221;#&#8221; title=&#8221;消息&#8221;&gt;&lt;span class=&#8221;badge badge-danger&#8221;&gt;1&lt;/span&gt;&lt;i class=&#8221;Hui-iconfont&#8221; style=&#8221;font-size:18px&#8221;&gt;&amp;#xe68a;&lt;/i&gt;&lt;/a&gt; &lt;/li&gt;
+</p>
+<p>
+  				&lt;li id=&#8221;Hui-skin&#8221; class=&#8221;dropDown right dropDown_hover&#8221;&gt; &lt;a href=&#8221;javascript:;&#8221; class=&#8221;dropDown_A&#8221; title=&#8221;换肤&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221; style=&#8221;font-size:18px&#8221;&gt;&amp;#xe62a;&lt;/i&gt;&lt;/a&gt;
+</p>
+<p>
+  					&lt;ul class=&#8221;dropDown-menu menu radius box-shadow&#8221;&gt;
+</p>
+<p>
+  						&lt;li&gt;&lt;a href=&#8221;javascript:;&#8221; data-val=&#8221;default&#8221; title=&#8221;默认（黑色）&#8221;&gt;默认（黑色）&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  						&lt;li&gt;&lt;a href=&#8221;javascript:;&#8221; data-val=&#8221;blue&#8221; title=&#8221;蓝色&#8221;&gt;蓝色&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  						&lt;li&gt;&lt;a href=&#8221;javascript:;&#8221; data-val=&#8221;green&#8221; title=&#8221;绿色&#8221;&gt;绿色&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  						&lt;li&gt;&lt;a href=&#8221;javascript:;&#8221; data-val=&#8221;red&#8221; title=&#8221;红色&#8221;&gt;红色&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  						&lt;li&gt;&lt;a href=&#8221;javascript:;&#8221; data-val=&#8221;yellow&#8221; title=&#8221;黄色&#8221;&gt;黄色&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  						&lt;li&gt;&lt;a href=&#8221;javascript:;&#8221; data-val=&#8221;orange&#8221; title=&#8221;橙色&#8221;&gt;橙色&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;/ul&gt;
+</p>
+<p>
+  				&lt;/li&gt;
+</p>
+<p>
+  			&lt;/ul&gt;
+</p>
+<p>
+  		&lt;/nav&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;/header&gt;
+</p>
+<p>
+  &lt;aside class=&#8221;Hui-aside&#8221;&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;menu_dropdown bk_2&#8243;&gt;
+</p>
+<p>
+  		<strong>&lt;dl id=&#8221;menu-article&#8221;&gt;</strong>
+</p>
+<p><strong>			&lt;dt&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe616;&lt;/i&gt;专业分类管理&lt;i class=&#8221;Hui-iconfont menu_dropdown-arrow&#8221;&gt;&amp;#xe6d5;&lt;/i&gt;&lt;/dt&gt;</strong>
+</p>
+<p><strong>			&lt;dd&gt;</strong>
+</p>
+<p><strong>				&lt;ul&gt;</strong>
+</p>
+<p><strong>					&lt;li&gt;&lt;a data-href=&#8221;{{ url(&#8216;admin/protype/index&#8217;) }}&#8221; data-title=&#8221;资讯管理&#8221; href=&#8221;javascript:void(0)&#8221;&gt;分类管理&lt;/a&gt;&lt;/li&gt;</strong>
+</p>
+<p><strong>					&lt;li&gt;&lt;a data-href=&#8221;{{ url(&#8216;admin/profession/index&#8217;) }}&#8221; data-title=&#8221;资讯管理&#8221; href=&#8221;javascript:void(0)&#8221;&gt;专业管理&lt;/a&gt;&lt;/li&gt;</strong>
+</p>
+<p><strong>			&lt;/ul&gt;</strong>
+</p>
+<p><strong>		&lt;/dd&gt;</strong>
+</p>
+<p><strong>	&lt;/dl&gt;</strong>
+</p>
+<p><strong>		&lt;dl id=&#8221;menu-product&#8221;&gt;</strong>
+</p>
+<p><strong>			&lt;dt&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe620;&lt;/i&gt;课程课时管理&lt;i class=&#8221;Hui-iconfont menu_dropdown-arrow&#8221;&gt;&amp;#xe6d5;&lt;/i&gt;&lt;/dt&gt;</strong>
+</p>
+<p><strong>			&lt;dd&gt;</strong>
+</p>
+<p><strong>				&lt;ul&gt;</strong>
+</p>
+<p><strong>					&lt;li&gt;&lt;a data-href=&#8221;{{ url(&#8216;admin/course/index&#8217;) }}&#8221; data-title=&#8221;课程管理&#8221; href=&#8221;javascript:void(0)&#8221;&gt;课程管理&lt;/a&gt;&lt;/li&gt;</strong>
+</p>
+<p><strong>					&lt;li&gt;&lt;a data-href=&#8221;{{ url(&#8216;admin/lesson/index&#8217;) }}&#8221; data-title=&#8221;课时管理&#8221; href=&#8221;javascript:void(0)&#8221;&gt;课时管理&lt;/a&gt;&lt;/li&gt;</strong>
+</p>
+<p><strong>			&lt;/ul&gt;</strong>
+</p>
+<p><strong>		&lt;/dd&gt;</strong>
+</p>
+<p><strong>	&lt;/dl&gt;</strong>
+</p>
+<p><strong>		&lt;dl id=&#8221;menu-admin&#8221;&gt;</strong>
+</p>
+<p><strong>			&lt;dt&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe62d;&lt;/i&gt;管理员管理&lt;i class=&#8221;Hui-iconfont menu_dropdown-arrow&#8221;&gt;&amp;#xe6d5;&lt;/i&gt;&lt;/dt&gt;</strong>
+</p>
+<p><strong>			&lt;dd&gt;</strong>
+</p>
+<p><strong>				&lt;ul&gt;</strong>
+</p>
+<p><strong>					&lt;li&gt;&lt;a data-href=&#8221;{{ url(&#8216;admin/role/index&#8217;) }}&#8221; data-title=&#8221;角色管理&#8221; href=&#8221;javascript:void(0)&#8221;&gt;角色管理&lt;/a&gt;&lt;/li&gt;</strong>
+</p>
+<p><strong>					&lt;li&gt;&lt;a data-href=&#8221;{{ url(&#8216;admin/auth/index&#8217;) }}&#8221; data-title=&#8221;权限管理&#8221; href=&#8221;javascript:void(0)&#8221;&gt;权限管理&lt;/a&gt;&lt;/li&gt;</strong>
+</p>
+<p><strong>					&lt;li&gt;&lt;a data-href=&#8221;{{ url(&#8216;admin/admin/index&#8217;) }}&#8221; data-title=&#8221;管理员列表&#8221; href=&#8221;javascript:void(0)&#8221;&gt;管理员列表&lt;/a&gt;&lt;/li&gt;</strong>
+</p>
+<p><strong>			&lt;/ul&gt;</strong>
+</p>
+<p><strong>		&lt;/dd&gt;</strong>
+</p>
+<p><strong>	&lt;/dl&gt;</strong>
+</p>
+<p>
+  		&lt;dl id=&#8221;menu-picture&#8221;&gt;
+</p>
+<p>
+  			&lt;dt&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe613;&lt;/i&gt; 图片管理&lt;i class=&#8221;Hui-iconfont menu_dropdown-arrow&#8221;&gt;&amp;#xe6d5;&lt;/i&gt;&lt;/dt&gt;
+</p>
+<p>
+  			&lt;dd&gt;
+</p>
+<p>
+  				&lt;ul&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;picture-list.html&#8221; data-title=&#8221;图片管理&#8221; href=&#8221;javascript:void(0)&#8221;&gt;图片管理&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  			&lt;/ul&gt;
+</p>
+<p>
+  		&lt;/dd&gt;
+</p>
+<p>
+  	&lt;/dl&gt;
+</p>
+<p>
+  		&lt;dl id=&#8221;menu-comments&#8221;&gt;
+</p>
+<p>
+  			&lt;dt&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe622;&lt;/i&gt; 评论管理&lt;i class=&#8221;Hui-iconfont menu_dropdown-arrow&#8221;&gt;&amp;#xe6d5;&lt;/i&gt;&lt;/dt&gt;
+</p>
+<p>
+  			&lt;dd&gt;
+</p>
+<p>
+  				&lt;ul&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;http://h-ui.duoshuo.com/admin/&#8221; data-title=&#8221;评论列表&#8221; href=&#8221;javascript:;&#8221;&gt;评论列表&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;feedback-list.html&#8221; data-title=&#8221;意见反馈&#8221; href=&#8221;javascript:void(0)&#8221;&gt;意见反馈&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  			&lt;/ul&gt;
+</p>
+<p>
+  		&lt;/dd&gt;
+</p>
+<p>
+  	&lt;/dl&gt;
+</p>
+<p>
+  		&lt;dl id=&#8221;menu-member&#8221;&gt;
+</p>
+<p>
+  			&lt;dt&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe60d;&lt;/i&gt; 会员管理&lt;i class=&#8221;Hui-iconfont menu_dropdown-arrow&#8221;&gt;&amp;#xe6d5;&lt;/i&gt;&lt;/dt&gt;
+</p>
+<p>
+  			&lt;dd&gt;
+</p>
+<p>
+  				&lt;ul&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;member-list.html&#8221; data-title=&#8221;会员列表&#8221; href=&#8221;javascript:;&#8221;&gt;会员列表&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;member-del.html&#8221; data-title=&#8221;删除的会员&#8221; href=&#8221;javascript:;&#8221;&gt;删除的会员&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;member-level.html&#8221; data-title=&#8221;等级管理&#8221; href=&#8221;javascript:;&#8221;&gt;等级管理&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;member-scoreoperation.html&#8221; data-title=&#8221;积分管理&#8221; href=&#8221;javascript:;&#8221;&gt;积分管理&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;member-record-browse.html&#8221; data-title=&#8221;浏览记录&#8221; href=&#8221;javascript:void(0)&#8221;&gt;浏览记录&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;member-record-download.html&#8221; data-title=&#8221;下载记录&#8221; href=&#8221;javascript:void(0)&#8221;&gt;下载记录&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;member-record-share.html&#8221; data-title=&#8221;分享记录&#8221; href=&#8221;javascript:void(0)&#8221;&gt;分享记录&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  			&lt;/ul&gt;
+</p>
+<p>
+  		&lt;/dd&gt;
+</p>
+<p>
+  	&lt;/dl&gt;
+</p>
+<p>
+  		&lt;dl id=&#8221;menu-tongji&#8221;&gt;
+</p>
+<p>
+  			&lt;dt&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe61a;&lt;/i&gt; 系统统计&lt;i class=&#8221;Hui-iconfont menu_dropdown-arrow&#8221;&gt;&amp;#xe6d5;&lt;/i&gt;&lt;/dt&gt;
+</p>
+<p>
+  			&lt;dd&gt;
+</p>
+<p>
+  				&lt;ul&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;charts-1.html&#8221; data-title=&#8221;折线图&#8221; href=&#8221;javascript:void(0)&#8221;&gt;折线图&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;charts-2.html&#8221; data-title=&#8221;时间轴折线图&#8221; href=&#8221;javascript:void(0)&#8221;&gt;时间轴折线图&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;charts-3.html&#8221; data-title=&#8221;区域图&#8221; href=&#8221;javascript:void(0)&#8221;&gt;区域图&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;charts-4.html&#8221; data-title=&#8221;柱状图&#8221; href=&#8221;javascript:void(0)&#8221;&gt;柱状图&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;charts-5.html&#8221; data-title=&#8221;饼状图&#8221; href=&#8221;javascript:void(0)&#8221;&gt;饼状图&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;charts-6.html&#8221; data-title=&#8221;3D柱状图&#8221; href=&#8221;javascript:void(0)&#8221;&gt;3D柱状图&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;charts-7.html&#8221; data-title=&#8221;3D饼状图&#8221; href=&#8221;javascript:void(0)&#8221;&gt;3D饼状图&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  			&lt;/ul&gt;
+</p>
+<p>
+  		&lt;/dd&gt;
+</p>
+<p>
+  	&lt;/dl&gt;
+</p>
+<p>
+  		&lt;dl id=&#8221;menu-system&#8221;&gt;
+</p>
+<p>
+  			&lt;dt&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe62e;&lt;/i&gt; 系统管理&lt;i class=&#8221;Hui-iconfont menu_dropdown-arrow&#8221;&gt;&amp;#xe6d5;&lt;/i&gt;&lt;/dt&gt;
+</p>
+<p>
+  			&lt;dd&gt;
+</p>
+<p>
+  				&lt;ul&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;system-base.html&#8221; data-title=&#8221;系统设置&#8221; href=&#8221;javascript:void(0)&#8221;&gt;系统设置&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;system-category.html&#8221; data-title=&#8221;栏目管理&#8221; href=&#8221;javascript:void(0)&#8221;&gt;栏目管理&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;system-data.html&#8221; data-title=&#8221;数据字典&#8221; href=&#8221;javascript:void(0)&#8221;&gt;数据字典&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;system-shielding.html&#8221; data-title=&#8221;屏蔽词&#8221; href=&#8221;javascript:void(0)&#8221;&gt;屏蔽词&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  					&lt;li&gt;&lt;a data-href=&#8221;system-log.html&#8221; data-title=&#8221;系统日志&#8221; href=&#8221;javascript:void(0)&#8221;&gt;系统日志&lt;/a&gt;&lt;/li&gt;
+</p>
+<p>
+  			&lt;/ul&gt;
+</p>
+<p>
+  		&lt;/dd&gt;
+</p>
+<p>
+  	&lt;/dl&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;/aside&gt;
+</p>
+<p>
+  &lt;div class=&#8221;dislpayArrow hidden-xs&#8221;&gt;&lt;a class=&#8221;pngfix&#8221; href=&#8221;javascript:void(0);&#8221; onClick=&#8221;displaynavbar(this)&#8221;&gt;&lt;/a&gt;&lt;/div&gt;
+</p>
+<p>
+  &lt;section class=&#8221;Hui-article-box&#8221;&gt;
+</p>
+<p>
+  	&lt;div id=&#8221;Hui-tabNav&#8221; class=&#8221;Hui-tabNav hidden-xs&#8221;&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;Hui-tabNav-wp&#8221;&gt;
+</p>
+<p>
+  			&lt;ul id=&#8221;min_title_list&#8221; class=&#8221;acrossTab cl&#8221;&gt;
+</p>
+<p>
+  				&lt;li class=&#8221;active&#8221;&gt;
+</p>
+<p>
+  					&lt;span title=&#8221;我的桌面&#8221; data-href=&#8221;welcome.html&#8221;&gt;我的桌面&lt;/span&gt;
+</p>
+<p>
+  					&lt;em&gt;&lt;/em&gt;&lt;/li&gt;
+</p>
+<p>
+  		&lt;/ul&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;Hui-tabNav-more btn-group&#8221;&gt;&lt;a id=&#8221;js-tabNav-prev&#8221; class=&#8221;btn radius btn-default size-S&#8221; href=&#8221;javascript:;&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6d4;&lt;/i&gt;&lt;/a&gt;&lt;a id=&#8221;js-tabNav-next&#8221; class=&#8221;btn radius btn-default size-S&#8221; href=&#8221;javascript:;&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6d7;&lt;/i&gt;&lt;/a&gt;&lt;/div&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  	&lt;div id=&#8221;iframe_box&#8221; class=&#8221;Hui-article&#8221;&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;show_iframe&#8221;&gt;
+</p>
+<p>
+  			&lt;div style=&#8221;display:none&#8221; class=&#8221;loading&#8221;&gt;&lt;/div&gt;
+</p>
+<p>
+  			&lt;iframe scrolling=&#8221;yes&#8221; frameborder=&#8221;0&#8243; src=&#8221;{{ url(&#8216;admin/index/welcome&#8217;) }}&#8221;&gt;&lt;/iframe&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;/section&gt;
+</p>
+<p>
+  &lt;div class=&#8221;contextMenu&#8221; id=&#8221;Huiadminmenu&#8221;&gt;
+</p>
+<p>
+  	&lt;ul&gt;
+</p>
+<p>
+  		&lt;li id=&#8221;closethis&#8221;&gt;关闭当前 &lt;/li&gt;
+</p>
+<p>
+  		&lt;li id=&#8221;closeall&#8221;&gt;关闭全部 &lt;/li&gt;
+</p>
+<p>
+  &lt;/ul&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;!&#8211;_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery/1.9.1/jquery.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/layer/2.4/layer.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/js/H-ui.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/js/H-ui.admin.js&#8221;&gt;&lt;/script&gt; &lt;!&#8211;/_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;请在下方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.contextmenu/jquery.contextmenu.r2.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(function(){
+</p>
+<p>
+  	/*$(&#8220;#min_title_list li&#8221;).contextMenu(&#8216;Huiadminmenu&#8217;, {
+</p>
+<p>
+  		bindings: {
+</p>
+<p>
+  			&#8216;closethis&#8217;: function(t) {
+</p>
+<p>
+  				console.log(t);
+</p>
+<p>
+  				if(t.find(&#8220;i&#8221;)){
+</p>
+<p>
+  					t.find(&#8220;i&#8221;).trigger(&#8220;click&#8221;);
+</p>
+<p>
+  				}
+</p>
+<p>
+  			},
+</p>
+<p>
+  			&#8216;closeall&#8217;: function(t) {
+</p>
+<p>
+  				alert(&#8216;Trigger was &#8216;+t.id+&#8217;\nAction was Email&#8217;);
+</p>
+<p>
+  			},
+</p>
+<p>
+  		}
+</p>
+<p>
+  	});*/
+</p>
+<p>
+  });
+</p>
+<p>
+  /*个人信息*/
+</p>
+<p>
+  function myselfinfo(){
+</p>
+<p>
+  	layer.open({
+</p>
+<p>
+  		type: 1,
+</p>
+<p>
+  		area: [&#8216;300px&#8217;,&#8217;200px&#8217;],
+</p>
+<p>
+  		fix: false, //不固定
+</p>
+<p>
+  		maxmin: true,
+</p>
+<p>
+  		shade:0.4,
+</p>
+<p>
+  		title: &#8216;查看信息&#8217;,
+</p>
+<p>
+  		content: &#8216;&lt;div&gt;管理员信息&lt;/div&gt;&#8217;
+</p>
+<p>
+  	});
+</p>
+<p>
+  }
+</p>
+<p>
+  /*资讯-添加*/
+</p>
+<p>
+  function article_add(title,url){
+</p>
+<p>
+  	var index = layer.open({
+</p>
+<p>
+  		type: 2,
+</p>
+<p>
+  		title: title,
+</p>
+<p>
+  		content: url
+</p>
+<p>
+  	});
+</p>
+<p>
+  	layer.full(index);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*图片-添加*/
+</p>
+<p>
+  function picture_add(title,url){
+</p>
+<p>
+  	var index = layer.open({
+</p>
+<p>
+  		type: 2,
+</p>
+<p>
+  		title: title,
+</p>
+<p>
+  		content: url
+</p>
+<p>
+  	});
+</p>
+<p>
+  	layer.full(index);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*产品-添加*/
+</p>
+<p>
+  function product_add(title,url){
+</p>
+<p>
+  	var index = layer.open({
+</p>
+<p>
+  		type: 2,
+</p>
+<p>
+  		title: title,
+</p>
+<p>
+  		content: url
+</p>
+<p>
+  	});
+</p>
+<p>
+  	layer.full(index);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*用户-添加*/
+</p>
+<p>
+  function member_add(title,url,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h2>打开数据库，录入专业分类、专业、课程、课时的权限</h2>
+<p>
+  步骤1：
+</p>
+<p><img loading="lazy" decoding="async" width="809" height="535" src="/wp-content/uploads/2018/05/word-image-5400.png" class="wp-image-5940" srcset="/wp-content/uploads/2018/05/word-image-5400.png 809w, /wp-content/uploads/2018/05/word-image-5400-300x198.png 300w, /wp-content/uploads/2018/05/word-image-5400-768x508.png 768w" sizes="(max-width: 809px) 100vw, 809px" /></p>
+<p>
+  步骤2：打开后台分配权限
+</p>
+<p><img loading="lazy" decoding="async" width="1246" height="592" src="/wp-content/uploads/2018/05/word-image-5401.png" class="wp-image-5941" srcset="/wp-content/uploads/2018/05/word-image-5401.png 1246w, /wp-content/uploads/2018/05/word-image-5401-300x143.png 300w, /wp-content/uploads/2018/05/word-image-5401-768x365.png 768w, /wp-content/uploads/2018/05/word-image-5401-1024x487.png 1024w" sizes="(max-width: 1246px) 100vw, 1246px" /></p>
+<p>
+  步骤3：开启路由权限验证
+</p>
+<p><img loading="lazy" decoding="async" width="1032" height="384" src="/wp-content/uploads/2018/05/word-image-5402.png" class="wp-image-5942" srcset="/wp-content/uploads/2018/05/word-image-5402.png 1032w, /wp-content/uploads/2018/05/word-image-5402-300x112.png 300w, /wp-content/uploads/2018/05/word-image-5402-768x286.png 768w, /wp-content/uploads/2018/05/word-image-5402-1024x381.png 1024w" sizes="(max-width: 1032px) 100vw, 1032px" /></p>
+<h1><a id="post-5892-_Toc487817429"></a>︴作业</h1>
+<p>
+  1）实现今天的代码；
+</p>
+<p>
+  2）完善RBAC三部分管理模块的后续CURD操作；</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/5892.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

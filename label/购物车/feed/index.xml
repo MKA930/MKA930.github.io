@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>购物车 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E8%B4%AD%E7%89%A9%E8%BD%A6/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Tue, 19 Jun 2018 11:23:41 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>购物车 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP5商城（七）商品详情页、商品基本数据、面包屑导航、商品图片画廊展示、商品详情页属性、浏览历史、购物车、ajax添加商品至购物车</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8321.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8321.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 08 Jun 2018 00:34:40 +0000</pubDate>
+				<category><![CDATA[TP5.0]]></category>
+		<category><![CDATA[TP5.0商城]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[ajax添加商品至购物车]]></category>
+		<category><![CDATA[商品图片画廊展示]]></category>
+		<category><![CDATA[商品基本数据]]></category>
+		<category><![CDATA[商品详情页]]></category>
+		<category><![CDATA[商品详情页属性]]></category>
+		<category><![CDATA[浏览历史]]></category>
+		<category><![CDATA[购物车]]></category>
+		<category><![CDATA[面包屑导航]]></category>
+		<guid isPermaLink="false">/?p=8321</guid>
+
+					<description><![CDATA[商城第七天 一、完成商品详情页 1、实现商品详情页展示 1、需要修改前台首页和前台分类列表页商品的链接地址，跳 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>商城第七天</h1>
+<h1>一、完成商品详情页</h1>
+<h2>1、实现商品详情页展示</h2>
+<p>1、需要修改前台首页和前台分类列表页商品的链接地址，跳转到对应的商品详情页</p>
+<p><img fetchpriority="high" decoding="async" width="1269" height="479" class="wp-image-8322" src="/wp-content/uploads/2018/06/word-image-898.png" srcset="/wp-content/uploads/2018/06/word-image-898.png 1269w, /wp-content/uploads/2018/06/word-image-898-300x113.png 300w, /wp-content/uploads/2018/06/word-image-898-768x290.png 768w, /wp-content/uploads/2018/06/word-image-898-1024x387.png 1024w" sizes="(max-width: 1269px) 100vw, 1269px" /></p>
+<p>其他商品的链接地址等同。</p>
+<ol>
+<li>在前台home的GoodsController建立一个detail的方法，输出模板内容</li>
+</ol>
+<p><img decoding="async" width="857" height="300" class="wp-image-8323" src="/wp-content/uploads/2018/06/word-image-899.png" srcset="/wp-content/uploads/2018/06/word-image-899.png 857w, /wp-content/uploads/2018/06/word-image-899-300x105.png 300w, /wp-content/uploads/2018/06/word-image-899-768x269.png 768w" sizes="(max-width: 857px) 100vw, 857px" /></p>
+<p>复制对应的模板内容：</p>
+<p><img decoding="async" width="743" height="373" class="wp-image-8324" src="/wp-content/uploads/2018/06/word-image-900.png" srcset="/wp-content/uploads/2018/06/word-image-900.png 743w, /wp-content/uploads/2018/06/word-image-900-300x151.png 300w" sizes="(max-width: 743px) 100vw, 743px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="1142" height="499" class="wp-image-8325" src="/wp-content/uploads/2018/06/word-image-901.png" srcset="/wp-content/uploads/2018/06/word-image-901.png 1142w, /wp-content/uploads/2018/06/word-image-901-300x131.png 300w, /wp-content/uploads/2018/06/word-image-901-768x336.png 768w, /wp-content/uploads/2018/06/word-image-901-1024x447.png 1024w" sizes="(max-width: 1142px) 100vw, 1142px" /></p>
+<h2>商品基本数据和面包屑导航的展示</h2>
+<ol>
+<li>在home-GoodsController-detail方法中取出对应的数据：</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="992" height="504" class="wp-image-8326" src="/wp-content/uploads/2018/06/word-image-902.png" srcset="/wp-content/uploads/2018/06/word-image-902.png 992w, /wp-content/uploads/2018/06/word-image-902-300x152.png 300w, /wp-content/uploads/2018/06/word-image-902-768x390.png 768w" sizes="(max-width: 992px) 100vw, 992px" /></p>
+<ol>
+<li>模板中遍历</li>
+<li>面包屑导航</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1252" height="393" class="wp-image-8327" src="/wp-content/uploads/2018/06/word-image-903.png" srcset="/wp-content/uploads/2018/06/word-image-903.png 1252w, /wp-content/uploads/2018/06/word-image-903-300x94.png 300w, /wp-content/uploads/2018/06/word-image-903-768x241.png 768w, /wp-content/uploads/2018/06/word-image-903-1024x321.png 1024w" sizes="(max-width: 1252px) 100vw, 1252px" /></p>
+<p>b、商品基本数据</p>
+<p><img loading="lazy" decoding="async" width="1258" height="600" class="wp-image-8328" src="/wp-content/uploads/2018/06/word-image-904.png" srcset="/wp-content/uploads/2018/06/word-image-904.png 1258w, /wp-content/uploads/2018/06/word-image-904-300x143.png 300w, /wp-content/uploads/2018/06/word-image-904-768x366.png 768w, /wp-content/uploads/2018/06/word-image-904-1024x488.png 1024w" sizes="(max-width: 1258px) 100vw, 1258px" /> <img loading="lazy" decoding="async" width="1057" height="316" class="wp-image-8329" src="/wp-content/uploads/2018/06/word-image-905.png" srcset="/wp-content/uploads/2018/06/word-image-905.png 1057w, /wp-content/uploads/2018/06/word-image-905-300x90.png 300w, /wp-content/uploads/2018/06/word-image-905-768x230.png 768w, /wp-content/uploads/2018/06/word-image-905-1024x306.png 1024w" sizes="(max-width: 1057px) 100vw, 1057px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="976" height="248" class="wp-image-8330" src="/wp-content/uploads/2018/06/word-image-906.png" srcset="/wp-content/uploads/2018/06/word-image-906.png 976w, /wp-content/uploads/2018/06/word-image-906-300x76.png 300w, /wp-content/uploads/2018/06/word-image-906-768x195.png 768w" sizes="(max-width: 976px) 100vw, 976px" /></p>
+<h2>实现商品详情页中的图片画廊的展示</h2>
+<p>1、由于图片的路径存储数据库是以json格式存储的，取出来的时候，需要进行json_decode反编码，变成一个图片的数组格式，这样方便在模板中进行遍历。</p>
+<p><img loading="lazy" decoding="async" width="1046" height="501" class="wp-image-8331" src="/wp-content/uploads/2018/06/word-image-907.png" srcset="/wp-content/uploads/2018/06/word-image-907.png 1046w, /wp-content/uploads/2018/06/word-image-907-300x144.png 300w, /wp-content/uploads/2018/06/word-image-907-768x368.png 768w, /wp-content/uploads/2018/06/word-image-907-1024x490.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /></p>
+<p>注：由于TP5上传文件是使用反斜杠\进行路径保存的，但是在画廊中加载不出来，我们需要把其替换成正斜杠/。</p>
+<p>修改后台admin的goods模型文件：</p>
+<p><img loading="lazy" decoding="async" width="1060" height="513" class="wp-image-8332" src="/wp-content/uploads/2018/06/word-image-908.png" srcset="/wp-content/uploads/2018/06/word-image-908.png 1060w, /wp-content/uploads/2018/06/word-image-908-300x145.png 300w, /wp-content/uploads/2018/06/word-image-908-768x372.png 768w, /wp-content/uploads/2018/06/word-image-908-1024x496.png 1024w" sizes="(max-width: 1060px) 100vw, 1060px" /></p>
+<p>之前代码用反斜杠炸开改为用正斜杠炸开:</p>
+<p><img loading="lazy" decoding="async" width="1010" height="641" class="wp-image-8333" src="/wp-content/uploads/2018/06/word-image-909.png" srcset="/wp-content/uploads/2018/06/word-image-909.png 1010w, /wp-content/uploads/2018/06/word-image-909-300x190.png 300w, /wp-content/uploads/2018/06/word-image-909-768x487.png 768w" sizes="(max-width: 1010px) 100vw, 1010px" /></p>
+<p>在模板中找到对应图片预览区域进行遍历：</p>
+<p><img loading="lazy" decoding="async" width="1233" height="367" class="wp-image-8334" src="/wp-content/uploads/2018/06/word-image-910.png" srcset="/wp-content/uploads/2018/06/word-image-910.png 1233w, /wp-content/uploads/2018/06/word-image-910-300x89.png 300w, /wp-content/uploads/2018/06/word-image-910-768x229.png 768w, /wp-content/uploads/2018/06/word-image-910-1024x305.png 1024w" sizes="(max-width: 1233px) 100vw, 1233px" /> <img loading="lazy" decoding="async" width="1248" height="644" class="wp-image-8335" src="/wp-content/uploads/2018/06/word-image-911.png" srcset="/wp-content/uploads/2018/06/word-image-911.png 1248w, /wp-content/uploads/2018/06/word-image-911-300x155.png 300w, /wp-content/uploads/2018/06/word-image-911-768x396.png 768w, /wp-content/uploads/2018/06/word-image-911-1024x528.png 1024w" sizes="(max-width: 1248px) 100vw, 1248px" /></p>
+<p>效果如下：</p>
+<p><img loading="lazy" decoding="async" width="660" height="462" class="wp-image-8336" src="/wp-content/uploads/2018/06/word-image-912.png" srcset="/wp-content/uploads/2018/06/word-image-912.png 660w, /wp-content/uploads/2018/06/word-image-912-300x210.png 300w" sizes="(max-width: 660px) 100vw, 660px" /></p>
+<p>有关字符串的替换函数：</p>
+<p><img loading="lazy" decoding="async" width="826" height="283" class="wp-image-8337" src="/wp-content/uploads/2018/06/word-image-913.png" srcset="/wp-content/uploads/2018/06/word-image-913.png 826w, /wp-content/uploads/2018/06/word-image-913-300x103.png 300w, /wp-content/uploads/2018/06/word-image-913-768x263.png 768w" sizes="(max-width: 826px) 100vw, 826px" /></p>
+<p>注意：字符串替换函数既可以替换字符串也可以替换数组中的每个元素</p>
+<h2>4、实现商品详情页属性的展示</h2>
+<h3>分析</h3>
+<p>单选属性：</p>
+<p><img loading="lazy" decoding="async" width="662" height="241" class="wp-image-8338" src="/wp-content/uploads/2018/06/word-image-914.png" srcset="/wp-content/uploads/2018/06/word-image-914.png 662w, /wp-content/uploads/2018/06/word-image-914-300x109.png 300w" sizes="(max-width: 662px) 100vw, 662px" /></p>
+<p>注意一点：</p>
+<p>因为单选属性的值可能有多个，所以我们可以把根据属性的attr_id进行分组，把相同属性的attr_id的值归为同一组，方便在模板中进行循环遍历。</p>
+<p>唯一属性：</p>
+<p><img loading="lazy" decoding="async" width="858" height="178" class="wp-image-8339" src="/wp-content/uploads/2018/06/word-image-915.png" srcset="/wp-content/uploads/2018/06/word-image-915.png 858w, /wp-content/uploads/2018/06/word-image-915-300x62.png 300w, /wp-content/uploads/2018/06/word-image-915-768x159.png 768w" sizes="(max-width: 858px) 100vw, 858px" /></p>
+<p>唯一属性不需要分组，因为唯一属性的值只有一个。</p>
+<p>通过sql语句取出当前商品的拥有的单选属性：</p>
+<p>三张表的关系：</p>
+<p><img loading="lazy" decoding="async" width="790" height="341" class="wp-image-8340" src="/wp-content/uploads/2018/06/word-image-916.png" srcset="/wp-content/uploads/2018/06/word-image-916.png 790w, /wp-content/uploads/2018/06/word-image-916-300x129.png 300w, /wp-content/uploads/2018/06/word-image-916-768x332.png 768w" sizes="(max-width: 790px) 100vw, 790px" /></p>
+<h3>代码实现</h3>
+<p>取出当前商品的单选属性和唯一属性数据，并且唯一属性通过属性attr_id进行分组，这样方便在模板中进行遍历循环。</p>
+<p>原生sql写法找出某个商品的单选属性数据</p>
+<p><img loading="lazy" decoding="async" width="853" height="345" class="wp-image-8341" src="/wp-content/uploads/2018/06/word-image-917.png" srcset="/wp-content/uploads/2018/06/word-image-917.png 853w, /wp-content/uploads/2018/06/word-image-917-300x121.png 300w, /wp-content/uploads/2018/06/word-image-917-768x311.png 768w" sizes="(max-width: 853px) 100vw, 853px" /></p>
+<p>代码中实现：</p>
+<p>a、Db::query($sql);</p>
+<p>b、模型实现</p>
+<p><img loading="lazy" decoding="async" width="1054" height="668" class="wp-image-8342" src="/wp-content/uploads/2018/06/word-image-918.png" srcset="/wp-content/uploads/2018/06/word-image-918.png 1054w, /wp-content/uploads/2018/06/word-image-918-300x190.png 300w, /wp-content/uploads/2018/06/word-image-918-768x487.png 768w, /wp-content/uploads/2018/06/word-image-918-1024x649.png 1024w" sizes="(max-width: 1054px) 100vw, 1054px" /></p>
+<p>模板中遍历单选属性：</p>
+<p><img loading="lazy" decoding="async" width="1279" height="501" class="wp-image-8343" src="/wp-content/uploads/2018/06/word-image-919.png" srcset="/wp-content/uploads/2018/06/word-image-919.png 1279w, /wp-content/uploads/2018/06/word-image-919-300x118.png 300w, /wp-content/uploads/2018/06/word-image-919-768x301.png 768w, /wp-content/uploads/2018/06/word-image-919-1024x401.png 1024w" sizes="(max-width: 1279px) 100vw, 1279px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="399" height="110" class="wp-image-8344" src="/wp-content/uploads/2018/06/word-image-920.png" srcset="/wp-content/uploads/2018/06/word-image-920.png 399w, /wp-content/uploads/2018/06/word-image-920-300x83.png 300w" sizes="(max-width: 399px) 100vw, 399px" /></p>
+<p>模板中遍历唯一属性：</p>
+<p><img loading="lazy" decoding="async" width="1280" height="424" class="wp-image-8345" src="/wp-content/uploads/2018/06/word-image-921.png" srcset="/wp-content/uploads/2018/06/word-image-921.png 1280w, /wp-content/uploads/2018/06/word-image-921-300x99.png 300w, /wp-content/uploads/2018/06/word-image-921-768x254.png 768w, /wp-content/uploads/2018/06/word-image-921-1024x339.png 1024w" sizes="(max-width: 1280px) 100vw, 1280px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="753" height="134" class="wp-image-8346" src="/wp-content/uploads/2018/06/word-image-922.png" srcset="/wp-content/uploads/2018/06/word-image-922.png 753w, /wp-content/uploads/2018/06/word-image-922-300x53.png 300w" sizes="(max-width: 753px) 100vw, 753px" /></p>
+<h1>二、实现商品详情页的浏览历史</h1>
+<h3>1、分析</h3>
+<p><img loading="lazy" decoding="async" width="290" height="182" class="wp-image-8347" src="/wp-content/uploads/2018/06/word-image-923.png" /></p>
+<p>基本思路：</p>
+<p>①可以使用cookie技术来实现浏览商品历史的存储，cookie中存储商品的goods_id即可。</p>
+<p>只所以只存储浏览商品的id，因为商品的价格后面可能随时会变化，且记录一般存储3-5个。</p>
+<p>②最新访问的商品应该放置在浏览历史的第一个位置</p>
+<p>③当浏览历史存储量到达最大值（如超过5），应把最早访问的商品id给移除。</p>
+<p>④当访问相同商品的时候，只保留最后访问的商品，即数组需要删除重复的元素。</p>
+<p>cookie怎么存储所访问商品的id: 我们把访问商品的id存进数组中，再把数组写入到cookie中，形式如：[1,4,6,2,8]。‘1,4,6,2,8’</p>
+<p>需要利用到的几个数组函数</p>
+<p>array_unshift ：在数组头部加入一个或多个元素</p>
+<p>array_pop : 弹出数组的最后一个元素</p>
+<p>array_unique：去除数组的重复元素，保留之前第一个。</p>
+<p>有关cookie函数的相关操作：</p>
+<p><img loading="lazy" decoding="async" width="462" height="180" class="wp-image-8348" src="/wp-content/uploads/2018/06/word-image-924.png" srcset="/wp-content/uploads/2018/06/word-image-924.png 462w, /wp-content/uploads/2018/06/word-image-924-300x117.png 300w" sizes="(max-width: 462px) 100vw, 462px" /></p>
+<h3>代码实现</h3>
+<ol>
+<li>当用户访问商品的时候，这时候，就应该把商品的goods_id存储到cookie中去</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1222" height="674" class="wp-image-8349" src="/wp-content/uploads/2018/06/word-image-925.png" srcset="/wp-content/uploads/2018/06/word-image-925.png 1222w, /wp-content/uploads/2018/06/word-image-925-300x165.png 300w, /wp-content/uploads/2018/06/word-image-925-768x424.png 768w, /wp-content/uploads/2018/06/word-image-925-1024x565.png 1024w" sizes="(max-width: 1222px) 100vw, 1222px" /></p>
+<p>把上面的方式采用模型的方式来做：结果不行：用原生sql的方式去解决。</p>
+<p># order by( field(goods_id,’2,8,5&#8242;) ) 按照字段goods_id 在2,8,5出现的顺序进行排序。</p>
+<p><img loading="lazy" decoding="async" width="928" height="316" class="wp-image-8350" src="/wp-content/uploads/2018/06/word-image-926.png" srcset="/wp-content/uploads/2018/06/word-image-926.png 928w, /wp-content/uploads/2018/06/word-image-926-300x102.png 300w, /wp-content/uploads/2018/06/word-image-926-768x262.png 768w" sizes="(max-width: 928px) 100vw, 928px" /></p>
+<ol>
+<li>在Good模型中定义一个浏览历史的方法</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1209" height="624" class="wp-image-8351" src="/wp-content/uploads/2018/06/word-image-927.png" srcset="/wp-content/uploads/2018/06/word-image-927.png 1209w, /wp-content/uploads/2018/06/word-image-927-300x155.png 300w, /wp-content/uploads/2018/06/word-image-927-768x396.png 768w, /wp-content/uploads/2018/06/word-image-927-1024x529.png 1024w" sizes="(max-width: 1209px) 100vw, 1209px" /></p>
+<ol>
+<li>详情模板detail.html中进行遍历</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1267" height="441" class="wp-image-8352" src="/wp-content/uploads/2018/06/word-image-928.png" srcset="/wp-content/uploads/2018/06/word-image-928.png 1267w, /wp-content/uploads/2018/06/word-image-928-300x104.png 300w, /wp-content/uploads/2018/06/word-image-928-768x267.png 768w, /wp-content/uploads/2018/06/word-image-928-1024x356.png 1024w" sizes="(max-width: 1267px) 100vw, 1267px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="309" height="369" class="wp-image-8353" src="/wp-content/uploads/2018/06/word-image-929.png" srcset="/wp-content/uploads/2018/06/word-image-929.png 309w, /wp-content/uploads/2018/06/word-image-929-251x300.png 251w" sizes="(max-width: 309px) 100vw, 309px" /></p>
+<h1>三、商城购物车概述</h1>
+<h2>1、生活中的购物车</h2>
+<p><img loading="lazy" decoding="async" width="130" height="129" class="wp-image-8354" src="/wp-content/uploads/2018/06/word-image-930.png" /></p>
+<ul>
+<li>购物车就像我们平常逛商场一样，主要是存放临时购买的商品。</li>
+<li>需要买的商品就加入购物车，不要的就在放入货架（移除购物车），当购物完成之后就推着购物车到收银台去结算付款（支付宝支付）。</li>
+</ul>
+<h2>2、电商购物车商品存在哪</h2>
+<p>电商购物车商品存储常用的几种方案：</p>
+<ul>
+<li>cookie+mysql （京东商城）</li>
+</ul>
+<p>这里需分两种情况：判断用户是否登录</p>
+<p>未登录：把用户加入购物车的商品存储到cookie中（也称离线购物车），这对于没有注册京东用户的，一定程度上可以提升用户的购物体验。</p>
+<p>登录：当结算付款时，这时候提示用户登录，把离线购物车中的商品转存在在线购物车（购物数据表）中。</p>
+<ul>
+<li>mysql（淘宝）</li>
+</ul>
+<p>用户没登录是不允许加入购物车的。</p>
+<p>而淘宝购物车的做法是没有登录是不允许加入购物车的！</p>
+<p>我们以淘宝的方式来实现购物车，</p>
+<h2>购物车存哪些数据，该怎么存</h2>
+<p>把商品加入到购物车，需要用到三个参数。商品id、商品单选属性id、购买的数量。</p>
+<p>由于不同的商品其属性也不一样，所以需要加属性具体区分是哪一个商品。</p>
+<p>如iphone6s黑色和iphone6s银色</p>
+<p>产品+属性 = 商品</p>
+<p>这里我们采用数组的形式来存储购物车商品数据：存储方式如下：</p>
+<p>键名：商品$goods_id使用减号（-）拼接商品的属性id,$goods_attr_ids</p>
+<p>键值：商品的数量</p>
+<p>array(</p>
+<p>//键=&gt;值</p>
+<p>“$goods_id-$goods_attr_ids” =&gt; $number,</p>
+<p>“10-12,25” =&gt; 5 //商品的goods_id为10，商品属性id为12,25，购买数量为5</p>
+<p>);</p>
+<p>购物车表sh_cart结构如下：（也称在线购物车），把其中的user_id改为member_id.</p>
+<p><img loading="lazy" decoding="async" width="756" height="161" class="wp-image-8355" src="/wp-content/uploads/2018/06/word-image-931.png" srcset="/wp-content/uploads/2018/06/word-image-931.png 756w, /wp-content/uploads/2018/06/word-image-931-300x64.png 300w" sizes="(max-width: 756px) 100vw, 756px" /></p>
+<p>字段说明：</p>
+<p>cart_id:主键</p>
+<p>goods_id:商品的id,和商品表goods_id字段关联</p>
+<p>goods_attr_ids:商品的单选属性id,和商品属性表的goods_attr_id字段关联</p>
+<p>goods_number:商品的购买数量</p>
+<p>member_id:和会员表的member_id关联</p>
+<p>购物车表sh_cart和其他几个表之间的关系：</p>
+<p><img loading="lazy" decoding="async" width="735" height="486" class="wp-image-8356" src="/wp-content/uploads/2018/06/word-image-932.png" srcset="/wp-content/uploads/2018/06/word-image-932.png 735w, /wp-content/uploads/2018/06/word-image-932-300x198.png 300w" sizes="(max-width: 735px) 100vw, 735px" /></p>
+<h2>4、购物车类的实现</h2>
+<p>一般对购物车的商品操作就是增加、减少购买数量，删除商品，清空购物车等操作。</p>
+<p>对购物车的操作其实就是对数组的操作，我们可以把这个几个方法封装在一个购物车类中。</p>
+<p>购物车类名：</p>
+<p><img loading="lazy" decoding="async" width="262" height="28" class="wp-image-8357" src="/wp-content/uploads/2018/06/word-image-933.png" /></p>
+<p>类中有以下几个方法：</p>
+<ul>
+<li>initCartData初始化购物车数据（即获取当前用户购物车中的数据，构造函数中调用）</li>
+<li>addCart 添加商品购物车</li>
+<li>clearCart清空购物车</li>
+<li>getCart获取购物车所有商品</li>
+<li>delCart删除购物车指定商品</li>
+<li>changeCartNum修改购物车商品数量</li>
+</ul>
+<p>&#8230;..</p>
+<h2>引入购物车类够商城项目中</h2>
+<p>在应用目录的extend中,定义一个购物车类Cart,并定义其所在的命名空间：</p>
+<p><img loading="lazy" decoding="async" width="417" height="261" class="wp-image-8358" src="/wp-content/uploads/2018/06/word-image-934.png" srcset="/wp-content/uploads/2018/06/word-image-934.png 417w, /wp-content/uploads/2018/06/word-image-934-300x188.png 300w" sizes="(max-width: 417px) 100vw, 417px" /></p>
+<p>在控制器中的某个方法中实例化上面的购物车类：</p>
+<p><img loading="lazy" decoding="async" width="725" height="241" class="wp-image-8359" src="/wp-content/uploads/2018/06/word-image-935.png" srcset="/wp-content/uploads/2018/06/word-image-935.png 725w, /wp-content/uploads/2018/06/word-image-935-300x100.png 300w" sizes="(max-width: 725px) 100vw, 725px" /></p>
+<p>结果：</p>
+<p><img loading="lazy" decoding="async" width="449" height="92" class="wp-image-8360" src="/wp-content/uploads/2018/06/word-image-936.png" srcset="/wp-content/uploads/2018/06/word-image-936.png 449w, /wp-content/uploads/2018/06/word-image-936-300x61.png 300w" sizes="(max-width: 449px) 100vw, 449px" /></p>
+<p>给购物车类添加以下几个方法：</p>
+<ul>
+<li>initCartData初始化购物车数据（即获取当前用户购物车中的所有数据，构造函数中调用）</li>
+<li>addCart 添加商品购物车</li>
+<li>clearCart清空购物车</li>
+<li>getCart获取购物车所有商品</li>
+<li>delCart删除购物车指定商品</li>
+<li>changeCartNum修改购物车商品数量</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1091" height="581" class="wp-image-8361" src="/wp-content/uploads/2018/06/word-image-937.png" srcset="/wp-content/uploads/2018/06/word-image-937.png 1091w, /wp-content/uploads/2018/06/word-image-937-300x160.png 300w, /wp-content/uploads/2018/06/word-image-937-768x409.png 768w, /wp-content/uploads/2018/06/word-image-937-1024x545.png 1024w" sizes="(max-width: 1091px) 100vw, 1091px" /> <img loading="lazy" decoding="async" width="976" height="488" class="wp-image-8362" src="/wp-content/uploads/2018/06/word-image-938.png" srcset="/wp-content/uploads/2018/06/word-image-938.png 976w, /wp-content/uploads/2018/06/word-image-938-300x150.png 300w, /wp-content/uploads/2018/06/word-image-938-768x384.png 768w" sizes="(max-width: 976px) 100vw, 976px" /></p>
+<p>上面几个方法定义好之后，最好测试一下是否可行，可向购物车表sh_cart中模拟一些假数据。</p>
+<p><img loading="lazy" decoding="async" width="824" height="308" class="wp-image-8363" src="/wp-content/uploads/2018/06/word-image-939.png" srcset="/wp-content/uploads/2018/06/word-image-939.png 824w, /wp-content/uploads/2018/06/word-image-939-300x112.png 300w, /wp-content/uploads/2018/06/word-image-939-768x287.png 768w" sizes="(max-width: 824px) 100vw, 824px" /></p>
+<h1>四、ajax添加商品到购物车的实现</h1>
+<h2>加入购物车分析</h2>
+<p><img loading="lazy" decoding="async" width="885" height="469" class="wp-image-8364" src="/wp-content/uploads/2018/06/word-image-940.png" srcset="/wp-content/uploads/2018/06/word-image-940.png 885w, /wp-content/uploads/2018/06/word-image-940-300x159.png 300w, /wp-content/uploads/2018/06/word-image-940-768x407.png 768w" sizes="(max-width: 885px) 100vw, 885px" /></p>
+<p>加入到购物车的商品需要以下几个三个字段：</p>
+<p>商品id、商品单选属性id、商品数量</p>
+<p>加入购物车的基本流程如下：</p>
+<p><img loading="lazy" decoding="async" width="1114" height="394" class="wp-image-8365" src="/wp-content/uploads/2018/06/word-image-941.png" srcset="/wp-content/uploads/2018/06/word-image-941.png 1114w, /wp-content/uploads/2018/06/word-image-941-300x106.png 300w, /wp-content/uploads/2018/06/word-image-941-768x272.png 768w, /wp-content/uploads/2018/06/word-image-941-1024x362.png 1024w" sizes="(max-width: 1114px) 100vw, 1114px" /></p>
+<h2>2、代码</h2>
+<p>代码如下：</p>
+<p>1、给商品详情页中的添加购物车的按钮，绑定一个单击事件，并阻止默认行为，获取商品的goods_id，数量goods_number,选择的单选属性goods_attr_ids.</p>
+<p><img loading="lazy" decoding="async" width="1305" height="704" class="wp-image-8366" src="/wp-content/uploads/2018/06/word-image-942.png" srcset="/wp-content/uploads/2018/06/word-image-942.png 1305w, /wp-content/uploads/2018/06/word-image-942-300x162.png 300w, /wp-content/uploads/2018/06/word-image-942-768x414.png 768w, /wp-content/uploads/2018/06/word-image-942-1024x552.png 1024w" sizes="(max-width: 1305px) 100vw, 1305px" /></p>
+<p>获取到三个参数：</p>
+<p><img loading="lazy" decoding="async" width="946" height="521" class="wp-image-8367" src="/wp-content/uploads/2018/06/word-image-943.png" srcset="/wp-content/uploads/2018/06/word-image-943.png 946w, /wp-content/uploads/2018/06/word-image-943-300x165.png 300w, /wp-content/uploads/2018/06/word-image-943-768x423.png 768w" sizes="(max-width: 946px) 100vw, 946px" /></p>
+<ol>
+<li>发送ajax请求，把商品添加到购物车</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1028" height="432" class="wp-image-8368" src="/wp-content/uploads/2018/06/word-image-944.png" srcset="/wp-content/uploads/2018/06/word-image-944.png 1028w, /wp-content/uploads/2018/06/word-image-944-300x126.png 300w, /wp-content/uploads/2018/06/word-image-944-768x323.png 768w, /wp-content/uploads/2018/06/word-image-944-1024x430.png 1024w" sizes="(max-width: 1028px) 100vw, 1028px" /></p>
+<ol>
+<li>在home模块CartController控制器中建立一个ajaxAddCart的方法，实现商品添加到购物车</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="980" height="506" class="wp-image-8369" src="/wp-content/uploads/2018/06/word-image-945.png" srcset="/wp-content/uploads/2018/06/word-image-945.png 980w, /wp-content/uploads/2018/06/word-image-945-300x155.png 300w, /wp-content/uploads/2018/06/word-image-945-768x397.png 768w" sizes="(max-width: 980px) 100vw, 980px" /></p>
+<p>同时完善购物车方法addCart:</p>
+<p><img loading="lazy" decoding="async" width="1084" height="684" class="wp-image-8370" src="/wp-content/uploads/2018/06/word-image-946.png" srcset="/wp-content/uploads/2018/06/word-image-946.png 1084w, /wp-content/uploads/2018/06/word-image-946-300x189.png 300w, /wp-content/uploads/2018/06/word-image-946-768x485.png 768w, /wp-content/uploads/2018/06/word-image-946-1024x646.png 1024w" sizes="(max-width: 1084px) 100vw, 1084px" /></p>
+<p>模型的新方法：</p>
+<p>setInc(字段名,[,数量]) :设置某个字段递增。数量不写默认自增1</p>
+<p>setDec(字段名,[,数量]) ：设置某个字段递减。数量不写默认递减1</p>
+<ol>
+<li>根据ajax返回的json值，给用户对应提示</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1265" height="649" class="wp-image-8371" src="/wp-content/uploads/2018/06/word-image-947.png" srcset="/wp-content/uploads/2018/06/word-image-947.png 1265w, /wp-content/uploads/2018/06/word-image-947-300x154.png 300w, /wp-content/uploads/2018/06/word-image-947-768x394.png 768w, /wp-content/uploads/2018/06/word-image-947-1024x525.png 1024w" sizes="(max-width: 1265px) 100vw, 1265px" /></p>
+<p>上面代码需要引入layer弹出层插件。</p>
+<p>注：其中状态码code不等于200的时候，跳转地址后面加了一个参数return_url，记录当前访问商品的goods_id,当用户加入商品到购物车，提示用户未登录时候，用户再次登录成功，可以返回到之前的购物商品页面，这可提升用户的购物体验。</p>
+<p>在登录方法login中，判断用户是否携带参数return_url，携带则跳转到之前访问的商品页。</p>
+<p><img loading="lazy" decoding="async" width="1156" height="485" class="wp-image-8372" src="/wp-content/uploads/2018/06/word-image-948.png" srcset="/wp-content/uploads/2018/06/word-image-948.png 1156w, /wp-content/uploads/2018/06/word-image-948-300x126.png 300w, /wp-content/uploads/2018/06/word-image-948-768x322.png 768w, /wp-content/uploads/2018/06/word-image-948-1024x430.png 1024w" sizes="(max-width: 1156px) 100vw, 1156px" /></p>
+<p>效果如下：</p>
+<p><img loading="lazy" decoding="async" width="726" height="366" class="wp-image-8373" src="/wp-content/uploads/2018/06/word-image-949.png" srcset="/wp-content/uploads/2018/06/word-image-949.png 726w, /wp-content/uploads/2018/06/word-image-949-300x151.png 300w" sizes="(max-width: 726px) 100vw, 726px" /></p>
+<h1>五、完成购物车商品列表展示</h1>
+<h2>1、分析</h2>
+<h2>2、代码</h2>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8321.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>TP3.2商城 （六）前台登录、商品展示、商品详情页、购物车</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/4315.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/4315.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 12:36:42 +0000</pubDate>
+				<category><![CDATA[TP3.2]]></category>
+		<category><![CDATA[TP3.2商城]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[前台登录]]></category>
+		<category><![CDATA[商品展示]]></category>
+		<category><![CDATA[商品详情页]]></category>
+		<category><![CDATA[购物车]]></category>
+		<guid isPermaLink="false">/?p=4315</guid>
+
+					<description><![CDATA[用户登录 显示用户登录界面 ①创建方法加载模板 ②拷贝登录模板 ③修改模板 实现登录 ①控制器调用模型方法实现 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>用户登录</h1>
+<h2>显示用户登录界面</h2>
+<p>
+  ①创建方法加载模板
+</p>
+<p><img loading="lazy" decoding="async" width="840" height="435" src="/wp-content/uploads/2018/05/word-image-3852.png" class="wp-image-4316" srcset="/wp-content/uploads/2018/05/word-image-3852.png 840w, /wp-content/uploads/2018/05/word-image-3852-300x155.png 300w, /wp-content/uploads/2018/05/word-image-3852-768x398.png 768w" sizes="(max-width: 840px) 100vw, 840px" /></p>
+<p>
+  ②拷贝登录模板
+</p>
+<p><img loading="lazy" decoding="async" width="1163" height="553" src="/wp-content/uploads/2018/05/word-image-3853.png" class="wp-image-4317" srcset="/wp-content/uploads/2018/05/word-image-3853.png 1163w, /wp-content/uploads/2018/05/word-image-3853-300x143.png 300w, /wp-content/uploads/2018/05/word-image-3853-768x365.png 768w, /wp-content/uploads/2018/05/word-image-3853-1024x487.png 1024w" sizes="(max-width: 1163px) 100vw, 1163px" /></p>
+<p>
+  ③修改模板
+</p>
+<p><img loading="lazy" decoding="async" width="1079" height="690" src="/wp-content/uploads/2018/05/word-image-3854.png" class="wp-image-4318" srcset="/wp-content/uploads/2018/05/word-image-3854.png 1079w, /wp-content/uploads/2018/05/word-image-3854-300x192.png 300w, /wp-content/uploads/2018/05/word-image-3854-768x491.png 768w, /wp-content/uploads/2018/05/word-image-3854-1024x655.png 1024w" sizes="(max-width: 1079px) 100vw, 1079px" /><br />
+<img loading="lazy" decoding="async" width="1189" height="534" src="/wp-content/uploads/2018/05/word-image-3855.png" class="wp-image-4319" srcset="/wp-content/uploads/2018/05/word-image-3855.png 1189w, /wp-content/uploads/2018/05/word-image-3855-300x135.png 300w, /wp-content/uploads/2018/05/word-image-3855-768x345.png 768w, /wp-content/uploads/2018/05/word-image-3855-1024x460.png 1024w" sizes="(max-width: 1189px) 100vw, 1189px" /></p>
+<h2>实现登录</h2>
+<p>
+  ①控制器调用模型方法实现登录
+</p>
+<p><img loading="lazy" decoding="async" width="1068" height="675" src="/wp-content/uploads/2018/05/word-image-3856.png" class="wp-image-4320" srcset="/wp-content/uploads/2018/05/word-image-3856.png 1068w, /wp-content/uploads/2018/05/word-image-3856-300x190.png 300w, /wp-content/uploads/2018/05/word-image-3856-768x485.png 768w, /wp-content/uploads/2018/05/word-image-3856-1024x647.png 1024w" sizes="(max-width: 1068px) 100vw, 1068px" /></p>
+<p>
+  ②创建模型方法登录
+</p>
+<p><img loading="lazy" decoding="async" width="962" height="692" src="/wp-content/uploads/2018/05/word-image-3857.png" class="wp-image-4321" srcset="/wp-content/uploads/2018/05/word-image-3857.png 962w, /wp-content/uploads/2018/05/word-image-3857-300x216.png 300w, /wp-content/uploads/2018/05/word-image-3857-768x552.png 768w" sizes="(max-width: 962px) 100vw, 962px" /></p>
+<h2>使用cookie加密</h2>
+<p>
+  ①拷贝加密解密函数
+</p>
+<p><img loading="lazy" decoding="async" width="943" height="702" src="/wp-content/uploads/2018/05/word-image-3858.png" class="wp-image-4322" srcset="/wp-content/uploads/2018/05/word-image-3858.png 943w, /wp-content/uploads/2018/05/word-image-3858-300x223.png 300w, /wp-content/uploads/2018/05/word-image-3858-768x572.png 768w" sizes="(max-width: 943px) 100vw, 943px" /></p>
+<p>
+  ②创建测试方法使用加密解密
+</p>
+<p><img loading="lazy" decoding="async" width="895" height="611" src="/wp-content/uploads/2018/05/word-image-3859.png" class="wp-image-4324" srcset="/wp-content/uploads/2018/05/word-image-3859.png 895w, /wp-content/uploads/2018/05/word-image-3859-300x205.png 300w, /wp-content/uploads/2018/05/word-image-3859-768x524.png 768w, /wp-content/uploads/2018/05/word-image-3859-220x150.png 220w" sizes="(max-width: 895px) 100vw, 895px" /><br />
+<img loading="lazy" decoding="async" width="691" height="175" src="/wp-content/uploads/2018/05/word-image-3860.png" class="wp-image-4325" srcset="/wp-content/uploads/2018/05/word-image-3860.png 691w, /wp-content/uploads/2018/05/word-image-3860-300x76.png 300w" sizes="(max-width: 691px) 100vw, 691px" /></p>
+<p>
+  ③针对登录使用加密解密函数
+</p>
+<p><img loading="lazy" decoding="async" width="1051" height="679" src="/wp-content/uploads/2018/05/word-image-3861.png" class="wp-image-4326" srcset="/wp-content/uploads/2018/05/word-image-3861.png 1051w, /wp-content/uploads/2018/05/word-image-3861-300x194.png 300w, /wp-content/uploads/2018/05/word-image-3861-768x496.png 768w, /wp-content/uploads/2018/05/word-image-3861-1024x662.png 1024w" sizes="(max-width: 1051px) 100vw, 1051px" /></p>
+<p>
+  ④修改测试方法查看结果
+</p>
+<p><img loading="lazy" decoding="async" width="987" height="680" src="/wp-content/uploads/2018/05/word-image-3862.png" class="wp-image-4327" srcset="/wp-content/uploads/2018/05/word-image-3862.png 987w, /wp-content/uploads/2018/05/word-image-3862-300x207.png 300w, /wp-content/uploads/2018/05/word-image-3862-768x529.png 768w" sizes="(max-width: 987px) 100vw, 987px" /><br />
+<img loading="lazy" decoding="async" width="590" height="242" src="/wp-content/uploads/2018/05/word-image-3863.png" class="wp-image-4328" srcset="/wp-content/uploads/2018/05/word-image-3863.png 590w, /wp-content/uploads/2018/05/word-image-3863-300x123.png 300w" sizes="(max-width: 590px) 100vw, 590px" /></p>
+<h1>商品详情页数据展示</h1>
+<h2>显示商品基本信息</h2>
+<p>
+  ①获取商品基本信息
+</p>
+<p><img loading="lazy" decoding="async" width="1061" height="688" src="/wp-content/uploads/2018/05/word-image-3864.png" class="wp-image-4329" srcset="/wp-content/uploads/2018/05/word-image-3864.png 1061w, /wp-content/uploads/2018/05/word-image-3864-300x195.png 300w, /wp-content/uploads/2018/05/word-image-3864-768x498.png 768w, /wp-content/uploads/2018/05/word-image-3864-1024x664.png 1024w" sizes="(max-width: 1061px) 100vw, 1061px" /></p>
+<p>
+  ②修改模板显示数据
+</p>
+<p><img loading="lazy" decoding="async" width="1076" height="626" src="/wp-content/uploads/2018/05/word-image-3865.png" class="wp-image-4330" srcset="/wp-content/uploads/2018/05/word-image-3865.png 1076w, /wp-content/uploads/2018/05/word-image-3865-300x175.png 300w, /wp-content/uploads/2018/05/word-image-3865-768x447.png 768w, /wp-content/uploads/2018/05/word-image-3865-1024x596.png 1024w" sizes="(max-width: 1076px) 100vw, 1076px" /><br />
+<img loading="lazy" decoding="async" width="1044" height="420" src="/wp-content/uploads/2018/05/word-image-3866.png" class="wp-image-4331" srcset="/wp-content/uploads/2018/05/word-image-3866.png 1044w, /wp-content/uploads/2018/05/word-image-3866-300x121.png 300w, /wp-content/uploads/2018/05/word-image-3866-768x309.png 768w, /wp-content/uploads/2018/05/word-image-3866-1024x412.png 1024w" sizes="(max-width: 1044px) 100vw, 1044px" /></p>
+<p>
+  ③处理详情信息
+</p>
+<p><img loading="lazy" decoding="async" width="1014" height="699" src="/wp-content/uploads/2018/05/word-image-3867.png" class="wp-image-4332" srcset="/wp-content/uploads/2018/05/word-image-3867.png 1014w, /wp-content/uploads/2018/05/word-image-3867-300x207.png 300w, /wp-content/uploads/2018/05/word-image-3867-768x529.png 768w" sizes="(max-width: 1014px) 100vw, 1014px" /></p>
+<p>
+  ④显示商品详情介绍
+</p>
+<p><img loading="lazy" decoding="async" width="1078" height="402" src="/wp-content/uploads/2018/05/word-image-3868.png" class="wp-image-4333" srcset="/wp-content/uploads/2018/05/word-image-3868.png 1078w, /wp-content/uploads/2018/05/word-image-3868-300x112.png 300w, /wp-content/uploads/2018/05/word-image-3868-768x286.png 768w, /wp-content/uploads/2018/05/word-image-3868-1024x382.png 1024w" sizes="(max-width: 1078px) 100vw, 1078px" /><br />
+<img loading="lazy" decoding="async" width="931" height="312" src="/wp-content/uploads/2018/05/word-image-3869.png" class="wp-image-4334" srcset="/wp-content/uploads/2018/05/word-image-3869.png 931w, /wp-content/uploads/2018/05/word-image-3869-300x101.png 300w, /wp-content/uploads/2018/05/word-image-3869-768x257.png 768w" sizes="(max-width: 931px) 100vw, 931px" /></p>
+<h2>显示商品相册</h2>
+<p>
+  ①修改方法获取相册
+</p>
+<p><img loading="lazy" decoding="async" width="1100" height="696" src="/wp-content/uploads/2018/05/word-image-3870.png" class="wp-image-4335" srcset="/wp-content/uploads/2018/05/word-image-3870.png 1100w, /wp-content/uploads/2018/05/word-image-3870-300x190.png 300w, /wp-content/uploads/2018/05/word-image-3870-768x486.png 768w, /wp-content/uploads/2018/05/word-image-3870-1024x648.png 1024w" sizes="(max-width: 1100px) 100vw, 1100px" /></p>
+<p>
+  ②修改模板显示图片
+</p>
+<p>
+  第一张图片
+</p>
+<p><img loading="lazy" decoding="async" width="1123" height="437" src="/wp-content/uploads/2018/05/word-image-3871.png" class="wp-image-4336" srcset="/wp-content/uploads/2018/05/word-image-3871.png 1123w, /wp-content/uploads/2018/05/word-image-3871-300x117.png 300w, /wp-content/uploads/2018/05/word-image-3871-768x299.png 768w, /wp-content/uploads/2018/05/word-image-3871-1024x398.png 1024w" sizes="(max-width: 1123px) 100vw, 1123px" /></p>
+<p>
+  其他图片
+</p>
+<p><img loading="lazy" decoding="async" width="1120" height="699" src="/wp-content/uploads/2018/05/word-image-3872.png" class="wp-image-4337" srcset="/wp-content/uploads/2018/05/word-image-3872.png 1120w, /wp-content/uploads/2018/05/word-image-3872-300x187.png 300w, /wp-content/uploads/2018/05/word-image-3872-768x479.png 768w, /wp-content/uploads/2018/05/word-image-3872-1024x639.png 1024w" sizes="(max-width: 1120px) 100vw, 1120px" /><br />
+<img loading="lazy" decoding="async" width="808" height="531" src="/wp-content/uploads/2018/05/word-image-3873.png" class="wp-image-4338" srcset="/wp-content/uploads/2018/05/word-image-3873.png 808w, /wp-content/uploads/2018/05/word-image-3873-300x197.png 300w, /wp-content/uploads/2018/05/word-image-3873-768x505.png 768w" sizes="(max-width: 808px) 100vw, 808px" /></p>
+<h2>显示商品属性信息</h2>
+<p>
+  ①使用原生的sql语句获取商品属性信息
+</p>
+<p><img loading="lazy" decoding="async" width="1048" height="482" src="/wp-content/uploads/2018/05/word-image-3874.png" class="wp-image-4339" srcset="/wp-content/uploads/2018/05/word-image-3874.png 1048w, /wp-content/uploads/2018/05/word-image-3874-300x138.png 300w, /wp-content/uploads/2018/05/word-image-3874-768x353.png 768w, /wp-content/uploads/2018/05/word-image-3874-1024x471.png 1024w" sizes="(max-width: 1048px) 100vw, 1048px" /></p>
+<p>
+  ②在商品方法中获取属性
+</p>
+<p><img loading="lazy" decoding="async" width="1154" height="637" src="/wp-content/uploads/2018/05/word-image-3875.png" class="wp-image-4340" srcset="/wp-content/uploads/2018/05/word-image-3875.png 1154w, /wp-content/uploads/2018/05/word-image-3875-300x166.png 300w, /wp-content/uploads/2018/05/word-image-3875-768x424.png 768w, /wp-content/uploads/2018/05/word-image-3875-1024x565.png 1024w" sizes="(max-width: 1154px) 100vw, 1154px" /></p>
+<p>
+  ③将属性信息中唯一属性拆分出来
+</p>
+<p><img loading="lazy" decoding="async" width="983" height="654" src="/wp-content/uploads/2018/05/word-image-3876.png" class="wp-image-4341" srcset="/wp-content/uploads/2018/05/word-image-3876.png 983w, /wp-content/uploads/2018/05/word-image-3876-300x200.png 300w, /wp-content/uploads/2018/05/word-image-3876-768x511.png 768w" sizes="(max-width: 983px) 100vw, 983px" /></p>
+<p>
+  ④修改模板显示唯一属性
+</p>
+<p><img loading="lazy" decoding="async" width="1133" height="621" src="/wp-content/uploads/2018/05/word-image-3877.png" class="wp-image-4342" srcset="/wp-content/uploads/2018/05/word-image-3877.png 1133w, /wp-content/uploads/2018/05/word-image-3877-300x164.png 300w, /wp-content/uploads/2018/05/word-image-3877-768x421.png 768w, /wp-content/uploads/2018/05/word-image-3877-1024x561.png 1024w" sizes="(max-width: 1133px) 100vw, 1133px" /><br />
+<img loading="lazy" decoding="async" width="1020" height="115" src="/wp-content/uploads/2018/05/word-image-3878.png" class="wp-image-4343" srcset="/wp-content/uploads/2018/05/word-image-3878.png 1020w, /wp-content/uploads/2018/05/word-image-3878-300x34.png 300w, /wp-content/uploads/2018/05/word-image-3878-768x87.png 768w" sizes="(max-width: 1020px) 100vw, 1020px" /></p>
+<p>
+  ⑤修改方法将单选属性拆分出来
+</p>
+<p><img loading="lazy" decoding="async" width="1132" height="701" src="/wp-content/uploads/2018/05/word-image-3879.png" class="wp-image-4344" srcset="/wp-content/uploads/2018/05/word-image-3879.png 1132w, /wp-content/uploads/2018/05/word-image-3879-300x186.png 300w, /wp-content/uploads/2018/05/word-image-3879-768x476.png 768w, /wp-content/uploads/2018/05/word-image-3879-1024x634.png 1024w" sizes="(max-width: 1132px) 100vw, 1132px" /><br />
+<img loading="lazy" decoding="async" width="910" height="568" src="/wp-content/uploads/2018/05/word-image-3880.png" class="wp-image-4345" srcset="/wp-content/uploads/2018/05/word-image-3880.png 910w, /wp-content/uploads/2018/05/word-image-3880-300x187.png 300w, /wp-content/uploads/2018/05/word-image-3880-768x479.png 768w" sizes="(max-width: 910px) 100vw, 910px" /></p>
+<p>
+  ⑥修改模板
+</p>
+<p><img loading="lazy" decoding="async" width="1145" height="693" src="/wp-content/uploads/2018/05/word-image-3881.png" class="wp-image-4346" srcset="/wp-content/uploads/2018/05/word-image-3881.png 1145w, /wp-content/uploads/2018/05/word-image-3881-300x182.png 300w, /wp-content/uploads/2018/05/word-image-3881-768x465.png 768w, /wp-content/uploads/2018/05/word-image-3881-1024x620.png 1024w" sizes="(max-width: 1145px) 100vw, 1145px" /><br />
+<img loading="lazy" decoding="async" width="751" height="457" src="/wp-content/uploads/2018/05/word-image-3882.png" class="wp-image-4347" srcset="/wp-content/uploads/2018/05/word-image-3882.png 751w, /wp-content/uploads/2018/05/word-image-3882-300x183.png 300w" sizes="(max-width: 751px) 100vw, 751px" /></p>
+<h1>购物车</h1>
+<h2>3.1、购物车功能分析</h2>
+<h3>3.1.1、功能分析</h3>
+<p>
+  1、没有登录可以使用购物车功能。需要将数据保存到cookie或者session
+</p>
+<p>
+  2、登录之后也可以使用购物车。一般可以把购物车数据写入到数据库中。登录完成之后有数据转移操作
+</p>
+<p>
+  3、当相同(属性也是一致)的商品再次加入购物车数量增加
+</p>
+<p>
+  4、同一个商品属性不同在购物车显示也不一样（“货品”）
+</p>
+<h3>3.1.2、购物车数据保存位置</h3>
+<p>
+  在没有登录时购物车数据保存在cookie中，登录之后数据保存在数据库中，在用户完成登录之后需要对cookie中数据转移到数据库下
+</p>
+<h3>3.1.3、购物车记录什么数据</h3>
+<p>
+  1、需要记录商品的id标识 得到标识就可以获取到商品信息
+</p>
+<p>
+  2、需要记录用户需要购买的单选属性信息。要的是属性值的id
+</p>
+<p>
+  3、需要记录购买数量
+</p>
+<table>
+<tr>
+<td>
+<p>
+  商品id
+</p>
+</td>
+<td>
+<p>
+  属性值的id组合
+</p>
+</td>
+<td>
+<p>
+  数量
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  18,19
+</p>
+</td>
+<td>
+<p>
+  2
+</p>
+</td>
+</tr>
+</table>
+<h3>3.1.4、购物中针对不同单选属性的记录方式</h3>
+<table>
+<tr>
+<td>
+<p>
+  商品id
+</p>
+</td>
+<td>
+<p>
+  属性值的id组合
+</p>
+</td>
+<td>
+<p>
+  数量
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  18(白色),19(32g)
+</p>
+</td>
+<td>
+<p>
+  1
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  18(白色),20(64G)
+</p>
+</td>
+<td>
+<p>
+  2
+</p>
+</td>
+</tr>
+</table>
+<p>
+  对于同一个商品，针对不同的单选属性组合对应的数据应该是多条
+</p>
+<h3>3.1.5、cookie存储如何存储</h3>
+<p>
+  对于cookie中存储数据。对于cookie本身只能存储字符串。可以使用PHP中数组格式存储数据然后在序列化之后写入。具体cookie中数据的保存安装PHP数组格式
+</p>
+<p>
+  Array(
+</p>
+<p>
+  Array(‘goods_id’=&gt;1,’goods_attr_id’=&gt;’18,19’,’goods_count’=&gt;2),
+</p>
+<p>
+  Array(‘goods_id’=&gt;1,’goods_attr_id’=&gt;’18,19’,’goods_count’=&gt;2)
+</p>
+<p>
+  )
+</p>
+<p>
+  对于上述所写的格式是php中数组格式。当需要写入到cookie中是需要进行序列化操作
+</p>
+<h3>3.1.6、cookie数组中key怎么命名会方便</h3>
+<p>
+  当加入商品到购物车时，如果用户没有登录需要操作cookie。操作是需要先判断当前相同商品相同属性的商品信息是否存在。如果使用上面所写的二维数组格式判断需要循环遍历进行比较。可以将购物车中的数据转换为一维数组方便判断
+</p>
+<p>
+  格式
+</p>
+<p>
+  Array(
+</p>
+<p>
+  ‘goods_id-goods_attr_id’=&gt;goods_count
+</p>
+<p>
+  )
+</p>
+<h2>3.2、购物车数据表创建</h2>
+<p>
+  CREATE TABLE `shop_cart` (
+</p>
+<p>
+    `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+</p>
+<p>
+    `user_id` int(11) NOT NULL DEFAULT &#8216;0&#8217; COMMENT &#8216;用户ID&#8217;,
+</p>
+<p>
+    `goods_id` int(11) NOT NULL DEFAULT &#8216;0&#8217; COMMENT &#8216;商品ID&#8217;,
+</p>
+<p>
+    `goods_attr_id` varchar(255) NOT NULL DEFAULT &#8221; COMMENT &#8216;商品属性值id组合 多个逗号隔开&#8217;,
+</p>
+<p>
+    `goods_count` smallint(6) NOT NULL DEFAULT &#8216;0&#8217; COMMENT &#8216;购买数量&#8217;,
+</p>
+<p>
+    PRIMARY KEY (`id`)
+</p>
+<p>
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</p>
+<h2>3.3、添加商品到购物车</h2>
+<p>
+  ①修改加入购物车为表单提交
+</p>
+<p><img loading="lazy" decoding="async" width="1132" height="478" src="/wp-content/uploads/2018/05/word-image-3883.png" class="wp-image-4348" srcset="/wp-content/uploads/2018/05/word-image-3883.png 1132w, /wp-content/uploads/2018/05/word-image-3883-300x127.png 300w, /wp-content/uploads/2018/05/word-image-3883-768x324.png 768w, /wp-content/uploads/2018/05/word-image-3883-1024x432.png 1024w" sizes="(max-width: 1132px) 100vw, 1132px" /></p>
+<p>
+  ②创建购物车控制器
+</p>
+<p><img loading="lazy" decoding="async" width="1075" height="426" src="/wp-content/uploads/2018/05/word-image-3884.png" class="wp-image-4349" srcset="/wp-content/uploads/2018/05/word-image-3884.png 1075w, /wp-content/uploads/2018/05/word-image-3884-300x119.png 300w, /wp-content/uploads/2018/05/word-image-3884-768x304.png 768w, /wp-content/uploads/2018/05/word-image-3884-1024x406.png 1024w" sizes="(max-width: 1075px) 100vw, 1075px" /></p>
+<p>
+  ③修改购买数量name值
+</p>
+<p><img loading="lazy" decoding="async" width="1060" height="504" src="/wp-content/uploads/2018/05/word-image-3885.png" class="wp-image-4350" srcset="/wp-content/uploads/2018/05/word-image-3885.png 1060w, /wp-content/uploads/2018/05/word-image-3885-300x143.png 300w, /wp-content/uploads/2018/05/word-image-3885-768x365.png 768w, /wp-content/uploads/2018/05/word-image-3885-1024x487.png 1024w" sizes="(max-width: 1060px) 100vw, 1060px" /></p>
+<p>
+  ④增加隐藏域实现商品标识提交
+</p>
+<p><img loading="lazy" decoding="async" width="1057" height="473" src="/wp-content/uploads/2018/05/word-image-3886.png" class="wp-image-4351" srcset="/wp-content/uploads/2018/05/word-image-3886.png 1057w, /wp-content/uploads/2018/05/word-image-3886-300x134.png 300w, /wp-content/uploads/2018/05/word-image-3886-768x344.png 768w, /wp-content/uploads/2018/05/word-image-3886-1024x458.png 1024w" sizes="(max-width: 1057px) 100vw, 1057px" /></p>
+<p>
+  ⑤修改模板实现属性值的id提交
+</p>
+<p><img loading="lazy" decoding="async" width="1129" height="492" src="/wp-content/uploads/2018/05/word-image-3887.png" class="wp-image-4352" srcset="/wp-content/uploads/2018/05/word-image-3887.png 1129w, /wp-content/uploads/2018/05/word-image-3887-300x131.png 300w, /wp-content/uploads/2018/05/word-image-3887-768x335.png 768w, /wp-content/uploads/2018/05/word-image-3887-1024x446.png 1024w" sizes="(max-width: 1129px) 100vw, 1129px" /></p>
+<p>
+  提交接受数据发现只有一个属性值ID提交
+</p>
+<p><img loading="lazy" decoding="async" width="447" height="166" src="/wp-content/uploads/2018/05/word-image-3888.png" class="wp-image-4353" srcset="/wp-content/uploads/2018/05/word-image-3888.png 447w, /wp-content/uploads/2018/05/word-image-3888-300x111.png 300w" sizes="(max-width: 447px) 100vw, 447px" /></p>
+<p>
+  由于需要有多个属性值ID因此需要设置为数组格式
+</p>
+<p><img loading="lazy" decoding="async" width="1115" height="532" src="/wp-content/uploads/2018/05/word-image-3889.png" class="wp-image-4354" srcset="/wp-content/uploads/2018/05/word-image-3889.png 1115w, /wp-content/uploads/2018/05/word-image-3889-300x143.png 300w, /wp-content/uploads/2018/05/word-image-3889-768x366.png 768w, /wp-content/uploads/2018/05/word-image-3889-1024x489.png 1024w" sizes="(max-width: 1115px) 100vw, 1115px" /><br />
+<img loading="lazy" decoding="async" width="767" height="321" src="/wp-content/uploads/2018/05/word-image-3890.png" class="wp-image-4355" srcset="/wp-content/uploads/2018/05/word-image-3890.png 767w, /wp-content/uploads/2018/05/word-image-3890-300x126.png 300w" sizes="(max-width: 767px) 100vw, 767px" /></p>
+<p>
+  由于单选属性使用的是radio类型。设置为数组格式多个单选属性只会提交一个。因此需要将属性相同的设置为一组
+</p>
+<p><img loading="lazy" decoding="async" width="1113" height="537" src="/wp-content/uploads/2018/05/word-image-3891.png" class="wp-image-4356" srcset="/wp-content/uploads/2018/05/word-image-3891.png 1113w, /wp-content/uploads/2018/05/word-image-3891-300x145.png 300w, /wp-content/uploads/2018/05/word-image-3891-768x371.png 768w, /wp-content/uploads/2018/05/word-image-3891-1024x494.png 1024w" sizes="(max-width: 1113px) 100vw, 1113px" /><br />
+<img loading="lazy" decoding="async" width="767" height="295" src="/wp-content/uploads/2018/05/word-image-3892.png" class="wp-image-4357" srcset="/wp-content/uploads/2018/05/word-image-3892.png 767w, /wp-content/uploads/2018/05/word-image-3892-300x115.png 300w" sizes="(max-width: 767px) 100vw, 767px" /></p>
+<p>
+  ⑥修改方法实现商品添加购物车
+</p>
+<p><img loading="lazy" decoding="async" width="1188" height="697" src="/wp-content/uploads/2018/05/word-image-3893.png" class="wp-image-4358" srcset="/wp-content/uploads/2018/05/word-image-3893.png 1188w, /wp-content/uploads/2018/05/word-image-3893-300x176.png 300w, /wp-content/uploads/2018/05/word-image-3893-768x451.png 768w, /wp-content/uploads/2018/05/word-image-3893-1024x601.png 1024w" sizes="(max-width: 1188px) 100vw, 1188px" /></p>
+<p>
+  ⑦创建购物车模型
+</p>
+<p><img loading="lazy" decoding="async" width="1018" height="677" src="/wp-content/uploads/2018/05/word-image-3894.png" class="wp-image-4359" srcset="/wp-content/uploads/2018/05/word-image-3894.png 1018w, /wp-content/uploads/2018/05/word-image-3894-300x200.png 300w, /wp-content/uploads/2018/05/word-image-3894-768x511.png 768w" sizes="(max-width: 1018px) 100vw, 1018px" /></p>
+<p>
+  ⑧实现添加到购物车
+</p>
+</p>
+<p><img loading="lazy" decoding="async" width="1086" height="706" src="/wp-content/uploads/2018/05/word-image-3895.png" class="wp-image-4360" srcset="/wp-content/uploads/2018/05/word-image-3895.png 1086w, /wp-content/uploads/2018/05/word-image-3895-300x195.png 300w, /wp-content/uploads/2018/05/word-image-3895-768x499.png 768w, /wp-content/uploads/2018/05/word-image-3895-1024x666.png 1024w" sizes="(max-width: 1086px) 100vw, 1086px" /><br />
+<img loading="lazy" decoding="async" width="1051" height="544" src="/wp-content/uploads/2018/05/word-image-3896.png" class="wp-image-4361" srcset="/wp-content/uploads/2018/05/word-image-3896.png 1051w, /wp-content/uploads/2018/05/word-image-3896-300x155.png 300w, /wp-content/uploads/2018/05/word-image-3896-768x398.png 768w, /wp-content/uploads/2018/05/word-image-3896-1024x530.png 1024w" sizes="(max-width: 1051px) 100vw, 1051px" /><br />
+<img loading="lazy" decoding="async" width="1042" height="449" src="/wp-content/uploads/2018/05/word-image-3897.png" class="wp-image-4362" srcset="/wp-content/uploads/2018/05/word-image-3897.png 1042w, /wp-content/uploads/2018/05/word-image-3897-300x129.png 300w, /wp-content/uploads/2018/05/word-image-3897-768x331.png 768w, /wp-content/uploads/2018/05/word-image-3897-1024x441.png 1024w" sizes="(max-width: 1042px) 100vw, 1042px" /></p>
+<p>
+  ⑨创建测试方法测试
+</p>
+<p><img loading="lazy" decoding="async" width="807" height="453" src="/wp-content/uploads/2018/05/word-image-3898.png" class="wp-image-4363" srcset="/wp-content/uploads/2018/05/word-image-3898.png 807w, /wp-content/uploads/2018/05/word-image-3898-300x168.png 300w, /wp-content/uploads/2018/05/word-image-3898-768x431.png 768w" sizes="(max-width: 807px) 100vw, 807px" /></p>
+<p>
+  没有登录加入购物车结果
+</p>
+<p><img loading="lazy" decoding="async" width="585" height="164" src="/wp-content/uploads/2018/05/word-image-3899.png" class="wp-image-4364" srcset="/wp-content/uploads/2018/05/word-image-3899.png 585w, /wp-content/uploads/2018/05/word-image-3899-300x84.png 300w" sizes="(max-width: 585px) 100vw, 585px" /></p>
+<p>
+  ⑩测试已经登录的用户
+</p>
+<p><img loading="lazy" decoding="async" width="950" height="430" src="/wp-content/uploads/2018/05/word-image-3900.png" class="wp-image-4365" srcset="/wp-content/uploads/2018/05/word-image-3900.png 950w, /wp-content/uploads/2018/05/word-image-3900-300x136.png 300w, /wp-content/uploads/2018/05/word-image-3900-768x348.png 768w" sizes="(max-width: 950px) 100vw, 950px" /></p>
+<h2>3.4、购物车列表显示</h2>
+<p>
+  ①创建index方法
+</p>
+<p><img loading="lazy" decoding="async" width="1025" height="474" src="/wp-content/uploads/2018/05/word-image-3901.png" class="wp-image-4366" srcset="/wp-content/uploads/2018/05/word-image-3901.png 1025w, /wp-content/uploads/2018/05/word-image-3901-300x139.png 300w, /wp-content/uploads/2018/05/word-image-3901-768x355.png 768w, /wp-content/uploads/2018/05/word-image-3901-1024x474.png 1024w" sizes="(max-width: 1025px) 100vw, 1025px" /></p>
+<p>
+  ②在模型中定义getList方法
+</p>
+<p><img loading="lazy" decoding="async" width="869" height="422" src="/wp-content/uploads/2018/05/word-image-3902.png" class="wp-image-4367" srcset="/wp-content/uploads/2018/05/word-image-3902.png 869w, /wp-content/uploads/2018/05/word-image-3902-300x146.png 300w, /wp-content/uploads/2018/05/word-image-3902-768x373.png 768w" sizes="(max-width: 869px) 100vw, 869px" /></p>
+<p>
+  ③拷贝购物车列表模板
+</p>
+<p><img loading="lazy" decoding="async" width="1133" height="618" src="/wp-content/uploads/2018/05/word-image-3903.png" class="wp-image-4368" srcset="/wp-content/uploads/2018/05/word-image-3903.png 1133w, /wp-content/uploads/2018/05/word-image-3903-300x164.png 300w, /wp-content/uploads/2018/05/word-image-3903-768x419.png 768w, /wp-content/uploads/2018/05/word-image-3903-1024x559.png 1024w" sizes="(max-width: 1133px) 100vw, 1133px" /></p>
+<p>
+  ④修改模板资源地址
+</p>
+<p><img loading="lazy" decoding="async" width="1066" height="661" src="/wp-content/uploads/2018/05/word-image-3904.png" class="wp-image-4369" srcset="/wp-content/uploads/2018/05/word-image-3904.png 1066w, /wp-content/uploads/2018/05/word-image-3904-300x186.png 300w, /wp-content/uploads/2018/05/word-image-3904-768x476.png 768w, /wp-content/uploads/2018/05/word-image-3904-1024x635.png 1024w" sizes="(max-width: 1066px) 100vw, 1066px" /></p>
+<p>
+  ⑤修改getlist方法获取购物车中数据
+</p>
+<p><img loading="lazy" decoding="async" width="1076" height="696" src="/wp-content/uploads/2018/05/word-image-3905.png" class="wp-image-4370" srcset="/wp-content/uploads/2018/05/word-image-3905.png 1076w, /wp-content/uploads/2018/05/word-image-3905-300x194.png 300w, /wp-content/uploads/2018/05/word-image-3905-768x497.png 768w, /wp-content/uploads/2018/05/word-image-3905-1024x662.png 1024w" sizes="(max-width: 1076px) 100vw, 1076px" /></p>
+<p>
+  没有登录的结果
+</p>
+<p><img loading="lazy" decoding="async" width="674" height="161" src="/wp-content/uploads/2018/05/word-image-3906.png" class="wp-image-4371" srcset="/wp-content/uploads/2018/05/word-image-3906.png 674w, /wp-content/uploads/2018/05/word-image-3906-300x72.png 300w" sizes="(max-width: 674px) 100vw, 674px" /></p>
+<p>
+  已经登录的结构
+</p>
+<p><img loading="lazy" decoding="async" width="457" height="209" src="/wp-content/uploads/2018/05/word-image-3907.png" class="wp-image-4372" srcset="/wp-content/uploads/2018/05/word-image-3907.png 457w, /wp-content/uploads/2018/05/word-image-3907-300x137.png 300w" sizes="(max-width: 457px) 100vw, 457px" /></p>
+<p>
+  ⑥修改getList方法获取商品信息及属性信息
+</p>
+<p><img loading="lazy" decoding="async" width="1077" height="650" src="/wp-content/uploads/2018/05/word-image-3908.png" class="wp-image-4373" srcset="/wp-content/uploads/2018/05/word-image-3908.png 1077w, /wp-content/uploads/2018/05/word-image-3908-300x181.png 300w, /wp-content/uploads/2018/05/word-image-3908-768x464.png 768w, /wp-content/uploads/2018/05/word-image-3908-1024x618.png 1024w" sizes="(max-width: 1077px) 100vw, 1077px" /></p>
+<p>
+  已经登录结果
+</p>
+<p><img loading="lazy" decoding="async" width="832" height="559" src="/wp-content/uploads/2018/05/word-image-3909.png" class="wp-image-4374" srcset="/wp-content/uploads/2018/05/word-image-3909.png 832w, /wp-content/uploads/2018/05/word-image-3909-300x202.png 300w, /wp-content/uploads/2018/05/word-image-3909-768x516.png 768w" sizes="(max-width: 832px) 100vw, 832px" /></p>
+<p>
+  没有登录
+</p>
+<p><img loading="lazy" decoding="async" width="812" height="481" src="/wp-content/uploads/2018/05/word-image-3910.png" class="wp-image-4375" srcset="/wp-content/uploads/2018/05/word-image-3910.png 812w, /wp-content/uploads/2018/05/word-image-3910-300x178.png 300w, /wp-content/uploads/2018/05/word-image-3910-768x455.png 768w" sizes="(max-width: 812px) 100vw, 812px" /></p>
+<p>
+  ⑦模板显示
+</p>
+<p><img loading="lazy" decoding="async" width="1082" height="701" src="/wp-content/uploads/2018/05/word-image-3911.png" class="wp-image-4376" srcset="/wp-content/uploads/2018/05/word-image-3911.png 1082w, /wp-content/uploads/2018/05/word-image-3911-300x194.png 300w, /wp-content/uploads/2018/05/word-image-3911-768x498.png 768w, /wp-content/uploads/2018/05/word-image-3911-1024x663.png 1024w" sizes="(max-width: 1082px) 100vw, 1082px" /></p>
+<p>
+  ⑧控制器调用方法计算出总金额
+</p>
+<p><img loading="lazy" decoding="async" width="909" height="607" src="/wp-content/uploads/2018/05/word-image-3912.png" class="wp-image-4377" srcset="/wp-content/uploads/2018/05/word-image-3912.png 909w, /wp-content/uploads/2018/05/word-image-3912-300x200.png 300w, /wp-content/uploads/2018/05/word-image-3912-768x513.png 768w" sizes="(max-width: 909px) 100vw, 909px" /></p>
+<p>
+  ⑨创建模型方法计算总金额
+</p>
+<p><img loading="lazy" decoding="async" width="1009" height="663" src="/wp-content/uploads/2018/05/word-image-3913.png" class="wp-image-4378" srcset="/wp-content/uploads/2018/05/word-image-3913.png 1009w, /wp-content/uploads/2018/05/word-image-3913-300x197.png 300w, /wp-content/uploads/2018/05/word-image-3913-768x505.png 768w" sizes="(max-width: 1009px) 100vw, 1009px" /></p>
+<h2>3.5、删除购物车</h2>
+<p>
+  ①修改模板设置删除的连接地址
+</p>
+<p><img loading="lazy" decoding="async" width="1105" height="389" src="/wp-content/uploads/2018/05/word-image-3914.png" class="wp-image-4379" srcset="/wp-content/uploads/2018/05/word-image-3914.png 1105w, /wp-content/uploads/2018/05/word-image-3914-300x106.png 300w, /wp-content/uploads/2018/05/word-image-3914-768x270.png 768w, /wp-content/uploads/2018/05/word-image-3914-1024x360.png 1024w" sizes="(max-width: 1105px) 100vw, 1105px" /></p>
+<p>
+  ②创建方法调用模型方法实现删除
+</p>
+<p><img loading="lazy" decoding="async" width="897" height="439" src="/wp-content/uploads/2018/05/word-image-3915.png" class="wp-image-4380" srcset="/wp-content/uploads/2018/05/word-image-3915.png 897w, /wp-content/uploads/2018/05/word-image-3915-300x147.png 300w, /wp-content/uploads/2018/05/word-image-3915-768x376.png 768w" sizes="(max-width: 897px) 100vw, 897px" /></p>
+<p>
+  ③创建模型方法实现删除
+</p>
+<p><img loading="lazy" decoding="async" width="1040" height="695" src="/wp-content/uploads/2018/05/word-image-3916.png" class="wp-image-4381" srcset="/wp-content/uploads/2018/05/word-image-3916.png 1040w, /wp-content/uploads/2018/05/word-image-3916-300x200.png 300w, /wp-content/uploads/2018/05/word-image-3916-768x513.png 768w, /wp-content/uploads/2018/05/word-image-3916-1024x684.png 1024w" sizes="(max-width: 1040px) 100vw, 1040px" /></p>
+<h2>3.6、清空购物车</h2>
+<p>
+  ①增加清空购物车连接地址
+</p>
+<p><img loading="lazy" decoding="async" width="1053" height="433" src="/wp-content/uploads/2018/05/word-image-3917.png" class="wp-image-4382" srcset="/wp-content/uploads/2018/05/word-image-3917.png 1053w, /wp-content/uploads/2018/05/word-image-3917-300x123.png 300w, /wp-content/uploads/2018/05/word-image-3917-768x316.png 768w, /wp-content/uploads/2018/05/word-image-3917-1024x421.png 1024w" sizes="(max-width: 1053px) 100vw, 1053px" /></p>
+<p>
+  ②创建方法实现清空
+</p>
+<p><img loading="lazy" decoding="async" width="948" height="348" src="/wp-content/uploads/2018/05/word-image-3918.png" class="wp-image-4383" srcset="/wp-content/uploads/2018/05/word-image-3918.png 948w, /wp-content/uploads/2018/05/word-image-3918-300x110.png 300w, /wp-content/uploads/2018/05/word-image-3918-768x282.png 768w" sizes="(max-width: 948px) 100vw, 948px" /></p>
+<p>
+  ③在模型中创建方法
+</p>
+<p><img loading="lazy" decoding="async" width="1062" height="456" src="/wp-content/uploads/2018/05/word-image-3919.png" class="wp-image-4384" srcset="/wp-content/uploads/2018/05/word-image-3919.png 1062w, /wp-content/uploads/2018/05/word-image-3919-300x129.png 300w, /wp-content/uploads/2018/05/word-image-3919-768x330.png 768w, /wp-content/uploads/2018/05/word-image-3919-1024x440.png 1024w" sizes="(max-width: 1062px) 100vw, 1062px" /></p>
+<h2>3.7、实现登录之后购物车数据转移</h2>
+<p>
+  ①创建转移的模型方法
+</p>
+<p><img loading="lazy" decoding="async" width="1035" height="671" src="/wp-content/uploads/2018/05/word-image-3920.png" class="wp-image-4385" srcset="/wp-content/uploads/2018/05/word-image-3920.png 1035w, /wp-content/uploads/2018/05/word-image-3920-300x194.png 300w, /wp-content/uploads/2018/05/word-image-3920-768x498.png 768w, /wp-content/uploads/2018/05/word-image-3920-1024x664.png 1024w" sizes="(max-width: 1035px) 100vw, 1035px" /><br />
+<img loading="lazy" decoding="async" width="1052" height="356" src="/wp-content/uploads/2018/05/word-image-3921.png" class="wp-image-4386" srcset="/wp-content/uploads/2018/05/word-image-3921.png 1052w, /wp-content/uploads/2018/05/word-image-3921-300x102.png 300w, /wp-content/uploads/2018/05/word-image-3921-768x260.png 768w, /wp-content/uploads/2018/05/word-image-3921-1024x347.png 1024w" sizes="(max-width: 1052px) 100vw, 1052px" /></p>
+<p>
+  ②在登录完成之后触发转移
+</p>
+<p><img loading="lazy" decoding="async" width="986" height="522" src="/wp-content/uploads/2018/05/word-image-3922.png" class="wp-image-4387" srcset="/wp-content/uploads/2018/05/word-image-3922.png 986w, /wp-content/uploads/2018/05/word-image-3922-300x159.png 300w, /wp-content/uploads/2018/05/word-image-3922-768x407.png 768w" sizes="(max-width: 986px) 100vw, 986px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/4315.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,938 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>PHP 常问问题 &#8211; 个人随笔</title>
+	<atom:link href="/label/php-%E5%B8%B8%E9%97%AE%E9%97%AE%E9%A2%98/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Tue, 29 Mar 2022 15:38:49 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>PHP 常问问题 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>PHP 百问</title>
+		<link>/%e8%b5%84%e6%96%99/6986.html</link>
+					<comments>/%e8%b5%84%e6%96%99/6986.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sun, 20 May 2018 02:01:18 +0000</pubDate>
+				<category><![CDATA[资料]]></category>
+		<category><![CDATA[PHP 常问问题]]></category>
+		<guid isPermaLink="false">/?p=6986</guid>
+
+					<description><![CDATA[1.页面静态化： 静态页面安全、运行速度快，缺点：工作量大 动态页面使用动态语言配合数据库，显示内容。灵活性高 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h4 class="md-end-block md-heading md-focus" contenteditable="true"><span class="md-expand">1.页面静态化：</span></h4>
+<p><span class="md-line md-end-block" contenteditable="true">静态页面安全、运行速度快，缺点：工作量大</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">动态页面使用动态语言配合数据库，显示内容。灵活性高，维护量小，与静态页面相对比运行速度慢。页面静态化是将动态页面显示的内容转换为静态页面来显示。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">安全性高，性能更高，加载速度快。符合浏览器搜索优化。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">最常用的方式：OB缓存</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">静态化适用于更新不频繁的项目。如新闻，门户网站</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">Ob_start();开启OB缓存</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">Ob_get_contents();获取OB缓存中的内容</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">Ob_clean():清空OB缓存中的内容</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">Ob_end_clean():清空并且关闭OB缓存</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">Ob_flush();手动的刷新OB缓存到程序缓存中</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">Ob_end_flush();将OB缓存中的内容刷新到程序缓存并且关闭OB缓存</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">2.伪静态：</h4>
+<p><span class="md-line md-end-block" contenteditable="true">从url地址上查看类似真静态，但处理请求还是动态语言完成。方便记忆，并且符合搜索引擎优化。实现:借助web服务器的重写机制实现，借助框架中的路由功能。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">3.Mysql：</h4>
+<p><span class="md-line md-end-block" contenteditable="true">mysql脏读，不可重复读，幻读；脏读就是一个事物读取到另一个事物的中间状态的数据;不可重复读就是一个事物读取到另一个事物提交后更新的数据，导致该事物前后两次读取的数据不一致；一个事物在读取某个范围内的数据时由于另一个事物在该范围内添加或删除了某些数据，导致该事物前后两次读取的数据量不一致。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">4.redis ：</h4>
+<p><span class="md-line md-end-block" contenteditable="true">字符串缓存（set,hset)</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">队列实战(rpush 插入数据，lrang查看队列，lpop出队列，lrang查看队列)</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">发布订阅实战（publish 发布 订阅）</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">计数器实战 排行榜</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">简单字符串悲观锁实战</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">场景：如果项目中使用了缓存且对缓存设置了超时时间。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">当并发量比较大的时候，如果没有锁机制，那么缓存过期的瞬间，</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">大量并发请求会穿透缓存直接查询数据库，造成雪崩效应。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">5.锁机制：</h4>
+<p><span class="md-line md-end-block" contenteditable="true">简单事务的乐观锁实战</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">解释：乐观锁 (Optimistic Lock), 顾名思义，就是很乐观。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">每次去拿数据的时候都认为别人不会修改，所以不会上锁。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">watch 命令会监视给定的 key，当 exec 时候如果监视的 key 从调用 watch 后发生过变化，则整个事务会失败。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">也可以调用 watch 多次监视多个 key。这样就可以对指定的 key 加乐观锁了。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">注意 watch 的 key 是对整个连接有效的，事务也一样。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">如果连接断开，监视和事务都会被自动清除。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">当然了 exec，discard，unwatch 命令都会清除连接中的所有监视。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">6.CGI&amp;FastCGI：</h4>
+<p><span class="md-line md-end-block" contenteditable="true">CGI 是 Web Server 与后台语言交互的协议，有了这个协议，开发者可以使用任何语言处理 Web Server 发来的请求，动态的生成内容。但 CGI 有一个致命的缺点，那就是每处理一个请求都需要 fork 一个全新的进程，随着 Web 的兴起，高并发越来越成为常态，这样低效的方式明显不能满足需求。就这样，FastCGI 诞生了，CGI 很快就退出了历史的舞台。FastCGI，顾名思义为更快的 CGI，它允许在一个进程内处理多个请求，而不是一个请求处理完毕就直接结束进程，性能上有了很大的提高。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">7.HTTP状态码：</h4>
+<p><span class="md-line md-end-block" contenteditable="true">常见的 HTTP 相应状态码</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">200：请求被正常处理</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">204：请求被受理但没有资源可以返回</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">206：客户端只是请求资源的一部分，服务器只对请求的部分资源执行 GET 方法，相应报文中通过 Content-Range 指定范围的资源。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">301：永久性重定向</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">302：临时重定向</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">303：与 302 状态码有相似功能，只是它希望客户端在请求一个 URI 的时候，能通过 GET 方法重定向到另一个 URI 上</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">304：发送附带条件的请求时，条件不满足时返回，与重定向无关</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">307：临时重定向，与 302 类似，只是强制要求使用 POST 方法</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">400：请求报文语法有误，服务器无法识别</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">401：请求需要认证</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">403：请求的对应资源禁止被访问</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">404：服务器无法找到对应资源</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">500：服务器内部错误</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">503：服务器正忙</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">8.Session &amp; Cookie：</h4>
+<p><span class="md-line md-end-block" contenteditable="true">说说你对 session 和 cookies 的理解，尽可能把你所知道的全部说出来。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">答：cookie 是用来保存当前会话的一些信息的, 因为 http 请求是无状态的, 所以有时候需要根据 cookie 来保存一些我们希望能保存到客户端的信息. session 则是将信息保存到服务器上, 返回给客户端的只是 cookieid(浏览器会把 sessionname-&gt;sessionid 存到 cooike 中).</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">9.说说你对 get 和 post 的理解，尽可能把你所知道的全部说出来。</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答：get 是用于从服务器获取数据的, 其不能对服务器数据造成影响, 而 post 是用来添加数据的.</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">10.说说你对 PHP 命名空间的理解？</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答：相当于 PHP 的文件夹.</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">11.从用户在浏览器输入一个网址：比如 <span spellcheck="false"><a href="/goto/qgat" rel="nofollow">http://laravist.com/</a></span>，按下 enter，到用户最终看到相对应的网页（laravist 首页），尽可能描述此过程发生了什么事情。</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答：请求通过 dns 转化为 ip, 然后根据 ip 找到站点, 根据服务器的分发找到 index.php 文件, 再编译并执行代码, 返回响应, 浏览器渲染页面.</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">12.依赖注入你怎么理解？它有什么优缺点？</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答： 将依赖关系倒置, 使得代码更容易解耦. 缺点: 调用更麻烦.</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">13.你赞同面向接口编程么？同意的话，说出理由，不同意的话，也说出原因。</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答：支持, 理由同上, 但是不能滥用.</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">14.nginx 使用哪种网络协议?</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答：nginx 是应用层，我觉得从下往上的话，传输层用的是 tcp/ip，应用层用的是 http,fastcgi 负责调度进程！</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">15.echo(),print(),print_r() 的区别？</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答：echo 是语言结构，无返回值; print 功能和 echo 基本相同，不同的是 print 是函数，有返回值; print_r 是递归打印，用于输出数组对象。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">16.PHP 有哪些特性?</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答：①.php 独特混合了 C,Java,Prel 以及 PHP 自创的语法.</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">②. 可以比 CGI 或者 Prel 更快速去执行动态网页，与其他变成语言相比，PHP 是讲程序嵌入到 HTML 文档中去执行，执行效率比完全生成 HTML 编辑的 CGI 要高很多，所有的 CGI 都能实现.</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">③. 支持几乎所有流行的数据库以及操作系统.</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">④.PHP 可以使用 C,C++ 进行程序的扩展.</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">17. 求数组中最大数的下标？</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答：</span></p>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation"><span class="cm-keyword">function</span> <span class="cm-def">maxkey</span>(<span class="cm-variable-2">$arr</span>){</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$maxval</span> <span class="cm-operator">=</span> <span class="cm-builtin">max</span>(<span class="cm-variable-2">$arr</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">foreach</span>(<span class="cm-variable-2">$arr</span> <span class="cm-keyword">as</span> <span class="cm-variable-2">$key</span><span class="cm-operator">=&gt;</span><span class="cm-variable-2">$val</span>){</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">if</span>(<span class="cm-variable-2">$maxval</span> <span class="cm-operator">==</span> <span class="cm-variable-2">$val</span>){</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$maxkey</span> <span class="cm-operator">=</span> <span class="cm-variable-2">$key</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation">}</span>
+<span role="presentation">​</span>
+<span role="presentation">}</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">return</span> <span class="cm-variable-2">$maxkey</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation">}</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$arr</span> <span class="cm-operator">=</span> <span class="cm-keyword">array</span>(<span class="cm-number">0</span>,<span class="cm-operator">-</span><span class="cm-number">1</span>,<span class="cm-operator">-</span><span class="cm-number">2</span>,<span class="cm-number">5</span>,<span class="cm-string">"b"</span><span class="cm-operator">=&gt;</span><span class="cm-number">15</span>,<span class="cm-number">3</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">echo</span> <span class="cm-variable">maxkey</span>(<span class="cm-variable-2">$arr</span>);</span></pre>
+<p><span class="md-line md-end-block" contenteditable="true">输出：b</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">18. 对于大流量的网站, 您采用什么样的方法来解决访问量问题?</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答：</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">①. 有效使用缓存，增加缓存命中率.</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">②. 使用负载均衡.</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">③. 对静态文件使用 CDN 进行存储和加速.</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">④. 想法减少数据库的使用.</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">⑤. 查看出现统计的瓶颈在哪里.</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">19. 谈谈 asp,php,jsp 的优缺点?</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答：</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">①.asp 是需要依赖 IIS, 是微软开发的语言</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">②.php 和 jsp 可以依赖 apache 或者 nginx 等其他服务器</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">20. 简述两种屏蔽 php 程序的 notice 警告的方法 ？</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答：初始化变量，文件开始设置错误级别或者修改 php.ini 设置 error_reporting set_error_handler 和 @抑制错误：</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">①在程序中添加：error_reporting (E_ALL &amp; ~E_NOTICE);</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">②. 或者修改 php.ini 中的：error_reporting = E_ALL</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">改为：error_reporting = E_ALL &amp; ~E_NOTICE</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">③.error_reporting(0); 或者修改 php.inidisplay_errors=Off</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">21. 下面哪个选项没有将 john 添加到 users 数组中? （B）</h4>
+<p><span class="md-line md-end-block" contenteditable="true">(A) $users[] = ‘john&#8217;;</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">(B) array_add($users,&#8217;john&#8217;); [没有这个函数]</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">(C) array_push($users,‘john&#8217;);</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">(D) $users ||= ‘john&#8217;;</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">22. 写一个函数，尽可能高效的，从一个标准 url 里取出文件的扩展名?</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答：例如: <span spellcheck="false"><a href="/goto/u2om" rel="nofollow">http://www.sina.com.cn/abc/de/fg.php?id=1</a></span> 需要取出 php 或 .php?</span></p>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-operator">&lt;?</span><span class="cm-variable">php</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$url</span> <span class="cm-operator">=</span> <span class="cm-string">"http://www.sina.com.cn/abc/de/fg.php?id=1"</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable">arr</span><span class="cm-operator">=</span><span class="cm-variable">parseurl</span>(<span class="cm-variable">url</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable">pathArr</span><span class="cm-operator">=</span><span class="cm-builtin">pathinfo</span>(<span class="cm-variable">arr</span>[<span class="cm-string">'path'</span>]);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-builtin">print_r</span>(<span class="cm-variable-2">$pathArr</span>[<span class="cm-string">'extension'</span>]);</span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">23. 写一个函数，能够遍历一个文件夹下的所有文件和子文件夹？</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答：如下.</span></p>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-operator">&lt;?</span><span class="cm-variable">php</span></span>
+<span role="presentation">​</span>
+<span role="presentation"> &nbsp;<span class="cm-keyword">function</span> <span class="cm-def">aGetAllFile</span>(<span class="cm-variable-2">$folder</span>)</span>
+<span role="presentation">​</span>
+<span role="presentation">  {</span>
+<span role="presentation">​</span>
+<span role="presentation"> &nbsp; &nbsp;<span class="cm-variable-2">$aFileArr</span> <span class="cm-operator">=</span> <span class="cm-keyword">array</span>();</span>
+<span role="presentation">​</span>
+<span role="presentation"> &nbsp; &nbsp;<span class="cm-keyword">if</span>(<span class="cm-builtin">is_dir</span>(<span class="cm-variable-2">$folder</span>))</span>
+<span role="presentation">​</span>
+<span role="presentation">  {</span>
+<span role="presentation">​</span>
+<span role="presentation"> &nbsp; &nbsp;<span class="cm-variable">handle</span><span class="cm-operator">=</span><span class="cm-builtin">opendir</span>(<span class="cm-variable">folder</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation"> &nbsp; &nbsp;<span class="cm-keyword">while</span>((<span class="cm-builtin">file</span><span class="cm-operator">=</span><span class="cm-builtin">readdir</span>(<span class="cm-variable">handle</span>)) <span class="cm-operator">!==</span> <span class="cm-atom">false</span>)</span>
+<span role="presentation">​</span>
+<span role="presentation">  {</span>
+<span role="presentation">​</span>
+<span role="presentation"> &nbsp; &nbsp;<span class="cm-comment">// 如果是. 或者.. 则跳过</span></span>
+<span role="presentation">​</span>
+<span role="presentation"> &nbsp; &nbsp;<span class="cm-keyword">if</span>(<span class="cm-builtin">file</span><span class="cm-operator">==</span><span class="cm-string">"."</span><span class="cm-operator">||</span><span class="cm-builtin">file</span> <span class="cm-operator">==</span> <span class="cm-string">".."</span>)</span>
+<span role="presentation">​</span>
+<span role="presentation">  {</span>
+<span role="presentation">​</span>
+<span role="presentation"> &nbsp; &nbsp;<span class="cm-keyword">continue</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation">  }</span>
+<span role="presentation">​</span>
+<span role="presentation"> &nbsp; &nbsp;<span class="cm-keyword">if</span>(<span class="cm-builtin">is_file</span>(<span class="cm-variable">folder</span>.<span class="cm-string">"/"</span>.<span class="cm-builtin">file</span>))</span>
+<span role="presentation">​</span>
+<span role="presentation">  {</span>
+<span role="presentation">​</span>
+<span role="presentation"> &nbsp; &nbsp;<span class="cm-variable">aFileArr</span>[]<span class="cm-operator">=</span><span class="cm-builtin">file</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation">  }</span>
+<span role="presentation">​</span>
+<span role="presentation"> &nbsp; &nbsp;<span class="cm-keyword">else</span> <span class="cm-keyword">if</span>(<span class="cm-builtin">is_dir</span>(<span class="cm-variable">folder</span>.<span class="cm-string">"/"</span>.<span class="cm-builtin">file</span>))</span>
+<span role="presentation">​</span>
+<span role="presentation">  {</span>
+<span role="presentation">​</span>
+<span role="presentation"> &nbsp; &nbsp;<span class="cm-variable">aFileArr</span>[<span class="cm-builtin">file</span>] <span class="cm-operator">=</span> <span class="cm-variable">aGetAllFile</span>(<span class="cm-variable">folder</span>.<span class="cm-string">"/"</span>.<span class="cm-builtin">file</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation">  }</span>
+<span role="presentation">​</span>
+<span role="presentation">  }</span>
+<span role="presentation">​</span>
+<span role="presentation"> &nbsp; &nbsp;<span class="cm-builtin">closedir</span>(<span class="cm-variable-2">$handle</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation">  }</span>
+<span role="presentation">​</span>
+<span role="presentation"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">$aFileArr</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation">  }</span>
+<span role="presentation">​</span>
+<span role="presentation"> &nbsp;<span class="cm-variable-2">$path</span> <span class="cm-operator">=</span> <span class="cm-string">"/home/test/sql"</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation"> &nbsp;<span class="cm-builtin">print_r</span>(<span class="cm-variable">aGetAllFile</span>(<span class="cm-variable-2">$path</span>);</span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">24. 表单提交中的 Get 和 Post 的异同点</h4>
+<p><span class="md-line md-end-block" contenteditable="true">get 请求一般用于向服务端获取数据，post 一般向服务端提交数据</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">get 传输的参数在 url 中，传递参数大小有限制，post 没有大小限制，</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">get 不安全，post 安全性比 get 高</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">get 请求在服务端用 Request.queryString 接受 ,post 请求在服务端用 Requset.form 接受</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">25.HTML 的 base 标签是干什么用的</h4>
+<p><span class="md-line md-end-block" contenteditable="true">必须写在 head 中， base 标签为页面上的所有链接规定默认地址或默认目标</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">26.echo(),print(),print_r() 的区别?</h4>
+<p><span class="md-line md-end-block" contenteditable="true">echo 是 PHP 语句, print 和 print_r 是函数, 语句没有返回值, 函数可以有返回值 (即便没有用)</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">print（） 只能打印出简单类型变量的值 (如 int,string)</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">print_r（） 可以打印出复杂类型变量的值 (如数组, 对象)</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">echo 输出一个或者多个字符串</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">27. 写一个 email &amp; 手机号 的正则表达式</h4>
+<pre class="md-fences md-end-block" lang="javascript" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-string-2">/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-operator">/^</span>[<span class="cm-number">1</span>][<span class="cm-number">3</span>,<span class="cm-number">4</span>,<span class="cm-number">5</span>,<span class="cm-number">7</span>,<span class="cm-number">8</span>][<span class="cm-number">0</span><span class="cm-operator">-</span><span class="cm-number">9</span>]{<span class="cm-number">9</span>}<span class="cm-variable">$</span><span class="cm-operator">/</span></span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">28. 数组 [‘a’, ‘b’, ‘c’] 转换成字符串 ‘abc’</h4>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">echo</span> <span class="cm-builtin">implode</span>(<span class="cm-variable">‘’</span>,[<span class="cm-variable">‘a’</span>, <span class="cm-variable">‘b’</span>, <span class="cm-variable">‘c’</span>]);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">echo</span> <span class="cm-builtin">join</span>([<span class="cm-variable">‘a’</span>, <span class="cm-variable">‘b’</span>, <span class="cm-variable">‘c’</span>],<span class="cm-string">''</span>);</span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">29. 获取字符串’aAbB’中 A 首次出现的位置</h4>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$str</span><span class="cm-operator">=</span><span class="cm-variable">‘aAbB’</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">echo</span> <span class="cm-builtin">strpos</span>(<span class="cm-variable-2">$str</span>,<span class="cm-string">"A"</span>);</span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">30. 编写一段用最小代价实现将字符串完全反序, e.g. 将 “1234567890” 转换成 “0987654321”. (用前述你最熟悉的语言编写并标注简单注释, 不要使用函数,</h4>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$s</span> <span class="cm-operator">=</span> <span class="cm-string">'1234567890'</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$o</span> <span class="cm-operator">=</span> <span class="cm-string">''</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$i</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">while</span>(<span class="cm-keyword">isset</span>(<span class="cm-variable-2">$s</span>[<span class="cm-variable-2">$i</span>]) <span class="cm-operator">&amp;&amp;</span> <span class="cm-variable-2">$s</span>[<span class="cm-variable-2">$i</span>] <span class="cm-operator">!=</span> <span class="cm-atom">null</span>) {</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$o</span> <span class="cm-operator">=</span> <span class="cm-variable-2">$s</span>[<span class="cm-variable-2">$i</span><span class="cm-operator">++</span>].<span class="cm-variable-2">$o</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation">}</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">echo</span> <span class="cm-variable-2">$o</span>;</span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">31. 请用递归实现一个阶乘求值算法 F(n): n=5;F(n)=5!=5<span class=""><em>4</em></span>3<span class=""><em>2</em></span>1=120</h4>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">function</span> <span class="cm-def">F</span>(<span class="cm-variable-2">$n</span>){</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">if</span>(<span class="cm-variable-2">$n</span><span class="cm-operator">==</span><span class="cm-number">0</span>){</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">return</span> <span class="cm-number">1</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation">}<span class="cm-keyword">else</span>{</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">return</span> <span class="cm-variable-2">$n</span><span class="cm-operator">*</span> <span class="cm-variable">F</span>(<span class="cm-variable-2">$n</span><span class="cm-operator">-</span><span class="cm-number">1</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation">}</span>
+<span role="presentation">​</span>
+<span role="presentation">}</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-builtin">var_dump</span>(<span class="cm-variable">F</span>(<span class="cm-number">5</span>));</span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">32. 将字符长 fang-zhi-gang 转化为驼峰法的形式：FangZhiGang</h4>
+<p><span class="md-line md-end-block" contenteditable="true">//方法一</span></p>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">function</span> <span class="cm-def">Fun</span>(<span class="cm-variable-2">$str</span>){</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">if</span>(<span class="cm-keyword">isset</span>(<span class="cm-variable-2">$str</span>) <span class="cm-operator">&amp;&amp;</span> <span class="cm-operator">!</span><span class="cm-keyword">empty</span>(<span class="cm-variable-2">$str</span>)){</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$newStr</span><span class="cm-operator">=</span><span class="cm-string">''</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">if</span>(<span class="cm-builtin">strpos</span>(<span class="cm-variable-2">$str</span>,<span class="cm-string">'-'</span>)<span class="cm-operator">&gt;</span><span class="cm-number">0</span>){</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$strArray</span><span class="cm-operator">=</span><span class="cm-builtin">explode</span>(<span class="cm-string">'-'</span>,<span class="cm-variable-2">$str</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$len</span><span class="cm-operator">=</span><span class="cm-builtin">count</span>(<span class="cm-variable-2">$strArray</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">for</span> (<span class="cm-variable-2">$i</span><span class="cm-operator">=</span><span class="cm-number">0</span>;<span class="cm-variable-2">$i</span><span class="cm-operator">&lt;</span><span class="cm-variable-2">$len</span>;<span class="cm-variable-2">$i</span><span class="cm-operator">++</span>){</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$newStr</span>.<span class="cm-operator">=</span><span class="cm-builtin">ucfirst</span>(<span class="cm-variable-2">$strArray</span>[<span class="cm-variable-2">$i</span>]);</span>
+<span role="presentation">​</span>
+<span role="presentation">}</span>
+<span role="presentation">​</span>
+<span role="presentation">}</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">return</span> <span class="cm-variable-2">$newStr</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation">}</span>
+<span role="presentation">​</span>
+<span role="presentation">}</span></pre>
+<p><span class="md-line md-end-block" contenteditable="true">//方法二 [简单]</span></p>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-operator">&lt;?</span><span class="cm-variable">php</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">function</span> <span class="cm-def">test</span>(<span class="cm-variable-2">$arr</span>)</span>
+<span role="presentation">​</span>
+<span role="presentation">{</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$a</span> <span class="cm-operator">=</span> <span class="cm-builtin">str_replace</span>(<span class="cm-string">'-'</span>,<span class="cm-string">' '</span>,<span class="cm-variable-2">$arr</span>); <span class="cm-comment">//将- 替换成空格</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-comment">// var_dump($a);</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$b</span> <span class="cm-operator">=</span> <span class="cm-builtin">ucwords</span>(<span class="cm-variable-2">$a</span>); <span class="cm-comment">//单词首字母大写</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-comment">// var_dump($b);</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$c</span><span class="cm-operator">=</span> <span class="cm-builtin">str_replace</span>(<span class="cm-string">' '</span>,<span class="cm-string">''</span>,<span class="cm-variable-2">$b</span>); <span class="cm-comment">//将空格替换掉</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-comment">// var_dump($c);</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">return</span> <span class="cm-variable-2">$c</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation">}</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-builtin">var_dump</span>(<span class="cm-variable">test</span>(<span class="cm-string">'fang-zhi-gang'</span>)); <span class="cm-comment">//FangZhiGang</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-operator">?&gt;</span></span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">33. 数组内置的排序方法有哪些？</h4>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-builtin">sort</span>(<span class="cm-variable-2">$array</span>); <span class="cm-comment">//数组升序排序</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-builtin">rsort</span>(<span class="cm-variable-2">$array</span>); <span class="cm-comment">//数组降序排序</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-builtin">asort</span>(<span class="cm-variable-2">$array</span>); <span class="cm-comment">//根据值，以升序对关联数组进行排序</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-builtin">ksort</span>(<span class="cm-variable-2">$array</span>); <span class="cm-comment">//根据键，以升序对关联数组进行排序</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-builtin">arsort</span>(<span class="cm-variable-2">$array</span>); <span class="cm-comment">//根据值，以降序对关联数组进行排序</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-builtin">krsort</span>(<span class="cm-variable-2">$array</span>); <span class="cm-comment">// 根据键，以降序对关联数组进行排序</span></span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">34. 用 PHP 写出显示客户端 IP 与服务器 IP 的代码</h4>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$_SERVER</span>[<span class="cm-string">"REMOTE_ADDR"</span>]</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$_SERVER</span>[<span class="cm-string">"SERVER_ADDR"</span>]</span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">35. 语句 include 和 require 的区别是什么? 为避免多次包含同一文件，可用 (?) 语句代替它们?</h4>
+<p><span class="md-line md-end-block" contenteditable="true">require是无条件包含也就是如果一个流程里加入require,无论条件成立与否都会先执行require</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">include有返回值，而require没有(可能因为如此require的速度比include快)</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">包含文件不存在或者语法错误的时候require是致命的错误终止执行,include不是</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">36.session 与 cookie 的区别?</h4>
+<p><span class="md-line md-end-block" contenteditable="true">session:储存用户访问的全局唯一变量,存储在服务器上的php指定的目录中的（session_dir）的位置进行的存放</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">cookie:用来存储连续訪問一个頁面时所使用，是存储在客户端，对于Cookie来说是存储在用户WIN的Temp目录中的。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">两者都可通过时间来设置时间长短</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">37.PHP 不使用第三个变量实现交换两个变量的值</h4>
+<p><span class="md-line md-end-block" contenteditable="true">//方法一</span></p>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$a</span>.<span class="cm-operator">=</span><span class="cm-variable-2">$b</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$b</span><span class="cm-operator">=</span><span class="cm-builtin">str_replace</span>(<span class="cm-variable-2">$b</span>,<span class="cm-string">""</span>,<span class="cm-variable-2">$a</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$a</span><span class="cm-operator">=</span><span class="cm-builtin">str_replace</span>(<span class="cm-variable-2">$b</span>,<span class="cm-string">""</span>,<span class="cm-variable-2">$a</span>);</span></pre>
+<p><span class="md-line md-end-block" contenteditable="true">//方法二</span></p>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">list</span>(<span class="cm-variable-2">$b</span>,<span class="cm-variable-2">$a</span>)<span class="cm-operator">=</span><span class="cm-keyword">array</span>(<span class="cm-variable-2">$a</span>,<span class="cm-variable-2">$b</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-builtin">var_dump</span>(<span class="cm-variable-2">$a</span>,<span class="cm-variable-2">$b</span>);</span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">38. 写一个方法获取文件的扩展名</h4>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">function</span> <span class="cm-def">get_extension</span>(<span class="cm-variable-2">$file</span>){</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-comment">//方法一</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">return</span> <span class="cm-builtin">substr</span>(<span class="cm-builtin">strrchr</span>(<span class="cm-variable-2">$file</span>,<span class="cm-string">'.'</span>), <span class="cm-number">1</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-comment">//方法二</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">return</span> <span class="cm-builtin">end</span>(<span class="cm-builtin">explode</span>(<span class="cm-string">'.'</span>, <span class="cm-variable-2">$file</span>));</span>
+<span role="presentation">​</span>
+<span role="presentation">}</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">echo</span> <span class="cm-variable">get_extension</span>(<span class="cm-string">'fangzhigang.png'</span>); <span class="cm-comment">//png</span></span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">39. 用 PHP 打印出前一天的时间格式是 2017-3-22 22:21:21</h4>
+<p><span class="md-line md-end-block" contenteditable="true">echo date(&#8220;Y-m-d H:i:s&#8221;, strtotime(&#8220;-1 days&#8221;));</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">40.sql 语句应该考虑哪些安全性</h4>
+<p><span class="md-line md-end-block" contenteditable="true">（1）防止sql注入，对特殊字符进行转义，过滤或者使用预编译sql语句绑定</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（2）使用最小权限原则，特别是不要使用root账户，微不同的动作或者操作建立不同的账户</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（3）当sql出错时，不要把数据库出错的信息暴露到客户端</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">41. 优化 mysql 数据库方法</h4>
+<p><span class="md-line md-end-block" contenteditable="true">（1）选取适当的字段，把字段设置为NOT NULL，在查询的时候数据库不用比较NULL；</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（2）使用链接（join）代替子查询；</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（3）使用联合（UNION）查询代替手动创建临时表；</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（4）尽量减少使用（LIKE）关键字和通配符</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（5）使用事务和外健(数据表中非主键与另一张表中主键相关联)</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">42. 对于大流量的网站，你会采用什么方法来解决访问量？</h4>
+<p><span class="md-line md-end-block" contenteditable="true">（1）首先确认服务器硬件是否满足支持当前的流量；</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（2）优化数据库的访问；</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（3）禁止外部盗链；</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（4）控制大文件下载；</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（5）使用不同的主机分流；</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（6）使用流量分析统计；</span></p>
+<h5 class="md-end-block md-heading" contenteditable="true">43.mysql_fetch_row() 和 mysql_fetch_array 之间有什么区别?</h5>
+<p><span class="md-line md-end-block" contenteditable="true">这两个函数，返回的都是一个数组，区别就是第一个函数返回的数组是只包含值，我们只能<span class="md-inline-math"><span id="MathJax-Element-1-Frame" class="MathJax_SVG" tabindex="-1"></span><span class="md-math-after-sym">​</span></span>row[1],这样以数组下标来读取数据，</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">而MySQL_fetch_array()返回的数组既包含第一种，也包含键值对的形式，我们可以这样读取数据，（假如数据库的字段是 username,passwd）:<span class="md-inline-math"><span id="MathJax-Element-2-Frame" class="MathJax_SVG" tabindex="-1"></span><span class="md-math-after-sym">​</span></span>row[&#8216;passwd&#8217;]</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">44.MySQL的几个概念：主键，外键，索引，唯一索引</h4>
+<p><span class="md-line md-end-block" contenteditable="true">主键(primary key) 能够唯一标识表中某一行的属性或属性组。一个表只能有一个主键，但可以有多个候选索引。主键常常与外键构成参照完整性约束，防止出现数据不一致。主键可以保证记录的唯一和主键域非空,数据库管理系统对于主键自动生成唯一索引，所以主键也是一个特殊的索引。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">外键（foreign key） 是用于建立和加强两个表数据之间的链接的一列或多列。外键约束主要用来维护两个表之间数据的一致性。简言之，表的外键就是另一表的主键，外键将两表联系起来。一般情况下，要删除一张表中的主键必须首先要确保其它表中的没有相同外键（即该表中的主键没有一个外键和它相关联）。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">索引(index) 是用来快速地寻找那些具有特定值的记录。主要是为了检索的方便，是为了加快访问速度， 按一定的规则创建的，一般起到排序作用。所谓唯一性索引，这种索引和前面的“普通索引”基本相同，但有一个区别：索引列的所有值都只能出现一次，即必须唯一。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">总结：</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">主键一定是唯一性索引，唯一性索引并不一定就是主键。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">一个表中可以有多个唯一性索引，但只能有一个主键。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">主键列不允许空值，而唯一性索引列允许空值。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">主键可以被其他字段作外键引用，而索引不能作为外键引用。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">45.mysql 数据库引擎有哪些？</h4>
+<p><span class="md-line md-end-block" contenteditable="true">MyISAM、 ISAM、HEAP、InnoDB、BDB、CVS&#8230;</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">46. 谈谈你对 mysql 引擎中的 MyISAM 与 InnoDB 的区别理解？</h4>
+<p><span class="md-line md-end-block" contenteditable="true">InnoDB和MyISAM是许多人在使用MySQL时最常用的两个表类型，这两个表类型各有优劣，视具体应用而定。基本的差别为：MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持。MyISAM类型的表强调的是性能，其执行数度比InnoDB类型更快，但是不提供事务支持，而InnoDB提供事务支持已经外部键等高级数据库功能。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">以下是一些细节和具体实现的差别：</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">MyISAM与InnoDB的区别是什么？</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">1、 存储结构</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">MyISAM：每个MyISAM在磁盘上存储成三个文件。第一个文件的名字以表的名字开始，扩展名指出文件类型。.frm文件存储表定义。数据文件的扩展名为.MYD (MYData)。索引文件的扩展名是.MYI (MYIndex)。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">InnoDB：所有的表都保存在同一个数据文件中（也可能是多个文件，或者是独立的表空间文件），InnoDB表的大小只受限于操作系统文件的大小，一般为2GB。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">2、 存储空间</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">MyISAM：可被压缩，存储空间较小。支持三种不同的存储格式：静态表(默认，但是注意数据末尾不能有空格，会被去掉)、动态表、压缩表。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">InnoDB：需要更多的内存和存储，它会在主内存中建立其专用的缓冲池用于高速缓冲数据和索引。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">3、 可移植性、备份及恢复</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">MyISAM：数据是以文件的形式存储，所以在跨平台的数据转移中会很方便。在备份和恢复时可单独针对某个表进行操作。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">InnoDB：免费的方案可以是拷贝数据文件、备份 binlog，或者用 mysqldump，在数据量达到几十G的时候就相对痛苦了。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">4、 事务支持</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">MyISAM：强调的是性能，每次查询具有原子性,其执行数度比InnoDB类型更快，但是不提供事务支持。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">InnoDB：提供事务支持事务，外部键等高级数据库功能。 具有事务(commit)、回滚(rollback)和崩溃修复能力(crash recovery capabilities)的事务安全(transaction-safe (ACID compliant))型表。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">5、 AUTO_INCREMENT</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">MyISAM：可以和其他字段一起建立联合索引。引擎的自动增长列必须是索引，如果是组合索引，自动增长可以不是第一列，他可以根据前面几列进行排序后递增。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">InnoDB：InnoDB中必须包含只有该字段的索引。引擎的自动增长列必须是索引，如果是组合索引也必须是组合索引的第一列。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">6、 表锁差异</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">MyISAM：只支持表级锁，用户在操作myisam表时，select，update，delete，insert语句都会给表自动加锁，如果加锁以后的表满足insert并发的情况下，可以在表的尾部插入新的数据。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">InnoDB：支持事务和行级锁，是innodb的最大特色。行锁大幅度提高了多用户并发操作的新能。但是InnoDB的行锁，只是在WHERE的主键是有效的，非主键的WHERE都会锁全表的。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">7、 全文索引</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">MyISAM：支持 FULLTEXT类型的全文索引</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">InnoDB：不支持FULLTEXT类型的全文索引，但是innodb可以使用sphinx插件支持全文索引，并且效果更好。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">8、 表主键</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">MyISAM：允许没有任何索引和主键的表存在，索引都是保存行的地址。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">InnoDB：如果没有设定主键或者非空唯一索引，就会自动生成一个6字节的主键(用户不可见)，数据是主索引的一部分，附加索引保存的是主索引的值。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">9、 表的具体行数</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">MyISAM：保存有表的总行数，如果select count(* ) from table;会直接取出该值。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">InnoDB：没有保存表的总行数，如果使用select count(* ) from table；就会遍历整个表，消耗相当大，但是在加了wehre条件后，myisam和innodb处理的方式都一样。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">10、 CURD操作</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">MyISAM：如果执行大量的SELECT，MyISAM是更好的选择。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">InnoDB：如果你的数据执行大量的INSERT或UPDATE，出于性能方面的考虑，应该使用InnoDB表。DELETE 从性能上InnoDB更优，但DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除，在innodb上如果要清空保存有大量数据的表，最好使用truncate table这个命令。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">11、 外键</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">MyISAM：不支持</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">InnoDB：支持</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">通过上述的分析，基本上可以考虑使用InnoDB来替代MyISAM引擎了，原因是InnoDB自身很多良好的特点，比如事务支持、存储过程、视图、行级锁定等等，在并发很多的情况下，相信InnoDB的表现肯定要比MyISAM强很多。另外，任何一种表都不是万能的，只用恰当的针对业务类型来选择合适的表类型，才能最大的发挥MySQL的性能优势。如果不是很复杂的Web应用，非关键应用，还是可以继续考虑MyISAM的，这个具体情况可以自己斟酌。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">47. redis 和 memache 缓存的区别</h4>
+<p><span class="md-line md-end-block" contenteditable="true">总结一：</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">1.数据类型</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">Redis数据类型丰富，支持set list等类型</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">memcache支持简单数据类型，需要客户端自己处理复杂对象</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">2.持久性</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">redis支持数据落地持久化存储</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">memcache不支持数据持久存储</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">3.分布式存储</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">redis支持master-slave复制模式</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">memcache可以使用一致性hash做分布式</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">value大小不同</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">memcache是一个内存缓存，key的长度小于250字符，单个item存储要小于1M，不适合虚拟机使用</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">4.数据一致性不同</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">redis使用的是单线程模型，保证了数据按顺序提交。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">memcache需要使用cas保证数据一致性。CAS（Check and Set）是一个确保并发一致性的机制，属于“乐观锁”范畴；原理很简单：拿版本号，操作，对比版本号，如果一致就操作，不一致就放弃任何操作</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">5.cpu利用</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">redis单线程模型只能使用一个cpu，可以开启多个redis进程</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">总结二：</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">1.Redis中，并不是所有的数据都一直存储在内存中的，这是和Memcached相比一个最大的区别。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">2.Redis不仅仅支持简单的k/v类型的数据，同时还提供list，set，hash等数据结构的存储。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">3.Redis支持数据的备份，即master-slave模式的数据备份。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">4.Redis支持数据的持久化，可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">我个人认为最本质的不同是Redis在很多方面具备数据库的特征，或者说就是一个数据库系统，而Memcached只是简单的K/V缓存</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">总结三：</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">redis和memecache的不同在于：</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">1、存储方式：</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">memecache 把数据全部存在内存之中，断电后会挂掉，数据不能超过内存大小</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">redis有部份存在硬盘上，这样能保证数据的持久性。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">2、数据支持类型：</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">redis在数据支持上要比memecache多的多。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">3、使用底层模型不同：</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">新版本的redis直接自己构建了VM 机制 ，因为一般的系统调用系统函数的话，会浪费一定的时间去移动和请求。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">4、运行环境不同：</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">redis目前官方只支持Linux 上去行，从而省去了对于其它系统的支持，这样的话可以更好的把精力用于本系统 环境上的优化，虽然后来微软有一个小组为其写了补丁。但是没有放到主干上</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">memcache只能当做缓存，cache</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">redis的内容是可以落地的，就是说跟MongoDB有些类似，然后redis也可以作为缓存，并且可以设置master-slave</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">48. 表中有 A B C 三列, 用 SQL 语句实现：当 A 列大于 B 列时选择 A 列否则选择 B 列，当 B 列大于 C 列时选择 B 列否则选择 C 列。</h4>
+<p><span class="md-line md-end-block" contenteditable="true">drop table table1</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">create table table1(</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">a int,</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">b int,</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">c int</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">)</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">insert into table1 values(22,24,23)</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">select * from table1</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">select (case when a&gt;b then a else b end),(case when b&gt;c then b else c end)</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">from table1</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">select (case when a&gt;b then a</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">when a&gt;c then a</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">when b&gt;c then b else c</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">end)</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">from table1</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">49. 安装 Linux 系统中, 用 netconfig 程序对网络进行配置, 要输入哪些内容？</h4>
+<p><span class="md-line md-end-block" contenteditable="true">会让用户输入主机名、域名、域名服务器、IP地址、网关地址和子网掩码等必要信息</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">50. PHP 如何写接口给人家调用？</h4>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">public</span> <span class="cm-keyword">function</span> <span class="cm-def">authenticationApi</span>(<span class="cm-variable-2">$data</span>,<span class="cm-variable-2">$url</span>){</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$ch</span> <span class="cm-operator">=</span> <span class="cm-builtin">curl_init</span>();</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-builtin">curl_setopt</span>(<span class="cm-variable-2">$ch</span>, <span class="cm-variable">CURLOPT_URL</span>, <span class="cm-variable-2">$url</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-builtin">curl_setopt</span>(<span class="cm-variable-2">$ch</span>, <span class="cm-variable">CURLOPT_POST</span>, <span class="cm-number">1</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-builtin">curl_setopt</span>(<span class="cm-variable-2">$ch</span>, <span class="cm-variable">CURLOPT_HEADER</span>, <span class="cm-number">0</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-builtin">curl_setopt</span>(<span class="cm-variable-2">$ch</span>, <span class="cm-variable">CURLOPT_RETURNTRANSFER</span>, <span class="cm-number">1</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-builtin">curl_setopt</span>(<span class="cm-variable-2">$ch</span>, <span class="cm-variable">CURLOPT_POSTFIELDS</span>, <span class="cm-variable-2">$data</span>); <span class="cm-comment">//输出格式可以转为数组形式的json格式</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$tmpInfo</span> <span class="cm-operator">=</span> <span class="cm-builtin">curl_exec</span>(<span class="cm-variable-2">$ch</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-builtin">curl_close</span>(<span class="cm-variable-2">$ch</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">return</span> <span class="cm-variable-2">$tmpInfo</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation">}</span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">51. 用 PHP header() 函数实现页面 404 错误提示功能</h4>
+<p><span class="md-line md-end-block" contenteditable="true">Header(&#8220;HTTP/1.1 404 Not Found&#8221;);</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">52.heredoc 结构及用法</h4>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">echo</span> <span class="cm-string">&lt;&lt;&lt;EOT</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-string">&lt;html&gt;</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-string">&lt;head&gt;&lt;title&gt;主页&lt;/title&gt;&lt;/head&gt;</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-string">&lt;body&gt;主页内容&lt;/body&gt;</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-string">&lt;/html&gt;</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-string">EOT</span>;</span></pre>
+<p><span class="md-line md-end-block" contenteditable="true">注意：结束标识符所在的行不能包含任何其它字符除&#8221;;&#8221;</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">53.nowdoc结构及用法</h4>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$str</span> <span class="cm-operator">=</span> <span class="cm-string">&lt;&lt;&lt;'EOD'</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-string">Example of string</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-string">spanning multiple lines</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-string">using nowdoc syntax.</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-string">EOD</span>;</span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">54.javascript 判断弹出窗口是否被屏蔽程序代码</h4>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">var</span> <span class="cm-variable">wroxWin</span> <span class="cm-operator">=</span> <span class="cm-variable">window</span>.<span class="cm-variable">open</span>(<span class="cm-string">"http://www.111cn.net/"</span>, <span class="cm-string">"_blank"</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">if</span> (<span class="cm-variable">wroxWin</span> <span class="cm-operator">==</span> <span class="cm-atom">null</span>) {</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable">alert</span>(<span class="cm-string">"糟糕！弹出窗口被屏蔽了"</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation">}</span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">55. php 序列化和反序列化用的函数</h4>
+<p><span class="md-line md-end-block" contenteditable="true">serialize() 序列化</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">unserialize() 反序列化</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">56. 利用下表结构，写出发贴数最多的十个人名字的 SQL 语句（members(id,username,posts,pass,email)</h4>
+<p><span class="md-line md-end-block" contenteditable="true">select memebers.username from members group by posts desc limit 10</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">57. 以 Apache 模块的方式安装 PHP，在文件 http.conf 中首先要用语句（？）动态装载 PHP 模块，然后再用语句（？）使得 Apache 把所有扩展名为 php 的文件都作为 PHP 脚本处理。</h4>
+<p><span class="md-line md-end-block" contenteditable="true">1.LoadModule php5_module &#8220;c:/php/php5apache2.dll&#8221;）</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">2.AddType application/x-httpd-php .php</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">58. 数据库中的事务是什么？</h4>
+<p><span class="md-line md-end-block" contenteditable="true">事务就是一系列的操作,这些操作完成一项任务。只要这些操作里有一个操作没有成功,事务就操作失败,发生回滚事件。即撤消前面的操作,这样可以保证数据的一致性。而且可以把操作暂时放在缓存里,等所有操作都成功有提交数据库,这样保证费时的操作都是有效操作。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">59.apche 和 nginx 的优缺</h4>
+<p><span class="md-line md-end-block" contenteditable="true">nginx轻量级，比apache占用更少的内存及资源，抗并发，nginx处理请求是异步非阻塞的，而apache 则是阻塞型的，在高并发下nginx 能保持低资源低消耗高性能。apache 相对于nginx 的优点：rewrite比nginx 的rewrite 强大，少bug，稳定。（需要性能用nginx，求稳定就apache）。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">60.求两个日期的差数，例如2007-2-5 ~ 2007-3-6 的日期差数</h4>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-comment">// 方法一:用DateTime类</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$day1</span> <span class="cm-operator">=</span> <span class="cm-string">'2003-09-16'</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$day2</span> <span class="cm-operator">=</span> <span class="cm-string">'2011-11-23'</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$d1</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">dateTime</span>(<span class="cm-variable-2">$day1</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable-2">$d2</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">dateTime</span>(<span class="cm-variable-2">$day2</span>);</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">echo</span> <span class="cm-variable-2">$d1</span><span class="cm-operator">-&gt;</span><span class="cm-variable">diff</span>(<span class="cm-variable-2">$d2</span>)<span class="cm-operator">-&gt;</span><span class="cm-variable">days</span>;</span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-comment">// 方法二,用时间戳计算</span></span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-keyword">echo</span> (<span class="cm-builtin">strtotime</span>(<span class="cm-variable-2">$day2</span>) <span class="cm-operator">-</span> <span class="cm-builtin">strtotime</span>(<span class="cm-variable-2">$day1</span>))<span class="cm-operator">/</span>(<span class="cm-number">24</span><span class="cm-operator">*</span><span class="cm-number">3600</span>);</span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">61.下面的代码用来做什么？请解释。$date=&#8217;08/26/2003&#8242;;</h4>
+<pre class="md-fences md-end-block" lang="javascript" contenteditable="false"><span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable">print</span> <span class="cm-variable">ereg_replace</span>(<span class="cm-string">"([0-9]+)/([0-9]+)/([0-9]+)"</span>,<span class="cm-string">"\\2/\\1/\\3"</span>,<span class="cm-variable">$date</span>);</span></pre>
+<p><span class="md-line md-end-block" contenteditable="true">这是把一个日期从 MM/DD/YYYY 的格式转为 DD/MM/YYYY 格式。我的一个好朋友告诉我可以把这个正规表达式拆解为以下的语句，对于如此简单的表示是来说其实无须拆解，纯粹为了解说的方便：</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">// 对应一个或更多 0-9，后面紧随一个斜号$regExpression = &#8220;([0-9]+)/&#8221;;</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">// 应一个或更多 0-9，后面紧随另一个斜号$regExpression .= &#8220;([0-9]+)/&#8221;;</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">// 再次对应一个或更多 0-9$regExpression .= &#8220;([0-9]+)&#8221;;至于 \2/\1/\3 则是用来对应括号，第一个括号对的是月份</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">62. 在 PHP 中，当前脚本的名称（不包括路径和查询字符串）记录在预定义变量（?）中；而链接到当前页面的 URL 记录在预定义变量（?）中。</h4>
+<p><span class="md-line md-end-block" contenteditable="true">(1) echo $ _ SERVER[&#8216;PHP_SELF&#8217;];</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">(2) echo $ _ SERVER[&#8220;HTTP_REFERER&#8221;];</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">63. 一个函数的参数不能是对变量的引用，除非在 php.ini 中把（?）设为 on.</h4>
+<p><span class="md-line md-end-block" contenteditable="true">allow_call_time_pass_reference</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">64. 问：MVC 分别指代什么</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答：MVC 是一种面向对象的开发模式 M 指的是 module V 指的是 view C 指的是 controller</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">分别指代的是模块 视图 控制器</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">问：MVC 能给项目开发带来什么好处</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">答：MVC 的高内聚 低耦合的开发思路，能够让各个程序开发人员之间开发各个不同的模块不受干扰，能够加速开发的进度，方便项目的后期管理和维护和增加功能</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">问：V 中能不能直接调用 M，M 中可不可以直接调用 C</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">答：能够直接调用，但如果直接调用的话，不符合规范，会给后期的维护带来困难，项目开发中应该尽量避免。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">65. 问：svn 指的是什么</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答：svn 指的是版本控制</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">问：svn 能够给项目开发带来什么好处</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">答：svn 在项目开发中，可以让多个程序员共同开发一个网站，svn 给每一个上传的文件根据上传的次数备份了一个版本号。当一个程序员错误的覆盖了不是自己应该开发的那个模块的时候，可以采用回滚，把网站的这个文件还原。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">66. 问：如何使用 PHP 连接 oracle</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答：可以使用 dsn 或者 pdo</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（回答错了，正确的是在 php.ini 中打开 oracle，）</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">67. 问：如何获取当前时间 格式为 年 &#8211; 月 &#8211; 日 时：分：秒</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答：我回答的是 date（<span class=""><em>Y-m-d H:i:s</em></span>，当前时间戳）</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">问：如何获取昨天这个时候的时间</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">答： date（<span class=""><em>Y-m-d H:i:s</em></span>，当前时间戳 &#8211; 一天所需的时间戳）</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">68. 问：如何获取客户端 IP</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答：我一般使用 thinkphp，框架里面用自带的函数获取 IP</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（事后百度了一下 原来是 $ _ SERVER[&#8220;REMOTE_ADDR&#8221;];）</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">69. 问题：描述一下网购流程</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答案：比如说，一个人在网上看到一件产品并且想购买，首先它需要注册会员，在注册会员的时候需要填写，收货地址，联系方式，当发生购买行为的时候需要选择支付方式，支付方式有，网上支付，和货到付款，支付完成以后需要经历物流到达客户手中，客户之后收到货，完成交易</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（时候：想了想，回答的不够完善，因为，没有涉及到，退货与评论，还有协调方面。我经常在淘宝上买东西，应该知道的，可是当时没细心）</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">70. 问题: 评论模块与商品模块之间的关系，该如何开发</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答案：首先需要建立两张表，一张产品表，一张评论表，程序开发的时候需要将建立关联 id，首先产品表是主 id，评论表需要一个关联 id 关联产品表的主 id。另外在评论的时候会使用到 ajax 技术。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（然后认识又由评论转向 ajax，时候反思，还有个没想到，当客户评论的时候，我们商家还需要一个回复的功能，回复客户的评论，像淘宝那样。）</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">71. 问题：ajax 在网页开发中有什么好处</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答案：ajax 可以实现网页无需刷新页面就可以显示最新的信息，可以通过客户的某个网页动作显示所需要的信息 。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">问题：ajax 的运行流程。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">答案：ajax 通过一个 js 事件促发一个 php 页面的运行，其中 js 会将所需要的参数传给该 php 页面，当运行完毕会把所输出的信息通过 js 回调回来，在当前浏览器的页面显示</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">72. 问题：在支付模块中该如何完成支付</h4>
+<p><span class="md-line md-end-block" contenteditable="true">答案：一般我们都是通过支付宝完成支付</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">问题：你们如何使用支付宝是如何完成支付</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">回答：首先我们需要使用支付宝的接口，像 ecshop 有自带的接口，可以直接使用</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（回答失误，因为淘宝需要申请 key。）</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">73.问题：支付宝接口该如何开发</h4>
+<p><span class="md-line md-end-block" contenteditable="true">回答：支付接口有个自己提供的一个数组，需要自己自己需要提交的数据赋值给淘宝接口的数据，然后运行完毕后，会执行一个将支付情况和订单情况返回给我们的系统。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（回答的稀里糊涂的）</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">74.问题：支付宝生成的订单，和系统的订单是一样的吗？</h4>
+<p><span class="md-line md-end-block" contenteditable="true">回答：不一样</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">75. 问题：有没有开发货运模块，如何管理？</h4>
+<p><span class="md-line md-end-block" contenteditable="true">回答：没有</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">76. 开发手机页面是需要做一个页面还是多个页面</h4>
+<p><span class="md-line md-end-block" contenteditable="true">回答：大多数情况下是一个页面，当然有可能有多个页面。做手机页面可能会使用 html5</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（不知道，打马虎眼）</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">77.html5 有什么不同？</h4>
+<p><span class="md-line md-end-block" contenteditable="true">回答：html5 可以自定义表情</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">78. 问题：做过手机页面没有，会使用 html5 不</h4>
+<p><span class="md-line md-end-block" contenteditable="true">回答：没有做过，html5 在学习中</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">79. 问题：cdn 是什么，如何做自动推送</h4>
+<p><span class="md-line md-end-block" contenteditable="true">回答：cdn 一种互联网缓存机制，可以加快访问速度，cdn 如果不推送，可以造成开发页面和展示一面不一致，一般我都是手工推送，自动推送没做过</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">80.swoole</h4>
+<p><span class="md-line md-end-block" contenteditable="true">异步任务:Async Task</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">消息队列</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">毫秒定时器，linux支持到秒，swoole支持毫秒</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">异步文件读写，非I/O阻塞</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">异步DNS，http2.0</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">并发原子计数器，降低错误发生概率，支持go语言，支持协成(协成高于[java]线程)</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">互联网，智能家居，网络游戏，移动通信，企业软件</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">autoconf 生成配置文件，gcc 将c语言编译成可执行文件 make 编译器</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">81.数据库连接池：</h4>
+<p><span class="md-line md-end-block" contenteditable="true">比如mysql能处理400个连接，但每一秒有1000个并发，建立200个和mysql的连接，从连接池中取。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">使用单例模式固定连接池</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">永不断开连接，常驻内存程序。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">确保连接数，以及可用连接数。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">数组保存；连接池中对象</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">构造函数中，根据连接数，逐个差生对象</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">封装查询方法</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">创建http服务器</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">在request事件内部进行数据查询操作</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">从数组中弹出数据 array_pop();</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">看mysql连接 show processlist</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">82· linux文件查找命令：</h4>
+<p><span class="md-line md-end-block" contenteditable="true">Linux下查找相关命令主要有以下4个：which、whereis、locate、find。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（1）which [-a] cmdname1 cmdname2 &#8230;&#8230;</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">作用：locate a command，从环境变量PATH中，定位/返回与指定名字相匹配的可执行文件所在的路径</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">原理：执行which命令时，which会在当前环境变量PATH中依次寻找能够匹配所找命令名字的可执行文件名，不加-a选项，返回第一个匹配的可执行文件的路径，否则依 次返回满足条件的所有可执行文件的路径名。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">适用场合：一般用于查找命令/可执行文件所在的路径。有时候可能在多个路径下存在相同的命令，该命令可用于查找当前所执行的命令到底是哪一个位置处的命令。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（2）whereis [-bmsu] filename1 filename2 &#8230;&#8230;.</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">作用：locate the binary, source, and manual page files for a command.即：定位/返回与指定名字匹配的二进制文件、源文件和帮助手册文件所在的路径。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">原理：whereis命令首先会去掉filename中的前缀空格和以.开头的任何字符，然后再在数据库（var/lib/slocate/slocate.db）中查找与上述处理后的filename相匹配的二进 制文件、源文件和帮助手册文件,使用之前可以使用updatedb命令手动更新数据库。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">适用场合：二进制文件、源文件和帮助手册文件路径的查找。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（3）locate [option] filename1 filename2 &#8230;&#8230;</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">作用：find files by name from one or more databases prepared by updatedb. 同whereis指令一样，也是从数据库建立的索引中查找，不同的是该命令查找所有部分匹配的文件，使用之前可以使用updatedb命令手动更新数据库。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">原理：默认情况下(当filename中不包含通配符<span class=""><em>)，locate会给出所有与 *filename</em></span>相匹配的文件的路径。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">适用场合：没有文件类型性质的模糊查找（你只记得某个文件的部分名称）。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">（4）find <a href="#" data-ref="path1 path2 ......">option</a> [filename]</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">参数说明：</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">时间查找参数：</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">-atime n: 将n * 24小时内access过的文件列出来</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">-ctime n: 将n * 24小时内状态发生改变的文件列出来</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">-mtime n: 将n * 4小时内被修改过的文件列出来</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">-newer file: 把比file还要新的文件列出来</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">名称查找参数：</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">-gid n: 寻找群组ID为n的文件</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">-group name: 寻找群组名称为name的文件</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">-uid n: 寻找拥有者ID为n的文件</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">-user name: 寻找拥有者名称为name的文件</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">-name file: 寻找文件名为file的文件（可以使用通配符）</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">作用：search for files in a directory hierarchy. 从当前目录递归的搜索文件。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">原理：遍历当前工作目录及其子目录，find命令是在硬盘上遍历查找，非常耗硬盘资源，查找效率相比whereis和locate较低。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">适用场合：能用which、whereis和locate的时候尽量不要用find.</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">83. PHP-FPM的作用：</h4>
+<p><span class="md-line md-end-block" contenteditable="true">nginx 本身不能处理 PHP，它只是个 web 服务器，当接收到请求后，如果是 php 请求，则发给 php 解释器处理，并把结果返回给客户端。nginx 一般是把请求发 fastcgi 管理进程处理，fascgi 管理进程选择 cgi 子进程处理结果并返回被 nginx。php-fpm , 就是实现了 fastcgi 的一个程序，是一个 PHP FastCGI 管理器。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true"><span class="">84.使用 select xxx where in() 查询的排序</span></h4>
+<p><span class="md-line md-end-block" contenteditable="true">默认下, 使用 select xxx where in(xx,xx) 查询, 返回结果是按主键排序的, 如果要按 in() 中值的排列顺序, 可以这样做:</span></p>
+<pre class="md-fences md-end-block" lang="mysql" contenteditable="false"><span role="presentation"><span class="cm-keyword">select</span> * <span class="cm-keyword">from</span> talbe <span class="cm-keyword">where</span> id <span class="cm-keyword">in</span>(<span class="cm-number">3</span>,<span class="cm-number">2</span>,<span class="cm-number">4</span>,<span class="cm-number">1</span>) <span class="cm-keyword">ORDER</span> <span class="cm-keyword">BY</span> FIND_IN_SET( id, <span class="cm-string">'3,2,4,1'</span>) </span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">85.json 和 jsonp</h4>
+<p><span class="md-line md-end-block" contenteditable="true">说的直白一点，在我们做 ajax 异步的一些功能的时候，一定会或多或少的遇到两个问题，（1、数据的交换。2、跨域问题）</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">JSONP 的最基本的原理是：动态添加一个</span></p>
+<pre class="md-fences md-end-block" lang="javascript" contenteditable="false"><span role="presentation"><span class="cm-operator">&lt;</span><span class="cm-variable">script</span> <span class="cm-variable">type</span><span class="cm-operator">=</span><span class="cm-string">"text/javascript"</span><span class="cm-operator">&gt;</span></span>
+<span role="presentation"><span class="cm-keyword">function</span> <span class="cm-def">jsonpCallback</span>(<span class="cm-def">result</span>) </span>
+<span role="presentation">{ </span>
+<span role="presentation"> &nbsp;<span class="cm-variable">alert</span>(<span class="cm-variable-2">result</span>.<span class="cm-property">msg</span>); </span>
+<span role="presentation"> }</span>
+<span role="presentation"> <span class="cm-operator">&lt;</span><span class="cm-string-2">/script&gt;</span></span>
+<span role="presentation"><span class="cm-operator">&lt;</span><span class="cm-variable">script</span> <span class="cm-variable">type</span><span class="cm-operator">=</span><span class="cm-string">"text/javascript"</span> <span class="cm-variable">src</span><span class="cm-operator">=</span><span class="cm-string">" http://crossdomain.com/jsonServerResponse?jsonp= jsonpCallback"</span><span class="cm-operator">&gt;&lt;</span><span class="cm-string-2">/script&gt;</span></span></pre>
+<p><span class="md-line md-end-block" contenteditable="true">从红色的地方可以看出，两个名字要一直，不过一般采用 callback 然后后面加一个 “？” 此时 jquery 会自动生成一个函数名，这样可以做到发送很多请求的时候，并不会互相影响。 </span><span class="md-line md-end-block" contenteditable="true">同源策略 ：即 JavaScript 只能访问与包含它的文档在同一域下的内容。jsonp 可以跨越同源策略，当我们使用了 jsonp，将会是另外一种协议通信了。 </span><span class="md-line md-end-block" contenteditable="true">JSONP 的优点是：它不像 XMLHttpRequest 对象实现的 Ajax 请求那样受到同源策略的限制；它的兼容性更好，在更加古老的浏览器中都可以运行，不需要 XMLHttpRequest 或 ActiveX 的支持；并且在请求完毕后可以通过调用 callback 的方式回传结果。 </span><span class="md-line md-end-block" contenteditable="true">JSONP 的缺点则是：它只支持 GET 请求而不支持 POST 等其它类型的 HTTP 请求；它只支持跨域 HTTP 请求这种情况，不能解决不同域的两个页面之间如何进行 JavaScript 调用的问题。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">86.json 和 jsonp使用方法</h4>
+<pre class="md-fences md-end-block" lang="javascript" contenteditable="false"><span role="presentation"><span class="cm-variable">$</span>.<span class="cm-property">getJSON</span>(<span class="cm-string">" http://跨域的dns/document!searchJSONResult.action?name1="</span><span class="cm-operator">+</span><span class="cm-variable">value1</span><span class="cm-operator">+</span><span class="cm-string">"&amp;jsoncallback=?"</span>,</span>
+<span role="presentation"> &nbsp; &nbsp;<span class="cm-keyword">function</span>(<span class="cm-def">json</span>){</span>
+<span role="presentation"> &nbsp; &nbsp;<span class="cm-keyword">if</span>(<span class="cm-variable-2">json</span>.<span class="cm-property">属性名</span><span class="cm-operator">==</span><span class="cm-variable">值</span>){</span>
+<span role="presentation"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// 执行代码</span></span>
+<span role="presentation"> &nbsp;  }</span>
+<span role="presentation">});</span>
+<span role="presentation"><span class="cm-variable">$</span>.<span class="cm-property">ajax</span>({</span>
+<span role="presentation"> &nbsp; &nbsp;<span class="cm-property">async</span>:<span class="cm-atom">false</span>,</span>
+<span role="presentation"> &nbsp; &nbsp;<span class="cm-property">url</span>: <span class="cm-variable">http</span>:<span class="cm-comment">//跨域的dns/document!searchJSONResult.action,</span></span>
+<span role="presentation"> &nbsp; &nbsp;<span class="cm-variable">type</span>:<span class="cm-string">"GET"</span>,</span>
+<span role="presentation"> &nbsp; &nbsp;<span class="cm-variable">dataType</span>:<span class="cm-string">'jsonp'</span>,</span></pre>
+<p><span class="md-line md-end-block" contenteditable="true">通常情况一般是这两种使用方法，在跨域问题上，非常简单。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">86.&lt;? echo &#8216;hello tusheng&#8217; ; ?&gt; 没有输出结果, 可能是什么原因, 简述的解决此问题的过程 (提示: 语法没有问题)</h4>
+<pre class="md-fences md-end-block" lang="" contenteditable="false"><span role="presentation">：可能服务器上面没有开启短标签 short_open_tag = 设置为 Off，,php.ini 开启短标签控制参数： short_open_tag = On </span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">88.简述下面程序的输出结果, 简要说明为什么, 如何解决这类问题?</h4>
+<pre class="md-fences md-end-block" lang="php " contenteditable="false"><span role="presentation"><span class="cm-operator">&lt;?</span><span class="cm-variable">php</span> </span>
+<span role="presentation"><span class="cm-variable-2">$tmp</span> <span class="cm-operator">=</span> <span class="cm-number">0</span> <span class="cm-operator">==</span> <span class="cm-string">"a"</span><span class="cm-operator">?</span> <span class="cm-number">1</span>: <span class="cm-number">2</span>; </span>
+<span role="presentation"><span class="cm-keyword">echo</span> <span class="cm-variable-2">$tmp</span>; </span>
+<span role="presentation"><span class="cm-operator">?&gt;</span> </span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-variable">结果</span> <span class="cm-number">1</span> &nbsp; <span class="cm-variable">int</span> <span class="cm-variable">和</span> <span class="cm-variable">string</span> <span class="cm-variable">类型强制转换造成的，0</span><span class="cm-operator">===</span><span class="cm-string">"a"</span> </span>
+<span role="presentation">​</span>
+<span role="presentation"><span class="cm-number">0</span> <span class="cm-variable">＝＝</span> <span class="cm-number">0</span> <span class="cm-variable">肯定是</span> <span class="cm-atom">true</span> <span class="cm-variable">啊</span> </span>
+<span role="presentation"><span class="cm-variable">PHP</span> <span class="cm-variable">是弱类型。。</span> </span>
+<span role="presentation"><span class="cm-variable-2">$tmp</span> <span class="cm-operator">=</span> <span class="cm-number">0</span> <span class="cm-operator">===</span> <span class="cm-string">"a"</span><span class="cm-operator">?</span> <span class="cm-number">1</span>: <span class="cm-number">2</span>; </span>
+<span role="presentation"><span class="cm-keyword">echo</span> <span class="cm-variable-2">$tmp</span>; <span class="cm-variable">这样就是</span> <span class="cm-number">2</span> </span></pre>
+<p><span class="md-line md-end-block" contenteditable="true">简而言之就是 &#8220;==&#8221; 只要求值相等; &#8220;===&#8221; 要求值和类型都相等</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">89.已知一个字符串如下: <span class="md-inline-math"><span class="inline-math-svg math-jax-postprocess"><span id="MathJax-Element-3-Frame" class="MathJax_SVG" tabindex="-1">用一行代码将该字符串里面的赋值给</span></span><span class="md-math-after-sym">​</span></span>uid, milo 赋值给 <span class="md-inline-math"><span class="inline-math-svg math-jax-postprocess"><span id="MathJax-Element-4-Frame" class="MathJax_SVG" tabindex="-1">赋值给</span></span><span class="md-math-after-sym">​</span></span>type</h4>
+<p><span class="md-line md-end-block" contenteditable="true">：list(<span class="md-inline-math"><span id="MathJax-Element-5-Frame" class="MathJax_SVG" tabindex="-1"></span><span class="md-math-after-sym">​</span></span>user, <span class="md-inline-math"><span id="MathJax-Element-6-Frame" class="MathJax_SVG" tabindex="-1"></span><span class="md-math-after-sym">​</span></span>str); </span></p>
+<pre class="md-fences md-end-block" lang="" contenteditable="false"><span role="presentation">list:  把数组中的值赋给一些变量</span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">90.有如下数据库, 用原生态 mysql 扩展去连接并查询 user 表的前十行</h4>
+<p><span class="md-line md-end-block" contenteditable="true">host: 192.168.0.254 </span><span class="md-line md-end-block" contenteditable="true">port: 3306 </span><span class="md-line md-end-block" contenteditable="true">user: one </span><span class="md-line md-end-block" contenteditable="true">pass: piece </span><span class="md-line md-end-block" contenteditable="true">database: db_user </span><span class="md-line md-end-block" contenteditable="true">table: user </span></p>
+<pre class="md-fences md-end-block" lang="mysql" contenteditable="false"><span role="presentation">$link = mysql_connect(<span class="cm-string">"192.168.0.254:3306"</span>,<span class="cm-string">"one"</span>,<span class="cm-string">"piece"</span>) <span class="cm-keyword">or</span> die(<span class="cm-string">'Could not connect:'</span><span class="cm-variable-2">.mysql_error</span>()); </span>
+<span role="presentation">mysql_select_db(<span class="cm-string">'db_user'</span>,$link); </span>
+<span role="presentation">$query = mysql_query(<span class="cm-string">"select * from user limit 10"</span>); </span>
+<span role="presentation"><span class="cm-keyword">while</span>($rs = mysql_fetch_array($query,MYSQL_ASSOC)) </span>
+<span role="presentation">{} </span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">91. 已知一个字符串如下: $str = &#8220;1109063 milo 1&#8221;;</h4>
+<p><span class="md-line md-end-block" contenteditable="true">用一行代码将该字符串里面的 1109063 赋值给 <span class="md-inline-math"><span class="inline-math-svg math-jax-postprocess"><span id="MathJax-Element-7-Frame" class="MathJax_SVG" tabindex="-1">赋值给</span></span><span class="md-math-after-sym">​</span></span>user, 1 赋值给 $type </span></p>
+<p><span class="md-line md-end-block" contenteditable="true">空格如下 </span></p>
+<pre class="md-fences md-end-block" lang="php" contenteditable="false"><span role="presentation"><span class="cm-keyword">list</span>(<span class="cm-variable-2">$uid</span>, <span class="cm-variable-2">$user</span>, <span class="cm-variable-2">$type</span>) <span class="cm-operator">=</span> <span class="cm-builtin">explode</span>(<span class="cm-string">"</span> <span class="cm-string">"</span>, <span class="cm-variable-2">$str</span>); </span>
+<span role="presentation"><span class="cm-variable">\t如下</span> </span>
+<span role="presentation"><span class="cm-keyword">list</span>(<span class="cm-variable-2">$uid</span>, <span class="cm-variable-2">$user</span>, <span class="cm-variable-2">$type</span>) <span class="cm-operator">=</span> <span class="cm-builtin">explode</span>(<span class="cm-string">"\t"</span>, <span class="cm-variable-2">$str</span>); </span>
+<span role="presentation"><span class="cm-keyword">list</span>(<span class="cm-variable-2">$uid</span>, <span class="cm-variable-2">$user</span>, <span class="cm-variable-2">$type</span>) <span class="cm-operator">=</span> <span class="cm-builtin">sscanf</span>(<span class="cm-variable-2">$str</span>, <span class="cm-string">"%d %s %d"</span>); </span>
+<span role="presentation"><span class="cm-variable-2">$n</span> <span class="cm-operator">=</span> <span class="cm-builtin">sscanf</span>(<span class="cm-variable-2">$auth</span>, <span class="cm-string">"%d\t%s %s"</span>, <span class="cm-variable-2">$id</span>, <span class="cm-variable-2">$first</span>, <span class="cm-variable-2">$last</span>);</span></pre>
+<h4 class="md-end-block md-heading" contenteditable="true">92. PHP 超级全局变量（9 个）</h4>
+<p><span class="md-line md-end-block" contenteditable="true">　　$GLOBALS　　储存全局作用域中的变量</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　$_SERVER　　获取服务器相关信息</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　$_REQUEST　　获取 POST 和 GET 请求的参数</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　$_POST　　获取表单的 POST 请求参数</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　$_GET　　获取表单的 GET 请求参数</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　$_FILES　　获取上传文件的的变量</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　$_ENV　　获取服务器端环境变量的数组</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　$_COOKIE　　 浏览器 cookie 的操作</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　　　　　　　　　设置 cookie:setcookie(name, value, expire, path, domain);</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　　　　　　　　　获取 cookie：$_COOKIE[&#8220;user&#8221;];</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　　　　　　　　　删除 cookie：setcookie(&#8220;user&#8221;, &#8220;&#8221;, time()-3600);// 设置过期时间</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　$_SESSION　　服务端 session 的操作</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　　　　　　　　　使用 session 前一定要 session_start() 启动 session</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　　　　　　　　　储存 session：$_SESSION[&#8220;name&#8221;]=&#8221;King&#8221;;// 数组操作</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　　　　　　　　　销毁 session：unset($_SESSION[&#8220;name&#8221;]);// 销毁一个</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　　　　　　　　　session_destroy() 和 unset($_SESSION);// 销毁所有的 session</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">93. PHP 魔术变量（8 个）</h4>
+<p><span class="md-line md-end-block" contenteditable="true">　　<span class=""><strong>LINE</strong></span>　　文件中的当前行号。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　<span class=""><strong>FILE</strong></span>　　文件的完整路径和文件名。如果用在被包含文件中，则返回被包含的文件名。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　<span class=""><strong>DIR</strong></span>　　文件所在的目录。如果用在被包括文件中，则返回被包括的文件所在的目录。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　<span class=""><strong>FUNCTION</strong></span>　　常量返回该函数被定义时的名字</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　<span class=""><strong>CLASS</strong></span>　　常量返回该类被定义时的名字（区分大小写）。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　<span class=""><strong>METHOD</strong></span>　　类的方法名（PHP 5.0.0 新加）。返回该方法被定义时的名字（区分大小写）。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　<span class=""><strong>NAMESPACE</strong></span>　　当前命名空间的名称（区分大小写）。此常量是在编译时定义的（PHP 5.3.0 新增）。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">94. PHP 魔术函数（13 个）</h4>
+<p><span class="md-line md-end-block" contenteditable="true">　　<span class=""><strong>construct()　　 实例化对象时被调用，当</strong></span>construct 和以类名为函数名的函数同时存在时，__construct 将被调用，另一个不被调用。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　__destruct()　　 当删除一个对象或对象操作终止时被调用。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　<span class=""><strong>call()　　　　　 对象调用某个方法，若方法存在，则直接调用；若不存在，则会去调用</strong></span>call 函数。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　<span class=""><strong>get()　　　　 读取一个对象的属性时，若属性存在，则直接返回属性值；若不存在，则会调用</strong></span>get 函数。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　<span class=""><strong>set()　　　　 设置一个对象的属性时，若属性存在，则直接赋值；若不存在，则会调用</strong></span>set 函数。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　__toString()　　 打印一个对象的时被调用。如 echo <span class="md-inline-math"><span class="inline-math-svg math-jax-postprocess"><span id="MathJax-Element-8-Frame" class="MathJax_SVG" tabindex="-1">或</span></span><span class="md-math-after-sym">​</span></span>obj;</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　__clone()　　　 克隆对象时被调用。如：<span class="md-inline-math"><span id="MathJax-Element-9-Frame" class="MathJax_SVG" tabindex="-1"></span><span class="md-math-after-sym">​</span></span>t1=clone $t;</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　__sleep()　　　 serialize 之前被调用。若对象比较大，想删减一点东东再序列化，可考虑一下此函数。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　__wakeup()　　 unserialize 时被调用，做些对象的初始化工作。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　__isset()　　　 检测一个对象的属性是否存在时被调用。如：isset($c-&gt;name)。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　__unset()　　　　unset 一个对象的属性时被调用。如：unset($c-&gt;name)。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　<span class=""><strong>set_state()　　调用 var_export 时，被调用。用</strong></span>set_state 的返回值做为 var_export 的返回值。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">　　__autoload()　　 实例化一个对象时，如果对应的类不存在，则该方法被调用。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">95. 测试环境和正式环境</h4>
+<p><span class="md-line md-end-block" contenteditable="true">测试环境和正式环境无严格区分，只是用一个配置文件的一个配置项的 IP 地址来区分。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">96. Myisam 索引和 Innodb 索引的区别</h4>
+<h5 class="md-end-block md-heading" contenteditable="true">首先你要知道；</h5>
+<p><span class="md-line md-end-block" contenteditable="true">无论是 Myisam 和 Innodb 引擎，如果在建表的时候没有显示的定义一行主键列的话，他内部都会自动创建一个隐藏的主键索引；</span><span class="md-line md-end-block" contenteditable="true">主键索引以外的索引假设称为次索引；首先 Myisam 和 Innodb 两个都是默认采用的 btree 索引，可以脑补一颗二叉树；</span><span class="md-line md-end-block" contenteditable="true">myisam 引擎的数据在物理磁盘上是按照顺序存储的，而 innodb 引擎的表数据是随机分布的；</span><span class="md-line md-end-block" contenteditable="true">myisam 的主键索引的叶子节点只存放数据在物理磁盘上的指针，其他次索引也是一样的；</span><span class="md-line md-end-block" contenteditable="true">innodb 的主键索引的叶子节点下面直接存放数据，其他次索引的叶子节点指向主键 id；</span><span class="md-line md-end-block" contenteditable="true">由此可以挖掘出一个问题，就是如果 Innodb 有大数据列，比如 varchar(300)，这种比较多的话，那么排序的时候用主键 id 排序会比较慢，因为</span><span class="md-line md-end-block" contenteditable="true">id 主键下面放着所有数据列，而 Myisam 就不需要扫描数据列，要解决这个问题的话可以再建一个和主键 id 一起的联合索引；</span></p>
+<h5 class="md-end-block md-heading" contenteditable="true">索引覆盖与回行:</h5>
+<p><span class="md-line md-end-block" contenteditable="true">如果要查找的数据恰好是索引列，那么就不用在去物理磁盘上去找数据了，就是不用回行，称为索引覆盖；</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">97.假设有一个博客系统，数据库存储采用 MySQL，用户数量为 1000 万，预计文章总数为 10 亿，每天有至少 10 万的更新量，每天访问量为 5000 万，对数据库的读写操作的比例超过 10:1，你如何设计该系统以确保系统高效、稳定的运行？</h4>
+<p><span class="md-line md-end-block" contenteditable="true">提示：可以从数据库设计、系统框架、及网络架构方面进行描述，可以自由发挥。</span></p>
+<ol class="ol-list" start="">
+<li><span class="md-line md-end-block" contenteditable="true">增加 cache</span></li>
+<li><span class="md-line md-end-block" contenteditable="true">两套数据库，一个为主数据库，一个为更新数据库，其中更新数据库作为保存近 N（1,2,3）天更新数据，写入后放进 cache，并增加 lease 及时淘汰不常访问的记录，同时后台定期合并到主数据库。</span></li>
+<li><span class="md-line md-end-block" contenteditable="true">数据读取时，cache-&gt; 更新数据库 -&gt; 主数据库</span></li>
+<li><span class="md-line md-end-block" contenteditable="true">主数据库中将元信息（如用户信息）与文章实际内容分开，对每篇文章内容计算热度权重，做主键之一，然后分表。</span></li>
+</ol>
+<h4 class="md-end-block md-heading" contenteditable="true">98.Mysql打开safe_mode后对程序有哪些影响</h4>
+<h5 class="md-end-block md-heading" contenteditable="true">什么是 PHP 安全模式：safe_mode</h5>
+<p><span class="md-line md-end-block" contenteditable="true">简单说，PHP 安全模式就是以安全模式运行 php。</span><span class="md-line md-end-block" contenteditable="true">php 的安全模式提供一个基本安全的共享环境，在一个有多个用户帐户存在的 php 开放的 web 服务器上。当一个 web 服务器上运行的 php 打开了安全模式，那么一些函数将被完全的禁止，并且会限制一些可用的功能。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">在安全模式下，一些尝试访问文件系统的函数功能将被限制。运行 web 服务器用户 id，如果想要操作某个文件，则必须拥有该文件读取或者写入的访问权限，实现这个限制功能对于 php 来说是没有问题的。在安全模式开启的时候，尝试读取或者写入一个本地文件的时候，php 将检查当前访问用户是否是该目标文件的所有者。如果不是所有者，则该操作会被禁止。(写入权限：在较低级别的文件访问权限下，可能会允许读取或者写入系统操作系统的文件，通过 php 的安全模式实现了防止你操作另外一个用户文件的操作。当然，一个 web 服务器可能能够访问一个具有全局写入权限的任意文件。)</span></p>
+<h5 class="md-end-block md-heading" contenteditable="true">当安全模式打开的时候，以下函数列表的功能将会受到限制：</h5>
+<p><span class="md-line md-end-block" contenteditable="true">chdir, move_uploaded_file, chgrp, parse_ini_file, chown, rmdir, copy, rename, fopen, require, highlight_file, show_source, include, symlink, link, touch, mkdir, unlink</span></p>
+<h5 class="md-end-block md-heading" contenteditable="true">同样的，一些 php 扩展中的函数也将会受到影响。</h5>
+<p><span class="md-line md-end-block" contenteditable="true">(加载模块：在安全模式下 dl 函数将被禁止，如果要加载扩展的话，只能修改 php.ini 中的扩展选项，在 php 启动的时候加载)</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">在 php 安全模式打开的时候，需要执行系统程序的时候，必须是在 safe_mode_exec_dir 选项指定目录的程序，否则执行将失败。即使允许执行，那么也会自动的传递给 escapeshellcmd 函数进行过滤。</span></p>
+<h5 class="md-end-block md-heading" contenteditable="true">以下执行命令的函数列表将会受到影响：</h5>
+<p><span class="md-line md-end-block" contenteditable="true">exec,shell_exec,passthru,system,popen</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">另外，背部标记操作符 (`) 也将被关闭。</span><span class="md-line md-end-block" contenteditable="true">当运行在安全模式下，虽然不会引起错误，但是 putenv 函数将无效。同样的，其他一些尝试改变 php 环境变量的函数 set_time_limit, set_include_path 也将被忽略。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">99.如何查看Mysql慢查询的sql是什么</h4>
+<h5 class="md-end-block md-heading" contenteditable="true">1，slow_query_log</h5>
+<p><span class="md-line md-end-block" contenteditable="true">这个参数设置为 ON，可以捕获执行时间超过一定数值的 SQL 语句。</span></p>
+<h5 class="md-end-block md-heading" contenteditable="true">2，long_query_time</h5>
+<p><span class="md-line md-end-block" contenteditable="true">当 SQL 语句执行时间超过此数值时，就会被记录到日志中，建议设置为 1 或者更短。</span></p>
+<h5 class="md-end-block md-heading" contenteditable="true">3，slow_query_log_file</h5>
+<p><span class="md-line md-end-block" contenteditable="true">记录日志的文件名。</span></p>
+<h5 class="md-end-block md-heading" contenteditable="true">4，log_queries_not_using_indexes</h5>
+<p><span class="md-line md-end-block" contenteditable="true">这个参数设置为 ON，可以捕获到所有未使用索引的 SQL 语句，尽管这个 SQL 语句有可能执行得挺快。</span></p>
+<h4 class="md-end-block md-heading" contenteditable="true">100.Http跨站通信中如何保持通信的安全性</h4>
+<p><span class="md-line md-end-block" contenteditable="true">JQuery</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">JQuery 提供了几种跨站通信的方法</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">JSONP</span></p>
+<pre class="md-fences md-end-block" lang="jsonp" contenteditable="false"><span role="presentation">$.getJSON('http://server/path/someaction?callback=?', 'JSON data', function(data) {</span>
+<span role="presentation">​</span>
+<span role="presentation">&nbsp; &nbsp;// Handle the JSON data</span>
+<span role="presentation">​</span>
+<span role="presentation">});</span></pre>
+<p><span class="md-line md-end-block" contenteditable="true">callback=? 算是一个固定格式，JQuery 在这个 HTTP Request 发送出去后，会将 &#8216;?&#8217; 替换成一个随机生成 Function Name，HTTP Server 得到这个 Function Name (假设为 JSONP1234) 后，在返回数据时可以写入如</span></p>
+<pre class="md-fences md-end-block" lang="jsonp" contenteditable="false"><span role="presentation">JSONP1234('response JSON data')</span></pre>
+<p><span class="md-line md-end-block" contenteditable="true">这样的字符串。实际上就是在返回时，JQuery 会执行次 Script，将数据传如回调的处理函数中。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">AJAX POST</span></p>
+<pre class="md-fences md-end-block" lang="ajax" contenteditable="false"><span role="presentation">$.ajax({</span>
+<span role="presentation">​</span>
+<span role="presentation">&nbsp; &nbsp; type:'POST',</span>
+<span role="presentation">​</span>
+<span role="presentation">&nbsp; &nbsp; url: 'http://server/path'</span>
+<span role="presentation">​</span>
+<span role="presentation">&nbsp; &nbsp; crossDomain: true,</span>
+<span role="presentation">​</span>
+<span role="presentation">&nbsp; &nbsp; data: 'data'</span>
+<span role="presentation">​</span>
+<span role="presentation">&nbsp; &nbsp; dataType: 'data type'</span>
+<span role="presentation">​</span>
+<span role="presentation">&nbsp; &nbsp; success: function(data, status, qXHR) {</span>
+<span role="presentation">​</span>
+<span role="presentation">&nbsp; &nbsp; }</span>
+<span role="presentation">​</span>
+<span role="presentation">&nbsp; &nbsp; error: function(data, status, error) {</span>
+<span role="presentation">​</span>
+<span role="presentation">&nbsp; &nbsp; }</span>
+<span role="presentation">​</span>
+<span role="presentation">});</span></pre>
+<p><span class="md-line md-end-block" contenteditable="true">这个没有什么太多需要强调的了，不过，需要注意的是，Server 端在 HTTP RESPONSE 时要加入</span></p>
+<pre class="md-fences mock-cm md-end-block" lang="" contenteditable="false">Access-Control-Allow-Origin: *\r\n
+
+
+</pre>
+<p><span class="md-line md-end-block" contenteditable="true">否则在 FireFox 中会表现为通信失败，这个 &#8216;<span class=""><em>&#8216; 也可以写成其它制定的域名，并不仅限于 &#8216;</em></span>&#8216;</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">IE</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">IE 有些特别，在 Cross Domain Post 中是用了自己提供的 API，如果在 IE 中调用上面 Ajax 的方法，会有错误发生。</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">IE 8 + 以上的版本都支持，XDomainRequest</span></p>
+<pre class="md-fences md-end-block" lang="xdomainrequest" contenteditable="false"><span role="presentation">if ('XDomainRequest' in window) {</span>
+<span role="presentation">​</span>
+<span role="presentation">&nbsp; &nbsp; var xdr = new XDomainRequest();</span>
+<span role="presentation">​</span>
+<span role="presentation">&nbsp; &nbsp; xdr.onload = function() {</span>
+<span role="presentation">​</span>
+<span role="presentation">&nbsp; &nbsp; &nbsp; &nbsp; // Handle Response Data</span>
+<span role="presentation">​</span>
+<span role="presentation">&nbsp; &nbsp; }</span>
+<span role="presentation">​</span>
+<span role="presentation">&nbsp; &nbsp; xdr.open('POST', 'http://server/path');</span>
+<span role="presentation">​</span>
+<span role="presentation">&nbsp; &nbsp; xdr.send('data');</span>
+<span role="presentation">​</span>
+<span role="presentation">}</span></pre>
+<p><span class="md-line md-end-block" contenteditable="true">需要注意的是，在使用前先判断一下是否可以用 XDomainRequest.</span></p>
+<p><span class="md-line md-end-block" contenteditable="true">HTTPS</span></p>
+<p><span class="md-line md-end-block" contenteditable="true"><span class="">现在很多网站为了安全都使用了 HTTPS 的通信方法，这里需要注意的是，如果发起跨站通信的网页时 HTTPS 的，那么将要通信的那端也必须是 HTTPS 的（并且网站的证书需要受信）否则通信将会失败（如 Chrome）</span></span></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e8%b5%84%e6%96%99/6986.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,1079 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>无刷新分页 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E6%97%A0%E5%88%B7%E6%96%B0%E5%88%86%E9%A1%B5/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 22 Jun 2018 10:34:46 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>无刷新分页 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP5 商城（九）订单入库、支付宝支付、支付宝引入项目、支付页面唤起、订单支付、支付成功订单状态修改、订单入库验证、查看个人订单、订单付款、后台订单管理、无刷新分页</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8570.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8570.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 08 Jun 2018 00:32:43 +0000</pubDate>
+				<category><![CDATA[TP5.0]]></category>
+		<category><![CDATA[TP5.0商城]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[后台订单管理]]></category>
+		<category><![CDATA[支付宝引入项目]]></category>
+		<category><![CDATA[支付宝支付]]></category>
+		<category><![CDATA[支付成功订单状态修改]]></category>
+		<category><![CDATA[支付页面唤起]]></category>
+		<category><![CDATA[无刷新分页]]></category>
+		<category><![CDATA[查看个人订单]]></category>
+		<category><![CDATA[订单付款]]></category>
+		<category><![CDATA[订单入库]]></category>
+		<category><![CDATA[订单入库验证]]></category>
+		<category><![CDATA[订单支付]]></category>
+		<guid isPermaLink="false">/?p=8570</guid>
+
+					<description><![CDATA[商城第九天 商城难点重点 构造数组结构（看业务场景，查看数据表现形式） rbac获取所有的权限&#8212;》 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>商城第九天</h1>
+<h1>商城难点重点</h1>
+<ol>
+<li>构造数组结构（看业务场景，查看数据表现形式）</li>
+</ol>
+<p>rbac获取所有的权限&#8212;》两个技巧</p>
+<p>商品详情页单选属性&#8212;》通过attr_id分组</p>
+<p>购物车列表 &#8211;》加两个下标 goodsInfo attrInfo</p>
+<p>后台商品添加动态拼接商品类型属性&#8211;》动态属性入库（表单name拼接[]）</p>
+<h1>完成订单数据入库</h1>
+<p><img fetchpriority="high" decoding="async" width="1110" height="546" class="wp-image-8571" src="/wp-content/uploads/2018/06/word-image-1141.png" srcset="/wp-content/uploads/2018/06/word-image-1141.png 1110w, /wp-content/uploads/2018/06/word-image-1141-300x148.png 300w, /wp-content/uploads/2018/06/word-image-1141-768x378.png 768w, /wp-content/uploads/2018/06/word-image-1141-1024x504.png 1024w" sizes="(max-width: 1110px) 100vw, 1110px" /></p>
+<h2>订单数据入库的顺序</h2>
+<p>订单商品入库的顺序：</p>
+<p>第一步：先把订单基本数据入库到订单表sh_order</p>
+<p>第二步：订单表数据入库成功之后才能把订单商品入库到订单商品表中sh_order_goods中</p>
+<p>如果保证上面两步执行过程中都没有问题呢，这里需要借助到mysql的事务，可以保持数据的一致性。当发生异常的时候，会自动回滚。</p>
+<p>注意：只有表的引擎是innodb引擎才支持事务操作。</p>
+<p>TP5中有关事务操作的相关方法：</p>
+<p>启动事务：Db::startTrans()</p>
+<p>提交事务：Db::commit()</p>
+<p>事务回滚：Db::rollback()</p>
+<p>手册示例：</p>
+<p><img decoding="async" width="422" height="252" class="wp-image-8572" src="/wp-content/uploads/2018/06/word-image-1142.png" srcset="/wp-content/uploads/2018/06/word-image-1142.png 422w, /wp-content/uploads/2018/06/word-image-1142-300x180.png 300w" sizes="(max-width: 422px) 100vw, 422px" /></p>
+<p>订单商品入库的顺序：</p>
+<p>第一步：先把订单基本数据入库到订单表sh_order</p>
+<p>第二步：订单表数据入库成功之后才能把订单商品入库到订单商品表中sh_order_goods中</p>
+<p>如果保证上面两步执行过程中都没有问题呢，这里需要借助到mysql的事务，可以保持数据的一致性。当发生异常的时候，会自动回滚。</p>
+<p>注意：只有表的引擎是innodb引擎才支持事务操作。</p>
+<p>订单表（sh_order）和订单商品表(sh_order_goods)的关系：</p>
+<p><img decoding="async" width="432" height="302" class="wp-image-8573" src="/wp-content/uploads/2018/06/word-image-1143.png" srcset="/wp-content/uploads/2018/06/word-image-1143.png 432w, /wp-content/uploads/2018/06/word-image-1143-300x210.png 300w" sizes="(max-width: 432px) 100vw, 432px" /></p>
+<p>TP5中有关事务操作的相关方法：</p>
+<p>启动事务：Db::startTrans()</p>
+<p>提交事务：Db::commit()</p>
+<p>事务回滚：Db::rollback()</p>
+<p>手册示例：</p>
+<p><img loading="lazy" decoding="async" width="422" height="252" class="wp-image-8574" src="/wp-content/uploads/2018/06/word-image-1144.png" srcset="/wp-content/uploads/2018/06/word-image-1144.png 422w, /wp-content/uploads/2018/06/word-image-1144-300x180.png 300w" sizes="(max-width: 422px) 100vw, 422px" /></p>
+<p>注：只要在try{}中抛出出一个异常throw new \Exception(‘失败信息’) ，就会执行catch中的回滚操作，$e-&gt;getMessage(失败信息);</p>
+<h2>订单表和订单商品表的数据入库</h2>
+<p>入库流程图：</p>
+<p><img loading="lazy" decoding="async" width="835" height="386" class="wp-image-8575" src="/wp-content/uploads/2018/06/word-image-1145.png" srcset="/wp-content/uploads/2018/06/word-image-1145.png 835w, /wp-content/uploads/2018/06/word-image-1145-300x139.png 300w, /wp-content/uploads/2018/06/word-image-1145-768x355.png 768w" sizes="(max-width: 835px) 100vw, 835px" /></p>
+<ol>
+<li>在订单结算页面，设置好表单的name字段，或收货人的基本信息（收货地址、电话、邮编）</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="549" height="210" class="wp-image-8576" src="/wp-content/uploads/2018/06/word-image-1146.png" srcset="/wp-content/uploads/2018/06/word-image-1146.png 549w, /wp-content/uploads/2018/06/word-image-1146-300x115.png 300w" sizes="(max-width: 549px) 100vw, 549px" /> <img loading="lazy" decoding="async" width="1130" height="529" class="wp-image-8577" src="/wp-content/uploads/2018/06/word-image-1147.png" srcset="/wp-content/uploads/2018/06/word-image-1147.png 1130w, /wp-content/uploads/2018/06/word-image-1147-300x140.png 300w, /wp-content/uploads/2018/06/word-image-1147-768x360.png 768w, /wp-content/uploads/2018/06/word-image-1147-1024x479.png 1024w" sizes="(max-width: 1130px) 100vw, 1130px" /></p>
+<p>给提交按钮，绑定单击事件，让上面的表单进行提交：</p>
+<p><img loading="lazy" decoding="async" width="392" height="63" class="wp-image-8578" src="/wp-content/uploads/2018/06/word-image-1148.png" srcset="/wp-content/uploads/2018/06/word-image-1148.png 392w, /wp-content/uploads/2018/06/word-image-1148-300x48.png 300w" sizes="(max-width: 392px) 100vw, 392px" /> <img loading="lazy" decoding="async" width="960" height="205" class="wp-image-8579" src="/wp-content/uploads/2018/06/word-image-1149.png" srcset="/wp-content/uploads/2018/06/word-image-1149.png 960w, /wp-content/uploads/2018/06/word-image-1149-300x64.png 300w, /wp-content/uploads/2018/06/word-image-1149-768x164.png 768w" sizes="(max-width: 960px) 100vw, 960px" /> <img loading="lazy" decoding="async" width="775" height="234" class="wp-image-8580" src="/wp-content/uploads/2018/06/word-image-1150.png" srcset="/wp-content/uploads/2018/06/word-image-1150.png 775w, /wp-content/uploads/2018/06/word-image-1150-300x91.png 300w, /wp-content/uploads/2018/06/word-image-1150-768x232.png 768w" sizes="(max-width: 775px) 100vw, 775px" /></p>
+<p>注：表单跳转还是跳转到当前控制器方法，属于post方式提交（method=post）</p>
+<ol>
+<li>在方法_writeOrder中，开启事务，保证订单商品入库成功</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="657" height="430" class="wp-image-8581" src="/wp-content/uploads/2018/06/word-image-1151.png" srcset="/wp-content/uploads/2018/06/word-image-1151.png 657w, /wp-content/uploads/2018/06/word-image-1151-300x196.png 300w" sizes="(max-width: 657px) 100vw, 657px" /> <img loading="lazy" decoding="async" width="1258" height="633" class="wp-image-8582" src="/wp-content/uploads/2018/06/word-image-1152.png" srcset="/wp-content/uploads/2018/06/word-image-1152.png 1258w, /wp-content/uploads/2018/06/word-image-1152-300x151.png 300w, /wp-content/uploads/2018/06/word-image-1152-768x386.png 768w, /wp-content/uploads/2018/06/word-image-1152-1024x515.png 1024w" sizes="(max-width: 1258px) 100vw, 1258px" /></p>
+<ol>
+<li>在try{}中进行订单表的数据入库，和订单商品表数据的入库</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1242" height="565" class="wp-image-8583" src="/wp-content/uploads/2018/06/word-image-1153.png" srcset="/wp-content/uploads/2018/06/word-image-1153.png 1242w, /wp-content/uploads/2018/06/word-image-1153-300x136.png 300w, /wp-content/uploads/2018/06/word-image-1153-768x349.png 768w, /wp-content/uploads/2018/06/word-image-1153-1024x466.png 1024w" sizes="(max-width: 1242px) 100vw, 1242px" /> <img loading="lazy" decoding="async" width="1240" height="690" class="wp-image-8584" src="/wp-content/uploads/2018/06/word-image-1154.png" srcset="/wp-content/uploads/2018/06/word-image-1154.png 1240w, /wp-content/uploads/2018/06/word-image-1154-300x167.png 300w, /wp-content/uploads/2018/06/word-image-1154-768x427.png 768w, /wp-content/uploads/2018/06/word-image-1154-1024x570.png 1024w" sizes="(max-width: 1240px) 100vw, 1240px" /></p>
+<p>注：上面的代码需要引入Db类</p>
+<p>同时建立订单表和订单商品表的模型：</p>
+<p><img loading="lazy" decoding="async" width="752" height="253" class="wp-image-8585" src="/wp-content/uploads/2018/06/word-image-1155.png" srcset="/wp-content/uploads/2018/06/word-image-1155.png 752w, /wp-content/uploads/2018/06/word-image-1155-300x101.png 300w" sizes="(max-width: 752px) 100vw, 752px" /> <img loading="lazy" decoding="async" width="660" height="224" class="wp-image-8586" src="/wp-content/uploads/2018/06/word-image-1156.png" srcset="/wp-content/uploads/2018/06/word-image-1156.png 660w, /wp-content/uploads/2018/06/word-image-1156-300x102.png 300w" sizes="(max-width: 660px) 100vw, 660px" /> <img loading="lazy" decoding="async" width="512" height="67" class="wp-image-8587" src="/wp-content/uploads/2018/06/word-image-1157.png" srcset="/wp-content/uploads/2018/06/word-image-1157.png 512w, /wp-content/uploads/2018/06/word-image-1157-300x39.png 300w" sizes="(max-width: 512px) 100vw, 512px" /></p>
+<h1>二、支付技术介绍</h1>
+<h2>1、早期网站支付</h2>
+<p>早期的电商都是送货上门，邮政汇款，这样的话，商家会承担很大的风险。</p>
+<p>后面的时候有部分网站和银行进行签约，使用网银、手机银行等。</p>
+<p>再往后，就是支付宝、微信。</p>
+<p>早期的公司如果想申请网银需要直接去找银行申请相关的支付接口，而且现在银行这么多公司不可能去每家银行申请支付接口，这样未免也太麻烦了。</p>
+<p><img loading="lazy" decoding="async" width="493" height="189" class="wp-image-8588" src="/wp-content/uploads/2018/06/word-image-1158.png" srcset="/wp-content/uploads/2018/06/word-image-1158.png 493w, /wp-content/uploads/2018/06/word-image-1158-300x115.png 300w" sizes="(max-width: 493px) 100vw, 493px" /></p>
+<p>如果有的网站的资金流动比较少的话，有的银行都不会和这些小公司进行合作，因为从中赚不到什么利润。所以就有了第三方支付平台（微信、支付宝、京东钱包、qq财付通、百度钱包）来解决这些问题。</p>
+<p><img loading="lazy" decoding="async" width="625" height="173" class="wp-image-8589" src="/wp-content/uploads/2018/06/word-image-1159.png" srcset="/wp-content/uploads/2018/06/word-image-1159.png 625w, /wp-content/uploads/2018/06/word-image-1159-300x83.png 300w" sizes="(max-width: 625px) 100vw, 625px" /></p>
+<h2>2、现在的网站支付</h2>
+<p>为了解决早期网站支付的问题，避免了商家繁琐的去每家银行获取支付接口。现在有些公司专门集合了所有银行的支付接口，这些公司进而在提供支付接口给我们企业或开发者使用，这些公司就是第三方支付平台。</p>
+<p>常见的第三方支付平台：微信、支付宝、京东钱包、qq财付通、百度钱包等</p>
+<p>有了这些第三方支付平台，我们企业或开发者就不需要独自跑去银行去申请支付接口了，直接利用第三方支付平台，在参考他们的支付接口文档即可完成我们的支付了！</p>
+<h1>三、支付宝支付</h1>
+<p>注意一点：现在的支付宝支付需要企业或个体工商户可申请才，个人是没法申请的。</p>
+<p>企业或个体工商户申请的条件如下：</p>
+<p>1. 提供真实有效的营业执照，且支付宝账户名称需与营业执照主体一致；</p>
+<p>2. 网站能正常访问且页面信息有完整商品内容；</p>
+<p>3. 网站必须通过ICP备案，个体户备案需与账户主体一致。</p>
+<p>（团购类网站不支持个体工商户签约）</p>
+<p>不过好处的个人开发者我们可以使用支付宝提供的沙箱环境进行模拟支付。</p>
+<p>那么什么是沙箱环境？</p>
+<p>答：就是支付宝提供给我们开发者一个虚拟的支付环境。其中的操作和真实支付环境是完全一样的。买家账号和卖家账号沙箱环境都给我们提供好了。</p>
+<p>后面的沙箱环境支付，支付宝会提供一个商家账户和个人买家账户给我们，我们在配合支付接口文档即可完成支付。</p>
+<h2>企业或个体工商户申请支付</h2>
+<p>申请的网址：<a href="/goto/pv02" rel="nofollow">https://b.alipay.com/</a> （b: business企业）</p>
+<p>点击下面的电脑网站支付的接入按钮：</p>
+<p><img loading="lazy" decoding="async" width="1277" height="644" class="wp-image-8590" src="/wp-content/uploads/2018/06/word-image-1160.png" srcset="/wp-content/uploads/2018/06/word-image-1160.png 1277w, /wp-content/uploads/2018/06/word-image-1160-300x151.png 300w, /wp-content/uploads/2018/06/word-image-1160-768x387.png 768w, /wp-content/uploads/2018/06/word-image-1160-1024x516.png 1024w" sizes="(max-width: 1277px) 100vw, 1277px" /></p>
+<p>这里支付宝提供了5种支付方式给我们使用，网站就要使用电脑网站支付。</p>
+<p>早期支付宝只有两种支付方式：</p>
+<p>即时到帐：我们上面看到的5个支付方式都是这个衍生出来的 ，一旦付款，立马到账。</p>
+<p>担保支付： 7天担保，早期淘宝网，买家买东西的钱先到了淘宝的帐号呆够7天，商家才收到款，担保支付支付宝已经取消了。</p>
+<p>企业或个体户点击上面电脑网站支付，需要以下申请条件：</p>
+<p><img loading="lazy" decoding="async" width="739" height="367" class="wp-image-8591" src="/wp-content/uploads/2018/06/word-image-1161.png" srcset="/wp-content/uploads/2018/06/word-image-1161.png 739w, /wp-content/uploads/2018/06/word-image-1161-300x149.png 300w" sizes="(max-width: 739px) 100vw, 739px" /></p>
+<p>上面的申请条件，以后去企业上班，公司都会帮我们申请好的。</p>
+<p>上面是企业或个体工商户申请的基本步骤，我们个人没法申请，所以这里我们只能使用沙箱环境进行支付测试。</p>
+<h2>申请沙箱应用</h2>
+<p>首页，登陆支付宝开放平台，进入到如下的开发者中心</p>
+<p><a href="/goto/kris" rel="nofollow">https://openhome.alipay.com/platform/developerIndex.htm</a></p>
+<p><img loading="lazy" decoding="async" width="825" height="208" class="wp-image-8592" src="/wp-content/uploads/2018/06/word-image-1162.png" srcset="/wp-content/uploads/2018/06/word-image-1162.png 825w, /wp-content/uploads/2018/06/word-image-1162-300x76.png 300w, /wp-content/uploads/2018/06/word-image-1162-768x194.png 768w" sizes="(max-width: 825px) 100vw, 825px" /></p>
+<p>点击开发者中心-&gt;研发服务，进入如下的沙箱环境：</p>
+<p>去创建沙箱应用,如下是已经创建的沙箱环境：</p>
+<p><img loading="lazy" decoding="async" width="1088" height="623" class="wp-image-8593" src="/wp-content/uploads/2018/06/word-image-1163.png" srcset="/wp-content/uploads/2018/06/word-image-1163.png 1088w, /wp-content/uploads/2018/06/word-image-1163-300x172.png 300w, /wp-content/uploads/2018/06/word-image-1163-768x440.png 768w, /wp-content/uploads/2018/06/word-image-1163-1024x586.png 1024w" sizes="(max-width: 1088px) 100vw, 1088px" /></p>
+<p>沙箱中的提供两个测试账户：商家账户 和 买家账户，其账户余额都是虚拟的</p>
+<p>成功付款的时候，钱会从买家账户打到商家账户</p>
+<p>商家账号：</p>
+<p><img loading="lazy" decoding="async" width="999" height="445" class="wp-image-8594" src="/wp-content/uploads/2018/06/word-image-1164.png" srcset="/wp-content/uploads/2018/06/word-image-1164.png 999w, /wp-content/uploads/2018/06/word-image-1164-300x134.png 300w, /wp-content/uploads/2018/06/word-image-1164-768x342.png 768w" sizes="(max-width: 999px) 100vw, 999px" /></p>
+<p>买家账号：</p>
+<p><img loading="lazy" decoding="async" width="570" height="363" class="wp-image-8595" src="/wp-content/uploads/2018/06/word-image-1165.png" srcset="/wp-content/uploads/2018/06/word-image-1165.png 570w, /wp-content/uploads/2018/06/word-image-1165-300x191.png 300w" sizes="(max-width: 570px) 100vw, 570px" /></p>
+<p>特别注意一点：</p>
+<p><img loading="lazy" decoding="async" width="738" height="60" class="wp-image-8596" src="/wp-content/uploads/2018/06/word-image-1166.png" srcset="/wp-content/uploads/2018/06/word-image-1166.png 738w, /wp-content/uploads/2018/06/word-image-1166-300x24.png 300w" sizes="(max-width: 738px) 100vw, 738px" /></p>
+<h2>3、下载支付宝支付的开发包SDK&amp;Demo</h2>
+<p>下载地址：<a href="/goto/9m2k" rel="nofollow">https://docs.open.alipay.com/270/106291</a></p>
+<p><img loading="lazy" decoding="async" width="1178" height="403" class="wp-image-8597" src="/wp-content/uploads/2018/06/word-image-1167.png" srcset="/wp-content/uploads/2018/06/word-image-1167.png 1178w, /wp-content/uploads/2018/06/word-image-1167-300x103.png 300w, /wp-content/uploads/2018/06/word-image-1167-768x263.png 768w, /wp-content/uploads/2018/06/word-image-1167-1024x350.png 1024w" sizes="(max-width: 1178px) 100vw, 1178px" /></p>
+<p>下载回来的压缩包如下：</p>
+<p><img loading="lazy" decoding="async" width="224" height="28" class="wp-image-8598" src="/wp-content/uploads/2018/06/word-image-1168.png" /></p>
+<p>解压下来如下所示：</p>
+<p><img loading="lazy" decoding="async" width="275" height="293" class="wp-image-8599" src="/wp-content/uploads/2018/06/word-image-1169.png" /></p>
+<p>aop：包含<strong>支付宝核心的支付文</strong>件。</p>
+<p>lotusphp_runtime： 这是一个国外的PHP框架，这里是支付宝默认使用的。</p>
+<p>pagepay：具体的实现支付接口的代码文件</p>
+<p>config.php：配置文件，填写应用配置APPID、应用密钥、支付宝、支付网关的文件</p>
+<p>notify_url.php：支付成功以后支付宝post方式异步跳转的地址，获取支付结果的地址</p>
+<p>return_url.php：支付成功以后支付宝get方式同步跳转的地址，获取支付结果的地址</p>
+<p>注：支付宝接口对我们的PHP版本有要求，必须在PHP5.5以上，可以使用phpStudy集成环境进行切换。且需要开启对应php版本的php.ini配置文件中的openssl扩展，去掉前面的分号，并重启apache服务器：</p>
+<p><img loading="lazy" decoding="async" width="660" height="204" class="wp-image-8600" src="/wp-content/uploads/2018/06/word-image-1170.png" srcset="/wp-content/uploads/2018/06/word-image-1170.png 660w, /wp-content/uploads/2018/06/word-image-1170-300x93.png 300w" sizes="(max-width: 660px) 100vw, 660px" /></p>
+<h1>四、集成支付宝到项目中</h1>
+<h2>1、引入支付宝到项目中</h2>
+<p>1、把下载下来的压缩包进行解压，把所有的文件复制到/public/alipay/目录下面</p>
+<p><img loading="lazy" decoding="async" width="894" height="410" class="wp-image-8601" src="/wp-content/uploads/2018/06/word-image-1171.png" srcset="/wp-content/uploads/2018/06/word-image-1171.png 894w, /wp-content/uploads/2018/06/word-image-1171-300x138.png 300w, /wp-content/uploads/2018/06/word-image-1171-768x352.png 768w" sizes="(max-width: 894px) 100vw, 894px" /></p>
+<h2>支付前的相关参数配置</h2>
+<p>几个重要的配置参数：</p>
+<ul>
+<li>APPID:可以从支付宝的沙箱应用中获取到</li>
+<li>支付宝支付网关</li>
+</ul>
+<p>沙箱环境：<a href="/goto/56zy" rel="nofollow">https://openapi.alipaydev.com/gateway.do</a></p>
+<p>正式环境：<a href="/goto/56zy" rel="nofollow">https://openapi.alipay.com/gateway.do</a></p>
+<p>提示：以后去公司做支付宝支付时，上线要使用正式环境的支付网关</p>
+<ul>
+<li>应用私钥</li>
+<li>应用公钥</li>
+</ul>
+<p>其中应用私钥和公钥可通过支付宝提供的相关工具生成。</p>
+<p><img loading="lazy" decoding="async" width="504" height="155" class="wp-image-8602" src="/wp-content/uploads/2018/06/word-image-1172.png" srcset="/wp-content/uploads/2018/06/word-image-1172.png 504w, /wp-content/uploads/2018/06/word-image-1172-300x92.png 300w" sizes="(max-width: 504px) 100vw, 504px" /></p>
+<ul>
+<li>支付宝公钥</li>
+</ul>
+<p>我们直接运行RSA签名验签工具</p>
+<p><img loading="lazy" decoding="async" width="340" height="216" class="wp-image-8603" src="/wp-content/uploads/2018/06/word-image-1173.png" srcset="/wp-content/uploads/2018/06/word-image-1173.png 340w, /wp-content/uploads/2018/06/word-image-1173-300x191.png 300w" sizes="(max-width: 340px) 100vw, 340px" /></p>
+<p>签名：说白了就是加密</p>
+<p>验签：说白了判断加密是否正确，</p>
+<p>例如:</p>
+<p>我们注册会员的时候，会给会员密码加密，你可以理解，我们给会员的密码进行签名，</p>
+<p>会员会在网站登录，我们直接从数据库找出密码的加密串 和 会员注册时的密码加密后进行判断，这个动作可以理解为验签</p>
+<p>我们使用RSA签名验签工具生成应用的私钥和公钥：</p>
+<p><img loading="lazy" decoding="async" width="788" height="661" class="wp-image-8604" src="/wp-content/uploads/2018/06/word-image-1174.png" srcset="/wp-content/uploads/2018/06/word-image-1174.png 788w, /wp-content/uploads/2018/06/word-image-1174-300x252.png 300w, /wp-content/uploads/2018/06/word-image-1174-768x644.png 768w" sizes="(max-width: 788px) 100vw, 788px" /></p>
+<p>商户的私钥：复制到config.php中。</p>
+<p>商户的公钥：复制到支付宝网站中，再获取支付宝的公钥复制到config.php中</p>
+<p>应用私钥和应用公钥，支付宝公钥说明：</p>
+<p><img loading="lazy" decoding="async" width="1201" height="681" class="wp-image-8605" src="/wp-content/uploads/2018/06/word-image-1175.png" srcset="/wp-content/uploads/2018/06/word-image-1175.png 1201w, /wp-content/uploads/2018/06/word-image-1175-300x170.png 300w, /wp-content/uploads/2018/06/word-image-1175-768x435.png 768w, /wp-content/uploads/2018/06/word-image-1175-1024x581.png 1024w" sizes="(max-width: 1201px) 100vw, 1201px" /></p>
+<p>修改config.php文件：</p>
+<p><img loading="lazy" decoding="async" width="1250" height="527" class="wp-image-8606" src="/wp-content/uploads/2018/06/word-image-1176.png" srcset="/wp-content/uploads/2018/06/word-image-1176.png 1250w, /wp-content/uploads/2018/06/word-image-1176-300x126.png 300w, /wp-content/uploads/2018/06/word-image-1176-768x324.png 768w, /wp-content/uploads/2018/06/word-image-1176-1024x432.png 1024w" sizes="(max-width: 1250px) 100vw, 1250px" /> <img loading="lazy" decoding="async" width="1253" height="351" class="wp-image-8607" src="/wp-content/uploads/2018/06/word-image-1177.png" srcset="/wp-content/uploads/2018/06/word-image-1177.png 1253w, /wp-content/uploads/2018/06/word-image-1177-300x84.png 300w, /wp-content/uploads/2018/06/word-image-1177-768x215.png 768w, /wp-content/uploads/2018/06/word-image-1177-1024x287.png 1024w" sizes="(max-width: 1253px) 100vw, 1253px" /></p>
+<p>配置好之后，进行访问，如果能够出现一个支付宝的支付页面，说明配置参数成功：</p>
+<p><img loading="lazy" decoding="async" width="820" height="321" class="wp-image-8608" src="/wp-content/uploads/2018/06/word-image-1178.png" srcset="/wp-content/uploads/2018/06/word-image-1178.png 820w, /wp-content/uploads/2018/06/word-image-1178-300x117.png 300w, /wp-content/uploads/2018/06/word-image-1178-768x301.png 768w" sizes="(max-width: 820px) 100vw, 820px" /> <img loading="lazy" decoding="async" width="1080" height="562" class="wp-image-8609" src="/wp-content/uploads/2018/06/word-image-1179.png" srcset="/wp-content/uploads/2018/06/word-image-1179.png 1080w, /wp-content/uploads/2018/06/word-image-1179-300x156.png 300w, /wp-content/uploads/2018/06/word-image-1179-768x400.png 768w, /wp-content/uploads/2018/06/word-image-1179-1024x533.png 1024w" sizes="(max-width: 1080px) 100vw, 1080px" /></p>
+<p>之后通过沙箱中的买家账号和密码进行支付即可。</p>
+<h2>分析如何唤起支付宝支付页面</h2>
+<p>支付流程图解：</p>
+<p><img loading="lazy" decoding="async" width="882" height="586" class="wp-image-8610" src="/wp-content/uploads/2018/06/word-image-1180.png" srcset="/wp-content/uploads/2018/06/word-image-1180.png 882w, /wp-content/uploads/2018/06/word-image-1180-300x199.png 300w, /wp-content/uploads/2018/06/word-image-1180-768x510.png 768w" sizes="(max-width: 882px) 100vw, 882px" /></p>
+<p>当单击支付按钮的时候，跳转到pagepay/pagepay.php文件中进行支付，此页面才是跳转到支付宝的真正支付页面。</p>
+<p><img loading="lazy" decoding="async" width="943" height="610" class="wp-image-8611" src="/wp-content/uploads/2018/06/word-image-1181.png" srcset="/wp-content/uploads/2018/06/word-image-1181.png 943w, /wp-content/uploads/2018/06/word-image-1181-300x194.png 300w, /wp-content/uploads/2018/06/word-image-1181-768x497.png 768w" sizes="(max-width: 943px) 100vw, 943px" /></p>
+<p>文件如下：</p>
+<p><img loading="lazy" decoding="async" width="1142" height="405" class="wp-image-8612" src="/wp-content/uploads/2018/06/word-image-1182.png" srcset="/wp-content/uploads/2018/06/word-image-1182.png 1142w, /wp-content/uploads/2018/06/word-image-1182-300x106.png 300w, /wp-content/uploads/2018/06/word-image-1182-768x272.png 768w, /wp-content/uploads/2018/06/word-image-1182-1024x363.png 1024w" sizes="(max-width: 1142px) 100vw, 1142px" /></p>
+<p>即，后面只要在支付的时候，引入上面的pagepay/pagepay.php文件即可完成支付。</p>
+<h2>实现商城订单的支付</h2>
+<p>1、上面配置没有问题的话，且可以出现支付页面，我们就可以把/public/alipay目录复制到extend/目录下面：</p>
+<p><img loading="lazy" decoding="async" width="704" height="326" class="wp-image-8613" src="/wp-content/uploads/2018/06/word-image-1183.png" srcset="/wp-content/uploads/2018/06/word-image-1183.png 704w, /wp-content/uploads/2018/06/word-image-1183-300x139.png 300w" sizes="(max-width: 704px) 100vw, 704px" /></p>
+<ol>
+<li>当订单数据入库成功之后，需要引入上面的pagepay/pagepay.php文件进行支付，这里我们封装在一个支付的方法_payMoney()中。方便后面支付调用</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1201" height="540" class="wp-image-8614" src="/wp-content/uploads/2018/06/word-image-1184.png" srcset="/wp-content/uploads/2018/06/word-image-1184.png 1201w, /wp-content/uploads/2018/06/word-image-1184-300x135.png 300w, /wp-content/uploads/2018/06/word-image-1184-768x345.png 768w, /wp-content/uploads/2018/06/word-image-1184-1024x460.png 1024w" sizes="(max-width: 1201px) 100vw, 1201px" /></p>
+<p>同时需要把pagepay.php文件中的原本是$_POST的变量改为我们上面定义的$payData变量。</p>
+<p>之所以要更改是因为后面个人订单支付也可以采用get方式进行传参支付。这样支付就更加灵活。</p>
+<p><img loading="lazy" decoding="async" width="1089" height="529" class="wp-image-8615" src="/wp-content/uploads/2018/06/word-image-1185.png" srcset="/wp-content/uploads/2018/06/word-image-1185.png 1089w, /wp-content/uploads/2018/06/word-image-1185-300x146.png 300w, /wp-content/uploads/2018/06/word-image-1185-768x373.png 768w, /wp-content/uploads/2018/06/word-image-1185-1024x497.png 1024w" sizes="(max-width: 1089px) 100vw, 1089px" /></p>
+<p>测试下商品加入购物车进行订单支付，如果下面付款的总金额一致，说明集成项目中成功</p>
+<p><img loading="lazy" decoding="async" width="975" height="544" class="wp-image-8616" src="/wp-content/uploads/2018/06/word-image-1186.png" srcset="/wp-content/uploads/2018/06/word-image-1186.png 975w, /wp-content/uploads/2018/06/word-image-1186-300x167.png 300w, /wp-content/uploads/2018/06/word-image-1186-768x429.png 768w" sizes="(max-width: 975px) 100vw, 975px" /></p>
+<h2>支付成功修改订单状态</h2>
+<p>在上面的支付宝页面进行支付成功之后，会跳转到我们在config.php中设置好的return_url配置项的同步回调地址。</p>
+<p><img loading="lazy" decoding="async" width="1152" height="367" class="wp-image-8617" src="/wp-content/uploads/2018/06/word-image-1187.png" srcset="/wp-content/uploads/2018/06/word-image-1187.png 1152w, /wp-content/uploads/2018/06/word-image-1187-300x96.png 300w, /wp-content/uploads/2018/06/word-image-1187-768x245.png 768w, /wp-content/uploads/2018/06/word-image-1187-1024x326.png 1024w" sizes="(max-width: 1152px) 100vw, 1152px" /></p>
+<p>只要支付宝支付成功之后，就会往同步地址和异步地址进行跳转：</p>
+<p><img loading="lazy" decoding="async" width="717" height="481" class="wp-image-8618" src="/wp-content/uploads/2018/06/word-image-1188.png" srcset="/wp-content/uploads/2018/06/word-image-1188.png 717w, /wp-content/uploads/2018/06/word-image-1188-300x201.png 300w" sizes="(max-width: 717px) 100vw, 717px" /></p>
+<p>同步通知和异步通知的区别：</p>
+<p>同步和异步通知携带的支付参数没有本质的区别：</p>
+<p>同步通知：支付成功后返回到指定callback回调域，同时携带支付状态的get参数，让自己的网站用于验证（更新支付的状态）。</p>
+<p>异步通知：其实是双保险机制，主要是防止意外情况。因为交易涉及到钱的问题，支付宝考虑到如果同步通知的过程中，用户不小心关闭浏览器或者浏览器卡死的情况，这样就无法实现同步通知，从而也就无法更新用户的支付状态(用户支付成功，但显示未付款)。而支付宝服务器会在一段时间内持续的往我们的服务器发送异步通知。直到返回给支付宝success即可，这个一段时间在1-2天内通知8次左右。</p>
+<ol>
+<li>在config.php中设置好同步的回调地址</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1236" height="424" class="wp-image-8619" src="/wp-content/uploads/2018/06/word-image-1189.png" srcset="/wp-content/uploads/2018/06/word-image-1189.png 1236w, /wp-content/uploads/2018/06/word-image-1189-300x103.png 300w, /wp-content/uploads/2018/06/word-image-1189-768x263.png 768w, /wp-content/uploads/2018/06/word-image-1189-1024x351.png 1024w" sizes="(max-width: 1236px) 100vw, 1236px" /></p>
+<ol>
+<li>建立一个同步回调的方法returnurl,打印get方法带来的支付成功参数</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1035" height="631" class="wp-image-8620" src="/wp-content/uploads/2018/06/word-image-1190.png" srcset="/wp-content/uploads/2018/06/word-image-1190.png 1035w, /wp-content/uploads/2018/06/word-image-1190-300x183.png 300w, /wp-content/uploads/2018/06/word-image-1190-768x468.png 768w, /wp-content/uploads/2018/06/word-image-1190-1024x624.png 1024w" sizes="(max-width: 1035px) 100vw, 1035px" /></p>
+<p>打印get携带的支付成功的参数如下：</p>
+<p><img loading="lazy" decoding="async" width="1085" height="313" class="wp-image-8621" src="/wp-content/uploads/2018/06/word-image-1191.png" srcset="/wp-content/uploads/2018/06/word-image-1191.png 1085w, /wp-content/uploads/2018/06/word-image-1191-300x87.png 300w, /wp-content/uploads/2018/06/word-image-1191-768x222.png 768w, /wp-content/uploads/2018/06/word-image-1191-1024x295.png 1024w" sizes="(max-width: 1085px) 100vw, 1085px" /></p>
+<p>两个重要的参数：</p>
+<p>out_trade_no :自己网站的订单号</p>
+<p>trade_no:支付宝那么支付成功返回来的订单号</p>
+<p>这里我们可以通过out_trade_no订单号进行修改订单的支付状态，把支付状态的字段pay_status改为1.</p>
+<ol>
+<li>修改订单的支付状态：</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="983" height="659" class="wp-image-8622" src="/wp-content/uploads/2018/06/word-image-1192.png" srcset="/wp-content/uploads/2018/06/word-image-1192.png 983w, /wp-content/uploads/2018/06/word-image-1192-300x201.png 300w, /wp-content/uploads/2018/06/word-image-1192-768x515.png 768w" sizes="(max-width: 983px) 100vw, 983px" /></p>
+<p>更改用户的支付状态和支付宝返回的订单号：</p>
+<p><img loading="lazy" decoding="async" width="498" height="92" class="wp-image-8623" src="/wp-content/uploads/2018/06/word-image-1193.png" srcset="/wp-content/uploads/2018/06/word-image-1193.png 498w, /wp-content/uploads/2018/06/word-image-1193-300x55.png 300w" sizes="(max-width: 498px) 100vw, 498px" /></p>
+<p>注：如果是线上环境，支付宝还会以post方式进行异步通知我们在config.php设置的异步回调地址。</p>
+<p><img loading="lazy" decoding="async" width="1232" height="295" class="wp-image-8624" src="/wp-content/uploads/2018/06/word-image-1194.png" srcset="/wp-content/uploads/2018/06/word-image-1194.png 1232w, /wp-content/uploads/2018/06/word-image-1194-300x72.png 300w, /wp-content/uploads/2018/06/word-image-1194-768x184.png 768w, /wp-content/uploads/2018/06/word-image-1194-1024x245.png 1024w" sizes="(max-width: 1232px) 100vw, 1232px" /></p>
+<p>异步代码也是更新订单的支付状态，只是把get接收方式改为post,且最后支付成功一定要echo一个success字符串给支付宝那边，否则支付宝在一段时间会一直通知，这个一段时间在1-2天内通知8次左右。</p>
+<p><img loading="lazy" decoding="async" width="1033" height="664" class="wp-image-8625" src="/wp-content/uploads/2018/06/word-image-1195.png" srcset="/wp-content/uploads/2018/06/word-image-1195.png 1033w, /wp-content/uploads/2018/06/word-image-1195-300x193.png 300w, /wp-content/uploads/2018/06/word-image-1195-768x494.png 768w, /wp-content/uploads/2018/06/word-image-1195-1024x658.png 1024w" sizes="(max-width: 1033px) 100vw, 1033px" /></p>
+<h2>6、订单数据入库验证补充</h2>
+<ol>
+<li>定义Order验证器即规则</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="730" height="462" class="wp-image-8626" src="/wp-content/uploads/2018/06/word-image-1196.png" srcset="/wp-content/uploads/2018/06/word-image-1196.png 730w, /wp-content/uploads/2018/06/word-image-1196-300x190.png 300w" sizes="(max-width: 730px) 100vw, 730px" /></p>
+<ol>
+<li>写入订单数据的时候进行验证</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="972" height="475" class="wp-image-8627" src="/wp-content/uploads/2018/06/word-image-1197.png" srcset="/wp-content/uploads/2018/06/word-image-1197.png 972w, /wp-content/uploads/2018/06/word-image-1197-300x147.png 300w, /wp-content/uploads/2018/06/word-image-1197-768x375.png 768w" sizes="(max-width: 972px) 100vw, 972px" /></p>
+<h1>查看个人订单</h1>
+<p><img loading="lazy" decoding="async" width="351" height="47" class="wp-image-8628" src="/wp-content/uploads/2018/06/word-image-1198.png" srcset="/wp-content/uploads/2018/06/word-image-1198.png 351w, /wp-content/uploads/2018/06/word-image-1198-300x40.png 300w" sizes="(max-width: 351px) 100vw, 351px" /></p>
+<ol>
+<li>修改模板（nav.html）我的订单的链接地址</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1159" height="276" class="wp-image-8629" src="/wp-content/uploads/2018/06/word-image-1199.png" srcset="/wp-content/uploads/2018/06/word-image-1199.png 1159w, /wp-content/uploads/2018/06/word-image-1199-300x71.png 300w, /wp-content/uploads/2018/06/word-image-1199-768x183.png 768w, /wp-content/uploads/2018/06/word-image-1199-1024x244.png 1024w" sizes="(max-width: 1159px) 100vw, 1159px" /></p>
+<ol>
+<li>在前台的home的order控制器，建立一个selfOrder方法，查询个人的所有订单，并分配到模板中。</li>
+<li>把前台模板order.html复制到/home/view/order/目录下面，并改名为selforder.html</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="897" height="520" class="wp-image-8630" src="/wp-content/uploads/2018/06/word-image-1200.png" srcset="/wp-content/uploads/2018/06/word-image-1200.png 897w, /wp-content/uploads/2018/06/word-image-1200-300x174.png 300w, /wp-content/uploads/2018/06/word-image-1200-768x445.png 768w" sizes="(max-width: 897px) 100vw, 897px" /></p>
+<p>b、selfOrder方法</p>
+<p><img loading="lazy" decoding="async" width="958" height="313" class="wp-image-8631" src="/wp-content/uploads/2018/06/word-image-1201.png" srcset="/wp-content/uploads/2018/06/word-image-1201.png 958w, /wp-content/uploads/2018/06/word-image-1201-300x98.png 300w, /wp-content/uploads/2018/06/word-image-1201-768x251.png 768w" sizes="(max-width: 958px) 100vw, 958px" /></p>
+<p>我们可以把用户的付款状态和发货状态对应的文本值定义在配置文件中，这样非常方便后期状态的维护。</p>
+<p><img loading="lazy" decoding="async" width="853" height="412" class="wp-image-8632" src="/wp-content/uploads/2018/06/word-image-1202.png" srcset="/wp-content/uploads/2018/06/word-image-1202.png 853w, /wp-content/uploads/2018/06/word-image-1202-300x145.png 300w, /wp-content/uploads/2018/06/word-image-1202-768x371.png 768w" sizes="(max-width: 853px) 100vw, 853px" /></p>
+<ol>
+<li>模板selfOrder.html遍历订单数据</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1248" height="464" class="wp-image-8633" src="/wp-content/uploads/2018/06/word-image-1203.png" srcset="/wp-content/uploads/2018/06/word-image-1203.png 1248w, /wp-content/uploads/2018/06/word-image-1203-300x112.png 300w, /wp-content/uploads/2018/06/word-image-1203-768x286.png 768w, /wp-content/uploads/2018/06/word-image-1203-1024x381.png 1024w" sizes="(max-width: 1248px) 100vw, 1248px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="1014" height="414" class="wp-image-8634" src="/wp-content/uploads/2018/06/word-image-1204.png" srcset="/wp-content/uploads/2018/06/word-image-1204.png 1014w, /wp-content/uploads/2018/06/word-image-1204-300x122.png 300w, /wp-content/uploads/2018/06/word-image-1204-768x314.png 768w" sizes="(max-width: 1014px) 100vw, 1014px" /></p>
+<h1>完成订单付款</h1>
+<ol>
+<li>给去付款按钮设置一个链接地址</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1247" height="327" class="wp-image-8635" src="/wp-content/uploads/2018/06/word-image-1205.png" srcset="/wp-content/uploads/2018/06/word-image-1205.png 1247w, /wp-content/uploads/2018/06/word-image-1205-300x79.png 300w, /wp-content/uploads/2018/06/word-image-1205-768x201.png 768w, /wp-content/uploads/2018/06/word-image-1205-1024x269.png 1024w" sizes="(max-width: 1247px) 100vw, 1247px" /></p>
+<ol>
+<li>在payMoney的方法中，完成付款的操作</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="943" height="350" class="wp-image-8636" src="/wp-content/uploads/2018/06/word-image-1206.png" srcset="/wp-content/uploads/2018/06/word-image-1206.png 943w, /wp-content/uploads/2018/06/word-image-1206-300x111.png 300w, /wp-content/uploads/2018/06/word-image-1206-768x285.png 768w" sizes="(max-width: 943px) 100vw, 943px" /></p>
+<p>修改支付成功的get同步回调的方法returnurl,支付成功，跳转到用户的订单列表</p>
+<p><img loading="lazy" decoding="async" width="1004" height="704" class="wp-image-8637" src="/wp-content/uploads/2018/06/word-image-1207.png" srcset="/wp-content/uploads/2018/06/word-image-1207.png 1004w, /wp-content/uploads/2018/06/word-image-1207-300x210.png 300w, /wp-content/uploads/2018/06/word-image-1207-768x539.png 768w" sizes="(max-width: 1004px) 100vw, 1004px" /></p>
+<h1>七、后台订单管理</h1>
+<h2>1、订单列表无刷新分页</h2>
+<p>分析：</p>
+<p><img loading="lazy" decoding="async" width="1149" height="204" class="wp-image-8638" src="/wp-content/uploads/2018/06/word-image-1208.png" srcset="/wp-content/uploads/2018/06/word-image-1208.png 1149w, /wp-content/uploads/2018/06/word-image-1208-300x53.png 300w, /wp-content/uploads/2018/06/word-image-1208-768x136.png 768w, /wp-content/uploads/2018/06/word-image-1208-1024x182.png 1024w" sizes="(max-width: 1149px) 100vw, 1149px" /></p>
+<p>无属性分页只需要发送ajax请求，只需获取需要的数据返回来进行替换即可。</p>
+<ol>
+<li>给分页的超练级a标签绑定单击事件，需要获取到其href属性值，并且阻止默认行为，用ajax请求地址即可，获取所需要的上面两部分数据，进行替换即可</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1096" height="476" class="wp-image-8639" src="/wp-content/uploads/2018/06/word-image-1209.png" srcset="/wp-content/uploads/2018/06/word-image-1209.png 1096w, /wp-content/uploads/2018/06/word-image-1209-300x130.png 300w, /wp-content/uploads/2018/06/word-image-1209-768x334.png 768w, /wp-content/uploads/2018/06/word-image-1209-1024x445.png 1024w" sizes="(max-width: 1096px) 100vw, 1096px" /></p>
+<ol>
+<li>为了获取独立的分页主体数据，我们可以抽离到一个html模板中</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="821" height="436" class="wp-image-8640" src="/wp-content/uploads/2018/06/word-image-1210.png" srcset="/wp-content/uploads/2018/06/word-image-1210.png 821w, /wp-content/uploads/2018/06/word-image-1210-300x159.png 300w, /wp-content/uploads/2018/06/word-image-1210-768x408.png 768w" sizes="(max-width: 821px) 100vw, 821px" /></p>
+<p>3、在index方法判断是否是ajax请求，返回所需要的数据即可。</p>
+<p><img loading="lazy" decoding="async" width="1009" height="601" class="wp-image-8641" src="/wp-content/uploads/2018/06/word-image-1211.png" srcset="/wp-content/uploads/2018/06/word-image-1211.png 1009w, /wp-content/uploads/2018/06/word-image-1211-300x180.png 300w, /wp-content/uploads/2018/06/word-image-1211-768x457.png 768w" sizes="(max-width: 1009px) 100vw, 1009px" /></p>
+<p>核心利用fetch方法：此方法其实做了3件事件；</p>
+<ol>
+<li>获取到模板内容 2.把分配到此模板中的变量进行替换 3.把替换好的模板内返回</li>
+</ol>
+<p>注：由于无刷新分页的页码是ajax动态返回来的，要给动态增加元素绑定事件只能是用委托方式去绑定：</p>
+<p>父选择器.on(事件名,子选择器，callback)</p>
+<h2>2、分配订单物流信息</h2>
+<h2>3、查询订单物流信息</h2>
+<h2>4、订单无刷新搜索</h2>
+<h2>5、搜索关键字高亮显示</h2>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8570.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Ajax（二）用户注册验证、无刷新分页、underscore工具库、json、跨域、Ajax文件上传</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3244.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3244.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 09:35:43 +0000</pubDate>
+				<category><![CDATA[AJAX]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[Ajax文件上传]]></category>
+		<category><![CDATA[Json]]></category>
+		<category><![CDATA[underscore工具库]]></category>
+		<category><![CDATA[无刷新分页]]></category>
+		<category><![CDATA[用户注册验证]]></category>
+		<category><![CDATA[跨域]]></category>
+		<guid isPermaLink="false">/?p=3244</guid>
+
+					<description><![CDATA[Ajax案例-会员模块-curd-作业 功能需求 在添加的时候做用户名唯一性检查 做数据展示做一个无刷新分页（ [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1><a id="post-3244-_Toc481"></a><a id="post-3244-_Toc7787"></a>Ajax案例-会员模块-curd-作业</h1>
+<h2><a id="post-3244-_Toc29820"></a>功能需求</h2>
+<ol>
+<li>
+  在添加的时候做用户名唯一性检查
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="801" height="534" src="/wp-content/uploads/2018/05/word-image-2855.png" class="wp-image-3245" srcset="/wp-content/uploads/2018/05/word-image-2855.png 801w, /wp-content/uploads/2018/05/word-image-2855-300x200.png 300w, /wp-content/uploads/2018/05/word-image-2855-768x512.png 768w" sizes="(max-width: 801px) 100vw, 801px" /></p>
+<ol>
+<li>
+  做数据展示做一个无刷新分页（分页插件 layUI 闲心）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1599" height="812" src="/wp-content/uploads/2018/05/word-image-2856.png" class="wp-image-3246" srcset="/wp-content/uploads/2018/05/word-image-2856.png 1599w, /wp-content/uploads/2018/05/word-image-2856-300x152.png 300w, /wp-content/uploads/2018/05/word-image-2856-768x390.png 768w, /wp-content/uploads/2018/05/word-image-2856-1024x520.png 1024w" sizes="(max-width: 1599px) 100vw, 1599px" /></p>
+<ol>
+<li>
+  做删除的时候做Ajax无刷新删除 + 事件代理完成、事件委托
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1622" height="790" src="/wp-content/uploads/2018/05/word-image-2857.png" class="wp-image-3247" srcset="/wp-content/uploads/2018/05/word-image-2857.png 1622w, /wp-content/uploads/2018/05/word-image-2857-300x146.png 300w, /wp-content/uploads/2018/05/word-image-2857-768x374.png 768w, /wp-content/uploads/2018/05/word-image-2857-1024x499.png 1024w" sizes="(max-width: 1622px) 100vw, 1622px" /></p>
+<h2>实操-添加</h2>
+<h3>用户注册-唯一性检验</h3>
+<ol>
+<li>
+  编写一个user.html文件，展示一个注册表单
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1810" height="826" src="/wp-content/uploads/2018/05/word-image-2858.png" class="wp-image-3248" srcset="/wp-content/uploads/2018/05/word-image-2858.png 1810w, /wp-content/uploads/2018/05/word-image-2858-300x137.png 300w, /wp-content/uploads/2018/05/word-image-2858-768x350.png 768w, /wp-content/uploads/2018/05/word-image-2858-1024x467.png 1024w" sizes="(max-width: 1810px) 100vw, 1810px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="1633" height="500" src="/wp-content/uploads/2018/05/word-image-2859.png" class="wp-image-3249" srcset="/wp-content/uploads/2018/05/word-image-2859.png 1633w, /wp-content/uploads/2018/05/word-image-2859-300x92.png 300w, /wp-content/uploads/2018/05/word-image-2859-768x235.png 768w, /wp-content/uploads/2018/05/word-image-2859-1024x314.png 1024w" sizes="(max-width: 1633px) 100vw, 1633px" /></p>
+<ol>
+<li>
+  在user.html页面编写js代码进行校验用户信息，如果前台校验成功，使用ajax发送网络请求，进行用户唯一性处理
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1240" height="968" src="/wp-content/uploads/2018/05/word-image-2860.png" class="wp-image-3250" srcset="/wp-content/uploads/2018/05/word-image-2860.png 1240w, /wp-content/uploads/2018/05/word-image-2860-300x234.png 300w, /wp-content/uploads/2018/05/word-image-2860-768x600.png 768w, /wp-content/uploads/2018/05/word-image-2860-1024x799.png 1024w" sizes="(max-width: 1240px) 100vw, 1240px" /></p>
+<p>
+  注意：这里的swal函数使用的是sweetalert插件提供的。
+</p>
+<ol>
+<li>
+  在后台编写一个checkUser.php文件完成用户唯一性校验，可以注册返回1，不可以注册返回0
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1648" height="990" src="/wp-content/uploads/2018/05/word-image-2861.png" class="wp-image-3251" srcset="/wp-content/uploads/2018/05/word-image-2861.png 1648w, /wp-content/uploads/2018/05/word-image-2861-300x180.png 300w, /wp-content/uploads/2018/05/word-image-2861-768x461.png 768w, /wp-content/uploads/2018/05/word-image-2861-1024x615.png 1024w" sizes="(max-width: 1648px) 100vw, 1648px" /></p>
+<h3>用户注册-添加入库</h3>
+<p>
+  1. 编写一个user.html文件，展示一个注册表单
+</p>
+<p><img loading="lazy" decoding="async" width="1810" height="826" src="/wp-content/uploads/2018/05/word-image-2862.png" class="wp-image-3253" srcset="/wp-content/uploads/2018/05/word-image-2862.png 1810w, /wp-content/uploads/2018/05/word-image-2862-300x137.png 300w, /wp-content/uploads/2018/05/word-image-2862-768x350.png 768w, /wp-content/uploads/2018/05/word-image-2862-1024x467.png 1024w" sizes="(max-width: 1810px) 100vw, 1810px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="1633" height="500" src="/wp-content/uploads/2018/05/word-image-2863.png" class="wp-image-3254" srcset="/wp-content/uploads/2018/05/word-image-2863.png 1633w, /wp-content/uploads/2018/05/word-image-2863-300x92.png 300w, /wp-content/uploads/2018/05/word-image-2863-768x235.png 768w, /wp-content/uploads/2018/05/word-image-2863-1024x314.png 1024w" sizes="(max-width: 1633px) 100vw, 1633px" /></p>
+<ol>
+<li>
+  在user.html页面编写js代码进行校验用户信息，如果前台校验成功，使用ajax发送网络请求，进行用户入库操作
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1745" height="802" src="/wp-content/uploads/2018/05/word-image-2864.png" class="wp-image-3255" srcset="/wp-content/uploads/2018/05/word-image-2864.png 1745w, /wp-content/uploads/2018/05/word-image-2864-300x138.png 300w, /wp-content/uploads/2018/05/word-image-2864-768x353.png 768w, /wp-content/uploads/2018/05/word-image-2864-1024x471.png 1024w" sizes="(max-width: 1745px) 100vw, 1745px" /><br />
+<img loading="lazy" decoding="async" width="1771" height="337" src="/wp-content/uploads/2018/05/word-image-2865.png" class="wp-image-3256" srcset="/wp-content/uploads/2018/05/word-image-2865.png 1771w, /wp-content/uploads/2018/05/word-image-2865-300x57.png 300w, /wp-content/uploads/2018/05/word-image-2865-768x146.png 768w, /wp-content/uploads/2018/05/word-image-2865-1024x195.png 1024w" sizes="(max-width: 1771px) 100vw, 1771px" /></p>
+<p>
+  注意：这里的swal函数使用的是sweetalert插件提供的。
+</p>
+<p>
+  3. 在后台编写一个addkUser.php文件完成用户入库操作，成功返回1，失败返回0
+</p>
+<p><img loading="lazy" decoding="async" width="1578" height="821" src="/wp-content/uploads/2018/05/word-image-2866.png" class="wp-image-3257" srcset="/wp-content/uploads/2018/05/word-image-2866.png 1578w, /wp-content/uploads/2018/05/word-image-2866-300x156.png 300w, /wp-content/uploads/2018/05/word-image-2866-768x400.png 768w, /wp-content/uploads/2018/05/word-image-2866-1024x533.png 1024w" sizes="(max-width: 1578px) 100vw, 1578px" /></p>
+<h3>sweetalert插件</h3>
+<p>
+  相关网站：
+</p>
+<p><a href="http://www.bootcdn.cn/sweetalert/">http://www.bootcdn.cn/sweetalert/</a>
+</p>
+<p><a href="http://mishengqiang.com/sweetalert/" class="broken_link">http://mishengqiang.com/sweetalert/</a>
+</p>
+<ol>
+<li>
+  在bootcdn网站查询sweetalert插件
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1714" height="793" src="/wp-content/uploads/2018/05/word-image-2867.png" class="wp-image-3258" srcset="/wp-content/uploads/2018/05/word-image-2867.png 1714w, /wp-content/uploads/2018/05/word-image-2867-300x139.png 300w, /wp-content/uploads/2018/05/word-image-2867-768x355.png 768w, /wp-content/uploads/2018/05/word-image-2867-1024x474.png 1024w" sizes="(max-width: 1714px) 100vw, 1714px" /></p>
+<ol>
+<li>
+  自己的页面引入对应的css和js资源文件，调用 swal 函数进行测试
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1228" height="478" src="/wp-content/uploads/2018/05/word-image-2868.png" class="wp-image-3259" srcset="/wp-content/uploads/2018/05/word-image-2868.png 1228w, /wp-content/uploads/2018/05/word-image-2868-300x117.png 300w, /wp-content/uploads/2018/05/word-image-2868-768x299.png 768w, /wp-content/uploads/2018/05/word-image-2868-1024x399.png 1024w" sizes="(max-width: 1228px) 100vw, 1228px" /></p>
+<p>
+  效果：
+</p>
+<p><img loading="lazy" decoding="async" width="1461" height="732" src="/wp-content/uploads/2018/05/word-image-2869.png" class="wp-image-3260" srcset="/wp-content/uploads/2018/05/word-image-2869.png 1461w, /wp-content/uploads/2018/05/word-image-2869-300x150.png 300w, /wp-content/uploads/2018/05/word-image-2869-768x385.png 768w, /wp-content/uploads/2018/05/word-image-2869-1024x513.png 1024w" sizes="(max-width: 1461px) 100vw, 1461px" /></p>
+<h2>实操-用户展示</h2>
+<h3>用户的展示-无刷新分页</h3>
+<p>
+  昨天使用了一个叫做layUI提供的一个layPage的分页插件。
+</p>
+<p>
+  功能需求分析：
+</p>
+<p><img loading="lazy" decoding="async" width="1524" height="827" src="/wp-content/uploads/2018/05/word-image-2870.png" class="wp-image-3261" srcset="/wp-content/uploads/2018/05/word-image-2870.png 1524w, /wp-content/uploads/2018/05/word-image-2870-300x163.png 300w, /wp-content/uploads/2018/05/word-image-2870-768x417.png 768w, /wp-content/uploads/2018/05/word-image-2870-1024x556.png 1024w" sizes="(max-width: 1524px) 100vw, 1524px" /></p>
+<p>
+  代码实现：
+</p>
+<ol>
+<li>
+  定义一个ulst.php展示用户的列表，默认获取显示第一页的数据
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1728" height="826" src="/wp-content/uploads/2018/05/word-image-2871.png" class="wp-image-3262" srcset="/wp-content/uploads/2018/05/word-image-2871.png 1728w, /wp-content/uploads/2018/05/word-image-2871-300x143.png 300w, /wp-content/uploads/2018/05/word-image-2871-768x367.png 768w, /wp-content/uploads/2018/05/word-image-2871-1024x489.png 1024w" sizes="(max-width: 1728px) 100vw, 1728px" /><br />
+<img loading="lazy" decoding="async" width="1709" height="909" src="/wp-content/uploads/2018/05/word-image-2872.png" class="wp-image-3263" srcset="/wp-content/uploads/2018/05/word-image-2872.png 1709w, /wp-content/uploads/2018/05/word-image-2872-300x160.png 300w, /wp-content/uploads/2018/05/word-image-2872-768x408.png 768w, /wp-content/uploads/2018/05/word-image-2872-1024x545.png 1024w" sizes="(max-width: 1709px) 100vw, 1709px" /><br />
+<img loading="lazy" decoding="async" width="1731" height="237" src="/wp-content/uploads/2018/05/word-image-2873.png" class="wp-image-3264" srcset="/wp-content/uploads/2018/05/word-image-2873.png 1731w, /wp-content/uploads/2018/05/word-image-2873-300x41.png 300w, /wp-content/uploads/2018/05/word-image-2873-768x105.png 768w, /wp-content/uploads/2018/05/word-image-2873-1024x140.png 1024w" sizes="(max-width: 1731px) 100vw, 1731px" /><br />
+<img loading="lazy" decoding="async" width="1248" height="954" src="/wp-content/uploads/2018/05/word-image-2874.png" class="wp-image-3265" srcset="/wp-content/uploads/2018/05/word-image-2874.png 1248w, /wp-content/uploads/2018/05/word-image-2874-300x229.png 300w, /wp-content/uploads/2018/05/word-image-2874-768x587.png 768w, /wp-content/uploads/2018/05/word-image-2874-1024x783.png 1024w" sizes="(max-width: 1248px) 100vw, 1248px" /></p>
+<ol>
+<li>
+  定义一个formatDataEs6方法格式化用户信息，返回一个HTML字符串
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1346" height="607" src="/wp-content/uploads/2018/05/word-image-2875.png" class="wp-image-3266" srcset="/wp-content/uploads/2018/05/word-image-2875.png 1346w, /wp-content/uploads/2018/05/word-image-2875-300x135.png 300w, /wp-content/uploads/2018/05/word-image-2875-768x346.png 768w, /wp-content/uploads/2018/05/word-image-2875-1024x462.png 1024w" sizes="(max-width: 1346px) 100vw, 1346px" /></p>
+<ol>
+<li>
+  定义一个userList.php页面，接收分页请求，返回数据
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1253" height="774" src="/wp-content/uploads/2018/05/word-image-2876.png" class="wp-image-3267" srcset="/wp-content/uploads/2018/05/word-image-2876.png 1253w, /wp-content/uploads/2018/05/word-image-2876-300x185.png 300w, /wp-content/uploads/2018/05/word-image-2876-768x474.png 768w, /wp-content/uploads/2018/05/word-image-2876-1024x633.png 1024w" sizes="(max-width: 1253px) 100vw, 1253px" /></p>
+<h3>underscore工具库</h3>
+<p>
+  简介：
+</p>
+<p><img loading="lazy" decoding="async" width="1355" height="629" src="/wp-content/uploads/2018/05/word-image-2877.png" class="wp-image-3268" srcset="/wp-content/uploads/2018/05/word-image-2877.png 1355w, /wp-content/uploads/2018/05/word-image-2877-300x139.png 300w, /wp-content/uploads/2018/05/word-image-2877-768x357.png 768w, /wp-content/uploads/2018/05/word-image-2877-1024x475.png 1024w" sizes="(max-width: 1355px) 100vw, 1355px" /></p>
+<ol>
+<li>
+  编写一个HTML文件，引入underscore.js文件，编写js代码，调用该工具库提供的方法
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1368" height="906" src="/wp-content/uploads/2018/05/word-image-2878.png" class="wp-image-3269" srcset="/wp-content/uploads/2018/05/word-image-2878.png 1368w, /wp-content/uploads/2018/05/word-image-2878-300x199.png 300w, /wp-content/uploads/2018/05/word-image-2878-768x509.png 768w, /wp-content/uploads/2018/05/word-image-2878-1024x678.png 1024w" sizes="(max-width: 1368px) 100vw, 1368px" /></p>
+<p>
+  注意：_.each() 用于遍历数组 _.uniq() 用于数组去重
+</p>
+<p>
+  2. 效果
+</p>
+<p><img loading="lazy" decoding="async" width="1109" height="527" src="/wp-content/uploads/2018/05/word-image-2879.png" class="wp-image-3270" srcset="/wp-content/uploads/2018/05/word-image-2879.png 1109w, /wp-content/uploads/2018/05/word-image-2879-300x143.png 300w, /wp-content/uploads/2018/05/word-image-2879-768x365.png 768w, /wp-content/uploads/2018/05/word-image-2879-1024x487.png 1024w" sizes="(max-width: 1109px) 100vw, 1109px" /></p>
+<h2>实操-用户删除</h2>
+<p>
+  功能需求：
+</p>
+<p><img loading="lazy" decoding="async" width="1779" height="533" src="/wp-content/uploads/2018/05/word-image-2880.png" class="wp-image-3271" srcset="/wp-content/uploads/2018/05/word-image-2880.png 1779w, /wp-content/uploads/2018/05/word-image-2880-300x90.png 300w, /wp-content/uploads/2018/05/word-image-2880-768x230.png 768w, /wp-content/uploads/2018/05/word-image-2880-1024x307.png 1024w" sizes="(max-width: 1779px) 100vw, 1779px" /></p>
+<ol>
+<li>
+  在ulst.php为table元素定义一个id属性
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1813" height="987" src="/wp-content/uploads/2018/05/word-image-2881.png" class="wp-image-3272" srcset="/wp-content/uploads/2018/05/word-image-2881.png 1813w, /wp-content/uploads/2018/05/word-image-2881-300x163.png 300w, /wp-content/uploads/2018/05/word-image-2881-768x418.png 768w, /wp-content/uploads/2018/05/word-image-2881-1024x557.png 1024w" sizes="(max-width: 1813px) 100vw, 1813px" /></p>
+<ol>
+<li>
+  为该table元素绑定一个点击事件
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1646" height="586" src="/wp-content/uploads/2018/05/word-image-2882.png" class="wp-image-3273" srcset="/wp-content/uploads/2018/05/word-image-2882.png 1646w, /wp-content/uploads/2018/05/word-image-2882-300x107.png 300w, /wp-content/uploads/2018/05/word-image-2882-768x273.png 768w, /wp-content/uploads/2018/05/word-image-2882-1024x365.png 1024w" sizes="(max-width: 1646px) 100vw, 1646px" /></p>
+<ol>
+<li>
+  定义一个ajaxDelUser函数，发送ajax请求，删除用户信息
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1259" height="652" src="/wp-content/uploads/2018/05/word-image-2883.png" class="wp-image-3274" srcset="/wp-content/uploads/2018/05/word-image-2883.png 1259w, /wp-content/uploads/2018/05/word-image-2883-300x155.png 300w, /wp-content/uploads/2018/05/word-image-2883-768x398.png 768w, /wp-content/uploads/2018/05/word-image-2883-1024x530.png 1024w" sizes="(max-width: 1259px) 100vw, 1259px" /></p>
+<h3>事件优化处理机制简介</h3>
+<p><img loading="lazy" decoding="async" width="1608" height="469" src="/wp-content/uploads/2018/05/word-image-2884.png" class="wp-image-3275" srcset="/wp-content/uploads/2018/05/word-image-2884.png 1608w, /wp-content/uploads/2018/05/word-image-2884-300x88.png 300w, /wp-content/uploads/2018/05/word-image-2884-768x224.png 768w, /wp-content/uploads/2018/05/word-image-2884-1024x299.png 1024w" sizes="(max-width: 1608px) 100vw, 1608px" /></p>
+<h3>优化处理</h3>
+<p><img loading="lazy" decoding="async" width="1518" height="355" src="/wp-content/uploads/2018/05/word-image-2885.png" class="wp-image-3276" srcset="/wp-content/uploads/2018/05/word-image-2885.png 1518w, /wp-content/uploads/2018/05/word-image-2885-300x70.png 300w, /wp-content/uploads/2018/05/word-image-2885-768x180.png 768w, /wp-content/uploads/2018/05/word-image-2885-1024x239.png 1024w" sizes="(max-width: 1518px) 100vw, 1518px" /></p>
+<h1>json简介</h1>
+<h2><a id="post-3244-_Toc761"></a>①-json是什么？</h2>
+<ol>
+<li>
+  什么是json？
+</li>
+</ol>
+<p>
+  答：json是由一个叫做道格拉斯（道叔，josn规范的制定者，一般他是json发现者）发现的一种在多种语言（js\php\java\c\python&#8230;）之间进行数据传递的一个文本的数据格式。以前也可以使用XML来组织格式来交换数据，但是XML操作起来非常的麻烦，慢慢的更多的是使用json格式数据做传递。
+</p>
+<p>
+  注意：虽说现在json非常的流行，但不意味着XML没有使用的必要的。在很多的领域XML还是有其独特的优势，尤其是在数据传递格式非常严苛的情况下（DTD：文档约束，主要是可以去约束XML的定义），例如银行的系统。并且可以做小型的数据库、还可以做配置文件（Java里面很多的配置文件都是使用xml）。
+</p>
+<p>
+  注意：json也是可以作为配置文件的，例如composer的包管理器的配置文件。(现在很多的项目都是使用json作为配置文件)
+</p>
+<p><img loading="lazy" decoding="async" width="1247" height="961" src="/wp-content/uploads/2018/05/word-image-2886.png" class="wp-image-3277" srcset="/wp-content/uploads/2018/05/word-image-2886.png 1247w, /wp-content/uploads/2018/05/word-image-2886-300x231.png 300w, /wp-content/uploads/2018/05/word-image-2886-768x592.png 768w, /wp-content/uploads/2018/05/word-image-2886-1024x789.png 1024w" sizes="(max-width: 1247px) 100vw, 1247px" /></p>
+<p>
+  注意：多种格式的数据都可以作为配置文件
+</p>
+<ol>
+<li>
+  php.ini
+</li>
+<li>
+  httpd.conf
+</li>
+<li>
+  conf.yaml
+</li>
+<li>
+  composer.json
+</li>
+<li>
+  config.xml
+</li>
+</ol>
+<p>
+  面试：json还是XML好？没有什么好或不好，主要是实际的业务需求，以及公司领导的安排。
+</p>
+<p>
+  官网：<a href="http://www.json.org.cn/">http://www.json.org.cn/</a>
+</p>
+<p><img loading="lazy" decoding="async" width="911" height="336" src="/wp-content/uploads/2018/05/word-image-2887.png" class="wp-image-3278" srcset="/wp-content/uploads/2018/05/word-image-2887.png 911w, /wp-content/uploads/2018/05/word-image-2887-300x111.png 300w, /wp-content/uploads/2018/05/word-image-2887-768x283.png 768w" sizes="(max-width: 911px) 100vw, 911px" /></p>
+<p>
+  json是啥？
+</p>
+<p><img loading="lazy" decoding="async" width="1072" height="275" src="/wp-content/uploads/2018/05/word-image-2888.png" class="wp-image-3279" srcset="/wp-content/uploads/2018/05/word-image-2888.png 1072w, /wp-content/uploads/2018/05/word-image-2888-300x77.png 300w, /wp-content/uploads/2018/05/word-image-2888-768x197.png 768w, /wp-content/uploads/2018/05/word-image-2888-1024x263.png 1024w" sizes="(max-width: 1072px) 100vw, 1072px" /></p>
+<p>
+  网站：<a href="http://www.json.org.cn/standard.htm">http://www.json.org.cn/standard.htm</a>
+</p>
+<h2><a id="post-3244-_Toc24672"></a>②-json格式到底是如何定义的？</h2>
+<p>
+  形如下面的数据结构被称为json格式的文本，需要注意：json格式里面的 key/value对是无序的。和php里面的关联数组比较类型，也和js里面的json字面量对象很像。
+</p>
+<p><img loading="lazy" decoding="async" width="764" height="316" src="/wp-content/uploads/2018/05/word-image-2889.png" class="wp-image-3280" srcset="/wp-content/uploads/2018/05/word-image-2889.png 764w, /wp-content/uploads/2018/05/word-image-2889-300x124.png 300w" sizes="(max-width: 764px) 100vw, 764px" /></p>
+<p>
+  定义语法：
+</p>
+<p>
+  {
+</p>
+<p>
+  &#8220;key&#8221;: &#8220;value1&#8221;, // value值是字符串的时候必须加上双引号，同时 key 必须要加双引号
+</p>
+<p>
+  &#8220;age&#8221; : 12,
+</p>
+<p>
+  &#8220;isBool&#8221;: true // 最后的key value 不能加逗号
+</p>
+<p>
+  }
+</p>
+<p>
+  通过工具进行校验：
+</p>
+<p><a href="https://www.bejson.com/">https://www.bejson.com/</a>
+</p>
+<p><img loading="lazy" decoding="async" width="612" height="607" src="/wp-content/uploads/2018/05/word-image-2890.png" class="wp-image-3281" srcset="/wp-content/uploads/2018/05/word-image-2890.png 612w, /wp-content/uploads/2018/05/word-image-2890-150x150.png 150w, /wp-content/uploads/2018/05/word-image-2890-300x298.png 300w" sizes="(max-width: 612px) 100vw, 612px" /></p>
+<h2><a id="post-3244-_Toc15714"></a>③-php里面如何处理json格式数据？</h2>
+<ol>
+<li>
+  如何把php里面的复合数据类型转换为json格式的字符串数据？（<strong>json_encode 1. 中文 gb2312 2. Unicode编码</strong>）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1100" height="551" src="/wp-content/uploads/2018/05/word-image-2891.png" class="wp-image-3282" srcset="/wp-content/uploads/2018/05/word-image-2891.png 1100w, /wp-content/uploads/2018/05/word-image-2891-300x150.png 300w, /wp-content/uploads/2018/05/word-image-2891-768x385.png 768w, /wp-content/uploads/2018/05/word-image-2891-1024x513.png 1024w" sizes="(max-width: 1100px) 100vw, 1100px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="1112" height="142" src="/wp-content/uploads/2018/05/word-image-2892.png" class="wp-image-3283" srcset="/wp-content/uploads/2018/05/word-image-2892.png 1112w, /wp-content/uploads/2018/05/word-image-2892-300x38.png 300w, /wp-content/uploads/2018/05/word-image-2892-768x98.png 768w, /wp-content/uploads/2018/05/word-image-2892-1024x131.png 1024w" sizes="(max-width: 1112px) 100vw, 1112px" /></p>
+<ol>
+<li>
+  如何把json格式的数据转换为php里面的复合数组类型？(json_decode)
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1240" height="329" src="/wp-content/uploads/2018/05/word-image-2893.png" class="wp-image-3284" srcset="/wp-content/uploads/2018/05/word-image-2893.png 1240w, /wp-content/uploads/2018/05/word-image-2893-300x80.png 300w, /wp-content/uploads/2018/05/word-image-2893-768x204.png 768w, /wp-content/uploads/2018/05/word-image-2893-1024x272.png 1024w" sizes="(max-width: 1240px) 100vw, 1240px" /></p>
+<p>
+  效果：
+</p>
+<p><img loading="lazy" decoding="async" width="743" height="302" src="/wp-content/uploads/2018/05/word-image-2894.png" class="wp-image-3285" srcset="/wp-content/uploads/2018/05/word-image-2894.png 743w, /wp-content/uploads/2018/05/word-image-2894-300x122.png 300w" sizes="(max-width: 743px) 100vw, 743px" /></p>
+<p>
+  备注：如果json_decode($jsonString) 不加第二个参数，则转换成php里面的一个标准对象
+</p>
+<p><img loading="lazy" decoding="async" width="1239" height="371" src="/wp-content/uploads/2018/05/word-image-2895.png" class="wp-image-3286" srcset="/wp-content/uploads/2018/05/word-image-2895.png 1239w, /wp-content/uploads/2018/05/word-image-2895-300x90.png 300w, /wp-content/uploads/2018/05/word-image-2895-768x230.png 768w, /wp-content/uploads/2018/05/word-image-2895-1024x307.png 1024w" sizes="(max-width: 1239px) 100vw, 1239px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="647" height="358" src="/wp-content/uploads/2018/05/word-image-2896.png" class="wp-image-3287" srcset="/wp-content/uploads/2018/05/word-image-2896.png 647w, /wp-content/uploads/2018/05/word-image-2896-300x166.png 300w" sizes="(max-width: 647px) 100vw, 647px" /></p>
+<ol>
+<li>
+  注意小的细节：在php里面如果要把一个复合数据类型，里面的中文，转换成json格式字符串，php里面的复合数据类型必须是utf-8的编码。并且转换后的中文数据使用的16进制Unicode编码。同时如果这个时候不希望将中文字符转换为16进制的编码该如何处理呢？
+</li>
+</ol>
+<p><a href="http://www.laruence.com/2011/10/10/2239.html">http://www.laruence.com/2011/10/10/2239.html</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1134" height="660" src="/wp-content/uploads/2018/05/word-image-2897.png" class="wp-image-3288" srcset="/wp-content/uploads/2018/05/word-image-2897.png 1134w, /wp-content/uploads/2018/05/word-image-2897-300x175.png 300w, /wp-content/uploads/2018/05/word-image-2897-768x447.png 768w, /wp-content/uploads/2018/05/word-image-2897-1024x596.png 1024w" sizes="(max-width: 1134px) 100vw, 1134px" /></p>
+<p>
+  效果：
+</p>
+<p><img loading="lazy" decoding="async" width="1246" height="245" src="/wp-content/uploads/2018/05/word-image-2898.png" class="wp-image-3289" srcset="/wp-content/uploads/2018/05/word-image-2898.png 1246w, /wp-content/uploads/2018/05/word-image-2898-300x59.png 300w, /wp-content/uploads/2018/05/word-image-2898-768x151.png 768w, /wp-content/uploads/2018/05/word-image-2898-1024x201.png 1024w" sizes="(max-width: 1246px) 100vw, 1246px" /></p>
+<p><strong>注意：如果中文使用的gb2312编码保存的，则转换不成功。</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="1147" height="934" src="/wp-content/uploads/2018/05/word-image-2899.png" class="wp-image-3290" srcset="/wp-content/uploads/2018/05/word-image-2899.png 1147w, /wp-content/uploads/2018/05/word-image-2899-300x244.png 300w, /wp-content/uploads/2018/05/word-image-2899-768x625.png 768w, /wp-content/uploads/2018/05/word-image-2899-1024x834.png 1024w" sizes="(max-width: 1147px) 100vw, 1147px" /></p>
+<p>
+  效果：
+</p>
+<p><img loading="lazy" decoding="async" width="799" height="179" src="/wp-content/uploads/2018/05/word-image-2900.png" class="wp-image-3291" srcset="/wp-content/uploads/2018/05/word-image-2900.png 799w, /wp-content/uploads/2018/05/word-image-2900-300x67.png 300w, /wp-content/uploads/2018/05/word-image-2900-768x172.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+<p>
+  总结：在使用json_encode做复合数据类型转换的时候，如果数据里面存在中文，则必须是utf-8的编码，如果不是，则准换不成功。（千万注意：公司的老的项目使用的是gb2312编码的，这个时候在做接口处理的时候，特别注意，需要把gb2312转换成utf-8编码）。
+</p>
+<p>
+  4. 在php里面如果要把一个复合数据类型，里面的中文转换成json格式字符串，php里面的复合数据类型必须是utf-8的编码。并且转换后的中文数据使用的16进制Unicode编码。同时如果这个时候不希望将中文字符转换为16进制的编码该如何处理呢？
+</p>
+<p><a href="http://www.laruence.com/2011/10/10/2239.html">http://www.laruence.com/2011/10/10/2239.html</a>
+</p>
+<p>
+  代码：
+</p>
+<p>
+  	header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  	$data = array(&#8216;name&#8217;=&gt; &#8216;中文&#8217;);
+</p>
+<p>
+  	echo json_encode($data, <strong>JSON_UNESCAPED_UNICODE</strong>);
+</p>
+<p>
+  效果：
+</p>
+<p><img loading="lazy" decoding="async" width="496" height="121" src="/wp-content/uploads/2018/05/word-image-2901.png" class="wp-image-3292" srcset="/wp-content/uploads/2018/05/word-image-2901.png 496w, /wp-content/uploads/2018/05/word-image-2901-300x73.png 300w" sizes="(max-width: 496px) 100vw, 496px" /></p>
+<h2><a id="post-3244-_Toc17254"></a>④-js里面如何处理json格式的数据？</h2>
+<ol>
+<li>
+  如何把js里面的复合数据类型转换成json格式的数据？
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="941" height="501" src="/wp-content/uploads/2018/05/word-image-2902.png" class="wp-image-3293" srcset="/wp-content/uploads/2018/05/word-image-2902.png 941w, /wp-content/uploads/2018/05/word-image-2902-300x160.png 300w, /wp-content/uploads/2018/05/word-image-2902-768x409.png 768w" sizes="(max-width: 941px) 100vw, 941px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="580" height="179" src="/wp-content/uploads/2018/05/word-image-2903.png" class="wp-image-3294" srcset="/wp-content/uploads/2018/05/word-image-2903.png 580w, /wp-content/uploads/2018/05/word-image-2903-300x93.png 300w" sizes="(max-width: 580px) 100vw, 580px" /></p>
+<ol>
+<li>
+  如何把json格式的数据转换成js里面的复合数据类型？
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="889" height="234" src="/wp-content/uploads/2018/05/word-image-2904.png" class="wp-image-3295" srcset="/wp-content/uploads/2018/05/word-image-2904.png 889w, /wp-content/uploads/2018/05/word-image-2904-300x79.png 300w, /wp-content/uploads/2018/05/word-image-2904-768x202.png 768w" sizes="(max-width: 889px) 100vw, 889px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="358" height="103" src="/wp-content/uploads/2018/05/word-image-2905.png" class="wp-image-3296" srcset="/wp-content/uploads/2018/05/word-image-2905.png 358w, /wp-content/uploads/2018/05/word-image-2905-300x86.png 300w" sizes="(max-width: 358px) 100vw, 358px" /></p>
+<p><strong><s>注意：也可以使用eval 转换（eval可以执行一个满足js语法格式的字符串）</s></strong>
+</p>
+<p><img loading="lazy" decoding="async" width="911" height="235" src="/wp-content/uploads/2018/05/word-image-2906.png" class="wp-image-3297" srcset="/wp-content/uploads/2018/05/word-image-2906.png 911w, /wp-content/uploads/2018/05/word-image-2906-300x77.png 300w, /wp-content/uploads/2018/05/word-image-2906-768x198.png 768w" sizes="(max-width: 911px) 100vw, 911px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="503" height="66" src="/wp-content/uploads/2018/05/word-image-2907.png" class="wp-image-3298" srcset="/wp-content/uploads/2018/05/word-image-2907.png 503w, /wp-content/uploads/2018/05/word-image-2907-300x39.png 300w" sizes="(max-width: 503px) 100vw, 503px" /></p>
+<p>
+  网站：<a href="https://www.zhihu.com/question/19884767">https://www.zhihu.com/question/19884767</a>
+</p>
+<ol>
+<li>
+  在jQuery里面也提供对应的转换函数，遍历函数
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1444" height="806" src="/wp-content/uploads/2018/05/word-image-2908.png" class="wp-image-3299" srcset="/wp-content/uploads/2018/05/word-image-2908.png 1444w, /wp-content/uploads/2018/05/word-image-2908-300x167.png 300w, /wp-content/uploads/2018/05/word-image-2908-768x429.png 768w, /wp-content/uploads/2018/05/word-image-2908-1024x572.png 1024w" sizes="(max-width: 1444px) 100vw, 1444px" /></p>
+<ol>
+<li>
+  json2.js文件，可以在js里面把对象和字符串相互的转换（ JSON.parse 和 JSON.stringify 一样，只是做了一个浏览器的兼容性处理，一般在自己的项目的html文件，引入该文件即可，自己会做兼容操作：如果低版本的浏览器不存在JSON.parse 和 JSON.stringify 则使用json2.js文件里面提供的；如果浏览器存在两个方法，则使用浏览器本身提供的方法处理）
+</li>
+</ol>
+<p>
+  网站：<a href="https://github.com/douglascrockford/JSON-js" class="broken_link">https://github.com/douglascrockford/JSON-js</a>
+</p>
+<p><img loading="lazy" decoding="async" width="420" height="161" src="/wp-content/uploads/2018/05/word-image-2909.png" class="wp-image-3300" srcset="/wp-content/uploads/2018/05/word-image-2909.png 420w, /wp-content/uploads/2018/05/word-image-2909-300x115.png 300w" sizes="(max-width: 420px) 100vw, 420px" /></p>
+<h1><a id="post-3244-_Toc20909"></a>Ajax之文件上传</h1>
+<p>
+  文章：<a href="http://www.ruanyifeng.com/blog/2012/09/xmlhttprequest_level_2.html">http://www.ruanyifeng.com/blog/2012/09/xmlhttprequest_level_2.html</a>
+</p>
+<p>
+    <a href="http://blog.csdn.net/inuyasha1121/article/details/51915742">http://blog.csdn.net/inuyasha1121/article/details/51915742</a>
+</p>
+<h2><a id="post-3244-_Toc32301"></a>①-简介</h2>
+<ol>
+<li>
+  使用Ajax实现文件的上传，但是这个标准只在w3c高版本的浏览器里面有实现，是属于一个ajax level2的标准。在低版本的IE里面是不兼容的。
+</li>
+</ol>
+<p>
+  网站：<a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData">https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData</a>
+</p>
+<ol>
+<li>
+  在使用Ajax做文件上传的时候，需要借助一个FormData对象，这个对象具有收集表单数据的能力，可以收集表单里面普通的数据，也可以收集文件信息。可以参考下面提供的文件。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="732" height="298" src="/wp-content/uploads/2018/05/word-image-2910.png" class="wp-image-3301" srcset="/wp-content/uploads/2018/05/word-image-2910.png 732w, /wp-content/uploads/2018/05/word-image-2910-300x122.png 300w" sizes="(max-width: 732px) 100vw, 732px" /></p>
+<h2><a id="post-3244-_Toc24865"></a>②-FormData对象简单使用</h2>
+<p>
+  在ajax里面做无刷新文件上传之前，我们需要先了解一个叫做FormData对象，然后这个对象可以帮我们去收集表单的数据（1. 基本数据 text 2. 可以收集上传文件）。
+</p>
+<ol>
+<li>
+  设计一个如下的注册的表单（收集基本数据 text password）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1844" height="993" src="/wp-content/uploads/2018/05/word-image-2911.png" class="wp-image-3302" srcset="/wp-content/uploads/2018/05/word-image-2911.png 1844w, /wp-content/uploads/2018/05/word-image-2911-300x162.png 300w, /wp-content/uploads/2018/05/word-image-2911-768x414.png 768w, /wp-content/uploads/2018/05/word-image-2911-1024x551.png 1024w" sizes="(max-width: 1844px) 100vw, 1844px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="1190" height="572" src="/wp-content/uploads/2018/05/word-image-2912.png" class="wp-image-3303" srcset="/wp-content/uploads/2018/05/word-image-2912.png 1190w, /wp-content/uploads/2018/05/word-image-2912-300x144.png 300w, /wp-content/uploads/2018/05/word-image-2912-768x369.png 768w, /wp-content/uploads/2018/05/word-image-2912-1024x492.png 1024w" sizes="(max-width: 1190px) 100vw, 1190px" /></p>
+<ol>
+<li>
+  利用FormData对象收集表单数据，然后使用Ajax技术发送给后台
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1770" height="1001" src="/wp-content/uploads/2018/05/word-image-2913.png" class="wp-image-3304" srcset="/wp-content/uploads/2018/05/word-image-2913.png 1770w, /wp-content/uploads/2018/05/word-image-2913-300x170.png 300w, /wp-content/uploads/2018/05/word-image-2913-768x434.png 768w, /wp-content/uploads/2018/05/word-image-2913-1024x579.png 1024w" sizes="(max-width: 1770px) 100vw, 1770px" /><br />
+<img loading="lazy" decoding="async" width="1775" height="633" src="/wp-content/uploads/2018/05/word-image-2914.png" class="wp-image-3305" srcset="/wp-content/uploads/2018/05/word-image-2914.png 1775w, /wp-content/uploads/2018/05/word-image-2914-300x107.png 300w, /wp-content/uploads/2018/05/word-image-2914-768x274.png 768w, /wp-content/uploads/2018/05/word-image-2914-1024x365.png 1024w" sizes="(max-width: 1775px) 100vw, 1775px" /></p>
+<p><strong> 注意：</strong>在使用FormData对象收集表单数据，使用Ajax发送POST请求的时候，<strong>不要设置请求头</strong>，如果设置，在服务器端，则无法正常收集post提交的数据信息。
+</p>
+<ol>
+<li>
+  服务器定义一个 register.php 文件，接收ajax请求
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1410" height="1016" src="/wp-content/uploads/2018/05/word-image-2915.png" class="wp-image-3306" srcset="/wp-content/uploads/2018/05/word-image-2915.png 1410w, /wp-content/uploads/2018/05/word-image-2915-300x216.png 300w, /wp-content/uploads/2018/05/word-image-2915-768x553.png 768w, /wp-content/uploads/2018/05/word-image-2915-1024x738.png 1024w" sizes="(max-width: 1410px) 100vw, 1410px" /></p>
+<h2><a id="post-3244-_Toc4125"></a>③-文件上传-显示进度条效果</h2>
+<p>
+  进度条效果
+</p>
+<p><img loading="lazy" decoding="async" width="1663" height="314" src="/wp-content/uploads/2018/05/word-image-2916.png" class="wp-image-3307" srcset="/wp-content/uploads/2018/05/word-image-2916.png 1663w, /wp-content/uploads/2018/05/word-image-2916-300x57.png 300w, /wp-content/uploads/2018/05/word-image-2916-768x145.png 768w, /wp-content/uploads/2018/05/word-image-2916-1024x193.png 1024w" sizes="(max-width: 1663px) 100vw, 1663px" /></p>
+<p>
+  需求分析：
+</p>
+<p><img loading="lazy" decoding="async" width="1537" height="547" src="/wp-content/uploads/2018/05/word-image-2917.png" class="wp-image-3308" srcset="/wp-content/uploads/2018/05/word-image-2917.png 1537w, /wp-content/uploads/2018/05/word-image-2917-300x107.png 300w, /wp-content/uploads/2018/05/word-image-2917-768x273.png 768w, /wp-content/uploads/2018/05/word-image-2917-1024x364.png 1024w" sizes="(max-width: 1537px) 100vw, 1537px" /></p>
+<ol>
+<li>
+  由于我们上传要显示进度条，文件一般都是很大的文件，所以需要修改post上传数据的大小。
+</li>
+<li>
+  整个表单提交的大小
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1019" height="377" src="/wp-content/uploads/2018/05/word-image-2918.png" class="wp-image-3309" srcset="/wp-content/uploads/2018/05/word-image-2918.png 1019w, /wp-content/uploads/2018/05/word-image-2918-300x111.png 300w, /wp-content/uploads/2018/05/word-image-2918-768x284.png 768w" sizes="(max-width: 1019px) 100vw, 1019px" /></p>
+<p>
+  b. 单个文件提供的大小
+</p>
+<p><img loading="lazy" decoding="async" width="821" height="167" src="/wp-content/uploads/2018/05/word-image-2919.png" class="wp-image-3310" srcset="/wp-content/uploads/2018/05/word-image-2919.png 821w, /wp-content/uploads/2018/05/word-image-2919-300x61.png 300w, /wp-content/uploads/2018/05/word-image-2919-768x156.png 768w" sizes="(max-width: 821px) 100vw, 821px" /></p>
+<ol>
+<li>
+  创建一个上传文件的表单页面
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1754" height="1000" src="/wp-content/uploads/2018/05/word-image-2920.png" class="wp-image-3311" srcset="/wp-content/uploads/2018/05/word-image-2920.png 1754w, /wp-content/uploads/2018/05/word-image-2920-300x171.png 300w, /wp-content/uploads/2018/05/word-image-2920-768x438.png 768w, /wp-content/uploads/2018/05/word-image-2920-1024x584.png 1024w" sizes="(max-width: 1754px) 100vw, 1754px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="1543" height="405" src="/wp-content/uploads/2018/05/word-image-2921.png" class="wp-image-3312" srcset="/wp-content/uploads/2018/05/word-image-2921.png 1543w, /wp-content/uploads/2018/05/word-image-2921-300x79.png 300w, /wp-content/uploads/2018/05/word-image-2921-768x202.png 768w, /wp-content/uploads/2018/05/word-image-2921-1024x269.png 1024w" sizes="(max-width: 1543px) 100vw, 1543px" /></p>
+<ol>
+<li>
+  使用Ajax做文件上传的时候，我们需要不断得知文件已经上传文件的大小和文件总大小的一个百分比。</p>
+<ol>
+<li>
+    (loaded  size )/ ( total  size) 等于小的div宽度的百分比
+  </li>
+<li>
+    如何获取文件已经上传的大小和总大小？
+  </li>
+</ol>
+</li>
+</ol>
+<p>
+  答：利用Ajax leval2 第一个新的方法（在这个Ajax对象上面存在一个upload属性，属性里面存在一个onprocess属性，可以这个属性设置一个回调函数，这个回调函数，会在有文件上传的时候，距离一定的间隔进行触发调用）
+</p>
+<p><img loading="lazy" decoding="async" width="1721" height="1015" src="/wp-content/uploads/2018/05/word-image-2922.png" class="wp-image-3313" srcset="/wp-content/uploads/2018/05/word-image-2922.png 1721w, /wp-content/uploads/2018/05/word-image-2922-300x177.png 300w, /wp-content/uploads/2018/05/word-image-2922-768x453.png 768w, /wp-content/uploads/2018/05/word-image-2922-1024x604.png 1024w" sizes="(max-width: 1721px) 100vw, 1721px" /></p>
+<ol>
+<li>
+  在浏览器使用ajax完成图片上传
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1742" height="1002" src="/wp-content/uploads/2018/05/word-image-2923.png" class="wp-image-3314" srcset="/wp-content/uploads/2018/05/word-image-2923.png 1742w, /wp-content/uploads/2018/05/word-image-2923-300x173.png 300w, /wp-content/uploads/2018/05/word-image-2923-768x442.png 768w, /wp-content/uploads/2018/05/word-image-2923-1024x589.png 1024w" sizes="(max-width: 1742px) 100vw, 1742px" /><br />
+<img loading="lazy" decoding="async" width="1771" height="694" src="/wp-content/uploads/2018/05/word-image-2924.png" class="wp-image-3315" srcset="/wp-content/uploads/2018/05/word-image-2924.png 1771w, /wp-content/uploads/2018/05/word-image-2924-300x118.png 300w, /wp-content/uploads/2018/05/word-image-2924-768x301.png 768w, /wp-content/uploads/2018/05/word-image-2924-1024x401.png 1024w" sizes="(max-width: 1771px) 100vw, 1771px" /></p>
+<ol>
+<li>
+  定义一个register.php文件，接收ajax请求，完成上传
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1410" height="1016" src="/wp-content/uploads/2018/05/word-image-2925.png" class="wp-image-3316" srcset="/wp-content/uploads/2018/05/word-image-2925.png 1410w, /wp-content/uploads/2018/05/word-image-2925-300x216.png 300w, /wp-content/uploads/2018/05/word-image-2925-768x553.png 768w, /wp-content/uploads/2018/05/word-image-2925-1024x738.png 1024w" sizes="(max-width: 1410px) 100vw, 1410px" /></p>
+<p>
+  6. 效果
+</p>
+<p><img loading="lazy" decoding="async" width="654" height="270" src="/wp-content/uploads/2018/05/word-image-2926.png" class="wp-image-3317" srcset="/wp-content/uploads/2018/05/word-image-2926.png 654w, /wp-content/uploads/2018/05/word-image-2926-300x124.png 300w" sizes="(max-width: 654px) 100vw, 654px" /></p>
+<h2>④-上传插件</h2>
+<p>
+  现在一般来说我们很少自己使用ajax进行文件上传，一般都使用现成插件进行完成。底层的原理使用的 FormData 对象 + ajax ，注意，如果是低版本的IE浏览器也需要做无刷新文件上传，则FormData对象不能在使用，则我们可以使用 iframe技术进行无刷新上传。
+</p>
+<p>
+  插件：
+</p>
+<ol>
+<li>
+  百度出的 webuploader
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1700" height="437" src="/wp-content/uploads/2018/05/word-image-2927.png" class="wp-image-3318" srcset="/wp-content/uploads/2018/05/word-image-2927.png 1700w, /wp-content/uploads/2018/05/word-image-2927-300x77.png 300w, /wp-content/uploads/2018/05/word-image-2927-768x197.png 768w, /wp-content/uploads/2018/05/word-image-2927-1024x263.png 1024w" sizes="(max-width: 1700px) 100vw, 1700px" /></p>
+<ol>
+<li>
+  zyupload
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="850" height="659" src="/wp-content/uploads/2018/05/word-image-2928.png" class="wp-image-3319" srcset="/wp-content/uploads/2018/05/word-image-2928.png 850w, /wp-content/uploads/2018/05/word-image-2928-300x233.png 300w, /wp-content/uploads/2018/05/word-image-2928-768x595.png 768w" sizes="(max-width: 850px) 100vw, 850px" /></p>
+<h1><a id="post-3244-_Toc2063"></a>Ajax跨域问题 </h1>
+<h2><a id="post-3244-_Toc11317"></a>①-什么是跨域？</h2>
+<p>
+  答：当使用Ajax技术去请求本域名的资源信息的时候，是可以直接请求的。但是如果去别的域名的资源信息的时候，这个时候由于浏览器的一个同源政策的限定，是不允许直接去获取别的域名下的资源信息。
+</p>
+<p>
+  例如：<a href="http://www.sinsea.cn/index.html(ajax)" class="broken_link">www.sinsea.cn/index.html(ajax)</a> &#8212;&#8212;&#8212;&#8212;&#8212;&gt;http://www.tngou.net/doc/food(提供的一个接口)
+</p>
+</p>
+<p>
+  上面的这种请求就是一个跨域请求。
+</p>
+<p><img loading="lazy" decoding="async" width="1908" height="624" src="/wp-content/uploads/2018/05/word-image-2929.png" class="wp-image-3320" srcset="/wp-content/uploads/2018/05/word-image-2929.png 1908w, /wp-content/uploads/2018/05/word-image-2929-300x98.png 300w, /wp-content/uploads/2018/05/word-image-2929-768x251.png 768w, /wp-content/uploads/2018/05/word-image-2929-1024x335.png 1024w" sizes="(max-width: 1908px) 100vw, 1908px" /></p>
+<h2><a id="post-3244-_Toc3011"></a>②-浏览器的同源政策是什么？</h2>
+<p>
+  答：现代的浏览器默认只能让Ajax去请求本域名里面的资源信息，如果要请求域名的资源信息，则是不允许的。（备注：严格是是允许请求，但是请求后，会把响应的数据丢弃掉）
+</p>
+<p>
+  为什么浏览器存在同源政策的限定？
+</p>
+<p>
+  答：主要是为了安全。但是由于现在的项目融合比较多，肯定存在跨域的需求。
+</p>
+<h2><a id="post-3244-_Toc31054"></a>③-跨域示例</h2>
+<p><img loading="lazy" decoding="async" width="1908" height="624" src="/wp-content/uploads/2018/05/word-image-2930.png" class="wp-image-3321" srcset="/wp-content/uploads/2018/05/word-image-2930.png 1908w, /wp-content/uploads/2018/05/word-image-2930-300x98.png 300w, /wp-content/uploads/2018/05/word-image-2930-768x251.png 768w, /wp-content/uploads/2018/05/word-image-2930-1024x335.png 1024w" sizes="(max-width: 1908px) 100vw, 1908px" /></p>
+<p>
+  本域名：local.php.com
+</p>
+<p>
+  请求域名：local.test.com
+</p>
+<p>
+  两个域名不是同一个域。则使用ajax请求就会报错。
+</p>
+<h2><a id="post-3244-_Toc31613"></a>④-跨域成熟的解决方案</h2>
+<p>
+  对于Ajax的跨域成熟的解决方案存在如下三种：
+</p>
+<ol>
+<li>
+  jsonp技术【最早技术来解决，比ajax还早】
+</li>
+<li>
+  同域代理【需要自己服务器进行处理】
+</li>
+<li>
+  cors 响应头【缺陷 HTML5新标准，现代浏览器才支持】
+</li>
+</ol>
+<p>
+  目前使用最多应该是jsonp技术。其次就是同域代理。最后cors设置
+</p>
+<h3><a id="post-3244-_Toc1582"></a>jsonp的原理-只支持get方式-需要目标网站支持</h3>
+<p><strong>简介</strong>
+</p>
+<ol>
+<li>
+  由于同源政策的限定，Ajax是没办法直接请求别的域名的资源信息
+</li>
+<li>
+  但是img script 等标签，可以发送网络请求，这些标签不受同源政策的限定
+</li>
+<li>
+  我们可以动态去创造一个script标签，然后把它的src设置我们请求的地址，然后请求的时候还传递一些参数（传递一个叫做callback参数）
+</li>
+<li>
+  请求的目标站，接受请求，过滤参数，对对应的数据格式化成json【把格式化后的json数据放置在传递过程中传递的一个叫做callback的回调函数里面】，然后在进行响应。
+</li>
+</ol>
+<p>
+  注意：jsonp只能完成get请求，同时jsonp需要目标网站的支持（把需要返回的数据填充在一个callback的回调函数里面）。
+</p>
+<p>
+  uuid相关资料：
+</p>
+<p><a href="http://www.jianshu.com/u/811a3c46491e">http://www.jianshu.com/u/811a3c46491e</a>
+</p>
+<p><strong>功能需求</strong>
+</p>
+<p>
+  请求历史上的今天进行数据获取
+</p>
+<p>
+  API接口：
+</p>
+<p><a href="https://api.asilu.com/">https://api.asilu.com/</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1475" height="758" src="/wp-content/uploads/2018/05/word-image-2931.png" class="wp-image-3322" srcset="/wp-content/uploads/2018/05/word-image-2931.png 1475w, /wp-content/uploads/2018/05/word-image-2931-300x154.png 300w, /wp-content/uploads/2018/05/word-image-2931-768x395.png 768w, /wp-content/uploads/2018/05/word-image-2931-1024x526.png 1024w" sizes="(max-width: 1475px) 100vw, 1475px" /></p>
+<p>
+  历史上的今天：
+</p>
+<p><a href="https://api.asilu.com/today/todayonhistory/">https://api.asilu.com/today/todayonhistory/</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1220" height="805" src="/wp-content/uploads/2018/05/word-image-2932.png" class="wp-image-3323" srcset="/wp-content/uploads/2018/05/word-image-2932.png 1220w, /wp-content/uploads/2018/05/word-image-2932-300x198.png 300w, /wp-content/uploads/2018/05/word-image-2932-768x507.png 768w, /wp-content/uploads/2018/05/word-image-2932-1024x676.png 1024w" sizes="(max-width: 1220px) 100vw, 1220px" /></p>
+<p><strong>实操</strong>
+</p>
+<ol>
+<li>
+  在自己网站定义一个页面，使用jsonp完成网络请求
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1540" height="640" src="/wp-content/uploads/2018/05/word-image-2933.png" class="wp-image-3324" srcset="/wp-content/uploads/2018/05/word-image-2933.png 1540w, /wp-content/uploads/2018/05/word-image-2933-300x125.png 300w, /wp-content/uploads/2018/05/word-image-2933-768x319.png 768w, /wp-content/uploads/2018/05/word-image-2933-1024x426.png 1024w" sizes="(max-width: 1540px) 100vw, 1540px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="1478" height="385" src="/wp-content/uploads/2018/05/word-image-2934.png" class="wp-image-3325" srcset="/wp-content/uploads/2018/05/word-image-2934.png 1478w, /wp-content/uploads/2018/05/word-image-2934-300x78.png 300w, /wp-content/uploads/2018/05/word-image-2934-768x200.png 768w, /wp-content/uploads/2018/05/word-image-2934-1024x267.png 1024w" sizes="(max-width: 1478px) 100vw, 1478px" /></p>
+<ol>
+<li>
+  引入jsonp.js文件，使用jsonp进行数据请求
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1704" height="967" src="/wp-content/uploads/2018/05/word-image-2935.png" class="wp-image-3326" srcset="/wp-content/uploads/2018/05/word-image-2935.png 1704w, /wp-content/uploads/2018/05/word-image-2935-300x170.png 300w, /wp-content/uploads/2018/05/word-image-2935-768x436.png 768w, /wp-content/uploads/2018/05/word-image-2935-1024x581.png 1024w" sizes="(max-width: 1704px) 100vw, 1704px" /></p>
+<p>
+  3. 效果
+</p>
+<p><img loading="lazy" decoding="async" width="1625" height="914" src="/wp-content/uploads/2018/05/word-image-2936.png" class="wp-image-3327" srcset="/wp-content/uploads/2018/05/word-image-2936.png 1625w, /wp-content/uploads/2018/05/word-image-2936-300x169.png 300w, /wp-content/uploads/2018/05/word-image-2936-768x432.png 768w, /wp-content/uploads/2018/05/word-image-2936-1024x576.png 1024w" sizes="(max-width: 1625px) 100vw, 1625px" /></p>
+<h3><a id="post-3244-_Toc7504"></a>同域代理</h3>
+<p>
+  由于jsonp的技术需要目标网站的支持完成get请求，然后才可以完成请求。现在可以在自己的域名下创建一个动态的脚本文件.php（服务器端不受同源政策的限定），让这个php文件帮我们发送目标网站的请求。
+</p>
+<p>
+  原理图：
+</p>
+<p><img loading="lazy" decoding="async" width="843" height="241" src="/wp-content/uploads/2018/05/word-image-2937.png" class="wp-image-3328" srcset="/wp-content/uploads/2018/05/word-image-2937.png 843w, /wp-content/uploads/2018/05/word-image-2937-300x86.png 300w, /wp-content/uploads/2018/05/word-image-2937-768x220.png 768w" sizes="(max-width: 843px) 100vw, 843px" /></p>
+<p>
+  场景：
+</p>
+<p>
+  1. A域名希望通过Ajax请求B域名接口提供的天气信息，直接请求存在跨域，肯定是不允许的
+</p>
+<p>
+  2. A域名的Ajax可以先请求A域名的一个动态的脚本文本（携带一个参数？请求的B域名目标网站），让该脚本文件帮我们请求B域名的接口，然后请求完成后，把数据进行返回给本域名Ａ
+</p>
+<p>
+  3. A域名就可以通过中间的PHP脚本获取到数据
+</p>
+<p>
+  4.  中间的服务器充当的是一个代理人
+</p>
+<p>
+  代码：
+</p>
+<p>
+  A域名的Ajax请求
+</p>
+<p><img loading="lazy" decoding="async" width="1767" height="817" src="/wp-content/uploads/2018/05/word-image-2938.png" class="wp-image-3329" srcset="/wp-content/uploads/2018/05/word-image-2938.png 1767w, /wp-content/uploads/2018/05/word-image-2938-300x139.png 300w, /wp-content/uploads/2018/05/word-image-2938-768x355.png 768w, /wp-content/uploads/2018/05/word-image-2938-1024x473.png 1024w" sizes="(max-width: 1767px) 100vw, 1767px" /></p>
+<p>
+  A域名的代理op.php 进行代理请求
+</p>
+<p><img loading="lazy" decoding="async" width="1689" height="450" src="/wp-content/uploads/2018/05/word-image-2939.png" class="wp-image-3330" srcset="/wp-content/uploads/2018/05/word-image-2939.png 1689w, /wp-content/uploads/2018/05/word-image-2939-300x80.png 300w, /wp-content/uploads/2018/05/word-image-2939-768x205.png 768w, /wp-content/uploads/2018/05/word-image-2939-1024x273.png 1024w" sizes="(max-width: 1689px) 100vw, 1689px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="1518" height="838" src="/wp-content/uploads/2018/05/word-image-2940.png" class="wp-image-3331" srcset="/wp-content/uploads/2018/05/word-image-2940.png 1518w, /wp-content/uploads/2018/05/word-image-2940-300x166.png 300w, /wp-content/uploads/2018/05/word-image-2940-768x424.png 768w, /wp-content/uploads/2018/05/word-image-2940-1024x565.png 1024w" sizes="(max-width: 1518px) 100vw, 1518px" /></p>
+<h3><a id="post-3244-_Toc12664"></a>cors设置响应头-需要注意目前只支持w3c的浏览器</h3>
+<p>
+  网站：<a href="http://www.cnblogs.com/Darren_code/p/cors.html">http://www.cnblogs.com/Darren_code/p/cors.html</a>
+</p>
+<p>
+  网站：<a href="http://www.cnblogs.com/hustskyking/">http://www.cnblogs.com/hustskyking/</a>
+</p>
+<p>
+  网站：<a href="http://www.cnblogs.com/TomXu/">http://www.cnblogs.com/TomXu/</a>
+</p>
+<p>
+  原理：在目标网站设置一个允许访问的响应头。
+</p>
+<p>
+  在B域名的目标网站，设置一个响应头
+</p>
+<p><img loading="lazy" decoding="async" width="1483" height="536" src="/wp-content/uploads/2018/05/word-image-2941.png" class="wp-image-3332" srcset="/wp-content/uploads/2018/05/word-image-2941.png 1483w, /wp-content/uploads/2018/05/word-image-2941-300x108.png 300w, /wp-content/uploads/2018/05/word-image-2941-768x278.png 768w, /wp-content/uploads/2018/05/word-image-2941-1024x370.png 1024w" sizes="(max-width: 1483px) 100vw, 1483px" /></p>
+<p>
+  在A域名可以直接使用Ajax调用B域名的资源信息
+</p>
+<p><img loading="lazy" decoding="async" width="1549" height="735" src="/wp-content/uploads/2018/05/word-image-2942.png" class="wp-image-3333" srcset="/wp-content/uploads/2018/05/word-image-2942.png 1549w, /wp-content/uploads/2018/05/word-image-2942-300x142.png 300w, /wp-content/uploads/2018/05/word-image-2942-768x364.png 768w, /wp-content/uploads/2018/05/word-image-2942-1024x486.png 1024w" sizes="(max-width: 1549px) 100vw, 1549px" /></p>
+<h3>扩展-允许cors进行跨域</h3>
+<p>
+  接口：<a href="https://cnodejs.org/api/v1/topics">https://cnodejs.org/api/v1/topics</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1389" height="928" src="/wp-content/uploads/2018/05/word-image-2943.png" class="wp-image-3334" srcset="/wp-content/uploads/2018/05/word-image-2943.png 1389w, /wp-content/uploads/2018/05/word-image-2943-300x200.png 300w, /wp-content/uploads/2018/05/word-image-2943-768x513.png 768w, /wp-content/uploads/2018/05/word-image-2943-1024x684.png 1024w" sizes="(max-width: 1389px) 100vw, 1389px" /></p>
+<p>
+  总结：
+</p>
+<p>
+  对于ajax跨域，其真实的解决方法只有 cors（响应头）。
+</p>
+<p>
+  用的 jsonp 、同域代理（解决ajax不能跨域的一种方案）。
+</p>
+<h1>功能-自己实现</h1>
+<p>
+  头条网站接口：
+</p>
+<p><a href="http://v.juhe.cn/toutiao/index?type=&amp;key=d0c418c9d5324a8ddf197e85c3dc9c5a">http://v.juhe.cn/toutiao/index?type=&amp;key=d0c418c9d5324a8ddf197e85c3dc9c5a</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1503" height="808" src="/wp-content/uploads/2018/05/word-image-2944.png" class="wp-image-3335" srcset="/wp-content/uploads/2018/05/word-image-2944.png 1503w, /wp-content/uploads/2018/05/word-image-2944-300x161.png 300w, /wp-content/uploads/2018/05/word-image-2944-768x413.png 768w, /wp-content/uploads/2018/05/word-image-2944-1024x550.png 1024w" sizes="(max-width: 1503px) 100vw, 1503px" /></p>
+<p>
+  不支持 jsonp 也不支持 cors 。那么只能进行同域代理。
+</p>
+<h2>效果</h2>
+<p><img loading="lazy" decoding="async" width="1796" height="1001" src="/wp-content/uploads/2018/05/word-image-2945.png" class="wp-image-3336" srcset="/wp-content/uploads/2018/05/word-image-2945.png 1796w, /wp-content/uploads/2018/05/word-image-2945-300x167.png 300w, /wp-content/uploads/2018/05/word-image-2945-768x428.png 768w, /wp-content/uploads/2018/05/word-image-2945-1024x571.png 1024w" sizes="(max-width: 1796px) 100vw, 1796px" /></p>
+<h1>加载更多</h1>
+<p><img loading="lazy" decoding="async" width="1619" height="975" src="/wp-content/uploads/2018/05/word-image-2946.png" class="wp-image-3337" srcset="/wp-content/uploads/2018/05/word-image-2946.png 1619w, /wp-content/uploads/2018/05/word-image-2946-300x181.png 300w, /wp-content/uploads/2018/05/word-image-2946-768x463.png 768w, /wp-content/uploads/2018/05/word-image-2946-1024x617.png 1024w" sizes="(max-width: 1619px) 100vw, 1619px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3244.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

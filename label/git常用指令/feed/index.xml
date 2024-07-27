@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>git常用指令 &#8211; 个人随笔</title>
+	<atom:link href="/label/git%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 23 Jun 2018 11:00:49 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>git常用指令 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>GitHub（二）Git与Svn区别、安装GIT、创建仓库、克隆仓库至本地、Git工作流、Git常用指令、ssh协议创建私钥好公钥、GIt分支、创建标签（版本号）、搭建Git服务器</title>
+		<link>/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6/8662.html</link>
+					<comments>/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6/8662.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 10:01:03 +0000</pubDate>
+				<category><![CDATA[GIT]]></category>
+		<category><![CDATA[版本控制]]></category>
+		<category><![CDATA[git与svn区别]]></category>
+		<category><![CDATA[GIt分支]]></category>
+		<category><![CDATA[Git工作流]]></category>
+		<category><![CDATA[git常用指令]]></category>
+		<category><![CDATA[ssh协议创建私钥好公钥]]></category>
+		<category><![CDATA[克隆仓库至本地]]></category>
+		<category><![CDATA[创建仓库]]></category>
+		<category><![CDATA[创建标签（版本号）]]></category>
+		<category><![CDATA[安装GIT]]></category>
+		<category><![CDATA[搭建Git服务器]]></category>
+		<guid isPermaLink="false">/?p=8662</guid>
+
+					<description><![CDATA[git和svn的区别 svn是集中式的版本控制系统 git是分布式的版本控制系统 集中式： 可以看出svn集中 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>git和svn的区别</h1>
+<p>svn是集中式的版本控制系统</p>
+<p>git是分布式的版本控制系统</p>
+<p>集中式：</p>
+<p><img fetchpriority="high" decoding="async" width="881" height="609" class="wp-image-8665" src="/wp-content/uploads/2018/06/word-image-1231.png" srcset="/wp-content/uploads/2018/06/word-image-1231.png 881w, /wp-content/uploads/2018/06/word-image-1231-300x207.png 300w, /wp-content/uploads/2018/06/word-image-1231-768x531.png 768w" sizes="(max-width: 881px) 100vw, 881px" /></p>
+<p>可以看出svn集中式版本控制都是把所有的版本存储在svn服务器中</p>
+<p>且必须要联网到svn服务器才可以进行版本的回退、更新等操作。</p>
+<p>假如哪天svn服务器坏了，那么所有的版本代码都将丢失，也就无法获取代码和回退版本等操作。天啊，这将是一个悲伤的故事！</p>
+<p>如何化悲伤为快乐呢，来看看git如何工作的把！</p>
+<p>分布式：</p>
+<p><img decoding="async" width="829" height="553" class="wp-image-8666" src="/wp-content/uploads/2018/06/word-image-1232.png" srcset="/wp-content/uploads/2018/06/word-image-1232.png 829w, /wp-content/uploads/2018/06/word-image-1232-300x200.png 300w, /wp-content/uploads/2018/06/word-image-1232-768x512.png 768w" sizes="(max-width: 829px) 100vw, 829px" /></p>
+<p>可以看出，使用git,每个电脑都有完整的版本号和日志信息。</p>
+<p>且没有网的时候，git照样可以工作，只是把代码提交到本地，待有网在提交到远程git仓库</p>
+<p>就算哪天git服务器坏了也没事，因为本地仓库都保存了完整的版本。</p>
+<p>github、码云</p>
+<h1>安装git工具</h1>
+<p>git是linux之父李纳斯发明的。</p>
+<p>安装注意自己系统的位数。</p>
+<p><img decoding="async" width="720" height="73" class="wp-image-8667" src="/wp-content/uploads/2018/06/word-image-1233.png" srcset="/wp-content/uploads/2018/06/word-image-1233.png 720w, /wp-content/uploads/2018/06/word-image-1233-300x30.png 300w" sizes="(max-width: 720px) 100vw, 720px" /></p>
+<p>安装的时候选择安装路径即可，然后一路next即可。安装好后鼠标右键会多出以下两个选项，代表git工具安装完成。</p>
+<p><img loading="lazy" decoding="async" width="481" height="151" class="wp-image-8668" src="/wp-content/uploads/2018/06/word-image-1234.png" srcset="/wp-content/uploads/2018/06/word-image-1234.png 481w, /wp-content/uploads/2018/06/word-image-1234-300x94.png 300w" sizes="(max-width: 481px) 100vw, 481px" /></p>
+<h1>在github创建仓库</h1>
+<p>创建仓库比较简单，参考下面的图片即可：</p>
+<p>1、点击加号+，选择New repository新建仓库</p>
+<p><img loading="lazy" decoding="async" width="361" height="72" class="wp-image-8669" src="/wp-content/uploads/2018/06/word-image-1235.png" srcset="/wp-content/uploads/2018/06/word-image-1235.png 361w, /wp-content/uploads/2018/06/word-image-1235-300x60.png 300w" sizes="(max-width: 361px) 100vw, 361px" /></p>
+<p>2、输入创建仓库的信息</p>
+<p><img loading="lazy" decoding="async" width="729" height="586" class="wp-image-8670" src="/wp-content/uploads/2018/06/word-image-1236.png" srcset="/wp-content/uploads/2018/06/word-image-1236.png 729w, /wp-content/uploads/2018/06/word-image-1236-300x241.png 300w" sizes="(max-width: 729px) 100vw, 729px" /></p>
+<p>创建好之后，如下所示：</p>
+<p><img loading="lazy" decoding="async" width="658" height="542" class="wp-image-8671" src="/wp-content/uploads/2018/06/word-image-1237.png" srcset="/wp-content/uploads/2018/06/word-image-1237.png 658w, /wp-content/uploads/2018/06/word-image-1237-300x247.png 300w" sizes="(max-width: 658px) 100vw, 658px" /></p>
+<h1>4、克隆远程仓库代码到本地</h1>
+<p>克隆远程的仓库代码到指定目录:</p>
+<p>命令：git clone 仓库地址 [目录]</p>
+<p>注意：不写目录名称会在当前目录创建一个与github仓库同名的目录</p>
+<p>如下面的指令代表把仓库代码检出到当前目录(./)</p>
+<p>git clone 仓库地址 ./</p>
+<p>仓库地址位于：</p>
+<p><img loading="lazy" decoding="async" width="1054" height="487" class="wp-image-8672" src="/wp-content/uploads/2018/06/word-image-1238.png" srcset="/wp-content/uploads/2018/06/word-image-1238.png 1054w, /wp-content/uploads/2018/06/word-image-1238-300x139.png 300w, /wp-content/uploads/2018/06/word-image-1238-768x355.png 768w, /wp-content/uploads/2018/06/word-image-1238-1024x473.png 1024w" sizes="(max-width: 1054px) 100vw, 1054px" /></p>
+<p>仓库地址有两种协议：https、ssh。后面使用ssh协议可以免去每次推送代码输入密码的烦恼。</p>
+<p>完整命令：git clone <a href="/goto/4rks" rel="nofollow">https://github.com/ww24kobe/test_project.git</a> ./</p>
+<h1>git工作流</h1>
+<p>一个git仓库包含以下三个部分：</p>
+<p>工作区：就是我们电脑里能看到的目录。</p>
+<p>暂存区：英文名叫stage,或index。一般存放在“.git目录”的index文件中。</p>
+<p>版本库：工作区有一个隐藏目录.git,这个不算工作区，而是git的版本库。且自动创建一个 master 分支以及指向分支的 HEAD 指针</p>
+<p><img loading="lazy" decoding="async" width="674" height="323" class="wp-image-8673" src="/wp-content/uploads/2018/06/git.jpeg" alt="git工作流" srcset="/wp-content/uploads/2018/06/git.jpeg 674w, /wp-content/uploads/2018/06/git-300x144.jpeg 300w" sizes="(max-width: 674px) 100vw, 674px" /></p>
+<p>后面众多的git命令，就是在以上三者中互相交叉使用。</p>
+<h1>6、开发中git常用的指令</h1>
+<p><a href="/wp-content/uploads/2018/05/git常用命令速查表.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-8686" src="/wp-content/uploads/2018/05/git常用命令速查表.png" alt="" width="2339" height="1654" srcset="/wp-content/uploads/2018/05/git常用命令速查表.png 2339w, /wp-content/uploads/2018/05/git常用命令速查表-300x212.png 300w, /wp-content/uploads/2018/05/git常用命令速查表-768x543.png 768w, /wp-content/uploads/2018/05/git常用命令速查表-1024x724.png 1024w" sizes="(max-width: 2339px) 100vw, 2339px" /></a></p>
+<ul>
+<li>全局设置：设置提交的用户名和邮箱，用于查看代码是哪些用户提交的，方便排查。</li>
+</ul>
+<p>git config &#8211;global user.name 名字 # 叫啥名字</p>
+<p>git config &#8211;global user.email 邮箱 # 怎么联系你</p>
+<ul>
+<li>在指定目录创建一个git仓库，但要保证此目录一定是空的。</li>
+</ul>
+<p>git init :执行完后会在当前目录生成一个.git的隐藏文件夹</p>
+<p>同时在设置远程仓库的地址：</p>
+<p>git remote add origin url # 设置本地的远程仓库地址</p>
+<ul>
+<li>克隆远程的仓库代码到指定目录:</li>
+</ul>
+<p>git clone url [目录]</p>
+<p>注意：不写目录名称会在当前目录创建一个与github仓库同名的目录</p>
+<p>如下面的指令代表把指定url仓库代码检出到当前目录(./)</p>
+<p>git clone url ./</p>
+<ul>
+<li>添加当前目录的所有文件到暂存区:</li>
+</ul>
+<p>git add .</p>
+<ul>
+<li>查看暂存区状态:</li>
+</ul>
+<p>git status</p>
+<ul>
+<li>提交文件:</li>
+</ul>
+<p>git commit -m ‘备注信息’</p>
+<ul>
+<li>查看提交备注的信息（查看提交记录）</li>
+</ul>
+<p>git log 或者 git reflog 或 git log &#8211;pretty=oneline</p>
+<ul>
+<li>代码版本回退:</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="958" height="59" class="wp-image-8674" src="/wp-content/uploads/2018/06/word-image-1239.png" srcset="/wp-content/uploads/2018/06/word-image-1239.png 958w, /wp-content/uploads/2018/06/word-image-1239-300x18.png 300w, /wp-content/uploads/2018/06/word-image-1239-768x47.png 768w" sizes="(max-width: 958px) 100vw, 958px" /></p>
+<p>git reset &#8211;hard HEAD 回到当前的版本</p>
+<p>git reset &#8211;hard HEAD^ 回到当前的版本前一个版本</p>
+<p>git reset &#8211;hard HEAD^^ 回到当前的版本前两个版本</p>
+<p>git reset &#8211;hard af4542g(使用git log 获取日志的前7位,可以回到指定的版本)</p>
+<ul>
+<li>删除文件</li>
+</ul>
+<p>git rm files</p>
+<ul>
+<li>撤掉修改</li>
+</ul>
+<p>git checkout files</p>
+<ul>
+<li>推送代码到远程服务器:</li>
+</ul>
+<p>git push -u origin master</p>
+<ul>
+<li>修改本地远程仓库地址：</li>
+</ul>
+<p>git remote add origin url # 设置本地的远程仓库地址</p>
+<p>git remote rm origin # 移除本地远程仓库地址</p>
+<ul>
+<li>从远程服务器获取内容:</li>
+</ul>
+<p>git pull orgin master 拉取远程仓库代码并合并</p>
+<p>git fetch orgin master 拉取远程仓库代码不会合并</p>
+<p>远程代码强制覆盖本地代码：</p>
+<p>git pull origin master &#8211;allow-unrelated-histories</p>
+<ul>
+<li>仓库地址</li>
+</ul>
+<p>git remote -v #查看本地的远程仓库路径</p>
+<p>git remote rm origin #移除本地远程仓库地址</p>
+<p>git remote add origin git@github.com:用户名/仓库名.git #设置本地的远程仓库地址</p>
+<h1>7、给ssh协议创建私钥和公钥</h1>
+<p>如果仓库地址使用https的协议，每次提交都会要求输入远程仓库github的用户名和密码，</p>
+<p>如果我们使用ssh协议作为仓库地址的话，并且配置好私钥和公钥，每次提交就会免去输入用户名和密码的烦恼。</p>
+<p>公钥：理解为锁,上传到github中存放着。</p>
+<p>私钥：理解为锁的钥匙，在本地电脑存放着。</p>
+<p>也就是说只有锁的对应钥匙才可以进行提交代码。</p>
+<p>创建ssh私钥和公钥，输入: ssh-keygen -t rsa -C &#8216;邮箱地址&#8217; ，然后一路回车即可，成功之后会在当前用户的目录多出如下的两个文件。</p>
+<p>id.rsa:私钥文件</p>
+<p>id_rsa.pub:公钥文件</p>
+<p><img loading="lazy" decoding="async" width="727" height="365" class="wp-image-8675" src="/wp-content/uploads/2018/06/word-image-1240.png" srcset="/wp-content/uploads/2018/06/word-image-1240.png 727w, /wp-content/uploads/2018/06/word-image-1240-300x151.png 300w" sizes="(max-width: 727px) 100vw, 727px" /></p>
+<p>把id_rsa.pub的公钥内容复制到github上面去，步骤如下：</p>
+<p><img loading="lazy" decoding="async" width="1207" height="657" class="wp-image-8676" src="/wp-content/uploads/2018/06/word-image-1241.png" srcset="/wp-content/uploads/2018/06/word-image-1241.png 1207w, /wp-content/uploads/2018/06/word-image-1241-300x163.png 300w, /wp-content/uploads/2018/06/word-image-1241-768x418.png 768w, /wp-content/uploads/2018/06/word-image-1241-1024x557.png 1024w" sizes="(max-width: 1207px) 100vw, 1207px" /></p>
+<p>添加好后如下所示：</p>
+<p><img loading="lazy" decoding="async" width="1225" height="217" class="wp-image-8677" src="/wp-content/uploads/2018/06/word-image-1242.png" srcset="/wp-content/uploads/2018/06/word-image-1242.png 1225w, /wp-content/uploads/2018/06/word-image-1242-300x53.png 300w, /wp-content/uploads/2018/06/word-image-1242-768x136.png 768w, /wp-content/uploads/2018/06/word-image-1242-1024x181.png 1024w" sizes="(max-width: 1225px) 100vw, 1225px" /></p>
+<p>最后修改远程仓库地址为ssh协议即可：</p>
+<p>git remote -v #查看本地的远程仓库路径</p>
+<p>git remote rm origin #移除本地远程仓库地址</p>
+<p>git remote add origin git@github.com:用户名/仓库名.git #设置本地的远程仓库地址</p>
+<h1>8、git分支</h1>
+<p><a href="/wp-content/uploads/2018/05/git命令流程图解.png"><img loading="lazy" decoding="async" class="aligncenter size-full wp-image-8688" src="/wp-content/uploads/2018/05/git命令流程图解.png" alt="" width="508" height="421" srcset="/wp-content/uploads/2018/05/git命令流程图解.png 508w, /wp-content/uploads/2018/05/git命令流程图解-300x249.png 300w" sizes="(max-width: 508px) 100vw, 508px" /></a></p>
+<p>master分支：每个仓库默认有的分支，主要用来发布代码新版本。</p>
+<p>平常代码的开发在创建的开发分支 dev 上进行。</p>
+<p>开发分支dev开发完毕后，把此分支的代码合并到master 分支，最后再把master分支下的代码推送到远程服务器（即远程仓库github）</p>
+<p>分支有关的指令：</p>
+<ul>
+<li>查看仓库所有的分支:</li>
+</ul>
+<p>git branch</p>
+<ul>
+<li>创建dev分支:</li>
+</ul>
+<p>git branch dev</p>
+<ul>
+<li>切换分支(切换到master分支):</li>
+</ul>
+<p>git checkout master</p>
+<ul>
+<li>合并分支dev到master主分支</li>
+</ul>
+<p>先切换到要合并的分支，再把dev分支合并到当前分支</p>
+<p>git checkout master</p>
+<p>git merge &#8211;no-f dev -m ‘合并的信息’</p>
+<p>注：通过选项&#8211;no-f合并也算一次提交</p>
+<ul>
+<li>删除分支dev:</li>
+</ul>
+<p>git branch -d dev</p>
+<ul>
+<li>提交分支dev:</li>
+</ul>
+<p>git push origin dev</p>
+<p>有关git分支的管理策略：</p>
+<p><img loading="lazy" decoding="async" width="283" height="29" class="wp-image-8678" src="/wp-content/uploads/2018/06/word-image-1243.png" /></p>
+<h1>创建标签（版本号）</h1>
+<ul>
+<li>查看所有标签</li>
+</ul>
+<p>git tag</p>
+<ul>
+<li>创建标签，版本号为1.0， -m 备注信息</li>
+</ul>
+<p>git tag v1.0 -m ‘version 1.0’</p>
+<ul>
+<li>推送本地的所有标签到远程仓库，其他人克隆此仓库或拉取数据同步后，也会看到这些标签。</li>
+</ul>
+<p>git push origin master &#8211;tags</p>
+<h1>搭建git服务器</h1>
+<p>参考简书地址：<a href="/goto/f8cf" rel="nofollow">https://www.jianshu.com/p/e79ea05d9b61</a></p>
+<div>
+<p>环境：<strong>Centos7</strong></p>
+<h2>一、 服务端安装</h2>
+<p>第 1 步：先安装 git 工具<br />
+<code>git -y install git</code><br />
+输入 git 命令测试，若出现相应的提示说明安装成功。</p>
+<p>第 2 步：新建一个用户起名 git<br />
+<code>adduser git</code></p>
+<p>第 3 步：在 / home/git / 目录下创建一个名为. ssh 的文件夹，在其. ssh 目录中新建一个文件名为 authorized_key, 用于后面保存客户端提供的公钥</p>
+<pre class="hljs shell"><code class="shell">cd /home/git
+mkdir .ssh
+touch authorized_key
+</code></pre>
+<p>第 4 步：在 git 用户目录创建一个仓库，名为 project.git, 在初始化此仓库</p>
+<pre class="hljs shell"><code class="shell">cd /home/git
+mkdir project.git
+git init --bare project.git
+</code></pre>
+<p>第 5 步：将 git 用户目录中的仓库和 ssh 目录的所有者和所属组都设置为 git</p>
+<pre class="hljs shell"><code class="shell">cd /home/git
+chown -R git.git project.git/
+chown -R git.git .ssh/
+</code></pre>
+<p>第 6 步：修改 sshd_config 文件，打开 RSA 认证<br />
+<code>vim /etc/ssh/sshd_config</code><br />
+开启三项：</p>
+<pre class="hljs shell"><code class="shell"> RSAAuthentication yes     
+ PubkeyAuthentication yes     
+ AuthorizedKeysFile  .ssh/authorized_keys
+</code></pre>
+<blockquote><p>为了安全，禁止 git 用户进行 shell 登录</p>
+<pre class="hljs shell"><code class="shell">vi /etc/passwd
+注释 ##git:x:1000:1000::/home/git:/bin/bash 
+改为 git:x:1000:1000:git version control:/home/git:/usr/bin/git-shell
+</code></pre>
+</blockquote>
+<p>至此 git 服务端安装完成。<br />
+现在来测试是否安装成功，这里以 window 系统测试为例</p>
+<h2>二、客户端测试</h2>
+<p>需要在客户端安装 git 工具，linux 系统则不需要，window 系统需要<br />
+下载地址：<a href="/goto/5dav" target="_blank" rel="nofollow noopener">https://git-scm.com/download/win</a></p>
+<p>第 1 步：生成私钥和公钥，使用命令 ssh-keygen -t rsa , 一路回车即可，会在当前用户的. ssh 目录生成两个文件：<br />
+私钥：id_rsa<br />
+公钥：id_rsa.pub<br />
+将公钥文件（id_rsa.pub）交给 git 服务器的管理员，会将此公钥内容添加到 authorized_key 文件中，一行一个公钥。</p>
+<p>第 2 步：克隆 git 仓库，到本地目录测试</p>
+<pre class="hljs shell"><code class="shell">git clone git@xxx.xxx.xxx.xxx:/home/git/project.git  ./
+git add .
+git commit -m 'first commit'
+git push
+</code></pre>
+<p>其中 xxx.xxx.xxx.xxx 为 git 服务器的 ip 地址</p>
+<blockquote><p>注：若提示需要密码，则检查上面的公钥和私钥是否配置成功</p>
+<p>Git使用教程.pdf：</p>
+<p>[embeddoc url=&#8221;/wp-content/uploads/2018/05/Git使用教程.pdf&#8221; download=&#8221;all&#8221;]</p>
+<p>Git分支管理策略.pdf：</p>
+<p>[embeddoc url=&#8221;/wp-content/uploads/2018/05/Git分支管理策略.pdf&#8221; download=&#8221;all&#8221;]</p>
+<p>用SourceTree轻松Git项目图解.pdf：</p>
+<p>[embeddoc url=&#8221;/wp-content/uploads/2018/05/用SourceTree轻松Git项目图解.pdf&#8221; download=&#8221;all&#8221;]</p></blockquote>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6/8662.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

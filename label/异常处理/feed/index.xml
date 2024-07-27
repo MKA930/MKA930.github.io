@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>异常处理 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 13:11:37 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>异常处理 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>面向对象编程（四）netbeans、 反射 Reflection、 命名空间、 异常处理、 类、 类别名</title>
+		<link>/php/1707.html</link>
+					<comments>/php/1707.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 12:54:40 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[面向对象]]></category>
+		<category><![CDATA[面向对象编程]]></category>
+		<category><![CDATA[netbeans]]></category>
+		<category><![CDATA[反射 Reflection]]></category>
+		<category><![CDATA[命名空间]]></category>
+		<category><![CDATA[异常处理]]></category>
+		<category><![CDATA[类]]></category>
+		<category><![CDATA[类别名]]></category>
+		<guid isPermaLink="false">/?p=1707</guid>
+
+					<description><![CDATA[面向对象编程（四） 命名空间 命名空间介绍 如果一个项目很大，项目中由很多文件组成，如何有序的组织这些文件就是 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>面向对象编程（四）</h1>
+<h2>命名空间</h2>
+<h3>命名空间介绍</h3>
+<p>
+  如果一个项目很大，项目中由很多文件组成，如何有序的组织这些文件就是一个大问题，PHP提供了命名空间来解决。
+</p>
+<p>
+  多学一招：
+</p>
+<p>
+  C#语言中也是通过“命名空间”来解决的
+</p>
+<p>
+  Java语言通过“包”来解决的。
+</p>
+<h3>命名空间的声明与使用</h3>
+<p>
+  通过namespace来声明命名空间
+</p>
+<p><img fetchpriority="high" decoding="async" width="767" height="278" src="/wp-content/uploads/2018/05/word-image-1493.png" class="wp-image-1709" srcset="/wp-content/uploads/2018/05/word-image-1493.png 767w, /wp-content/uploads/2018/05/word-image-1493-300x109.png 300w" sizes="(max-width: 767px) 100vw, 767px" /></p>
+<h3>多级命名空间</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace China\ShangHai\PuDong;		//多级命名空间
+</p>
+<p>
+  function getInfo() {
+</p>
+<p>
+  	echo &#8216;我是中国人&lt;br&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  namespace USA\Washington;
+</p>
+<p>
+  function getInfo() {
+</p>
+<p>
+  	echo &#8216;I am a America&lt;br&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  //调用
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  getInfo();		//I am a America
+</p>
+<p>
+  \China\ShangHai\PuDong\getInfo();	//我是中国人
+</p>
+<h3>访问空间元素的三种方法</h3>
+<ol>
+<li>
+  非限定名称访问（类似于相对路径）
+</li>
+<li>
+  完全限定名称访问（绝对路径）
+</li>
+<li>
+  【部分】限定名称访问（相对路径）
+</li>
+</ol>
+<p><img decoding="async" width="991" height="341" src="/wp-content/uploads/2018/05/word-image-1494.png" class="wp-image-1710" srcset="/wp-content/uploads/2018/05/word-image-1494.png 991w, /wp-content/uploads/2018/05/word-image-1494-300x103.png 300w, /wp-content/uploads/2018/05/word-image-1494-768x264.png 768w" sizes="(max-width: 991px) 100vw, 991px" /></p>
+<h3>引入命名空间（use）</h3>
+<p><img decoding="async" width="893" height="278" src="/wp-content/uploads/2018/05/word-image-1495.png" class="wp-image-1711" srcset="/wp-content/uploads/2018/05/word-image-1495.png 893w, /wp-content/uploads/2018/05/word-image-1495-300x93.png 300w, /wp-content/uploads/2018/05/word-image-1495-768x239.png 768w" sizes="(max-width: 893px) 100vw, 893px" /></p>
+<p>
+  分析：PuDong\getInfo()如何调用的？
+</p>
+<p>
+  第一步：通过命名空间拼接，拼接成\ USA\Washington\ PuDong\getInfo()，但是在这个地址下找不到此函数，所以继续执行第二步
+</p>
+<p>
+  第二步：由于引入了China\ShangHai\PuDong命名空间，又可以拼接成China\ShangHai\PuDong\ getInfo()，这个地址是可以找到函数的，所以调用此函数。
+</p>
+<h3>引入类（use）</h3>
+<p>
+  通过use关键字引入类
+</p>
+<p><img loading="lazy" decoding="async" width="892" height="427" src="/wp-content/uploads/2018/05/word-image-1496.png" class="wp-image-1712" srcset="/wp-content/uploads/2018/05/word-image-1496.png 892w, /wp-content/uploads/2018/05/word-image-1496-300x144.png 300w, /wp-content/uploads/2018/05/word-image-1496-768x368.png 768w" sizes="(max-width: 892px) 100vw, 892px" /></p>
+<h3>给类取别名（as）</h3>
+<p>
+  如果引入的类和已经存在的类同名，就会报错，我们可以引入类的同时给类取别名
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace China\ShangHai\PuDong;
+</p>
+<p>
+  class Person {
+</p>
+<p>
+  	public $name=&#8217;中国人&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  namespace USA\Washington;
+</p>
+<p>
+  class Person{
+</p>
+<p>
+  	public $name=&#8217;美国人&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  use China\ShangHai\PuDong\Person as P;		//引入类,并给类取别名
+</p>
+<p>
+  $person=new P();
+</p>
+<p>
+  echo $person-&gt;name;		//中国人
+</p>
+<h3>公共命名空间</h3>
+<p>
+  如果PHP文件中没有namespace关键字声明，该文件的元素都在“公共命名空间”下，访问公共命名空间用“\”。
+</p>
+<p><img loading="lazy" decoding="async" width="506" height="123" src="/wp-content/uploads/2018/05/word-image-1497.png" class="wp-image-1713" srcset="/wp-content/uploads/2018/05/word-image-1497.png 506w, /wp-content/uploads/2018/05/word-image-1497-300x73.png 300w" sizes="(max-width: 506px) 100vw, 506px" /></p>
+<h3>命名空间的注意事项</h3>
+<ol>
+<li>
+  命名空间中可以放函数，类，const常量
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="658" height="128" src="/wp-content/uploads/2018/05/word-image-1498.png" class="wp-image-1714" srcset="/wp-content/uploads/2018/05/word-image-1498.png 658w, /wp-content/uploads/2018/05/word-image-1498-300x58.png 300w" sizes="(max-width: 658px) 100vw, 658px" /><br />
+<img loading="lazy" decoding="async" width="922" height="90" src="/wp-content/uploads/2018/05/word-image-1499.png" class="wp-image-1715" srcset="/wp-content/uploads/2018/05/word-image-1499.png 922w, /wp-content/uploads/2018/05/word-image-1499-300x29.png 300w, /wp-content/uploads/2018/05/word-image-1499-768x75.png 768w" sizes="(max-width: 922px) 100vw, 922px" /></p>
+<ol>
+<li>
+  在第一个namespace之前不能有任何的代码，header()也不行。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1106" height="108" src="/wp-content/uploads/2018/05/word-image-1500.png" class="wp-image-1716" srcset="/wp-content/uploads/2018/05/word-image-1500.png 1106w, /wp-content/uploads/2018/05/word-image-1500-300x29.png 300w, /wp-content/uploads/2018/05/word-image-1500-768x75.png 768w, /wp-content/uploads/2018/05/word-image-1500-1024x100.png 1024w" sizes="(max-width: 1106px) 100vw, 1106px" /></p>
+<ol>
+<li>
+  包含文件不能改变当前的命名空间
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="675" height="87" src="/wp-content/uploads/2018/05/word-image-1501.png" class="wp-image-1717" srcset="/wp-content/uploads/2018/05/word-image-1501.png 675w, /wp-content/uploads/2018/05/word-image-1501-300x39.png 300w" sizes="(max-width: 675px) 100vw, 675px" /></p>
+<h3>用文件的地址做命名空间，通过命名空间就可以实现自动加载类</h3>
+<ol>
+<li>
+  在Framework/Core文件夹下创建Student.class.php
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace Framework\Core;
+</p>
+<p>
+  class Student {
+</p>
+<p>
+  	public function show() {
+</p>
+<p>
+  		echo &#8216;Core\Student\show()&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  在Framework/Lib文件夹下创建Student.class.php
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace Framework\Lib;
+</p>
+<p>
+  class Student {
+</p>
+<p>
+  	public function show() {
+</p>
+<p>
+  		echo &#8216;Lib\Student\show()&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  在php中通过命名空间实现自动加载类
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="852" height="217" src="/wp-content/uploads/2018/05/word-image-1502.png" class="wp-image-1718" srcset="/wp-content/uploads/2018/05/word-image-1502.png 852w, /wp-content/uploads/2018/05/word-image-1502-300x76.png 300w, /wp-content/uploads/2018/05/word-image-1502-768x196.png 768w" sizes="(max-width: 852px) 100vw, 852px" /></p>
+<h2>异常处理（Exception）</h2>
+<h3>使用的关键字</h3>
+<p>
+  try：检测代码中的异常
+</p>
+<p>
+  catch：捕获抛出的异常
+</p>
+<p>
+  throw：抛出异常
+</p>
+<p>
+  Exception：PHP内置的异常类
+</p>
+<h3>Exception异常类中的方法</h3>
+<p>
+  Exception是基础异常类，该类提供了一些方法
+</p>
+<table>
+<tr>
+<td>
+<p>
+  方法
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  getMessage()
+</p>
+</td>
+<td>
+<p>
+  获取异常中的错误信息
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  getCode()
+</p>
+</td>
+<td>
+<p>
+  获取异常的编码
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  getFile()
+</p>
+</td>
+<td>
+<p>
+  产生异常的文件路径
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  getLine()
+</p>
+</td>
+<td>
+<p>
+  产生异常的行号
+</p>
+</td>
+</tr>
+</table>
+<h3>异常的例题</h3>
+<p><img loading="lazy" decoding="async" width="754" height="421" src="/wp-content/uploads/2018/05/word-image-1503.png" class="wp-image-1719" srcset="/wp-content/uploads/2018/05/word-image-1503.png 754w, /wp-content/uploads/2018/05/word-image-1503-300x168.png 300w" sizes="(max-width: 754px) 100vw, 754px" /></p>
+<h3>自定义异常，捕获多个异常</h3>
+<p>
+  PHP只提供了异常类，没有提供具体的某种异常，比如年龄异常，邮件异常等。
+</p>
+<p>
+  自定义异常必须继承Exception类，Exception类是所有异常类的父类。
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //空异常
+</p>
+<p>
+  class NullException extends Exception {
+</p>
+<p>
+  }
+</p>
+<p>
+  //年龄异常
+</p>
+<p>
+  class AgeException extends Exception {
+</p>
+<p>
+  }
+</p>
+<p>
+  if(isset($_POST[&#8216;button&#8217;])) {
+</p>
+<p>
+  	$name=$_POST[&#8216;name&#8217;];
+</p>
+<p>
+  	$age=$_POST[&#8216;age&#8217;];
+</p>
+<p>
+  	try
+</p>
+<p>
+  	{
+</p>
+<p>
+  		if($name==&#8221;)
+</p>
+<p>
+  			throw new NullException(&#8216;姓名不能为空&#8217;);	//抛出空异常
+</p>
+<p>
+  		if($age==&#8221;)
+</p>
+<p>
+  			throw new NullException(&#8216;年龄不能为空&#8217;);	//抛出空异常
+</p>
+<p>
+  		if(!($age&gt;=10 &amp;&amp; $age&lt;=20))
+</p>
+<p>
+  			throw new AgeException(&#8216;年龄必须在10-20之间&#8217;);	//抛出年龄异常
+</p>
+<p>
+  	}
+</p>
+<p>
+  	catch(NullException $e)
+</p>
+<p>
+  	{
+</p>
+<p>
+  		echo $e-&gt;getMessage();
+</p>
+<p>
+  	}
+</p>
+<p>
+  	catch(AgeException $e)
+</p>
+<p>
+  	{
+</p>
+<p>
+  		echo $e-&gt;getMessage();
+</p>
+<p>
+  	}
+</p>
+<p>
+  	catch(Exception $e){		//必须放在所有的catch的最后
+</p>
+<p>
+  		echo $e-&gt;getMessage();
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form method=&#8221;post&#8221; action=&#8221;&#8221;&gt;
+</p>
+<p>
+  	姓名： &lt;input type=&#8221;text&#8221; name=&#8221;name&#8221;&gt; &lt;br /&gt;
+</p>
+<p>
+  	年龄： &lt;input type=&#8221;text&#8221; name=&#8221;age&#8221;&gt; &lt;br /&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;submit&#8221; name=&#8221;button&#8221; value=&#8221;提交&#8221;&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<h2>介绍netbeans</h2>
+<h3>安装netbeans</h3>
+<p>
+  在安装netbeans之前必须先安装jdk（java开发包）
+</p>
+<p><img loading="lazy" decoding="async" width="567" height="41" src="/wp-content/uploads/2018/05/word-image-1504.png" class="wp-image-1720" srcset="/wp-content/uploads/2018/05/word-image-1504.png 567w, /wp-content/uploads/2018/05/word-image-1504-300x22.png 300w" sizes="(max-width: 567px) 100vw, 567px" /></p>
+<p>
+  安装JDK后，再下一步，下一步安装netbeans.。
+</p>
+<p><img loading="lazy" decoding="async" width="212" height="22" src="/wp-content/uploads/2018/05/word-image-1505.png" class="wp-image-1721" /></p>
+<h3>使用netbeans</h3>
+<p>
+  双击netbeans图标
+</p>
+<p><img loading="lazy" decoding="async" width="67" height="91" src="/wp-content/uploads/2018/05/word-image-1506.png" class="wp-image-1722" /></p>
+<p>
+  继续如下操作
+</p>
+<p><img loading="lazy" decoding="async" width="779" height="173" src="/wp-content/uploads/2018/05/word-image-1507.png" class="wp-image-1723" srcset="/wp-content/uploads/2018/05/word-image-1507.png 779w, /wp-content/uploads/2018/05/word-image-1507-300x67.png 300w, /wp-content/uploads/2018/05/word-image-1507-768x171.png 768w" sizes="(max-width: 779px) 100vw, 779px" /><br />
+<img loading="lazy" decoding="async" width="716" height="501" src="/wp-content/uploads/2018/05/word-image-1508.png" class="wp-image-1724" srcset="/wp-content/uploads/2018/05/word-image-1508.png 716w, /wp-content/uploads/2018/05/word-image-1508-300x210.png 300w" sizes="(max-width: 716px) 100vw, 716px" /><br />
+<img loading="lazy" decoding="async" width="732" height="505" src="/wp-content/uploads/2018/05/word-image-1509.png" class="wp-image-1725" srcset="/wp-content/uploads/2018/05/word-image-1509.png 732w, /wp-content/uploads/2018/05/word-image-1509-300x207.png 300w" sizes="(max-width: 732px) 100vw, 732px" /></p>
+<p>
+  创建完毕后，在虚拟目录的文件夹中多了一个“nbproject”文件夹，此文件夹用来让netbeans软件管理虚拟目录的，不是项目文件夹。在最后项目上传到服务器的时候要将此文件夹删除。
+</p>
+<h2>反射（Reflection）</h2>
+<h3>反射的概念</h3>
+<p>
+  程序可以访问、检测和修改它本身状态或行为的一种能力
+</p>
+<h3>反射的作用</h3>
+<p>
+  获取对象对应的类中的属性，方法，参数，注释等封闭的信息，主要用来了解类、方法等内部结构。
+</p>
+<h3>反射的分类</h3>
+<p>
+  了解如下几个反射类即可。
+</p>
+<p><img loading="lazy" decoding="async" width="720" height="278" src="/wp-content/uploads/2018/05/word-image-1510.png" class="wp-image-1726" srcset="/wp-content/uploads/2018/05/word-image-1510.png 720w, /wp-content/uploads/2018/05/word-image-1510-300x116.png 300w" sizes="(max-width: 720px) 100vw, 720px" /></p>
+<h2>使用反射类（了解内容）</h2>
+<h3>通过反射了解类的内部结构</h3>
+<p>
+  语法：
+</p>
+<p>
+  ReflectionClass::export(类名);
+</p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="772" height="289" src="/wp-content/uploads/2018/05/word-image-1511.png" class="wp-image-1727" srcset="/wp-content/uploads/2018/05/word-image-1511.png 772w, /wp-content/uploads/2018/05/word-image-1511-300x112.png 300w, /wp-content/uploads/2018/05/word-image-1511-768x288.png 768w" sizes="(max-width: 772px) 100vw, 772px" /></p>
+<p>
+  通过上面的例题可以得出结论，PHP最顶层的父类是一个空类，代码
+</p>
+<p>
+  class stdClass{
+</p>
+<p>
+  }
+</p>
+<h3>通过反射获取类中的属性、方法、常量</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Student{
+</p>
+<p>
+      const PI=3.14;
+</p>
+<p>
+      public $name=&#8217;tom&#8217;;
+</p>
+<p>
+      private $sex=&#8217;f&#8217;;
+</p>
+<p>
+      public function show(){
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p>
+  //通过反射获取类中的成员
+</p>
+<p>
+  $info= new ReflectionClass(&#8216;Student&#8217;);  //实例化反射类对象，此对象中包含了Student类中的信息
+</p>
+<p>
+  //获取常量信息
+</p>
+<p>
+  $const=$info-&gt;getConstants();       //获取所有常量,返回常量数组
+</p>
+<p>
+  $const=$info-&gt;getConstant(&#8216;PI&#8217;);    //获取PI常量
+</p>
+<p>
+  //获取方法信息
+</p>
+<p>
+  $method=$info-&gt;getMethods();        //获取所有方法,返回方法信息数组
+</p>
+<p>
+  $method=$info-&gt;getMethod(&#8216;show&#8217;);   //获取show()方法信息
+</p>
+<p>
+  //获取属性信息
+</p>
+<p>
+  $propty=$info-&gt;getProperties();     //获取所有属性信息
+</p>
+<p>
+  $propty=$info-&gt;getProperty(&#8216;sex&#8217;);  //获取sex属性
+</p>
+<p>
+  var_dump($propty);
+</p>
+<h3>通过反射实例化对象</h3>
+<p><img loading="lazy" decoding="async" width="803" height="303" src="/wp-content/uploads/2018/05/word-image-1512.png" class="wp-image-1728" srcset="/wp-content/uploads/2018/05/word-image-1512.png 803w, /wp-content/uploads/2018/05/word-image-1512-300x113.png 300w, /wp-content/uploads/2018/05/word-image-1512-768x290.png 768w" sizes="(max-width: 803px) 100vw, 803px" /></p>
+<p>
+  newInstance()就是用来实例化对象，构造函数需要几个参数，就通过newInstance()传递几个参数。
+</p>
+<h3>通过反向代理调用类方法</h3>
+<p>
+  正向代理：局域网中所有电脑通过服务器访问外网，局域网中电脑感受到服务器的存在，这种代理是正向代理
+</p>
+<p><img loading="lazy" decoding="async" width="611" height="130" src="/wp-content/uploads/2018/05/word-image-1513.png" class="wp-image-1729" srcset="/wp-content/uploads/2018/05/word-image-1513.png 611w, /wp-content/uploads/2018/05/word-image-1513-300x64.png 300w" sizes="(max-width: 611px) 100vw, 611px" /></p>
+<p>
+  反向代理
+</p>
+<p><img loading="lazy" decoding="async" width="653" height="206" src="/wp-content/uploads/2018/05/word-image-1514.png" class="wp-image-1730" srcset="/wp-content/uploads/2018/05/word-image-1514.png 653w, /wp-content/uploads/2018/05/word-image-1514-300x95.png 300w" sizes="(max-width: 653px) 100vw, 653px" /></p>
+<p>
+  将上面的理论平移到反射中来
+</p>
+<p>
+  A调用A的方法：正向代理
+</p>
+<p><img loading="lazy" decoding="async" width="547" height="175" src="/wp-content/uploads/2018/05/word-image-1515.png" class="wp-image-1731" srcset="/wp-content/uploads/2018/05/word-image-1515.png 547w, /wp-content/uploads/2018/05/word-image-1515-300x96.png 300w" sizes="(max-width: 547px) 100vw, 547px" /></p>
+<p>
+  通过反射，A调用B的方法：反向代理
+</p>
+<p><img loading="lazy" decoding="async" width="835" height="258" src="/wp-content/uploads/2018/05/word-image-1516.png" class="wp-image-1732" srcset="/wp-content/uploads/2018/05/word-image-1516.png 835w, /wp-content/uploads/2018/05/word-image-1516-300x93.png 300w, /wp-content/uploads/2018/05/word-image-1516-768x237.png 768w" sizes="(max-width: 835px) 100vw, 835px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/1707.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

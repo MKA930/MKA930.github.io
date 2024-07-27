@@ -1,0 +1,1373 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>全文检索 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 14:41:24 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>全文检索 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>网站优化（五）Sphinx Coreseek、全文检索</title>
+		<link>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5303.html</link>
+					<comments>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5303.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 14:41:24 +0000</pubDate>
+				<category><![CDATA[优化方案]]></category>
+		<category><![CDATA[网站优化]]></category>
+		<category><![CDATA[Coreseek]]></category>
+		<category><![CDATA[Sphinx]]></category>
+		<category><![CDATA[全文检索]]></category>
+		<guid isPermaLink="false">/?p=5303</guid>
+
+					<description><![CDATA[Sphinx 一、了解Sphinx 1、为什么要用Sphinx 原因1：因为MySQL不支持中文全文索引、li [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>Sphinx</h1>
+<h1>一、了解Sphinx</h1>
+<h2>1、为什么要用Sphinx</h2>
+<p>
+  原因1：因为MySQL不支持中文全文索引、like语句查询满
+</p>
+<p>
+  原因2：sphinx支持中文分词（我 喜欢  php）
+</p>
+<p><img fetchpriority="high" decoding="async" width="603" height="575" src="/wp-content/uploads/2018/05/word-image-4801.png" class="wp-image-5304" srcset="/wp-content/uploads/2018/05/word-image-4801.png 603w, /wp-content/uploads/2018/05/word-image-4801-300x286.png 300w" sizes="(max-width: 603px) 100vw, 603px" /></p>
+<h2>2、什么是Sphinx</h2>
+<p>
+  由俄罗斯人开发的一个基于SQL的、高性能的全文检索软件，用于替代MySQL全文检索。
+</p>
+<h2>3、Sphinx的特性</h2>
+<h3>1）特性</h3>
+<p>
+  高速的建立索引（峰值性能达10M/s）
+</p>
+<p>
+  高性能的搜索（在2-4G的文本数据上，平均每次检索时间小于0.1秒）
+</p>
+<p>
+  可处理海量数据
+</p>
+<h3>2）优势</h3>
+<p>
+  Sphinx单一索引最大可包含1亿条记录，在1千万条记录情况下的查询速
+</p>
+<p>
+  度为0.x秒（毫秒级）。
+</p>
+<p>
+  Sphinx创建索引的速度为：创建100万条记录的索引只需 3～4分钟，创建1000
+</p>
+<p>
+  万条记录的索引可以在50分钟内完成，而只包含最新10万条记录的增量索引，重建一次只需几十秒。
+</p>
+<p>
+  创建索引必须关闭服务
+</p>
+<h2>4、Sphinx使用流程</h2>
+<p><img decoding="async" width="480" height="356" src="/wp-content/uploads/2018/05/word-image-4802.png" class="wp-image-5305" srcset="/wp-content/uploads/2018/05/word-image-4802.png 480w, /wp-content/uploads/2018/05/word-image-4802-300x223.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></p>
+<ul>
+<li>
+    步骤1：sphinx去mysql中提取指定字段的关键词出现频率和位置按照词库的顺序归纳
+  </li>
+<li>
+    步骤2：php根据用户搜索的关键词去sphinx中匹配，获取对应的数据id（编号）
+  </li>
+<li>
+    步骤3：php根据检索的id去MySQL中查询具体数据
+  </li>
+</ul>
+<h1>二、安装Sphinx</h1>
+<h2>1、概念</h2>
+<h3>1）什么是Coreseek </h3>
+<p>
+  Coreseek 是一款中文全文检索/搜索软件，基于Sphinx研发并独立发布，专攻
+</p>
+<p>
+  中文搜索和信息处理领域，适用于行业/垂直搜索、论坛/站内搜索、数据库
+</p>
+<p>
+  搜索、文档/文献检索、信息检索、数据挖掘等应用场景。
+</p>
+<p>
+  简单概括：中文版的sphinx
+</p>
+<h3>2）Coreseek和sphinx的关系？</h3>
+<p>
+  sphinx默认只支持英文和俄文，但是它提供了一种方式可以支持任意一种语言，但是需要自己写相关语言语言词库。
+</p>
+<p>
+  Coreseek是在sphinx的基本上添加了中文词库的二次开发。
+</p>
+<p>
+  简单概括：
+</p>
+<p>
+  sphinx不支持中文，但是开发作者提供了接口，coreseek就基于整个接口开发的。
+</p>
+<h3>3）下载地址</h3>
+<p>
+   Sphinx官网：<a href="http://www.sphinxsearch.com/">http://www.sphinxsearch.com/</a>
+</p>
+<p>
+  coreseek官网：<a href="http://www.coreseek.com/">http://www.coreseek.com/</a>  （版本：Coreseek 3.2.14）
+</p>
+<h2>2、安装Coreseek</h2>
+<h3>■ 安装包（绿色版）目录文件介绍</h3>
+<ul>
+<li>
+    bin\indexer.exe    创建索引文件
+  </li>
+<li>
+    bin\searchd.exe    服务端（后期php操作服务器必须启动）
+  </li>
+<li>
+    bin\search.exe     客户端（学习时测试使用，注DOS窗口测试编码gbk）
+  </li>
+<li>
+    ext\csft_mysql.conf 配置文件（声明索引和索引来源）
+  </li>
+</ul>
+<h3>1）安装</h3>
+<p><img decoding="async" width="1230" height="426" src="/wp-content/uploads/2018/05/word-image-4803.png" class="wp-image-5306" srcset="/wp-content/uploads/2018/05/word-image-4803.png 1230w, /wp-content/uploads/2018/05/word-image-4803-300x104.png 300w, /wp-content/uploads/2018/05/word-image-4803-768x266.png 768w, /wp-content/uploads/2018/05/word-image-4803-1024x355.png 1024w" sizes="(max-width: 1230px) 100vw, 1230px" /></p>
+<p>
+  安装目录不能有空格特殊符号或中文
+</p>
+<h3>配置Sphinx（重要）</h3>
+<ul>
+<li>
+    步骤1：将etc/csft_mysql.conf复制并更名为sphinx.conf
+  </li>
+<li>
+    步骤2：打开shpinx.conf修改内容如下
+  </li>
+</ul>
+<p>
+  #数据源：数据来源定义（数据库信息、数据源SQL语句）
+</p>
+<p>
+  source music
+</p>
+<p>
+  {
+</p>
+<p>
+      #下面是sql数据库特有的端口，用户名，密码，数据库名等。
+</p>
+<p>
+      type                    = mysql
+</p>
+<p>
+      sql_host                = localhost
+</p>
+<p>
+      sql_user                = root
+</p>
+<p>
+      sql_pass                =
+</p>
+<p>
+      sql_db                  = test
+</p>
+<p>
+      sql_port                = 3306
+</p>
+<p>
+      sql_query_pre           = SET NAMES utf8
+</p>
+<p>
+      #sql_query属性：取出要创建索引的数据
+</p>
+<p>
+      #要求1：SELECT的第一个字段必须是主键、
+</p>
+<p>
+      #要求2：第一个字段的名字（别名）必须是id
+</p>
+<p>
+      #要求3：其他的字段就是要创建索引的字段
+</p>
+<p>
+      #需  求：为歌曲表中的title和content字段创建索引
+</p>
+<p>
+      sql_query               = SELECT id, title, author, content FROM music
+</p>
+<p>
+      #命令行查询时，设置正确的字符集
+</p>
+<p>
+      sql_query_info_pre      = SET NAMES utf8
+</p>
+<p>
+      #命令行查询时，从数据库读取原始数据信息
+</p>
+<p>
+      sql_query_info          = SELECT * FROM music WHERE id=$id
+</p>
+<p>
+  }
+</p>
+<p>
+  #索引的定义（索引文件存放的位置，索引文件的名字）
+</p>
+<p>
+  #每个index对应一个数据源，用来定义这个数据源生成的索引文件的信息
+</p>
+<p>
+  index music
+</p>
+<p>
+  {
+</p>
+<p>
+      #该索引对应哪个数据源
+</p>
+<p>
+      source            = music
+</p>
+<p>
+      #索引文件存放的目录和名字（存到E:/sphinx/var/data/目录下，索引文件的名字是music）
+</p>
+<p>
+      path              = E:/sphinx/var/data/music
+</p>
+<p>
+      docinfo           = extern
+</p>
+<p>
+      mlock             = 0
+</p>
+<p>
+      morphology        = none
+</p>
+<p>
+      min_word_len      = 1
+</p>
+<p>
+      html_strip        = 0
+</p>
+</p>
+<p>
+      #词库文件所在的目录
+</p>
+<p>
+      charset_dictpath = E:/sphinx/etc/
+</p>
+<p>
+  #字符集编码类型，可以为：（sbcs,utf-8,zh_cn.utf-8,zh_ch.gbk,zh_ch.big5）
+</p>
+<p>
+      charset_type        = zh_cn.utf-8
+</p>
+<p>
+  }
+</p>
+<p>
+  #全局index定义
+</p>
+<p>
+  indexer
+</p>
+<p>
+  {
+</p>
+<p>
+      #建立索引的时候，索引内存限制
+</p>
+<p>
+      mem_limit            = 128M
+</p>
+<p>
+  }
+</p>
+<p>
+  #searchd服务定义
+</p>
+<p>
+  searchd
+</p>
+<p>
+  {
+</p>
+<p>
+      listen              =   9312
+</p>
+<p>
+      read_timeout        = 5
+</p>
+<p>
+      max_children        = 30
+</p>
+<p>
+      max_matches         = 1000
+</p>
+<p>
+      seamless_rotate     = 0
+</p>
+<p>
+      preopen_indexes     = 0
+</p>
+<p>
+      unlink_old          = 1
+</p>
+</p>
+<p>
+      # 进程id文件
+</p>
+<p>
+      pid_file = E:/sphinx/var/log/searchd_mysql.pid
+</p>
+<p>
+      # 系统日志存放的位置
+</p>
+<p>
+      log = E:/sphinx/var/log/searchd_mysql.log
+</p>
+<p>
+      # 查询日志存放的位置
+</p>
+<p>
+      query_log = E:/sphinx/var/log/query_mysql.log
+</p>
+<p>
+  }
+</p>
+<p>
+  配置好sphinx.conf，必须建立对应的数据库，当建立索引的时候去要去数据库读取数据并创建索引文件
+</p>
+<p>
+  总结：
+</p>
+<p>
+  1、source 唯一索引名称{} 定义数据源，可以定义多个，每一个数据源对应一个index
+</p>
+<p>
+  a)修改数据库信息
+</p>
+<p>
+  b)修改待带创建索引SQL
+</p>
+<p>
+  2、index 唯一索引名称{} 定义索引，每个索引对应一个数据源
+</p>
+<p>
+  a) 索引文件的名字
+</p>
+<p>
+  b) 索引文件存放的位置
+</p>
+<p>
+  3、indexer{} 只能有一个 （作用：建索引时使用的内存量）
+</p>
+<p>
+  4、searchd{} 只能有一个，sphinx服务器进程
+</p>
+<p>
+  a) 系统日志存放的位置
+</p>
+<p>
+  b) 查询日志存放的位置
+</p>
+<h3>3）创建索引</h3>
+<p>
+  语法：indexer  -c 配置文件  索引名称  （注：全部索引&#8211;all）
+</p>
+<p><img loading="lazy" decoding="async" width="569" height="342" src="/wp-content/uploads/2018/05/word-image-4804.png" class="wp-image-5307" srcset="/wp-content/uploads/2018/05/word-image-4804.png 569w, /wp-content/uploads/2018/05/word-image-4804-300x180.png 300w" sizes="(max-width: 569px) 100vw, 569px" /></p>
+<h3>4）在DOS界面对索引进行测试</h3>
+<p>
+  语法：search -c 配置文件 内容
+</p>
+<p><img loading="lazy" decoding="async" width="627" height="337" src="/wp-content/uploads/2018/05/word-image-4805.png" class="wp-image-5308" srcset="/wp-content/uploads/2018/05/word-image-4805.png 627w, /wp-content/uploads/2018/05/word-image-4805-300x161.png 300w" sizes="(max-width: 627px) 100vw, 627px" /><br />
+<img loading="lazy" decoding="async" width="1057" height="414" src="/wp-content/uploads/2018/05/word-image-4806.png" class="wp-image-5309" srcset="/wp-content/uploads/2018/05/word-image-4806.png 1057w, /wp-content/uploads/2018/05/word-image-4806-300x118.png 300w, /wp-content/uploads/2018/05/word-image-4806-768x301.png 768w, /wp-content/uploads/2018/05/word-image-4806-1024x401.png 1024w" sizes="(max-width: 1057px) 100vw, 1057px" /><br />
+<img loading="lazy" decoding="async" width="1059" height="208" src="/wp-content/uploads/2018/05/word-image-4807.png" class="wp-image-5310" srcset="/wp-content/uploads/2018/05/word-image-4807.png 1059w, /wp-content/uploads/2018/05/word-image-4807-300x59.png 300w, /wp-content/uploads/2018/05/word-image-4807-768x151.png 768w, /wp-content/uploads/2018/05/word-image-4807-1024x201.png 1024w" sizes="(max-width: 1059px) 100vw, 1059px" /></p>
+<p>
+  因为是在DOS窗口测试所以切记更改编码为gbk
+</p>
+<p><img loading="lazy" decoding="async" width="709" height="358" src="/wp-content/uploads/2018/05/word-image-4808.png" class="wp-image-5311" srcset="/wp-content/uploads/2018/05/word-image-4808.png 709w, /wp-content/uploads/2018/05/word-image-4808-300x151.png 300w" sizes="(max-width: 709px) 100vw, 709px" /><br />
+<img loading="lazy" decoding="async" width="616" height="98" src="/wp-content/uploads/2018/05/word-image-4809.png" class="wp-image-5312" srcset="/wp-content/uploads/2018/05/word-image-4809.png 616w, /wp-content/uploads/2018/05/word-image-4809-300x48.png 300w" sizes="(max-width: 616px) 100vw, 616px" /></p>
+<h1>三、使用PHP API操作 Sphinx</h1>
+<h2>1、创建Sphinx服务</h2>
+<p>
+  创建服务：searchd  -c  配置文件 &#8211;install
+</p>
+<p>
+  删除服务：SC DELETE 服务名
+</p>
+<p>
+  启动服务：net start 服务名
+</p>
+<p>
+  关闭服务：net stop 服务名
+</p>
+<p><img loading="lazy" decoding="async" width="711" height="220" src="/wp-content/uploads/2018/05/word-image-4810.png" class="wp-image-5313" srcset="/wp-content/uploads/2018/05/word-image-4810.png 711w, /wp-content/uploads/2018/05/word-image-4810-300x93.png 300w" sizes="(max-width: 711px) 100vw, 711px" /></p>
+<h2>2、初体验（PHP操作Sphinx）</h2>
+<p><img loading="lazy" decoding="async" width="959" height="652" src="/wp-content/uploads/2018/05/word-image-4811.png" class="wp-image-5314" srcset="/wp-content/uploads/2018/05/word-image-4811.png 959w, /wp-content/uploads/2018/05/word-image-4811-300x204.png 300w, /wp-content/uploads/2018/05/word-image-4811-768x522.png 768w, /wp-content/uploads/2018/05/word-image-4811-220x150.png 220w" sizes="(max-width: 959px) 100vw, 959px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  header(&#8216;content-type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  /**
+</p>
+<p>
+   * 复制sphinx的接口文件到使用目录中
+</p>
+<p>
+   * 步骤1：引入接口文件
+</p>
+<p>
+   * 步骤2：创建服务对象 （new SphinxClient）
+</p>
+<p>
+   * 步骤3：创建服务,语法：setServer（服务器ip地址，端口）
+</p>
+<p>
+   * 步骤4：设置查询条数，语法：setLimits（起始位置，每页显示条数）
+</p>
+<p>
+   * 步骤5：查询，语法：query（关键词，索引名）
+</p>
+<p>
+   */
+</p>
+<p>
+  //1.引入接口文件
+</p>
+<p>
+  require &#8216;./sphinxapi.php&#8217;;
+</p>
+<p>
+  //2.创建sphinx对象
+</p>
+<p>
+  $sp = new SphinxClient;
+</p>
+<p>
+  //3.设置服务
+</p>
+<p>
+  $sp-&gt;setServer(&#8216;localhost&#8217;, 9312);
+</p>
+<p>
+  //4.设置分页
+</p>
+<p>
+  $sp-&gt;setLimits(0, 10);
+</p>
+<p>
+  //5.去索引中查询
+</p>
+<p>
+  $data = $sp-&gt;query(&#8216;冬天&#8217;, &#8216;music&#8217;);
+</p>
+<p>
+  echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+  print_r($data);die;
+</p>
+<p><img loading="lazy" decoding="async" width="517" height="325" src="/wp-content/uploads/2018/05/word-image-4812.png" class="wp-image-5315" srcset="/wp-content/uploads/2018/05/word-image-4812.png 517w, /wp-content/uploads/2018/05/word-image-4812-300x189.png 300w" sizes="(max-width: 517px) 100vw, 517px" /></p>
+<p>
+  源码原因：配置是gbk
+</p>
+<p>
+  解决：修改配置文件为utf8
+</p>
+<p>
+  步骤：
+</p>
+<ol>
+<li>
+  修改编码
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1063" height="157" src="/wp-content/uploads/2018/05/word-image-4813.png" class="wp-image-5316" srcset="/wp-content/uploads/2018/05/word-image-4813.png 1063w, /wp-content/uploads/2018/05/word-image-4813-300x44.png 300w, /wp-content/uploads/2018/05/word-image-4813-768x113.png 768w, /wp-content/uploads/2018/05/word-image-4813-1024x151.png 1024w" sizes="(max-width: 1063px) 100vw, 1063px" /><br />
+<img loading="lazy" decoding="async" width="790" height="445" src="/wp-content/uploads/2018/05/word-image-4814.png" class="wp-image-5317" srcset="/wp-content/uploads/2018/05/word-image-4814.png 790w, /wp-content/uploads/2018/05/word-image-4814-300x169.png 300w, /wp-content/uploads/2018/05/word-image-4814-768x433.png 768w" sizes="(max-width: 790px) 100vw, 790px" /></p>
+<p>
+  2.关闭服务
+</p>
+<p>
+  3.创建索引
+</p>
+<p>
+  4.开启服务
+</p>
+<p><img loading="lazy" decoding="async" width="653" height="450" src="/wp-content/uploads/2018/05/word-image-4815.png" class="wp-image-5318" srcset="/wp-content/uploads/2018/05/word-image-4815.png 653w, /wp-content/uploads/2018/05/word-image-4815-300x207.png 300w" sizes="(max-width: 653px) 100vw, 653px" /></p>
+<h2>3、匹配模式</h2>
+<h3>1）语法</h3>
+<ul>
+<li>
+    语法：$对象-&gt;setMatchMode（参数）
+  </li>
+<li>
+    参数
+  </li>
+<li>
+    SPH_MATCH_ALL       	 匹配所有词（默认）
+  </li>
+<li>
+    SPH_MATCH_ANY	    	 匹配一个词
+  </li>
+<li>
+    SPH_MATCH_PHRASE     匹配整一个词
+  </li>
+<li>
+    SPH_MATCH_BOOLEAN   将查询看作一个布尔表达式
+  </li>
+<li>
+    SPH_MATCH_EXTENDED  查询看做一个sphinx的表达式
+  </li>
+</ul>
+<h3>2）模式举例说明</h3>
+<p>
+  举例：我喜欢PHP
+</p>
+<p>
+  分词：我 喜欢 PHP
+</p>
+<h3>测试数据</h3>
+<p>
+  国外资深记者:我喜欢Vista的11大理由_国外最牛的PHP开源建站平台
+</p>
+<p>
+  为什么现在业界那么多人喜欢黑 PHP 且乐此不疲? &#8211; 知乎用户的我回答&#8230;
+</p>
+<p>
+  我叫XXXX
+</p>
+<p>
+  世界上最好的语言是PHP吗
+</p>
+<p>
+  PHP是世界上最好的语言
+</p>
+<p>
+  我喜欢PHP，你知道吗
+</p>
+<h3>匹配所有词（SPH_MATCH_ALL）</h3>
+<ul>
+<li>
+    说明：【我】、【喜欢】、【PHP】必须都存在，顺序不限
+  </li>
+<li>
+    结果：
+  </li>
+</ul>
+<p>
+  国外资深记者:我喜欢Vista的11大理由_国外最牛的PHP开源建站平台
+</p>
+<p>
+  为什么现在业界那么多人喜欢黑 PHP 且乐此不疲? &#8211; 知乎用户的我回答&#8230;
+</p>
+<p>
+  我叫XXXX
+</p>
+<p>
+  世界上最好的语言是PHP吗
+</p>
+<p>
+  PHP是世界上最好的语言
+</p>
+<p>
+  我喜欢PHP，你知道吗
+</p>
+<h3>匹配一个词（SPH_MATCH_ANY）</h3>
+<ul>
+<li>
+    说明：【我】、【喜欢】、【PHP】只要存在一个就可以
+  </li>
+<li>
+    结果：
+  </li>
+</ul>
+<p>
+  国外资深记者:我喜欢Vista的11大理由_国外最牛的PHP开源建站平台
+</p>
+<p>
+  为什么现在业界那么多人喜欢黑 PHP 且乐此不疲? &#8211; 知乎用户的我回答&#8230;
+</p>
+<p>
+  我叫XXXX
+</p>
+<p>
+  世界上最好的语言是PHP吗
+</p>
+<p>
+  PHP是世界上最好的语言
+</p>
+<p>
+  我喜欢PHP，你知道吗
+</p>
+<p>
+  脚下留心
+</p>
+<p><img loading="lazy" decoding="async" width="805" height="198" src="/wp-content/uploads/2018/05/word-image-4816.png" class="wp-image-5319" srcset="/wp-content/uploads/2018/05/word-image-4816.png 805w, /wp-content/uploads/2018/05/word-image-4816-300x74.png 300w, /wp-content/uploads/2018/05/word-image-4816-768x189.png 768w" sizes="(max-width: 805px) 100vw, 805px" /></p>
+<h3>匹配整个词（SPH_MATCH_PHRASE）</h3>
+<ul>
+<li>
+    说明：【我】、【喜欢】、【PHP】必须都存在，存储不能变
+  </li>
+<li>
+    结果：
+  </li>
+</ul>
+<p>
+  国外资深记者:我喜欢Vista的11大理由_国外最牛的PHP开源建站平台
+</p>
+<p>
+  为什么现在业界那么多人喜欢黑 PHP 且乐此不疲? &#8211; 知乎用户的我回答&#8230;
+</p>
+<p>
+  我叫XXXX
+</p>
+<p>
+  世界上最好的语言是PHP吗
+</p>
+<p>
+  PHP是世界上最好的语言
+</p>
+<p>
+  我喜欢PHP，你知道吗
+</p>
+<h3>将查询看作一个布尔表达式（SPH_MATCH_BOOLEAN） </h3>
+<ul>
+<li>
+    说明：就是通过运算查询
+  </li>
+<li>
+    举例：
+  </li>
+</ul>
+<p>
+  $rs = $sc-&gt;query(&#8216;冬天 !寒冷&#8217;, &#8216;music&#8217;);
+</p>
+<p>
+  内容中有冬天，但是没有寒冷的
+</p>
+<p>
+  $rs = $sc-&gt;query(&#8216;冬天 | 冷&#8217;, &#8216;music&#8217;);
+</p>
+<p>
+  内容中有冬天或者冷
+</p>
+<p>
+  $rs = $sc-&gt;query(&#8216;冬天 &amp; 冷&#8217;, &#8216;music&#8217;);
+</p>
+<p>
+  内容中有冬天并且有冷
+</p>
+<ul>
+<li>
+    结果：（PHP | JAVA    PHP &amp; 喜欢）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="691" height="325" src="/wp-content/uploads/2018/05/word-image-4817.png" class="wp-image-5320" srcset="/wp-content/uploads/2018/05/word-image-4817.png 691w, /wp-content/uploads/2018/05/word-image-4817-300x141.png 300w" sizes="(max-width: 691px) 100vw, 691px" /></p>
+<h3>查询看做一个sphinx的表达式（SPH_MATCH_EXTENDED）</h3>
+<ul>
+<li>
+    说明：可以限制字段里面的查询内容
+  </li>
+<li>
+    举例：@title 内容  @author  内容  @content 内容
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="740" height="483" src="/wp-content/uploads/2018/05/word-image-4818.png" class="wp-image-5321" srcset="/wp-content/uploads/2018/05/word-image-4818.png 740w, /wp-content/uploads/2018/05/word-image-4818-300x196.png 300w" sizes="(max-width: 740px) 100vw, 740px" /></p>
+<h1>小总结</h1>
+<p><img loading="lazy" decoding="async" width="1107" height="387" src="/wp-content/uploads/2018/05/word-image-4819.png" class="wp-image-5322" srcset="/wp-content/uploads/2018/05/word-image-4819.png 1107w, /wp-content/uploads/2018/05/word-image-4819-300x105.png 300w, /wp-content/uploads/2018/05/word-image-4819-768x268.png 768w, /wp-content/uploads/2018/05/word-image-4819-1024x358.png 1024w" sizes="(max-width: 1107px) 100vw, 1107px" /></p>
+<p>
+  [概念]
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+</p>
+<p>
+  [安装并通过PHP操作]
+</p>
+<p>
+  步骤1：将sphix解压到指定目录中（因为绿色版所以就安装好了）
+</p>
+<p>
+  步骤2：创建配置文件，然后通过【indexer -c 配置文件 索引名】指定建立索引文件
+</p>
+<p>
+  步骤3：创建sphinx的服务，通过该服务PHP可以操作【searchd -c 配置文件 &#8211;install】并且启动服务【net start searchd】
+</p>
+<p>
+  步骤4：复制【sphinxapi.php】然后通过PHP引入操作sphinx
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+</p>
+<p>
+  [PHP操作步骤]
+</p>
+<p>
+  1、引入sphinxapi.php
+</p>
+<p>
+  2、通过$sc = new SphinxClient创建对象
+</p>
+<p>
+  3、设置服务$sc-&gt;setServer（服务器地址，9312）
+</p>
+<p>
+  4、设置条数$sc-&gt;setLimits（起始位置，查询条数）
+</p>
+<p>
+  5、查询   $sc-&gt;query(关键词，索引);
+</p>
+<h1>四、将sphinx的结果转化为具体的信息</h1>
+<h2>1、思路分析</h2>
+<p>
+  步骤1：通过sphinx的indexer创建索引
+</p>
+<p>
+  步骤2：通过php操作sphinx获取数据id
+</p>
+<p>
+  步骤3：通过php根据数据id去MySQL中查询数据信息
+</p>
+<h2>查询</h2>
+<p>
+  &lt;?php
+</p>
+<p>
+  header(&#8216;content-type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  /**
+</p>
+<p>
+   * 复制sphinx的接口文件到使用目录中
+</p>
+<p>
+   * 步骤1：引入接口文件
+</p>
+<p>
+   * 步骤2：创建服务对象 （new SphinxClient）
+</p>
+<p>
+   * 步骤3：创建服务,语法：setServer（服务器ip地址，端口）
+</p>
+<p>
+   * 步骤4：设置查询条数，语法：setLimits（起始位置，每页显示条数）
+</p>
+<p>
+   * 步骤5：查询，语法：query（关键词，索引名）
+</p>
+<p>
+   */
+</p>
+<p>
+  //1.引入接口文件
+</p>
+<p>
+  require &#8216;./sphinxapi.php&#8217;;
+</p>
+<p>
+  //2.创建sphinx对象
+</p>
+<p>
+  $sp = new SphinxClient;
+</p>
+<p>
+  //3.设置服务
+</p>
+<p>
+  $sp-&gt;setServer(&#8216;localhost&#8217;, 9312);
+</p>
+<p>
+  //4.设置分页
+</p>
+<p>
+  $sp-&gt;setLimits(0, 10);
+</p>
+<p>
+  //5.匹配模式
+</p>
+<p>
+  // $sp-&gt;SetMatchMode(SPH_MATCH_BOOLEAN);
+</p>
+<p>
+  //6.去索引中查询
+</p>
+<p>
+  $data = $sp-&gt;query(&#8216;冬天&#8217;, &#8216;music&#8217;);
+</p>
+<p>
+  //7.获取数据ID
+</p>
+<p>
+  $ids = implode(&#8216;,&#8217;, array_keys($data[&#8216;matches&#8217;]));
+</p>
+<p>
+  //8.去数据库查询数据
+</p>
+<p>
+  $pdo = new PDO(&#8216;mysql:dbname=test&#8217;, &#8216;root&#8217;, &#8216;root&#8217;);
+</p>
+<p>
+  $pdostatment = $pdo-&gt;query(&#8220;select * from music where id in (&#8220;.$ids.&#8221;)&#8221;);
+</p>
+<p>
+  $data = $pdostatment-&gt;fetchAll(PDO::FETCH_ASSOC);
+</p>
+<p>
+  // echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+  // print_r($data);
+</p>
+<p>
+  foreach ($data as $v) {
+</p>
+<p>
+  	echo $v[&#8216;id&#8217;] . $v[&#8216;title&#8217;] . $v[&#8216;author&#8217;] . &#8216;&lt;br /&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="644" height="515" src="/wp-content/uploads/2018/05/word-image-4820.png" class="wp-image-5323" srcset="/wp-content/uploads/2018/05/word-image-4820.png 644w, /wp-content/uploads/2018/05/word-image-4820-300x240.png 300w" sizes="(max-width: 644px) 100vw, 644px" /></p>
+<h2>︴多学一招：高亮显示搜索的关键词</h2>
+<p>
+  &lt;?php
+</p>
+<p>
+  header(&#8216;content-type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  /**
+</p>
+<p>
+   * 复制sphinx的接口文件到使用目录中
+</p>
+<p>
+   * 步骤1：引入接口文件
+</p>
+<p>
+   * 步骤2：创建服务对象 （new SphinxClient）
+</p>
+<p>
+   * 步骤3：创建服务,语法：setServer（服务器ip地址，端口）
+</p>
+<p>
+   * 步骤4：设置查询条数，语法：setLimits（起始位置，每页显示条数）
+</p>
+<p>
+   * 步骤5：查询，语法：query（关键词，索引名）
+</p>
+<p>
+   */
+</p>
+<p>
+  //1.引入接口文件
+</p>
+<p>
+  require &#8216;./sphinxapi.php&#8217;;
+</p>
+<p>
+  //2.创建sphinx对象
+</p>
+<p>
+  $sp = new SphinxClient;
+</p>
+<p>
+  //3.设置服务
+</p>
+<p>
+  $sp-&gt;setServer(&#8216;localhost&#8217;, 9312);
+</p>
+<p>
+  //4.设置分页
+</p>
+<p>
+  $sp-&gt;setLimits(0, 10);
+</p>
+<p>
+  //5.匹配模式
+</p>
+<p>
+  // $sp-&gt;SetMatchMode(SPH_MATCH_BOOLEAN);
+</p>
+<p>
+  //6.去索引中查询
+</p>
+<p>
+  $data = $sp-&gt;query(&#8216;冬天&#8217;, &#8216;music&#8217;);
+</p>
+<p>
+  //7.获取数据ID
+</p>
+<p>
+  $ids = implode(&#8216;,&#8217;, array_keys($data[&#8216;matches&#8217;]));
+</p>
+<p>
+  //8.去数据库查询数据
+</p>
+<p>
+  $pdo = new PDO(&#8216;mysql:dbname=test&#8217;, &#8216;root&#8217;, &#8216;root&#8217;);
+</p>
+<p>
+  $pdostatment = $pdo-&gt;query(&#8220;select * from music where id in (&#8220;.$ids.&#8221;)&#8221;);
+</p>
+<p>
+  $data = $pdostatment-&gt;fetchAll(PDO::FETCH_ASSOC);
+</p>
+<p>
+  // echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+  // print_r($data);
+</p>
+<p>
+  foreach ($data as $v) {
+</p>
+<p>
+  	//自定义方法
+</p>
+<p>
+  	$title = str_replace(&#8216;冬天&#8217;, &#8216;&lt;font color=red&gt;冬天&lt;/font&gt;&#8217;, $v[&#8216;title&#8217;]);
+</p>
+<p>
+  	$author = str_replace(&#8216;冬天&#8217;, &#8216;&lt;font color=red&gt;冬天&lt;/font&gt;&#8217;, $v[&#8216;author&#8217;]);
+</p>
+<p>
+  	$content = str_replace(&#8216;冬天&#8217;, &#8216;&lt;font color=red&gt;冬天&lt;/font&gt;&#8217;, $v[&#8216;content&#8217;]);
+</p>
+<p>
+  	echo $v[&#8216;id&#8217;] .&#8217;___&#8217;. $title .&#8217;___&#8217;. $author . &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+  	echo $content . &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+  	//【官方语法】
+</p>
+<p>
+  	// $row = $sc-&gt;buildExcerpts(要添加提示效果的一维数组,索引名,关键词,array(
+</p>
+<p>
+  	// 	&#8216;before_match&#8217; =&gt; &#8216;&lt;font color=&#8221;red&#8221;&gt;&#8217;,
+</p>
+<p>
+  	// 	&#8216;after_match&#8217; =&gt; &#8216;&lt;/font&gt;&#8217;
+</p>
+<p>
+  	// ));
+</p>
+<p>
+  	//将$v里面的冬天前面追加before_match，后面追加after_match，最后返回索引数组
+</p>
+<p>
+  	// $row = $sp-&gt;buildExcerpts($v, &#8216;music&#8217; , &#8216;冬天&#8217;,array(
+</p>
+<p>
+  	// 	&#8216;before_match&#8217; =&gt; &#8216;&lt;font color=&#8221;red&#8221;&gt;&#8217;,
+</p>
+<p>
+  	// 	&#8216;after_match&#8217; =&gt; &#8216;&lt;/font&gt;&#8217;
+</p>
+<p>
+  	// ));
+</p>
+<p>
+  	// echo $row[0] .&#8217;___&#8217;. $row[1] .&#8217;___&#8217;. $row[2] . &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+  	// echo $row[3] . &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="890" height="662" src="/wp-content/uploads/2018/05/word-image-4821.png" class="wp-image-5324" srcset="/wp-content/uploads/2018/05/word-image-4821.png 890w, /wp-content/uploads/2018/05/word-image-4821-300x223.png 300w, /wp-content/uploads/2018/05/word-image-4821-768x571.png 768w" sizes="(max-width: 890px) 100vw, 890px" /></p>
+<h1>增量索引（Sphinx索引更新）</h1>
+<h2>1、什么是增量索引</h2>
+<p>
+  答：就是更新sphinx索引文件
+</p>
+<h2>为什么要学习增量索引</h2>
+<p>
+  答：因为数据库每天数据都在变化，所以需要在原索引的基础上继续增加索引
+</p>
+<h2>使用indexer.exe生成增量索引 （语法）   &#8211;merge 主索引名 新索引名 &#8211;rotate</h2>
+<p>
+  创建索引语法：indexer  -c  配置文件  索引名
+</p>
+<p>
+  合并索引语法：indexer  -c  配置文件  &#8211;merge 主索引名 新索引名 &#8211;rotate
+</p>
+<p><img loading="lazy" decoding="async" width="725" height="275" src="/wp-content/uploads/2018/05/word-image-4822.png" class="wp-image-5325" srcset="/wp-content/uploads/2018/05/word-image-4822.png 725w, /wp-content/uploads/2018/05/word-image-4822-300x114.png 300w" sizes="(max-width: 725px) 100vw, 725px" /></p>
+<h2>具体操作</h2>
+<h3>1）创建数据库（用于记录哪些数据已经被创建索引）</h3>
+<p>
+  # 数据库SQL语句
+</p>
+<p>
+  create table sphinx
+</p>
+<p>
+  (
+</p>
+<p>
+      max_id int unsigned not null default 0
+</p>
+<p>
+  )
+</p>
+<h3>2）主索引的数据源初始化数据，加标记当前已更新记录最大ID</h3>
+<p>
+  # sql_query属性：取出要创建索引的数据
+</p>
+<p>
+  sql_query                = SELECT id, title, content FROM music
+</p>
+<p>
+  # 建完索引这后　，把最后一条记录的id存到sphinx表中
+</p>
+<p>
+  # 在主查询（sql_query）之后执行的ＳＱＬ
+</p>
+<p>
+  sql_query_post = INSERT INTO sphinx SELECT MAX(id) FROM music
+</p>
+<h3>3）修改配置文件（增加新索引）</h3>
+<ul>
+<li>
+    步骤1：将etc/csft_mysql.conf复制并更名为sphinx.conf （注：<strong>已经有了就无需操作</strong>）
+  </li>
+<li>
+    步骤2：打开shpinx.conf修改内容如下
+  </li>
+</ul>
+<p>
+  # 数据源
+</p>
+<p>
+  source music_add
+</p>
+<p>
+  {
+</p>
+<p>
+      # 下面是sql数据库特有的端口，用户名，密码，数据库名等。
+</p>
+<p>
+      type                    = mysql
+</p>
+<p>
+      sql_host                = localhost
+</p>
+<p>
+      sql_user                = root
+</p>
+<p>
+      sql_pass                = root
+</p>
+<p>
+      sql_db                  = music
+</p>
+<p>
+      sql_port                = 3306
+</p>
+<p>
+      sql_query_pre           = SET NAMES utf8
+</p>
+<p>
+      # (SELECT MAX(max_id) FROM sphinx)  目的，规避以及建立的索引数据
+</p>
+<p>
+      sql_query = SELECT id, title, author,content FROM music WHERE id &gt; (SELECT MAX(max_id) FROM sphinx)
+</p>
+<p>
+  # 建完索引这后　，把最后一条记录的id存到sphinx表中
+</p>
+<p>
+  # 在主查询（sql_query）之后执行的ＳＱＬ
+</p>
+<p>
+  sql_query_post = UPDATE sphinx SET max_id = (SELECT MAX(id) FROM music)
+</p>
+<p>
+  }
+</p>
+<p>
+  # 数据索引
+</p>
+<p>
+  index music_add
+</p>
+<p>
+  {
+</p>
+<p>
+      # 对应的source数据来源名称
+</p>
+<p>
+      source            = music_add
+</p>
+<p>
+      path              = E:/sphinx/var/data/music_add
+</p>
+<p>
+      docinfo            = extern
+</p>
+<p>
+      mlock              = 0
+</p>
+<p>
+      morphology         = none
+</p>
+<p>
+      min_word_len       = 1
+</p>
+<p>
+      html_strip         = 0
+</p>
+<p>
+      # 词库文件所在的目录
+</p>
+<p>
+      charset_dictpath = E:/sphinx/etc/
+</p>
+<p>
+      charset_type      = zh_cn.utf-8
+</p>
+<p>
+  }
+</p>
+<h3>4）增量的索引文件合并到主索引文件上去，并标记当前已更新记录最大ID</h3>
+<p>
+  步骤1：停止服务 -&gt; music创建主索引 -&gt; 开启服务
+</p>
+<p><img loading="lazy" decoding="async" width="1016" height="368" src="/wp-content/uploads/2018/05/word-image-4823.png" class="wp-image-5326" srcset="/wp-content/uploads/2018/05/word-image-4823.png 1016w, /wp-content/uploads/2018/05/word-image-4823-300x109.png 300w, /wp-content/uploads/2018/05/word-image-4823-768x278.png 768w" sizes="(max-width: 1016px) 100vw, 1016px" /></p>
+<p>
+  步骤2：给新数据创建索引（注：不需要开启服务）
+</p>
+<p><img loading="lazy" decoding="async" width="1102" height="467" src="/wp-content/uploads/2018/05/word-image-4824.png" class="wp-image-5327" srcset="/wp-content/uploads/2018/05/word-image-4824.png 1102w, /wp-content/uploads/2018/05/word-image-4824-300x127.png 300w, /wp-content/uploads/2018/05/word-image-4824-768x325.png 768w, /wp-content/uploads/2018/05/word-image-4824-1024x434.png 1024w" sizes="(max-width: 1102px) 100vw, 1102px" /></p>
+<p>
+  步骤3：将新数据和老数据合并（注：不需要开启服务）
+</p>
+<p><img loading="lazy" decoding="async" width="727" height="156" src="/wp-content/uploads/2018/05/word-image-4825.png" class="wp-image-5328" srcset="/wp-content/uploads/2018/05/word-image-4825.png 727w, /wp-content/uploads/2018/05/word-image-4825-300x64.png 300w" sizes="(max-width: 727px) 100vw, 727px" /><br />
+<img loading="lazy" decoding="async" width="779" height="115" src="/wp-content/uploads/2018/05/word-image-4826.png" class="wp-image-5329" srcset="/wp-content/uploads/2018/05/word-image-4826.png 779w, /wp-content/uploads/2018/05/word-image-4826-300x44.png 300w, /wp-content/uploads/2018/05/word-image-4826-768x113.png 768w" sizes="(max-width: 779px) 100vw, 779px" /></p>
+<h3>5）新增测试数据（注：新增数据后需要重复如下步骤【创建新索引、合并老索引】）</h3>
+<p><img loading="lazy" decoding="async" width="446" height="60" src="/wp-content/uploads/2018/05/word-image-4827.png" class="wp-image-5330" srcset="/wp-content/uploads/2018/05/word-image-4827.png 446w, /wp-content/uploads/2018/05/word-image-4827-300x40.png 300w" sizes="(max-width: 446px) 100vw, 446px" /></p>
+<h3>6）测试</h3>
+<p><img loading="lazy" decoding="async" width="1034" height="169" src="/wp-content/uploads/2018/05/word-image-4828.png" class="wp-image-5331" srcset="/wp-content/uploads/2018/05/word-image-4828.png 1034w, /wp-content/uploads/2018/05/word-image-4828-300x49.png 300w, /wp-content/uploads/2018/05/word-image-4828-768x126.png 768w, /wp-content/uploads/2018/05/word-image-4828-1024x167.png 1024w" sizes="(max-width: 1034px) 100vw, 1034px" /></p>
+<h2>总结，实现增量索引的步骤</h2>
+<ul>
+<li><strong>步骤1：</strong>创建数据库，用来记录已经创建索引的数据
+  </li>
+</ul>
+<p>
+  # 数据库SQL语句
+</p>
+<p>
+  create table sphinx
+</p>
+<p>
+  (
+</p>
+<p>
+      max_id int unsigned not null default 0
+</p>
+<p>
+  )
+</p>
+<ul>
+<li><strong>步骤2：修改etc\sphinx.conf文件</strong>
+  </li>
+</ul>
+<p>
+  步骤2.1 修改music索引的数据源，增加下属代码，用户当music第一次执行后记录已经创建索引数据的最大id
+</p>
+<p><img loading="lazy" decoding="async" width="995" height="381" src="/wp-content/uploads/2018/05/word-image-4829.png" class="wp-image-5332" srcset="/wp-content/uploads/2018/05/word-image-4829.png 995w, /wp-content/uploads/2018/05/word-image-4829-300x115.png 300w, /wp-content/uploads/2018/05/word-image-4829-768x294.png 768w" sizes="(max-width: 995px) 100vw, 995px" /></p>
+<p>
+  # 建完索引这后　，把最后一条记录的id存到sphinx表中
+</p>
+<p>
+  # 在主查询（sql_query）之后执行的ＳＱＬ
+</p>
+<p>
+  sql_query_post = INSERT INTO sphinx SELECT MAX(id) FROM music
+</p>
+<p>
+  步骤2.2 新增music_add索引和数据源
+</p>
+<p>
+  # 数据源
+</p>
+<p>
+  source music_add
+</p>
+<p>
+  {
+</p>
+<p>
+      # 下面是sql数据库特有的端口，用户名，密码，数据库名等。
+</p>
+<p>
+      type                    = mysql
+</p>
+<p>
+      sql_host                = localhost
+</p>
+<p>
+      sql_user                = root
+</p>
+<p>
+      sql_pass                = root
+</p>
+<p>
+      sql_db                  = test
+</p>
+<p>
+      sql_port                = 3306
+</p>
+<p>
+      sql_query_pre           = SET NAMES utf8
+</p>
+<p>
+      # (SELECT MAX(max_id) FROM sphinx)  目的，规避以及建立的索引数据
+</p>
+<p>
+      sql_query = SELECT id, title, author,content FROM music WHERE id &gt; (SELECT MAX(max_id) FROM sphinx)
+</p>
+<p>
+  	# 建完索引这后　，把最后一条记录的id存到sphinx表中
+</p>
+<p>
+  	# 在主查询（sql_query）之后执行的ＳＱＬ
+</p>
+<p>
+  	sql_query_post = UPDATE sphinx SET max_id = (SELECT MAX(id) FROM music)
+</p>
+<p>
+  }
+</p>
+<p>
+  # 数据索引
+</p>
+<p>
+  index music_add
+</p>
+<p>
+  {
+</p>
+<p>
+      # 对应的source数据来源名称
+</p>
+<p>
+      source            = music_add
+</p>
+<p>
+      path              = E:/sphinx/var/data/music_add
+</p>
+<p>
+      docinfo            = extern
+</p>
+<p>
+      mlock              = 0
+</p>
+<p>
+      morphology         = none
+</p>
+<p>
+      min_word_len       = 1
+</p>
+<p>
+      html_strip         = 0
+</p>
+<p>
+      # 词库文件所在的目录
+</p>
+<p>
+      charset_dictpath = E:/sphinx/etc/
+</p>
+<p>
+      charset_type      = zh_cn.utf-8
+</p>
+<p>
+  }
+</p>
+<ul>
+<li><strong>步骤3：</strong>
+  </li>
+</ul>
+<p>
+  步骤3.1  停止服务- &gt; 先执行主索引【music】 -&gt; 开启服务
+</p>
+<p>
+  步骤3.2 再执行新增索引【music_add】  					   （注：无需关闭服务）
+</p>
+<p>
+  步骤3.3 将【music_add】索引和【music】索引合并			（注：无需关闭服务）
+</p>
+<ul>
+<li><strong>步骤4：测试</strong>
+  </li>
+</ul>
+<p>
+  后期统一搞点新数据重复下属步骤
+</p>
+<p>
+  步骤3.2 再执行新增索引【music_add】
+</p>
+<p>
+  步骤3.3 将【music_add】索引和【music】索引合并
+</p>
+<h2>︴扩展：Windows与Linux系统中的定时任务</h2>
+<p>
+  步骤1：新建xxx.bat文件将创建新增索引的DOS命令放进去
+</p>
+<p>
+  net stop searchd
+</p>
+<p>
+  e:\sp\bin\indexer -c e:\sp\etc\sphinx.conf music_add
+</p>
+<p>
+  e:\sp\bin\indexer -c e:\sp\etc\sphinx.conf &#8211;merge music music_add &#8211;rotate
+</p>
+<p>
+  net start searchd
+</p>
+<p>
+  步骤2：把这个xxx.bat文件添加到windows系统上的“计划任务”让系统定时执行这个文件中的两个任务。
+</p>
+<p><img loading="lazy" decoding="async" width="905" height="145" src="/wp-content/uploads/2018/05/word-image-4830.png" class="wp-image-5333" srcset="/wp-content/uploads/2018/05/word-image-4830.png 905w, /wp-content/uploads/2018/05/word-image-4830-300x48.png 300w, /wp-content/uploads/2018/05/word-image-4830-768x123.png 768w" sizes="(max-width: 905px) 100vw, 905px" /><br />
+<img loading="lazy" decoding="async" width="861" height="509" src="/wp-content/uploads/2018/05/word-image-4831.png" class="wp-image-5334" srcset="/wp-content/uploads/2018/05/word-image-4831.png 861w, /wp-content/uploads/2018/05/word-image-4831-300x177.png 300w, /wp-content/uploads/2018/05/word-image-4831-768x454.png 768w" sizes="(max-width: 861px) 100vw, 861px" /><br />
+<img loading="lazy" decoding="async" width="776" height="486" src="/wp-content/uploads/2018/05/word-image-4832.png" class="wp-image-5335" srcset="/wp-content/uploads/2018/05/word-image-4832.png 776w, /wp-content/uploads/2018/05/word-image-4832-300x188.png 300w, /wp-content/uploads/2018/05/word-image-4832-768x481.png 768w" sizes="(max-width: 776px) 100vw, 776px" /><br />
+<img loading="lazy" decoding="async" width="605" height="520" src="/wp-content/uploads/2018/05/word-image-4833.png" class="wp-image-5336" srcset="/wp-content/uploads/2018/05/word-image-4833.png 605w, /wp-content/uploads/2018/05/word-image-4833-300x258.png 300w" sizes="(max-width: 605px) 100vw, 605px" /><br />
+<img loading="lazy" decoding="async" width="623" height="529" src="/wp-content/uploads/2018/05/word-image-4834.png" class="wp-image-5337" srcset="/wp-content/uploads/2018/05/word-image-4834.png 623w, /wp-content/uploads/2018/05/word-image-4834-300x255.png 300w" sizes="(max-width: 623px) 100vw, 623px" /><br />
+<img loading="lazy" decoding="async" width="640" height="523" src="/wp-content/uploads/2018/05/word-image-4835.png" class="wp-image-5338" srcset="/wp-content/uploads/2018/05/word-image-4835.png 640w, /wp-content/uploads/2018/05/word-image-4835-300x245.png 300w" sizes="(max-width: 640px) 100vw, 640px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5303.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

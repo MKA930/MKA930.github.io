@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>表单传值 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E8%A1%A8%E5%8D%95%E4%BC%A0%E5%80%BC/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 12:21:13 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>表单传值 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>PHP 核心编程（一）文件上传、 表单传值、 验证文件类型</title>
+		<link>/php/1641.html</link>
+					<comments>/php/1641.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 10:22:37 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP核心编程]]></category>
+		<category><![CDATA[文件上传]]></category>
+		<category><![CDATA[表单传值]]></category>
+		<category><![CDATA[验证文件类型]]></category>
+		<guid isPermaLink="false">/?p=1641</guid>
+
+					<description><![CDATA[PHP核心编程（表单传值） 表单传值的方式 表单传值的方式有两种：get、post 从地址栏外观上来说 带有问 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>PHP核心编程（表单传值）</h1>
+<h2>表单传值的方式</h2>
+<p>
+  表单传值的方式有两种：get、post
+</p>
+<h3>从地址栏外观上来说</h3>
+<ol>
+<li>
+  带有问号是get【默认】
+</li>
+<li>
+  不带有问号的是post
+</li>
+</ol>
+<p><img fetchpriority="high" decoding="async" width="676" height="108" src="/wp-content/uploads/2018/05/word-image-1472.png" class="wp-image-1643" srcset="/wp-content/uploads/2018/05/word-image-1472.png 676w, /wp-content/uploads/2018/05/word-image-1472-300x48.png 300w" sizes="(max-width: 676px) 100vw, 676px" /><br />
+<img decoding="async" width="637" height="85" src="/wp-content/uploads/2018/05/word-image-1473.png" class="wp-image-1644" srcset="/wp-content/uploads/2018/05/word-image-1473.png 637w, /wp-content/uploads/2018/05/word-image-1473-300x40.png 300w" sizes="(max-width: 637px) 100vw, 637px" /></p>
+<p>
+  脚下留心：如果表单不指定传递方法，默认是get提交
+</p>
+<p><img decoding="async" width="584" height="24" src="/wp-content/uploads/2018/05/word-image-1474.png" class="wp-image-1645" srcset="/wp-content/uploads/2018/05/word-image-1474.png 584w, /wp-content/uploads/2018/05/word-image-1474-300x12.png 300w" sizes="(max-width: 584px) 100vw, 584px" /></p>
+<h3>从提交的数据大小来说</h3>
+<ol>
+<li>
+  提交少量数据，不同的浏览器最大值不一样，IE是2K
+</li>
+<li>
+  提交大量数据，可以在php.ini中post_max_size来更改传递数据的最大值
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="712" height="156" src="/wp-content/uploads/2018/05/word-image-1475.png" class="wp-image-1646" srcset="/wp-content/uploads/2018/05/word-image-1475.png 712w, /wp-content/uploads/2018/05/word-image-1475-300x66.png 300w" sizes="(max-width: 712px) 100vw, 712px" /></p>
+<h3>从安全性来说</h3>
+<ol>
+<li>
+  get安全性低
+</li>
+<li>
+  post安全性高
+</li>
+</ol>
+<h3>从提交的原理上来说</h3>
+<ol>
+<li>
+  get提交的数据和数据之间是独立的
+</li>
+<li>
+  post提交的数据转成XML格式一起提交，将所有的数据作为一个整体。
+</li>
+</ol>
+<h3>灵活性</h3>
+<ol>
+<li>
+  get提交很灵活，只要有页面的跳转就可以传递数据
+</li>
+<li>
+  post数据不灵活，必须要有表单的参与【ajax中post提交除外】
+</li>
+</ol>
+<p>
+  脚下留心：在项目中，get提交使用的频率高，因为get很灵活。
+</p>
+<h2>接受数据的三种方式</h2>
+<p>
+  1、$_GET：数组，保存get提交的数据
+</p>
+<p>
+  2、$_POST：数组，保存post提交的数据
+</p>
+<p>
+  3、$_REQUEST：数组，保存get和post提交的数据
+</p>
+<h2>传递复选框数据</h2>
+<p><img loading="lazy" decoding="async" width="968" height="233" src="/wp-content/uploads/2018/05/word-image-1476.png" class="wp-image-1647" srcset="/wp-content/uploads/2018/05/word-image-1476.png 968w, /wp-content/uploads/2018/05/word-image-1476-300x72.png 300w, /wp-content/uploads/2018/05/word-image-1476-768x185.png 768w" sizes="(max-width: 968px) 100vw, 968px" /></p>
+<h2>文件上传</h2>
+<p>
+  文件上传在项目中用的很多，比如上传照片，视频，音频等等。
+</p>
+<h3>表单的enctype属性</h3>
+<p><img loading="lazy" decoding="async" width="682" height="63" src="/wp-content/uploads/2018/05/word-image-1477.png" class="wp-image-1649" srcset="/wp-content/uploads/2018/05/word-image-1477.png 682w, /wp-content/uploads/2018/05/word-image-1477-300x28.png 300w" sizes="(max-width: 682px) 100vw, 682px" /></p>
+<ol>
+<li>
+  application/x-www-form-urlencoded：这是一个默认值，主要用于文本数据的传递，用来向服务器发送文本。
+</li>
+<li>
+  multipart/form-data：告知浏览器表单中有复合的数据（字符串，二进制）。
+</li>
+<li>
+  text/plain：用来向服务器发送大量文本，该方式主要应用于做电子邮件。
+</li>
+</ol>
+<p>
+  脚下留心：要传递数据，表单的enctype属性必须选择multipart/form-data
+</p>
+<h3>文件域</h3>
+<p><img loading="lazy" decoding="async" width="937" height="77" src="/wp-content/uploads/2018/05/word-image-1478.png" class="wp-image-1650" srcset="/wp-content/uploads/2018/05/word-image-1478.png 937w, /wp-content/uploads/2018/05/word-image-1478-300x25.png 300w, /wp-content/uploads/2018/05/word-image-1478-768x63.png 768w" sizes="(max-width: 937px) 100vw, 937px" /></p>
+<h3>$_FILES</h3>
+<p>
+  超全局变量$_FILES是一个二维数组，该数组用来保存上传到服务器的文件，行是文件域的名称，列有5个。
+</p>
+<p><img loading="lazy" decoding="async" width="1283" height="256" src="/wp-content/uploads/2018/05/word-image-1479.png" class="wp-image-1651" srcset="/wp-content/uploads/2018/05/word-image-1479.png 1283w, /wp-content/uploads/2018/05/word-image-1479-300x60.png 300w, /wp-content/uploads/2018/05/word-image-1479-768x153.png 768w, /wp-content/uploads/2018/05/word-image-1479-1024x204.png 1024w" sizes="(max-width: 1283px) 100vw, 1283px" /></p>
+<p>
+  1、$_FILES[][‘name’]：文件名称
+</p>
+<p>
+  2、$_FILES[][‘type]：文件的类型，MIME类型
+</p>
+<p>
+  3、$_FILES[][‘tmp_name]：文件上传的临时文件
+</p>
+<p>
+  4、$_FILES[][‘error]：上传的错误号，0表示没有错误
+</p>
+<p>
+  5、$_FILES[][‘size’]：文件大小，单位是字节
+</p>
+<h3>详解$_FILES[][‘type]</h3>
+<p>
+  $_FILES[][‘type]返回的是MIME类型的格式，这种格式的组成是“类别/格式”比如“image/png”,“text/html”。
+</p>
+<p><img loading="lazy" decoding="async" width="881" height="55" src="/wp-content/uploads/2018/05/word-image-1480.png" class="wp-image-1652" srcset="/wp-content/uploads/2018/05/word-image-1480.png 881w, /wp-content/uploads/2018/05/word-image-1480-300x19.png 300w, /wp-content/uploads/2018/05/word-image-1480-768x48.png 768w" sizes="(max-width: 881px) 100vw, 881px" /></p>
+<p>
+  application/msword：.doc文件
+</p>
+<p>
+  application/vnd.openxmlformats-officedocument.wordprocessingml.document：docx后缀
+</p>
+<p>
+  text/plain：记事本
+</p>
+<h3>详解$_FILES[][‘tmp_name]</h3>
+<p>
+  文件在上传的时候临时文件地址
+</p>
+<p>
+  可以在php.ini中通过upload_tmp_dir指定临时目录的地址
+</p>
+<p><img loading="lazy" decoding="async" width="719" height="62" src="/wp-content/uploads/2018/05/word-image-1481.png" class="wp-image-1653" srcset="/wp-content/uploads/2018/05/word-image-1481.png 719w, /wp-content/uploads/2018/05/word-image-1481-300x26.png 300w" sizes="(max-width: 719px) 100vw, 719px" /></p>
+<p>
+  如果不指定，临时地址由操作系统决定
+</p>
+<h3>与上传有关的配置</h3>
+<ol>
+<li>
+  upload_tmp_dir：文件上传的临时地址
+</li>
+<li>
+  post_max_size=8M：post提交的最大值，默认是8M
+</li>
+<li>
+  upload_max_filesize=2M：上传文件的最大值是2M
+</li>
+<li>
+  file_uploads=on：是否允许文件上传
+</li>
+<li>
+  max_file_uploads=20：最多可以上传的文件个数
+</li>
+</ol>
+<h3>详解$_FILES[][‘error’]</h3>
+<p>
+  $_FILES[][‘error’]表示文件上传的错误代码，取值有0,1,2,3,4,6,7，非零表示有错误。
+</p>
+<p>
+  0：正确
+</p>
+<p>
+  1：文件大小超出了php.ini中upload_max_filesize允许的最大值。
+</p>
+<p>
+  2：文件大小超出了表单允许的最大值
+</p>
+<p><img loading="lazy" decoding="async" width="941" height="191" src="/wp-content/uploads/2018/05/word-image-1482.png" class="wp-image-1654" srcset="/wp-content/uploads/2018/05/word-image-1482.png 941w, /wp-content/uploads/2018/05/word-image-1482-300x61.png 300w, /wp-content/uploads/2018/05/word-image-1482-768x156.png 768w" sizes="(max-width: 941px) 100vw, 941px" /></p>
+<p>
+  3：只有部分文件上传
+</p>
+<p>
+  4：没有文件上传，上传的文件为空
+</p>
+<p>
+  6：找不到临时文件
+</p>
+<p>
+  7：文件写入失败（从临时目录向目标目录移动的时候失败了）
+</p>
+<h3>补充：隐藏域</h3>
+<p>
+  语法：&lt;input type=&#8221;hidden&#8221; value=&#8221;&#8221; /&gt;
+</p>
+<p>
+  隐藏域也是表单元素的一种，在浏览器上不会显示，
+</p>
+<p>
+  应用：用来向服务器提交数据，并且此数据不需要显示在浏览器上。
+</p>
+<h2>move_uploaded_file</h2>
+<p><img loading="lazy" decoding="async" width="623" height="128" src="/wp-content/uploads/2018/05/word-image-1483.png" class="wp-image-1655" srcset="/wp-content/uploads/2018/05/word-image-1483.png 623w, /wp-content/uploads/2018/05/word-image-1483-300x62.png 300w" sizes="(max-width: 623px) 100vw, 623px" /></p>
+<p>
+  例题
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  if(!empty($_POST)){
+</p>
+<p>
+  	if($_FILES[&#8216;img&#8217;][&#8216;error&#8217;]==0){
+</p>
+<p>
+  		$tmp=$_FILES[&#8216;img&#8217;][&#8216;tmp_name&#8217;];			//文件临时地址
+</p>
+<p>
+  	$dest=&#8217;./Uploads/&#8217;.iconv(&#8216;utf-8&#8242;,&#8217;gb2312&#8217;,$_FILES[&#8216;img&#8217;][&#8216;name&#8217;]);	//目标地址
+</p>
+<p>
+  		if(move_uploaded_file($tmp,$dest))		//文件上传
+</p>
+<p>
+  			echo &#8216;成功&#8217;;
+</p>
+<p>
+  		else
+</p>
+<p>
+  			echo &#8216;失败&#8217;;
+</p>
+<p>
+  	}else{
+</p>
+<p>
+  		echo $_FILES[&#8216;img&#8217;][&#8216;error&#8217;];
+</p>
+<p>
+  		echo &#8216;文件上传失败&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form action=&#8221;&#8221; method=&#8221;post&#8221; enctype=&#8221;multipart/form-data&#8221;&gt;
+</p>
+<p>
+  &lt;input type=&#8221;file&#8221; name=&#8221;img&#8221; /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;submit&#8221; name=&#8221;btn&#8221; value=&#8221;上传&#8221; /&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p>
+  多学一招：iconv()函数用于字符编码的转换。
+</p>
+<h2>验证文件的类型</h2>
+<p>
+  方法一：通过文件的MIME类型验证
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  if(isset($_POST[&#8216;btn&#8217;])) {
+</p>
+<p>
+  	//只有jpg,gif,png可以上传  image/jpeg,image/gif,image/png
+</p>
+<p>
+  	$allow=array(&#8216;image/jpeg&#8217;,&#8217;image/png&#8217;,&#8217;image/gif&#8217;);//mime类型
+</p>
+<p>
+  	if(in_array($_FILES[&#8216;img&#8217;][&#8216;type&#8217;],$allow)){
+</p>
+<p>
+  		$tmp=$_FILES[&#8216;img&#8217;][&#8216;tmp_name&#8217;];	//临时文件路径
+</p>
+<p>
+  		$dst=&#8217;./Uploads/&#8217;.$_FILES[&#8216;img&#8217;][&#8216;name&#8217;];//目标地址
+</p>
+<p>
+  		echo move_uploaded_file($tmp,$dst)?&#8217;上传成功&#8217;:&#8217;上传失败&#8217;;
+</p>
+<p>
+  	}else{
+</p>
+<p>
+  		echo $_FILES[&#8216;img&#8217;][&#8216;type&#8217;].&#8217;为非法类型&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form action=&#8221;&#8221; method=&#8221;post&#8221; enctype=&#8221;multipart/form-data&#8221;&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;file&#8221; name=&#8221;img&#8221; /&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;submit&#8221; name=&#8221;btn&#8221; value=&#8221;上传&#8221; /&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p>
+  方法二：通过验证文件的后缀来判断文件
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //$path=&#8217;aa.bb.cc.JPG&#8217;;			//文件名
+</p>
+<p>
+  //echo strrchr($path,&#8217;.&#8217;);		//获取文件扩展名
+</p>
+<p>
+  if(isset($_POST[&#8216;btn&#8217;])) {
+</p>
+<p>
+  	$allow=array(&#8216;.jpg&#8217;,&#8217;.jpeg&#8217;,&#8217;.gif&#8217;,&#8217;.png&#8217;);				//允许的文件扩展名
+</p>
+<p>
+  	$ext=strtolower(strrchr($_FILES[&#8216;img&#8217;][&#8216;name&#8217;],&#8217;.&#8217;));	//上传文件小写扩展名
+</p>
+<p>
+  	if(in_array($ext,$allow))
+</p>
+<p>
+  		echo &#8216;合法&#8217;;
+</p>
+<p>
+  	else
+</p>
+<p>
+  		echo &#8216;非法&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  脚下留心：方法一和方法二不能识别文件伪装。
+</p>
+<p>
+  方法三：通过php_fileinfo扩展来验证文件类型，此方法做严格检查。
+</p>
+<p>
+  fileinfo扩展可以防止文件伪装
+</p>
+<p>
+  要使用fileinfo扩展必须在php.ini中开启此扩展
+</p>
+<p><img loading="lazy" decoding="async" width="694" height="80" src="/wp-content/uploads/2018/05/word-image-1484.png" class="wp-image-1656" srcset="/wp-content/uploads/2018/05/word-image-1484.png 694w, /wp-content/uploads/2018/05/word-image-1484-300x35.png 300w" sizes="(max-width: 694px) 100vw, 694px" /></p>
+<p>
+  重启服务器。
+</p>
+<p><img loading="lazy" decoding="async" width="505" height="152" src="/wp-content/uploads/2018/05/word-image-1485.png" class="wp-image-1657" srcset="/wp-content/uploads/2018/05/word-image-1485.png 505w, /wp-content/uploads/2018/05/word-image-1485-300x90.png 300w" sizes="(max-width: 505px) 100vw, 505px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="1094" height="171" src="/wp-content/uploads/2018/05/word-image-1486.png" class="wp-image-1658" srcset="/wp-content/uploads/2018/05/word-image-1486.png 1094w, /wp-content/uploads/2018/05/word-image-1486-300x47.png 300w, /wp-content/uploads/2018/05/word-image-1486-768x120.png 768w, /wp-content/uploads/2018/05/word-image-1486-1024x160.png 1024w" sizes="(max-width: 1094px) 100vw, 1094px" /></p>
+<p>
+  完整例题
+</p>
+<p>
+  if(isset($_POST[&#8216;btn&#8217;])) {
+</p>
+<p>
+  	//第一步：创建fileinfo资源
+</p>
+<p>
+  	$finfo=finfo_open(FILEINFO_MIME);		//创建了一个资源
+</p>
+<p>
+  	//第二步：将上传的文件与创建的资源做比较
+</p>
+<p>
+  	$info=finfo_file($finfo,$_FILES[&#8216;img&#8217;][&#8216;tmp_name&#8217;]);	//返回文件信息
+</p>
+<p>
+  	//第三步：分析返回的结果
+</p>
+<p>
+  	$allow=array(&#8216;image/jpeg&#8217;,&#8217;image/png&#8217;,&#8217;image/gif&#8217;);//允许mime类型
+</p>
+<p>
+  	$array=explode(&#8216;;&#8217;,$info);
+</p>
+<p>
+  	echo in_array($array[0],$allow)?&#8217;合法&#8217;:&#8217;非法&#8217;;
+</p>
+<p>
+  }
+</p>
+<h2>生成唯一文件名</h2>
+<p>
+  在文件上传的过程中，后面的文件将前面的同名文件覆盖。解决方案给每个文件取一个唯一的文件名。
+</p>
+<p>
+  方法一：用时间戳做文件名
+</p>
+<p>
+  时间戳：从1970年1月1日0时0分0秒到现在的秒数（或毫秒数）
+</p>
+<p><img loading="lazy" decoding="async" width="289" height="27" src="/wp-content/uploads/2018/05/word-image-1487.png" class="wp-image-1659" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="1040" height="205" src="/wp-content/uploads/2018/05/word-image-1488.png" class="wp-image-1660" srcset="/wp-content/uploads/2018/05/word-image-1488.png 1040w, /wp-content/uploads/2018/05/word-image-1488-300x59.png 300w, /wp-content/uploads/2018/05/word-image-1488-768x151.png 768w, /wp-content/uploads/2018/05/word-image-1488-1024x202.png 1024w" sizes="(max-width: 1040px) 100vw, 1040px" /></p>
+<p>
+  方法二：通过uniqid()函数 — 生成一个唯一ID
+</p>
+<p><img loading="lazy" decoding="async" width="659" height="159" src="/wp-content/uploads/2018/05/word-image-1489.png" class="wp-image-1661" srcset="/wp-content/uploads/2018/05/word-image-1489.png 659w, /wp-content/uploads/2018/05/word-image-1489-300x72.png 300w" sizes="(max-width: 659px) 100vw, 659px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="740" height="142" src="/wp-content/uploads/2018/05/word-image-1490.png" class="wp-image-1662" srcset="/wp-content/uploads/2018/05/word-image-1490.png 740w, /wp-content/uploads/2018/05/word-image-1490-300x58.png 300w" sizes="(max-width: 740px) 100vw, 740px" /></p>
+<h2>优化文件上传例题</h2>
+<p>
+  &lt;?php
+</p>
+<p>
+  if(isset($_POST[&#8216;btn&#8217;])) {
+</p>
+<p>
+  	$error=$_FILES[&#8216;img&#8217;][&#8216;error&#8217;];	//获取上传错误码
+</p>
+<p>
+  	//文件上传有误
+</p>
+<p>
+  	if($error!==0){
+</p>
+<p>
+  		switch($error) {
+</p>
+<p>
+  			case 1:
+</p>
+<p>
+  				echo &#8216;上传文件超出了PHP允许的最大值&#8217;;
+</p>
+<p>
+  				break;
+</p>
+<p>
+  			case 2:
+</p>
+<p>
+  				echo &#8216;上传文件超出了表单允许的最大值&#8217;;
+</p>
+<p>
+  				break;
+</p>
+<p>
+  			case 3:
+</p>
+<p>
+  				echo &#8216;只有部分文件上传&#8217;;
+</p>
+<p>
+  				break;
+</p>
+<p>
+  			case 4:
+</p>
+<p>
+  				echo &#8216;上传文件为空&#8217;;
+</p>
+<p>
+  				break;
+</p>
+<p>
+  			case 6:
+</p>
+<p>
+  				echo &#8216;找不到临时文件&#8217;;
+</p>
+<p>
+  				break;
+</p>
+<p>
+  			case 7:
+</p>
+<p>
+  				echo &#8216;文件写入失败&#8217;;
+</p>
+<p>
+  				break;
+</p>
+<p>
+  			default:
+</p>
+<p>
+  				echo &#8216;未知错误&#8217;;
+</p>
+<p>
+  		}
+</p>
+<p>
+  		exit;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//验证格式
+</p>
+<p>
+  	$allow=array(&#8216;image/jpeg&#8217;,&#8217;image/png&#8217;,&#8217;image/gif&#8217;);	//允许文件类型
+</p>
+<p>
+  	$finfo=finfo_open(FILEINFO_MIME);					//创建了一个资源
+</p>
+<p>
+  	$info=finfo_file($finfo,$_FILES[&#8216;img&#8217;][&#8216;tmp_name&#8217;]);//返回文件信息
+</p>
+<p>
+  	$array=explode(&#8216;;&#8217;,$info);
+</p>
+<p>
+  	if(!in_array($array[0],$allow))
+</p>
+<p>
+  		die(&#8216;文件非法，只允许&#8217;.implode(&#8216;,&#8217;,$allow));
+</p>
+<p>
+  	//验证文件大小
+</p>
+<p>
+  	if($_FILES[&#8216;img&#8217;][&#8216;size&#8217;]&gt;1024*1024){
+</p>
+<p>
+  		die(&#8216;文件不能大于1M&#8217;);
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//验证上传文件是否是http上传
+</p>
+<p>
+  	if(!is_uploaded_file($_FILES[&#8216;img&#8217;][&#8216;tmp_name&#8217;])){ //判断文件是否是通过 HTTP POST 上传的
+</p>
+<p>
+  		die(&#8216;文件必须是http文件上传&#8217;);
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//文件上传
+</p>
+<p>
+  	$dest=&#8217;./uploads/&#8217;.uniqid(&#8221;,true).strrchr($_FILES[&#8216;img&#8217;][&#8216;name&#8217;],&#8217;.&#8217;);
+</p>
+<p>
+  	echo move_uploaded_file($_FILES[&#8216;img&#8217;][&#8216;tmp_name&#8217;],$dest)?&#8217;上传成功&#8217;:&#8217;上传失败&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form action=&#8221;&#8221; method=&#8221;post&#8221; enctype=&#8221;multipart/form-data&#8221;&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;file&#8221; name=&#8221;img&#8221; /&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;submit&#8221; name=&#8221;btn&#8221; value=&#8221;上传&#8221; /&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<h2>多文件上传</h2>
+<p><img loading="lazy" decoding="async" width="1074" height="327" src="/wp-content/uploads/2018/05/word-image-1491.png" class="wp-image-1663" srcset="/wp-content/uploads/2018/05/word-image-1491.png 1074w, /wp-content/uploads/2018/05/word-image-1491-300x91.png 300w, /wp-content/uploads/2018/05/word-image-1491-768x234.png 768w, /wp-content/uploads/2018/05/word-image-1491-1024x312.png 1024w" sizes="(max-width: 1074px) 100vw, 1074px" /></p>
+<p>
+  例题
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  if(isset($_POST[&#8216;btn&#8217;])) {
+</p>
+<p>
+  	//var_dump($_FILES);		//三维数组
+</p>
+<p>
+  	foreach($_FILES[&#8216;img&#8217;][&#8216;name&#8217;] as $k=&gt;$v) {
+</p>
+<p>
+  		$dest=&#8217;./Uploads/&#8217;.uniqid(&#8221;,true).strrchr($v,&#8217;.&#8217;);	//目标文件
+</p>
+<p>
+  		echo move_uploaded_file($_FILES[&#8216;img&#8217;][&#8216;tmp_name&#8217;][$k],$dest)?&#8217;成功&#8217;:&#8217;失败&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form action=&#8221;&#8221; method=&#8221;post&#8221; enctype=&#8221;multipart/form-data&#8221;&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;file&#8221; name=&#8221;img[]&#8221; /&gt;&lt;br&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;file&#8221; name=&#8221;img[]&#8221; /&gt;&lt;br&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;file&#8221; name=&#8221;img[]&#8221; /&gt;&lt;br&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;submit&#8221; name=&#8221;btn&#8221; value=&#8221;上传&#8221; /&gt;
+</p>
+<p>
+  &lt;/form&gt;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/1641.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

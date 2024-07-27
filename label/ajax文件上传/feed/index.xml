@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Ajax文件上传 &#8211; 个人随笔</title>
+	<atom:link href="/label/ajax%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 09:35:43 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>Ajax文件上传 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Ajax（二）用户注册验证、无刷新分页、underscore工具库、json、跨域、Ajax文件上传</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3244.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3244.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 09:35:43 +0000</pubDate>
+				<category><![CDATA[AJAX]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[Ajax文件上传]]></category>
+		<category><![CDATA[Json]]></category>
+		<category><![CDATA[underscore工具库]]></category>
+		<category><![CDATA[无刷新分页]]></category>
+		<category><![CDATA[用户注册验证]]></category>
+		<category><![CDATA[跨域]]></category>
+		<guid isPermaLink="false">/?p=3244</guid>
+
+					<description><![CDATA[Ajax案例-会员模块-curd-作业 功能需求 在添加的时候做用户名唯一性检查 做数据展示做一个无刷新分页（ [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1><a id="post-3244-_Toc481"></a><a id="post-3244-_Toc7787"></a>Ajax案例-会员模块-curd-作业</h1>
+<h2><a id="post-3244-_Toc29820"></a>功能需求</h2>
+<ol>
+<li>
+  在添加的时候做用户名唯一性检查
+</li>
+</ol>
+<p><img fetchpriority="high" decoding="async" width="801" height="534" src="/wp-content/uploads/2018/05/word-image-2855.png" class="wp-image-3245" srcset="/wp-content/uploads/2018/05/word-image-2855.png 801w, /wp-content/uploads/2018/05/word-image-2855-300x200.png 300w, /wp-content/uploads/2018/05/word-image-2855-768x512.png 768w" sizes="(max-width: 801px) 100vw, 801px" /></p>
+<ol>
+<li>
+  做数据展示做一个无刷新分页（分页插件 layUI 闲心）
+</li>
+</ol>
+<p><img decoding="async" width="1599" height="812" src="/wp-content/uploads/2018/05/word-image-2856.png" class="wp-image-3246" srcset="/wp-content/uploads/2018/05/word-image-2856.png 1599w, /wp-content/uploads/2018/05/word-image-2856-300x152.png 300w, /wp-content/uploads/2018/05/word-image-2856-768x390.png 768w, /wp-content/uploads/2018/05/word-image-2856-1024x520.png 1024w" sizes="(max-width: 1599px) 100vw, 1599px" /></p>
+<ol>
+<li>
+  做删除的时候做Ajax无刷新删除 + 事件代理完成、事件委托
+</li>
+</ol>
+<p><img decoding="async" width="1622" height="790" src="/wp-content/uploads/2018/05/word-image-2857.png" class="wp-image-3247" srcset="/wp-content/uploads/2018/05/word-image-2857.png 1622w, /wp-content/uploads/2018/05/word-image-2857-300x146.png 300w, /wp-content/uploads/2018/05/word-image-2857-768x374.png 768w, /wp-content/uploads/2018/05/word-image-2857-1024x499.png 1024w" sizes="(max-width: 1622px) 100vw, 1622px" /></p>
+<h2>实操-添加</h2>
+<h3>用户注册-唯一性检验</h3>
+<ol>
+<li>
+  编写一个user.html文件，展示一个注册表单
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1810" height="826" src="/wp-content/uploads/2018/05/word-image-2858.png" class="wp-image-3248" srcset="/wp-content/uploads/2018/05/word-image-2858.png 1810w, /wp-content/uploads/2018/05/word-image-2858-300x137.png 300w, /wp-content/uploads/2018/05/word-image-2858-768x350.png 768w, /wp-content/uploads/2018/05/word-image-2858-1024x467.png 1024w" sizes="(max-width: 1810px) 100vw, 1810px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="1633" height="500" src="/wp-content/uploads/2018/05/word-image-2859.png" class="wp-image-3249" srcset="/wp-content/uploads/2018/05/word-image-2859.png 1633w, /wp-content/uploads/2018/05/word-image-2859-300x92.png 300w, /wp-content/uploads/2018/05/word-image-2859-768x235.png 768w, /wp-content/uploads/2018/05/word-image-2859-1024x314.png 1024w" sizes="(max-width: 1633px) 100vw, 1633px" /></p>
+<ol>
+<li>
+  在user.html页面编写js代码进行校验用户信息，如果前台校验成功，使用ajax发送网络请求，进行用户唯一性处理
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1240" height="968" src="/wp-content/uploads/2018/05/word-image-2860.png" class="wp-image-3250" srcset="/wp-content/uploads/2018/05/word-image-2860.png 1240w, /wp-content/uploads/2018/05/word-image-2860-300x234.png 300w, /wp-content/uploads/2018/05/word-image-2860-768x600.png 768w, /wp-content/uploads/2018/05/word-image-2860-1024x799.png 1024w" sizes="(max-width: 1240px) 100vw, 1240px" /></p>
+<p>
+  注意：这里的swal函数使用的是sweetalert插件提供的。
+</p>
+<ol>
+<li>
+  在后台编写一个checkUser.php文件完成用户唯一性校验，可以注册返回1，不可以注册返回0
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1648" height="990" src="/wp-content/uploads/2018/05/word-image-2861.png" class="wp-image-3251" srcset="/wp-content/uploads/2018/05/word-image-2861.png 1648w, /wp-content/uploads/2018/05/word-image-2861-300x180.png 300w, /wp-content/uploads/2018/05/word-image-2861-768x461.png 768w, /wp-content/uploads/2018/05/word-image-2861-1024x615.png 1024w" sizes="(max-width: 1648px) 100vw, 1648px" /></p>
+<h3>用户注册-添加入库</h3>
+<p>
+  1. 编写一个user.html文件，展示一个注册表单
+</p>
+<p><img loading="lazy" decoding="async" width="1810" height="826" src="/wp-content/uploads/2018/05/word-image-2862.png" class="wp-image-3253" srcset="/wp-content/uploads/2018/05/word-image-2862.png 1810w, /wp-content/uploads/2018/05/word-image-2862-300x137.png 300w, /wp-content/uploads/2018/05/word-image-2862-768x350.png 768w, /wp-content/uploads/2018/05/word-image-2862-1024x467.png 1024w" sizes="(max-width: 1810px) 100vw, 1810px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="1633" height="500" src="/wp-content/uploads/2018/05/word-image-2863.png" class="wp-image-3254" srcset="/wp-content/uploads/2018/05/word-image-2863.png 1633w, /wp-content/uploads/2018/05/word-image-2863-300x92.png 300w, /wp-content/uploads/2018/05/word-image-2863-768x235.png 768w, /wp-content/uploads/2018/05/word-image-2863-1024x314.png 1024w" sizes="(max-width: 1633px) 100vw, 1633px" /></p>
+<ol>
+<li>
+  在user.html页面编写js代码进行校验用户信息，如果前台校验成功，使用ajax发送网络请求，进行用户入库操作
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1745" height="802" src="/wp-content/uploads/2018/05/word-image-2864.png" class="wp-image-3255" srcset="/wp-content/uploads/2018/05/word-image-2864.png 1745w, /wp-content/uploads/2018/05/word-image-2864-300x138.png 300w, /wp-content/uploads/2018/05/word-image-2864-768x353.png 768w, /wp-content/uploads/2018/05/word-image-2864-1024x471.png 1024w" sizes="(max-width: 1745px) 100vw, 1745px" /><br />
+<img loading="lazy" decoding="async" width="1771" height="337" src="/wp-content/uploads/2018/05/word-image-2865.png" class="wp-image-3256" srcset="/wp-content/uploads/2018/05/word-image-2865.png 1771w, /wp-content/uploads/2018/05/word-image-2865-300x57.png 300w, /wp-content/uploads/2018/05/word-image-2865-768x146.png 768w, /wp-content/uploads/2018/05/word-image-2865-1024x195.png 1024w" sizes="(max-width: 1771px) 100vw, 1771px" /></p>
+<p>
+  注意：这里的swal函数使用的是sweetalert插件提供的。
+</p>
+<p>
+  3. 在后台编写一个addkUser.php文件完成用户入库操作，成功返回1，失败返回0
+</p>
+<p><img loading="lazy" decoding="async" width="1578" height="821" src="/wp-content/uploads/2018/05/word-image-2866.png" class="wp-image-3257" srcset="/wp-content/uploads/2018/05/word-image-2866.png 1578w, /wp-content/uploads/2018/05/word-image-2866-300x156.png 300w, /wp-content/uploads/2018/05/word-image-2866-768x400.png 768w, /wp-content/uploads/2018/05/word-image-2866-1024x533.png 1024w" sizes="(max-width: 1578px) 100vw, 1578px" /></p>
+<h3>sweetalert插件</h3>
+<p>
+  相关网站：
+</p>
+<p><a href="http://www.bootcdn.cn/sweetalert/">http://www.bootcdn.cn/sweetalert/</a>
+</p>
+<p><a href="http://mishengqiang.com/sweetalert/" class="broken_link">http://mishengqiang.com/sweetalert/</a>
+</p>
+<ol>
+<li>
+  在bootcdn网站查询sweetalert插件
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1714" height="793" src="/wp-content/uploads/2018/05/word-image-2867.png" class="wp-image-3258" srcset="/wp-content/uploads/2018/05/word-image-2867.png 1714w, /wp-content/uploads/2018/05/word-image-2867-300x139.png 300w, /wp-content/uploads/2018/05/word-image-2867-768x355.png 768w, /wp-content/uploads/2018/05/word-image-2867-1024x474.png 1024w" sizes="(max-width: 1714px) 100vw, 1714px" /></p>
+<ol>
+<li>
+  自己的页面引入对应的css和js资源文件，调用 swal 函数进行测试
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1228" height="478" src="/wp-content/uploads/2018/05/word-image-2868.png" class="wp-image-3259" srcset="/wp-content/uploads/2018/05/word-image-2868.png 1228w, /wp-content/uploads/2018/05/word-image-2868-300x117.png 300w, /wp-content/uploads/2018/05/word-image-2868-768x299.png 768w, /wp-content/uploads/2018/05/word-image-2868-1024x399.png 1024w" sizes="(max-width: 1228px) 100vw, 1228px" /></p>
+<p>
+  效果：
+</p>
+<p><img loading="lazy" decoding="async" width="1461" height="732" src="/wp-content/uploads/2018/05/word-image-2869.png" class="wp-image-3260" srcset="/wp-content/uploads/2018/05/word-image-2869.png 1461w, /wp-content/uploads/2018/05/word-image-2869-300x150.png 300w, /wp-content/uploads/2018/05/word-image-2869-768x385.png 768w, /wp-content/uploads/2018/05/word-image-2869-1024x513.png 1024w" sizes="(max-width: 1461px) 100vw, 1461px" /></p>
+<h2>实操-用户展示</h2>
+<h3>用户的展示-无刷新分页</h3>
+<p>
+  昨天使用了一个叫做layUI提供的一个layPage的分页插件。
+</p>
+<p>
+  功能需求分析：
+</p>
+<p><img loading="lazy" decoding="async" width="1524" height="827" src="/wp-content/uploads/2018/05/word-image-2870.png" class="wp-image-3261" srcset="/wp-content/uploads/2018/05/word-image-2870.png 1524w, /wp-content/uploads/2018/05/word-image-2870-300x163.png 300w, /wp-content/uploads/2018/05/word-image-2870-768x417.png 768w, /wp-content/uploads/2018/05/word-image-2870-1024x556.png 1024w" sizes="(max-width: 1524px) 100vw, 1524px" /></p>
+<p>
+  代码实现：
+</p>
+<ol>
+<li>
+  定义一个ulst.php展示用户的列表，默认获取显示第一页的数据
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1728" height="826" src="/wp-content/uploads/2018/05/word-image-2871.png" class="wp-image-3262" srcset="/wp-content/uploads/2018/05/word-image-2871.png 1728w, /wp-content/uploads/2018/05/word-image-2871-300x143.png 300w, /wp-content/uploads/2018/05/word-image-2871-768x367.png 768w, /wp-content/uploads/2018/05/word-image-2871-1024x489.png 1024w" sizes="(max-width: 1728px) 100vw, 1728px" /><br />
+<img loading="lazy" decoding="async" width="1709" height="909" src="/wp-content/uploads/2018/05/word-image-2872.png" class="wp-image-3263" srcset="/wp-content/uploads/2018/05/word-image-2872.png 1709w, /wp-content/uploads/2018/05/word-image-2872-300x160.png 300w, /wp-content/uploads/2018/05/word-image-2872-768x408.png 768w, /wp-content/uploads/2018/05/word-image-2872-1024x545.png 1024w" sizes="(max-width: 1709px) 100vw, 1709px" /><br />
+<img loading="lazy" decoding="async" width="1731" height="237" src="/wp-content/uploads/2018/05/word-image-2873.png" class="wp-image-3264" srcset="/wp-content/uploads/2018/05/word-image-2873.png 1731w, /wp-content/uploads/2018/05/word-image-2873-300x41.png 300w, /wp-content/uploads/2018/05/word-image-2873-768x105.png 768w, /wp-content/uploads/2018/05/word-image-2873-1024x140.png 1024w" sizes="(max-width: 1731px) 100vw, 1731px" /><br />
+<img loading="lazy" decoding="async" width="1248" height="954" src="/wp-content/uploads/2018/05/word-image-2874.png" class="wp-image-3265" srcset="/wp-content/uploads/2018/05/word-image-2874.png 1248w, /wp-content/uploads/2018/05/word-image-2874-300x229.png 300w, /wp-content/uploads/2018/05/word-image-2874-768x587.png 768w, /wp-content/uploads/2018/05/word-image-2874-1024x783.png 1024w" sizes="(max-width: 1248px) 100vw, 1248px" /></p>
+<ol>
+<li>
+  定义一个formatDataEs6方法格式化用户信息，返回一个HTML字符串
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1346" height="607" src="/wp-content/uploads/2018/05/word-image-2875.png" class="wp-image-3266" srcset="/wp-content/uploads/2018/05/word-image-2875.png 1346w, /wp-content/uploads/2018/05/word-image-2875-300x135.png 300w, /wp-content/uploads/2018/05/word-image-2875-768x346.png 768w, /wp-content/uploads/2018/05/word-image-2875-1024x462.png 1024w" sizes="(max-width: 1346px) 100vw, 1346px" /></p>
+<ol>
+<li>
+  定义一个userList.php页面，接收分页请求，返回数据
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1253" height="774" src="/wp-content/uploads/2018/05/word-image-2876.png" class="wp-image-3267" srcset="/wp-content/uploads/2018/05/word-image-2876.png 1253w, /wp-content/uploads/2018/05/word-image-2876-300x185.png 300w, /wp-content/uploads/2018/05/word-image-2876-768x474.png 768w, /wp-content/uploads/2018/05/word-image-2876-1024x633.png 1024w" sizes="(max-width: 1253px) 100vw, 1253px" /></p>
+<h3>underscore工具库</h3>
+<p>
+  简介：
+</p>
+<p><img loading="lazy" decoding="async" width="1355" height="629" src="/wp-content/uploads/2018/05/word-image-2877.png" class="wp-image-3268" srcset="/wp-content/uploads/2018/05/word-image-2877.png 1355w, /wp-content/uploads/2018/05/word-image-2877-300x139.png 300w, /wp-content/uploads/2018/05/word-image-2877-768x357.png 768w, /wp-content/uploads/2018/05/word-image-2877-1024x475.png 1024w" sizes="(max-width: 1355px) 100vw, 1355px" /></p>
+<ol>
+<li>
+  编写一个HTML文件，引入underscore.js文件，编写js代码，调用该工具库提供的方法
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1368" height="906" src="/wp-content/uploads/2018/05/word-image-2878.png" class="wp-image-3269" srcset="/wp-content/uploads/2018/05/word-image-2878.png 1368w, /wp-content/uploads/2018/05/word-image-2878-300x199.png 300w, /wp-content/uploads/2018/05/word-image-2878-768x509.png 768w, /wp-content/uploads/2018/05/word-image-2878-1024x678.png 1024w" sizes="(max-width: 1368px) 100vw, 1368px" /></p>
+<p>
+  注意：_.each() 用于遍历数组 _.uniq() 用于数组去重
+</p>
+<p>
+  2. 效果
+</p>
+<p><img loading="lazy" decoding="async" width="1109" height="527" src="/wp-content/uploads/2018/05/word-image-2879.png" class="wp-image-3270" srcset="/wp-content/uploads/2018/05/word-image-2879.png 1109w, /wp-content/uploads/2018/05/word-image-2879-300x143.png 300w, /wp-content/uploads/2018/05/word-image-2879-768x365.png 768w, /wp-content/uploads/2018/05/word-image-2879-1024x487.png 1024w" sizes="(max-width: 1109px) 100vw, 1109px" /></p>
+<h2>实操-用户删除</h2>
+<p>
+  功能需求：
+</p>
+<p><img loading="lazy" decoding="async" width="1779" height="533" src="/wp-content/uploads/2018/05/word-image-2880.png" class="wp-image-3271" srcset="/wp-content/uploads/2018/05/word-image-2880.png 1779w, /wp-content/uploads/2018/05/word-image-2880-300x90.png 300w, /wp-content/uploads/2018/05/word-image-2880-768x230.png 768w, /wp-content/uploads/2018/05/word-image-2880-1024x307.png 1024w" sizes="(max-width: 1779px) 100vw, 1779px" /></p>
+<ol>
+<li>
+  在ulst.php为table元素定义一个id属性
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1813" height="987" src="/wp-content/uploads/2018/05/word-image-2881.png" class="wp-image-3272" srcset="/wp-content/uploads/2018/05/word-image-2881.png 1813w, /wp-content/uploads/2018/05/word-image-2881-300x163.png 300w, /wp-content/uploads/2018/05/word-image-2881-768x418.png 768w, /wp-content/uploads/2018/05/word-image-2881-1024x557.png 1024w" sizes="(max-width: 1813px) 100vw, 1813px" /></p>
+<ol>
+<li>
+  为该table元素绑定一个点击事件
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1646" height="586" src="/wp-content/uploads/2018/05/word-image-2882.png" class="wp-image-3273" srcset="/wp-content/uploads/2018/05/word-image-2882.png 1646w, /wp-content/uploads/2018/05/word-image-2882-300x107.png 300w, /wp-content/uploads/2018/05/word-image-2882-768x273.png 768w, /wp-content/uploads/2018/05/word-image-2882-1024x365.png 1024w" sizes="(max-width: 1646px) 100vw, 1646px" /></p>
+<ol>
+<li>
+  定义一个ajaxDelUser函数，发送ajax请求，删除用户信息
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1259" height="652" src="/wp-content/uploads/2018/05/word-image-2883.png" class="wp-image-3274" srcset="/wp-content/uploads/2018/05/word-image-2883.png 1259w, /wp-content/uploads/2018/05/word-image-2883-300x155.png 300w, /wp-content/uploads/2018/05/word-image-2883-768x398.png 768w, /wp-content/uploads/2018/05/word-image-2883-1024x530.png 1024w" sizes="(max-width: 1259px) 100vw, 1259px" /></p>
+<h3>事件优化处理机制简介</h3>
+<p><img loading="lazy" decoding="async" width="1608" height="469" src="/wp-content/uploads/2018/05/word-image-2884.png" class="wp-image-3275" srcset="/wp-content/uploads/2018/05/word-image-2884.png 1608w, /wp-content/uploads/2018/05/word-image-2884-300x88.png 300w, /wp-content/uploads/2018/05/word-image-2884-768x224.png 768w, /wp-content/uploads/2018/05/word-image-2884-1024x299.png 1024w" sizes="(max-width: 1608px) 100vw, 1608px" /></p>
+<h3>优化处理</h3>
+<p><img loading="lazy" decoding="async" width="1518" height="355" src="/wp-content/uploads/2018/05/word-image-2885.png" class="wp-image-3276" srcset="/wp-content/uploads/2018/05/word-image-2885.png 1518w, /wp-content/uploads/2018/05/word-image-2885-300x70.png 300w, /wp-content/uploads/2018/05/word-image-2885-768x180.png 768w, /wp-content/uploads/2018/05/word-image-2885-1024x239.png 1024w" sizes="(max-width: 1518px) 100vw, 1518px" /></p>
+<h1>json简介</h1>
+<h2><a id="post-3244-_Toc761"></a>①-json是什么？</h2>
+<ol>
+<li>
+  什么是json？
+</li>
+</ol>
+<p>
+  答：json是由一个叫做道格拉斯（道叔，josn规范的制定者，一般他是json发现者）发现的一种在多种语言（js\php\java\c\python&#8230;）之间进行数据传递的一个文本的数据格式。以前也可以使用XML来组织格式来交换数据，但是XML操作起来非常的麻烦，慢慢的更多的是使用json格式数据做传递。
+</p>
+<p>
+  注意：虽说现在json非常的流行，但不意味着XML没有使用的必要的。在很多的领域XML还是有其独特的优势，尤其是在数据传递格式非常严苛的情况下（DTD：文档约束，主要是可以去约束XML的定义），例如银行的系统。并且可以做小型的数据库、还可以做配置文件（Java里面很多的配置文件都是使用xml）。
+</p>
+<p>
+  注意：json也是可以作为配置文件的，例如composer的包管理器的配置文件。(现在很多的项目都是使用json作为配置文件)
+</p>
+<p><img loading="lazy" decoding="async" width="1247" height="961" src="/wp-content/uploads/2018/05/word-image-2886.png" class="wp-image-3277" srcset="/wp-content/uploads/2018/05/word-image-2886.png 1247w, /wp-content/uploads/2018/05/word-image-2886-300x231.png 300w, /wp-content/uploads/2018/05/word-image-2886-768x592.png 768w, /wp-content/uploads/2018/05/word-image-2886-1024x789.png 1024w" sizes="(max-width: 1247px) 100vw, 1247px" /></p>
+<p>
+  注意：多种格式的数据都可以作为配置文件
+</p>
+<ol>
+<li>
+  php.ini
+</li>
+<li>
+  httpd.conf
+</li>
+<li>
+  conf.yaml
+</li>
+<li>
+  composer.json
+</li>
+<li>
+  config.xml
+</li>
+</ol>
+<p>
+  面试：json还是XML好？没有什么好或不好，主要是实际的业务需求，以及公司领导的安排。
+</p>
+<p>
+  官网：<a href="http://www.json.org.cn/">http://www.json.org.cn/</a>
+</p>
+<p><img loading="lazy" decoding="async" width="911" height="336" src="/wp-content/uploads/2018/05/word-image-2887.png" class="wp-image-3278" srcset="/wp-content/uploads/2018/05/word-image-2887.png 911w, /wp-content/uploads/2018/05/word-image-2887-300x111.png 300w, /wp-content/uploads/2018/05/word-image-2887-768x283.png 768w" sizes="(max-width: 911px) 100vw, 911px" /></p>
+<p>
+  json是啥？
+</p>
+<p><img loading="lazy" decoding="async" width="1072" height="275" src="/wp-content/uploads/2018/05/word-image-2888.png" class="wp-image-3279" srcset="/wp-content/uploads/2018/05/word-image-2888.png 1072w, /wp-content/uploads/2018/05/word-image-2888-300x77.png 300w, /wp-content/uploads/2018/05/word-image-2888-768x197.png 768w, /wp-content/uploads/2018/05/word-image-2888-1024x263.png 1024w" sizes="(max-width: 1072px) 100vw, 1072px" /></p>
+<p>
+  网站：<a href="http://www.json.org.cn/standard.htm">http://www.json.org.cn/standard.htm</a>
+</p>
+<h2><a id="post-3244-_Toc24672"></a>②-json格式到底是如何定义的？</h2>
+<p>
+  形如下面的数据结构被称为json格式的文本，需要注意：json格式里面的 key/value对是无序的。和php里面的关联数组比较类型，也和js里面的json字面量对象很像。
+</p>
+<p><img loading="lazy" decoding="async" width="764" height="316" src="/wp-content/uploads/2018/05/word-image-2889.png" class="wp-image-3280" srcset="/wp-content/uploads/2018/05/word-image-2889.png 764w, /wp-content/uploads/2018/05/word-image-2889-300x124.png 300w" sizes="(max-width: 764px) 100vw, 764px" /></p>
+<p>
+  定义语法：
+</p>
+<p>
+  {
+</p>
+<p>
+  &#8220;key&#8221;: &#8220;value1&#8221;, // value值是字符串的时候必须加上双引号，同时 key 必须要加双引号
+</p>
+<p>
+  &#8220;age&#8221; : 12,
+</p>
+<p>
+  &#8220;isBool&#8221;: true // 最后的key value 不能加逗号
+</p>
+<p>
+  }
+</p>
+<p>
+  通过工具进行校验：
+</p>
+<p><a href="https://www.bejson.com/">https://www.bejson.com/</a>
+</p>
+<p><img loading="lazy" decoding="async" width="612" height="607" src="/wp-content/uploads/2018/05/word-image-2890.png" class="wp-image-3281" srcset="/wp-content/uploads/2018/05/word-image-2890.png 612w, /wp-content/uploads/2018/05/word-image-2890-150x150.png 150w, /wp-content/uploads/2018/05/word-image-2890-300x298.png 300w" sizes="(max-width: 612px) 100vw, 612px" /></p>
+<h2><a id="post-3244-_Toc15714"></a>③-php里面如何处理json格式数据？</h2>
+<ol>
+<li>
+  如何把php里面的复合数据类型转换为json格式的字符串数据？（<strong>json_encode 1. 中文 gb2312 2. Unicode编码</strong>）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1100" height="551" src="/wp-content/uploads/2018/05/word-image-2891.png" class="wp-image-3282" srcset="/wp-content/uploads/2018/05/word-image-2891.png 1100w, /wp-content/uploads/2018/05/word-image-2891-300x150.png 300w, /wp-content/uploads/2018/05/word-image-2891-768x385.png 768w, /wp-content/uploads/2018/05/word-image-2891-1024x513.png 1024w" sizes="(max-width: 1100px) 100vw, 1100px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="1112" height="142" src="/wp-content/uploads/2018/05/word-image-2892.png" class="wp-image-3283" srcset="/wp-content/uploads/2018/05/word-image-2892.png 1112w, /wp-content/uploads/2018/05/word-image-2892-300x38.png 300w, /wp-content/uploads/2018/05/word-image-2892-768x98.png 768w, /wp-content/uploads/2018/05/word-image-2892-1024x131.png 1024w" sizes="(max-width: 1112px) 100vw, 1112px" /></p>
+<ol>
+<li>
+  如何把json格式的数据转换为php里面的复合数组类型？(json_decode)
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1240" height="329" src="/wp-content/uploads/2018/05/word-image-2893.png" class="wp-image-3284" srcset="/wp-content/uploads/2018/05/word-image-2893.png 1240w, /wp-content/uploads/2018/05/word-image-2893-300x80.png 300w, /wp-content/uploads/2018/05/word-image-2893-768x204.png 768w, /wp-content/uploads/2018/05/word-image-2893-1024x272.png 1024w" sizes="(max-width: 1240px) 100vw, 1240px" /></p>
+<p>
+  效果：
+</p>
+<p><img loading="lazy" decoding="async" width="743" height="302" src="/wp-content/uploads/2018/05/word-image-2894.png" class="wp-image-3285" srcset="/wp-content/uploads/2018/05/word-image-2894.png 743w, /wp-content/uploads/2018/05/word-image-2894-300x122.png 300w" sizes="(max-width: 743px) 100vw, 743px" /></p>
+<p>
+  备注：如果json_decode($jsonString) 不加第二个参数，则转换成php里面的一个标准对象
+</p>
+<p><img loading="lazy" decoding="async" width="1239" height="371" src="/wp-content/uploads/2018/05/word-image-2895.png" class="wp-image-3286" srcset="/wp-content/uploads/2018/05/word-image-2895.png 1239w, /wp-content/uploads/2018/05/word-image-2895-300x90.png 300w, /wp-content/uploads/2018/05/word-image-2895-768x230.png 768w, /wp-content/uploads/2018/05/word-image-2895-1024x307.png 1024w" sizes="(max-width: 1239px) 100vw, 1239px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="647" height="358" src="/wp-content/uploads/2018/05/word-image-2896.png" class="wp-image-3287" srcset="/wp-content/uploads/2018/05/word-image-2896.png 647w, /wp-content/uploads/2018/05/word-image-2896-300x166.png 300w" sizes="(max-width: 647px) 100vw, 647px" /></p>
+<ol>
+<li>
+  注意小的细节：在php里面如果要把一个复合数据类型，里面的中文，转换成json格式字符串，php里面的复合数据类型必须是utf-8的编码。并且转换后的中文数据使用的16进制Unicode编码。同时如果这个时候不希望将中文字符转换为16进制的编码该如何处理呢？
+</li>
+</ol>
+<p><a href="http://www.laruence.com/2011/10/10/2239.html">http://www.laruence.com/2011/10/10/2239.html</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1134" height="660" src="/wp-content/uploads/2018/05/word-image-2897.png" class="wp-image-3288" srcset="/wp-content/uploads/2018/05/word-image-2897.png 1134w, /wp-content/uploads/2018/05/word-image-2897-300x175.png 300w, /wp-content/uploads/2018/05/word-image-2897-768x447.png 768w, /wp-content/uploads/2018/05/word-image-2897-1024x596.png 1024w" sizes="(max-width: 1134px) 100vw, 1134px" /></p>
+<p>
+  效果：
+</p>
+<p><img loading="lazy" decoding="async" width="1246" height="245" src="/wp-content/uploads/2018/05/word-image-2898.png" class="wp-image-3289" srcset="/wp-content/uploads/2018/05/word-image-2898.png 1246w, /wp-content/uploads/2018/05/word-image-2898-300x59.png 300w, /wp-content/uploads/2018/05/word-image-2898-768x151.png 768w, /wp-content/uploads/2018/05/word-image-2898-1024x201.png 1024w" sizes="(max-width: 1246px) 100vw, 1246px" /></p>
+<p><strong>注意：如果中文使用的gb2312编码保存的，则转换不成功。</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="1147" height="934" src="/wp-content/uploads/2018/05/word-image-2899.png" class="wp-image-3290" srcset="/wp-content/uploads/2018/05/word-image-2899.png 1147w, /wp-content/uploads/2018/05/word-image-2899-300x244.png 300w, /wp-content/uploads/2018/05/word-image-2899-768x625.png 768w, /wp-content/uploads/2018/05/word-image-2899-1024x834.png 1024w" sizes="(max-width: 1147px) 100vw, 1147px" /></p>
+<p>
+  效果：
+</p>
+<p><img loading="lazy" decoding="async" width="799" height="179" src="/wp-content/uploads/2018/05/word-image-2900.png" class="wp-image-3291" srcset="/wp-content/uploads/2018/05/word-image-2900.png 799w, /wp-content/uploads/2018/05/word-image-2900-300x67.png 300w, /wp-content/uploads/2018/05/word-image-2900-768x172.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+<p>
+  总结：在使用json_encode做复合数据类型转换的时候，如果数据里面存在中文，则必须是utf-8的编码，如果不是，则准换不成功。（千万注意：公司的老的项目使用的是gb2312编码的，这个时候在做接口处理的时候，特别注意，需要把gb2312转换成utf-8编码）。
+</p>
+<p>
+  4. 在php里面如果要把一个复合数据类型，里面的中文转换成json格式字符串，php里面的复合数据类型必须是utf-8的编码。并且转换后的中文数据使用的16进制Unicode编码。同时如果这个时候不希望将中文字符转换为16进制的编码该如何处理呢？
+</p>
+<p><a href="http://www.laruence.com/2011/10/10/2239.html">http://www.laruence.com/2011/10/10/2239.html</a>
+</p>
+<p>
+  代码：
+</p>
+<p>
+  	header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  	$data = array(&#8216;name&#8217;=&gt; &#8216;中文&#8217;);
+</p>
+<p>
+  	echo json_encode($data, <strong>JSON_UNESCAPED_UNICODE</strong>);
+</p>
+<p>
+  效果：
+</p>
+<p><img loading="lazy" decoding="async" width="496" height="121" src="/wp-content/uploads/2018/05/word-image-2901.png" class="wp-image-3292" srcset="/wp-content/uploads/2018/05/word-image-2901.png 496w, /wp-content/uploads/2018/05/word-image-2901-300x73.png 300w" sizes="(max-width: 496px) 100vw, 496px" /></p>
+<h2><a id="post-3244-_Toc17254"></a>④-js里面如何处理json格式的数据？</h2>
+<ol>
+<li>
+  如何把js里面的复合数据类型转换成json格式的数据？
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="941" height="501" src="/wp-content/uploads/2018/05/word-image-2902.png" class="wp-image-3293" srcset="/wp-content/uploads/2018/05/word-image-2902.png 941w, /wp-content/uploads/2018/05/word-image-2902-300x160.png 300w, /wp-content/uploads/2018/05/word-image-2902-768x409.png 768w" sizes="(max-width: 941px) 100vw, 941px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="580" height="179" src="/wp-content/uploads/2018/05/word-image-2903.png" class="wp-image-3294" srcset="/wp-content/uploads/2018/05/word-image-2903.png 580w, /wp-content/uploads/2018/05/word-image-2903-300x93.png 300w" sizes="(max-width: 580px) 100vw, 580px" /></p>
+<ol>
+<li>
+  如何把json格式的数据转换成js里面的复合数据类型？
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="889" height="234" src="/wp-content/uploads/2018/05/word-image-2904.png" class="wp-image-3295" srcset="/wp-content/uploads/2018/05/word-image-2904.png 889w, /wp-content/uploads/2018/05/word-image-2904-300x79.png 300w, /wp-content/uploads/2018/05/word-image-2904-768x202.png 768w" sizes="(max-width: 889px) 100vw, 889px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="358" height="103" src="/wp-content/uploads/2018/05/word-image-2905.png" class="wp-image-3296" srcset="/wp-content/uploads/2018/05/word-image-2905.png 358w, /wp-content/uploads/2018/05/word-image-2905-300x86.png 300w" sizes="(max-width: 358px) 100vw, 358px" /></p>
+<p><strong><s>注意：也可以使用eval 转换（eval可以执行一个满足js语法格式的字符串）</s></strong>
+</p>
+<p><img loading="lazy" decoding="async" width="911" height="235" src="/wp-content/uploads/2018/05/word-image-2906.png" class="wp-image-3297" srcset="/wp-content/uploads/2018/05/word-image-2906.png 911w, /wp-content/uploads/2018/05/word-image-2906-300x77.png 300w, /wp-content/uploads/2018/05/word-image-2906-768x198.png 768w" sizes="(max-width: 911px) 100vw, 911px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="503" height="66" src="/wp-content/uploads/2018/05/word-image-2907.png" class="wp-image-3298" srcset="/wp-content/uploads/2018/05/word-image-2907.png 503w, /wp-content/uploads/2018/05/word-image-2907-300x39.png 300w" sizes="(max-width: 503px) 100vw, 503px" /></p>
+<p>
+  网站：<a href="https://www.zhihu.com/question/19884767">https://www.zhihu.com/question/19884767</a>
+</p>
+<ol>
+<li>
+  在jQuery里面也提供对应的转换函数，遍历函数
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1444" height="806" src="/wp-content/uploads/2018/05/word-image-2908.png" class="wp-image-3299" srcset="/wp-content/uploads/2018/05/word-image-2908.png 1444w, /wp-content/uploads/2018/05/word-image-2908-300x167.png 300w, /wp-content/uploads/2018/05/word-image-2908-768x429.png 768w, /wp-content/uploads/2018/05/word-image-2908-1024x572.png 1024w" sizes="(max-width: 1444px) 100vw, 1444px" /></p>
+<ol>
+<li>
+  json2.js文件，可以在js里面把对象和字符串相互的转换（ JSON.parse 和 JSON.stringify 一样，只是做了一个浏览器的兼容性处理，一般在自己的项目的html文件，引入该文件即可，自己会做兼容操作：如果低版本的浏览器不存在JSON.parse 和 JSON.stringify 则使用json2.js文件里面提供的；如果浏览器存在两个方法，则使用浏览器本身提供的方法处理）
+</li>
+</ol>
+<p>
+  网站：<a href="https://github.com/douglascrockford/JSON-js" class="broken_link">https://github.com/douglascrockford/JSON-js</a>
+</p>
+<p><img loading="lazy" decoding="async" width="420" height="161" src="/wp-content/uploads/2018/05/word-image-2909.png" class="wp-image-3300" srcset="/wp-content/uploads/2018/05/word-image-2909.png 420w, /wp-content/uploads/2018/05/word-image-2909-300x115.png 300w" sizes="(max-width: 420px) 100vw, 420px" /></p>
+<h1><a id="post-3244-_Toc20909"></a>Ajax之文件上传</h1>
+<p>
+  文章：<a href="http://www.ruanyifeng.com/blog/2012/09/xmlhttprequest_level_2.html">http://www.ruanyifeng.com/blog/2012/09/xmlhttprequest_level_2.html</a>
+</p>
+<p>
+    <a href="http://blog.csdn.net/inuyasha1121/article/details/51915742">http://blog.csdn.net/inuyasha1121/article/details/51915742</a>
+</p>
+<h2><a id="post-3244-_Toc32301"></a>①-简介</h2>
+<ol>
+<li>
+  使用Ajax实现文件的上传，但是这个标准只在w3c高版本的浏览器里面有实现，是属于一个ajax level2的标准。在低版本的IE里面是不兼容的。
+</li>
+</ol>
+<p>
+  网站：<a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData">https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData</a>
+</p>
+<ol>
+<li>
+  在使用Ajax做文件上传的时候，需要借助一个FormData对象，这个对象具有收集表单数据的能力，可以收集表单里面普通的数据，也可以收集文件信息。可以参考下面提供的文件。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="732" height="298" src="/wp-content/uploads/2018/05/word-image-2910.png" class="wp-image-3301" srcset="/wp-content/uploads/2018/05/word-image-2910.png 732w, /wp-content/uploads/2018/05/word-image-2910-300x122.png 300w" sizes="(max-width: 732px) 100vw, 732px" /></p>
+<h2><a id="post-3244-_Toc24865"></a>②-FormData对象简单使用</h2>
+<p>
+  在ajax里面做无刷新文件上传之前，我们需要先了解一个叫做FormData对象，然后这个对象可以帮我们去收集表单的数据（1. 基本数据 text 2. 可以收集上传文件）。
+</p>
+<ol>
+<li>
+  设计一个如下的注册的表单（收集基本数据 text password）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1844" height="993" src="/wp-content/uploads/2018/05/word-image-2911.png" class="wp-image-3302" srcset="/wp-content/uploads/2018/05/word-image-2911.png 1844w, /wp-content/uploads/2018/05/word-image-2911-300x162.png 300w, /wp-content/uploads/2018/05/word-image-2911-768x414.png 768w, /wp-content/uploads/2018/05/word-image-2911-1024x551.png 1024w" sizes="(max-width: 1844px) 100vw, 1844px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="1190" height="572" src="/wp-content/uploads/2018/05/word-image-2912.png" class="wp-image-3303" srcset="/wp-content/uploads/2018/05/word-image-2912.png 1190w, /wp-content/uploads/2018/05/word-image-2912-300x144.png 300w, /wp-content/uploads/2018/05/word-image-2912-768x369.png 768w, /wp-content/uploads/2018/05/word-image-2912-1024x492.png 1024w" sizes="(max-width: 1190px) 100vw, 1190px" /></p>
+<ol>
+<li>
+  利用FormData对象收集表单数据，然后使用Ajax技术发送给后台
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1770" height="1001" src="/wp-content/uploads/2018/05/word-image-2913.png" class="wp-image-3304" srcset="/wp-content/uploads/2018/05/word-image-2913.png 1770w, /wp-content/uploads/2018/05/word-image-2913-300x170.png 300w, /wp-content/uploads/2018/05/word-image-2913-768x434.png 768w, /wp-content/uploads/2018/05/word-image-2913-1024x579.png 1024w" sizes="(max-width: 1770px) 100vw, 1770px" /><br />
+<img loading="lazy" decoding="async" width="1775" height="633" src="/wp-content/uploads/2018/05/word-image-2914.png" class="wp-image-3305" srcset="/wp-content/uploads/2018/05/word-image-2914.png 1775w, /wp-content/uploads/2018/05/word-image-2914-300x107.png 300w, /wp-content/uploads/2018/05/word-image-2914-768x274.png 768w, /wp-content/uploads/2018/05/word-image-2914-1024x365.png 1024w" sizes="(max-width: 1775px) 100vw, 1775px" /></p>
+<p><strong> 注意：</strong>在使用FormData对象收集表单数据，使用Ajax发送POST请求的时候，<strong>不要设置请求头</strong>，如果设置，在服务器端，则无法正常收集post提交的数据信息。
+</p>
+<ol>
+<li>
+  服务器定义一个 register.php 文件，接收ajax请求
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1410" height="1016" src="/wp-content/uploads/2018/05/word-image-2915.png" class="wp-image-3306" srcset="/wp-content/uploads/2018/05/word-image-2915.png 1410w, /wp-content/uploads/2018/05/word-image-2915-300x216.png 300w, /wp-content/uploads/2018/05/word-image-2915-768x553.png 768w, /wp-content/uploads/2018/05/word-image-2915-1024x738.png 1024w" sizes="(max-width: 1410px) 100vw, 1410px" /></p>
+<h2><a id="post-3244-_Toc4125"></a>③-文件上传-显示进度条效果</h2>
+<p>
+  进度条效果
+</p>
+<p><img loading="lazy" decoding="async" width="1663" height="314" src="/wp-content/uploads/2018/05/word-image-2916.png" class="wp-image-3307" srcset="/wp-content/uploads/2018/05/word-image-2916.png 1663w, /wp-content/uploads/2018/05/word-image-2916-300x57.png 300w, /wp-content/uploads/2018/05/word-image-2916-768x145.png 768w, /wp-content/uploads/2018/05/word-image-2916-1024x193.png 1024w" sizes="(max-width: 1663px) 100vw, 1663px" /></p>
+<p>
+  需求分析：
+</p>
+<p><img loading="lazy" decoding="async" width="1537" height="547" src="/wp-content/uploads/2018/05/word-image-2917.png" class="wp-image-3308" srcset="/wp-content/uploads/2018/05/word-image-2917.png 1537w, /wp-content/uploads/2018/05/word-image-2917-300x107.png 300w, /wp-content/uploads/2018/05/word-image-2917-768x273.png 768w, /wp-content/uploads/2018/05/word-image-2917-1024x364.png 1024w" sizes="(max-width: 1537px) 100vw, 1537px" /></p>
+<ol>
+<li>
+  由于我们上传要显示进度条，文件一般都是很大的文件，所以需要修改post上传数据的大小。
+</li>
+<li>
+  整个表单提交的大小
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1019" height="377" src="/wp-content/uploads/2018/05/word-image-2918.png" class="wp-image-3309" srcset="/wp-content/uploads/2018/05/word-image-2918.png 1019w, /wp-content/uploads/2018/05/word-image-2918-300x111.png 300w, /wp-content/uploads/2018/05/word-image-2918-768x284.png 768w" sizes="(max-width: 1019px) 100vw, 1019px" /></p>
+<p>
+  b. 单个文件提供的大小
+</p>
+<p><img loading="lazy" decoding="async" width="821" height="167" src="/wp-content/uploads/2018/05/word-image-2919.png" class="wp-image-3310" srcset="/wp-content/uploads/2018/05/word-image-2919.png 821w, /wp-content/uploads/2018/05/word-image-2919-300x61.png 300w, /wp-content/uploads/2018/05/word-image-2919-768x156.png 768w" sizes="(max-width: 821px) 100vw, 821px" /></p>
+<ol>
+<li>
+  创建一个上传文件的表单页面
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1754" height="1000" src="/wp-content/uploads/2018/05/word-image-2920.png" class="wp-image-3311" srcset="/wp-content/uploads/2018/05/word-image-2920.png 1754w, /wp-content/uploads/2018/05/word-image-2920-300x171.png 300w, /wp-content/uploads/2018/05/word-image-2920-768x438.png 768w, /wp-content/uploads/2018/05/word-image-2920-1024x584.png 1024w" sizes="(max-width: 1754px) 100vw, 1754px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="1543" height="405" src="/wp-content/uploads/2018/05/word-image-2921.png" class="wp-image-3312" srcset="/wp-content/uploads/2018/05/word-image-2921.png 1543w, /wp-content/uploads/2018/05/word-image-2921-300x79.png 300w, /wp-content/uploads/2018/05/word-image-2921-768x202.png 768w, /wp-content/uploads/2018/05/word-image-2921-1024x269.png 1024w" sizes="(max-width: 1543px) 100vw, 1543px" /></p>
+<ol>
+<li>
+  使用Ajax做文件上传的时候，我们需要不断得知文件已经上传文件的大小和文件总大小的一个百分比。</p>
+<ol>
+<li>
+    (loaded  size )/ ( total  size) 等于小的div宽度的百分比
+  </li>
+<li>
+    如何获取文件已经上传的大小和总大小？
+  </li>
+</ol>
+</li>
+</ol>
+<p>
+  答：利用Ajax leval2 第一个新的方法（在这个Ajax对象上面存在一个upload属性，属性里面存在一个onprocess属性，可以这个属性设置一个回调函数，这个回调函数，会在有文件上传的时候，距离一定的间隔进行触发调用）
+</p>
+<p><img loading="lazy" decoding="async" width="1721" height="1015" src="/wp-content/uploads/2018/05/word-image-2922.png" class="wp-image-3313" srcset="/wp-content/uploads/2018/05/word-image-2922.png 1721w, /wp-content/uploads/2018/05/word-image-2922-300x177.png 300w, /wp-content/uploads/2018/05/word-image-2922-768x453.png 768w, /wp-content/uploads/2018/05/word-image-2922-1024x604.png 1024w" sizes="(max-width: 1721px) 100vw, 1721px" /></p>
+<ol>
+<li>
+  在浏览器使用ajax完成图片上传
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1742" height="1002" src="/wp-content/uploads/2018/05/word-image-2923.png" class="wp-image-3314" srcset="/wp-content/uploads/2018/05/word-image-2923.png 1742w, /wp-content/uploads/2018/05/word-image-2923-300x173.png 300w, /wp-content/uploads/2018/05/word-image-2923-768x442.png 768w, /wp-content/uploads/2018/05/word-image-2923-1024x589.png 1024w" sizes="(max-width: 1742px) 100vw, 1742px" /><br />
+<img loading="lazy" decoding="async" width="1771" height="694" src="/wp-content/uploads/2018/05/word-image-2924.png" class="wp-image-3315" srcset="/wp-content/uploads/2018/05/word-image-2924.png 1771w, /wp-content/uploads/2018/05/word-image-2924-300x118.png 300w, /wp-content/uploads/2018/05/word-image-2924-768x301.png 768w, /wp-content/uploads/2018/05/word-image-2924-1024x401.png 1024w" sizes="(max-width: 1771px) 100vw, 1771px" /></p>
+<ol>
+<li>
+  定义一个register.php文件，接收ajax请求，完成上传
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1410" height="1016" src="/wp-content/uploads/2018/05/word-image-2925.png" class="wp-image-3316" srcset="/wp-content/uploads/2018/05/word-image-2925.png 1410w, /wp-content/uploads/2018/05/word-image-2925-300x216.png 300w, /wp-content/uploads/2018/05/word-image-2925-768x553.png 768w, /wp-content/uploads/2018/05/word-image-2925-1024x738.png 1024w" sizes="(max-width: 1410px) 100vw, 1410px" /></p>
+<p>
+  6. 效果
+</p>
+<p><img loading="lazy" decoding="async" width="654" height="270" src="/wp-content/uploads/2018/05/word-image-2926.png" class="wp-image-3317" srcset="/wp-content/uploads/2018/05/word-image-2926.png 654w, /wp-content/uploads/2018/05/word-image-2926-300x124.png 300w" sizes="(max-width: 654px) 100vw, 654px" /></p>
+<h2>④-上传插件</h2>
+<p>
+  现在一般来说我们很少自己使用ajax进行文件上传，一般都使用现成插件进行完成。底层的原理使用的 FormData 对象 + ajax ，注意，如果是低版本的IE浏览器也需要做无刷新文件上传，则FormData对象不能在使用，则我们可以使用 iframe技术进行无刷新上传。
+</p>
+<p>
+  插件：
+</p>
+<ol>
+<li>
+  百度出的 webuploader
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1700" height="437" src="/wp-content/uploads/2018/05/word-image-2927.png" class="wp-image-3318" srcset="/wp-content/uploads/2018/05/word-image-2927.png 1700w, /wp-content/uploads/2018/05/word-image-2927-300x77.png 300w, /wp-content/uploads/2018/05/word-image-2927-768x197.png 768w, /wp-content/uploads/2018/05/word-image-2927-1024x263.png 1024w" sizes="(max-width: 1700px) 100vw, 1700px" /></p>
+<ol>
+<li>
+  zyupload
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="850" height="659" src="/wp-content/uploads/2018/05/word-image-2928.png" class="wp-image-3319" srcset="/wp-content/uploads/2018/05/word-image-2928.png 850w, /wp-content/uploads/2018/05/word-image-2928-300x233.png 300w, /wp-content/uploads/2018/05/word-image-2928-768x595.png 768w" sizes="(max-width: 850px) 100vw, 850px" /></p>
+<h1><a id="post-3244-_Toc2063"></a>Ajax跨域问题 </h1>
+<h2><a id="post-3244-_Toc11317"></a>①-什么是跨域？</h2>
+<p>
+  答：当使用Ajax技术去请求本域名的资源信息的时候，是可以直接请求的。但是如果去别的域名的资源信息的时候，这个时候由于浏览器的一个同源政策的限定，是不允许直接去获取别的域名下的资源信息。
+</p>
+<p>
+  例如：<a href="http://www.sinsea.cn/index.html(ajax)" class="broken_link">www.sinsea.cn/index.html(ajax)</a> &#8212;&#8212;&#8212;&#8212;&#8212;&gt;http://www.tngou.net/doc/food(提供的一个接口)
+</p>
+</p>
+<p>
+  上面的这种请求就是一个跨域请求。
+</p>
+<p><img loading="lazy" decoding="async" width="1908" height="624" src="/wp-content/uploads/2018/05/word-image-2929.png" class="wp-image-3320" srcset="/wp-content/uploads/2018/05/word-image-2929.png 1908w, /wp-content/uploads/2018/05/word-image-2929-300x98.png 300w, /wp-content/uploads/2018/05/word-image-2929-768x251.png 768w, /wp-content/uploads/2018/05/word-image-2929-1024x335.png 1024w" sizes="(max-width: 1908px) 100vw, 1908px" /></p>
+<h2><a id="post-3244-_Toc3011"></a>②-浏览器的同源政策是什么？</h2>
+<p>
+  答：现代的浏览器默认只能让Ajax去请求本域名里面的资源信息，如果要请求域名的资源信息，则是不允许的。（备注：严格是是允许请求，但是请求后，会把响应的数据丢弃掉）
+</p>
+<p>
+  为什么浏览器存在同源政策的限定？
+</p>
+<p>
+  答：主要是为了安全。但是由于现在的项目融合比较多，肯定存在跨域的需求。
+</p>
+<h2><a id="post-3244-_Toc31054"></a>③-跨域示例</h2>
+<p><img loading="lazy" decoding="async" width="1908" height="624" src="/wp-content/uploads/2018/05/word-image-2930.png" class="wp-image-3321" srcset="/wp-content/uploads/2018/05/word-image-2930.png 1908w, /wp-content/uploads/2018/05/word-image-2930-300x98.png 300w, /wp-content/uploads/2018/05/word-image-2930-768x251.png 768w, /wp-content/uploads/2018/05/word-image-2930-1024x335.png 1024w" sizes="(max-width: 1908px) 100vw, 1908px" /></p>
+<p>
+  本域名：local.php.com
+</p>
+<p>
+  请求域名：local.test.com
+</p>
+<p>
+  两个域名不是同一个域。则使用ajax请求就会报错。
+</p>
+<h2><a id="post-3244-_Toc31613"></a>④-跨域成熟的解决方案</h2>
+<p>
+  对于Ajax的跨域成熟的解决方案存在如下三种：
+</p>
+<ol>
+<li>
+  jsonp技术【最早技术来解决，比ajax还早】
+</li>
+<li>
+  同域代理【需要自己服务器进行处理】
+</li>
+<li>
+  cors 响应头【缺陷 HTML5新标准，现代浏览器才支持】
+</li>
+</ol>
+<p>
+  目前使用最多应该是jsonp技术。其次就是同域代理。最后cors设置
+</p>
+<h3><a id="post-3244-_Toc1582"></a>jsonp的原理-只支持get方式-需要目标网站支持</h3>
+<p><strong>简介</strong>
+</p>
+<ol>
+<li>
+  由于同源政策的限定，Ajax是没办法直接请求别的域名的资源信息
+</li>
+<li>
+  但是img script 等标签，可以发送网络请求，这些标签不受同源政策的限定
+</li>
+<li>
+  我们可以动态去创造一个script标签，然后把它的src设置我们请求的地址，然后请求的时候还传递一些参数（传递一个叫做callback参数）
+</li>
+<li>
+  请求的目标站，接受请求，过滤参数，对对应的数据格式化成json【把格式化后的json数据放置在传递过程中传递的一个叫做callback的回调函数里面】，然后在进行响应。
+</li>
+</ol>
+<p>
+  注意：jsonp只能完成get请求，同时jsonp需要目标网站的支持（把需要返回的数据填充在一个callback的回调函数里面）。
+</p>
+<p>
+  uuid相关资料：
+</p>
+<p><a href="http://www.jianshu.com/u/811a3c46491e">http://www.jianshu.com/u/811a3c46491e</a>
+</p>
+<p><strong>功能需求</strong>
+</p>
+<p>
+  请求历史上的今天进行数据获取
+</p>
+<p>
+  API接口：
+</p>
+<p><a href="https://api.asilu.com/">https://api.asilu.com/</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1475" height="758" src="/wp-content/uploads/2018/05/word-image-2931.png" class="wp-image-3322" srcset="/wp-content/uploads/2018/05/word-image-2931.png 1475w, /wp-content/uploads/2018/05/word-image-2931-300x154.png 300w, /wp-content/uploads/2018/05/word-image-2931-768x395.png 768w, /wp-content/uploads/2018/05/word-image-2931-1024x526.png 1024w" sizes="(max-width: 1475px) 100vw, 1475px" /></p>
+<p>
+  历史上的今天：
+</p>
+<p><a href="https://api.asilu.com/today/todayonhistory/">https://api.asilu.com/today/todayonhistory/</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1220" height="805" src="/wp-content/uploads/2018/05/word-image-2932.png" class="wp-image-3323" srcset="/wp-content/uploads/2018/05/word-image-2932.png 1220w, /wp-content/uploads/2018/05/word-image-2932-300x198.png 300w, /wp-content/uploads/2018/05/word-image-2932-768x507.png 768w, /wp-content/uploads/2018/05/word-image-2932-1024x676.png 1024w" sizes="(max-width: 1220px) 100vw, 1220px" /></p>
+<p><strong>实操</strong>
+</p>
+<ol>
+<li>
+  在自己网站定义一个页面，使用jsonp完成网络请求
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1540" height="640" src="/wp-content/uploads/2018/05/word-image-2933.png" class="wp-image-3324" srcset="/wp-content/uploads/2018/05/word-image-2933.png 1540w, /wp-content/uploads/2018/05/word-image-2933-300x125.png 300w, /wp-content/uploads/2018/05/word-image-2933-768x319.png 768w, /wp-content/uploads/2018/05/word-image-2933-1024x426.png 1024w" sizes="(max-width: 1540px) 100vw, 1540px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="1478" height="385" src="/wp-content/uploads/2018/05/word-image-2934.png" class="wp-image-3325" srcset="/wp-content/uploads/2018/05/word-image-2934.png 1478w, /wp-content/uploads/2018/05/word-image-2934-300x78.png 300w, /wp-content/uploads/2018/05/word-image-2934-768x200.png 768w, /wp-content/uploads/2018/05/word-image-2934-1024x267.png 1024w" sizes="(max-width: 1478px) 100vw, 1478px" /></p>
+<ol>
+<li>
+  引入jsonp.js文件，使用jsonp进行数据请求
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1704" height="967" src="/wp-content/uploads/2018/05/word-image-2935.png" class="wp-image-3326" srcset="/wp-content/uploads/2018/05/word-image-2935.png 1704w, /wp-content/uploads/2018/05/word-image-2935-300x170.png 300w, /wp-content/uploads/2018/05/word-image-2935-768x436.png 768w, /wp-content/uploads/2018/05/word-image-2935-1024x581.png 1024w" sizes="(max-width: 1704px) 100vw, 1704px" /></p>
+<p>
+  3. 效果
+</p>
+<p><img loading="lazy" decoding="async" width="1625" height="914" src="/wp-content/uploads/2018/05/word-image-2936.png" class="wp-image-3327" srcset="/wp-content/uploads/2018/05/word-image-2936.png 1625w, /wp-content/uploads/2018/05/word-image-2936-300x169.png 300w, /wp-content/uploads/2018/05/word-image-2936-768x432.png 768w, /wp-content/uploads/2018/05/word-image-2936-1024x576.png 1024w" sizes="(max-width: 1625px) 100vw, 1625px" /></p>
+<h3><a id="post-3244-_Toc7504"></a>同域代理</h3>
+<p>
+  由于jsonp的技术需要目标网站的支持完成get请求，然后才可以完成请求。现在可以在自己的域名下创建一个动态的脚本文件.php（服务器端不受同源政策的限定），让这个php文件帮我们发送目标网站的请求。
+</p>
+<p>
+  原理图：
+</p>
+<p><img loading="lazy" decoding="async" width="843" height="241" src="/wp-content/uploads/2018/05/word-image-2937.png" class="wp-image-3328" srcset="/wp-content/uploads/2018/05/word-image-2937.png 843w, /wp-content/uploads/2018/05/word-image-2937-300x86.png 300w, /wp-content/uploads/2018/05/word-image-2937-768x220.png 768w" sizes="(max-width: 843px) 100vw, 843px" /></p>
+<p>
+  场景：
+</p>
+<p>
+  1. A域名希望通过Ajax请求B域名接口提供的天气信息，直接请求存在跨域，肯定是不允许的
+</p>
+<p>
+  2. A域名的Ajax可以先请求A域名的一个动态的脚本文本（携带一个参数？请求的B域名目标网站），让该脚本文件帮我们请求B域名的接口，然后请求完成后，把数据进行返回给本域名Ａ
+</p>
+<p>
+  3. A域名就可以通过中间的PHP脚本获取到数据
+</p>
+<p>
+  4.  中间的服务器充当的是一个代理人
+</p>
+<p>
+  代码：
+</p>
+<p>
+  A域名的Ajax请求
+</p>
+<p><img loading="lazy" decoding="async" width="1767" height="817" src="/wp-content/uploads/2018/05/word-image-2938.png" class="wp-image-3329" srcset="/wp-content/uploads/2018/05/word-image-2938.png 1767w, /wp-content/uploads/2018/05/word-image-2938-300x139.png 300w, /wp-content/uploads/2018/05/word-image-2938-768x355.png 768w, /wp-content/uploads/2018/05/word-image-2938-1024x473.png 1024w" sizes="(max-width: 1767px) 100vw, 1767px" /></p>
+<p>
+  A域名的代理op.php 进行代理请求
+</p>
+<p><img loading="lazy" decoding="async" width="1689" height="450" src="/wp-content/uploads/2018/05/word-image-2939.png" class="wp-image-3330" srcset="/wp-content/uploads/2018/05/word-image-2939.png 1689w, /wp-content/uploads/2018/05/word-image-2939-300x80.png 300w, /wp-content/uploads/2018/05/word-image-2939-768x205.png 768w, /wp-content/uploads/2018/05/word-image-2939-1024x273.png 1024w" sizes="(max-width: 1689px) 100vw, 1689px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="1518" height="838" src="/wp-content/uploads/2018/05/word-image-2940.png" class="wp-image-3331" srcset="/wp-content/uploads/2018/05/word-image-2940.png 1518w, /wp-content/uploads/2018/05/word-image-2940-300x166.png 300w, /wp-content/uploads/2018/05/word-image-2940-768x424.png 768w, /wp-content/uploads/2018/05/word-image-2940-1024x565.png 1024w" sizes="(max-width: 1518px) 100vw, 1518px" /></p>
+<h3><a id="post-3244-_Toc12664"></a>cors设置响应头-需要注意目前只支持w3c的浏览器</h3>
+<p>
+  网站：<a href="http://www.cnblogs.com/Darren_code/p/cors.html">http://www.cnblogs.com/Darren_code/p/cors.html</a>
+</p>
+<p>
+  网站：<a href="http://www.cnblogs.com/hustskyking/">http://www.cnblogs.com/hustskyking/</a>
+</p>
+<p>
+  网站：<a href="http://www.cnblogs.com/TomXu/">http://www.cnblogs.com/TomXu/</a>
+</p>
+<p>
+  原理：在目标网站设置一个允许访问的响应头。
+</p>
+<p>
+  在B域名的目标网站，设置一个响应头
+</p>
+<p><img loading="lazy" decoding="async" width="1483" height="536" src="/wp-content/uploads/2018/05/word-image-2941.png" class="wp-image-3332" srcset="/wp-content/uploads/2018/05/word-image-2941.png 1483w, /wp-content/uploads/2018/05/word-image-2941-300x108.png 300w, /wp-content/uploads/2018/05/word-image-2941-768x278.png 768w, /wp-content/uploads/2018/05/word-image-2941-1024x370.png 1024w" sizes="(max-width: 1483px) 100vw, 1483px" /></p>
+<p>
+  在A域名可以直接使用Ajax调用B域名的资源信息
+</p>
+<p><img loading="lazy" decoding="async" width="1549" height="735" src="/wp-content/uploads/2018/05/word-image-2942.png" class="wp-image-3333" srcset="/wp-content/uploads/2018/05/word-image-2942.png 1549w, /wp-content/uploads/2018/05/word-image-2942-300x142.png 300w, /wp-content/uploads/2018/05/word-image-2942-768x364.png 768w, /wp-content/uploads/2018/05/word-image-2942-1024x486.png 1024w" sizes="(max-width: 1549px) 100vw, 1549px" /></p>
+<h3>扩展-允许cors进行跨域</h3>
+<p>
+  接口：<a href="https://cnodejs.org/api/v1/topics">https://cnodejs.org/api/v1/topics</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1389" height="928" src="/wp-content/uploads/2018/05/word-image-2943.png" class="wp-image-3334" srcset="/wp-content/uploads/2018/05/word-image-2943.png 1389w, /wp-content/uploads/2018/05/word-image-2943-300x200.png 300w, /wp-content/uploads/2018/05/word-image-2943-768x513.png 768w, /wp-content/uploads/2018/05/word-image-2943-1024x684.png 1024w" sizes="(max-width: 1389px) 100vw, 1389px" /></p>
+<p>
+  总结：
+</p>
+<p>
+  对于ajax跨域，其真实的解决方法只有 cors（响应头）。
+</p>
+<p>
+  用的 jsonp 、同域代理（解决ajax不能跨域的一种方案）。
+</p>
+<h1>功能-自己实现</h1>
+<p>
+  头条网站接口：
+</p>
+<p><a href="http://v.juhe.cn/toutiao/index?type=&amp;key=d0c418c9d5324a8ddf197e85c3dc9c5a">http://v.juhe.cn/toutiao/index?type=&amp;key=d0c418c9d5324a8ddf197e85c3dc9c5a</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1503" height="808" src="/wp-content/uploads/2018/05/word-image-2944.png" class="wp-image-3335" srcset="/wp-content/uploads/2018/05/word-image-2944.png 1503w, /wp-content/uploads/2018/05/word-image-2944-300x161.png 300w, /wp-content/uploads/2018/05/word-image-2944-768x413.png 768w, /wp-content/uploads/2018/05/word-image-2944-1024x550.png 1024w" sizes="(max-width: 1503px) 100vw, 1503px" /></p>
+<p>
+  不支持 jsonp 也不支持 cors 。那么只能进行同域代理。
+</p>
+<h2>效果</h2>
+<p><img loading="lazy" decoding="async" width="1796" height="1001" src="/wp-content/uploads/2018/05/word-image-2945.png" class="wp-image-3336" srcset="/wp-content/uploads/2018/05/word-image-2945.png 1796w, /wp-content/uploads/2018/05/word-image-2945-300x167.png 300w, /wp-content/uploads/2018/05/word-image-2945-768x428.png 768w, /wp-content/uploads/2018/05/word-image-2945-1024x571.png 1024w" sizes="(max-width: 1796px) 100vw, 1796px" /></p>
+<h1>加载更多</h1>
+<p><img loading="lazy" decoding="async" width="1619" height="975" src="/wp-content/uploads/2018/05/word-image-2946.png" class="wp-image-3337" srcset="/wp-content/uploads/2018/05/word-image-2946.png 1619w, /wp-content/uploads/2018/05/word-image-2946-300x181.png 300w, /wp-content/uploads/2018/05/word-image-2946-768x463.png 768w, /wp-content/uploads/2018/05/word-image-2946-1024x617.png 1024w" sizes="(max-width: 1619px) 100vw, 1619px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3244.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

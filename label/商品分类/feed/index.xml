@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>商品分类 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%95%86%E5%93%81%E5%88%86%E7%B1%BB/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 13:04:55 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>商品分类 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP3.2商城 （一）项目开发流程、商品分类、商品管理、图片上传</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/4706.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/4706.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 13:04:55 +0000</pubDate>
+				<category><![CDATA[TP3.2]]></category>
+		<category><![CDATA[TP3.2商城]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[商品分类]]></category>
+		<category><![CDATA[商品管理]]></category>
+		<category><![CDATA[图片上传]]></category>
+		<category><![CDATA[项目开发流程]]></category>
+		<guid isPermaLink="false">/?p=4706</guid>
+
+					<description><![CDATA[项目开发流程; 需求分析 原型界面 UI设计 前端编写代码 核心架构处理(代码层面核心架构，服务器层面的架构、 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>项目开发流程;</h1>
+<ol>
+<li>
+  需求分析
+</li>
+<li>
+  原型界面
+</li>
+<li>
+  UI设计
+</li>
+<li>
+  前端编写代码
+</li>
+<li>
+  核心架构处理(代码层面核心架构，服务器层面的架构、数据库的架构等)
+</li>
+<li>
+  编写代码
+</li>
+<li>
+  测试
+</li>
+<li>
+  上线
+</li>
+</ol>
+<h1>项目分析</h1>
+<h2>2.1、项目前台分析</h2>
+<p><img fetchpriority="high" decoding="async" width="992" height="448" src="/wp-content/uploads/2018/05/word-image-4231.png" class="wp-image-4707" srcset="/wp-content/uploads/2018/05/word-image-4231.png 992w, /wp-content/uploads/2018/05/word-image-4231-300x135.png 300w, /wp-content/uploads/2018/05/word-image-4231-768x347.png 768w" sizes="(max-width: 992px) 100vw, 992px" /></p>
+<h2>2.2、项目后台分析</h2>
+<p><img decoding="async" width="900" height="469" src="/wp-content/uploads/2018/05/word-image-4232.png" class="wp-image-4708" srcset="/wp-content/uploads/2018/05/word-image-4232.png 900w, /wp-content/uploads/2018/05/word-image-4232-300x156.png 300w, /wp-content/uploads/2018/05/word-image-4232-768x400.png 768w" sizes="(max-width: 900px) 100vw, 900px" /></p>
+<h1>ecshop安装</h1>
+<h2>3.1、ecshop的配置</h2>
+<p>
+  ①创建ecshop的web目录
+</p>
+<p><img decoding="async" width="828" height="226" src="/wp-content/uploads/2018/05/word-image-4233.png" class="wp-image-4709" srcset="/wp-content/uploads/2018/05/word-image-4233.png 828w, /wp-content/uploads/2018/05/word-image-4233-300x82.png 300w, /wp-content/uploads/2018/05/word-image-4233-768x210.png 768w" sizes="(max-width: 828px) 100vw, 828px" /></p>
+<p>
+  ②拷贝ecshop的源码
+</p>
+<p><img loading="lazy" decoding="async" width="1218" height="593" src="/wp-content/uploads/2018/05/word-image-4234.png" class="wp-image-4710" srcset="/wp-content/uploads/2018/05/word-image-4234.png 1218w, /wp-content/uploads/2018/05/word-image-4234-300x146.png 300w, /wp-content/uploads/2018/05/word-image-4234-768x374.png 768w, /wp-content/uploads/2018/05/word-image-4234-1024x499.png 1024w" sizes="(max-width: 1218px) 100vw, 1218px" /></p>
+<p>
+  ③创建虚拟主机
+</p>
+<p><img loading="lazy" decoding="async" width="1030" height="383" src="/wp-content/uploads/2018/05/word-image-4235.png" class="wp-image-4711" srcset="/wp-content/uploads/2018/05/word-image-4235.png 1030w, /wp-content/uploads/2018/05/word-image-4235-300x112.png 300w, /wp-content/uploads/2018/05/word-image-4235-768x286.png 768w, /wp-content/uploads/2018/05/word-image-4235-1024x381.png 1024w" sizes="(max-width: 1030px) 100vw, 1030px" /></p>
+<p>
+  ④修改hosts文件
+</p>
+<p><img loading="lazy" decoding="async" width="615" height="433" src="/wp-content/uploads/2018/05/word-image-4236.png" class="wp-image-4712" srcset="/wp-content/uploads/2018/05/word-image-4236.png 615w, /wp-content/uploads/2018/05/word-image-4236-300x211.png 300w" sizes="(max-width: 615px) 100vw, 615px" /></p>
+<h2>3.2、安装ecshop</h2>
+<p>
+  ①重启Apache访问安装
+</p>
+<p><img loading="lazy" decoding="async" width="1253" height="689" src="/wp-content/uploads/2018/05/word-image-4237.png" class="wp-image-4713" srcset="/wp-content/uploads/2018/05/word-image-4237.png 1253w, /wp-content/uploads/2018/05/word-image-4237-300x165.png 300w, /wp-content/uploads/2018/05/word-image-4237-768x422.png 768w, /wp-content/uploads/2018/05/word-image-4237-1024x563.png 1024w" sizes="(max-width: 1253px) 100vw, 1253px" /></p>
+<p>
+  ②检查环境
+</p>
+<p><img loading="lazy" decoding="async" width="1198" height="670" src="/wp-content/uploads/2018/05/word-image-4238.png" class="wp-image-4714" srcset="/wp-content/uploads/2018/05/word-image-4238.png 1198w, /wp-content/uploads/2018/05/word-image-4238-300x168.png 300w, /wp-content/uploads/2018/05/word-image-4238-768x430.png 768w, /wp-content/uploads/2018/05/word-image-4238-1024x573.png 1024w" sizes="(max-width: 1198px) 100vw, 1198px" /></p>
+<p>
+  ③配置信息
+</p>
+<p><img loading="lazy" decoding="async" width="1195" height="693" src="/wp-content/uploads/2018/05/word-image-4239.png" class="wp-image-4715" srcset="/wp-content/uploads/2018/05/word-image-4239.png 1195w, /wp-content/uploads/2018/05/word-image-4239-300x174.png 300w, /wp-content/uploads/2018/05/word-image-4239-768x445.png 768w, /wp-content/uploads/2018/05/word-image-4239-1024x594.png 1024w" sizes="(max-width: 1195px) 100vw, 1195px" /></p>
+<p>
+  ④登录后台
+</p>
+<p><img loading="lazy" decoding="async" width="1115" height="616" src="/wp-content/uploads/2018/05/word-image-4240.png" class="wp-image-4716" srcset="/wp-content/uploads/2018/05/word-image-4240.png 1115w, /wp-content/uploads/2018/05/word-image-4240-300x166.png 300w, /wp-content/uploads/2018/05/word-image-4240-768x424.png 768w, /wp-content/uploads/2018/05/word-image-4240-1024x566.png 1024w" sizes="(max-width: 1115px) 100vw, 1115px" /></p>
+<h2>3.3、解决报错问题</h2>
+<p>
+  ①修改includes目录下的cls_template.php文件
+</p>
+<p><img loading="lazy" decoding="async" width="867" height="559" src="/wp-content/uploads/2018/05/word-image-4241.png" class="wp-image-4717" srcset="/wp-content/uploads/2018/05/word-image-4241.png 867w, /wp-content/uploads/2018/05/word-image-4241-300x193.png 300w, /wp-content/uploads/2018/05/word-image-4241-768x495.png 768w" sizes="(max-width: 867px) 100vw, 867px" /></p>
+<p>
+  ②修改cls_image.php文件
+</p>
+<p><img loading="lazy" decoding="async" width="880" height="533" src="/wp-content/uploads/2018/05/word-image-4242.png" class="wp-image-4718" srcset="/wp-content/uploads/2018/05/word-image-4242.png 880w, /wp-content/uploads/2018/05/word-image-4242-300x182.png 300w, /wp-content/uploads/2018/05/word-image-4242-768x465.png 768w" sizes="(max-width: 880px) 100vw, 880px" /></p>
+<p>
+  ③修改lib_main.php
+</p>
+<p><img loading="lazy" decoding="async" width="911" height="533" src="/wp-content/uploads/2018/05/word-image-4243.png" class="wp-image-4719" srcset="/wp-content/uploads/2018/05/word-image-4243.png 911w, /wp-content/uploads/2018/05/word-image-4243-300x176.png 300w, /wp-content/uploads/2018/05/word-image-4243-768x449.png 768w" sizes="(max-width: 911px) 100vw, 911px" /></p>
+<p>
+  ④清除缓存
+</p>
+<p><img loading="lazy" decoding="async" width="1366" height="165" src="/wp-content/uploads/2018/05/word-image-4244.png" class="wp-image-4720" srcset="/wp-content/uploads/2018/05/word-image-4244.png 1366w, /wp-content/uploads/2018/05/word-image-4244-300x36.png 300w, /wp-content/uploads/2018/05/word-image-4244-768x93.png 768w, /wp-content/uploads/2018/05/word-image-4244-1024x124.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<h1>商品分类管理</h1>
+<h2>4.1、商品分类列表显示</h2>
+<p>
+  ①增加index方法获取数据并且渲染模板
+</p>
+<p><img loading="lazy" decoding="async" width="938" height="474" src="/wp-content/uploads/2018/05/word-image-4245.png" class="wp-image-4721" srcset="/wp-content/uploads/2018/05/word-image-4245.png 938w, /wp-content/uploads/2018/05/word-image-4245-300x152.png 300w, /wp-content/uploads/2018/05/word-image-4245-768x388.png 768w" sizes="(max-width: 938px) 100vw, 938px" /></p>
+<p>
+  ②拷贝视图
+</p>
+<p><img loading="lazy" decoding="async" width="1232" height="325" src="/wp-content/uploads/2018/05/word-image-4246.png" class="wp-image-4722" srcset="/wp-content/uploads/2018/05/word-image-4246.png 1232w, /wp-content/uploads/2018/05/word-image-4246-300x79.png 300w, /wp-content/uploads/2018/05/word-image-4246-768x203.png 768w, /wp-content/uploads/2018/05/word-image-4246-1024x270.png 1024w" sizes="(max-width: 1232px) 100vw, 1232px" /></p>
+<p>
+  ③修改资源地址
+</p>
+<p><img loading="lazy" decoding="async" width="1117" height="456" src="/wp-content/uploads/2018/05/word-image-4247.png" class="wp-image-4723" srcset="/wp-content/uploads/2018/05/word-image-4247.png 1117w, /wp-content/uploads/2018/05/word-image-4247-300x122.png 300w, /wp-content/uploads/2018/05/word-image-4247-768x314.png 768w, /wp-content/uploads/2018/05/word-image-4247-1024x418.png 1024w" sizes="(max-width: 1117px) 100vw, 1117px" /></p>
+<p>
+  ④修改模板循环显示数据
+</p>
+<p><img loading="lazy" decoding="async" width="1115" height="672" src="/wp-content/uploads/2018/05/word-image-4248.png" class="wp-image-4724" srcset="/wp-content/uploads/2018/05/word-image-4248.png 1115w, /wp-content/uploads/2018/05/word-image-4248-300x181.png 300w, /wp-content/uploads/2018/05/word-image-4248-768x463.png 768w, /wp-content/uploads/2018/05/word-image-4248-1024x617.png 1024w" sizes="(max-width: 1115px) 100vw, 1115px" /></p>
+<h2>4.2、分类的删除</h2>
+<p>
+  ①创建方法调用模型方法进行删除
+</p>
+<p><img loading="lazy" decoding="async" width="958" height="702" src="/wp-content/uploads/2018/05/word-image-4249.png" class="wp-image-4725" srcset="/wp-content/uploads/2018/05/word-image-4249.png 958w, /wp-content/uploads/2018/05/word-image-4249-300x220.png 300w, /wp-content/uploads/2018/05/word-image-4249-768x563.png 768w" sizes="(max-width: 958px) 100vw, 958px" /></p>
+<p>
+  ②在模型中实现删除方法
+</p>
+<p><img loading="lazy" decoding="async" width="1047" height="592" src="/wp-content/uploads/2018/05/word-image-4250.png" class="wp-image-4726" srcset="/wp-content/uploads/2018/05/word-image-4250.png 1047w, /wp-content/uploads/2018/05/word-image-4250-300x170.png 300w, /wp-content/uploads/2018/05/word-image-4250-768x434.png 768w, /wp-content/uploads/2018/05/word-image-4250-1024x579.png 1024w" sizes="(max-width: 1047px) 100vw, 1047px" /></p>
+<h2>4.3、分类的编辑</h2>
+<h3>4.3.1、回显分类信息</h3>
+<p>
+  ①创建方法获取数据并且显示
+</p>
+<p><img loading="lazy" decoding="async" width="1047" height="616" src="/wp-content/uploads/2018/05/word-image-4251.png" class="wp-image-4727" srcset="/wp-content/uploads/2018/05/word-image-4251.png 1047w, /wp-content/uploads/2018/05/word-image-4251-300x177.png 300w, /wp-content/uploads/2018/05/word-image-4251-768x452.png 768w, /wp-content/uploads/2018/05/word-image-4251-1024x602.png 1024w" sizes="(max-width: 1047px) 100vw, 1047px" /></p>
+<p>
+  ②拷贝添加模板为编辑模板
+</p>
+<p><img loading="lazy" decoding="async" width="865" height="283" src="/wp-content/uploads/2018/05/word-image-4252.png" class="wp-image-4728" srcset="/wp-content/uploads/2018/05/word-image-4252.png 865w, /wp-content/uploads/2018/05/word-image-4252-300x98.png 300w, /wp-content/uploads/2018/05/word-image-4252-768x251.png 768w" sizes="(max-width: 865px) 100vw, 865px" /></p>
+<p>
+  ③修改模板
+</p>
+<p><img loading="lazy" decoding="async" width="1160" height="699" src="/wp-content/uploads/2018/05/word-image-4253.png" class="wp-image-4729" srcset="/wp-content/uploads/2018/05/word-image-4253.png 1160w, /wp-content/uploads/2018/05/word-image-4253-300x181.png 300w, /wp-content/uploads/2018/05/word-image-4253-768x463.png 768w, /wp-content/uploads/2018/05/word-image-4253-1024x617.png 1024w" sizes="(max-width: 1160px) 100vw, 1160px" /></p>
+<h3>4.3.2、实现提交修改</h3>
+<p>
+  ①修改edit方法处理提交
+</p>
+<p><img loading="lazy" decoding="async" width="977" height="585" src="/wp-content/uploads/2018/05/word-image-4254.png" class="wp-image-4730" srcset="/wp-content/uploads/2018/05/word-image-4254.png 977w, /wp-content/uploads/2018/05/word-image-4254-300x180.png 300w, /wp-content/uploads/2018/05/word-image-4254-768x460.png 768w" sizes="(max-width: 977px) 100vw, 977px" /></p>
+<p>
+  ②修改getTree方法可以根据id标识获取子分类
+</p>
+<p><img loading="lazy" decoding="async" width="1037" height="536" src="/wp-content/uploads/2018/05/word-image-4255.png" class="wp-image-4731" srcset="/wp-content/uploads/2018/05/word-image-4255.png 1037w, /wp-content/uploads/2018/05/word-image-4255-300x155.png 300w, /wp-content/uploads/2018/05/word-image-4255-768x397.png 768w, /wp-content/uploads/2018/05/word-image-4255-1024x529.png 1024w" sizes="(max-width: 1037px) 100vw, 1037px" /></p>
+<p>
+  ③模型增加方法实现修改
+</p>
+<p><img loading="lazy" decoding="async" width="1106" height="697" src="/wp-content/uploads/2018/05/word-image-4256.png" class="wp-image-4732" srcset="/wp-content/uploads/2018/05/word-image-4256.png 1106w, /wp-content/uploads/2018/05/word-image-4256-300x189.png 300w, /wp-content/uploads/2018/05/word-image-4256-768x484.png 768w, /wp-content/uploads/2018/05/word-image-4256-1024x645.png 1024w" sizes="(max-width: 1106px) 100vw, 1106px" /></p>
+<h2>4.4、分类使用模板继承</h2>
+<h3>4.4.1、介绍模板继承</h3>
+<p>
+  一个模板继承另外一个模板。在父模板中已有的HTML代码可以直接使用
+</p>
+<p><img loading="lazy" decoding="async" width="1046" height="635" src="/wp-content/uploads/2018/05/word-image-4257.png" class="wp-image-4733" srcset="/wp-content/uploads/2018/05/word-image-4257.png 1046w, /wp-content/uploads/2018/05/word-image-4257-300x182.png 300w, /wp-content/uploads/2018/05/word-image-4257-768x466.png 768w, /wp-content/uploads/2018/05/word-image-4257-1024x622.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /></p>
+<h3>4.4.2、使用模板继承</h3>
+<p>
+  ①定义父模板
+</p>
+<p><img loading="lazy" decoding="async" width="1119" height="669" src="/wp-content/uploads/2018/05/word-image-4258.png" class="wp-image-4734" srcset="/wp-content/uploads/2018/05/word-image-4258.png 1119w, /wp-content/uploads/2018/05/word-image-4258-300x179.png 300w, /wp-content/uploads/2018/05/word-image-4258-768x459.png 768w, /wp-content/uploads/2018/05/word-image-4258-1024x612.png 1024w" sizes="(max-width: 1119px) 100vw, 1119px" /><br />
+<img loading="lazy" decoding="async" width="1096" height="498" src="/wp-content/uploads/2018/05/word-image-4259.png" class="wp-image-4735" srcset="/wp-content/uploads/2018/05/word-image-4259.png 1096w, /wp-content/uploads/2018/05/word-image-4259-300x136.png 300w, /wp-content/uploads/2018/05/word-image-4259-768x349.png 768w, /wp-content/uploads/2018/05/word-image-4259-1024x465.png 1024w" sizes="(max-width: 1096px) 100vw, 1096px" /></p>
+<p>
+  ②修改添加使用模板继承
+</p>
+<p><img loading="lazy" decoding="async" width="1101" height="616" src="/wp-content/uploads/2018/05/word-image-4260.png" class="wp-image-4736" srcset="/wp-content/uploads/2018/05/word-image-4260.png 1101w, /wp-content/uploads/2018/05/word-image-4260-300x168.png 300w, /wp-content/uploads/2018/05/word-image-4260-768x430.png 768w, /wp-content/uploads/2018/05/word-image-4260-1024x573.png 1024w" sizes="(max-width: 1101px) 100vw, 1101px" /><br />
+<img loading="lazy" decoding="async" width="1080" height="512" src="/wp-content/uploads/2018/05/word-image-4261.png" class="wp-image-4737" srcset="/wp-content/uploads/2018/05/word-image-4261.png 1080w, /wp-content/uploads/2018/05/word-image-4261-300x142.png 300w, /wp-content/uploads/2018/05/word-image-4261-768x364.png 768w, /wp-content/uploads/2018/05/word-image-4261-1024x485.png 1024w" sizes="(max-width: 1080px) 100vw, 1080px" /></p>
+<p>
+  ③修改index使用模板继承
+</p>
+<p><img loading="lazy" decoding="async" width="953" height="342" src="/wp-content/uploads/2018/05/word-image-4262.png" class="wp-image-4738" srcset="/wp-content/uploads/2018/05/word-image-4262.png 953w, /wp-content/uploads/2018/05/word-image-4262-300x108.png 300w, /wp-content/uploads/2018/05/word-image-4262-768x276.png 768w" sizes="(max-width: 953px) 100vw, 953px" /></p>
+<p>
+  ④修改编辑模板使用模板继承
+</p>
+<p><img loading="lazy" decoding="async" width="1060" height="428" src="/wp-content/uploads/2018/05/word-image-4263.png" class="wp-image-4739" srcset="/wp-content/uploads/2018/05/word-image-4263.png 1060w, /wp-content/uploads/2018/05/word-image-4263-300x121.png 300w, /wp-content/uploads/2018/05/word-image-4263-768x310.png 768w, /wp-content/uploads/2018/05/word-image-4263-1024x413.png 1024w" sizes="(max-width: 1060px) 100vw, 1060px" /></p>
+<h1>商品管理</h1>
+<h2>5.1、商品数据表创建</h2>
+<p>
+  CREATE TABLE `shop_goods` (
+</p>
+<p>
+    `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+</p>
+<p>
+    `goods_name` varchar(255) NOT NULL DEFAULT &#8221; COMMENT &#8216;商品名称&#8217;,
+</p>
+<p>
+    `goods_sn` varchar(255) NOT NULL DEFAULT &#8221; COMMENT &#8216;货号&#8217;,
+</p>
+<p>
+    `market_price` decimal(10,2) NOT NULL DEFAULT &#8216;0.00&#8217; COMMENT &#8216;市场价格&#8217;,
+</p>
+<p>
+    `shop_price` decimal(10,2) NOT NULL DEFAULT &#8216;0.00&#8217; COMMENT &#8216;本店售价  单位元&#8217;,
+</p>
+<p>
+    `goods_number` int(11) NOT NULL DEFAULT &#8216;0&#8217; COMMENT &#8216;商品数量&#8217;,
+</p>
+<p>
+    `cate_id` int(11) NOT NULL DEFAULT &#8216;0&#8217; COMMENT &#8216;商品的分类ID 关联category表中id字段&#8217;,
+</p>
+<p>
+    `goods_img` varchar(255) NOT NULL DEFAULT &#8221; COMMENT &#8216;商品图片&#8217;,
+</p>
+<p>
+    `goods_thumb` varchar(255) NOT NULL DEFAULT &#8221; COMMENT &#8216;缩略图&#8217;,
+</p>
+<p>
+    `goods_body` text,
+</p>
+<p>
+    `addtime` int(11) NOT NULL DEFAULT &#8216;0&#8217; COMMENT &#8216;添加时间&#8217;,
+</p>
+<p>
+    `is_del` tinyint(4) NOT NULL DEFAULT &#8216;1&#8217; COMMENT &#8216;是否删除 1代表正常 0代表已经删除&#8217;,
+</p>
+<p>
+    `is_hot` tinyint(4) NOT NULL DEFAULT &#8216;0&#8217; COMMENT &#8216;是否热卖 1是 0否&#8217;,
+</p>
+<p>
+    `is_new` tinyint(4) NOT NULL DEFAULT &#8216;0&#8217; COMMENT &#8216;是否新品  1是0否&#8217;,
+</p>
+<p>
+    `is_rec` tinyint(4) NOT NULL DEFAULT &#8216;0&#8217; COMMENT &#8216;是否推荐  1是0否&#8217;,
+</p>
+<p>
+    PRIMARY KEY (`id`)
+</p>
+<p>
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</p>
+<h2>5.2、实现商品的基本入库</h2>
+<h3>5.2.1、显示添加的界面</h3>
+<p>
+  ①创建控制器方法显示添加的模板
+</p>
+<p><img loading="lazy" decoding="async" width="964" height="550" src="/wp-content/uploads/2018/05/word-image-4264.png" class="wp-image-4740" srcset="/wp-content/uploads/2018/05/word-image-4264.png 964w, /wp-content/uploads/2018/05/word-image-4264-300x171.png 300w, /wp-content/uploads/2018/05/word-image-4264-768x438.png 768w" sizes="(max-width: 964px) 100vw, 964px" /></p>
+<p>
+  ②拷贝商品添加模板
+</p>
+<p><img loading="lazy" decoding="async" width="1158" height="435" src="/wp-content/uploads/2018/05/word-image-4265.png" class="wp-image-4741" srcset="/wp-content/uploads/2018/05/word-image-4265.png 1158w, /wp-content/uploads/2018/05/word-image-4265-300x113.png 300w, /wp-content/uploads/2018/05/word-image-4265-768x288.png 768w, /wp-content/uploads/2018/05/word-image-4265-1024x385.png 1024w" sizes="(max-width: 1158px) 100vw, 1158px" /></p>
+<p>
+  ③修改模板使用模板继承
+</p>
+<p><img loading="lazy" decoding="async" width="1113" height="496" src="/wp-content/uploads/2018/05/word-image-4266.png" class="wp-image-4742" srcset="/wp-content/uploads/2018/05/word-image-4266.png 1113w, /wp-content/uploads/2018/05/word-image-4266-300x134.png 300w, /wp-content/uploads/2018/05/word-image-4266-768x342.png 768w, /wp-content/uploads/2018/05/word-image-4266-1024x456.png 1024w" sizes="(max-width: 1113px) 100vw, 1113px" /></p>
+<p>
+  ④处理模板显示商品分类
+</p>
+<p><img loading="lazy" decoding="async" width="1125" height="699" src="/wp-content/uploads/2018/05/word-image-4267.png" class="wp-image-4743" srcset="/wp-content/uploads/2018/05/word-image-4267.png 1125w, /wp-content/uploads/2018/05/word-image-4267-300x186.png 300w, /wp-content/uploads/2018/05/word-image-4267-768x477.png 768w, /wp-content/uploads/2018/05/word-image-4267-1024x636.png 1024w" sizes="(max-width: 1125px) 100vw, 1125px" /><br />
+<img loading="lazy" decoding="async" width="948" height="416" src="/wp-content/uploads/2018/05/word-image-4268.png" class="wp-image-4744" srcset="/wp-content/uploads/2018/05/word-image-4268.png 948w, /wp-content/uploads/2018/05/word-image-4268-300x132.png 300w, /wp-content/uploads/2018/05/word-image-4268-768x337.png 768w" sizes="(max-width: 948px) 100vw, 948px" /></p>
+<h3>5.2.2、实现入库</h3>
+<p>
+  ①修改方法处理数据提交入库
+</p>
+<p><img loading="lazy" decoding="async" width="1092" height="703" src="/wp-content/uploads/2018/05/word-image-4269.png" class="wp-image-4745" srcset="/wp-content/uploads/2018/05/word-image-4269.png 1092w, /wp-content/uploads/2018/05/word-image-4269-300x193.png 300w, /wp-content/uploads/2018/05/word-image-4269-768x494.png 768w, /wp-content/uploads/2018/05/word-image-4269-1024x659.png 1024w" sizes="(max-width: 1092px) 100vw, 1092px" /></p>
+<p>
+  ②创建模型类
+</p>
+<p><img loading="lazy" decoding="async" width="780" height="473" src="/wp-content/uploads/2018/05/word-image-4270.png" class="wp-image-4746" srcset="/wp-content/uploads/2018/05/word-image-4270.png 780w, /wp-content/uploads/2018/05/word-image-4270-300x182.png 300w, /wp-content/uploads/2018/05/word-image-4270-768x466.png 768w" sizes="(max-width: 780px) 100vw, 780px" /></p>
+<p>
+  ③添加字段定义
+</p>
+<p><img loading="lazy" decoding="async" width="1098" height="539" src="/wp-content/uploads/2018/05/word-image-4271.png" class="wp-image-4747" srcset="/wp-content/uploads/2018/05/word-image-4271.png 1098w, /wp-content/uploads/2018/05/word-image-4271-300x147.png 300w, /wp-content/uploads/2018/05/word-image-4271-768x377.png 768w, /wp-content/uploads/2018/05/word-image-4271-1024x503.png 1024w" sizes="(max-width: 1098px) 100vw, 1098px" /></p>
+<p>
+  ④创建验证规则
+</p>
+<p><img loading="lazy" decoding="async" width="1064" height="640" src="/wp-content/uploads/2018/05/word-image-4272.png" class="wp-image-4748" srcset="/wp-content/uploads/2018/05/word-image-4272.png 1064w, /wp-content/uploads/2018/05/word-image-4272-300x180.png 300w, /wp-content/uploads/2018/05/word-image-4272-768x462.png 768w, /wp-content/uploads/2018/05/word-image-4272-1024x616.png 1024w" sizes="(max-width: 1064px) 100vw, 1064px" /></p>
+<p>
+  ⑤增加添加数据的前置钩子函数
+</p>
+<p><img loading="lazy" decoding="async" width="1103" height="700" src="/wp-content/uploads/2018/05/word-image-4273.png" class="wp-image-4749" srcset="/wp-content/uploads/2018/05/word-image-4273.png 1103w, /wp-content/uploads/2018/05/word-image-4273-300x190.png 300w, /wp-content/uploads/2018/05/word-image-4273-768x487.png 768w, /wp-content/uploads/2018/05/word-image-4273-1024x650.png 1024w" sizes="(max-width: 1103px) 100vw, 1103px" /></p>
+<p>
+  ⑥修改钩子函数增加价格判断
+</p>
+<p><img loading="lazy" decoding="async" width="986" height="653" src="/wp-content/uploads/2018/05/word-image-4274.png" class="wp-image-4750" srcset="/wp-content/uploads/2018/05/word-image-4274.png 986w, /wp-content/uploads/2018/05/word-image-4274-300x199.png 300w, /wp-content/uploads/2018/05/word-image-4274-768x509.png 768w" sizes="(max-width: 986px) 100vw, 986px" /></p>
+<h2>5.3、使用ueditor实现商品详情</h2>
+<h3>5.3.1、项目中使用ueditor</h3>
+<p>
+  ①拷贝源码
+</p>
+<p><img loading="lazy" decoding="async" width="1334" height="435" src="/wp-content/uploads/2018/05/word-image-4275.png" class="wp-image-4751" srcset="/wp-content/uploads/2018/05/word-image-4275.png 1334w, /wp-content/uploads/2018/05/word-image-4275-300x98.png 300w, /wp-content/uploads/2018/05/word-image-4275-768x250.png 768w, /wp-content/uploads/2018/05/word-image-4275-1024x334.png 1024w" sizes="(max-width: 1334px) 100vw, 1334px" /></p>
+<p>
+  ②在添加模板中引入编辑器的js文件
+</p>
+<p><img loading="lazy" decoding="async" width="1196" height="707" src="/wp-content/uploads/2018/05/word-image-4276.png" class="wp-image-4752" srcset="/wp-content/uploads/2018/05/word-image-4276.png 1196w, /wp-content/uploads/2018/05/word-image-4276-300x177.png 300w, /wp-content/uploads/2018/05/word-image-4276-768x454.png 768w, /wp-content/uploads/2018/05/word-image-4276-1024x605.png 1024w" sizes="(max-width: 1196px) 100vw, 1196px" /></p>
+<h3>5.3.2、实现选项卡效果</h3>
+<p>
+  ①修改选项卡标签
+</p>
+<p><img loading="lazy" decoding="async" width="1018" height="340" src="/wp-content/uploads/2018/05/word-image-4277.png" class="wp-image-4753" srcset="/wp-content/uploads/2018/05/word-image-4277.png 1018w, /wp-content/uploads/2018/05/word-image-4277-300x100.png 300w, /wp-content/uploads/2018/05/word-image-4277-768x257.png 768w" sizes="(max-width: 1018px) 100vw, 1018px" /></p>
+<p>
+  ②修改商品详情使用选项卡
+</p>
+<p><img loading="lazy" decoding="async" width="1099" height="662" src="/wp-content/uploads/2018/05/word-image-4278.png" class="wp-image-4754" srcset="/wp-content/uploads/2018/05/word-image-4278.png 1099w, /wp-content/uploads/2018/05/word-image-4278-300x181.png 300w, /wp-content/uploads/2018/05/word-image-4278-768x463.png 768w, /wp-content/uploads/2018/05/word-image-4278-1024x617.png 1024w" sizes="(max-width: 1099px) 100vw, 1099px" /></p>
+<p>
+  ③修改父模板引入jQuery
+</p>
+<p><img loading="lazy" decoding="async" width="1148" height="684" src="/wp-content/uploads/2018/05/word-image-4279.png" class="wp-image-4755" srcset="/wp-content/uploads/2018/05/word-image-4279.png 1148w, /wp-content/uploads/2018/05/word-image-4279-300x179.png 300w, /wp-content/uploads/2018/05/word-image-4279-768x458.png 768w, /wp-content/uploads/2018/05/word-image-4279-1024x610.png 1024w" sizes="(max-width: 1148px) 100vw, 1148px" /></p>
+<p>
+  ④实现切换效果
+</p>
+<p><img loading="lazy" decoding="async" width="1027" height="598" src="/wp-content/uploads/2018/05/word-image-4280.png" class="wp-image-4756" srcset="/wp-content/uploads/2018/05/word-image-4280.png 1027w, /wp-content/uploads/2018/05/word-image-4280-300x175.png 300w, /wp-content/uploads/2018/05/word-image-4280-768x447.png 768w, /wp-content/uploads/2018/05/word-image-4280-1024x596.png 1024w" sizes="(max-width: 1027px) 100vw, 1027px" /></p>
+<h3>5.3.3、查看ueditor文件上传的流程(了解)</h3>
+<p>
+  ①抓包查找文件上传地址
+</p>
+<p><img loading="lazy" decoding="async" width="1177" height="531" src="/wp-content/uploads/2018/05/word-image-4281.png" class="wp-image-4757" srcset="/wp-content/uploads/2018/05/word-image-4281.png 1177w, /wp-content/uploads/2018/05/word-image-4281-300x135.png 300w, /wp-content/uploads/2018/05/word-image-4281-768x346.png 768w, /wp-content/uploads/2018/05/word-image-4281-1024x462.png 1024w" sizes="(max-width: 1177px) 100vw, 1177px" /></p>
+<p>
+  ②查看controller.php
+</p>
+<p><img loading="lazy" decoding="async" width="1008" height="698" src="/wp-content/uploads/2018/05/word-image-4282.png" class="wp-image-4758" srcset="/wp-content/uploads/2018/05/word-image-4282.png 1008w, /wp-content/uploads/2018/05/word-image-4282-300x208.png 300w, /wp-content/uploads/2018/05/word-image-4282-768x532.png 768w" sizes="(max-width: 1008px) 100vw, 1008px" /></p>
+<p>
+  ③查看action_upload.php
+</p>
+<p><img loading="lazy" decoding="async" width="970" height="627" src="/wp-content/uploads/2018/05/word-image-4283.png" class="wp-image-4759" srcset="/wp-content/uploads/2018/05/word-image-4283.png 970w, /wp-content/uploads/2018/05/word-image-4283-300x194.png 300w, /wp-content/uploads/2018/05/word-image-4283-768x496.png 768w" sizes="(max-width: 970px) 100vw, 970px" /></p>
+<p>
+  ④查看upload类
+</p>
+<p><img loading="lazy" decoding="async" width="1016" height="607" src="/wp-content/uploads/2018/05/word-image-4284.png" class="wp-image-4760" srcset="/wp-content/uploads/2018/05/word-image-4284.png 1016w, /wp-content/uploads/2018/05/word-image-4284-300x179.png 300w, /wp-content/uploads/2018/05/word-image-4284-768x459.png 768w" sizes="(max-width: 1016px) 100vw, 1016px" /></p>
+<p>
+  对于上图的upFile及实现了文件上传的功能，关于需要修改上传逻辑的可以在下图中代码实现
+</p>
+<p><img loading="lazy" decoding="async" width="989" height="500" src="/wp-content/uploads/2018/05/word-image-4285.png" class="wp-image-4761" srcset="/wp-content/uploads/2018/05/word-image-4285.png 989w, /wp-content/uploads/2018/05/word-image-4285-300x152.png 300w, /wp-content/uploads/2018/05/word-image-4285-768x388.png 768w" sizes="(max-width: 989px) 100vw, 989px" /></p>
+<h2>5.3、实现图片上传</h2>
+<h3>5.3.1、TP中的文件上传功能</h3>
+<p>
+  ①查看文件上传的配置信息
+</p>
+<p><img loading="lazy" decoding="async" width="987" height="702" src="/wp-content/uploads/2018/05/word-image-4286.png" class="wp-image-4762" srcset="/wp-content/uploads/2018/05/word-image-4286.png 987w, /wp-content/uploads/2018/05/word-image-4286-300x213.png 300w, /wp-content/uploads/2018/05/word-image-4286-768x546.png 768w" sizes="(max-width: 987px) 100vw, 987px" /></p>
+<p>
+  ②查看文件上传的方法
+</p>
+<p><img loading="lazy" decoding="async" width="966" height="650" src="/wp-content/uploads/2018/05/word-image-4287.png" class="wp-image-4763" srcset="/wp-content/uploads/2018/05/word-image-4287.png 966w, /wp-content/uploads/2018/05/word-image-4287-300x202.png 300w, /wp-content/uploads/2018/05/word-image-4287-768x517.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<h3>5.3.2、具体实现文件上传</h3>
+<p>
+  ①创建测试方法显示上传表单
+</p>
+<p><img loading="lazy" decoding="async" width="805" height="411" src="/wp-content/uploads/2018/05/word-image-4288.png" class="wp-image-4764" srcset="/wp-content/uploads/2018/05/word-image-4288.png 805w, /wp-content/uploads/2018/05/word-image-4288-300x153.png 300w, /wp-content/uploads/2018/05/word-image-4288-768x392.png 768w" sizes="(max-width: 805px) 100vw, 805px" /></p>
+<p>
+  ②处理上传的表单
+</p>
+<p><img loading="lazy" decoding="async" width="1055" height="653" src="/wp-content/uploads/2018/05/word-image-4289.png" class="wp-image-4765" srcset="/wp-content/uploads/2018/05/word-image-4289.png 1055w, /wp-content/uploads/2018/05/word-image-4289-300x186.png 300w, /wp-content/uploads/2018/05/word-image-4289-768x475.png 768w, /wp-content/uploads/2018/05/word-image-4289-1024x634.png 1024w" sizes="(max-width: 1055px) 100vw, 1055px" /></p>
+<p>
+  ③实现文件上传
+</p>
+<p><img loading="lazy" decoding="async" width="986" height="686" src="/wp-content/uploads/2018/05/word-image-4290.png" class="wp-image-4766" srcset="/wp-content/uploads/2018/05/word-image-4290.png 986w, /wp-content/uploads/2018/05/word-image-4290-300x209.png 300w, /wp-content/uploads/2018/05/word-image-4290-768x534.png 768w" sizes="(max-width: 986px) 100vw, 986px" /></p>
+<p>
+  ④查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="491" height="204" src="/wp-content/uploads/2018/05/word-image-4291.png" class="wp-image-4767" srcset="/wp-content/uploads/2018/05/word-image-4291.png 491w, /wp-content/uploads/2018/05/word-image-4291-300x125.png 300w" sizes="(max-width: 491px) 100vw, 491px" /></p>
+<p>
+  ⑤手动创建上传的根目录
+</p>
+<p><img loading="lazy" decoding="async" width="732" height="292" src="/wp-content/uploads/2018/05/word-image-4292.png" class="wp-image-4768" srcset="/wp-content/uploads/2018/05/word-image-4292.png 732w, /wp-content/uploads/2018/05/word-image-4292-300x120.png 300w" sizes="(max-width: 732px) 100vw, 732px" /></p>
+<p>
+  ⑤再次查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="578" height="328" src="/wp-content/uploads/2018/05/word-image-4293.png" class="wp-image-4769" srcset="/wp-content/uploads/2018/05/word-image-4293.png 578w, /wp-content/uploads/2018/05/word-image-4293-300x170.png 300w" sizes="(max-width: 578px) 100vw, 578px" /></p>
+<h3>5.3.3、在项目中使用文件上传</h3>
+<p>
+  ①修改添加的前置钩子函数实现文件上传
+</p>
+<p><img loading="lazy" decoding="async" width="1025" height="671" src="/wp-content/uploads/2018/05/word-image-4294.png" class="wp-image-4770" srcset="/wp-content/uploads/2018/05/word-image-4294.png 1025w, /wp-content/uploads/2018/05/word-image-4294-300x196.png 300w, /wp-content/uploads/2018/05/word-image-4294-768x503.png 768w, /wp-content/uploads/2018/05/word-image-4294-1024x670.png 1024w" sizes="(max-width: 1025px) 100vw, 1025px" /><br />
+<img loading="lazy" decoding="async" width="996" height="587" src="/wp-content/uploads/2018/05/word-image-4295.png" class="wp-image-4771" srcset="/wp-content/uploads/2018/05/word-image-4295.png 996w, /wp-content/uploads/2018/05/word-image-4295-300x177.png 300w, /wp-content/uploads/2018/05/word-image-4295-768x453.png 768w" sizes="(max-width: 996px) 100vw, 996px" /></p>
+<p>
+  ②查看结果
+</p>
+<p><img loading="lazy" decoding="async" width="1090" height="446" src="/wp-content/uploads/2018/05/word-image-4296.png" class="wp-image-4772" srcset="/wp-content/uploads/2018/05/word-image-4296.png 1090w, /wp-content/uploads/2018/05/word-image-4296-300x123.png 300w, /wp-content/uploads/2018/05/word-image-4296-768x314.png 768w, /wp-content/uploads/2018/05/word-image-4296-1024x419.png 1024w" sizes="(max-width: 1090px) 100vw, 1090px" /></p>
+<p>
+  ③修改前置钩子函数的文件上传
+</p>
+<p><img loading="lazy" decoding="async" width="1041" height="631" src="/wp-content/uploads/2018/05/word-image-4297.png" class="wp-image-4773" srcset="/wp-content/uploads/2018/05/word-image-4297.png 1041w, /wp-content/uploads/2018/05/word-image-4297-300x182.png 300w, /wp-content/uploads/2018/05/word-image-4297-768x466.png 768w, /wp-content/uploads/2018/05/word-image-4297-1024x621.png 1024w" sizes="(max-width: 1041px) 100vw, 1041px" /></p>
+<h2>5.4、处理商品的缩略图</h2>
+<h3>5.4.1、生成缩略图流程</h3>
+<ol>
+<li>
+  实例化Image对象
+</li>
+<li>
+  使用对象打开图片
+</li>
+<li>
+  指定方法对图片进行处理，并且将图片进行保存
+</li>
+</ol>
+<h3>5.4.2、生成商品的缩略图</h3>
+<p>
+  ①修改添加的前置钩子函数
+</p>
+<p><img loading="lazy" decoding="async" width="1039" height="688" src="/wp-content/uploads/2018/05/word-image-4298.png" class="wp-image-4774" srcset="/wp-content/uploads/2018/05/word-image-4298.png 1039w, /wp-content/uploads/2018/05/word-image-4298-300x199.png 300w, /wp-content/uploads/2018/05/word-image-4298-768x509.png 768w, /wp-content/uploads/2018/05/word-image-4298-1024x678.png 1024w" sizes="(max-width: 1039px) 100vw, 1039px" /></p>
+<p>
+  针对文件上传成功之后在处理图片
+</p>
+<p>
+  ②查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="628" height="253" src="/wp-content/uploads/2018/05/word-image-4299.png" class="wp-image-4775" srcset="/wp-content/uploads/2018/05/word-image-4299.png 628w, /wp-content/uploads/2018/05/word-image-4299-300x121.png 300w" sizes="(max-width: 628px) 100vw, 628px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/4706.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>TP3.2商城 （五）权限认证、商品相册、商品分类、首页推荐</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/4389.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/4389.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 12:42:17 +0000</pubDate>
+				<category><![CDATA[TP3.2]]></category>
+		<category><![CDATA[TP3.2商城]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[商品分类]]></category>
+		<category><![CDATA[商品相册]]></category>
+		<category><![CDATA[权限认证]]></category>
+		<category><![CDATA[首页推荐]]></category>
+		<guid isPermaLink="false">/?p=4389</guid>
+
+					<description><![CDATA[权限认证 实现权限认证 ①修改公共控制器调用方法进行校验 ②增加属性保存信息 ③根据用户ID获取角色ID ④根 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>权限认证</h1>
+<h2>实现权限认证</h2>
+<p>
+  ①修改公共控制器调用方法进行校验
+</p>
+<p><img loading="lazy" decoding="async" width="1013" height="694" src="/wp-content/uploads/2018/05/word-image-3923.png" class="wp-image-4390" srcset="/wp-content/uploads/2018/05/word-image-3923.png 1013w, /wp-content/uploads/2018/05/word-image-3923-300x206.png 300w, /wp-content/uploads/2018/05/word-image-3923-768x526.png 768w, /wp-content/uploads/2018/05/word-image-3923-220x150.png 220w" sizes="(max-width: 1013px) 100vw, 1013px" /></p>
+<p>
+  ②增加属性保存信息
+</p>
+<p><img loading="lazy" decoding="async" width="1002" height="489" src="/wp-content/uploads/2018/05/word-image-3924.png" class="wp-image-4391" srcset="/wp-content/uploads/2018/05/word-image-3924.png 1002w, /wp-content/uploads/2018/05/word-image-3924-300x146.png 300w, /wp-content/uploads/2018/05/word-image-3924-768x375.png 768w" sizes="(max-width: 1002px) 100vw, 1002px" /></p>
+<p>
+  ③根据用户ID获取角色ID
+</p>
+<p><img loading="lazy" decoding="async" width="1073" height="515" src="/wp-content/uploads/2018/05/word-image-3925.png" class="wp-image-4392" srcset="/wp-content/uploads/2018/05/word-image-3925.png 1073w, /wp-content/uploads/2018/05/word-image-3925-300x144.png 300w, /wp-content/uploads/2018/05/word-image-3925-768x369.png 768w, /wp-content/uploads/2018/05/word-image-3925-1024x491.png 1024w" sizes="(max-width: 1073px) 100vw, 1073px" /></p>
+<p>
+  ④根据不同的角色获取权限信息
+</p>
+<p><img loading="lazy" decoding="async" width="1066" height="674" src="/wp-content/uploads/2018/05/word-image-3926.png" class="wp-image-4393" srcset="/wp-content/uploads/2018/05/word-image-3926.png 1066w, /wp-content/uploads/2018/05/word-image-3926-300x190.png 300w, /wp-content/uploads/2018/05/word-image-3926-768x486.png 768w, /wp-content/uploads/2018/05/word-image-3926-1024x647.png 1024w" sizes="(max-width: 1066px) 100vw, 1066px" /></p>
+<p>
+  对于非超级管理员角色的权限信息如下
+</p>
+<p><img loading="lazy" decoding="async" width="795" height="488" src="/wp-content/uploads/2018/05/word-image-3927.png" class="wp-image-4394" srcset="/wp-content/uploads/2018/05/word-image-3927.png 795w, /wp-content/uploads/2018/05/word-image-3927-300x184.png 300w, /wp-content/uploads/2018/05/word-image-3927-768x471.png 768w" sizes="(max-width: 795px) 100vw, 795px" /></p>
+<p>
+  ⑤对权限信息进行格式化
+</p>
+<p><img loading="lazy" decoding="async" width="1094" height="658" src="/wp-content/uploads/2018/05/word-image-3928.png" class="wp-image-4395" srcset="/wp-content/uploads/2018/05/word-image-3928.png 1094w, /wp-content/uploads/2018/05/word-image-3928-300x180.png 300w, /wp-content/uploads/2018/05/word-image-3928-768x462.png 768w, /wp-content/uploads/2018/05/word-image-3928-1024x616.png 1024w" sizes="(max-width: 1094px) 100vw, 1094px" /></p>
+<p>
+  超级管理数据
+</p>
+<p><img loading="lazy" decoding="async" width="820" height="642" src="/wp-content/uploads/2018/05/word-image-3929.png" class="wp-image-4396" srcset="/wp-content/uploads/2018/05/word-image-3929.png 820w, /wp-content/uploads/2018/05/word-image-3929-300x235.png 300w, /wp-content/uploads/2018/05/word-image-3929-768x601.png 768w" sizes="(max-width: 820px) 100vw, 820px" /></p>
+<p>
+  非超级管理员
+</p>
+<p><img loading="lazy" decoding="async" width="921" height="537" src="/wp-content/uploads/2018/05/word-image-3930.png" class="wp-image-4397" srcset="/wp-content/uploads/2018/05/word-image-3930.png 921w, /wp-content/uploads/2018/05/word-image-3930-300x175.png 300w, /wp-content/uploads/2018/05/word-image-3930-768x448.png 768w" sizes="(max-width: 921px) 100vw, 921px" /></p>
+<p>
+  ⑥根据当前访问的进行判断
+</p>
+<p><img loading="lazy" decoding="async" width="1104" height="716" src="/wp-content/uploads/2018/05/word-image-3931.png" class="wp-image-4398" srcset="/wp-content/uploads/2018/05/word-image-3931.png 1104w, /wp-content/uploads/2018/05/word-image-3931-300x195.png 300w, /wp-content/uploads/2018/05/word-image-3931-768x498.png 768w, /wp-content/uploads/2018/05/word-image-3931-1024x664.png 1024w" sizes="(max-width: 1104px) 100vw, 1104px" /></p>
+<h2>处理后台首页没有权限</h2>
+<p><img loading="lazy" decoding="async" width="1023" height="685" src="/wp-content/uploads/2018/05/word-image-3932.png" class="wp-image-4399" srcset="/wp-content/uploads/2018/05/word-image-3932.png 1023w, /wp-content/uploads/2018/05/word-image-3932-300x201.png 300w, /wp-content/uploads/2018/05/word-image-3932-768x514.png 768w" sizes="(max-width: 1023px) 100vw, 1023px" /></p>
+<h2>处理后台首页中的导航菜单</h2>
+<p>
+  ①修改后台首页控制器增加方法
+</p>
+<p><img loading="lazy" decoding="async" width="955" height="629" src="/wp-content/uploads/2018/05/word-image-3933.png" class="wp-image-4400" srcset="/wp-content/uploads/2018/05/word-image-3933.png 955w, /wp-content/uploads/2018/05/word-image-3933-300x198.png 300w, /wp-content/uploads/2018/05/word-image-3933-768x506.png 768w" sizes="(max-width: 955px) 100vw, 955px" /></p>
+<p>
+  ②模板显示
+</p>
+<p><img loading="lazy" decoding="async" width="1071" height="702" src="/wp-content/uploads/2018/05/word-image-3934.png" class="wp-image-4401" srcset="/wp-content/uploads/2018/05/word-image-3934.png 1071w, /wp-content/uploads/2018/05/word-image-3934-300x197.png 300w, /wp-content/uploads/2018/05/word-image-3934-768x503.png 768w, /wp-content/uploads/2018/05/word-image-3934-1024x671.png 1024w" sizes="(max-width: 1071px) 100vw, 1071px" /></p>
+<p>
+  非超级管理员
+</p>
+<p><img loading="lazy" decoding="async" width="729" height="359" src="/wp-content/uploads/2018/05/word-image-3935.png" class="wp-image-4402" srcset="/wp-content/uploads/2018/05/word-image-3935.png 729w, /wp-content/uploads/2018/05/word-image-3935-300x148.png 300w" sizes="(max-width: 729px) 100vw, 729px" /></p>
+<p>
+  超级管理员
+</p>
+<p><img loading="lazy" decoding="async" width="891" height="366" src="/wp-content/uploads/2018/05/word-image-3936.png" class="wp-image-4403" srcset="/wp-content/uploads/2018/05/word-image-3936.png 891w, /wp-content/uploads/2018/05/word-image-3936-300x123.png 300w, /wp-content/uploads/2018/05/word-image-3936-768x315.png 768w" sizes="(max-width: 891px) 100vw, 891px" /></p>
+<h2>权限认证性能调优</h2>
+<p>
+  由于权限认证处理是在公共控制器中的构造方法中实现。对于每一次访问方法都需要走权限认证。而权限认证涉及多次的数据库的查询操作。因此影响数据库性能。可以使用缓存解决问题
+</p>
+<p>
+  ①修改代码
+</p>
+<p><img loading="lazy" decoding="async" width="1081" height="688" src="/wp-content/uploads/2018/05/word-image-3937.png" class="wp-image-4404" srcset="/wp-content/uploads/2018/05/word-image-3937.png 1081w, /wp-content/uploads/2018/05/word-image-3937-300x191.png 300w, /wp-content/uploads/2018/05/word-image-3937-768x489.png 768w, /wp-content/uploads/2018/05/word-image-3937-1024x652.png 1024w" sizes="(max-width: 1081px) 100vw, 1081px" /><br />
+<img loading="lazy" decoding="async" width="1046" height="587" src="/wp-content/uploads/2018/05/word-image-3938.png" class="wp-image-4405" srcset="/wp-content/uploads/2018/05/word-image-3938.png 1046w, /wp-content/uploads/2018/05/word-image-3938-300x168.png 300w, /wp-content/uploads/2018/05/word-image-3938-768x431.png 768w, /wp-content/uploads/2018/05/word-image-3938-1024x575.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /></p>
+<p>
+  ②处理超级管理员的权限
+</p>
+<p>
+  当超级管理员访问某一个方法 而方法在权限中没有对应的数据
+</p>
+<p><img loading="lazy" decoding="async" width="834" height="361" src="/wp-content/uploads/2018/05/word-image-3939.png" class="wp-image-4406" srcset="/wp-content/uploads/2018/05/word-image-3939.png 834w, /wp-content/uploads/2018/05/word-image-3939-300x130.png 300w, /wp-content/uploads/2018/05/word-image-3939-768x332.png 768w" sizes="(max-width: 834px) 100vw, 834px" /><br />
+<img loading="lazy" decoding="async" width="986" height="412" src="/wp-content/uploads/2018/05/word-image-3940.png" class="wp-image-4407" srcset="/wp-content/uploads/2018/05/word-image-3940.png 986w, /wp-content/uploads/2018/05/word-image-3940-300x125.png 300w, /wp-content/uploads/2018/05/word-image-3940-768x321.png 768w" sizes="(max-width: 986px) 100vw, 986px" /></p>
+<p>
+  使用缓存需要注意：一旦权限信息或者用户信息发送变更需要更新缓存
+</p>
+<h1>商品相册</h1>
+<h2>添加商品相册</h2>
+<h3>创建相册数据表</h3>
+<p>
+  CREATE TABLE `shop_goods_img` (
+</p>
+<p>
+    `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+</p>
+<p>
+    `goods_id` int(11) NOT NULL DEFAULT &#8216;0&#8217; COMMENT &#8216;商品ID&#8217;,
+</p>
+<p>
+    `goods_img` varchar(255) NOT NULL DEFAULT &#8221; COMMENT &#8216;相册原图&#8217;,
+</p>
+<p>
+    `goods_thumb` varchar(255) NOT NULL DEFAULT &#8221; COMMENT &#8216;相册小图&#8217;,
+</p>
+<p>
+    PRIMARY KEY (`id`)
+</p>
+<p>
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</p>
+<h3>商品添加显示相册</h3>
+<p>
+  ①增加相册选项卡
+</p>
+<p><img loading="lazy" decoding="async" width="1002" height="308" src="/wp-content/uploads/2018/05/word-image-3941.png" class="wp-image-4408" srcset="/wp-content/uploads/2018/05/word-image-3941.png 1002w, /wp-content/uploads/2018/05/word-image-3941-300x92.png 300w, /wp-content/uploads/2018/05/word-image-3941-768x236.png 768w" sizes="(max-width: 1002px) 100vw, 1002px" /></p>
+<p>
+  ②增加选项卡标签对应的table
+</p>
+<p><img loading="lazy" decoding="async" width="1065" height="648" src="/wp-content/uploads/2018/05/word-image-3942.png" class="wp-image-4409" srcset="/wp-content/uploads/2018/05/word-image-3942.png 1065w, /wp-content/uploads/2018/05/word-image-3942-300x183.png 300w, /wp-content/uploads/2018/05/word-image-3942-768x467.png 768w, /wp-content/uploads/2018/05/word-image-3942-1024x623.png 1024w" sizes="(max-width: 1065px) 100vw, 1065px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="1051" height="289" src="/wp-content/uploads/2018/05/word-image-3943.png" class="wp-image-4410" srcset="/wp-content/uploads/2018/05/word-image-3943.png 1051w, /wp-content/uploads/2018/05/word-image-3943-300x82.png 300w, /wp-content/uploads/2018/05/word-image-3943-768x211.png 768w, /wp-content/uploads/2018/05/word-image-3943-1024x282.png 1024w" sizes="(max-width: 1051px) 100vw, 1051px" /></p>
+<p>
+  ③实现点击按钮增肌上传框
+</p>
+<p><img loading="lazy" decoding="async" width="1028" height="480" src="/wp-content/uploads/2018/05/word-image-3944.png" class="wp-image-4411" srcset="/wp-content/uploads/2018/05/word-image-3944.png 1028w, /wp-content/uploads/2018/05/word-image-3944-300x140.png 300w, /wp-content/uploads/2018/05/word-image-3944-768x359.png 768w, /wp-content/uploads/2018/05/word-image-3944-1024x478.png 1024w" sizes="(max-width: 1028px) 100vw, 1028px" /></p>
+<h3>实现相册入库</h3>
+<p><img loading="lazy" decoding="async" width="1039" height="696" src="/wp-content/uploads/2018/05/word-image-3945.png" class="wp-image-4412" srcset="/wp-content/uploads/2018/05/word-image-3945.png 1039w, /wp-content/uploads/2018/05/word-image-3945-300x201.png 300w, /wp-content/uploads/2018/05/word-image-3945-768x514.png 768w, /wp-content/uploads/2018/05/word-image-3945-1024x686.png 1024w" sizes="(max-width: 1039px) 100vw, 1039px" /></p>
+<p>
+  测试相册入库直接写入商品信息
+</p>
+<p><img loading="lazy" decoding="async" width="933" height="362" src="/wp-content/uploads/2018/05/word-image-3946.png" class="wp-image-4413" srcset="/wp-content/uploads/2018/05/word-image-3946.png 933w, /wp-content/uploads/2018/05/word-image-3946-300x116.png 300w, /wp-content/uploads/2018/05/word-image-3946-768x298.png 768w" sizes="(max-width: 933px) 100vw, 933px" /></p>
+<h2>相册编辑</h2>
+<h3>显示编辑商品的相册</h3>
+<p>
+  ①修改方法
+</p>
+<p><img loading="lazy" decoding="async" width="1063" height="648" src="/wp-content/uploads/2018/05/word-image-3947.png" class="wp-image-4414" srcset="/wp-content/uploads/2018/05/word-image-3947.png 1063w, /wp-content/uploads/2018/05/word-image-3947-300x183.png 300w, /wp-content/uploads/2018/05/word-image-3947-768x468.png 768w, /wp-content/uploads/2018/05/word-image-3947-1024x624.png 1024w" sizes="(max-width: 1063px) 100vw, 1063px" /></p>
+<p>
+  ②显示edit模板增加相册选项卡
+</p>
+<p>
+  增加选项卡
+</p>
+<p><img loading="lazy" decoding="async" width="1080" height="400" src="/wp-content/uploads/2018/05/word-image-3948.png" class="wp-image-4415" srcset="/wp-content/uploads/2018/05/word-image-3948.png 1080w, /wp-content/uploads/2018/05/word-image-3948-300x111.png 300w, /wp-content/uploads/2018/05/word-image-3948-768x284.png 768w, /wp-content/uploads/2018/05/word-image-3948-1024x379.png 1024w" sizes="(max-width: 1080px) 100vw, 1080px" /><br />
+<img loading="lazy" decoding="async" width="1044" height="699" src="/wp-content/uploads/2018/05/word-image-3949.png" class="wp-image-4416" srcset="/wp-content/uploads/2018/05/word-image-3949.png 1044w, /wp-content/uploads/2018/05/word-image-3949-300x201.png 300w, /wp-content/uploads/2018/05/word-image-3949-768x514.png 768w, /wp-content/uploads/2018/05/word-image-3949-1024x686.png 1024w" sizes="(max-width: 1044px) 100vw, 1044px" /></p>
+<p>
+  拷贝js
+</p>
+<p><img loading="lazy" decoding="async" width="1038" height="507" src="/wp-content/uploads/2018/05/word-image-3950.png" class="wp-image-4417" srcset="/wp-content/uploads/2018/05/word-image-3950.png 1038w, /wp-content/uploads/2018/05/word-image-3950-300x147.png 300w, /wp-content/uploads/2018/05/word-image-3950-768x375.png 768w, /wp-content/uploads/2018/05/word-image-3950-1024x500.png 1024w" sizes="(max-width: 1038px) 100vw, 1038px" /></p>
+<p>
+  最终效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="1041" height="583" src="/wp-content/uploads/2018/05/word-image-3951.png" class="wp-image-4418" srcset="/wp-content/uploads/2018/05/word-image-3951.png 1041w, /wp-content/uploads/2018/05/word-image-3951-300x168.png 300w, /wp-content/uploads/2018/05/word-image-3951-768x430.png 768w, /wp-content/uploads/2018/05/word-image-3951-1024x573.png 1024w" sizes="(max-width: 1041px) 100vw, 1041px" /></p>
+<h3>实现编辑商品追加相册</h3>
+<p><img loading="lazy" decoding="async" width="1049" height="701" src="/wp-content/uploads/2018/05/word-image-3952.png" class="wp-image-4419" srcset="/wp-content/uploads/2018/05/word-image-3952.png 1049w, /wp-content/uploads/2018/05/word-image-3952-300x200.png 300w, /wp-content/uploads/2018/05/word-image-3952-768x513.png 768w, /wp-content/uploads/2018/05/word-image-3952-1024x684.png 1024w" sizes="(max-width: 1049px) 100vw, 1049px" /><br />
+<img loading="lazy" decoding="async" width="960" height="376" src="/wp-content/uploads/2018/05/word-image-3953.png" class="wp-image-4420" srcset="/wp-content/uploads/2018/05/word-image-3953.png 960w, /wp-content/uploads/2018/05/word-image-3953-300x118.png 300w, /wp-content/uploads/2018/05/word-image-3953-768x301.png 768w" sizes="(max-width: 960px) 100vw, 960px" /></p>
+<h3>实现编辑商品相册图片删除</h3>
+<p>
+  ①修改图片属性
+</p>
+<p><img loading="lazy" decoding="async" width="1037" height="559" src="/wp-content/uploads/2018/05/word-image-3954.png" class="wp-image-4421" srcset="/wp-content/uploads/2018/05/word-image-3954.png 1037w, /wp-content/uploads/2018/05/word-image-3954-300x162.png 300w, /wp-content/uploads/2018/05/word-image-3954-768x414.png 768w, /wp-content/uploads/2018/05/word-image-3954-1024x552.png 1024w" sizes="(max-width: 1037px) 100vw, 1037px" /></p>
+<p>
+  ②绑定图片的点击事件触发ajax
+</p>
+<p><img loading="lazy" decoding="async" width="1056" height="670" src="/wp-content/uploads/2018/05/word-image-3955.png" class="wp-image-4422" srcset="/wp-content/uploads/2018/05/word-image-3955.png 1056w, /wp-content/uploads/2018/05/word-image-3955-300x190.png 300w, /wp-content/uploads/2018/05/word-image-3955-768x487.png 768w, /wp-content/uploads/2018/05/word-image-3955-1024x650.png 1024w" sizes="(max-width: 1056px) 100vw, 1056px" /></p>
+<p>
+  ③创建方法处理删除图片请求
+</p>
+<p><img loading="lazy" decoding="async" width="977" height="345" src="/wp-content/uploads/2018/05/word-image-3956.png" class="wp-image-4423" srcset="/wp-content/uploads/2018/05/word-image-3956.png 977w, /wp-content/uploads/2018/05/word-image-3956-300x106.png 300w, /wp-content/uploads/2018/05/word-image-3956-768x271.png 768w" sizes="(max-width: 977px) 100vw, 977px" /></p>
+<p>
+  ④ajax成功处理dom元素移除
+</p>
+<p><img loading="lazy" decoding="async" width="1028" height="655" src="/wp-content/uploads/2018/05/word-image-3957.png" class="wp-image-4425" srcset="/wp-content/uploads/2018/05/word-image-3957.png 1028w, /wp-content/uploads/2018/05/word-image-3957-300x191.png 300w, /wp-content/uploads/2018/05/word-image-3957-768x489.png 768w, /wp-content/uploads/2018/05/word-image-3957-1024x652.png 1024w" sizes="(max-width: 1028px) 100vw, 1028px" /></p>
+<h1>前台页面显示</h1>
+<h2>首页显示</h2>
+<p>
+  ①修改前台index控制器中的index方法
+</p>
+<p><img loading="lazy" decoding="async" width="918" height="360" src="/wp-content/uploads/2018/05/word-image-3958.png" class="wp-image-4426" srcset="/wp-content/uploads/2018/05/word-image-3958.png 918w, /wp-content/uploads/2018/05/word-image-3958-300x118.png 300w, /wp-content/uploads/2018/05/word-image-3958-768x301.png 768w" sizes="(max-width: 918px) 100vw, 918px" /></p>
+<p>
+  ②拷贝前台模板文件
+</p>
+<p><img loading="lazy" decoding="async" width="1152" height="542" src="/wp-content/uploads/2018/05/word-image-3959.png" class="wp-image-4427" srcset="/wp-content/uploads/2018/05/word-image-3959.png 1152w, /wp-content/uploads/2018/05/word-image-3959-300x141.png 300w, /wp-content/uploads/2018/05/word-image-3959-768x361.png 768w, /wp-content/uploads/2018/05/word-image-3959-1024x482.png 1024w" sizes="(max-width: 1152px) 100vw, 1152px" /></p>
+<p>
+  ③拷贝资源文件
+</p>
+<p><img loading="lazy" decoding="async" width="1146" height="495" src="/wp-content/uploads/2018/05/word-image-3960.png" class="wp-image-4428" srcset="/wp-content/uploads/2018/05/word-image-3960.png 1146w, /wp-content/uploads/2018/05/word-image-3960-300x130.png 300w, /wp-content/uploads/2018/05/word-image-3960-768x332.png 768w, /wp-content/uploads/2018/05/word-image-3960-1024x442.png 1024w" sizes="(max-width: 1146px) 100vw, 1146px" /></p>
+<p>
+  ④替换资源地址
+</p>
+<p><img loading="lazy" decoding="async" width="1102" height="671" src="/wp-content/uploads/2018/05/word-image-3961.png" class="wp-image-4429" srcset="/wp-content/uploads/2018/05/word-image-3961.png 1102w, /wp-content/uploads/2018/05/word-image-3961-300x183.png 300w, /wp-content/uploads/2018/05/word-image-3961-768x468.png 768w, /wp-content/uploads/2018/05/word-image-3961-1024x624.png 1024w" sizes="(max-width: 1102px) 100vw, 1102px" /></p>
+<h2>使用版本号(了解)</h2>
+<p>
+  版本号可以控制资源文件的缓存更新
+</p>
+<p>
+  ①在配置文件中增加配置
+</p>
+<p><img loading="lazy" decoding="async" width="1031" height="474" src="/wp-content/uploads/2018/05/word-image-3962.png" class="wp-image-4430" srcset="/wp-content/uploads/2018/05/word-image-3962.png 1031w, /wp-content/uploads/2018/05/word-image-3962-300x138.png 300w, /wp-content/uploads/2018/05/word-image-3962-768x353.png 768w, /wp-content/uploads/2018/05/word-image-3962-1024x471.png 1024w" sizes="(max-width: 1031px) 100vw, 1031px" /></p>
+<p>
+  ②在模板中使用
+</p>
+<p><img loading="lazy" decoding="async" width="1064" height="686" src="/wp-content/uploads/2018/05/word-image-3963.png" class="wp-image-4431" srcset="/wp-content/uploads/2018/05/word-image-3963.png 1064w, /wp-content/uploads/2018/05/word-image-3963-300x193.png 300w, /wp-content/uploads/2018/05/word-image-3963-768x495.png 768w, /wp-content/uploads/2018/05/word-image-3963-1024x660.png 1024w" sizes="(max-width: 1064px) 100vw, 1064px" /></p>
+<h2>页头页尾的公用</h2>
+<p>
+  ①提取头部HTML代码
+</p>
+<p><img loading="lazy" decoding="async" width="1105" height="571" src="/wp-content/uploads/2018/05/word-image-3964.png" class="wp-image-4432" srcset="/wp-content/uploads/2018/05/word-image-3964.png 1105w, /wp-content/uploads/2018/05/word-image-3964-300x155.png 300w, /wp-content/uploads/2018/05/word-image-3964-768x397.png 768w, /wp-content/uploads/2018/05/word-image-3964-1024x529.png 1024w" sizes="(max-width: 1105px) 100vw, 1105px" /></p>
+<p>
+  ②在index模板中引入头部
+</p>
+<p><img loading="lazy" decoding="async" width="948" height="597" src="/wp-content/uploads/2018/05/word-image-3965.png" class="wp-image-4433" srcset="/wp-content/uploads/2018/05/word-image-3965.png 948w, /wp-content/uploads/2018/05/word-image-3965-300x189.png 300w, /wp-content/uploads/2018/05/word-image-3965-768x484.png 768w" sizes="(max-width: 948px) 100vw, 948px" /></p>
+<p>
+  ③提取底部的HTML代码
+</p>
+<p><img loading="lazy" decoding="async" width="1042" height="450" src="/wp-content/uploads/2018/05/word-image-3966.png" class="wp-image-4434" srcset="/wp-content/uploads/2018/05/word-image-3966.png 1042w, /wp-content/uploads/2018/05/word-image-3966-300x130.png 300w, /wp-content/uploads/2018/05/word-image-3966-768x332.png 768w, /wp-content/uploads/2018/05/word-image-3966-1024x442.png 1024w" sizes="(max-width: 1042px) 100vw, 1042px" /></p>
+<p>
+  ④index模板引入底部的代码
+</p>
+<p><img loading="lazy" decoding="async" width="971" height="597" src="/wp-content/uploads/2018/05/word-image-3967.png" class="wp-image-4435" srcset="/wp-content/uploads/2018/05/word-image-3967.png 971w, /wp-content/uploads/2018/05/word-image-3967-300x184.png 300w, /wp-content/uploads/2018/05/word-image-3967-768x472.png 768w" sizes="(max-width: 971px) 100vw, 971px" /></p>
+<h2>显示商品列表页</h2>
+<p>
+  ①创建控制器方法显示模板
+</p>
+<p><img loading="lazy" decoding="async" width="933" height="391" src="/wp-content/uploads/2018/05/word-image-3968.png" class="wp-image-4436" srcset="/wp-content/uploads/2018/05/word-image-3968.png 933w, /wp-content/uploads/2018/05/word-image-3968-300x126.png 300w, /wp-content/uploads/2018/05/word-image-3968-768x322.png 768w" sizes="(max-width: 933px) 100vw, 933px" /></p>
+<p>
+  ②拷贝模板文件
+</p>
+<p><img loading="lazy" decoding="async" width="1121" height="512" src="/wp-content/uploads/2018/05/word-image-3969.png" class="wp-image-4437" srcset="/wp-content/uploads/2018/05/word-image-3969.png 1121w, /wp-content/uploads/2018/05/word-image-3969-300x137.png 300w, /wp-content/uploads/2018/05/word-image-3969-768x351.png 768w, /wp-content/uploads/2018/05/word-image-3969-1024x468.png 1024w" sizes="(max-width: 1121px) 100vw, 1121px" /></p>
+<p>
+  ③修改模板
+</p>
+<p><img loading="lazy" decoding="async" width="1059" height="710" src="/wp-content/uploads/2018/05/word-image-3970.png" class="wp-image-4438" srcset="/wp-content/uploads/2018/05/word-image-3970.png 1059w, /wp-content/uploads/2018/05/word-image-3970-300x201.png 300w, /wp-content/uploads/2018/05/word-image-3970-768x515.png 768w, /wp-content/uploads/2018/05/word-image-3970-1024x687.png 1024w" sizes="(max-width: 1059px) 100vw, 1059px" /></p>
+<p>
+  ④解决头部导航菜单展开与收缩效果
+</p>
+<p>
+  先在index控制器下的index方法中赋予标识符
+</p>
+<p><img loading="lazy" decoding="async" width="934" height="442" src="/wp-content/uploads/2018/05/word-image-3971.png" class="wp-image-4439" srcset="/wp-content/uploads/2018/05/word-image-3971.png 934w, /wp-content/uploads/2018/05/word-image-3971-300x142.png 300w, /wp-content/uploads/2018/05/word-image-3971-768x363.png 768w" sizes="(max-width: 934px) 100vw, 934px" /></p>
+<p>
+  在模板中判断
+</p>
+<p><img loading="lazy" decoding="async" width="1124" height="671" src="/wp-content/uploads/2018/05/word-image-3972.png" class="wp-image-4440" srcset="/wp-content/uploads/2018/05/word-image-3972.png 1124w, /wp-content/uploads/2018/05/word-image-3972-300x179.png 300w, /wp-content/uploads/2018/05/word-image-3972-768x458.png 768w, /wp-content/uploads/2018/05/word-image-3972-1024x611.png 1024w" sizes="(max-width: 1124px) 100vw, 1124px" /></p>
+<h2>商品详情页显示</h2>
+<p>
+  ①创建控制器方法加载模板
+</p>
+<p><img loading="lazy" decoding="async" width="980" height="408" src="/wp-content/uploads/2018/05/word-image-3973.png" class="wp-image-4441" srcset="/wp-content/uploads/2018/05/word-image-3973.png 980w, /wp-content/uploads/2018/05/word-image-3973-300x125.png 300w, /wp-content/uploads/2018/05/word-image-3973-768x320.png 768w" sizes="(max-width: 980px) 100vw, 980px" /></p>
+<p>
+  ②拷贝模板
+</p>
+<p><img loading="lazy" decoding="async" width="1127" height="467" src="/wp-content/uploads/2018/05/word-image-3974.png" class="wp-image-4442" srcset="/wp-content/uploads/2018/05/word-image-3974.png 1127w, /wp-content/uploads/2018/05/word-image-3974-300x124.png 300w, /wp-content/uploads/2018/05/word-image-3974-768x318.png 768w, /wp-content/uploads/2018/05/word-image-3974-1024x424.png 1024w" sizes="(max-width: 1127px) 100vw, 1127px" /></p>
+<p>
+  ③处理模板资源地址
+</p>
+<p><img loading="lazy" decoding="async" width="1104" height="679" src="/wp-content/uploads/2018/05/word-image-3975.png" class="wp-image-4443" srcset="/wp-content/uploads/2018/05/word-image-3975.png 1104w, /wp-content/uploads/2018/05/word-image-3975-300x185.png 300w, /wp-content/uploads/2018/05/word-image-3975-768x472.png 768w, /wp-content/uploads/2018/05/word-image-3975-1024x630.png 1024w" sizes="(max-width: 1104px) 100vw, 1104px" /></p>
+<p>
+  ④模板公用
+</p>
+<p><img loading="lazy" decoding="async" width="1108" height="637" src="/wp-content/uploads/2018/05/word-image-3976.png" class="wp-image-4444" srcset="/wp-content/uploads/2018/05/word-image-3976.png 1108w, /wp-content/uploads/2018/05/word-image-3976-300x172.png 300w, /wp-content/uploads/2018/05/word-image-3976-768x442.png 768w, /wp-content/uploads/2018/05/word-image-3976-1024x589.png 1024w" sizes="(max-width: 1108px) 100vw, 1108px" /></p>
+<h2>显示导航商品分类信息</h2>
+<p>
+  ①修改index方法获取数据
+</p>
+<p><img loading="lazy" decoding="async" width="1249" height="491" src="/wp-content/uploads/2018/05/word-image-3977.png" class="wp-image-4445" srcset="/wp-content/uploads/2018/05/word-image-3977.png 1249w, /wp-content/uploads/2018/05/word-image-3977-300x118.png 300w, /wp-content/uploads/2018/05/word-image-3977-768x302.png 768w, /wp-content/uploads/2018/05/word-image-3977-1024x403.png 1024w" sizes="(max-width: 1249px) 100vw, 1249px" /></p>
+<p>
+  结果如下
+</p>
+<p><img loading="lazy" decoding="async" width="941" height="569" src="/wp-content/uploads/2018/05/word-image-3978.png" class="wp-image-4446" srcset="/wp-content/uploads/2018/05/word-image-3978.png 941w, /wp-content/uploads/2018/05/word-image-3978-300x181.png 300w, /wp-content/uploads/2018/05/word-image-3978-768x464.png 768w" sizes="(max-width: 941px) 100vw, 941px" /></p>
+<p>
+  ②创建公共控制器构造方法获取数分类数据
+</p>
+<p><img loading="lazy" decoding="async" width="952" height="643" src="/wp-content/uploads/2018/05/word-image-3979.png" class="wp-image-4447" srcset="/wp-content/uploads/2018/05/word-image-3979.png 952w, /wp-content/uploads/2018/05/word-image-3979-300x203.png 300w, /wp-content/uploads/2018/05/word-image-3979-768x519.png 768w, /wp-content/uploads/2018/05/word-image-3979-220x150.png 220w" sizes="(max-width: 952px) 100vw, 952px" /></p>
+<p>
+  ③修改 其他控制器的继承关系
+</p>
+<p>
+  修改index控制器
+</p>
+<p><img loading="lazy" decoding="async" width="940" height="598" src="/wp-content/uploads/2018/05/word-image-3980.png" class="wp-image-4448" srcset="/wp-content/uploads/2018/05/word-image-3980.png 940w, /wp-content/uploads/2018/05/word-image-3980-300x191.png 300w, /wp-content/uploads/2018/05/word-image-3980-768x489.png 768w" sizes="(max-width: 940px) 100vw, 940px" /></p>
+<p>
+  修改category控制器
+</p>
+<p><img loading="lazy" decoding="async" width="998" height="412" src="/wp-content/uploads/2018/05/word-image-3981.png" class="wp-image-4449" srcset="/wp-content/uploads/2018/05/word-image-3981.png 998w, /wp-content/uploads/2018/05/word-image-3981-300x124.png 300w, /wp-content/uploads/2018/05/word-image-3981-768x317.png 768w" sizes="(max-width: 998px) 100vw, 998px" /></p>
+<p>
+  修改goods控制器
+</p>
+<p><img loading="lazy" decoding="async" width="915" height="389" src="/wp-content/uploads/2018/05/word-image-3982.png" class="wp-image-4450" srcset="/wp-content/uploads/2018/05/word-image-3982.png 915w, /wp-content/uploads/2018/05/word-image-3982-300x128.png 300w, /wp-content/uploads/2018/05/word-image-3982-768x327.png 768w" sizes="(max-width: 915px) 100vw, 915px" /></p>
+<p>
+  ④显示第一层分类信息
+</p>
+<p><img loading="lazy" decoding="async" width="1125" height="671" src="/wp-content/uploads/2018/05/word-image-3983.png" class="wp-image-4451" srcset="/wp-content/uploads/2018/05/word-image-3983.png 1125w, /wp-content/uploads/2018/05/word-image-3983-300x179.png 300w, /wp-content/uploads/2018/05/word-image-3983-768x458.png 768w, /wp-content/uploads/2018/05/word-image-3983-1024x611.png 1024w" sizes="(max-width: 1125px) 100vw, 1125px" /><br />
+<img loading="lazy" decoding="async" width="1317" height="516" src="/wp-content/uploads/2018/05/word-image-3984.png" class="wp-image-4452" srcset="/wp-content/uploads/2018/05/word-image-3984.png 1317w, /wp-content/uploads/2018/05/word-image-3984-300x118.png 300w, /wp-content/uploads/2018/05/word-image-3984-768x301.png 768w, /wp-content/uploads/2018/05/word-image-3984-1024x401.png 1024w" sizes="(max-width: 1317px) 100vw, 1317px" /></p>
+<p>
+  ⑤显示第二层菜单
+</p>
+<p><img loading="lazy" decoding="async" width="1164" height="706" src="/wp-content/uploads/2018/05/word-image-3985.png" class="wp-image-4453" srcset="/wp-content/uploads/2018/05/word-image-3985.png 1164w, /wp-content/uploads/2018/05/word-image-3985-300x182.png 300w, /wp-content/uploads/2018/05/word-image-3985-768x466.png 768w, /wp-content/uploads/2018/05/word-image-3985-1024x621.png 1024w" sizes="(max-width: 1164px) 100vw, 1164px" /><br />
+<img loading="lazy" decoding="async" width="820" height="322" src="/wp-content/uploads/2018/05/word-image-3986.png" class="wp-image-4454" srcset="/wp-content/uploads/2018/05/word-image-3986.png 820w, /wp-content/uploads/2018/05/word-image-3986-300x118.png 300w, /wp-content/uploads/2018/05/word-image-3986-768x302.png 768w" sizes="(max-width: 820px) 100vw, 820px" /></p>
+<p>
+  ⑥显示第三层导航菜单
+</p>
+<p><img loading="lazy" decoding="async" width="1163" height="591" src="/wp-content/uploads/2018/05/word-image-3987.png" class="wp-image-4455" srcset="/wp-content/uploads/2018/05/word-image-3987.png 1163w, /wp-content/uploads/2018/05/word-image-3987-300x152.png 300w, /wp-content/uploads/2018/05/word-image-3987-768x390.png 768w, /wp-content/uploads/2018/05/word-image-3987-1024x520.png 1024w" sizes="(max-width: 1163px) 100vw, 1163px" /><br />
+<img loading="lazy" decoding="async" width="997" height="635" src="/wp-content/uploads/2018/05/word-image-3988.png" class="wp-image-4456" srcset="/wp-content/uploads/2018/05/word-image-3988.png 997w, /wp-content/uploads/2018/05/word-image-3988-300x191.png 300w, /wp-content/uploads/2018/05/word-image-3988-768x489.png 768w" sizes="(max-width: 997px) 100vw, 997px" /></p>
+<h2>显示首页中的推荐商品</h2>
+<p>
+  ①自定义模型创建方法可以获取推荐商品
+</p>
+<p><img loading="lazy" decoding="async" width="1053" height="704" src="/wp-content/uploads/2018/05/word-image-3989.png" class="wp-image-4457" srcset="/wp-content/uploads/2018/05/word-image-3989.png 1053w, /wp-content/uploads/2018/05/word-image-3989-300x201.png 300w, /wp-content/uploads/2018/05/word-image-3989-768x513.png 768w, /wp-content/uploads/2018/05/word-image-3989-1024x685.png 1024w" sizes="(max-width: 1053px) 100vw, 1053px" /></p>
+<p>
+  ②在控制器中获取推荐的商品
+</p>
+<p><img loading="lazy" decoding="async" width="1049" height="641" src="/wp-content/uploads/2018/05/word-image-3990.png" class="wp-image-4458" srcset="/wp-content/uploads/2018/05/word-image-3990.png 1049w, /wp-content/uploads/2018/05/word-image-3990-300x183.png 300w, /wp-content/uploads/2018/05/word-image-3990-768x469.png 768w, /wp-content/uploads/2018/05/word-image-3990-1024x626.png 1024w" sizes="(max-width: 1049px) 100vw, 1049px" /></p>
+<p>
+  ③修改配置项指定资源地址
+</p>
+<p><img loading="lazy" decoding="async" width="1040" height="620" src="/wp-content/uploads/2018/05/word-image-3991.png" class="wp-image-4459" srcset="/wp-content/uploads/2018/05/word-image-3991.png 1040w, /wp-content/uploads/2018/05/word-image-3991-300x179.png 300w, /wp-content/uploads/2018/05/word-image-3991-768x458.png 768w, /wp-content/uploads/2018/05/word-image-3991-1024x610.png 1024w" sizes="(max-width: 1040px) 100vw, 1040px" /></p>
+<p>
+  ④模板显示数据
+</p>
+<p><img loading="lazy" decoding="async" width="1064" height="701" src="/wp-content/uploads/2018/05/word-image-3992.png" class="wp-image-4460" srcset="/wp-content/uploads/2018/05/word-image-3992.png 1064w, /wp-content/uploads/2018/05/word-image-3992-300x198.png 300w, /wp-content/uploads/2018/05/word-image-3992-768x506.png 768w, /wp-content/uploads/2018/05/word-image-3992-1024x675.png 1024w" sizes="(max-width: 1064px) 100vw, 1064px" /><br />
+<img loading="lazy" decoding="async" width="982" height="330" src="/wp-content/uploads/2018/05/word-image-3993.png" class="wp-image-4461" srcset="/wp-content/uploads/2018/05/word-image-3993.png 982w, /wp-content/uploads/2018/05/word-image-3993-300x101.png 300w, /wp-content/uploads/2018/05/word-image-3993-768x258.png 768w" sizes="(max-width: 982px) 100vw, 982px" /></p>
+<h1>用户注册</h1>
+<h2>用户数据表创建</h2>
+<p>
+  CREATE TABLE `shop_user` (
+</p>
+<p>
+    `id` int(11) NOT NULL,
+</p>
+<p>
+    `username` varchar(255) NOT NULL DEFAULT &#8221; COMMENT &#8216;用户名&#8217;,
+</p>
+<p>
+    `password` char(32) NOT NULL DEFAULT &#8221; COMMENT &#8216;密码&#8217;,
+</p>
+<p>
+    PRIMARY KEY (`id`)
+</p>
+<p>
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</p>
+<h2>显示用户注册页</h2>
+<p>
+  ①创建方法加载模板
+</p>
+<p><img loading="lazy" decoding="async" width="939" height="573" src="/wp-content/uploads/2018/05/word-image-3994.png" class="wp-image-4462" srcset="/wp-content/uploads/2018/05/word-image-3994.png 939w, /wp-content/uploads/2018/05/word-image-3994-300x183.png 300w, /wp-content/uploads/2018/05/word-image-3994-768x469.png 768w" sizes="(max-width: 939px) 100vw, 939px" /></p>
+<p>
+  ②拷贝模板文件
+</p>
+<p><img loading="lazy" decoding="async" width="1105" height="496" src="/wp-content/uploads/2018/05/word-image-3995.png" class="wp-image-4463" srcset="/wp-content/uploads/2018/05/word-image-3995.png 1105w, /wp-content/uploads/2018/05/word-image-3995-300x135.png 300w, /wp-content/uploads/2018/05/word-image-3995-768x345.png 768w, /wp-content/uploads/2018/05/word-image-3995-1024x460.png 1024w" sizes="(max-width: 1105px) 100vw, 1105px" /></p>
+<p>
+  ③修改模板提取头部
+</p>
+<p><img loading="lazy" decoding="async" width="1070" height="591" src="/wp-content/uploads/2018/05/word-image-3996.png" class="wp-image-4464" srcset="/wp-content/uploads/2018/05/word-image-3996.png 1070w, /wp-content/uploads/2018/05/word-image-3996-300x166.png 300w, /wp-content/uploads/2018/05/word-image-3996-768x424.png 768w, /wp-content/uploads/2018/05/word-image-3996-1024x566.png 1024w" sizes="(max-width: 1070px) 100vw, 1070px" /></p>
+<p>
+  ④修改注册模板
+</p>
+<p><img loading="lazy" decoding="async" width="878" height="576" src="/wp-content/uploads/2018/05/word-image-3997.png" class="wp-image-4465" srcset="/wp-content/uploads/2018/05/word-image-3997.png 878w, /wp-content/uploads/2018/05/word-image-3997-300x197.png 300w, /wp-content/uploads/2018/05/word-image-3997-768x504.png 768w" sizes="(max-width: 878px) 100vw, 878px" /></p>
+<p>
+  ⑤修改footer.html模板
+</p>
+<p><img loading="lazy" decoding="async" width="884" height="349" src="/wp-content/uploads/2018/05/word-image-3998.png" class="wp-image-4466" srcset="/wp-content/uploads/2018/05/word-image-3998.png 884w, /wp-content/uploads/2018/05/word-image-3998-300x118.png 300w, /wp-content/uploads/2018/05/word-image-3998-768x303.png 768w" sizes="(max-width: 884px) 100vw, 884px" /></p>
+<h2>实现注册入库</h2>
+<p>
+  ①修改方法
+</p>
+<p><img loading="lazy" decoding="async" width="961" height="694" src="/wp-content/uploads/2018/05/word-image-3999.png" class="wp-image-4467" srcset="/wp-content/uploads/2018/05/word-image-3999.png 961w, /wp-content/uploads/2018/05/word-image-3999-300x217.png 300w, /wp-content/uploads/2018/05/word-image-3999-768x555.png 768w" sizes="(max-width: 961px) 100vw, 961px" /></p>
+<p>
+  ②创建模型
+</p>
+<p><img loading="lazy" decoding="async" width="1083" height="702" src="/wp-content/uploads/2018/05/word-image-4000.png" class="wp-image-4468" srcset="/wp-content/uploads/2018/05/word-image-4000.png 1083w, /wp-content/uploads/2018/05/word-image-4000-300x194.png 300w, /wp-content/uploads/2018/05/word-image-4000-768x498.png 768w, /wp-content/uploads/2018/05/word-image-4000-1024x664.png 1024w" sizes="(max-width: 1083px) 100vw, 1083px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/4389.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

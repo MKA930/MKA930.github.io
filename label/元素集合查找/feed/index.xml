@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>元素集合查找 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%85%83%E7%B4%A0%E9%9B%86%E5%90%88%E6%9F%A5%E6%89%BE/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 09:48:15 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>元素集合查找 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Jquery（二）元素集合查找、链式操作、DOM、缓存数据</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3437.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3437.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 09:48:15 +0000</pubDate>
+				<category><![CDATA[Jquery]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[前端框架]]></category>
+		<category><![CDATA[DOM]]></category>
+		<category><![CDATA[元素集合查找]]></category>
+		<category><![CDATA[缓存数据]]></category>
+		<category><![CDATA[链式操作]]></category>
+		<guid isPermaLink="false">/?p=3437</guid>
+
+					<description><![CDATA[jQuery第二讲 过滤元素 filter()：过滤元素 hasClass()：检查有没有指定的类 is()： [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>jQuery第二讲</h1>
+<h2>过滤元素</h2>
+<ol>
+<li>
+  filter()：过滤元素
+</li>
+<li>
+  hasClass()：检查有没有指定的类
+</li>
+<li>
+  is()：检查有没有指定的选择器
+</li>
+</ol>
+<p><img fetchpriority="high" decoding="async" width="1049" height="481" src="/wp-content/uploads/2018/05/word-image-3040.png" class="wp-image-3439" srcset="/wp-content/uploads/2018/05/word-image-3040.png 1049w, /wp-content/uploads/2018/05/word-image-3040-300x138.png 300w, /wp-content/uploads/2018/05/word-image-3040-768x352.png 768w, /wp-content/uploads/2018/05/word-image-3040-1024x470.png 1024w" sizes="(max-width: 1049px) 100vw, 1049px" /></p>
+<h2>在元素集合中查找</h2>
+<ol>
+<li>
+  find()：在子元素中查找
+</li>
+<li>
+  children()：匹配子元素集合
+</li>
+<li>
+  next()：查找下一个元素
+</li>
+<li>
+  nextAll()：后面所有元素
+</li>
+<li>
+  prev()：前面的元素
+</li>
+<li>
+  prevAll()：前面所有元素
+</li>
+<li>
+  siblings()：所有同辈元素
+</li>
+<li>
+  parent()：元素的父节点
+</li>
+<li>
+  parents()：元素的父节点的集合
+</li>
+</ol>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+      $(&#8220;:button&#8221;).click(function(e) {
+</p>
+<p>
+          //$(&#8216;form&#8217;).find(&#8216;:text&#8217;).css(&#8216;background-color&#8217;,&#8217;#930&#8242;);	//在子元素中查找
+</p>
+<p>
+  		/*
+</p>
+<p>
+  		$(&#8216;form&gt;fieldset&#8217;).children(&#8216;input&#8217;).each(function(index, element) {		//获取子元素
+</p>
+<p>
+              console.log($(this));
+</p>
+<p>
+          });
+</p>
+<p>
+  		*/
+</p>
+<p>
+  		//$(&#8216;#firstname&#8217;).next().next().css(&#8216;background-color&#8217;,&#8217;#930&#8242;);
+</p>
+</p>
+<p>
+  		//$(&#8216;#firstname&#8217;).nextAll().css(&#8216;background-color&#8217;,&#8217;#930&#8242;);
+</p>
+</p>
+<p>
+  		//$(&#8216;#city&#8217;).prev().prev().css(&#8216;background-color&#8217;,&#8217;#930&#8242;);
+</p>
+</p>
+<p>
+  		//$(&#8216;#city&#8217;).prevAll().css(&#8216;background-color&#8217;,&#8217;#930&#8242;);
+</p>
+</p>
+<p>
+  		//$(&#8216;#lastname&#8217;).siblings().css(&#8216;background-color&#8217;,&#8217;#930&#8242;);
+</p>
+</p>
+<p>
+  		//$(&#8216;#lastname&#8217;).parent().css(&#8216;background-color&#8217;,&#8217;#930&#8242;);
+</p>
+</p>
+<p>
+  		$(&#8216;#lastname&#8217;).parents(&#8216;body&#8217;).css(&#8216;background-color&#8217;,&#8217;#930&#8242;);
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;p&gt;锄禾日当午&lt;/p&gt;
+</p>
+<p>
+  &lt;form&gt;
+</p>
+<p>
+      &lt;fieldset&gt;
+</p>
+<p>
+      	&lt;legend&gt;在元素中查找&lt;/legend&gt;
+</p>
+<p>
+      姓：&lt;input type=&#8221;text&#8221; id=&#8221;firstname&#8221; value=&#8221;张&#8221; /&gt;&lt;br /&gt;
+</p>
+<p>
+      名：&lt;input type=&#8221;text&#8221; id=&#8221;lastname&#8221; value=&#8221;三峰&#8221; /&gt;&lt;br /&gt;
+</p>
+<p>
+      城市：&lt;input type=&#8221;text&#8221; id=&#8221;city&#8221; value=&#8221;上海&#8221; /&gt;&lt;br&gt;
+</p>
+<p>
+      &lt;input type=&#8221;button&#8221; value=&#8221;点击&#8221; id=&#8221;btn&#8221; /&gt;
+</p>
+<p>
+      &lt;/fieldset&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<h2>链式操作</h2>
+<p>
+  把多个操作用“.”连成一行，用来简化操作。
+</p>
+<p>
+  原理：每个方法执行完毕后，将当前对象返回出来。
+</p>
+<p><img decoding="async" width="634" height="69" src="/wp-content/uploads/2018/05/word-image-3041.png" class="wp-image-3440" srcset="/wp-content/uploads/2018/05/word-image-3041.png 634w, /wp-content/uploads/2018/05/word-image-3041-300x33.png 300w" sizes="(max-width: 634px) 100vw, 634px" /></p>
+<h2>例题</h2>
+<p><img decoding="async" width="1233" height="386" src="/wp-content/uploads/2018/05/word-image-3042.png" class="wp-image-3441" srcset="/wp-content/uploads/2018/05/word-image-3042.png 1233w, /wp-content/uploads/2018/05/word-image-3042-300x94.png 300w, /wp-content/uploads/2018/05/word-image-3042-768x240.png 768w, /wp-content/uploads/2018/05/word-image-3042-1024x321.png 1024w" sizes="(max-width: 1233px) 100vw, 1233px" /></p>
+<h2>DOM操作</h2>
+<h3>在元素的内部添加内容</h3>
+<ol>
+<li>
+  在内部的后面添加内容</p>
+<ol>
+<li>
+    A. append(B)：将B添加到A里面的后面
+  </li>
+<li>
+    A. appendTo(B)：将A添加到B里面的后面
+  </li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1095" height="264" src="/wp-content/uploads/2018/05/word-image-3043.png" class="wp-image-3442" srcset="/wp-content/uploads/2018/05/word-image-3043.png 1095w, /wp-content/uploads/2018/05/word-image-3043-300x72.png 300w, /wp-content/uploads/2018/05/word-image-3043-768x185.png 768w, /wp-content/uploads/2018/05/word-image-3043-1024x247.png 1024w" sizes="(max-width: 1095px) 100vw, 1095px" /></p>
+<ol>
+<li>
+  在内部的前面添加内容</p>
+<ol>
+<li>
+    A.prepend(B)：在A的内部的前面添加B的内容
+  </li>
+<li>
+    A.prependTo(B)：将A添加到B的内部的前面
+  </li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="754" height="248" src="/wp-content/uploads/2018/05/word-image-3044.png" class="wp-image-3443" srcset="/wp-content/uploads/2018/05/word-image-3044.png 754w, /wp-content/uploads/2018/05/word-image-3044-300x99.png 300w" sizes="(max-width: 754px) 100vw, 754px" /></p>
+<h3>在元素的外部添加内容</h3>
+<ol>
+<li>
+  在元素外部的后面</p>
+<ol>
+<li>
+    A.after(B)：将B插入到A外部的后面
+  </li>
+<li>
+    A.insertAfter(B)：将A插入到B的外部的后面
+  </li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="821" height="266" src="/wp-content/uploads/2018/05/word-image-3045.png" class="wp-image-3444" srcset="/wp-content/uploads/2018/05/word-image-3045.png 821w, /wp-content/uploads/2018/05/word-image-3045-300x97.png 300w, /wp-content/uploads/2018/05/word-image-3045-768x249.png 768w" sizes="(max-width: 821px) 100vw, 821px" /></p>
+<ol>
+<li>
+  在元素外部的前面</p>
+<ol>
+<li>
+    A.before(B)：将B插入到A的外部的前面
+  </li>
+<li>
+    A.insert Before(B)：将A插入到B的外部的前面
+  </li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="984" height="269" src="/wp-content/uploads/2018/05/word-image-3046.png" class="wp-image-3445" srcset="/wp-content/uploads/2018/05/word-image-3046.png 984w, /wp-content/uploads/2018/05/word-image-3046-300x82.png 300w, /wp-content/uploads/2018/05/word-image-3046-768x210.png 768w" sizes="(max-width: 984px) 100vw, 984px" /></p>
+<h2>例题（年月日）</h2>
+<p>
+  效果：选择年和月，自动显示对应的天数
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  //添加option标签
+</p>
+<p>
+  function insertOption(end,target){
+</p>
+<p>
+  	for(var i=1;i&lt;=end;i++){
+</p>
+<p>
+  		$(&#8216;&lt;option&gt;&#8217;).html(i).attr(&#8216;value&#8217;,i).appendTo($(&#8216;#&#8217;+target));
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //添加年
+</p>
+<p>
+  function addYear(){
+</p>
+<p>
+  	var yy=&lt;?php echo date(&#8216;Y&#8217;)?&gt;;
+</p>
+<p>
+  	for(var i=yy;i&gt;=yy-100;i&#8211;){
+</p>
+<p>
+  		$(&#8216;&lt;option&gt;&#8217;).html(i).attr(&#8216;value&#8217;,i).appendTo($(&#8216;#year&#8217;));
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //添加月
+</p>
+<p>
+  function addMonth(){
+</p>
+<p>
+  	insertOption(12,&#8217;month&#8217;)
+</p>
+<p>
+  }
+</p>
+<p>
+  //添加日
+</p>
+<p>
+  function addDay(){
+</p>
+<p>
+  	$(&#8216;#day&#8217;).html(&#8221;);
+</p>
+<p>
+  	var yy=$(&#8216;#year&#8217;).val();
+</p>
+<p>
+  	var mm=$(&#8216;#month&#8217;).val();
+</p>
+<p>
+  	if(mm==1||mm==3||mm==5||mm==7||mm==8||mm==10||mm==12){
+</p>
+<p>
+  		insertOption(31,&#8217;day&#8217;);
+</p>
+<p>
+  	}else if(mm==2){
+</p>
+<p>
+  		if(yy%4==0 &amp;&amp; yy%100!=0 || yy%400==0){
+</p>
+<p>
+  			insertOption(29,&#8217;day&#8217;)
+</p>
+<p>
+  		}else{
+</p>
+<p>
+  			insertOption(28,&#8217;day&#8217;);
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  	else
+</p>
+<p>
+  		insertOption(30,&#8217;day&#8217;);
+</p>
+<p>
+  }
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+      addYear();
+</p>
+<p>
+  	addMonth();
+</p>
+<p>
+  	addDay();
+</p>
+<p>
+  	$(&#8216;#year,#month&#8217;).change(function(e) {
+</p>
+<p>
+          addDay();
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;form id=&#8221;form1&#8243; name=&#8221;form1&#8243; method=&#8221;post&#8221; action=&#8221;&#8221;&gt;
+</p>
+<p>
+    &lt;select name=&#8221;year&#8221; id=&#8221;year&#8221;&gt;&lt;/select&gt;年
+</p>
+<p>
+    &lt;select name=&#8221;month&#8221; id=&#8221;month&#8221;&gt;&lt;/select&gt;月
+</p>
+<p>
+    &lt;select name=&#8221;day&#8221; id=&#8221;day&#8221;&gt;&lt;/select&gt;日
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="354" height="91" src="/wp-content/uploads/2018/05/word-image-3047.png" class="wp-image-3446" srcset="/wp-content/uploads/2018/05/word-image-3047.png 354w, /wp-content/uploads/2018/05/word-image-3047-300x77.png 300w" sizes="(max-width: 354px) 100vw, 354px" /></p>
+<h2>例题（模拟126邮箱注册效果）</h2>
+<h3>Sprits技术</h3>
+<p>
+  将页面用到的许多小图拼到一个大图上，通过CSS来显示不同的区域。可以有效的减少往返次数。
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  /*按钮的样式*/
+</p>
+<p>
+  .btn{
+</p>
+<p>
+  	width:119px;
+</p>
+<p>
+  	height:37px;
+</p>
+<p>
+  	background-image:url(images/glb_v2.png);
+</p>
+<p>
+  	background-repeat:no-repeat;
+</p>
+<p>
+  	background-position:-146px -362px;
+</p>
+<p>
+  	cursor:pointer;
+</p>
+<p>
+  }
+</p>
+<p>
+  /*鼠标移动到按钮上*/
+</p>
+<p>
+  .btn:hover{
+</p>
+<p>
+  	background-position:-289px -362px;
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  用户名：&lt;input type=&#8221;text&#8221; /&gt;&lt;br /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;返回&#8221; class=&#8221;btn&#8221; /&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221;提交&#8221; class=&#8221;btn&#8221; /&gt;
+</p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="354" height="76" src="/wp-content/uploads/2018/05/word-image-3048.png" class="wp-image-3447" srcset="/wp-content/uploads/2018/05/word-image-3048.png 354w, /wp-content/uploads/2018/05/word-image-3048-300x64.png 300w" sizes="(max-width: 354px) 100vw, 354px" /></p>
+<h3>模仿126邮箱注册</h3>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  *{
+</p>
+<p>
+  	margin:0px;
+</p>
+<p>
+  	padding:0px;
+</p>
+<p>
+  	font-size:14px;
+</p>
+<p>
+  	font-family:&#8217;微软雅黑&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  dt,dd{
+</p>
+<p>
+  	float:left;
+</p>
+<p>
+  }
+</p>
+<p>
+  .txt{
+</p>
+<p>
+  	width:300px;
+</p>
+<p>
+  	height:17px;
+</p>
+<p>
+  	border:#7B7B7B solid 1xp;
+</p>
+<p>
+  }
+</p>
+<p>
+  .bg&gt;span,.span{
+</p>
+<p>
+  	width:14px;
+</p>
+<p>
+  	height:14px;
+</p>
+<p>
+  	display:inline-block;
+</p>
+<p>
+  	background:url(images/glb_v2.png) no-repeat -36px -288px;
+</p>
+<p>
+  }
+</p>
+<p>
+  .bg{
+</p>
+<p>
+  	color:#C00;
+</p>
+<p>
+  	display:none;
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;js/jquery-1.8.3.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+  	//设置样式
+</p>
+<p>
+      $(&#8216;#pwd&#8217;).blur(function(e) {
+</p>
+<p>
+          var pwd=$(this).val();
+</p>
+<p>
+  		if(!(pwd.length&gt;=6 &amp;&amp; pwd.length&lt;=16)){
+</p>
+<p>
+  			//方法一：
+</p>
+<p>
+  			/*
+</p>
+<p>
+  			$(&#8216;dd&gt;div:first&#8217;).hide();	//隐藏
+</p>
+<p>
+  			$(&#8216;dd&gt;div:last&#8217;).show();	//显示
+</p>
+<p>
+  			*/
+</p>
+<p>
+  			//方法二
+</p>
+<p>
+  			var span=$(&#8216;&lt;span&gt;&#8217;).addClass(&#8216;span&#8217;);
+</p>
+<p>
+  			$(&#8216;dd&gt;div:first&#8217;).html(&#8216;密码长度是6~16个字符&#8217;).prepend(span)
+</p>
+<p>
+  		}
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;form&gt;
+</p>
+<p>
+  &lt;dl&gt;
+</p>
+<p>
+  	&lt;dt&gt;密码：&lt;/dt&gt;
+</p>
+<p>
+      &lt;dd&gt;
+</p>
+<p>
+      	&lt;input type=&#8221;password&#8221; id=&#8221;pwd&#8221; class=&#8221;txt&#8221; /&gt;
+</p>
+<p>
+          &lt;div&gt;6~16个字符，区分大小写&lt;/div&gt;
+</p>
+<p>
+          &lt;!&#8211;&lt;div class=&#8221;bg&#8221;&gt;&lt;span&gt;&lt;/span&gt;密码长度是6~16个字符&lt;/div&gt; &#8211;&gt;
+</p>
+<p>
+      &lt;/dd&gt;
+</p>
+<p>
+  &lt;/dl&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="386" height="52" src="/wp-content/uploads/2018/05/word-image-3049.png" class="wp-image-3448" srcset="/wp-content/uploads/2018/05/word-image-3049.png 386w, /wp-content/uploads/2018/05/word-image-3049-300x40.png 300w" sizes="(max-width: 386px) 100vw, 386px" /></p>
+<h2>替换DOM元素</h2>
+<ol>
+<li>
+  replaceAll(选择器)
+</li>
+<li>
+  replaceWith(内容)
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="683" height="228" src="/wp-content/uploads/2018/05/word-image-3050.png" class="wp-image-3449" srcset="/wp-content/uploads/2018/05/word-image-3050.png 683w, /wp-content/uploads/2018/05/word-image-3050-300x100.png 300w" sizes="(max-width: 683px) 100vw, 683px" /></p>
+<p>
+  例题
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  .light{
+</p>
+<p>
+  	color:#F00;
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;js/jquery-1.8.3.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(document).ready(function(e) {
+</p>
+<p>
+      $(&#8216;#key&#8217;).blur(function(e) {
+</p>
+<p>
+  		if($(this).val()==&#8221;)
+</p>
+<p>
+  			return;
+</p>
+<p>
+  		//清空样式
+</p>
+<p>
+  		$(&#8216;.light&#8217;).each(function(index, element) {
+</p>
+<p>
+              $(this).replaceWith($(this).text());	//通过自己的文本替换自己节点
+</p>
+<p>
+          });
+</p>
+<p>
+  		//添加样式
+</p>
+<p>
+  		var reg=new RegExp($(this).val(),&#8217;g&#8217;);	//实例化正则表达式而
+</p>
+<p>
+          var str=$(&#8216;#content&#8217;).html().replace(reg,'&lt;span class=&#8221;light&#8221;&gt;&#8217;+$(this).val()+'&lt;/span&gt;&#8217;); //内容替换
+</p>
+<p>
+  		$(&#8216;#content&#8217;).html(str);
+</p>
+<p>
+      });
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;input type=&#8221;text&#8221; id=&#8221;key&#8221; /&gt;
+</p>
+<p>
+  &lt;div id=&#8221;content&#8221;&gt;
+</p>
+<p>
+  &lt;h3&gt;月饼机_月饼机价格月饼机老品牌值得信赖&lt;/h3&gt;
+</p>
+<p>
+  杭州旭众新型小型月饼机厂家 出面出馅更加稳定,小型月饼机厂家 一机多用,价格实惠!老品牌小型月饼机厂家 值得信赖.更有服务到家,全国联保.购机无忧!小型月饼机厂家
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="1078" height="188" src="/wp-content/uploads/2018/05/word-image-3051.png" class="wp-image-3450" srcset="/wp-content/uploads/2018/05/word-image-3051.png 1078w, /wp-content/uploads/2018/05/word-image-3051-300x52.png 300w, /wp-content/uploads/2018/05/word-image-3051-768x134.png 768w, /wp-content/uploads/2018/05/word-image-3051-1024x179.png 1024w" sizes="(max-width: 1078px) 100vw, 1078px" /></p>
+<h2>删除DOM元素</h2>
+<ol>
+<li>
+  empty()：清空节点中的内容
+</li>
+<li>
+  remove()：删除节点
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="731" height="378" src="/wp-content/uploads/2018/05/word-image-3052.png" class="wp-image-3451" srcset="/wp-content/uploads/2018/05/word-image-3052.png 731w, /wp-content/uploads/2018/05/word-image-3052-300x155.png 300w" sizes="(max-width: 731px) 100vw, 731px" /></p>
+<h2>克隆DOM元素</h2>
+<ol>
+<li>
+  clone()：只复制对象节点
+</li>
+<li>
+  clone(true)：复制对象节点及对应的事件
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="849" height="285" src="/wp-content/uploads/2018/05/word-image-3053.png" class="wp-image-3452" srcset="/wp-content/uploads/2018/05/word-image-3053.png 849w, /wp-content/uploads/2018/05/word-image-3053-300x101.png 300w, /wp-content/uploads/2018/05/word-image-3053-768x258.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<h2>获取对象的长度和对象的索引</h2>
+<p>
+  获取长度的方法
+</p>
+<ol>
+<li>
+  length
+</li>
+<li>
+  size()
+</li>
+</ol>
+<p>
+  获取元素的索引
+</p>
+<p>
+  index()：索引号从0开始
+</p>
+<p><img loading="lazy" decoding="async" width="887" height="321" src="/wp-content/uploads/2018/05/word-image-3054.png" class="wp-image-3453" srcset="/wp-content/uploads/2018/05/word-image-3054.png 887w, /wp-content/uploads/2018/05/word-image-3054-300x109.png 300w, /wp-content/uploads/2018/05/word-image-3054-768x278.png 768w" sizes="(max-width: 887px) 100vw, 887px" /></p>
+<h2>DOM对象和jQuery对象互换</h2>
+<p>
+  如果要用jQuery的方法就必须要转成jQuery对象
+</p>
+<p>
+  如果要用JS方法必须转成DOM对象
+</p>
+<p>
+  实现转换：
+</p>
+<ol>
+<li>
+  将DOM对象转成JQuery对象：通过$()或jQuery()
+</li>
+<li>
+  将JQuery对象转成DOM对象：通过get()或数组的方式
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1110" height="211" src="/wp-content/uploads/2018/05/word-image-3055.png" class="wp-image-3454" srcset="/wp-content/uploads/2018/05/word-image-3055.png 1110w, /wp-content/uploads/2018/05/word-image-3055-300x57.png 300w, /wp-content/uploads/2018/05/word-image-3055-768x146.png 768w, /wp-content/uploads/2018/05/word-image-3055-1024x195.png 1024w" sizes="(max-width: 1110px) 100vw, 1110px" /></p>
+<h2>缓存数据</h2>
+<ol>
+<li>
+  data(name)：获取缓存数据
+</li>
+<li>
+  data(name,value)：缓存数据
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1181" height="499" src="/wp-content/uploads/2018/05/word-image-3056.png" class="wp-image-3455" srcset="/wp-content/uploads/2018/05/word-image-3056.png 1181w, /wp-content/uploads/2018/05/word-image-3056-300x127.png 300w, /wp-content/uploads/2018/05/word-image-3056-768x324.png 768w, /wp-content/uploads/2018/05/word-image-3056-1024x433.png 1024w" sizes="(max-width: 1181px) 100vw, 1181px" /></p>
+<h2>几个常用的方法</h2>
+<p>
+  1、$.merge()
+</p>
+<p>
+  2、$.trim()
+</p>
+<p><img loading="lazy" decoding="async" width="730" height="114" src="/wp-content/uploads/2018/05/word-image-3057.png" class="wp-image-3456" srcset="/wp-content/uploads/2018/05/word-image-3057.png 730w, /wp-content/uploads/2018/05/word-image-3057-300x47.png 300w" sizes="(max-width: 730px) 100vw, 730px" /></p>
+<ol>
+<li>
+  能够解释dom对象和jQuery对象的区别
+</li>
+<li>
+  能够将dom对象和jQuery对象相互转换
+</li>
+<li>
+  能够将内容插入到元素内部或外部
+</li>
+<li>
+  能够清空元素内容或删除元素本身
+</li>
+<li>
+  能够使用replaceWith()替换元素
+</li>
+<li>
+  能够复制指定元素
+</li>
+<li>
+  能够把内容从外面包裹上新元素
+</li>
+<li>
+  能够使用元素查找或匹配的多个方法
+</li>
+<li>
+  能够使用bind()方法绑定事件
+</li>
+<li>
+  能够熟练使用jQuery的常规事件绑定语法
+</li>
+<li>
+  能够使用事件切换方法hover(),toggle()
+</li>
+<li>
+  能够使用jQuery的基本特效方法 show(),hide(),toggle()
+</li>
+<li>
+  能够使用jQuery的滑动特效方法 slideDown(),slideUp(),slideToggle()
+</li>
+<li>
+  能够使用jQuery的淡入淡出特效方法
+</li>
+<li>
+  能够理解jQuery中插件的作用
+</li>
+<li>
+  能够制作自定义插件
+</li>
+<li>
+  能够使用jQuery实现ajax的get请求
+</li>
+<li>
+  能够使用jQuery实现ajax的post请求
+</li>
+</ol>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3437.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

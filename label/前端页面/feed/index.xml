@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>前端页面 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 15:02:15 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>前端页面 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>混合APP （一）HyBrid App AUICSS、ApiCloud、Sublime真机同居、前端页面</title>
+		<link>/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/5470.html</link>
+					<comments>/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/5470.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 15:02:15 +0000</pubDate>
+				<category><![CDATA[混合APP]]></category>
+		<category><![CDATA[移动端开发]]></category>
+		<category><![CDATA[ApiCloud]]></category>
+		<category><![CDATA[AUICSS]]></category>
+		<category><![CDATA[Sublime真机同居]]></category>
+		<category><![CDATA[前端页面]]></category>
+		<guid isPermaLink="false">/?p=5470</guid>
+
+					<description><![CDATA[移动端开发（HyBrid App） 一、App开发概述 1、什么是APP 就是苹果、安卓手机上装的软件/应用， [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>移动端开发（HyBrid App）</h1>
+<h1>一、App开发概述</h1>
+<h2>1、什么是APP</h2>
+<p>
+  就是苹果、安卓手机上装的软件/应用，如：微信、QQ、陌陌、王者荣耀等
+</p>
+<h2>2、手机软件开发的3种模式</h2>
+<h3>1）Web App</h3>
+<p>
+  说明：内嵌浏览器，打开指定网页
+</p>
+<p>
+  优点：快
+</p>
+<p>
+  缺点：用户体验度低，功能少
+</p>
+<h3>2）Native App（原生开发）</h3>
+<p>
+  说明：就是安卓攻城狮开发安装应用，ios攻城狮开发苹果应用
+</p>
+<p>
+  优点：用户体验度高，可以使用n多功能
+</p>
+<p>
+  缺点：成本大，耗时间
+</p>
+<h3>3）Hybrid App（混合模式移动应用）</h3>
+<p>
+  说明：就是直接写html + css + js就可以同时开发安卓和苹果APP
+</p>
+<p>
+  优点：成本低 + 功能强大
+</p>
+<h2>︴效果（广场舞）</h2>
+<p><img fetchpriority="high" decoding="async" width="899" height="299" src="/wp-content/uploads/2018/05/word-image-4953.png" class="wp-image-5471" srcset="/wp-content/uploads/2018/05/word-image-4953.png 899w, /wp-content/uploads/2018/05/word-image-4953-300x100.png 300w, /wp-content/uploads/2018/05/word-image-4953-768x255.png 768w" sizes="(max-width: 899px) 100vw, 899px" /></p>
+<h1><a id="post-5470-_Toc467080677"></a>二、使用APICloud框架开发HyBrid App前期准备</h1>
+<h2><a id="post-5470-_Toc467080678"></a>1、APICloud介绍</h2>
+<ul>
+<li>
+    说明：APICloud就是开发移动app平台
+  </li>
+<li>
+    特点：
+  </li>
+</ul>
+<ol>
+<li>
+  写一套代码，可以同时在 苹果 和 安卓手机上使用
+</li>
+<li>
+  使用js代码就可以轻松调用手机功能，如：摄像头、手机灯等功能。
+</li>
+</ol>
+<h2>2、注册APICloud平台</h2>
+<p><img decoding="async" width="1266" height="617" src="/wp-content/uploads/2018/05/word-image-4954.png" class="wp-image-5472" srcset="/wp-content/uploads/2018/05/word-image-4954.png 1266w, /wp-content/uploads/2018/05/word-image-4954-300x146.png 300w, /wp-content/uploads/2018/05/word-image-4954-768x374.png 768w, /wp-content/uploads/2018/05/word-image-4954-1024x499.png 1024w" sizes="(max-width: 1266px) 100vw, 1266px" /></p>
+<h2>注册完毕后登录，进入开发控制台</h2>
+<p><img decoding="async" width="1363" height="557" src="/wp-content/uploads/2018/05/word-image-4955.png" class="wp-image-5473" srcset="/wp-content/uploads/2018/05/word-image-4955.png 1363w, /wp-content/uploads/2018/05/word-image-4955-300x123.png 300w, /wp-content/uploads/2018/05/word-image-4955-768x314.png 768w, /wp-content/uploads/2018/05/word-image-4955-1024x418.png 1024w" sizes="(max-width: 1363px) 100vw, 1363px" /></p>
+<h2>创建应用（app）</h2>
+<p><img loading="lazy" decoding="async" width="957" height="575" src="/wp-content/uploads/2018/05/word-image-4956.png" class="wp-image-5474" srcset="/wp-content/uploads/2018/05/word-image-4956.png 957w, /wp-content/uploads/2018/05/word-image-4956-300x180.png 300w, /wp-content/uploads/2018/05/word-image-4956-768x461.png 768w" sizes="(max-width: 957px) 100vw, 957px" /><br />
+<img loading="lazy" decoding="async" width="1176" height="513" src="/wp-content/uploads/2018/05/word-image-4957.png" class="wp-image-5475" srcset="/wp-content/uploads/2018/05/word-image-4957.png 1176w, /wp-content/uploads/2018/05/word-image-4957-300x131.png 300w, /wp-content/uploads/2018/05/word-image-4957-768x335.png 768w, /wp-content/uploads/2018/05/word-image-4957-1024x447.png 1024w" sizes="(max-width: 1176px) 100vw, 1176px" /></p>
+<h2>5、使用svn获取代码</h2>
+<ul>
+<li>
+    步骤1：在桌面创建一个【广场舞】文件夹
+  </li>
+<li>
+    步骤2：进入【广场舞】文件夹右击检出
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="571" height="497" src="/wp-content/uploads/2018/05/word-image-4958.png" class="wp-image-5476" srcset="/wp-content/uploads/2018/05/word-image-4958.png 571w, /wp-content/uploads/2018/05/word-image-4958-300x261.png 300w" sizes="(max-width: 571px) 100vw, 571px" /><br />
+<img loading="lazy" decoding="async" width="1087" height="480" src="/wp-content/uploads/2018/05/word-image-4959.png" class="wp-image-5477" srcset="/wp-content/uploads/2018/05/word-image-4959.png 1087w, /wp-content/uploads/2018/05/word-image-4959-300x132.png 300w, /wp-content/uploads/2018/05/word-image-4959-768x339.png 768w, /wp-content/uploads/2018/05/word-image-4959-1024x452.png 1024w" sizes="(max-width: 1087px) 100vw, 1087px" /><br />
+<img loading="lazy" decoding="async" width="936" height="443" src="/wp-content/uploads/2018/05/word-image-4960.png" class="wp-image-5478" srcset="/wp-content/uploads/2018/05/word-image-4960.png 936w, /wp-content/uploads/2018/05/word-image-4960-300x142.png 300w, /wp-content/uploads/2018/05/word-image-4960-768x363.png 768w" sizes="(max-width: 936px) 100vw, 936px" /><br />
+<img loading="lazy" decoding="async" width="472" height="332" src="/wp-content/uploads/2018/05/word-image-4961.png" class="wp-image-5479" srcset="/wp-content/uploads/2018/05/word-image-4961.png 472w, /wp-content/uploads/2018/05/word-image-4961-300x211.png 300w" sizes="(max-width: 472px) 100vw, 472px" /></p>
+<h1>三、【预览】安装海马玩/天天模拟器软件，用于模拟安卓手机，随时看到开发效果</h1>
+<h2>1、下载</h2>
+<ul>
+<li>
+    下载地址：http://droid4x.haimawan.com/，
+  </li>
+<li>
+    下载地址：http://www.ttmnq.com/
+  </li>
+</ul>
+<h2>安装（双击下一步安装）</h2>
+<p><img loading="lazy" decoding="async" width="565" height="281" src="/wp-content/uploads/2018/05/word-image-4962.png" class="wp-image-5480" srcset="/wp-content/uploads/2018/05/word-image-4962.png 565w, /wp-content/uploads/2018/05/word-image-4962-300x149.png 300w" sizes="(max-width: 565px) 100vw, 565px" /></p>
+<h2>开发完毕生成app软件</h2>
+<p><img loading="lazy" decoding="async" width="809" height="667" src="/wp-content/uploads/2018/05/word-image-4963.png" class="wp-image-5481" srcset="/wp-content/uploads/2018/05/word-image-4963.png 809w, /wp-content/uploads/2018/05/word-image-4963-300x247.png 300w, /wp-content/uploads/2018/05/word-image-4963-768x633.png 768w" sizes="(max-width: 809px) 100vw, 809px" /></p>
+<h2>海马模拟器安装app软件并预览</h2>
+<p><img loading="lazy" decoding="async" width="1174" height="665" src="/wp-content/uploads/2018/05/word-image-4964.png" class="wp-image-5482" srcset="/wp-content/uploads/2018/05/word-image-4964.png 1174w, /wp-content/uploads/2018/05/word-image-4964-300x170.png 300w, /wp-content/uploads/2018/05/word-image-4964-768x435.png 768w, /wp-content/uploads/2018/05/word-image-4964-1024x580.png 1024w" sizes="(max-width: 1174px) 100vw, 1174px" /><br />
+<img loading="lazy" decoding="async" width="434" height="678" src="/wp-content/uploads/2018/05/word-image-4965.png" class="wp-image-5483" srcset="/wp-content/uploads/2018/05/word-image-4965.png 434w, /wp-content/uploads/2018/05/word-image-4965-192x300.png 192w" sizes="(max-width: 434px) 100vw, 434px" /></p>
+<h2>更新app后重新编译安装</h2>
+<ul>
+<li>
+    需求：将标题更新为【php@itcast】
+  </li>
+<li>
+    操作：
+  </li>
+</ul>
+<p>
+  步骤1：打开【C:\Users\赵小康\Desktop\广场舞\html\main.html】文件进行开发
+</p>
+<p>
+  步骤2：提交apicloud平台
+</p>
+<p>
+  步骤3：云编译（打包）
+</p>
+<p>
+  步骤4：下载到本地安装
+</p>
+<h1>四、【预览】配置开发工具与模拟器</h1>
+<h2><a id="post-5470-_Toc467080684"></a>1、安装Sublime text3（傻瓜式下一步安装）</h2>
+<p>
+  下载Sublime Text3，下载地址：<a href="http://www.sublimetext.com/3">http://www.sublimetext.com/3</a>
+</p>
+<p><img loading="lazy" decoding="async" width="288" height="75" src="/wp-content/uploads/2018/05/word-image-4966.png" class="wp-image-5484" /></p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  创建桌面快捷方式
+</p>
+<p><img loading="lazy" decoding="async" width="562" height="394" src="/wp-content/uploads/2018/05/word-image-4967.png" class="wp-image-5485" srcset="/wp-content/uploads/2018/05/word-image-4967.png 562w, /wp-content/uploads/2018/05/word-image-4967-300x210.png 300w" sizes="(max-width: 562px) 100vw, 562px" /></p>
+<h2>2、汉化Sublime text3</h2>
+<p><img loading="lazy" decoding="async" width="939" height="579" src="/wp-content/uploads/2018/05/word-image-4968.png" class="wp-image-5486" srcset="/wp-content/uploads/2018/05/word-image-4968.png 939w, /wp-content/uploads/2018/05/word-image-4968-300x185.png 300w, /wp-content/uploads/2018/05/word-image-4968-768x474.png 768w" sizes="(max-width: 939px) 100vw, 939px" /></p>
+<h2><a id="post-5470-_Toc467080685"></a>3、Sublime集成预览功能</h2>
+<h3>1）获取APICloud插件</h3>
+<p><img loading="lazy" decoding="async" width="655" height="389" src="/wp-content/uploads/2018/05/word-image-4969.png" class="wp-image-5487" srcset="/wp-content/uploads/2018/05/word-image-4969.png 655w, /wp-content/uploads/2018/05/word-image-4969-300x178.png 300w" sizes="(max-width: 655px) 100vw, 655px" /><br />
+<img loading="lazy" decoding="async" width="1031" height="552" src="/wp-content/uploads/2018/05/word-image-4970.png" class="wp-image-5488" srcset="/wp-content/uploads/2018/05/word-image-4970.png 1031w, /wp-content/uploads/2018/05/word-image-4970-300x161.png 300w, /wp-content/uploads/2018/05/word-image-4970-768x411.png 768w, /wp-content/uploads/2018/05/word-image-4970-1024x548.png 1024w" sizes="(max-width: 1031px) 100vw, 1031px" /></p>
+<h3><a id="post-5470-_Toc467080686"></a>2）配置Sublime Text3</h3>
+<p><img loading="lazy" decoding="async" width="1110" height="534" src="/wp-content/uploads/2018/05/word-image-4971.png" class="wp-image-5489" srcset="/wp-content/uploads/2018/05/word-image-4971.png 1110w, /wp-content/uploads/2018/05/word-image-4971-300x144.png 300w, /wp-content/uploads/2018/05/word-image-4971-768x369.png 768w, /wp-content/uploads/2018/05/word-image-4971-1024x493.png 1024w" sizes="(max-width: 1110px) 100vw, 1110px" /></p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  如何检测是否配置成功，看下图打开项目鼠标右击查看是否有（真机运行选项）
+</p>
+<h3><a id="post-5470-_Toc467080687"></a>3）打开app项目（注：svn检出目录）</h3>
+<p><img loading="lazy" decoding="async" width="741" height="509" src="/wp-content/uploads/2018/05/word-image-4972.png" class="wp-image-5490" srcset="/wp-content/uploads/2018/05/word-image-4972.png 741w, /wp-content/uploads/2018/05/word-image-4972-300x206.png 300w, /wp-content/uploads/2018/05/word-image-4972-220x150.png 220w" sizes="(max-width: 741px) 100vw, 741px" /><br />
+<img loading="lazy" decoding="async" width="481" height="428" src="/wp-content/uploads/2018/05/word-image-4973.png" class="wp-image-5491" srcset="/wp-content/uploads/2018/05/word-image-4973.png 481w, /wp-content/uploads/2018/05/word-image-4973-300x267.png 300w" sizes="(max-width: 481px) 100vw, 481px" /></p>
+<h3><a id="post-5470-_Toc467080689"></a>4）使用Sublime+模拟器+真机同步显示App</h3>
+<p><img loading="lazy" decoding="async" width="1126" height="502" src="/wp-content/uploads/2018/05/word-image-4974.png" class="wp-image-5492" srcset="/wp-content/uploads/2018/05/word-image-4974.png 1126w, /wp-content/uploads/2018/05/word-image-4974-300x134.png 300w, /wp-content/uploads/2018/05/word-image-4974-768x342.png 768w, /wp-content/uploads/2018/05/word-image-4974-1024x457.png 1024w" sizes="(max-width: 1126px) 100vw, 1126px" /></p>
+<h3>︴验证：真机同步（更新app同步预览）</h3>
+<p>
+  步骤1：打开index.php修改内容
+</p>
+<p>
+  步骤2：右击真机同步即可查看效果（注：不需要提交代码）
+</p>
+<p><img loading="lazy" decoding="async" width="1219" height="474" src="/wp-content/uploads/2018/05/word-image-4975.png" class="wp-image-5493" srcset="/wp-content/uploads/2018/05/word-image-4975.png 1219w, /wp-content/uploads/2018/05/word-image-4975-300x117.png 300w, /wp-content/uploads/2018/05/word-image-4975-768x299.png 768w, /wp-content/uploads/2018/05/word-image-4975-1024x398.png 1024w" sizes="(max-width: 1219px) 100vw, 1219px" /></p>
+<h1>五、手机App前端界面设计</h1>
+<h2>Logo与引导页的设计（云端）</h2>
+<p><img loading="lazy" decoding="async" width="638" height="685" src="/wp-content/uploads/2018/05/word-image-4976.png" class="wp-image-5494" srcset="/wp-content/uploads/2018/05/word-image-4976.png 638w, /wp-content/uploads/2018/05/word-image-4976-279x300.png 279w" sizes="(max-width: 638px) 100vw, 638px" /></p>
+<h2><a id="post-5470-_Toc467080698"></a>使用自定义loader实现真机同步</h2>
+<p><a href="http://docs.apicloud.com/" class="broken_link">http://docs.apicloud.com/</a>
+</p>
+<h3>1）上传本地的代码的到云端</h3>
+<p><img loading="lazy" decoding="async" width="940" height="379" src="/wp-content/uploads/2018/05/word-image-4977.png" class="wp-image-5495" srcset="/wp-content/uploads/2018/05/word-image-4977.png 940w, /wp-content/uploads/2018/05/word-image-4977-300x121.png 300w, /wp-content/uploads/2018/05/word-image-4977-768x310.png 768w" sizes="(max-width: 940px) 100vw, 940px" /></p>
+<h3>2）编译Android自定义loader</h3>
+<p><img loading="lazy" decoding="async" width="890" height="624" src="/wp-content/uploads/2018/05/word-image-4978.png" class="wp-image-5496" srcset="/wp-content/uploads/2018/05/word-image-4978.png 890w, /wp-content/uploads/2018/05/word-image-4978-300x210.png 300w, /wp-content/uploads/2018/05/word-image-4978-768x538.png 768w" sizes="(max-width: 890px) 100vw, 890px" /></p>
+<h3>3）下载并重命名</h3>
+<p>
+  步骤1：下载
+</p>
+<p><img loading="lazy" decoding="async" width="1051" height="274" src="/wp-content/uploads/2018/05/word-image-4979.png" class="wp-image-5497" srcset="/wp-content/uploads/2018/05/word-image-4979.png 1051w, /wp-content/uploads/2018/05/word-image-4979-300x78.png 300w, /wp-content/uploads/2018/05/word-image-4979-768x200.png 768w, /wp-content/uploads/2018/05/word-image-4979-1024x267.png 1024w" sizes="(max-width: 1051px) 100vw, 1051px" /></p>
+<p>
+  步骤2：更名
+</p>
+<p><img loading="lazy" decoding="async" width="94" height="107" src="/wp-content/uploads/2018/05/word-image-4980.png" class="wp-image-5498" /></p>
+<h3>4）移动到指定目录中</h3>
+<p><strong>步骤1：创建文件夹</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="1350" height="545" src="/wp-content/uploads/2018/05/word-image-4981.png" class="wp-image-5499" srcset="/wp-content/uploads/2018/05/word-image-4981.png 1350w, /wp-content/uploads/2018/05/word-image-4981-300x121.png 300w, /wp-content/uploads/2018/05/word-image-4981-768x310.png 768w, /wp-content/uploads/2018/05/word-image-4981-1024x413.png 1024w" sizes="(max-width: 1350px) 100vw, 1350px" /></p>
+<p><strong>步骤2：移动</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="677" height="180" src="/wp-content/uploads/2018/05/word-image-4982.png" class="wp-image-5500" srcset="/wp-content/uploads/2018/05/word-image-4982.png 677w, /wp-content/uploads/2018/05/word-image-4982-300x80.png 300w" sizes="(max-width: 677px) 100vw, 677px" /></p>
+<h3>5）创建配置文件</h3>
+<p><strong>步骤1：创建文件</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="753" height="183" src="/wp-content/uploads/2018/05/word-image-4983.png" class="wp-image-5501" srcset="/wp-content/uploads/2018/05/word-image-4983.png 753w, /wp-content/uploads/2018/05/word-image-4983-300x73.png 300w" sizes="(max-width: 753px) 100vw, 753px" /></p>
+<p><strong>步骤2：写入固定格式数据</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="964" height="692" src="/wp-content/uploads/2018/05/word-image-4984.png" class="wp-image-5502" srcset="/wp-content/uploads/2018/05/word-image-4984.png 964w, /wp-content/uploads/2018/05/word-image-4984-300x215.png 300w, /wp-content/uploads/2018/05/word-image-4984-768x551.png 768w" sizes="(max-width: 964px) 100vw, 964px" /><br />
+<img loading="lazy" decoding="async" width="859" height="677" src="/wp-content/uploads/2018/05/word-image-4985.png" class="wp-image-5503" srcset="/wp-content/uploads/2018/05/word-image-4985.png 859w, /wp-content/uploads/2018/05/word-image-4985-300x236.png 300w, /wp-content/uploads/2018/05/word-image-4985-768x605.png 768w" sizes="(max-width: 859px) 100vw, 859px" /></p>
+<h3>6）真机同步测试</h3>
+<p><img loading="lazy" decoding="async" width="423" height="267" src="/wp-content/uploads/2018/05/word-image-4986.png" class="wp-image-5504" srcset="/wp-content/uploads/2018/05/word-image-4986.png 423w, /wp-content/uploads/2018/05/word-image-4986-300x189.png 300w" sizes="(max-width: 423px) 100vw, 423px" /><br />
+<img loading="lazy" decoding="async" width="980" height="655" src="/wp-content/uploads/2018/05/word-image-4987.png" class="wp-image-5505" srcset="/wp-content/uploads/2018/05/word-image-4987.png 980w, /wp-content/uploads/2018/05/word-image-4987-300x201.png 300w, /wp-content/uploads/2018/05/word-image-4987-768x513.png 768w" sizes="(max-width: 980px) 100vw, 980px" /></p>
+<h1>六、APP框架分析</h1>
+<h2><a id="post-5470-_Toc467080691"></a>1、目录结构分析</h2>
+<p><img loading="lazy" decoding="async" width="432" height="355" src="/wp-content/uploads/2018/05/word-image-4988.png" class="wp-image-5506" srcset="/wp-content/uploads/2018/05/word-image-4988.png 432w, /wp-content/uploads/2018/05/word-image-4988-300x247.png 300w" sizes="(max-width: 432px) 100vw, 432px" /></p>
+<h2><a id="post-5470-_Toc467080692"></a>2、App代码分析（从index.html入手）</h2>
+<p><img loading="lazy" decoding="async" width="943" height="70" src="/wp-content/uploads/2018/05/word-image-4989.png" class="wp-image-5507" srcset="/wp-content/uploads/2018/05/word-image-4989.png 943w, /wp-content/uploads/2018/05/word-image-4989-300x22.png 300w, /wp-content/uploads/2018/05/word-image-4989-768x57.png 768w" sizes="(max-width: 943px) 100vw, 943px" /></p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width&#8221;/&gt;
+</p>
+<p>
+  width &#8211; viewport的宽度 height &#8211; viewport的高度
+</p>
+<p>
+  initial-scale &#8211; 初始的缩放比例
+</p>
+<p>
+  minimum-scale &#8211; 允许用户缩放到的最小比例
+</p>
+<p>
+  maximum-scale &#8211; 允许用户缩放到的最大比例
+</p>
+<p>
+  user-scalable &#8211; 用户是否可以手动缩放
+</p>
+<p><img loading="lazy" decoding="async" width="617" height="60" src="/wp-content/uploads/2018/05/word-image-4990.png" class="wp-image-5508" srcset="/wp-content/uploads/2018/05/word-image-4990.png 617w, /wp-content/uploads/2018/05/word-image-4990-300x29.png 300w" sizes="(max-width: 617px) 100vw, 617px" /></p>
+<p>
+  &lt;meta name=&#8221;format-detection&#8221; content=&#8221;telephone=no,email=no,date=no,address=no&#8221;&gt;
+</p>
+<p>
+  让手机设备不直接识别手机号码、邮箱、日期以及address地址，也就是说不会直接有下划线
+</p>
+<h2><a id="post-5470-_Toc467080693"></a>3、核心代码分析（针对Javascript）</h2>
+<p><img loading="lazy" decoding="async" width="995" height="694" src="/wp-content/uploads/2018/05/word-image-4991.png" class="wp-image-5509" srcset="/wp-content/uploads/2018/05/word-image-4991.png 995w, /wp-content/uploads/2018/05/word-image-4991-300x209.png 300w, /wp-content/uploads/2018/05/word-image-4991-768x536.png 768w" sizes="(max-width: 995px) 100vw, 995px" /></p>
+<h2>4、App整体框架原理图</h2>
+<h2><a id="post-5470-_Toc467080695"></a>5、分析html/main.html核心代码</h2>
+<p><img loading="lazy" decoding="async" width="565" height="576" src="/wp-content/uploads/2018/05/word-image-4992.png" class="wp-image-5510" srcset="/wp-content/uploads/2018/05/word-image-4992.png 565w, /wp-content/uploads/2018/05/word-image-4992-294x300.png 294w" sizes="(max-width: 565px) 100vw, 565px" /></p>
+<h1>七、移动前段框架（AUICSS）</h1>
+<h2><a id="post-5470-_Toc448936972"></a><a id="post-5470-_Toc475719111"></a><a id="post-5470-_Toc469586779"></a><a id="post-5470-_Toc477793833"></a><a id="post-5470-_Toc481941130"></a><a id="post-5470-_Toc467854958"></a><a id="post-5470-_Toc485569116"></a><a id="post-5470-_Toc483754602"></a><a id="post-5470-_Toc471313624"></a>1、什么是AUICSS</h2>
+<p>
+  就是前段框架，专门为apicloud而生，同bootstrap框架只要复制其规定的带css或者js的div就可以快速搭建一个网站。
+</p>
+<h2>下载AUICSS</h2>
+<p>
+  网址：<a href="http://www.auicss.com/">http://www.auicss.com/</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1131" height="638" src="/wp-content/uploads/2018/05/word-image-4993.png" class="wp-image-5511" srcset="/wp-content/uploads/2018/05/word-image-4993.png 1131w, /wp-content/uploads/2018/05/word-image-4993-300x169.png 300w, /wp-content/uploads/2018/05/word-image-4993-768x433.png 768w, /wp-content/uploads/2018/05/word-image-4993-1024x578.png 1024w" sizes="(max-width: 1131px) 100vw, 1131px" /></p>
+<h2>3、使用AUICSS框架（前端框架）</h2>
+<p>
+  步骤1：打开auicss框架拖拽【css】【js】【html】【image】文件夹到本地的广场舞文件中
+</p>
+<p>
+  步骤2：替换入口文件
+</p>
+<p><img loading="lazy" decoding="async" width="750" height="405" src="/wp-content/uploads/2018/05/word-image-4994.png" class="wp-image-5512" srcset="/wp-content/uploads/2018/05/word-image-4994.png 750w, /wp-content/uploads/2018/05/word-image-4994-300x162.png 300w" sizes="(max-width: 750px) 100vw, 750px" /></p>
+<p>
+  步骤3：打开sublime右击真机同步
+</p>
+<p><img loading="lazy" decoding="async" width="352" height="305" src="/wp-content/uploads/2018/05/word-image-4995.png" class="wp-image-5513" srcset="/wp-content/uploads/2018/05/word-image-4995.png 352w, /wp-content/uploads/2018/05/word-image-4995-300x260.png 300w" sizes="(max-width: 352px) 100vw, 352px" /></p>
+<h2>4、卡片列表</h2>
+<h3>1）效果</h3>
+<p><img loading="lazy" decoding="async" width="303" height="300" src="/wp-content/uploads/2018/05/word-image-4996.png" class="wp-image-5514" srcset="/wp-content/uploads/2018/05/word-image-4996.png 303w, /wp-content/uploads/2018/05/word-image-4996-150x150.png 150w, /wp-content/uploads/2018/05/word-image-4996-300x297.png 300w" sizes="(max-width: 303px) 100vw, 303px" /></p>
+<h3>2）index.html</h3>
+<p>
+  &lt;!doctype html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+      &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;viewport&#8221; content=&#8221;maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0&#8243;/&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;format-detection&#8221; content=&#8221;telephone=no,email=no,date=no,address=no&#8221;&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;./css/aui.css&#8221; /&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+      哈啊哈哈哈哈
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;./script/api.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+      apiready = function(){
+</p>
+<p>
+          api.openWin({
+</p>
+<p>
+              name: &#8216;随意你开心就好&#8217;,
+</p>
+<p>
+              url: &#8216;./html/1.html&#8217;,
+</p>
+<p>
+              pageParam: {
+</p>
+<p>
+                  name: &#8216;test&#8217;
+</p>
+<p>
+              }
+</p>
+<p>
+          });
+</p>
+<p>
+      }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h3>3）1.html</h3>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+      &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;viewport&#8221; content=&#8221;maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0&#8243;/&gt;
+</p>
+<p>
+      &lt;meta name=&#8221;format-detection&#8221; content=&#8221;telephone=no,email=no,date=no,address=no&#8221;&gt;
+</p>
+<p>
+      &lt;title&gt;&lt;/title&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;../css/aui.css&#8221; /&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  	&lt;section class=&#8221;aui-content&#8221;&gt;
+</p>
+<p>
+  	    &lt;div class=&#8221;aui-card-list&#8221;&gt;
+</p>
+<p>
+  	        &lt;div class=&#8221;aui-card-list-header aui-card-list-user aui-border-b&#8221;&gt;
+</p>
+<p>
+  	            &lt;div class=&#8221;aui-card-list-user-avatar&#8221;&gt;
+</p>
+<p>
+  	                &lt;img src=&#8221;../image/demo4.png&#8221; class=&#8221;aui-img-round&#8221; /&gt;
+</p>
+<p>
+  	            &lt;/div&gt;
+</p>
+<p>
+  	            &lt;div class=&#8221;aui-card-list-user-name&#8221;&gt;
+</p>
+<p>
+  	                &lt;div&gt;AUI&lt;/div&gt;
+</p>
+<p>
+  	                &lt;small&gt;1天前&lt;/small&gt;
+</p>
+<p>
+  	            &lt;/div&gt;
+</p>
+<p>
+  	            &lt;div class=&#8221;aui-card-list-user-info&#8221;&gt;北京朝阳&lt;/div&gt;
+</p>
+<p>
+  	        &lt;/div&gt;
+</p>
+<p>
+  	        &lt;div class=&#8221;aui-card-list-content-padded&#8221;&gt;
+</p>
+<p>
+  	            &lt;img src=&#8221;../image/l2.png&#8221; /&gt;
+</p>
+<p>
+  	        &lt;/div&gt;
+</p>
+<p>
+  	        &lt;div class=&#8221;aui-card-list-footer aui-border-t&#8221;&gt;
+</p>
+<p>
+  	            &lt;div&gt;&lt;i class=&#8221;aui-iconfont aui-icon-note&#8221;&gt;&lt;/i&gt; 666&lt;/div&gt;
+</p>
+<p>
+  	            &lt;div&gt;&lt;i class=&#8221;aui-iconfont aui-icon-laud&#8221;&gt;&lt;/i&gt; 888&lt;/div&gt;
+</p>
+<p>
+  	            &lt;div&gt;&lt;i class=&#8221;aui-iconfont aui-icon-star&#8221;&gt;&lt;/i&gt; 888&lt;/div&gt;
+</p>
+<p>
+  	        &lt;/div&gt;
+</p>
+<p>
+  	        &lt;div class=&#8221;aui-card-list-header aui-card-list-user aui-border-b&#8221;&gt;
+</p>
+<p>
+  	            &lt;div class=&#8221;aui-card-list-user-avatar&#8221;&gt;
+</p>
+<p>
+  	                &lt;img src=&#8221;../image/demo4.png&#8221; class=&#8221;aui-img-round&#8221; /&gt;
+</p>
+<p>
+  	            &lt;/div&gt;
+</p>
+<p>
+  	            &lt;div class=&#8221;aui-card-list-user-name&#8221;&gt;
+</p>
+<p>
+  	                &lt;div&gt;AUI&lt;/div&gt;
+</p>
+<p>
+  	                &lt;small&gt;1天前&lt;/small&gt;
+</p>
+<p>
+  	            &lt;/div&gt;
+</p>
+<p>
+  	            &lt;div class=&#8221;aui-card-list-user-info&#8221;&gt;北京朝阳&lt;/div&gt;
+</p>
+<p>
+  	        &lt;/div&gt;
+</p>
+<p>
+  	        &lt;div class=&#8221;aui-card-list-content-padded&#8221;&gt;
+</p>
+<p>
+  	            &lt;img src=&#8221;../image/l2.png&#8221; /&gt;
+</p>
+<p>
+  	        &lt;/div&gt;
+</p>
+<p>
+  	        &lt;div class=&#8221;aui-card-list-footer aui-border-t&#8221;&gt;
+</p>
+<p>
+  	            &lt;div&gt;&lt;i class=&#8221;aui-iconfont aui-icon-note&#8221;&gt;&lt;/i&gt; 666&lt;/div&gt;
+</p>
+<p>
+  	            &lt;div&gt;&lt;i class=&#8221;aui-iconfont aui-icon-laud&#8221;&gt;&lt;/i&gt; 888&lt;/div&gt;
+</p>
+<p>
+  	            &lt;div&gt;&lt;i class=&#8221;aui-iconfont aui-icon-star&#8221;&gt;&lt;/i&gt; 888&lt;/div&gt;
+</p>
+<p>
+  	        &lt;/div&gt;
+</p>
+</p>
+<p>
+  	        &lt;div class=&#8221;aui-card-list-header aui-card-list-user aui-border-b&#8221;&gt;
+</p>
+<p>
+  	            &lt;div class=&#8221;aui-card-list-user-avatar&#8221;&gt;
+</p>
+<p>
+  	                &lt;img src=&#8221;../image/demo4.png&#8221; class=&#8221;aui-img-round&#8221; /&gt;
+</p>
+<p>
+  	            &lt;/div&gt;
+</p>
+<p>
+  	            &lt;div class=&#8221;aui-card-list-user-name&#8221;&gt;
+</p>
+<p>
+  	                &lt;div&gt;AUI&lt;/div&gt;
+</p>
+<p>
+  	                &lt;small&gt;1天前&lt;/small&gt;
+</p>
+<p>
+  	            &lt;/div&gt;
+</p>
+<p>
+  	            &lt;div class=&#8221;aui-card-list-user-info&#8221;&gt;北京朝阳&lt;/div&gt;
+</p>
+<p>
+  	        &lt;/div&gt;
+</p>
+<p>
+  	        &lt;div class=&#8221;aui-card-list-content-padded&#8221;&gt;
+</p>
+<p>
+  	            &lt;img src=&#8221;../image/l2.png&#8221; /&gt;
+</p>
+<p>
+  	        &lt;/div&gt;
+</p>
+<p>
+  	        &lt;div class=&#8221;aui-card-list-footer aui-border-t&#8221;&gt;
+</p>
+<p>
+  	            &lt;div&gt;&lt;i class=&#8221;aui-iconfont aui-icon-note&#8221;&gt;&lt;/i&gt; 666&lt;/div&gt;
+</p>
+<p>
+  	            &lt;div&gt;&lt;i class=&#8221;aui-iconfont aui-icon-laud&#8221;&gt;&lt;/i&gt; 888&lt;/div&gt;
+</p>
+<p>
+  	            &lt;div&gt;&lt;i class=&#8221;aui-iconfont aui-icon-star&#8221;&gt;&lt;/i&gt; 888&lt;/div&gt;
+</p>
+<p>
+  	        &lt;/div&gt;
+</p>
+</p>
+<p>
+  	    &lt;/div&gt;
+</p>
+<p>
+  	&lt;/section&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h1><a id="post-5470-_Toc481941129"></a><a id="post-5470-_Toc483754601"></a><a id="post-5470-_Toc485569115"></a><a id="post-5470-_Toc475719110"></a><a id="post-5470-_Toc477793832"></a>八、实战案例之广场舞App静态页面</h1>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91/5470.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

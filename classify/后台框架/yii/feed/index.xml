@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Yii &#8211; 个人随笔</title>
+	<atom:link href="/classify/%E5%90%8E%E5%8F%B0%E6%A1%86%E6%9E%B6/yii/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 09 Jun 2018 01:11:30 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>Yii &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>yii2 框架 安装、目录介绍、路由、模型、视图、控制器、留言板案例</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6297.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6297.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 17:28:10 +0000</pubDate>
+				<category><![CDATA[Yii]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[安装]]></category>
+		<category><![CDATA[控制器]]></category>
+		<category><![CDATA[模型]]></category>
+		<category><![CDATA[留言板案例]]></category>
+		<category><![CDATA[目录介绍]]></category>
+		<category><![CDATA[视图]]></category>
+		<category><![CDATA[路由]]></category>
+		<guid isPermaLink="false">/?p=6297</guid>
+
+					<description><![CDATA[Yii2框架 一、Yii2框架 1、什么是Yii2易框架 就是用PHP语言开发的框架 PHP框架区别和常见问题 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1><a id="post-6297-_Toc487903166"></a>Yii2框架</h1>
+<h1><a id="post-6297-_Toc487990951"></a>一、Yii2框架</h1>
+<h2>1、什么是Yii2易框架</h2>
+<p>
+  就是用PHP语言开发的框架
+</p>
+<h2>PHP框架区别和常见问题</h2>
+<h3>1）常用PHP框架</h3>
+<p><img decoding="async" width="151" height="51" src="/wp-content/uploads/2018/05/word-image-5740.png" class="wp-image-6298" srcset="/wp-content/uploads/2018/05/word-image-5740.png 151w, /wp-content/uploads/2018/05/word-image-5740-150x51.png 150w" sizes="(max-width: 151px) 100vw, 151px" /><br />
+<img decoding="async" width="290" height="70" src="/wp-content/uploads/2018/05/word-image-5741.png" class="wp-image-6299" /><br />
+<img decoding="async" width="307" height="77" src="/wp-content/uploads/2018/05/word-image-5742.png" class="wp-image-6300" srcset="/wp-content/uploads/2018/05/word-image-5742.png 307w, /wp-content/uploads/2018/05/word-image-5742-300x75.png 300w" sizes="(max-width: 307px) 100vw, 307px" /><br />
+<img loading="lazy" decoding="async" width="253" height="53" src="/wp-content/uploads/2018/05/word-image-5743.png" class="wp-image-6301" /><br />
+<img loading="lazy" decoding="async" width="286" height="97" src="/wp-content/uploads/2018/05/word-image-5744.png" class="wp-image-6302" /></p>
+<p>
+  C语言开发
+</p>
+<p><img loading="lazy" decoding="async" width="187" height="60" src="/wp-content/uploads/2018/05/word-image-5745.png" class="wp-image-6303" /><br />
+<img loading="lazy" decoding="async" width="101" height="66" src="/wp-content/uploads/2018/05/word-image-5746.png" class="wp-image-6304" /></p>
+<h3>2）常见问题</h3>
+<p>
+  问：你觉得XXX框架是轻量级还是重量级？
+</p>
+<p>
+  答：框架帮你做的事越多，框架越重。（其次：设计是否复杂？ 运行速度？ 更接近原生？）
+</p>
+<p>
+  问：一般设计框架的时候都需要权衡？
+</p>
+<p>
+  答：开发效率和运行效率（yaf、Phalcon）。
+</p>
+<h1>下载并安装</h1>
+<h2>︴网址</h2>
+<p>
+  官网：<a href="/goto/w8q1" rel="nofollow">http://www.yiiframework.com/</a>
+</p>
+<p>
+  中文：<a href="/goto/g3cr" rel="nofollow">http://www.yiichina.com/</a>
+</p>
+<h2>︴下载</h2>
+<p><img loading="lazy" decoding="async" width="516" height="342" src="/wp-content/uploads/2018/05/word-image-5747.png" class="wp-image-6305" srcset="/wp-content/uploads/2018/05/word-image-5747.png 516w, /wp-content/uploads/2018/05/word-image-5747-300x199.png 300w" sizes="(max-width: 516px) 100vw, 516px" /><br />
+<img loading="lazy" decoding="async" width="241" height="54" src="/wp-content/uploads/2018/05/word-image-5748.png" class="wp-image-6306" /></p>
+<h2>︴使用</h2>
+<ul>
+<li>
+    步骤1：解压到指定目录中
+  </li>
+<li>
+    步骤2：初始化，通过命令【php init】
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="684" height="303" src="/wp-content/uploads/2018/05/word-image-5749.png" class="wp-image-6307" srcset="/wp-content/uploads/2018/05/word-image-5749.png 684w, /wp-content/uploads/2018/05/word-image-5749-300x133.png 300w" sizes="(max-width: 684px) 100vw, 684px" /></p>
+<ul>
+<li>
+    步骤3：访问
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1058" height="594" src="/wp-content/uploads/2018/05/word-image-5750.png" class="wp-image-6308" srcset="/wp-content/uploads/2018/05/word-image-5750.png 1058w, /wp-content/uploads/2018/05/word-image-5750-300x168.png 300w, /wp-content/uploads/2018/05/word-image-5750-768x431.png 768w, /wp-content/uploads/2018/05/word-image-5750-1024x575.png 1024w" sizes="(max-width: 1058px) 100vw, 1058px" /></p>
+<h1>三、目录介绍</h1>
+<p><img loading="lazy" decoding="async" width="306" height="544" src="/wp-content/uploads/2018/05/word-image-5751.png" class="wp-image-6309" srcset="/wp-content/uploads/2018/05/word-image-5751.png 306w, /wp-content/uploads/2018/05/word-image-5751-169x300.png 169w" sizes="(max-width: 306px) 100vw, 306px" /></p>
+<h1>四、控制器</h1>
+<p><a href="/goto/7a3e" rel="nofollow">http://l.com/yii2/frontend/web/index.php?r=test/index</a>
+</p>
+<p><img loading="lazy" decoding="async" width="705" height="559" src="/wp-content/uploads/2018/05/word-image-5752.png" class="wp-image-6310" srcset="/wp-content/uploads/2018/05/word-image-5752.png 705w, /wp-content/uploads/2018/05/word-image-5752-300x238.png 300w" sizes="(max-width: 705px) 100vw, 705px" /></p>
+<h1>路由</h1>
+<h2>路由访问规则</h2>
+<p>
+  域名/index.php?r=控制器名/方法名
+</p>
+<p><img loading="lazy" decoding="async" width="840" height="599" src="/wp-content/uploads/2018/05/word-image-5753.png" class="wp-image-6311" srcset="/wp-content/uploads/2018/05/word-image-5753.png 840w, /wp-content/uploads/2018/05/word-image-5753-300x214.png 300w, /wp-content/uploads/2018/05/word-image-5753-768x548.png 768w" sizes="(max-width: 840px) 100vw, 840px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace frontend\controllers;
+</p>
+<p>
+  use Yii;
+</p>
+<p>
+  use yii\web\Controller;
+</p>
+<p>
+  /**
+</p>
+<p>
+   * 测试控制器
+</p>
+<p>
+   */
+</p>
+<p>
+  class TestController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Displays homepage.
+</p>
+<p>
+       *
+</p>
+<p>
+       * @return mixed
+</p>
+<p>
+       */
+</p>
+<p>
+      public function actionIndex()
+</p>
+<p>
+      {
+</p>
+<p>
+          echo 66666;die;
+</p>
+<p>
+          return $this-&gt;render(&#8216;index&#8217;);
+</p>
+<p>
+      }
+</p>
+<p>
+      public function actionAdd()
+</p>
+<p>
+      {
+</p>
+<p>
+          echo 7777777777;die;
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p>
+  脚下留心：方法前缀必须是action开头
+</p>
+<h2>美化路由（自定义路由）</h2>
+<p><img loading="lazy" decoding="async" width="834" height="390" src="/wp-content/uploads/2018/05/word-image-5754.png" class="wp-image-6312" srcset="/wp-content/uploads/2018/05/word-image-5754.png 834w, /wp-content/uploads/2018/05/word-image-5754-300x140.png 300w, /wp-content/uploads/2018/05/word-image-5754-768x359.png 768w" sizes="(max-width: 834px) 100vw, 834px" /><br />
+<img loading="lazy" decoding="async" width="981" height="662" src="/wp-content/uploads/2018/05/word-image-5755.png" class="wp-image-6313" srcset="/wp-content/uploads/2018/05/word-image-5755.png 981w, /wp-content/uploads/2018/05/word-image-5755-300x202.png 300w, /wp-content/uploads/2018/05/word-image-5755-768x518.png 768w" sizes="(max-width: 981px) 100vw, 981px" /></p>
+<h1>六、视图</h1>
+<h2>1、语法</h2>
+<p>
+  加载视图并传递数据（数组中的键后期在视图中直接当变量使用）
+</p>
+<p>
+  return $this-&gt;render(&#8216;index&#8217;, [
+</p>
+<p>
+      &#8216;test1&#8217; =&gt; 111,
+</p>
+<p>
+      &#8216;test2&#8217; =&gt; &#8216;dsfsdfa&#8217;,
+</p>
+<p>
+      &#8216;test3&#8217; =&gt; array(&#8216;name&#8217;, 666, &#8216;aaa&#8217;)
+</p>
+<p>
+  ]);
+</p>
+<p>
+  模板显示数据通过&lt;?= $变量名 ?&gt; （注：&lt;?=   相当于  &lt;?php echo ）
+</p>
+<h2>2、练习</h2>
+<p><img loading="lazy" decoding="async" width="961" height="627" src="/wp-content/uploads/2018/05/word-image-5756.png" class="wp-image-6314" srcset="/wp-content/uploads/2018/05/word-image-5756.png 961w, /wp-content/uploads/2018/05/word-image-5756-300x196.png 300w, /wp-content/uploads/2018/05/word-image-5756-768x501.png 768w" sizes="(max-width: 961px) 100vw, 961px" /><br />
+<img loading="lazy" decoding="async" width="783" height="575" src="/wp-content/uploads/2018/05/word-image-5757.png" class="wp-image-6315" srcset="/wp-content/uploads/2018/05/word-image-5757.png 783w, /wp-content/uploads/2018/05/word-image-5757-300x220.png 300w, /wp-content/uploads/2018/05/word-image-5757-768x564.png 768w" sizes="(max-width: 783px) 100vw, 783px" /></p>
+<h1>七、模型</h1>
+<h2>1、准备</h2>
+<ul>
+<li>
+    模型使用手册：<a href="/goto/cbx3" rel="nofollow">http://blog.csdn.net/ww_smile7/article/details/53410166</a>
+  </li>
+<li>
+    设置数据库配置文件
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1106" height="496" src="/wp-content/uploads/2018/05/word-image-5758.png" class="wp-image-6316" srcset="/wp-content/uploads/2018/05/word-image-5758.png 1106w, /wp-content/uploads/2018/05/word-image-5758-300x135.png 300w, /wp-content/uploads/2018/05/word-image-5758-768x344.png 768w, /wp-content/uploads/2018/05/word-image-5758-1024x459.png 1024w" sizes="(max-width: 1106px) 100vw, 1106px" /></p>
+<ul>
+<li>
+    定义模型
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="809" height="419" src="/wp-content/uploads/2018/05/word-image-5759.png" class="wp-image-6317" srcset="/wp-content/uploads/2018/05/word-image-5759.png 809w, /wp-content/uploads/2018/05/word-image-5759-300x155.png 300w, /wp-content/uploads/2018/05/word-image-5759-768x398.png 768w" sizes="(max-width: 809px) 100vw, 809px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace common\models;
+</p>
+<p>
+  use Yii;
+</p>
+<p>
+  use yii\db\ActiveRecord;
+</p>
+<p>
+  /**
+</p>
+<p>
+   * Login form
+</p>
+<p>
+   */
+</p>
+<p>
+  class Php12 extends ActiveRecord
+</p>
+<p>
+  {
+</p>
+</p>
+<p>
+  }
+</p>
+<h2>2、练习</h2>
+<p>
+  查询所有
+</p>
+<p><img loading="lazy" decoding="async" width="1069" height="666" src="/wp-content/uploads/2018/05/word-image-5760.png" class="wp-image-6318" srcset="/wp-content/uploads/2018/05/word-image-5760.png 1069w, /wp-content/uploads/2018/05/word-image-5760-300x187.png 300w, /wp-content/uploads/2018/05/word-image-5760-768x478.png 768w, /wp-content/uploads/2018/05/word-image-5760-1024x638.png 1024w" sizes="(max-width: 1069px) 100vw, 1069px" /></p>
+<p>
+  查询一条
+</p>
+<p><img loading="lazy" decoding="async" width="954" height="521" src="/wp-content/uploads/2018/05/word-image-5761.png" class="wp-image-6319" srcset="/wp-content/uploads/2018/05/word-image-5761.png 954w, /wp-content/uploads/2018/05/word-image-5761-300x164.png 300w, /wp-content/uploads/2018/05/word-image-5761-768x419.png 768w" sizes="(max-width: 954px) 100vw, 954px" /><br />
+<img loading="lazy" decoding="async" width="1131" height="514" src="/wp-content/uploads/2018/05/word-image-5762.png" class="wp-image-6320" srcset="/wp-content/uploads/2018/05/word-image-5762.png 1131w, /wp-content/uploads/2018/05/word-image-5762-300x136.png 300w, /wp-content/uploads/2018/05/word-image-5762-768x349.png 768w, /wp-content/uploads/2018/05/word-image-5762-1024x465.png 1024w" sizes="(max-width: 1131px) 100vw, 1131px" /></p>
+<p>
+  插入
+</p>
+<p><img loading="lazy" decoding="async" width="1316" height="542" src="/wp-content/uploads/2018/05/word-image-5763.png" class="wp-image-6321" srcset="/wp-content/uploads/2018/05/word-image-5763.png 1316w, /wp-content/uploads/2018/05/word-image-5763-300x124.png 300w, /wp-content/uploads/2018/05/word-image-5763-768x316.png 768w, /wp-content/uploads/2018/05/word-image-5763-1024x422.png 1024w" sizes="(max-width: 1316px) 100vw, 1316px" /></p>
+<h1>八、留言板案例</h1>
+<h2>︴效果</h2>
+<p><img loading="lazy" decoding="async" width="397" height="436" src="/wp-content/uploads/2018/05/word-image-5764.png" class="wp-image-6322" srcset="/wp-content/uploads/2018/05/word-image-5764.png 397w, /wp-content/uploads/2018/05/word-image-5764-273x300.png 273w" sizes="(max-width: 397px) 100vw, 397px" /><br />
+<img loading="lazy" decoding="async" width="386" height="315" src="/wp-content/uploads/2018/05/word-image-5765.png" class="wp-image-6323" srcset="/wp-content/uploads/2018/05/word-image-5765.png 386w, /wp-content/uploads/2018/05/word-image-5765-300x245.png 300w" sizes="(max-width: 386px) 100vw, 386px" /></p>
+<h2>︴代码</h2>
+<h3>准备</h3>
+<ul>
+<li>
+    创建表
+  </li>
+</ul>
+<p>
+  create table msg (
+</p>
+<p>
+  id int primary key auto_increment comment &#8216;编号&#8217;,
+</p>
+<p>
+  title varchar(60) not null comment &#8216;标题&#8217;,
+</p>
+<p>
+  `desc` text comment &#8216;描述&#8217;,
+</p>
+<p>
+  created_at int default 0 comment &#8216;创建于&#8217;,
+</p>
+<p>
+  updated_at int default 0 comment &#8216;更新于&#8217;
+</p>
+<p>
+  )engine=myisam charset=utf8;
+</p>
+<ul>
+<li>
+    创建模型
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="606" height="340" src="/wp-content/uploads/2018/05/word-image-5766.png" class="wp-image-6324" srcset="/wp-content/uploads/2018/05/word-image-5766.png 606w, /wp-content/uploads/2018/05/word-image-5766-300x168.png 300w" sizes="(max-width: 606px) 100vw, 606px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace common\models;
+</p>
+<p>
+  use Yii;
+</p>
+<p>
+  use yii\db\ActiveRecord;
+</p>
+<p>
+  /**
+</p>
+<p>
+   * Login form
+</p>
+<p>
+   */
+</p>
+<p>
+  class Msg extends ActiveRecord
+</p>
+<p>
+  {
+</p>
+</p>
+<p>
+  }
+</p>
+<h3>列表功能</h3>
+<ul>
+<li>
+    步骤1：定义路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="904" height="489" src="/wp-content/uploads/2018/05/word-image-5767.png" class="wp-image-6325" srcset="/wp-content/uploads/2018/05/word-image-5767.png 904w, /wp-content/uploads/2018/05/word-image-5767-300x162.png 300w, /wp-content/uploads/2018/05/word-image-5767-768x415.png 768w" sizes="(max-width: 904px) 100vw, 904px" /></p>
+<ul>
+<li>
+    步骤2：创建控制器方法、查询所有留言数据并传递给视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="762" height="715" src="/wp-content/uploads/2018/05/word-image-5768.png" class="wp-image-6326" srcset="/wp-content/uploads/2018/05/word-image-5768.png 762w, /wp-content/uploads/2018/05/word-image-5768-300x281.png 300w" sizes="(max-width: 762px) 100vw, 762px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace frontend\controllers;
+</p>
+<p>
+  use Yii;
+</p>
+<p>
+  use common\models\Msg;
+</p>
+<p>
+  use yii\web\Controller;
+</p>
+<p>
+  /**
+</p>
+<p>
+   * 测试控制器
+</p>
+<p>
+   */
+</p>
+<p>
+  class MsgController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //说明laravel框架有layout模板机制
+</p>
+<p>
+      //声明属性决定layout是否使用
+</p>
+<p>
+      //当前控制器都生效
+</p>
+<p>
+      public $layout = false;
+</p>
+<p>
+      public function actionIndex()
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.查询数据通过模型
+</p>
+<p>
+          $msgs = Msg::find()-&gt;all();
+</p>
+<p>
+          //2.加载视图并传递数据
+</p>
+<p>
+          return $this-&gt;render(&#8216;index&#8217;, [
+</p>
+<p>
+              &#8216;msgs&#8217; =&gt; $msgs
+</p>
+<p>
+          ]);
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤3：创建视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1180" height="697" src="/wp-content/uploads/2018/05/word-image-5769.png" class="wp-image-6328" srcset="/wp-content/uploads/2018/05/word-image-5769.png 1180w, /wp-content/uploads/2018/05/word-image-5769-300x177.png 300w, /wp-content/uploads/2018/05/word-image-5769-768x454.png 768w, /wp-content/uploads/2018/05/word-image-5769-1024x605.png 1024w" sizes="(max-width: 1180px) 100vw, 1180px" /></p>
+<ul>
+<li>
+    步骤4：循环显示数据
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1098" height="496" src="/wp-content/uploads/2018/05/word-image-5770.png" class="wp-image-6329" srcset="/wp-content/uploads/2018/05/word-image-5770.png 1098w, /wp-content/uploads/2018/05/word-image-5770-300x136.png 300w, /wp-content/uploads/2018/05/word-image-5770-768x347.png 768w, /wp-content/uploads/2018/05/word-image-5770-1024x463.png 1024w" sizes="(max-width: 1098px) 100vw, 1098px" /></p>
+<p>
+  &lt;!DOCTYPE html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  	&lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+      &lt;meta http-equiv=&#8221;Content-Type&#8221; content=&#8221;text/html; charset=utf-8&#8243; /&gt;
+</p>
+<p>
+  	&lt;meta content=&#8221;telephone=no, address=no&#8221; name=&#8221;format-detection&#8221;&gt;
+</p>
+<p>
+  	&lt;meta content=&#8221;width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no&#8221; name=&#8221;viewport&#8221;&gt;
+</p>
+<p>
+      &lt;title&gt;微留言演示案例&lt;/title&gt;
+</p>
+<p>
+      &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;./message/msg.css&#8221; media=&#8221;all&#8221; /&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body id=&#8221;message&#8221; onselectstart=&#8221;return true;&#8221; ondragstart=&#8221;return false;&#8221;&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;container&#8221;&gt;
+</p>
+<p>
+  	  	&lt;div class=&#8221;qiandaobanner&#8221;&gt;
+</p>
+<p>
+  		  	&lt;a href=&#8221;./message&#8221;&gt;
+</p>
+<p>
+  		  		&lt;img src=&#8221;./message/wall.jpg&#8221; style=&#8221;width:100%;&#8221; /&gt;
+</p>
+<p>
+  		  	&lt;/a&gt;
+</p>
+<p>
+  	  	&lt;/div&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;cardexplain&#8221;&gt;
+</p>
+<p>
+  			&lt;div class=&#8221;window&#8221; id=&#8221;windowcenter&#8221;&gt;
+</p>
+<p>
+  				&lt;div id=&#8221;title&#8221; class=&#8221;wtitle&#8221;&gt;操作提示&lt;span class=&#8221;close&#8221; id=&#8221;alertclose&#8221;&gt;&lt;/span&gt;&lt;/div&gt;
+</p>
+<p>
+  				&lt;div class=&#8221;content&#8221;&gt;
+</p>
+<p>
+  					&lt;div id=&#8221;txt&#8221;&gt;&lt;/div&gt;
+</p>
+<p>
+  				&lt;/div&gt;
+</p>
+<p>
+  			&lt;/div&gt;
+</p>
+<p>
+    			&lt;div class=&#8221;history&#8221;&gt;
+</p>
+<p>
+  				&lt;div class=&#8221;history-date&#8221;&gt;
+</p>
+<p>
+  					&lt;ul&gt;
+</p>
+<p>
+  						&lt;?php foreach ($msgs as $msg) :  ?&gt;
+</p>
+<p>
+  						&lt;li class=&#8221;green bounceInDown&#8221;&gt;
+</p>
+<p>
+  							&lt;h3&gt;
+</p>
+<p>
+  								&lt;img src=&#8221;./message/logo100x100.jpg&#8221;&gt;
+</p>
+<p>
+  								&lt;?= $msg-&gt;title ?&gt;
+</p>
+<p>
+  								&lt;span&gt;&lt;?= date(&#8216;Y-m-d&#8217;, $msg-&gt;created_at) ?&gt;&lt;/span&gt;
+</p>
+<p>
+  								&lt;div class=&#8221;clr&#8221;&gt;&lt;/div&gt;
+</p>
+<p>
+  							&lt;/h3&gt;
+</p>
+<p>
+  							&lt;dl&gt;
+</p>
+<p>
+  								&lt;dt class=&#8221;hfinfo&#8221;&gt;&lt;?= $msg-&gt;desc ?&gt;&lt;/dt&gt;
+</p>
+<p>
+  							&lt;/dl&gt;
+</p>
+<p>
+  						&lt;/li&gt;
+</p>
+<p>
+  						&lt;?php  endforeach; ?&gt;
+</p>
+<p>
+  						&lt;li class=&#8221;green bounceInDown nob ly2&#8243; style=&#8221;display:none;&#8221;&gt;
+</p>
+<p>
+  							&lt;form action=&#8221;&#8221; method=&#8221;post&#8221; class=&#8221;form1&#8243;&gt;
+</p>
+<p>
+  							&lt;dl&gt;
+</p>
+<p>
+  								&lt;dt&gt;
+</p>
+<p>
+  									&lt;input name=&#8221;uname&#8221; type=&#8221;text&#8221; class=&#8221;px&#8221; id=&#8221;uname&#8221; value=&#8221;&#8221; placeholder=&#8221;请输入您的昵称&#8221;&gt;
+</p>
+<p>
+  									&lt;/dt&gt;
+</p>
+<p>
+  								&lt;dt&gt;
+</p>
+<p>
+  									&lt;textarea name=&#8221;content&#8221; class=&#8221;pxtextarea&#8221; style=&#8221; height:60px;&#8221; id=&#8221;content&#8221; placeholder=&#8221;请输入留言内容&#8221;&gt;&lt;/textarea&gt;
+</p>
+<p>
+  								&lt;/dt&gt;
+</p>
+<p>
+  								&lt;dt&gt;
+</p>
+<p>
+  									&lt;a class=&#8221;submit&#8221; href=&#8221;javascript:void(0);&#8221;&gt;提交留言&lt;/a&gt;
+</p>
+<p>
+  								&lt;/dt&gt;
+</p>
+<p>
+  							&lt;/dl&gt;
+</p>
+<p>
+  							&lt;/form&gt;
+</p>
+<p>
+  						&lt;/li&gt;
+</p>
+<p>
+  						&lt;a&gt;&lt;h2 class=&#8221;first first2&#8243; style=&#8221;position: relative;&#8221;&gt;点击留言&lt;/h2&gt;&lt;/a&gt;
+</p>
+<p>
+  					&lt;/ul&gt;
+</p>
+<p>
+  				&lt;/div&gt;
+</p>
+<p>
+  			&lt;/div&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;script type=&#8221;text/javascript&#8221; src=&#8221;./message/jquery.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  	&lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  		$(function(){
+</p>
+<p>
+  			//留言表单显示切换
+</p>
+<p>
+  			$(&#8220;.first1&#8221;).click(function(){
+</p>
+<p>
+  				$(&#8220;.ly1&#8221;).slideToggle();
+</p>
+<p>
+  			});
+</p>
+<p>
+  			$(&#8220;.first2&#8221;).click(function(){
+</p>
+<p>
+  				$(&#8220;.ly2&#8221;).slideToggle();
+</p>
+<p>
+  			});
+</p>
+<p>
+  			//点击提交留言a标签，则提交表单
+</p>
+<p>
+  			$(&#8216;.submit&#8217;).click(function(){
+</p>
+<p>
+  				//判断用户名和密码不能为空
+</p>
+<p>
+  				var uname = $(&#8216;#uname&#8217;).val();
+</p>
+<p>
+  				var content = $(&#8216;#content&#8217;).val();
+</p>
+<p>
+  				if (uname == &#8221; || content == &#8221;) {
+</p>
+<p>
+  					alert(&#8216;请输入昵称或留言内容&#8217;);
+</p>
+<p>
+  					return;
+</p>
+<p>
+  				}
+</p>
+<p>
+  				//提交表单
+</p>
+<p>
+  				$(&#8216;.form1&#8217;).submit();
+</p>
+<p>
+  			});
+</p>
+<p>
+  		});
+</p>
+<p>
+  	&lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h3>添加功能</h3>
+<ul>
+<li>
+    定义路由处理添加数据
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="756" height="472" src="/wp-content/uploads/2018/05/word-image-5771.png" class="wp-image-6330" srcset="/wp-content/uploads/2018/05/word-image-5771.png 756w, /wp-content/uploads/2018/05/word-image-5771-300x187.png 300w" sizes="(max-width: 756px) 100vw, 756px" /></p>
+<ul>
+<li>
+    创建控制器方法处理数据
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="818" height="661" src="/wp-content/uploads/2018/05/word-image-5772.png" class="wp-image-6331" srcset="/wp-content/uploads/2018/05/word-image-5772.png 818w, /wp-content/uploads/2018/05/word-image-5772-300x242.png 300w, /wp-content/uploads/2018/05/word-image-5772-768x621.png 768w" sizes="(max-width: 818px) 100vw, 818px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace frontend\controllers;
+</p>
+<p>
+  use Yii;
+</p>
+<p>
+  use common\models\Msg;
+</p>
+<p>
+  use yii\web\Controller;
+</p>
+<p>
+  /**
+</p>
+<p>
+   * 测试控制器
+</p>
+<p>
+   */
+</p>
+<p>
+  class MsgController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //说明laravel框架有layout模板机制
+</p>
+<p>
+      //声明属性决定layout是否使用
+</p>
+<p>
+      //当前控制器都生效
+</p>
+<p>
+      public $layout = false;
+</p>
+<p>
+      //关闭cstf验证
+</p>
+<p>
+      public $enableCsrfValidation = false;
+</p>
+<p>
+      //添加
+</p>
+<p>
+      public function actionCreate()
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.判断是否post提交
+</p>
+<p>
+          if (Yii::$app-&gt;request-&gt;isPost) {
+</p>
+<p>
+              //2.接受数据
+</p>
+<p>
+              $title = Yii::$app-&gt;request-&gt;post(&#8216;uname&#8217;);
+</p>
+<p>
+              $desc = Yii::$app-&gt;request-&gt;post(&#8216;content&#8217;);
+</p>
+<p>
+              //3.实例化对象并保存数据
+</p>
+<p>
+              $msg = new Msg;
+</p>
+<p>
+              $msg-&gt;title = $title;
+</p>
+<p>
+              $msg-&gt;desc = $desc;
+</p>
+<p>
+              $msg-&gt;created_at = time();
+</p>
+<p>
+              $msg-&gt;updated_at = time();
+</p>
+<p>
+              $rs = $msg-&gt;save();
+</p>
+<p>
+              return $this-&gt;redirect([&#8216;/msg&#8217;]);
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function actionIndex()
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.查询数据通过模型
+</p>
+<p>
+          $msgs = Msg::find()-&gt;all();
+</p>
+<p>
+          //2.加载视图并传递数据
+</p>
+<p>
+          return $this-&gt;render(&#8216;index&#8217;, [
+</p>
+<p>
+              &#8216;msgs&#8217; =&gt; $msgs
+</p>
+<p>
+          ]);
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="717" height="382" src="/wp-content/uploads/2018/05/word-image-5773.png" class="wp-image-6332" srcset="/wp-content/uploads/2018/05/word-image-5773.png 717w, /wp-content/uploads/2018/05/word-image-5773-300x160.png 300w" sizes="(max-width: 717px) 100vw, 717px" /><br />
+<img loading="lazy" decoding="async" width="792" height="446" src="/wp-content/uploads/2018/05/word-image-5774.png" class="wp-image-6333" srcset="/wp-content/uploads/2018/05/word-image-5774.png 792w, /wp-content/uploads/2018/05/word-image-5774-300x169.png 300w, /wp-content/uploads/2018/05/word-image-5774-768x432.png 768w" sizes="(max-width: 792px) 100vw, 792px" /></p>
+<p>
+  多学一招：
+</p>
+<p>
+  Yii::$app-&gt;request-&gt;isPost
+</p>
+<p>
+  Yii::$app-&gt;request-&gt;post(键)</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6297.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>手机直播 搭建服务器、推流管理、实现直播、创建直播APP</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6335.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6335.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 16:30:33 +0000</pubDate>
+				<category><![CDATA[Yii]]></category>
+		<category><![CDATA[Yii手机直播]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[创建直播APP]]></category>
+		<category><![CDATA[实现直播]]></category>
+		<category><![CDATA[推流管理]]></category>
+		<category><![CDATA[搭建服务器]]></category>
+		<guid isPermaLink="false">/?p=6335</guid>
+
+					<description><![CDATA[手机直播 手机直播 1 1. 搭建直播服务器 2 1.1. 下载srs代码至服务器 2 1.2. 编译安装直播 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p><a id="post-6335-_____"></a><a id="post-6335-_Toc256000000"></a><br />
+  手机直播
+</p>
+<p><a href="#post-6335-_Toc256000000">手机直播	1</a>
+</p>
+<p><a href="#post-6335-_Toc256000002">1.	搭建直播服务器	2</a>
+</p>
+<p><a href="#post-6335-_Toc256000003">1.1.	下载srs代码至服务器	2</a>
+</p>
+<p><a href="#post-6335-_Toc256000004">1.2.	编译安装直播服务器	2</a>
+</p>
+<p><a href="#post-6335-_Toc256000005">2.	搭建一个简单的推流和拉流地址管理	3</a>
+</p>
+<p><a href="#post-6335-_Toc256000006">2.1.	创建一个用于保存推流和拉流地址的表	3</a>
+</p>
+<p><a href="#post-6335-_Toc256000007">2.2.	使用Yii2创建一个项目	4</a>
+</p>
+<p><a href="#post-6335-_Toc256000008">2.3.	Yii2框架的手册要点	4</a>
+</p>
+<p><a href="#post-6335-_Toc256000009">2.4.	启动Yii2项目的测试服务器	4</a>
+</p>
+<p><a href="#post-6335-_Toc256000010">2.5.	修改数据库配置	4</a>
+</p>
+<p><a href="#post-6335-_Toc256000011">2.6.	使用gii生成live表的增删改查	5</a>
+</p>
+<p><a href="#post-6335-_Toc256000012">2.6.1.	生成live表对应的模型	5</a>
+</p>
+<p><a href="#post-6335-_Toc256000013">2.6.2.	生成增删改查	5</a>
+</p>
+<p><a href="#post-6335-_Toc256000014">3.	使用srs提供有效的推流和拉流地址	5</a>
+</p>
+<p><a href="#post-6335-_Toc256000015">3.1.	使用srs启动一个rtmp协议的直播服务	5</a>
+</p>
+<p><a href="#post-6335-_Toc256000016">3.2.	获取推流和拉流的默认地址并进行测试	6</a>
+</p>
+<p><a href="#post-6335-_Toc256000017">3.3.	将推流和拉流地址分别存入数据库live表中	6</a>
+</p>
+<p><a href="#post-6335-_Toc256000018">4.	使用apicloud创建直播APP	6</a>
+</p>
+<p><a href="#post-6335-_Toc256000019">4.1.	注册apicloud账号	6</a>
+</p>
+<p><a href="#post-6335-_Toc256000020">4.2.	创建一个APP	6</a>
+</p>
+<p><a href="#post-6335-_Toc256000021">4.3.	将APP的初始代码检出到本地	6</a>
+</p>
+<p><a href="#post-6335-_Toc256000022">4.4.	在APP中请求PHP提供的接口获取推流和拉流地址	7</a>
+</p>
+<p><a href="#post-6335-_Toc256000023">4.4.1.	编写PHP接口提供数据	7</a>
+</p>
+<p><a href="#post-6335-_Toc256000024">4.5.	在APP端通过接口获取对应数据	7</a>
+</p>
+<p><a href="#post-6335-_Toc256000025">5.	使用palyModule实现直播	7</a>
+</p>
+<p><a href="#post-6335-_Toc256000026">5.1.	添加playModule模块	8</a>
+</p>
+<p><a href="#post-6335-_Toc256000027">5.2.	编写代码获取推流地址	8</a>
+</p>
+<p><a href="#post-6335-_Toc256000028">5.3.	上传代码云编译	8</a>
+</p>
+<p><a href="#post-6335-_Toc256000029">6.	实现推流	8</a>
+</p>
+<p><a href="#post-6335-_Toc256000030">6.1.	实现推流地址下拉列表框	8</a>
+</p>
+<p><a href="#post-6335-_Toc256000031">6.2.	使用模块插件ytylive实现推流效果	8</a>
+</p>
+<p><a href="#post-6335-_Toc256000032">6.2.1.	选择模块插件	8</a>
+</p>
+<p><a href="#post-6335-_Toc256000033">6.2.2.	编码实现推流	8</a>
+</p>
+<p><a href="#post-6335-_Toc256000034">6.2.3.	使用播放器或者新的安卓模拟器进行效果查看	8</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1155" height="258" src="/wp-content/uploads/2018/05/word-image-5775.png" class="wp-image-6336" srcset="/wp-content/uploads/2018/05/word-image-5775.png 1155w, /wp-content/uploads/2018/05/word-image-5775-300x67.png 300w, /wp-content/uploads/2018/05/word-image-5775-768x172.png 768w, /wp-content/uploads/2018/05/word-image-5775-1024x229.png 1024w" sizes="(max-width: 1155px) 100vw, 1155px" /></p>
+<h1><a id="post-6335-________"></a><a id="post-6335-_Toc256000002"></a>搭建直播服务器</h1>
+<p><img loading="lazy" decoding="async" width="706" height="206" src="/wp-content/uploads/2018/05/word-image-5776.png" class="wp-image-6337" srcset="/wp-content/uploads/2018/05/word-image-5776.png 706w, /wp-content/uploads/2018/05/word-image-5776-300x88.png 300w" sizes="(max-width: 706px) 100vw, 706px" /></p>
+<p>
+  Nginx的rtmp插件：
+</p>
+<p>
+  官网参考：<a href="https://github.com/arut/nginx-rtmp-module">https://github.com/arut/nginx-rtmp-module</a>
+</p>
+<p>
+  Srs直播服务器：
+</p>
+<p>
+  官网参考：<a href="https://github.com/ossrs/srs">https://github.com/ossrs/srs</a>
+</p>
+<p>
+  中文文档参考：<a href="https://github.com/ossrs/srs/wiki/v3_CN_Home">https://github.com/ossrs/srs/wiki/v3_CN_Home</a>
+</p>
+<h2><a id="post-6335-___srs______"></a><a id="post-6335-_Toc256000003"></a>下载srs代码至服务器</h2>
+<p>
+  git clone <a href="https://github.com/ossrs/srs.git">https://github.com/ossrs/srs.git</a>
+</p>
+<h2><a id="post-6335-__________"></a><a id="post-6335-_Toc256000004"></a>编译安装直播服务器</h2>
+<p>
+  注意：在编译安装的时候，需要关闭防火墙：
+</p>
+<p>
+  =》cd /trunk
+</p>
+<p>
+  =》./configure &#8211;prefix=/www/server/srs &#8211;with-ffmpeg
+</p>
+<p>
+  //&#8211;prefix=/www/server/srs指定安装位置
+</p>
+<p>
+  //&#8211;with-ffmpeg编译ffmpeg模块
+</p>
+<p>
+  =》make -j2 //编译srs程序
+</p>
+<p>
+  //-j2 可选项指定是使用的CPU核数指有CPU有多少核，用来加快编译速度
+</p>
+<p>
+  =》make install
+</p>
+<p>
+  或者：
+</p>
+<p>
+  ./configure &#8211;prefix=/www/server/srs &#8211;with-ffmpeg &amp;&amp; make -j2 &amp;&amp; make install
+</p>
+<p>
+  启动srs服务器
+</p>
+<h1><a id="post-6335-_________________"></a><a id="post-6335-_Toc256000005"></a>搭建一个简单的推流和拉流地址管理</h1>
+<p><img loading="lazy" decoding="async" width="1476" height="258" src="/wp-content/uploads/2018/05/word-image-5777.png" class="wp-image-6338" srcset="/wp-content/uploads/2018/05/word-image-5777.png 1476w, /wp-content/uploads/2018/05/word-image-5777-300x52.png 300w, /wp-content/uploads/2018/05/word-image-5777-768x134.png 768w, /wp-content/uploads/2018/05/word-image-5777-1024x179.png 1024w" sizes="(max-width: 1476px) 100vw, 1476px" /></p>
+<h2><a id="post-6335-__________________"></a><a id="post-6335-_Toc256000006"></a>创建一个用于保存推流和拉流地址的表</h2>
+<p>
+  建表语句：
+</p>
+<p>
+  CREATE TABLE applive.live
+</p>
+<p>
+  (
+</p>
+<p>
+      id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+</p>
+<p>
+      push_url VARCHAR(255) COMMENT &#8216;推流地址&#8217;,
+</p>
+<p>
+      pull_url VARCHAR(255) COMMENT &#8216;拉流地址&#8217;
+</p>
+<p>
+  );
+</p>
+<p>
+  CREATE UNIQUE INDEX live_push_url_uindex ON applive.live (push_url);
+</p>
+<p>
+  CREATE UNIQUE INDEX live_pull_url_uindex ON applive.live (pull_url);
+</p>
+<p>
+  ALTER TABLE applive.live COMMENT = &#8216;保存直播的推流和拉流的表&#8217;;
+</p>
+<h2><a id="post-6335-___Yii2______"></a><a id="post-6335-_Toc256000007"></a>使用Yii2创建一个项目</h2>
+<p>
+  参考官网最新的文档：<a href="http://www.yiiframework.com/doc-2.0/guide-start-installation.html">http://www.yiiframework.com/doc-2.0/guide-start-installation.html</a>
+</p>
+<p>
+  下载Yii2源代码：
+</p>
+<p>
+  如果没有安装composer：
+</p>
+<p>
+  curl -sS <a href="https://getcomposer.org/installer">https://getcomposer.org/installer</a> | ph
+</p>
+<p>
+  mv composer.phar /usr/local/bin/composer
+</p>
+<p>
+  进入到可以通过web访问的目录
+</p>
+<p>
+  =》composer global require &#8220;fxp/composer-asset-plugin:^1.2.0&#8221;
+</p>
+<p>
+  创建一个项目：
+</p>
+<p>
+  composer create-project &#8211;prefer-dist yiisoft/yii2-app-basic AppLive
+</p>
+<h2><a id="post-6335-_Yii2_______"></a><a id="post-6335-_Toc256000008"></a>Yii2框架的手册要点</h2>
+<h2><a id="post-6335-___Yii2________"></a><a id="post-6335-_Toc256000009"></a>启动Yii2项目的测试服务器</h2>
+<p>
+  =》cd /wokers/AppLive 进入项目目录
+</p>
+<p>
+  =》php yii serve/index
+</p>
+<h2><a id="post-6335-_________2"></a><a id="post-6335-_Toc256000010"></a>修改数据库配置</h2>
+<p>
+  修改默认的数据库以及数据库用户名和密码
+</p>
+<p>
+  由于Yii框架默认配置了数据库以及数据库的用户名和密码信息，所以需要修改成自己的数据库配置信息：
+</p>
+<h2><a id="post-6335-___gii__live______"></a><a id="post-6335-_Toc256000011"></a>使用gii生成live表的增删改查</h2>
+<p><img loading="lazy" decoding="async" width="915" height="206" src="/wp-content/uploads/2018/05/word-image-5778.png" class="wp-image-6340" srcset="/wp-content/uploads/2018/05/word-image-5778.png 915w, /wp-content/uploads/2018/05/word-image-5778-300x68.png 300w, /wp-content/uploads/2018/05/word-image-5778-768x173.png 768w" sizes="(max-width: 915px) 100vw, 915px" /></p>
+<p>
+  多学一招：线上部署如果想使用gii需要单独配置IP白名单
+</p>
+<h3><a id="post-6335-___live______"></a><a id="post-6335-_Toc256000012"></a>生成live表对应的模型</h3>
+<h3><a id="post-6335-_______"></a><a id="post-6335-_Toc256000013"></a>生成增删改查</h3>
+<h1><a id="post-6335-___srs____________"></a><a id="post-6335-_Toc256000014"></a>使用srs提供有效的推流和拉流地址</h1>
+<p><img loading="lazy" decoding="async" width="1673" height="206" src="/wp-content/uploads/2018/05/word-image-5779.png" class="wp-image-6341" srcset="/wp-content/uploads/2018/05/word-image-5779.png 1673w, /wp-content/uploads/2018/05/word-image-5779-300x37.png 300w, /wp-content/uploads/2018/05/word-image-5779-768x95.png 768w, /wp-content/uploads/2018/05/word-image-5779-1024x126.png 1024w" sizes="(max-width: 1673px) 100vw, 1673px" /></p>
+<h2><a id="post-6335-___srs____rtmp_______"></a><a id="post-6335-_Toc256000015"></a>使用srs启动一个rtmp协议的直播服务</h2>
+<p>
+  由于需要以rtmp协议进行直播服务，所以要使用rtmp直播服务的对应配置文件来启动srs
+</p>
+<p>
+  =》cd /www/server/srs //切换到程序安装目录
+</p>
+<p>
+  =》./objs/src -c ./conf/rtmp.conf
+</p>
+<h2><a id="post-6335-___________________2"></a><a id="post-6335-_Toc256000016"></a>获取推流和拉流的默认地址并进行测试</h2>
+<p>
+  rtmp默认的推流地址：rtmp://服务器IP地址/live/livestream
+</p>
+<p>
+  rtmp默认的拉流地址：rtmp://服务器IP地址/live/livestream
+</p>
+<p>
+  例如：我的srs服务器对应的推流和拉流地址
+</p>
+<p>
+  推流地址：rtmp://116.62.60.90/live/livestream
+</p>
+<p>
+  拉流地址：rtmp://116.62.60.90/live/livestream
+</p>
+<h2><a id="post-6335-________________live__"></a><a id="post-6335-_Toc256000017"></a>将推流和拉流地址分别存入数据库live表中</h2>
+<h1><a id="post-6335-___apicloud____APP"></a><a id="post-6335-_Toc256000018"></a>使用apicloud创建直播APP</h1>
+<p><img loading="lazy" decoding="async" width="1515" height="258" src="/wp-content/uploads/2018/05/word-image-5780.png" class="wp-image-6342" srcset="/wp-content/uploads/2018/05/word-image-5780.png 1515w, /wp-content/uploads/2018/05/word-image-5780-300x51.png 300w, /wp-content/uploads/2018/05/word-image-5780-768x131.png 768w, /wp-content/uploads/2018/05/word-image-5780-1024x174.png 1024w" sizes="(max-width: 1515px) 100vw, 1515px" /></p>
+<h2><a id="post-6335-___apicloud__"></a><a id="post-6335-_Toc256000019"></a>注册apicloud账号</h2>
+<h2><a id="post-6335-_____APP"></a><a id="post-6335-_Toc256000020"></a>创建一个APP</h2>
+<h2><a id="post-6335-__APP__________"></a><a id="post-6335-_Toc256000021"></a>将APP的初始代码检出到本地</h2>
+<p>
+  注意：检出的用户名是注册时候的邮箱
+</p>
+<h2><a id="post-6335-__APP___PHP______________"></a><a id="post-6335-_Toc256000022"></a>在APP中请求PHP提供的接口获取推流和拉流地址</h2>
+<p><img loading="lazy" decoding="async" width="930" height="199" src="/wp-content/uploads/2018/05/word-image-5781.png" class="wp-image-6343" srcset="/wp-content/uploads/2018/05/word-image-5781.png 930w, /wp-content/uploads/2018/05/word-image-5781-300x64.png 300w, /wp-content/uploads/2018/05/word-image-5781-768x164.png 768w" sizes="(max-width: 930px) 100vw, 930px" /></p>
+<h3><a id="post-6335-___PHP______"></a><a id="post-6335-_Toc256000023"></a>编写PHP接口提供数据</h3>
+<p>
+  使用yii提供的gii代码生成工具生成输出直播数据的控制器
+</p>
+<p><strong>编写代码输出数据</strong>
+</p>
+<p>
+  访问上面生成的ApiController中的index方法
+</p>
+<p><a href="http://0.0.0.0:8080/?r=api/index">http://0.0.0.0:8080/?r=api/index</a>
+</p>
+<h2><a id="post-6335-__APP___________"></a><a id="post-6335-_Toc256000024"></a>在APP端通过接口获取对应数据</h2>
+<p>
+  注意：安卓模拟器中，无法直接访问localhost:8080
+</p>
+<p>
+  脚下留心：默认发送post请求时必须携带csrf token验证，否则报错，这里需要设置白名单：enableCsrfValidation=false
+</p>
+<h1><a id="post-6335-___palyModule____"></a><a id="post-6335-_Toc256000025"></a>使用palyModule实现直播</h1>
+<p><img loading="lazy" decoding="async" width="1120" height="206" src="/wp-content/uploads/2018/05/word-image-5782.png" class="wp-image-6344" srcset="/wp-content/uploads/2018/05/word-image-5782.png 1120w, /wp-content/uploads/2018/05/word-image-5782-300x55.png 300w, /wp-content/uploads/2018/05/word-image-5782-768x141.png 768w, /wp-content/uploads/2018/05/word-image-5782-1024x188.png 1024w" sizes="(max-width: 1120px) 100vw, 1120px" /></p>
+<h2><a id="post-6335-___playModule__"></a><a id="post-6335-_Toc256000026"></a>添加playModule模块</h2>
+<h2><a id="post-6335-___________"></a><a id="post-6335-_Toc256000027"></a>编写代码获取推流地址</h2>
+<h2><a id="post-6335-_________3"></a><a id="post-6335-_Toc256000028"></a>上传代码云编译</h2>
+<h1><a id="post-6335-______2"></a><a id="post-6335-_Toc256000029"></a>实现推流</h1>
+<p><img loading="lazy" decoding="async" width="714" height="206" src="/wp-content/uploads/2018/05/word-image-5783.png" class="wp-image-6345" srcset="/wp-content/uploads/2018/05/word-image-5783.png 714w, /wp-content/uploads/2018/05/word-image-5783-300x87.png 300w" sizes="(max-width: 714px) 100vw, 714px" /></p>
+<h2><a id="post-6335-____________"></a><a id="post-6335-_Toc256000030"></a>实现推流地址下拉列表框</h2>
+<h2><a id="post-6335-_______ytylive______"></a><a id="post-6335-_Toc256000031"></a>使用模块插件ytylive实现推流效果</h2>
+<p><img loading="lazy" decoding="async" width="1448" height="224" src="/wp-content/uploads/2018/05/word-image-5784.png" class="wp-image-6346" srcset="/wp-content/uploads/2018/05/word-image-5784.png 1448w, /wp-content/uploads/2018/05/word-image-5784-300x46.png 300w, /wp-content/uploads/2018/05/word-image-5784-768x119.png 768w, /wp-content/uploads/2018/05/word-image-5784-1024x158.png 1024w" sizes="(max-width: 1448px) 100vw, 1448px" /></p>
+<h3><a id="post-6335-________2"></a><a id="post-6335-_Toc256000032"></a>选择模块插件</h3>
+<h3><a id="post-6335-________3"></a><a id="post-6335-_Toc256000033"></a>编码实现推流</h3>
+<h3><a id="post-6335-_____________________"></a><a id="post-6335-_Toc256000034"></a>使用播放器或者新的安卓模拟器进行效果查看</h3>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6335.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,1146 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Mysql 扩展 &#8211; 个人随笔</title>
+	<atom:link href="/label/mysql-%E6%89%A9%E5%B1%95/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 12:21:00 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>Mysql 扩展 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>PHP 核心编程（二）Mysql 扩展、 数据库连接、 笑话增删改查</title>
+		<link>/php/1603.html</link>
+					<comments>/php/1603.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 10:20:34 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP核心编程]]></category>
+		<category><![CDATA[Mysql 扩展]]></category>
+		<category><![CDATA[数据库连接]]></category>
+		<category><![CDATA[笑话增删改查]]></category>
+		<guid isPermaLink="false">/?p=1603</guid>
+
+					<description><![CDATA[PHP核心编程（MySQL扩展） 回顾MySQL MySQL是CS结构的软件 在任务管理器中查看 数据库引擎  [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>PHP核心编程（MySQL扩展）</h1>
+<h2>回顾MySQL</h2>
+<h3>MySQL是CS结构的软件</h3>
+<p><img fetchpriority="high" decoding="async" width="749" height="176" src="/wp-content/uploads/2018/05/word-image-1437.png" class="wp-image-1605" srcset="/wp-content/uploads/2018/05/word-image-1437.png 749w, /wp-content/uploads/2018/05/word-image-1437-300x70.png 300w" sizes="(max-width: 749px) 100vw, 749px" /></p>
+<p>
+  在任务管理器中查看
+</p>
+<p><img decoding="async" width="535" height="152" src="/wp-content/uploads/2018/05/word-image-1438.png" class="wp-image-1606" srcset="/wp-content/uploads/2018/05/word-image-1438.png 535w, /wp-content/uploads/2018/05/word-image-1438-300x85.png 300w" sizes="(max-width: 535px) 100vw, 535px" /></p>
+<h3>数据库引擎</h3>
+<p>
+  innodb：默认情况下所有表数据在一个文件中
+</p>
+<p>
+  myisam：默认情况下每个表都是独立的
+</p>
+<p><img decoding="async" width="682" height="60" src="/wp-content/uploads/2018/05/word-image-1439.png" class="wp-image-1607" srcset="/wp-content/uploads/2018/05/word-image-1439.png 682w, /wp-content/uploads/2018/05/word-image-1439-300x26.png 300w" sizes="(max-width: 682px) 100vw, 682px" /></p>
+<p>
+  如果表文件是独立的，在做数据迁移的时候可以直接拷贝表文件。
+</p>
+<h3>MySQL客户端</h3>
+<p>
+  一：命令行客户端
+</p>
+<p>
+  	优点：启动方便，运行速度快
+</p>
+<p>
+  	缺点：不是可视化界面
+</p>
+<p>
+  二：phpMyAdmin（web形式的客户端）
+</p>
+<p>
+  	优点：只要有浏览器就可以操作数据库
+</p>
+<p>
+  	缺点：不能保存没有操作完毕的数据
+</p>
+<p>
+  三：navicate或mysql-front（window界面客户端）
+</p>
+<p>
+  	优点：可以保存没有操作完毕的数据
+</p>
+<p>
+  	缺点：需要安装才能使用。
+</p>
+<p>
+  四：PHP页面做客户端
+</p>
+<h2>将PHP作为MySQL客户端</h2>
+<p>
+  要使用php链接MySQL必须开启相应的扩展
+</p>
+<p><img loading="lazy" decoding="async" width="707" height="283" src="/wp-content/uploads/2018/05/word-image-1440.png" class="wp-image-1608" srcset="/wp-content/uploads/2018/05/word-image-1440.png 707w, /wp-content/uploads/2018/05/word-image-1440-300x120.png 300w" sizes="(max-width: 707px) 100vw, 707px" /></p>
+<h3>PHP有三种扩展连接数据库</h3>
+<p>
+  方式一：mysql扩展
+</p>
+<p>
+  方法二：mysqli扩展
+</p>
+<p>
+  方法三：pdo扩展
+</p>
+<p><img loading="lazy" decoding="async" width="965" height="234" src="/wp-content/uploads/2018/05/word-image-1441.png" class="wp-image-1609" srcset="/wp-content/uploads/2018/05/word-image-1441.png 965w, /wp-content/uploads/2018/05/word-image-1441-300x73.png 300w, /wp-content/uploads/2018/05/word-image-1441-768x186.png 768w" sizes="(max-width: 965px) 100vw, 965px" /></p>
+<h2>连接数据库</h2>
+<p>
+  mysql_connect(‘主机地址:端口号’,’用户名’,’密码’)
+</p>
+<p>
+  连接失败执行or后面的内容
+</p>
+<p><img loading="lazy" decoding="async" width="1028" height="58" src="/wp-content/uploads/2018/05/word-image-1442.png" class="wp-image-1611" srcset="/wp-content/uploads/2018/05/word-image-1442.png 1028w, /wp-content/uploads/2018/05/word-image-1442-300x17.png 300w, /wp-content/uploads/2018/05/word-image-1442-768x43.png 768w, /wp-content/uploads/2018/05/word-image-1442-1024x58.png 1024w" sizes="(max-width: 1028px) 100vw, 1028px" /></p>
+<p>
+  连接成功返回连接资源
+</p>
+<p><img loading="lazy" decoding="async" width="1108" height="56" src="/wp-content/uploads/2018/05/word-image-1443.png" class="wp-image-1612" srcset="/wp-content/uploads/2018/05/word-image-1443.png 1108w, /wp-content/uploads/2018/05/word-image-1443-300x15.png 300w, /wp-content/uploads/2018/05/word-image-1443-768x39.png 768w, /wp-content/uploads/2018/05/word-image-1443-1024x52.png 1024w" sizes="(max-width: 1108px) 100vw, 1108px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="1261" height="165" src="/wp-content/uploads/2018/05/word-image-1444.png" class="wp-image-1613" srcset="/wp-content/uploads/2018/05/word-image-1444.png 1261w, /wp-content/uploads/2018/05/word-image-1444-300x39.png 300w, /wp-content/uploads/2018/05/word-image-1444-768x100.png 768w, /wp-content/uploads/2018/05/word-image-1444-1024x134.png 1024w" sizes="(max-width: 1261px) 100vw, 1261px" /></p>
+<p>
+  如果端口号是3306，端口号可以省略
+</p>
+<p><img loading="lazy" decoding="async" width="848" height="24" src="/wp-content/uploads/2018/05/word-image-1445.png" class="wp-image-1614" srcset="/wp-content/uploads/2018/05/word-image-1445.png 848w, /wp-content/uploads/2018/05/word-image-1445-300x8.png 300w, /wp-content/uploads/2018/05/word-image-1445-768x22.png 768w" sizes="(max-width: 848px) 100vw, 848px" /></p>
+<h2>选择数据库</h2>
+<p>
+  方法一：通过mysql_select_db()函数
+</p>
+<p><img loading="lazy" decoding="async" width="457" height="25" src="/wp-content/uploads/2018/05/word-image-1446.png" class="wp-image-1615" srcset="/wp-content/uploads/2018/05/word-image-1446.png 457w, /wp-content/uploads/2018/05/word-image-1446-300x16.png 300w" sizes="(max-width: 457px) 100vw, 457px" /></p>
+<p>
+  方法二：通过执行SQL语句
+</p>
+<p><img loading="lazy" decoding="async" width="573" height="22" src="/wp-content/uploads/2018/05/word-image-1447.png" class="wp-image-1616" srcset="/wp-content/uploads/2018/05/word-image-1447.png 573w, /wp-content/uploads/2018/05/word-image-1447-300x12.png 300w" sizes="(max-width: 573px) 100vw, 573px" /></p>
+<h2>设置字符编码</h2>
+<p><img loading="lazy" decoding="async" width="517" height="27" src="/wp-content/uploads/2018/05/word-image-1448.png" class="wp-image-1617" srcset="/wp-content/uploads/2018/05/word-image-1448.png 517w, /wp-content/uploads/2018/05/word-image-1448-300x16.png 300w" sizes="(max-width: 517px) 100vw, 517px" /></p>
+<h2>显示数据</h2>
+<p><img loading="lazy" decoding="async" width="724" height="68" src="/wp-content/uploads/2018/05/word-image-1449.png" class="wp-image-1618" srcset="/wp-content/uploads/2018/05/word-image-1449.png 724w, /wp-content/uploads/2018/05/word-image-1449-300x28.png 300w" sizes="(max-width: 724px) 100vw, 724px" /></p>
+<h2>将资源匹配成数组</h2>
+<h3>mysql_fetch_row：将资源中的一条数据匹配成索引数组</h3>
+<p>
+  将资源中的一条数据匹配成索引数组，并且指针下移一条。
+</p>
+<p><img loading="lazy" decoding="async" width="741" height="94" src="/wp-content/uploads/2018/05/word-image-1450.png" class="wp-image-1619" srcset="/wp-content/uploads/2018/05/word-image-1450.png 741w, /wp-content/uploads/2018/05/word-image-1450-300x38.png 300w" sizes="(max-width: 741px) 100vw, 741px" /></p>
+<h3>mysql_fetch_assoc：将资源中的一条数据匹配成关联数组</h3>
+<p>
+  将资源中的一条数据匹配成关联数组，并且指针下移一条。通过字段名做键
+</p>
+<p><img loading="lazy" decoding="async" width="718" height="83" src="/wp-content/uploads/2018/05/word-image-1451.png" class="wp-image-1620" srcset="/wp-content/uploads/2018/05/word-image-1451.png 718w, /wp-content/uploads/2018/05/word-image-1451-300x35.png 300w" sizes="(max-width: 718px) 100vw, 718px" /></p>
+<h3>mysql_fetch_array：匹配数组中既有关联数组又有索引数组</h3>
+<p>
+  将资源中的数据匹配成结果数组，此数组中既有关联数组又有索引数组
+</p>
+<p><img loading="lazy" decoding="async" width="1171" height="106" src="/wp-content/uploads/2018/05/word-image-1452.png" class="wp-image-1621" srcset="/wp-content/uploads/2018/05/word-image-1452.png 1171w, /wp-content/uploads/2018/05/word-image-1452-300x27.png 300w, /wp-content/uploads/2018/05/word-image-1452-768x70.png 768w, /wp-content/uploads/2018/05/word-image-1452-1024x93.png 1024w" sizes="(max-width: 1171px) 100vw, 1171px" /></p>
+<h3>mysql_fetch_object：匹配成对象</h3>
+<p>
+  将每一条记录匹配成对象，表中的字段是对象的属性，在PHP中对象访问属性使用-&gt;符号。
+</p>
+<p><img loading="lazy" decoding="async" width="725" height="91" src="/wp-content/uploads/2018/05/word-image-1453.png" class="wp-image-1622" srcset="/wp-content/uploads/2018/05/word-image-1453.png 725w, /wp-content/uploads/2018/05/word-image-1453-300x38.png 300w" sizes="(max-width: 725px) 100vw, 725px" /></p>
+<h2>获取资源的记录数</h2>
+<p><img loading="lazy" decoding="async" width="440" height="45" src="/wp-content/uploads/2018/05/word-image-1454.png" class="wp-image-1623" srcset="/wp-content/uploads/2018/05/word-image-1454.png 440w, /wp-content/uploads/2018/05/word-image-1454-300x31.png 300w" sizes="(max-width: 440px) 100vw, 440px" /></p>
+<h2>获取资源的字段数</h2>
+<p><img loading="lazy" decoding="async" width="401" height="23" src="/wp-content/uploads/2018/05/word-image-1455.png" class="wp-image-1624" srcset="/wp-content/uploads/2018/05/word-image-1455.png 401w, /wp-content/uploads/2018/05/word-image-1455-300x17.png 300w" sizes="(max-width: 401px) 100vw, 401px" /></p>
+<h2>释放资源</h2>
+<p><img loading="lazy" decoding="async" width="284" height="25" src="/wp-content/uploads/2018/05/word-image-1456.png" class="wp-image-1625" /></p>
+<h2>关闭连接</h2>
+<p><img loading="lazy" decoding="async" width="167" height="22" src="/wp-content/uploads/2018/05/word-image-1457.png" class="wp-image-1626" /></p>
+<h2>连接数据库完整例题</h2>
+<p>
+  &lt;?php
+</p>
+<p>
+  //连接数据库
+</p>
+<p>
+  	$link=@mysql_connect(&#8216;localhost&#8217;,&#8217;root&#8217;,&#8217;root&#8217;);	//连接数据库
+</p>
+<p>
+  	if(!$link){
+</p>
+<p>
+  		echo &#8216;数据库连接失败&lt;br&gt;&#8217;;
+</p>
+<p>
+  		echo &#8216;错误信息：&#8217;.mysql_error(),'&lt;br&gt;&#8217;;	//返回上一个MySQL操作产生的文本错误信息
+</p>
+<p>
+  		echo &#8216;错误编码：&#8217;.mysql_errno(),'&lt;br&gt;&#8217;;	//返回上一个MySQL操作中的错误信息的数字编码
+</p>
+<p>
+  		exit;
+</p>
+<p>
+  	}
+</p>
+<p>
+  //选择数据库
+</p>
+<p>
+  	//mysql_select_db(&#8216;jokedb&#8217;);	//选择数据库(方法一)
+</p>
+<p>
+  	mysql_query(&#8216;use jokedb&#8217;);		//选择数据库方法二
+</p>
+<p>
+  //设置字符编码
+</p>
+<p>
+  	mysql_query(&#8216;set names utf8&#8217;);	//设置字符编码
+</p>
+<p>
+  //获取笑话类别
+</p>
+<p>
+  	$rs=mysql_query(&#8216;select * from title&#8217;);
+</p>
+<p>
+  //将资源中的数据匹配成索引数组
+</p>
+<p>
+  /*
+</p>
+<p>
+  	while($rows=mysql_fetch_row($rs)){
+</p>
+<p>
+  		print_r($rows);
+</p>
+<p>
+  		echo &#8216;&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  */
+</p>
+<p>
+  //将资源中的数据匹配成关联数组
+</p>
+<p>
+  /*
+</p>
+<p>
+  	while($rows=mysql_fetch_assoc($rs)){
+</p>
+<p>
+  		print_r($rows);
+</p>
+<p>
+  		echo &#8216;&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  */
+</p>
+<p>
+  //将资源中的数据匹配成结果数组，此数组中既有关联数组又有索引数组
+</p>
+<p>
+  /*
+</p>
+<p>
+  	while($rows=mysql_fetch_array($rs)){
+</p>
+<p>
+  		print_r($rows);
+</p>
+<p>
+  		echo &#8216;&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  */
+</p>
+<p>
+  //将资源中的数据匹配成对象
+</p>
+<p>
+  	while($rows=mysql_fetch_object($rs)){
+</p>
+<p>
+  		echo $rows-&gt;Id,&#8217;-&#8216;,$rows-&gt;Title,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  //资源中的记录数
+</p>
+<p>
+  	echo mysql_num_rows($rs),'&lt;br&gt;&#8217;;
+</p>
+<p>
+  //资源中的字段数
+</p>
+<p>
+  	echo mysql_num_fields($rs),'&lt;br&gt;&#8217;;
+</p>
+<p>
+  //释放资源
+</p>
+<p>
+  mysql_free_result($rs);
+</p>
+<p>
+  //关闭连接
+</p>
+<p>
+  mysql_close();
+</p>
+<p>
+  ?&gt;
+</p>
+<h2>总结用到的函数</h2>
+<ol>
+<li>
+  mysql_connect()：连接数据库
+</li>
+<li>
+  mysql_error()：返回上一个MySQL操作产生的文本错误信息
+</li>
+<li>
+  mysql_errno()：返回上一个MySQL操作中的错误信息的数字编码
+</li>
+<li>
+  mysql_select_db()：选择数据库
+</li>
+<li>
+  mysql_query()：执行SQL语句
+</li>
+<li>
+  mysql_fetch_row()：匹配成索引数组
+</li>
+<li>
+  mysql_fetch_assoc()：匹配成关联数组
+</li>
+<li>
+  mysql_fetch_array()：匹配成既有关联数组又有索引数组
+</li>
+<li>
+  mysql_fetch_object()：将资源匹配成对象。
+</li>
+<li>
+  mysql_num_rows()：资源的记录数
+</li>
+<li>
+  mysql_num_fields()：资源的字段数
+</li>
+<li>
+  mysql_free_result()：释放资源
+</li>
+<li>
+  mysql_close()：关闭连接
+</li>
+</ol>
+<h2>项目实现——显示笑话</h2>
+<h3>显示笑话类别</h3>
+<p>
+  显示笑话类别，点击笑话类别传递笑话的编号
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	@mysql_connect(&#8216;localhost&#8217;,&#8217;root&#8217;,&#8217;root&#8217;) or die(mysql_error());	//连接数据库
+</p>
+<p>
+  	mysql_query(&#8216;use jokedb&#8217;);		     //选择数据库
+</p>
+<p>
+  	mysql_query(&#8216;set names utf8&#8217;);	//设置字符
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;!&#8211;显示笑话类别&#8211;&gt;
+</p>
+<p>
+  &lt;table&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;?php
+</p>
+<p>
+  			$rs=mysql_query(&#8216;select * from title&#8217;);
+</p>
+<p>
+  			$n=0;
+</p>
+<p>
+  			while($rows=mysql_fetch_assoc($rs)):
+</p>
+<p>
+  		?&gt;
+</p>
+<p>
+  			&lt;th&gt;&lt;a href=&#8221;?titleid=&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&#8221;&gt;&lt;?php echo $rows[&#8216;Title&#8217;]?&gt;&lt;/a&gt;&lt;/th&gt;
+</p>
+<p>
+  		&lt;?php
+</p>
+<p>
+  			if(++$n%9==0)
+</p>
+<p>
+  				echo &#8216;&lt;/tr&gt;&lt;tr&gt;&#8217;;
+</p>
+<p>
+  			endwhile;
+</p>
+<p>
+  		?&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="1124" height="125" src="/wp-content/uploads/2018/05/word-image-1458.png" class="wp-image-1627" srcset="/wp-content/uploads/2018/05/word-image-1458.png 1124w, /wp-content/uploads/2018/05/word-image-1458-300x33.png 300w, /wp-content/uploads/2018/05/word-image-1458-768x85.png 768w, /wp-content/uploads/2018/05/word-image-1458-1024x114.png 1024w" sizes="(max-width: 1124px) 100vw, 1124px" /></p>
+<h3>显示笑话内容</h3>
+<p><img loading="lazy" decoding="async" width="1070" height="473" src="/wp-content/uploads/2018/05/word-image-1459.png" class="wp-image-1628" srcset="/wp-content/uploads/2018/05/word-image-1459.png 1070w, /wp-content/uploads/2018/05/word-image-1459-300x133.png 300w, /wp-content/uploads/2018/05/word-image-1459-768x339.png 768w, /wp-content/uploads/2018/05/word-image-1459-1024x453.png 1024w" sizes="(max-width: 1070px) 100vw, 1070px" /></p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="1109" height="210" src="/wp-content/uploads/2018/05/word-image-1460.png" class="wp-image-1629" srcset="/wp-content/uploads/2018/05/word-image-1460.png 1109w, /wp-content/uploads/2018/05/word-image-1460-300x57.png 300w, /wp-content/uploads/2018/05/word-image-1460-768x145.png 768w, /wp-content/uploads/2018/05/word-image-1460-1024x194.png 1024w" sizes="(max-width: 1109px) 100vw, 1109px" /></p>
+<p>
+  “显示笑话内容”的完整代码
+</p>
+<p>
+  &lt;!doctype html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;title&gt;无标题文档&lt;/title&gt;
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  	table{
+</p>
+<p>
+  		width:980px;
+</p>
+<p>
+  		margin:auto;
+</p>
+<p>
+  		border:#000 solid 1px;
+</p>
+<p>
+  		font-size:12px;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	td,th{
+</p>
+<p>
+  		border:#000 solid 1px;
+</p>
+<p>
+  	}
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	@mysql_connect(&#8216;localhost&#8217;,&#8217;root&#8217;,&#8217;root&#8217;) or die(mysql_error());	//连接数据库
+</p>
+<p>
+  	mysql_query(&#8216;use jokedb&#8217;);		//选择数据库
+</p>
+<p>
+  	mysql_query(&#8216;set names utf8&#8217;);	//设置字符
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;!&#8211;显示笑话类别&#8211;&gt;
+</p>
+<p>
+  &lt;table&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;?php
+</p>
+<p>
+  			$rs=mysql_query(&#8216;select * from title&#8217;);
+</p>
+<p>
+  			$n=0;
+</p>
+<p>
+  			while($rows=mysql_fetch_assoc($rs)):
+</p>
+<p>
+  		?&gt;
+</p>
+<p>
+  			&lt;th&gt;&lt;a href=&#8221;?titleid=&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&#8221;&gt;&lt;?php echo $rows[&#8216;Title&#8217;]?&gt;&lt;/a&gt;&lt;/th&gt;
+</p>
+<p>
+  		&lt;?php
+</p>
+<p>
+  			if(++$n%9==0)
+</p>
+<p>
+  				echo &#8216;&lt;/tr&gt;&lt;tr&gt;&#8217;;
+</p>
+<p>
+  			endwhile;
+</p>
+<p>
+  		?&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p>
+  &lt;!&#8211;显示笑话内容&#8211;&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	$titleid=isset($_GET[&#8216;titleid&#8217;])?$_GET[&#8216;titleid&#8217;]:1;	//获取笑话类别
+</p>
+<p>
+  	$sql=&#8221;select * from contents where title=$titleid order by id desc&#8221;;		//拼接查询语句
+</p>
+<p>
+  	$rs=mysql_query($sql);
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;table&gt;
+</p>
+<p>
+  &lt;tr&gt;
+</p>
+<p>
+  	&lt;th&gt;编号&lt;/th&gt; &lt;th&gt;内容&lt;/th&gt; &lt;th&gt;作者&lt;/th&gt;
+</p>
+<p>
+  &lt;/tr&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  while($rows=mysql_fetch_assoc($rs)):
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Contents&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Author&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  endwhile;
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h2>项目实现——文件包含</h2>
+<p>
+  css样式代码在每个页面都要使用，在站点下创建style文件夹，在style文件夹中创建home.css样式，此样式为所有页面公用样式
+</p>
+<p><img loading="lazy" decoding="async" width="640" height="246" src="/wp-content/uploads/2018/05/word-image-1461.png" class="wp-image-1630" srcset="/wp-content/uploads/2018/05/word-image-1461.png 640w, /wp-content/uploads/2018/05/word-image-1461-300x115.png 300w" sizes="(max-width: 640px) 100vw, 640px" /></p>
+<p>
+  其他页面引入样式文件即可
+</p>
+<p><img loading="lazy" decoding="async" width="639" height="53" src="/wp-content/uploads/2018/05/word-image-1462.png" class="wp-image-1631" srcset="/wp-content/uploads/2018/05/word-image-1462.png 639w, /wp-content/uploads/2018/05/word-image-1462-300x25.png 300w" sizes="(max-width: 639px) 100vw, 639px" /></p>
+<p>
+  连接数据代码在项目中要出现多次，为了减少代码冗余，我们将相同的代码做成包含文件。
+</p>
+<p>
+  在站点下创建inc文件夹，在此文件夹中创建conn.php页面，此页面用来连接数据库
+</p>
+<p><img loading="lazy" decoding="async" width="1209" height="136" src="/wp-content/uploads/2018/05/word-image-1463.png" class="wp-image-1632" srcset="/wp-content/uploads/2018/05/word-image-1463.png 1209w, /wp-content/uploads/2018/05/word-image-1463-300x34.png 300w, /wp-content/uploads/2018/05/word-image-1463-768x86.png 768w, /wp-content/uploads/2018/05/word-image-1463-1024x115.png 1024w" sizes="(max-width: 1209px) 100vw, 1209px" /></p>
+<p>
+  其他页面包含conn.php页面即可
+</p>
+<p><img loading="lazy" decoding="async" width="537" height="135" src="/wp-content/uploads/2018/05/word-image-1464.png" class="wp-image-1633" srcset="/wp-content/uploads/2018/05/word-image-1464.png 537w, /wp-content/uploads/2018/05/word-image-1464-300x75.png 300w" sizes="(max-width: 537px) 100vw, 537px" /></p>
+<h2>项目实现——添加笑话</h2>
+<h3>进入添加笑话页面的入口</h3>
+<p><img loading="lazy" decoding="async" width="879" height="163" src="/wp-content/uploads/2018/05/word-image-1465.png" class="wp-image-1634" srcset="/wp-content/uploads/2018/05/word-image-1465.png 879w, /wp-content/uploads/2018/05/word-image-1465-300x56.png 300w, /wp-content/uploads/2018/05/word-image-1465-768x142.png 768w" sizes="(max-width: 879px) 100vw, 879px" /></p>
+<h3>显示添加笑话页面</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  	require &#8216;./inc/conn.php&#8217;;
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form method=&#8221;post&#8221; action=&#8221;&#8221;&gt;
+</p>
+<p>
+  	&lt;table&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;th colspan=&#8217;2&#8242;&gt;添加笑话&lt;/th&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td&gt;笑话类别&lt;/td&gt;
+</p>
+<p>
+  			&lt;td&gt;
+</p>
+<p>
+  				&lt;select name=&#8221;type&#8221;&gt;
+</p>
+<p>
+  					&lt;?php
+</p>
+<p>
+  						$rs=mysql_query(&#8216;select * from title&#8217;);
+</p>
+<p>
+  						while($rows=mysql_fetch_assoc($rs)):
+</p>
+<p>
+  					?&gt;
+</p>
+<p>
+  						&lt;option value=&#8221;&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&#8221;&gt;&lt;?php echo $rows[&#8216;Title&#8217;]?&gt;&lt;/option&gt;
+</p>
+<p>
+  					&lt;?php
+</p>
+<p>
+  						endwhile;
+</p>
+<p>
+  					?&gt;
+</p>
+</p>
+<p>
+  				&lt;/select&gt;
+</p>
+<p>
+  			&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td&gt;笑话内容&lt;/td&gt;
+</p>
+<p>
+  			&lt;td&gt;&lt;textarea name=&#8217;content&#8217; rows=&#8217;5&#8242;&gt;&lt;/textarea&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td&gt;作者&lt;/td&gt;
+</p>
+<p>
+  			&lt;td&gt;&lt;input type=&#8221;text&#8221; name=&#8221;author&#8221; id=&#8221;&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td colspan=&#8217;2&#8242; align=&#8217;center&#8217;&gt;
+</p>
+<p>
+  				&lt;input type=&#8221;submit&#8221; value=&#8221;添加笑话&#8221;&gt;
+</p>
+<p>
+  				&lt;input type=&#8221;button&#8221; value=&#8221;返回&#8221; onclick=&#8217;location.href=&#8221;index.php&#8221;&#8216;&gt;
+</p>
+<p>
+  			&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  	&lt;/table&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="1099" height="272" src="/wp-content/uploads/2018/05/word-image-1466.png" class="wp-image-1635" srcset="/wp-content/uploads/2018/05/word-image-1466.png 1099w, /wp-content/uploads/2018/05/word-image-1466-300x74.png 300w, /wp-content/uploads/2018/05/word-image-1466-768x190.png 768w, /wp-content/uploads/2018/05/word-image-1466-1024x253.png 1024w" sizes="(max-width: 1099px) 100vw, 1099px" /></p>
+<h3>实现添加笑话业务逻辑</h3>
+<p>
+  知识点
+</p>
+<p>
+  脚下留心：mysql_query()的返回值
+</p>
+<ol>
+<li>
+  执行数据查询语句（select,show）返回数据资源,失败返回false
+</li>
+<li>
+  执行数据操作语句（insert,update,delete）成功返回true，失败返回false。
+</li>
+</ol>
+<p>
+  脚下留心：跳转的方式
+</p>
+<ol>
+<li>
+  超链接跳转	&lt;a href=’地址’&gt;&lt;/a&gt;
+</li>
+<li>
+  Js跳转		location对象
+</li>
+<li>
+  PHP跳转		header(‘location:地址’);
+</li>
+</ol>
+<p>
+  实现代码
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	require &#8216;./inc/conn.php&#8217;;
+</p>
+<p>
+  	if(!empty($_POST)){
+</p>
+<p>
+  		$titleid=$_POST[&#8216;type&#8217;];	//类别id
+</p>
+<p>
+  		$content=$_POST[&#8216;content&#8217;];	//笑话内容
+</p>
+<p>
+  		$author=$_POST[&#8216;author&#8217;];	//笑话作者
+</p>
+<p>
+  		$sql=&#8221;insert into contents (title,contents,author) values ($titleid,&#8217;$content&#8217;,&#8217;$author&#8217;)&#8221;;
+</p>
+<p>
+  		if(mysql_query($sql))
+</p>
+<p>
+  			header(&#8216;location:index.php?titleid=&#8217;.$titleid);	//跳转到index.php页面
+</p>
+<p>
+  		else{
+</p>
+<p>
+  			echo &#8216;&lt;div&gt;添加失败&lt;/div&gt;&#8217;;
+</p>
+<p>
+  		}
+</p>
+<p>
+  		exit;
+</p>
+<p>
+  	}
+</p>
+<p>
+  ?&gt;
+</p>
+<h2>项目实现——删除笑话</h2>
+<h3>添加删除和修改按钮</h3>
+<p>
+  &lt;table&gt;
+</p>
+<p>
+  &lt;tr&gt;
+</p>
+<p>
+  	&lt;th&gt;编号&lt;/th&gt; &lt;th&gt;内容&lt;/th&gt; &lt;th&gt;作者&lt;/th&gt; &lt;th&gt;删除&lt;/th&gt; &lt;th&gt;修改&lt;/th&gt;
+</p>
+<p>
+  &lt;/tr&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  while($rows=mysql_fetch_assoc($rs)):
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Contents&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Author&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;input type=&#8221;button&#8221; value=&#8221;删除&#8221; onclick=&#8221;if(confirm(&#8216;确定要删除吗&#8217;))location.href=&#8217;del.php?id=&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&amp;titleid=&lt;?php echo $rows[&#8216;Title&#8217;]?&gt;'&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;input type=&#8221;button&#8221; value=&#8221;修改&#8221;&gt; &lt;/td&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  endwhile;
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="984" height="186" src="/wp-content/uploads/2018/05/word-image-1467.png" class="wp-image-1636" srcset="/wp-content/uploads/2018/05/word-image-1467.png 984w, /wp-content/uploads/2018/05/word-image-1467-300x57.png 300w, /wp-content/uploads/2018/05/word-image-1467-768x145.png 768w" sizes="(max-width: 984px) 100vw, 984px" /></p>
+<h3>执行删除的业务逻辑</h3>
+<p>
+  在站点下新建del.php页面，用来执行删除的业务逻辑
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	require &#8216;./inc/conn.php&#8217;;
+</p>
+<p>
+  	$id=$_GET[&#8216;id&#8217;];	//获取删除的id
+</p>
+<p>
+  	$titleid=$_GET[&#8216;titleid&#8217;];	//获取删除笑话的类别编号
+</p>
+<p>
+  	$sql=&#8221;delete from contents where id=$id&#8221;;
+</p>
+<p>
+  	if(mysql_query($sql))
+</p>
+<p>
+  		header(&#8216;location:index.php?titleid=&#8217;.$titleid);
+</p>
+<p>
+  	else
+</p>
+<p>
+  		echo mysql_error();
+</p>
+<p>
+  脚下留心：del.php页面不需要html结构，因为del.php页面只执行业务逻辑，没有显示功能。只要没有显示功能的页面都不需要html结构。
+</p>
+<h2>项目实现——修改笑话</h2>
+<h3>修改笑话入口（index.php）</h3>
+<p>
+  &lt;td&gt;&lt;input type=&#8221;button&#8221; value=&#8221;修改&#8221; onclick=&#8217;location.href=&#8221;update.php?id=&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&#8221;&#8216;&gt; &lt;/td&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="997" height="100" src="/wp-content/uploads/2018/05/word-image-1468.png" class="wp-image-1637" srcset="/wp-content/uploads/2018/05/word-image-1468.png 997w, /wp-content/uploads/2018/05/word-image-1468-300x30.png 300w, /wp-content/uploads/2018/05/word-image-1468-768x77.png 768w" sizes="(max-width: 997px) 100vw, 997px" /></p>
+<h3>显示修改界面</h3>
+<p>
+  在站点下创建update.php页面
+</p>
+<p>
+  &lt;!doctype html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;title&gt;无标题文档&lt;/title&gt;
+</p>
+<p>
+  &lt;link rel=&#8217;stylesheet&#8217; href=&#8217;style/home.css&#8217;/&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	require &#8216;./inc/conn.php&#8217;;
+</p>
+<p>
+  	$id=(int)$_GET[&#8216;id&#8217;];	//获取修改的编号
+</p>
+<p>
+  	$rs=mysql_query(&#8220;select * from contents where id=$id&#8221;);	//修改笑话信息
+</p>
+<p>
+  	if(mysql_num_rows($rs)!=1){
+</p>
+<p>
+  		echo &#8216;访问非法&#8217;;
+</p>
+<p>
+  		exit;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	$info=mysql_fetch_assoc($rs);	//将需要修改的信息转换成关联数组
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form method=&#8221;post&#8221; action=&#8221;&#8221;&gt;
+</p>
+<p>
+  	&lt;table&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;th colspan=&#8217;2&#8242;&gt;修改笑话&lt;/th&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td&gt;笑话类别&lt;/td&gt;
+</p>
+<p>
+  			&lt;td&gt;
+</p>
+<p>
+  				&lt;select name=&#8221;type&#8221;&gt;
+</p>
+<p>
+  					&lt;?php
+</p>
+<p>
+  						$rs=mysql_query(&#8216;select * from title&#8217;);
+</p>
+<p>
+  						while($rows=mysql_fetch_assoc($rs)):
+</p>
+<p>
+  					?&gt;
+</p>
+<p>
+  						&lt;option value=&#8221;&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&#8221; &lt;?php echo $rows[&#8216;Id&#8217;]==$info[&#8216;Title&#8217;]?&#8217;selected&#8217;:&#8221;?&gt;&gt;&lt;?php echo $rows[&#8216;Title&#8217;]?&gt;&lt;/option&gt;
+</p>
+<p>
+  					&lt;?php
+</p>
+<p>
+  						endwhile;
+</p>
+<p>
+  					?&gt;
+</p>
+</p>
+<p>
+  				&lt;/select&gt;
+</p>
+<p>
+  			&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td&gt;笑话内容&lt;/td&gt;
+</p>
+<p>
+  			&lt;td&gt;&lt;textarea name=&#8217;content&#8217; rows=&#8217;5&#8242;&gt;&lt;?php echo $info[&#8216;Contents&#8217;]?&gt;&lt;/textarea&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td&gt;作者&lt;/td&gt;
+</p>
+<p>
+  			&lt;td&gt;&lt;input type=&#8221;text&#8221; name=&#8221;author&#8221; value=&#8221;&lt;?php echo $info[&#8216;Author&#8217;]?&gt;&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  		&lt;tr&gt;
+</p>
+<p>
+  			&lt;td colspan=&#8217;2&#8242; align=&#8217;center&#8217;&gt;
+</p>
+<p>
+  				&lt;input type=&#8221;submit&#8221; value=&#8221;修改笑话&#8221;&gt;
+</p>
+<p>
+  				&lt;input type=&#8221;button&#8221; value=&#8221;返回&#8221; onclick=&#8217;location.href=&#8221;index.php&#8221;&#8216;&gt;
+</p>
+<p>
+  			&lt;/td&gt;
+</p>
+<p>
+  		&lt;/tr&gt;
+</p>
+<p>
+  	&lt;/table&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="768" height="273" src="/wp-content/uploads/2018/05/word-image-1469.png" class="wp-image-1638" srcset="/wp-content/uploads/2018/05/word-image-1469.png 768w, /wp-content/uploads/2018/05/word-image-1469-300x107.png 300w" sizes="(max-width: 768px) 100vw, 768px" /></p>
+<h3>实现修改的业务逻辑</h3>
+<p><img loading="lazy" decoding="async" width="1295" height="430" src="/wp-content/uploads/2018/05/word-image-1470.png" class="wp-image-1639" srcset="/wp-content/uploads/2018/05/word-image-1470.png 1295w, /wp-content/uploads/2018/05/word-image-1470-300x100.png 300w, /wp-content/uploads/2018/05/word-image-1470-768x255.png 768w, /wp-content/uploads/2018/05/word-image-1470-1024x340.png 1024w" sizes="(max-width: 1295px) 100vw, 1295px" /></p>
+<h2>作业</h2>
+<p>
+  通过phpmyadmin和mysql-font做数据迁移</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/1603.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Session &#8211; 个人随笔</title>
+	<atom:link href="/label/session/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 12:20:31 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>Session &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>PHP 核心编程（四）Cookie、 Session、 响应头、 短连接、 请求头、 长链接</title>
+		<link>/php/1410.html</link>
+					<comments>/php/1410.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 09:42:49 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP核心编程]]></category>
+		<category><![CDATA[Cookie]]></category>
+		<category><![CDATA[Session]]></category>
+		<category><![CDATA[响应头]]></category>
+		<category><![CDATA[短连接]]></category>
+		<category><![CDATA[请求头]]></category>
+		<category><![CDATA[长链接]]></category>
+		<guid isPermaLink="false">/?p=1410</guid>
+
+					<description><![CDATA[Cookie和Session Cookie介绍 引入cookie的概念 思考：A页面中访问B页面的变量如何实现 [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h1>Cookie和Session</h1>
+<h2>Cookie介绍</h2>
+<h3>引入cookie的概念</h3>
+<p>
+  思考：A页面中访问B页面的变量如何实现？
+</p>
+<p>
+  方法一：包含文件
+</p>
+<p>
+  方法二：get或者post传递
+</p>
+<p>
+  方法三：将数据保存到请求头中，目标页面就可以到请求头中获取数据。这就是cookie。
+</p>
+<p>
+  Cookie是放在请求头中的一个信息包。
+</p>
+<h3>cookie的原理</h3>
+<p><img fetchpriority="high" decoding="async" width="1027" height="297" src="/wp-content/uploads/2018/05/word-image-1344.png" class="wp-image-1507" srcset="/wp-content/uploads/2018/05/word-image-1344.png 1027w, /wp-content/uploads/2018/05/word-image-1344-300x87.png 300w, /wp-content/uploads/2018/05/word-image-1344-768x222.png 768w, /wp-content/uploads/2018/05/word-image-1344-1024x296.png 1024w" sizes="(max-width: 1027px) 100vw, 1027px" /></p>
+<h3>请求头和响应头</h3>
+<p>
+  请求头的信息用来告知服务器客户端的信息
+</p>
+<p><img decoding="async" width="1093" height="148" src="/wp-content/uploads/2018/05/word-image-1345.png" class="wp-image-1508" srcset="/wp-content/uploads/2018/05/word-image-1345.png 1093w, /wp-content/uploads/2018/05/word-image-1345-300x41.png 300w, /wp-content/uploads/2018/05/word-image-1345-768x104.png 768w, /wp-content/uploads/2018/05/word-image-1345-1024x139.png 1024w" sizes="(max-width: 1093px) 100vw, 1093px" /></p>
+<p>
+  响应头的信息用来告知客户端服务器的信息
+</p>
+<p><img decoding="async" width="773" height="139" src="/wp-content/uploads/2018/05/word-image-1346.png" class="wp-image-1509" srcset="/wp-content/uploads/2018/05/word-image-1346.png 773w, /wp-content/uploads/2018/05/word-image-1346-300x54.png 300w, /wp-content/uploads/2018/05/word-image-1346-768x138.png 768w" sizes="(max-width: 773px) 100vw, 773px" /></p>
+<h3>长连接</h3>
+<p><img loading="lazy" decoding="async" width="647" height="234" src="/wp-content/uploads/2018/05/word-image-1347.png" class="wp-image-1510" srcset="/wp-content/uploads/2018/05/word-image-1347.png 647w, /wp-content/uploads/2018/05/word-image-1347-300x109.png 300w" sizes="(max-width: 647px) 100vw, 647px" /></p>
+<p>
+  TCP：是一个连接协议
+</p>
+<p>
+  http：是一个访问协议
+</p>
+<p>
+  在http请求之前有一个TCP连接的过程，http响应后不立即关闭连接，而是等5秒，以便第二次访问的时候不需要建立连接，从而节省资源，提高效率。
+</p>
+<h2>Cookie使用</h2>
+<p><img loading="lazy" decoding="async" width="942" height="88" src="/wp-content/uploads/2018/05/word-image-1348.png" class="wp-image-1511" srcset="/wp-content/uploads/2018/05/word-image-1348.png 942w, /wp-content/uploads/2018/05/word-image-1348-300x28.png 300w, /wp-content/uploads/2018/05/word-image-1348-768x72.png 768w" sizes="(max-width: 942px) 100vw, 942px" /></p>
+<h3>设置cookie</h3>
+<p>
+  语法：setcookie(‘名’,’值’)
+</p>
+<p>
+  分析如下情况，为什么第一次访问报错？再次访问可以获取到cookie的值
+</p>
+<p><img loading="lazy" decoding="async" width="779" height="221" src="/wp-content/uploads/2018/05/word-image-1349.png" class="wp-image-1512" srcset="/wp-content/uploads/2018/05/word-image-1349.png 779w, /wp-content/uploads/2018/05/word-image-1349-300x85.png 300w, /wp-content/uploads/2018/05/word-image-1349-768x218.png 768w" sizes="(max-width: 779px) 100vw, 779px" /></p>
+<p>
+  刷新浏览器
+</p>
+<p><img loading="lazy" decoding="async" width="561" height="120" src="/wp-content/uploads/2018/05/word-image-1350.png" class="wp-image-1513" srcset="/wp-content/uploads/2018/05/word-image-1350.png 561w, /wp-content/uploads/2018/05/word-image-1350-300x64.png 300w" sizes="(max-width: 561px) 100vw, 561px" /></p>
+<p>
+  原因：
+</p>
+<p>
+  第一次访问的时候请求头中没有cookie的信息，第一次访问服务器通过响应头将cookie的值发送到客户端
+</p>
+<p><img loading="lazy" decoding="async" width="887" height="523" src="/wp-content/uploads/2018/05/word-image-1351.png" class="wp-image-1514" srcset="/wp-content/uploads/2018/05/word-image-1351.png 887w, /wp-content/uploads/2018/05/word-image-1351-300x177.png 300w, /wp-content/uploads/2018/05/word-image-1351-768x453.png 768w" sizes="(max-width: 887px) 100vw, 887px" /></p>
+<p>
+  第二次再次访问的时候，cookie的信息就会自动存放到请求头中带到服务器去。服务器就可以获取cookie的值
+</p>
+<p><img loading="lazy" decoding="async" width="932" height="607" src="/wp-content/uploads/2018/05/word-image-1352.png" class="wp-image-1515" srcset="/wp-content/uploads/2018/05/word-image-1352.png 932w, /wp-content/uploads/2018/05/word-image-1352-300x195.png 300w, /wp-content/uploads/2018/05/word-image-1352-768x500.png 768w" sizes="(max-width: 932px) 100vw, 932px" /></p>
+<h3>Cookie保存在浏览器上</h3>
+<p><img loading="lazy" decoding="async" width="339" height="477" src="/wp-content/uploads/2018/05/word-image-1353.png" class="wp-image-1516" srcset="/wp-content/uploads/2018/05/word-image-1353.png 339w, /wp-content/uploads/2018/05/word-image-1353-213x300.png 213w" sizes="(max-width: 339px) 100vw, 339px" /><br />
+<img loading="lazy" decoding="async" width="783" height="191" src="/wp-content/uploads/2018/05/word-image-1354.png" class="wp-image-1517" srcset="/wp-content/uploads/2018/05/word-image-1354.png 783w, /wp-content/uploads/2018/05/word-image-1354-300x73.png 300w, /wp-content/uploads/2018/05/word-image-1354-768x187.png 768w" sizes="(max-width: 783px) 100vw, 783px" /><br />
+<img loading="lazy" decoding="async" width="525" height="543" src="/wp-content/uploads/2018/05/word-image-1355.png" class="wp-image-1518" srcset="/wp-content/uploads/2018/05/word-image-1355.png 525w, /wp-content/uploads/2018/05/word-image-1355-290x300.png 290w" sizes="(max-width: 525px) 100vw, 525px" /></p>
+<h3>cookie的分类</h3>
+<p>
+  cookie可以分为两类：临时性cookie和永久性cookie
+</p>
+<p>
+  临时性cookie：关闭浏览器cookie就消失
+</p>
+<p>
+  永久性cookie：关闭浏览器cookie不消失，在临时cookie基础上添加过期时间
+</p>
+<p>
+  语法：setcookie(名，值，过期时间)，过期时间用时间戳
+</p>
+<p><img loading="lazy" decoding="async" width="792" height="81" src="/wp-content/uploads/2018/05/word-image-1356.png" class="wp-image-1519" srcset="/wp-content/uploads/2018/05/word-image-1356.png 792w, /wp-content/uploads/2018/05/word-image-1356-300x31.png 300w, /wp-content/uploads/2018/05/word-image-1356-768x79.png 768w" sizes="(max-width: 792px) 100vw, 792px" /></p>
+<p>
+  查看cookie
+</p>
+<p><img loading="lazy" decoding="async" width="543" height="539" src="/wp-content/uploads/2018/05/word-image-1357.png" class="wp-image-1520" srcset="/wp-content/uploads/2018/05/word-image-1357.png 543w, /wp-content/uploads/2018/05/word-image-1357-150x150.png 150w, /wp-content/uploads/2018/05/word-image-1357-300x298.png 300w" sizes="(max-width: 543px) 100vw, 543px" /></p>
+<p>
+  永久性cookie的作用，用来实现记住用户名和密码
+</p>
+<p><img loading="lazy" decoding="async" width="460" height="267" src="/wp-content/uploads/2018/05/word-image-1358.png" class="wp-image-1521" srcset="/wp-content/uploads/2018/05/word-image-1358.png 460w, /wp-content/uploads/2018/05/word-image-1358-300x174.png 300w" sizes="(max-width: 460px) 100vw, 460px" /></p>
+<p>
+  脚下留心：cookie保存在浏览器上，火狐保存的cookie不可以通过ie等其他浏览器访问。那个浏览器保存的cookie那个浏览器访问。
+</p>
+<h3>Cookie中保存数据的类型</h3>
+<p>
+  保存字符串
+</p>
+<p><img loading="lazy" decoding="async" width="716" height="47" src="/wp-content/uploads/2018/05/word-image-1359.png" class="wp-image-1522" srcset="/wp-content/uploads/2018/05/word-image-1359.png 716w, /wp-content/uploads/2018/05/word-image-1359-300x20.png 300w" sizes="(max-width: 716px) 100vw, 716px" /></p>
+<p>
+  保存数字
+</p>
+<p><img loading="lazy" decoding="async" width="550" height="48" src="/wp-content/uploads/2018/05/word-image-1360.png" class="wp-image-1523" srcset="/wp-content/uploads/2018/05/word-image-1360.png 550w, /wp-content/uploads/2018/05/word-image-1360-300x26.png 300w" sizes="(max-width: 550px) 100vw, 550px" /></p>
+<p>
+  不能保存布尔型
+</p>
+<p><img loading="lazy" decoding="async" width="820" height="148" src="/wp-content/uploads/2018/05/word-image-1361.png" class="wp-image-1524" srcset="/wp-content/uploads/2018/05/word-image-1361.png 820w, /wp-content/uploads/2018/05/word-image-1361-300x54.png 300w, /wp-content/uploads/2018/05/word-image-1361-768x139.png 768w" sizes="(max-width: 820px) 100vw, 820px" /></p>
+<p>
+  不能保存null型
+</p>
+<p><img loading="lazy" decoding="async" width="777" height="100" src="/wp-content/uploads/2018/05/word-image-1362.png" class="wp-image-1525" srcset="/wp-content/uploads/2018/05/word-image-1362.png 777w, /wp-content/uploads/2018/05/word-image-1362-300x39.png 300w, /wp-content/uploads/2018/05/word-image-1362-768x99.png 768w" sizes="(max-width: 777px) 100vw, 777px" /></p>
+<p>
+  不能保存数组和对象
+</p>
+<p><img loading="lazy" decoding="async" width="935" height="89" src="/wp-content/uploads/2018/05/word-image-1363.png" class="wp-image-1526" srcset="/wp-content/uploads/2018/05/word-image-1363.png 935w, /wp-content/uploads/2018/05/word-image-1363-300x29.png 300w, /wp-content/uploads/2018/05/word-image-1363-768x73.png 768w" sizes="(max-width: 935px) 100vw, 935px" /></p>
+<p>
+  总结：cookie只能保存字符串和数字。
+</p>
+<h3>删除cookie</h3>
+<p><img loading="lazy" decoding="async" width="927" height="40" src="/wp-content/uploads/2018/05/word-image-1364.png" class="wp-image-1527" srcset="/wp-content/uploads/2018/05/word-image-1364.png 927w, /wp-content/uploads/2018/05/word-image-1364-300x13.png 300w, /wp-content/uploads/2018/05/word-image-1364-768x33.png 768w" sizes="(max-width: 927px) 100vw, 927px" /><br />
+<img loading="lazy" decoding="async" width="892" height="37" src="/wp-content/uploads/2018/05/word-image-1365.png" class="wp-image-1528" srcset="/wp-content/uploads/2018/05/word-image-1365.png 892w, /wp-content/uploads/2018/05/word-image-1365-300x12.png 300w, /wp-content/uploads/2018/05/word-image-1365-768x32.png 768w" sizes="(max-width: 892px) 100vw, 892px" /><br />
+<img loading="lazy" decoding="async" width="673" height="32" src="/wp-content/uploads/2018/05/word-image-1366.png" class="wp-image-1529" srcset="/wp-content/uploads/2018/05/word-image-1366.png 673w, /wp-content/uploads/2018/05/word-image-1366-300x14.png 300w" sizes="(max-width: 673px) 100vw, 673px" /></p>
+<h3>Cookie名字支持下标</h3>
+<p>
+  Cookie在浏览器上是没有数组概念的。浏览器请求到服务器，PHP将同名的参数转换成数组。
+</p>
+<p><img loading="lazy" decoding="async" width="810" height="115" src="/wp-content/uploads/2018/05/word-image-1367.png" class="wp-image-1530" srcset="/wp-content/uploads/2018/05/word-image-1367.png 810w, /wp-content/uploads/2018/05/word-image-1367-300x43.png 300w, /wp-content/uploads/2018/05/word-image-1367-768x109.png 768w" sizes="(max-width: 810px) 100vw, 810px" /></p>
+<p>
+  4-demo2.php上获取cookie
+</p>
+<p><img loading="lazy" decoding="async" width="830" height="90" src="/wp-content/uploads/2018/05/word-image-1368.png" class="wp-image-1531" srcset="/wp-content/uploads/2018/05/word-image-1368.png 830w, /wp-content/uploads/2018/05/word-image-1368-300x33.png 300w, /wp-content/uploads/2018/05/word-image-1368-768x83.png 768w" sizes="(max-width: 830px) 100vw, 830px" /></p>
+<h3>Cookie的有效目录</h3>
+<p>
+  默认情况下，cookie只能在设置cookie页面当前目录及后代目录下起作用
+</p>
+<p>
+  我们要在整个站点目录下起作用，设置第四个参数。“/”表示根目录下有效。
+</p>
+<p><img loading="lazy" decoding="async" width="664" height="29" src="/wp-content/uploads/2018/05/word-image-1369.png" class="wp-image-1532" srcset="/wp-content/uploads/2018/05/word-image-1369.png 664w, /wp-content/uploads/2018/05/word-image-1369-300x13.png 300w" sizes="(max-width: 664px) 100vw, 664px" /></p>
+<h3>Cookie支持子域名</h3>
+<p>
+  多学一招：域名的基础知识
+</p>
+<p>
+  域名从级别上来分分为一级域名，二级域名，三级域名,…
+</p>
+<p><a href="http://www.baidu.com/">www.baidu.com</a>：一级域名
+</p>
+<p><a href="http://www.aa.baidu.com/" class="broken_link">www.aa.baidu.com</a>：二级域名
+</p>
+<p><a href="http://www.aa.bb.cc.baidu.com/" class="broken_link">www.aa.bb.cc.baidu.com</a>：四级域名
+</p>
+<p><a href="http://www.itcast.cn/">www.itcast.cn</a>：一级域名
+</p>
+<p><a href="http://www.php.itcast.cn/" class="broken_link">www.php.itcast.cn</a>：二级域名
+</p>
+<p><a href="http://www.sh.itcast.cn/" class="broken_link">www.sh.itcast.cn</a>：二级域名
+</p>
+<p>
+  域名从地区上分分为：国内域名，国际域名
+</p>
+<p>
+  国内域名：从域名上可以区分国家
+</p>
+<p>
+  国际域名：从域名上不能区分那个国家
+</p>
+<p>
+  .com: 表示公司 company
+</p>
+<p>
+  .co:表示公司，和.com是一样的，因为.com快耗尽了
+</p>
+<p>
+  .cc：表示中国公司
+</p>
+<p>
+  .net：表示与网络有关的公司
+</p>
+<p>
+  .gov：政府
+</p>
+<p><a href="http://www.aa.com/" class="broken_link">www.aa.com</a>	国际域名
+</p>
+<p><a href="http://www.aa.net/">www.aa.net</a>	国际域名
+</p>
+<p><a href="http://www.aa.cn/" class="broken_link">www.aa.cn</a>		国内域名（中国）
+</p>
+<p><a href="http://www.aa.tw/" class="broken_link">www.aa.tw</a>		国内域名（台湾）
+</p>
+<p><a href="http://www.aa.jp/" class="broken_link">www.aa.jp</a>		国内域名（日本）
+</p>
+<p><a href="http://www.aa.af/" class="broken_link">www.aa.af</a>		国内域名（阿富汗）
+</p>
+<p>
+  默认情况下，cookie的值是区分子域名的，我们可以通过设置域名使得cookie在所有的子域名中访问
+</p>
+<p><img loading="lazy" decoding="async" width="611" height="86" src="/wp-content/uploads/2018/05/word-image-1370.png" class="wp-image-1533" srcset="/wp-content/uploads/2018/05/word-image-1370.png 611w, /wp-content/uploads/2018/05/word-image-1370-300x42.png 300w" sizes="(max-width: 611px) 100vw, 611px" /></p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="624" height="97" src="/wp-content/uploads/2018/05/word-image-1371.png" class="wp-image-1534" srcset="/wp-content/uploads/2018/05/word-image-1371.png 624w, /wp-content/uploads/2018/05/word-image-1371-300x47.png 300w" sizes="(max-width: 624px) 100vw, 624px" /><br />
+<img loading="lazy" decoding="async" width="504" height="98" src="/wp-content/uploads/2018/05/word-image-1372.png" class="wp-image-1535" srcset="/wp-content/uploads/2018/05/word-image-1372.png 504w, /wp-content/uploads/2018/05/word-image-1372-300x58.png 300w" sizes="(max-width: 504px) 100vw, 504px" /></p>
+<h3>是否安全传输</h3>
+<p>
+  setcookie(名字，值，过期时间，有效目录，子域名，是否安全传输=false)
+</p>
+<p>
+  默认是false。
+</p>
+<p>
+  如果是true只能是https协议才能传输cookie，http不能传输。
+</p>
+<p><img loading="lazy" decoding="async" width="913" height="191" src="/wp-content/uploads/2018/05/word-image-1373.png" class="wp-image-1536" srcset="/wp-content/uploads/2018/05/word-image-1373.png 913w, /wp-content/uploads/2018/05/word-image-1373-300x63.png 300w, /wp-content/uploads/2018/05/word-image-1373-768x161.png 768w" sizes="(max-width: 913px) 100vw, 913px" /></p>
+<h3>是否安全访问</h3>
+<p>
+  setcookie(名字，值，过期时间，有效目录，子域名，是否安全传输，是否安全访问=false)
+</p>
+<p>
+  默认情况下，js和php都可以获取cookie的值
+</p>
+<p><img loading="lazy" decoding="async" width="675" height="227" src="/wp-content/uploads/2018/05/word-image-1374.png" class="wp-image-1537" srcset="/wp-content/uploads/2018/05/word-image-1374.png 675w, /wp-content/uploads/2018/05/word-image-1374-300x101.png 300w" sizes="(max-width: 675px) 100vw, 675px" /></p>
+<p>
+  设为true，表示安全访问，只能通过PHP获取cookie，不能通过js获取。
+</p>
+<p><img loading="lazy" decoding="async" width="708" height="197" src="/wp-content/uploads/2018/05/word-image-1375.png" class="wp-image-1538" srcset="/wp-content/uploads/2018/05/word-image-1375.png 708w, /wp-content/uploads/2018/05/word-image-1375-300x83.png 300w" sizes="(max-width: 708px) 100vw, 708px" /></p>
+<h3>Cookie的缺点</h3>
+<ol>
+<li>
+  cookie保存在客户端安全性比较低
+</li>
+<li>
+  cookie只能保存数字和字符串，可控性比较差
+</li>
+<li>
+  增加请求时数据负载
+</li>
+<li>
+  浏览器对cookie是有大小限制的，一般的4K。
+</li>
+</ol>
+<h2>Session（会话）</h2>
+<ol>
+<li>
+  session是基于cookie技术的
+</li>
+<li>
+  session是将信息保存在服务器的技术，
+</li>
+<li>
+  要使用会话，需要开启会话。session_start()，默认情况下会话不会自动开启。
+</li>
+<li>
+  要自动开启会话，在php.ini文件中设置session.auto_start = 1，重启服务器。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="792" height="26" src="/wp-content/uploads/2018/05/word-image-1376.png" class="wp-image-1539" srcset="/wp-content/uploads/2018/05/word-image-1376.png 792w, /wp-content/uploads/2018/05/word-image-1376-300x10.png 300w, /wp-content/uploads/2018/05/word-image-1376-768x25.png 768w" sizes="(max-width: 792px) 100vw, 792px" /></p>
+<ol>
+<li>
+  session_id()：获取会话编号
+</li>
+<li>
+  session_name()：获取会话名称
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="836" height="109" src="/wp-content/uploads/2018/05/word-image-1377.png" class="wp-image-1540" srcset="/wp-content/uploads/2018/05/word-image-1377.png 836w, /wp-content/uploads/2018/05/word-image-1377-300x39.png 300w, /wp-content/uploads/2018/05/word-image-1377-768x100.png 768w" sizes="(max-width: 836px) 100vw, 836px" /></p>
+<ol>
+<li>
+  session可以保存除了资源以外的任何数据类型。
+</li>
+<li>
+  重复开启会话会报错
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="951" height="47" src="/wp-content/uploads/2018/05/word-image-1378.png" class="wp-image-1541" srcset="/wp-content/uploads/2018/05/word-image-1378.png 951w, /wp-content/uploads/2018/05/word-image-1378-300x15.png 300w, /wp-content/uploads/2018/05/word-image-1378-768x38.png 768w" sizes="(max-width: 951px) 100vw, 951px" /></p>
+<p>
+  可以通过@屏蔽错误
+</p>
+<p><img loading="lazy" decoding="async" width="593" height="45" src="/wp-content/uploads/2018/05/word-image-1379.png" class="wp-image-1542" srcset="/wp-content/uploads/2018/05/word-image-1379.png 593w, /wp-content/uploads/2018/05/word-image-1379-300x23.png 300w" sizes="(max-width: 593px) 100vw, 593px" /></p>
+<h3>session的执行过程</h3>
+<p><img loading="lazy" decoding="async" width="471" height="212" src="/wp-content/uploads/2018/05/word-image-1380.png" class="wp-image-1543" srcset="/wp-content/uploads/2018/05/word-image-1380.png 471w, /wp-content/uploads/2018/05/word-image-1380-300x135.png 300w" sizes="(max-width: 471px) 100vw, 471px" /></p>
+<p>
+  第一步：当使用session_start()函数，PHP就从打开session仓库。
+</p>
+<p>
+  如果是第一次访问，服务器会给客户端赋一个唯一的会话id。这个id保存在cookie中，在后面的访问中通过会话id访问会话的内容。
+</p>
+<p>
+  如果不是第一次访问，通过会话id加载对应的会话文件。
+</p>
+<p>
+  第二步：在PHP运行过程中，PHP可以对会话进行操作
+</p>
+<p>
+  第三步：当PHP脚本执行结束，没有被销毁的会话自动的保存到session仓库中，以便下次访问的时候加载使用。
+</p>
+<p>
+  	只能访问自己的会话，不能访问别人的会话，因为每个人的会话编号不同。
+</p>
+<h3>会话的配置</h3>
+<ol>
+<li>
+  session.save_path=&#8221;F:\wamp\tmp\tmp&#8221;：会话加载的位置
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="522" height="112" src="/wp-content/uploads/2018/05/word-image-1381.png" class="wp-image-1544" srcset="/wp-content/uploads/2018/05/word-image-1381.png 522w, /wp-content/uploads/2018/05/word-image-1381-300x64.png 300w" sizes="(max-width: 522px) 100vw, 522px" /></p>
+<ol>
+<li>
+  session.auto_start = 0：是否自动开启会话
+</li>
+<li>
+  session.name = PHPSESSID：设置会话编号的名字
+</li>
+<li>
+  session.cookie_path = /：保存会话编号的cookie整站有效
+</li>
+<li>
+  session.cookie_domain =：保存会话编号的cookie当前域名下有效
+</li>
+<li>
+  session.gc_maxlifetime = 1440：会话过期时间，默认1440秒=24分钟
+</li>
+<li>
+  session.cookie_lifetime = 0：会话编号在客户端保存的时间，0表示关闭浏览器就失效
+</li>
+<li>
+  session.save_handler = files：会话通过文件来保存
+</li>
+</ol>
+<h3>销毁会话</h3>
+<p>
+  session_destroy()
+</p>
+<p>
+  调用此函数会删除存储介质中的文件。
+</p>
+<p>
+  执行了销毁会话就不执行会话写操作
+</p>
+<p><img loading="lazy" decoding="async" width="361" height="62" src="/wp-content/uploads/2018/05/word-image-1382.png" class="wp-image-1545" srcset="/wp-content/uploads/2018/05/word-image-1382.png 361w, /wp-content/uploads/2018/05/word-image-1382-300x52.png 300w" sizes="(max-width: 361px) 100vw, 361px" /></p>
+<h3>垃圾回收</h3>
+<p><img loading="lazy" decoding="async" width="960" height="328" src="/wp-content/uploads/2018/05/word-image-1383.png" class="wp-image-1546" srcset="/wp-content/uploads/2018/05/word-image-1383.png 960w, /wp-content/uploads/2018/05/word-image-1383-300x103.png 300w, /wp-content/uploads/2018/05/word-image-1383-768x262.png 768w" sizes="(max-width: 960px) 100vw, 960px" /></p>
+<p>
+  测试
+</p>
+<p><img loading="lazy" decoding="async" width="811" height="92" src="/wp-content/uploads/2018/05/word-image-1384.png" class="wp-image-1547" srcset="/wp-content/uploads/2018/05/word-image-1384.png 811w, /wp-content/uploads/2018/05/word-image-1384-300x34.png 300w, /wp-content/uploads/2018/05/word-image-1384-768x87.png 768w" sizes="(max-width: 811px) 100vw, 811px" /></p>
+<p>
+  PHP认为超出了会话过期时间的文件是垃圾文件。PHP垃圾回收机制自动执行垃圾回收。
+</p>
+<h3>session和cookie的区别</h3>
+<p>
+  相同点
+</p>
+<ol>
+<li>
+  他们都是会话技术，都是有生命周期的
+</li>
+<li>
+  都是无状态性的
+</li>
+</ol>
+<p>
+  不同点
+</p>
+<table>
+<tr>
+<td></td>
+<td>
+<p>
+  cookie
+</p>
+</td>
+<td>
+<p>
+  session
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  保存的位置
+</p>
+</td>
+<td>
+<p>
+  客户端
+</p>
+</td>
+<td>
+<p>
+  服务器端
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  数据大小
+</p>
+</td>
+<td>
+<p>
+  4K
+</p>
+</td>
+<td>
+<p>
+  没有限制
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  数据类型
+</p>
+</td>
+<td>
+<p>
+  字符串和数字
+</p>
+</td>
+<td>
+<p>
+  除了资源以为的所有类型
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  安全性
+</p>
+</td>
+<td>
+<p>
+  低
+</p>
+</td>
+<td>
+<p>
+  高
+</p>
+</td>
+</tr>
+</table>
+<p>
+  Cookie和session都是实现在整个访问过程中可以访问到变量的值。
+</p>
+<h2>禁用cookie对session的影响</h2>
+<p><img loading="lazy" decoding="async" width="478" height="217" src="/wp-content/uploads/2018/05/word-image-1385.png" class="wp-image-1548" srcset="/wp-content/uploads/2018/05/word-image-1385.png 478w, /wp-content/uploads/2018/05/word-image-1385-300x136.png 300w" sizes="(max-width: 478px) 100vw, 478px" /><br />
+<img loading="lazy" decoding="async" width="790" height="341" src="/wp-content/uploads/2018/05/word-image-1386.png" class="wp-image-1549" srcset="/wp-content/uploads/2018/05/word-image-1386.png 790w, /wp-content/uploads/2018/05/word-image-1386-300x129.png 300w, /wp-content/uploads/2018/05/word-image-1386-768x332.png 768w" sizes="(max-width: 790px) 100vw, 790px" /></p>
+<p>
+  脚下留心：默认情况下，session是基于cookie技术的，如果禁用了cookie，session也是无法使用
+</p>
+<p>
+  服务器是无法控制客户端是否禁用cookie,解决方法：通过get传递会话编号。
+</p>
+<p>
+  实现方法；
+</p>
+<p>
+  在php.ini中设置session.use_only_cookies = 0：表示session不仅仅依赖于cookie
+</p>
+<p>
+  在php.ini中设置session.use_trans_sid = 1：表示运行通过其他方式传输sessionid。
+</p>
+<p><img loading="lazy" decoding="async" width="632" height="54" src="/wp-content/uploads/2018/05/word-image-1387.png" class="wp-image-1550" srcset="/wp-content/uploads/2018/05/word-image-1387.png 632w, /wp-content/uploads/2018/05/word-image-1387-300x26.png 300w" sizes="(max-width: 632px) 100vw, 632px" /></p>
+<p>
+  页面中get提交的地址后面都会自动添加sessionid参数，表单中都会添加sessionid的隐藏域
+</p>
+<p><img loading="lazy" decoding="async" width="813" height="130" src="/wp-content/uploads/2018/05/word-image-1388.png" class="wp-image-1551" srcset="/wp-content/uploads/2018/05/word-image-1388.png 813w, /wp-content/uploads/2018/05/word-image-1388-300x48.png 300w, /wp-content/uploads/2018/05/word-image-1388-768x123.png 768w" sizes="(max-width: 813px) 100vw, 813px" /></p>
+<h2>Session入库</h2>
+<p>
+  在处理大量数据的时候，会话保存到数据库中文件中效率要高。
+</p>
+<h3>创建数据库</h3>
+<p>
+  create table `session`(
+</p>
+<p>
+         sess_id varchar(50) primary key comment &#8216;会话id&#8217;,
+</p>
+<p>
+         sess_value varchar(2000) comment &#8216;会话的值&#8217;,
+</p>
+<p>
+         sess_expires int comment &#8216;会话产生时间&#8217;
+</p>
+<p>
+  )engine=memory charset=utf8 comment &#8216;会话表&#8217;
+</p>
+<p>
+  思考：
+</p>
+<ol>
+<li>
+  时间为什么不用datetime而用int?
+</li>
+</ol>
+<p>
+  答：datetime占用8个字节，int占用4个字节
+</p>
+<ol>
+<li>
+  表引擎为啥用memory
+</li>
+</ol>
+<p>
+  答：memory数据保存在内存中，执行效率很高，但memory引擎只要重启MySQL服务器，数据全部清空。
+</p>
+<h3>Session入库</h3>
+<p>
+  通过session_set_save_handler()函数设置会话的保存方式
+</p>
+<p><img loading="lazy" decoding="async" width="941" height="96" src="/wp-content/uploads/2018/05/word-image-1389.png" class="wp-image-1552" srcset="/wp-content/uploads/2018/05/word-image-1389.png 941w, /wp-content/uploads/2018/05/word-image-1389-300x31.png 300w, /wp-content/uploads/2018/05/word-image-1389-768x78.png 768w" sizes="(max-width: 941px) 100vw, 941px" /></p>
+<p>
+  on duplicate key update：当插入记录与主键或唯一键冲突的时候就执行update操作。
+</p>
+<p>
+  例题
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  header(&#8216;content-type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  //开启会话时候执行
+</p>
+<p>
+  function open() {
+</p>
+<p>
+  	//连接数据库
+</p>
+<p>
+  	mysql_connect(&#8216;localhost&#8217;,&#8217;root&#8217;,&#8217;root&#8217;);
+</p>
+<p>
+  	mysql_select_db(&#8216;data&#8217;);
+</p>
+<p>
+  	mysql_query(&#8216;set names utf8&#8217;);
+</p>
+<p>
+  }
+</p>
+<p>
+  //关闭会话的时候执行
+</p>
+<p>
+  function close() {
+</p>
+</p>
+<p>
+  }
+</p>
+<p>
+  /**
+</p>
+<p>
+  *读取会话的时候执行
+</p>
+<p>
+  *@param $sess_id string 会话id
+</p>
+<p>
+  */
+</p>
+<p>
+  function read($sess_id) {
+</p>
+<p>
+  	$sql=&#8221;select sess_value from session where sess_id=&#8217;$sess_id'&#8221;;
+</p>
+<p>
+  	$rs=mysql_query($sql);
+</p>
+<p>
+  	if($rows=mysql_fetch_row($rs))
+</p>
+<p>
+  		return $rows[0];
+</p>
+<p>
+  	return &#8221;;
+</p>
+<p>
+  }
+</p>
+<p>
+  /**
+</p>
+<p>
+  *写入会话的时候执行
+</p>
+<p>
+  *@param $sess_id string 会话编号
+</p>
+<p>
+  *@param $sess_value string 会话的值
+</p>
+<p>
+  */
+</p>
+<p>
+  function write($sess_id,$sess_value) {
+</p>
+<p>
+  	$time=time();	//会话产生的时间
+</p>
+<p>
+  	$sql=&#8221;insert into session values (&#8216;$sess_id&#8217;,&#8217;$sess_value&#8217;,$time) on duplicate key update sess_value=&#8217;$sess_value'&#8221;;
+</p>
+<p>
+  	return mysql_query($sql);
+</p>
+<p>
+  }
+</p>
+<p>
+  /**
+</p>
+<p>
+  *销毁会话的时候执行,调用session_destroy()执行
+</p>
+<p>
+  *@param $sess_id string 会话id
+</p>
+<p>
+  */
+</p>
+<p>
+  function destroy($sess_id) {
+</p>
+<p>
+  	$sql=&#8221;delete from session where sess_id=&#8217;$sess_id'&#8221;;
+</p>
+<p>
+  	return mysql_query($sql);
+</p>
+<p>
+  }
+</p>
+<p>
+  /**
+</p>
+<p>
+  *垃圾回收的时候执行
+</p>
+<p>
+  *@param $lifetime int 会话过期时间
+</p>
+<p>
+  */
+</p>
+<p>
+  function gc($lifetime) {
+</p>
+<p>
+  	$expires=time()-$lifetime;	//垃圾文件的临界值
+</p>
+<p>
+  	$sql=&#8221;delete from session where sess_expires&lt;$expires&#8221;;
+</p>
+<p>
+  	return mysql_query($sql);
+</p>
+<p>
+  }
+</p>
+<p>
+  ini_set(&#8216;session.gc_probability&#8217;,1000);	//执行垃圾回收的概率是1000/1000
+</p>
+<p>
+  ini_set(&#8216;session.gc_maxlifetime&#8217;,2);
+</p>
+<p>
+  session_set_save_handler(&#8216;open&#8217;,&#8217;close&#8217;,&#8217;read&#8217;,&#8217;write&#8217;,&#8217;destroy&#8217;,&#8217;gc&#8217;); session_start();	//开启会话
+</p>
+<p>
+  $_SESSION[&#8216;name&#8217;]=&#8217;tom&#8217;;
+</p>
+<p>
+  unset($_SESSION[&#8216;sex&#8217;]);
+</p>
+<p>
+  unset($_SESSION[&#8216;add&#8217;]);
+</p>
+<p>
+  $_SESSION[&#8216;aa&#8217;]=10;
+</p>
+<p>
+  session_destroy();
+</p>
+<p>
+  脚下留心：session_set_save_handler()一定要写在session_start()前面</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/1410.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

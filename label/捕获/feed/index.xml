@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>捕获 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E6%8D%95%E8%8E%B7/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 06:47:06 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>捕获 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>JS高级（五）正则、分组、捕获、反向引用、匹配、属性、方法</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3000.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3000.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 06:46:40 +0000</pubDate>
+				<category><![CDATA[Javascript]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[分组]]></category>
+		<category><![CDATA[匹配]]></category>
+		<category><![CDATA[反向引用]]></category>
+		<category><![CDATA[属性]]></category>
+		<category><![CDATA[捕获]]></category>
+		<category><![CDATA[方法]]></category>
+		<category><![CDATA[正则]]></category>
+		<guid isPermaLink="false">/?p=3000</guid>
+
+					<description><![CDATA[JavaScript应该掌握的知识： DOM操作： 元素：获取节点，添加节点，修改节点，删除节点，克隆节点 属 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>
+  JavaScript应该掌握的知识：
+</p>
+<p>
+  DOM操作：
+</p>
+<p>
+  	元素：获取节点，添加节点，修改节点，删除节点，克隆节点
+</p>
+<p>
+  	属性：获取元素的属性，增删改属性
+</p>
+<p>
+  事件绑定：
+</p>
+<p>
+  	domObj.onclick = function(){
+</p>
+<p>
+  		//这个函数不是直接执行，由用户的行为来触发这个函数
+</p>
+<p>
+  }
+</p>
+<p>
+  常用事件：
+</p>
+<p>
+  window.onload事件：
+</p>
+<p>
+  <img fetchpriority="high" decoding="async" width="699" height="307" src="/wp-content/uploads/2018/05/word-image-2630.png" class="wp-image-3001" srcset="/wp-content/uploads/2018/05/word-image-2630.png 699w, /wp-content/uploads/2018/05/word-image-2630-300x132.png 300w" sizes="(max-width: 699px) 100vw, 699px" />
+</p>
+<p>
+  onclick
+</p>
+<p>
+  onkeyup  /  onkeydown  / onkeypress
+</p>
+<p>
+  onmouseover / onmouseout
+</p>
+<p>
+  onfocus / onblur
+</p>
+<p>
+  onchange
+</p>
+<p>
+  <img decoding="async" width="761" height="420" src="/wp-content/uploads/2018/05/word-image-2631.png" class="wp-image-3002" srcset="/wp-content/uploads/2018/05/word-image-2631.png 761w, /wp-content/uploads/2018/05/word-image-2631-300x166.png 300w" sizes="(max-width: 761px) 100vw, 761px" />
+</p>
+<p>
+  正则表达式
+</p>
+<h1>一、概述</h1>
+<p>
+  1、概述
+</p>
+<p>
+  正则表达式(regular expression)描述了一种字符串匹配的模式，可以用来检查一个字符串中是否含有某种子串、将匹配的子串做替换或者从某个字符串中取出符合某个条件的子串等。
+</p>
+<p>
+  匹配就是在某个字符串中查找你想要查找的内容（由正则表达式决定），如果查找到了，就表示匹配。没有查找到就表示不匹配。
+</p>
+<p>
+  abacabad
+</p>
+<p>
+  正则表达式本身是一门独立的技术，可以被大多数编程语言所使用，如Javascript、PHP、Java
+</p>
+<p>
+  2、应用场景
+</p>
+<p>
+  （1）表单验证里面，验证字符的合法性，如邮箱是否合法，手机号是否合法等等。
+</p>
+<p>
+  （2）信息过滤，如论坛帖子或者评论中的非法字符，例如 sql注入、js脚本注入、煽动性的言论。
+</p>
+<p>
+  （3）信息采集，采集别人网站上面的内容，例如整页采集时 筛选出需求的部分
+</p>
+<p>
+  （4）信息替换。
+</p>
+<p>
+  （5）页面伪静态的规则
+</p>
+<h1>二、入门案例</h1>
+<p>
+  1、正则用法说明
+</p>
+<p>
+  这个案例是在字符串str中查找是否有p。
+</p>
+<p>
+  <img decoding="async" width="657" height="160" src="/wp-content/uploads/2018/05/word-image-2632.png" class="wp-image-3003" srcset="/wp-content/uploads/2018/05/word-image-2632.png 657w, /wp-content/uploads/2018/05/word-image-2632-300x73.png 300w" sizes="(max-width: 657px) 100vw, 657px" />
+</p>
+<p><strong>正则语法：</strong>
+</p>
+<p>
+  以两条斜线，作为正则表达式起始和结尾的定界符。不能加引号。
+</p>
+<p>
+  match是字符串方法，所以应该由字符串调用。意思是在字符串中匹配要查找的值，如果匹配将返回匹配的内容，如果不匹配返回null。
+</p>
+<p>
+  2、全局修饰符g
+</p>
+<p>
+  g是global，表示全局的意思，它是正则表达式语法中的修饰符，修饰符应该放到定界符(/)的后面。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="657" height="160" src="/wp-content/uploads/2018/05/word-image-2633.png" class="wp-image-3004" srcset="/wp-content/uploads/2018/05/word-image-2633.png 657w, /wp-content/uploads/2018/05/word-image-2633-300x73.png 300w" sizes="(max-width: 657px) 100vw, 657px" />
+</p>
+<h1>三、正则语法</h1>
+<p>
+  1、量词
+</p>
+<p>
+  n+   匹配任何包含至少一个 n 的字符串。匹配一个或多个前导字符（<strong>前导字符就是紧挨着+的前一个字符</strong>）
+</p>
+<p>
+  n*    匹配任何包含零个或多个 n 的字符串。前导字符有没有都行
+</p>
+<p>
+  n?    匹配任何包含零个或一个 n 的字符串。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="911" height="101" src="/wp-content/uploads/2018/05/word-image-2634.png" class="wp-image-3005" srcset="/wp-content/uploads/2018/05/word-image-2634.png 911w, /wp-content/uploads/2018/05/word-image-2634-300x33.png 300w, /wp-content/uploads/2018/05/word-image-2634-768x85.png 768w" sizes="(max-width: 911px) 100vw, 911px" />
+</p>
+<p>
+  n{X} 匹配包含 X 个 n 的序列的字符串。
+</p>
+<p>
+  n{X,Y} 匹配包含 X 或 Y 个 n 的序列的字符串。
+</p>
+<p>
+  n{X,} 匹配包含至少 X 个 n 的序列的字符串。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="738" height="92" src="/wp-content/uploads/2018/05/word-image-2635.png" class="wp-image-3006" srcset="/wp-content/uploads/2018/05/word-image-2635.png 738w, /wp-content/uploads/2018/05/word-image-2635-300x37.png 300w" sizes="(max-width: 738px) 100vw, 738px" />
+</p>
+<p>
+  n$    匹配任何结尾为 n 的字符串。从末尾开始匹配
+</p>
+<p>
+  ^n    匹配任何开头为 n 的字符串。（注意位置在前面）
+</p>
+<p>
+  ^n$   表示只匹配字符串n。也就是匹配整个字符串。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="906" height="112" src="/wp-content/uploads/2018/05/word-image-2636.png" class="wp-image-3007" srcset="/wp-content/uploads/2018/05/word-image-2636.png 906w, /wp-content/uploads/2018/05/word-image-2636-300x37.png 300w, /wp-content/uploads/2018/05/word-image-2636-768x95.png 768w" sizes="(max-width: 906px) 100vw, 906px" />
+</p>
+<p>
+  2、元字符
+</p>
+<p><strong>.</strong> 表示单个字符，表示任意字符。除了换行和行结束符。
+</p>
+<p><strong>.*</strong> 表示任意字符串（0个或多个任意字符，除了换行和行结束符）
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="725" height="68" src="/wp-content/uploads/2018/05/word-image-2637.png" class="wp-image-3008" srcset="/wp-content/uploads/2018/05/word-image-2637.png 725w, /wp-content/uploads/2018/05/word-image-2637-300x28.png 300w" sizes="(max-width: 725px) 100vw, 725px" />
+</p>
+<p><strong>\w</strong>  匹配任何数字、字母、下划线。<strong>一个\w表示一个字符</strong>。
+</p>
+<p><strong>\W</strong>  匹配任何非数字、非字母、非下划线。
+</p>
+<p><strong>\d</strong> 查找数字。
+</p>
+<p><strong>\D</strong> 查找非数字字符。
+</p>
+<p><strong>\s</strong> 查找空白字符。
+</p>
+<p><strong>\S</strong> 查找非空白字符。
+</p>
+<p><strong>\b</strong> 匹配单词边界。（边界字母个数没有限制；\b放前面表示匹配单词前面的边界，\b表示匹配单词后面的边界）
+</p>
+<p><strong>\B</strong> 匹配非单词边界。
+</p>
+<p><strong>\n</strong> 查找换行符。
+</p>
+<p><strong>\r</strong> 查找回车符。
+</p>
+<p><strong>\t</strong> 查找制表符。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="795" height="207" src="/wp-content/uploads/2018/05/word-image-2638.png" class="wp-image-3009" srcset="/wp-content/uploads/2018/05/word-image-2638.png 795w, /wp-content/uploads/2018/05/word-image-2638-300x78.png 300w, /wp-content/uploads/2018/05/word-image-2638-768x200.png 768w" sizes="(max-width: 795px) 100vw, 795px" />
+</p>
+<p>
+  3、方括号
+</p>
+<p>
+  方括号表示一个范围，也称为<strong>字符簇</strong>。
+</p>
+<p>
+  [abc]  查找方括号之间的任何字符。
+</p>
+<p>
+  [^abc] 查找任何不在方括号之间的字符。（方括号中的^表示取反）
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="927" height="139" src="/wp-content/uploads/2018/05/word-image-2639.png" class="wp-image-3010" srcset="/wp-content/uploads/2018/05/word-image-2639.png 927w, /wp-content/uploads/2018/05/word-image-2639-300x45.png 300w, /wp-content/uploads/2018/05/word-image-2639-768x115.png 768w" sizes="(max-width: 927px) 100vw, 927px" />
+</p>
+<p>
+  [0-9] 查找任何从 0 至 9 的数字。表示一个字符
+</p>
+<p>
+  [a-z] 查找任何从小写 a 到小写 z 的字符。
+</p>
+<p>
+  [A-Z] 查找任何从大写 A 到大写 Z 的字符。
+</p>
+<p>
+  [A-z] 查找任何从大写 A 到小写 z 的字符。<strong>包括下划线</strong>。
+</p>
+<p>
+  [5-8] 查找5 &lt;= 目标 &lt;= 8的字符
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="854" height="180" src="/wp-content/uploads/2018/05/word-image-2640.png" class="wp-image-3011" srcset="/wp-content/uploads/2018/05/word-image-2640.png 854w, /wp-content/uploads/2018/05/word-image-2640-300x63.png 300w, /wp-content/uploads/2018/05/word-image-2640-768x162.png 768w" sizes="(max-width: 854px) 100vw, 854px" />
+</p>
+<p><strong>(</strong>red|blue|green<strong>)</strong> 查找任何指定的选项。（竖线|表示或者）
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="971" height="52" src="/wp-content/uploads/2018/05/word-image-2641.png" class="wp-image-3012" srcset="/wp-content/uploads/2018/05/word-image-2641.png 971w, /wp-content/uploads/2018/05/word-image-2641-300x16.png 300w, /wp-content/uploads/2018/05/word-image-2641-768x41.png 768w" sizes="(max-width: 971px) 100vw, 971px" />
+</p>
+<p>
+  4、修饰符
+</p>
+<p>
+  i  执行对大小写不敏感的匹配。
+</p>
+<p>
+  g  执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。
+</p>
+<p>
+  m 执行多行匹配。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="937" height="123" src="/wp-content/uploads/2018/05/word-image-2642.png" class="wp-image-3013" srcset="/wp-content/uploads/2018/05/word-image-2642.png 937w, /wp-content/uploads/2018/05/word-image-2642-300x39.png 300w, /wp-content/uploads/2018/05/word-image-2642-768x101.png 768w" sizes="(max-width: 937px) 100vw, 937px" />
+</p>
+<p>
+  5、转义字符
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="505" height="49" src="/wp-content/uploads/2018/05/word-image-2643.png" class="wp-image-3014" srcset="/wp-content/uploads/2018/05/word-image-2643.png 505w, /wp-content/uploads/2018/05/word-image-2643-300x29.png 300w" sizes="(max-width: 505px) 100vw, 505px" />
+</p>
+<h1>四、分组/捕获和反向引用</h1>
+<p><strong>捕获和反向引用的语法的解释</strong>：
+</p>
+<p>
+  正则中出现的小括号，就叫捕获或者分组
+</p>
+<p>
+  在正则语法中（在/…/内），在捕获的后面，用“\1”来引用前面的捕获。用\2表示第二个捕获的内容….
+</p>
+<p>
+  在正则语法外（如replace时），用“$1”来引用前面的捕获。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="737" height="273" src="/wp-content/uploads/2018/05/word-image-2644.png" class="wp-image-3015" srcset="/wp-content/uploads/2018/05/word-image-2644.png 737w, /wp-content/uploads/2018/05/word-image-2644-300x111.png 300w" sizes="(max-width: 737px) 100vw, 737px" />
+</p>
+<p><strong>禁止引用</strong>
+</p>
+<p><strong>(?:正则) 这个小括号中的内容不能够被引用</strong>
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="901" height="96" src="/wp-content/uploads/2018/05/word-image-2645.png" class="wp-image-3016" srcset="/wp-content/uploads/2018/05/word-image-2645.png 901w, /wp-content/uploads/2018/05/word-image-2645-300x32.png 300w, /wp-content/uploads/2018/05/word-image-2645-768x82.png 768w" sizes="(max-width: 901px) 100vw, 901px" />
+</p>
+<h1>五、匹配中文（utf-8编码）</h1>
+<p>
+  每个字符（中文、英文字母、数字、各种符号、拉丁文、韩文、日文等）都对应着一个Unicode编码。
+</p>
+<p>
+  查看Unicode编码，找到中文的部分，然后获取中文的Unicode编码的区间，就可以用正则匹配了。
+</p>
+<p><strong>中文的Unicode编码从4E00开始，到9FA5结束</strong>。
+</p>
+<p>
+  [4E00-9FA5]
+</p>
+<p><strong>完整的Unicode编码表</strong>：http://blog.csdn.net/hherima/article/details/9045861
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="868" height="80" src="/wp-content/uploads/2018/05/word-image-2646.png" class="wp-image-3017" srcset="/wp-content/uploads/2018/05/word-image-2646.png 868w, /wp-content/uploads/2018/05/word-image-2646-300x28.png 300w, /wp-content/uploads/2018/05/word-image-2646-768x71.png 768w" sizes="(max-width: 868px) 100vw, 868px" />
+</p>
+<h1>六、环视（断言/零宽断言）</h1>
+<p><strong>every(?=n) 匹配任何其后紧接指定字符串 n 的字符串</strong>。
+</p>
+<p>
+  查找a，什么样的a呢？后面必须是b的a
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="699" height="96" src="/wp-content/uploads/2018/05/word-image-2647.png" class="wp-image-3018" srcset="/wp-content/uploads/2018/05/word-image-2647.png 699w, /wp-content/uploads/2018/05/word-image-2647-300x41.png 300w" sizes="(max-width: 699px) 100vw, 699px" /></p>
+<p><strong>every(?!n) 匹配任何其后没有紧接指定字符串 n 的字符串</strong>。
+</p>
+<p>
+  查找a，什么样的a呢？后面不能是b的a
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="782" height="141" src="/wp-content/uploads/2018/05/word-image-2648.png" class="wp-image-3019" srcset="/wp-content/uploads/2018/05/word-image-2648.png 782w, /wp-content/uploads/2018/05/word-image-2648-300x54.png 300w, /wp-content/uploads/2018/05/word-image-2648-768x138.png 768w" sizes="(max-width: 782px) 100vw, 782px" />
+</p>
+<p>
+  另外，还会看到(?!B)[A-Z]这种写法，其实它是[A-Z]范围里，排除B的意思，前置的(?!B)只是对后面数据的一个限定，从而达到过滤匹配的效果。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="854" height="138" src="/wp-content/uploads/2018/05/word-image-2649.png" class="wp-image-3020" srcset="/wp-content/uploads/2018/05/word-image-2649.png 854w, /wp-content/uploads/2018/05/word-image-2649-300x48.png 300w, /wp-content/uploads/2018/05/word-image-2649-768x124.png 768w" sizes="(max-width: 854px) 100vw, 854px" />
+</p>
+<h1>七、正则对象的属性和方法</h1>
+<p>
+  正则对象中的成员方法和属性的正确调用方式：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="673" height="160" src="/wp-content/uploads/2018/05/word-image-2650.png" class="wp-image-3021" srcset="/wp-content/uploads/2018/05/word-image-2650.png 673w, /wp-content/uploads/2018/05/word-image-2650-300x71.png 300w" sizes="(max-width: 673px) 100vw, 673px" />
+</p>
+<p>
+  1、exec方法和lastIndex属性
+</p>
+<p>
+  exec方法执行一个正则匹配，<strong>只匹配一次</strong>，匹配到结果就返回一个数组类型的结果，匹配不到就返回null。并将表示匹配的位置 置为下一个匹配的位置。
+</p>
+<p>
+  lastIndex一个整数，标示开始下一次匹配的字符位置。没有更多匹配重置lastIndex为0.
+</p>
+<p>
+  依次调用exec匹配下一个的例子：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="894" height="261" src="/wp-content/uploads/2018/05/word-image-2651.png" class="wp-image-3023" srcset="/wp-content/uploads/2018/05/word-image-2651.png 894w, /wp-content/uploads/2018/05/word-image-2651-300x88.png 300w, /wp-content/uploads/2018/05/word-image-2651-768x224.png 768w" sizes="(max-width: 894px) 100vw, 894px" />
+</p>
+<p>
+  匹配带子表达式的例子：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="982" height="133" src="/wp-content/uploads/2018/05/word-image-2652.png" class="wp-image-3024" srcset="/wp-content/uploads/2018/05/word-image-2652.png 982w, /wp-content/uploads/2018/05/word-image-2652-300x41.png 300w, /wp-content/uploads/2018/05/word-image-2652-768x104.png 768w" sizes="(max-width: 982px) 100vw, 982px" />
+</p>
+<p>
+  带子表达式并且依次调用的例子：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="934" height="118" src="/wp-content/uploads/2018/05/word-image-2653.png" class="wp-image-3025" srcset="/wp-content/uploads/2018/05/word-image-2653.png 934w, /wp-content/uploads/2018/05/word-image-2653-300x38.png 300w, /wp-content/uploads/2018/05/word-image-2653-768x97.png 768w" sizes="(max-width: 934px) 100vw, 934px" />
+</p>
+<p>
+  2、test方法
+</p>
+<p>
+  test方法检测目标字符串和正则表达式是否匹配，如果匹配返回true，不匹配返回false。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="587" height="86" src="/wp-content/uploads/2018/05/word-image-2654.png" class="wp-image-3026" srcset="/wp-content/uploads/2018/05/word-image-2654.png 587w, /wp-content/uploads/2018/05/word-image-2654-300x44.png 300w" sizes="(max-width: 587px) 100vw, 587px" />
+</p>
+<h1>八、支持正则表达式的 String 对象的方法</h1>
+<p>
+  1、search()
+</p>
+<p>
+  在字符串中搜索符合正则表达式的结果。如果找到结果返回结果的位置，停止向后检索，也就是说忽略全局标识符g；如果没有匹配结果，返回-1.
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="508" height="159" src="/wp-content/uploads/2018/05/word-image-2655.png" class="wp-image-3027" srcset="/wp-content/uploads/2018/05/word-image-2655.png 508w, /wp-content/uploads/2018/05/word-image-2655-300x94.png 300w" sizes="(max-width: 508px) 100vw, 508px" />
+</p>
+<p>
+  2、match()
+</p>
+<p>
+  在字符串中检索匹配正则表达式的子串；如果匹配，返回包含匹配结果的一个数组；不匹配返回null。
+</p>
+<p><strong>不加全局g的情况</strong>：
+</p>
+<p>
+  	获取的结果只是第一个匹配的内容，匹配的内容中的第一个单元是匹配的结果，后面的单元是子表达式
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="655" height="75" src="/wp-content/uploads/2018/05/word-image-2656.png" class="wp-image-3028" srcset="/wp-content/uploads/2018/05/word-image-2656.png 655w, /wp-content/uploads/2018/05/word-image-2656-300x34.png 300w" sizes="(max-width: 655px) 100vw, 655px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="978" height="111" src="/wp-content/uploads/2018/05/word-image-2657.png" class="wp-image-3029" srcset="/wp-content/uploads/2018/05/word-image-2657.png 978w, /wp-content/uploads/2018/05/word-image-2657-300x34.png 300w, /wp-content/uploads/2018/05/word-image-2657-768x87.png 768w" sizes="(max-width: 978px) 100vw, 978px" />
+</p>
+<p><strong>加全局的g的情况</strong>：
+</p>
+<p>
+  	获取的结果是所有匹配的内容，但是不包含子表达式。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="910" height="140" src="/wp-content/uploads/2018/05/word-image-2658.png" class="wp-image-3030" srcset="/wp-content/uploads/2018/05/word-image-2658.png 910w, /wp-content/uploads/2018/05/word-image-2658-300x46.png 300w, /wp-content/uploads/2018/05/word-image-2658-768x118.png 768w" sizes="(max-width: 910px) 100vw, 910px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="997" height="173" src="/wp-content/uploads/2018/05/word-image-2659.png" class="wp-image-3031" srcset="/wp-content/uploads/2018/05/word-image-2659.png 997w, /wp-content/uploads/2018/05/word-image-2659-300x52.png 300w, /wp-content/uploads/2018/05/word-image-2659-768x133.png 768w" sizes="(max-width: 997px) 100vw, 997px" />
+</p>
+<p><strong>多次调用和调用一次效果一样</strong>。
+</p>
+<p>
+  3、split()
+</p>
+<p>
+  将字符串分割成数组：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="805" height="118" src="/wp-content/uploads/2018/05/word-image-2660.png" class="wp-image-3032" srcset="/wp-content/uploads/2018/05/word-image-2660.png 805w, /wp-content/uploads/2018/05/word-image-2660-300x44.png 300w, /wp-content/uploads/2018/05/word-image-2660-768x113.png 768w" sizes="(max-width: 805px) 100vw, 805px" />
+</p>
+<p>
+  4、replace()替换
+</p>
+<p>
+  默认只替换一次，加g全部替换
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="717" height="130" src="/wp-content/uploads/2018/05/word-image-2661.png" class="wp-image-3033" srcset="/wp-content/uploads/2018/05/word-image-2661.png 717w, /wp-content/uploads/2018/05/word-image-2661-300x54.png 300w" sizes="(max-width: 717px) 100vw, 717px" />
+</p>
+<p>
+  替换的时候，使用&#8221;$1&#8243;表示第一个字表达式：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="998" height="140" src="/wp-content/uploads/2018/05/word-image-2662.png" class="wp-image-3034" srcset="/wp-content/uploads/2018/05/word-image-2662.png 998w, /wp-content/uploads/2018/05/word-image-2662-300x42.png 300w, /wp-content/uploads/2018/05/word-image-2662-768x108.png 768w" sizes="(max-width: 998px) 100vw, 998px" />
+</p>
+<p>
+  替换abc为a[a-b-c]c   hds  h[h-d-s]s
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="986" height="223" src="/wp-content/uploads/2018/05/word-image-2663.png" class="wp-image-3035" srcset="/wp-content/uploads/2018/05/word-image-2663.png 986w, /wp-content/uploads/2018/05/word-image-2663-300x68.png 300w, /wp-content/uploads/2018/05/word-image-2663-768x174.png 768w" sizes="(max-width: 986px) 100vw, 986px" />
+</p>
+<p>
+  替换aaa bbb ccc为Aaa Bbb Ccc
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1250" height="201" src="/wp-content/uploads/2018/05/word-image-2664.png" class="wp-image-3036" srcset="/wp-content/uploads/2018/05/word-image-2664.png 1250w, /wp-content/uploads/2018/05/word-image-2664-300x48.png 300w, /wp-content/uploads/2018/05/word-image-2664-768x123.png 768w, /wp-content/uploads/2018/05/word-image-2664-1024x165.png 1024w" sizes="(max-width: 1250px) 100vw, 1250px" />
+</p>
+<h1>九、案例</h1>
+<p>
+  1、匹配手机号格式是否正确
+</p>
+<p>
+  要求：
+</p>
+<p>
+  基本的要求：11位，1打头，纯数字
+</p>
+<p>
+  特别精细的话，必须联系各大运营商，查看23位都是什么，比如有136的，但是可以没有163的。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="605" height="285" src="/wp-content/uploads/2018/05/word-image-2665.png" class="wp-image-3037" srcset="/wp-content/uploads/2018/05/word-image-2665.png 605w, /wp-content/uploads/2018/05/word-image-2665-300x141.png 300w" sizes="(max-width: 605px) 100vw, 605px" />
+</p>
+<p>
+  2、匹配邮箱格式是否正确
+</p>
+<p>
+  邮箱：
+</p>
+<p>
+  @前面有4~16个字符（都可以有数字，字母，下划线，点 ，中横线）
+</p>
+<p>
+  @后面点前面：允许数字字母组合，长度2~10位
+</p>
+<p>
+  点后面：只允许出现字母，长度为2~5；
+</p>
+<p>
+  还有一种情况是后面是两个点，如xxxx@xx.com.cn
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="793" height="192" src="/wp-content/uploads/2018/05/word-image-2666.png" class="wp-image-3038" srcset="/wp-content/uploads/2018/05/word-image-2666.png 793w, /wp-content/uploads/2018/05/word-image-2666-300x73.png 300w, /wp-content/uploads/2018/05/word-image-2666-768x186.png 768w" sizes="(max-width: 793px) 100vw, 793px" />
+</p>
+<p>
+  3、解决结巴程序
+</p>
+<p>
+  把叠字的字符串，换成单子，比如，“今今今今天天天天天天天天中午吃吃吃了泡面”换成“今天中午吃了泡面”
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="974" height="155" src="/wp-content/uploads/2018/05/word-image-2667.png" class="wp-image-3039" srcset="/wp-content/uploads/2018/05/word-image-2667.png 974w, /wp-content/uploads/2018/05/word-image-2667-300x48.png 300w, /wp-content/uploads/2018/05/word-image-2667-768x122.png 768w" sizes="(max-width: 974px) 100vw, 974px" />
+</p>
+<p>
+  4、用户名验证
+</p>
+<p>
+  注册的时候，要求用户名：长度4~10位，不能是纯数字，不能是纯字母，不能有特殊符号，不能以数字打头。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1008" height="260" src="/wp-content/uploads/2018/05/word-image-2668.png" class="wp-image-3040" srcset="/wp-content/uploads/2018/05/word-image-2668.png 1008w, /wp-content/uploads/2018/05/word-image-2668-300x77.png 300w, /wp-content/uploads/2018/05/word-image-2668-768x198.png 768w" sizes="(max-width: 1008px) 100vw, 1008px" />
+</p>
+<h1>十、PHP中的正则表达式</h1>
+<p>
+  语法和JavaScript中的正则语法基本一致。
+</p>
+<p>
+  PHP中的正则函数：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="728" height="406" src="/wp-content/uploads/2018/05/word-image-2669.png" class="wp-image-3041" srcset="/wp-content/uploads/2018/05/word-image-2669.png 728w, /wp-content/uploads/2018/05/word-image-2669-300x167.png 300w" sizes="(max-width: 728px) 100vw, 728px" />
+</p>
+<p>
+  1、preg_match()
+</p>
+<p>
+  基础语法练习：
+</p>
+<p>
+  基础语法和js中正则语法基本相同。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="839" height="242" src="/wp-content/uploads/2018/05/word-image-2670.png" class="wp-image-3042" srcset="/wp-content/uploads/2018/05/word-image-2670.png 839w, /wp-content/uploads/2018/05/word-image-2670-300x87.png 300w, /wp-content/uploads/2018/05/word-image-2670-768x222.png 768w" sizes="(max-width: 839px) 100vw, 839px" />
+</p>
+<p>
+  具体查看preg_match的用法：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="906" height="289" src="/wp-content/uploads/2018/05/word-image-2671.png" class="wp-image-3043" srcset="/wp-content/uploads/2018/05/word-image-2671.png 906w, /wp-content/uploads/2018/05/word-image-2671-300x96.png 300w, /wp-content/uploads/2018/05/word-image-2671-768x245.png 768w" sizes="(max-width: 906px) 100vw, 906px" />
+</p>
+<p>
+  带有子表达式的例子：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1037" height="197" src="/wp-content/uploads/2018/05/word-image-2672.png" class="wp-image-3044" srcset="/wp-content/uploads/2018/05/word-image-2672.png 1037w, /wp-content/uploads/2018/05/word-image-2672-300x57.png 300w, /wp-content/uploads/2018/05/word-image-2672-768x146.png 768w, /wp-content/uploads/2018/05/word-image-2672-1024x195.png 1024w" sizes="(max-width: 1037px) 100vw, 1037px" />
+</p>
+<p>
+  2、preg_match_all();
+</p>
+<p>
+  执行正则表达式的全局匹配
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="826" height="95" src="/wp-content/uploads/2018/05/word-image-2673.png" class="wp-image-3045" srcset="/wp-content/uploads/2018/05/word-image-2673.png 826w, /wp-content/uploads/2018/05/word-image-2673-300x35.png 300w, /wp-content/uploads/2018/05/word-image-2673-768x88.png 768w" sizes="(max-width: 826px) 100vw, 826px" />
+</p>
+<p>
+  查看匹配情况（不带子表达式）：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1007" height="262" src="/wp-content/uploads/2018/05/word-image-2674.png" class="wp-image-3046" srcset="/wp-content/uploads/2018/05/word-image-2674.png 1007w, /wp-content/uploads/2018/05/word-image-2674-300x78.png 300w, /wp-content/uploads/2018/05/word-image-2674-768x200.png 768w" sizes="(max-width: 1007px) 100vw, 1007px" />
+</p>
+<p>
+  查看匹配情况（带子表达式）：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="963" height="464" src="/wp-content/uploads/2018/05/word-image-2675.png" class="wp-image-3047" srcset="/wp-content/uploads/2018/05/word-image-2675.png 963w, /wp-content/uploads/2018/05/word-image-2675-300x145.png 300w, /wp-content/uploads/2018/05/word-image-2675-768x370.png 768w" sizes="(max-width: 963px) 100vw, 963px" />
+</p>
+<p>
+  3、preg_replace();
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="890" height="155" src="/wp-content/uploads/2018/05/word-image-2676.png" class="wp-image-3048" srcset="/wp-content/uploads/2018/05/word-image-2676.png 890w, /wp-content/uploads/2018/05/word-image-2676-300x52.png 300w, /wp-content/uploads/2018/05/word-image-2676-768x134.png 768w" sizes="(max-width: 890px) 100vw, 890px" />
+</p>
+<p>
+  案例：解决贪婪问题？
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="880" height="422" src="/wp-content/uploads/2018/05/word-image-2677.png" class="wp-image-3049" srcset="/wp-content/uploads/2018/05/word-image-2677.png 880w, /wp-content/uploads/2018/05/word-image-2677-300x144.png 300w, /wp-content/uploads/2018/05/word-image-2677-768x368.png 768w" sizes="(max-width: 880px) 100vw, 880px" />
+</p>
+<p>
+  4、php中匹配中文
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1007" height="320" src="/wp-content/uploads/2018/05/word-image-2678.png" class="wp-image-3050" srcset="/wp-content/uploads/2018/05/word-image-2678.png 1007w, /wp-content/uploads/2018/05/word-image-2678-300x95.png 300w, /wp-content/uploads/2018/05/word-image-2678-768x244.png 768w" sizes="(max-width: 1007px) 100vw, 1007px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3000.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

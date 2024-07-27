@@ -1,0 +1,2181 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>内置分页功能 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%86%85%E7%BD%AE%E5%88%86%E9%A1%B5%E5%8A%9F%E8%83%BD/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 16:12:46 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>内置分页功能 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Laravel框架（二）CSRF攻击、闪存数据、留言板案例、数据库操作、DB类操作、内置分页功能</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6168.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6168.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 16:12:46 +0000</pubDate>
+				<category><![CDATA[Laravel]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[CSRF攻击]]></category>
+		<category><![CDATA[DB类操作]]></category>
+		<category><![CDATA[内置分页功能]]></category>
+		<category><![CDATA[数据库操作]]></category>
+		<category><![CDATA[留言板案例]]></category>
+		<category><![CDATA[闪存数据]]></category>
+		<guid isPermaLink="false">/?p=6168</guid>
+
+					<description><![CDATA[Laravel框架第2天 复习回顾 了解Laravel：就是用PHP写的框架 安装和使用：必须laravel5 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1><a id="post-6168-_Toc487990937"></a><a id="post-6168-_Toc487903166"></a>Laravel框架第2天</h1>
+<h1>复习回顾</h1>
+<p>
+  了解Laravel：就是用PHP写的框架
+</p>
+<p>
+  安装和使用：必须laravel5.4(php&gt;=5.6) 开启openssl、pdo、mbstring、fileinfo
+</p>
+<p>
+  目录说明
+</p>
+<p>
+  控制器语法：php artisan make:controller 平台名\控制器名Controller
+</p>
+<p>
+  加载视图：return view（视图文件，compact（变量名，变量名，变量名））
+</p>
+<p>
+  脚下留心：
+</p>
+<p>
+  1）打开views下面子文件夹则用点隔开，如：view（‘a.xxx’）
+</p>
+<p>
+  2）优先打开blade模板文件
+</p>
+<p>
+  模板标签：
+</p>
+<p>
+  1）输出变量：{{ $变量名 }}
+</p>
+<p>
+  2）判断循环等潜规则： @标签名   @end标签名
+</p>
+<p>
+  路由
+</p>
+<p>
+      基本语法：Route::请求类型（路径，闭包函数或控制器方法）
+</p>
+<p>
+  匹配指定类型：Route::match（[类型1,..,类型n]，路径，闭包函数或控制器方法）
+</p>
+<p>
+  匹配任意类型：Route::any（路径，闭包函数或控制器方法）
+</p>
+<p>
+  路由参数语法：Route::请求类型（路径/{参数}，闭包函数或控制器方法）-&gt;where（参数名，正则）
+</p>
+<p>
+  说明
+</p>
+<p>
+  1）多个参数则在路径处写多个{}即可
+</p>
+<p>
+  2）多个限制则用数组来写，键是参数名，值是对应的正则
+</p>
+<p>
+  路由分组
+</p>
+<p>
+  好处：减少冗余
+</p>
+<p>
+  语法：
+</p>
+<p>
+  Route::group([&#8216;namespace&#8217;=&gt;&#8221;，&#8217;prefix&#8217;=&gt;&#8221;],function(){
+</p>
+</p>
+<p>
+      基本语法：Route::请求类型（路径，闭包函数或控制器方法）
+</p>
+<p>
+      基本语法：Route::请求类型（路径，闭包函数或控制器方法）
+</p>
+<p>
+  });
+</p>
+<p>
+  路由别名：
+</p>
+<p>
+  作用：避免后期通过url方法时感觉长
+</p>
+<p>
+  解决：通过as别名
+</p>
+<p>
+  语法：
+</p>
+<p>
+  Route::请求类型（路径，[
+</p>
+<p>
+  	&#8216;as&#8217; =&gt; 别名,
+</p>
+<p>
+  	&#8216;uses&#8217; =&gt; 闭包函数或控制器方法
+</p>
+<p>
+  ]）
+</p>
+<p>
+  后期将url函数替换成 route函数(别名) 就可以自动生成该别名对应的路由
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+</p>
+<p>
+  输入请求：
+</p>
+<p>
+  Request
+</p>
+<p>
+  $request-&gt;all() 		获取所有数据
+</p>
+<p>
+  $request-&gt;input(键 [, 默认值])  获取get数据
+</p>
+<p>
+  $request-&gt;only（[参数名1，&#8230;，参数名n]）    获取指定数据
+</p>
+<p>
+  $request-&gt;except（[参数名1，&#8230;，参数名n]）   获取指定数据外的所有数据
+</p>
+<p>
+  Input
+</p>
+<p>
+  Input::all()			获取所有数据
+</p>
+<p>
+  Input::get(键[, 默认值]) 	获取get数据
+</p>
+<p>
+  Input::only（[键1，&#8230;，键n]）   获取指定数据
+</p>
+<p>
+  Input::except（[键1，&#8230;，键n]）获取指定数据外的所有数据
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<h1>一、CSRF攻击</h1>
+<h2><a id="post-6168-_Toc487990938"></a>1、什么是CSRF攻击</h2>
+<ul>
+<li>
+    CSRF（Cross-site request forgery）中文名：跨站请求伪造。
+  </li>
+<li>
+    CSRF是网站攻击的一种，存在巨大的危险性。
+  </li>
+</ul>
+<h2>2、CSRF攻击场景 </h2>
+<h3>1）跨站攻击留言板（随便写一个表单只要知道请求地址和请求参数就可以提交，危险 ）</h3>
+<p>
+  &lt;!DOCTYPE html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  	&lt;title&gt;测试攻击&lt;/title&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  	&lt;form action=&#8221;http://localhost/laravel54/public/msg&#8221; method=&#8221;post&#8221;&gt;
+</p>
+<p>
+  		&lt;p&gt;
+</p>
+<p>
+  			用户名：&lt;input type=&#8221;text&#8221; name=&#8221;uname&#8221;/&gt;
+</p>
+<p>
+  		&lt;/p&gt;
+</p>
+<p>
+  		&lt;p&gt;
+</p>
+<p>
+  			内容：&lt;input type=&#8221;text&#8221; name=&#8221;content&#8221;/&gt;
+</p>
+<p>
+  		&lt;/p&gt;
+</p>
+<p>
+  		&lt;p&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;submit&#8221; value=&#8221;提交&#8221;/&gt;
+</p>
+<p>
+  		&lt;/p&gt;
+</p>
+<p>
+  	&lt;/form&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h3>2）实战慕课网攻击</h3>
+<p><img fetchpriority="high" decoding="async" width="1073" height="649" src="/wp-content/uploads/2018/05/word-image-5615.png" class="wp-image-6169" srcset="/wp-content/uploads/2018/05/word-image-5615.png 1073w, /wp-content/uploads/2018/05/word-image-5615-300x181.png 300w, /wp-content/uploads/2018/05/word-image-5615-768x465.png 768w, /wp-content/uploads/2018/05/word-image-5615-1024x619.png 1024w" sizes="(max-width: 1073px) 100vw, 1073px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //1.初始化curl
+</p>
+<p>
+  $ch = curl_init();
+</p>
+<p>
+  //2.配置
+</p>
+<p>
+  // 设置header需要发送的参数
+</p>
+<p>
+  $header = array(
+</p>
+<p>
+      &#8216;Cookie: imooc_uuid=d67f1568-c3c5-4aca-8e4b-5eabd35f8409; imooc_isnew=1; imooc_isnew_ct=1515116337; IMCDNS=0; loginstate=1; apsid=NkNWUxODA2NGM2NzU1ZjdlOGYyN2E2ZjU0ZjE5NzcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANjIxODQ1OQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADZkZDJmNTliMWE2YWE0NGVkMTZiNjQ0Y2ZlODFlMjdmh9dOWnzXTlo%3DNG; PHPSESSID=ph1fngr8r7esumvn9ru5i3ian7; Hm_lvt_f0cfcccd7b1393990c78efdeebff3968=1515116350,1515116778; Hm_lpvt_f0cfcccd7b1393990c78efdeebff3968=1515117138; cvde=5a4ed8e8b70db-9&#8217;
+</p>
+<p>
+  );
+</p>
+<p>
+  curl_setopt($ch, CURLOPT_HTTPHEADER  , $header);
+</p>
+<p>
+  curl_setopt($ch, CURLOPT_URL, &#8216;https://www.imooc.com/article/ajaxpublish&#8217;);
+</p>
+<p>
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+</p>
+<p>
+  curl_setopt($ch, CURLOPT_POST, true);
+</p>
+<p>
+  $postData = [
+</p>
+<p>
+  	&#8216;label_ids&#8217; =&gt; 19,
+</p>
+<p>
+  	&#8216;title&#8217; =&gt; &#8216;汉子怎么写，小编是不是女dsfsdfs的&#8217;,
+</p>
+<p>
+  	&#8216;is_original&#8217; =&gt; 0,
+</p>
+<p>
+  	&#8216;pic&#8217; =&gt; &#8221;,
+</p>
+<p>
+  	&#8216;content&#8217; =&gt; &#8216;大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费大发的说法是打发斯蒂芬水电费&#8217;
+</p>
+<p>
+  ];
+</p>
+<p>
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+</p>
+<p>
+  // https请求 不验证证书和hosts
+</p>
+<p>
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+</p>
+<p>
+  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+</p>
+<p>
+  //3.发送请求
+</p>
+<p>
+  $rs = curl_exec($ch);
+</p>
+<p>
+  //4.关闭释放
+</p>
+<p>
+  curl_close($ch);
+</p>
+<p>
+  echo $rs;
+</p>
+<h2><a id="post-6168-_Toc487990940"></a>3、防止CSRF攻击</h2>
+<ul>
+<li>
+    防止方案：通过session过滤
+  </li>
+<li>
+    步骤1：控制器打开视图时候,生成随意唯一的字符串保存在session中的token键中
+  </li>
+</ul>
+<p>
+  【控制器（伪代码）】
+</p>
+<p>
+  session_start()
+</p>
+<p>
+  $_SESSION[&#8216;token&#8217;] = 随机字符串
+</p>
+<p>
+  return view();
+</p>
+<p>
+  【视图中】
+</p>
+<p>
+  表单隐藏域
+</p>
+<p>
+  &lt;input type=&#8221;hidden&#8221; value=&#8221;{{$_SESSION[&#8216;token&#8217;]}}&#8221; name=&#8221;token&#8221; /&gt;
+</p>
+<ul>
+<li>
+    步骤2：验证表单提交的随机字符串和session中的是否一致
+  </li>
+</ul>
+<p>
+  session_start();
+</p>
+<p>
+  if ($_SESSION[&#8216;token&#8217;] !== $_POST[&#8216;token&#8217;]) {
+</p>
+<p>
+  非法操作
+</p>
+<p>
+  }
+</p>
+<h2><a id="post-6168-_Toc487990939"></a>Laravel中避免CSRF攻击（留言板案例）</h2>
+<p>
+  步骤1：打开app\Http\Kernel.php核心文件开启cstf攻击（注：默认已经开启）
+</p>
+<p><img decoding="async" width="1075" height="416" src="/wp-content/uploads/2018/05/word-image-5616.png" class="wp-image-6170" srcset="/wp-content/uploads/2018/05/word-image-5616.png 1075w, /wp-content/uploads/2018/05/word-image-5616-300x116.png 300w, /wp-content/uploads/2018/05/word-image-5616-768x297.png 768w, /wp-content/uploads/2018/05/word-image-5616-1024x396.png 1024w" sizes="(max-width: 1075px) 100vw, 1075px" /></p>
+<p>
+  步骤2：后期所有post提交的表单都必须增加_token键
+</p>
+<p><img decoding="async" width="963" height="371" src="/wp-content/uploads/2018/05/word-image-5617.png" class="wp-image-6171" srcset="/wp-content/uploads/2018/05/word-image-5617.png 963w, /wp-content/uploads/2018/05/word-image-5617-300x116.png 300w, /wp-content/uploads/2018/05/word-image-5617-768x296.png 768w" sizes="(max-width: 963px) 100vw, 963px" /></p>
+<p>
+  了解更多：<a href="http://laravelacademy.org/post/6742.html">http://laravelacademy.org/post/6742.html</a>
+</p>
+<h1>二、操作提示功能：Laravel 的闪存数据（Flash Data）</h1>
+<h2>1、概念</h2>
+<p>
+  简单概括：闪存数据指将数据存在session中并且只能读取一次
+</p>
+<p><img loading="lazy" decoding="async" width="825" height="336" src="/wp-content/uploads/2018/05/word-image-5618.png" class="wp-image-6172" srcset="/wp-content/uploads/2018/05/word-image-5618.png 825w, /wp-content/uploads/2018/05/word-image-5618-300x122.png 300w, /wp-content/uploads/2018/05/word-image-5618-768x313.png 768w" sizes="(max-width: 825px) 100vw, 825px" /></p>
+<h2>留言板案例（数据插入状态弹框提示）</h2>
+<p>
+  控制器
+</p>
+<p><img loading="lazy" decoding="async" width="1259" height="550" src="/wp-content/uploads/2018/05/word-image-5619.png" class="wp-image-6173" srcset="/wp-content/uploads/2018/05/word-image-5619.png 1259w, /wp-content/uploads/2018/05/word-image-5619-300x131.png 300w, /wp-content/uploads/2018/05/word-image-5619-768x336.png 768w, /wp-content/uploads/2018/05/word-image-5619-1024x447.png 1024w" sizes="(max-width: 1259px) 100vw, 1259px" /></p>
+<p>
+  视图
+</p>
+<p><img loading="lazy" decoding="async" width="977" height="421" src="/wp-content/uploads/2018/05/word-image-5620.png" class="wp-image-6174" srcset="/wp-content/uploads/2018/05/word-image-5620.png 977w, /wp-content/uploads/2018/05/word-image-5620-300x129.png 300w, /wp-content/uploads/2018/05/word-image-5620-768x331.png 768w" sizes="(max-width: 977px) 100vw, 977px" /></p>
+<p>
+  概况
+</p>
+<p><img loading="lazy" decoding="async" width="868" height="270" src="/wp-content/uploads/2018/05/word-image-5621.png" class="wp-image-6175" srcset="/wp-content/uploads/2018/05/word-image-5621.png 868w, /wp-content/uploads/2018/05/word-image-5621-300x93.png 300w, /wp-content/uploads/2018/05/word-image-5621-768x239.png 768w" sizes="(max-width: 868px) 100vw, 868px" /></p>
+<p>
+  with（键，值）   						=&gt; 相当于 $_SESSION[&#8216;键&#8217;] = 值
+</p>
+<p>
+  with（[键=&gt;值,..,键n=&gt;值n]）		=&gt; 相当于批量设置
+</p>
+<p>
+  						 				$_SESSION[&#8216;键1&#8217;] = 值1
+</p>
+<p>
+  						 				&#8230;
+</p>
+<p>
+  						 				$_SESSION[&#8216;键n&#8217;] = 值n
+</p>
+<p>
+  以前PHP存储到session中，通过$_SESSION[&#8216;键&#8217;]来获取
+</p>
+<p>
+  问：在Laravel中如何获取？
+</p>
+<p>
+  答：通过session函数，语法：echo session（键）
+</p>
+<h2>留言板案例（优雅的弹框）</h2>
+<h3>1）插件</h3>
+<p>
+  layer插件（闲心）
+</p>
+<p>
+  网站：<a href="http://layer.layui.com/">http://layer.layui.com/</a>
+</p>
+<p>
+  手册：<a href="http://layer.layui.com/hello.html">http://layer.layui.com/hello.html</a>
+</p>
+<p>
+  sweet alert插件
+</p>
+<p>
+  网站：<a href="http://mishengqiang.com/sweetalert/" class="broken_link">http://mishengqiang.com/sweetalert/</a>
+</p>
+<p>
+  laravel的sweet alert版本：<a href="https://github.com/uxweb/sweet-alert">https://github.com/uxweb/sweet-alert</a>
+</p>
+<h3>使用</h3>
+<p><img loading="lazy" decoding="async" width="1145" height="544" src="/wp-content/uploads/2018/05/word-image-5622.png" class="wp-image-6176" srcset="/wp-content/uploads/2018/05/word-image-5622.png 1145w, /wp-content/uploads/2018/05/word-image-5622-300x143.png 300w, /wp-content/uploads/2018/05/word-image-5622-768x365.png 768w, /wp-content/uploads/2018/05/word-image-5622-1024x487.png 1024w" sizes="(max-width: 1145px) 100vw, 1145px" /></p>
+<p>
+  &lt;!DOCTYPE html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+      &lt;title&gt;&lt;/title&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+      &lt;!&#8211;
+</p>
+<p>
+      http://mishengqiang.com/sweetalert/
+</p>
+<p>
+      &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+      .sweet-alert h2 { line-height: 1px !important }
+</p>
+<p>
+      &lt;/style&gt;
+</p>
+<p>
+      &#8211;&gt;
+</p>
+<p>
+      &lt;link href=&#8221;https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css&#8221; rel=&#8221;stylesheet&#8221;&gt;
+</p>
+<p>
+      &lt;script src=&#8221;https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert-dev.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+      &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+      swal(&#8220;大标题&#8221;, &#8220;&#8221;,&#8221;error&#8221;)
+</p>
+<p>
+      &lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h3>留言板整合</h3>
+<p>
+  控制机器
+</p>
+<p><img loading="lazy" decoding="async" width="1353" height="491" src="/wp-content/uploads/2018/05/word-image-5623.png" class="wp-image-6177" srcset="/wp-content/uploads/2018/05/word-image-5623.png 1353w, /wp-content/uploads/2018/05/word-image-5623-300x109.png 300w, /wp-content/uploads/2018/05/word-image-5623-768x279.png 768w, /wp-content/uploads/2018/05/word-image-5623-1024x372.png 1024w" sizes="(max-width: 1353px) 100vw, 1353px" /></p>
+<p>
+  视图
+</p>
+<p><img loading="lazy" decoding="async" width="1283" height="521" src="/wp-content/uploads/2018/05/word-image-5624.png" class="wp-image-6178" srcset="/wp-content/uploads/2018/05/word-image-5624.png 1283w, /wp-content/uploads/2018/05/word-image-5624-300x122.png 300w, /wp-content/uploads/2018/05/word-image-5624-768x312.png 768w, /wp-content/uploads/2018/05/word-image-5624-1024x416.png 1024w" sizes="(max-width: 1283px) 100vw, 1283px" /></p>
+<p>
+  &lt;link href=&#8221;https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css&#8221; rel=&#8221;stylesheet&#8221;&gt;
+</p>
+<p>
+  &lt;script src=&#8221;https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert-dev.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  	{{&#8211;@if (session(&#8216;tips&#8217;))&#8211;}}
+</p>
+<p>
+  		{{&#8211;alert(&#8220;{{ session(&#8216;tips&#8217;) }}&#8221;);&#8211;}}
+</p>
+<p>
+  	{{&#8211;@endif&#8211;}}
+</p>
+<p>
+  	@if (session(&#8216;tips&#8217;))
+</p>
+<p>
+      swal(&#8220;{{session(&#8216;tips&#8217;)}}&#8221;, &#8220;&#8221;,&#8221;{{session(&#8216;state&#8217;)}}&#8221;);
+</p>
+<p>
+  	@endif
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<h1>︴数据库操作学前扩展（foreach遍历Laravel集合对象，会将其属性中的对象赋给 $v）</h1>
+<p>
+  &lt;?php
+</p>
+<p>
+  //以前：从数据库查询处理，是个二维数组
+</p>
+<p>
+  // $arrData = [
+</p>
+<p>
+  // 	[&#8216;name&#8217;=&gt;&#8217;xx&#8217;, &#8216;age&#8217;=&gt;19],
+</p>
+<p>
+  // 	[&#8216;name&#8217;=&gt;&#8217;xx&#8217;, &#8216;age&#8217;=&gt;19],
+</p>
+<p>
+  // 	[&#8216;name&#8217;=&gt;&#8217;xx&#8217;, &#8216;age&#8217;=&gt;19],
+</p>
+<p>
+  // 	[&#8216;name&#8217;=&gt;&#8217;xx&#8217;, &#8216;age&#8217;=&gt;19]
+</p>
+<p>
+  // ];
+</p>
+<p>
+  // foreach ($arrData as $key =&gt; $arr) {
+</p>
+<p>
+  // 	#$arr就是数据库的一条条记录， [&#8216;name&#8217;=&gt;&#8217;xx&#8217;, &#8216;age&#8217;=&gt;19]
+</p>
+<p>
+  // 	#$arr[&#8216;name&#8217;]   和  $arr[&#8216;age&#8217;]
+</p>
+<p>
+  // }
+</p>
+<p>
+  //&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  //现在：laravel不同（小对象对应数据库的每一条记录）
+</p>
+<p>
+  // 大对象
+</p>
+<p>
+  // {
+</p>
+<p>
+  // 	属性名:受保护 =&gt; array(
+</p>
+<p>
+  // 		0 =&gt; 小对象,
+</p>
+<p>
+  // 		1 =&gt; 小对象,
+</p>
+<p>
+  // 		2 =&gt; 小对象
+</p>
+<p>
+  // 	)
+</p>
+<p>
+  // }
+</p>
+<p>
+  //======================
+</p>
+<p>
+  //【小栗子】定义学生类
+</p>
+<p>
+  // class Stu
+</p>
+<p>
+  // {
+</p>
+<p>
+  // 	public $a = &#8216;a1&#8217;;
+</p>
+<p>
+  // 	public $b = &#8216;b2&#8217;;
+</p>
+<p>
+  // 	protected $c = &#8216;c3&#8217;;
+</p>
+<p>
+  // 	public function d() {}
+</p>
+<p>
+  // }
+</p>
+<p>
+  // //创建对象
+</p>
+<p>
+  // $stuObj = new Stu;
+</p>
+<p>
+  // foreach ($stuObj as $key =&gt; $v) {
+</p>
+<p>
+  // 	print_r($key);
+</p>
+<p>
+  // 	print_r($v);
+</p>
+<p>
+  // 	echo &#8216;&lt;hr /&gt;&#8217;; //【结论】只有公开的属性才可以
+</p>
+<p>
+  // }
+</p>
+<p>
+  //&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+</p>
+<p><strong>class smallObj </strong>
+</p>
+<p><strong>{</strong>
+</p>
+<p><strong>	public $name = &#8216;h&#8217;;</strong>
+</p>
+<p><strong>	public $age = &#8216;hh&#8217;;</strong>
+</p>
+<p><strong>}</strong>
+</p>
+<p><strong>class Stu implements IteratorAggregate </strong>
+</p>
+<p><strong>{</strong>
+</p>
+<p><strong>	protected $items;</strong>
+</p>
+<p><strong>	public function __construct()</strong>
+</p>
+<p><strong>	{</strong>
+</p>
+<p><strong>		$this-&gt;items = array(</strong>
+</p>
+<p><strong>			new smallObj,</strong>
+</p>
+<p><strong>			new smallObj,</strong>
+</p>
+<p><strong>			new smallObj</strong>
+</p>
+<p><strong>		);</strong>
+</p>
+<p><strong>	}</strong>
+</p>
+<p><strong>	//说明：实现IteratorAggregate接口里面的抽象方法</strong>
+</p>
+<p><strong>	//触发：当foreach时候触发</strong>
+</p>
+<p><strong>    public function getIterator() {</strong>
+</p>
+<p><strong>    		   //通过ArrayIterator迭代器遍历$this-&gt;items挨个返回给$v</strong>
+</p>
+<p><strong>        return new ArrayIterator($this-&gt;items);//通过ArrayIterator迭代器过滤items属性</strong>
+</p>
+<p><strong>    }</strong>
+</p>
+<p><strong>}</strong>
+</p>
+<p><strong>//创建对象</strong>
+</p>
+<p><strong>$stuObj = new Stu;</strong>
+</p>
+<p><strong>echo &#8216;&lt;pre&gt;&#8217;;</strong>
+</p>
+<p><strong>// print_r($stuObj);</strong>
+</p>
+<p><strong>foreach ($stuObj as $key =&gt; $v) {</strong>
+</p>
+<p><strong>	print_r($v);</strong>
+</p>
+<p><strong>}</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="1116" height="248" src="/wp-content/uploads/2018/05/word-image-5625.png" class="wp-image-6179" srcset="/wp-content/uploads/2018/05/word-image-5625.png 1116w, /wp-content/uploads/2018/05/word-image-5625-300x67.png 300w, /wp-content/uploads/2018/05/word-image-5625-768x171.png 768w, /wp-content/uploads/2018/05/word-image-5625-1024x228.png 1024w" sizes="(max-width: 1116px) 100vw, 1116px" /></p>
+<h1>三、Laravel数据库操作</h1>
+<h2>1、说明</h2>
+<p>
+  按照MVC架构理论上数据操作应该在模型中（Model）完成，但对于某些极其复杂的SQL语句，可以使用DB类来操作数据库。
+</p>
+<h2>2、操作数据库的三种方式（★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★）</h2>
+<ul>
+<li>
+    使用模型操作（Eloquent ORM）
+  </li>
+<li>
+    使用原生SQL语句，语法：DB::CURD（SQL语句）
+  </li>
+<li>
+    使用查询构建器，语法：DB::table（表名）
+  </li>
+</ul>
+<p>
+  模型Eloquent ORM  相当于TP    D方法
+</p>
+<p>
+  查询构建器           相当于TP     M方法
+</p>
+<p>
+  多学一招：实际工作使用M还是D呢？
+</p>
+<p>
+  答：模型，因为减少冗余、增加代码可读性便于维护
+</p>
+<h2>3、准备，操作数据库（数据表的创建与配置）</h2>
+<h3>1）创建数据库和表</h3>
+<p>
+  create database laravel54;
+</p>
+<p>
+  use laravel54;
+</p>
+<p>
+  create table day2_t1(
+</p>
+<p>
+  id int primary key auto_increment comment &#8216;编号&#8217;,
+</p>
+<p>
+  uname varchar(45) not null comment &#8216;用户名&#8217;,
+</p>
+<p>
+  content text not null comment &#8216;内容&#8217;,
+</p>
+<p>
+  created_at int not null default 0 comment &#8216;创建于&#8217;,
+</p>
+<p>
+  updated_at int not null default 0 comment &#8216;更新于&#8217;
+</p>
+<p>
+  )engine=myisam charset=utf8;
+</p>
+<h3>2）数据库在laravel框架中的配置（更改数据库配置文件）</h3>
+<p><img loading="lazy" decoding="async" width="674" height="340" src="/wp-content/uploads/2018/05/word-image-5626.png" class="wp-image-6180" srcset="/wp-content/uploads/2018/05/word-image-5626.png 674w, /wp-content/uploads/2018/05/word-image-5626-300x151.png 300w" sizes="(max-width: 674px) 100vw, 674px" /></p>
+<h3>3）创建一个Day2Controller.php的控制器</h3>
+<p>
+  php artisan make:controller Home\Day2Controller
+</p>
+<h3>3）设计路由规则</h3>
+<p><img loading="lazy" decoding="async" width="1055" height="413" src="/wp-content/uploads/2018/05/word-image-5627.png" class="wp-image-6181" srcset="/wp-content/uploads/2018/05/word-image-5627.png 1055w, /wp-content/uploads/2018/05/word-image-5627-300x117.png 300w, /wp-content/uploads/2018/05/word-image-5627-768x301.png 768w, /wp-content/uploads/2018/05/word-image-5627-1024x401.png 1024w" sizes="(max-width: 1055px) 100vw, 1055px" /></p>
+<p>
+  Route::get(&#8216;/db&#8217;, &#8216;Home\Day2Controller@db&#8217;);
+</p>
+<h1>四、DB类操作数据库（查询构建器、原始SQL语句）</h1>
+<h2><a id="post-6168-_Toc487903168"></a>1、【C】增加数据（insert）</h2>
+<h3>语法</h3>
+<ul>
+<li>
+    【  插入多条数据】DB::table（表名）-&gt;insert（数组）
+  </li>
+<li>
+    【插入一条反主键】DB::table（表名）-&gt;insertGetId（数组）
+  </li>
+</ul>
+<h3>2）练习</h3>
+<p>
+  //【返回状态】插入数据（一条）
+</p>
+<p>
+  //【返回状态】插入数据（多条）
+</p>
+<p>
+  //【返回主键】插入数据（仅能插入一条）
+</p>
+<p><img loading="lazy" decoding="async" width="837" height="650" src="/wp-content/uploads/2018/05/word-image-5628.png" class="wp-image-6182" srcset="/wp-content/uploads/2018/05/word-image-5628.png 837w, /wp-content/uploads/2018/05/word-image-5628-300x233.png 300w, /wp-content/uploads/2018/05/word-image-5628-768x596.png 768w" sizes="(max-width: 837px) 100vw, 837px" /></p>
+<p>
+  //学习数据库测试方法
+</p>
+<p>
+  public function db()
+</p>
+<p>
+  {
+</p>
+<p>
+      //【返回状态】插入数据（一条）
+</p>
+<p>
+  //        $rs = DB::table(&#8216;day2_t1&#8217;)-&gt;insert([
+</p>
+<p>
+  //            &#8216;uname&#8217; =&gt; &#8216;dsfsdaf&#8217;,
+</p>
+<p>
+  //            &#8216;content&#8217; =&gt; &#8216;aaaaaa&#8217;,
+</p>
+<p>
+  //            &#8216;created_at&#8217; =&gt; time(),
+</p>
+<p>
+  //            &#8216;updated_at&#8217; =&gt; time()
+</p>
+<p>
+  //        ]);
+</p>
+<p>
+  //        var_dump($rs);
+</p>
+<p>
+      //【返回状态】插入数据（多条）
+</p>
+<p>
+  //        $rs = DB::table(&#8216;day2_t1&#8217;)-&gt;insert([
+</p>
+<p>
+  //            [&#8216;uname&#8217; =&gt; &#8216;dsfsdaf&#8217;, &#8216;content&#8217; =&gt; &#8216;aaaaaa&#8217;],
+</p>
+<p>
+  //            [&#8216;uname&#8217; =&gt; &#8216;dsfsdaf&#8217;, &#8216;content&#8217; =&gt; &#8216;aaaaaa&#8217;]
+</p>
+<p>
+  //        ]);
+</p>
+<p>
+  //        var_dump($rs);
+</p>
+<p>
+      //【返回主键】插入数据（仅能插入一条）
+</p>
+<p>
+      $rs = DB::table(&#8216;day2_t1&#8217;)-&gt;insertGetId([
+</p>
+<p>
+          &#8216;uname&#8217; =&gt; &#8216;dsfsdaf&#8217;,
+</p>
+<p>
+          &#8216;content&#8217; =&gt; &#8216;aaaaaa&#8217;,
+</p>
+<p>
+          &#8216;created_at&#8217; =&gt; time(),
+</p>
+<p>
+          &#8216;updated_at&#8217; =&gt; time()
+</p>
+<p>
+      ]);
+</p>
+<p>
+      var_dump($rs);
+</p>
+<p>
+  }
+</p>
+<h2><a id="post-6168-_Toc487903177"></a>【D】删除数据(delete)</h2>
+<h3>1）语法</h3>
+<ul>
+<li>
+    【删除一条】DB::table（表名）-&gt;delete（主键）
+  </li>
+<li>
+    【删除多条】DB::table（表名）-&gt;where（字段名，条件，值）-&gt;delete（）
+  </li>
+</ul>
+<h3>2）练习</h3>
+<p><img loading="lazy" decoding="async" width="1038" height="456" src="/wp-content/uploads/2018/05/word-image-5629.png" class="wp-image-6183" srcset="/wp-content/uploads/2018/05/word-image-5629.png 1038w, /wp-content/uploads/2018/05/word-image-5629-300x132.png 300w, /wp-content/uploads/2018/05/word-image-5629-768x337.png 768w, /wp-content/uploads/2018/05/word-image-5629-1024x450.png 1024w" sizes="(max-width: 1038px) 100vw, 1038px" /></p>
+<p>
+      //学习数据库测试方法
+</p>
+<p>
+      public function db()
+</p>
+<p>
+      {
+</p>
+<p>
+          //【删除一条】
+</p>
+<p>
+  //        $rs = DB::table(&#8216;day2_t1&#8217;)-&gt;delete(1);
+</p>
+<p>
+  //        var_dump($rs);
+</p>
+<p>
+          //【删除多条】
+</p>
+<p>
+          $rs = DB::table(&#8216;day2_t1&#8217;)-&gt;where(&#8216;id&#8217;, &#8216;&lt;&#8216;, 5)-&gt;delete();
+</p>
+<p>
+          var_dump($rs);
+</p>
+<p>
+      }
+</p>
+<h2><a id="post-6168-_Toc487903169"></a>【U】修改数据( update)</h2>
+<h3>1）语法</h3>
+<ul>
+<li>
+    【修改多条】DB::table（表名）-&gt;update（数组）
+  </li>
+<li>
+    【修改指定】DB::table（表名）-&gt;where（字段名，条件，值）-&gt;update（数组）
+  </li>
+<li>
+    【递增】DB::table（表名）-&gt;increment（字段名 [,数字默认1]）
+  </li>
+<li>
+    【递减】DB::table（表名）-&gt;decrement（字段名 [,数字默认1]）
+  </li>
+</ul>
+<h3>2）练习</h3>
+<p><img loading="lazy" decoding="async" width="1276" height="567" src="/wp-content/uploads/2018/05/word-image-5630.png" class="wp-image-6184" srcset="/wp-content/uploads/2018/05/word-image-5630.png 1276w, /wp-content/uploads/2018/05/word-image-5630-300x133.png 300w, /wp-content/uploads/2018/05/word-image-5630-768x341.png 768w, /wp-content/uploads/2018/05/word-image-5630-1024x455.png 1024w" sizes="(max-width: 1276px) 100vw, 1276px" /></p>
+<p>
+      //学习数据库测试方法
+</p>
+<p>
+      public function db()
+</p>
+<p>
+      {
+</p>
+<p>
+          #需求：将id=6的name改成六六六
+</p>
+<p>
+  //        $rs = DB::table(&#8216;day2_t1&#8217;)-&gt;where(&#8216;id&#8217;,&#8217;=&#8217;,6)-&gt;update([
+</p>
+<p>
+  //            &#8216;uname&#8217; =&gt; &#8216;六六六&#8217;
+</p>
+<p>
+  //        ]);
+</p>
+<p>
+  //        var_dump($rs);
+</p>
+<p>
+          //脚下留心：php操作数据库特性如果数据已经修改，没有改变则影响0行，至此推荐修改数据的时候加上updated_at字段
+</p>
+<p>
+  //        DB::table(&#8216;day2_t1&#8217;)-&gt;where(&#8216;id&#8217;,&#8217;=&#8217;,6)-&gt;increment(&#8216;created_at&#8217;);
+</p>
+<p>
+  //        DB::table(&#8216;day2_t1&#8217;)-&gt;where(&#8216;id&#8217;,&#8217;=&#8217;,6)-&gt;increment(&#8216;created_at&#8217;, 4);
+</p>
+<p>
+          DB::table(&#8216;day2_t1&#8217;)-&gt;where(&#8216;id&#8217;,&#8217;=&#8217;,6)-&gt;decrement(&#8216;created_at&#8217;);
+</p>
+<p>
+          DB::table(&#8216;day2_t1&#8217;)-&gt;where(&#8216;id&#8217;,&#8217;=&#8217;,6)-&gt;decrement(&#8216;created_at&#8217;, 4);
+</p>
+<p>
+      }
+</p>
+<h2><a id="post-6168-_Toc487903170"></a>4、【R】查询数据(get)</h2>
+<h3>1）语法</h3>
+<p>
+  DB::table(表名)
+</p>
+<p>
+  -&gt;select(字段名1,..,字段名n)  显示自定的字段 （注：字段名 as 别名）
+</p>
+<p>
+  -&gt;where（字段名，条件，值）    多学一招：如果是等于忽略条件，语法：-&gt;where（字段名，值）
+</p>
+<p>
+                                  多学一招：-&gt;where（[字段名=&gt;值，字段名=&gt;值]）
+</p>
+<p>
+  -&gt;orderBy(字段名，升序或降序)
+</p>
+<p>
+  -&gt;groupBy（字段名）			 注：多个则数组
+</p>
+<p>
+  -&gt;having（同where）
+</p>
+<p>
+  -&gt;skip（数字）  跳过多少条
+</p>
+<p>
+  -&gt;take（数字）  获取多少条
+</p>
+<p>
+  或
+</p>
+<p>
+  -&gt;offset（数字）
+</p>
+<p>
+  -&gt;limit（数字）
+</p>
+<p>
+  -&gt;get()      查询所有数据
+</p>
+<p>
+  -&gt;first()    查询一条数据
+</p>
+<p>
+  并且where条件语法：-&gt;where()-&gt;where()
+</p>
+<p>
+  或者where条件语法：-&gt;where()-&gt;orWhere()      参数统一两个或三个
+</p>
+<h3><a id="post-6168-_Toc487903171"></a>练习1</h3>
+<ul>
+<li>
+    #插入测试数据
+  </li>
+</ul>
+<p>
+  INSERT INTO `day2_t1`
+</p>
+<p>
+  VALUES
+</p>
+<p>
+  (&#8216;1&#8217;, &#8216;aa&#8217;, &#8216;aaaa&#8217;, &#8216;0&#8217;, &#8216;0&#8217;),
+</p>
+<p>
+  (&#8216;2&#8217;, &#8216;bb&#8217;, &#8216;dfasf&#8217;, &#8216;0&#8217;, &#8216;0&#8217;),
+</p>
+<p>
+  (&#8216;3&#8217;, &#8216;cc&#8217;, &#8216;sdf&#8217;, &#8216;0&#8217;, &#8216;0&#8217;),
+</p>
+<p>
+  (&#8216;4&#8217;, &#8216;dd&#8217;, &#8216;asdf&#8217;, &#8216;0&#8217;, &#8216;0&#8217;),
+</p>
+<p>
+  (&#8216;5&#8217;, &#8216;ee&#8217;, &#8216;asd&#8217;, &#8216;0&#8217;, &#8216;0&#8217;),
+</p>
+<p>
+  (&#8216;6&#8217;, &#8216;ff&#8217;, &#8216;adsfasdf&#8217;, &#8216;0&#8217;, &#8216;0&#8217;),
+</p>
+<p>
+  (&#8216;7&#8217;, &#8216;ff&#8217;, &#8216;dsf&#8217;, &#8216;0&#8217;, &#8216;0&#8217;),
+</p>
+<p>
+  (&#8216;8&#8217;, &#8216;h&#8217;, &#8216;asdf&#8217;, &#8216;0&#8217;, &#8216;0&#8217;),
+</p>
+<p>
+  (&#8216;9&#8217;, &#8216;i&#8217;, &#8216;asf&#8217;, &#8216;0&#8217;, &#8216;0&#8217;),
+</p>
+<p>
+  (&#8217;10&#8217;, &#8216;g&#8217;, &#8216;gsdfg&#8217;, &#8216;0&#8217;, &#8216;0&#8217;),
+</p>
+<p>
+  (&#8217;11&#8217;, &#8216;k&#8217;, &#8216;dfdf&#8217;, &#8216;0&#8217;, &#8216;0&#8217;),
+</p>
+<p>
+  (&#8217;12&#8217;, &#8216;l&#8217;, &#8216;dfgsdfg&#8217;, &#8216;0&#8217;, &#8216;0&#8217;),
+</p>
+<p>
+  (&#8217;13&#8217;, &#8216;m&#8217;, &#8216;g&#8217;, &#8216;0&#8217;, &#8216;0&#8217;),
+</p>
+<p>
+  (&#8217;14&#8217;, &#8216;n&#8217;, &#8216;dfg&#8217;, &#8216;0&#8217;, &#8216;0&#8217;),
+</p>
+<p>
+  (&#8217;15&#8217;, &#8216;o&#8217;, &#8216;sfadsf&#8217;, &#8216;0&#8217;, &#8216;0&#8217;);
+</p>
+<ul>
+<li>
+    例题
+  </li>
+</ul>
+<p>
+  #题目1：查询一条数据
+</p>
+<p>
+  #题目2：查询所有数据
+</p>
+<p>
+  #题目3：按照id降序模糊查询content中含有a的数据，最终取2条
+</p>
+<p><img loading="lazy" decoding="async" width="1007" height="394" src="/wp-content/uploads/2018/05/word-image-5631.png" class="wp-image-6185" srcset="/wp-content/uploads/2018/05/word-image-5631.png 1007w, /wp-content/uploads/2018/05/word-image-5631-300x117.png 300w, /wp-content/uploads/2018/05/word-image-5631-768x300.png 768w" sizes="(max-width: 1007px) 100vw, 1007px" /></p>
+<p>
+     //学习数据库测试方法
+</p>
+<p>
+      public function db()
+</p>
+<p>
+      {
+</p>
+<p>
+          echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+          #题目1：查询一条数据（直接小对象）
+</p>
+<p>
+  //        $data = DB::table(&#8216;day2_t1&#8217;)-&gt;first();
+</p>
+<p>
+  //        print_r($data);
+</p>
+<p>
+  //        echo $data-&gt;content;
+</p>
+<p>
+          #题目2：查询所有数据（大对象里小对象，如果foreach那么$v 小对象）
+</p>
+<p>
+  //        $data = DB::table(&#8216;day2_t1&#8217;)-&gt;get();
+</p>
+<p>
+  //        print_r($data);
+</p>
+<p>
+          #题目3：按照id降序模糊查询content中含有a的数据，最终取2条
+</p>
+<p>
+          $data = DB::table(&#8216;day2_t1&#8217;)-&gt;where(&#8216;content&#8217;, &#8216;like&#8217;, &#8216;%a%&#8217;)-&gt;orderBy(&#8216;id&#8217;, &#8216;desc&#8217;)-&gt;limit(2)-&gt;get();
+</p>
+<p>
+          print_r($data);
+</p>
+<p>
+      }
+</p>
+<h3><a id="post-6168-_Toc487903173"></a>3）练习2：where条件</h3>
+<p>
+  #题目1：查询id=1（方法一）
+</p>
+<p>
+  #题目2：查询id=1（方法二）
+</p>
+<p>
+  #题目3：查询id&gt;1
+</p>
+<p>
+  #题目4：查询id=1并且name=aa
+</p>
+<p>
+  #题目5：查询id=1或id=2
+</p>
+<p><img loading="lazy" decoding="async" width="667" height="555" src="/wp-content/uploads/2018/05/word-image-5632.png" class="wp-image-6186" srcset="/wp-content/uploads/2018/05/word-image-5632.png 667w, /wp-content/uploads/2018/05/word-image-5632-300x250.png 300w" sizes="(max-width: 667px) 100vw, 667px" /></p>
+<p>
+  //学习数据库测试方法
+</p>
+<p>
+  public function db()
+</p>
+<p>
+  {
+</p>
+<p>
+      echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+      #题目1：查询id=1（方法一）
+</p>
+<p>
+  //        $data = DB::table(&#8220;day2_t1&#8221;)-&gt;where(&#8216;id&#8217;, 1)-&gt;get();
+</p>
+<p>
+  //        print_r($data);
+</p>
+<p>
+      #题目2：查询id=1（方法二）
+</p>
+<p>
+  //        $data = DB::table(&#8220;day2_t1&#8221;)-&gt;where(&#8216;id&#8217;,&#8217;=&#8217;, 1)-&gt;get();
+</p>
+<p>
+  //        print_r($data);
+</p>
+<p>
+      #题目3：查询id&gt;1
+</p>
+<p>
+  //        $data = DB::table(&#8220;day2_t1&#8221;)-&gt;where(&#8216;id&#8217;,&#8217;&gt;&#8217;, 1)-&gt;get();
+</p>
+<p>
+  //        print_r($data);
+</p>
+<p>
+      #题目4：查询id=1并且name=aa
+</p>
+<p>
+      //$data = DB::table(&#8216;day2_t1&#8217;)-&gt;where(&#8216;id&#8217;,1)-&gt;where(&#8216;uname&#8217;,&#8217;aa&#8217;)-&gt;get();
+</p>
+<p>
+  //        $data = DB::table(&#8216;day2_t1&#8217;)-&gt;where([&#8216;id&#8217;=&gt;1,&#8217;uname&#8217;=&gt;&#8217;aa&#8217;])-&gt;get();
+</p>
+<p>
+  //        print_r($data);
+</p>
+<p>
+      #题目5：查询id=1或id=2
+</p>
+<p>
+      $data = DB::table(&#8216;day2_t1&#8217;)
+</p>
+<p>
+          -&gt;where(&#8216;id&#8217;,1)
+</p>
+<p>
+          -&gt;orWhere(&#8216;id&#8217;,2)
+</p>
+<p>
+          -&gt;get();
+</p>
+<p>
+      print_r($data);
+</p>
+<p>
+  }
+</p>
+<h1><a id="post-6168-_Toc487903178"></a>五、执行任意的SQL语句（可忽略）</h1>
+<h3>1）语法</h3>
+<ul>
+<li>
+    DB::select（SQL语句）
+  </li>
+<li>
+    DB::insert（SQL语句）
+  </li>
+<li>
+    DB::update（SQL语句）
+  </li>
+<li>
+    DB::delete（SQL语句）
+  </li>
+</ul>
+<h3>2）练习</h3>
+<p><img loading="lazy" decoding="async" width="930" height="441" src="/wp-content/uploads/2018/05/word-image-5633.png" class="wp-image-6187" srcset="/wp-content/uploads/2018/05/word-image-5633.png 930w, /wp-content/uploads/2018/05/word-image-5633-300x142.png 300w, /wp-content/uploads/2018/05/word-image-5633-768x364.png 768w" sizes="(max-width: 930px) 100vw, 930px" /></p>
+<p>
+      //学习数据库测试方法
+</p>
+<p>
+      public function db()
+</p>
+<p>
+      {
+</p>
+<p>
+          echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+  //        $data = DB::select(&#8216;select * from day2_t1&#8217;);
+</p>
+<p>
+  //        print_r($data);
+</p>
+<p>
+  //
+</p>
+<p>
+  //        $rs = DB::update(&#8220;update day2_t1 set uname = &#8216;a111&#8217; where id = 1&#8221;);
+</p>
+<p>
+  //        var_dump($rs);
+</p>
+<p>
+  //         $data = DB::insert(&#8220;insert into day2_t1 (uname,content) values (&#8216;aaa&#8217;, &#8216;bbbb&#8217;)&#8221;);
+</p>
+<p>
+  //         var_dump($data);
+</p>
+<p>
+      }
+</p>
+<h1><a id="post-6168-_Toc487990941"></a>模型使用（Eloquent ORM）</h1>
+<h2>说明</h2>
+<ul>
+<li><strong>什么是ORM？</strong>
+  </li>
+</ul>
+<p>
+  ORM技术主要为了避免手工编写 SQL，直接在对象（Object，O）和关系型数据（Relation, R）之间进行转换（Mapping, M）。
+</p>
+<p>
+  ORM的好处就是使得你的开发几乎不用接触到SQL语句。创建一张表，声明一个对应的类，然后你就只用和这个类的实例进行交互了，至于这个对象里的数据该怎么存储又该怎么获取，通通不用关心。
+</p>
+<ul>
+<li><strong>什么是Eloquent ORM？</strong>
+  </li>
+</ul>
+<p>
+  Eloquent 是 Laravel 中实现ORM的一个名称
+</p>
+<p>
+  大致规则
+</p>
+<p>
+  PHP编写的类  	===  库.表
+</p>
+<p>
+  类里面存在属性  ===  表.字段
+</p>
+<p>
+  类的实例方法 	===  表的操作
+</p>
+<p>
+  类的实例 	    ===  表.记录
+</p>
+<h2><a id="post-6168-_Toc487990942"></a>2、创建模型</h2>
+<ul>
+<li>
+    语法：php artisan make:model Http\Model\模型名
+  </li>
+<li>
+    说明：说明模型默认在app目录下，为了方便管理将其放到Model目录中
+  </li>
+<li>
+    模型属性【★】
+  </li>
+</ul>
+<p>
+  #声明表名（必须，注：不写则默认标明复数）
+</p>
+<p>
+  protected $table       =  表名 			#默认模型对应的表名就是类型（注：类名大写则下划线分割+s）
+</p>
+<p>
+  #声明主键字段名（默认主键为id字段，后期调用find(1)，则条件是id=1）
+</p>
+<p>
+  protected $primaryKey =  主键名称
+</p>
+<p>
+  #可被批量赋值的属性（当模型通过create方法创建数据时则必须）
+</p>
+<p>
+  protected $fillable   =  [字段1,&#8230;,字段n]
+</p>
+<p>
+  #是否字段管理created_at和updated_at字段：是-true默认，false-否
+</p>
+<p>
+  public $timestamps =  bool
+</p>
+<p>
+  #必须，模型日期列的存储格式（unix时间戳存储）
+</p>
+<p>
+  protected $dateFormat = &#8216;U&#8217;;
+</p>
+<p>
+  注：更改时间戳名称（一般不改）
+</p>
+<p>
+  const CREATED_AT = &#8216;creation_date&#8217;;
+</p>
+<p>
+  const UPDATED_AT = &#8216;last_update&#8217;;
+</p>
+<h2><a id="post-6168-_Toc487990943"></a>2、初体验控制器调用模型（获取所有数据）</h2>
+<p>
+  步骤1：创建模型
+</p>
+<p><img loading="lazy" decoding="async" width="677" height="335" src="/wp-content/uploads/2018/05/word-image-5634.png" class="wp-image-6188" srcset="/wp-content/uploads/2018/05/word-image-5634.png 677w, /wp-content/uploads/2018/05/word-image-5634-300x148.png 300w" sizes="(max-width: 677px) 100vw, 677px" /></p>
+<p>
+  步骤2：控制器调用模型
+</p>
+<p><img loading="lazy" decoding="async" width="795" height="423" src="/wp-content/uploads/2018/05/word-image-5635.png" class="wp-image-6189" srcset="/wp-content/uploads/2018/05/word-image-5635.png 795w, /wp-content/uploads/2018/05/word-image-5635-300x160.png 300w, /wp-content/uploads/2018/05/word-image-5635-768x409.png 768w" sizes="(max-width: 795px) 100vw, 795px" /><br />
+<img loading="lazy" decoding="async" width="786" height="598" src="/wp-content/uploads/2018/05/word-image-5636.png" class="wp-image-6190" srcset="/wp-content/uploads/2018/05/word-image-5636.png 786w, /wp-content/uploads/2018/05/word-image-5636-300x228.png 300w, /wp-content/uploads/2018/05/word-image-5636-768x584.png 768w" sizes="(max-width: 786px) 100vw, 786px" /></p>
+<h2><a id="post-6168-_Toc487990944"></a>3、基本操作</h2>
+<h3><a id="post-6168-_Toc487990945"></a>1）添加数据</h3>
+<ul>
+<li>
+    语法
+  </li>
+<li>
+    方法1：模型名::create（数组）
+  </li>
+<li>
+    方法2：
+  </li>
+</ul>
+<p>
+  $模型名 = new 模型名;
+</p>
+<p>
+  $模型名-&gt;字段名 = 值;
+</p>
+<p>
+  &#8230;
+</p>
+<p>
+  $模型名-&gt;字段名n = 值n;
+</p>
+<p>
+  $模型名-&gt;save();
+</p>
+<ul>
+<li>
+    练习
+  </li>
+<li>
+    方法2：
+  </li>
+</ul>
+<p>
+  模型
+</p>
+<p><img loading="lazy" decoding="async" width="1112" height="644" src="/wp-content/uploads/2018/05/word-image-5637.png" class="wp-image-6191" srcset="/wp-content/uploads/2018/05/word-image-5637.png 1112w, /wp-content/uploads/2018/05/word-image-5637-300x174.png 300w, /wp-content/uploads/2018/05/word-image-5637-768x445.png 768w, /wp-content/uploads/2018/05/word-image-5637-1024x593.png 1024w" sizes="(max-width: 1112px) 100vw, 1112px" /></p>
+<p>
+  控制器
+</p>
+<p><img loading="lazy" decoding="async" width="914" height="642" src="/wp-content/uploads/2018/05/word-image-5638.png" class="wp-image-6192" srcset="/wp-content/uploads/2018/05/word-image-5638.png 914w, /wp-content/uploads/2018/05/word-image-5638-300x211.png 300w, /wp-content/uploads/2018/05/word-image-5638-768x539.png 768w" sizes="(max-width: 914px) 100vw, 914px" /></p>
+<p>
+  脚下留心：
+</p>
+<p>
+  1）使用create方法批量设置属性创建数据，必须在模型声明 $fillable属性
+</p>
+<p>
+  2）模型默认托管创建于和更新于 并且 以字符串型插入，如果需要unix时间戳 得声明$dateformat属性
+</p>
+<ul>
+<li>
+    方法1：
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="629" height="562" src="/wp-content/uploads/2018/05/word-image-5639.png" class="wp-image-6193" srcset="/wp-content/uploads/2018/05/word-image-5639.png 629w, /wp-content/uploads/2018/05/word-image-5639-300x268.png 300w" sizes="(max-width: 629px) 100vw, 629px" /></p>
+<h3><a id="post-6168-_Toc487990946"></a>2）查询操作</h3>
+<ul>
+<li>
+    语法
+  </li>
+</ul>
+<p>
+  模型名::下属任意一个方法()
+</p>
+<p>
+  -&gt;select(字段名1,..,字段名n)  显示自定的字段 （注：字段名 as 别名）
+</p>
+<p>
+  -&gt;where（字段名，条件，值）    多学一招：如果是等于忽略条件，语法：-&gt;where（字段名，值）
+</p>
+<p>
+                                  多学一招：-&gt;where（[字段名=&gt;值，字段名=&gt;值]）
+</p>
+<p>
+  -&gt;orderBy(字段名，升序或降序)
+</p>
+<p>
+  -&gt;groupBy（字段名）			 注：多个则数组
+</p>
+<p>
+  -&gt;having（同where）
+</p>
+<p>
+  -&gt;skip（数字）  跳过多少条
+</p>
+<p>
+  -&gt;take（数字）  获取多少条
+</p>
+<p>
+  或
+</p>
+<p>
+  -&gt;offset（数字）
+</p>
+<p>
+  -&gt;limit（数字）
+</p>
+<p>
+  -&gt;get()      查询所有数据
+</p>
+<p>
+  -&gt;first()    查询一条数据
+</p>
+<p>
+  并且where条件语法：-&gt;where()-&gt;where()
+</p>
+<p>
+  或者where条件语法：-&gt;where()-&gt;orWhere()      参数统一两个或三个
+</p>
+<ul>
+<li>
+    练习
+  </li>
+</ul>
+<p>
+  #题目1：查询id=1（方法一）
+</p>
+<p>
+  #题目2：查询id=1（方法二）
+</p>
+<p>
+  #题目3：查询id&gt;1
+</p>
+<p>
+  #题目4：查询id=1并且id=2
+</p>
+<p>
+  #题目5：查询id=1或id=2
+</p>
+<p><img loading="lazy" decoding="async" width="445" height="546" src="/wp-content/uploads/2018/05/word-image-5640.png" class="wp-image-6194" srcset="/wp-content/uploads/2018/05/word-image-5640.png 445w, /wp-content/uploads/2018/05/word-image-5640-245x300.png 245w" sizes="(max-width: 445px) 100vw, 445px" /></p>
+<p>
+  //学习数据库测试方法
+</p>
+<p>
+  public function db()
+</p>
+<p>
+  {
+</p>
+<p>
+      #题目1：查询id=1（方法一）
+</p>
+<p>
+  //        $day2T1 = Day2T1::where(&#8216;id&#8217;, 1)-&gt;first();
+</p>
+<p>
+  //        echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+  //        print_r($day2T1);
+</p>
+<p>
+  //        #题目2：查询id=1（方法二）
+</p>
+<p>
+  //        $day2T1 = Day2T1::where(&#8216;id&#8217;,&#8217;=&#8217;, 1)-&gt;first();
+</p>
+<p>
+  //        echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+  //        print_r($day2T1);
+</p>
+<p>
+      #题目3：查询id&gt;1
+</p>
+<p>
+  //        $day2T1 = Day2T1::where(&#8216;id&#8217;,&#8217;&gt;&#8217;, 1)-&gt;get();
+</p>
+<p>
+  //        echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+  //        print_r($day2T1);
+</p>
+<p>
+      #题目4：查询id=1并且id=2
+</p>
+<p>
+  //        $day2T1 = Day2T1::where(&#8216;id&#8217;,&#8217;=&#8217;, 1)
+</p>
+<p>
+  //            -&gt;where(&#8216;id&#8217;,&#8217;=&#8217;, 2)
+</p>
+<p>
+  //            -&gt;get();
+</p>
+<p>
+  //        var_dump($day2T1);
+</p>
+<p>
+      #题目5：查询id=1或id=2
+</p>
+<p>
+      $day2T1 = Day2T1::where(&#8216;id&#8217;,&#8217;=&#8217;, 1)
+</p>
+<p>
+          -&gt;orWhere(&#8216;id&#8217;,&#8217;=&#8217;, 2)
+</p>
+<p>
+          -&gt;get();
+</p>
+<p>
+      echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+      print_r($day2T1);
+</p>
+<p>
+  }
+</p>
+<h3><a id="post-6168-_Toc487990947"></a>3）修改数据</h3>
+<ul>
+<li>
+    语法
+  </li>
+<li>
+    方法1：模型名::where()-&gt;update（数组）
+  </li>
+<li>
+    方法2：
+  </li>
+</ul>
+<p>
+  $模型名 = 模型名::find(主键)
+</p>
+<p>
+  $模型名-&gt;字段名 = 修改值
+</p>
+<p>
+  &#8230;.
+</p>
+<p>
+  $模型名-&gt;save();
+</p>
+<p>
+  模型中查询一条数据：find(主键)  或者 first
+</p>
+<p>
+  模型中查询多条数据：get（）     或者 all()
+</p>
+<ul>
+<li>
+    练习
+  </li>
+</ul>
+<p>
+  #方法1：多条，返回受影响的行数
+</p>
+<p>
+  #方法2：仅修改一条，返回bool($rs);
+</p>
+<p><img loading="lazy" decoding="async" width="677" height="468" src="/wp-content/uploads/2018/05/word-image-5641.png" class="wp-image-6195" srcset="/wp-content/uploads/2018/05/word-image-5641.png 677w, /wp-content/uploads/2018/05/word-image-5641-300x207.png 300w" sizes="(max-width: 677px) 100vw, 677px" /></p>
+<p>
+      //学习数据库测试方法
+</p>
+<p>
+      public function db()
+</p>
+<p>
+      {
+</p>
+<p>
+          #方法1：多条，返回受影响的行数
+</p>
+<p>
+  //        $rs = Day2T1::where(&#8216;id&#8217;, &#8216;&lt;&#8216;, 5)-&gt;update([
+</p>
+<p>
+  //            &#8216;uname&#8217; =&gt; &#8216;a2&#8217;
+</p>
+<p>
+  //        ]);
+</p>
+<p>
+  //        var_dump($rs);
+</p>
+<p>
+          #方法2：仅修改一条，返回bool($rs);
+</p>
+<p>
+          $day2T1 = Day2T1::find(1);
+</p>
+<p>
+          $day2T1-&gt;uname = &#8216;bbbb&#8217;;
+</p>
+<p>
+          $day2T1-&gt;content = &#8216;ccccc&#8217;;
+</p>
+<p>
+          $rs = $day2T1-&gt;save();
+</p>
+<p>
+          var_dump($rs);
+</p>
+<p>
+      }
+</p>
+<h3><a id="post-6168-_Toc487990948"></a>4）删除数据</h3>
+<ul>
+<li>
+    语法
+  </li>
+<li>
+    方法1：模型名::where（）-&gt;delete（）
+  </li>
+<li>
+    方法2：
+  </li>
+</ul>
+<p>
+  $模型名 = 模型名::find(主键)
+</p>
+<p>
+  $模型名-&gt;delete（）
+</p>
+<ul>
+<li>
+    练习
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="694" height="486" src="/wp-content/uploads/2018/05/word-image-5642.png" class="wp-image-6196" srcset="/wp-content/uploads/2018/05/word-image-5642.png 694w, /wp-content/uploads/2018/05/word-image-5642-300x210.png 300w" sizes="(max-width: 694px) 100vw, 694px" /></p>
+<p>
+      //学习数据库测试方法
+</p>
+<p>
+      public function db()
+</p>
+<p>
+      {
+</p>
+<p>
+          $rs = Day2T1::destroy(12);
+</p>
+<p>
+          var_dump($rs);die;
+</p>
+<p>
+  //        $rs = Day2T1::where(&#8216;id&#8217;, &#8216;&lt;&#8216;, 6)-&gt;delete();
+</p>
+<p>
+  //        var_dump($rs);
+</p>
+<p>
+  //        $day2T1 = Day2T1::find(6);
+</p>
+<p>
+  //        $rs = $day2T1-&gt;delete();
+</p>
+<p>
+  //        var_dump($rs);
+</p>
+<p>
+      }
+</p>
+<h1>︴将数据转化为数组（强烈不推荐使用）</h1>
+<p><img loading="lazy" decoding="async" width="864" height="601" src="/wp-content/uploads/2018/05/word-image-5643.png" class="wp-image-6197" srcset="/wp-content/uploads/2018/05/word-image-5643.png 864w, /wp-content/uploads/2018/05/word-image-5643-300x209.png 300w, /wp-content/uploads/2018/05/word-image-5643-768x534.png 768w" sizes="(max-width: 864px) 100vw, 864px" /></p>
+<p>
+  //数据库练习
+</p>
+<p>
+  public function db()
+</p>
+<p>
+  {
+</p>
+<p>
+      echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+      #DB first 不可以
+</p>
+<p>
+  //       $day2 = DB::table(&#8216;day2_t1&#8217;)-&gt;first()-&gt;toArray();
+</p>
+<p>
+  //       dd($day2);
+</p>
+<p>
+      #DB get  可以，数组里面是小对象
+</p>
+<p>
+  //        $day2 = DB::table(&#8216;day2_t1&#8217;)-&gt;get()-&gt;toArray();
+</p>
+<p>
+  //        print_r($day2);
+</p>
+<p>
+      #模型 first 可以，数组
+</p>
+<p>
+  //        $day2 = Day2T1Model::first()-&gt;toArray();
+</p>
+<p>
+  //        print_r($day2);
+</p>
+<p>
+      #模型 get   可以，数组里面是数组
+</p>
+<p>
+  //        $day2 = Day2T1Model::get()-&gt;toArray();
+</p>
+<p>
+  //        print_r($day2);
+</p>
+<p>
+      #为什么不推荐使用
+</p>
+<p>
+  //        $day2 = Day2T1Model::where(&#8216;id&#8217;, 1)-&gt;first()-&gt;toArray();
+</p>
+<p>
+  //        print_r($day2);
+</p>
+<p>
+  //        if ($day2) {
+</p>
+<p>
+  //            //进一步操作
+</p>
+<p>
+  //        }
+</p>
+<p>
+      #说明因为容易出现查询不到数据，转化报错  所以尽量不用
+</p>
+<p>
+  }
+</p>
+<h1><a id="post-6168-_Toc487990950"></a>七、内置分页功能使用</h1>
+<h2>1、说明</h2>
+<p>
+  项目百分百需要使用分页、为了让开发者更快速开发项目，Laravel提供了paginate方法
+</p>
+<h2>练习</h2>
+<p>
+  控制器
+</p>
+<p><img loading="lazy" decoding="async" width="908" height="482" src="/wp-content/uploads/2018/05/word-image-5644.png" class="wp-image-6198" srcset="/wp-content/uploads/2018/05/word-image-5644.png 908w, /wp-content/uploads/2018/05/word-image-5644-300x159.png 300w, /wp-content/uploads/2018/05/word-image-5644-768x408.png 768w" sizes="(max-width: 908px) 100vw, 908px" /></p>
+<p>
+  视图
+</p>
+<p><img loading="lazy" decoding="async" width="613" height="377" src="/wp-content/uploads/2018/05/word-image-5645.png" class="wp-image-6199" srcset="/wp-content/uploads/2018/05/word-image-5645.png 613w, /wp-content/uploads/2018/05/word-image-5645-300x185.png 300w" sizes="(max-width: 613px) 100vw, 613px" /></p>
+<p>
+  @foreach ($data as $item)
+</p>
+<p>
+      {{ $item-&gt;id }}
+</p>
+<p>
+      {{ $item-&gt;uname }}
+</p>
+<p>
+      &lt;br /&gt;
+</p>
+<p>
+  @endforeach
+</p>
+<p>
+  &lt;hr /&gt;
+</p>
+<p>
+  {{ $data-&gt;links() }}
+</p>
+<h2>3、自定义分页样式（美化分页）</h2>
+<p><a href="https://www.cnblogs.com/lamp01/p/6869762.html">https://www.cnblogs.com/lamp01/p/6869762.html</a>
+</p>
+<p>
+  @foreach ($data as $item)
+</p>
+<p>
+      {{ $item-&gt;id }}
+</p>
+<p>
+      {{ $item-&gt;uname }}
+</p>
+<p>
+      &lt;br /&gt;
+</p>
+<p>
+  @endforeach
+</p>
+<p>
+  &lt;hr /&gt;
+</p>
+<p>
+  //CSS样式
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+      #pull_right{
+</p>
+<p>
+          text-align:center;
+</p>
+<p>
+      }
+</p>
+<p>
+      .pull-right {
+</p>
+<p>
+          /*float: left!important;*/
+</p>
+<p>
+      }
+</p>
+<p>
+      .pagination {
+</p>
+<p>
+          display: inline-block;
+</p>
+<p>
+          padding-left: 0;
+</p>
+<p>
+          margin: 20px 0;
+</p>
+<p>
+          border-radius: 4px;
+</p>
+<p>
+      }
+</p>
+<p>
+      .pagination &gt; li {
+</p>
+<p>
+          display: inline;
+</p>
+<p>
+      }
+</p>
+<p>
+      .pagination &gt; li &gt; a,
+</p>
+<p>
+      .pagination &gt; li &gt; span {
+</p>
+<p>
+          position: relative;
+</p>
+<p>
+          float: left;
+</p>
+<p>
+          padding: 6px 12px;
+</p>
+<p>
+          margin-left: -1px;
+</p>
+<p>
+          line-height: 1.42857143;
+</p>
+<p>
+          color: #428bca;
+</p>
+<p>
+          text-decoration: none;
+</p>
+<p>
+          background-color: #fff;
+</p>
+<p>
+          border: 1px solid #ddd;
+</p>
+<p>
+      }
+</p>
+<p>
+      .pagination &gt; li:first-child &gt; a,
+</p>
+<p>
+      .pagination &gt; li:first-child &gt; span {
+</p>
+<p>
+          margin-left: 0;
+</p>
+<p>
+          border-top-left-radius: 4px;
+</p>
+<p>
+          border-bottom-left-radius: 4px;
+</p>
+<p>
+      }
+</p>
+<p>
+      .pagination &gt; li:last-child &gt; a,
+</p>
+<p>
+      .pagination &gt; li:last-child &gt; span {
+</p>
+<p>
+          border-top-right-radius: 4px;
+</p>
+<p>
+          border-bottom-right-radius: 4px;
+</p>
+<p>
+      }
+</p>
+<p>
+      .pagination &gt; li &gt; a:hover,
+</p>
+<p>
+      .pagination &gt; li &gt; span:hover,
+</p>
+<p>
+      .pagination &gt; li &gt; a:focus,
+</p>
+<p>
+      .pagination &gt; li &gt; span:focus {
+</p>
+<p>
+          color: #2a6496;
+</p>
+<p>
+          background-color: #eee;
+</p>
+<p>
+          border-color: #ddd;
+</p>
+<p>
+      }
+</p>
+<p>
+      .pagination &gt; .active &gt; a,
+</p>
+<p>
+      .pagination &gt; .active &gt; span,
+</p>
+<p>
+      .pagination &gt; .active &gt; a:hover,
+</p>
+<p>
+      .pagination &gt; .active &gt; span:hover,
+</p>
+<p>
+      .pagination &gt; .active &gt; a:focus,
+</p>
+<p>
+      .pagination &gt; .active &gt; span:focus {
+</p>
+<p>
+          z-index: 2;
+</p>
+<p>
+          color: #fff;
+</p>
+<p>
+          cursor: default;
+</p>
+<p>
+          background-color: #428bca;
+</p>
+<p>
+          border-color: #428bca;
+</p>
+<p>
+      }
+</p>
+<p>
+      .pagination &gt; .disabled &gt; span,
+</p>
+<p>
+      .pagination &gt; .disabled &gt; span:hover,
+</p>
+<p>
+      .pagination &gt; .disabled &gt; span:focus,
+</p>
+<p>
+      .pagination &gt; .disabled &gt; a,
+</p>
+<p>
+      .pagination &gt; .disabled &gt; a:hover,
+</p>
+<p>
+      .pagination &gt; .disabled &gt; a:focus {
+</p>
+<p>
+          color: #777;
+</p>
+<p>
+          cursor: not-allowed;
+</p>
+<p>
+          background-color: #fff;
+</p>
+<p>
+          border-color: #ddd;
+</p>
+<p>
+      }
+</p>
+<p>
+      .clear{
+</p>
+<p>
+          clear: both;
+</p>
+<p>
+      }
+</p>
+<p>
+      li.active span {background: red !important;}
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  //blade模板展示
+</p>
+<p>
+  &lt;div id=&#8221;pull_right&#8221;&gt;
+</p>
+<p>
+      &lt;div class=&#8221;pull-right&#8221;&gt;
+</p>
+<p>
+          {!! $data-&gt;links() !!}
+</p>
+<p>
+      &lt;/div&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<h1>扩展任务</h1>
+<ol>
+<li>
+  自定义错误页面，百度关键词：laravel自定义错误页面
+</li>
+<li>
+  搜索功能
+</li>
+<li>
+  通过jq日期插件   开始时间  结束时间（http://www.my97.net/demo/index.htm ）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="745" height="337" src="/wp-content/uploads/2018/05/word-image-5646.png" class="wp-image-6200" srcset="/wp-content/uploads/2018/05/word-image-5646.png 745w, /wp-content/uploads/2018/05/word-image-5646-300x136.png 300w" sizes="(max-width: 745px) 100vw, 745px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6168.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

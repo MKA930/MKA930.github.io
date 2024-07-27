@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>用户注册 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 09:43:15 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>用户注册 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Ajax（一）使用场景、瀑布流、请求和响应、传参、用户注册</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3339.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3339.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 09:43:15 +0000</pubDate>
+				<category><![CDATA[AJAX]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[传参]]></category>
+		<category><![CDATA[使用场景]]></category>
+		<category><![CDATA[瀑布流]]></category>
+		<category><![CDATA[用户注册]]></category>
+		<category><![CDATA[请求和响应]]></category>
+		<guid isPermaLink="false">/?p=3339</guid>
+
+					<description><![CDATA[Ajax简介 问题引入 在学习Ajax技术之前，我们先回顾一下之前，客户端和服务器是如何通讯的呢？我们客户端和 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1><a id="post-3339-_Toc27512"></a>Ajax简介</h1>
+<h2><a id="post-3339-_Toc9508"></a>问题引入</h2>
+<p>
+  在学习Ajax技术之前，我们先回顾一下之前，客户端和服务器是如何通讯的呢？我们客户端和服务器端的通讯往往是在浏览器的地址栏输入一个地址后或者点击一个a链接之后，浏览器帮我们发送http请求，去找服务器要对应的数据（html文本）；然后服务器接受请求，返回对应的数据，最后浏览器在将获取的数据在页面显示（页面渲染html&#8211;显示界面）。但是往往这个过程是会导致整个页面的刷新（网速比较卡、等待时间很长），相对来说用户体验不怎么友好。
+</p>
+<p>
+  这样的无跳转刷新，在有些时候是十分必要，例如 当用户在优酷观看VIP试看视频的过程中，试看完毕后，突然需要登录账号完成一些操作，而如果登录验证的过程必须跳转到服务器中才能完成，那么页面就会刷新，等跳转回来 又是长时间的广告，还要手动定位到之前播放的位置，给用户的访问带来极大的不便 ，因此在这里，一把会做一个弹框，做无跳转的登录。或者有的时候在看视频的时候，需要进行留言处理，也是需要进行无刷新完成的。
+</p>
+<p><img fetchpriority="high" decoding="async" width="1333" height="799" src="/wp-content/uploads/2018/05/word-image-2947.png" class="wp-image-3340" srcset="/wp-content/uploads/2018/05/word-image-2947.png 1333w, /wp-content/uploads/2018/05/word-image-2947-300x180.png 300w, /wp-content/uploads/2018/05/word-image-2947-768x460.png 768w, /wp-content/uploads/2018/05/word-image-2947-1024x614.png 1024w" sizes="(max-width: 1333px) 100vw, 1333px" /></p>
+<p>
+  留言
+</p>
+<p><img decoding="async" width="1226" height="525" src="/wp-content/uploads/2018/05/word-image-2948.png" class="wp-image-3341" srcset="/wp-content/uploads/2018/05/word-image-2948.png 1226w, /wp-content/uploads/2018/05/word-image-2948-300x128.png 300w, /wp-content/uploads/2018/05/word-image-2948-768x329.png 768w, /wp-content/uploads/2018/05/word-image-2948-1024x438.png 1024w" sizes="(max-width: 1226px) 100vw, 1226px" /></p>
+<p>
+  网易云音乐
+</p>
+<p><img decoding="async" width="1658" height="710" src="/wp-content/uploads/2018/05/word-image-2949.png" class="wp-image-3342" srcset="/wp-content/uploads/2018/05/word-image-2949.png 1658w, /wp-content/uploads/2018/05/word-image-2949-300x128.png 300w, /wp-content/uploads/2018/05/word-image-2949-768x329.png 768w, /wp-content/uploads/2018/05/word-image-2949-1024x439.png 1024w" sizes="(max-width: 1658px) 100vw, 1658px" /></p>
+<p>
+  总之，很多时候用户只想更新页面的局部内容，而不是刷新整个页面，那我们是否可以在页面不刷新的情况下，还可以和服务器进行通讯，获取数据呢？
+</p>
+<h2>那什么是Ajax技术呢？</h2>
+<h3>口语化定义-面试-日常用语</h3>
+<p>
+  Ajax就是一门在浏览器不刷新的情况下，还可以和服务器进行通讯，数据传输的技术（一般数据传输的格式满足两种：1. xml 相对比较少 2. json 格式很多）。
+</p>
+<p>
+  注意1：客户端和服务器端进行通信的时候，其本质只能用文本做信息的传递，只是这个文本满足一定的人为规定的数据的格式，我们才有了XML传递或者json传递，以及jsonp传递。
+</p>
+<p>
+  注意2：Ajax技术是数据浏览器的技术，不同的浏览器对其有不同的实现方式(w3c IE低版本678)。js也是属于浏览器的技术（浏览器一个js解析环境）。浏览器也开放了一定的接口供js去操作Ajax。
+</p>
+<h3>官方定义</h3>
+<p>
+  ajax全称 Async Javascript And XML（异步的JavaScript和XML），它是不指代某个特定的技术，主要有如下的技术一起组成：
+</p>
+<p>
+  Async ：指AJAX能够创建异步进程的请求
+</p>
+<p>
+  Javascript：AJAX实现的主体，就是用JS来实现的AJAX，js里面存在一个XMLHttpRequest构造函数
+</p>
+<p>
+  XML：一种数据格式，用户AJAX请求中客户端和服务器交换数据，除此以外还有JSON
+</p>
+<p>
+  现在所有局部刷新、无刷新操作 都叫&#8221;ajax&#8221;，它是使得JS能够同浏览器一样请求服务器，并且获取返回结果。
+</p>
+<p>
+  论文：（最原始的定义）
+</p>
+<p><img loading="lazy" decoding="async" width="1196" height="786" src="/wp-content/uploads/2018/05/word-image-2950.png" class="wp-image-3343" srcset="/wp-content/uploads/2018/05/word-image-2950.png 1196w, /wp-content/uploads/2018/05/word-image-2950-300x197.png 300w, /wp-content/uploads/2018/05/word-image-2950-768x505.png 768w, /wp-content/uploads/2018/05/word-image-2950-1024x673.png 1024w" sizes="(max-width: 1196px) 100vw, 1196px" /></p>
+<h3>ajax发展历史</h3>
+<p>
+  AJAX诞生于1998年，同期的互联网技术还有XML和CSS2.0，允许客户端发送请求到服务器的第一个应用来自于微软的Outlook Web Access开发小组，尔后称为IE4.0的一部分，并在IE5中开始运用。
+</p>
+<p>
+  AJAX真正被广泛认识是在2005年，伴随着一些大型互联网公司的产品中开始出现ajax，例如谷歌的邮箱产品Gmail 内置了一个Gtalk的网页聊天工具，聊天的过程中需要反复不断的刷新数据 而又不能跳转 这就是引起了人们好奇 也使得原本不太受关注的ajax得到了人们的青睐。
+</p>
+<h2><a id="post-3339-_Toc25768"></a>Ajax常见使用场景</h2>
+<ol>
+<li>
+  Ajax技术一般用在账户注册时候用户名和邮箱是否重复检查
+</li>
+<li>
+  还可以实现一种按需加载的布局加载数据的效果，瀑布流布局，按需加载
+</li>
+<li>
+  无刷新分页显示数据
+</li>
+<li>
+  无刷新留言
+</li>
+<li>
+  无刷新登录&#8230;..
+</li>
+</ol>
+<p>
+  例如：
+</p>
+<p><a href="http://reg.email.163.com/unireg/" class="broken_link">http://reg.email.163.com/unireg/</a>
+</p>
+<p><a href="http://36kr.com/">http://36kr.com/</a>
+</p>
+<p><a href="http://www.iterduo.com/">http://www.iterduo.com/</a>
+</p>
+<h3>网易邮箱注册</h3>
+<p><img loading="lazy" decoding="async" width="1578" height="776" src="/wp-content/uploads/2018/05/word-image-2951.png" class="wp-image-3344" srcset="/wp-content/uploads/2018/05/word-image-2951.png 1578w, /wp-content/uploads/2018/05/word-image-2951-300x148.png 300w, /wp-content/uploads/2018/05/word-image-2951-768x378.png 768w, /wp-content/uploads/2018/05/word-image-2951-1024x504.png 1024w" sizes="(max-width: 1578px) 100vw, 1578px" /></p>
+<h3>滚动加载</h3>
+<p><img loading="lazy" decoding="async" width="1553" height="826" src="/wp-content/uploads/2018/05/word-image-2952.png" class="wp-image-3345" srcset="/wp-content/uploads/2018/05/word-image-2952.png 1553w, /wp-content/uploads/2018/05/word-image-2952-300x160.png 300w, /wp-content/uploads/2018/05/word-image-2952-768x408.png 768w, /wp-content/uploads/2018/05/word-image-2952-1024x545.png 1024w" sizes="(max-width: 1553px) 100vw, 1553px" /></p>
+<h3>瀑布流布局</h3>
+<p>
+  文档：
+</p>
+<p><a href="http://www.zhangxinxu.com/wordpress/2012/03/%E5%A4%9A%E6%A0%8F%E5%88%97%E8%A1%A8%E5%8E%9F%E7%90%86%E4%B8%8B%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%80%91%E5%B8%83%E6%B5%81%E5%B8%83%E5%B1%80-waterfall-layout/">http://www.zhangxinxu.com/wordpress/2012/03/%E5%A4%9A%E6%A0%8F%E5%88%97%E8%A1%A8%E5%8E%9F%E7%90%86%E4%B8%8B%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%80%91%E5%B8%83%E6%B5%81%E5%B8%83%E5%B1%80-waterfall-layout/</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1502" height="956" src="/wp-content/uploads/2018/05/word-image-2953.png" class="wp-image-3346" srcset="/wp-content/uploads/2018/05/word-image-2953.png 1502w, /wp-content/uploads/2018/05/word-image-2953-300x191.png 300w, /wp-content/uploads/2018/05/word-image-2953-768x489.png 768w, /wp-content/uploads/2018/05/word-image-2953-1024x652.png 1024w" sizes="(max-width: 1502px) 100vw, 1502px" /></p>
+<p>
+  下一个永远是惊喜（永远不知道下一个商品是否是最好的？）
+</p>
+<p>
+  花瓣网：<a href="http://huaban.com/all/">http://huaban.com/all/</a>
+</p>
+<h2>远古时代的无刷新技术</h2>
+<p>
+  在没有ajax技术的时候，如何实现客户端和服务器进行无刷新的通信呢？
+</p>
+<p>
+  答：思考，如果要完成这个操作：
+</p>
+<ol>
+<li>
+  必须要进行网络通信
+</li>
+<li>
+  同时还可以接收到服务器端的响应
+</li>
+</ol>
+<p>
+  解决：
+</p>
+<p>
+  答：思考在前端里面那些技术是可以发送网络请求？
+</p>
+<ol>
+<li>
+  ajax可以（不使用）
+</li>
+<li>
+  img标签、link标签、script标签（js、执行）（都具有src 、href 属性都可以发送网络请求）
+</li>
+<li>
+  网页嵌套iframe（页面放一个，显示出来，穿件隐身衣）【无刷新文件上传，如果是兼容低版本的IE做文件上传】（自行百度学习）
+</li>
+</ol>
+<p>
+  知道：可以使用script标签来完成网络请求？
+</p>
+<p>
+  客户端代码：
+</p>
+<p><img loading="lazy" decoding="async" width="1846" height="999" src="/wp-content/uploads/2018/05/word-image-2954.png" class="wp-image-3347" srcset="/wp-content/uploads/2018/05/word-image-2954.png 1846w, /wp-content/uploads/2018/05/word-image-2954-300x162.png 300w, /wp-content/uploads/2018/05/word-image-2954-768x416.png 768w, /wp-content/uploads/2018/05/word-image-2954-1024x554.png 1024w" sizes="(max-width: 1846px) 100vw, 1846px" /></p>
+<p>
+  服务器端代码：
+</p>
+<p><img loading="lazy" decoding="async" width="1808" height="837" src="/wp-content/uploads/2018/05/word-image-2955.png" class="wp-image-3348" srcset="/wp-content/uploads/2018/05/word-image-2955.png 1808w, /wp-content/uploads/2018/05/word-image-2955-300x139.png 300w, /wp-content/uploads/2018/05/word-image-2955-768x356.png 768w, /wp-content/uploads/2018/05/word-image-2955-1024x474.png 1024w" sizes="(max-width: 1808px) 100vw, 1808px" /></p>
+<p>
+  浏览器效果：
+</p>
+<p><img loading="lazy" decoding="async" width="882" height="638" src="/wp-content/uploads/2018/05/word-image-2956.png" class="wp-image-3349" srcset="/wp-content/uploads/2018/05/word-image-2956.png 882w, /wp-content/uploads/2018/05/word-image-2956-300x217.png 300w, /wp-content/uploads/2018/05/word-image-2956-768x556.png 768w" sizes="(max-width: 882px) 100vw, 882px" /></p>
+<h1>jQuery基本使用</h1>
+<h2>jQuery是什么？</h2>
+<p><img loading="lazy" decoding="async" width="378" height="164" src="/wp-content/uploads/2018/05/word-image-2957.png" class="wp-image-3350" srcset="/wp-content/uploads/2018/05/word-image-2957.png 378w, /wp-content/uploads/2018/05/word-image-2957-300x130.png 300w" sizes="(max-width: 378px) 100vw, 378px" /></p>
+<p>
+  官网：<a href="http://jquery.com/">http://jquery.com/</a>
+</p>
+<p><img loading="lazy" decoding="async" width="993" height="191" src="/wp-content/uploads/2018/05/word-image-2958.png" class="wp-image-3351" srcset="/wp-content/uploads/2018/05/word-image-2958.png 993w, /wp-content/uploads/2018/05/word-image-2958-300x58.png 300w, /wp-content/uploads/2018/05/word-image-2958-768x148.png 768w" sizes="(max-width: 993px) 100vw, 993px" /></p>
+<p>
+  jQuery主要是帮我们做js代码的简化操作。
+</p>
+<p>
+  原始：
+</p>
+<ol>
+<li>
+  获取某个元素 document.getElementById(&#8216;div1&#8217;)
+</li>
+<li>
+  获取内容 document.getElementById(&#8216;div1&#8217;).innerHTML
+</li>
+</ol>
+<p>
+  通过上面的操作既麻烦、也存在兼容性问题（低版本IE和现代浏览器不兼容）
+</p>
+<p>
+  有人试想是否可以做一个工具库，可以简化操作。提出来jQuery（javascript + query）主要地方在于DOM元素的获取，自己进行操作（1. 获取dom元素的值 2. 设置css样式&#8230;.）
+</p>
+<p>
+  简化：
+</p>
+<p>
+  1. 元素获取 $(&#8216;#div1&#8217;) // 通过id获取DOM元素
+</p>
+<p>
+  2. 获取元素的值 $(&#8216;#div1&#8217;).html() // 获取 id为div1的元素的html值
+</p>
+<p>
+  3. 设置样式 $(&#8216;#div&#8217;).css(&#8216;color&#8217;, &#8216;red&#8217;); // 设置字体验证
+</p>
+<p>
+  4. 设置样式类 $(&#8216;#div&#8217;).addClass(&#8216;box-red&#8217;); // 设置一个 .box-red的样式
+</p>
+<p>
+  5. 事件绑定 $(&#8216;#btn1&#8217;).click(function(){  // 事件回调函数 });
+</p>
+<p>
+  目前主要存在三个大的版本。
+</p>
+<ol>
+<li>
+  x系列 [工具库代码有点大，做兼容]
+</li>
+<li>
+  x系列
+</li>
+<li>
+  x系列
+</li>
+</ol>
+<p>
+  这三个版本的使用的方式都是一样的，但是需要注意：2.x之后的版本不在兼容IE678。
+</p>
+<h2>为什么要使用jQuery呢？</h2>
+<p>
+  从官网logo上的标语我们可以看到 write less, do more。 可以得知jQuery可以让我们用最少的代码完成最多的功能。
+</p>
+<ol>
+<li>
+  提供了强大的选择器，可以快速的选取页面上的DOM元素
+</li>
+<li>
+  提供了众多的方法
+</li>
+<li>
+  强大的链式操作
+</li>
+<li>
+  对浏览器的兼容性做了处理
+</li>
+<li>
+  &#8230;&#8230;&#8230;&#8230;
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="757" height="215" src="/wp-content/uploads/2018/05/word-image-2959.png" class="wp-image-3352" srcset="/wp-content/uploads/2018/05/word-image-2959.png 757w, /wp-content/uploads/2018/05/word-image-2959-300x85.png 300w" sizes="(max-width: 757px) 100vw, 757px" /></p>
+<p>
+  设计：less is more
+</p>
+<h2>选择器-内容-样式</h2>
+<p>
+  从jQuery的字面意思理解： jQuery = javascript + Query，由此可以看出jQuery的强大之初在于其选择器，即强大的DOM节点查询。同时需要注意的是，jQuery的选择器基本和Css的选择器一样。
+</p>
+<p>
+  主要学习两个选择器
+</p>
+<ol>
+<li>
+  id选择器
+</li>
+<li>
+  类选择器
+</li>
+</ol>
+<h3>id选择器</h3>
+<p>
+  代码：
+</p>
+<p><img loading="lazy" decoding="async" width="1756" height="940" src="/wp-content/uploads/2018/05/word-image-2960.png" class="wp-image-3353" srcset="/wp-content/uploads/2018/05/word-image-2960.png 1756w, /wp-content/uploads/2018/05/word-image-2960-300x161.png 300w, /wp-content/uploads/2018/05/word-image-2960-768x411.png 768w, /wp-content/uploads/2018/05/word-image-2960-1024x548.png 1024w" sizes="(max-width: 1756px) 100vw, 1756px" /></p>
+<p>
+  注意：这里通过 $(&#8216;#container&#8217;) ID选择器选择DOM元素，返回值是一个对象，可以调用jQuery为对象提供的方法。
+</p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="918" height="458" src="/wp-content/uploads/2018/05/word-image-2961.png" class="wp-image-3354" srcset="/wp-content/uploads/2018/05/word-image-2961.png 918w, /wp-content/uploads/2018/05/word-image-2961-300x150.png 300w, /wp-content/uploads/2018/05/word-image-2961-768x383.png 768w" sizes="(max-width: 918px) 100vw, 918px" /></p>
+<h3>类选择器</h3>
+<p>
+  代码：
+</p>
+<p><img loading="lazy" decoding="async" width="1649" height="993" src="/wp-content/uploads/2018/05/word-image-2962.png" class="wp-image-3355" srcset="/wp-content/uploads/2018/05/word-image-2962.png 1649w, /wp-content/uploads/2018/05/word-image-2962-300x181.png 300w, /wp-content/uploads/2018/05/word-image-2962-768x462.png 768w, /wp-content/uploads/2018/05/word-image-2962-1024x617.png 1024w" sizes="(max-width: 1649px) 100vw, 1649px" /></p>
+<p>
+  效果：
+</p>
+<p><img loading="lazy" decoding="async" width="1023" height="624" src="/wp-content/uploads/2018/05/word-image-2963.png" class="wp-image-3356" srcset="/wp-content/uploads/2018/05/word-image-2963.png 1023w, /wp-content/uploads/2018/05/word-image-2963-300x183.png 300w, /wp-content/uploads/2018/05/word-image-2963-768x468.png 768w" sizes="(max-width: 1023px) 100vw, 1023px" /></p>
+<h2>事件操作</h2>
+<p>
+  代码：
+</p>
+<p><img loading="lazy" decoding="async" width="1312" height="790" src="/wp-content/uploads/2018/05/word-image-2964.png" class="wp-image-3357" srcset="/wp-content/uploads/2018/05/word-image-2964.png 1312w, /wp-content/uploads/2018/05/word-image-2964-300x181.png 300w, /wp-content/uploads/2018/05/word-image-2964-768x462.png 768w, /wp-content/uploads/2018/05/word-image-2964-1024x617.png 1024w" sizes="(max-width: 1312px) 100vw, 1312px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="958" height="370" src="/wp-content/uploads/2018/05/word-image-2965.png" class="wp-image-3358" srcset="/wp-content/uploads/2018/05/word-image-2965.png 958w, /wp-content/uploads/2018/05/word-image-2965-300x116.png 300w, /wp-content/uploads/2018/05/word-image-2965-768x297.png 768w" sizes="(max-width: 958px) 100vw, 958px" /></p>
+<h1><a id="post-3339-_Toc23539"></a>ajax入门使用</h1>
+<p>
+  Ajax的使用，满足如下的步骤：
+</p>
+<ol>
+<li>
+  实例化一个Ajax对象
+</li>
+<li>
+  设置一个回调函数，帮我们处理后台返回的数据，当对象的一个属性readyState == 4 就可以操作数据了
+</li>
+<li>
+  设置一个URL地址，并设置http的请求方式（get、post）
+</li>
+<li>
+  发送请求
+</li>
+</ol>
+<h2><a id="post-3339-_Toc8764"></a>实操-ajax请求和响应</h2>
+<p>
+  在页面不刷新的请求，现在给服务器进行通信，在客户端如何显示服务器返回的数据？
+</p>
+<h3>a. 客户端代码，发送Ajax请求</h3>
+<p><img loading="lazy" decoding="async" width="1755" height="1008" src="/wp-content/uploads/2018/05/word-image-2966.png" class="wp-image-3359" srcset="/wp-content/uploads/2018/05/word-image-2966.png 1755w, /wp-content/uploads/2018/05/word-image-2966-300x172.png 300w, /wp-content/uploads/2018/05/word-image-2966-768x441.png 768w, /wp-content/uploads/2018/05/word-image-2966-1024x588.png 1024w" sizes="(max-width: 1755px) 100vw, 1755px" /></p>
+<h3>b. demo1.php后台处理请求</h3>
+<p><img loading="lazy" decoding="async" width="1574" height="311" src="/wp-content/uploads/2018/05/word-image-2967.png" class="wp-image-3360" srcset="/wp-content/uploads/2018/05/word-image-2967.png 1574w, /wp-content/uploads/2018/05/word-image-2967-300x59.png 300w, /wp-content/uploads/2018/05/word-image-2967-768x152.png 768w, /wp-content/uploads/2018/05/word-image-2967-1024x202.png 1024w" sizes="(max-width: 1574px) 100vw, 1574px" /></p>
+<h3>c. 效果: 当在客户端点击【按钮】的时候，会给服务器端发送请求，服务器的输出会作为响应返回给浏览器</h3>
+<p><img loading="lazy" decoding="async" width="1323" height="819" src="/wp-content/uploads/2018/05/word-image-2968.png" class="wp-image-3361" srcset="/wp-content/uploads/2018/05/word-image-2968.png 1323w, /wp-content/uploads/2018/05/word-image-2968-300x186.png 300w, /wp-content/uploads/2018/05/word-image-2968-768x475.png 768w, /wp-content/uploads/2018/05/word-image-2968-1024x634.png 1024w" sizes="(max-width: 1323px) 100vw, 1323px" /></p>
+<h2><a id="post-3339-_Toc8662"></a>实操-ajax传参</h2>
+<p>
+  传递一定的参数，让ajax接收，然后让Ajax返回一定的信息，供客户端使用。
+</p>
+<h3>a. 在客户端编写一定的代码，显示服务器端返回的数据</h3>
+<p><img loading="lazy" decoding="async" width="1798" height="974" src="/wp-content/uploads/2018/05/word-image-2969.png" class="wp-image-3362" srcset="/wp-content/uploads/2018/05/word-image-2969.png 1798w, /wp-content/uploads/2018/05/word-image-2969-300x163.png 300w, /wp-content/uploads/2018/05/word-image-2969-768x416.png 768w, /wp-content/uploads/2018/05/word-image-2969-1024x555.png 1024w" sizes="(max-width: 1798px) 100vw, 1798px" /></p>
+<h3>b. demo2.php服务器端代码</h3>
+<p><img loading="lazy" decoding="async" width="1279" height="879" src="/wp-content/uploads/2018/05/word-image-2970.png" class="wp-image-3363" srcset="/wp-content/uploads/2018/05/word-image-2970.png 1279w, /wp-content/uploads/2018/05/word-image-2970-300x206.png 300w, /wp-content/uploads/2018/05/word-image-2970-768x528.png 768w, /wp-content/uploads/2018/05/word-image-2970-1024x704.png 1024w, /wp-content/uploads/2018/05/word-image-2970-220x150.png 220w" sizes="(max-width: 1279px) 100vw, 1279px" /></p>
+<h3>c. 效果</h3>
+<p><img loading="lazy" decoding="async" width="1107" height="745" src="/wp-content/uploads/2018/05/word-image-2971.png" class="wp-image-3364" srcset="/wp-content/uploads/2018/05/word-image-2971.png 1107w, /wp-content/uploads/2018/05/word-image-2971-300x202.png 300w, /wp-content/uploads/2018/05/word-image-2971-768x517.png 768w, /wp-content/uploads/2018/05/word-image-2971-1024x689.png 1024w" sizes="(max-width: 1107px) 100vw, 1107px" /></p>
+<h2><a id="post-3339-_Toc26330"></a>实操-用户名校验</h2>
+<p>
+  使用Ajax完成一个用户名是否重复的检测
+</p>
+<h3>a. 布置一个注册的表单，给用户名input框绑定一个失去焦点的事件，当失去焦点的时候，发送Ajax请求</h3>
+<p><img loading="lazy" decoding="async" width="1710" height="688" src="/wp-content/uploads/2018/05/word-image-2972.png" class="wp-image-3365" srcset="/wp-content/uploads/2018/05/word-image-2972.png 1710w, /wp-content/uploads/2018/05/word-image-2972-300x121.png 300w, /wp-content/uploads/2018/05/word-image-2972-768x309.png 768w, /wp-content/uploads/2018/05/word-image-2972-1024x412.png 1024w" sizes="(max-width: 1710px) 100vw, 1710px" /></p>
+<p>
+  效果：
+</p>
+<p><img loading="lazy" decoding="async" width="898" height="470" src="/wp-content/uploads/2018/05/word-image-2973.png" class="wp-image-3366" srcset="/wp-content/uploads/2018/05/word-image-2973.png 898w, /wp-content/uploads/2018/05/word-image-2973-300x157.png 300w, /wp-content/uploads/2018/05/word-image-2973-768x402.png 768w" sizes="(max-width: 898px) 100vw, 898px" /></p>
+<h3>b. 编写js代码，完成Ajax请求</h3>
+<p><img loading="lazy" decoding="async" width="1550" height="991" src="/wp-content/uploads/2018/05/word-image-2974.png" class="wp-image-3367" srcset="/wp-content/uploads/2018/05/word-image-2974.png 1550w, /wp-content/uploads/2018/05/word-image-2974-300x192.png 300w, /wp-content/uploads/2018/05/word-image-2974-768x491.png 768w, /wp-content/uploads/2018/05/word-image-2974-1024x655.png 1024w" sizes="(max-width: 1550px) 100vw, 1550px" /></p>
+<h3>c. demo3.php服务器端checkuser.php处理请求</h3>
+<p><img loading="lazy" decoding="async" width="1745" height="958" src="/wp-content/uploads/2018/05/word-image-2975.png" class="wp-image-3368" srcset="/wp-content/uploads/2018/05/word-image-2975.png 1745w, /wp-content/uploads/2018/05/word-image-2975-300x165.png 300w, /wp-content/uploads/2018/05/word-image-2975-768x422.png 768w, /wp-content/uploads/2018/05/word-image-2975-1024x562.png 1024w" sizes="(max-width: 1745px) 100vw, 1745px" /></p>
+<p>
+  效果：
+</p>
+<p><img loading="lazy" decoding="async" width="1402" height="851" src="/wp-content/uploads/2018/05/word-image-2976.png" class="wp-image-3369" srcset="/wp-content/uploads/2018/05/word-image-2976.png 1402w, /wp-content/uploads/2018/05/word-image-2976-300x182.png 300w, /wp-content/uploads/2018/05/word-image-2976-768x466.png 768w, /wp-content/uploads/2018/05/word-image-2976-1024x622.png 1024w" sizes="(max-width: 1402px) 100vw, 1402px" /></p>
+<h1><a id="post-3339-_Toc23243"></a>Ajax之GET常见问题-面试问题</h1>
+<h3>简介</h3>
+<p>
+  Ajax常见的问题：主要是出现在IE低版本下。
+</p>
+<ol>
+<li>
+  IE的实现方式不一样（IE下存在兼容性的问题）（到时候我们不会写原生的ajax，使用jQuery提供的ajax工具方法）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1226" height="191" src="/wp-content/uploads/2018/05/word-image-2977.png" class="wp-image-3370" srcset="/wp-content/uploads/2018/05/word-image-2977.png 1226w, /wp-content/uploads/2018/05/word-image-2977-300x47.png 300w, /wp-content/uploads/2018/05/word-image-2977-768x120.png 768w, /wp-content/uploads/2018/05/word-image-2977-1024x160.png 1024w" sizes="(max-width: 1226px) 100vw, 1226px" /></p>
+<ol>
+<li>
+  IE下的GET提交的缓存问题（火狐 ctrl+f5）和参数中文（编码）的问题
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="960" height="303" src="/wp-content/uploads/2018/05/word-image-2978.png" class="wp-image-3371" srcset="/wp-content/uploads/2018/05/word-image-2978.png 960w, /wp-content/uploads/2018/05/word-image-2978-300x95.png 300w, /wp-content/uploads/2018/05/word-image-2978-768x242.png 768w" sizes="(max-width: 960px) 100vw, 960px" /></p>
+<h3>IE6下测试XMLHttpRequest</h3>
+<p>
+  一般在IE6下直接使用new XMLHttpRequest是不可以的，会保错，需要我们书写兼容性的代码。
+</p>
+<p><img loading="lazy" decoding="async" width="1604" height="645" src="/wp-content/uploads/2018/05/word-image-2979.png" class="wp-image-3372" srcset="/wp-content/uploads/2018/05/word-image-2979.png 1604w, /wp-content/uploads/2018/05/word-image-2979-300x121.png 300w, /wp-content/uploads/2018/05/word-image-2979-768x309.png 768w, /wp-content/uploads/2018/05/word-image-2979-1024x412.png 1024w" sizes="(max-width: 1604px) 100vw, 1604px" /></p>
+<p>
+  网上找一个就行：
+</p>
+<p><img loading="lazy" decoding="async" width="1697" height="920" src="/wp-content/uploads/2018/05/word-image-2980.png" class="wp-image-3373" srcset="/wp-content/uploads/2018/05/word-image-2980.png 1697w, /wp-content/uploads/2018/05/word-image-2980-300x163.png 300w, /wp-content/uploads/2018/05/word-image-2980-768x416.png 768w, /wp-content/uploads/2018/05/word-image-2980-1024x555.png 1024w" sizes="(max-width: 1697px) 100vw, 1697px" /></p>
+<p>
+  通过测试可以正常
+</p>
+<p><img loading="lazy" decoding="async" width="1347" height="533" src="/wp-content/uploads/2018/05/word-image-2981.png" class="wp-image-3374" srcset="/wp-content/uploads/2018/05/word-image-2981.png 1347w, /wp-content/uploads/2018/05/word-image-2981-300x119.png 300w, /wp-content/uploads/2018/05/word-image-2981-768x304.png 768w, /wp-content/uploads/2018/05/word-image-2981-1024x405.png 1024w" sizes="(max-width: 1347px) 100vw, 1347px" /></p>
+<p>
+  函数文件位置：
+</p>
+<p><img loading="lazy" decoding="async" width="775" height="290" src="/wp-content/uploads/2018/05/word-image-2982.png" class="wp-image-3375" srcset="/wp-content/uploads/2018/05/word-image-2982.png 775w, /wp-content/uploads/2018/05/word-image-2982-300x112.png 300w, /wp-content/uploads/2018/05/word-image-2982-768x287.png 768w" sizes="(max-width: 775px) 100vw, 775px" /></p>
+<h3>IE6下get缓存问题</h3>
+<ol>
+<li>
+  引入ajax.js函数，ajax函数调用
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1757" height="928" src="/wp-content/uploads/2018/05/word-image-2983.png" class="wp-image-3376" srcset="/wp-content/uploads/2018/05/word-image-2983.png 1757w, /wp-content/uploads/2018/05/word-image-2983-300x158.png 300w, /wp-content/uploads/2018/05/word-image-2983-768x406.png 768w, /wp-content/uploads/2018/05/word-image-2983-1024x541.png 1024w" sizes="(max-width: 1757px) 100vw, 1757px" /></p>
+<ol>
+<li>
+  demo6.php服务器代码
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1097" height="962" src="/wp-content/uploads/2018/05/word-image-2984.png" class="wp-image-3377" srcset="/wp-content/uploads/2018/05/word-image-2984.png 1097w, /wp-content/uploads/2018/05/word-image-2984-300x263.png 300w, /wp-content/uploads/2018/05/word-image-2984-768x673.png 768w, /wp-content/uploads/2018/05/word-image-2984-1024x898.png 1024w" sizes="(max-width: 1097px) 100vw, 1097px" /></p>
+<ol>
+<li>
+  在IE下存在一个缓存的问题，一般如果URL地址不变的情况下，IE是不会在发送http请求
+</li>
+</ol>
+<p>
+  一般解决方式：1. 在URL地址后面加一个随机数 2. 或者是加上一个时间戳
+</p>
+<p>
+  代码：
+</p>
+<p><img loading="lazy" decoding="async" width="1792" height="958" src="/wp-content/uploads/2018/05/word-image-2985.png" class="wp-image-3378" srcset="/wp-content/uploads/2018/05/word-image-2985.png 1792w, /wp-content/uploads/2018/05/word-image-2985-300x160.png 300w, /wp-content/uploads/2018/05/word-image-2985-768x411.png 768w, /wp-content/uploads/2018/05/word-image-2985-1024x547.png 1024w" sizes="(max-width: 1792px) 100vw, 1792px" /></p>
+<p>
+  效果：
+</p>
+<p><img loading="lazy" decoding="async" width="1253" height="482" src="/wp-content/uploads/2018/05/word-image-2986.png" class="wp-image-3379" srcset="/wp-content/uploads/2018/05/word-image-2986.png 1253w, /wp-content/uploads/2018/05/word-image-2986-300x115.png 300w, /wp-content/uploads/2018/05/word-image-2986-768x295.png 768w, /wp-content/uploads/2018/05/word-image-2986-1024x394.png 1024w" sizes="(max-width: 1253px) 100vw, 1253px" /></p>
+<h3>IE6下get中文问题</h3>
+<p>
+  1. 中文的问题（注意：在IE6下不能得到正常的传递）
+</p>
+<p>
+  解决：对中文的字符进行编码后进行传输
+</p>
+<p>
+  encodeURIComponent函数
+</p>
+<p><img loading="lazy" decoding="async" width="960" height="303" src="/wp-content/uploads/2018/05/word-image-2987.png" class="wp-image-3380" srcset="/wp-content/uploads/2018/05/word-image-2987.png 960w, /wp-content/uploads/2018/05/word-image-2987-300x95.png 300w, /wp-content/uploads/2018/05/word-image-2987-768x242.png 768w" sizes="(max-width: 960px) 100vw, 960px" /></p>
+<ol>
+<li>
+  客户端代码，引入ajax.js，调用ajax函数
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1890" height="984" src="/wp-content/uploads/2018/05/word-image-2988.png" class="wp-image-3381" srcset="/wp-content/uploads/2018/05/word-image-2988.png 1890w, /wp-content/uploads/2018/05/word-image-2988-300x156.png 300w, /wp-content/uploads/2018/05/word-image-2988-768x400.png 768w, /wp-content/uploads/2018/05/word-image-2988-1024x533.png 1024w" sizes="(max-width: 1890px) 100vw, 1890px" /></p>
+<ol>
+<li>
+  demo7.php服务器端代码
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1813" height="968" src="/wp-content/uploads/2018/05/word-image-2989.png" class="wp-image-3382" srcset="/wp-content/uploads/2018/05/word-image-2989.png 1813w, /wp-content/uploads/2018/05/word-image-2989-300x160.png 300w, /wp-content/uploads/2018/05/word-image-2989-768x410.png 768w, /wp-content/uploads/2018/05/word-image-2989-1024x547.png 1024w" sizes="(max-width: 1813px) 100vw, 1813px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="1291" height="543" src="/wp-content/uploads/2018/05/word-image-2990.png" class="wp-image-3383" srcset="/wp-content/uploads/2018/05/word-image-2990.png 1291w, /wp-content/uploads/2018/05/word-image-2990-300x126.png 300w, /wp-content/uploads/2018/05/word-image-2990-768x323.png 768w, /wp-content/uploads/2018/05/word-image-2990-1024x431.png 1024w" sizes="(max-width: 1291px) 100vw, 1291px" /></p>
+<h1><a id="post-3339-_Toc19118"></a>Ajax之POST常见问题</h1>
+<p>
+  如何使用Ajax完成post提交？
+</p>
+<p>
+  答：在使用Ajax做post提交的时候，需要注意设置一个请求头的概念，并且这个请求头必须在open方法之后，send方法之前设置。POST请求头的设置无论是w3c还是IE都需要设置，并且在IE下中文也不用进行编码。
+</p>
+<p>
+  文档：<a href="http://www.w3school.com.cn/tags/att_form_enctype.asp">http://www.w3school.com.cn/tags/att_form_enctype.asp</a>
+</p>
+<p>
+  设置传输编码：application/x-www-form-urlencoded（表单做post提交 encrypt）
+</p>
+<p><img loading="lazy" decoding="async" width="1385" height="262" src="/wp-content/uploads/2018/05/word-image-2991.png" class="wp-image-3384" srcset="/wp-content/uploads/2018/05/word-image-2991.png 1385w, /wp-content/uploads/2018/05/word-image-2991-300x57.png 300w, /wp-content/uploads/2018/05/word-image-2991-768x145.png 768w, /wp-content/uploads/2018/05/word-image-2991-1024x194.png 1024w" sizes="(max-width: 1385px) 100vw, 1385px" /></p>
+<p>
+  1. 在Ajax对象的open方法之后设置请求头即可，并且post提交的数据要写成一个字符串作为参数传递个send方法。
+</p>
+<p><img loading="lazy" decoding="async" width="771" height="331" src="/wp-content/uploads/2018/05/word-image-2992.png" class="wp-image-3385" srcset="/wp-content/uploads/2018/05/word-image-2992.png 771w, /wp-content/uploads/2018/05/word-image-2992-300x129.png 300w, /wp-content/uploads/2018/05/word-image-2992-768x330.png 768w" sizes="(max-width: 771px) 100vw, 771px" /></p>
+<h1><a id="post-3339-_Toc6607"></a>Ajax手册学习</h1>
+<h2><a id="post-3339-_Toc2626"></a>手册解释</h2>
+<p>
+  手册位置：
+</p>
+<p><img loading="lazy" decoding="async" width="756" height="348" src="/wp-content/uploads/2018/05/word-image-2993.png" class="wp-image-3386" srcset="/wp-content/uploads/2018/05/word-image-2993.png 756w, /wp-content/uploads/2018/05/word-image-2993-300x138.png 300w" sizes="(max-width: 756px) 100vw, 756px" /></p>
+<p>
+  手册参数：
+</p>
+<p><img loading="lazy" decoding="async" width="1105" height="595" src="/wp-content/uploads/2018/05/word-image-2994.png" class="wp-image-3387" srcset="/wp-content/uploads/2018/05/word-image-2994.png 1105w, /wp-content/uploads/2018/05/word-image-2994-300x162.png 300w, /wp-content/uploads/2018/05/word-image-2994-768x414.png 768w, /wp-content/uploads/2018/05/word-image-2994-1024x551.png 1024w" sizes="(max-width: 1105px) 100vw, 1105px" /></p>
+<p>
+  这个手册里面只要了解三个属性，两个常见方法。
+</p>
+<h2><a id="post-3339-_Toc12504"></a>Ajax状态变化 </h2>
+<p>
+  在使用ajax和服务器进行通信过程中，ajax的状态会产生一个变化，例如ajax对象产生，ajax发送请求，ajax对象成功获取服务器的响应&#8230;.. 我们可以通过该对象 readyState 属性进行捕获，属性值有0-4 五个值，四种变化。我们可以捕获其变化，当状态变化的时候， onreadystatechange 对应的回调函数会自动进行触发。
+</p>
+<p>
+  1. 当我们使用Ajax去和服务器进行交互的过程，Ajax对象的状态是会发生变化的，我们可以使用xhr.readyState属性感知其变化。
+</p>
+<p><img loading="lazy" decoding="async" width="1555" height="970" src="/wp-content/uploads/2018/05/word-image-2995.png" class="wp-image-3388" srcset="/wp-content/uploads/2018/05/word-image-2995.png 1555w, /wp-content/uploads/2018/05/word-image-2995-300x187.png 300w, /wp-content/uploads/2018/05/word-image-2995-768x479.png 768w, /wp-content/uploads/2018/05/word-image-2995-1024x639.png 1024w" sizes="(max-width: 1555px) 100vw, 1555px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="1021" height="762" src="/wp-content/uploads/2018/05/word-image-2996.png" class="wp-image-3389" srcset="/wp-content/uploads/2018/05/word-image-2996.png 1021w, /wp-content/uploads/2018/05/word-image-2996-300x224.png 300w, /wp-content/uploads/2018/05/word-image-2996-768x573.png 768w" sizes="(max-width: 1021px) 100vw, 1021px" /></p>
+<ol>
+<li>
+  总结：在使用xhr.readyState感知变化的过程中，可以看到从1变到4。在状态变为4的时候，我们可以使用xhr.responseText属性获取服务器返回的数据信息
+</li>
+</ol>
+<p>
+  客户端代码
+</p>
+<p><img loading="lazy" decoding="async" width="1667" height="1003" src="/wp-content/uploads/2018/05/word-image-2997.png" class="wp-image-3390" srcset="/wp-content/uploads/2018/05/word-image-2997.png 1667w, /wp-content/uploads/2018/05/word-image-2997-300x181.png 300w, /wp-content/uploads/2018/05/word-image-2997-768x462.png 768w, /wp-content/uploads/2018/05/word-image-2997-1024x616.png 1024w" sizes="(max-width: 1667px) 100vw, 1667px" /></p>
+<p>
+  demo9.php服务器端代码：
+</p>
+<p><img loading="lazy" decoding="async" width="1042" height="906" src="/wp-content/uploads/2018/05/word-image-2998.png" class="wp-image-3391" srcset="/wp-content/uploads/2018/05/word-image-2998.png 1042w, /wp-content/uploads/2018/05/word-image-2998-300x261.png 300w, /wp-content/uploads/2018/05/word-image-2998-768x668.png 768w, /wp-content/uploads/2018/05/word-image-2998-1024x890.png 1024w" sizes="(max-width: 1042px) 100vw, 1042px" /></p>
+<p>
+  浏览器效果
+</p>
+<p><img loading="lazy" decoding="async" width="894" height="567" src="/wp-content/uploads/2018/05/word-image-2999.png" class="wp-image-3392" srcset="/wp-content/uploads/2018/05/word-image-2999.png 894w, /wp-content/uploads/2018/05/word-image-2999-300x190.png 300w, /wp-content/uploads/2018/05/word-image-2999-768x487.png 768w" sizes="(max-width: 894px) 100vw, 894px" /></p>
+<p>
+  注意：
+</p>
+<ol>
+<li>
+  在下面的回调处理函数里面的 xhr.readyState属性的值可以从 0  到 4 ，存在有4种变化，5个状态。
+</li>
+<li>
+  只有当状态成为4的时候，才可以获取到服务器返回的数据，服务器返回的数据会在对象的responseText属性或者是responseXML属性，如果请求的地址是一个XML文件，则会存放到该属性，其他的都是放到responseText属性里面。
+</li>
+</ol>
+<p>
+  xhr.onreadystatechange = function(){
+</p>
+<p>
+  	// 服务器的数据何时可以正常的返回
+</p>
+<p>
+  	console.log( xhr.readyState );
+</p>
+<p>
+  }
+</p>
+<h2><a id="post-3339-_Toc24824"></a>服务器返回的数据的概念</h2>
+<p>
+  什么叫服务器返回的数据？
+</p>
+<p>
+  答：在ajax和服务器进行通信过程中，服务器肯定要返回点数据给ajax对象，那么主要存在以下四种返回数据。
+</p>
+<h3>PHP脚本返回HTML</h3>
+<ol>
+<li>
+  如果是请求的一个php文件URL地址（data.php），该脚本里面可以直接包含一段html代码，代表服务器返回的数据
+</li>
+</ol>
+<p>
+  客户端
+</p>
+<p><img loading="lazy" decoding="async" width="1640" height="1001" src="/wp-content/uploads/2018/05/word-image-3000.png" class="wp-image-3393" srcset="/wp-content/uploads/2018/05/word-image-3000.png 1640w, /wp-content/uploads/2018/05/word-image-3000-300x183.png 300w, /wp-content/uploads/2018/05/word-image-3000-768x469.png 768w, /wp-content/uploads/2018/05/word-image-3000-1024x625.png 1024w" sizes="(max-width: 1640px) 100vw, 1640px" /></p>
+<p>
+  demo10.php 服务端脚本
+</p>
+<p><img loading="lazy" decoding="async" width="1202" height="695" src="/wp-content/uploads/2018/05/word-image-3001.png" class="wp-image-3394" srcset="/wp-content/uploads/2018/05/word-image-3001.png 1202w, /wp-content/uploads/2018/05/word-image-3001-300x173.png 300w, /wp-content/uploads/2018/05/word-image-3001-768x444.png 768w, /wp-content/uploads/2018/05/word-image-3001-1024x592.png 1024w" sizes="(max-width: 1202px) 100vw, 1202px" /></p>
+<p>
+  浏览器效果
+</p>
+<p><img loading="lazy" decoding="async" width="1220" height="870" src="/wp-content/uploads/2018/05/word-image-3002.png" class="wp-image-3395" srcset="/wp-content/uploads/2018/05/word-image-3002.png 1220w, /wp-content/uploads/2018/05/word-image-3002-300x214.png 300w, /wp-content/uploads/2018/05/word-image-3002-768x548.png 768w, /wp-content/uploads/2018/05/word-image-3002-1024x730.png 1024w" sizes="(max-width: 1220px) 100vw, 1220px" /></p>
+<h3>PHP脚本输出变量数据</h3>
+<ol>
+<li>
+  如果是请求的一个php文件URL地址，脚本里面存在输出内容（echo 、var_dump 、print_r），代表服务器返回的数据
+</li>
+</ol>
+<p>
+  客户端
+</p>
+<p><img loading="lazy" decoding="async" width="1494" height="953" src="/wp-content/uploads/2018/05/word-image-3003.png" class="wp-image-3396" srcset="/wp-content/uploads/2018/05/word-image-3003.png 1494w, /wp-content/uploads/2018/05/word-image-3003-300x191.png 300w, /wp-content/uploads/2018/05/word-image-3003-768x490.png 768w, /wp-content/uploads/2018/05/word-image-3003-1024x653.png 1024w" sizes="(max-width: 1494px) 100vw, 1494px" /></p>
+<p>
+  demo11.php 服务端脚本
+</p>
+<p><img loading="lazy" decoding="async" width="1834" height="742" src="/wp-content/uploads/2018/05/word-image-3004.png" class="wp-image-3397" srcset="/wp-content/uploads/2018/05/word-image-3004.png 1834w, /wp-content/uploads/2018/05/word-image-3004-300x121.png 300w, /wp-content/uploads/2018/05/word-image-3004-768x311.png 768w, /wp-content/uploads/2018/05/word-image-3004-1024x414.png 1024w" sizes="(max-width: 1834px) 100vw, 1834px" /></p>
+<p>
+  浏览器效果
+</p>
+<p><img loading="lazy" decoding="async" width="1010" height="717" src="/wp-content/uploads/2018/05/word-image-3005.png" class="wp-image-3398" srcset="/wp-content/uploads/2018/05/word-image-3005.png 1010w, /wp-content/uploads/2018/05/word-image-3005-300x213.png 300w, /wp-content/uploads/2018/05/word-image-3005-768x545.png 768w" sizes="(max-width: 1010px) 100vw, 1010px" /></p>
+<h3>请求文本文件</h3>
+<ol>
+<li>
+  如果请求的是一个其他类型的文件URL地址，一般是文本文件，以如下格式结尾的文件.txt 、.html 、.htm 、.xhtml、 .shtml、json，里面的内容代表服务器返回的数据
+</li>
+</ol>
+<p>
+  客户端
+</p>
+<p><img loading="lazy" decoding="async" width="1779" height="1000" src="/wp-content/uploads/2018/05/word-image-3006.png" class="wp-image-3399" srcset="/wp-content/uploads/2018/05/word-image-3006.png 1779w, /wp-content/uploads/2018/05/word-image-3006-300x169.png 300w, /wp-content/uploads/2018/05/word-image-3006-768x432.png 768w, /wp-content/uploads/2018/05/word-image-3006-1024x576.png 1024w" sizes="(max-width: 1779px) 100vw, 1779px" /><br />
+<img loading="lazy" decoding="async" width="1836" height="803" src="/wp-content/uploads/2018/05/word-image-3007.png" class="wp-image-3400" srcset="/wp-content/uploads/2018/05/word-image-3007.png 1836w, /wp-content/uploads/2018/05/word-image-3007-300x131.png 300w, /wp-content/uploads/2018/05/word-image-3007-768x336.png 768w, /wp-content/uploads/2018/05/word-image-3007-1024x448.png 1024w" sizes="(max-width: 1836px) 100vw, 1836px" /></p>
+<p>
+  top250.json 服务端脚本
+</p>
+<p><img loading="lazy" decoding="async" width="1566" height="993" src="/wp-content/uploads/2018/05/word-image-3008.png" class="wp-image-3401" srcset="/wp-content/uploads/2018/05/word-image-3008.png 1566w, /wp-content/uploads/2018/05/word-image-3008-300x190.png 300w, /wp-content/uploads/2018/05/word-image-3008-768x487.png 768w, /wp-content/uploads/2018/05/word-image-3008-1024x649.png 1024w" sizes="(max-width: 1566px) 100vw, 1566px" /></p>
+<p>
+  浏览器效果
+</p>
+<p><img loading="lazy" decoding="async" width="1408" height="696" src="/wp-content/uploads/2018/05/word-image-3009.png" class="wp-image-3402" srcset="/wp-content/uploads/2018/05/word-image-3009.png 1408w, /wp-content/uploads/2018/05/word-image-3009-300x148.png 300w, /wp-content/uploads/2018/05/word-image-3009-768x380.png 768w, /wp-content/uploads/2018/05/word-image-3009-1024x506.png 1024w" sizes="(max-width: 1408px) 100vw, 1408px" /></p>
+<h3>返回xml格式数据</h3>
+<ol>
+<li>
+  还可以请求一个XML文件URL地址，但是需要注意：这个时候接受服务器返回的数据，一般使用responseXML属性获取，是一个文档对象。
+</li>
+</ol>
+<p>
+  客户端
+</p>
+<p><img loading="lazy" decoding="async" width="1821" height="1009" src="/wp-content/uploads/2018/05/word-image-3010.png" class="wp-image-3403" srcset="/wp-content/uploads/2018/05/word-image-3010.png 1821w, /wp-content/uploads/2018/05/word-image-3010-300x166.png 300w, /wp-content/uploads/2018/05/word-image-3010-768x426.png 768w, /wp-content/uploads/2018/05/word-image-3010-1024x567.png 1024w" sizes="(max-width: 1821px) 100vw, 1821px" /></p>
+<p>
+  xml.xml服务器端代码
+</p>
+<p><img loading="lazy" decoding="async" width="1245" height="980" src="/wp-content/uploads/2018/05/word-image-3011.png" class="wp-image-3404" srcset="/wp-content/uploads/2018/05/word-image-3011.png 1245w, /wp-content/uploads/2018/05/word-image-3011-300x236.png 300w, /wp-content/uploads/2018/05/word-image-3011-768x605.png 768w, /wp-content/uploads/2018/05/word-image-3011-1024x806.png 1024w" sizes="(max-width: 1245px) 100vw, 1245px" /></p>
+<p>
+  浏览器效果
+</p>
+<p><img loading="lazy" decoding="async" width="791" height="506" src="/wp-content/uploads/2018/05/word-image-3012.png" class="wp-image-3405" srcset="/wp-content/uploads/2018/05/word-image-3012.png 791w, /wp-content/uploads/2018/05/word-image-3012-300x192.png 300w, /wp-content/uploads/2018/05/word-image-3012-768x491.png 768w" sizes="(max-width: 791px) 100vw, 791px" /></p>
+<p>
+  注意：现在一般来说我们很少使用xml（难用，但是底层的效率还是很高，有些业务，是必须使用xml，银行金钱相关的业务，接口必须使用xml，xml存在DTD进行文档类型约束）作为数据传输格式（以前没有出现json的时候，都是使用的xml，但是现在基本所有的 项目的数据交互格式都是使用json，因为多种语言都对json进行支持，可以在多种语言之间会使用json作为官方的数据交互媒介 PHP支持json c语言  java支持json  js支持json）。
+</p>
+<h1><a id="post-3339-_Toc481"></a>Ajax案例-会员模块-curd-作业</h1>
+<h2><a id="post-3339-_Toc29820"></a>功能需求</h2>
+<ol>
+<li>
+  在添加的时候做用户名唯一性检查
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="801" height="534" src="/wp-content/uploads/2018/05/word-image-3013.png" class="wp-image-3406" srcset="/wp-content/uploads/2018/05/word-image-3013.png 801w, /wp-content/uploads/2018/05/word-image-3013-300x200.png 300w, /wp-content/uploads/2018/05/word-image-3013-768x512.png 768w" sizes="(max-width: 801px) 100vw, 801px" /></p>
+<ol>
+<li>
+  做数据展示做一个无刷新分页
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1599" height="812" src="/wp-content/uploads/2018/05/word-image-3014.png" class="wp-image-3407" srcset="/wp-content/uploads/2018/05/word-image-3014.png 1599w, /wp-content/uploads/2018/05/word-image-3014-300x152.png 300w, /wp-content/uploads/2018/05/word-image-3014-768x390.png 768w, /wp-content/uploads/2018/05/word-image-3014-1024x520.png 1024w" sizes="(max-width: 1599px) 100vw, 1599px" /></p>
+<ol>
+<li>
+  做删除的时候做Ajax无刷新删除 + 事件代理完成、事件委托
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1622" height="790" src="/wp-content/uploads/2018/05/word-image-3015.png" class="wp-image-3408" srcset="/wp-content/uploads/2018/05/word-image-3015.png 1622w, /wp-content/uploads/2018/05/word-image-3015-300x146.png 300w, /wp-content/uploads/2018/05/word-image-3015-768x374.png 768w, /wp-content/uploads/2018/05/word-image-3015-1024x499.png 1024w" sizes="(max-width: 1622px) 100vw, 1622px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3339.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

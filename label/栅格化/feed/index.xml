@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>栅格化 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E6%A0%85%E6%A0%BC%E5%8C%96/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 06:36:50 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>栅格化 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Bootstrap 响应式、 字符去空格、 布局容器、 栅格化、 移动设备、 组件、 轮播图</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/481.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/481.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 14:11:36 +0000</pubDate>
+				<category><![CDATA[BootStrap]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[前端框架]]></category>
+		<category><![CDATA[Bootstrap]]></category>
+		<category><![CDATA[响应式]]></category>
+		<category><![CDATA[字符去空格]]></category>
+		<category><![CDATA[布局容器]]></category>
+		<category><![CDATA[栅格化]]></category>
+		<category><![CDATA[移动设备]]></category>
+		<category><![CDATA[组件]]></category>
+		<category><![CDATA[轮播图]]></category>
+		<guid isPermaLink="false">/?p=481</guid>
+
+					<description><![CDATA[Bootstrap 去字符串两边空格 思路：写两个函数，一个函数去除左边的空格，一个函数去除右边的空格。判断第 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>Bootstrap</h1>
+<h2>去字符串两边空格</h2>
+<p>思路：写两个函数，一个函数去除左边的空格，一个函数去除右边的空格。判断第一个字符或最后一个字符是否是空格，如果是就把这个空格之外的字符截取出来。</p>
+<p>&lt;script type=&#8221;text/javascript&#8221;&gt;</p>
+<p>var str=&#8217; a b &#8216;;</p>
+<p>//去左边的空格</p>
+<p>function ltrim(str){</p>
+<p>while(true){</p>
+<p>if(str[0]==&#8217; &#8216;) //如果第0个字符是空格，就从1个开始截取到最后，</p>
+<p>str=str.substr(1); //将第0个字符去除</p>
+<p>else</p>
+<p>break;</p>
+<p>}</p>
+<p>return str;</p>
+<p>}</p>
+<p>//去右边的空格</p>
+<p>function rtrim(str){</p>
+<p>while(true){</p>
+<p>var n=str.length; //字符串长度</p>
+<p>if(str[n-1]==&#8217; &#8216;)</p>
+<p>str=str.substr(0,n-1); //去除最后一个字符</p>
+<p>else</p>
+<p>break;</p>
+<p>}</p>
+<p>return str;</p>
+<p>}</p>
+<p>//调用</p>
+<p>str=rtrim(ltrim(str));</p>
+<p>alert(&#8216;|&#8217;+str+&#8217;|&#8217;);</p>
+<p>&lt;/script&gt;</p>
+<p><img decoding="async" width="145" height="88" class="wp-image-483" src="/wp-content/uploads/2018/05/word-image-440.png" /></p>
+<h2>bootstrap 介绍</h2>
+<h3>什么是bootstrap</h3>
+<p>Bootstrap是Twitter的设计师Mark Otto和Jacob Thornton合作开发的基于html、css、js，用于前端开发的开源工具包，主要用于移动端。</p>
+<p>Bootstrap 是最受欢迎的 HTML、CSS 和 JS 框架，用于开发响应式布局、移动设备优先的 WEB 项目。</p>
+<h3>为什么使用bootstrap</h3>
+<p>它简洁灵活，使得Web开发更加快捷。</p>
+<h3>bootstrap框架的作用</h3>
+<p>bootstrap内部定义了很多的样式，直接调用即可。</p>
+<p>bootstrap中文的帮助：<a href="http://v3.bootcss.com/">http://v3.bootcss.com/</a></p>
+<p><img fetchpriority="high" decoding="async" width="755" height="108" class="wp-image-484" src="/wp-content/uploads/2018/05/word-image-441.png" srcset="/wp-content/uploads/2018/05/word-image-441.png 755w, /wp-content/uploads/2018/05/word-image-441-300x43.png 300w" sizes="(max-width: 755px) 100vw, 755px" /></p>
+<h2>下载Bootstrap</h2>
+<p>登录bootstrap的官方网站，点击“起步”</p>
+<p><img decoding="async" width="952" height="379" class="wp-image-485" src="/wp-content/uploads/2018/05/word-image-442.png" srcset="/wp-content/uploads/2018/05/word-image-442.png 952w, /wp-content/uploads/2018/05/word-image-442-300x119.png 300w, /wp-content/uploads/2018/05/word-image-442-768x306.png 768w" sizes="(max-width: 952px) 100vw, 952px" /></p>
+<p>下载后的压缩包</p>
+<p><img loading="lazy" decoding="async" width="168" height="17" class="wp-image-486" src="/wp-content/uploads/2018/05/word-image-443.png" /></p>
+<p>解压</p>
+<p><img loading="lazy" decoding="async" width="641" height="390" class="wp-image-487" src="/wp-content/uploads/2018/05/word-image-444.png" srcset="/wp-content/uploads/2018/05/word-image-444.png 641w, /wp-content/uploads/2018/05/word-image-444-300x183.png 300w" sizes="(max-width: 641px) 100vw, 641px" /></p>
+<p>注意：我们使用的框架文件都选择带有”min”的文件，此文件是压缩过的文件。</p>
+<h2>搭建bootstrap开发环境</h2>
+<p>Bootstrap开发环境的注意：</p>
+<ol>
+<li>bootstrap框架必须基于HTML5文件</li>
+<li>bootstrap.min.js文件必须基于jQuery框架</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="691" height="91" class="wp-image-488" src="/wp-content/uploads/2018/05/word-image-445.png" srcset="/wp-content/uploads/2018/05/word-image-445.png 691w, /wp-content/uploads/2018/05/word-image-445-300x40.png 300w" sizes="(max-width: 691px) 100vw, 691px" /></p>
+<p>引入文件搭建框架</p>
+<p>&lt;!&#8211;引入css文件&#8211;&gt;</p>
+<p>&lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;bootstrap/css/bootstrap.min.css&#8221;&gt;</p>
+<p>&lt;!&#8211;主题文件（可以不用引入）&#8211;&gt;</p>
+<p>&lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;bootstrap/css/bootstrap-theme.min.css&#8221;&gt;</p>
+<p>&lt;!&#8211;由于bootstrap基于JQuery文件，必须先引入jquery&#8211;&gt;</p>
+<p>&lt;script src=&#8221;bootstrap/js/jquery-1.11.3.min.js&#8221;&gt;&lt;/script&gt;</p>
+<p>&lt;!&#8211;引入bootstrap的js文件&#8211;&gt;</p>
+<p>&lt;script src=&#8221;bootstrap/js/bootstrap.min.js&#8221;&gt;&lt;/script&gt;</p>
+<p>总结：搭建bootstrap框架至少需要3个文件，css，jQuery，js各一个</p>
+<h2>移动设备优先</h2>
+<p><img loading="lazy" decoding="async" width="719" height="64" class="wp-image-489" src="/wp-content/uploads/2018/05/word-image-446.png" srcset="/wp-content/uploads/2018/05/word-image-446.png 719w, /wp-content/uploads/2018/05/word-image-446-300x27.png 300w" sizes="(max-width: 719px) 100vw, 719px" /></p>
+<h2>布局容器</h2>
+<p>.</p>
+<p><img loading="lazy" decoding="async" width="546" height="256" class="wp-image-490" src="/wp-content/uploads/2018/05/word-image-447.png" srcset="/wp-content/uploads/2018/05/word-image-447.png 546w, /wp-content/uploads/2018/05/word-image-447-300x141.png 300w" sizes="(max-width: 546px) 100vw, 546px" /></p>
+<p>fluid：流</p>
+<h2>栅格化（栅格系统）</h2>
+<p><img loading="lazy" decoding="async" width="854" height="240" class="wp-image-491" src="/wp-content/uploads/2018/05/word-image-448.png" srcset="/wp-content/uploads/2018/05/word-image-448.png 854w, /wp-content/uploads/2018/05/word-image-448-300x84.png 300w, /wp-content/uploads/2018/05/word-image-448-768x216.png 768w" sizes="(max-width: 854px) 100vw, 854px" /></p>
+<ol>
+<li>bootstrap提供了响应式的，移动设备优先的流式的栅格化系统，随着viewport(视口的变化)系统会自动的响应</li>
+<li>栅格化系统由行（.row）和列（.col-xs/sm/md/lg-n）组合的页面布局</li>
+<li>栅格化系统必须在容器中</li>
+</ol>
+<p>说出如下样式的意义：</p>
+<p>.col-md-2：在中等屏幕下，有两个格组成的列</p>
+<p>.col-lg-3:在大屏幕下，有3个格组成的列</p>
+<p>.col-xs-5：在超小屏幕下，由5个格组成的列</p>
+<h3>列偏移</h3>
+<p>列偏移只能往右偏移</p>
+<p>语法：col-xs/sm/md/lg-offset-n</p>
+<p><img loading="lazy" decoding="async" width="1164" height="79" class="wp-image-492" src="/wp-content/uploads/2018/05/word-image-449.png" srcset="/wp-content/uploads/2018/05/word-image-449.png 1164w, /wp-content/uploads/2018/05/word-image-449-300x20.png 300w, /wp-content/uploads/2018/05/word-image-449-768x52.png 768w, /wp-content/uploads/2018/05/word-image-449-1024x69.png 1024w" sizes="(max-width: 1164px) 100vw, 1164px" /></p>
+<h3>列排序</h3>
+<p>.col-xs/sm/md/lg-pull-n： pull（拉） 往左偏移</p>
+<p>.col-xs/sm/md/lg-push-n： push（推） 往右偏移</p>
+<p><img loading="lazy" decoding="async" width="1246" height="113" class="wp-image-493" src="/wp-content/uploads/2018/05/word-image-450.png" srcset="/wp-content/uploads/2018/05/word-image-450.png 1246w, /wp-content/uploads/2018/05/word-image-450-300x27.png 300w, /wp-content/uploads/2018/05/word-image-450-768x70.png 768w, /wp-content/uploads/2018/05/word-image-450-1024x93.png 1024w" sizes="(max-width: 1246px) 100vw, 1246px" /></p>
+<h2>响应式</h2>
+<h3>图片的响应式</h3>
+<p>. img-responsive 图片的响应式 responsive 响应</p>
+<p>. img-thumbnail 给图片添加圆角边框</p>
+<p>. img-rounded：图片圆角显示</p>
+<p>. img-circle：图片椭圆显示</p>
+<h3>例题（栅格化+响应式）</h3>
+<p>&lt;div class=&#8221;container-fluid&#8221;&gt;</p>
+<p>&lt;div class=&#8221;row&#8221;&gt;</p>
+<p>&lt;!—第一部分&#8211;&gt;</p>
+<p>&lt;div class=&#8221;col-md-4 col-sm-6 col-xs-12&#8243;&gt;</p>
+<p>&lt;img src=&#8221;images/1.jpg&#8221; class=&#8221;img-responsive img-thumbnail&#8221;&gt;</p>
+<p>&lt;h3&gt;bootstrap的栅格化&lt;/h3&gt;</p>
+<p>&lt;p&gt;&#8230;&lt;/p&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;!—第二部分&#8211;&gt;</p>
+<p>&lt;div class=&#8221;col-md-4 col-sm-6 col-xs-12&#8243;&gt;</p>
+<p>&lt;img src=&#8221;images/2.jpg&#8221; class=&#8221;img-responsive img-thumbnail&#8221;&gt;</p>
+<p>&lt;h3&gt;bootstrap的栅格化&lt;/h3&gt;</p>
+<p>&lt;p&gt;&#8230;&lt;/p&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;!—第三部分&#8211;&gt;</p>
+<p>&lt;div class=&#8221;col-md-4 col-sm-6 col-xs-12&#8243;&gt;</p>
+<p>&lt;img src=&#8221;images/3.jpg&#8221; class=&#8221;img-responsive img-thumbnail&#8221;&gt;</p>
+<p>&lt;h3&gt;bootstrap的栅格化&lt;/h3&gt;</p>
+<p>&lt;p&gt;&#8230;&lt;/p&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>中等显示器一行放三个格 小显示器一行放两个格 超小显示器一行放一个个</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="1261" height="441" class="wp-image-494" src="/wp-content/uploads/2018/05/word-image-451.png" srcset="/wp-content/uploads/2018/05/word-image-451.png 1261w, /wp-content/uploads/2018/05/word-image-451-300x105.png 300w, /wp-content/uploads/2018/05/word-image-451-768x269.png 768w, /wp-content/uploads/2018/05/word-image-451-1024x358.png 1024w" sizes="(max-width: 1261px) 100vw, 1261px" /></p>
+<h2>排版</h2>
+<h3>标题</h3>
+<p>h1~h6</p>
+<p><img loading="lazy" decoding="async" width="549" height="26" class="wp-image-495" src="/wp-content/uploads/2018/05/word-image-452.png" srcset="/wp-content/uploads/2018/05/word-image-452.png 549w, /wp-content/uploads/2018/05/word-image-452-300x14.png 300w" sizes="(max-width: 549px) 100vw, 549px" /></p>
+<p>例题</p>
+<p><img loading="lazy" decoding="async" width="512" height="215" class="wp-image-496" src="/wp-content/uploads/2018/05/word-image-453.png" srcset="/wp-content/uploads/2018/05/word-image-453.png 512w, /wp-content/uploads/2018/05/word-image-453-300x126.png 300w" sizes="(max-width: 512px) 100vw, 512px" /></p>
+<h3>页面主体</h3>
+<p>1、&lt;body&gt;</p>
+<p>2、&lt;p&gt;</p>
+<p><img loading="lazy" decoding="async" width="629" height="105" class="wp-image-497" src="/wp-content/uploads/2018/05/word-image-454.png" srcset="/wp-content/uploads/2018/05/word-image-454.png 629w, /wp-content/uploads/2018/05/word-image-454-300x50.png 300w" sizes="(max-width: 629px) 100vw, 629px" /></p>
+<h3>文本标签</h3>
+<p>1、&lt;del&gt;</p>
+<p>3、&lt;s&gt;</p>
+<p>4、&lt;ins&gt;</p>
+<p>5、&lt;strong&gt;</p>
+<p>6、&lt;u&gt;</p>
+<p>7、&lt;em&gt;</p>
+<p>8、&lt;small&gt;</p>
+<p>9、&lt;big&gt;</p>
+<p><img loading="lazy" decoding="async" width="546" height="90" class="wp-image-498" src="/wp-content/uploads/2018/05/word-image-455.png" srcset="/wp-content/uploads/2018/05/word-image-455.png 546w, /wp-content/uploads/2018/05/word-image-455-300x49.png 300w" sizes="(max-width: 546px) 100vw, 546px" /></p>
+<h3>对齐</h3>
+<p><img loading="lazy" decoding="async" width="728" height="103" class="wp-image-499" src="/wp-content/uploads/2018/05/word-image-456.png" srcset="/wp-content/uploads/2018/05/word-image-456.png 728w, /wp-content/uploads/2018/05/word-image-456-300x42.png 300w" sizes="(max-width: 728px) 100vw, 728px" /></p>
+<p>例题</p>
+<p><img loading="lazy" decoding="async" width="1186" height="220" class="wp-image-500" src="/wp-content/uploads/2018/05/word-image-457.png" srcset="/wp-content/uploads/2018/05/word-image-457.png 1186w, /wp-content/uploads/2018/05/word-image-457-300x56.png 300w, /wp-content/uploads/2018/05/word-image-457-768x142.png 768w, /wp-content/uploads/2018/05/word-image-457-1024x190.png 1024w" sizes="(max-width: 1186px) 100vw, 1186px" /></p>
+<h3>改变大小写</h3>
+<p><img loading="lazy" decoding="async" width="678" height="60" class="wp-image-501" src="/wp-content/uploads/2018/05/word-image-458.png" srcset="/wp-content/uploads/2018/05/word-image-458.png 678w, /wp-content/uploads/2018/05/word-image-458-300x27.png 300w" sizes="(max-width: 678px) 100vw, 678px" /></p>
+<p>例题</p>
+<p><img loading="lazy" decoding="async" width="581" height="87" class="wp-image-502" src="/wp-content/uploads/2018/05/word-image-459.png" srcset="/wp-content/uploads/2018/05/word-image-459.png 581w, /wp-content/uploads/2018/05/word-image-459-300x45.png 300w" sizes="(max-width: 581px) 100vw, 581px" /></p>
+<h3>列表</h3>
+<p><img loading="lazy" decoding="async" width="759" height="281" class="wp-image-503" src="/wp-content/uploads/2018/05/word-image-460.png" srcset="/wp-content/uploads/2018/05/word-image-460.png 759w, /wp-content/uploads/2018/05/word-image-460-300x111.png 300w" sizes="(max-width: 759px) 100vw, 759px" /></p>
+<p>1、class=’list-unstyled’： 移除了默认的列表的样式</p>
+<p>2、class=’list-inline’：列表的项行内显示</p>
+<p>3、class=’dl-horizontal’：自定义列表横向显示</p>
+<h2>表格</h2>
+<h3>表格的样式</h3>
+<p>.table：表格的基本样式</p>
+<p>. table-bordered：给表格添加边框</p>
+<p>. table-striped：条纹状表格</p>
+<p>. table-hover：当鼠标移到行上背景色变化</p>
+<p>. table-condensed：表格变得更加紧凑</p>
+<h3>状态类</h3>
+<table>
+<tbody>
+<tr>
+<td><strong>.active </strong></td>
+<td>鼠标悬停在行或单元格上时所设置的颜色</td>
+</tr>
+<tr>
+<td><strong>.success </strong></td>
+<td>标识成功或积极的动作</td>
+</tr>
+<tr>
+<td><strong>.info </strong></td>
+<td>标识普通的提示信息或动作</td>
+</tr>
+<tr>
+<td><strong>.warning </strong></td>
+<td>标识警告或需要用户注意</td>
+</tr>
+<tr>
+<td><strong>.danger </strong></td>
+<td>标识危险或潜在的带来负面影响的动作</td>
+</tr>
+</tbody>
+</table>
+<p>例题：</p>
+<p><img loading="lazy" decoding="async" width="968" height="302" class="wp-image-504" src="/wp-content/uploads/2018/05/word-image-461.png" srcset="/wp-content/uploads/2018/05/word-image-461.png 968w, /wp-content/uploads/2018/05/word-image-461-300x94.png 300w, /wp-content/uploads/2018/05/word-image-461-768x240.png 768w" sizes="(max-width: 968px) 100vw, 968px" /><br />
+<img loading="lazy" decoding="async" width="899" height="321" class="wp-image-505" src="/wp-content/uploads/2018/05/word-image-462.png" srcset="/wp-content/uploads/2018/05/word-image-462.png 899w, /wp-content/uploads/2018/05/word-image-462-300x107.png 300w, /wp-content/uploads/2018/05/word-image-462-768x274.png 768w" sizes="(max-width: 899px) 100vw, 899px" /></p>
+<h2>表单</h2>
+<p>1、. form-control：表单控件的样式</p>
+<p>2、. form-group：表单组</p>
+<p>3、. form-inline：表单元素行内显示</p>
+<p><img loading="lazy" decoding="async" width="1271" height="228" class="wp-image-506" src="/wp-content/uploads/2018/05/word-image-463.png" srcset="/wp-content/uploads/2018/05/word-image-463.png 1271w, /wp-content/uploads/2018/05/word-image-463-300x54.png 300w, /wp-content/uploads/2018/05/word-image-463-768x138.png 768w, /wp-content/uploads/2018/05/word-image-463-1024x184.png 1024w" sizes="(max-width: 1271px) 100vw, 1271px" /></p>
+<p>4、. checkbox-inline：复选框排列在一行</p>
+<p>5、.radio-inline：单选按钮排列在一行</p>
+<p>6、. disabled：显示禁止使用的样式</p>
+<p>7、. input-group：将多个标签作为输入的一个整体</p>
+<p>8、.input-group-addon：输入整体的一个插件</p>
+<p><img loading="lazy" decoding="async" width="875" height="119" class="wp-image-507" src="/wp-content/uploads/2018/05/word-image-464.png" srcset="/wp-content/uploads/2018/05/word-image-464.png 875w, /wp-content/uploads/2018/05/word-image-464-300x41.png 300w, /wp-content/uploads/2018/05/word-image-464-768x104.png 768w" sizes="(max-width: 875px) 100vw, 875px" /></p>
+<p>9、插入组件</p>
+<p><img loading="lazy" decoding="async" width="748" height="159" class="wp-image-508" src="/wp-content/uploads/2018/05/word-image-465.png" srcset="/wp-content/uploads/2018/05/word-image-465.png 748w, /wp-content/uploads/2018/05/word-image-465-300x64.png 300w" sizes="(max-width: 748px) 100vw, 748px" /></p>
+<p>组件位置</p>
+<p><img loading="lazy" decoding="async" width="905" height="630" class="wp-image-509" src="/wp-content/uploads/2018/05/word-image-466.png" srcset="/wp-content/uploads/2018/05/word-image-466.png 905w, /wp-content/uploads/2018/05/word-image-466-300x209.png 300w, /wp-content/uploads/2018/05/word-image-466-768x535.png 768w" sizes="(max-width: 905px) 100vw, 905px" /></p>
+<p>例题</p>
+<p>&lt;div class=&#8221;container&#8221;&gt;</p>
+<p>&lt;form&gt;</p>
+<p>&lt;!&#8211;用户名&#8211;&gt;</p>
+<p>&lt;div class=&#8221;form-group&#8221;&gt;</p>
+<p>用户名:&lt;input type=&#8221;text&#8221; name=&#8221;username&#8221; class=&#8221;form-control&#8221;&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;!&#8211;密码&#8211;&gt;</p>
+<p>&lt;div class=&#8221;form-group&#8221;&gt;</p>
+<p>密码：&lt;input type=&#8221;password&#8221; class=&#8221;form-control&#8221;&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;!&#8211;复选框&#8211;&gt;</p>
+<p>&lt;div class=&#8221;form-group&#8221;&gt;</p>
+<p>爱好：</p>
+<p>&lt;label class=&#8221;checkbox-inline disabled&#8221;&gt;&lt;input type=&#8221;checkbox&#8221; value=&#8221;读书&#8221; name=&#8217;hobby&#8217; disabled&gt;读书&lt;/label&gt;</p>
+<p>&lt;label class=&#8221;checkbox-inline&#8221;&gt;&lt;input type=&#8221;checkbox&#8221; value=&#8221;游泳&#8221; name=&#8217;hobby&#8217;&gt;游泳&lt;/label&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;!&#8211;单选按钮&#8211;&gt;</p>
+<p>&lt;div class=&#8221;form-group&#8221;&gt;</p>
+<p>性别：</p>
+<p>&lt;label class=&#8221;radio-inline&#8221;&gt;&lt;input type=&#8221;radio&#8221; name=&#8221;sex&#8221; value=&#8221;&#8221;&gt;男&lt;/label&gt;</p>
+<p>&lt;label class=&#8221;radio-inline&#8221;&gt;&lt;input type=&#8221;radio&#8221; name=&#8221;sex&#8221; value=&#8221;&#8221;&gt;女&lt;/label&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;!&#8211;在文本框前面加样式&#8211;&gt;</p>
+<p>&lt;div class=&#8221;form-group&#8221;&gt;</p>
+<p>&lt;div class=&#8221;input-group&#8221;&gt;</p>
+<p>&lt;span class=&#8221;input-group-addon&#8221;&gt;用户名：&lt;/span&gt;</p>
+<p>&lt;input type=&#8221;text&#8221; name=&#8221;user&#8221; class=&#8221;form-control&#8221;&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;!&#8211;在文本框后面添加样式&#8211;&gt;</p>
+<p>&lt;div class=&#8221;form-group&#8221;&gt;</p>
+<p>&lt;div class=&#8221;input-group&#8221;&gt;</p>
+<p>&lt;input type=&#8221;text&#8221; name=&#8221;search&#8221; class=&#8221;form-control&#8221;&gt;</p>
+<p>&lt;span class=&#8221;input-group-addon&#8221;&gt;百度一下&lt;/span&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;!&#8211;添加组件&#8211;&gt;</p>
+<p>&lt;div class=&#8221;form-group&#8221;&gt;</p>
+<p>&lt;div class=&#8221;input-group&#8221;&gt;</p>
+<p>&lt;span class=&#8221;input-group-addon&#8221;&gt;</p>
+<p>&lt;span class=&#8221;glyphicon glyphicon-user&#8221;&gt;&lt;/span&gt;</p>
+<p>&lt;/span&gt;</p>
+<p>&lt;input type=&#8221;text&#8221; name=&#8221;u&#8221; class=&#8221;form-control&#8221;&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/form&gt;</p>
+<p>&lt;/div&gt;</p>
+<p><img loading="lazy" decoding="async" width="754" height="353" class="wp-image-510" src="/wp-content/uploads/2018/05/word-image-467.png" srcset="/wp-content/uploads/2018/05/word-image-467.png 754w, /wp-content/uploads/2018/05/word-image-467-300x140.png 300w" sizes="(max-width: 754px) 100vw, 754px" /></p>
+<h3>响应式表单</h3>
+<p>表单的响应式必须结合栅格化</p>
+<p><img loading="lazy" decoding="async" width="1206" height="189" class="wp-image-511" src="/wp-content/uploads/2018/05/word-image-468.png" srcset="/wp-content/uploads/2018/05/word-image-468.png 1206w, /wp-content/uploads/2018/05/word-image-468-300x47.png 300w, /wp-content/uploads/2018/05/word-image-468-768x120.png 768w, /wp-content/uploads/2018/05/word-image-468-1024x160.png 1024w" sizes="(max-width: 1206px) 100vw, 1206px" /></p>
+<h2>按钮</h2>
+<p>为 &lt;a&gt;、&lt;button&gt; 或 &lt;input&gt; 元素添加按钮类，建议使用&lt;button&gt;</p>
+<p>.btn是按钮类的基类</p>
+<p><img loading="lazy" decoding="async" width="1226" height="137" class="wp-image-512" src="/wp-content/uploads/2018/05/word-image-469.png" srcset="/wp-content/uploads/2018/05/word-image-469.png 1226w, /wp-content/uploads/2018/05/word-image-469-300x34.png 300w, /wp-content/uploads/2018/05/word-image-469-768x86.png 768w, /wp-content/uploads/2018/05/word-image-469-1024x114.png 1024w" sizes="(max-width: 1226px) 100vw, 1226px" /></p>
+<h2>辅助类</h2>
+<h3>文本颜色和背景色</h3>
+<p>text-**：文本颜色</p>
+<p>bg-**：背景色</p>
+<p><img loading="lazy" decoding="async" width="823" height="188" class="wp-image-513" src="/wp-content/uploads/2018/05/word-image-470.png" srcset="/wp-content/uploads/2018/05/word-image-470.png 823w, /wp-content/uploads/2018/05/word-image-470-300x69.png 300w, /wp-content/uploads/2018/05/word-image-470-768x175.png 768w" sizes="(max-width: 823px) 100vw, 823px" /></p>
+<h3>三角符号</h3>
+<p><img loading="lazy" decoding="async" width="340" height="29" class="wp-image-514" src="/wp-content/uploads/2018/05/word-image-471.png" srcset="/wp-content/uploads/2018/05/word-image-471.png 340w, /wp-content/uploads/2018/05/word-image-471-300x26.png 300w" sizes="(max-width: 340px) 100vw, 340px" /></p>
+<h3>快速浮动</h3>
+<p>. pull-left：左浮动</p>
+<p>.pull-right：右浮动</p>
+<p>. clearfix：清除浮动，这个和我们写的clear:both还不一样，这个作用就是清除子盒子浮动对父盒子的影响。（overflow:hidden）</p>
+<p><img loading="lazy" decoding="async" width="727" height="83" class="wp-image-515" src="/wp-content/uploads/2018/05/word-image-472.png" srcset="/wp-content/uploads/2018/05/word-image-472.png 727w, /wp-content/uploads/2018/05/word-image-472-300x34.png 300w" sizes="(max-width: 727px) 100vw, 727px" /></p>
+<h2>下拉菜单</h2>
+<p><img loading="lazy" decoding="async" width="1056" height="214" class="wp-image-516" src="/wp-content/uploads/2018/05/word-image-473.png" srcset="/wp-content/uploads/2018/05/word-image-473.png 1056w, /wp-content/uploads/2018/05/word-image-473-300x61.png 300w, /wp-content/uploads/2018/05/word-image-473-768x156.png 768w, /wp-content/uploads/2018/05/word-image-473-1024x208.png 1024w" sizes="(max-width: 1056px) 100vw, 1056px" /></p>
+<h2>分页</h2>
+<p><img loading="lazy" decoding="async" width="625" height="101" class="wp-image-517" src="/wp-content/uploads/2018/05/word-image-474.png" srcset="/wp-content/uploads/2018/05/word-image-474.png 625w, /wp-content/uploads/2018/05/word-image-474-300x48.png 300w" sizes="(max-width: 625px) 100vw, 625px" /></p>
+<h2>标签页（也叫选项卡）</h2>
+<ol>
+<li>导航要使用&lt;nav&gt;标签</li>
+<li>.nav是导航的基础类</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="613" height="91" class="wp-image-518" src="/wp-content/uploads/2018/05/word-image-475.png" srcset="/wp-content/uploads/2018/05/word-image-475.png 613w, /wp-content/uploads/2018/05/word-image-475-300x45.png 300w" sizes="(max-width: 613px) 100vw, 613px" /><br />
+<img loading="lazy" decoding="async" width="697" height="100" class="wp-image-519" src="/wp-content/uploads/2018/05/word-image-476.png" srcset="/wp-content/uploads/2018/05/word-image-476.png 697w, /wp-content/uploads/2018/05/word-image-476-300x43.png 300w" sizes="(max-width: 697px) 100vw, 697px" /><br />
+<img loading="lazy" decoding="async" width="730" height="120" class="wp-image-520" src="/wp-content/uploads/2018/05/word-image-477.png" srcset="/wp-content/uploads/2018/05/word-image-477.png 730w, /wp-content/uploads/2018/05/word-image-477-300x49.png 300w" sizes="(max-width: 730px) 100vw, 730px" /></p>
+<h2>导航条</h2>
+<p>navbar：导航条的基础类</p>
+<p>navbar-default：导航的默认样式</p>
+<p>navbar-fixed-top：导航固定在页面的顶部</p>
+<p>navbar-fixed-bottom：导航固定在页面底部</p>
+<p>navbar-inverse：样式翻转</p>
+<p>navbar-right：导航菜单右对齐</p>
+<p><img loading="lazy" decoding="async" width="1062" height="170" class="wp-image-521" src="/wp-content/uploads/2018/05/word-image-478.png" srcset="/wp-content/uploads/2018/05/word-image-478.png 1062w, /wp-content/uploads/2018/05/word-image-478-300x48.png 300w, /wp-content/uploads/2018/05/word-image-478-768x123.png 768w, /wp-content/uploads/2018/05/word-image-478-1024x164.png 1024w" sizes="(max-width: 1062px) 100vw, 1062px" /></p>
+<h2>弹出框效果</h2>
+<p><img loading="lazy" decoding="async" width="769" height="120" class="wp-image-522" src="/wp-content/uploads/2018/05/word-image-479.png" srcset="/wp-content/uploads/2018/05/word-image-479.png 769w, /wp-content/uploads/2018/05/word-image-479-300x47.png 300w, /wp-content/uploads/2018/05/word-image-479-768x120.png 768w" sizes="(max-width: 769px) 100vw, 769px" /><br />
+<img loading="lazy" decoding="async" width="1079" height="528" class="wp-image-523" src="/wp-content/uploads/2018/05/word-image-480.png" srcset="/wp-content/uploads/2018/05/word-image-480.png 1079w, /wp-content/uploads/2018/05/word-image-480-300x147.png 300w, /wp-content/uploads/2018/05/word-image-480-768x376.png 768w, /wp-content/uploads/2018/05/word-image-480-1024x501.png 1024w" sizes="(max-width: 1079px) 100vw, 1079px" /></p>
+<p>拷贝对应的代码即可</p>
+<p><img loading="lazy" decoding="async" width="586" height="202" class="wp-image-524" src="/wp-content/uploads/2018/05/word-image-481.png" srcset="/wp-content/uploads/2018/05/word-image-481.png 586w, /wp-content/uploads/2018/05/word-image-481-300x103.png 300w" sizes="(max-width: 586px) 100vw, 586px" /></p>
+<p>完整代码</p>
+<p>&lt;script type=&#8221;text/javascript&#8221;&gt;</p>
+<p>$(function () {</p>
+<p>$(&#8216;[data-toggle=&#8221;popover&#8221;]&#8217;).popover();</p>
+<p>})</p>
+<p>&lt;/script&gt;</p>
+<p>&lt;div class=&#8221;container text-center&#8221; style=&#8221;margin:100px&#8221;&gt;</p>
+<p>&lt;button type=&#8221;button&#8221; class=&#8221;btn btn-default&#8221; data-toggle=&#8221;popover&#8221; data-placement=&#8221;right&#8221; title=&#8221;锄禾&#8221; data-content=&#8221;锄禾日当午，汗滴禾下土。谁知盘中餐，粒粒皆辛苦。&#8221;&gt;左侧&lt;/button&gt;</p>
+<p>&lt;/div&gt;</p>
+<p><img loading="lazy" decoding="async" width="363" height="109" class="wp-image-525" src="/wp-content/uploads/2018/05/word-image-482.png" srcset="/wp-content/uploads/2018/05/word-image-482.png 363w, /wp-content/uploads/2018/05/word-image-482-300x90.png 300w" sizes="(max-width: 363px) 100vw, 363px" /></p>
+<p>data-placement=&#8221;top|left|right|bottom&#8221;，用来控制弹出框弹出的方向</p>
+<h2>图片轮播效果</h2>
+<p><img loading="lazy" decoding="async" width="726" height="107" class="wp-image-526" src="/wp-content/uploads/2018/05/word-image-483.png" srcset="/wp-content/uploads/2018/05/word-image-483.png 726w, /wp-content/uploads/2018/05/word-image-483-300x44.png 300w" sizes="(max-width: 726px) 100vw, 726px" /><br />
+<img loading="lazy" decoding="async" width="1104" height="351" class="wp-image-527" src="/wp-content/uploads/2018/05/word-image-484.png" srcset="/wp-content/uploads/2018/05/word-image-484.png 1104w, /wp-content/uploads/2018/05/word-image-484-300x95.png 300w, /wp-content/uploads/2018/05/word-image-484-768x244.png 768w, /wp-content/uploads/2018/05/word-image-484-1024x326.png 1024w" sizes="(max-width: 1104px) 100vw, 1104px" /></p>
+<p>拷贝代码更改即可</p>
+<p><img loading="lazy" decoding="async" width="629" height="452" class="wp-image-528" src="/wp-content/uploads/2018/05/word-image-485.png" srcset="/wp-content/uploads/2018/05/word-image-485.png 629w, /wp-content/uploads/2018/05/word-image-485-300x216.png 300w" sizes="(max-width: 629px) 100vw, 629px" /></p>
+<h2>图片展示的页面效果</h2>
+<p><img loading="lazy" decoding="async" width="659" height="104" class="wp-image-529" src="/wp-content/uploads/2018/05/word-image-486.png" srcset="/wp-content/uploads/2018/05/word-image-486.png 659w, /wp-content/uploads/2018/05/word-image-486-300x47.png 300w" sizes="(max-width: 659px) 100vw, 659px" /><br />
+<img loading="lazy" decoding="async" width="1068" height="516" class="wp-image-530" src="/wp-content/uploads/2018/05/word-image-487.png" srcset="/wp-content/uploads/2018/05/word-image-487.png 1068w, /wp-content/uploads/2018/05/word-image-487-300x145.png 300w, /wp-content/uploads/2018/05/word-image-487-768x371.png 768w, /wp-content/uploads/2018/05/word-image-487-1024x495.png 1024w" sizes="(max-width: 1068px) 100vw, 1068px" /><br />
+<img loading="lazy" decoding="async" width="709" height="221" class="wp-image-531" src="/wp-content/uploads/2018/05/word-image-488.png" srcset="/wp-content/uploads/2018/05/word-image-488.png 709w, /wp-content/uploads/2018/05/word-image-488-300x94.png 300w" sizes="(max-width: 709px) 100vw, 709px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/481.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

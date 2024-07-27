@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Ajax查询物流 &#8211; 个人随笔</title>
+	<atom:link href="/label/ajax%E6%9F%A5%E8%AF%A2%E7%89%A9%E6%B5%81/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 23 Jun 2018 10:38:44 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>Ajax查询物流 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP5商城（十）订单物流信息、Ajax查询物流、订单无刷新搜索、搜索关键字高亮</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8642.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8642.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 08 Jun 2018 00:31:48 +0000</pubDate>
+				<category><![CDATA[TP5.0]]></category>
+		<category><![CDATA[TP5.0商城]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[Ajax查询物流]]></category>
+		<category><![CDATA[搜索关键字高亮]]></category>
+		<category><![CDATA[订单无刷新搜索]]></category>
+		<category><![CDATA[订单物流信息]]></category>
+		<guid isPermaLink="false">/?p=8642</guid>
+
+					<description><![CDATA[商城第十天 分配订单物流信息 注：只有已付款、未发货的订单才可以给他设置物流。 判断已付款，未发货的订单设置配 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>商城第十天</h1>
+<h1>分配订单物流信息</h1>
+<p>注：只有已付款、未发货的订单才可以给他设置物流。</p>
+<ol>
+<li>判断已付款，未发货的订单设置配置物流的操作</li>
+</ol>
+<p><img fetchpriority="high" decoding="async" width="1300" height="481" class="wp-image-8643" src="/wp-content/uploads/2018/06/word-image-1212.png" srcset="/wp-content/uploads/2018/06/word-image-1212.png 1300w, /wp-content/uploads/2018/06/word-image-1212-300x111.png 300w, /wp-content/uploads/2018/06/word-image-1212-768x284.png 768w, /wp-content/uploads/2018/06/word-image-1212-1024x379.png 1024w" sizes="(max-width: 1300px) 100vw, 1300px" /></p>
+<ol>
+<li>在后台的OrderController中建立一个upd的方法，设置当前订单的物流公司和运单号，且把发货在改为已发货。</li>
+</ol>
+<p><img decoding="async" width="1000" height="603" class="wp-image-8644" src="/wp-content/uploads/2018/06/word-image-1213.png" srcset="/wp-content/uploads/2018/06/word-image-1213.png 1000w, /wp-content/uploads/2018/06/word-image-1213-300x180.png 300w, /wp-content/uploads/2018/06/word-image-1213-768x463.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" /></p>
+<p>定义一个Order验证器，验证编辑信息：</p>
+<p><img decoding="async" width="787" height="483" class="wp-image-8645" src="/wp-content/uploads/2018/06/word-image-1214.png" srcset="/wp-content/uploads/2018/06/word-image-1214.png 787w, /wp-content/uploads/2018/06/word-image-1214-300x184.png 300w, /wp-content/uploads/2018/06/word-image-1214-768x471.png 768w" sizes="(max-width: 787px) 100vw, 787px" /></p>
+<ol>
+<li>编辑物流的模板upd.html</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1252" height="658" class="wp-image-8646" src="/wp-content/uploads/2018/06/word-image-1215.png" srcset="/wp-content/uploads/2018/06/word-image-1215.png 1252w, /wp-content/uploads/2018/06/word-image-1215-300x158.png 300w, /wp-content/uploads/2018/06/word-image-1215-768x404.png 768w, /wp-content/uploads/2018/06/word-image-1215-1024x538.png 1024w" sizes="(max-width: 1252px) 100vw, 1252px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="513" height="187" class="wp-image-8647" src="/wp-content/uploads/2018/06/word-image-1216.png" srcset="/wp-content/uploads/2018/06/word-image-1216.png 513w, /wp-content/uploads/2018/06/word-image-1216-300x109.png 300w" sizes="(max-width: 513px) 100vw, 513px" /></p>
+<h1>ajax查询订单物流信息</h1>
+<p>注：只有订单发货了才可以查询物流信息</p>
+<p>这里使用第三方的物流接口地址快递100：</p>
+<p>接口地址：<a href="/goto/ckwc" rel="nofollow">http://www.kuaidi100.com/applyurl?key={$key}&amp;com={$com}&amp;nu={$nu}&amp;show=0</a></p>
+<p>key秘钥:9d37bc6b0a41e6fe</p>
+<p>com:物流公司</p>
+<p>&lt;option value=&#8221;&gt;请选择物流公司&lt;/option&gt;</p>
+<p>&lt;option value=&#8221;yuantong&#8221;&gt;圆通&lt;/option&gt;</p>
+<p>&lt;option value=&#8221;shentong&#8221;&gt;申通&lt;/option&gt;</p>
+<p>&lt;option value=&#8221;zhongtong&#8221;&gt;中通&lt;/option&gt;</p>
+<p>&lt;option value=&#8221;yunda&#8221;&gt;韵达&lt;/option&gt;</p>
+<p>&lt;option value=&#8221;shunfeng&#8221;&gt;顺丰&lt;/option&gt;</p>
+<p>nu:运单号</p>
+<p>show:指定接口返回的数据格式。免费版的返回的都是一样，只返回一个当前物流的url地址。</p>
+<p>请求结果是返回一个物流的url地址：</p>
+<p><img loading="lazy" decoding="async" width="850" height="77" class="wp-image-8648" src="/wp-content/uploads/2018/06/word-image-1217.png" srcset="/wp-content/uploads/2018/06/word-image-1217.png 850w, /wp-content/uploads/2018/06/word-image-1217-300x27.png 300w, /wp-content/uploads/2018/06/word-image-1217-768x70.png 768w" sizes="(max-width: 850px) 100vw, 850px" /></p>
+<p>再去请求此返回的url地址，才会的到物流的信息</p>
+<p><img loading="lazy" decoding="async" width="1012" height="295" class="wp-image-8649" src="/wp-content/uploads/2018/06/word-image-1218.png" srcset="/wp-content/uploads/2018/06/word-image-1218.png 1012w, /wp-content/uploads/2018/06/word-image-1218-300x87.png 300w, /wp-content/uploads/2018/06/word-image-1218-768x224.png 768w" sizes="(max-width: 1012px) 100vw, 1012px" /></p>
+<p>我们后面只需要把返回的url地址作为iframe的src属性值即可显示物流信息</p>
+<p>&lt;iframe src=’http://www.kuaidi100.com/kuaidiresult?id=85728734’ /&gt;</p>
+<ol>
+<li>只有发货的订单才可以查询物流信息</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1307" height="467" class="wp-image-8650" src="/wp-content/uploads/2018/06/word-image-1219.png" srcset="/wp-content/uploads/2018/06/word-image-1219.png 1307w, /wp-content/uploads/2018/06/word-image-1219-300x107.png 300w, /wp-content/uploads/2018/06/word-image-1219-768x274.png 768w, /wp-content/uploads/2018/06/word-image-1219-1024x366.png 1024w" sizes="(max-width: 1307px) 100vw, 1307px" /></p>
+<ol>
+<li>在index.html模板中给class=getWuliu采用委托的方法绑定单击事件</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1072" height="463" class="wp-image-8651" src="/wp-content/uploads/2018/06/word-image-1220.png" srcset="/wp-content/uploads/2018/06/word-image-1220.png 1072w, /wp-content/uploads/2018/06/word-image-1220-300x130.png 300w, /wp-content/uploads/2018/06/word-image-1220-768x332.png 768w, /wp-content/uploads/2018/06/word-image-1220-1024x442.png 1024w" sizes="(max-width: 1072px) 100vw, 1072px" /></p>
+<ol>
+<li>在后台OrderController中建立一个queryWuliu方法，查询物流</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1216" height="400" class="wp-image-8652" src="/wp-content/uploads/2018/06/word-image-1221.png" srcset="/wp-content/uploads/2018/06/word-image-1221.png 1216w, /wp-content/uploads/2018/06/word-image-1221-300x99.png 300w, /wp-content/uploads/2018/06/word-image-1221-768x253.png 768w, /wp-content/uploads/2018/06/word-image-1221-1024x337.png 1024w" sizes="(max-width: 1216px) 100vw, 1216px" /></p>
+<p>把物流秘钥写在config.php配置文件中，方便后期维护。</p>
+<p><img loading="lazy" decoding="async" width="790" height="262" class="wp-image-8653" src="/wp-content/uploads/2018/06/word-image-1222.png" srcset="/wp-content/uploads/2018/06/word-image-1222.png 790w, /wp-content/uploads/2018/06/word-image-1222-300x99.png 300w, /wp-content/uploads/2018/06/word-image-1222-768x255.png 768w" sizes="(max-width: 790px) 100vw, 790px" /></p>
+<ol>
+<li>把接口的返回的url地址作为iframe的src属性即可（采用layer弹出实现）</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1001" height="530" class="wp-image-8654" src="/wp-content/uploads/2018/06/word-image-1223.png" srcset="/wp-content/uploads/2018/06/word-image-1223.png 1001w, /wp-content/uploads/2018/06/word-image-1223-300x159.png 300w, /wp-content/uploads/2018/06/word-image-1223-768x407.png 768w" sizes="(max-width: 1001px) 100vw, 1001px" /></p>
+<p>注：要引入layer弹出层插件</p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="1130" height="346" class="wp-image-8655" src="/wp-content/uploads/2018/06/word-image-1224.png" srcset="/wp-content/uploads/2018/06/word-image-1224.png 1130w, /wp-content/uploads/2018/06/word-image-1224-300x92.png 300w, /wp-content/uploads/2018/06/word-image-1224-768x235.png 768w, /wp-content/uploads/2018/06/word-image-1224-1024x314.png 1024w" sizes="(max-width: 1130px) 100vw, 1130px" /></p>
+<h1>订单无刷新搜索，搜索关键字高亮显示</h1>
+<ol>
+<li>在订单列表中模板index.html中，设置搜索的表单区域</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1220" height="290" class="wp-image-8656" src="/wp-content/uploads/2018/06/word-image-1225.png" srcset="/wp-content/uploads/2018/06/word-image-1225.png 1220w, /wp-content/uploads/2018/06/word-image-1225-300x71.png 300w, /wp-content/uploads/2018/06/word-image-1225-768x183.png 768w, /wp-content/uploads/2018/06/word-image-1225-1024x243.png 1024w" sizes="(max-width: 1220px) 100vw, 1220px" /></p>
+<ol>
+<li>给上面表单内id=serach按钮绑定单击事件，发送ajax请求，进行关键字查询</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1044" height="311" class="wp-image-8657" src="/wp-content/uploads/2018/06/word-image-1226.png" srcset="/wp-content/uploads/2018/06/word-image-1226.png 1044w, /wp-content/uploads/2018/06/word-image-1226-300x89.png 300w, /wp-content/uploads/2018/06/word-image-1226-768x229.png 768w, /wp-content/uploads/2018/06/word-image-1226-1024x305.png 1024w" sizes="(max-width: 1044px) 100vw, 1044px" /></p>
+<ol>
+<li>在OrderController控制器的index方法中拼接where查询条件：</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1215" height="675" class="wp-image-8658" src="/wp-content/uploads/2018/06/word-image-1227.png" srcset="/wp-content/uploads/2018/06/word-image-1227.png 1215w, /wp-content/uploads/2018/06/word-image-1227-300x167.png 300w, /wp-content/uploads/2018/06/word-image-1227-768x427.png 768w, /wp-content/uploads/2018/06/word-image-1227-1024x569.png 1024w" sizes="(max-width: 1215px) 100vw, 1215px" /></p>
+<ol>
+<li>为了将查询关键字高亮显示，我们可以用正则进行全局替换</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1251" height="454" class="wp-image-8659" src="/wp-content/uploads/2018/06/word-image-1228.png" srcset="/wp-content/uploads/2018/06/word-image-1228.png 1251w, /wp-content/uploads/2018/06/word-image-1228-300x109.png 300w, /wp-content/uploads/2018/06/word-image-1228-768x279.png 768w, /wp-content/uploads/2018/06/word-image-1228-1024x372.png 1024w" sizes="(max-width: 1251px) 100vw, 1251px" /></p>
+<p>其中无刷新分页的时候，也同样要进行替换：</p>
+<p><img loading="lazy" decoding="async" width="1234" height="523" class="wp-image-8660" src="/wp-content/uploads/2018/06/word-image-1229.png" srcset="/wp-content/uploads/2018/06/word-image-1229.png 1234w, /wp-content/uploads/2018/06/word-image-1229-300x127.png 300w, /wp-content/uploads/2018/06/word-image-1229-768x325.png 768w, /wp-content/uploads/2018/06/word-image-1229-1024x434.png 1024w" sizes="(max-width: 1234px) 100vw, 1234px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="905" height="268" class="wp-image-8661" src="/wp-content/uploads/2018/06/word-image-1230.png" srcset="/wp-content/uploads/2018/06/word-image-1230.png 905w, /wp-content/uploads/2018/06/word-image-1230-300x89.png 300w, /wp-content/uploads/2018/06/word-image-1230-768x227.png 768w" sizes="(max-width: 905px) 100vw, 905px" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8642.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

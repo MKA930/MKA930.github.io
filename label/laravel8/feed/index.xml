@@ -1,0 +1,2335 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Laravel8 &#8211; 个人随笔</title>
+	<atom:link href="/label/laravel8/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sun, 26 Dec 2021 07:49:07 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>Laravel8 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>LaravelV8.6.10</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/laravel/8773.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/laravel/8773.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 25 Dec 2021 12:43:38 +0000</pubDate>
+				<category><![CDATA[Laravel]]></category>
+		<category><![CDATA[Laravel8]]></category>
+		<category><![CDATA[MAC]]></category>
+		<category><![CDATA[MAMP PRO]]></category>
+		<category><![CDATA[NUXT]]></category>
+		<category><![CDATA[PhpStorm]]></category>
+		<guid isPermaLink="false">/?p=8773</guid>
+
+					<description><![CDATA[LaravelV8.6.10]]></description>
+										<content:encoded><![CDATA[
+<h2 class="wp-block-heading">Mac下搭建Laravel环境（V8.6.10）</h2>
+
+
+
+<p><a rel="noreferrer noopener" href="/goto/cdc2" rel="nofollow" data-type="URL" data-id="https://github.com/LeeYouRan/Server-Laravel" target="_blank">Dem</a><a href="/goto/cdc2" data-type="URL" data-id="https://github.com/LeeYouRan/Server-Laravel" target="_blank" rel="nofollow noreferrer noopener">o</a></p>
+
+
+
+<p>1.需要<strong>的安装文件 Mamp Pro &amp; Phpstrom</strong></p>
+
+
+
+<p><a rel="noreferrer noopener" href="/goto/sz79" rel="nofollow" data-type="URL" data-id="https://www.digit77.com/macapps/mamp-pro/" target="_blank">MAMP Pro 6.6 fix – 快速安装PHP/MySQL开发环境</a></p>
+
+
+
+<p><a rel="noreferrer noopener" href="/goto/h92h" rel="nofollow" data-type="URL" data-id="https://www.jetbrains.com/phpstorm/download/download-thanks.html?platform=mac" target="_blank">PhpStorm 2021.3</a></p>
+
+
+
+<p><a href="/goto/1ib6" data-type="URL" data-id="https://product-downloads.atlassian.com/software/sourcetree/ga/Sourcetree_4.1.5_241.zip" target="_blank" rel="nofollow noreferrer noopener">SourceTree 4.1.5</a></p>
+
+
+
+<p><a rel="noreferrer noopener" href="/goto/hzn6" rel="nofollow" data-type="URL" data-id="https://www.digit77.com/macapps/navicat-premium/#download-explan" target="_blank">Navicat Premium 15.0.30</a></p>
+
+
+
+<p><a href="/goto/0bi5" data-type="URL" data-id="https://www.digit77.com/macapps/another-redis-desktop-manager/#download-explan" target="_blank" rel="nofollow noreferrer noopener">Another Redis Desktop Manager 1.5.0</a>&nbsp;</p>
+
+
+
+<p><strong>2.安装Laravel</strong></p>
+
+
+
+<p><a rel="noreferrer noopener" href="/goto/b2ff" rel="nofollow" data-type="URL" data-id="https://www.jianshu.com/p/5b0718f1fe93" target="_blank">Mac下安装Laravel</a> </p>
+
+
+
+<p><strong>3.配置开发环境</strong></p>
+
+
+
+<p><a rel="noreferrer noopener" href="/goto/atqc" rel="nofollow" data-type="URL" data-id="https://blog.csdn.net/weixin_44103733/article/details/113749546" target="_blank">MAMP搭建Laravel虚拟机环境</a></p>
+
+
+
+<figure class="wp-block-image size-full"><a href="/wp-content/uploads/2021/12/截屏2021-12-25-20.28.56.png"><img fetchpriority="high" decoding="async" width="2880" height="1800" src="/wp-content/uploads/2021/12/截屏2021-12-25-20.28.56.png" alt="" class="wp-image-8800" srcset="/wp-content/uploads/2021/12/截屏2021-12-25-20.28.56.png 2880w, /wp-content/uploads/2021/12/截屏2021-12-25-20.28.56-300x188.png 300w, /wp-content/uploads/2021/12/截屏2021-12-25-20.28.56-1024x640.png 1024w, /wp-content/uploads/2021/12/截屏2021-12-25-20.28.56-768x480.png 768w, /wp-content/uploads/2021/12/截屏2021-12-25-20.28.56-1536x960.png 1536w, /wp-content/uploads/2021/12/截屏2021-12-25-20.28.56-2048x1280.png 2048w" sizes="(max-width: 2880px) 100vw, 2880px" /></a></figure>
+
+
+
+<p><strong>4.伪静态</strong></p>
+
+
+
+<p><a rel="noreferrer noopener" href="/goto/4qjo" rel="nofollow" data-type="URL" data-id="https://blog.csdn.net/qq_41150667/article/details/79156465" target="_blank">laravel+Apache 解决路由404问题</a></p>
+
+
+
+<figure class="wp-block-image size-full"><a href="/wp-content/uploads/2021/12/截屏2021-12-25-20.34.25.png"><img decoding="async" width="2880" height="1800" src="/wp-content/uploads/2021/12/截屏2021-12-25-20.34.25.png" alt="" class="wp-image-8804" srcset="/wp-content/uploads/2021/12/截屏2021-12-25-20.34.25.png 2880w, /wp-content/uploads/2021/12/截屏2021-12-25-20.34.25-300x188.png 300w, /wp-content/uploads/2021/12/截屏2021-12-25-20.34.25-1024x640.png 1024w, /wp-content/uploads/2021/12/截屏2021-12-25-20.34.25-768x480.png 768w, /wp-content/uploads/2021/12/截屏2021-12-25-20.34.25-1536x960.png 1536w, /wp-content/uploads/2021/12/截屏2021-12-25-20.34.25-2048x1280.png 2048w" sizes="(max-width: 2880px) 100vw, 2880px" /></a></figure>
+
+
+
+<figure class="wp-block-image size-full"><a href="/wp-content/uploads/2021/12/截屏2021-12-25-20.33.43.png"><img decoding="async" width="2880" height="1800" src="/wp-content/uploads/2021/12/截屏2021-12-25-20.33.43.png" alt="" class="wp-image-8805" srcset="/wp-content/uploads/2021/12/截屏2021-12-25-20.33.43.png 2880w, /wp-content/uploads/2021/12/截屏2021-12-25-20.33.43-300x188.png 300w, /wp-content/uploads/2021/12/截屏2021-12-25-20.33.43-1024x640.png 1024w, /wp-content/uploads/2021/12/截屏2021-12-25-20.33.43-768x480.png 768w, /wp-content/uploads/2021/12/截屏2021-12-25-20.33.43-1536x960.png 1536w, /wp-content/uploads/2021/12/截屏2021-12-25-20.33.43-2048x1280.png 2048w" sizes="(max-width: 2880px) 100vw, 2880px" /></a></figure>
+
+
+
+<p>.htaccess</p>
+
+
+
+<pre class="wp-block-code"><code>&lt;IfModule mod_rewrite.c&gt;  
+    &lt;IfModule mod_negotiation.c&gt;  
+        Options +FollowSymLinks  
+    &lt;/IfModule&gt;  
+  
+    RewriteEngine On  
+  
+    # Redirect Trailing Slashes If Not A Folder...  
+    RewriteCond %{REQUEST_FILENAME} !-d  
+    RewriteRule ^(.*)/$ /$1 &#91;L,R=301]  
+  
+    # Handle Front Controller...  
+    RewriteCond %{REQUEST_FILENAME} !-d  
+    RewriteCond %{REQUEST_FILENAME} !-f  
+    RewriteRule ^ index.php &#91;L]  
+  
+    # Handle Authorization Header  
+    RewriteCond %{HTTP:Authorization} .  
+    RewriteRule .* - &#91;E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]  
+&lt;/IfModule&gt;  </code></pre>
+
+
+
+<p><strong>5.laravel-modules安装</strong></p>
+
+
+
+<p>Larvel-modules会在项目目录下生成modules目录，不会更改框架原有结构，方便后续框架升级，开发代码直接写在modules目录下。</p>
+
+
+
+<p>5.1.首先在 Laravel 项目根目录下使用 Composer 安装该扩展包。</p>
+
+
+
+<p><br>composer require nwidart/laravel-modules</p>
+
+
+
+<p><br>5.2.你可以通过运行如下命令来发布配置文件。</p>
+
+
+
+<p><br>php artisan vendor:publish &#8211;provider=&#8221;Nwidart\Modules\LaravelModulesServiceProvider&#8221;</p>
+
+
+
+<p>5.3.通过如下命令生成应用的第一个模块。</p>
+
+
+
+<p><br>php artisan module:make Admin</p>
+
+
+
+<p><br>5.4.要让模块目录中定义的类可以自动加载，需要配置根目录下的composer.json。</p>
+
+
+
+<pre class="wp-block-code"><code>{
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Modules\\": "Modules/"
+    }
+  }
+}
+</code></pre>
+
+
+
+<p>5.5.配置完成后运行以下命令让修改生效。</p>
+
+
+
+<p><br>composer dump-autoload</p>
+
+
+
+<p>5.6.执行域名加模块名（例如：<a href="/goto/o5nf" rel="nofollow">http://demo:8888/admin</a><a rel="noreferrer noopener" href="/goto/74qp" rel="nofollow" target="_blank">）</a></p>
+
+
+
+<figure class="wp-block-image size-full"><a href="/wp-content/uploads/2021/12/截屏2021-12-26-12.14.47.png"><img loading="lazy" decoding="async" width="1300" height="272" src="/wp-content/uploads/2021/12/截屏2021-12-26-12.14.47.png" alt="" class="wp-image-8821" srcset="/wp-content/uploads/2021/12/截屏2021-12-26-12.14.47.png 1300w, /wp-content/uploads/2021/12/截屏2021-12-26-12.14.47-300x63.png 300w, /wp-content/uploads/2021/12/截屏2021-12-26-12.14.47-1024x214.png 1024w, /wp-content/uploads/2021/12/截屏2021-12-26-12.14.47-768x161.png 768w" sizes="(max-width: 1300px) 100vw, 1300px" /></a><figcaption><strong>6.laravel8自动生成api文档</strong></figcaption></figure>
+
+
+
+<p><a href="/goto/q8h6" data-type="URL" data-id="https://blog.csdn.net/JianShengShuaiest/article/details/120357911" target="_blank" rel="nofollow noreferrer noopener">laravel8自动生成api文档</a></p>
+
+
+
+<p><a href="/goto/38a0" data-type="URL" data-id="https://www.jianshu.com/p/56c25d9bb880" target="_blank" rel="nofollow noreferrer noopener">Swagger 使用教程</a></p>
+
+
+
+<p><a rel="noreferrer noopener" href="/goto/uhmv" rel="nofollow" data-type="URL" data-id="https://wxiangqian.blog.csdn.net/article/details/81866873" target="_blank">Swagger生成api接口文档</a></p>
+
+
+
+<p>添加配置：</p>
+
+
+
+<p>路径：resources/views/vendor/l5-swagger/index.blade.php</p>
+
+
+
+<figure class="wp-block-image size-full"><a href="/wp-content/uploads/2021/12/截屏2021-12-25-17.55.53.png"><img loading="lazy" decoding="async" width="816" height="256" src="/wp-content/uploads/2021/12/截屏2021-12-25-17.55.53.png" alt="" class="wp-image-8781" srcset="/wp-content/uploads/2021/12/截屏2021-12-25-17.55.53.png 816w, /wp-content/uploads/2021/12/截屏2021-12-25-17.55.53-300x94.png 300w, /wp-content/uploads/2021/12/截屏2021-12-25-17.55.53-768x241.png 768w" sizes="(max-width: 816px) 100vw, 816px" /></a></figure>
+
+
+
+<p>添加：deepLinking: true</p>
+
+
+
+<p></p>
+
+
+
+<p>修改默认模块</p>
+
+
+
+<p>路径：config/l5-swagger.php</p>
+
+
+
+<p>将 <em>base_path(&#8216;app&#8217;),  </em>更改为 base_path(&#8216;Modules&#8217;),</p>
+
+
+
+<figure class="wp-block-image size-full"><a href="/wp-content/uploads/2021/12/截屏2021-12-25-17.59.12.png"><img loading="lazy" decoding="async" width="1540" height="386" src="/wp-content/uploads/2021/12/截屏2021-12-25-17.59.12.png" alt="" class="wp-image-8783" srcset="/wp-content/uploads/2021/12/截屏2021-12-25-17.59.12.png 1540w, /wp-content/uploads/2021/12/截屏2021-12-25-17.59.12-300x75.png 300w, /wp-content/uploads/2021/12/截屏2021-12-25-17.59.12-1024x257.png 1024w, /wp-content/uploads/2021/12/截屏2021-12-25-17.59.12-768x192.png 768w, /wp-content/uploads/2021/12/截屏2021-12-25-17.59.12-1536x385.png 1536w" sizes="(max-width: 1540px) 100vw, 1540px" /></a></figure>
+
+
+
+<pre class="wp-block-code"><code>php artisan l5-swagger:generate</code></pre>
+
+
+
+<p>最终效果：</p>
+
+
+
+<figure class="wp-block-image size-full is-resized"><a href="/wp-content/uploads/2021/12/截屏2021-12-25-17.53.09-1.png"><img loading="lazy" decoding="async" src="/wp-content/uploads/2021/12/截屏2021-12-25-17.53.09-1.png" alt="" class="wp-image-8782" width="840" height="448" srcset="/wp-content/uploads/2021/12/截屏2021-12-25-17.53.09-1.png 2880w, /wp-content/uploads/2021/12/截屏2021-12-25-17.53.09-1-300x160.png 300w, /wp-content/uploads/2021/12/截屏2021-12-25-17.53.09-1-1024x546.png 1024w, /wp-content/uploads/2021/12/截屏2021-12-25-17.53.09-1-768x410.png 768w, /wp-content/uploads/2021/12/截屏2021-12-25-17.53.09-1-1536x819.png 1536w, /wp-content/uploads/2021/12/截屏2021-12-25-17.53.09-1-2048x1092.png 2048w" sizes="(max-width: 840px) 100vw, 840px" /></a></figure>
+
+
+
+<p><strong>7.laravel数据迁移加注释</strong></p>
+
+
+
+<p>默认laravel是没有带添加表注释组件的，这里需要安装zedisdog/laravel-schema-extend包<br>该组件包要求使用大于等于5.0版本的laravel</p>
+
+
+
+<p>1.拉取组件<br></p>
+
+
+
+<pre class="wp-block-code"><code>composer require zedisdog/laravel-schema-extend
+</code></pre>
+
+
+
+<p>2.申明依赖 （修改config-&gt;app.php-&gt;aliases）<br></p>
+
+
+
+<pre class="wp-block-code"><code>'aliases' =&gt; &#91;
+    ...
+    // 'Schema' =&gt; Illuminate\Support\Facades\Schema::class,
+    'Schema'    =&gt; Jialeo\LaravelSchemaExtend\Schema::class,
+
+],
+</code></pre>
+
+
+
+<p>3.使用（默认创建的migration文件对应的“Schema”还是引用的laravel自带的，需要修改为该组件包的引用）<br></p>
+
+
+
+<pre class="wp-block-code"><code> //use Illuminate\\Support\\Facades\\Schema;
+ use Jialeo\\LaravelSchemaExtend\\Schema;
+Schema::create('users', function (Blueprint $table) {
+$table-&gt;comment = '用户表';
+ });</code></pre>
+
+
+
+<p><strong>8.JWT用户验证</strong></p>
+
+
+
+<pre class="wp-block-code"><code>1.安装 jwt-auth。
+composer require tymon/jwt-auth 1.*@rc
+或者
+composer require tymon/jwt-auth:^1.0.2
+
+2.将服务提供程序添加到配置文件中的providers数组，config/app.php如下所示：
+'providers' =&gt; &#91;
+        ...
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+    ]
+
+3.运行以下命令以发布程序包配置文件：
+php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+
+4.生成加密密钥:
+php artisan jwt:secret
+
+5.修改 config/auth.php
+'guards'  =&gt;  &#91;
+        'auth_admin' =&gt; &#91;
+            'driver' =&gt; 'jwt',
+            'provider' =&gt; 'auth_admins'
+        ]
+    ],
+'providers' =&gt; &#91;
+        'auth_admins' =&gt; &#91;
+            'driver' =&gt; 'eloquent',
+            'model' =&gt; Modules\Admin\Models\AuthAdmin::class,
+        ]
+    ],
+6.创建模型
+&lt;?php
+namespace Modules\Admin\Models;
+use DateTimeInterface;
+use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+class AuthAdmin extends Authenticatable implements JWTSubject
+{
+    use Notifiable;
+    protected $guard = 'auth_admin';
+    protected $hidden = &#91;
+        'password'
+    ];
+    /**
+     * @name jwt标识
+     * @description
+     * @author Winston
+     * @date 2021/12/25 3:11
+     **/
+    public function getJWTIdentifier()
+    {
+        return $this-&gt;getKey();
+    }
+    /**
+     * @name jwt自定义声明
+     * @description
+     * @author Winston
+     * @date 2021/12/25 3:11
+     **/
+    public function getJWTCustomClaims()
+    {
+        return &#91;];
+    }
+    /**
+     * @name 更新时间为null时返回
+     * @description
+     * @author Winston
+     * @date 2021/12/25 3:11
+     **/
+    public function getUpdatedAtAttribute($value)
+    {
+        return $value?$value:'';
+    }
+    /**
+     * @name  关联权限组表   多对一
+     * @description
+     * @author Winston
+     * @date 2021/12/25 3:12
+     **/
+    public function auth_groups()
+    {
+        return $this-&gt;belongsTo('Modules\Admin\Models\AuthGroup','group_id','id');
+    }
+    /**
+     * @name  关联平台项目表   多对一
+     * @description
+     * @author Winston
+     * @date 2021/12/25 3:12
+     **/
+    public function auth_projects()
+    {
+        return $this-&gt;belongsTo('Modules\Admin\Models\AuthProject','project_id','id');
+    }
+    /**
+     * @name 时间格式传唤
+     * @description
+     * @author Winston
+     * @date 2021/12/25 16:15
+     **/
+    protected function serializeDate(DateTimeInterface $date)
+    {
+        return $date-&gt;format('Y-m-d H:i:s');
+    }
+}
+7.创建token的Services
+&lt;?php
+/**
+ * @Name 管理员信息服务
+ * @Description
+ * @Auther Winston
+ * @Date 2021/12/25 17:10
+ */
+namespace Modules\Admin\Services\auth;
+use Modules\Admin\Services\BaseApiService;
+use Modules\Common\Exceptions\ApiException;
+use Modules\Common\Exceptions\MessageData;
+use Modules\Common\Exceptions\StatusData;
+use Tymon\JWTAuth\Exceptions\TokenBlacklistedException;
+use Tymon\JWTAuth\Facades\JWTAuth;
+
+class TokenService extends BaseApiService
+{
+    /**
+     * @name 设置token 生成机制
+     * @description
+     * @author Winston
+     * @date 2021/12/25 17:23
+     * @return JSON
+     **/
+    public function __construct()
+    {
+        \Config::set('auth.defaults.guard', 'auth_admin');
+        \Config::set('jwt.ttl', 60);
+    }
+    /**
+     * @name 设置token
+     * @description
+     * @author Winston
+     * @date 2021/12/25 17:24
+     * @param data  Array 用户信息
+     * @param data.username String 账号
+     * @param data.password String 密码$
+     * @return JSON | Array
+     **/
+    public function setToken($data){
+        if (! $token = JWTAuth::attempt($data)){
+            $this-&gt;apiError('token生成失败');
+        }
+        return $this-&gt;respondWithToken($token);
+    }
+    /**
+     * @name 刷新token
+     * @description
+     * @author Winston
+     * @date 2021/12/25 17:48
+     * @return JSON
+     **/
+    public function refreshToken()
+    {
+        try {
+            $old_token = JWTAuth::getToken();
+            $token = JWTAuth::refresh($old_token);
+        }catch (TokenBlacklistedException $e) {
+            // 这个时候是老的token被拉到黑名单了
+            throw new ApiException(&#91;'status'=&gt;StatusData::TOKEN_ERROR_BLACK,'message'=&gt;MessageData::TOKEN_ERROR_BLACK]);
+        }
+        return $this-&gt;apiSuccess('', $this-&gt;respondWithToken($token));
+    }
+    /**
+     * @name 管理员信息
+     * @description
+     * @author Winston
+     * @date 2021/12/25 19:11
+     * @return Array
+     **/
+    public function my():Object
+    {
+        return JWTAuth::parseToken()-&gt;touser();
+    }
+    /**
+     * @name
+     * @description
+     * @author Winston
+     * @date 2021/12/25 9:53
+     * @method  GET
+     * @param
+     * @return JSON
+     **/
+    public function info()
+    {
+        $data = $this-&gt;my();
+        return $this-&gt;apiSuccess('',&#91;'username'=&gt;$data&#91;'username']]);
+    }
+    /**
+     * @name 退出登录
+     * @description
+     * @author Winston
+     * @date 2021/12/25 19:12
+     * @return JSON
+     **/
+    public function logout()
+    {
+        JWTAuth::parseToken()-&gt;invalidate();
+        return $this-&gt;apiSuccess('退出成功！');
+    }
+
+    /**
+     * @name 组合token数据
+     * @description
+     * @author Winston
+     * @date 2021/12/25 17:47
+     * @return Array
+     **/
+    protected function respondWithToken($token):Array
+    {
+        return &#91;
+            'token' =&gt; $token,
+            'token_type' =&gt; 'bearer',
+            'expires_in' =&gt; JWTAuth::factory()-&gt;getTTL() * 60
+        ];
+    }
+}
+8.创建登录Services
+&lt;?php
+/**
+ * @Name 用户登录服务
+ * @Description
+ * @Auther Winston
+ * @Date 2021/12/25 16:50
+ */
+namespace Modules\Admin\Services\auth;
+use Modules\Admin\Services\BaseApiService;
+use Modules\Admin\Models\AuthAdmin as AuthAdminModel;
+class LoginService extends BaseApiService
+{
+    /**
+     * @name 用户登录
+     * @description
+     * @author Winston
+     * @date 2021/12/25 16:53
+     * @param data  Array 用户信息
+     * @param data.username String 账号
+     * @param data.password String 密码
+     * @return JSON
+     **/
+    public function login(array $data){
+        if (true == \Auth::guard('auth_admin')-&gt;attempt($data)) {
+            $userInfo = AuthAdminModel::where(&#91;'username'=&gt;$data&#91;'username']])-&gt;select('id','username')-&gt;first();
+            if($userInfo){
+                $user_info = $userInfo-&gt;toArray();
+                $user_info&#91;'password'] = $data&#91;'password'];
+                $token = (new TokenService())-&gt;setToken($user_info);
+                return $this-&gt;apiSuccess('登录成功！',$token);
+            }
+        }
+        $this-&gt;apiError('账号或密码错误！');
+    }
+}
+9.创建中间件
+&lt;?php
+// +----------------------------------------------------------------------
+// | Name: 管理系统 &#91; 为了快速搭建软件应用而生的，希望能够帮助到大家提高开发效率。 ]
+// +----------------------------------------------------------------------
+// | Copyright: (c) 2020~2021 / All rights reserved.
+// +----------------------------------------------------------------------
+// | Licensed: 这是一个自由软件，允许对程序代码进行修改，但希望您留下原有的注释。
+// +----------------------------------------------------------------------
+// | Author: Winston &lt;liyouran@live.com&gt;
+// +----------------------------------------------------------------------
+// | Version: V1
+// +----------------------------------------------------------------------
+
+/**
+ * @Name  后台权限验证中间件
+ * @Description
+ * @Auther Winston
+ * @Date 2021/12/25 13:37
+ */
+
+namespace Modules\Admin\Http\Middleware;
+
+use Closure;
+use Modules\Admin\Services\log\OperationLogService;
+use Modules\Common\Exceptions\ApiException;
+use Illuminate\Http\Request;
+use Modules\Common\Exceptions\MessageData;
+use Modules\Common\Exceptions\StatusData;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Exceptions\TokenExpiredException;
+use Tymon\JWTAuth\Exceptions\TokenInvalidException;
+use Tymon\JWTAuth\Exceptions\TokenBlacklistedException;
+use JWTAuth;
+use Modules\Admin\Models\Admin as AdminModel;
+use Modules\Admin\Models\AuthGroup as AuthGroupModel;
+use Modules\Admin\Models\AuthRule as AuthRuleModel;
+class AdminApiAuth
+{
+
+    public function handle($request, Closure $next)
+    {
+        \Config::set('auth.defaults.guard', 'auth_admin');
+        \Config::set('jwt.ttl', 60);
+        $route_data = $request-&gt;route();
+        $url = str_replace($route_data-&gt;getAction()&#91;'prefix'] . '/',"",$route_data-&gt;uri);
+        $url_arr = &#91;'auth/login/login','auth/index/getMain','auth/index/refreshToken'];
+        $api_key = $request-&gt;header('apikey');
+        if($api_key != config('admin.api_key')){
+            throw new ApiException(&#91;'status'=&gt;StatusData::TOKEN_ERROR_KEY,'message'=&gt;MessageData::TOKEN_ERROR_KEY]);
+            return $next();
+        }
+        if(in_array($url,$url_arr)){
+            return $next($request);
+        }
+        try {
+            if (! $user = JWTAuth::parseToken()-&gt;authenticate()) {  //获取到用户数据，并赋值给$user   'msg' =&gt; '用户不存在'
+                throw new ApiException(&#91;'status'=&gt;StatusData::TOKEN_ERROR_SET,'message'=&gt;MessageData::TOKEN_ERROR_SET]);
+                return $next();
+            }
+
+        }catch (TokenBlacklistedException $e) {
+            //token无效
+            if(in_array($url,&#91;'auth/index/logout'])){
+                return $next($request);
+            }
+            // 这个时候是老的token被拉到黑名单了
+            throw new ApiException(&#91;'status'=&gt;StatusData::TOKEN_ERROR_BLACK,'message'=&gt;MessageData::TOKEN_ERROR_BLACK]);
+            return $next();
+        } catch (TokenExpiredException $e) {
+            //token无效
+            if(in_array($url,&#91;'auth/index/logout'])){
+                return $next($request);
+            }
+            //token已过期
+            throw new ApiException(&#91;'status'=&gt;StatusData::TOKEN_ERROR_EXPIRED,'message'=&gt;MessageData::TOKEN_ERROR_EXPIRED]);
+            return $next();
+        } catch (TokenInvalidException $e) {
+            //token无效
+            if(!in_array($url,&#91;'auth/index/refresh','auth/index/logout'])){
+                throw new ApiException(&#91;'status'=&gt;StatusData::TOKEN_ERROR_JWT,'message'=&gt;MessageData::TOKEN_ERROR_JWT]);
+            }
+            return $next();
+        } catch (JWTException $e) {
+            //'缺少token'
+            throw new ApiException(&#91;'status'=&gt;StatusData::TOKEN_ERROR_JTB,'message'=&gt;MessageData::TOKEN_ERROR_JTB]);
+            return $next();
+        }
+        // 写入日志
+        (new OperationLogService())-&gt;store($user&#91;'id']);
+//        if(!in_array($url,&#91;'auth/index/refresh','auth/index/logout'])){
+//            if($user&#91;'id'] != 1 &amp;&amp; $id = AuthRuleModel::where(&#91;'href'=&gt;$url])-&gt;value('id')){
+//                $rules = AuthGroupModel::where(&#91;'id'=&gt;$user&#91;'group_id']])-&gt;value('rules');
+//                if(!in_array($id,explode('|',$rules))){
+//                    throw new ApiException(&#91;'code'=&gt;6781,'msg'=&gt;'您没有权限！']);
+//                }
+//            }
+//        }
+        return $next($request);
+    }
+}
+10.laravel登陆模块Demo
+
+<meta charset="utf-8">10.1.修改config/auth.php
+增加guards、providers
+
+    'guards' =&gt; &#91;
+        'web' =&gt; &#91;
+            'driver' =&gt; 'session',
+            'provider' =&gt; 'users',
+        ],
+
+        'api' =&gt; &#91;
+            'driver' =&gt; 'token',
+            'provider' =&gt; 'users',
+            'hash' =&gt; false,
+        ],
+        'auth_admin' =&gt; &#91;
+            'driver' =&gt; 'jwt',
+            'provider' =&gt; 'auth_admins'
+        ]
+    ],
+
+    'providers' =&gt; &#91;
+        'users' =&gt; &#91;
+            'driver' =&gt; 'eloquent',
+            'model' =&gt; App\Models\User::class,
+        ],
+        'auth_admins' =&gt; &#91;
+            'driver' =&gt; 'eloquent',
+            'model' =&gt; Modules\Admin\Models\AuthAdmin::class,
+        ]
+    ],
+
+<meta charset="utf-8">10.2.增加中间件
+\Modules\Admin\Http\Middleware\AdminApiAuth
+
+<meta charset="utf-8">10.3.app\Http\Kernel.php $routeMiddleware中增加中间件
+'AdminApiAuth'=&gt; \Modules\Admin\Http\Middleware\AdminApiAuth::class,
+
+<meta charset="utf-8">10.4.Modules\Admin\Config\config.php 定义api_key
+
+return &#91;
+'name' =&gt; 'Admin',
+'api_key'=&gt;'123456',
+'update_pwd'=&gt;'123456',
+];
+
+10.5编写基础控制器
+&lt;?php
+// +----------------------------------------------------------------------
+// | Name: 管理系统 &#91; 为了快速搭建软件应用而生的，希望能够帮助到大家提高开发效率。 ]
+// +----------------------------------------------------------------------
+// | Copyright: (c) 2021~2022 / All rights reserved.
+// +----------------------------------------------------------------------
+// | Licensed: 这是一个自由软件，允许对程序代码进行修改，但希望您留下原有的注释。
+// +----------------------------------------------------------------------
+// | Author: Winston &lt;liyouran@live.com&gt;
+// +----------------------------------------------------------------------
+// | Version: V1
+// +----------------------------------------------------------------------
+
+/**
+ * @Name 当前模块控制器基类
+ * @Description
+ * @Auther Winston
+ * @Date 2021/12/26 13:10
+ */
+
+namespace Modules\Admin\Http\Controllers\v1;
+
+
+use Modules\Common\Controllers\BaseController;
+
+class BaseApiController extends BaseController
+{
+    public function __construct(){
+        parent::__construct();
+    }
+}
+
+
+<meta charset="utf-8">10.6.编写登陆controller
+&lt;?php
+// +----------------------------------------------------------------------
+// | Name: 管理系统 &#91; 为了快速搭建软件应用而生的，希望能够帮助到大家提高开发效率。 ]
+// +----------------------------------------------------------------------
+// | Copyright: (c) 2021~2022 / All rights reserved.
+// +----------------------------------------------------------------------
+// | Licensed: 这是一个自由软件，允许对程序代码进行修改，但希望您留下原有的注释。
+// +----------------------------------------------------------------------
+// | Author: Winston &lt;liyouran@live.com&gt;
+// +----------------------------------------------------------------------
+// | Version: V1
+// +----------------------------------------------------------------------
+
+/**
+ * @Name 用户登录
+ * @Description
+ * @Auther Winston
+ * @Date 2021/12/26 13:10
+ */
+
+namespace Modules\Admin\Http\Controllers\v1;
+
+
+use Modules\Admin\Http\Requests\LoginRequest;
+use Modules\Admin\Services\auth\LoginService;
+class LoginController extends BaseApiController
+{
+    /**
+     * @name 用户登录
+     * @description
+     * @author Winston
+     * @date 2021/12/26 13:10
+     * @method  POST
+     * @param username String 账号
+     * @param password String 密码
+     * @return JSON
+     **/
+    public function login(LoginRequest $request)
+    {
+        return (new LoginService())-&gt;login($request-&gt;only(&#91;'username','password']));
+    }
+}
+
+<meta charset="utf-8">10.7.编写登陆request
+&lt;?php
+
+namespace Modules\Admin\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class LoginRequest extends FormRequest
+{
+	/**
+     * php artisan module:make-request LoginRequest AuthAdmin
+     */
+
+
+	 /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return &#91;
+			'username' =&gt; 'required',
+            'password'  =&gt; 'required'
+        ];
+    }
+	public function messages(){
+		return &#91;
+			'username.required' =&gt; '请输入账号！',
+			'password.required' =&gt; '请输入密码！',
+		];
+	}
+
+}
+
+
+<meta charset="utf-8">10.8.编写api路由
+&lt;?php
+
+use Illuminate\Http\Request;
+
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| is assigned the "api" middleware group. Enjoy building your API!
+|
+*/
+
+Route::middleware('auth:api')-&gt;get('/admin', function (Request $request) {
+    return $request-&gt;user();
+});
+
+Route::group(&#91;"prefix"=&gt;"v1/admin","middleware"=&gt;"AdminApiAuth"],function (){
+    //登录
+    Route::post('login/login', 'v1\LoginController@login');
+});
+
+
+<meta charset="utf-8">10.9.修改config/databases.php
+增加表前缀：prefix =&gt; 'lv_',
+
+<meta charset="utf-8">10.10.修改.env中数据库连接配置
+DB_PORT:8889,
+DB_DATABASES:laravel,
+DB_USERNAME=root,
+DB_PASSWORD=root,
+
+<meta charset="utf-8">10.11.连接数据库，创建用户表及数据初始化
+USE laravel;
+DROP TABLE IF EXISTS `lv_auth_admins`;
+CREATE TABLE `lv_auth_admins` (
+`id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '管理员ID',
+`name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '名称',
+`phone` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '手机号',
+`username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '账号',
+`password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '密码',
+`group_id` int(11) DEFAULT NULL COMMENT '权限组ID',
+`project_id` int(11) DEFAULT NULL COMMENT '项目ID',
+`status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '状态:0=禁用,1=启用',
+`created_at` timestamp NULL DEFAULT NULL COMMENT '创建时间',
+`updated_at` timestamp NULL DEFAULT NULL COMMENT '更新时间',
+PRIMARY KEY (`id`),
+UNIQUE KEY `lv_auth_admins_username_unique` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='管理员表';
+
+INSERT INTO `lv_auth_admins` VALUES (1,'','','admin','$2y$10$gddj.QV7l7OP3I2MpgM9COcCKCBM8SMPq.xe/JrqkOXY3DlnozTP.',1,1,1,'2021-12-26 14:56:02','2021-12-26 14:56:02');
+INSERT INTO `lv_auth_admins` VALUES (2,'winston','','winston','$2y$10$NhdagpIFbxK2zAVFeCFEa.wUrtKv.2o4aG4ZZ5W3yYB9epkx/Xm9y',2,1,1,'2021-12-26 14:56:02','2021-12-26 14:56:02');
+
+<meta charset="utf-8">10.12.php artisan l5-swagger:generate更新接口文档
+
+<meta charset="utf-8">10.13.打开http://域名/api/documentation 查看文档及进行测试</code></pre>
+
+
+
+<figure class="wp-block-image size-full"><a href="/wp-content/uploads/2021/12/截屏2021-12-26-15.26.18.png"><img loading="lazy" decoding="async" width="2880" height="1660" src="/wp-content/uploads/2021/12/截屏2021-12-26-15.26.18.png" alt="" class="wp-image-8826" srcset="/wp-content/uploads/2021/12/截屏2021-12-26-15.26.18.png 2880w, /wp-content/uploads/2021/12/截屏2021-12-26-15.26.18-300x173.png 300w, /wp-content/uploads/2021/12/截屏2021-12-26-15.26.18-1024x590.png 1024w, /wp-content/uploads/2021/12/截屏2021-12-26-15.26.18-768x443.png 768w, /wp-content/uploads/2021/12/截屏2021-12-26-15.26.18-1536x885.png 1536w, /wp-content/uploads/2021/12/截屏2021-12-26-15.26.18-2048x1180.png 2048w" sizes="(max-width: 2880px) 100vw, 2880px" /></a></figure>
+
+
+
+<figure class="wp-block-image size-full"><a href="/wp-content/uploads/2021/12/截屏2021-12-26-15.26.46.png"><img loading="lazy" decoding="async" width="2880" height="1484" src="/wp-content/uploads/2021/12/截屏2021-12-26-15.26.46.png" alt="" class="wp-image-8827" srcset="/wp-content/uploads/2021/12/截屏2021-12-26-15.26.46.png 2880w, /wp-content/uploads/2021/12/截屏2021-12-26-15.26.46-300x155.png 300w, /wp-content/uploads/2021/12/截屏2021-12-26-15.26.46-1024x528.png 1024w, /wp-content/uploads/2021/12/截屏2021-12-26-15.26.46-768x396.png 768w, /wp-content/uploads/2021/12/截屏2021-12-26-15.26.46-1536x791.png 1536w, /wp-content/uploads/2021/12/截屏2021-12-26-15.26.46-2048x1055.png 2048w" sizes="(max-width: 2880px) 100vw, 2880px" /></a></figure>
+
+
+
+<figure class="wp-block-image size-full"><a href="/wp-content/uploads/2021/12/截屏2021-12-26-15.26.59.png"><img loading="lazy" decoding="async" width="2880" height="354" src="/wp-content/uploads/2021/12/截屏2021-12-26-15.26.59.png" alt="" class="wp-image-8828" srcset="/wp-content/uploads/2021/12/截屏2021-12-26-15.26.59.png 2880w, /wp-content/uploads/2021/12/截屏2021-12-26-15.26.59-300x37.png 300w, /wp-content/uploads/2021/12/截屏2021-12-26-15.26.59-1024x126.png 1024w, /wp-content/uploads/2021/12/截屏2021-12-26-15.26.59-768x94.png 768w, /wp-content/uploads/2021/12/截屏2021-12-26-15.26.59-1536x189.png 1536w, /wp-content/uploads/2021/12/截屏2021-12-26-15.26.59-2048x252.png 2048w" sizes="(max-width: 2880px) 100vw, 2880px" /></a></figure>
+
+
+
+<p><strong>9.laravel使用redis</strong></p>
+
+
+
+<p>首先确认服务器已经安装redis服务,php安装了redis扩展.<br>因为我们在laravel的项目中需要下载laravel的redis扩展</p>
+
+
+
+<pre class="wp-block-code"><code>composer require predis/predis
+
+1.打开config/database.php。在redis配置项中增加session的连接</code></pre>
+
+
+
+<pre class="wp-block-code"><code>'session' =&gt; &#91;
+            'host' =&gt; env('REDIS_HOST', '127.0.0.1'),
+            'password' =&gt; env('REDIS_PASSWORD', null),
+            'port' =&gt; env('REDIS_PORT', 6379),
+            'database' =&gt; 10,
+ ],
+</code></pre>
+
+
+
+<figure class="wp-block-image size-full"><a href="/wp-content/uploads/2021/12/截屏2021-12-26-12.03.37.png"><img loading="lazy" decoding="async" width="2006" height="1348" src="/wp-content/uploads/2021/12/截屏2021-12-26-12.03.37.png" alt="" class="wp-image-8813" srcset="/wp-content/uploads/2021/12/截屏2021-12-26-12.03.37.png 2006w, /wp-content/uploads/2021/12/截屏2021-12-26-12.03.37-300x202.png 300w, /wp-content/uploads/2021/12/截屏2021-12-26-12.03.37-1024x688.png 1024w, /wp-content/uploads/2021/12/截屏2021-12-26-12.03.37-768x516.png 768w, /wp-content/uploads/2021/12/截屏2021-12-26-12.03.37-1536x1032.png 1536w" sizes="(max-width: 2006px) 100vw, 2006px" /></a><figcaption>2.打开config/session.php ,修改driver配置项,将默认的&#8217;file&#8217;改为&#8217;redis&#8217;；connection配置项填入第一步中配置的redis连接名&#8217;session&#8217;</figcaption></figure>
+
+
+
+<pre class="wp-block-code"><code>'driver' =&gt; env('SESSION_DRIVER','redis'),
+'connection' =&gt; 'session',
+</code></pre>
+
+
+
+<figure class="wp-block-image size-full"><a href="/wp-content/uploads/2021/12/截屏2021-12-26-12.05.02.png"><img loading="lazy" decoding="async" width="932" height="152" src="/wp-content/uploads/2021/12/截屏2021-12-26-12.05.02.png" alt="" class="wp-image-8815" srcset="/wp-content/uploads/2021/12/截屏2021-12-26-12.05.02.png 932w, /wp-content/uploads/2021/12/截屏2021-12-26-12.05.02-300x49.png 300w, /wp-content/uploads/2021/12/截屏2021-12-26-12.05.02-768x125.png 768w" sizes="(max-width: 932px) 100vw, 932px" /></a></figure>
+
+
+
+<figure class="wp-block-image size-full"><a href="/wp-content/uploads/2021/12/截屏2021-12-26-12.05.12.png"><img loading="lazy" decoding="async" width="854" height="104" src="/wp-content/uploads/2021/12/截屏2021-12-26-12.05.12.png" alt="" class="wp-image-8816" srcset="/wp-content/uploads/2021/12/截屏2021-12-26-12.05.12.png 854w, /wp-content/uploads/2021/12/截屏2021-12-26-12.05.12-300x37.png 300w, /wp-content/uploads/2021/12/截屏2021-12-26-12.05.12-768x94.png 768w" sizes="(max-width: 854px) 100vw, 854px" /></a><figcaption>3.修改.env文件,使用redis存取sessoin</figcaption></figure>
+
+
+
+<pre class="wp-block-code"><code>SESSION_DRIVER=redis
+</code></pre>
+
+
+
+<h1 class="wp-block-heading">phpstorm相关配置</h1>
+
+
+
+<p>1.phpstorm设置ctrl+鼠标滚轮更改字体大小。</p>
+
+
+
+<p>Flie-&gt;Settings-&gt;Editor-&gt;General</p>
+
+
+
+<figure class="wp-block-image size-full"><a href="/wp-content/uploads/2021/12/截屏2021-12-26-12.06.12.png"><img loading="lazy" decoding="async" width="1960" height="1410" src="/wp-content/uploads/2021/12/截屏2021-12-26-12.06.12.png" alt="" class="wp-image-8817" srcset="/wp-content/uploads/2021/12/截屏2021-12-26-12.06.12.png 1960w, /wp-content/uploads/2021/12/截屏2021-12-26-12.06.12-300x216.png 300w, /wp-content/uploads/2021/12/截屏2021-12-26-12.06.12-1024x737.png 1024w, /wp-content/uploads/2021/12/截屏2021-12-26-12.06.12-768x552.png 768w, /wp-content/uploads/2021/12/截屏2021-12-26-12.06.12-1536x1105.png 1536w" sizes="(max-width: 1960px) 100vw, 1960px" /></a></figure>
+
+
+
+<p>Flie-&gt;Settings-&gt;File Encodings</p>
+
+
+
+<figure class="wp-block-image size-full"><a href="/wp-content/uploads/2021/12/截屏2021-12-26-12.07.19.png"><img loading="lazy" decoding="async" width="1952" height="1406" src="/wp-content/uploads/2021/12/截屏2021-12-26-12.07.19.png" alt="" class="wp-image-8818" srcset="/wp-content/uploads/2021/12/截屏2021-12-26-12.07.19.png 1952w, /wp-content/uploads/2021/12/截屏2021-12-26-12.07.19-300x216.png 300w, /wp-content/uploads/2021/12/截屏2021-12-26-12.07.19-1024x738.png 1024w, /wp-content/uploads/2021/12/截屏2021-12-26-12.07.19-768x553.png 768w, /wp-content/uploads/2021/12/截屏2021-12-26-12.07.19-1536x1106.png 1536w" sizes="(max-width: 1952px) 100vw, 1952px" /></a></figure>
+
+
+
+<p>File-&gt;setting&#8211;&gt;Editor&#8211;&gt;File and Code Templates</p>
+
+
+
+<figure class="wp-block-image size-full"><a href="/wp-content/uploads/2021/12/截屏2021-12-26-12.08.59.png"><img loading="lazy" decoding="async" width="1950" height="1410" src="/wp-content/uploads/2021/12/截屏2021-12-26-12.08.59.png" alt="" class="wp-image-8819" srcset="/wp-content/uploads/2021/12/截屏2021-12-26-12.08.59.png 1950w, /wp-content/uploads/2021/12/截屏2021-12-26-12.08.59-300x217.png 300w, /wp-content/uploads/2021/12/截屏2021-12-26-12.08.59-1024x740.png 1024w, /wp-content/uploads/2021/12/截屏2021-12-26-12.08.59-768x555.png 768w, /wp-content/uploads/2021/12/截屏2021-12-26-12.08.59-1536x1111.png 1536w" sizes="(max-width: 1950px) 100vw, 1950px" /></a></figure>
+
+
+
+<pre class="wp-block-code"><code><meta charset="utf-8">// +----------------------------------------------------------------------
+// | Name: 管理系统 &#91; 为了快速搭建软件应用而生的，希望能够帮助到大家提高开发效率。 ]
+// +----------------------------------------------------------------------
+// | Copyright: (c) 2020~2021 / All rights reserved.
+// +----------------------------------------------------------------------
+// | Licensed: 这是一个自由软件，允许对程序代码进行修改，但希望您留下原有的注释。
+// +----------------------------------------------------------------------
+// | Author: Winston &lt;liyouran@live.com&gt;
+// +----------------------------------------------------------------------
+// | Version: V1
+// +----------------------------------------------------------------------
+
+/**
+ * @Name   
+ * @Description
+ * @Auther Winston
+ * @Date ${DATE} ${HOUR}:${MINUTE}
+ */
+
+4.设置方法注释。
+
+File-&gt;setting--&gt;Editor--&gt;live Templates
+点击右边加号添加一个Templates Group -&gt; 然后选中添加的Group再次点击加号添加Live Templates，之后点击Edit variables，配置variables。</code></pre>
+
+
+
+<figure class="wp-block-image size-full"><a href="/wp-content/uploads/2021/12/截屏2021-12-25-18.35.49.png"><img loading="lazy" decoding="async" width="2796" height="1652" src="/wp-content/uploads/2021/12/截屏2021-12-25-18.35.49.png" alt="" class="wp-image-8793" srcset="/wp-content/uploads/2021/12/截屏2021-12-25-18.35.49.png 2796w, /wp-content/uploads/2021/12/截屏2021-12-25-18.35.49-300x177.png 300w, /wp-content/uploads/2021/12/截屏2021-12-25-18.35.49-1024x605.png 1024w, /wp-content/uploads/2021/12/截屏2021-12-25-18.35.49-768x454.png 768w, /wp-content/uploads/2021/12/截屏2021-12-25-18.35.49-1536x908.png 1536w, /wp-content/uploads/2021/12/截屏2021-12-25-18.35.49-2048x1210.png 2048w" sizes="(max-width: 2796px) 100vw, 2796px" /></a></figure>
+
+
+
+<pre class="wp-block-code"><code>/**
+ * @Name 
+ * @Author<meta charset="utf-8"> Winston
+ * @Description 
+ * @Date $date$ $time$ 
+ * @Method  GET	
+ * @Param 
+ * @Return JSON
+ **/</code></pre>
+
+
+
+<h1 class="wp-block-heading">NUXT文档</h1>
+
+
+
+<h2 class="wp-block-heading">nuxt安装</h2>
+
+
+
+<p>确保安装了 npx（npx 在 NPM 版本 5.2.0 默认安装了）：</p>
+
+
+
+<p>npx create-nuxt-app &lt;项目名&gt;<br>或者用 yarn ：</p>
+
+
+
+<p>yarn create nuxt-app &lt;项目名&gt;<br>它会让你进行一些选择:</p>
+
+
+
+<p>在集成的服务器端框架之间进行选择:<br>None (Nuxt 默认服务器)<br>Express<br>Koa<br>Hapi<br>Feathers<br>Micro<br>Fastify<br>Adonis(WIP)<br>选择您喜欢的 UI 框架:<br>None (无)<br>Bootstrap<br>Vuetify<br>Bulma<br>Tailwind<br>Element UI<br>Ant Design Vue<br>Buefy<br>iView<br>Tachyons<br>选择您喜欢的测试框架:<br>None (随意添加一个)<br>Jest<br>AVA<br>选择你想要的 Nuxt 模式 (UniversalorSPA)<br>添加axios module以轻松地将 HTTP 请求发送到您的应用程序中。<br>添加EsLint以在保存时代码规范和错误检查您的代码。<br>添加Prettier以在保存时格式化/美化您的代码。<br>当运行完时，它将安装所有依赖项，因此下一步是启动项目:</p>
+
+
+
+<p>$ cd<br>$ npm run dev</p>
+
+
+
+<p>应用现在运行在 http://localhost:3000/ 上运行。</p>
+
+
+
+<p>注意：Nuxt.js 会监听pages目录中的文件更改，因此在添加新页面时无需重新启动应用程序。</p>
+
+
+
+<p>了解模板项目的目录结构：目录结构。</p>
+
+
+
+<p>从头开始新建项目<br>如果不使用 Nuxt.js 提供的 starter 模板，我们也可以从头开始新建一个 Nuxt.js 应用项目，过程非常简单，只需要1 个文件和 1 个目录。如下所示：</p>
+
+
+
+<p>$ mkdir &lt;项目名&gt;<br>$ cd &lt;项目名&gt;</p>
+
+
+
+<p><strong>提示:</strong>将&lt;项目名&gt;替换成为你想创建的实际项目名。</p>
+
+
+
+<p>新建 package.json 文件<br>package.json文件用来设定如何运行nuxt：</p>
+
+
+
+<p>{<br>&#8220;name&#8221;: &#8220;my-app&#8221;,<br>&#8220;scripts&#8221;: {<br>&#8220;dev&#8221;: &#8220;nuxt&#8221;<br>}<br>}</p>
+
+
+
+<p>上面的配置使得我们可以通过运行npm run dev来运行nuxt。</p>
+
+
+
+<p>安装nuxt<br>一旦package.json创建好， 可以通过以下 npm 命令将nuxt安装至项目中：</p>
+
+
+
+<p>npm install &#8211;save nuxt</p>
+
+
+
+<p>pages 目录<br>Nuxt.js 会依据pages目录中的所有*.vue文件生成应用的路由配置。</p>
+
+
+
+<p>创建pages目录：</p>
+
+
+
+<p>mkdir pages</p>
+
+
+
+<p>创建我们的第一个页面pages/index.vue：</p>
+
+
+
+<p><br>然后启动项目：</p>
+
+
+
+<p>$ npm run dev</p>
+
+
+
+<p></p>
+
+
+
+<h2 class="wp-block-heading">nuxt的生命周期</h2>
+
+
+
+<p>服务端生命周期<br>服务器初始化nuxtServerInit<br>创建store/index.js</p>
+
+
+
+<p>export const actions = {<br>nuxtServerInit(store,context){<br>console.log(&#8216;nuxtServerInit&#8217;,store,context)<br>}<br>}<br>中间件运行middleware<br>在nuxt.config.js中定义中间件</p>
+
+
+
+<p>router:{<br>middleware:&#8217;auth&#8217;<br>}<br>创建中间件文件middleware/auth.js</p>
+
+
+
+<p>export default function({store,route,redirect,params,query,req,res}) {<br>console.log(&#8216;middleware&#8217;)<br>}<br>定义在layouts/default.vue中</p>
+
+
+
+<p>export default{<br>// middleware:&#8217;auth&#8217; ,<br>middleware(){<br>console.log(&#8216;middleware&#8217;)<br>}<br>}<br>定义在pages/index.vue中</p>
+
+
+
+<p>export default{<br>// middleware:&#8217;auth&#8217; ,<br>middleware(){<br>console.log(&#8216;middleware&#8217;)<br>}<br>}<br>验证参数validate</p>
+
+
+
+<p>export default{<br>validate(context){<br>console.log(&#8216;validate&#8217;)<br>return true<br>}<br>}<br>异步数据处理asyncData、 fetch</p>
+
+
+
+<p>export default{<br>asyncData(context){<br>console.log(&#8216;asyncData&#8217;)<br>return {<br>a:666<br>}<br>},<br>fetch(context){<br>console.log(&#8216;fetch&#8217;)<br>}<br>}<br>开始客户端渲染Render</p>
+
+
+
+<p>Vue生命周期 SSR CSR<br>组件创建前beforeCreated</p>
+
+
+
+<p>export default{<br>beforeCreated(){<br>console.log(&#8216;beforeCreated&#8217;)<br>}<br>}<br>组件创建后created</p>
+
+
+
+<p>export default{<br>created(){<br>console.log(&#8216;created&#8217;)<br>}<br>}<br>运行在客户端<br>组件加载前 beforeMount<br>组件加载完毕 mounted<br>组件更新前 beforeUpdate<br>组件更新完毕 updated<br>组件卸载前 beforeDestroy<br>组件卸载后 destroyed</p>
+
+
+
+<h2 class="wp-block-heading">nuxt安装element-ui</h2>
+
+
+
+<p>1.安装element-ui<br>npm install element-ui &#8211;save &#8211;registry=https://registry.npm.taobao.org/<br>2.创建文件<br>在项目的根目录下的plugins下创建element-ui.js文件</p>
+
+
+
+<p>import Vue from &#8220;vue&#8221;;<br>import ElementUI from &#8220;element-ui&#8221;<br>Vue.use(ElementUI)</p>
+
+
+
+<p>import Button from &#8220;element-ui&#8221;<br>Vue.use(Button)<br>3.引入文件<br>在nuxt.config.js中修改如下：</p>
+
+
+
+<p>// Global CSS: https://go.nuxtjs.dev/config-css<br>css: [ &#8220;element-ui/lib/theme-chalk/index.css&#8221;],</p>
+
+
+
+<p>// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins<br>plugins: [{ src: &#8220;~plugins/element-ui&#8221;,ssr:true,mode:&#8217;server&#8217;//client }],<br>build:{<br>transpile:[&#8216;/^element-ui/&#8217;]<br>}</p>
+
+
+
+<h2 class="wp-block-heading">vue监听路由</h2>
+
+
+
+<p>watch:{<br>$route:{<br>immediate:true,<br>handler(route){</p>
+
+
+
+<pre class="wp-block-code"><code>      }
+}</code></pre>
+
+
+
+<p>}</p>
+
+
+
+<h2 class="wp-block-heading">vue跳转页面</h2>
+
+
+
+<p>this.$router.push()</p>
+
+
+
+<h2 class="wp-block-heading">Nuxt安装scss(sass)</h2>
+
+
+
+<p>1.安装需要用到的loader</p>
+
+
+
+<pre class="wp-block-code"><code>npm install --save-dev node-sass@4.12.0 --sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
+npm install --save-dev sass-loader@7.1.0  --registry=https://registry.npm.taobao.org/
+</code></pre>
+
+
+
+<p>2.使用</p>
+
+
+
+<pre class="wp-block-code"><code>&lt;style lang="scss"&gt;//注意!这里很关键,很多配置成了不编译就是漏了lang="scss"
+
+   @import '../assets/css/index.scss';
+   @import '../assets/css/base.scss';
+   @import '../assets/css/common.scss';
+
+&lt;/style&gt;
+</code></pre>
+
+
+
+<h2 class="wp-block-heading">nuxt数据交互</h2>
+
+
+
+<p>1.nuxt做数据交互需要依靠&nbsp;<code>@nuxtjs/axios</code><code>@nuxtjs/proxy</code></p>
+
+
+
+<pre class="wp-block-code"><code>npm install @nuxtjs/axios  --save --registry=https://registry.npm.taobao.org/
+npm install @nuxtjs/proxy --save --registry=https://registry.npm.taobao.org/
+</code></pre>
+
+
+
+<p>2.在nuxt.config.js中进行配置</p>
+
+
+
+<pre class="wp-block-code"><code>modules:&#91;
+    '@nuxtjs/axios'
+]
+</code></pre>
+
+
+
+<p>3.使用<code>axios</code></p>
+
+
+
+<pre class="wp-block-code"><code>async asyncData({$axios}){
+    const res = await $axios({url:'接口'})
+}
+</code></pre>
+
+
+
+<p>4.处理跨域请求， 在nuxt.config.js中进行配置</p>
+
+
+
+<pre class="wp-block-code"><code>        axios:{
+                proxy:true,//  开启跨域行为
+                prefix:'/api/v1/blogApi',  //配置基本的url地址 
+          },
+        
+        proxy:{
+                '/api':{
+                target:'http://www.mileduo.com/',  //  代理转发的地址
+                pathRewrite:{
+                // '^/api':''                // 找到地址中的api并替换成空    
+                       }
+                }
+        
+          },
+</code></pre>
+
+
+
+<p>5.定义拦截器，修改nuxt.config.js</p>
+
+
+
+<pre class="wp-block-code"><code>plugins:&#91;
+    {
+        src:'~/plugins/axios',
+        'ssr':true     //  服务端渲染
+    }
+]
+</code></pre>
+
+
+
+<p>6.书写axios.js</p>
+
+
+
+<pre class="wp-block-code"><code>export default function({$axios,redirect,route,store}){
+    // 基本配置
+    $axios.defaults.timeout = 1000
+    $axios.defaults.validateStatus = (status)=&gt;{
+            return status &gt;= 200 &amp;&amp; status &lt; 600
+    }
+    // 请求拦截
+    $axios.onRequest(config=&gt;{
+        config.headers.token = ''
+        return config
+    })
+    // 相应拦截
+    $axios.onResponse(res\=&gt;{
+        returnres.data
+    })
+    // 错误处理
+    $axios.onError(error\=&gt;{
+        return error
+    })
+}
+</code></pre>
+
+
+
+<p>7.Promise返回值</p>
+
+
+
+<pre class="wp-block-code"><code>return new Promise(resolve=&gt;{
+
+    resolve(res.data)
+
+})
+
+
+</code></pre>
+
+
+
+<h2 class="wp-block-heading">nuxt中使用vuex</h2>
+
+
+
+<p>1.定义</p>
+
+
+
+<pre class="wp-block-code"><code>export const state = ()=&gt;({
+    typeList : &#91;]
+})
+export const mutations = {
+    SET_TYPE_LIST(state,typeList){
+        state.typeList = typeList
+    }
+ }
+export const actions = {
+     UPDATE_TYPE_LIST({commit,state},typeList){
+            commit('SET_TYPE_LIST',typeList)        
+    }
+}
+export const getters = {
+    getTypeList(state){
+        return state.typeList
+    }
+}
+</code></pre>
+
+
+
+<p>2.使用</p>
+
+
+
+<pre class="wp-block-code"><code>// 调用actions   异步请求
+this.$store.dispatch('UPDATE_TYPE_LIST',&#91;])
+
+// 调用mutations 
+this.$store.commit('SET_TYPE_LIST',&#91;])
+</code></pre>
+
+
+
+<p>辅助函数</p>
+
+
+
+<pre class="wp-block-code"><code> import {mapActions,mapGetters,mapState,mapMutations} from 'vuex'
+
+methods:{
+        getTypeList(){
+            this.UPDATE_TYPE_LIST(&#91;])
+            this.SET_TYPE_LIST(&#91;])
+        },
+    ...mapActions('user',&#91;'UPDATE_TYPE_LIST'])
+    ...mapMutations('user',&#91;'SET_TYPE_LIST'])
+},
+// 计算属性
+computed:{
+    ..mapGetters('模块名称，根模块可以不传',&#91;'getTypeList'])
+     ..mapState('模块名称，根模块可以不传',&#91;'typeList '])
+}
+</code></pre>
+
+
+
+<h2 class="wp-block-heading">nuxt的token持久化存储</h2>
+
+
+
+<p>1.安装cookie-nuiversal-nuxt</p>
+
+
+
+<pre class="wp-block-code"><code>npm install cookie-nuiversal-nuxt --save  --registry=https://registry.npm.taobao.org/
+</code></pre>
+
+
+
+<p>2.配置nuxt.config.js</p>
+
+
+
+<pre class="wp-block-code"><code>modules:&#91;
+    'cookie-nuiversal-nuxt'
+]
+</code></pre>
+
+
+
+<p>.3.使用</p>
+
+
+
+<pre class="wp-block-code"><code>this.$cookies.set('user',&#91;])
+this.$cookies.get('user')
+this.$cookies.remove('user')
+</code></pre>
+
+
+
+<p>4.登录跳转</p>
+
+
+
+<pre class="wp-block-code"><code>if(!this.$route.query.path || /login/reg/.test(this.$route.query.path)){
+    this.$router.replace('/user')
+}else{
+    this.$router.replace(this.$route.query.path)
+}
+</code></pre>
+
+
+
+<p>5.页面刷新初始化vuex</p>
+
+
+
+<pre class="wp-block-code"><code>export const actions = {
+    nuxtServerInit(store,{app:{$cookies}}){
+        let user = $cookies.get('user')
+        user = user?user:''
+        store.commit('user/asdds')
+    }
+}
+</code></pre>
+
+
+
+<p>6.拦截器定义</p>
+
+
+
+<pre class="wp-block-code"><code>$axios.onRequest(config=&gt;{
+    config.headers.token = store.state.user.token 
+})
+</code></pre>
+
+
+
+<h2 class="wp-block-heading">nuxt定义错误页面</h2>
+
+
+
+<p>在layouts下创建error.vue页面，内容如下。</p>
+
+
+
+<pre class="wp-block-code"><code>&lt;template&gt;
+    &lt;div&gt;
+        &lt;h1 v-if="error.statusCode"&gt;{{error.message}}&lt;/h1&gt;
+        &lt;h1 v-else&gt;应用异常&lt;/h1&gt;
+        &lt;el-button @click="$router.replace('/')"&gt;返回首页&lt;/el-button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+    export default{
+        props:&#91;'error']
+    }
+&lt;/script&gt;
+</code></pre>
+
+
+
+<h2 class="wp-block-heading">unxt路由跳转过度动画</h2>
+
+
+
+<p>1.在/assert目录下建立一个page-transletion.css文件，里面包含过渡动画内容，内容如下：</p>
+
+
+
+<pre class="wp-block-code"><code> .page-enter-active, .page-leave-active {
+  transition: opacity  .5s;
+  }
+  .page-enter, .page-leave-active {
+  opacity: 0;
+  }
+</code></pre>
+
+
+
+<p>2.在nuxt.config.js中配置：</p>
+
+
+
+<pre class="wp-block-code"><code>css: &#91;
+'assets/page-transletion.css'
+]</code></pre>
+
+
+
+<h2 class="wp-block-heading">nuxt自定义loading</h2>
+
+
+
+<p>1.修改配置</p>
+
+
+
+<pre class="wp-block-code"><code>loading:{color:#399,height:'3px'}
+</code></pre>
+
+
+
+<pre class="wp-block-code"><code>loading:'~/components/Loading/index.vue'
+</code></pre>
+
+
+
+<p>2.编写loading组件</p>
+
+
+
+<pre class="wp-block-code"><code>&lt;template lang="html"&gt;
+  &lt;div class="loading-page" v-if="loading"&gt;
+    &lt;p&gt;Loading...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data: () =&gt; ({
+    loading: false
+  }),
+  methods: {
+    start () {
+      this.loading = true
+    },
+    finish () {
+      this.loading = false
+    }
+  }
+}
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.loading-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding-top: 200px;
+  font-size: 30px;
+  font-family: sans-serif;
+}
+&lt;/style&gt;</code></pre>
+
+
+
+<h1 class="wp-block-heading">ZSH</h1>
+
+
+
+<pre class="wp-block-code"><code>Last login: Sat Dec 25 13:15:03 on console
+lee@MacBook-Pro ~ % composer create-project --prefer-dist laravel/laravel laraveldemo
+Creating a "laravel/laravel" project at "./laraveldemo"
+Installing laravel/laravel (v8.6.10)
+  - Installing laravel/laravel (v8.6.10): Extracting archive
+Created project in /Users/lee/laraveldemo
+&gt; @php -r "file_exists('.env') || copy('.env.example', '.env');"
+Loading composer repositories with package information
+Updating dependencies
+Lock file operations: 110 installs, 0 updates, 0 removals
+  - Locking asm89/stack-cors (v2.0.3)
+  - Locking brick/math (0.9.3)
+  - Locking dflydev/dot-access-data (v3.0.1)
+  - Locking doctrine/inflector (2.0.4)
+  - Locking doctrine/instantiator (1.4.0)
+  - Locking doctrine/lexer (1.2.1)
+  - Locking dragonmantank/cron-expression (v3.1.0)
+  - Locking egulias/email-validator (2.1.25)
+  - Locking facade/flare-client-php (1.9.1)
+  - Locking facade/ignition (2.17.3)
+  - Locking facade/ignition-contracts (1.0.2)
+  - Locking fakerphp/faker (v1.17.0)
+  - Locking filp/whoops (2.14.4)
+  - Locking fruitcake/laravel-cors (v2.0.4)
+  - Locking graham-campbell/result-type (v1.0.4)
+  - Locking guzzlehttp/guzzle (7.4.1)
+  - Locking guzzlehttp/promises (1.5.1)
+  - Locking guzzlehttp/psr7 (2.1.0)
+  - Locking hamcrest/hamcrest-php (v2.0.1)
+  - Locking laravel/framework (v8.77.1)
+  - Locking laravel/sail (v1.12.12)
+  - Locking laravel/sanctum (v2.13.0)
+  - Locking laravel/serializable-closure (v1.0.5)
+  - Locking laravel/tinker (v2.6.3)
+  - Locking league/commonmark (2.1.0)
+  - Locking league/config (v1.1.1)
+  - Locking league/flysystem (1.1.9)
+  - Locking league/mime-type-detection (1.9.0)
+  - Locking mockery/mockery (1.4.4)
+  - Locking monolog/monolog (2.3.5)
+  - Locking myclabs/deep-copy (1.10.2)
+  - Locking nesbot/carbon (2.55.2)
+  - Locking nette/schema (v1.2.2)
+  - Locking nette/utils (v3.2.6)
+  - Locking nikic/php-parser (v4.13.2)
+  - Locking nunomaduro/collision (v5.10.0)
+  - Locking opis/closure (3.6.2)
+  - Locking phar-io/manifest (2.0.3)
+  - Locking phar-io/version (3.1.0)
+  - Locking phpdocumentor/reflection-common (2.2.0)
+  - Locking phpdocumentor/reflection-docblock (5.3.0)
+  - Locking phpdocumentor/type-resolver (1.5.1)
+  - Locking phpoption/phpoption (1.8.1)
+  - Locking phpspec/prophecy (v1.15.0)
+  - Locking phpunit/php-code-coverage (9.2.10)
+  - Locking phpunit/php-file-iterator (3.0.6)
+  - Locking phpunit/php-invoker (3.1.1)
+  - Locking phpunit/php-text-template (2.0.4)
+  - Locking phpunit/php-timer (5.0.3)
+  - Locking phpunit/phpunit (9.5.10)
+  - Locking psr/container (1.1.2)
+  - Locking psr/event-dispatcher (1.0.0)
+  - Locking psr/http-client (1.0.1)
+  - Locking psr/http-factory (1.0.1)
+  - Locking psr/http-message (1.0.1)
+  - Locking psr/log (2.0.0)
+  - Locking psr/simple-cache (1.0.1)
+  - Locking psy/psysh (v0.10.12)
+  - Locking ralouphie/getallheaders (3.0.3)
+  - Locking ramsey/collection (1.2.2)
+  - Locking ramsey/uuid (4.2.3)
+  - Locking sebastian/cli-parser (1.0.1)
+  - Locking sebastian/code-unit (1.0.8)
+  - Locking sebastian/code-unit-reverse-lookup (2.0.3)
+  - Locking sebastian/comparator (4.0.6)
+  - Locking sebastian/complexity (2.0.2)
+  - Locking sebastian/diff (4.0.4)
+  - Locking sebastian/environment (5.1.3)
+  - Locking sebastian/exporter (4.0.4)
+  - Locking sebastian/global-state (5.0.3)
+  - Locking sebastian/lines-of-code (1.0.3)
+  - Locking sebastian/object-enumerator (4.0.4)
+  - Locking sebastian/object-reflector (2.0.4)
+  - Locking sebastian/recursion-context (4.0.4)
+  - Locking sebastian/resource-operations (3.0.3)
+  - Locking sebastian/type (2.3.4)
+  - Locking sebastian/version (3.0.2)
+  - Locking swiftmailer/swiftmailer (v6.3.0)
+  - Locking symfony/console (v5.4.1)
+  - Locking symfony/css-selector (v6.0.1)
+  - Locking symfony/deprecation-contracts (v3.0.0)
+  - Locking symfony/error-handler (v5.4.1)
+  - Locking symfony/event-dispatcher (v6.0.1)
+  - Locking symfony/event-dispatcher-contracts (v3.0.0)
+  - Locking symfony/finder (v5.4.0)
+  - Locking symfony/http-foundation (v5.4.1)
+  - Locking symfony/http-kernel (v5.4.1)
+  - Locking symfony/mime (v5.4.0)
+  - Locking symfony/polyfill-ctype (v1.23.0)
+  - Locking symfony/polyfill-iconv (v1.23.0)
+  - Locking symfony/polyfill-intl-grapheme (v1.23.1)
+  - Locking symfony/polyfill-intl-idn (v1.23.0)
+  - Locking symfony/polyfill-intl-normalizer (v1.23.0)
+  - Locking symfony/polyfill-mbstring (v1.23.1)
+  - Locking symfony/polyfill-php72 (v1.23.0)
+  - Locking symfony/polyfill-php73 (v1.23.0)
+  - Locking symfony/polyfill-php80 (v1.23.1)
+  - Locking symfony/polyfill-php81 (v1.23.0)
+  - Locking symfony/process (v5.4.0)
+  - Locking symfony/routing (v5.4.0)
+  - Locking symfony/service-contracts (v2.4.1)
+  - Locking symfony/string (v6.0.1)
+  - Locking symfony/translation (v6.0.1)
+  - Locking symfony/translation-contracts (v3.0.0)
+  - Locking symfony/var-dumper (v5.4.1)
+  - Locking theseer/tokenizer (1.2.1)
+  - Locking tijsverkoyen/css-to-inline-styles (2.2.4)
+  - Locking vlucas/phpdotenv (v5.4.1)
+  - Locking voku/portable-ascii (1.5.6)
+  - Locking webmozart/assert (1.10.0)
+Writing lock file
+Installing dependencies from lock file (including require-dev)
+Package operations: 110 installs, 0 updates, 0 removals
+  - Installing doctrine/inflector (2.0.4): Extracting archive
+  - Installing doctrine/lexer (1.2.1): Extracting archive
+  - Installing symfony/polyfill-ctype (v1.23.0): Extracting archive
+  - Installing webmozart/assert (1.10.0): Extracting archive
+  - Installing dragonmantank/cron-expression (v3.1.0): Extracting archive
+  - Installing symfony/polyfill-php80 (v1.23.1): Extracting archive
+  - Installing symfony/polyfill-mbstring (v1.23.1): Extracting archive
+  - Installing symfony/var-dumper (v5.4.1): Extracting archive
+  - Installing symfony/polyfill-intl-normalizer (v1.23.0): Extracting archive
+  - Installing symfony/polyfill-intl-grapheme (v1.23.1): Extracting archive
+  - Installing symfony/string (v6.0.1): Extracting archive
+  - Installing psr/container (1.1.2): Extracting archive
+  - Installing symfony/service-contracts (v2.4.1): Extracting archive
+  - Installing symfony/polyfill-php73 (v1.23.0): Extracting archive
+  - Installing symfony/deprecation-contracts (v3.0.0): Extracting archive
+  - Installing symfony/console (v5.4.1): Extracting archive
+  - Installing psr/log (2.0.0): Extracting archive
+  - Installing monolog/monolog (2.3.5): Extracting archive
+  - Installing voku/portable-ascii (1.5.6): Extracting archive
+  - Installing phpoption/phpoption (1.8.1): Extracting archive
+  - Installing graham-campbell/result-type (v1.0.4): Extracting archive
+  - Installing vlucas/phpdotenv (v5.4.1): Extracting archive
+  - Installing symfony/css-selector (v6.0.1): Extracting archive
+  - Installing tijsverkoyen/css-to-inline-styles (2.2.4): Extracting archive
+  - Installing symfony/routing (v5.4.0): Extracting archive
+  - Installing symfony/process (v5.4.0): Extracting archive
+  - Installing symfony/polyfill-php72 (v1.23.0): Extracting archive
+  - Installing symfony/polyfill-intl-idn (v1.23.0): Extracting archive
+  - Installing symfony/mime (v5.4.0): Extracting archive
+  - Installing symfony/http-foundation (v5.4.1): Extracting archive
+  - Installing psr/event-dispatcher (1.0.0): Extracting archive
+  - Installing symfony/event-dispatcher-contracts (v3.0.0): Extracting archive
+  - Installing symfony/event-dispatcher (v6.0.1): Extracting archive
+  - Installing symfony/error-handler (v5.4.1): Extracting archive
+  - Installing symfony/http-kernel (v5.4.1): Extracting archive
+  - Installing symfony/finder (v5.4.0): Extracting archive
+  - Installing symfony/polyfill-iconv (v1.23.0): Extracting archive
+  - Installing egulias/email-validator (2.1.25): Extracting archive
+  - Installing swiftmailer/swiftmailer (v6.3.0): Extracting archive
+  - Installing symfony/polyfill-php81 (v1.23.0): Extracting archive
+  - Installing ramsey/collection (1.2.2): Extracting archive
+  - Installing brick/math (0.9.3): Extracting archive
+  - Installing ramsey/uuid (4.2.3): Extracting archive
+  - Installing psr/simple-cache (1.0.1): Extracting archive
+  - Installing opis/closure (3.6.2): Extracting archive
+  - Installing symfony/translation-contracts (v3.0.0): Extracting archive
+  - Installing symfony/translation (v6.0.1): Extracting archive
+  - Installing nesbot/carbon (2.55.2): Extracting archive
+  - Installing league/mime-type-detection (1.9.0): Extracting archive
+  - Installing league/flysystem (1.1.9): Extracting archive
+  - Installing nette/utils (v3.2.6): Extracting archive
+  - Installing nette/schema (v1.2.2): Extracting archive
+  - Installing dflydev/dot-access-data (v3.0.1): Extracting archive
+  - Installing league/config (v1.1.1): Extracting archive
+  - Installing league/commonmark (2.1.0): Extracting archive
+  - Installing laravel/serializable-closure (v1.0.5): Extracting archive
+  - Installing laravel/framework (v8.77.1): Extracting archive
+  - Installing facade/ignition-contracts (1.0.2): Extracting archive
+  - Installing facade/flare-client-php (1.9.1): Extracting archive
+  - Installing facade/ignition (2.17.3): Extracting archive
+  - Installing fakerphp/faker (v1.17.0): Extracting archive
+  - Installing asm89/stack-cors (v2.0.3): Extracting archive
+  - Installing fruitcake/laravel-cors (v2.0.4): Extracting archive
+  - Installing psr/http-message (1.0.1): Extracting archive
+  - Installing psr/http-client (1.0.1): Extracting archive
+  - Installing ralouphie/getallheaders (3.0.3): Extracting archive
+  - Installing psr/http-factory (1.0.1): Extracting archive
+  - Installing guzzlehttp/psr7 (2.1.0): Extracting archive
+  - Installing guzzlehttp/promises (1.5.1): Extracting archive
+  - Installing guzzlehttp/guzzle (7.4.1): Extracting archive
+  - Installing laravel/sail (v1.12.12): Extracting archive
+  - Installing laravel/sanctum (v2.13.0): Extracting archive
+  - Installing nikic/php-parser (v4.13.2): Extracting archive
+  - Installing psy/psysh (v0.10.12): Extracting archive
+  - Installing laravel/tinker (v2.6.3): Extracting archive
+  - Installing hamcrest/hamcrest-php (v2.0.1): Extracting archive
+  - Installing mockery/mockery (1.4.4): Extracting archive
+  - Installing filp/whoops (2.14.4): Extracting archive
+  - Installing nunomaduro/collision (v5.10.0): Extracting archive
+  - Installing phpdocumentor/reflection-common (2.2.0): Extracting archive
+  - Installing phpdocumentor/type-resolver (1.5.1): Extracting archive
+  - Installing phpdocumentor/reflection-docblock (5.3.0): Extracting archive
+  - Installing sebastian/version (3.0.2): Extracting archive
+  - Installing sebastian/type (2.3.4): Extracting archive
+  - Installing sebastian/resource-operations (3.0.3): Extracting archive
+  - Installing sebastian/recursion-context (4.0.4): Extracting archive
+  - Installing sebastian/object-reflector (2.0.4): Extracting archive
+  - Installing sebastian/object-enumerator (4.0.4): Extracting archive
+  - Installing sebastian/global-state (5.0.3): Extracting archive
+  - Installing sebastian/exporter (4.0.4): Extracting archive
+  - Installing sebastian/environment (5.1.3): Extracting archive
+  - Installing sebastian/diff (4.0.4): Extracting archive
+  - Installing sebastian/comparator (4.0.6): Extracting archive
+  - Installing sebastian/code-unit (1.0.8): Extracting archive
+  - Installing sebastian/cli-parser (1.0.1): Extracting archive
+  - Installing phpunit/php-timer (5.0.3): Extracting archive
+  - Installing phpunit/php-text-template (2.0.4): Extracting archive
+  - Installing phpunit/php-invoker (3.1.1): Extracting archive
+  - Installing phpunit/php-file-iterator (3.0.6): Extracting archive
+  - Installing theseer/tokenizer (1.2.1): Extracting archive
+  - Installing sebastian/lines-of-code (1.0.3): Extracting archive
+  - Installing sebastian/complexity (2.0.2): Extracting archive
+  - Installing sebastian/code-unit-reverse-lookup (2.0.3): Extracting archive
+  - Installing phpunit/php-code-coverage (9.2.10): Extracting archive
+  - Installing doctrine/instantiator (1.4.0): Extracting archive
+  - Installing phpspec/prophecy (v1.15.0): Extracting archive
+  - Installing phar-io/version (3.1.0): Extracting archive
+  - Installing phar-io/manifest (2.0.3): Extracting archive
+  - Installing myclabs/deep-copy (1.10.2): Extracting archive
+  - Installing phpunit/phpunit (9.5.10): Extracting archive
+63 package suggestions were added by new dependencies, use `composer suggest` to see details.
+Package swiftmailer/swiftmailer is abandoned, you should avoid using it. Use symfony/mailer instead.
+Generating optimized autoload files
+&gt; Illuminate\Foundation\ComposerScripts::postAutoloadDump
+&gt; @php artisan package:discover --ansi
+Discovered Package: facade/ignition
+Discovered Package: fruitcake/laravel-cors
+Discovered Package: laravel/sail
+Discovered Package: laravel/sanctum
+Discovered Package: laravel/tinker
+Discovered Package: nesbot/carbon
+Discovered Package: nunomaduro/collision
+Package manifest generated successfully.
+77 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+&gt; @php artisan vendor:publish --tag=laravel-assets --ansi --force
+No publishable resources for tag &#91;laravel-assets].
+Publishing complete.
+&gt; @php artisan key:generate --ansi
+Application key set successfully.
+lee@MacBook-Pro ~ % ls
+Applications			Parallels
+Desktop				Pictures
+Documents			Public
+Downloads			Sites
+Library				Sunlogin Files
+Movies				Virtual Machines.localized
+Music				laraveldemo
+OneDrive			sensors
+lee@MacBook-Pro ~ % mv laraveldemo ./Downloads 
+lee@MacBook-Pro ~ % ll
+zsh: command not found: ll
+lee@MacBook-Pro ~ % ls
+Applications			Parallels
+Desktop				Pictures
+Documents			Public
+Downloads			Sites
+Library				Sunlogin Files
+Movies				Virtual Machines.localized
+Music				sensors
+OneDrive
+lee@MacBook-Pro ~ % ls 
+Applications			Parallels
+Desktop				Pictures
+Documents			Public
+Downloads			Sites
+Library				Sunlogin Files
+Movies				Virtual Machines.localized
+Music				sensors
+OneDrive
+lee@MacBook-Pro ~ % cd Sites 
+lee@MacBook-Pro Sites % ls
+laraveldemo	localhost
+lee@MacBook-Pro Sites % cd laraveldemo 
+lee@MacBook-Pro laraveldemo % composer require nwidart/laravel-modules
+Using version ^8.2 for nwidart/laravel-modules
+./composer.json has been updated
+Running composer update nwidart/laravel-modules
+Loading composer repositories with package information
+https://repo.packagist.org/ could not be fully loaded (curl error 28 while downloading https://repo.packagist.org/packages.json: Operation timed out after 10000 milliseconds with 0 out of 0 bytes received), package information was loaded from the local cache and may be out of date
+Updating dependencies
+Lock file operations: 1 install, 0 updates, 0 removals
+  - Locking nwidart/laravel-modules (8.2.0)
+Writing lock file
+Installing dependencies from lock file (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing nwidart/laravel-modules (8.2.0): Extracting archive
+Package swiftmailer/swiftmailer is abandoned, you should avoid using it. Use symfony/mailer instead.
+Generating optimized autoload files
+&gt; Illuminate\Foundation\ComposerScripts::postAutoloadDump
+&gt; @php artisan package:discover --ansi
+Discovered Package: facade/ignition
+Discovered Package: fruitcake/laravel-cors
+Discovered Package: laravel/sail
+Discovered Package: laravel/sanctum
+Discovered Package: laravel/tinker
+Discovered Package: nesbot/carbon
+Discovered Package: nunomaduro/collision
+Discovered Package: nwidart/laravel-modules
+Package manifest generated successfully.
+78 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+&gt; @php artisan vendor:publish --tag=laravel-assets --ansi --force
+No publishable resources for tag &#91;laravel-assets].
+Publishing complete.
+lee@MacBook-Pro laraveldemo % php artisan vendor:publish --provider="Nwidart\Modules\LaravelModulesServiceProvider"
+
+Copied File &#91;/vendor/nwidart/laravel-modules/config/config.php] To &#91;/config/modules.php]
+Publishing complete.
+lee@MacBook-Pro laraveldemo % php artisan module:make Admin
+Created : /Users/lee/Sites/laraveldemo/Modules/Admin/module.json
+Created : /Users/lee/Sites/laraveldemo/Modules/Admin/Routes/web.php
+Created : /Users/lee/Sites/laraveldemo/Modules/Admin/Routes/api.php
+Created : /Users/lee/Sites/laraveldemo/Modules/Admin/Resources/views/index.blade.php
+Created : /Users/lee/Sites/laraveldemo/Modules/Admin/Resources/views/layouts/master.blade.php
+Created : /Users/lee/Sites/laraveldemo/Modules/Admin/Config/config.php
+Created : /Users/lee/Sites/laraveldemo/Modules/Admin/composer.json
+Created : /Users/lee/Sites/laraveldemo/Modules/Admin/Resources/assets/js/app.js
+Created : /Users/lee/Sites/laraveldemo/Modules/Admin/Resources/assets/sass/app.scss
+Created : /Users/lee/Sites/laraveldemo/Modules/Admin/webpack.mix.js
+Created : /Users/lee/Sites/laraveldemo/Modules/Admin/package.json
+Created : /Users/lee/Sites/laraveldemo/Modules/Admin/Database/Seeders/AdminDatabaseSeeder.php
+Created : /Users/lee/Sites/laraveldemo/Modules/Admin/Providers/AdminServiceProvider.php
+Created : /Users/lee/Sites/laraveldemo/Modules/Admin/Providers/RouteServiceProvider.php
+Created : /Users/lee/Sites/laraveldemo/Modules/Admin/Http/Controllers/AdminController.php
+Module &#91;Admin] created successfully.
+lee@MacBook-Pro laraveldemo % composer dump-autoload
+Generating optimized autoload files
+&gt; Illuminate\Foundation\ComposerScripts::postAutoloadDump
+&gt; @php artisan package:discover --ansi
+Discovered Package: facade/ignition
+Discovered Package: fruitcake/laravel-cors
+Discovered Package: laravel/sail
+Discovered Package: laravel/sanctum
+Discovered Package: laravel/tinker
+Discovered Package: nesbot/carbon
+Discovered Package: nunomaduro/collision
+Discovered Package: nwidart/laravel-modules
+Package manifest generated successfully.
+Generated optimized autoload files containing 5099 classes
+lee@MacBook-Pro laraveldemo % composer require "darkaonline/l5-swagger"
+Using version ^8.0 for darkaonline/l5-swagger
+./composer.json has been updated
+Running composer update darkaonline/l5-swagger
+Loading composer repositories with package information
+Updating dependencies
+Lock file operations: 6 installs, 0 updates, 0 removals
+  - Locking darkaonline/l5-swagger (8.0.9)
+  - Locking doctrine/annotations (1.13.2)
+  - Locking psr/cache (3.0.0)
+  - Locking swagger-api/swagger-ui (v3.52.5)
+  - Locking symfony/yaml (v5.4.0)
+  - Locking zircote/swagger-php (3.3.3)
+Writing lock file
+Installing dependencies from lock file (including require-dev)
+Package operations: 6 installs, 0 updates, 0 removals
+  - Installing symfony/yaml (v5.4.0): Extracting archive
+  - Installing psr/cache (3.0.0): Extracting archive
+  - Installing doctrine/annotations (1.13.2): Extracting archive
+  - Installing zircote/swagger-php (3.3.3): Extracting archive
+  - Installing swagger-api/swagger-ui (v3.52.5): Extracting archive
+  - Installing darkaonline/l5-swagger (8.0.9): Extracting archive
+Package swiftmailer/swiftmailer is abandoned, you should avoid using it. Use symfony/mailer instead.
+Generating optimized autoload files
+&gt; Illuminate\Foundation\ComposerScripts::postAutoloadDump
+&gt; @php artisan package:discover --ansi
+Discovered Package: darkaonline/l5-swagger
+Discovered Package: facade/ignition
+Discovered Package: fruitcake/laravel-cors
+Discovered Package: laravel/sail
+Discovered Package: laravel/sanctum
+Discovered Package: laravel/tinker
+Discovered Package: nesbot/carbon
+Discovered Package: nunomaduro/collision
+Discovered Package: nwidart/laravel-modules
+Package manifest generated successfully.
+80 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+&gt; @php artisan vendor:publish --tag=laravel-assets --ansi --force
+No publishable resources for tag &#91;laravel-assets].
+Publishing complete.
+lee@MacBook-Pro laraveldemo % php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
+Copied File &#91;/vendor/darkaonline/l5-swagger/config/l5-swagger.php] To &#91;/config/l5-swagger.php]
+Copied Directory &#91;/vendor/darkaonline/l5-swagger/resources/views] To &#91;/resources/views/vendor/l5-swagger]
+Publishing complete.
+lee@MacBook-Pro laraveldemo % php artisan l5-swagger:generate
+
+Regenerating docs default
+
+   ErrorException 
+
+  Required @OA\Info() not found
+
+  at vendor/zircote/swagger-php/src/Logger.php:40
+     36▕         $this-&gt;log = function ($entry, $type) {
+     37▕             if ($entry instanceof Exception) {
+     38▕                 $entry = $entry-&gt;getMessage();
+     39▕             }
+  ➜  40▕             trigger_error($entry, $type);
+     41▕         };
+     42▕     }
+     43▕ 
+     44▕     public static function getInstance(): Logger
+
+      +27 vendor frames 
+  28  artisan:37
+      Illuminate\Foundation\Console\Kernel::handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+lee@MacBook-Pro laraveldemo % php artisan l5-swagger:generate
+
+Regenerating docs default
+
+   ErrorException 
+
+  Required @OA\Info() not found
+
+  at vendor/zircote/swagger-php/src/Logger.php:40
+     36▕         $this-&gt;log = function ($entry, $type) {
+     37▕             if ($entry instanceof Exception) {
+     38▕                 $entry = $entry-&gt;getMessage();
+     39▕             }
+  ➜  40▕             trigger_error($entry, $type);
+     41▕         };
+     42▕     }
+     43▕ 
+     44▕     public static function getInstance(): Logger
+
+      +27 vendor frames 
+  28  artisan:37
+      Illuminate\Foundation\Console\Kernel::handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+lee@MacBook-Pro laraveldemo % php artisan l5-swagger:generate
+
+Regenerating docs default
+
+   ErrorException 
+
+  Required @OA\Info() not found
+
+  at vendor/zircote/swagger-php/src/Logger.php:40
+     36▕         $this-&gt;log = function ($entry, $type) {
+     37▕             if ($entry instanceof Exception) {
+     38▕                 $entry = $entry-&gt;getMessage();
+     39▕             }
+  ➜  40▕             trigger_error($entry, $type);
+     41▕         };
+     42▕     }
+     43▕ 
+     44▕     public static function getInstance(): Logger
+
+      +27 vendor frames 
+  28  artisan:37
+      Illuminate\Foundation\Console\Kernel::handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+lee@MacBook-Pro laraveldemo % php artisan l5-swagger:generate
+
+Regenerating docs default
+
+   ErrorException 
+
+  Required @OA\PathItem() not found
+
+  at vendor/zircote/swagger-php/src/Logger.php:40
+     36▕         $this-&gt;log = function ($entry, $type) {
+     37▕             if ($entry instanceof Exception) {
+     38▕                 $entry = $entry-&gt;getMessage();
+     39▕             }
+  ➜  40▕             trigger_error($entry, $type);
+     41▕         };
+     42▕     }
+     43▕ 
+     44▕     public static function getInstance(): Logger
+
+      +27 vendor frames 
+  28  artisan:37
+      Illuminate\Foundation\Console\Kernel::handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+lee@MacBook-Pro laraveldemo % php artisan l5-swagger:generate
+
+Regenerating docs default
+lee@MacBook-Pro laraveldemo % php artisan l5-swagger:generate
+
+Regenerating docs default
+lee@MacBook-Pro laraveldemo % php artisan l5-swagger:generate
+
+Regenerating docs default
+lee@MacBook-Pro laraveldemo % php artisan l5-swagger:generate
+
+Regenerating docs default
+lee@MacBook-Pro laraveldemo % php artisan l5-swagger:generate
+
+Regenerating docs default
+lee@MacBook-Pro laraveldemo % php artisan l5-swagger:generate
+
+Regenerating docs default
+lee@MacBook-Pro laraveldemo % php artisan vendor:publish --provider="Nwidart\Modules\LaravelModulesServiceProvider"
+
+Publishing complete.
+lee@MacBook-Pro laraveldemo % php artisan l5-swagger:generate
+
+Regenerating docs default
+lee@MacBook-Pro laraveldemo % php artisan
+Laravel Framework 8.77.1
+
+Usage:
+  command &#91;options] &#91;arguments]
+
+Options:
+  -h, --help            Display help for the given command. When no command is given display help for the list command
+  -q, --quiet           Do not output any message
+  -V, --version         Display this application version
+      --ansi|--no-ansi  Force (or disable --no-ansi) ANSI output
+  -n, --no-interaction  Do not ask any interactive question
+      --env&#91;=ENV]       The environment the command should run under
+  -v|vv|vvv, --verbose  Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+
+Available commands:
+  clear-compiled              Remove the compiled class file
+  completion                  Dump the shell completion script
+  db                          Start a new database CLI session
+  down                        Put the application into maintenance / demo mode
+  env                         Display the current framework environment
+  help                        Display help for a command
+  inspire                     Display an inspiring quote
+  list                        List commands
+  migrate                     Run the database migrations
+  optimize                    Cache the framework bootstrap files
+  serve                       Serve the application on the PHP development server
+  test                        Run the application tests
+  tinker                      Interact with your application
+  up                          Bring the application out of maintenance mode
+ auth
+  auth:clear-resets           Flush expired password reset tokens
+ cache
+  cache:clear                 Flush the application cache
+  cache:forget                Remove an item from the cache
+  cache:table                 Create a migration for the cache database table
+ config
+  config:cache                Create a cache file for faster configuration loading
+  config:clear                Remove the configuration cache file
+ db
+  db:seed                     Seed the database with records
+  db:wipe                     Drop all tables, views, and types
+ event
+  event:cache                 Discover and cache the application's events and listeners
+  event:clear                 Clear all cached events and listeners
+  event:generate              Generate the missing events and listeners based on registration
+  event:list                  List the application's events and listeners
+ key
+  key:generate                Set the application key
+ l5-swagger
+  l5-swagger:generate         Regenerate docs
+ make
+  make:cast                   Create a new custom Eloquent cast class
+  make:channel                Create a new channel class
+  make:command                Create a new Artisan command
+  make:component              Create a new view component class
+  make:controller             Create a new controller class
+  make:event                  Create a new event class
+  make:exception              Create a new custom exception class
+  make:factory                Create a new model factory
+  make:job                    Create a new job class
+  make:listener               Create a new event listener class
+  make:mail                   Create a new email class
+  make:middleware             Create a new middleware class
+  make:migration              Create a new migration file
+  make:model                  Create a new Eloquent model class
+  make:notification           Create a new notification class
+  make:observer               Create a new observer class
+  make:policy                 Create a new policy class
+  make:provider               Create a new service provider class
+  make:request                Create a new form request class
+  make:resource               Create a new resource
+  make:rule                   Create a new validation rule
+  make:seeder                 Create a new seeder class
+  make:test                   Create a new test class
+ migrate
+  migrate:fresh               Drop all tables and re-run all migrations
+  migrate:install             Create the migration repository
+  migrate:refresh             Reset and re-run all migrations
+  migrate:reset               Rollback all database migrations
+  migrate:rollback            Rollback the last database migration
+  migrate:status              Show the status of each migration
+ model
+  model:prune                 Prune models that are no longer needed
+ module
+  module:delete               Delete a module from the application
+  module:disable              Disable the specified module.
+  module:dump                 Dump-autoload the specified module or for all module.
+  module:enable               Enable the specified module.
+  module:install              Install the specified module by given package name (vendor/name).
+  module:list                 Show list of all modules.
+  module:make                 Create a new module.
+  module:make-command         Generate new Artisan command for the specified module.
+  module:make-controller      Generate new restful controller for the specified module.
+  module:make-event           Create a new event class for the specified module
+  module:make-factory         Create a new model factory for the specified module.
+  module:make-job             Create a new job class for the specified module
+  module:make-listener        Create a new event listener class for the specified module
+  module:make-mail            Create a new email class for the specified module
+  module:make-middleware      Create a new middleware class for the specified module.
+  module:make-migration       Create a new migration for the specified module.
+  module:make-model           Create a new model for the specified module.
+  module:make-notification    Create a new notification class for the specified module.
+  module:make-policy          Create a new policy class for the specified module.
+  module:make-provider        Create a new service provider class for the specified module.
+  module:make-request         Create a new form request class for the specified module.
+  module:make-resource        Create a new resource class for the specified module.
+  module:make-rule            Create a new validation rule for the specified module.
+  module:make-seed            Generate new seeder for the specified module.
+  module:make-test            Create a new test class for the specified module.
+  module:migrate              Migrate the migrations from the specified module or from all modules.
+  module:migrate-refresh      Rollback &amp; re-migrate the modules migrations.
+  module:migrate-reset        Reset the modules migrations.
+  module:migrate-rollback     Rollback the modules migrations.
+  module:migrate-status       Status for all module migrations
+  module:publish              Publish a module's assets to the application
+  module:publish-config       Publish a module's config files to the application
+  module:publish-migration    Publish a module's migrations to the application
+  module:publish-translation  Publish a module's translations to the application
+  module:route-provider       Create a new route service provider for the specified module.
+  module:seed                 Run database seeder from the specified module or from all modules.
+  module:setup                Setting up modules folders for first use.
+  module:unuse                Forget the used module with module:use
+  module:update               Update dependencies for the specified module or for all modules.
+  module:use                  Use the specified module.
+  module:v6:migrate           Migrate laravel-modules v5 modules statuses to v6.
+ notifications
+  notifications:table         Create a migration for the notifications table
+ optimize
+  optimize:clear              Remove the cached bootstrap files
+ package
+  package:discover            Rebuild the cached package manifest
+ queue
+  queue:batches-table         Create a migration for the batches database table
+  queue:clear                 Delete all of the jobs from the specified queue
+  queue:failed                List all of the failed queue jobs
+  queue:failed-table          Create a migration for the failed queue jobs database table
+  queue:flush                 Flush all of the failed queue jobs
+  queue:forget                Delete a failed queue job
+  queue:listen                Listen to a given queue
+  queue:monitor               Monitor the size of the specified queues
+  queue:prune-batches         Prune stale entries from the batches database
+  queue:prune-failed          Prune stale entries from the failed jobs table
+  queue:restart               Restart queue worker daemons after their current job
+  queue:retry                 Retry a failed queue job
+  queue:retry-batch           Retry the failed jobs for a batch
+  queue:table                 Create a migration for the queue jobs database table
+  queue:work                  Start processing jobs on the queue as a daemon
+ route
+  route:cache                 Create a route cache file for faster route registration
+  route:clear                 Remove the route cache file
+  route:list                  List all registered routes
+ sail
+  sail:install                Install Laravel Sail's default Docker Compose file
+  sail:publish                Publish the Laravel Sail Docker files
+ schedule
+  schedule:list               List the scheduled commands
+  schedule:run                Run the scheduled commands
+  schedule:test               Run a scheduled command
+  schedule:work               Start the schedule worker
+ schema
+  schema:dump                 Dump the given database schema
+ session
+  session:table               Create a migration for the session database table
+ storage
+  storage:link                Create the symbolic links configured for the application
+ stub
+  stub:publish                Publish all stubs that are available for customization
+ vendor
+  vendor:publish              Publish any publishable assets from vendor packages
+ view
+  view:cache                  Compile all of the application's Blade templates
+  view:clear                  Clear all compiled view files
+lee@MacBook-Pro laraveldemo % php artisan l5-swagger:generate
+
+Regenerating docs default
+lee@MacBook-Pro laraveldemo % php artisan l5-swagger:generate
+
+Regenerating docs default
+lee@MacBook-Pro laraveldemo % 
+</code></pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/laravel/8773.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

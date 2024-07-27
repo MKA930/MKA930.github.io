@@ -1,0 +1,6437 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>网站优化 &#8211; 个人随笔</title>
+	<atom:link href="/classify/%E7%BD%91%E7%AB%99%E4%BC%98%E5%8C%96/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Tue, 29 Mar 2022 15:32:37 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>网站优化 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>网站优化（一）MySQL 优化 三范式、逆范式、存储引擎、列类型、枚举、慢查询日志、索引、千万级数据优化</title>
+		<link>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5395.html</link>
+					<comments>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5395.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 14:51:14 +0000</pubDate>
+				<category><![CDATA[优化方案]]></category>
+		<category><![CDATA[网站优化]]></category>
+		<category><![CDATA[三范式]]></category>
+		<category><![CDATA[列类型]]></category>
+		<category><![CDATA[千万级数据优化]]></category>
+		<category><![CDATA[存储引擎]]></category>
+		<category><![CDATA[慢查询日志]]></category>
+		<category><![CDATA[枚举]]></category>
+		<category><![CDATA[索引]]></category>
+		<category><![CDATA[逆范式]]></category>
+		<guid isPermaLink="false">/?p=5395</guid>
+
+					<description><![CDATA[大型网站核心优化之MySQL优化 Nginx 问题：输入IP地址无法访问 检查步骤： 检查服务是否启动（ps  [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>大型网站核心优化之MySQL优化</h1>
+<h1>Nginx</h1>
+<p>
+  问题：输入IP地址无法访问
+</p>
+<p>
+  检查步骤：
+</p>
+<ol>
+<li>
+  检查服务是否启动（ps -A | grep nginx）     脚下留心：nginx支持php （/php/server/php/sbin/php-fpm）
+</li>
+<li>
+  检查防火墙例外是否添加（vi /etc/sysconfig/iptables    service iptables stop）
+</li>
+<li>
+  检查本机输入的网址是否指向linux服务器（在本机DOS窗口输入 ping 网址）
+</li>
+</ol>
+<h1>复习 </h1>
+<p>
+  集群技术/冗余技术：多台服务器实现相同的业务
+</p>
+<p>
+  负载均衡：将用户的请求分配给不同的服务处理
+</p>
+<p>
+  动静分离：将静态资源脱离项目/Public目录而是单独服务器存储
+</p>
+<p>
+  现在很多大公司都是通过对象存储存放静态资源
+</p>
+<p>
+  主从复制：一台服务器有增/改/删时候，其它服务器会自动同步数据
+</p>
+<p>
+  读写分离：通过php判断insert/update/delete开头则去主服务器，select则去从服务器
+</p>
+<p>
+  CDN加速：CDN服务器供应商在全国各个城市都有一个机房，用于后期缓存静态资源，网站老板购买了CDN后，其网站用户访问时第一次去源服务器访问并缓存到用户最近的机房，下次直接去最近的机房（节点）访问。
+</p>
+<p>
+  面试：问现在网站打开比较慢你如何优化？
+</p>
+<ul>
+<li>
+    获取网站慢SQL语句
+  </li>
+<li>
+    读写分离、主从复制
+  </li>
+<li>
+    开启opcode缓存
+  </li>
+<li>
+    开启CDN加速、开启懒加载、搭建负载均衡
+  </li>
+<li>
+    等
+  </li>
+</ul>
+<h1>一、MySQL优化概述</h1>
+<h2>1、基本概念</h2>
+<p>
+  上一讲说了主从复制、读写分离都是从查询角度优化、但最终必不可免的还是得操作数据库、思考如何从设计数据库角度优化？
+</p>
+<h2>2、优化策略</h2>
+<p>
+  架构：读写分离、主从复制
+</p>
+<p>
+  设计：三范式、存储引擎、字段类型
+</p>
+<p>
+  功能：索引、分区、缓存
+</p>
+<h1>二、MySQL表的设计（三范式）</h1>
+<h2>1、概念</h2>
+<p>
+  为了建立冗余较小、结构合理的数据库，设计数据库时必须遵循一定的规则（注：这个规则在关系型数据库中称之为三范式）
+</p>
+<p>
+  脚下留心：有些时候一味追求范式减少冗余，反而降低读写效率，这时候可以反三范式，利用空间来换时间。
+</p>
+<p>
+  概况
+</p>
+<p>
+  什么是三范式：就是设计数据库的规则
+</p>
+<p>
+  三范式的好处：减少冗余，加速读写数据
+</p>
+<p>
+  反三范式：不按规则出牌，通过冗余策略以空间换时间
+</p>
+<h2>2、确保每列/字段保持原子性（1NF）</h2>
+<h3>1）概念</h3>
+<ul>
+<li>
+    每列字段不可以再分
+  </li>
+</ul>
+<h3>举例</h3>
+<ul>
+<li>
+    案例：地区表
+  </li>
+</ul>
+<p>
+  id（编号）  address（地址）           ? 不符合因为地区可以拆分成：省市区，一个字段后期可扩展性差
+</p>
+<p>
+  1		    北京北京朝阳区
+</p>
+<p>
+  2			上海上海浦东新区
+</p>
+<p>
+  3			江苏泰州海陵区
+</p>
+<h2>2、有主键，非主键字段依赖主键（2NF）</h2>
+<h3>1）概念</h3>
+<ul>
+<li>
+    每个表必须有一个主键自增字段
+  </li>
+<li>
+    一个表只描述一件事
+  </li>
+</ul>
+<h3>2）举例</h3>
+<ul>
+<li>
+    案例1：用户表
+  </li>
+</ul>
+<p>
+  #用户表
+</p>
+<p>
+  id（用户编号）  username（用户名）  password（密码）  刚不符合因为一个表只描述一件事
+</p>
+<p>
+  #收货地址表
+</p>
+<p>
+  address（收货详细地址） tel（联系人电话）  用户编号
+</p>
+<ul>
+<li>
+    案例2：订单表
+  </li>
+</ul>
+<p>
+  订单编号    订单总价    订单总数量  所属用户    产品ID   产品名称   产品单价   &#8230;
+</p>
+<p>
+  1			20			2           1          1         xxx        10
+</p>
+<p>
+  2			20			2           1          1         xxx        10
+</p>
+<p>
+  订单（主）
+</p>
+<p>
+  订单编号  订单总价   订单总数量  所属用户
+</p>
+<p>
+  订单（从） 产品
+</p>
+<p>
+  ID   订单主表编号   产品ID   产品单价 &#8230;&#8230;&#8230;
+</p>
+<h2>3、消除传递依赖，非主键字段不能相互依赖（3NF）     </h2>
+<h3>1）概念</h3>
+<ul>
+<li>
+    一个表不能包含其他表的非主键字段（一个表只能包含其他表的主键）
+  </li>
+</ul>
+<h3>2）举例</h3>
+<p>
+  #文章表
+</p>
+<p>
+  文章编号   文章标题   文章内容  用户ID  <s>用户姓名 </s>（文章表不能包含其他表的非主键字段，所以用户名移除，后期需要获取文章的作者，直接通过多表查询即可）
+</p>
+<p>
+  #用户表
+</p>
+<p>
+  用户ID    用户姓名   用户年龄 &#8230;
+</p>
+<h2>4、逆范式</h2>
+<h3>1）概念</h3>
+<p>
+  符合范式设计是为了减少冗余提高读写效率，但有时候我们需要反其道而为之，利用空间来换时间（数据冗余策略），该设计被称之为“逆范式”
+</p>
+<h3>2）举例</h3>
+<ul>
+<li>
+    案例1：
+  </li>
+</ul>
+<p>
+  【场景】查看文章详情，评论总数
+</p>
+<p>
+  【表】
+</p>
+<p>
+  #文章表
+</p>
+<p>
+  编号     标题    内容   评论总数&#8230;
+</p>
+<p>
+  #评论表
+</p>
+<p>
+  编号    所属用户 所属文章  评论内容 &#8230;.
+</p>
+<p>
+  正常流：select count(*) from 评论表 where article_id = 文章ID
+</p>
+<p>
+  逆范式：再文章表增加一个字段（评论总数），每次用户评论成功后，给文章表的评论总数字段+1
+</p>
+<ul>
+<li>
+    案例2：
+  </li>
+</ul>
+<p>
+  收货地址表
+</p>
+<p>
+  编号  姓名  省   市/区   乡镇    详细地址   &#8230;.
+</p>
+<p>
+  1    你爸爸 阿富汗 xxx  xxx
+</p>
+<p>
+  2    杨文杰
+</p>
+<p>
+  3    娇娇
+</p>
+<p>
+  订单（主表）
+</p>
+<p>
+  订单ID   总价   数量   		  订单状态		    支付状态      收货地址表编号&#8230; （不合理，因为后期用户在发货的时候删除或者修改，再找商家麻烦，问题就大了，解决采用冗余策略）
+</p>
+<p>
+  1 		 1000000000    1     已发货，待收货   已支付       1
+</p>
+<p>
+  订单（从表）
+</p>
+<p>
+  商品ID   商品名称   商品价格   &#8230;
+</p>
+<p>
+  订单（收货地址表）
+</p>
+<p>
+  姓名   省   市/区   乡镇    详细地址
+</p>
+<h2>︴总结</h2>
+<ul>
+<li>
+    什么是三范式：就是设计表的规则
+  </li>
+<li>
+    三范式好处：减少冗余，提高读写效率
+  </li>
+<li>
+    三范式有哪些：
+  </li>
+</ul>
+<ol>
+<li>
+  每个字段不可以拆分
+</li>
+<li>
+  每个表必须有主键自增、每个表只描述一件事
+</li>
+<li>
+  一个表不能包含其他表的非主键字段
+</li>
+</ol>
+<ul>
+<li>
+    逆范式：反三范式规则、以空间换时间（冗余策略）
+  </li>
+</ul>
+<h2>︴说明</h2>
+<p>
+  前期别想太多根据页面显示数据设计表（一般一个显示对应一个字段）
+</p>
+<p>
+  其次常用字段推荐：
+</p>
+<p>
+  1）编号，主键自增
+</p>
+<p>
+  2）创建于，便于后期数据赛选统计
+</p>
+<p>
+  3）更新于，便于后期数据赛选统计
+</p>
+<p>
+  4）是否显示，便于逻辑删除数据
+</p>
+<h1>三、存储引擎</h1>
+<h2>1、什么是存储引擎</h2>
+<ul>
+<li>
+    说明：
+  </li>
+</ul>
+<p>
+  MySQL中按照一定的数据格式来保存最终的数据，通过存储引擎来指定哪种方式存储方案。
+</p>
+<ul>
+<li>
+    常用的存储引擎：innodb  和 myisam
+  </li>
+<li>
+    查看当前MySQL支持的存储引擎列表：show engines;
+  </li>
+</ul>
+<p><img fetchpriority="high" decoding="async" width="800" height="298" src="/wp-content/uploads/2018/05/word-image-4883.png" class="wp-image-5396" srcset="/wp-content/uploads/2018/05/word-image-4883.png 800w, /wp-content/uploads/2018/05/word-image-4883-300x112.png 300w, /wp-content/uploads/2018/05/word-image-4883-768x286.png 768w" sizes="(max-width: 800px) 100vw, 800px" /></p>
+<h2>2、myisam存储引擎</h2>
+<h3>1）概念</h3>
+<p>
+  &lt;= 5.5 MySQL默认的存储引擎。
+</p>
+<p>
+  如果应用是以读操作和插入操作为主，只有很少的更新和删除操作，并且
+</p>
+<p>
+  对事务的完整性要求不是很高；其优势是访问的速度快，擅长与处理高速读与写。
+</p>
+<h3>应用场景</h3>
+<p>
+  对事务完整性要求不高，不涉及钱的表
+</p>
+<h3>3）存储方式</h3>
+<ul>
+<li>
+    创建数据库：create database d1;
+  </li>
+<li>
+    说明：创建数据库会在MySQL的data目录下创建同名文件夹
+  </li>
+</ul>
+<p><img decoding="async" width="1057" height="423" src="/wp-content/uploads/2018/05/word-image-4884.png" class="wp-image-5397" srcset="/wp-content/uploads/2018/05/word-image-4884.png 1057w, /wp-content/uploads/2018/05/word-image-4884-300x120.png 300w, /wp-content/uploads/2018/05/word-image-4884-768x307.png 768w, /wp-content/uploads/2018/05/word-image-4884-1024x410.png 1024w" sizes="(max-width: 1057px) 100vw, 1057px" /></p>
+<ul>
+<li>
+    创建myisam表：
+  </li>
+<li>
+    create table t1(id int primary key auto_increment)engine=myisam charset=utf8;
+  </li>
+</ul>
+<p><img decoding="async" width="1073" height="483" src="/wp-content/uploads/2018/05/word-image-4885.png" class="wp-image-5398" srcset="/wp-content/uploads/2018/05/word-image-4885.png 1073w, /wp-content/uploads/2018/05/word-image-4885-300x135.png 300w, /wp-content/uploads/2018/05/word-image-4885-768x346.png 768w, /wp-content/uploads/2018/05/word-image-4885-1024x461.png 1024w" sizes="(max-width: 1073px) 100vw, 1073px" /></p>
+<h2>3、innodb存储引擎</h2>
+<h3>1）概念</h3>
+<p>
+  &gt;=5.5 默认的存储引擎，MySQL推荐使用的存储引擎。
+</p>
+<p>
+  提供事务，行级锁定，外键约束的存储引擎。
+</p>
+<p>
+  事务安全型存储引擎。更加注重数据的完整性和安全性。
+</p>
+<h3>2）应用场景</h3>
+<p>
+  订单、账户、积分等
+</p>
+<h3>3）存储方式</h3>
+<ul>
+<li>
+    创建innodb存储引擎数据库：
+  </li>
+<li>
+    create table t2 (id int primary key auto_increment)engine=innodb charset=utf8;
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="960" height="396" src="/wp-content/uploads/2018/05/word-image-4886.png" class="wp-image-5399" srcset="/wp-content/uploads/2018/05/word-image-4886.png 960w, /wp-content/uploads/2018/05/word-image-4886-300x124.png 300w, /wp-content/uploads/2018/05/word-image-4886-768x317.png 768w" sizes="(max-width: 960px) 100vw, 960px" /><br />
+<img loading="lazy" decoding="async" width="735" height="396" src="/wp-content/uploads/2018/05/word-image-4887.png" class="wp-image-5400" srcset="/wp-content/uploads/2018/05/word-image-4887.png 735w, /wp-content/uploads/2018/05/word-image-4887-300x162.png 300w" sizes="(max-width: 735px) 100vw, 735px" /></p>
+<p>
+  多学一招：
+</p>
+<p>
+  myisam因为结构、索引、数据都存放在数据库文件夹下，所以可以直接复制迁移，而innodb都存在ib_logfile数字文件中，在存储的时候记录了使那个数据的表，所以后期无法迁移。
+</p>
+<h2>Archive存储引擎（存档型）</h2>
+<h3>1）说明</h3>
+<p>
+  该类型只能插入和读取不能修改和删除。
+</p>
+<h3>举例</h3>
+<p><img loading="lazy" decoding="async" width="800" height="370" src="/wp-content/uploads/2018/05/word-image-4888.png" class="wp-image-5401" srcset="/wp-content/uploads/2018/05/word-image-4888.png 800w, /wp-content/uploads/2018/05/word-image-4888-300x139.png 300w, /wp-content/uploads/2018/05/word-image-4888-768x355.png 768w" sizes="(max-width: 800px) 100vw, 800px" /></p>
+<h3>应用场景</h3>
+<p>
+  网站管理员操作日志
+</p>
+<h2>5、Memory存储引擎（内存型）</h2>
+<p>
+  简单了解，该类型将数据保存在内存（后期通过通过memcache、redis软件代替）
+</p>
+<p>
+  内存存储 &gt; 文件缓存  &gt; 数据库存储
+</p>
+<h2>6、MyIsam和InnoDB存储引擎区别（面试笔试）</h2>
+<ul>
+<li>
+    存储结构：myisam三个文件，innodb一个文件
+  </li>
+<li>
+    锁：myisam表级锁，innodb可表可行级锁
+  </li>
+<li>
+    事物和外键支持：innodb都支持，myisam都不支持
+  </li>
+<li>
+    CURD操作：
+  </li>
+</ul>
+<p>
+  MyISAM：如果执行大量的SELECT，MyISAM是更好的选择。
+</p>
+<p>
+  InnoDB：如果你的数据执行大量的INSERT或UPDATE，出于性能方面的考虑，应该使用InnoDB表。DELETE 从性能上InnoDB更优，但DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除，在innodb上如果要清空保存有大量数据的表，最好使用truncate table这个命令。
+</p>
+<ul>
+<li>
+    全文检索：MySQL5.6以下innodb不支持（都不支持中文）
+  </li>
+</ul>
+<h1>列类型的选择	</h1>
+<h2>概念</h2>
+<h3>1）“字节”的定义</h3>
+<ul>
+<li>
+    字节（Byte）是一种计量单位，表示数据量多少，它是计算机信息技术用于计量存
+  </li>
+</ul>
+<p>
+  储容量的一种计量单位。
+</p>
+<p>
+  1字节（Byte）= 8位（bit）
+</p>
+<p>
+  1KB = 1024Byte（字节）
+</p>
+<p>
+  1MB = 1024KB
+</p>
+<p>
+  1GB =  1024MB
+</p>
+<p>
+  1TB =  1024GB
+</p>
+<h3>2）字节和字符的区别</h3>
+<p><a href="https://zhidao.baidu.com/question/454436588167256525.html">https://zhidao.baidu.com/question/454436588167256525.html</a>
+</p>
+<p>
+  英文：1个字符 = 1个字节
+</p>
+<p>
+  中文：1个字符 = 等于3个字节
+</p>
+<h3>MySQL类型字符和字节相关细节</h3>
+<p>
+  整型    字节
+</p>
+<p>
+  char     范围：字符   括号中的数字：字符
+</p>
+<p>
+  varchar   范围：字节   括号中的数字：字符
+</p>
+<h2>1、为什么要学习列类型优化</h2>
+<p>
+  以前的时候都是直接凭感觉选择字段，这样就造成了两个问题
+</p>
+<p>
+  1）浪费磁盘空间
+</p>
+<p>
+  2）降低读写效率
+</p>
+<h2><a id="post-5395-_Toc448678239"></a>2、整型</h2>
+<h3>1）说明</h3>
+<p><img loading="lazy" decoding="async" width="759" height="303" src="/wp-content/uploads/2018/05/word-image-4889.png" class="wp-image-5402" srcset="/wp-content/uploads/2018/05/word-image-4889.png 759w, /wp-content/uploads/2018/05/word-image-4889-300x120.png 300w" sizes="(max-width: 759px) 100vw, 759px" /><br />
+<img loading="lazy" decoding="async" width="560" height="201" src="/wp-content/uploads/2018/05/word-image-4890.png" class="wp-image-5403" srcset="/wp-content/uploads/2018/05/word-image-4890.png 560w, /wp-content/uploads/2018/05/word-image-4890-300x108.png 300w" sizes="(max-width: 560px) 100vw, 560px" /></p>
+<h3>︴案例</h3>
+<ul>
+<li>
+    存储人的年龄应该使用哪种数据类型？
+  </li>
+</ul>
+<p>
+  答：tinyint（3）
+</p>
+<p>
+  整型括号中的数字仅仅只有增加zerofill属性时才生效，表示插入数据如果不够宽度则补零
+</p>
+<p>
+  误区1：tinyint（1） 不能插入1位以上数字    错
+</p>
+<p>
+  误区2：tinyint（3） 占1个字节
+</p>
+<p>
+  年龄：tinyint（3）
+</p>
+<p>
+  性别：tinyint（1）
+</p>
+<p>
+  声明如果没有明确zerofill属性则两者没有区别，但是为什么年龄写3，性别写1呢？目的：增强代码可读性
+</p>
+<ul>
+<li>
+    存储乌龟的年龄应该使用哪种数据类型？（千年王八万年龟）
+  </li>
+</ul>
+<p>
+  答：smallint
+</p>
+<ul>
+<li>
+    存储一个1500万数据的数据表其主键id应该选择哪种数据类型？
+  </li>
+</ul>
+<p>
+  答：int
+</p>
+<h2>3、字符串型</h2>
+<h3>1）说明</h3>
+<p>
+  char    固定字符串类型（0-255个字符）
+</p>
+<p>
+  varchar 可变字符串类型（0-65535个字节） utf8字符：65535/3=21845
+</p>
+<p>
+  char（字符）
+</p>
+<p>
+  varchar（字符）   utf8=21845个字符   gbk=32767个字符
+</p>
+<p>
+  字符表示：任意中文、数字、英文组合插入不能超过指定字符即可，如：char（3）表示可以插入任意3个英文、数字、中文组合。
+</p>
+<h3>︴案例</h3>
+<ul>
+<li>
+    存储11位手机号码，选择？
+  </li>
+</ul>
+<p>
+  答：char(11）   说明：从效率占用空间选择bigint，但是从可扩展性选择char
+</p>
+<p>
+  bigint  8个字节 （int不能4个字节，最大长度10位）
+</p>
+<p>
+  char(11)  代表11个字符，utf8=因为数字11个字节
+</p>
+<ul>
+<li>
+    存储md5加密的密码，选择？
+  </li>
+</ul>
+<p>
+  答：char（32）    因为php的md5加密32位
+</p>
+<p><a href="http://www.cmd5.com/">http://www.cmd5.com/</a> 在线破解
+</p>
+<ul>
+<li>
+    存储标题或姓名，选择？
+  </li>
+</ul>
+<p>
+  答：varchar（45）
+</p>
+<p>
+  标题推荐80有利于seo优化（seo优化指：在百度输入你的名字可以找到你）
+</p>
+<p><a href="http://seo.chinaz.com/?q=www.itcast.cn">http://seo.chinaz.com/?q=www.itcast.cn</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1164" height="252" src="/wp-content/uploads/2018/05/word-image-4891.png" class="wp-image-5404" srcset="/wp-content/uploads/2018/05/word-image-4891.png 1164w, /wp-content/uploads/2018/05/word-image-4891-300x65.png 300w, /wp-content/uploads/2018/05/word-image-4891-768x166.png 768w, /wp-content/uploads/2018/05/word-image-4891-1024x222.png 1024w" sizes="(max-width: 1164px) 100vw, 1164px" /></p>
+<ul>
+<li>
+    存储描述信息（不超过250个汉字），选择？
+  </li>
+</ul>
+<p>
+  答：varchar(200）
+</p>
+<ul>
+<li>
+    存储文章内容，选择？
+  </li>
+</ul>
+<p>
+  答：text
+</p>
+<h2>时间类型</h2>
+<table>
+<tr>
+<td>
+<p>
+  数据类型
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+<td>
+<p>
+  格式
+</p>
+</td>
+<td>
+<p>
+  占用字节
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  datetime
+</p>
+</td>
+<td>
+<p>
+  日期时间  
+</p>
+</td>
+<td>
+<p>
+  年-月-日 小时:分钟:秒
+</p>
+</td>
+<td>
+<p>
+  8
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  date
+</p>
+</td>
+<td>
+<p>
+  日期
+</p>
+</td>
+<td>
+<p>
+  年-月-日
+</p>
+</td>
+<td>
+<p>
+  4
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  time
+</p>
+</td>
+<td>
+<p>
+  时间
+</p>
+</td>
+<td>
+<p>
+  小时:分钟:秒
+</p>
+</td>
+<td>
+<p>
+  3
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  year
+</p>
+</td>
+<td>
+<p>
+  年份
+</p>
+</td>
+<td>
+<p>
+  年
+</p>
+</td>
+<td>
+<p>
+  1
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  timestamp
+</p>
+</td>
+<td>
+<p>
+  时间戳
+</p>
+</td>
+<td>
+<p>
+  年-月-日 小时:分钟:秒
+</p>
+</td>
+<td>
+<p>
+  4
+</p>
+</td>
+</tr>
+</table>
+<ul>
+<li>
+    在实际工作中推荐使用int类型
+  </li>
+</ul>
+<p>
+  原因1：空间（int占4  datetime占8个字节）
+</p>
+<p>
+  原因2：格式（2013年11月、2013/11/11、2013-11-4、【刚刚 1分钟前 一年前】）
+</p>
+<p>
+  多说两句
+</p>
+<ol>
+<li>
+  任然有部分小公司使用datetime类型
+</li>
+<li>
+  int类型最大存储时间2038年
+</li>
+</ol>
+<h2><a id="post-5395-_Toc448678242"></a>5、枚举类型与集合类型</h2>
+<p>
+  在实际应用中，如果程序中有单选或多选情况，不建议使用varchar类型，而建议使用枚举类型或集合类型 或  用整型代替。
+</p>
+<p>
+  enum: 枚举单选 enum(&#8216;男&#8217;, &#8216;女&#8217;, &#8216;保密&#8217;)
+</p>
+<p>
+  set: 集合多选 set(&#8216;语文&#8217;, &#8216;英语&#8217;, &#8216;物理&#8217;)
+</p>
+<p>
+  说明：实际工作中推荐使用int
+</p>
+<p>
+  原因：因为enum是mysql独有的，可扩展想不强（不能迁移）
+</p>
+<p>
+  性别：tinyint（1） 性别:1-男,2-女
+</p>
+<p>
+  场景：查询user表所有男生
+</p>
+<p>
+  以前：select * from user where sex = 1;
+</p>
+<p>
+  框架：D(&#8216;user&#8217;)-&gt;where(&#8216;sex = 1&#8217;)-&gt;select();
+</p>
+<p>
+  优化：
+</p>
+<p>
+  步骤1：在模型中定义常量
+</p>
+<p>
+  const SEX_MAN = 1；
+</p>
+<p>
+  const SEX_WOMEN = 2;
+</p>
+<p>
+  步骤2：查询
+</p>
+<p>
+  D(&#8216;user&#8217;)-&gt;where(&#8216;sex = &#8216;.USER::SEX_MAN)-&gt;select();
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //订单类
+</p>
+<p>
+  class Order
+</p>
+<p>
+  {
+</p>
+<p>
+      const STATE_WAIT_TO_PAY = 1;       // 待支付
+</p>
+<p>
+      const STATE_PAID_SUCCESS = 2;      // 已支付（成功）
+</p>
+<p>
+      const STATE_PAID_TIMEOUT = 5;      // 已支付（超时）
+</p>
+<p>
+      const STATE_PAID_CANCEL = 8;       // 已付款（但在通知到来前取消）
+</p>
+<p>
+      const STATE_TIMEOUT = 7;           // 超时未支付
+</p>
+<p>
+      const STATE_CANCELED = 6;          // 已取消
+</p>
+<p>
+      const STATE_REFUNDED = 9;          // 已退款
+</p>
+<p>
+  }
+</p>
+<p>
+  state：1-xxx,2-xxxx,3-xxx
+</p>
+<p>
+  select * from Order where state = 2   需要打开数据库看
+</p>
+<p>
+  select * from Order where state = Order::STATE_WAIT_TO_PAY   增强代码可读性
+</p>
+<h2>6、数值型（小数）</h2>
+<ul>
+<li>
+    decimal、float、double都是小数，decimal相对后两个更精确但是占用空间
+  </li>
+<li>
+    未涉及到资金小数可以用浮点型（float或double） 优先用float
+  </li>
+<li>
+    涉及资金用decimal（注：decimal小数位一般2位如果没有小数会用0自动补充）
+  </li>
+<li>
+      decimal（10, 2）
+  </li>
+</ul>
+<h2>7、IP类型数据的存储</h2>
+<ul>
+<li>
+    ip选择整型
+  </li>
+</ul>
+<p>
+  XXX.XXX.XXX.XXX   char（15字符串 15字节）
+</p>
+<p>
+  ip2long
+</p>
+<p>
+  long2ip		  int            4字节
+</p>
+<h1>五、慢查询日志（查询需要优化的SQL语句）</h1>
+<h2>1、作用</h2>
+<p>
+  思考：新人加入，项目中编写SQL语句可能存在问题，问如何检查
+</p>
+<p>
+  解决：通过慢查询日志（在MySQL中修改配置文件，从而可以记录查询找过指定是按的SQL语句）
+</p>
+<h2>2、测试SQL语句</h2>
+<p>
+  #创建表
+</p>
+<p>
+  create table php_slow_log2 (
+</p>
+<p>
+  name varchar(300),
+</p>
+<p>
+  name2 varchar(300)
+</p>
+<p>
+  )engine=innodb charset=utf8;
+</p>
+<p>
+  #插入数据
+</p>
+<p>
+  insert into php_slow_log2 values
+</p>
+<p>
+  (&#8216;zzzzzz&#8217;,&#8217;zzzzzz&#8217;),
+</p>
+<p>
+  (&#8216;zzzzzz&#8217;,&#8217;zzzzzz&#8217;),
+</p>
+<p>
+  (&#8216;zzzzzz&#8217;,&#8217;zzzzzz&#8217;),
+</p>
+<p>
+  (&#8216;zzzzzz&#8217;,&#8217;zzzzzz&#8217;);
+</p>
+<p>
+  #Mysql蠕虫复制
+</p>
+<p>
+  insert into php_slow_log2(name,name2)  select name,name2 from php_slow_log2;
+</p>
+<p>
+  insert into php_slow_log2(name,name2)  select name,name2 from php_slow_log2;
+</p>
+<p>
+  insert into php_slow_log2(name,name2)  select name,name2 from php_slow_log2;
+</p>
+<p>
+  insert into php_slow_log2(name,name2)  select name,name2 from php_slow_log2;
+</p>
+<p>
+  insert into php_slow_log2(name,name2)  select name,name2 from php_slow_log2;
+</p>
+<p>
+  insert into php_slow_log2(name,name2)  select name,name2 from php_slow_log2;
+</p>
+<p>
+  insert into php_slow_log2(name,name2)  select name,name2 from php_slow_log2;
+</p>
+<p>
+  insert into php_slow_log2(name,name2)  select name,name2 from php_slow_log2;
+</p>
+<p>
+  insert into php_slow_log2(name,name2)  select name,name2 from php_slow_log2;
+</p>
+<h2>3、实际操作</h2>
+<h3>1） 使用如下指令查看慢查询日志是否开启</h3>
+<p><img loading="lazy" decoding="async" width="722" height="156" src="/wp-content/uploads/2018/05/word-image-4892.png" class="wp-image-5405" srcset="/wp-content/uploads/2018/05/word-image-4892.png 722w, /wp-content/uploads/2018/05/word-image-4892-300x65.png 300w" sizes="(max-width: 722px) 100vw, 722px" /></p>
+<h3>2） 手工开启慢查询日志</h3>
+<p><img loading="lazy" decoding="async" width="568" height="350" src="/wp-content/uploads/2018/05/word-image-4893.png" class="wp-image-5406" srcset="/wp-content/uploads/2018/05/word-image-4893.png 568w, /wp-content/uploads/2018/05/word-image-4893-300x185.png 300w" sizes="(max-width: 568px) 100vw, 568px" /></p>
+<h3>3） 设置查询的临界时间（查询超过指定时间后纪录）</h3>
+<p><img loading="lazy" decoding="async" width="521" height="421" src="/wp-content/uploads/2018/05/word-image-4894.png" class="wp-image-5407" srcset="/wp-content/uploads/2018/05/word-image-4894.png 521w, /wp-content/uploads/2018/05/word-image-4894-300x242.png 300w" sizes="(max-width: 521px) 100vw, 521px" /></p>
+<h3>4） 使用查询语句（超时）</h3>
+<p><img loading="lazy" decoding="async" width="1126" height="464" src="/wp-content/uploads/2018/05/word-image-4895.png" class="wp-image-5408" srcset="/wp-content/uploads/2018/05/word-image-4895.png 1126w, /wp-content/uploads/2018/05/word-image-4895-300x124.png 300w, /wp-content/uploads/2018/05/word-image-4895-768x316.png 768w, /wp-content/uploads/2018/05/word-image-4895-1024x422.png 1024w" sizes="(max-width: 1126px) 100vw, 1126px" /></p>
+<h3>︴总结</h3>
+<p>
+  步骤1：开启慢查询日志
+</p>
+<p>
+  set global slow_query_log = 1;
+</p>
+<p>
+  查看是否开启：show variables like &#8216;slow_query%&#8217;;
+</p>
+<p>
+  步骤2：设置时间
+</p>
+<p>
+  set global long_query_time = 2;  #注：2秒
+</p>
+<p>
+  查看时间：show variables like &#8216;%query_time&#8217;;
+</p>
+<p>
+  步骤3：关闭当前DOS窗口重新登录执行慢SQL语句，查看文件是否记录即可
+</p>
+<h1><a id="post-5395-_Toc448678249"></a>六、数据库设计中的索引</h1>
+<h2><a id="post-5395-_Toc448678250"></a>1、什么是索引</h2>
+<p>
+  索引相当于书目录，加快访问速度
+</p>
+<h2><a id="post-5395-_Toc448678251"></a>2、现实生活中的索引</h2>
+<p><img loading="lazy" decoding="async" width="551" height="389" src="/wp-content/uploads/2018/05/word-image-4896.png" class="wp-image-5409" srcset="/wp-content/uploads/2018/05/word-image-4896.png 551w, /wp-content/uploads/2018/05/word-image-4896-300x212.png 300w" sizes="(max-width: 551px) 100vw, 551px" /></p>
+<h2>3、索引的好处</h2>
+<ul>
+<li>
+    好处：加快访问速度
+  </li>
+<li>
+    坏处：
+  </li>
+</ul>
+<ol>
+<li>
+  索引占用磁盘空间
+</li>
+<li>
+  索引会影响SQL语句执行速度，因为增加/修改都需要更新索引
+</li>
+</ol>
+<p>
+  索引可以加快查询效率，但是也不能滥用索引，否则适得其反
+</p>
+<h2><a id="post-5395-_Toc448678252"></a>4、四种索引形式</h2>
+<p>
+  普通索引（index）      &#8211;  仅仅为了加快查询速度
+</p>
+<p>
+  唯一索引（unique）     &#8211;  保证数据唯一性
+</p>
+<p>
+  主键索引（primary key） &#8211;  既保证数据唯一不能为null
+</p>
+<p>
+  全文检索（fulltext）		  &#8211;  提取指定字段的关键字，添加索引
+</p>
+<p>
+  组合索引					  &#8211;  同时给两个字段设置相同的索引
+</p>
+<h2>5、建表时创建索引</h2>
+<p>
+  #【需求】
+</p>
+<p>
+  编号  &#8211;  主键索引
+</p>
+<p>
+  姓名  &#8211;  唯一索引
+</p>
+<p>
+  密码  &#8211;  普通索引
+</p>
+<p>
+  a和b &#8211; 复合/组合索引
+</p>
+<p>
+  info  &#8211; 全文索引
+</p>
+<p>
+  #【创建索引表】
+</p>
+<p>
+  create table stu1(
+</p>
+<p>
+  id int unsigned auto_increment,
+</p>
+<p>
+  uname varchar(30) not null comment &#8216;用户名&#8217;,
+</p>
+<p>
+  pwd   char(32) not null comment &#8216;密码&#8217;,
+</p>
+<p>
+  a varchar(30) not null,
+</p>
+<p>
+  b varchar(30) not null,
+</p>
+<p>
+  info text,
+</p>
+<p>
+  ？？？？？
+</p>
+<p>
+  )engine=myisam charset=utf8;
+</p>
+<p>
+  #【查看索引表】
+</p>
+<p>
+  create table stu1(
+</p>
+<p>
+  id int unsigned auto_increment,
+</p>
+<p>
+  uname varchar(30) not null comment &#8216;用户名&#8217;,
+</p>
+<p>
+  pwd   char(32) not null comment &#8216;密码&#8217;,
+</p>
+<p>
+  a varchar(30) not null,
+</p>
+<p>
+  b varchar(30) not null,
+</p>
+<p>
+  info text,
+</p>
+<p>
+  primary key(id),
+</p>
+<p>
+  unique (uname),
+</p>
+<p>
+  index (pwd),
+</p>
+<p>
+  index (a,b),
+</p>
+<p>
+  fulltext (info)
+</p>
+<p>
+  )engine=myisam charset=utf8;
+</p>
+<p><img loading="lazy" decoding="async" width="474" height="310" src="/wp-content/uploads/2018/05/word-image-4897.png" class="wp-image-5410" srcset="/wp-content/uploads/2018/05/word-image-4897.png 474w, /wp-content/uploads/2018/05/word-image-4897-300x196.png 300w" sizes="(max-width: 474px) 100vw, 474px" /></p>
+<h2>修改表的结构增加索引 和 删除索引</h2>
+<h3>1）需求</h3>
+<p>
+  create table user2 (
+</p>
+<p>
+  id int unsigned ,
+</p>
+<p>
+  uname varchar(30) not null comment &#8216;姓名&#8217;,
+</p>
+<p>
+  pwd char(32) not null comment &#8216;密码&#8217;,
+</p>
+<p>
+  a varchar(10) not null comment &#8216;a&#8217;,
+</p>
+<p>
+  b varchar(10) not null comment &#8216;b&#8217;,
+</p>
+<p>
+  info text
+</p>
+<p>
+  )engine=MyISAM charset=utf8;
+</p>
+<h3>2）语法				</h3>
+<ul>
+<li>
+    修改表添加索引：alter table 表名 add 索引类型 索引名(待添加索引字段)
+  </li>
+<li>
+    删除表指定索引：drop index 索引名 on 表名
+  </li>
+</ul>
+<p>
+  索引名字推荐使用字段名+索引名
+</p>
+<h3>3）SQL语句</h3>
+<p>
+  #【需求】
+</p>
+<p>
+  编号  &#8211;  主键索引
+</p>
+<p>
+  姓名  &#8211;  唯一索引
+</p>
+<p>
+  密码  &#8211;  普通索引
+</p>
+<p>
+  a和b &#8211; 复合/组合索引
+</p>
+<p>
+  info  &#8211; 全文索引
+</p>
+<p>
+  #【创建索引】
+</p>
+<p>
+  alter table user2 add primary key  id(id);
+</p>
+<p>
+  alter table user2 add unique  uname(uname);
+</p>
+<p>
+  alter table user2 add index pwd(pwd);
+</p>
+<p>
+  alter table user2 add index a_b(a,b);
+</p>
+<p>
+  alter table user2 add fulltext info(info);
+</p>
+<p>
+  #【删除索引】
+</p>
+<p><img loading="lazy" decoding="async" width="435" height="503" src="/wp-content/uploads/2018/05/word-image-4898.png" class="wp-image-5411" srcset="/wp-content/uploads/2018/05/word-image-4898.png 435w, /wp-content/uploads/2018/05/word-image-4898-259x300.png 259w" sizes="(max-width: 435px) 100vw, 435px" /></p>
+<h2>7、创建索引原则</h2>
+<p>
+  用于频繁搜索的列
+</p>
+<p>
+  用于排序的字段
+</p>
+<p>
+  做条件查询的列
+</p>
+<p>
+  给字段数据尽量不重复的字段添加索引，如：编号
+</p>
+<h1>七、千万级数据量根据索引优化查询速度</h1>
+<h1>八、MySQL中的执行计划</h1>
+<h2>SQL</h2>
+<p>
+  #创建数据库
+</p>
+<p>
+  create database php666;
+</p>
+<p>
+  #选择数据库
+</p>
+<p>
+  use php666;
+</p>
+<p>
+  #创建表
+</p>
+<p>
+  create table stu (
+</p>
+<p>
+  id int unsigned primary key auto_increment comment &#8216;编号&#8217;,
+</p>
+<p>
+  name varchar(10) not null comment &#8216;姓名&#8217;,
+</p>
+<p>
+  sex char(2) not null default &#8216;男&#8217; comment &#8216;性别&#8217;,
+</p>
+<p>
+  age tinyint(3) not null default 0 comment &#8216;年龄&#8217;,
+</p>
+<p>
+  money decimal(10,2) not null default 0 comment &#8216;资金&#8217;,
+</p>
+<p>
+  address varchar(200) default &#8221; comment &#8216;地址&#8217;
+</p>
+<p>
+  )engine=myisam charset=utf8;
+</p>
+<p>
+  #学生数据插入
+</p>
+<p>
+  insert into stu
+</p>
+<p>
+  values
+</p>
+<p>
+  (null,&#8217;小泽&#8217;,&#8217;男&#8217;,18,30.56,&#8217;北京&#8217;),
+</p>
+<p>
+  (null,&#8217;苍苍&#8217;,&#8217;男&#8217;,40,80,&#8217;日本&#8217;),
+</p>
+<p>
+  (null,&#8217;小白&#8217;,&#8217;男&#8217;,30,10,&#8217;哈尔滨&#8217;),
+</p>
+<p>
+  (null,&#8217;小黑&#8217;,&#8217;男&#8217;,18,76,&#8217;黑龙江&#8217;),
+</p>
+<p>
+  (null,&#8217;小弟弟&#8217;,&#8217;女&#8217;,18,76,&#8217;北京&#8217;),
+</p>
+<p>
+  (null,&#8217;老陆&#8217;,&#8217;女&#8217;,88,44,&#8217;上海&#8217;),
+</p>
+<p>
+  (null,&#8217;校长&#8217;,&#8217;男&#8217;,100,20,&#8217;上海&#8217;);
+</p>
+<p>
+  #分数表
+</p>
+<p>
+  create table score (
+</p>
+<p>
+  stu_id int unsigned comment &#8216;关联学生表ID&#8217;,
+</p>
+<p>
+  id int unsigned primary key auto_increment comment &#8216;分数表ID&#8217;,
+</p>
+<p>
+  math int unsigned not null comment &#8216;数学&#8217;,
+</p>
+<p>
+  chinese int unsigned not null comment &#8216;语文&#8217;,
+</p>
+<p>
+  english int unsigned not null comment &#8216;英语&#8217;
+</p>
+<p>
+  )engine=myisam charset=utf8;
+</p>
+<p>
+  #分数数据插入
+</p>
+<p>
+  insert into score
+</p>
+<p>
+  values
+</p>
+<p>
+  (1,null,80,58,99),
+</p>
+<p>
+  (2,null,11,99,29),
+</p>
+<p>
+  (3,null,32,53,89),
+</p>
+<p>
+  (4,null,99,28,99),
+</p>
+<p>
+  (5,null,77,68,19),
+</p>
+<p>
+  (6,null,33,18,29);
+</p>
+<h2>1、什么是MySQL中执行计划</h2>
+<p>
+  就是通过explain关键词分析SQL语句
+</p>
+<h2>2、explain语法</h2>
+<p>
+  使用：直接explain后面写SQL语句
+</p>
+<p>
+  语法：explain  SQL语句  \G
+</p>
+<p>
+  说明：\G后面不需要加分号
+</p>
+<h2>3、使用explain执行计划分析</h2>
+<h3>1）说明</h3>
+<p><img loading="lazy" decoding="async" width="542" height="250" src="/wp-content/uploads/2018/05/word-image-4899.png" class="wp-image-5412" srcset="/wp-content/uploads/2018/05/word-image-4899.png 542w, /wp-content/uploads/2018/05/word-image-4899-300x138.png 300w" sizes="(max-width: 542px) 100vw, 542px" /></p>
+<p>
+  select_type              &#8211;  查询类型
+</p>
+<p>
+  table               		 &#8211;  表名
+</p>
+<p>
+  type                      &#8211;  连接所使用的类型
+</p>
+<p>
+  possible_keys           &#8211;  可能使用的索引
+</p>
+<p>
+  key                        &#8211;   实际使用索引
+</p>
+<p>
+  key_len		    				&#8211;   索引长度
+</p>
+<p>
+  rows                      &#8211;  可能需要检索的行数
+</p>
+<h3>2）分析，查询类型（select_type）</h3>
+<p><img loading="lazy" decoding="async" width="625" height="373" src="/wp-content/uploads/2018/05/word-image-4900.png" class="wp-image-5413" srcset="/wp-content/uploads/2018/05/word-image-4900.png 625w, /wp-content/uploads/2018/05/word-image-4900-300x179.png 300w" sizes="(max-width: 625px) 100vw, 625px" /></p>
+<p>
+  #情况1：simple
+</p>
+<p><img loading="lazy" decoding="async" width="434" height="158" src="/wp-content/uploads/2018/05/word-image-4901.png" class="wp-image-5414" srcset="/wp-content/uploads/2018/05/word-image-4901.png 434w, /wp-content/uploads/2018/05/word-image-4901-300x109.png 300w" sizes="(max-width: 434px) 100vw, 434px" /></p>
+<p>
+  #情况2：subquery
+</p>
+<p><img loading="lazy" decoding="async" width="614" height="186" src="/wp-content/uploads/2018/05/word-image-4902.png" class="wp-image-5415" srcset="/wp-content/uploads/2018/05/word-image-4902.png 614w, /wp-content/uploads/2018/05/word-image-4902-300x91.png 300w" sizes="(max-width: 614px) 100vw, 614px" /></p>
+<p>
+  #情况3：derived
+</p>
+<p><img loading="lazy" decoding="async" width="779" height="141" src="/wp-content/uploads/2018/05/word-image-4903.png" class="wp-image-5416" srcset="/wp-content/uploads/2018/05/word-image-4903.png 779w, /wp-content/uploads/2018/05/word-image-4903-300x54.png 300w, /wp-content/uploads/2018/05/word-image-4903-768x139.png 768w" sizes="(max-width: 779px) 100vw, 779px" /></p>
+<p>
+  #情况4：union
+</p>
+<p><img loading="lazy" decoding="async" width="484" height="212" src="/wp-content/uploads/2018/05/word-image-4904.png" class="wp-image-5417" srcset="/wp-content/uploads/2018/05/word-image-4904.png 484w, /wp-content/uploads/2018/05/word-image-4904-300x131.png 300w" sizes="(max-width: 484px) 100vw, 484px" /></p>
+<h3>3）分析，表名（table）</h3>
+<p>
+  #情况1：实际表名
+</p>
+<p><img loading="lazy" decoding="async" width="696" height="139" src="/wp-content/uploads/2018/05/word-image-4905.png" class="wp-image-5418" srcset="/wp-content/uploads/2018/05/word-image-4905.png 696w, /wp-content/uploads/2018/05/word-image-4905-300x60.png 300w" sizes="(max-width: 696px) 100vw, 696px" /></p>
+<p>
+  #情况2：表别名
+</p>
+<p><img loading="lazy" decoding="async" width="750" height="173" src="/wp-content/uploads/2018/05/word-image-4906.png" class="wp-image-5419" srcset="/wp-content/uploads/2018/05/word-image-4906.png 750w, /wp-content/uploads/2018/05/word-image-4906-300x69.png 300w" sizes="(max-width: 750px) 100vw, 750px" /></p>
+<p>
+  #情况3：derived  （from型子查询）
+</p>
+<p><img loading="lazy" decoding="async" width="637" height="171" src="/wp-content/uploads/2018/05/word-image-4907.png" class="wp-image-5420" srcset="/wp-content/uploads/2018/05/word-image-4907.png 637w, /wp-content/uploads/2018/05/word-image-4907-300x81.png 300w" sizes="(max-width: 637px) 100vw, 637px" /></p>
+<p>
+  #情况4：null
+</p>
+<p><img loading="lazy" decoding="async" width="625" height="161" src="/wp-content/uploads/2018/05/word-image-4908.png" class="wp-image-5421" srcset="/wp-content/uploads/2018/05/word-image-4908.png 625w, /wp-content/uploads/2018/05/word-image-4908-300x77.png 300w" sizes="(max-width: 625px) 100vw, 625px" /></p>
+<h3>4）分析，额外项（extra）</h3>
+<p>
+  index: 		   是指用到了索引覆盖,效率非常高
+</p>
+<p>
+  using where      是指光靠索引定位不了,还得where判断一下
+</p>
+<p><strong>extra 中出现以下 2 项意味着 MYSQL 根本不能使用索引,效率会受到重大影响。应尽可能对此进行优化</strong>
+</p>
+<p>
+  using temporary
+</p>
+<p>
+  表示 MySQL 在对查询结果排序时使用临时表。常见于排序 order by 和分组查询 group by。
+</p>
+<p>
+  using filesort
+</p>
+<p>
+  表示 MySQL 会对结果使用一个外部索引排序,而不是从表里按索引次序读到相关内容。可能在内存或者磁盘上进行排序。MySQL 中无法利用索引完成的排序操作称为“文件排序”
+</p>
+<h3>5）分析，连接所使用的类型（type）【重要的项分析】</h3>
+<ul>
+<li>
+    这一列的常见值有：const、all、range、system、index
+  </li>
+</ul>
+<p>
+  最好的是  system ， 一般在表中只有一行记录的或者查询系统表的时候出现。
+</p>
+<p>
+  其次就是 const，    一般在使用主键索引的时候会出现。
+</p>
+<p>
+  其其次range，       一般在做范围查询的时候会使用 id &lt; 100。
+</p>
+<p>
+  index，              代表可以使用索引做一些优化，一般在查询表的总行数的时候出现。
+</p>
+<p>
+  all，                一般使用不上索引的时候出现。
+</p>
+<p>
+  ref，				 意思是指 通过索引列,可以直接引用到某些数据行
+</p>
+<p>
+  eq_ref，			 意思是指 通过索引列,可以直接引用某1行数据
+</p>
+<ul>
+<li>
+    场景
+  </li>
+</ul>
+<p>
+  #情况1：system
+</p>
+<p>
+  #情况2：const
+</p>
+<p><img loading="lazy" decoding="async" width="802" height="152" src="/wp-content/uploads/2018/05/word-image-4909.png" class="wp-image-5422" srcset="/wp-content/uploads/2018/05/word-image-4909.png 802w, /wp-content/uploads/2018/05/word-image-4909-300x57.png 300w, /wp-content/uploads/2018/05/word-image-4909-768x146.png 768w" sizes="(max-width: 802px) 100vw, 802px" /></p>
+<p>
+  #情况3：range
+</p>
+<p><img loading="lazy" decoding="async" width="812" height="391" src="/wp-content/uploads/2018/05/word-image-4910.png" class="wp-image-5423" srcset="/wp-content/uploads/2018/05/word-image-4910.png 812w, /wp-content/uploads/2018/05/word-image-4910-300x144.png 300w, /wp-content/uploads/2018/05/word-image-4910-768x370.png 768w" sizes="(max-width: 812px) 100vw, 812px" /></p>
+<p>
+  #情况4：all
+</p>
+<p><img loading="lazy" decoding="async" width="746" height="181" src="/wp-content/uploads/2018/05/word-image-4911.png" class="wp-image-5424" srcset="/wp-content/uploads/2018/05/word-image-4911.png 746w, /wp-content/uploads/2018/05/word-image-4911-300x73.png 300w" sizes="(max-width: 746px) 100vw, 746px" /></p>
+<h2>4、索引的使用原则（哪些常见情况不能用索引?）</h2>
+<h3>说明</h3>
+<ul>
+<li>
+    like查询（“%”和“_”开头）索引失效   		  （sphinx网站中全站检索）
+  </li>
+<li>
+    or运算都要具有索引否则索引失效
+  </li>
+<li>
+    where条件字符串必须加引号
+  </li>
+<li>
+    组合索引字段单独使用，左边生效，右边失效（左原则）
+  </li>
+</ul>
+<h3>验证</h3>
+<ul>
+<li>
+    like查询（“%”和“_”开头）索引失效   		  （sphinx网站中全站检索）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="758" height="455" src="/wp-content/uploads/2018/05/word-image-4912.png" class="wp-image-5425" srcset="/wp-content/uploads/2018/05/word-image-4912.png 758w, /wp-content/uploads/2018/05/word-image-4912-300x180.png 300w" sizes="(max-width: 758px) 100vw, 758px" /></p>
+<ul>
+<li>
+    or运算都要具有索引否则索引失效
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1146" height="426" src="/wp-content/uploads/2018/05/word-image-4913.png" class="wp-image-5426" srcset="/wp-content/uploads/2018/05/word-image-4913.png 1146w, /wp-content/uploads/2018/05/word-image-4913-300x112.png 300w, /wp-content/uploads/2018/05/word-image-4913-768x285.png 768w, /wp-content/uploads/2018/05/word-image-4913-1024x381.png 1024w" sizes="(max-width: 1146px) 100vw, 1146px" /></p>
+<ul>
+<li>
+    where条件字符串必须加引号
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="834" height="435" src="/wp-content/uploads/2018/05/word-image-4914.png" class="wp-image-5427" srcset="/wp-content/uploads/2018/05/word-image-4914.png 834w, /wp-content/uploads/2018/05/word-image-4914-300x156.png 300w, /wp-content/uploads/2018/05/word-image-4914-768x401.png 768w" sizes="(max-width: 834px) 100vw, 834px" /></p>
+<ul>
+<li>
+    组合索引字段单独使用，左边生效，右边失效（左原则）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="612" height="543" src="/wp-content/uploads/2018/05/word-image-4915.png" class="wp-image-5428" srcset="/wp-content/uploads/2018/05/word-image-4915.png 612w, /wp-content/uploads/2018/05/word-image-4915-300x266.png 300w" sizes="(max-width: 612px) 100vw, 612px" /><br />
+<img loading="lazy" decoding="async" width="782" height="637" src="/wp-content/uploads/2018/05/word-image-4916.png" class="wp-image-5429" srcset="/wp-content/uploads/2018/05/word-image-4916.png 782w, /wp-content/uploads/2018/05/word-image-4916-300x244.png 300w, /wp-content/uploads/2018/05/word-image-4916-768x626.png 768w" sizes="(max-width: 782px) 100vw, 782px" /></p>
+<h1>总结</h1>
+<p>
+  MySQL如何优化？
+</p>
+<p>
+  架构：读写分离、主从复制
+</p>
+<p>
+  设计：三范式、逆范式、存储引擎的选择、字段类型
+</p>
+<p>
+  功能：索引、缓存、分区
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+</p>
+<p>
+  什么是三范式：就是设计表的规则
+</p>
+<p>
+  三范式好处：减少冗余，提高读写效率
+</p>
+<p>
+  三范式有哪些：
+</p>
+<p>
+  1）每个字段不可以拆分
+</p>
+<p>
+  2）每个表必须有主键自增、每个表只描述一件事
+</p>
+<p>
+  3）一个表不能包含其他表的非主键字段
+</p>
+<p>
+  逆范式：反三范式规则、以空间换时间（冗余策略）
+</p>
+<p>
+  多学一招：强烈推荐一个表有哪些基本字段（id、created_at、updated_at、display:1-显示,2-隐藏）
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+</p>
+<p>
+  存储引擎：myisam 、 innodb 、 archive 、 memory
+</p>
+<p>
+  myisam和innodb区别
+</p>
+<p>
+  存储结构：myisam三个文件，innodb一个文件
+</p>
+<p>
+  锁：myisam表级锁，innodb可表可行级锁
+</p>
+<p>
+  事物和外键支持：innodb都支持，myisam都不支持
+</p>
+<p>
+  CURD操作：
+</p>
+<p>
+  MyISAM：如果执行大量的SELECT，MyISAM是更好的选择。
+</p>
+<p>
+  InnoDB：如果你的数据执行大量的INSERT或UPDATE，出于性能方面的考虑，应该使用InnoDB表。DELETE 从性能上InnoDB更优，但DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除，在innodb上如果要清空保存有大量数据的表，最好使用truncate table这个命令。
+</p>
+<p>
+  全文检索：MySQL5.6以下innodb不支持（都不支持中文）
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+</p>
+<p>
+  什么是索引：相当于书的目录，加快访问速度
+</p>
+<p>
+  索引的好处：加快访问速度
+</p>
+<p>
+  瑕疵：占用磁盘空间，影响读写速度，因为需要更新索引
+</p>
+<p>
+  创建索引：alter table 表名 add  索引类型  索引名（字段名）;
+</p>
+<p>
+  删除索引：drop index 索引名 on 表名
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  普通索引（index）      &#8211;  仅仅为了加快查询速度
+</p>
+<p>
+  唯一索引（unique）     &#8211;  保证数据唯一性
+</p>
+<p>
+  主键索引（primary key） &#8211;  既保证数据唯一不能为null
+</p>
+<p>
+  全文检索（fulltext）    &#8211;  提取指定字段的关键字，添加索引
+</p>
+<p>
+  组合索引		      &#8211;  同时给两个字段设置相同的索引
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  什么是MySQL中的执行计划：通过explain关键字分析SQL语句
+</p>
+<p>
+  索引使用规则
+</p>
+<p>
+  like查询（“%”和“_”开头）索引失效   		  （sphinx网站中全站检索）
+</p>
+<p>
+  or运算都要具有索引否则索引失效
+</p>
+<p>
+  where条件字符串必须加引号
+</p>
+<p>
+  组合索引字段单独使用，左边生效，右边失效（左原则）</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5395.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>网站优化（二）MySQL 优化 千万级数据、索引、存储过程</title>
+		<link>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5385.html</link>
+					<comments>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5385.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 14:48:20 +0000</pubDate>
+				<category><![CDATA[优化方案]]></category>
+		<category><![CDATA[网站优化]]></category>
+		<category><![CDATA[千万级数据]]></category>
+		<category><![CDATA[存储过程]]></category>
+		<category><![CDATA[索引]]></category>
+		<guid isPermaLink="false">/?p=5385</guid>
+
+					<description><![CDATA[1、索引的作用 索引通俗来讲就相当于书的目录，当我们根据条件查询的时候，没有索引，便需要全表扫描，数据量少还可 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>1、索引的作用</h1>
+<p>索引通俗来讲就相当于书的目录，当我们根据条件查询的时候，没有索引，便需要全表扫描，数据量少还可以，一旦数据量超过百万甚至千万，一条查询sql执行往往需要几十秒甚至更多，5秒以上就已经让人难以忍受了。</p>
+<p>提升查询速度的方向一是提升硬件(内存、cpu、硬盘)，二是在软件上优化（加索引、优化sql；优化sql不在本文阐述范围之内）。能在软件上解决的，就不在硬件上解决，毕竟硬件提升代码昂贵，性价比太低。代价小且行之有效的解决方法就是合理的加索引。索引使用得当，能使查询速度提升上万倍，效果惊人。</p>
+<h1>索 引类型</h1>
+<p>MySQL的索引有5种</p>
+<p>主键索引、普通索引、唯一索引、全文索引、组合索引（多列索引）</p>
+<p>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;</p>
+<p>普通索引（index） &#8211; 仅仅只是为了提高查询的速度。</p>
+<p>唯一索引（unique index） &#8211; 防止数据出现重复</p>
+<p>主键索引（primary key） &#8211; 引保证数据的唯一性,而且不能为NULL</p>
+<p>全文索引（fulltext key） &#8211; 从字段中提取的特别关键词</p>
+<p>组合索引（多列索引） &#8211; 创建在多列上的索引</p>
+<p>说明：唯一索引和全文索引用的很少，我们主要关注主键索引、普通索引和组合索引。</p>
+<h1>索引的语法</h1>
+<p>查看某张表的索引：show index from 表名；</p>
+<p>创建普通索引：alter table 表名 add index 索引名 (加索引的列)</p>
+<p>创建组合索引：alter table 表名 add index 索引名 (加索引的列1,加索引的列2)</p>
+<p>删除某张表的索引：drop index 索引名 on 表名;</p>
+<h1>性能测试</h1>
+<h2>1）测试环境： 联想ThinkPad</h2>
+<p><img loading="lazy" decoding="async" width="517" height="140" class="wp-image-5386" src="/wp-content/uploads/2018/05/word-image-4875.png" srcset="/wp-content/uploads/2018/05/word-image-4875.png 517w, /wp-content/uploads/2018/05/word-image-4875-300x81.png 300w" sizes="(max-width: 517px) 100vw, 517px" /></p>
+<h2>2）创建数据表</h2>
+<p>create database php0611 charset = utf8;</p>
+<p>use php0611;</p>
+<p><img loading="lazy" decoding="async" width="385" height="96" class="wp-image-5387" src="/wp-content/uploads/2018/05/word-image-4876.png" srcset="/wp-content/uploads/2018/05/word-image-4876.png 385w, /wp-content/uploads/2018/05/word-image-4876-300x75.png 300w" sizes="(max-width: 385px) 100vw, 385px" /></p>
+<p>CREATE TABLE `test` (</p>
+<p>`id` bigint(20) PRIMARY key not null AUTO_INCREMENT,</p>
+<p>`username` varchar(11) DEFAULT NULL,</p>
+<p>`gender` varchar(2) DEFAULT NULL,</p>
+<p>`password` varchar(100) DEFAULT NULL</p>
+<p>) ENGINE=MyISAM DEFAULT CHARSET=utf8;</p>
+<p><img loading="lazy" decoding="async" width="531" height="143" class="wp-image-5388" src="/wp-content/uploads/2018/05/word-image-4877.png" srcset="/wp-content/uploads/2018/05/word-image-4877.png 531w, /wp-content/uploads/2018/05/word-image-4877-300x81.png 300w" sizes="(max-width: 531px) 100vw, 531px" /></p>
+<h2>3）使用存储过程插入1千万条数据</h2>
+<p>存储引擎使用MyISAM是因为此引擎没有事务，插入速度极快，方便我们快速插入千万条测试数据，等我们插完数据，再把存储类型修改为InnoDB。</p>
+<p>delimiter $$</p>
+<p>create procedure myproc()</p>
+<p>begin</p>
+<p>declare num int;</p>
+<p>set num=1;</p>
+<p>while num &lt;= 10000000 do</p>
+<p>insert into test(username,gender,password) values(num,&#8217;保密&#8217;,PASSWORD(num));</p>
+<p>set num=num+1;</p>
+<p>end while;</p>
+<p>end $$</p>
+<p>delimiter ;</p>
+<p># 说明：上述代码可优化insert检查循环次数 原理：values(),(),(); 更高效</p>
+<p><img loading="lazy" decoding="async" width="702" height="263" class="wp-image-5389" src="/wp-content/uploads/2018/05/word-image-4878.png" srcset="/wp-content/uploads/2018/05/word-image-4878.png 702w, /wp-content/uploads/2018/05/word-image-4878-300x112.png 300w" sizes="(max-width: 702px) 100vw, 702px" /></p>
+<p>由于使用的MyISAM引擎，插入1千万条数据，仅耗时246秒，若是InnoDB引擎，插入100万条数据就要花费数小时了。注：如需要使用innodb存储引擎，可通过命令：alter table test engine=InnoDB;此命令执行时间大约耗时5分钟，耐心等待。</p>
+<h2>4）执行存储过程</h2>
+<p>call myproc();</p>
+<p><img loading="lazy" decoding="async" width="353" height="84" class="wp-image-5390" src="/wp-content/uploads/2018/05/word-image-4879.png" srcset="/wp-content/uploads/2018/05/word-image-4879.png 353w, /wp-content/uploads/2018/05/word-image-4879-300x71.png 300w" sizes="(max-width: 353px) 100vw, 353px" /></p>
+<h2>5）测试结果1：没加索引</h2>
+<p><img loading="lazy" decoding="async" width="666" height="302" class="wp-image-5391" src="/wp-content/uploads/2018/05/word-image-4880.png" srcset="/wp-content/uploads/2018/05/word-image-4880.png 666w, /wp-content/uploads/2018/05/word-image-4880-300x136.png 300w" sizes="(max-width: 666px) 100vw, 666px" /></p>
+<h2>6）给username添加普通索引</h2>
+<p><img loading="lazy" decoding="async" width="601" height="191" class="wp-image-5392" src="/wp-content/uploads/2018/05/word-image-4881.png" srcset="/wp-content/uploads/2018/05/word-image-4881.png 601w, /wp-content/uploads/2018/05/word-image-4881-300x95.png 300w" sizes="(max-width: 601px) 100vw, 601px" /></p>
+<h2>7）测试结果2：加索引</h2>
+<p><img loading="lazy" decoding="async" width="600" height="389" class="wp-image-5393" src="/wp-content/uploads/2018/05/word-image-4882.png" srcset="/wp-content/uploads/2018/05/word-image-4882.png 600w, /wp-content/uploads/2018/05/word-image-4882-300x195.png 300w" sizes="(max-width: 600px) 100vw, 600px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5385.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>网站优化（三）MySQL优化 并发、锁机制、索引、缓存、分表、分区算法、分区管理</title>
+		<link>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5356.html</link>
+					<comments>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5356.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 14:46:06 +0000</pubDate>
+				<category><![CDATA[优化方案]]></category>
+		<category><![CDATA[网站优化]]></category>
+		<category><![CDATA[分区算法]]></category>
+		<category><![CDATA[分区管理]]></category>
+		<category><![CDATA[分表]]></category>
+		<category><![CDATA[并发]]></category>
+		<category><![CDATA[索引]]></category>
+		<category><![CDATA[缓存]]></category>
+		<category><![CDATA[锁机制]]></category>
+		<guid isPermaLink="false">/?p=5356</guid>
+
+					<description><![CDATA[大型网站核心优化之MySQL优化 复习 什么是三范式： 就是设计数据库的规则 三范式好处：减少冗余，加快读写效 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>大型网站核心优化之MySQL优化</h1>
+<h1>复习</h1>
+<ul>
+<li>
+    什么是三范式： 就是设计数据库的规则
+  </li>
+<li>
+    三范式好处：减少冗余，加快读写效率
+  </li>
+<li>
+    三范式有哪些：
+  </li>
+</ul>
+<ol>
+<li>
+  每个字段不可以再分
+</li>
+<li>
+  一个表必须有主键、一个表只描述一件事
+</li>
+<li>
+  一个表不能包含其他表的非主键字段（一个表只能包含其他表的主键）
+</li>
+</ol>
+<ul>
+<li>
+    逆范式：以空间换时间
+  </li>
+</ul>
+<p>
+  MyIsam和InnoDB存储引擎区别
+</p>
+<ul>
+<li>
+    存储结构：myisam三个文件、innodb2个文件
+  </li>
+<li>
+    事物和外键支持：myisam都不支持，innodb都支持
+  </li>
+<li>
+    CURD操作：
+  </li>
+</ul>
+<p>
+  myisam读快
+</p>
+<p>
+  innodb增、改快（注：如果需要删除整个表数据，直接用TRUNCATE语句删）
+</p>
+<ul>
+<li>
+    全文检索：mysql5.6+版本innodb和myisam都支持（都不支持中文）
+  </li>
+<li>
+    锁：myisam支持表锁，innodb支持行和表锁
+  </li>
+</ul>
+<p>
+  字段类型选择：略（重要）
+</p>
+<p>
+  #索引种类
+</p>
+<p>
+  普通索引（index）				&#8211;  仅仅为加速
+</p>
+<p>
+  唯一索引（unique）				&#8211;  保证唯一性
+</p>
+<p>
+  主键索引（primary key）  		&#8211;  既保证唯一性又不能为null
+</p>
+<p>
+  全文索引（fulltext）				&#8211;  提取指定字段的内容增加索引
+</p>
+<p>
+  组合索引							&#8211;  给两个字段同时设置索引
+</p>
+<p>
+  #建表创建索引
+</p>
+<p>
+  create table 表名(
+</p>
+<p>
+  index（字段名）,
+</p>
+<p>
+  unique（字段名），
+</p>
+<p>
+  primary key （字段名），
+</p>
+<p>
+  fulltext （字段名），
+</p>
+<p>
+  index（字段名1，字段名2）
+</p>
+<p>
+  );
+</p>
+<p>
+  #修改表创建索引
+</p>
+<p>
+  创建索引：alter table 表名 add 索引类型 索引名（字段名）
+</p>
+<p>
+  删除索引：drop index 索引名 on 表名
+</p>
+<p>
+  慢查询日志作用：记录慢SQL语句
+</p>
+<p>
+  如何开启：
+</p>
+<p>
+  show variables like &#8216;slow_query%&#8217;;
+</p>
+<p>
+  show variables like &#8216;%query_time&#8217;;
+</p>
+<p>
+  如何分析慢SQL语句：explain 待分析的SQL语句 \G
+</p>
+<h1>︴场景：并发</h1>
+<h2>1、概念</h2>
+<p>
+  场景：在实际工作中会出现负库存
+</p>
+<p>
+  原因：并发
+</p>
+<p>
+  并发：好比同时有n多人超市结账
+</p>
+<h2>负库存案例代码</h2>
+<h3>1）SQL语句</h3>
+<p>
+  create database shop;
+</p>
+<p>
+  use shop;
+</p>
+<p>
+  &#8212; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  &#8212; Table structure for `goods`
+</p>
+<p>
+  &#8212; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  DROP TABLE IF EXISTS `goods`;
+</p>
+<p>
+  CREATE TABLE `goods` (
+</p>
+<p>
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+</p>
+<p>
+    `num` int(11) NOT NULL DEFAULT &#8216;0&#8217;,
+</p>
+<p>
+    PRIMARY KEY (`id`)
+</p>
+<p>
+  ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+</p>
+<p>
+  &#8212; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  &#8212; Records of goods
+</p>
+<p>
+  &#8212; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  INSERT INTO `goods` VALUES (&#8216;1&#8217;, &#8216;100&#8217;);
+</p>
+<h3>2）代码</h3>
+<p>
+  // 语法：ab -n 1000 -c 100 http://localhost/test/test.php
+</p>
+<p>
+  // 说明：n &#8211; 请求总数 ,  c  &#8211; 并且
+</p>
+<p>
+  //http://localhost/test/test.php
+</p>
+<p>
+  $conn = @mysql_connect(&#8216;127.0.0.1&#8242;,&#8217;root&#8217;,&#8217;root&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;set names utf8&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;use shop&#8217;);
+</p>
+<p>
+  // $fp = fopen(&#8216;lock.txt&#8217;, &#8216;w&#8217;);
+</p>
+<p>
+  // flock($fp, LOCK_EX);
+</p>
+<p>
+  mysql_query(&#8216;lock table goods write;&#8217;);
+</p>
+<p>
+  $sql = &#8220;select num from goods where id = 1&#8221;;
+</p>
+<p>
+  $res = mysql_query($sql);
+</p>
+<p>
+  $tmp = mysql_fetch_assoc($res);
+</p>
+<p>
+  $num = $tmp[&#8216;num&#8217;];
+</p>
+<p>
+  if ($num) {
+</p>
+<p>
+  //减库存
+</p>
+<p>
+  $sql=&#8221;update goods set num=num-1 where id = 1&#8243;;
+</p>
+<p>
+  mysql_query($sql);
+</p>
+<p>
+  }
+</p>
+<p>
+  // flock($fp, LOCK_UN);
+</p>
+<p>
+  mysql_query(&#8216;unlock table;&#8217;);
+</p>
+<p>
+  echo &#8216;ok&#8217;;
+</p>
+<p>
+  die;
+</p>
+<h2>解决</h2>
+<h3>MySQL锁（强烈不推荐）</h3>
+<p><img loading="lazy" decoding="async" width="750" height="653" src="/wp-content/uploads/2018/05/word-image-4848.png" class="wp-image-5357" srcset="/wp-content/uploads/2018/05/word-image-4848.png 750w, /wp-content/uploads/2018/05/word-image-4848-300x261.png 300w" sizes="(max-width: 750px) 100vw, 750px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  // 语法：ab -n 1000 -c 100 http://localhost/test/test.php
+</p>
+<p>
+  // 说明：n &#8211; 请求总数 ,  c  &#8211; 并且
+</p>
+<p>
+  //http://localhost/test/test.php
+</p>
+<p>
+  $conn = @mysql_connect(&#8216;127.0.0.1&#8242;,&#8217;root&#8217;,&#8217;root&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;set names utf8&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;use shop&#8217;);
+</p>
+<p>
+  // mysql_query(&#8216;lock table goods write&#8217;);//开启排它锁
+</p>
+<p>
+  $sql = &#8220;select num from goods where id = 1&#8221;;
+</p>
+<p>
+  $res = mysql_query($sql);
+</p>
+<p>
+  $tmp = mysql_fetch_assoc($res);
+</p>
+<p>
+  $num = $tmp[&#8216;num&#8217;];
+</p>
+<p>
+  if ($num) {
+</p>
+<p>
+  	//减库存
+</p>
+<p>
+  	$sql=&#8221;update goods set num=num-1 where id = 1&#8243;;
+</p>
+<p>
+  	mysql_query($sql);
+</p>
+<p>
+  	// mysql_query(&#8216;unlock table&#8217;);//释放锁
+</p>
+<p>
+  }
+</p>
+<p>
+  echo &#8216;ok&#8217;;
+</p>
+<p>
+  die;
+</p>
+<h3>2）文件锁（不推荐）</h3>
+<p><img loading="lazy" decoding="async" width="779" height="659" src="/wp-content/uploads/2018/05/word-image-4849.png" class="wp-image-5358" srcset="/wp-content/uploads/2018/05/word-image-4849.png 779w, /wp-content/uploads/2018/05/word-image-4849-300x254.png 300w, /wp-content/uploads/2018/05/word-image-4849-768x650.png 768w" sizes="(max-width: 779px) 100vw, 779px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  // 语法：ab -n 1000 -c 100 http://localhost/test/test.php
+</p>
+<p>
+  // 说明：n &#8211; 请求总数 ,  c  &#8211; 并且
+</p>
+<p>
+  //http://localhost/test/test.php
+</p>
+<p>
+  $conn = @mysql_connect(&#8216;127.0.0.1&#8242;,&#8217;root&#8217;,&#8217;root&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;set names utf8&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;use shop&#8217;);
+</p>
+<p>
+  // mysql_query(&#8216;lock table goods write&#8217;);//开启排它锁
+</p>
+<p>
+  $fp = fopen(&#8216;lock.txt&#8217;, &#8216;a+&#8217;);
+</p>
+<p>
+  flock($fp, LOCK_EX);
+</p>
+<p>
+  $sql = &#8220;select num from goods where id = 1&#8221;;
+</p>
+<p>
+  $res = mysql_query($sql);
+</p>
+<p>
+  $tmp = mysql_fetch_assoc($res);
+</p>
+<p>
+  $num = $tmp[&#8216;num&#8217;];
+</p>
+<p>
+  if ($num) {
+</p>
+<p>
+  	//减库存
+</p>
+<p>
+  	$sql=&#8221;update goods set num=num-1 where id = 1&#8243;;
+</p>
+<p>
+  	$rs = mysql_query($sql);
+</p>
+<p>
+  	// mysql_query(&#8216;unlock table&#8217;);//释放锁
+</p>
+<p>
+  	flock(LOCK_UN);
+</p>
+<p>
+  }
+</p>
+<p>
+  echo &#8216;ok&#8217;;
+</p>
+<p>
+  die;
+</p>
+<h3>3）消息队列（推荐）</h3>
+<h1>︴扩展：MySQL中锁机制【★★★】</h1>
+<h2>概念</h2>
+<p>
+  在MySQL数据库中MyISAM存储引擎采用的是表级锁，InnoDB存储引擎采用的是行级锁、也支表行级锁。（ps. 锁分两种模式，分别为：共享锁和排他锁）
+</p>
+<p>
+  共享读锁/共享锁（lock table 表名read;）    其他用户：读-可以，写-堵塞
+</p>
+<p>
+  独占写锁/排他锁（lock table 表名 write;）   其他用户：读-堵塞，写-堵塞
+</p>
+<p>
+  释放锁：unlock table
+</p>
+<h2>2、练习</h2>
+<h3>1）表锁的演示</h3>
+<ul>
+<li>
+    MyISAM表锁
+  </li>
+</ul>
+<p>
+  create table lock_t1 (
+</p>
+<p>
+  id int primary key auto_increment,
+</p>
+<p>
+  name varchar(30) not null
+</p>
+<p>
+  )engine=myisam charset=utf8;
+</p>
+<p>
+  #session1，开启共享锁
+</p>
+<p>
+  lock table lock_t1 read;
+</p>
+<p>
+  #session1，读（可以）
+</p>
+<p>
+  #session1，写（不可以，报错）
+</p>
+<p>
+  #session2，读（可以）
+</p>
+<p>
+  #session2，写（堵塞）
+</p>
+<p>
+  unlock table;
+</p>
+<p>
+  #session1，开启排他锁
+</p>
+<p>
+  lock table lock_t1 write;
+</p>
+<p>
+  #session1，读（可以）
+</p>
+<p>
+  #session1，写（可以）
+</p>
+<p>
+  #session2，读（堵塞）
+</p>
+<p>
+  #session2，写（堵塞）
+</p>
+<p>
+  unlock table;
+</p>
+<ul>
+<li>
+    InnoDB表锁
+  </li>
+</ul>
+<p>
+  create table lock_t2 (
+</p>
+<p>
+  id int primary key auto_increment,
+</p>
+<p>
+  name varchar(30) not null
+</p>
+<p>
+  )engine=innodb charset=utf8;
+</p>
+<p>
+  #session1，开启共享锁
+</p>
+<p>
+  lock table lock_t2 read;
+</p>
+<p>
+  #session1，读（可以）
+</p>
+<p>
+  #session1，写（不可以，报错）
+</p>
+<p>
+  #session2，读（可以）
+</p>
+<p>
+  #session2，写（堵塞）
+</p>
+<p>
+  unlock table;
+</p>
+<p>
+  #session1，开启排他锁
+</p>
+<p>
+  lock table lock_t2 write;
+</p>
+<p>
+  #session1，读（可以）
+</p>
+<p>
+  #session1，写（可以）
+</p>
+<p>
+  #session2，读（堵塞）
+</p>
+<p>
+  #session2，写（堵塞）
+</p>
+<p>
+  unlock table;
+</p>
+<ul>
+<li>
+    验证：MyISAM存储引擎默认是表级锁
+  </li>
+</ul>
+<p>
+  上一讲我们插入了1千万数据不适用主键索引查询需要3~4min，问A窗口查询过程中B窗口修改等待还是直接执行？
+</p>
+<p>
+  分析：因为myisam是表锁，所以写堵塞
+</p>
+<p>
+  回答：堵塞
+</p>
+<h3>2）行锁的演示</h3>
+<p>
+  create table t2 (
+</p>
+<p>
+  id int primary key auto_increment,
+</p>
+<p>
+  name varchar(30) not null
+</p>
+<p>
+  )engine=innodb charset=utf8;
+</p>
+<p>
+  insert into t2 value (null, &#8216;aaa&#8217;);
+</p>
+<p>
+  insert into t2 value (null, &#8216;aaa&#8217;);
+</p>
+<p>
+  begin;
+</p>
+<p>
+  update t2 set name = &#8216;bb&#8217; where id = 1;
+</p>
+<p>
+  update t2 set name = &#8216;ccc&#8217; where id = 1;
+</p>
+<h2><a id="post-5356-_Toc435371841"></a>3、锁的特点</h2>
+<ul>
+<li>
+    表级锁代表（MyISAM）：开销小，加锁快；不会出现死锁；锁定粒度大，发生锁
+  </li>
+</ul>
+<p>
+  冲突的概率最高，并发度最低（堵塞频率高）。
+</p>
+<p>
+  开销小：相对行级锁加锁资源较少
+</p>
+<p>
+  锁定颗粒度大：指锁的级别，最小的行级锁，最大的表锁
+</p>
+<p>
+  锁冲突高：因为针对整个表加锁，除非没有其他人操作否则冲突概率大
+</p>
+<ul>
+<li>
+    行级锁（InnoDB）：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突概
+  </li>
+</ul>
+<p>
+  率最低，并发度也最高（堵塞频率低）。
+</p>
+<p>
+  死锁：指开启事物不提交导致
+</p>
+<h1>︴扩展：PHP中的文件锁机制【★★★】</h1>
+<h2>1、说明</h2>
+<p>
+  文件锁机制一般在单独操作文件时看不到效果，需要多人同时操作（并发）
+</p>
+<h2>2、文件锁的用途（举例）</h2>
+<p>
+  若一个人在写入一个文件，另外一个人同时也打个了这个文件进行写入文件。
+</p>
+<p>
+  这情况下，很难明确谁的操作为准。因此，这个时候我们引入锁机制。若用户A在写入或者读取这个文件的时候，将文件加上共享锁。我可以读，其他人也可以读。但是，其他人不可以写。我使用独占锁/排它锁。这个文件归我了，你们都别动，除非我将文件锁进行释放。
+</p>
+<p>
+  A共享锁    B：读-可以，写-不行（堵塞）
+</p>
+<p>
+  A排它锁    B：读-不行（堵塞），写-不行（堵塞）
+</p>
+<h2>语法</h2>
+<ul>
+<li>
+    语法：flock（资源，锁类型）
+  </li>
+<li>
+    锁类型
+  </li>
+</ul>
+<p>
+  LOCK_SH    	取得共享锁定（读取的程序）
+</p>
+<p>
+  LOCK_EX		取得独占锁/排它锁定（写入的程序）
+</p>
+<p>
+  LOCK_UN    	释放锁定（无论共享或独占）
+</p>
+<p>
+  LOCK_NB		当被锁定时，不阻塞，而是提示锁定。
+</p>
+<p>
+  r   读  ，指针文件头
+</p>
+<p>
+  r+  读写，指针文件头（文件必须先存在）
+</p>
+<p>
+  w   写  ，清空数据，文件不存在自动创建
+</p>
+<p>
+  w+  读写，清空数据，文件不存在自动创建
+</p>
+<p>
+  a   写  ，追加数据，文件不存在自动创建
+</p>
+<p>
+  a+  读写，追加数据，文件不存在自动创建
+</p>
+<p>
+  脚下留心：加锁必须释放
+</p>
+<p>
+  浏览器机制：当前用户同一浏览器请求同一个文件，堵塞，所以使用两个文件测试
+</p>
+<ul>
+<li>
+    案例
+  </li>
+</ul>
+<p>
+  a.php
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  header(&#8216;content-type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  /**
+</p>
+<p>
+  r  只读，并且光标行首
+</p>
+<p>
+  r+ 读写（注：文件必须存在）
+</p>
+<p>
+  w  写  （清空数据，文件不存在自动创建）
+</p>
+<p>
+  w+ 读写（清空数据，文件不存在自动创建）
+</p>
+<p>
+  a  写  （追加数据，文件不存在自动创建）
+</p>
+<p>
+  a+ 读写（追加数据，文件不存在自动创建）
+</p>
+<p>
+  */
+</p>
+<p>
+  $fp = fopen(&#8216;./a.txt&#8217;, &#8216;a+&#8217;);
+</p>
+<p>
+  /**
+</p>
+<p>
+  LOCK_SH 获取读锁（共享锁）
+</p>
+<p>
+  LOCK_EX 获取写锁（排他锁）
+</p>
+<p>
+  LOCK_UN 释放锁
+</p>
+<p>
+  LOCK_NB 当被锁定时，不阻塞，而是提示锁定。
+</p>
+<p>
+  */
+</p>
+<p>
+  if (flock($fp, LOCK_EX)) {
+</p>
+<p>
+  	echo fread($fp, 20);
+</p>
+<p>
+  	sleep(15);
+</p>
+<p>
+  	echo fread($fp, 20);
+</p>
+<p>
+  	flock($fp, LOCK_UN);
+</p>
+<p>
+  }
+</p>
+<p>
+  b.php
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  $fp = fopen(&#8216;./a.txt&#8217;, &#8216;a+&#8217;);
+</p>
+<p>
+  /**
+</p>
+<p>
+  LOCK_SH 获取读锁（共享锁）
+</p>
+<p>
+  LOCK_EX 获取写锁（排他锁）
+</p>
+<p>
+  LOCK_UN 释放所
+</p>
+<p>
+  LOCK_NB 当被锁定时，不阻塞，而是提示锁定。
+</p>
+<p>
+  */
+</p>
+<p>
+  if (flock($fp, LOCK_EX | LOCK_NB)) {
+</p>
+<p>
+  	echo 11;die;
+</p>
+<p>
+  	// echo fread($fp, 20);
+</p>
+<p>
+  	$rs = fwrite($fp, 9);
+</p>
+<p>
+  	var_dump($rs);
+</p>
+<p>
+  	flock($fp, LOCK_UN);
+</p>
+<p>
+  }
+</p>
+<h2>应用场景</h2>
+<p>
+  秒杀项目，不推荐   -&gt;  可用 php + redis 消息队列代替
+</p>
+<p>
+  第三方支付通知文件锁案例
+</p>
+<h1>一、前缀索引</h1>
+<h2>1、什么是前缀索引</h2>
+<h3>1）概念</h3>
+<p>
+  前缀索引：指一个字段的内容，只需前面n个字符就可以具备唯一标识，将其创建为索引，最终形成“前缀索引”。
+</p>
+<p>
+  前缀索引好处：索引很长的字符列，它会使索引变大而且变慢，前缀索引能很好地减少索引的大小及提高速度。
+</p>
+<h3>举例</h3>
+<p>
+  name
+</p>
+<p>
+  啊增
+</p>
+<p>
+  小泽
+</p>
+<p>
+  玛丽
+</p>
+<p>
+  苍苍
+</p>
+<p>
+  姚姚
+</p>
+<p>
+  发现：以前需要把整个name字段看完，才能找到数据，现在因为姓名第一个字符【啊、小&#8230;】具备唯一性所以我们只要第一个字符就可以快速查找。
+</p>
+<h2>2、制作前缀索引</h2>
+<h3>1）创建数据</h3>
+<p>
+  create table qianzhui (
+</p>
+<p>
+  id int primary key auto_increment comment &#8216;编号&#8217;,
+</p>
+<p>
+  name varchar(30) not null comment &#8216;姓名&#8217;
+</p>
+<p>
+  )engine=myisam charset=utf8;
+</p>
+<p>
+  insert into qianzhui values (null, &#8216;张三&#8217;);
+</p>
+<p>
+  insert into qianzhui values (null, &#8216;王八三&#8217;);
+</p>
+<p>
+  insert into qianzhui values (null, &#8216;小三&#8217;);
+</p>
+<p>
+  insert into qianzhui values (null, &#8216;大三&#8217;);
+</p>
+<h3>2）创建前缀索引</h3>
+<p>
+  语法：alter table 表名 add  index 索引名(字段名(字符个数))
+</p>
+<p>
+  alter table qianzhui add index qianzhui(name(1));
+</p>
+<p><img loading="lazy" decoding="async" width="579" height="374" src="/wp-content/uploads/2018/05/word-image-4850.png" class="wp-image-5359" srcset="/wp-content/uploads/2018/05/word-image-4850.png 579w, /wp-content/uploads/2018/05/word-image-4850-300x194.png 300w" sizes="(max-width: 579px) 100vw, 579px" /></p>
+<h3>3）验证</h3>
+<p><img loading="lazy" decoding="async" width="899" height="527" src="/wp-content/uploads/2018/05/word-image-4851.png" class="wp-image-5360" srcset="/wp-content/uploads/2018/05/word-image-4851.png 899w, /wp-content/uploads/2018/05/word-image-4851-300x176.png 300w, /wp-content/uploads/2018/05/word-image-4851-768x450.png 768w" sizes="(max-width: 899px) 100vw, 899px" /></p>
+<h1>二、全文索引（了解）</h1>
+<h2>1、什么是全文索引</h2>
+<p>
+  试想在1M大小的文件中搜索一个词，可能需要几秒，在100M的文件中可能需要几十秒，如果在更大的文件中搜索那么就需要更大的系统开销，这样的开销是不现实的。
+</p>
+<p>
+  全文索引：提取指定字段里面的内容添加索引
+</p>
+<p>
+  目的：加速like语句查询速度（注：mysql全文索引不支持中文）  sphinx
+</p>
+<p><img loading="lazy" decoding="async" width="820" height="105" src="/wp-content/uploads/2018/05/word-image-4852.png" class="wp-image-5361" srcset="/wp-content/uploads/2018/05/word-image-4852.png 820w, /wp-content/uploads/2018/05/word-image-4852-300x38.png 300w, /wp-content/uploads/2018/05/word-image-4852-768x98.png 768w" sizes="(max-width: 820px) 100vw, 820px" /></p>
+<h2>2、具体操作</h2>
+<h3>1）创建测试数据</h3>
+<p>
+  #创建文章表
+</p>
+<p>
+  create table articles2 (
+</p>
+<p>
+  id int unsigned primary key auto_increment comment &#8216;编号&#8217;,
+</p>
+<p>
+  title varchar(80) not null comment &#8216;标题&#8217;,
+</p>
+<p>
+  content text not null comment &#8216;内容&#8217;
+</p>
+<p>
+  )engine=myisam charset=utf8;
+</p>
+<p>
+  #插入文章数据（禁中文，不支持）
+</p>
+<p>
+  insert into articles2
+</p>
+<p>
+  (title,content)
+</p>
+<p>
+  value
+</p>
+<p>
+  (&#8216;MySQL Tutorial&#8217;,&#8217;DBMS stands for DataBase &#8230;&#8217;),
+</p>
+<p>
+  (&#8216;How To Use MySQL Well&#8217;,&#8217;After you went through a &#8230;&#8217;),
+</p>
+<p>
+  (&#8216;Optimizing MySQL&#8217;,&#8217;In this tutorial we will show &#8230;&#8217;),
+</p>
+<p>
+  (&#8216;1001 MySQL Tricks&#8217;,&#8217;1. Never run mysqld as root. 2. &#8230;&#8217;),
+</p>
+<p>
+  (&#8216;MySQL vs. YourSQL&#8217;,&#8217;In the following database comparison &#8230;&#8217;),
+</p>
+<p>
+  (&#8216;MySQL Security&#8217;,&#8217;When configured properly, MySQL &#8230;&#8217;);
+</p>
+<h3>添加全文所引</h3>
+<p>
+  alter table articles2 add fulltext title(title);
+</p>
+<h3>使用全文索引</h3>
+<ul>
+<li>
+    语法：select * from 表名where match(字段) against(‘内容’ IN BOOLEAN MODE);
+  </li>
+<li>
+    参数：
+  </li>
+<li>
+    如果添加全文索引是多个字段，如：fulltext（title，content）则查询语句字段处格
+  </li>
+</ul>
+<p>
+  式：match（字段1，字段2）
+</p>
+<ul>
+<li>
+    如果需要检索多个关键字，则内容处：‘内容1,内容2’
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="850" height="551" src="/wp-content/uploads/2018/05/word-image-4853.png" class="wp-image-5362" srcset="/wp-content/uploads/2018/05/word-image-4853.png 850w, /wp-content/uploads/2018/05/word-image-4853-300x194.png 300w, /wp-content/uploads/2018/05/word-image-4853-768x498.png 768w" sizes="(max-width: 850px) 100vw, 850px" /></p>
+<h1>三、limit分页优化（百万至千万级快速分页）</h1>
+<h2>1、概念</h2>
+<p>
+  当数据单表数据超过一定量后分页查询特别慢
+</p>
+<h2>分析</h2>
+<p><img loading="lazy" decoding="async" width="816" height="421" src="/wp-content/uploads/2018/05/word-image-4854.png" class="wp-image-5363" srcset="/wp-content/uploads/2018/05/word-image-4854.png 816w, /wp-content/uploads/2018/05/word-image-4854-300x155.png 300w, /wp-content/uploads/2018/05/word-image-4854-768x396.png 768w" sizes="(max-width: 816px) 100vw, 816px" /></p>
+<h2>思路</h2>
+<p>
+  1、从业务角度优化（百度、谷歌分页限制）
+</p>
+<p>
+  2、使用索引查询（where 条件 limit 数字）       索引+缓存（策略：功能+分页作为缓存唯一标识）
+</p>
+<ol>
+<li>
+  索引使用
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="863" height="546" src="/wp-content/uploads/2018/05/word-image-4855.png" class="wp-image-5364" srcset="/wp-content/uploads/2018/05/word-image-4855.png 863w, /wp-content/uploads/2018/05/word-image-4855-300x190.png 300w, /wp-content/uploads/2018/05/word-image-4855-768x486.png 768w" sizes="(max-width: 863px) 100vw, 863px" /><br />
+<img loading="lazy" decoding="async" width="1283" height="443" src="/wp-content/uploads/2018/05/word-image-4856.png" class="wp-image-5365" srcset="/wp-content/uploads/2018/05/word-image-4856.png 1283w, /wp-content/uploads/2018/05/word-image-4856-300x104.png 300w, /wp-content/uploads/2018/05/word-image-4856-768x265.png 768w, /wp-content/uploads/2018/05/word-image-4856-1024x354.png 1024w" sizes="(max-width: 1283px) 100vw, 1283px" /></p>
+<p>
+  发现：where通过主键赛选非常快，但是增加多个条件又慢了
+</p>
+<p><img loading="lazy" decoding="async" width="651" height="109" src="/wp-content/uploads/2018/05/word-image-4857.png" class="wp-image-5366" srcset="/wp-content/uploads/2018/05/word-image-4857.png 651w, /wp-content/uploads/2018/05/word-image-4857-300x50.png 300w" sizes="(max-width: 651px) 100vw, 651px" /></p>
+<p>
+  解决：添加组合索引
+</p>
+<p><img loading="lazy" decoding="async" width="877" height="654" src="/wp-content/uploads/2018/05/word-image-4858.png" class="wp-image-5367" srcset="/wp-content/uploads/2018/05/word-image-4858.png 877w, /wp-content/uploads/2018/05/word-image-4858-300x224.png 300w, /wp-content/uploads/2018/05/word-image-4858-768x573.png 768w" sizes="(max-width: 877px) 100vw, 877px" /></p>
+<h1>五、查询缓存（了解）</h1>
+<h2>1、概念</h2>
+<p>
+  MySQL第一次执行后保存缓存数据，第二次直接从缓存中读取。
+</p>
+<h2>相关SQL语句</h2>
+<p>
+  查看SQL缓存参数：show variables like &#8216;query_cache%&#8217;;
+</p>
+<p>
+  开启SQL缓存：set global query_cache_type = 1
+</p>
+<p>
+  关闭SQL缓存：set global query_cache_type = 0
+</p>
+<p>
+  设置缓存空间：set global query_cache_size = 1024*1024*64  #单位/M
+</p>
+<p>
+  固定SQL语句声明不适用缓存：select sql_no_cache * from 表名
+</p>
+<h2>开启缓存</h2>
+<p>
+  步骤1：测试数据库
+</p>
+<p><img loading="lazy" decoding="async" width="465" height="149" src="/wp-content/uploads/2018/05/word-image-4859.png" class="wp-image-5368" srcset="/wp-content/uploads/2018/05/word-image-4859.png 465w, /wp-content/uploads/2018/05/word-image-4859-300x96.png 300w" sizes="(max-width: 465px) 100vw, 465px" /></p>
+<p>
+  步骤2：开启缓存
+</p>
+<p>
+  set global query_cache_type = 1;
+</p>
+<p><img loading="lazy" decoding="async" width="425" height="450" src="/wp-content/uploads/2018/05/word-image-4860.png" class="wp-image-5369" srcset="/wp-content/uploads/2018/05/word-image-4860.png 425w, /wp-content/uploads/2018/05/word-image-4860-283x300.png 283w" sizes="(max-width: 425px) 100vw, 425px" /></p>
+<p>
+  步骤3：设置缓存空间
+</p>
+<p><img loading="lazy" decoding="async" width="480" height="300" src="/wp-content/uploads/2018/05/word-image-4861.png" class="wp-image-5370" srcset="/wp-content/uploads/2018/05/word-image-4861.png 480w, /wp-content/uploads/2018/05/word-image-4861-300x188.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></p>
+<p>
+  步骤4：测试
+</p>
+<p><img loading="lazy" decoding="async" width="513" height="313" src="/wp-content/uploads/2018/05/word-image-4862.png" class="wp-image-5371" srcset="/wp-content/uploads/2018/05/word-image-4862.png 513w, /wp-content/uploads/2018/05/word-image-4862-300x183.png 300w" sizes="(max-width: 513px) 100vw, 513px" /></p>
+<h2>4、不使用缓存</h2>
+<p><img loading="lazy" decoding="async" width="634" height="392" src="/wp-content/uploads/2018/05/word-image-4863.png" class="wp-image-5372" srcset="/wp-content/uploads/2018/05/word-image-4863.png 634w, /wp-content/uploads/2018/05/word-image-4863-300x185.png 300w" sizes="(max-width: 634px) 100vw, 634px" /></p>
+<h2>说明</h2>
+<p>
+  发现：该功能了解即可，这是从MySQL层面缓存不推荐使用，因为及时缓存了PHP操作MySQL还是有额外开销
+</p>
+<p>
+  解决：后期通过php直接操作内存缓存（内存缓存  &gt; 文件缓存  &gt;  数据库）
+</p>
+<p><img loading="lazy" decoding="async" width="832" height="706" src="/wp-content/uploads/2018/05/word-image-4864.png" class="wp-image-5373" srcset="/wp-content/uploads/2018/05/word-image-4864.png 832w, /wp-content/uploads/2018/05/word-image-4864-300x255.png 300w, /wp-content/uploads/2018/05/word-image-4864-768x652.png 768w" sizes="(max-width: 832px) 100vw, 832px" /></p>
+<h1>六、分表技术（重点）</h1>
+<h2>1、水平分表</h2>
+<h3>1）说明</h3>
+<p>
+  当一个表很大时我们创建索引后，查询速度还是很慢, 把一个巨大的表安装某个
+</p>
+<p>
+  标准分割成小表，这样可以提供查询的速度.
+</p>
+<p><img loading="lazy" decoding="async" width="551" height="384" src="/wp-content/uploads/2018/05/word-image-4865.png" class="wp-image-5374" srcset="/wp-content/uploads/2018/05/word-image-4865.png 551w, /wp-content/uploads/2018/05/word-image-4865-300x209.png 300w" sizes="(max-width: 551px) 100vw, 551px" /></p>
+<h3>2）原理</h3>
+<p><img loading="lazy" decoding="async" width="1128" height="534" src="/wp-content/uploads/2018/05/word-image-4866.png" class="wp-image-5375" srcset="/wp-content/uploads/2018/05/word-image-4866.png 1128w, /wp-content/uploads/2018/05/word-image-4866-300x142.png 300w, /wp-content/uploads/2018/05/word-image-4866-768x364.png 768w, /wp-content/uploads/2018/05/word-image-4866-1024x485.png 1024w" sizes="(max-width: 1128px) 100vw, 1128px" /></p>
+<h2>2、垂直分表</h2>
+<ul>
+<li>
+    目的：减少字段长度，加快查询速度。
+  </li>
+<li>
+    表中存在多个字段：常用字段和非常用字段
+  </li>
+<li>
+    例如：学生表可以分成，分为基础表和额外表，两张表中记录为1:1的关系。
+  </li>
+</ul>
+<p>
+  原表
+</p>
+<p>
+  id   name  pwd   age    sex   籍贯    政治面貌   &#8230;&#8230;
+</p>
+<p>
+  垂直分割表
+</p>
+<p>
+  基础信息表（student_base）
+</p>
+<p>
+  id	 	name	 age  pwd
+</p>
+<p>
+  额外信息表（student_extra）
+</p>
+<p>
+  id		籍贯	政治面貌
+</p>
+<h2><a id="post-5356-_Toc448765224"></a>3、为什么需要MySQL分表/分区</h2>
+<p>
+  假设一个数据表中存储1亿条记录，我们检索数据就必须检索1亿条记录，但
+</p>
+<p>
+  是这样是非常耗时的，因为MySQL本质还是以文件形式存储的，所以其读取
+</p>
+<p>
+  都要涉及到服务器的I/O开销，这就是MySQL的性能瓶颈。遇到这种情况，我
+</p>
+<p>
+  们就可以使用分表程序，把1亿条记录的数据表分割成10份：每一份只需要存
+</p>
+<p>
+  储1000万条数据，这样其数据的检索也会变得更加高效！
+</p>
+<h2>分区算法</h2>
+<h3>1）MySQL四种分区算法介绍</h3>
+<ul>
+<li>
+    求余（主键字段）：
+  </li>
+<li>
+    key  利用某个字段的值，进行求余，完成分区
+  </li>
+<li>
+    hash 利用某个整型表达式的值，完成分区
+  </li>
+<li>
+    条件：
+  </li>
+<li>
+    list   值在指定列表内的分区
+  </li>
+<li>
+    range 值在某个范围内的分区
+  </li>
+</ul>
+<h3>2）分区语法</h3>
+<p>
+  说明：在创建表都得时候进行分区，后期也可以增加和删除分区
+</p>
+<p>
+  语法：
+</p>
+<p>
+  create table 表名(
+</p>
+<p>
+  )engine=存储引擎 charset=编号
+</p>
+<p>
+  partition by 分区算法（字段） 分区选项；
+</p>
+<h3>key分区</h3>
+<p>
+  #创建数据库p1
+</p>
+<p>
+  create database p1;
+</p>
+<p>
+  #选择数据库
+</p>
+<p>
+  use p1;
+</p>
+<p>
+  #创建表
+</p>
+<p>
+  create table articles(
+</p>
+<p>
+    id int unsigned primary key auto_increment,
+</p>
+<p>
+    title varchar(50) not null,
+</p>
+<p>
+    content text
+</p>
+<p>
+  ) engine = myisam charset = utf8
+</p>
+<p>
+  partition by key(id) partitions <strong>10</strong>;
+</p>
+<p>
+  #根据key算法，创建10个分区（注：就相当于创建了10个表）
+</p>
+<p>
+  insert into articles values (null,&#8217;aaa&#8217;,&#8217;bb&#8217;);
+</p>
+<p>
+  flush table articles;
+</p>
+<p><img loading="lazy" decoding="async" width="1079" height="522" src="/wp-content/uploads/2018/05/word-image-4867.png" class="wp-image-5376" srcset="/wp-content/uploads/2018/05/word-image-4867.png 1079w, /wp-content/uploads/2018/05/word-image-4867-300x145.png 300w, /wp-content/uploads/2018/05/word-image-4867-768x372.png 768w, /wp-content/uploads/2018/05/word-image-4867-1024x495.png 1024w" sizes="(max-width: 1079px) 100vw, 1079px" /></p>
+<p>
+  多学一招：flush table 表名; 刷新表清除缓存
+</p>
+<h3>4）hash 分区</h3>
+<p>
+  #创建数据库p2
+</p>
+<p>
+  create database p2;
+</p>
+<p>
+  #选择数据库
+</p>
+<p>
+  use p2;
+</p>
+<p>
+  #创建表
+</p>
+<p>
+  create table articles(
+</p>
+<p>
+    id int unsigned primary key auto_increment,
+</p>
+<p>
+    title varchar(50) not null,
+</p>
+<p>
+    content text
+</p>
+<p>
+  ) engine = myisam charset = utf8
+</p>
+<p>
+  partition by hash (id) partitions <strong>4</strong>;
+</p>
+<p>
+  insert into articles values (null,&#8217;aaa&#8217;,&#8217;bb&#8217;);
+</p>
+<p>
+  flush table articles;
+</p>
+<p><img loading="lazy" decoding="async" width="1072" height="479" src="/wp-content/uploads/2018/05/word-image-4868.png" class="wp-image-5377" srcset="/wp-content/uploads/2018/05/word-image-4868.png 1072w, /wp-content/uploads/2018/05/word-image-4868-300x134.png 300w, /wp-content/uploads/2018/05/word-image-4868-768x343.png 768w, /wp-content/uploads/2018/05/word-image-4868-1024x458.png 1024w" sizes="(max-width: 1072px) 100vw, 1072px" /></p>
+<h3>5）list分区</h3>
+<p>
+  #创建数据库p3
+</p>
+<p>
+  create database p3;
+</p>
+<p>
+  #选择数据库
+</p>
+<p>
+  use p3;
+</p>
+<p>
+  #创建表
+</p>
+<p>
+  create table articles(
+</p>
+<p>
+    id int unsigned auto_increment,
+</p>
+<p>
+    title varchar(50) not null,
+</p>
+<p>
+    content text,
+</p>
+<p>
+    cid int unsigned,
+</p>
+<p>
+  primary key (id,cid)
+</p>
+<p>
+  ) engine = myisam charset = utf8
+</p>
+<p>
+  partition by list(cid) (
+</p>
+<p>
+  partition c1 values in (1,3),
+</p>
+<p>
+  partition c2 values in (2,4),
+</p>
+<p>
+  partition c3 values in (5,6,7)
+</p>
+<p>
+  );
+</p>
+<p>
+  #创建3个分区，当插入cid=1或者3进c1， 当插入cid=2或4进c2分区
+</p>
+<p>
+  insert into articles values (null,&#8217;aaa&#8217;,&#8217;bb&#8217;, 1);
+</p>
+<p>
+  flush table articles;
+</p>
+<p><img loading="lazy" decoding="async" width="1059" height="455" src="/wp-content/uploads/2018/05/word-image-4869.png" class="wp-image-5378" srcset="/wp-content/uploads/2018/05/word-image-4869.png 1059w, /wp-content/uploads/2018/05/word-image-4869-300x129.png 300w, /wp-content/uploads/2018/05/word-image-4869-768x330.png 768w, /wp-content/uploads/2018/05/word-image-4869-1024x440.png 1024w" sizes="(max-width: 1059px) 100vw, 1059px" /></p>
+<h3>5）range分区</h3>
+<p>
+  #创建一个数据库
+</p>
+<p>
+  create database p4;
+</p>
+<p>
+  #选择数据库
+</p>
+<p>
+  use p4;
+</p>
+<p>
+  #创建数据表并实现range分区
+</p>
+<p>
+  create table user(
+</p>
+<p>
+    id int not null auto_increment,
+</p>
+<p>
+    name varchar(40) not null,
+</p>
+<p>
+    birthday date not null default &#8216;0000-00-00&#8217;,
+</p>
+<p>
+    primary key(id,birthday)
+</p>
+<p>
+  ) engine = myisam default charset = utf8
+</p>
+<p>
+  partition by range(year(birthday)) (
+</p>
+<p>
+    partition 70hou values less than (1980),
+</p>
+<p>
+    partition 80hou values less than (1990),
+</p>
+<p>
+    partition 90hou values less than (2000),
+</p>
+<p>
+    partition 00hou values less than (2010)
+</p>
+<p>
+  );
+</p>
+<p>
+  insert into user values (null,&#8217;a&#8217;,&#8217;1970-01-01&#8242;);
+</p>
+<p>
+  insert into user values (null,&#8217;b&#8217;,&#8217;1980-01-01&#8242;);
+</p>
+<p>
+  insert into user values (null,&#8217;c&#8217;,&#8217;1990-01-01&#8242;);
+</p>
+<p>
+  # 有问题不符合条件
+</p>
+<p>
+  insert into user values (null,&#8217;d&#8217;,&#8217;2011-01-01&#8242;);
+</p>
+<p><img loading="lazy" decoding="async" width="340" height="160" src="/wp-content/uploads/2018/05/word-image-4870.png" class="wp-image-5379" srcset="/wp-content/uploads/2018/05/word-image-4870.png 340w, /wp-content/uploads/2018/05/word-image-4870-300x141.png 300w" sizes="(max-width: 340px) 100vw, 340px" /><br />
+<img loading="lazy" decoding="async" width="1052" height="553" src="/wp-content/uploads/2018/05/word-image-4871.png" class="wp-image-5380" srcset="/wp-content/uploads/2018/05/word-image-4871.png 1052w, /wp-content/uploads/2018/05/word-image-4871-300x158.png 300w, /wp-content/uploads/2018/05/word-image-4871-768x404.png 768w, /wp-content/uploads/2018/05/word-image-4871-1024x538.png 1024w" sizes="(max-width: 1052px) 100vw, 1052px" /></p>
+<h2>5、分区管理</h2>
+<h3>1、概念</h3>
+<ul>
+<li>
+    取余管理：增加分区-无影响，删除分区-无影响
+  </li>
+<li>
+    条件管理：增加分区-无影响，删除分区-数据丢失
+  </li>
+</ul>
+<h3>取余管理（key，hash）</h3>
+<p>
+  增加分区数量：alter table 表名 add partition partitions 增加分区的数量
+</p>
+<p>
+  减少分区数量：alter table 表名 coalesce partition 减少分区的数量
+</p>
+<p><img loading="lazy" decoding="async" width="1075" height="625" src="/wp-content/uploads/2018/05/word-image-4872.png" class="wp-image-5381" srcset="/wp-content/uploads/2018/05/word-image-4872.png 1075w, /wp-content/uploads/2018/05/word-image-4872-300x174.png 300w, /wp-content/uploads/2018/05/word-image-4872-768x447.png 768w, /wp-content/uploads/2018/05/word-image-4872-1024x595.png 1024w" sizes="(max-width: 1075px) 100vw, 1075px" /></p>
+<h3>3、条件管理（list，range）</h3>
+<p>
+  删除分区：alter  table  表名  drop  partition  10hou;
+</p>
+<p>
+  添加分区
+</p>
+<p>
+  alter table tp_user add partition(
+</p>
+<p>
+    partition 10hou values less than (maxvalue)
+</p>
+<p>
+  );
+</p>
+<p>
+  alter table tp_goods add partition(
+</p>
+<p>
+    partition c4 values in (8,9,10)
+</p>
+<p>
+  );
+</p>
+<p><img loading="lazy" decoding="async" width="930" height="616" src="/wp-content/uploads/2018/05/word-image-4873.png" class="wp-image-5382" srcset="/wp-content/uploads/2018/05/word-image-4873.png 930w, /wp-content/uploads/2018/05/word-image-4873-300x199.png 300w, /wp-content/uploads/2018/05/word-image-4873-768x509.png 768w" sizes="(max-width: 930px) 100vw, 930px" /><br />
+<img loading="lazy" decoding="async" width="1102" height="638" src="/wp-content/uploads/2018/05/word-image-4874.png" class="wp-image-5383" srcset="/wp-content/uploads/2018/05/word-image-4874.png 1102w, /wp-content/uploads/2018/05/word-image-4874-300x174.png 300w, /wp-content/uploads/2018/05/word-image-4874-768x445.png 768w, /wp-content/uploads/2018/05/word-image-4874-1024x593.png 1024w" sizes="(max-width: 1102px) 100vw, 1102px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5356.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>网站优化（四）MySQL读写分离 原理、binlog日志、配置、TP中实现读写分离</title>
+		<link>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5342.html</link>
+					<comments>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5342.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 14:43:28 +0000</pubDate>
+				<category><![CDATA[优化方案]]></category>
+		<category><![CDATA[网站优化]]></category>
+		<category><![CDATA[binlog日志]]></category>
+		<category><![CDATA[TP中实现读写分离]]></category>
+		<category><![CDATA[原理]]></category>
+		<category><![CDATA[配置]]></category>
+		<guid isPermaLink="false">/?p=5342</guid>
+
+					<description><![CDATA[MySQL读写分离技术 一、读写分离（主从复制） 1、什么是主从复制、读写分离 主从复制：指定一台MySQL服 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>MySQL读写分离技术</h1>
+<h1><a id="post-5342-_Toc477016872"></a>一、读写分离（主从复制）</h1>
+<h2><a id="post-5342-_Toc477016873"></a><a id="post-5342-_Toc451441600"></a>1、什么是主从复制、读写分离</h2>
+<ul>
+<li>
+    主从复制：指定一台MySQL服务器专门写入数据，其他毫秒级自动复制（同步）
+  </li>
+<li>
+    读写分离：在主服务器增/改/删，从服务器查询
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="982" height="463" src="/wp-content/uploads/2018/05/word-image-4836.png" class="wp-image-5343" srcset="/wp-content/uploads/2018/05/word-image-4836.png 982w, /wp-content/uploads/2018/05/word-image-4836-300x141.png 300w, /wp-content/uploads/2018/05/word-image-4836-768x362.png 768w" sizes="(max-width: 982px) 100vw, 982px" /></p>
+<h2><a id="post-5342-_Toc451441601"></a><a id="post-5342-_Toc477016874"></a>2、实现原理</h2>
+<p><img loading="lazy" decoding="async" width="640" height="303" src="/wp-content/uploads/2018/05/word-image-4837.png" class="wp-image-5344" srcset="/wp-content/uploads/2018/05/word-image-4837.png 640w, /wp-content/uploads/2018/05/word-image-4837-300x142.png 300w" sizes="(max-width: 640px) 100vw, 640px" /></p>
+<h1>二、bin-log日志</h1>
+<h2>什么是bin-log日志</h2>
+<p>
+  binlog是以二进制存储的日志，直接打开无法查看，可以通过SQL查看，里面存储的是增、改、删SQL语句，后期可以通过binlog日志里面的SQL语句实现主从复制、或者灾难恢复。
+</p>
+<h2>开启binlog日志</h2>
+<p>
+  步骤1：vi  /etc/my.cnf
+</p>
+<p><img loading="lazy" decoding="async" width="418" height="190" src="/wp-content/uploads/2018/05/word-image-4838.png" class="wp-image-5345" srcset="/wp-content/uploads/2018/05/word-image-4838.png 418w, /wp-content/uploads/2018/05/word-image-4838-300x136.png 300w" sizes="(max-width: 418px) 100vw, 418px" /></p>
+<p>
+  步骤2：重启即可 + 验证
+</p>
+<p><img loading="lazy" decoding="async" width="577" height="239" src="/wp-content/uploads/2018/05/word-image-4839.png" class="wp-image-5346" srcset="/wp-content/uploads/2018/05/word-image-4839.png 577w, /wp-content/uploads/2018/05/word-image-4839-300x124.png 300w" sizes="(max-width: 577px) 100vw, 577px" /></p>
+<h2>2、查看logbin日志里面的内容</h2>
+<ul>
+<li>
+    列表（show master logs）
+  </li>
+<li>
+    清空（reset master）
+  </li>
+<li>
+    刷新（flush logs）      生成一个新编号的binlog日志文件
+  </li>
+<li>
+    查看指定日志（show binlog events in &#8216;mysql-bin.000002&#8217;）
+  </li>
+</ul>
+<h1><a id="post-5342-_Toc451441609"></a><a id="post-5342-_Toc477016882"></a>三、具体的配置步骤</h1>
+<h2><a id="post-5342-_Toc477016883"></a><a id="post-5342-_Toc451441610"></a>1、配置主服务器</h2>
+<ul>
+<li>
+    步骤1：开启bin日志；
+  </li>
+<li>
+    步骤2：设置一个server-id  该值必须唯一不能和从服务器相同；
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="408" height="236" src="/wp-content/uploads/2018/05/word-image-4840.png" class="wp-image-5347" srcset="/wp-content/uploads/2018/05/word-image-4840.png 408w, /wp-content/uploads/2018/05/word-image-4840-300x174.png 300w" sizes="(max-width: 408px) 100vw, 408px" /></p>
+<ul>
+<li>
+    步骤3：重启服务器
+  </li>
+<li>
+    步骤4：授权用户可以从从服务器登陆
+  </li>
+</ul>
+<p>
+  语法：create user &#8216;username&#8217;@&#8217;host&#8217; IDENTIFIED BY &#8216;password&#8217;;
+</p>
+<p>
+  语法：grant 权限列表 on 数据库名.表名 to &#8216;用户民&#8217;@&#8217;IP地址&#8217; identified by 密码
+</p>
+<p>
+  create user &#8216;laolu&#8217;@&#8217;%&#8217; IDENTIFIED BY &#8216;admin888&#8217;;
+</p>
+<p>
+  grant all on *.* to &#8216;laolu&#8217;@&#8217;%&#8217; identified by &#8216;admin888&#8217;;
+</p>
+<p>
+  FLUSH PRIVILEGES;
+</p>
+<p>
+  查看可登陆用户：select Host,user,password from mysql.user;
+</p>
+<ul>
+<li>
+    步骤5：添加3306防火墙例外
+  </li>
+</ul>
+<p>
+  service iptables stop
+</p>
+<h2><a id="post-5342-_Toc451441611"></a><a id="post-5342-_Toc477016884"></a>配置从服务器</h2>
+<ul>
+<li>
+    步骤1：设置一个server-id  该值必须唯一不能和从服务器相同；
+  </li>
+<li>
+    步骤2：重启服务器
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="413" height="243" src="/wp-content/uploads/2018/05/word-image-4841.png" class="wp-image-5348" srcset="/wp-content/uploads/2018/05/word-image-4841.png 413w, /wp-content/uploads/2018/05/word-image-4841-300x177.png 300w" sizes="(max-width: 413px) 100vw, 413px" /></p>
+<ul>
+<li>
+    步骤3：change master 语句指定同步位置
+  </li>
+</ul>
+<ol>
+<li>
+  切换到主服务器，查询相关信息，通过SQL语句【show master status;】
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="608" height="220" src="/wp-content/uploads/2018/05/word-image-4842.png" class="wp-image-5349" srcset="/wp-content/uploads/2018/05/word-image-4842.png 608w, /wp-content/uploads/2018/05/word-image-4842-300x109.png 300w" sizes="(max-width: 608px) 100vw, 608px" /></p>
+<p>
+  2）切换到所有从服务器执行下属命令
+</p>
+<p>
+  change master to
+</p>
+<p>
+  master_host=&#8217;<em>192.168.21.136</em>&#8216;,master_user=&#8217;laolu&#8217;,master_password=&#8217;admin888&#8242;,master_log_file=&#8217;<strong>mysql-bin.000005</strong>&#8216;,master_log_pos=<strong>120</strong>;
+</p>
+<p><img loading="lazy" decoding="async" width="1007" height="677" src="/wp-content/uploads/2018/05/word-image-4843.png" class="wp-image-5350" srcset="/wp-content/uploads/2018/05/word-image-4843.png 1007w, /wp-content/uploads/2018/05/word-image-4843-300x202.png 300w, /wp-content/uploads/2018/05/word-image-4843-768x516.png 768w" sizes="(max-width: 1007px) 100vw, 1007px" /></p>
+<ul>
+<li>
+    步骤4：启动主动同步
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="924" height="659" src="/wp-content/uploads/2018/05/word-image-4844.png" class="wp-image-5351" srcset="/wp-content/uploads/2018/05/word-image-4844.png 924w, /wp-content/uploads/2018/05/word-image-4844-300x214.png 300w, /wp-content/uploads/2018/05/word-image-4844-768x548.png 768w" sizes="(max-width: 924px) 100vw, 924px" /></p>
+<ul>
+<li>
+    步骤5：验证是否成功即可
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="600" height="318" src="/wp-content/uploads/2018/05/word-image-4845.png" class="wp-image-5352" srcset="/wp-content/uploads/2018/05/word-image-4845.png 600w, /wp-content/uploads/2018/05/word-image-4845-300x159.png 300w" sizes="(max-width: 600px) 100vw, 600px" /></p>
+<h2><a id="post-5342-_Toc477016885"></a><a id="post-5342-_Toc451441612"></a>3、测试</h2>
+<h1><a id="post-5342-_Toc477016887"></a><a id="post-5342-_Toc451441614"></a>三、TP框架里实现读写分离</h1>
+<p><img loading="lazy" decoding="async" width="1217" height="417" src="/wp-content/uploads/2018/05/word-image-4846.png" class="wp-image-5353" srcset="/wp-content/uploads/2018/05/word-image-4846.png 1217w, /wp-content/uploads/2018/05/word-image-4846-300x103.png 300w, /wp-content/uploads/2018/05/word-image-4846-768x263.png 768w, /wp-content/uploads/2018/05/word-image-4846-1024x351.png 1024w" sizes="(max-width: 1217px) 100vw, 1217px" /><br />
+<img loading="lazy" decoding="async" width="1189" height="598" src="/wp-content/uploads/2018/05/word-image-4847.png" class="wp-image-5354" srcset="/wp-content/uploads/2018/05/word-image-4847.png 1189w, /wp-content/uploads/2018/05/word-image-4847-300x151.png 300w, /wp-content/uploads/2018/05/word-image-4847-768x386.png 768w, /wp-content/uploads/2018/05/word-image-4847-1024x515.png 1024w" sizes="(max-width: 1189px) 100vw, 1189px" /></p>
+<h1>MySQL管理命令</h1>
+<p>
+  【mysql配置文件】
+</p>
+<p>
+  /etc/my.cnf
+</p>
+<p>
+  【开启mysql服务】
+</p>
+<p>
+  /php/server/mysql/bin/mysqld_safe &#8211;user=mysql &amp;
+</p>
+<p>
+  【关闭mysql服务】
+</p>
+<p>
+  ps -A | grep mysql        # 查看mysql进程
+</p>
+<p>
+  kill -9 进程PID 进程PID   #  结束进程  关闭mysql服务
+</p>
+<p>
+  【登陆MySQL数据库】
+</p>
+<p>
+   /php/server/mysql/bin/mysql -uroot -p</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5342.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>网站优化（五）Sphinx Coreseek、全文检索</title>
+		<link>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5303.html</link>
+					<comments>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5303.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 14:41:24 +0000</pubDate>
+				<category><![CDATA[优化方案]]></category>
+		<category><![CDATA[网站优化]]></category>
+		<category><![CDATA[Coreseek]]></category>
+		<category><![CDATA[Sphinx]]></category>
+		<category><![CDATA[全文检索]]></category>
+		<guid isPermaLink="false">/?p=5303</guid>
+
+					<description><![CDATA[Sphinx 一、了解Sphinx 1、为什么要用Sphinx 原因1：因为MySQL不支持中文全文索引、li [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>Sphinx</h1>
+<h1>一、了解Sphinx</h1>
+<h2>1、为什么要用Sphinx</h2>
+<p>
+  原因1：因为MySQL不支持中文全文索引、like语句查询满
+</p>
+<p>
+  原因2：sphinx支持中文分词（我 喜欢  php）
+</p>
+<p><img loading="lazy" decoding="async" width="603" height="575" src="/wp-content/uploads/2018/05/word-image-4801.png" class="wp-image-5304" srcset="/wp-content/uploads/2018/05/word-image-4801.png 603w, /wp-content/uploads/2018/05/word-image-4801-300x286.png 300w" sizes="(max-width: 603px) 100vw, 603px" /></p>
+<h2>2、什么是Sphinx</h2>
+<p>
+  由俄罗斯人开发的一个基于SQL的、高性能的全文检索软件，用于替代MySQL全文检索。
+</p>
+<h2>3、Sphinx的特性</h2>
+<h3>1）特性</h3>
+<p>
+  高速的建立索引（峰值性能达10M/s）
+</p>
+<p>
+  高性能的搜索（在2-4G的文本数据上，平均每次检索时间小于0.1秒）
+</p>
+<p>
+  可处理海量数据
+</p>
+<h3>2）优势</h3>
+<p>
+  Sphinx单一索引最大可包含1亿条记录，在1千万条记录情况下的查询速
+</p>
+<p>
+  度为0.x秒（毫秒级）。
+</p>
+<p>
+  Sphinx创建索引的速度为：创建100万条记录的索引只需 3～4分钟，创建1000
+</p>
+<p>
+  万条记录的索引可以在50分钟内完成，而只包含最新10万条记录的增量索引，重建一次只需几十秒。
+</p>
+<p>
+  创建索引必须关闭服务
+</p>
+<h2>4、Sphinx使用流程</h2>
+<p><img loading="lazy" decoding="async" width="480" height="356" src="/wp-content/uploads/2018/05/word-image-4802.png" class="wp-image-5305" srcset="/wp-content/uploads/2018/05/word-image-4802.png 480w, /wp-content/uploads/2018/05/word-image-4802-300x223.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></p>
+<ul>
+<li>
+    步骤1：sphinx去mysql中提取指定字段的关键词出现频率和位置按照词库的顺序归纳
+  </li>
+<li>
+    步骤2：php根据用户搜索的关键词去sphinx中匹配，获取对应的数据id（编号）
+  </li>
+<li>
+    步骤3：php根据检索的id去MySQL中查询具体数据
+  </li>
+</ul>
+<h1>二、安装Sphinx</h1>
+<h2>1、概念</h2>
+<h3>1）什么是Coreseek </h3>
+<p>
+  Coreseek 是一款中文全文检索/搜索软件，基于Sphinx研发并独立发布，专攻
+</p>
+<p>
+  中文搜索和信息处理领域，适用于行业/垂直搜索、论坛/站内搜索、数据库
+</p>
+<p>
+  搜索、文档/文献检索、信息检索、数据挖掘等应用场景。
+</p>
+<p>
+  简单概括：中文版的sphinx
+</p>
+<h3>2）Coreseek和sphinx的关系？</h3>
+<p>
+  sphinx默认只支持英文和俄文，但是它提供了一种方式可以支持任意一种语言，但是需要自己写相关语言语言词库。
+</p>
+<p>
+  Coreseek是在sphinx的基本上添加了中文词库的二次开发。
+</p>
+<p>
+  简单概括：
+</p>
+<p>
+  sphinx不支持中文，但是开发作者提供了接口，coreseek就基于整个接口开发的。
+</p>
+<h3>3）下载地址</h3>
+<p>
+   Sphinx官网：<a href="http://www.sphinxsearch.com/">http://www.sphinxsearch.com/</a>
+</p>
+<p>
+  coreseek官网：<a href="http://www.coreseek.com/">http://www.coreseek.com/</a>  （版本：Coreseek 3.2.14）
+</p>
+<h2>2、安装Coreseek</h2>
+<h3>■ 安装包（绿色版）目录文件介绍</h3>
+<ul>
+<li>
+    bin\indexer.exe    创建索引文件
+  </li>
+<li>
+    bin\searchd.exe    服务端（后期php操作服务器必须启动）
+  </li>
+<li>
+    bin\search.exe     客户端（学习时测试使用，注DOS窗口测试编码gbk）
+  </li>
+<li>
+    ext\csft_mysql.conf 配置文件（声明索引和索引来源）
+  </li>
+</ul>
+<h3>1）安装</h3>
+<p><img loading="lazy" decoding="async" width="1230" height="426" src="/wp-content/uploads/2018/05/word-image-4803.png" class="wp-image-5306" srcset="/wp-content/uploads/2018/05/word-image-4803.png 1230w, /wp-content/uploads/2018/05/word-image-4803-300x104.png 300w, /wp-content/uploads/2018/05/word-image-4803-768x266.png 768w, /wp-content/uploads/2018/05/word-image-4803-1024x355.png 1024w" sizes="(max-width: 1230px) 100vw, 1230px" /></p>
+<p>
+  安装目录不能有空格特殊符号或中文
+</p>
+<h3>配置Sphinx（重要）</h3>
+<ul>
+<li>
+    步骤1：将etc/csft_mysql.conf复制并更名为sphinx.conf
+  </li>
+<li>
+    步骤2：打开shpinx.conf修改内容如下
+  </li>
+</ul>
+<p>
+  #数据源：数据来源定义（数据库信息、数据源SQL语句）
+</p>
+<p>
+  source music
+</p>
+<p>
+  {
+</p>
+<p>
+      #下面是sql数据库特有的端口，用户名，密码，数据库名等。
+</p>
+<p>
+      type                    = mysql
+</p>
+<p>
+      sql_host                = localhost
+</p>
+<p>
+      sql_user                = root
+</p>
+<p>
+      sql_pass                =
+</p>
+<p>
+      sql_db                  = test
+</p>
+<p>
+      sql_port                = 3306
+</p>
+<p>
+      sql_query_pre           = SET NAMES utf8
+</p>
+<p>
+      #sql_query属性：取出要创建索引的数据
+</p>
+<p>
+      #要求1：SELECT的第一个字段必须是主键、
+</p>
+<p>
+      #要求2：第一个字段的名字（别名）必须是id
+</p>
+<p>
+      #要求3：其他的字段就是要创建索引的字段
+</p>
+<p>
+      #需  求：为歌曲表中的title和content字段创建索引
+</p>
+<p>
+      sql_query               = SELECT id, title, author, content FROM music
+</p>
+<p>
+      #命令行查询时，设置正确的字符集
+</p>
+<p>
+      sql_query_info_pre      = SET NAMES utf8
+</p>
+<p>
+      #命令行查询时，从数据库读取原始数据信息
+</p>
+<p>
+      sql_query_info          = SELECT * FROM music WHERE id=$id
+</p>
+<p>
+  }
+</p>
+<p>
+  #索引的定义（索引文件存放的位置，索引文件的名字）
+</p>
+<p>
+  #每个index对应一个数据源，用来定义这个数据源生成的索引文件的信息
+</p>
+<p>
+  index music
+</p>
+<p>
+  {
+</p>
+<p>
+      #该索引对应哪个数据源
+</p>
+<p>
+      source            = music
+</p>
+<p>
+      #索引文件存放的目录和名字（存到E:/sphinx/var/data/目录下，索引文件的名字是music）
+</p>
+<p>
+      path              = E:/sphinx/var/data/music
+</p>
+<p>
+      docinfo           = extern
+</p>
+<p>
+      mlock             = 0
+</p>
+<p>
+      morphology        = none
+</p>
+<p>
+      min_word_len      = 1
+</p>
+<p>
+      html_strip        = 0
+</p>
+</p>
+<p>
+      #词库文件所在的目录
+</p>
+<p>
+      charset_dictpath = E:/sphinx/etc/
+</p>
+<p>
+  #字符集编码类型，可以为：（sbcs,utf-8,zh_cn.utf-8,zh_ch.gbk,zh_ch.big5）
+</p>
+<p>
+      charset_type        = zh_cn.utf-8
+</p>
+<p>
+  }
+</p>
+<p>
+  #全局index定义
+</p>
+<p>
+  indexer
+</p>
+<p>
+  {
+</p>
+<p>
+      #建立索引的时候，索引内存限制
+</p>
+<p>
+      mem_limit            = 128M
+</p>
+<p>
+  }
+</p>
+<p>
+  #searchd服务定义
+</p>
+<p>
+  searchd
+</p>
+<p>
+  {
+</p>
+<p>
+      listen              =   9312
+</p>
+<p>
+      read_timeout        = 5
+</p>
+<p>
+      max_children        = 30
+</p>
+<p>
+      max_matches         = 1000
+</p>
+<p>
+      seamless_rotate     = 0
+</p>
+<p>
+      preopen_indexes     = 0
+</p>
+<p>
+      unlink_old          = 1
+</p>
+</p>
+<p>
+      # 进程id文件
+</p>
+<p>
+      pid_file = E:/sphinx/var/log/searchd_mysql.pid
+</p>
+<p>
+      # 系统日志存放的位置
+</p>
+<p>
+      log = E:/sphinx/var/log/searchd_mysql.log
+</p>
+<p>
+      # 查询日志存放的位置
+</p>
+<p>
+      query_log = E:/sphinx/var/log/query_mysql.log
+</p>
+<p>
+  }
+</p>
+<p>
+  配置好sphinx.conf，必须建立对应的数据库，当建立索引的时候去要去数据库读取数据并创建索引文件
+</p>
+<p>
+  总结：
+</p>
+<p>
+  1、source 唯一索引名称{} 定义数据源，可以定义多个，每一个数据源对应一个index
+</p>
+<p>
+  a)修改数据库信息
+</p>
+<p>
+  b)修改待带创建索引SQL
+</p>
+<p>
+  2、index 唯一索引名称{} 定义索引，每个索引对应一个数据源
+</p>
+<p>
+  a) 索引文件的名字
+</p>
+<p>
+  b) 索引文件存放的位置
+</p>
+<p>
+  3、indexer{} 只能有一个 （作用：建索引时使用的内存量）
+</p>
+<p>
+  4、searchd{} 只能有一个，sphinx服务器进程
+</p>
+<p>
+  a) 系统日志存放的位置
+</p>
+<p>
+  b) 查询日志存放的位置
+</p>
+<h3>3）创建索引</h3>
+<p>
+  语法：indexer  -c 配置文件  索引名称  （注：全部索引&#8211;all）
+</p>
+<p><img loading="lazy" decoding="async" width="569" height="342" src="/wp-content/uploads/2018/05/word-image-4804.png" class="wp-image-5307" srcset="/wp-content/uploads/2018/05/word-image-4804.png 569w, /wp-content/uploads/2018/05/word-image-4804-300x180.png 300w" sizes="(max-width: 569px) 100vw, 569px" /></p>
+<h3>4）在DOS界面对索引进行测试</h3>
+<p>
+  语法：search -c 配置文件 内容
+</p>
+<p><img loading="lazy" decoding="async" width="627" height="337" src="/wp-content/uploads/2018/05/word-image-4805.png" class="wp-image-5308" srcset="/wp-content/uploads/2018/05/word-image-4805.png 627w, /wp-content/uploads/2018/05/word-image-4805-300x161.png 300w" sizes="(max-width: 627px) 100vw, 627px" /><br />
+<img loading="lazy" decoding="async" width="1057" height="414" src="/wp-content/uploads/2018/05/word-image-4806.png" class="wp-image-5309" srcset="/wp-content/uploads/2018/05/word-image-4806.png 1057w, /wp-content/uploads/2018/05/word-image-4806-300x118.png 300w, /wp-content/uploads/2018/05/word-image-4806-768x301.png 768w, /wp-content/uploads/2018/05/word-image-4806-1024x401.png 1024w" sizes="(max-width: 1057px) 100vw, 1057px" /><br />
+<img loading="lazy" decoding="async" width="1059" height="208" src="/wp-content/uploads/2018/05/word-image-4807.png" class="wp-image-5310" srcset="/wp-content/uploads/2018/05/word-image-4807.png 1059w, /wp-content/uploads/2018/05/word-image-4807-300x59.png 300w, /wp-content/uploads/2018/05/word-image-4807-768x151.png 768w, /wp-content/uploads/2018/05/word-image-4807-1024x201.png 1024w" sizes="(max-width: 1059px) 100vw, 1059px" /></p>
+<p>
+  因为是在DOS窗口测试所以切记更改编码为gbk
+</p>
+<p><img loading="lazy" decoding="async" width="709" height="358" src="/wp-content/uploads/2018/05/word-image-4808.png" class="wp-image-5311" srcset="/wp-content/uploads/2018/05/word-image-4808.png 709w, /wp-content/uploads/2018/05/word-image-4808-300x151.png 300w" sizes="(max-width: 709px) 100vw, 709px" /><br />
+<img loading="lazy" decoding="async" width="616" height="98" src="/wp-content/uploads/2018/05/word-image-4809.png" class="wp-image-5312" srcset="/wp-content/uploads/2018/05/word-image-4809.png 616w, /wp-content/uploads/2018/05/word-image-4809-300x48.png 300w" sizes="(max-width: 616px) 100vw, 616px" /></p>
+<h1>三、使用PHP API操作 Sphinx</h1>
+<h2>1、创建Sphinx服务</h2>
+<p>
+  创建服务：searchd  -c  配置文件 &#8211;install
+</p>
+<p>
+  删除服务：SC DELETE 服务名
+</p>
+<p>
+  启动服务：net start 服务名
+</p>
+<p>
+  关闭服务：net stop 服务名
+</p>
+<p><img loading="lazy" decoding="async" width="711" height="220" src="/wp-content/uploads/2018/05/word-image-4810.png" class="wp-image-5313" srcset="/wp-content/uploads/2018/05/word-image-4810.png 711w, /wp-content/uploads/2018/05/word-image-4810-300x93.png 300w" sizes="(max-width: 711px) 100vw, 711px" /></p>
+<h2>2、初体验（PHP操作Sphinx）</h2>
+<p><img loading="lazy" decoding="async" width="959" height="652" src="/wp-content/uploads/2018/05/word-image-4811.png" class="wp-image-5314" srcset="/wp-content/uploads/2018/05/word-image-4811.png 959w, /wp-content/uploads/2018/05/word-image-4811-300x204.png 300w, /wp-content/uploads/2018/05/word-image-4811-768x522.png 768w, /wp-content/uploads/2018/05/word-image-4811-220x150.png 220w" sizes="(max-width: 959px) 100vw, 959px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  header(&#8216;content-type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  /**
+</p>
+<p>
+   * 复制sphinx的接口文件到使用目录中
+</p>
+<p>
+   * 步骤1：引入接口文件
+</p>
+<p>
+   * 步骤2：创建服务对象 （new SphinxClient）
+</p>
+<p>
+   * 步骤3：创建服务,语法：setServer（服务器ip地址，端口）
+</p>
+<p>
+   * 步骤4：设置查询条数，语法：setLimits（起始位置，每页显示条数）
+</p>
+<p>
+   * 步骤5：查询，语法：query（关键词，索引名）
+</p>
+<p>
+   */
+</p>
+<p>
+  //1.引入接口文件
+</p>
+<p>
+  require &#8216;./sphinxapi.php&#8217;;
+</p>
+<p>
+  //2.创建sphinx对象
+</p>
+<p>
+  $sp = new SphinxClient;
+</p>
+<p>
+  //3.设置服务
+</p>
+<p>
+  $sp-&gt;setServer(&#8216;localhost&#8217;, 9312);
+</p>
+<p>
+  //4.设置分页
+</p>
+<p>
+  $sp-&gt;setLimits(0, 10);
+</p>
+<p>
+  //5.去索引中查询
+</p>
+<p>
+  $data = $sp-&gt;query(&#8216;冬天&#8217;, &#8216;music&#8217;);
+</p>
+<p>
+  echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+  print_r($data);die;
+</p>
+<p><img loading="lazy" decoding="async" width="517" height="325" src="/wp-content/uploads/2018/05/word-image-4812.png" class="wp-image-5315" srcset="/wp-content/uploads/2018/05/word-image-4812.png 517w, /wp-content/uploads/2018/05/word-image-4812-300x189.png 300w" sizes="(max-width: 517px) 100vw, 517px" /></p>
+<p>
+  源码原因：配置是gbk
+</p>
+<p>
+  解决：修改配置文件为utf8
+</p>
+<p>
+  步骤：
+</p>
+<ol>
+<li>
+  修改编码
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1063" height="157" src="/wp-content/uploads/2018/05/word-image-4813.png" class="wp-image-5316" srcset="/wp-content/uploads/2018/05/word-image-4813.png 1063w, /wp-content/uploads/2018/05/word-image-4813-300x44.png 300w, /wp-content/uploads/2018/05/word-image-4813-768x113.png 768w, /wp-content/uploads/2018/05/word-image-4813-1024x151.png 1024w" sizes="(max-width: 1063px) 100vw, 1063px" /><br />
+<img loading="lazy" decoding="async" width="790" height="445" src="/wp-content/uploads/2018/05/word-image-4814.png" class="wp-image-5317" srcset="/wp-content/uploads/2018/05/word-image-4814.png 790w, /wp-content/uploads/2018/05/word-image-4814-300x169.png 300w, /wp-content/uploads/2018/05/word-image-4814-768x433.png 768w" sizes="(max-width: 790px) 100vw, 790px" /></p>
+<p>
+  2.关闭服务
+</p>
+<p>
+  3.创建索引
+</p>
+<p>
+  4.开启服务
+</p>
+<p><img loading="lazy" decoding="async" width="653" height="450" src="/wp-content/uploads/2018/05/word-image-4815.png" class="wp-image-5318" srcset="/wp-content/uploads/2018/05/word-image-4815.png 653w, /wp-content/uploads/2018/05/word-image-4815-300x207.png 300w" sizes="(max-width: 653px) 100vw, 653px" /></p>
+<h2>3、匹配模式</h2>
+<h3>1）语法</h3>
+<ul>
+<li>
+    语法：$对象-&gt;setMatchMode（参数）
+  </li>
+<li>
+    参数
+  </li>
+<li>
+    SPH_MATCH_ALL       	 匹配所有词（默认）
+  </li>
+<li>
+    SPH_MATCH_ANY	    	 匹配一个词
+  </li>
+<li>
+    SPH_MATCH_PHRASE     匹配整一个词
+  </li>
+<li>
+    SPH_MATCH_BOOLEAN   将查询看作一个布尔表达式
+  </li>
+<li>
+    SPH_MATCH_EXTENDED  查询看做一个sphinx的表达式
+  </li>
+</ul>
+<h3>2）模式举例说明</h3>
+<p>
+  举例：我喜欢PHP
+</p>
+<p>
+  分词：我 喜欢 PHP
+</p>
+<h3>测试数据</h3>
+<p>
+  国外资深记者:我喜欢Vista的11大理由_国外最牛的PHP开源建站平台
+</p>
+<p>
+  为什么现在业界那么多人喜欢黑 PHP 且乐此不疲? &#8211; 知乎用户的我回答&#8230;
+</p>
+<p>
+  我叫XXXX
+</p>
+<p>
+  世界上最好的语言是PHP吗
+</p>
+<p>
+  PHP是世界上最好的语言
+</p>
+<p>
+  我喜欢PHP，你知道吗
+</p>
+<h3>匹配所有词（SPH_MATCH_ALL）</h3>
+<ul>
+<li>
+    说明：【我】、【喜欢】、【PHP】必须都存在，顺序不限
+  </li>
+<li>
+    结果：
+  </li>
+</ul>
+<p>
+  国外资深记者:我喜欢Vista的11大理由_国外最牛的PHP开源建站平台
+</p>
+<p>
+  为什么现在业界那么多人喜欢黑 PHP 且乐此不疲? &#8211; 知乎用户的我回答&#8230;
+</p>
+<p>
+  我叫XXXX
+</p>
+<p>
+  世界上最好的语言是PHP吗
+</p>
+<p>
+  PHP是世界上最好的语言
+</p>
+<p>
+  我喜欢PHP，你知道吗
+</p>
+<h3>匹配一个词（SPH_MATCH_ANY）</h3>
+<ul>
+<li>
+    说明：【我】、【喜欢】、【PHP】只要存在一个就可以
+  </li>
+<li>
+    结果：
+  </li>
+</ul>
+<p>
+  国外资深记者:我喜欢Vista的11大理由_国外最牛的PHP开源建站平台
+</p>
+<p>
+  为什么现在业界那么多人喜欢黑 PHP 且乐此不疲? &#8211; 知乎用户的我回答&#8230;
+</p>
+<p>
+  我叫XXXX
+</p>
+<p>
+  世界上最好的语言是PHP吗
+</p>
+<p>
+  PHP是世界上最好的语言
+</p>
+<p>
+  我喜欢PHP，你知道吗
+</p>
+<p>
+  脚下留心
+</p>
+<p><img loading="lazy" decoding="async" width="805" height="198" src="/wp-content/uploads/2018/05/word-image-4816.png" class="wp-image-5319" srcset="/wp-content/uploads/2018/05/word-image-4816.png 805w, /wp-content/uploads/2018/05/word-image-4816-300x74.png 300w, /wp-content/uploads/2018/05/word-image-4816-768x189.png 768w" sizes="(max-width: 805px) 100vw, 805px" /></p>
+<h3>匹配整个词（SPH_MATCH_PHRASE）</h3>
+<ul>
+<li>
+    说明：【我】、【喜欢】、【PHP】必须都存在，存储不能变
+  </li>
+<li>
+    结果：
+  </li>
+</ul>
+<p>
+  国外资深记者:我喜欢Vista的11大理由_国外最牛的PHP开源建站平台
+</p>
+<p>
+  为什么现在业界那么多人喜欢黑 PHP 且乐此不疲? &#8211; 知乎用户的我回答&#8230;
+</p>
+<p>
+  我叫XXXX
+</p>
+<p>
+  世界上最好的语言是PHP吗
+</p>
+<p>
+  PHP是世界上最好的语言
+</p>
+<p>
+  我喜欢PHP，你知道吗
+</p>
+<h3>将查询看作一个布尔表达式（SPH_MATCH_BOOLEAN） </h3>
+<ul>
+<li>
+    说明：就是通过运算查询
+  </li>
+<li>
+    举例：
+  </li>
+</ul>
+<p>
+  $rs = $sc-&gt;query(&#8216;冬天 !寒冷&#8217;, &#8216;music&#8217;);
+</p>
+<p>
+  内容中有冬天，但是没有寒冷的
+</p>
+<p>
+  $rs = $sc-&gt;query(&#8216;冬天 | 冷&#8217;, &#8216;music&#8217;);
+</p>
+<p>
+  内容中有冬天或者冷
+</p>
+<p>
+  $rs = $sc-&gt;query(&#8216;冬天 &amp; 冷&#8217;, &#8216;music&#8217;);
+</p>
+<p>
+  内容中有冬天并且有冷
+</p>
+<ul>
+<li>
+    结果：（PHP | JAVA    PHP &amp; 喜欢）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="691" height="325" src="/wp-content/uploads/2018/05/word-image-4817.png" class="wp-image-5320" srcset="/wp-content/uploads/2018/05/word-image-4817.png 691w, /wp-content/uploads/2018/05/word-image-4817-300x141.png 300w" sizes="(max-width: 691px) 100vw, 691px" /></p>
+<h3>查询看做一个sphinx的表达式（SPH_MATCH_EXTENDED）</h3>
+<ul>
+<li>
+    说明：可以限制字段里面的查询内容
+  </li>
+<li>
+    举例：@title 内容  @author  内容  @content 内容
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="740" height="483" src="/wp-content/uploads/2018/05/word-image-4818.png" class="wp-image-5321" srcset="/wp-content/uploads/2018/05/word-image-4818.png 740w, /wp-content/uploads/2018/05/word-image-4818-300x196.png 300w" sizes="(max-width: 740px) 100vw, 740px" /></p>
+<h1>小总结</h1>
+<p><img loading="lazy" decoding="async" width="1107" height="387" src="/wp-content/uploads/2018/05/word-image-4819.png" class="wp-image-5322" srcset="/wp-content/uploads/2018/05/word-image-4819.png 1107w, /wp-content/uploads/2018/05/word-image-4819-300x105.png 300w, /wp-content/uploads/2018/05/word-image-4819-768x268.png 768w, /wp-content/uploads/2018/05/word-image-4819-1024x358.png 1024w" sizes="(max-width: 1107px) 100vw, 1107px" /></p>
+<p>
+  [概念]
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+</p>
+<p>
+  [安装并通过PHP操作]
+</p>
+<p>
+  步骤1：将sphix解压到指定目录中（因为绿色版所以就安装好了）
+</p>
+<p>
+  步骤2：创建配置文件，然后通过【indexer -c 配置文件 索引名】指定建立索引文件
+</p>
+<p>
+  步骤3：创建sphinx的服务，通过该服务PHP可以操作【searchd -c 配置文件 &#8211;install】并且启动服务【net start searchd】
+</p>
+<p>
+  步骤4：复制【sphinxapi.php】然后通过PHP引入操作sphinx
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+</p>
+<p>
+  [PHP操作步骤]
+</p>
+<p>
+  1、引入sphinxapi.php
+</p>
+<p>
+  2、通过$sc = new SphinxClient创建对象
+</p>
+<p>
+  3、设置服务$sc-&gt;setServer（服务器地址，9312）
+</p>
+<p>
+  4、设置条数$sc-&gt;setLimits（起始位置，查询条数）
+</p>
+<p>
+  5、查询   $sc-&gt;query(关键词，索引);
+</p>
+<h1>四、将sphinx的结果转化为具体的信息</h1>
+<h2>1、思路分析</h2>
+<p>
+  步骤1：通过sphinx的indexer创建索引
+</p>
+<p>
+  步骤2：通过php操作sphinx获取数据id
+</p>
+<p>
+  步骤3：通过php根据数据id去MySQL中查询数据信息
+</p>
+<h2>查询</h2>
+<p>
+  &lt;?php
+</p>
+<p>
+  header(&#8216;content-type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  /**
+</p>
+<p>
+   * 复制sphinx的接口文件到使用目录中
+</p>
+<p>
+   * 步骤1：引入接口文件
+</p>
+<p>
+   * 步骤2：创建服务对象 （new SphinxClient）
+</p>
+<p>
+   * 步骤3：创建服务,语法：setServer（服务器ip地址，端口）
+</p>
+<p>
+   * 步骤4：设置查询条数，语法：setLimits（起始位置，每页显示条数）
+</p>
+<p>
+   * 步骤5：查询，语法：query（关键词，索引名）
+</p>
+<p>
+   */
+</p>
+<p>
+  //1.引入接口文件
+</p>
+<p>
+  require &#8216;./sphinxapi.php&#8217;;
+</p>
+<p>
+  //2.创建sphinx对象
+</p>
+<p>
+  $sp = new SphinxClient;
+</p>
+<p>
+  //3.设置服务
+</p>
+<p>
+  $sp-&gt;setServer(&#8216;localhost&#8217;, 9312);
+</p>
+<p>
+  //4.设置分页
+</p>
+<p>
+  $sp-&gt;setLimits(0, 10);
+</p>
+<p>
+  //5.匹配模式
+</p>
+<p>
+  // $sp-&gt;SetMatchMode(SPH_MATCH_BOOLEAN);
+</p>
+<p>
+  //6.去索引中查询
+</p>
+<p>
+  $data = $sp-&gt;query(&#8216;冬天&#8217;, &#8216;music&#8217;);
+</p>
+<p>
+  //7.获取数据ID
+</p>
+<p>
+  $ids = implode(&#8216;,&#8217;, array_keys($data[&#8216;matches&#8217;]));
+</p>
+<p>
+  //8.去数据库查询数据
+</p>
+<p>
+  $pdo = new PDO(&#8216;mysql:dbname=test&#8217;, &#8216;root&#8217;, &#8216;root&#8217;);
+</p>
+<p>
+  $pdostatment = $pdo-&gt;query(&#8220;select * from music where id in (&#8220;.$ids.&#8221;)&#8221;);
+</p>
+<p>
+  $data = $pdostatment-&gt;fetchAll(PDO::FETCH_ASSOC);
+</p>
+<p>
+  // echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+  // print_r($data);
+</p>
+<p>
+  foreach ($data as $v) {
+</p>
+<p>
+  	echo $v[&#8216;id&#8217;] . $v[&#8216;title&#8217;] . $v[&#8216;author&#8217;] . &#8216;&lt;br /&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="644" height="515" src="/wp-content/uploads/2018/05/word-image-4820.png" class="wp-image-5323" srcset="/wp-content/uploads/2018/05/word-image-4820.png 644w, /wp-content/uploads/2018/05/word-image-4820-300x240.png 300w" sizes="(max-width: 644px) 100vw, 644px" /></p>
+<h2>︴多学一招：高亮显示搜索的关键词</h2>
+<p>
+  &lt;?php
+</p>
+<p>
+  header(&#8216;content-type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  /**
+</p>
+<p>
+   * 复制sphinx的接口文件到使用目录中
+</p>
+<p>
+   * 步骤1：引入接口文件
+</p>
+<p>
+   * 步骤2：创建服务对象 （new SphinxClient）
+</p>
+<p>
+   * 步骤3：创建服务,语法：setServer（服务器ip地址，端口）
+</p>
+<p>
+   * 步骤4：设置查询条数，语法：setLimits（起始位置，每页显示条数）
+</p>
+<p>
+   * 步骤5：查询，语法：query（关键词，索引名）
+</p>
+<p>
+   */
+</p>
+<p>
+  //1.引入接口文件
+</p>
+<p>
+  require &#8216;./sphinxapi.php&#8217;;
+</p>
+<p>
+  //2.创建sphinx对象
+</p>
+<p>
+  $sp = new SphinxClient;
+</p>
+<p>
+  //3.设置服务
+</p>
+<p>
+  $sp-&gt;setServer(&#8216;localhost&#8217;, 9312);
+</p>
+<p>
+  //4.设置分页
+</p>
+<p>
+  $sp-&gt;setLimits(0, 10);
+</p>
+<p>
+  //5.匹配模式
+</p>
+<p>
+  // $sp-&gt;SetMatchMode(SPH_MATCH_BOOLEAN);
+</p>
+<p>
+  //6.去索引中查询
+</p>
+<p>
+  $data = $sp-&gt;query(&#8216;冬天&#8217;, &#8216;music&#8217;);
+</p>
+<p>
+  //7.获取数据ID
+</p>
+<p>
+  $ids = implode(&#8216;,&#8217;, array_keys($data[&#8216;matches&#8217;]));
+</p>
+<p>
+  //8.去数据库查询数据
+</p>
+<p>
+  $pdo = new PDO(&#8216;mysql:dbname=test&#8217;, &#8216;root&#8217;, &#8216;root&#8217;);
+</p>
+<p>
+  $pdostatment = $pdo-&gt;query(&#8220;select * from music where id in (&#8220;.$ids.&#8221;)&#8221;);
+</p>
+<p>
+  $data = $pdostatment-&gt;fetchAll(PDO::FETCH_ASSOC);
+</p>
+<p>
+  // echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+  // print_r($data);
+</p>
+<p>
+  foreach ($data as $v) {
+</p>
+<p>
+  	//自定义方法
+</p>
+<p>
+  	$title = str_replace(&#8216;冬天&#8217;, &#8216;&lt;font color=red&gt;冬天&lt;/font&gt;&#8217;, $v[&#8216;title&#8217;]);
+</p>
+<p>
+  	$author = str_replace(&#8216;冬天&#8217;, &#8216;&lt;font color=red&gt;冬天&lt;/font&gt;&#8217;, $v[&#8216;author&#8217;]);
+</p>
+<p>
+  	$content = str_replace(&#8216;冬天&#8217;, &#8216;&lt;font color=red&gt;冬天&lt;/font&gt;&#8217;, $v[&#8216;content&#8217;]);
+</p>
+<p>
+  	echo $v[&#8216;id&#8217;] .&#8217;___&#8217;. $title .&#8217;___&#8217;. $author . &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+  	echo $content . &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+  	//【官方语法】
+</p>
+<p>
+  	// $row = $sc-&gt;buildExcerpts(要添加提示效果的一维数组,索引名,关键词,array(
+</p>
+<p>
+  	// 	&#8216;before_match&#8217; =&gt; &#8216;&lt;font color=&#8221;red&#8221;&gt;&#8217;,
+</p>
+<p>
+  	// 	&#8216;after_match&#8217; =&gt; &#8216;&lt;/font&gt;&#8217;
+</p>
+<p>
+  	// ));
+</p>
+<p>
+  	//将$v里面的冬天前面追加before_match，后面追加after_match，最后返回索引数组
+</p>
+<p>
+  	// $row = $sp-&gt;buildExcerpts($v, &#8216;music&#8217; , &#8216;冬天&#8217;,array(
+</p>
+<p>
+  	// 	&#8216;before_match&#8217; =&gt; &#8216;&lt;font color=&#8221;red&#8221;&gt;&#8217;,
+</p>
+<p>
+  	// 	&#8216;after_match&#8217; =&gt; &#8216;&lt;/font&gt;&#8217;
+</p>
+<p>
+  	// ));
+</p>
+<p>
+  	// echo $row[0] .&#8217;___&#8217;. $row[1] .&#8217;___&#8217;. $row[2] . &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+  	// echo $row[3] . &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="890" height="662" src="/wp-content/uploads/2018/05/word-image-4821.png" class="wp-image-5324" srcset="/wp-content/uploads/2018/05/word-image-4821.png 890w, /wp-content/uploads/2018/05/word-image-4821-300x223.png 300w, /wp-content/uploads/2018/05/word-image-4821-768x571.png 768w" sizes="(max-width: 890px) 100vw, 890px" /></p>
+<h1>增量索引（Sphinx索引更新）</h1>
+<h2>1、什么是增量索引</h2>
+<p>
+  答：就是更新sphinx索引文件
+</p>
+<h2>为什么要学习增量索引</h2>
+<p>
+  答：因为数据库每天数据都在变化，所以需要在原索引的基础上继续增加索引
+</p>
+<h2>使用indexer.exe生成增量索引 （语法）   &#8211;merge 主索引名 新索引名 &#8211;rotate</h2>
+<p>
+  创建索引语法：indexer  -c  配置文件  索引名
+</p>
+<p>
+  合并索引语法：indexer  -c  配置文件  &#8211;merge 主索引名 新索引名 &#8211;rotate
+</p>
+<p><img loading="lazy" decoding="async" width="725" height="275" src="/wp-content/uploads/2018/05/word-image-4822.png" class="wp-image-5325" srcset="/wp-content/uploads/2018/05/word-image-4822.png 725w, /wp-content/uploads/2018/05/word-image-4822-300x114.png 300w" sizes="(max-width: 725px) 100vw, 725px" /></p>
+<h2>具体操作</h2>
+<h3>1）创建数据库（用于记录哪些数据已经被创建索引）</h3>
+<p>
+  # 数据库SQL语句
+</p>
+<p>
+  create table sphinx
+</p>
+<p>
+  (
+</p>
+<p>
+      max_id int unsigned not null default 0
+</p>
+<p>
+  )
+</p>
+<h3>2）主索引的数据源初始化数据，加标记当前已更新记录最大ID</h3>
+<p>
+  # sql_query属性：取出要创建索引的数据
+</p>
+<p>
+  sql_query                = SELECT id, title, content FROM music
+</p>
+<p>
+  # 建完索引这后　，把最后一条记录的id存到sphinx表中
+</p>
+<p>
+  # 在主查询（sql_query）之后执行的ＳＱＬ
+</p>
+<p>
+  sql_query_post = INSERT INTO sphinx SELECT MAX(id) FROM music
+</p>
+<h3>3）修改配置文件（增加新索引）</h3>
+<ul>
+<li>
+    步骤1：将etc/csft_mysql.conf复制并更名为sphinx.conf （注：<strong>已经有了就无需操作</strong>）
+  </li>
+<li>
+    步骤2：打开shpinx.conf修改内容如下
+  </li>
+</ul>
+<p>
+  # 数据源
+</p>
+<p>
+  source music_add
+</p>
+<p>
+  {
+</p>
+<p>
+      # 下面是sql数据库特有的端口，用户名，密码，数据库名等。
+</p>
+<p>
+      type                    = mysql
+</p>
+<p>
+      sql_host                = localhost
+</p>
+<p>
+      sql_user                = root
+</p>
+<p>
+      sql_pass                = root
+</p>
+<p>
+      sql_db                  = music
+</p>
+<p>
+      sql_port                = 3306
+</p>
+<p>
+      sql_query_pre           = SET NAMES utf8
+</p>
+<p>
+      # (SELECT MAX(max_id) FROM sphinx)  目的，规避以及建立的索引数据
+</p>
+<p>
+      sql_query = SELECT id, title, author,content FROM music WHERE id &gt; (SELECT MAX(max_id) FROM sphinx)
+</p>
+<p>
+  # 建完索引这后　，把最后一条记录的id存到sphinx表中
+</p>
+<p>
+  # 在主查询（sql_query）之后执行的ＳＱＬ
+</p>
+<p>
+  sql_query_post = UPDATE sphinx SET max_id = (SELECT MAX(id) FROM music)
+</p>
+<p>
+  }
+</p>
+<p>
+  # 数据索引
+</p>
+<p>
+  index music_add
+</p>
+<p>
+  {
+</p>
+<p>
+      # 对应的source数据来源名称
+</p>
+<p>
+      source            = music_add
+</p>
+<p>
+      path              = E:/sphinx/var/data/music_add
+</p>
+<p>
+      docinfo            = extern
+</p>
+<p>
+      mlock              = 0
+</p>
+<p>
+      morphology         = none
+</p>
+<p>
+      min_word_len       = 1
+</p>
+<p>
+      html_strip         = 0
+</p>
+<p>
+      # 词库文件所在的目录
+</p>
+<p>
+      charset_dictpath = E:/sphinx/etc/
+</p>
+<p>
+      charset_type      = zh_cn.utf-8
+</p>
+<p>
+  }
+</p>
+<h3>4）增量的索引文件合并到主索引文件上去，并标记当前已更新记录最大ID</h3>
+<p>
+  步骤1：停止服务 -&gt; music创建主索引 -&gt; 开启服务
+</p>
+<p><img loading="lazy" decoding="async" width="1016" height="368" src="/wp-content/uploads/2018/05/word-image-4823.png" class="wp-image-5326" srcset="/wp-content/uploads/2018/05/word-image-4823.png 1016w, /wp-content/uploads/2018/05/word-image-4823-300x109.png 300w, /wp-content/uploads/2018/05/word-image-4823-768x278.png 768w" sizes="(max-width: 1016px) 100vw, 1016px" /></p>
+<p>
+  步骤2：给新数据创建索引（注：不需要开启服务）
+</p>
+<p><img loading="lazy" decoding="async" width="1102" height="467" src="/wp-content/uploads/2018/05/word-image-4824.png" class="wp-image-5327" srcset="/wp-content/uploads/2018/05/word-image-4824.png 1102w, /wp-content/uploads/2018/05/word-image-4824-300x127.png 300w, /wp-content/uploads/2018/05/word-image-4824-768x325.png 768w, /wp-content/uploads/2018/05/word-image-4824-1024x434.png 1024w" sizes="(max-width: 1102px) 100vw, 1102px" /></p>
+<p>
+  步骤3：将新数据和老数据合并（注：不需要开启服务）
+</p>
+<p><img loading="lazy" decoding="async" width="727" height="156" src="/wp-content/uploads/2018/05/word-image-4825.png" class="wp-image-5328" srcset="/wp-content/uploads/2018/05/word-image-4825.png 727w, /wp-content/uploads/2018/05/word-image-4825-300x64.png 300w" sizes="(max-width: 727px) 100vw, 727px" /><br />
+<img loading="lazy" decoding="async" width="779" height="115" src="/wp-content/uploads/2018/05/word-image-4826.png" class="wp-image-5329" srcset="/wp-content/uploads/2018/05/word-image-4826.png 779w, /wp-content/uploads/2018/05/word-image-4826-300x44.png 300w, /wp-content/uploads/2018/05/word-image-4826-768x113.png 768w" sizes="(max-width: 779px) 100vw, 779px" /></p>
+<h3>5）新增测试数据（注：新增数据后需要重复如下步骤【创建新索引、合并老索引】）</h3>
+<p><img loading="lazy" decoding="async" width="446" height="60" src="/wp-content/uploads/2018/05/word-image-4827.png" class="wp-image-5330" srcset="/wp-content/uploads/2018/05/word-image-4827.png 446w, /wp-content/uploads/2018/05/word-image-4827-300x40.png 300w" sizes="(max-width: 446px) 100vw, 446px" /></p>
+<h3>6）测试</h3>
+<p><img loading="lazy" decoding="async" width="1034" height="169" src="/wp-content/uploads/2018/05/word-image-4828.png" class="wp-image-5331" srcset="/wp-content/uploads/2018/05/word-image-4828.png 1034w, /wp-content/uploads/2018/05/word-image-4828-300x49.png 300w, /wp-content/uploads/2018/05/word-image-4828-768x126.png 768w, /wp-content/uploads/2018/05/word-image-4828-1024x167.png 1024w" sizes="(max-width: 1034px) 100vw, 1034px" /></p>
+<h2>总结，实现增量索引的步骤</h2>
+<ul>
+<li><strong>步骤1：</strong>创建数据库，用来记录已经创建索引的数据
+  </li>
+</ul>
+<p>
+  # 数据库SQL语句
+</p>
+<p>
+  create table sphinx
+</p>
+<p>
+  (
+</p>
+<p>
+      max_id int unsigned not null default 0
+</p>
+<p>
+  )
+</p>
+<ul>
+<li><strong>步骤2：修改etc\sphinx.conf文件</strong>
+  </li>
+</ul>
+<p>
+  步骤2.1 修改music索引的数据源，增加下属代码，用户当music第一次执行后记录已经创建索引数据的最大id
+</p>
+<p><img loading="lazy" decoding="async" width="995" height="381" src="/wp-content/uploads/2018/05/word-image-4829.png" class="wp-image-5332" srcset="/wp-content/uploads/2018/05/word-image-4829.png 995w, /wp-content/uploads/2018/05/word-image-4829-300x115.png 300w, /wp-content/uploads/2018/05/word-image-4829-768x294.png 768w" sizes="(max-width: 995px) 100vw, 995px" /></p>
+<p>
+  # 建完索引这后　，把最后一条记录的id存到sphinx表中
+</p>
+<p>
+  # 在主查询（sql_query）之后执行的ＳＱＬ
+</p>
+<p>
+  sql_query_post = INSERT INTO sphinx SELECT MAX(id) FROM music
+</p>
+<p>
+  步骤2.2 新增music_add索引和数据源
+</p>
+<p>
+  # 数据源
+</p>
+<p>
+  source music_add
+</p>
+<p>
+  {
+</p>
+<p>
+      # 下面是sql数据库特有的端口，用户名，密码，数据库名等。
+</p>
+<p>
+      type                    = mysql
+</p>
+<p>
+      sql_host                = localhost
+</p>
+<p>
+      sql_user                = root
+</p>
+<p>
+      sql_pass                = root
+</p>
+<p>
+      sql_db                  = test
+</p>
+<p>
+      sql_port                = 3306
+</p>
+<p>
+      sql_query_pre           = SET NAMES utf8
+</p>
+<p>
+      # (SELECT MAX(max_id) FROM sphinx)  目的，规避以及建立的索引数据
+</p>
+<p>
+      sql_query = SELECT id, title, author,content FROM music WHERE id &gt; (SELECT MAX(max_id) FROM sphinx)
+</p>
+<p>
+  	# 建完索引这后　，把最后一条记录的id存到sphinx表中
+</p>
+<p>
+  	# 在主查询（sql_query）之后执行的ＳＱＬ
+</p>
+<p>
+  	sql_query_post = UPDATE sphinx SET max_id = (SELECT MAX(id) FROM music)
+</p>
+<p>
+  }
+</p>
+<p>
+  # 数据索引
+</p>
+<p>
+  index music_add
+</p>
+<p>
+  {
+</p>
+<p>
+      # 对应的source数据来源名称
+</p>
+<p>
+      source            = music_add
+</p>
+<p>
+      path              = E:/sphinx/var/data/music_add
+</p>
+<p>
+      docinfo            = extern
+</p>
+<p>
+      mlock              = 0
+</p>
+<p>
+      morphology         = none
+</p>
+<p>
+      min_word_len       = 1
+</p>
+<p>
+      html_strip         = 0
+</p>
+<p>
+      # 词库文件所在的目录
+</p>
+<p>
+      charset_dictpath = E:/sphinx/etc/
+</p>
+<p>
+      charset_type      = zh_cn.utf-8
+</p>
+<p>
+  }
+</p>
+<ul>
+<li><strong>步骤3：</strong>
+  </li>
+</ul>
+<p>
+  步骤3.1  停止服务- &gt; 先执行主索引【music】 -&gt; 开启服务
+</p>
+<p>
+  步骤3.2 再执行新增索引【music_add】  					   （注：无需关闭服务）
+</p>
+<p>
+  步骤3.3 将【music_add】索引和【music】索引合并			（注：无需关闭服务）
+</p>
+<ul>
+<li><strong>步骤4：测试</strong>
+  </li>
+</ul>
+<p>
+  后期统一搞点新数据重复下属步骤
+</p>
+<p>
+  步骤3.2 再执行新增索引【music_add】
+</p>
+<p>
+  步骤3.3 将【music_add】索引和【music】索引合并
+</p>
+<h2>︴扩展：Windows与Linux系统中的定时任务</h2>
+<p>
+  步骤1：新建xxx.bat文件将创建新增索引的DOS命令放进去
+</p>
+<p>
+  net stop searchd
+</p>
+<p>
+  e:\sp\bin\indexer -c e:\sp\etc\sphinx.conf music_add
+</p>
+<p>
+  e:\sp\bin\indexer -c e:\sp\etc\sphinx.conf &#8211;merge music music_add &#8211;rotate
+</p>
+<p>
+  net start searchd
+</p>
+<p>
+  步骤2：把这个xxx.bat文件添加到windows系统上的“计划任务”让系统定时执行这个文件中的两个任务。
+</p>
+<p><img loading="lazy" decoding="async" width="905" height="145" src="/wp-content/uploads/2018/05/word-image-4830.png" class="wp-image-5333" srcset="/wp-content/uploads/2018/05/word-image-4830.png 905w, /wp-content/uploads/2018/05/word-image-4830-300x48.png 300w, /wp-content/uploads/2018/05/word-image-4830-768x123.png 768w" sizes="(max-width: 905px) 100vw, 905px" /><br />
+<img loading="lazy" decoding="async" width="861" height="509" src="/wp-content/uploads/2018/05/word-image-4831.png" class="wp-image-5334" srcset="/wp-content/uploads/2018/05/word-image-4831.png 861w, /wp-content/uploads/2018/05/word-image-4831-300x177.png 300w, /wp-content/uploads/2018/05/word-image-4831-768x454.png 768w" sizes="(max-width: 861px) 100vw, 861px" /><br />
+<img loading="lazy" decoding="async" width="776" height="486" src="/wp-content/uploads/2018/05/word-image-4832.png" class="wp-image-5335" srcset="/wp-content/uploads/2018/05/word-image-4832.png 776w, /wp-content/uploads/2018/05/word-image-4832-300x188.png 300w, /wp-content/uploads/2018/05/word-image-4832-768x481.png 768w" sizes="(max-width: 776px) 100vw, 776px" /><br />
+<img loading="lazy" decoding="async" width="605" height="520" src="/wp-content/uploads/2018/05/word-image-4833.png" class="wp-image-5336" srcset="/wp-content/uploads/2018/05/word-image-4833.png 605w, /wp-content/uploads/2018/05/word-image-4833-300x258.png 300w" sizes="(max-width: 605px) 100vw, 605px" /><br />
+<img loading="lazy" decoding="async" width="623" height="529" src="/wp-content/uploads/2018/05/word-image-4834.png" class="wp-image-5337" srcset="/wp-content/uploads/2018/05/word-image-4834.png 623w, /wp-content/uploads/2018/05/word-image-4834-300x255.png 300w" sizes="(max-width: 623px) 100vw, 623px" /><br />
+<img loading="lazy" decoding="async" width="640" height="523" src="/wp-content/uploads/2018/05/word-image-4835.png" class="wp-image-5338" srcset="/wp-content/uploads/2018/05/word-image-4835.png 640w, /wp-content/uploads/2018/05/word-image-4835-300x245.png 300w" sizes="(max-width: 640px) 100vw, 640px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5303.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Nginx 服务器集群、负载均衡、CDN</title>
+		<link>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/nginx/5046.html</link>
+					<comments>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/nginx/5046.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 13:34:08 +0000</pubDate>
+				<category><![CDATA[Nginx]]></category>
+		<category><![CDATA[网站优化]]></category>
+		<category><![CDATA[CDN]]></category>
+		<category><![CDATA[服务器集群]]></category>
+		<category><![CDATA[负载均衡]]></category>
+		<guid isPermaLink="false">/?p=5046</guid>
+
+					<description><![CDATA[Nginx与服务器集群 服务器介绍 1、概念（通俗理解） 服务器：就是没有显示器的电脑（比普通电脑配置高，并且 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>Nginx与服务器集群</h1>
+<h1>服务器介绍</h1>
+<h2>1、概念（通俗理解）</h2>
+<p>
+  服务器：就是没有显示器的电脑（比普通电脑配置高，并且有一个唯一的公网ip）
+</p>
+<p>
+  web服务器：就是一个软件（一般监听80端口，用户接口用户请求，响应请求给用户）
+</p>
+<h2>2、常用Web服务器</h2>
+<ul>
+<li>
+    Apache
+  </li>
+</ul>
+<p>
+  1）是世界上用的最多的Web服务器，它的优势在开源代码开放，功能完善，历史悠久，模块支持非常丰富，跨平台；缺点在于比其他web服务器内存占用高；
+</p>
+<p>
+  2）适用于动态网站。
+</p>
+<ul>
+<li>
+    Nginx
+  </li>
+</ul>
+<p>
+  1）是一款轻量级的Web 服务器/反向代理服务器及电子邮件代理服务器，其特点是占有内存少，并发能力强，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等；
+</p>
+<p>
+  2）适用于反向代理服务器和静态资源服务器（注：线上公司都使用Linux安装）
+</p>
+<ul>
+<li>
+    IIS：
+  </li>
+</ul>
+<p>
+  是windows系统上的服务器产品（微软公司提供）。主要是给.net和asp语言使用的，经过扩展也是可以支持PHP语言（不推荐使用）。
+</p>
+<ul>
+<li>
+    Lighttpd：（图片服务器）
+  </li>
+</ul>
+<p>
+  是一个德国人领导的开源Web服务器软件，具有非常低的内存开销、cpu占用率低、效能好以及丰富的模块等特点。
+</p>
+<p>
+  web服务器市场使用排行：<a href="https://w3techs.com/">https://w3techs.com/</a>
+</p>
+<p><a href="http://www.lvse.com/site/w3techs-com-83.html">http://www.lvse.com/site/w3techs-com-83.html</a>
+</p>
+<h2>3、静态资源服务器</h2>
+<ul>
+<li>
+    场景：
+  </li>
+</ul>
+<p>
+  传统的web项目，一般都将静态资源存放在项目Public的目录下，这样做很方便获取静态资源，但是如果说web项目很大，用户很多，静态资源也很多时，服务器的性能明显下降。这种情况下一般都会需要一个静态资源的服务器。
+</p>
+<ul>
+<li>
+    实现：通过nginx搭建，或者通过阿里云、七牛的对象存储
+  </li>
+<li>
+    大型项目分离好处（注：推荐静态资源使用新域名）：
+  </li>
+</ul>
+<p>
+  1、便于维护使用（举例：一个项目图片可以方便所有项目使用，如：jq等）
+</p>
+<p>
+  2、动静分离有利于CDN加速 （注：动静分离指后端处理数据文件和静态文件分离）
+</p>
+<p>
+  3、【新域名好处】便于缓存    （举例：请求的是同一文件，就不用再下载了）
+</p>
+<p>
+  4、【新域名好处】静态资源的http请求中不会携带无用的cookie。
+</p>
+<p>
+  5、【新域名好处】优化浏览器对同一域名进行请求的最大并发连接数限制（注：不同浏览器限制不同）
+</p>
+<p>
+  什么是静态资源服务器：就是单独存放静态资源资源的服务器（如：css、js、图片等）
+</p>
+<p>
+  如何搭建静态资源服务器：通过nginx
+</p>
+<p>
+  好处：比传统快
+</p>
+<h2>CDN服务器</h2>
+<ul>
+<li>
+    作用：大型项目加速网站访问速度
+  </li>
+<li>
+    说明：CDN服务器供应商在全国各个城市都有一个机房，用于后期缓存静态资源，
+  </li>
+</ul>
+<p>
+  网站老板购买了CDN后，其网站用户访问时第一次去源服务器访问并缓存到用户最近的机房，下次直接去最近的机房（节点）访问。
+</p>
+<p><img loading="lazy" decoding="async" width="928" height="346" src="/wp-content/uploads/2018/05/word-image-4559.png" class="wp-image-5047" srcset="/wp-content/uploads/2018/05/word-image-4559.png 928w, /wp-content/uploads/2018/05/word-image-4559-300x112.png 300w, /wp-content/uploads/2018/05/word-image-4559-768x286.png 768w" sizes="(max-width: 928px) 100vw, 928px" /></p>
+<h2>5、大型项目架构</h2>
+<p>
+  集群技术/冗余技术：将多台服务器集中在一起，实现同一业务。
+</p>
+<p>
+  负载均衡技术：将任务按照指定策略分布到集群环境中的服务器上。
+</p>
+<p>
+  主从复制：一主或多主一从或多从，当主服务器insert/update/delete动作，从服务器自动同步。
+</p>
+<p>
+  动静分离：动态资源和后端程序在不同的服务器上
+</p>
+<p>
+  读写分离：增/删/改在操作一台数据库，读操作另一个数据库
+</p>
+<p><img loading="lazy" decoding="async" width="1172" height="470" src="/wp-content/uploads/2018/05/word-image-4560.png" class="wp-image-5048" srcset="/wp-content/uploads/2018/05/word-image-4560.png 1172w, /wp-content/uploads/2018/05/word-image-4560-300x120.png 300w, /wp-content/uploads/2018/05/word-image-4560-768x308.png 768w, /wp-content/uploads/2018/05/word-image-4560-1024x411.png 1024w" sizes="(max-width: 1172px) 100vw, 1172px" /></p>
+<h1>二、Nginx服务器</h1>
+<h2>1、Nginx概述</h2>
+<p>
+  Nginx是一款轻量级、高性能的Web 服务器或反向代理服务器或邮件服务器，因它的稳定性、丰富的功能集和低系统资源的消耗而闻名。
+</p>
+<p>
+  Tengine是由淘宝网发起的Web服务器项目。它在Nginx的基础上，针对大访问量网站的需求添
+</p>
+<p>
+  加了很多高级功能和特性。成功案例：淘宝网，天猫商城等。
+</p>
+<p>
+  官网：http://tengine.taobao.org/faq_cn.html
+</p>
+<h2>Nginx特点</h2>
+<p>
+  占有内存少，并发能力强
+</p>
+<h2>3、Apache与Nginx服务器区别</h2>
+<ul>
+<li>
+    Nginx相对 Apache的优点
+  </li>
+</ul>
+<p>
+  轻量级，同样起web 服务，比apache 占用更少的内存及资源;
+</p>
+<p>
+  抗并发，nginx 处理请求是异步非阻塞的，而apache 则是阻塞型的，在高并发下nginx 能保持低资源低消耗高性能
+</p>
+<p>
+  高度模块化的设计，编写模块相对简单;
+</p>
+<p>
+  社区活跃，各种高性能模块出品迅速;
+</p>
+<ul>
+<li>
+    Apache相对Nginx的优点
+  </li>
+</ul>
+<p>
+  rewrite ，比nginx 的rewrite 强大;
+</p>
+<p>
+  模块超多，基本想到的都可以找到;
+</p>
+<p>
+  少bug ，nginx 的bug 相对较多;
+</p>
+<p>
+  超稳定;
+</p>
+<ul>
+<li>
+    总结
+  </li>
+</ul>
+<p>
+  Nginx   &#8211;  静态资源服务器或反向代理服务器使用（对象存储代替）
+</p>
+<p>
+  Apache  &#8211;  后端服务器
+</p>
+<h1>三、LNMP的安装与配置</h1>
+<h2>1、Nginx的安装</h2>
+<h3>1）依赖注意</h3>
+<p>
+  模块依赖性：Nginx的一些模块需要其他第三方库的支持，例如gzip模块需要zlib 库，rewrite模块需要pcre库，ssl功能需要openssl库等。
+</p>
+<h3>pcre安装</h3>
+<p><em>shell&gt;</em>  cd /php/tools
+</p>
+<p><em>shell&gt;</em>  tar -zxvf pcre-8.34.tar.gz       		#解压
+</p>
+<p><em>shell&gt;</em>  cd pcre-8.34				      		#进入解压目录
+</p>
+<p><em>shell&gt;</em>  ./configure &amp;&amp; make &amp;&amp; make install  #配置、编译和安装
+</p>
+<p><img loading="lazy" decoding="async" width="535" height="117" src="/wp-content/uploads/2018/05/word-image-4561.png" class="wp-image-5049" srcset="/wp-content/uploads/2018/05/word-image-4561.png 535w, /wp-content/uploads/2018/05/word-image-4561-300x66.png 300w" sizes="(max-width: 535px) 100vw, 535px" /><br />
+<img loading="lazy" decoding="async" width="625" height="118" src="/wp-content/uploads/2018/05/word-image-4562.png" class="wp-image-5050" srcset="/wp-content/uploads/2018/05/word-image-4562.png 625w, /wp-content/uploads/2018/05/word-image-4562-300x57.png 300w" sizes="(max-width: 625px) 100vw, 625px" /></p>
+<h3>3）zlib压缩库</h3>
+<p><em>shell&gt;</em>  cd /php/tools
+</p>
+<p>
+  shell<em>&gt;</em>  tar -zxvf zlib-1.2.5.tar.gz
+</p>
+<p><em>shell&gt;</em>  cd zlib-1.2.5
+</p>
+<p><em>shell&gt;</em>  ./configure 	      		# 这个配置编译命令不要加目录参数
+</p>
+<p><em>shell&gt;</em>  make &amp;&amp; make install
+</p>
+<p><img loading="lazy" decoding="async" width="613" height="130" src="/wp-content/uploads/2018/05/word-image-4563.png" class="wp-image-5051" srcset="/wp-content/uploads/2018/05/word-image-4563.png 613w, /wp-content/uploads/2018/05/word-image-4563-300x64.png 300w" sizes="(max-width: 613px) 100vw, 613px" /></p>
+<h3>4）Nginx安装</h3>
+<p><em>shell&gt;</em> cd /php/tools
+</p>
+<p>
+  shell<em>&gt;</em> tar -zxvf nginx-1.8.1.tar.gz
+</p>
+<p>
+  shell<em>&gt;</em> cd nginx-1.8.1
+</p>
+<p>
+  shell<em>&gt;</em> mkdir -p /php/server/nginx
+</p>
+<p>
+  shell<em>&gt;</em> ./configure  &#8211;prefix=/php/server/nginx
+</p>
+<p><img loading="lazy" decoding="async" width="562" height="412" src="/wp-content/uploads/2018/05/word-image-4564.png" class="wp-image-5052" srcset="/wp-content/uploads/2018/05/word-image-4564.png 562w, /wp-content/uploads/2018/05/word-image-4564-300x220.png 300w" sizes="(max-width: 562px) 100vw, 562px" /></p>
+<p>
+  shell<em>&gt;</em> make &amp;&amp; make install
+</p>
+<p><img loading="lazy" decoding="async" width="642" height="415" src="/wp-content/uploads/2018/05/word-image-4565.png" class="wp-image-5053" srcset="/wp-content/uploads/2018/05/word-image-4565.png 642w, /wp-content/uploads/2018/05/word-image-4565-300x194.png 300w" sizes="(max-width: 642px) 100vw, 642px" /></p>
+<h2>2、管理Nginx</h2>
+<h3>1）启动Nginx</h3>
+<p>
+  shell<em>&gt;</em> /php/server/nginx/sbin/nginx
+</p>
+<p>
+  通过浏览器查询是否启动成功，出现如下内容，则启动成功。
+</p>
+<p><img loading="lazy" decoding="async" width="840" height="286" src="/wp-content/uploads/2018/05/word-image-4566.png" class="wp-image-5054" srcset="/wp-content/uploads/2018/05/word-image-4566.png 840w, /wp-content/uploads/2018/05/word-image-4566-300x102.png 300w, /wp-content/uploads/2018/05/word-image-4566-768x261.png 768w" sizes="(max-width: 840px) 100vw, 840px" /></p>
+<p>
+  Nginx服务器默认80端口
+</p>
+<p>
+  需要关闭Linux服务器防火墙或者添加80端口例外（service iptables stop）
+</p>
+<p><strong>︴如果启动Nginx报错：libpcre.so.1: cannot</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="645" height="125" src="/wp-content/uploads/2018/05/word-image-4567.png" class="wp-image-5055" srcset="/wp-content/uploads/2018/05/word-image-4567.png 645w, /wp-content/uploads/2018/05/word-image-4567-300x58.png 300w" sizes="(max-width: 645px) 100vw, 645px" /></p>
+<p>
+  解决：
+</p>
+<p>
+  shell&gt; ln -s /lib/libpcre.so.0.0.1 /lib/libpcre.so.1  （再重新启动nginx即可）
+</p>
+<p><img loading="lazy" decoding="async" width="377" height="70" src="/wp-content/uploads/2018/05/word-image-4568.png" class="wp-image-5056" srcset="/wp-content/uploads/2018/05/word-image-4568.png 377w, /wp-content/uploads/2018/05/word-image-4568-300x56.png 300w" sizes="(max-width: 377px) 100vw, 377px" /></p>
+<h3>2）关闭Nginx服务</h3>
+<p>
+  shell<em>&gt;</em> /php/server/nginx/sbin/nginx -s stop
+</p>
+<h3>重启服务</h3>
+<p>
+  shell<em>&gt;</em> /php/server/nginx/sbin/nginx -s reload
+</p>
+<h2>3、配置文件（nginx.conf）</h2>
+<h3>1）位置</h3>
+<p><img loading="lazy" decoding="async" width="542" height="165" src="/wp-content/uploads/2018/05/word-image-4569.png" class="wp-image-5057" srcset="/wp-content/uploads/2018/05/word-image-4569.png 542w, /wp-content/uploads/2018/05/word-image-4569-300x91.png 300w" sizes="(max-width: 542px) 100vw, 542px" /></p>
+<h3>2）说明</h3>
+<p>
+  user  用户  用户组;
+</p>
+<p>
+  #有1个工作子进程，可以自行修改，一般为当前机器总cpu核心数的1到2倍
+</p>
+<p>
+  worker_processes 8;
+</p>
+<p>
+  events {
+</p>
+<p>
+  #单个后台worker process进程的最大并发链接数
+</p>
+<p>
+  #最大连接数 = worker_processes * worker_connections
+</p>
+<p>
+      worker_connections  1024; #这里指一个子进程最大允许连接1024
+</p>
+<p>
+  }
+</p>
+<p>
+  http { #这是配置http服务器的主要段
+</p>
+<p>
+  server { #虚拟主机段
+</p>
+<p>
+  location {  #定位，把特殊的文件再次定位，如image目录单独处理或php单独处理
+</p>
+<p>
+  }
+</p>
+<p>
+  }
+</p>
+<p>
+  server { #虚拟主机段
+</p>
+<p>
+  location {  #定位，把特殊的文件再次定位，如image目录单独处理或php单独处理
+</p>
+<p>
+  }
+</p>
+<p>
+  }
+</p>
+<p>
+  &#8230;&#8230;.
+</p>
+<p>
+  }
+</p>
+<p>
+  每新增一个server则添加一个虚拟主机（推荐：使用include方式引入外部虚拟主机配置文件）
+</p>
+<h2>4、配置虚拟主机（Nginx）</h2>
+<h3>1）概念（无需操作）</h3>
+<p>
+  在nginx下配置虚拟主机非常简单，只需在nginx下http {} 中 增加一个server（填入如下配置）即可新增一个虚拟主机
+</p>
+<p>
+  server {
+</p>
+<p>
+      # 监听端口
+</p>
+<p>
+      listen 80;
+</p>
+<p>
+      # 绑定域名（多个之间用空格隔开）
+</p>
+<p>
+      server_name 待绑定的域名;
+</p>
+<p>
+      location / {
+</p>
+<p>
+          # 项目根目录
+</p>
+<p>
+          root /php/wwwroot/web1;
+</p>
+<p>
+          # 默认首页
+</p>
+<p>
+          index index.html index.htm;
+</p>
+<p>
+     }
+</p>
+<p>
+  }
+</p>
+<h3>主配置（nginx.conf）文件新增2个虚拟主机</h3>
+<ul>
+<li>
+    步骤1：打开Nginx主配置文件（nginx.conf）引入外部虚拟主机配置文件
+  </li>
+</ul>
+<p>
+  shell<em>&gt;</em> vi /php/server/nginx/conf/nginx.conf
+</p>
+<p>
+  在http{}中加入下属代码：
+</p>
+<p><img loading="lazy" decoding="async" width="540" height="677" src="/wp-content/uploads/2018/05/word-image-4570.png" class="wp-image-5058" srcset="/wp-content/uploads/2018/05/word-image-4570.png 540w, /wp-content/uploads/2018/05/word-image-4570-239x300.png 239w" sizes="(max-width: 540px) 100vw, 540px" /></p>
+<p>
+      server {
+</p>
+<p>
+          # 监听端口
+</p>
+<p>
+          listen 80;
+</p>
+<p>
+          # 绑定域名（多个之间用空格隔开）
+</p>
+<p>
+          server_name n1.com;
+</p>
+<p>
+          location / {
+</p>
+<p>
+              # 项目根目录
+</p>
+<p>
+              root /php/wwwroot/web1;
+</p>
+<p>
+              # 默认首页
+</p>
+<p>
+              index index.html index.htm;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+      server {
+</p>
+<p>
+          # 监听端口
+</p>
+<p>
+          listen 80;
+</p>
+<p>
+          # 绑定域名（多个之间用空格隔开）
+</p>
+<p>
+          server_name n2.com;
+</p>
+<p>
+          location / {
+</p>
+<p>
+              # 项目根目录
+</p>
+<p>
+              root /php/wwwroot/web2;
+</p>
+<p>
+              # 默认首页
+</p>
+<p>
+              index index.html index.htm;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  修改nginx.conf主配置文件强烈推荐先备份，如：cp -r nginx.conf nginx.conf.bak
+</p>
+<ul>
+<li>
+    步骤2：创建虚拟主机目录
+  </li>
+</ul>
+<p>
+  shell<em>&gt;</em> mkdir -p /php/wwwroot/web1 /php/wwwroot/web2
+</p>
+<p>
+  shell<em>&gt;</em> echo &#8216;this is n1.com&#8217; &gt; /php/wwwroot/web1/index.html
+</p>
+<p>
+  shell<em>&gt;</em> echo &#8216;this is n2.com&#8217; &gt; /php/wwwroot/web2/index.html
+</p>
+<ul>
+<li>
+    步骤3：重启服务即可
+  </li>
+</ul>
+<p>
+  shell<em>&gt;</em> /php/server/nginx/sbin/nginx -s reload
+</p>
+<ul>
+<li>
+    步骤4：在<strong>本机</strong>修改hosts文件
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="809" height="133" src="/wp-content/uploads/2018/05/word-image-4571.png" class="wp-image-5059" srcset="/wp-content/uploads/2018/05/word-image-4571.png 809w, /wp-content/uploads/2018/05/word-image-4571-300x49.png 300w, /wp-content/uploads/2018/05/word-image-4571-768x126.png 768w" sizes="(max-width: 809px) 100vw, 809px" /></p>
+<p>
+  流程：当打开本机浏览器输入n1.com或者n2.com会访问对用的IP的Linux服务器的80端口软件Nginx会让其访问对应的web项目。
+</p>
+<p>
+  注：后期需要增加虚拟主机，则继续上述步骤添加server即可
+</p>
+<h3>︴扩展：引入外部配置文件（同apache开启httpd-vhosts）</h3>
+<ul>
+<li>
+    说明：在主配置文件中新增多个虚拟主机，导致配置文件越来越大，不便于管理，
+  </li>
+</ul>
+<p>
+  所以建议采取下述方案：一个虚拟主机对应一个配置文件。
+</p>
+<ul>
+<li>
+    步骤1：打开Nginx主配置文件（nginx.conf）将刚新增的两个虚拟主机删除或注释
+  </li>
+<li>
+    步骤2：打开Nginx主配置文件（nginx.conf）引入外部虚拟主机配置文件
+  </li>
+</ul>
+<p>
+  shell<em>&gt;</em> vi /php/server/nginx/conf/nginx.conf
+</p>
+<p>
+  在http{}中加入：【include vhosts/*.conf;】
+</p>
+<p><img loading="lazy" decoding="async" width="685" height="440" src="/wp-content/uploads/2018/05/word-image-4572.png" class="wp-image-5060" srcset="/wp-content/uploads/2018/05/word-image-4572.png 685w, /wp-content/uploads/2018/05/word-image-4572-300x193.png 300w" sizes="(max-width: 685px) 100vw, 685px" /></p>
+<ul>
+<li>
+    步骤3：新建外部虚拟主机目录（vhosts）
+  </li>
+</ul>
+<p>
+  shell<em>&gt;</em> mkdir -p /php/server/nginx/conf/vhosts  #用于存放虚拟主机文件（一个文件对应一个虚拟主机）
+</p>
+<ul>
+<li>
+    步骤4：新建新建虚拟主机
+  </li>
+</ul>
+<p>
+  shell<em>&gt;</em> cd /php/server/nginx/conf/vhosts
+</p>
+<p>
+  shell<em>&gt;</em> vi nginx1.conf
+</p>
+<p>
+  server {
+</p>
+<p>
+      # 监听端口
+</p>
+<p>
+      listen 80;
+</p>
+<p>
+      # 绑定域名（多个之间用空格隔开）
+</p>
+<p>
+      server_name n1.com;
+</p>
+<p>
+      location / {
+</p>
+<p>
+          # 项目根目录
+</p>
+<p>
+          root /php/wwwroot/web1;
+</p>
+<p>
+          # 默认首页
+</p>
+<p>
+          index index.html index.htm;
+</p>
+<p>
+     }
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤4：重启服务即可
+  </li>
+</ul>
+<p>
+  shell<em>&gt;</em> /php/server/nginx/sbin/nginx -s reload
+</p>
+<p>
+  注：后期需要增加虚拟主机，则在【/php/server/nginx/conf/vhosts】目录下新建【xxx.conf】以conf
+</p>
+<p>
+  结尾的文件然后填写server即可。
+</p>
+<h2>5. 安装php并与nginx整合（php-fpm）</h2>
+<h3>1）说明</h3>
+<p>
+  php安装可以作为Apache模块存在，同时也可以单独的作为一个服务运行（端口是9000端口），这种单独运行的模式叫做php-fpm模式，在5.3.3+以后的版本都默认支持，以前的版本需要打补丁。
+</p>
+<h3>2）安装libxml2（否则配置php报错）</h3>
+<p><em>shell&gt;</em> cd /php/tools
+</p>
+<p><em>shell&gt;</em> tar zxvf libxml2-2.7.2.tar.gz
+</p>
+<p><em>shell&gt;</em> cd libxml2-2.7.2
+</p>
+<p><em>shell&gt;</em> ./configure
+</p>
+<p><em>shell&gt;</em> make &amp;&amp; make install
+</p>
+<p><img loading="lazy" decoding="async" width="443" height="350" src="/wp-content/uploads/2018/05/word-image-4573.png" class="wp-image-5061" srcset="/wp-content/uploads/2018/05/word-image-4573.png 443w, /wp-content/uploads/2018/05/word-image-4573-300x237.png 300w" sizes="(max-width: 443px) 100vw, 443px" /></p>
+<h3>3）安装PHP</h3>
+<p>
+  shell<em>&gt;</em> cd /php/tools
+</p>
+<p>
+  shell<em>&gt;</em> tar -zxvf php-5.6.31.tar.gz
+</p>
+<p>
+  shell<em>&gt;</em> cd php-5.6.31
+</p>
+<p>
+  shell<em>&gt;</em> ./configure &#8211;prefix=/php/server/php  &#8211;enable-fpm
+</p>
+<p>
+  注意：&#8211;enable-fpm该选项是指，以独立进程的方式来安装PHP。
+</p>
+<p><img loading="lazy" decoding="async" width="579" height="485" src="/wp-content/uploads/2018/05/word-image-4574.png" class="wp-image-5062" srcset="/wp-content/uploads/2018/05/word-image-4574.png 579w, /wp-content/uploads/2018/05/word-image-4574-300x251.png 300w" sizes="(max-width: 579px) 100vw, 579px" /></p>
+<p>
+  shell<em>&gt;</em> make &amp;&amp; make install
+</p>
+<p><img loading="lazy" decoding="async" width="638" height="286" src="/wp-content/uploads/2018/05/word-image-4575.png" class="wp-image-5063" srcset="/wp-content/uploads/2018/05/word-image-4575.png 638w, /wp-content/uploads/2018/05/word-image-4575-300x134.png 300w" sizes="(max-width: 638px) 100vw, 638px" /></p>
+<p>
+  复制php.ini配置文件到指定目
+</p>
+<p>
+  shell<em>&gt;</em> \cp php.ini-development /php/server/php/lib/php.ini
+</p>
+<p>
+  php.ini 在php源代码解压文件目录里
+</p>
+<h3>4）管理PHP服务</h3>
+<p>
+  shell<em>&gt;</em> /php/server/php/sbin/php-fpm  # 启动服务
+</p>
+<p>
+  shell<em>&gt;</em> killall php-fpm  					# 关闭服务
+</p>
+<p>
+  ︴启动服务报错：
+</p>
+<p>
+  ERROR: failed to open configuration file &#8216;/xxxx/php/etc/php-fpm.conf
+</p>
+<p>
+  cp \
+</p>
+<p>
+  /php/server/php/etc/php-fpm.conf.default \
+</p>
+<p>
+  /php/server/php/etc/php-fpm.conf
+</p>
+<p>
+  注：注意修改红色PHP安装路径
+</p>
+<p>
+  查看是否启动成功
+</p>
+<p><img loading="lazy" decoding="async" width="443" height="100" src="/wp-content/uploads/2018/05/word-image-4576.png" class="wp-image-5064" srcset="/wp-content/uploads/2018/05/word-image-4576.png 443w, /wp-content/uploads/2018/05/word-image-4576-300x68.png 300w" sizes="(max-width: 443px) 100vw, 443px" /></p>
+<h3>5）让nginx支持PHP</h3>
+<p>
+  步骤1：虚拟主机添加
+</p>
+<p>
+  location ~ \.php$ {
+</p>
+<p>
+      root             虚拟主机路径;
+</p>
+<p>
+      fastcgi_pass   127.0.0.1:9000;
+</p>
+<p>
+      fastcgi_index  index.php;
+</p>
+<p>
+      fastcgi_param  SCRIPT_FILENAME  虚拟主机路径/$fastcgi_script_name;
+</p>
+<p>
+      include        fastcgi_params;
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="666" height="370" src="/wp-content/uploads/2018/05/word-image-4577.png" class="wp-image-5065" srcset="/wp-content/uploads/2018/05/word-image-4577.png 666w, /wp-content/uploads/2018/05/word-image-4577-300x167.png 300w" sizes="(max-width: 666px) 100vw, 666px" /></p>
+<p>
+  步骤2：重启nginx即可
+</p>
+<p>
+  shell<em>&gt;</em> /php/server/nginx/sbin/nginx -s reload
+</p>
+<h1>四、配置expires缓存功能		</h1>
+<h2>1、expires缓存功能概述</h2>
+<ul>
+<li>
+    作用：设置expires减少不必要的http请求
+  </li>
+<li>
+    场景：将静态资源（css、js、图片）等缓存到客户端，减轻服务区压力
+  </li>
+</ul>
+<p>
+  浏览器默认也有缓存机制，通过expires统一缓存时间
+</p>
+<p>
+  校验文件缓存是否过期	    Expires（http1.0）、Cache-Control:max-age=秒（http1.1）
+</p>
+<p>
+  协议中Etag头信息校验       Etag               （请求：If-None-Match）
+</p>
+<p>
+  Last-Modified头信息校验   Last-Modified    （请求：If-Modified-Since）
+</p>
+<p><img loading="lazy" decoding="async" width="564" height="356" src="/wp-content/uploads/2018/05/word-image-4578.png" class="wp-image-5066" srcset="/wp-content/uploads/2018/05/word-image-4578.png 564w, /wp-content/uploads/2018/05/word-image-4578-300x189.png 300w" sizes="(max-width: 564px) 100vw, 564px" /><br />
+<img loading="lazy" decoding="async" width="824" height="968" src="/wp-content/uploads/2018/05/word-image-4579.png" class="wp-image-5067" srcset="/wp-content/uploads/2018/05/word-image-4579.png 824w, /wp-content/uploads/2018/05/word-image-4579-255x300.png 255w, /wp-content/uploads/2018/05/word-image-4579-768x902.png 768w" sizes="(max-width: 824px) 100vw, 824px" /></p>
+<h2>2、详细配置</h2>
+<p>
+  对nginx 来说，实现的方法很简单，只要在location段中，使用 expires 就可以了
+</p>
+<p>
+  格式。
+</p>
+<p>
+  步骤1：打开虚拟主机配置
+</p>
+<p>
+  location ~ \.(gif|jpg|jpeg|png|bmp|ico)$ {
+</p>
+<p>
+      root /php/wwwroot/web1;
+</p>
+<p>
+      expires 1d;  #1d （天）  1h（时）  1m（分）  1s（秒）
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="401" height="361" src="/wp-content/uploads/2018/05/word-image-4580.png" class="wp-image-5068" srcset="/wp-content/uploads/2018/05/word-image-4580.png 401w, /wp-content/uploads/2018/05/word-image-4580-300x270.png 300w" sizes="(max-width: 401px) 100vw, 401px" /></p>
+<p>
+  步骤2：重启nginx
+</p>
+<h2>案例</h2>
+<p><img loading="lazy" decoding="async" width="852" height="419" src="/wp-content/uploads/2018/05/word-image-4581.png" class="wp-image-5069" srcset="/wp-content/uploads/2018/05/word-image-4581.png 852w, /wp-content/uploads/2018/05/word-image-4581-300x148.png 300w, /wp-content/uploads/2018/05/word-image-4581-768x378.png 768w" sizes="(max-width: 852px) 100vw, 852px" /></p>
+<p>
+  谷歌浏览器不出现：from cache可能是系统时间导致
+</p>
+<p>
+  验证：
+</p>
+<p>
+  date命令		 &#8211; 查看系统时间
+</p>
+<p>
+  步骤：
+</p>
+<p>
+  date -s &#8216;日期&#8217; &#8211; 修改系统时间（注：执行该命令后必须clock -w   写入到系统中）
+</p>
+<h1>总结</h1>
+<p>
+  expires作用：减少不必要的http请求
+</p>
+<p>
+  问：部分浏览器默认支持expires功能，为甚还需要自己设置？
+</p>
+<p>
+  答：自定义过期时间
+</p>
+<p>
+  问：如何验证expires是否设置成功？
+</p>
+<p>
+  答：看network的响应头信息 cache-control
+</p>
+<h1>五、开启gzip压缩</h1>
+<h2>1、开启gzip的好处</h2>
+<p>
+  gzip开启以后会将输出到用户浏览器的数据进行压缩的处理，这样就会减小通过网络传输的数据量，提高浏览的速度。（以空间换时间，以时间换空间）
+</p>
+<p><img loading="lazy" decoding="async" width="1187" height="231" src="/wp-content/uploads/2018/05/word-image-4582.png" class="wp-image-5070" srcset="/wp-content/uploads/2018/05/word-image-4582.png 1187w, /wp-content/uploads/2018/05/word-image-4582-300x58.png 300w, /wp-content/uploads/2018/05/word-image-4582-768x149.png 768w, /wp-content/uploads/2018/05/word-image-4582-1024x199.png 1024w" sizes="(max-width: 1187px) 100vw, 1187px" /></p>
+<h2>配置</h2>
+<p>
+  步骤1：打开虚拟主机配置文件
+</p>
+<p>
+  gzip on;			     #开启Gzip压缩
+</p>
+<p>
+  gzip_min_length 1k;	 #不压缩临界值，大于1K的才压缩
+</p>
+<p>
+  gzip_comp_level 6;   #压缩级别（1-9）越大越慢，同时也最消耗CPU
+</p>
+<p>
+  #声明压缩文件（MIME类型）
+</p>
+<p>
+  gzip_types text/plain application/x-javascript text/css application/xml text/javascript image/jpeg;
+</p>
+<p>
+  gzip_disable &#8220;MSIE [1-6]\.&#8221;; #禁用IE1-6
+</p>
+<p><img loading="lazy" decoding="async" width="879" height="308" src="/wp-content/uploads/2018/05/word-image-4583.png" class="wp-image-5071" srcset="/wp-content/uploads/2018/05/word-image-4583.png 879w, /wp-content/uploads/2018/05/word-image-4583-300x105.png 300w, /wp-content/uploads/2018/05/word-image-4583-768x269.png 768w" sizes="(max-width: 879px) 100vw, 879px" /></p>
+<p>
+  步骤2：重启nginx
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  开启成功标识
+</p>
+<p><img loading="lazy" decoding="async" width="558" height="246" src="/wp-content/uploads/2018/05/word-image-4584.png" class="wp-image-5072" srcset="/wp-content/uploads/2018/05/word-image-4584.png 558w, /wp-content/uploads/2018/05/word-image-4584-300x132.png 300w" sizes="(max-width: 558px) 100vw, 558px" /></p>
+<p>
+  压缩前
+</p>
+<p><img loading="lazy" decoding="async" width="623" height="41" src="/wp-content/uploads/2018/05/word-image-4585.png" class="wp-image-5073" srcset="/wp-content/uploads/2018/05/word-image-4585.png 623w, /wp-content/uploads/2018/05/word-image-4585-300x20.png 300w" sizes="(max-width: 623px) 100vw, 623px" /></p>
+<p>
+  压缩后
+</p>
+<p><img loading="lazy" decoding="async" width="1121" height="59" src="/wp-content/uploads/2018/05/word-image-4586.png" class="wp-image-5075" srcset="/wp-content/uploads/2018/05/word-image-4586.png 1121w, /wp-content/uploads/2018/05/word-image-4586-300x16.png 300w, /wp-content/uploads/2018/05/word-image-4586-768x40.png 768w, /wp-content/uploads/2018/05/word-image-4586-1024x54.png 1024w" sizes="(max-width: 1121px) 100vw, 1121px" /></p>
+<h1>负载均衡配置</h1>
+<h2>1、负载均衡图</h2>
+<p><img loading="lazy" decoding="async" width="624" height="427" src="/wp-content/uploads/2018/05/word-image-4587.png" class="wp-image-5076" srcset="/wp-content/uploads/2018/05/word-image-4587.png 624w, /wp-content/uploads/2018/05/word-image-4587-300x205.png 300w, /wp-content/uploads/2018/05/word-image-4587-220x150.png 220w" sizes="(max-width: 624px) 100vw, 624px" /></p>
+<h2>2、nginx支持的三种负载均衡策略</h2>
+<p>
+  轮询：将请求依次轮询发给每个服务器。
+</p>
+<p>
+  最少链接：将请求发送给持有最少活动链接的服务器。
+</p>
+<p>
+  ip哈希：通过哈希函数决定请求发送给哪个服务器。
+</p>
+<p>
+  权重：服务器的权重越高，处理请求的概率越大。
+</p>
+<h2>3、轮询负载均衡</h2>
+<p>
+  http {
+</p>
+<p>
+      #设定负载均衡的服务器列表 phpServers 可以写网址或ip或其他英文
+</p>
+<p>
+      upstream phpServers {
+</p>
+<p>
+          server 服务器IP:端口;
+</p>
+<p>
+          server 服务器IP:端口;
+</p>
+<p>
+          server 服务器IP:端口;
+</p>
+<p>
+      }
+</p>
+<p>
+      server {
+</p>
+<p>
+          listen 80;
+</p>
+<p>
+          location / {
+</p>
+<p>
+              # 当80端口有请求的时候交给上面定义的负载均衡器处理（phpServers ）
+</p>
+<p>
+              proxy_pass http://phpServers/ ;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="887" height="567" src="/wp-content/uploads/2018/05/word-image-4588.png" class="wp-image-5077" srcset="/wp-content/uploads/2018/05/word-image-4588.png 887w, /wp-content/uploads/2018/05/word-image-4588-300x192.png 300w, /wp-content/uploads/2018/05/word-image-4588-768x491.png 768w" sizes="(max-width: 887px) 100vw, 887px" /></p>
+<h2>4、最少链接负载均衡</h2>
+<p>
+  http {
+</p>
+<p>
+      upstream CashServers {
+</p>
+<p>
+        	<strong>least_conn;</strong>
+</p>
+<p>
+          server 服务器IP:端口;
+</p>
+<p>
+          server 服务器IP:端口;
+</p>
+<p>
+          server 服务器IP:端口;
+</p>
+<p>
+      }
+</p>
+<p>
+      server {
+</p>
+<p>
+          listen 80;
+</p>
+<p>
+          location / {
+</p>
+<p>
+              proxy_pass http://CashServers;/
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p>
+  最少链接负载均衡通过least_conn指令定义;
+</p>
+<p>
+  此负载均衡策略适合请求处理时间长短不一造成服务器过载的情况;
+</p>
+<h2>5、ip哈希负载均衡</h2>
+<p>
+  http {
+</p>
+<p>
+      upstream CashServers {
+</p>
+<p>
+        	<strong>ip_hash;</strong>
+</p>
+<p>
+          server 服务器IP:端口;
+</p>
+<p>
+          server 服务器IP:端口;
+</p>
+<p>
+          server 服务器IP:端口;
+</p>
+<p>
+      }
+</p>
+<p>
+      server {
+</p>
+<p>
+          listen 80;
+</p>
+<p>
+          location / {
+</p>
+<p>
+              proxy_pass http://CashServers;/
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p>
+  ip哈希负载均衡使用ip_hash指令定义;
+</p>
+<p>
+  nginx使用请求客户端的ip地址进行哈希计算，确保使用同一个服务器响应请求;
+</p>
+<p>
+  此策略适合有状态服务，比如session;
+</p>
+<h2>6、权重</h2>
+<p>
+  http {
+</p>
+<p>
+  upstream CashServers {
+</p>
+<p>
+      可以加最少连接负载均衡参数
+</p>
+<p>
+      或者加ip哈希负载均衡参数
+</p>
+<p>
+          server 服务器IP:端口 <strong>weight=3;</strong>
+</p>
+<p>
+          server 服务器IP:端口 <strong>weight=2;</strong>
+</p>
+<p>
+          server 服务器IP:端口 <strong>weight=1;</strong>
+</p>
+<p>
+      }
+</p>
+<p>
+      server {
+</p>
+<p>
+          listen 80;
+</p>
+<p>
+          location / {
+</p>
+<p>
+              proxy_pass http://CashServers;/
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p>
+  权重负载均衡需要使用weight指令定义;
+</p>
+<p>
+  权重越高分配到需要处理的请求越多;
+</p>
+<p>
+  此策略可以与最少链接负载和ip哈希策略结合使用;
+</p>
+<p>
+  此策略比较适合服务器的硬件配置差别比较大的情况;
+</p>
+<h1>七、动静分离</h1>
+<p>
+  步骤1：打开负载均衡服务器主配置文件（vi /php/server/nginx/conf/nginx.conf）
+</p>
+<p><img loading="lazy" decoding="async" width="649" height="707" src="/wp-content/uploads/2018/05/word-image-4589.png" class="wp-image-5078" srcset="/wp-content/uploads/2018/05/word-image-4589.png 649w, /wp-content/uploads/2018/05/word-image-4589-275x300.png 275w" sizes="(max-width: 649px) 100vw, 649px" /></p>
+<p>
+  步骤2：重启nginx即可
+</p>
+<h1>八、SESSION共享</h1>
+<h2>1、说明</h2>
+<p>
+  明确：session存储在服务端
+</p>
+<p>
+  发现：由于实现了负载均衡导致，如果是轮询策略导致session丢失
+</p>
+<h2>解决</h2>
+<ul>
+<li>
+     使用ip哈希负载均衡策略
+  </li>
+<li>
+     session入库（将session保存到数据库中）
+  </li>
+</ul>
+<p>
+  如果有a网站和b网站，希望a网站登录成功后b网站自动登录（注：登录肯定用session存储）
+</p>
+<p>
+  答：大公司解决方法，修改session存储方式数据库（memcache）
+</p>
+<h1>扩展</h1>
+<ul>
+<li>
+    一键安装包网站：<a href="http://lnmp.org/">http://lnmp.org/</a>
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="777" height="391" src="/wp-content/uploads/2018/05/word-image-4590.png" class="wp-image-5079" srcset="/wp-content/uploads/2018/05/word-image-4590.png 777w, /wp-content/uploads/2018/05/word-image-4590-300x151.png 300w, /wp-content/uploads/2018/05/word-image-4590-768x386.png 768w" sizes="(max-width: 777px) 100vw, 777px" /></p>
+<ul>
+<li>
+    淘宝的tengine：<a href="http://tengine.taobao.org/">http://tengine.taobao.org/</a>
+  </li>
+<li>
+    中文站点：<a href="http://www.nginx.cn/doc/" class="broken_link">http://www.nginx.cn/doc/</a>
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="966" height="340" src="/wp-content/uploads/2018/05/word-image-4591.png" class="wp-image-5080" srcset="/wp-content/uploads/2018/05/word-image-4591.png 966w, /wp-content/uploads/2018/05/word-image-4591-300x106.png 300w, /wp-content/uploads/2018/05/word-image-4591-768x270.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/nginx/5046.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>页面静态化 地图API、页面静态化</title>
+		<link>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/4777.html</link>
+					<comments>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/4777.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 13:11:04 +0000</pubDate>
+				<category><![CDATA[网站优化]]></category>
+		<category><![CDATA[页面静态化]]></category>
+		<category><![CDATA[地图API]]></category>
+		<guid isPermaLink="false">/?p=4777</guid>
+
+					<description><![CDATA[地图API 地图API介绍 地图API所指的就是能够提供地图相关的服务。 对于该服务一般都是通过JavaScr [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>地图API</h1>
+<h2>地图API介绍</h2>
+<p>
+  地图API所指的就是能够提供地图相关的服务。
+</p>
+<p>
+  对于该服务一般都是通过JavaScript或者其他语言将具体的地图信息嵌入到应用中
+</p>
+<p>
+  例如58中是房子信息会显示出地点的地图信息
+</p>
+<p><img loading="lazy" decoding="async" width="762" height="426" src="/wp-content/uploads/2018/05/word-image-4300.png" class="wp-image-4779" srcset="/wp-content/uploads/2018/05/word-image-4300.png 762w, /wp-content/uploads/2018/05/word-image-4300-300x168.png 300w" sizes="(max-width: 762px) 100vw, 762px" /></p>
+<p>
+  地图API除了提供地图显示之外还提供 例如 定位、线路、周边等相关的服务
+</p>
+<h2>2.2、腾讯地图的使用</h2>
+<h3>2.2.1、文档查看</h3>
+<p>
+  ①进入到文档
+</p>
+<p><img loading="lazy" decoding="async" width="1336" height="354" src="/wp-content/uploads/2018/05/word-image-4301.png" class="wp-image-4780" srcset="/wp-content/uploads/2018/05/word-image-4301.png 1336w, /wp-content/uploads/2018/05/word-image-4301-300x79.png 300w, /wp-content/uploads/2018/05/word-image-4301-768x203.png 768w, /wp-content/uploads/2018/05/word-image-4301-1024x271.png 1024w" sizes="(max-width: 1336px) 100vw, 1336px" /></p>
+<p>
+  ②具体查看文档
+</p>
+<p><img loading="lazy" decoding="async" width="1277" height="580" src="/wp-content/uploads/2018/05/word-image-4302.png" class="wp-image-4781" srcset="/wp-content/uploads/2018/05/word-image-4302.png 1277w, /wp-content/uploads/2018/05/word-image-4302-300x136.png 300w, /wp-content/uploads/2018/05/word-image-4302-768x349.png 768w, /wp-content/uploads/2018/05/word-image-4302-1024x465.png 1024w" sizes="(max-width: 1277px) 100vw, 1277px" /></p>
+<h3>2.2.2、具体使用地图</h3>
+<p>
+  ①载入API
+</p>
+<p><img loading="lazy" decoding="async" width="1001" height="550" src="/wp-content/uploads/2018/05/word-image-4303.png" class="wp-image-4782" srcset="/wp-content/uploads/2018/05/word-image-4303.png 1001w, /wp-content/uploads/2018/05/word-image-4303-300x165.png 300w, /wp-content/uploads/2018/05/word-image-4303-768x422.png 768w" sizes="(max-width: 1001px) 100vw, 1001px" /></p>
+<p>
+  ②创建地图DOM元素
+</p>
+<p><img loading="lazy" decoding="async" width="1055" height="647" src="/wp-content/uploads/2018/05/word-image-4304.png" class="wp-image-4783" srcset="/wp-content/uploads/2018/05/word-image-4304.png 1055w, /wp-content/uploads/2018/05/word-image-4304-300x184.png 300w, /wp-content/uploads/2018/05/word-image-4304-768x471.png 768w, /wp-content/uploads/2018/05/word-image-4304-1024x628.png 1024w" sizes="(max-width: 1055px) 100vw, 1055px" /></p>
+<p>
+  ③创建对象
+</p>
+<p><img loading="lazy" decoding="async" width="1041" height="705" src="/wp-content/uploads/2018/05/word-image-4305.png" class="wp-image-4784" srcset="/wp-content/uploads/2018/05/word-image-4305.png 1041w, /wp-content/uploads/2018/05/word-image-4305-300x203.png 300w, /wp-content/uploads/2018/05/word-image-4305-768x520.png 768w, /wp-content/uploads/2018/05/word-image-4305-1024x693.png 1024w, /wp-content/uploads/2018/05/word-image-4305-220x150.png 220w" sizes="(max-width: 1041px) 100vw, 1041px" /></p>
+<p>
+  ④初始化地图
+</p>
+<p><img loading="lazy" decoding="async" width="1015" height="515" src="/wp-content/uploads/2018/05/word-image-4306.png" class="wp-image-4785" srcset="/wp-content/uploads/2018/05/word-image-4306.png 1015w, /wp-content/uploads/2018/05/word-image-4306-300x152.png 300w, /wp-content/uploads/2018/05/word-image-4306-768x390.png 768w" sizes="(max-width: 1015px) 100vw, 1015px" /></p>
+<h3>2.2.3、根据指定地址显示地图</h3>
+<p><img loading="lazy" decoding="async" width="1060" height="652" src="/wp-content/uploads/2018/05/word-image-4307.png" class="wp-image-4786" srcset="/wp-content/uploads/2018/05/word-image-4307.png 1060w, /wp-content/uploads/2018/05/word-image-4307-300x185.png 300w, /wp-content/uploads/2018/05/word-image-4307-768x472.png 768w, /wp-content/uploads/2018/05/word-image-4307-1024x630.png 1024w" sizes="(max-width: 1060px) 100vw, 1060px" /><br />
+<img loading="lazy" decoding="async" width="1047" height="683" src="/wp-content/uploads/2018/05/word-image-4308.png" class="wp-image-4787" srcset="/wp-content/uploads/2018/05/word-image-4308.png 1047w, /wp-content/uploads/2018/05/word-image-4308-300x196.png 300w, /wp-content/uploads/2018/05/word-image-4308-768x501.png 768w, /wp-content/uploads/2018/05/word-image-4308-1024x668.png 1024w" sizes="(max-width: 1047px) 100vw, 1047px" /><br />
+<img loading="lazy" decoding="async" width="1027" height="141" src="/wp-content/uploads/2018/05/word-image-4309.png" class="wp-image-4788" srcset="/wp-content/uploads/2018/05/word-image-4309.png 1027w, /wp-content/uploads/2018/05/word-image-4309-300x41.png 300w, /wp-content/uploads/2018/05/word-image-4309-768x105.png 768w, /wp-content/uploads/2018/05/word-image-4309-1024x141.png 1024w" sizes="(max-width: 1027px) 100vw, 1027px" /></p>
+<h1>静态化概述</h1>
+<h2>静态与动态网页</h2>
+<p>
+  ①静态网页
+</p>
+<p>
+  直接以静态的html/shtml等格式直接显示内容的
+</p>
+<p><img loading="lazy" decoding="async" width="1014" height="577" src="/wp-content/uploads/2018/05/word-image-4310.png" class="wp-image-4789" srcset="/wp-content/uploads/2018/05/word-image-4310.png 1014w, /wp-content/uploads/2018/05/word-image-4310-300x171.png 300w, /wp-content/uploads/2018/05/word-image-4310-768x437.png 768w" sizes="(max-width: 1014px) 100vw, 1014px" /></p>
+<p>
+  优点：安全、运行速度快
+</p>
+<p>
+  缺点：工作量大
+</p>
+<p>
+  ②动态网页
+</p>
+<p>
+  使用动态语言配合数据库显示内容。
+</p>
+<p><img loading="lazy" decoding="async" width="917" height="611" src="/wp-content/uploads/2018/05/word-image-4311.png" class="wp-image-4790" srcset="/wp-content/uploads/2018/05/word-image-4311.png 917w, /wp-content/uploads/2018/05/word-image-4311-300x200.png 300w, /wp-content/uploads/2018/05/word-image-4311-768x512.png 768w" sizes="(max-width: 917px) 100vw, 917px" /></p>
+<p>
+  优点：灵活性高、维护工作量小
+</p>
+<p>
+  缺点：与静态网页相对比运行速度慢
+</p>
+<h2>什么是静态化</h2>
+<p>
+  将动态网页显示的内容转换为静态网页来进行显示，而具体转换的过程就是静态化。对于静态化是一个过程。在实现的完成后会产生对于的html静态文件。
+</p>
+<h2>静态化优点</h2>
+<ol>
+<li>
+  安全性高
+</li>
+</ol>
+<p>
+  对于静态化的html文件不接受任何参数。
+</p>
+<ol>
+<li>
+  性能更高
+</li>
+</ol>
+<p>
+  对于静态的html文件Apache是直接解析文件响应结果。对于动态的php需要交给PHP引擎解析最后在由Apache响应结果
+</p>
+<ol>
+<li>
+  加载速度快
+</li>
+</ol>
+<p>
+  浏览器自带缓存功能
+</p>
+<ol>
+<li>
+  更加符合搜索引擎优化
+</li>
+</ol>
+<p>
+  对于百度、360搜索引擎更加喜欢收录静态的HTML文件
+</p>
+<h2>2.4、实现静态化的原理</h2>
+<p>
+  1、获取解析之后的结果(最终要显示的结果)
+</p>
+<p>
+  2、写入文件(一定要自行设计一个规律写入)
+</p>
+<p>
+  ①创建生成html文件的php
+</p>
+<p><img loading="lazy" decoding="async" width="978" height="612" src="/wp-content/uploads/2018/05/word-image-4312.png" class="wp-image-4791" srcset="/wp-content/uploads/2018/05/word-image-4312.png 978w, /wp-content/uploads/2018/05/word-image-4312-300x188.png 300w, /wp-content/uploads/2018/05/word-image-4312-768x481.png 768w" sizes="(max-width: 978px) 100vw, 978px" /></p>
+<p>
+  ②访问
+</p>
+<p><img loading="lazy" decoding="async" width="550" height="166" src="/wp-content/uploads/2018/05/word-image-4313.png" class="wp-image-4792" srcset="/wp-content/uploads/2018/05/word-image-4313.png 550w, /wp-content/uploads/2018/05/word-image-4313-300x91.png 300w" sizes="(max-width: 550px) 100vw, 550px" /></p>
+<p>
+  ③查看文件
+</p>
+<p><img loading="lazy" decoding="async" width="1188" height="496" src="/wp-content/uploads/2018/05/word-image-4314.png" class="wp-image-4793" srcset="/wp-content/uploads/2018/05/word-image-4314.png 1188w, /wp-content/uploads/2018/05/word-image-4314-300x125.png 300w, /wp-content/uploads/2018/05/word-image-4314-768x321.png 768w, /wp-content/uploads/2018/05/word-image-4314-1024x428.png 1024w" sizes="(max-width: 1188px) 100vw, 1188px" /></p>
+<p>
+  访问效果
+</p>
+<p><img loading="lazy" decoding="async" width="699" height="237" src="/wp-content/uploads/2018/05/word-image-4315.png" class="wp-image-4794" srcset="/wp-content/uploads/2018/05/word-image-4315.png 699w, /wp-content/uploads/2018/05/word-image-4315-300x102.png 300w" sizes="(max-width: 699px) 100vw, 699px" /></p>
+<p>
+  对于静态化中的两步骤能够实现就能够实现静态化功能。但是最常用的方式是使用PHP 中的OB缓存实现
+</p>
+<h2>静态化适用场景</h2>
+<ol>
+<li>
+  适用于更新不是特别频繁的项目。例如行业、新闻门户或者企业项目使用
+</li>
+<li>
+  可以针对更新较为频繁的项目的首页使用静态化
+</li>
+</ol>
+<h1>缓存区</h1>
+<h2>3.1、静态与动态网页解析流程(了解)</h2>
+<h3>3.1.1、静态网页</h3>
+<p><img loading="lazy" decoding="async" width="1236" height="508" src="/wp-content/uploads/2018/05/word-image-4316.png" class="wp-image-4795" srcset="/wp-content/uploads/2018/05/word-image-4316.png 1236w, /wp-content/uploads/2018/05/word-image-4316-300x123.png 300w, /wp-content/uploads/2018/05/word-image-4316-768x316.png 768w, /wp-content/uploads/2018/05/word-image-4316-1024x421.png 1024w" sizes="(max-width: 1236px) 100vw, 1236px" /></p>
+<p>
+  对于上述流程中将临时存储所读取到文件内容介子叫做程序缓存。程序缓存是一定存在的。不可以手动关闭
+</p>
+<h3>3.1.2、动态网页</h3>
+<p><img loading="lazy" decoding="async" width="1207" height="505" src="/wp-content/uploads/2018/05/word-image-4317.png" class="wp-image-4796" srcset="/wp-content/uploads/2018/05/word-image-4317.png 1207w, /wp-content/uploads/2018/05/word-image-4317-300x126.png 300w, /wp-content/uploads/2018/05/word-image-4317-768x321.png 768w, /wp-content/uploads/2018/05/word-image-4317-1024x428.png 1024w" sizes="(max-width: 1207px) 100vw, 1207px" /></p>
+<p>
+  对于上述流程中涉及到两种缓存系统，一种是程序缓存，另外一种是OB缓存。
+</p>
+<h2>3.2、程序缓存</h2>
+<p>
+  注意案例过程中需要关闭OB缓存。直接修改配置文件注释掉即可
+</p>
+<p><img loading="lazy" decoding="async" width="779" height="671" src="/wp-content/uploads/2018/05/word-image-4318.png" class="wp-image-4797" srcset="/wp-content/uploads/2018/05/word-image-4318.png 779w, /wp-content/uploads/2018/05/word-image-4318-300x258.png 300w, /wp-content/uploads/2018/05/word-image-4318-768x662.png 768w" sizes="(max-width: 779px) 100vw, 779px" /></p>
+<p>
+  注意重启Apache
+</p>
+<p>
+  ①编写案例
+</p>
+<p><img loading="lazy" decoding="async" width="1011" height="386" src="/wp-content/uploads/2018/05/word-image-4319.png" class="wp-image-4798" srcset="/wp-content/uploads/2018/05/word-image-4319.png 1011w, /wp-content/uploads/2018/05/word-image-4319-300x115.png 300w, /wp-content/uploads/2018/05/word-image-4319-768x293.png 768w" sizes="(max-width: 1011px) 100vw, 1011px" /></p>
+<p>
+  ②图解
+</p>
+<p><img loading="lazy" decoding="async" width="1201" height="535" src="/wp-content/uploads/2018/05/word-image-4320.png" class="wp-image-4799" srcset="/wp-content/uploads/2018/05/word-image-4320.png 1201w, /wp-content/uploads/2018/05/word-image-4320-300x134.png 300w, /wp-content/uploads/2018/05/word-image-4320-768x342.png 768w, /wp-content/uploads/2018/05/word-image-4320-1024x456.png 1024w" sizes="(max-width: 1201px) 100vw, 1201px" /></p>
+<p>
+  从上述案例结果只能够能够确认一定会存在程序缓存。如果不存在，会导致结果只看到一部分。当代码执行的过程中将一切的输出都放入到程序缓存中也包括header所设置的响应头
+</p>
+<p>
+  当PHP程序执行完毕 Apache需要获取程序缓存中的内容进行封包。因此直接程序缓存中的内容刷新给Apache进行响应
+</p>
+<h2>3.3、OB缓存</h2>
+<h3>3.3.1、OB缓存案例一</h3>
+<p>
+  ①代码
+</p>
+<p><img loading="lazy" decoding="async" width="1064" height="408" src="/wp-content/uploads/2018/05/word-image-4321.png" class="wp-image-4800" srcset="/wp-content/uploads/2018/05/word-image-4321.png 1064w, /wp-content/uploads/2018/05/word-image-4321-300x115.png 300w, /wp-content/uploads/2018/05/word-image-4321-768x294.png 768w, /wp-content/uploads/2018/05/word-image-4321-1024x393.png 1024w" sizes="(max-width: 1064px) 100vw, 1064px" /></p>
+<p>
+  ②效果
+</p>
+<p><img loading="lazy" decoding="async" width="1183" height="241" src="/wp-content/uploads/2018/05/word-image-4322.png" class="wp-image-4801" srcset="/wp-content/uploads/2018/05/word-image-4322.png 1183w, /wp-content/uploads/2018/05/word-image-4322-300x61.png 300w, /wp-content/uploads/2018/05/word-image-4322-768x156.png 768w, /wp-content/uploads/2018/05/word-image-4322-1024x209.png 1024w" sizes="(max-width: 1183px) 100vw, 1183px" /></p>
+<p>
+  ③图解
+</p>
+<p><img loading="lazy" decoding="async" width="1144" height="507" src="/wp-content/uploads/2018/05/word-image-4323.png" class="wp-image-4802" srcset="/wp-content/uploads/2018/05/word-image-4323.png 1144w, /wp-content/uploads/2018/05/word-image-4323-300x133.png 300w, /wp-content/uploads/2018/05/word-image-4323-768x340.png 768w, /wp-content/uploads/2018/05/word-image-4323-1024x454.png 1024w" sizes="(max-width: 1144px) 100vw, 1144px" /></p>
+<p>
+  ④描述
+</p>
+<p>
+  当代码在执行是顺序将内容放入程序缓存。最后由Apache进行封包响应由于Apache会提供一个默认的的响应头因此导致响应的格式不对因此导致错误
+</p>
+<h3>3.3.2、OB缓存案例二</h3>
+<p>
+  ①代码
+</p>
+<p><img loading="lazy" decoding="async" width="1126" height="452" src="/wp-content/uploads/2018/05/word-image-4324.png" class="wp-image-4803" srcset="/wp-content/uploads/2018/05/word-image-4324.png 1126w, /wp-content/uploads/2018/05/word-image-4324-300x120.png 300w, /wp-content/uploads/2018/05/word-image-4324-768x308.png 768w, /wp-content/uploads/2018/05/word-image-4324-1024x411.png 1024w" sizes="(max-width: 1126px) 100vw, 1126px" /></p>
+<p>
+  ②画图分析
+</p>
+<p><img loading="lazy" decoding="async" width="1239" height="512" src="/wp-content/uploads/2018/05/word-image-4325.png" class="wp-image-4804" srcset="/wp-content/uploads/2018/05/word-image-4325.png 1239w, /wp-content/uploads/2018/05/word-image-4325-300x124.png 300w, /wp-content/uploads/2018/05/word-image-4325-768x317.png 768w, /wp-content/uploads/2018/05/word-image-4325-1024x423.png 1024w" sizes="(max-width: 1239px) 100vw, 1239px" /></p>
+<ol>
+<li>
+  当代码执行到第三行ob_start开启了一个全新的OB缓存区
+</li>
+<li>
+  当代码执行到第五行 是内容书输出因此优先放入到OB缓存
+</li>
+<li>
+  当代码执行到第七行由于header是设置响应头的并非直接输出因此进入到了程序缓存
+</li>
+<li>
+  当代码执行到第九行同样为输出存储到Ob缓存中
+</li>
+<li>
+  最终代码执行完毕，由于没有进行手动的刷新操作。因此PHP自动的将OB缓存中的内容刷新到程序缓存中
+</li>
+<li>
+  Apache读取程序缓存中的内容进行封包响应
+</li>
+</ol>
+<h2>3.4.、OB缓存注意事项</h2>
+<p>
+  1、OB缓存默认是一个开启状态 可以通过php.ini中的output_buffering控制
+</p>
+<p>
+  2、当有程序缓存跟OB缓存同时存在。输出的内容优先放入OB缓存。而非输出的内容例如控制响应的会放入到程序缓存。例如cookie、session等相关的设置
+</p>
+<p>
+  3、当代码执行完毕。PHP会自动的将OB缓存中的内容刷新到程序缓存中
+</p>
+<p>
+  4、OB缓存可以开启多个。每一个之间相互不响应
+</p>
+<h2>3.5、OB缓存中常用函数</h2>
+<p>
+  Ob_start();开启OB缓存
+</p>
+<p>
+  Ob_get_contents();获取OB缓存中的内容
+</p>
+<p>
+  Ob_clean():清空OB缓存中的内容
+</p>
+<p>
+  Ob_end_clean():清空并且关闭OB缓存
+</p>
+<p>
+  Ob_flush();手动的刷新OB缓存到程序缓存中
+</p>
+<p>
+  Ob_end_flush();将OB缓存中的内容刷新到程序缓存并且关闭OB缓存
+</p>
+<p>
+  ①ob_get_contents
+</p>
+<p><img loading="lazy" decoding="async" width="1175" height="591" src="/wp-content/uploads/2018/05/word-image-4326.png" class="wp-image-4805" srcset="/wp-content/uploads/2018/05/word-image-4326.png 1175w, /wp-content/uploads/2018/05/word-image-4326-300x151.png 300w, /wp-content/uploads/2018/05/word-image-4326-768x386.png 768w, /wp-content/uploads/2018/05/word-image-4326-1024x515.png 1024w" sizes="(max-width: 1175px) 100vw, 1175px" /></p>
+<p>
+  浏览器访问结果
+</p>
+<p><img loading="lazy" decoding="async" width="591" height="226" src="/wp-content/uploads/2018/05/word-image-4327.png" class="wp-image-4806" srcset="/wp-content/uploads/2018/05/word-image-4327.png 591w, /wp-content/uploads/2018/05/word-image-4327-300x115.png 300w" sizes="(max-width: 591px) 100vw, 591px" /></p>
+<p>
+  文件中结果
+</p>
+<p><img loading="lazy" decoding="async" width="777" height="238" src="/wp-content/uploads/2018/05/word-image-4328.png" class="wp-image-4807" srcset="/wp-content/uploads/2018/05/word-image-4328.png 777w, /wp-content/uploads/2018/05/word-image-4328-300x92.png 300w, /wp-content/uploads/2018/05/word-image-4328-768x235.png 768w" sizes="(max-width: 777px) 100vw, 777px" /></p>
+<p>
+  ②ob_clean
+</p>
+<p><img loading="lazy" decoding="async" width="1054" height="699" src="/wp-content/uploads/2018/05/word-image-4329.png" class="wp-image-4808" srcset="/wp-content/uploads/2018/05/word-image-4329.png 1054w, /wp-content/uploads/2018/05/word-image-4329-300x199.png 300w, /wp-content/uploads/2018/05/word-image-4329-768x509.png 768w, /wp-content/uploads/2018/05/word-image-4329-1024x679.png 1024w" sizes="(max-width: 1054px) 100vw, 1054px" /></p>
+<p>
+  浏览器结果
+</p>
+<p><img loading="lazy" decoding="async" width="532" height="166" src="/wp-content/uploads/2018/05/word-image-4330.png" class="wp-image-4809" srcset="/wp-content/uploads/2018/05/word-image-4330.png 532w, /wp-content/uploads/2018/05/word-image-4330-300x94.png 300w" sizes="(max-width: 532px) 100vw, 532px" /></p>
+<p>
+  文件中结果
+</p>
+<p><img loading="lazy" decoding="async" width="725" height="262" src="/wp-content/uploads/2018/05/word-image-4331.png" class="wp-image-4810" srcset="/wp-content/uploads/2018/05/word-image-4331.png 725w, /wp-content/uploads/2018/05/word-image-4331-300x108.png 300w" sizes="(max-width: 725px) 100vw, 725px" /></p>
+<p>
+  ③ob_flush
+</p>
+<p><img loading="lazy" decoding="async" width="1155" height="698" src="/wp-content/uploads/2018/05/word-image-4332.png" class="wp-image-4811" srcset="/wp-content/uploads/2018/05/word-image-4332.png 1155w, /wp-content/uploads/2018/05/word-image-4332-300x181.png 300w, /wp-content/uploads/2018/05/word-image-4332-768x464.png 768w, /wp-content/uploads/2018/05/word-image-4332-1024x619.png 1024w" sizes="(max-width: 1155px) 100vw, 1155px" /></p>
+<p>
+  浏览器效果
+</p>
+<p><img loading="lazy" decoding="async" width="654" height="215" src="/wp-content/uploads/2018/05/word-image-4333.png" class="wp-image-4812" srcset="/wp-content/uploads/2018/05/word-image-4333.png 654w, /wp-content/uploads/2018/05/word-image-4333-300x99.png 300w" sizes="(max-width: 654px) 100vw, 654px" /></p>
+<p>
+  文件效果
+</p>
+<p><img loading="lazy" decoding="async" width="695" height="213" src="/wp-content/uploads/2018/05/word-image-4334.png" class="wp-image-4813" srcset="/wp-content/uploads/2018/05/word-image-4334.png 695w, /wp-content/uploads/2018/05/word-image-4334-300x92.png 300w" sizes="(max-width: 695px) 100vw, 695px" /></p>
+<h2>4.6、OB缓存嵌套</h2>
+<p><img loading="lazy" decoding="async" width="892" height="654" src="/wp-content/uploads/2018/05/word-image-4335.png" class="wp-image-4814" srcset="/wp-content/uploads/2018/05/word-image-4335.png 892w, /wp-content/uploads/2018/05/word-image-4335-300x220.png 300w, /wp-content/uploads/2018/05/word-image-4335-768x563.png 768w" sizes="(max-width: 892px) 100vw, 892px" /></p>
+<p>
+  对于上述案例浏览器会逐个输出并且会顺序的输出1,2,3。说明ob缓存每一次开启都会开启一个缓存区。每个之间存在一个“标号”关系
+</p>
+<p><img loading="lazy" decoding="async" width="728" height="138" src="/wp-content/uploads/2018/05/word-image-4336.png" class="wp-image-4815" srcset="/wp-content/uploads/2018/05/word-image-4336.png 728w, /wp-content/uploads/2018/05/word-image-4336-300x57.png 300w" sizes="(max-width: 728px) 100vw, 728px" /></p>
+<p>
+  而在三个文件中分别的内容为php、mysql、java 产生此结果原因。因为每一个缓存区之间不相互影响
+</p>
+<h2>4.7、使用OB缓存实现静态化</h2>
+<p>
+  ①创建新闻数据表
+</p>
+<p>
+  CREATE TABLE `news` (
+</p>
+<p>
+    `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+</p>
+<p>
+    `title` varchar(255) NOT NULL DEFAULT &#8221;,
+</p>
+<p>
+    `body` varchar(255) NOT NULL DEFAULT &#8221;,
+</p>
+<p>
+    PRIMARY KEY (`id`)
+</p>
+<p>
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</p>
+<p>
+  ②写入测试数据
+</p>
+<p><img loading="lazy" decoding="async" width="684" height="270" src="/wp-content/uploads/2018/05/word-image-4337.png" class="wp-image-4816" srcset="/wp-content/uploads/2018/05/word-image-4337.png 684w, /wp-content/uploads/2018/05/word-image-4337-300x118.png 300w" sizes="(max-width: 684px) 100vw, 684px" /></p>
+<p>
+  ③编写新闻列表页
+</p>
+<p><img loading="lazy" decoding="async" width="1051" height="685" src="/wp-content/uploads/2018/05/word-image-4338.png" class="wp-image-4817" srcset="/wp-content/uploads/2018/05/word-image-4338.png 1051w, /wp-content/uploads/2018/05/word-image-4338-300x196.png 300w, /wp-content/uploads/2018/05/word-image-4338-768x501.png 768w, /wp-content/uploads/2018/05/word-image-4338-1024x667.png 1024w" sizes="(max-width: 1051px) 100vw, 1051px" /></p>
+<p>
+  ④创建可以生产新闻详情页的PHP文件
+</p>
+<p><img loading="lazy" decoding="async" width="1092" height="622" src="/wp-content/uploads/2018/05/word-image-4339.png" class="wp-image-4818" srcset="/wp-content/uploads/2018/05/word-image-4339.png 1092w, /wp-content/uploads/2018/05/word-image-4339-300x171.png 300w, /wp-content/uploads/2018/05/word-image-4339-768x437.png 768w, /wp-content/uploads/2018/05/word-image-4339-1024x583.png 1024w" sizes="(max-width: 1092px) 100vw, 1092px" /><br />
+<img loading="lazy" decoding="async" width="911" height="432" src="/wp-content/uploads/2018/05/word-image-4340.png" class="wp-image-4819" srcset="/wp-content/uploads/2018/05/word-image-4340.png 911w, /wp-content/uploads/2018/05/word-image-4340-300x142.png 300w, /wp-content/uploads/2018/05/word-image-4340-768x364.png 768w" sizes="(max-width: 911px) 100vw, 911px" /></p>
+<p>
+  ⑤访问触发生产
+</p>
+<p><img loading="lazy" decoding="async" width="809" height="198" src="/wp-content/uploads/2018/05/word-image-4341.png" class="wp-image-4820" srcset="/wp-content/uploads/2018/05/word-image-4341.png 809w, /wp-content/uploads/2018/05/word-image-4341-300x73.png 300w, /wp-content/uploads/2018/05/word-image-4341-768x188.png 768w" sizes="(max-width: 809px) 100vw, 809px" /></p>
+<p>
+  ⑥查看文件
+</p>
+<p><img loading="lazy" decoding="async" width="1335" height="627" src="/wp-content/uploads/2018/05/word-image-4342.png" class="wp-image-4821" srcset="/wp-content/uploads/2018/05/word-image-4342.png 1335w, /wp-content/uploads/2018/05/word-image-4342-300x141.png 300w, /wp-content/uploads/2018/05/word-image-4342-768x361.png 768w, /wp-content/uploads/2018/05/word-image-4342-1024x481.png 1024w" sizes="(max-width: 1335px) 100vw, 1335px" /></p>
+<p>
+  ⑦给列表增加连接地址
+</p>
+<p><img loading="lazy" decoding="async" width="1116" height="581" src="/wp-content/uploads/2018/05/word-image-4343.png" class="wp-image-4822" srcset="/wp-content/uploads/2018/05/word-image-4343.png 1116w, /wp-content/uploads/2018/05/word-image-4343-300x156.png 300w, /wp-content/uploads/2018/05/word-image-4343-768x400.png 768w, /wp-content/uploads/2018/05/word-image-4343-1024x533.png 1024w" sizes="(max-width: 1116px) 100vw, 1116px" /></p>
+<h2>4.8、商城使用静态化</h2>
+<h3>4.8.1、商城首页进行静态化</h3>
+<p>
+  ①创建控制器方法
+</p>
+<p><img loading="lazy" decoding="async" width="981" height="437" src="/wp-content/uploads/2018/05/word-image-4344.png" class="wp-image-4823" srcset="/wp-content/uploads/2018/05/word-image-4344.png 981w, /wp-content/uploads/2018/05/word-image-4344-300x134.png 300w, /wp-content/uploads/2018/05/word-image-4344-768x342.png 768w" sizes="(max-width: 981px) 100vw, 981px" /></p>
+<p>
+  ②查看TP静态化的方法
+</p>
+<p><img loading="lazy" decoding="async" width="1137" height="714" src="/wp-content/uploads/2018/05/word-image-4345.png" class="wp-image-4824" srcset="/wp-content/uploads/2018/05/word-image-4345.png 1137w, /wp-content/uploads/2018/05/word-image-4345-300x188.png 300w, /wp-content/uploads/2018/05/word-image-4345-768x482.png 768w, /wp-content/uploads/2018/05/word-image-4345-1024x643.png 1024w" sizes="(max-width: 1137px) 100vw, 1137px" /></p>
+<p>
+  ③修改方法实现静态化
+</p>
+<p><img loading="lazy" decoding="async" width="1130" height="695" src="/wp-content/uploads/2018/05/word-image-4346.png" class="wp-image-4825" srcset="/wp-content/uploads/2018/05/word-image-4346.png 1130w, /wp-content/uploads/2018/05/word-image-4346-300x185.png 300w, /wp-content/uploads/2018/05/word-image-4346-768x472.png 768w, /wp-content/uploads/2018/05/word-image-4346-1024x630.png 1024w" sizes="(max-width: 1130px) 100vw, 1130px" /></p>
+<p>
+  ④修改首页的模板
+</p>
+<p><img loading="lazy" decoding="async" width="1135" height="697" src="/wp-content/uploads/2018/05/word-image-4347.png" class="wp-image-4826" srcset="/wp-content/uploads/2018/05/word-image-4347.png 1135w, /wp-content/uploads/2018/05/word-image-4347-300x184.png 300w, /wp-content/uploads/2018/05/word-image-4347-768x472.png 768w, /wp-content/uploads/2018/05/word-image-4347-1024x629.png 1024w" sizes="(max-width: 1135px) 100vw, 1135px" /></p>
+<p>
+  ⑤修改footer模板
+</p>
+<p><img loading="lazy" decoding="async" width="935" height="310" src="/wp-content/uploads/2018/05/word-image-4348.png" class="wp-image-4827" srcset="/wp-content/uploads/2018/05/word-image-4348.png 935w, /wp-content/uploads/2018/05/word-image-4348-300x99.png 300w, /wp-content/uploads/2018/05/word-image-4348-768x255.png 768w" sizes="(max-width: 935px) 100vw, 935px" /></p>
+<p>
+  ⑥访问方法触发生产操作
+</p>
+<p><img loading="lazy" decoding="async" width="683" height="181" src="/wp-content/uploads/2018/05/word-image-4349.png" class="wp-image-4828" srcset="/wp-content/uploads/2018/05/word-image-4349.png 683w, /wp-content/uploads/2018/05/word-image-4349-300x80.png 300w" sizes="(max-width: 683px) 100vw, 683px" /></p>
+<p>
+  结果
+</p>
+<p><img loading="lazy" decoding="async" width="1361" height="516" src="/wp-content/uploads/2018/05/word-image-4350.png" class="wp-image-4829" srcset="/wp-content/uploads/2018/05/word-image-4350.png 1361w, /wp-content/uploads/2018/05/word-image-4350-300x114.png 300w, /wp-content/uploads/2018/05/word-image-4350-768x291.png 768w, /wp-content/uploads/2018/05/word-image-4350-1024x388.png 1024w" sizes="(max-width: 1361px) 100vw, 1361px" /><br />
+<img loading="lazy" decoding="async" width="1233" height="578" src="/wp-content/uploads/2018/05/word-image-4351.png" class="wp-image-4830" srcset="/wp-content/uploads/2018/05/word-image-4351.png 1233w, /wp-content/uploads/2018/05/word-image-4351-300x141.png 300w, /wp-content/uploads/2018/05/word-image-4351-768x360.png 768w, /wp-content/uploads/2018/05/word-image-4351-1024x480.png 1024w" sizes="(max-width: 1233px) 100vw, 1233px" /></p>
+<p>
+  注意使用静态化一定要注意更新
+</p>
+<h3>4.8.2、商城公告使用静态化</h3>
+<p>
+  ①创建数据表
+</p>
+<p>
+  CREATE TABLE `news` (
+</p>
+<p>
+    `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+</p>
+<p>
+    `title` varchar(255) NOT NULL DEFAULT &#8221;,
+</p>
+<p>
+    `body` varchar(255) NOT NULL DEFAULT &#8221;,
+</p>
+<p>
+    PRIMARY KEY (`id`)
+</p>
+<p>
+  ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+</p>
+<p>
+  ②创建更新的方法
+</p>
+<p><img loading="lazy" decoding="async" width="1097" height="499" src="/wp-content/uploads/2018/05/word-image-4352.png" class="wp-image-4831" srcset="/wp-content/uploads/2018/05/word-image-4352.png 1097w, /wp-content/uploads/2018/05/word-image-4352-300x136.png 300w, /wp-content/uploads/2018/05/word-image-4352-768x349.png 768w, /wp-content/uploads/2018/05/word-image-4352-1024x466.png 1024w" sizes="(max-width: 1097px) 100vw, 1097px" /></p>
+<p>
+  ③根据更新的方法创建模板文件
+</p>
+<p><img loading="lazy" decoding="async" width="1061" height="676" src="/wp-content/uploads/2018/05/word-image-4353.png" class="wp-image-4832" srcset="/wp-content/uploads/2018/05/word-image-4353.png 1061w, /wp-content/uploads/2018/05/word-image-4353-300x191.png 300w, /wp-content/uploads/2018/05/word-image-4353-768x489.png 768w, /wp-content/uploads/2018/05/word-image-4353-1024x652.png 1024w" sizes="(max-width: 1061px) 100vw, 1061px" /></p>
+<p>
+  ④访问触发更新
+</p>
+<p><img loading="lazy" decoding="async" width="904" height="307" src="/wp-content/uploads/2018/05/word-image-4354.png" class="wp-image-4833" srcset="/wp-content/uploads/2018/05/word-image-4354.png 904w, /wp-content/uploads/2018/05/word-image-4354-300x102.png 300w, /wp-content/uploads/2018/05/word-image-4354-768x261.png 768w" sizes="(max-width: 904px) 100vw, 904px" /></p>
+<p>
+  ⑤查看目录文件
+</p>
+<p><img loading="lazy" decoding="async" width="870" height="177" src="/wp-content/uploads/2018/05/word-image-4355.png" class="wp-image-4834" srcset="/wp-content/uploads/2018/05/word-image-4355.png 870w, /wp-content/uploads/2018/05/word-image-4355-300x61.png 300w, /wp-content/uploads/2018/05/word-image-4355-768x156.png 768w" sizes="(max-width: 870px) 100vw, 870px" /></p>
+<p>
+  ⑥修改首页显示的公告
+</p>
+<p><img loading="lazy" decoding="async" width="1060" height="691" src="/wp-content/uploads/2018/05/word-image-4356.png" class="wp-image-4835" srcset="/wp-content/uploads/2018/05/word-image-4356.png 1060w, /wp-content/uploads/2018/05/word-image-4356-300x196.png 300w, /wp-content/uploads/2018/05/word-image-4356-768x501.png 768w, /wp-content/uploads/2018/05/word-image-4356-1024x668.png 1024w" sizes="(max-width: 1060px) 100vw, 1060px" /></p>
+<p>
+  ⑦修改模板显示数据
+</p>
+<p><img loading="lazy" decoding="async" width="1100" height="548" src="/wp-content/uploads/2018/05/word-image-4357.png" class="wp-image-4836" srcset="/wp-content/uploads/2018/05/word-image-4357.png 1100w, /wp-content/uploads/2018/05/word-image-4357-300x149.png 300w, /wp-content/uploads/2018/05/word-image-4357-768x383.png 768w, /wp-content/uploads/2018/05/word-image-4357-1024x510.png 1024w" sizes="(max-width: 1100px) 100vw, 1100px" /></p>
+<p>
+  ⑧增加公共函数
+</p>
+<p><img loading="lazy" decoding="async" width="1017" height="441" src="/wp-content/uploads/2018/05/word-image-4358.png" class="wp-image-4837" srcset="/wp-content/uploads/2018/05/word-image-4358.png 1017w, /wp-content/uploads/2018/05/word-image-4358-300x130.png 300w, /wp-content/uploads/2018/05/word-image-4358-768x333.png 768w" sizes="(max-width: 1017px) 100vw, 1017px" /></p>
+<p>
+  最终效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="1325" height="357" src="/wp-content/uploads/2018/05/word-image-4359.png" class="wp-image-4838" srcset="/wp-content/uploads/2018/05/word-image-4359.png 1325w, /wp-content/uploads/2018/05/word-image-4359-300x81.png 300w, /wp-content/uploads/2018/05/word-image-4359-768x207.png 768w, /wp-content/uploads/2018/05/word-image-4359-1024x276.png 1024w" sizes="(max-width: 1325px) 100vw, 1325px" /><br />
+<img loading="lazy" decoding="async" width="1055" height="401" src="/wp-content/uploads/2018/05/word-image-4360.png" class="wp-image-4839" srcset="/wp-content/uploads/2018/05/word-image-4360.png 1055w, /wp-content/uploads/2018/05/word-image-4360-300x114.png 300w, /wp-content/uploads/2018/05/word-image-4360-768x292.png 768w, /wp-content/uploads/2018/05/word-image-4360-1024x389.png 1024w" sizes="(max-width: 1055px) 100vw, 1055px" /></p>
+<h1>5、伪静态</h1>
+<h2>5.1、伪静态介绍</h2>
+<p>
+  从URL地址上查看类似真静态。但是在本质处理请求的还是有动态语言完成。对于伪静态的好处方便记忆并且符合搜索引擎优化
+</p>
+<h2>5.2、伪静态实现方式</h2>
+<p>
+  1、借助于web服务器的重写机制实现
+</p>
+<p>
+  2、借助于框架中的路由功能
+</p>
+<h2>5.3、Apache开启重写机制</h2>
+<p>
+  ①启用Apache的重写机制
+</p>
+<p><img loading="lazy" decoding="async" width="1024" height="435" src="/wp-content/uploads/2018/05/word-image-4361.png" class="wp-image-4840" srcset="/wp-content/uploads/2018/05/word-image-4361.png 1024w, /wp-content/uploads/2018/05/word-image-4361-300x127.png 300w, /wp-content/uploads/2018/05/word-image-4361-768x326.png 768w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<p>
+  ②设置虚拟主机可以重写
+</p>
+<p><img loading="lazy" decoding="async" width="973" height="433" src="/wp-content/uploads/2018/05/word-image-4362.png" class="wp-image-4841" srcset="/wp-content/uploads/2018/05/word-image-4362.png 973w, /wp-content/uploads/2018/05/word-image-4362-300x134.png 300w, /wp-content/uploads/2018/05/word-image-4362-768x342.png 768w" sizes="(max-width: 973px) 100vw, 973px" /></p>
+<p>
+  ③重启Apache
+</p>
+<p>
+  对于Apache重写机制借助于.htaccess文件实现
+</p>
+<h2>5.4、伪静态案例</h2>
+<h3>5.4.1、实现访问order.html由order.php进行解析</h3>
+<p>
+  ①创建虚拟主机
+</p>
+<p><img loading="lazy" decoding="async" width="868" height="321" src="/wp-content/uploads/2018/05/word-image-4363.png" class="wp-image-4842" srcset="/wp-content/uploads/2018/05/word-image-4363.png 868w, /wp-content/uploads/2018/05/word-image-4363-300x111.png 300w, /wp-content/uploads/2018/05/word-image-4363-768x284.png 768w" sizes="(max-width: 868px) 100vw, 868px" /></p>
+<p>
+  ②修改host
+</p>
+<p><img loading="lazy" decoding="async" width="505" height="428" src="/wp-content/uploads/2018/05/word-image-4364.png" class="wp-image-4843" srcset="/wp-content/uploads/2018/05/word-image-4364.png 505w, /wp-content/uploads/2018/05/word-image-4364-300x254.png 300w" sizes="(max-width: 505px) 100vw, 505px" /></p>
+<p>
+  ③重启Apache
+</p>
+<p>
+  ④创建文件
+</p>
+<p><img loading="lazy" decoding="async" width="794" height="303" src="/wp-content/uploads/2018/05/word-image-4365.png" class="wp-image-4844" srcset="/wp-content/uploads/2018/05/word-image-4365.png 794w, /wp-content/uploads/2018/05/word-image-4365-300x114.png 300w, /wp-content/uploads/2018/05/word-image-4365-768x293.png 768w" sizes="(max-width: 794px) 100vw, 794px" /></p>
+<p>
+  ⑤访问测试
+</p>
+<p><img loading="lazy" decoding="async" width="838" height="157" src="/wp-content/uploads/2018/05/word-image-4366.png" class="wp-image-4845" srcset="/wp-content/uploads/2018/05/word-image-4366.png 838w, /wp-content/uploads/2018/05/word-image-4366-300x56.png 300w, /wp-content/uploads/2018/05/word-image-4366-768x144.png 768w" sizes="(max-width: 838px) 100vw, 838px" /><br />
+<img loading="lazy" decoding="async" width="888" height="243" src="/wp-content/uploads/2018/05/word-image-4367.png" class="wp-image-4846" srcset="/wp-content/uploads/2018/05/word-image-4367.png 888w, /wp-content/uploads/2018/05/word-image-4367-300x82.png 300w, /wp-content/uploads/2018/05/word-image-4367-768x210.png 768w" sizes="(max-width: 888px) 100vw, 888px" /></p>
+<p>
+  ⑥创建重写规则文件
+</p>
+<p><img loading="lazy" decoding="async" width="988" height="520" src="/wp-content/uploads/2018/05/word-image-4368.png" class="wp-image-4847" srcset="/wp-content/uploads/2018/05/word-image-4368.png 988w, /wp-content/uploads/2018/05/word-image-4368-300x158.png 300w, /wp-content/uploads/2018/05/word-image-4368-768x404.png 768w" sizes="(max-width: 988px) 100vw, 988px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="599" height="177" src="/wp-content/uploads/2018/05/word-image-4369.png" class="wp-image-4848" srcset="/wp-content/uploads/2018/05/word-image-4369.png 599w, /wp-content/uploads/2018/05/word-image-4369-300x89.png 300w" sizes="(max-width: 599px) 100vw, 599px" /></p>
+<h3>5.4.2、实现带参数的伪静态</h3>
+<p>
+  目的：用户访问http://demo.com/goods/10/100.html最终有http://demo.com/goods.php
+</p>
+<p>
+  ①创建goods.php
+</p>
+<p><img loading="lazy" decoding="async" width="1005" height="289" src="/wp-content/uploads/2018/05/word-image-4370.png" class="wp-image-4849" srcset="/wp-content/uploads/2018/05/word-image-4370.png 1005w, /wp-content/uploads/2018/05/word-image-4370-300x86.png 300w, /wp-content/uploads/2018/05/word-image-4370-768x221.png 768w" sizes="(max-width: 1005px) 100vw, 1005px" /></p>
+<p>
+  ②修改重写规则文件
+</p>
+<p><img loading="lazy" decoding="async" width="1084" height="638" src="/wp-content/uploads/2018/05/word-image-4371.png" class="wp-image-4850" srcset="/wp-content/uploads/2018/05/word-image-4371.png 1084w, /wp-content/uploads/2018/05/word-image-4371-300x177.png 300w, /wp-content/uploads/2018/05/word-image-4371-768x452.png 768w, /wp-content/uploads/2018/05/word-image-4371-1024x603.png 1024w" sizes="(max-width: 1084px) 100vw, 1084px" /></p>
+<p>
+  ③效果
+</p>
+<p><img loading="lazy" decoding="async" width="851" height="140" src="/wp-content/uploads/2018/05/word-image-4372.png" class="wp-image-4851" srcset="/wp-content/uploads/2018/05/word-image-4372.png 851w, /wp-content/uploads/2018/05/word-image-4372-300x49.png 300w, /wp-content/uploads/2018/05/word-image-4372-768x126.png 768w" sizes="(max-width: 851px) 100vw, 851px" /></p>
+<h3>5.4.3、防盗链</h3>
+<p>
+  防止其他项目使用自己的资源文件
+</p>
+<p>
+  ①拷贝图片
+</p>
+<p><img loading="lazy" decoding="async" width="966" height="340" src="/wp-content/uploads/2018/05/word-image-4373.png" class="wp-image-4852" srcset="/wp-content/uploads/2018/05/word-image-4373.png 966w, /wp-content/uploads/2018/05/word-image-4373-300x106.png 300w, /wp-content/uploads/2018/05/word-image-4373-768x270.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<p>
+  ②修改重写规则文件
+</p>
+<p><img loading="lazy" decoding="async" width="1061" height="508" src="/wp-content/uploads/2018/05/word-image-4374.png" class="wp-image-4853" srcset="/wp-content/uploads/2018/05/word-image-4374.png 1061w, /wp-content/uploads/2018/05/word-image-4374-300x144.png 300w, /wp-content/uploads/2018/05/word-image-4374-768x368.png 768w, /wp-content/uploads/2018/05/word-image-4374-1024x490.png 1024w" sizes="(max-width: 1061px) 100vw, 1061px" /></p>
+<p>
+  ③访问查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="1188" height="600" src="/wp-content/uploads/2018/05/word-image-4375.png" class="wp-image-4854" srcset="/wp-content/uploads/2018/05/word-image-4375.png 1188w, /wp-content/uploads/2018/05/word-image-4375-300x152.png 300w, /wp-content/uploads/2018/05/word-image-4375-768x388.png 768w, /wp-content/uploads/2018/05/word-image-4375-1024x517.png 1024w" sizes="(max-width: 1188px) 100vw, 1188px" /></p>
+<h1>总结静态化与伪静态</h1>
+<h2>7.1、静态化</h2>
+<p>
+  1、运行速度快
+</p>
+<p>
+  2、更加安全
+</p>
+<p>
+  3、加载速度快
+</p>
+<p>
+  4、符合搜索引擎优化
+</p>
+<p>
+  5、受磁盘的IO性能影响
+</p>
+<p>
+  6、可扩展性不是特别高
+</p>
+<h2>7.2、伪静态</h2>
+<p>
+  1、符合搜索引擎优化
+</p>
+<p>
+  2、地址容易记忆
+</p>
+<p>
+  3、安全性略差一点
+</p>
+<p>
+  4、可扩展性高。由于解析请求的是动态的php因此可以使用各种其他技术进行加速</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/4777.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

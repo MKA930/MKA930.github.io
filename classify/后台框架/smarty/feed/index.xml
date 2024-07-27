@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Smarty &#8211; 个人随笔</title>
+	<atom:link href="/classify/%E5%90%8E%E5%8F%B0%E6%A1%86%E6%9E%B6/smarty/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 06:07:08 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>Smarty &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Smarty 前后端分离、模板引擎</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/2332.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/2332.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 14:25:00 +0000</pubDate>
+				<category><![CDATA[Smarty]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[前后端分离]]></category>
+		<category><![CDATA[模板引擎]]></category>
+		<guid isPermaLink="false">/?p=2332</guid>
+
+					<description><![CDATA[Smarty 回顾 实现框架类的步骤 第一步：定义路径常量 第二步：导入配置文件 第三步：确定路由 第四步：加 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>Smarty</h1>
+<h2>回顾</h2>
+<h3>实现框架类的步骤</h3>
+<p>第一步：定义路径常量</p>
+<p>第二步：导入配置文件</p>
+<p>第三步：确定路由</p>
+<p>第四步：加载需要的类</p>
+<p>第五步：将加载类的方法注册到__autoload()栈中</p>
+<p>第六步：请求分发</p>
+<h3>index.php作用</h3>
+<ol>
+<li>接受请求</li>
+<li>启动框架</li>
+</ol>
+<h2>Smarty简介</h2>
+<h3>引入Smarty</h3>
+<p>在上一讲的视图中，有PHP代码，对前端人员不友好。</p>
+<p><img fetchpriority="high" decoding="async" width="1322" height="365" class="wp-image-2720" src="/wp-content/uploads/2018/05/word-image-2379.png" srcset="/wp-content/uploads/2018/05/word-image-2379.png 1322w, /wp-content/uploads/2018/05/word-image-2379-300x83.png 300w, /wp-content/uploads/2018/05/word-image-2379-768x212.png 768w, /wp-content/uploads/2018/05/word-image-2379-1024x283.png 1024w" sizes="(max-width: 1322px) 100vw, 1322px" /></p>
+<p>最好视图中不要出现PHP代码。PHP代码就在PHP页面中。</p>
+<h3>Smarty介绍</h3>
+<p>Smarty是一个PHP开发的模板引擎。</p>
+<p>用来分离逻辑代码和外在的内容。</p>
+<h3>Smarty的工作原理</h3>
+<p><img decoding="async" width="775" height="175" class="wp-image-2721" src="/wp-content/uploads/2018/05/word-image-2380.png" srcset="/wp-content/uploads/2018/05/word-image-2380.png 775w, /wp-content/uploads/2018/05/word-image-2380-300x68.png 300w, /wp-content/uploads/2018/05/word-image-2380-768x173.png 768w" sizes="(max-width: 775px) 100vw, 775px" /></p>
+<h2>封装自己的Smarty</h2>
+<h3>准备代码</h3>
+<ol>
+<li>创建1-demo.php页面</li>
+</ol>
+<p>&lt;?php</p>
+<p>$title=&#8217;锄禾日当午&#8217;;</p>
+<p>require &#8216;./demo1.html&#8217;;</p>
+<ol>
+<li>创建demo1.html</li>
+</ol>
+<p>&lt;!doctype html&gt;</p>
+<p>&lt;html&gt;</p>
+<p>&lt;head&gt;</p>
+<p>&lt;meta charset=&#8221;utf-8&#8243;&gt;</p>
+<p>&lt;title&gt;无标题文档&lt;/title&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>&lt;?php echo $title;?&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</p>
+<ol>
+<li>运行结果</li>
+</ol>
+<p><img decoding="async" width="595" height="83" class="wp-image-2722" src="/wp-content/uploads/2018/05/word-image-2381.png" srcset="/wp-content/uploads/2018/05/word-image-2381.png 595w, /wp-content/uploads/2018/05/word-image-2381-300x42.png 300w" sizes="(max-width: 595px) 100vw, 595px" /></p>
+<h3>封装Smarty（一）</h3>
+<p>思路：在demo1.html中有PHP代码，在demo1.html页面（模板页面）中去除PHP代码。</p>
+<p>实现：</p>
+<p><strong>第一步：将模板中的PHP定界符换成{}标签</strong></p>
+<p><img loading="lazy" decoding="async" width="384" height="73" class="wp-image-2723" src="/wp-content/uploads/2018/05/word-image-2382.png" srcset="/wp-content/uploads/2018/05/word-image-2382.png 384w, /wp-content/uploads/2018/05/word-image-2382-300x57.png 300w" sizes="(max-width: 384px) 100vw, 384px" /></p>
+<p>模板代码如下：</p>
+<p>&lt;body&gt;</p>
+<p>{$title}</p>
+<p>&lt;/body&gt;</p>
+<p>访问页面，不能解析$title的值</p>
+<p><img loading="lazy" decoding="async" width="723" height="89" class="wp-image-2724" src="/wp-content/uploads/2018/05/word-image-2383.png" srcset="/wp-content/uploads/2018/05/word-image-2383.png 723w, /wp-content/uploads/2018/05/word-image-2383-300x37.png 300w" sizes="(max-width: 723px) 100vw, 723px" /></p>
+<p>原因：PHP不能识别{ }。</p>
+<p><strong>第二步：将{ }转成PHP的定界符。并访问</strong></p>
+<p><img loading="lazy" decoding="async" width="1051" height="136" class="wp-image-2725" src="/wp-content/uploads/2018/05/word-image-2384.png" srcset="/wp-content/uploads/2018/05/word-image-2384.png 1051w, /wp-content/uploads/2018/05/word-image-2384-300x39.png 300w, /wp-content/uploads/2018/05/word-image-2384-768x99.png 768w, /wp-content/uploads/2018/05/word-image-2384-1024x133.png 1024w" sizes="(max-width: 1051px) 100vw, 1051px" /></p>
+<p>原因：将替换好的内容当成字符串输出了。</p>
+<p><strong>第三步：将替换好的支付串写到混编文件中，并包含到PHP页面中来</strong></p>
+<p><img loading="lazy" decoding="async" width="1002" height="134" class="wp-image-2726" src="/wp-content/uploads/2018/05/word-image-2385.png" srcset="/wp-content/uploads/2018/05/word-image-2385.png 1002w, /wp-content/uploads/2018/05/word-image-2385-300x40.png 300w, /wp-content/uploads/2018/05/word-image-2385-768x103.png 768w" sizes="(max-width: 1002px) 100vw, 1002px" /></p>
+<p>封装（一）实现后会出现3个文件：PHP、HTML、混编文件</p>
+<p><img loading="lazy" decoding="async" width="616" height="133" class="wp-image-2727" src="/wp-content/uploads/2018/05/word-image-2386.png" srcset="/wp-content/uploads/2018/05/word-image-2386.png 616w, /wp-content/uploads/2018/05/word-image-2386-300x65.png 300w" sizes="(max-width: 616px) 100vw, 616px" /></p>
+<h3>封装Smarty（二）</h3>
+<p>在上面的封装中，生成混编文件的代码每显示一个页面都要执行一次。我们需要将这段代码封装到类中</p>
+<p>思想：</p>
+<ol>
+<li>要将变量保存到对象中</li>
+<li>要通过访问对象的方式来访问变量</li>
+</ol>
+<p>字符串替换更改如下：</p>
+<p><img loading="lazy" decoding="async" width="427" height="68" class="wp-image-2728" src="/wp-content/uploads/2018/05/word-image-2387.png" srcset="/wp-content/uploads/2018/05/word-image-2387.png 427w, /wp-content/uploads/2018/05/word-image-2387-300x48.png 300w" sizes="(max-width: 427px) 100vw, 427px" /></p>
+<p><strong>第一步：创建Smarty.class.php页面</strong></p>
+<p>&lt;?php</p>
+<p>class Smarty {</p>
+<p>private $tpl_var=array(); //私有的属性保存变量的值</p>
+<p>//给对象赋值</p>
+<p>public function assign($k,$v) {</p>
+<p>$this-&gt;tpl_var[$k]=$v;</p>
+<p>}</p>
+<p>//编译，生成混编文件</p>
+<p>public function compile($tpl) {</p>
+<p>$com_file=$tpl.&#8217;.php&#8217;; //混编文件的地址</p>
+<p>$str=file_get_contents($tpl); //获取模板内容</p>
+<p>$str=str_replace(&#8216;{$&#8217;,'&lt;?php echo $this-&gt;tpl_var[\&#8221;,$str); //替换{标签</p>
+<p>$str=str_replace(&#8216;}&#8217;,&#8217;\&#8217;];?&gt;&#8217;,$str); //替换}标签</p>
+<p>file_put_contents($com_file,$str); //将替换好的字符串写到混编文件中</p>
+<p>require $com_file;</p>
+<p>}</p>
+<p>}</p>
+<p>第二步：引入Smarty类，并调用方法</p>
+<p><img loading="lazy" decoding="async" width="936" height="109" class="wp-image-2729" src="/wp-content/uploads/2018/05/word-image-2388.png" srcset="/wp-content/uploads/2018/05/word-image-2388.png 936w, /wp-content/uploads/2018/05/word-image-2388-300x35.png 300w, /wp-content/uploads/2018/05/word-image-2388-768x89.png 768w" sizes="(max-width: 936px) 100vw, 936px" /></p>
+<p>这个步骤完成后，一共有4个页面</p>
+<p><img loading="lazy" decoding="async" width="622" height="153" class="wp-image-2730" src="/wp-content/uploads/2018/05/word-image-2389.png" srcset="/wp-content/uploads/2018/05/word-image-2389.png 622w, /wp-content/uploads/2018/05/word-image-2389-300x74.png 300w" sizes="(max-width: 622px) 100vw, 622px" /></p>
+<h3>封装Smarty（三）</h3>
+<p>在上面的封装中，每执行一次都会编译一下混编文件，这样效率低。</p>
+<p>如果混编文件存在，并且混编文件的修改时间&gt;模板文件的修改时间就直接包含，否则创建新的混编文件</p>
+<p>&lt;?php</p>
+<p>class Smarty {</p>
+<p>private $tpl_var=array(); //私有的属性保存变量的值</p>
+<p>//给对象赋值</p>
+<p>public function assign($k,$v) {</p>
+<p>$this-&gt;tpl_var[$k]=$v;</p>
+<p>}</p>
+<p>//编译，生成混编文件</p>
+<p>public function compile($tpl) {</p>
+<p>$com_file=$tpl.&#8217;.php&#8217;; //混编文件的地址</p>
+<p>/**</p>
+<p>*如果文件不存在，或者修改了模板文件就生成混编文件。</p>
+<p>*/</p>
+<p>if(file_exists($com_file) &amp;&amp; filemtime($com_file)&gt;filemtime($tpl))</p>
+<p>require $com_file;</p>
+<p>else{</p>
+<p>$str=file_get_contents($tpl); //获取模板内容</p>
+<p>$str=str_replace(&#8216;{$&#8217;,'&lt;?php echo $this-&gt;tpl_var[\&#8221;,$str); //替换{标签</p>
+<p>$str=str_replace(&#8216;}&#8217;,&#8217;\&#8217;];?&gt;&#8217;,$str); //替换}标签</p>
+<p>file_put_contents($com_file,$str); //将替换好的字符串写到混编文件中</p>
+<p>require $com_file;</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<h3>封装Smarty（四）</h3>
+<p>在上面的封装中，文件没有分类存放。将文件分类存放，创建如下目录</p>
+<p><img loading="lazy" decoding="async" width="392" height="131" class="wp-image-2731" src="/wp-content/uploads/2018/05/word-image-2390.png" srcset="/wp-content/uploads/2018/05/word-image-2390.png 392w, /wp-content/uploads/2018/05/word-image-2390-300x100.png 300w" sizes="(max-width: 392px) 100vw, 392px" /></p>
+<p>更改Smarty类</p>
+<p>&lt;?php</p>
+<p>class Smarty {</p>
+<p>public $template_dir=&#8217;./templates/&#8217;; //模板文件夹</p>
+<p>public $templatec_dir=&#8217;./templates_c/&#8217;; //混编文件夹</p>
+<p>private $tpl_var=array(); //私有的属性保存变量的值</p>
+<p>//给对象赋值</p>
+<p>public function assign($k,$v) {</p>
+<p>$this-&gt;tpl_var[$k]=$v;</p>
+<p>}</p>
+<p>//编译，生成混编文件</p>
+<p>public function compile($tpl) {</p>
+<p>$tpl_file=$this-&gt;template_dir.$tpl; //拼接模板地址</p>
+<p>$com_file=$this-&gt;templatec_dir.$tpl.&#8217;.php&#8217;; //拼接混编文件的地址</p>
+<p>/**</p>
+<p>*如果文件不存在，或者修改了模板文件就生成混编文件。</p>
+<p>*/</p>
+<p>if(file_exists($com_file) &amp;&amp; filemtime($com_file)&gt;filemtime($tpl_file))</p>
+<p>require $com_file;</p>
+<p>else{</p>
+<p>$str=file_get_contents($tpl_file); //获取模板内容</p>
+<p>$str=str_replace(&#8216;{$&#8217;,'&lt;?php echo $this-&gt;tpl_var[\&#8221;,$str); //替换{标签</p>
+<p>$str=str_replace(&#8216;}&#8217;,&#8217;\&#8217;];?&gt;&#8217;,$str); //替换}标签</p>
+<p>file_put_contents($com_file,$str); //将替换好的字符串写到混编文件中</p>
+<p>require $com_file;</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<h3>封装Smarty（五）</h3>
+<p>一般在封装的时候，核心代码都是私有的，通过共有的方法调用私有方法</p>
+<p>&lt;?php</p>
+<p>class Smarty {</p>
+<p>public $template_dir=&#8217;./templates/&#8217;; //模板文件夹</p>
+<p>public $templatec_dir=&#8217;./templates_c/&#8217;; //混编文件夹</p>
+<p>private $tpl_var=array(); //私有的属性保存变量的值</p>
+<p>//给对象赋值</p>
+<p>public function assign($k,$v) {</p>
+<p>$this-&gt;tpl_var[$k]=$v;</p>
+<p>}</p>
+<p>public function display($tpl) {</p>
+<p>require $this-&gt;compile($tpl);</p>
+<p>}</p>
+<p>//编译，生成混编文件</p>
+<p>private function compile($tpl) {</p>
+<p>$tpl_file=$this-&gt;template_dir.$tpl; //拼接模板地址</p>
+<p>$com_file=$this-&gt;templatec_dir.$tpl.&#8217;.php&#8217;; //拼接混编文件的地址</p>
+<p>/**</p>
+<p>*如果文件不存在，或者修改了模板文件就生成混编文件。</p>
+<p>*/</p>
+<p>if(file_exists($com_file) &amp;&amp; filemtime($com_file)&gt;filemtime($tpl_file))</p>
+<p>return $com_file;</p>
+<p>else{</p>
+<p>$str=file_get_contents($tpl_file); //获取模板内容</p>
+<p>$str=str_replace(&#8216;{$&#8217;,'&lt;?php echo $this-&gt;tpl_var[\&#8221;,$str); //替换{标签</p>
+<p>$str=str_replace(&#8216;}&#8217;,&#8217;\&#8217;];?&gt;&#8217;,$str); //替换}标签</p>
+<p>file_put_contents($com_file,$str); //将替换好的字符串写到混编文件中</p>
+<p>return $com_file;</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>在PHP页面中，更改调用编译的方法</p>
+<p>&lt;?php</p>
+<p>require &#8216;./Smarty/Smarty.class.php&#8217;; //引入Smarty类</p>
+<p>$title=&#8217;锄禾日当午&#8217;;</p>
+<p>$smarty=new Smarty(); //实例化Smarty</p>
+<p>$smarty-&gt;template_dir=&#8217;./view/&#8217;; //定义模板目录</p>
+<p>$smarty-&gt;templatec_dir=&#8217;./view_c/&#8217;;</p>
+<p>$smarty-&gt;assign(&#8216;title&#8217;,$title); //给变量赋值</p>
+<p>$smarty-&gt;display(&#8216;demo1.html&#8217;); //编译模板</p>
+<h2>官方Smarty</h2>
+<p>到Smarty官网上下载Smarty包（www.smarty.net）</p>
+<p><img loading="lazy" decoding="async" width="132" height="17" class="wp-image-2732" src="/wp-content/uploads/2018/05/word-image-2391.png" /></p>
+<p>解压</p>
+<p><img loading="lazy" decoding="async" width="822" height="253" class="wp-image-2733" src="/wp-content/uploads/2018/05/word-image-2392.png" srcset="/wp-content/uploads/2018/05/word-image-2392.png 822w, /wp-content/uploads/2018/05/word-image-2392-300x92.png 300w, /wp-content/uploads/2018/05/word-image-2392-768x236.png 768w" sizes="(max-width: 822px) 100vw, 822px" /></p>
+<p>Smarty核心文件夹的目录结构</p>
+<p><img loading="lazy" decoding="async" width="626" height="173" class="wp-image-2734" src="/wp-content/uploads/2018/05/word-image-2393.png" srcset="/wp-content/uploads/2018/05/word-image-2393.png 626w, /wp-content/uploads/2018/05/word-image-2393-300x83.png 300w" sizes="(max-width: 626px) 100vw, 626px" /></p>
+<h2>Smarty.class.php文件</h2>
+<p>打开Smarty.class.php页面</p>
+<p><img loading="lazy" decoding="async" width="708" height="256" class="wp-image-2735" src="/wp-content/uploads/2018/05/word-image-2394.png" srcset="/wp-content/uploads/2018/05/word-image-2394.png 708w, /wp-content/uploads/2018/05/word-image-2394-300x108.png 300w" sizes="(max-width: 708px) 100vw, 708px" /></p>
+<p>将libs文件夹拷贝到站点下，并改名为Smarty</p>
+<p><img loading="lazy" decoding="async" width="589" height="99" class="wp-image-2736" src="/wp-content/uploads/2018/05/word-image-2395.png" srcset="/wp-content/uploads/2018/05/word-image-2395.png 589w, /wp-content/uploads/2018/05/word-image-2395-300x50.png 300w" sizes="(max-width: 589px) 100vw, 589px" /></p>
+<h2>Smarty的简单使用</h2>
+<p><img loading="lazy" decoding="async" width="567" height="290" class="wp-image-2737" src="/wp-content/uploads/2018/05/word-image-2396.png" srcset="/wp-content/uploads/2018/05/word-image-2396.png 567w, /wp-content/uploads/2018/05/word-image-2396-300x153.png 300w" sizes="(max-width: 567px) 100vw, 567px" /></p>
+<h3>例题</h3>
+<ol>
+<li>创建templates文件夹和templates_c文件夹</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="265" height="56" class="wp-image-2738" src="/wp-content/uploads/2018/05/word-image-2397.png" /></p>
+<ol>
+<li>PHP页面</li>
+</ol>
+<p>&lt;?php</p>
+<p>require &#8216;./Smarty/Smarty.class.php&#8217;;</p>
+<p>$smarty=new Smarty(); //实例化</p>
+<p>$smarty-&gt;setTemplateDir(&#8216;./templates/&#8217;); //设置模板文件夹</p>
+<p>$smarty-&gt;setCompileDir(&#8216;./templates_c/&#8217;); //设置混编文件夹</p>
+<p>$smarty-&gt;left_delimiter='&lt;{&#8216;; //更改左定界符</p>
+<p>$smarty-&gt;right_delimiter=&#8217;}&gt;&#8217;; //更改右定界符</p>
+<p>$smarty-&gt;assign(&#8216;title&#8217;,&#8217;锄禾日当午&#8217;);</p>
+<p>$smarty-&gt;display(&#8216;demo6.html&#8217;);</p>
+<ol>
+<li>html页面</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="284" height="84" class="wp-image-2739" src="/wp-content/uploads/2018/05/word-image-2398.png" /></p>
+<h2>Smarty注释</h2>
+<p>语法：{* 注释内容 *}</p>
+<p><img loading="lazy" decoding="async" width="758" height="117" class="wp-image-2740" src="/wp-content/uploads/2018/05/word-image-2399.png" srcset="/wp-content/uploads/2018/05/word-image-2399.png 758w, /wp-content/uploads/2018/05/word-image-2399-300x46.png 300w" sizes="(max-width: 758px) 100vw, 758px" /></p>
+<h2>变量</h2>
+<h3>普通变量</h3>
+<p>普通变量在smarty中有两种定义方式</p>
+<p>方法一：在PHP中定义 语法：$smarty-&gt;assign(‘变量名’,变量值);</p>
+<p><img loading="lazy" decoding="async" width="309" height="26" class="wp-image-2741" src="/wp-content/uploads/2018/05/word-image-2400.png" srcset="/wp-content/uploads/2018/05/word-image-2400.png 309w, /wp-content/uploads/2018/05/word-image-2400-300x25.png 300w" sizes="(max-width: 309px) 100vw, 309px" /></p>
+<p>方法二：在模板中定义</p>
+<p><img loading="lazy" decoding="async" width="595" height="102" class="wp-image-2742" src="/wp-content/uploads/2018/05/word-image-2401.png" srcset="/wp-content/uploads/2018/05/word-image-2401.png 595w, /wp-content/uploads/2018/05/word-image-2401-300x51.png 300w" sizes="(max-width: 595px) 100vw, 595px" /></p>
+<h3>保留变量</h3>
+<p>在Smarty中有个特殊的保留变量$smarty，此变量用于访问用户请求的数据，系统环境变量，常量等等。</p>
+<table>
+<tbody>
+<tr>
+<td>表达式</td>
+<td>说明</td>
+</tr>
+<tr>
+<td>{$smarty.get.name}</td>
+<td>获取get提交的name的值</td>
+</tr>
+<tr>
+<td>{$smarty.post.name}</td>
+<td>获取post提交的name的值</td>
+</tr>
+<tr>
+<td>{$smarty.request.name}</td>
+<td>获取请求（get,post）的name的值</td>
+</tr>
+<tr>
+<td>{$smarty.const.PI}</td>
+<td>获取PI常量</td>
+</tr>
+<tr>
+<td>{$smarty.session.name}</td>
+<td>获取会话的name的值</td>
+</tr>
+<tr>
+<td>{$smarty.cookies.name}</td>
+<td>获取cookie的name的值</td>
+</tr>
+<tr>
+<td>{$smarty.version}</td>
+<td>获取Smarty的版本</td>
+</tr>
+<tr>
+<td>{$smarty.ldelim}</td>
+<td>获取左界定</td>
+</tr>
+<tr>
+<td>{$smarty.rdelim}</td>
+<td>获取右界定</td>
+</tr>
+</tbody>
+</table>
+<p>例题</p>
+<p>PHP代码</p>
+<p>&lt;?php</p>
+<p>require &#8216;./Smarty/Smarty.class.php&#8217;;</p>
+<p>$smarty=new Smarty(); //实例化</p>
+<p>define(&#8216;PI&#8217;, 3.14);</p>
+<p>$_SESSION[&#8216;name&#8217;]=&#8217;李白&#8217;;</p>
+<p>setcookie(&#8216;name&#8217;,&#8217;杜甫&#8217;);</p>
+<p>$smarty-&gt;display(&#8216;demo8.html&#8217;);</p>
+<p>HTML代码</p>
+<p><img loading="lazy" decoding="async" width="660" height="294" class="wp-image-2743" src="/wp-content/uploads/2018/05/word-image-2402.png" srcset="/wp-content/uploads/2018/05/word-image-2402.png 660w, /wp-content/uploads/2018/05/word-image-2402-300x134.png 300w" sizes="(max-width: 660px) 100vw, 660px" /></p>
+<h3>配置变量</h3>
+<p>将一些值放到配置文件中，从配置文件中取出变量的值</p>
+<ol>
+<li>在站点下创建configs文件夹</li>
+<li>在configs文件夹中创建config.conf文件，代码如下：</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="830" height="242" class="wp-image-2744" src="/wp-content/uploads/2018/05/word-image-2403.png" srcset="/wp-content/uploads/2018/05/word-image-2403.png 830w, /wp-content/uploads/2018/05/word-image-2403-300x87.png 300w, /wp-content/uploads/2018/05/word-image-2403-768x224.png 768w" sizes="(max-width: 830px) 100vw, 830px" /></p>
+<ol>
+<li>在模板中引入配置文件</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="747" height="243" class="wp-image-2745" src="/wp-content/uploads/2018/05/word-image-2404.png" srcset="/wp-content/uploads/2018/05/word-image-2404.png 747w, /wp-content/uploads/2018/05/word-image-2404-300x98.png 300w" sizes="(max-width: 747px) 100vw, 747px" /></p>
+<p>脚下留心：通过{# #}来获取配置文件中的值</p>
+<h2>变量修饰器</h2>
+<p>变量修饰器用来处理变量，“|”是管道运算符。将前面的数据作为参数传递到后面。</p>
+<p><img loading="lazy" decoding="async" width="1001" height="296" class="wp-image-2746" src="/wp-content/uploads/2018/05/word-image-2405.png" srcset="/wp-content/uploads/2018/05/word-image-2405.png 1001w, /wp-content/uploads/2018/05/word-image-2405-300x89.png 300w, /wp-content/uploads/2018/05/word-image-2405-768x227.png 768w" sizes="(max-width: 1001px) 100vw, 1001px" /></p>
+<h2>Smarty中数组访问</h2>
+<p>Smarty中数组的访问有两种方式：</p>
+<ol>
+<li>数组名[下标]</li>
+<li>数组名.下标</li>
+</ol>
+<p>PHP代码</p>
+<p>&lt;?php</p>
+<p>require &#8216;./Smarty/Smarty.class.php&#8217;;</p>
+<p>$smarty=new Smarty(); //实例化</p>
+<p>$smarty-&gt;assign(&#8216;stu&#8217;,array(&#8216;tom&#8217;,&#8217;berry&#8217;,&#8217;ketty&#8217;)); //索引数组</p>
+<p>$smarty-&gt;assign(&#8217;emp&#8217;,array(&#8216;name&#8217;=&gt;&#8217;李白&#8217;,&#8217;sex&#8217;=&gt;&#8217;男&#8217;)); //关联数组</p>
+<p>$smarty-&gt;assign(&#8216;goods&#8217;,array( //二维数组</p>
+<p>array(&#8216;name&#8217;=&gt;&#8217;手机&#8217;,&#8217;price&#8217;=&gt;22),</p>
+<p>array(&#8216;name&#8217;=&gt;&#8217;笔记本&#8217;,&#8217;price&#8217;=&gt;33)</p>
+<p>));</p>
+<p>$smarty-&gt;display(&#8216;demo11.html&#8217;);</p>
+<p>HTML代码</p>
+<p><img loading="lazy" decoding="async" width="621" height="324" class="wp-image-2747" src="/wp-content/uploads/2018/05/word-image-2406.png" srcset="/wp-content/uploads/2018/05/word-image-2406.png 621w, /wp-content/uploads/2018/05/word-image-2406-300x157.png 300w" sizes="(max-width: 621px) 100vw, 621px" /></p>
+<h2>内置函数</h2>
+<h3>{assign}：声明变量</h3>
+<p><img loading="lazy" decoding="async" width="422" height="56" class="wp-image-2748" src="/wp-content/uploads/2018/05/word-image-2407.png" srcset="/wp-content/uploads/2018/05/word-image-2407.png 422w, /wp-content/uploads/2018/05/word-image-2407-300x40.png 300w" sizes="(max-width: 422px) 100vw, 422px" /></p>
+<h3>{$var=&#8230;}：{assign}函数的缩写</h3>
+<p><img loading="lazy" decoding="async" width="247" height="64" class="wp-image-2749" src="/wp-content/uploads/2018/05/word-image-2408.png" /></p>
+<h3>{if},{elseif},{else}：判断语句</h3>
+<p><img loading="lazy" decoding="async" width="570" height="418" class="wp-image-2750" src="/wp-content/uploads/2018/05/word-image-2409.png" srcset="/wp-content/uploads/2018/05/word-image-2409.png 570w, /wp-content/uploads/2018/05/word-image-2409-300x220.png 300w" sizes="(max-width: 570px) 100vw, 570px" /></p>
+<p>脚下留心：Smarty中使用的运算符和PHP是完全一致的。</p>
+<h3>{for}：循环</h3>
+<p><img loading="lazy" decoding="async" width="565" height="145" class="wp-image-2751" src="/wp-content/uploads/2018/05/word-image-2410.png" srcset="/wp-content/uploads/2018/05/word-image-2410.png 565w, /wp-content/uploads/2018/05/word-image-2410-300x77.png 300w" sizes="(max-width: 565px) 100vw, 565px" /></p>
+<h3>{while}：循环</h3>
+<p><img loading="lazy" decoding="async" width="536" height="147" class="wp-image-2752" src="/wp-content/uploads/2018/05/word-image-2411.png" srcset="/wp-content/uploads/2018/05/word-image-2411.png 536w, /wp-content/uploads/2018/05/word-image-2411-300x82.png 300w" sizes="(max-width: 536px) 100vw, 536px" /></p>
+<h3>{foreach},{foreachelse}：遍历数组</h3>
+<p>语法：</p>
+<p>{foreach 数组 as $k=&gt;$v}</p>
+<p>//循环体</p>
+<p>{foreachelse}</p>
+<p>如果数组为空，就执行这一段（可以省略）</p>
+<p>{/foreach}</p>
+<p>例题：</p>
+<p>PHP代码</p>
+<p>&lt;?php</p>
+<p>require &#8216;./Smarty/Smarty.class.php&#8217;;</p>
+<p>$smarty=new Smarty(); //实例化</p>
+<p>$smarty-&gt;assign(&#8216;stu&#8217;,array(</p>
+<p>&#8216;class1&#8217;=&gt;&#8217;tom&#8217;,</p>
+<p>&#8216;class2&#8217;=&gt;&#8217;berry&#8217;,</p>
+<p>&#8216;class3&#8217;=&gt;&#8217;ketty&#8217;,</p>
+<p>&#8216;class4&#8217;=&gt;&#8217;rose&#8217;,</p>
+<p>&#8216;class5&#8217;=&gt;&#8217;李白&#8217;,</p>
+<p>&#8216;class6&#8217;=&gt;&#8217;杜甫&#8217;,</p>
+<p>));</p>
+<p>$smarty-&gt;display(&#8216;demo13.html&#8217;);</p>
+<p>HTML代码</p>
+<p><img loading="lazy" decoding="async" width="460" height="149" class="wp-image-2753" src="/wp-content/uploads/2018/05/word-image-2412.png" srcset="/wp-content/uploads/2018/05/word-image-2412.png 460w, /wp-content/uploads/2018/05/word-image-2412-300x97.png 300w" sizes="(max-width: 460px) 100vw, 460px" /></p>
+<p>{foreach}的属性： <a href="mk:@MSITStore:F:\\帮助文档\\Smarty%203%20中文手册官方翻译版.chm::/Smarty/smarty/language.function.foreach.html&quot; \l &quot;foreach.property.index&quot; \o &quot;@index">@index</a>, <a href="mk:@MSITStore:F:\\帮助文档\\Smarty%203%20中文手册官方翻译版.chm::/Smarty/smarty/language.function.foreach.html&quot; \l &quot;foreach.property.iteration&quot; \o &quot;@iteration">@iteration</a>, <a href="mk:@MSITStore:F:\\帮助文档\\Smarty%203%20中文手册官方翻译版.chm::/Smarty/smarty/language.function.foreach.html&quot; \l &quot;foreach.property.first&quot; \o &quot;@first">@first</a>, <a href="mk:@MSITStore:F:\\帮助文档\\Smarty%203%20中文手册官方翻译版.chm::/Smarty/smarty/language.function.foreach.html&quot; \l &quot;foreach.property.last&quot; \o &quot;@last">@last</a>, <a href="mk:@MSITStore:F:\\帮助文档\\Smarty%203%20中文手册官方翻译版.chm::/Smarty/smarty/language.function.foreach.html&quot; \l &quot;foreach.property.show&quot; \o &quot;@show">@show</a>, <a href="mk:@MSITStore:F:\\帮助文档\\Smarty%203%20中文手册官方翻译版.chm::/Smarty/smarty/language.function.foreach.html&quot; \l &quot;foreach.property.total&quot; \o &quot;@total">@total</a>.</p>
+<p>&lt;table border=&#8217;1&#8242;&gt;</p>
+<p>&lt;tr&gt;</p>
+<p>&lt;th&gt;是否是第一个元素&lt;/th&gt;&lt;th&gt;索引&lt;/th&gt;&lt;th&gt;编号&lt;/th&gt;&lt;th&gt;键&lt;/th&gt;</p>
+<p>&lt;th&gt;值&lt;/th&gt;&lt;th&gt;是否在最后一个元素&lt;/th&gt;</p>
+<p>&lt;/tr&gt;</p>
+<p>{foreach $stu as $k=&gt;$v}</p>
+<p>&lt;tr&gt;</p>
+<p>&lt;td&gt;{$v@first}&lt;/td&gt;</p>
+<p>&lt;td&gt;{$v@index}&lt;/td&gt;</p>
+<p>&lt;td&gt;{$v@iteration}&lt;/td&gt;</p>
+<p>&lt;td&gt;{$k}&lt;/td&gt;</p>
+<p>&lt;td&gt;{$v}&lt;/td&gt;</p>
+<p>&lt;td&gt;{$v@last}&lt;/td&gt;</p>
+<p>&lt;/tr&gt;</p>
+<p>{/foreach}</p>
+<p>&lt;/table&gt;</p>
+<p>数组中是否有元素：{$v@show} &lt;br&gt;</p>
+<p>数组中元素个数：{$v@total}&lt;br&gt;</p>
+<p>运行结果：</p>
+<p><img loading="lazy" decoding="async" width="523" height="215" class="wp-image-2754" src="/wp-content/uploads/2018/05/word-image-2413.png" srcset="/wp-content/uploads/2018/05/word-image-2413.png 523w, /wp-content/uploads/2018/05/word-image-2413-300x123.png 300w" sizes="(max-width: 523px) 100vw, 523px" /></p>
+<h3><a href="mk:@MSITStore:F:\\帮助文档\\Smarty%203%20中文手册官方翻译版.chm::/Smarty/smarty/language.function.section.html">{section},{sectionelse}</a>：遍历数组</h3>
+<p>只能遍历索引数组，不支持关联数组，因为{section}循环不能遍历数组的键，如果要用此循环遍历关联数组，必须自己指定键。</p>
+<p>语法</p>
+<p>{section name=自定义变量 loop=遍历数组}</p>
+<p>{$数组名[变量名]}</p>
+<p>{sectionelse}</p>
+<p>没有数组被循环遍历</p>
+<p>{/section}</p>
+<p>{section}循环的属性</p>
+<p>.first：是否是第一个元素</p>
+<p>.index：索引号</p>
+<p>.iteration：编号</p>
+<p>.last：是否是最后一个元素</p>
+<p>例题：</p>
+<p>PHP代码：</p>
+<p>require &#8216;./Smarty/Smarty.class.php&#8217;;</p>
+<p>$smarty=new Smarty(); //实例化</p>
+<p>$smarty-&gt;assign(&#8216;stu&#8217;,array(&#8216;tom&#8217;,&#8217;berry&#8217;,&#8217;ketty&#8217;,&#8217;rose&#8217;));</p>
+<p>$smarty-&gt;display(&#8216;demo14.html&#8217;);</p>
+<p>HTML代码：</p>
+<p><img loading="lazy" decoding="async" width="697" height="148" class="wp-image-2755" src="/wp-content/uploads/2018/05/word-image-2414.png" srcset="/wp-content/uploads/2018/05/word-image-2414.png 697w, /wp-content/uploads/2018/05/word-image-2414-300x64.png 300w" sizes="(max-width: 697px) 100vw, 697px" /></p>
+<h3>{include}：包含文件</h3>
+<p>原理</p>
+<p><img loading="lazy" decoding="async" width="463" height="260" class="wp-image-2756" src="/wp-content/uploads/2018/05/word-image-2415.png" srcset="/wp-content/uploads/2018/05/word-image-2415.png 463w, /wp-content/uploads/2018/05/word-image-2415-300x168.png 300w" sizes="(max-width: 463px) 100vw, 463px" /></p>
+<p>创建包含文件的头部</p>
+<p><img loading="lazy" decoding="async" width="481" height="81" class="wp-image-2757" src="/wp-content/uploads/2018/05/word-image-2416.png" srcset="/wp-content/uploads/2018/05/word-image-2416.png 481w, /wp-content/uploads/2018/05/word-image-2416-300x51.png 300w" sizes="(max-width: 481px) 100vw, 481px" /></p>
+<p>创建包含文件的脚</p>
+<p><img loading="lazy" decoding="async" width="440" height="78" class="wp-image-2758" src="/wp-content/uploads/2018/05/word-image-2417.png" srcset="/wp-content/uploads/2018/05/word-image-2417.png 440w, /wp-content/uploads/2018/05/word-image-2417-300x53.png 300w" sizes="(max-width: 440px) 100vw, 440px" /></p>
+<p>包含文件</p>
+<p><img loading="lazy" decoding="async" width="675" height="150" class="wp-image-2759" src="/wp-content/uploads/2018/05/word-image-2418.png" srcset="/wp-content/uploads/2018/05/word-image-2418.png 675w, /wp-content/uploads/2018/05/word-image-2418-300x67.png 300w" sizes="(max-width: 675px) 100vw, 675px" /></p>
+<h3>{config_load}：导入配置文件</h3>
+<p>上面已经讲过，用于配置文件导入</p>
+<h3>{extends}和{block}：布局文件</h3>
+<p>原理</p>
+<p><img loading="lazy" decoding="async" width="484" height="292" class="wp-image-2760" src="/wp-content/uploads/2018/05/word-image-2419.png" srcset="/wp-content/uploads/2018/05/word-image-2419.png 484w, /wp-content/uploads/2018/05/word-image-2419-300x181.png 300w" sizes="(max-width: 484px) 100vw, 484px" /></p>
+<p>实现</p>
+<ol>
+<li>创建template.html布局文件</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1019" height="394" class="wp-image-2761" src="/wp-content/uploads/2018/05/word-image-2420.png" srcset="/wp-content/uploads/2018/05/word-image-2420.png 1019w, /wp-content/uploads/2018/05/word-image-2420-300x116.png 300w, /wp-content/uploads/2018/05/word-image-2420-768x297.png 768w" sizes="(max-width: 1019px) 100vw, 1019px" /></p>
+<ol>
+<li>在模板页面中继承布局文件，并替换</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="646" height="123" class="wp-image-2762" src="/wp-content/uploads/2018/05/word-image-2421.png" srcset="/wp-content/uploads/2018/05/word-image-2421.png 646w, /wp-content/uploads/2018/05/word-image-2421-300x57.png 300w" sizes="(max-width: 646px) 100vw, 646px" /></p>
+<h3>{nocache}、{literal}</h3>
+<p>后面专门讲解。</p>
+<h2>自定义函数</h2>
+<h3>{html_checkboxes}：用来做表单元素的复选框</h3>
+<p><img loading="lazy" decoding="async" width="843" height="371" class="wp-image-2763" src="/wp-content/uploads/2018/05/word-image-2422.png" srcset="/wp-content/uploads/2018/05/word-image-2422.png 843w, /wp-content/uploads/2018/05/word-image-2422-300x132.png 300w, /wp-content/uploads/2018/05/word-image-2422-768x338.png 768w" sizes="(max-width: 843px) 100vw, 843px" /></p>
+<h3>{html_radios} ：单选按钮</h3>
+<p><img loading="lazy" decoding="async" width="769" height="279" class="wp-image-2764" src="/wp-content/uploads/2018/05/word-image-2423.png" srcset="/wp-content/uploads/2018/05/word-image-2423.png 769w, /wp-content/uploads/2018/05/word-image-2423-300x109.png 300w, /wp-content/uploads/2018/05/word-image-2423-768x279.png 768w" sizes="(max-width: 769px) 100vw, 769px" /></p>
+<h3>{html_options}：下拉列表</h3>
+<p>语法和单选一样</p>
+<p>PHP代码</p>
+<p>&lt;?php</p>
+<p>require &#8216;./Smarty/Smarty.class.php&#8217;;</p>
+<p>$smarty=new Smarty(); //实例化</p>
+<p>$smarty-&gt;assign(&#8216;output&#8217;,array(&#8216;爬山&#8217;,&#8217;读书&#8217;,&#8217;游泳&#8217;,&#8217;看报&#8217;));</p>
+<p>$smarty-&gt;assign(&#8216;values&#8217;,array(&#8216;a&#8217;,&#8217;b&#8217;,&#8217;c&#8217;,&#8217;d&#8217;));</p>
+<p>$smarty-&gt;assign(&#8216;selected&#8217;,array(&#8216;b&#8217;,&#8217;d&#8217;));</p>
+<p>$smarty-&gt;assign(&#8216;options&#8217;,array(&#8216;a&#8217;=&gt;&#8217;爬山&#8217;,&#8217;b&#8217;=&gt;&#8217;读书&#8217;,&#8217;c&#8217;=&gt;&#8217;游泳&#8217;,&#8217;d&#8217;=&gt;&#8217;看报&#8217;));</p>
+<p>$smarty-&gt;display(&#8216;demo17.html&#8217;);</p>
+<p>HTML代码</p>
+<p><img loading="lazy" decoding="async" width="814" height="318" class="wp-image-2765" src="/wp-content/uploads/2018/05/word-image-2424.png" srcset="/wp-content/uploads/2018/05/word-image-2424.png 814w, /wp-content/uploads/2018/05/word-image-2424-300x117.png 300w, /wp-content/uploads/2018/05/word-image-2424-768x300.png 768w" sizes="(max-width: 814px) 100vw, 814px" /></p>
+<h3>{html_select_date}：显示日期</h3>
+<p>field_order：显示各下拉框的顺序</p>
+<p>start_year：开始年份</p>
+<p>month_format：格式化月份</p>
+<p><img loading="lazy" decoding="async" width="984" height="32" class="wp-image-2766" src="/wp-content/uploads/2018/05/word-image-2425.png" srcset="/wp-content/uploads/2018/05/word-image-2425.png 984w, /wp-content/uploads/2018/05/word-image-2425-300x10.png 300w, /wp-content/uploads/2018/05/word-image-2425-768x25.png 768w" sizes="(max-width: 984px) 100vw, 984px" /></p>
+<h3><a href="mk:@MSITStore:F:\\帮助文档\\Smarty%203%20中文手册官方翻译版.chm::/Smarty/smarty/language.function.html.select.time.html">{html_select_time}</a>：显示时间</h3>
+<p><img loading="lazy" decoding="async" width="465" height="31" class="wp-image-2767" src="/wp-content/uploads/2018/05/word-image-2426.png" srcset="/wp-content/uploads/2018/05/word-image-2426.png 465w, /wp-content/uploads/2018/05/word-image-2426-300x20.png 300w" sizes="(max-width: 465px) 100vw, 465px" /></p>
+<h3>{cycle}：交替循环一系列值</h3>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>.aa{</p>
+<p>color:#FF0000</p>
+<p>}</p>
+<p>.bb{</p>
+<p>color:#009900</p>
+<p>}</p>
+<p>.cc{</p>
+<p>color:#0000FF</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;ul&gt;</p>
+<p>{foreach $output as $o}</p>
+<p>&lt;li class='{cycle values=&#8221;aa,bb,cc&#8221;}&#8217;&gt;{$o}&lt;/li&gt;</p>
+<p>{/foreach}</p>
+<p>&lt;/ul&gt;</p>
+<p>运行结果：</p>
+<p><img loading="lazy" decoding="async" width="220" height="84" class="wp-image-2768" src="/wp-content/uploads/2018/05/word-image-2427.png" /></p>
+<h2>配置Smarty的路径常量</h2>
+<p>如果Smarty.class.php保存的路径很长，可以将目录定义成路径常量。</p>
+<p><img loading="lazy" decoding="async" width="777" height="190" class="wp-image-2769" src="/wp-content/uploads/2018/05/word-image-2428.png" srcset="/wp-content/uploads/2018/05/word-image-2428.png 777w, /wp-content/uploads/2018/05/word-image-2428-300x73.png 300w, /wp-content/uploads/2018/05/word-image-2428-768x188.png 768w" sizes="(max-width: 777px) 100vw, 777px" /></p>
+<h2>缓存</h2>
+<h3>缓存的种类</h3>
+<ol>
+<li>页面缓存：页面的静态化</li>
+<li>数据缓存：把MySQL数据库中的数据读取出来保存到更快的介质上。</li>
+</ol>
+<h3>开启缓存</h3>
+<p>Smarty中开启缓存开启的是页面缓存</p>
+<p>语法：$smarty-&gt;caching=1 开启缓存</p>
+<h3>缓存文件的更改</h3>
+<ol>
+<li>删除对应的缓存文件，系统会自动更新</li>
+<li>超过缓存的有效时间，会自动更新</li>
+<li>更改对应的模板，配置文件，布局文件，包含文件，缓存会自动更新</li>
+<li>强制重新生成缓存</li>
+</ol>
+<p>$smarty-&gt;force_cache=true; //强制生成缓存</p>
+<h3>缓存的生命周期</h3>
+<p>$smarty-&gt;cache_lifetime=-1|0|N;</p>
+<p>-1：缓存永远不失效</p>
+<p>0：缓存立即失效</p>
+<p>N：N秒以后失效</p>
+<p>默认情况下，缓存是3600秒</p>
+<p>例题</p>
+<p>&lt;?php</p>
+<p>require &#8216;./Smarty/Smarty.class.php&#8217;;</p>
+<p>$smarty=new Smarty(); //实例化</p>
+<p>$smarty-&gt;caching=1; //开启缓存</p>
+<p>//$smarty-&gt;force_cache=true; //强制生成缓存</p>
+<p>$smarty-&gt;cache_lifetime=3;</p>
+<p>$smarty-&gt;display(&#8216;demo19.html&#8217;);</p>
+<h3>一个模板生成多个缓存</h3>
+<p>这是在分页的情况下使用，在display()方法中添加识别码就可以了</p>
+<p>模板页面</p>
+<p><img loading="lazy" decoding="async" width="345" height="85" class="wp-image-2770" src="/wp-content/uploads/2018/05/word-image-2429.png" srcset="/wp-content/uploads/2018/05/word-image-2429.png 345w, /wp-content/uploads/2018/05/word-image-2429-300x74.png 300w" sizes="(max-width: 345px) 100vw, 345px" /></p>
+<p>PHP页面</p>
+<p><img loading="lazy" decoding="async" width="1145" height="238" class="wp-image-2771" src="/wp-content/uploads/2018/05/word-image-2430.png" srcset="/wp-content/uploads/2018/05/word-image-2430.png 1145w, /wp-content/uploads/2018/05/word-image-2430-300x62.png 300w, /wp-content/uploads/2018/05/word-image-2430-768x160.png 768w, /wp-content/uploads/2018/05/word-image-2430-1024x213.png 1024w" sizes="(max-width: 1145px) 100vw, 1145px" /></p>
+<h3>缓存集合</h3>
+<p>每个组合都缓存一个静态页面</p>
+<p><img loading="lazy" decoding="async" width="1237" height="265" class="wp-image-2772" src="/wp-content/uploads/2018/05/word-image-2431.png" srcset="/wp-content/uploads/2018/05/word-image-2431.png 1237w, /wp-content/uploads/2018/05/word-image-2431-300x64.png 300w, /wp-content/uploads/2018/05/word-image-2431-768x165.png 768w, /wp-content/uploads/2018/05/word-image-2431-1024x219.png 1024w" sizes="(max-width: 1237px) 100vw, 1237px" /></p>
+<p>PHP代码</p>
+<p><img loading="lazy" decoding="async" width="1157" height="370" class="wp-image-2773" src="/wp-content/uploads/2018/05/word-image-2432.png" srcset="/wp-content/uploads/2018/05/word-image-2432.png 1157w, /wp-content/uploads/2018/05/word-image-2432-300x96.png 300w, /wp-content/uploads/2018/05/word-image-2432-768x246.png 768w, /wp-content/uploads/2018/05/word-image-2432-1024x327.png 1024w" sizes="(max-width: 1157px) 100vw, 1157px" /></p>
+<p>HTML代码</p>
+<p><img loading="lazy" decoding="async" width="366" height="153" class="wp-image-2774" src="/wp-content/uploads/2018/05/word-image-2433.png" srcset="/wp-content/uploads/2018/05/word-image-2433.png 366w, /wp-content/uploads/2018/05/word-image-2433-300x125.png 300w" sizes="(max-width: 366px) 100vw, 366px" /></p>
+<h3>清除缓存</h3>
+<p>1、$smarty-&gt;clearCache(&#8216;demo21.html&#8217;)：清除demo21模板生成的所有缓存</p>
+<p>2、$smarty-&gt;clearCache(&#8216;demo21.html&#8217;,&#8217;vovo|green&#8217;)：清除demo21生成的由vovo|green组合的缓存</p>
+<p>3、$smarty-&gt;clearCache(&#8216;demo21.html&#8217;,&#8217;vovo&#8217;)：清除demo21生成的带有vovo的缓存</p>
+<p>4、$smarty-&gt;clearCache(null,&#8217;vovo&#8217;)：清除带有vovo的缓存。</p>
+<p>5、$smarty-&gt;clearAllCache()：清除所有缓存</p>
+<p><img loading="lazy" decoding="async" width="650" height="146" class="wp-image-2775" src="/wp-content/uploads/2018/05/word-image-2434.png" srcset="/wp-content/uploads/2018/05/word-image-2434.png 650w, /wp-content/uploads/2018/05/word-image-2434-300x67.png 300w" sizes="(max-width: 650px) 100vw, 650px" /></p>
+<h3>局部不缓存</h3>
+<p>方法一：{变量 nocache}，用于一个变量不缓存</p>
+<p>方法二：{nocache} {/nocache}，用于大块区域不缓存</p>
+<p><img loading="lazy" decoding="async" width="599" height="181" class="wp-image-2776" src="/wp-content/uploads/2018/05/word-image-2435.png" srcset="/wp-content/uploads/2018/05/word-image-2435.png 599w, /wp-content/uploads/2018/05/word-image-2435-300x91.png 300w" sizes="(max-width: 599px) 100vw, 599px" /></p>
+<h3>解决js、css中的大括号和Smarty中大括号冲突</h3>
+<p><img loading="lazy" decoding="async" width="968" height="85" class="wp-image-2777" src="/wp-content/uploads/2018/05/word-image-2436.png" srcset="/wp-content/uploads/2018/05/word-image-2436.png 968w, /wp-content/uploads/2018/05/word-image-2436-300x26.png 300w, /wp-content/uploads/2018/05/word-image-2436-768x67.png 768w" sizes="(max-width: 968px) 100vw, 968px" /></p>
+<p>解决</p>
+<p>方法一：更改smarty的定界符</p>
+<p>方法二：</p>
+<p><img loading="lazy" decoding="async" width="363" height="89" class="wp-image-2778" src="/wp-content/uploads/2018/05/word-image-2437.png" srcset="/wp-content/uploads/2018/05/word-image-2437.png 363w, /wp-content/uploads/2018/05/word-image-2437-300x74.png 300w" sizes="(max-width: 363px) 100vw, 363px" /></p>
+<p>方法三：{literal}{/literal}</p>
+<p><img loading="lazy" decoding="async" width="416" height="179" class="wp-image-2779" src="/wp-content/uploads/2018/05/word-image-2438.png" srcset="/wp-content/uploads/2018/05/word-image-2438.png 416w, /wp-content/uploads/2018/05/word-image-2438-300x129.png 300w" sizes="(max-width: 416px) 100vw, 416px" /></p>
+<h2>Smarty的常用方法</h2>
+<ol>
+<li>setTemplateDir()：设置模板文件夹</li>
+<li>setCompileDir()：设置混编文件夹</li>
+<li>setCacheDir()：设置缓存文件夹</li>
+<li>setConfigDir()：设置配置文件夹</li>
+<li><a href="mk:@MSITStore:F:\\帮助文档\\Smarty%203%20中文手册官方翻译版.chm::/Smarty/smarty/api.assign.html">assign()</a> &#8211; 赋值</li>
+<li><a href="mk:@MSITStore:F:\\帮助文档\\Smarty%203%20中文手册官方翻译版.chm::/Smarty/smarty/api.display.html">display()</a> &#8211; 显示</li>
+<li><a href="mk:@MSITStore:F:\\帮助文档\\Smarty%203%20中文手册官方翻译版.chm::/Smarty/smarty/api.clear.cache.html">clearCache()</a> &#8211; 清除缓存</li>
+<li><a href="mk:@MSITStore:F:\\帮助文档\\Smarty%203%20中文手册官方翻译版.chm::/Smarty/smarty/api.clear.all.cache.html">clearAllCache()</a> &#8211; 清除全部缓存</li>
+</ol>
+<h2>Smarty的常用属性</h2>
+<ol>
+<li><a href="mk:@MSITStore:F:\\帮助文档\\Smarty%203%20中文手册官方翻译版.chm::/Smarty/smarty/variable.caching.html">$smarty-&gt;caching</a>=1： //开启缓存</li>
+<li>$smarty-&gt;force_cache=true; //强制生成缓存</li>
+<li>$smarty-&gt;cache_lifetime=3; //缓存的生命周期</li>
+</ol>
+<h2>将Smarty集成到框架中</h2>
+<p>在上一讲的项目中，表现和内容没有分离，我们通过smarty将表现和内容相分离</p>
+<ol>
+<li>将Smarty的核心目录拷贝Framework/Core目录下，改名为Smarty</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="604" height="180" class="wp-image-2780" src="/wp-content/uploads/2018/05/word-image-2439.png" srcset="/wp-content/uploads/2018/05/word-image-2439.png 604w, /wp-content/uploads/2018/05/word-image-2439-300x89.png 300w" sizes="(max-width: 604px) 100vw, 604px" /></p>
+<ol>
+<li>更改Framework类中自动加载类，加载Smarty类</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="839" height="361" class="wp-image-2781" src="/wp-content/uploads/2018/05/word-image-2440.png" srcset="/wp-content/uploads/2018/05/word-image-2440.png 839w, /wp-content/uploads/2018/05/word-image-2440-300x129.png 300w, /wp-content/uploads/2018/05/word-image-2440-768x330.png 768w" sizes="(max-width: 839px) 100vw, 839px" /></p>
+<ol>
+<li>创建保存混编文件的目录</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="382" height="198" class="wp-image-2782" src="/wp-content/uploads/2018/05/word-image-2441.png" srcset="/wp-content/uploads/2018/05/word-image-2441.png 382w, /wp-content/uploads/2018/05/word-image-2441-300x155.png 300w" sizes="(max-width: 382px) 100vw, 382px" /></p>
+<ol>
+<li>定义混编文件目录的路径常量</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1009" height="462" class="wp-image-2783" src="/wp-content/uploads/2018/05/word-image-2442.png" srcset="/wp-content/uploads/2018/05/word-image-2442.png 1009w, /wp-content/uploads/2018/05/word-image-2442-300x137.png 300w, /wp-content/uploads/2018/05/word-image-2442-768x352.png 768w" sizes="(max-width: 1009px) 100vw, 1009px" /></p>
+<ol>
+<li>在基础控制器中初始化smarty</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="841" height="384" class="wp-image-2784" src="/wp-content/uploads/2018/05/word-image-2443.png" srcset="/wp-content/uploads/2018/05/word-image-2443.png 841w, /wp-content/uploads/2018/05/word-image-2443-300x137.png 300w, /wp-content/uploads/2018/05/word-image-2443-768x351.png 768w" sizes="(max-width: 841px) 100vw, 841px" /></p>
+<ol>
+<li>在ProductsController类中使用smarty对象</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="684" height="257" class="wp-image-2785" src="/wp-content/uploads/2018/05/word-image-2444.png" srcset="/wp-content/uploads/2018/05/word-image-2444.png 684w, /wp-content/uploads/2018/05/word-image-2444-300x113.png 300w" sizes="(max-width: 684px) 100vw, 684px" /></p>
+<ol>
+<li>在products_list.html通过smarty循环取出数据</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1024" height="361" class="wp-image-2786" src="/wp-content/uploads/2018/05/word-image-2445.png" srcset="/wp-content/uploads/2018/05/word-image-2445.png 1024w, /wp-content/uploads/2018/05/word-image-2445-300x106.png 300w, /wp-content/uploads/2018/05/word-image-2445-768x271.png 768w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<p>运行结果如下：</p>
+<p><img loading="lazy" decoding="async" width="1009" height="156" class="wp-image-2787" src="/wp-content/uploads/2018/05/word-image-2446.png" srcset="/wp-content/uploads/2018/05/word-image-2446.png 1009w, /wp-content/uploads/2018/05/word-image-2446-300x46.png 300w, /wp-content/uploads/2018/05/word-image-2446-768x119.png 768w" sizes="(max-width: 1009px) 100vw, 1009px" /></p>
+<ol>
+<li>能够理解模板技术的含义和原理</li>
+<li>能够引入并配置Smarty</li>
+<li>能够使用Smarty完成视图的基本展示</li>
+<li>能够使用模板中的三种变量</li>
+<li>能够理解变量调节器的含义并使用3-5个</li>
+<li>能够理解内建函数的含义并使用3-5个</li>
+<li>能够创建自定义函数并调用之</li>
+<li>能够配置Smarty的路径常量</li>
+<li>能够配置Smarty的常用属性</li>
+<li>能够使用Smarty的常用方法</li>
+<li>能够创建并使用配置文件</li>
+</ol>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/2332.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>后台登录 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%90%8E%E5%8F%B0%E7%99%BB%E5%BD%95/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sun, 10 Jun 2018 10:54:01 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>后台登录 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP5.0（二）数据库操作、模型 CURD 操作、常用函数、时间戳自动维护、DB 构造器操作数据库、后台登录、后台退出、登录防翻墙、登录验证</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7499.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7499.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 09 Jun 2018 00:43:29 +0000</pubDate>
+				<category><![CDATA[TP5.0]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[DB 构造器操作数据库]]></category>
+		<category><![CDATA[后台登录]]></category>
+		<category><![CDATA[后台退出]]></category>
+		<category><![CDATA[常用函数]]></category>
+		<category><![CDATA[数据库操作]]></category>
+		<category><![CDATA[时间戳自动维护]]></category>
+		<category><![CDATA[模型 CURD 操作]]></category>
+		<category><![CDATA[登录防翻墙]]></category>
+		<category><![CDATA[登录验证]]></category>
+		<guid isPermaLink="false">/?p=7499</guid>
+
+					<description><![CDATA[TP5第二天 十五、数据库操作 在TP5操作数据库常用有两种方式： 通过Db构造器 如：Db::table(&#038; [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>TP5第二天</h1>
+<h1>十五、数据库操作</h1>
+<p>在TP5操作数据库常用有两种方式：</p>
+<ul>
+<li>通过Db构造器</li>
+</ul>
+<p>如：Db::table(&#8216;think_user&#8217;)-&gt;where(&#8216;status&#8217;,1)-&gt;select(); // #带数据表前缀</p>
+<p>如：Db::name(&#8216;user&#8217;)-&gt;where(&#8216;status&#8217;,1)-&gt;select(); #不带表前缀</p>
+<ul>
+<li>通过模型类</li>
+</ul>
+<p>如：取出主键为1的数据</p>
+<p>$user = User::get(1);</p>
+<p>首先配置数据库的连接信息</p>
+<h2>创建数据库数据表，配置数据库信息</h2>
+<p>在application/database.php文件中添加下面的配置参数：</p>
+<p><img fetchpriority="high" decoding="async" width="871" height="556" class="wp-image-7500" src="/wp-content/uploads/2018/06/word-image-106.png" srcset="/wp-content/uploads/2018/06/word-image-106.png 871w, /wp-content/uploads/2018/06/word-image-106-300x192.png 300w, /wp-content/uploads/2018/06/word-image-106-768x490.png 768w" sizes="(max-width: 871px) 100vw, 871px" /></p>
+<p>同时创建好数据库和数据表：</p>
+<ol>
+<li>创建数据库article:</li>
+</ol>
+<p>create database article;</p>
+<p>2、创建数据表tp_user(用户表)、tp_category（分类表）、tp_article（文章表）</p>
+<p>tp_user表结构：</p>
+<p>create table tp_user(</p>
+<p>user_id int not null auto_increment,</p>
+<p>username varchar(30) not null default &#8221; comment &#8216;用户名&#8217;,</p>
+<p>password char(32) not null default &#8221; comment &#8216;密码&#8217;,</p>
+<p>primary key(user_id)</p>
+<p>)engine = Innodb default charset = utf8;</p>
+<p>tp_category表结构：</p>
+<p>create table tp_category(</p>
+<p>cat_id smallint not null auto_increment,</p>
+<p>cat_name varchar(30) not null default &#8221; comment &#8216;分类名称&#8217;,</p>
+<p>pid smallint not null default 0 comment &#8216;父分类的id&#8217;,</p>
+<p>create_time int not null default 0 comment &#8216;创建时间&#8217;,</p>
+<p>update_time int not null default 0 comment &#8216;更新时间&#8217;,</p>
+<p>primary key(cat_id)</p>
+<p>)engine = Innodb default charset = utf8;</p>
+<p>tp_article表结构：</p>
+<p>create table tp_article(</p>
+<p>article_id smallint not null auto_increment,</p>
+<p>title varchar(30) not null default &#8221; comment &#8216;文章标题&#8217;,</p>
+<p>content text comment &#8216;文章内容&#8217;,</p>
+<p>cat_id smallint not null default 0 comment &#8216;文章所属分类&#8217;,</p>
+<p>ori_img varchar(150) not null default &#8221; comment &#8216;原图的路径&#8217;,</p>
+<p>thumb_img varchar(150) not null default &#8221; comment &#8216;缩略图的路径&#8217;,</p>
+<p>create_time int not null default 0 comment &#8216;创建时间&#8217;,</p>
+<p>update_time int not null default 0 comment &#8216;更新时间&#8217;,</p>
+<p>primary key(article_id)</p>
+<p>)engine = Innodb default charset = utf8;</p>
+<p>注：表名加前缀tp_,用于区分多个项目。</p>
+<ol>
+<li>测试数据库是否连接成功，可以向表添加几条数据，进行查询</li>
+</ol>
+<p><img decoding="async" width="444" height="79" class="wp-image-7501" src="/wp-content/uploads/2018/06/word-image-107.png" srcset="/wp-content/uploads/2018/06/word-image-107.png 444w, /wp-content/uploads/2018/06/word-image-107-300x53.png 300w" sizes="(max-width: 444px) 100vw, 444px" /></p>
+<p><img decoding="async" width="772" height="250" class="wp-image-7502" src="/wp-content/uploads/2018/06/word-image-108.png" srcset="/wp-content/uploads/2018/06/word-image-108.png 772w, /wp-content/uploads/2018/06/word-image-108-300x97.png 300w, /wp-content/uploads/2018/06/word-image-108-768x249.png 768w" sizes="(max-width: 772px) 100vw, 772px" /></p>
+<p>结果：</p>
+<p><img loading="lazy" decoding="async" width="266" height="239" class="wp-image-7503" src="/wp-content/uploads/2018/06/word-image-109.png" /></p>
+<p>说明连接成功。</p>
+<h2>模型</h2>
+<h3>模型认识</h3>
+<p>M:Model模型</p>
+<p>作用：主要对数据库进行一些增删改查的操作。</p>
+<h3>模型的定义</h3>
+<p>一般而言，一个表对应一个模型，如果只是对表进行最基本的增删改查，不建模型也是可以操作表数据的，但是如果数据逻辑比较复杂，我们可以把这些数据逻辑定义在模型中，为了和业务逻辑分开，代码结构也比较清晰，也方便后期维护。</p>
+<p>个人建议最好的做法就是以下两点：</p>
+<p>①业务逻辑写在控制器中</p>
+<p>②数据逻辑写在模型中</p>
+<p>如有一个文章分类表，名为tp_category，此表对应的模型类名和模型文件定义如下：</p>
+<p>模型类名： Category 注：驼峰法，除开表前缀的数据表名称。</p>
+<p>模型类文件：Category.php 表名+.php</p>
+<p>模型类文件所在位置：模块名/model/Category.php</p>
+<p>给表tp_category建立模型文件如下：</p>
+<p><img loading="lazy" decoding="async" width="692" height="218" class="wp-image-7504" src="/wp-content/uploads/2018/06/word-image-110.png" srcset="/wp-content/uploads/2018/06/word-image-110.png 692w, /wp-content/uploads/2018/06/word-image-110-300x95.png 300w" sizes="(max-width: 692px) 100vw, 692px" /></p>
+<p>其中模型中定义的属性pk为表的主键名称，若不指定则框架会自动识别。</p>
+<p>有关表名的注意事项：</p>
+<p>手册位置： 模型-&gt;定义</p>
+<p><img loading="lazy" decoding="async" width="914" height="461" class="wp-image-7505" src="/wp-content/uploads/2018/06/word-image-111.png" srcset="/wp-content/uploads/2018/06/word-image-111.png 914w, /wp-content/uploads/2018/06/word-image-111-300x151.png 300w, /wp-content/uploads/2018/06/word-image-111-768x387.png 768w" sizes="(max-width: 914px) 100vw, 914px" /></p>
+<h3>（3）实例化模型</h3>
+<p>方式一：在控制器中实例化模型首先引入其模型类所在的命名空间，如引入上面的Category</p>
+<p>模型：</p>
+<p>use app\admin\model\Category;</p>
+<p>然后实例化模型：</p>
+<p>// 静态调用</p>
+<p>$data = Category::get(1); //获取主键值为1的数据</p>
+<p>// 实例化模型</p>
+<p>$cate= new Category();</p>
+<p>$data = $cate-&gt;get(1);</p>
+<p><img loading="lazy" decoding="async" width="503" height="239" class="wp-image-7506" src="/wp-content/uploads/2018/06/word-image-112.png" srcset="/wp-content/uploads/2018/06/word-image-112.png 503w, /wp-content/uploads/2018/06/word-image-112-300x143.png 300w" sizes="(max-width: 503px) 100vw, 503px" /></p>
+<p>其中打印$dataObj是一个当前数据的对象：</p>
+<p><img loading="lazy" decoding="async" width="479" height="584" class="wp-image-7507" src="/wp-content/uploads/2018/06/word-image-113.png" srcset="/wp-content/uploads/2018/06/word-image-113.png 479w, /wp-content/uploads/2018/06/word-image-113-246x300.png 246w" sizes="(max-width: 479px) 100vw, 479px" /></p>
+<p>或者：</p>
+<p><img loading="lazy" decoding="async" width="594" height="260" class="wp-image-7508" src="/wp-content/uploads/2018/06/word-image-114.png" srcset="/wp-content/uploads/2018/06/word-image-114.png 594w, /wp-content/uploads/2018/06/word-image-114-300x131.png 300w" sizes="(max-width: 594px) 100vw, 594px" /></p>
+<p>方式二：或者直接可以使用助手函数model：</p>
+<p>$cate = model(&#8216;Category&#8217;);</p>
+<p>$data = $cate-&gt;get(1);</p>
+<p><img loading="lazy" decoding="async" width="852" height="331" class="wp-image-7509" src="/wp-content/uploads/2018/06/word-image-115.png" srcset="/wp-content/uploads/2018/06/word-image-115.png 852w, /wp-content/uploads/2018/06/word-image-115-300x117.png 300w, /wp-content/uploads/2018/06/word-image-115-768x298.png 768w" sizes="(max-width: 852px) 100vw, 852px" /></p>
+<h1>十六、模型CURD操作</h1>
+<p>C-create：新增数据</p>
+<p>U-update：更新数据</p>
+<p>R-read：查询数据</p>
+<p>D-delete：删除数据</p>
+<h2>新增数据</h2>
+<p>手册位置：模型-&gt;新增</p>
+<h3>（1）添加一条数据</h3>
+<p>$model-&gt;save($data);</p>
+<p>参数：$data为一维数组，其中[‘字段名’=&gt;’数据’]</p>
+<p>返回：成功返回写入的记录数</p>
+<p><img loading="lazy" decoding="async" width="678" height="198" class="wp-image-7510" src="/wp-content/uploads/2018/06/word-image-116.png" srcset="/wp-content/uploads/2018/06/word-image-116.png 678w, /wp-content/uploads/2018/06/word-image-116-300x88.png 300w" sizes="(max-width: 678px) 100vw, 678px" /></p>
+<h3>获取自增后的主键值</h3>
+<p>$model-&gt;save($data);</p>
+<p>echo $model-&gt;主键字段名;</p>
+<p><img loading="lazy" decoding="async" width="598" height="240" class="wp-image-7511" src="/wp-content/uploads/2018/06/word-image-117.png" srcset="/wp-content/uploads/2018/06/word-image-117.png 598w, /wp-content/uploads/2018/06/word-image-117-300x120.png 300w" sizes="(max-width: 598px) 100vw, 598px" /></p>
+<p>数据表数据如下：</p>
+<p><img loading="lazy" decoding="async" width="541" height="64" class="wp-image-7512" src="/wp-content/uploads/2018/06/word-image-118.png" srcset="/wp-content/uploads/2018/06/word-image-118.png 541w, /wp-content/uploads/2018/06/word-image-118-300x35.png 300w" sizes="(max-width: 541px) 100vw, 541px" /></p>
+<h3>（3）过滤非数据表字段</h3>
+<ul>
+<li>只允许数据表的字段写入</li>
+</ul>
+<p>$model-&gt;allowField(true)-&gt;save($data) ;</p>
+<ul>
+<li>只允许name和email字段写入</li>
+</ul>
+<p>$model-&gt;allowField([‘name’,’email’])-&gt;save($data) ;</p>
+<p>代码：</p>
+<p><img loading="lazy" decoding="async" width="609" height="138" class="wp-image-7513" src="/wp-content/uploads/2018/06/word-image-119.png" srcset="/wp-content/uploads/2018/06/word-image-119.png 609w, /wp-content/uploads/2018/06/word-image-119-300x68.png 300w" sizes="(max-width: 609px) 100vw, 609px" /></p>
+<h3>（4）添加多条数据</h3>
+<ul>
+<li>$model-&gt;saveAll();</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="665" height="272" class="wp-image-7514" src="/wp-content/uploads/2018/06/word-image-120.png" srcset="/wp-content/uploads/2018/06/word-image-120.png 665w, /wp-content/uploads/2018/06/word-image-120-300x123.png 300w" sizes="(max-width: 665px) 100vw, 665px" /></p>
+<p>成功：返回数组对象集合。</p>
+<p><img loading="lazy" decoding="async" width="461" height="207" class="wp-image-7515" src="/wp-content/uploads/2018/06/word-image-121.png" srcset="/wp-content/uploads/2018/06/word-image-121.png 461w, /wp-content/uploads/2018/06/word-image-121-300x135.png 300w" sizes="(max-width: 461px) 100vw, 461px" /></p>
+<p>注：其中每条数据都是作为当前模型类的对象。</p>
+<p>数据表如下：<br />
+<img loading="lazy" decoding="async" width="494" height="55" class="wp-image-7516" src="/wp-content/uploads/2018/06/word-image-122.png" srcset="/wp-content/uploads/2018/06/word-image-122.png 494w, /wp-content/uploads/2018/06/word-image-122-300x33.png 300w" sizes="(max-width: 494px) 100vw, 494px" /></p>
+<h2>更新数据-U</h2>
+<p>手册位置：模型&#8211;&gt;更新</p>
+<h3>更新方式一</h3>
+<ul>
+<li>$model-&gt;save($data,更新条件)</li>
+<li>$model-&gt;isUpdate(true)-&gt;save($data)</li>
+</ul>
+<p>可以通过isUpdate方法指定save为执行更新操作，其中$data中必须带更新的主键值</p>
+<ul>
+<li>若需要过滤非数据表的字段数据，使用：</li>
+</ul>
+<p>$model-&gt;-&gt;isUpdate(true)-&gt;allowField(true)-&gt;save($data)</p>
+<p><img loading="lazy" decoding="async" width="633" height="300" class="wp-image-7517" src="/wp-content/uploads/2018/06/word-image-123.png" srcset="/wp-content/uploads/2018/06/word-image-123.png 633w, /wp-content/uploads/2018/06/word-image-123-300x142.png 300w" sizes="(max-width: 633px) 100vw, 633px" /></p>
+<p><img loading="lazy" decoding="async" width="651" height="64" class="wp-image-7518" src="/wp-content/uploads/2018/06/word-image-124.png" srcset="/wp-content/uploads/2018/06/word-image-124.png 651w, /wp-content/uploads/2018/06/word-image-124-300x29.png 300w" sizes="(max-width: 651px) 100vw, 651px" /></p>
+<h3>（2）更新方式二</h3>
+<ul>
+<li>$model-&gt;update($data)</li>
+</ul>
+<p>参数$data为一维数组，键名为表字段名，其中更新必须指定更新条件，否则更新失败。</p>
+<p>成功返回当前数据对象。</p>
+<p><img loading="lazy" decoding="async" width="571" height="193" class="wp-image-7519" src="/wp-content/uploads/2018/06/word-image-125.png" srcset="/wp-content/uploads/2018/06/word-image-125.png 571w, /wp-content/uploads/2018/06/word-image-125-300x101.png 300w" sizes="(max-width: 571px) 100vw, 571px" /></p>
+<p><img loading="lazy" decoding="async" width="471" height="26" class="wp-image-7520" src="/wp-content/uploads/2018/06/word-image-126.png" srcset="/wp-content/uploads/2018/06/word-image-126.png 471w, /wp-content/uploads/2018/06/word-image-126-300x17.png 300w" sizes="(max-width: 471px) 100vw, 471px" /></p>
+<h2>删除数据-D</h2>
+<h3>（1）调用静态方法删除一条数据</h3>
+<p>模型类名::destroy(1); 如：User::destroy(1) 删除主键为1的记录</p>
+<h3>（2）调用静态方法批量删除多个数据</h3>
+<p>模型类名::destroy(‘1,2,3’); 删除主键为1,2,3的记录</p>
+<p>或</p>
+<p>模型类名::destroy([1,2,3]);</p>
+<p>代码如下：</p>
+<p><img loading="lazy" decoding="async" width="627" height="170" class="wp-image-7521" src="/wp-content/uploads/2018/06/word-image-127.png" srcset="/wp-content/uploads/2018/06/word-image-127.png 627w, /wp-content/uploads/2018/06/word-image-127-300x81.png 300w" sizes="(max-width: 627px) 100vw, 627px" /></p>
+<h2>查询数据-R</h2>
+<h3>（1）根据主键值获取记录一条记录</h3>
+<p>$dataObj = 模型类名::get(主键值)</p>
+<p>$dataObj = 模型类名::find(主键值)</p>
+<p>成功返回当前数据的对象。</p>
+<p><img loading="lazy" decoding="async" width="647" height="140" class="wp-image-7522" src="/wp-content/uploads/2018/06/word-image-128.png" srcset="/wp-content/uploads/2018/06/word-image-128.png 647w, /wp-content/uploads/2018/06/word-image-128-300x65.png 300w" sizes="(max-width: 647px) 100vw, 647px" /></p>
+<h3>（2）根据主键值获取多条记录</h3>
+<p>$dataObj= 模型类名::all(‘1,2,3’); //获取主键值为1,2,3的记录</p>
+<p>或</p>
+<p>$dataObj= 模型类名::all([1,2,3]); //获取主键值为1,2,3的记录</p>
+<p>$dataObj= 模型类名::select(); //获取表中的所有数据</p>
+<p>或</p>
+<p>$dataObj= 模型类名::all();</p>
+<p>all和select都是返回当前查询数组的数据对象集合。</p>
+<p><img loading="lazy" decoding="async" width="596" height="223" class="wp-image-7523" src="/wp-content/uploads/2018/06/word-image-129.png" srcset="/wp-content/uploads/2018/06/word-image-129.png 596w, /wp-content/uploads/2018/06/word-image-129-300x112.png 300w" sizes="(max-width: 596px) 100vw, 596px" /></p>
+<h2>连贯操作</h2>
+<p>手册位置：数据库&#8211;&gt;查询构造器&#8211;&gt;链式操作</p>
+<p>注： 模型的链式操作方法和Db构造器链式操作的方法都通用；</p>
+<p>TP5常用的模型连贯操作方法如下：</p>
+<p>方法说明：</p>
+<ul>
+<li>field(“field1,field2&#8230;”)：查询指定的字段field1和field2,多个用逗号隔开</li>
+<li>alias(‘数据表别名’)：给当前数据表设置别名,join联表时用的多</li>
+<li>where(查询条件)：查询条件可以为表达式查询、数组查询、字符串查询。</li>
+<li>order(“field desc”)：把查询的到结果集进行字段field降序（desc）或升序(asc)。</li>
+<li>group(“field”): 把查询的到结果集进行字段field分组。</li>
+<li>limit(offset,length): 获取结果集指定条数的数据， offset为起始位置，length为获取记录的条数。</li>
+<li>join()：与其他表进行关联查询</li>
+</ul>
+<p>注意：</p>
+<p>以上的连贯操作方法都是返回当前模型的对象，即方法底层都是返回当前模型对象即return $this,所以他们之间的调用顺序不用按照原生的sql顺序来调用，但如果是查询数据，查询语句的最末端一定要确保是select或者是find方法。</p>
+<p>在原生的sql语句中一定要按照先后顺序调用：</p>
+<p>原生sql语句执行的先后顺序： join==&gt;where ==&gt; group ==&gt; having==&gt;order==&gt;limit</p>
+<p>在tp5中以上的连贯操作都不需要按照顺序。</p>
+<h3>（1）where表达式查询条件</h3>
+<p><img loading="lazy" decoding="async" width="712" height="587" class="wp-image-7524" src="/wp-content/uploads/2018/06/word-image-130.png" srcset="/wp-content/uploads/2018/06/word-image-130.png 712w, /wp-content/uploads/2018/06/word-image-130-300x247.png 300w" sizes="(max-width: 712px) 100vw, 712px" /></p>
+<p>代码如下：</p>
+<p>例1：</p>
+<p><img loading="lazy" decoding="async" width="798" height="189" class="wp-image-7525" src="/wp-content/uploads/2018/06/word-image-131.png" srcset="/wp-content/uploads/2018/06/word-image-131.png 798w, /wp-content/uploads/2018/06/word-image-131-300x71.png 300w, /wp-content/uploads/2018/06/word-image-131-768x182.png 768w" sizes="(max-width: 798px) 100vw, 798px" /></p>
+<p>获取生成组装的sql语句： buildSql()</p>
+<p><img loading="lazy" decoding="async" width="1020" height="344" class="wp-image-7526" src="/wp-content/uploads/2018/06/word-image-132.png" srcset="/wp-content/uploads/2018/06/word-image-132.png 1020w, /wp-content/uploads/2018/06/word-image-132-300x101.png 300w, /wp-content/uploads/2018/06/word-image-132-768x259.png 768w" sizes="(max-width: 1020px) 100vw, 1020px" /></p>
+<p>可见，多个where连续调用，默认是and连接符。 如果想使用or,可以使用方法whereOr()</p>
+<p><img loading="lazy" decoding="async" width="907" height="234" class="wp-image-7527" src="/wp-content/uploads/2018/06/word-image-133.png" srcset="/wp-content/uploads/2018/06/word-image-133.png 907w, /wp-content/uploads/2018/06/word-image-133-300x77.png 300w, /wp-content/uploads/2018/06/word-image-133-768x198.png 768w" sizes="(max-width: 907px) 100vw, 907px" /></p>
+<h3>（2）where数组查询条件</h3>
+<p>完整语法：</p>
+<p>$where = [</p>
+<p>‘字段名1’=&gt; [表达式，‘值’]</p>
+<p>‘字段名2’=&gt; [表达式，‘值’]</p>
+<p>]</p>
+<p>如果是等值（=）查询，可以不用指定表达式，直接写值即可</p>
+<p>$where = [</p>
+<p>‘字段名’ =&gt; ‘值’</p>
+<p>]</p>
+<p>//默认多字段查询，是and链接。</p>
+<p>例1：</p>
+<p><img loading="lazy" decoding="async" width="817" height="159" class="wp-image-7528" src="/wp-content/uploads/2018/06/word-image-134.png" srcset="/wp-content/uploads/2018/06/word-image-134.png 817w, /wp-content/uploads/2018/06/word-image-134-300x58.png 300w, /wp-content/uploads/2018/06/word-image-134-768x149.png 768w" sizes="(max-width: 817px) 100vw, 817px" /></p>
+<h3>（3）where字符串查询条件</h3>
+<p>where(字符串条件)</p>
+<p><img loading="lazy" decoding="async" width="764" height="188" class="wp-image-7529" src="/wp-content/uploads/2018/06/word-image-135.png" srcset="/wp-content/uploads/2018/06/word-image-135.png 764w, /wp-content/uploads/2018/06/word-image-135-300x74.png 300w" sizes="(max-width: 764px) 100vw, 764px" /></p>
+<p>注：只能是类名::才可以调用方法，如果是对象调用，需要实例化对象，通过对象-&gt;去调用：</p>
+<p><img loading="lazy" decoding="async" width="718" height="94" class="wp-image-7530" src="/wp-content/uploads/2018/06/word-image-136.png" srcset="/wp-content/uploads/2018/06/word-image-136.png 718w, /wp-content/uploads/2018/06/word-image-136-300x39.png 300w" sizes="(max-width: 718px) 100vw, 718px" /></p>
+<h3>其中连贯操作方法</h3>
+<ul>
+<li>field(“field1,field2&#8230;”)：查询指定的字段field1和field2,多个用逗号隔开</li>
+<li>alias(‘数据表别名’)：给当前数据表设置别名,join联表时用的多</li>
+<li>where(查询条件)：查询条件可以为表达式查询、数组查询、字符串查询。</li>
+<li>order(“field desc”)：把查询的到结果集进行字段field降序（desc）或升序(asc)。</li>
+<li>group(“field”): 把查询的到结果集进行字段field分组。</li>
+<li>limit(offset,length): 获取结果集指定条数的数据， offset为起始位置，length为获取记录的条数。</li>
+<li>join()：与其他表进行关联查询</li>
+</ul>
+<p>注意：</p>
+<p>以上的连贯操作方法都是返回当前模型的对象，即方法底层都是返回当前模型对象即return $this,所以他们之间的调用顺序不用按照原生的sql顺序来调用，但如果是查询数据，查询语句的最末端一定要确保是select或者是find方法。</p>
+<p>例1：</p>
+<p><img loading="lazy" decoding="async" width="989" height="116" class="wp-image-7531" src="/wp-content/uploads/2018/06/word-image-137.png" srcset="/wp-content/uploads/2018/06/word-image-137.png 989w, /wp-content/uploads/2018/06/word-image-137-300x35.png 300w, /wp-content/uploads/2018/06/word-image-137-768x90.png 768w" sizes="(max-width: 989px) 100vw, 989px" /></p>
+<p>结果:</p>
+<p><img loading="lazy" decoding="async" width="309" height="84" class="wp-image-7532" src="/wp-content/uploads/2018/06/word-image-138.png" srcset="/wp-content/uploads/2018/06/word-image-138.png 309w, /wp-content/uploads/2018/06/word-image-138-300x82.png 300w" sizes="(max-width: 309px) 100vw, 309px" /></p>
+<p>注：通过模型数据对象-&gt;toArray()；可以转化为关联数组，看起来更加直观。</p>
+<p>例2：</p>
+<p><img loading="lazy" decoding="async" width="901" height="109" class="wp-image-7533" src="/wp-content/uploads/2018/06/word-image-139.png" srcset="/wp-content/uploads/2018/06/word-image-139.png 901w, /wp-content/uploads/2018/06/word-image-139-300x36.png 300w, /wp-content/uploads/2018/06/word-image-139-768x93.png 768w" sizes="(max-width: 901px) 100vw, 901px" /></p>
+<p>例3：</p>
+<p><img loading="lazy" decoding="async" width="925" height="105" class="wp-image-7534" src="/wp-content/uploads/2018/06/word-image-140.png" srcset="/wp-content/uploads/2018/06/word-image-140.png 925w, /wp-content/uploads/2018/06/word-image-140-300x34.png 300w, /wp-content/uploads/2018/06/word-image-140-768x87.png 768w" sizes="(max-width: 925px) 100vw, 925px" /></p>
+<p>结果：</p>
+<p><img loading="lazy" decoding="async" width="505" height="509" class="wp-image-7535" src="/wp-content/uploads/2018/06/word-image-141.png" srcset="/wp-content/uploads/2018/06/word-image-141.png 505w, /wp-content/uploads/2018/06/word-image-141-150x150.png 150w, /wp-content/uploads/2018/06/word-image-141-298x300.png 298w" sizes="(max-width: 505px) 100vw, 505px" /></p>
+<p>默认select方法返回数组对象集合，只有取出具体的数据对象才可以调用toArray()转化为关联数组，如何把select方法的返回结果直接变为关联数组？</p>
+<p>解决办法：把applciation/database.php文件的以下配置返回结果设置为think\Collection</p>
+<p><img loading="lazy" decoding="async" width="747" height="187" class="wp-image-7536" src="/wp-content/uploads/2018/06/word-image-142.png" srcset="/wp-content/uploads/2018/06/word-image-142.png 747w, /wp-content/uploads/2018/06/word-image-142-300x75.png 300w" sizes="(max-width: 747px) 100vw, 747px" /></p>
+<p>这样就可以使用select调用toAarray()返回关联数组：</p>
+<p><img loading="lazy" decoding="async" width="1088" height="144" class="wp-image-7537" src="/wp-content/uploads/2018/06/word-image-143.png" srcset="/wp-content/uploads/2018/06/word-image-143.png 1088w, /wp-content/uploads/2018/06/word-image-143-300x40.png 300w, /wp-content/uploads/2018/06/word-image-143-768x102.png 768w, /wp-content/uploads/2018/06/word-image-143-1024x136.png 1024w" sizes="(max-width: 1088px) 100vw, 1088px" /></p>
+<p><img loading="lazy" decoding="async" width="402" height="189" class="wp-image-7538" src="/wp-content/uploads/2018/06/word-image-144.png" srcset="/wp-content/uploads/2018/06/word-image-144.png 402w, /wp-content/uploads/2018/06/word-image-144-300x141.png 300w" sizes="(max-width: 402px) 100vw, 402px" /></p>
+<p>例4、join联表</p>
+<ol>
+<li>联表查询出分类的所属父分类：</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1046" height="462" class="wp-image-7539" src="/wp-content/uploads/2018/06/word-image-145.png" srcset="/wp-content/uploads/2018/06/word-image-145.png 1046w, /wp-content/uploads/2018/06/word-image-145-300x133.png 300w, /wp-content/uploads/2018/06/word-image-145-768x339.png 768w, /wp-content/uploads/2018/06/word-image-145-1024x452.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /></p>
+<p>使用模型的join方法来实现：</p>
+<p>手册位置：数据库&#8211;&gt;查询构造器&#8211;&gt;链式操作&#8211;&gt;join</p>
+<p>语法： <img loading="lazy" decoding="async" width="674" height="55" class="wp-image-7540" src="/wp-content/uploads/2018/06/word-image-146.png" srcset="/wp-content/uploads/2018/06/word-image-146.png 674w, /wp-content/uploads/2018/06/word-image-146-300x24.png 300w" sizes="(max-width: 674px) 100vw, 674px" /></p>
+<p><img loading="lazy" decoding="async" width="866" height="288" class="wp-image-7541" src="/wp-content/uploads/2018/06/word-image-147.png" srcset="/wp-content/uploads/2018/06/word-image-147.png 866w, /wp-content/uploads/2018/06/word-image-147-300x100.png 300w, /wp-content/uploads/2018/06/word-image-147-768x255.png 768w" sizes="(max-width: 866px) 100vw, 866px" /></p>
+<p>结果：</p>
+<p><img loading="lazy" decoding="async" width="492" height="409" class="wp-image-7542" src="/wp-content/uploads/2018/06/word-image-148.png" srcset="/wp-content/uploads/2018/06/word-image-148.png 492w, /wp-content/uploads/2018/06/word-image-148-300x249.png 300w" sizes="(max-width: 492px) 100vw, 492px" /></p>
+<ol>
+<li>联表查询出文章的所属分类：</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1045" height="408" class="wp-image-7543" src="/wp-content/uploads/2018/06/word-image-149.png" srcset="/wp-content/uploads/2018/06/word-image-149.png 1045w, /wp-content/uploads/2018/06/word-image-149-300x117.png 300w, /wp-content/uploads/2018/06/word-image-149-768x300.png 768w, /wp-content/uploads/2018/06/word-image-149-1024x400.png 1024w" sizes="(max-width: 1045px) 100vw, 1045px" /></p>
+<p>在模型中使用join进行联表</p>
+<ol>
+<li>给表tp_article建立表模型</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="396" height="167" class="wp-image-7544" src="/wp-content/uploads/2018/06/word-image-150.png" srcset="/wp-content/uploads/2018/06/word-image-150.png 396w, /wp-content/uploads/2018/06/word-image-150-300x127.png 300w" sizes="(max-width: 396px) 100vw, 396px" /></p>
+<p>b、联表</p>
+<p><img loading="lazy" decoding="async" width="845" height="363" class="wp-image-7545" src="/wp-content/uploads/2018/06/word-image-151.png" srcset="/wp-content/uploads/2018/06/word-image-151.png 845w, /wp-content/uploads/2018/06/word-image-151-300x129.png 300w, /wp-content/uploads/2018/06/word-image-151-768x330.png 768w" sizes="(max-width: 845px) 100vw, 845px" /></p>
+<p>结果：</p>
+<p><img loading="lazy" decoding="async" width="453" height="526" class="wp-image-7546" src="/wp-content/uploads/2018/06/word-image-152.png" srcset="/wp-content/uploads/2018/06/word-image-152.png 453w, /wp-content/uploads/2018/06/word-image-152-258x300.png 258w" sizes="(max-width: 453px) 100vw, 453px" /></p>
+<h2>6、聚合（统计）函数</h2>
+<p>常用的有以下几个聚合（统计）函数</p>
+<p><img loading="lazy" decoding="async" width="465" height="273" class="wp-image-7547" src="/wp-content/uploads/2018/06/word-image-153.png" srcset="/wp-content/uploads/2018/06/word-image-153.png 465w, /wp-content/uploads/2018/06/word-image-153-300x176.png 300w" sizes="(max-width: 465px) 100vw, 465px" /></p>
+<p>注意:调用统计函数前均支持连贯方法操作，但必须保证最末端是统计函数。</p>
+<p>代码如下：</p>
+<p><img loading="lazy" decoding="async" width="897" height="438" class="wp-image-7548" src="/wp-content/uploads/2018/06/word-image-154.png" srcset="/wp-content/uploads/2018/06/word-image-154.png 897w, /wp-content/uploads/2018/06/word-image-154-300x146.png 300w, /wp-content/uploads/2018/06/word-image-154-768x375.png 768w" sizes="(max-width: 897px) 100vw, 897px" /></p>
+<h2>模型完成时间戳的自动维护</h2>
+<p>手册位置：模型&#8211;&gt;时间戳</p>
+<ol>
+<li>给表设置update_time、create_time字段。</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="519" height="195" class="wp-image-7549" src="/wp-content/uploads/2018/06/word-image-155.png" srcset="/wp-content/uploads/2018/06/word-image-155.png 519w, /wp-content/uploads/2018/06/word-image-155-300x113.png 300w" sizes="(max-width: 519px) 100vw, 519px" /></p>
+<ol>
+<li>在当前模型中开启时间戳的自动写入</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="889" height="289" class="wp-image-7550" src="/wp-content/uploads/2018/06/word-image-156.png" srcset="/wp-content/uploads/2018/06/word-image-156.png 889w, /wp-content/uploads/2018/06/word-image-156-300x98.png 300w, /wp-content/uploads/2018/06/word-image-156-768x250.png 768w" sizes="(max-width: 889px) 100vw, 889px" /></p>
+<p>开启时间戳自动写入之后，只要使用模型完成新增或编辑的操作，就会对表的两个时间字段字段自动维护。</p>
+<h1>十七、通过Db构造器操作数据库</h1>
+<p>通Db构造器查询数据库无需实例化模型也可对数据进行curd操作。</p>
+<p>手册位置：数据库&#8211;&gt;查询构造器</p>
+<h2>查询数据-R</h2>
+<ul>
+<li>查询一条数据</li>
+</ul>
+<p>如：Db::table(&#8216;think_user&#8217;)-&gt;field(‘username,email’)-&gt;where(id,1)-&gt;find();</p>
+<ul>
+<li>查询多条数据</li>
+</ul>
+<p>如：Db::table(&#8216;think_user&#8217;)-&gt;where(id,1)-&gt;select();</p>
+<p>如：Db::name(&#8216;user&#8217;)-&gt;order(‘id’,’desc’)-&gt;select(); #不带表前缀</p>
+<p>注： Db::table()需要完整表名，带表前缀，DB::name()是不带表前缀,且他们都支持连贯操作方法，只需保证最末端是select或是find或统计函数。</p>
+<p>代码如下：</p>
+<p><img loading="lazy" decoding="async" width="755" height="245" class="wp-image-7551" src="/wp-content/uploads/2018/06/word-image-157.png" srcset="/wp-content/uploads/2018/06/word-image-157.png 755w, /wp-content/uploads/2018/06/word-image-157-300x97.png 300w" sizes="(max-width: 755px) 100vw, 755px" /></p>
+<p>结果：</p>
+<p><img loading="lazy" decoding="async" width="287" height="366" class="wp-image-7552" src="/wp-content/uploads/2018/06/word-image-158.png" srcset="/wp-content/uploads/2018/06/word-image-158.png 287w, /wp-content/uploads/2018/06/word-image-158-235x300.png 235w" sizes="(max-width: 287px) 100vw, 287px" /></p>
+<h2>执行原生sql语句</h2>
+<p>查询：Db::query(“select”);</p>
+<p>增删改：Db::execute(“insert/update/delete”);</p>
+<p><img loading="lazy" decoding="async" width="925" height="90" class="wp-image-7553" src="/wp-content/uploads/2018/06/word-image-159.png" srcset="/wp-content/uploads/2018/06/word-image-159.png 925w, /wp-content/uploads/2018/06/word-image-159-300x29.png 300w, /wp-content/uploads/2018/06/word-image-159-768x75.png 768w" sizes="(max-width: 925px) 100vw, 925px" /></p>
+<h2>添加数据-C</h2>
+<ul>
+<li>添加一条数据</li>
+</ul>
+<p>$data = [&#8216;foo&#8217; =&gt; &#8216;bar&#8217;, &#8216;bar&#8217; =&gt; &#8216;foo&#8217;];</p>
+<p>Db::table(&#8216;think_user&#8217;)-&gt;insert($data);</p>
+<p>insert 方法添加数据成功返回添加成功的条数，insert 正常情况返回 1</p>
+<ul>
+<li>或者直接使用insertGetId方法新增数据并返回主键值：</li>
+</ul>
+<p>Db::name(&#8216;user&#8217;)-&gt;insertGetId($data);</p>
+<ul>
+<li>添加多条数据</li>
+</ul>
+<p>添加多条数据直接向 Db 类的 insertAll 方法传入需要添加的数据即可</p>
+<p>$data = [</p>
+<p>[&#8216;foo&#8217; =&gt; &#8216;bar&#8217;, &#8216;bar&#8217; =&gt; &#8216;foo&#8217;],</p>
+<p>[&#8216;foo&#8217; =&gt; &#8216;bar1&#8217;, &#8216;bar&#8217; =&gt; &#8216;foo1&#8217;],</p>
+<p>[&#8216;foo&#8217; =&gt; &#8216;bar2&#8217;, &#8216;bar&#8217; =&gt; &#8216;foo2&#8217;]</p>
+<p>];</p>
+<p>Db::name(&#8216;user&#8217;)-&gt;insertAll($data);</p>
+<p>insertAll 方法添加数据成功返回添加成功的条数</p>
+<h2>删除数据-D</h2>
+<ul>
+<li>根据主键删除</li>
+</ul>
+<p>Db::table(&#8216;think_user&#8217;)-&gt;delete(1);</p>
+<p>Db::table(&#8216;think_user&#8217;)-&gt;delete([1,2,3]);</p>
+<ul>
+<li>条件删除</li>
+</ul>
+<p>Db::table(&#8216;think_user&#8217;)-&gt;where(&#8216;id&#8217;,1)-&gt;delete();</p>
+<p>Db::table(&#8216;think_user&#8217;)-&gt;where(&#8216;id&#8217;,'&lt;&#8216;,10)-&gt;delete();</p>
+<p>delete 方法返回影响数据的条数，没有删除返回 0</p>
+<h2>4、更新数据-U</h2>
+<p>手册为主：数据库&#8211;&gt;查询构造器&#8211;&gt;更新数据</p>
+<h3>更新数据表中的数据</h3>
+<p>Db::table(&#8216;think_user&#8217;)-&gt;where(&#8216;id&#8217;, 1)-&gt;update([&#8216;name&#8217; =&gt; &#8216;thinkphp&#8217;]);</p>
+<p>如果数据中包含主键，可以直接使用：</p>
+<p>Db::table(&#8216;think_user&#8217;)-&gt;update([&#8216;name&#8217; =&gt; &#8216;thinkphp&#8217;,&#8217;id&#8217;=&gt;1]);</p>
+<p>update 方法返回影响数据的条数，没修改任何数据返回 0</p>
+<h3>更新某个字段的值</h3>
+<p>Db::table(&#8216;think_user&#8217;)-&gt;where(&#8216;id&#8217;,1)-&gt;setField(&#8216;name&#8217;, &#8216;thinkphp&#8217;);</p>
+<p>setField 方法返回影响数据的条数，没修改任何数据字段返回 0</p>
+<h3>自增或自减一个字段的值</h3>
+<p>setInc/setDec 如不加第二个参数，默认值为1</p>
+<p>// score 字段加 1</p>
+<p>Db::table(&#8216;think_user&#8217;)-&gt;where(&#8216;id&#8217;, 1)-&gt;setInc(&#8216;score&#8217;);</p>
+<p>// score 字段加 5</p>
+<p>Db::table(&#8216;think_user&#8217;)-&gt;where(&#8216;id&#8217;, 1)-&gt;setInc(&#8216;score&#8217;, 5);</p>
+<p>// score 字段减 1</p>
+<p>Db::table(&#8216;think_user&#8217;)-&gt;where(&#8216;id&#8217;, 1)-&gt;setDec(&#8216;score&#8217;);</p>
+<p>// score 字段减 5</p>
+<p>Db::table(&#8216;think_user&#8217;)-&gt;where(&#8216;id&#8217;, 1)-&gt;setDec(&#8216;score&#8217;, 5);</p>
+<h3>助手db函数完成更新</h3>
+<p>// 更新数据表中的数据</p>
+<p>db(&#8216;user&#8217;)-&gt;where(&#8216;id&#8217;,1)-&gt;update([&#8216;name&#8217; =&gt; &#8216;thinkphp&#8217;]);</p>
+<p>// 更新某个字段的值</p>
+<p>db(&#8216;user&#8217;)-&gt;where(&#8216;id&#8217;,1)-&gt;setField(&#8216;name&#8217;,&#8217;thinkphp&#8217;);</p>
+<p>// 自增 score 字段</p>
+<p>db(&#8216;user&#8217;)-&gt;where(&#8216;id&#8217;, 1)-&gt;setInc(&#8216;score&#8217;);</p>
+<p>// 自减 score 字段</p>
+<p>db(&#8216;user&#8217;)-&gt;where(&#8216;id&#8217;, 1)-&gt;setDec(&#8216;score&#8217;);</p>
+<h1>完成后台登录功能</h1>
+<p>般用户表的第一个用户都是自己手工添加的。</p>
+<ol>
+<li>在配置文件config.php中添加一个password_salt的配置</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="703" height="301" class="wp-image-7554" src="/wp-content/uploads/2018/06/word-image-160.png" srcset="/wp-content/uploads/2018/06/word-image-160.png 703w, /wp-content/uploads/2018/06/word-image-160-300x128.png 300w" sizes="(max-width: 703px) 100vw, 703px" /></p>
+<ol>
+<li>把加密的结果复制到用户表的password字段中</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="762" height="360" class="wp-image-7555" src="/wp-content/uploads/2018/06/word-image-161.png" srcset="/wp-content/uploads/2018/06/word-image-161.png 762w, /wp-content/uploads/2018/06/word-image-161-300x142.png 300w" sizes="(max-width: 762px) 100vw, 762px" /></p>
+<ol>
+<li>修改login.html登录表单</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1112" height="584" class="wp-image-7556" src="/wp-content/uploads/2018/06/word-image-162.png" srcset="/wp-content/uploads/2018/06/word-image-162.png 1112w, /wp-content/uploads/2018/06/word-image-162-300x158.png 300w, /wp-content/uploads/2018/06/word-image-162-768x403.png 768w, /wp-content/uploads/2018/06/word-image-162-1024x538.png 1024w" sizes="(max-width: 1112px) 100vw, 1112px" /></p>
+<ol>
+<li>在login方法中判断是post请求，完成入库</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="748" height="651" class="wp-image-7557" src="/wp-content/uploads/2018/06/word-image-163.png" srcset="/wp-content/uploads/2018/06/word-image-163.png 748w, /wp-content/uploads/2018/06/word-image-163-300x261.png 300w" sizes="(max-width: 748px) 100vw, 748px" /></p>
+<ol>
+<li>在User模型中定义一个检出用户名和密码是否匹配的方法</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="872" height="654" class="wp-image-7558" src="/wp-content/uploads/2018/06/word-image-164.png" srcset="/wp-content/uploads/2018/06/word-image-164.png 872w, /wp-content/uploads/2018/06/word-image-164-300x225.png 300w, /wp-content/uploads/2018/06/word-image-164-768x576.png 768w" sizes="(max-width: 872px) 100vw, 872px" /></p>
+<p>登录成功后，把session中的用户名信息回显到后台首页中（top.html）</p>
+<p><img loading="lazy" decoding="async" width="1239" height="291" class="wp-image-7559" src="/wp-content/uploads/2018/06/word-image-165.png" srcset="/wp-content/uploads/2018/06/word-image-165.png 1239w, /wp-content/uploads/2018/06/word-image-165-300x70.png 300w, /wp-content/uploads/2018/06/word-image-165-768x180.png 768w, /wp-content/uploads/2018/06/word-image-165-1024x241.png 1024w" sizes="(max-width: 1239px) 100vw, 1239px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="220" height="82" class="wp-image-7560" src="/wp-content/uploads/2018/06/word-image-166.png" /></p>
+<h1>完成后台退出功能</h1>
+<p>核心：清除登录成功写入的session信息即可</p>
+<ol>
+<li>在Public控制器中建立一个logout的方法，清除session</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="545" height="482" class="wp-image-7561" src="/wp-content/uploads/2018/06/word-image-167.png" srcset="/wp-content/uploads/2018/06/word-image-167.png 545w, /wp-content/uploads/2018/06/word-image-167-300x265.png 300w" sizes="(max-width: 545px) 100vw, 545px" /></p>
+<ol>
+<li>修改top.html模板的退出链接地址</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1230" height="280" class="wp-image-7562" src="/wp-content/uploads/2018/06/word-image-168.png" srcset="/wp-content/uploads/2018/06/word-image-168.png 1230w, /wp-content/uploads/2018/06/word-image-168-300x68.png 300w, /wp-content/uploads/2018/06/word-image-168-768x175.png 768w, /wp-content/uploads/2018/06/word-image-168-1024x233.png 1024w" sizes="(max-width: 1230px) 100vw, 1230px" /></p>
+<h1>二十、完成登录防翻墙</h1>
+<p>核心思想： 建立一个公共的控制器如：CommonController,在此控制器中做权限验证，判断是否有没有session,其他需要验证用户登录session信息的控制器就需要继承此控制器即可。</p>
+<p><img loading="lazy" decoding="async" width="1016" height="371" class="wp-image-7563" src="/wp-content/uploads/2018/06/word-image-169.png" srcset="/wp-content/uploads/2018/06/word-image-169.png 1016w, /wp-content/uploads/2018/06/word-image-169-300x110.png 300w, /wp-content/uploads/2018/06/word-image-169-768x280.png 768w" sizes="(max-width: 1016px) 100vw, 1016px" /></p>
+<p>把需要验证session的后台index控制器继承Common控制器即可：</p>
+<p><img loading="lazy" decoding="async" width="699" height="234" class="wp-image-7564" src="/wp-content/uploads/2018/06/word-image-170.png" srcset="/wp-content/uploads/2018/06/word-image-170.png 699w, /wp-content/uploads/2018/06/word-image-170-300x100.png 300w" sizes="(max-width: 699px) 100vw, 699px" /></p>
+<p>注：Public控制器不可以继承，因为此时还没有session信息。</p>
+<h1>二十一、完成登录验证</h1>
+<p>概述：ThinkPHP5.0验证使用独立的\think\Validate类或者验证器进行验证。</p>
+<p>手册位置：验证器。</p>
+<p>手册示例：</p>
+<p><img loading="lazy" decoding="async" width="475" height="614" class="wp-image-7565" src="/wp-content/uploads/2018/06/word-image-171.png" srcset="/wp-content/uploads/2018/06/word-image-171.png 475w, /wp-content/uploads/2018/06/word-image-171-232x300.png 232w" sizes="(max-width: 475px) 100vw, 475px" /></p>
+<p>//定义验证规则语法：</p>
+<p>$rule = [</p>
+<p>‘表单name值’ =&gt; 规则（多个规则竖线|隔开）</p>
+<p>]</p>
+<p>//定义验证不通过的提示信息</p>
+<p>$msg = [</p>
+<p>‘表单name值.规则名’ =&gt; ‘此规则的不通过的提示信息’</p>
+<p>]</p>
+<p>代码如下：</p>
+<p><img loading="lazy" decoding="async" width="791" height="706" class="wp-image-7566" src="/wp-content/uploads/2018/06/word-image-172.png" srcset="/wp-content/uploads/2018/06/word-image-172.png 791w, /wp-content/uploads/2018/06/word-image-172-300x268.png 300w, /wp-content/uploads/2018/06/word-image-172-768x685.png 768w" sizes="(max-width: 791px) 100vw, 791px" /></p>
+<p>提示效果：</p>
+<p><img loading="lazy" decoding="async" width="506" height="301" class="wp-image-7567" src="/wp-content/uploads/2018/06/word-image-173.png" srcset="/wp-content/uploads/2018/06/word-image-173.png 506w, /wp-content/uploads/2018/06/word-image-173-300x178.png 300w" sizes="(max-width: 506px) 100vw, 506px" /></p>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7499.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>TP5 商城（一）环境部署、数据表、后台首页、用户 CURD、Ajax 状态切换、后台登录、后台退出、后台防翻墙、RBAC</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7682.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7682.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 09 Jun 2018 00:40:08 +0000</pubDate>
+				<category><![CDATA[TP5.0]]></category>
+		<category><![CDATA[TP5.0商城]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[Ajax 状态切换]]></category>
+		<category><![CDATA[RBAC]]></category>
+		<category><![CDATA[后台登录]]></category>
+		<category><![CDATA[后台退出]]></category>
+		<category><![CDATA[后台防翻墙]]></category>
+		<category><![CDATA[后台首页]]></category>
+		<category><![CDATA[数据表]]></category>
+		<category><![CDATA[环境部署]]></category>
+		<category><![CDATA[用户 CURD]]></category>
+		<guid isPermaLink="false">/?p=7682</guid>
+
+					<description><![CDATA[商城实战第一天 电商介绍 电子商务模式介绍 现在的电子商务平台主要分为以下几种类型： B2C ：全称-Busi [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>商城实战第一天</h1>
+<h1>电商介绍</h1>
+<h2>电子商务模式介绍</h2>
+<p>现在的电子商务平台主要分为以下几种类型：</p>
+<ul>
+<li>B2C ：全称-Business to Consumer , 即企业与消费者之间的电子商务。</li>
+</ul>
+<p>常见的有B2C网站有：天猫（商家入驻（实体店,保证金20W），需要营业许可证等资料）、京东(商家也可入驻)、当当网、唯品会、凡客、小米、华为、oppo等</p>
+<ul>
+<li>C2C: 全称-Consumer to Consumer，即消费者与消费者之间的电子商务。</li>
+</ul>
+<p>典型的C2C网站就是国内的淘宝（需要交保证金2000元左右），还有58同城，二手交易网站如：闲鱼二手交易网。</p>
+<ul>
+<li>O2O: 全称-Online to Offline,线上与线下相结合的电子商务。</li>
+</ul>
+<p>常见的有：苏宁、美团、国美、滴滴打车等。</p>
+<ul>
+<li>B2B：全称-Business to Business 即企业与企业之间的电子商务。（阿里妈妈）</li>
+</ul>
+<h2>常见的开源商城</h2>
+<h3>（1）Ecshop</h3>
+<p>ECShop是一款B2C独立网店系统，适合企业及个人快速构建个性化网上商店。系统是基于PHP语言及MYSQL数据库构架开发的跨平台开源程序。</p>
+<p>网址：<a href="/goto/c9pa" rel="nofollow">http://www.ecshop.com/</a></p>
+<p><img loading="lazy" decoding="async" width="1105" height="498" class="wp-image-7684" src="/wp-content/uploads/2018/06/word-image-286.png" srcset="/wp-content/uploads/2018/06/word-image-286.png 1105w, /wp-content/uploads/2018/06/word-image-286-300x135.png 300w, /wp-content/uploads/2018/06/word-image-286-768x346.png 768w, /wp-content/uploads/2018/06/word-image-286-1024x461.png 1024w" sizes="(max-width: 1105px) 100vw, 1105px" /></p>
+<p>特点：开源、免费(个人学习使用没有任何问题)。但是企业使用用来盈利的话需要一定的授权费用（3000元左右）。</p>
+<h3>（2）shopex</h3>
+<p>网址：<a href="/goto/zptp" rel="nofollow">http://www.shopex.cn/</a></p>
+<p>&nbsp;</p>
+<p><img loading="lazy" decoding="async" width="1087" height="468" class="wp-image-7685" src="/wp-content/uploads/2018/06/word-image-287.png" srcset="/wp-content/uploads/2018/06/word-image-287.png 1087w, /wp-content/uploads/2018/06/word-image-287-300x129.png 300w, /wp-content/uploads/2018/06/word-image-287-768x331.png 768w, /wp-content/uploads/2018/06/word-image-287-1024x441.png 1024w" sizes="(max-width: 1087px) 100vw, 1087px" /></p>
+<p>特点：商业版，代码是加密过的。</p>
+<h3>（3）shopnc</h3>
+<p>网址: <a href="/goto/ajli" rel="nofollow">http://www.shopnc.net/</a></p>
+<p>演示地址： <a href="/goto/ubug" rel="nofollow">http://b2b2c.shopnctest.com/dema/shop/index.php</a></p>
+<p><img loading="lazy" decoding="async" width="1104" height="416" class="wp-image-7686" src="/wp-content/uploads/2018/06/word-image-288.png" srcset="/wp-content/uploads/2018/06/word-image-288.png 1104w, /wp-content/uploads/2018/06/word-image-288-300x113.png 300w, /wp-content/uploads/2018/06/word-image-288-768x289.png 768w, /wp-content/uploads/2018/06/word-image-288-1024x386.png 1024w" sizes="(max-width: 1104px) 100vw, 1104px" /></p>
+<p>特点：不开源、不免费</p>
+<p>小结：</p>
+<p>开源不代表免费，可以自己学习研究使用，但是以盈利为目的使用需要交一定的授权费用。</p>
+<h2>安装Ecshop开源商城</h2>
+<p>现在的Ecshop主要有以下两个版本：</p>
+<ul>
+<li>3.0版本：需要php5.4版本以上</li>
+<li>2.7版本：需要在php5.3以下（如：phpstudy集成环境进行php降级），当然5.4、5、5版本也是可以的，只是需要修改部分代码。</li>
+</ul>
+<p>这里建议安装Ecshop的兼容版本，已经兼容各个php版本。</p>
+<p><img loading="lazy" decoding="async" width="246" height="27" class="wp-image-7687" src="/wp-content/uploads/2018/06/word-image-289.png" /></p>
+<h3>域名部署访问 ecshop</h3>
+<p>一般把第三方开源项目部署在自己的机子上面域名前建议加个vendor,如：vendor.shop.com。明确知道这个程序是第三方程序。本地自己开发的项目话建议使用local进行开头，如:local.shop.com。</p>
+<p>步骤1：把ecshop开源程序的所有的文件复制到我们的项目目录</p>
+<p><img loading="lazy" decoding="async" width="841" height="424" class="wp-image-7688" src="/wp-content/uploads/2018/06/word-image-290.png" srcset="/wp-content/uploads/2018/06/word-image-290.png 841w, /wp-content/uploads/2018/06/word-image-290-300x151.png 300w, /wp-content/uploads/2018/06/word-image-290-768x387.png 768w" sizes="(max-width: 841px) 100vw, 841px" /></p>
+<p>步骤2：配置虚拟主机，如域名为上面的vendor.ecshop.com</p>
+<ol>
+<li>phpstudy设置虚拟主机</li>
+<li>设置host文件映射</li>
+<li>重启phpstudy</li>
+</ol>
+<p>步骤3：输入域名进行安装配置</p>
+<ol>
+<li>勾选</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1088" height="661" class="wp-image-7689" src="/wp-content/uploads/2018/06/word-image-291.png" srcset="/wp-content/uploads/2018/06/word-image-291.png 1088w, /wp-content/uploads/2018/06/word-image-291-300x182.png 300w, /wp-content/uploads/2018/06/word-image-291-768x467.png 768w, /wp-content/uploads/2018/06/word-image-291-1024x622.png 1024w" sizes="(max-width: 1088px) 100vw, 1088px" /></p>
+<p>b、配置系统</p>
+<p><img loading="lazy" decoding="async" width="861" height="267" class="wp-image-7690" src="/wp-content/uploads/2018/06/word-image-292.png" srcset="/wp-content/uploads/2018/06/word-image-292.png 861w, /wp-content/uploads/2018/06/word-image-292-300x93.png 300w, /wp-content/uploads/2018/06/word-image-292-768x238.png 768w" sizes="(max-width: 861px) 100vw, 861px" /></p>
+<p>c、配置数据库的信息</p>
+<p><img loading="lazy" decoding="async" width="777" height="650" class="wp-image-7691" src="/wp-content/uploads/2018/06/word-image-293.png" srcset="/wp-content/uploads/2018/06/word-image-293.png 777w, /wp-content/uploads/2018/06/word-image-293-300x251.png 300w, /wp-content/uploads/2018/06/word-image-293-768x642.png 768w" sizes="(max-width: 777px) 100vw, 777px" /> <img loading="lazy" decoding="async" width="834" height="242" class="wp-image-7692" src="/wp-content/uploads/2018/06/word-image-294.png" srcset="/wp-content/uploads/2018/06/word-image-294.png 834w, /wp-content/uploads/2018/06/word-image-294-300x87.png 300w, /wp-content/uploads/2018/06/word-image-294-768x223.png 768w" sizes="(max-width: 834px) 100vw, 834px" /></p>
+<p>访问ecshop前台：<a href="/goto/z1k0" rel="nofollow">http:/域名/</a></p>
+<p>访问ecshop后台：<a href="/goto/1knx" rel="nofollow">http:/域名/admin/</a></p>
+<p><img loading="lazy" decoding="async" width="781" height="382" class="wp-image-7693" src="/wp-content/uploads/2018/06/word-image-295.png" srcset="/wp-content/uploads/2018/06/word-image-295.png 781w, /wp-content/uploads/2018/06/word-image-295-300x147.png 300w, /wp-content/uploads/2018/06/word-image-295-768x376.png 768w" sizes="(max-width: 781px) 100vw, 781px" /></p>
+<h1>部署tp5商城项目环境</h1>
+<h2>部署虚拟主机</h2>
+<p>三步：</p>
+<p>步骤1：把tp5项目程序复制指定虚拟目录</p>
+<p>步骤2：使用phpstudy配置域名如为：<a href="/goto/x9uh" rel="nofollow">www.php15shop.com</a>，虚拟目录需要绑定到public目录下面</p>
+<p>步骤3：设置hosts文件映射</p>
+<p>最后访问如下，说明配置成功：</p>
+<p><img loading="lazy" decoding="async" width="693" height="379" class="wp-image-7694" src="/wp-content/uploads/2018/06/word-image-296.png" srcset="/wp-content/uploads/2018/06/word-image-296.png 693w, /wp-content/uploads/2018/06/word-image-296-300x164.png 300w" sizes="(max-width: 693px) 100vw, 693px" /></p>
+<h2>导入商城项目所有数据表</h2>
+<p>建议使用navicat可视化工具进行完成，找到对应的sql文件，进行导入。</p>
+<p>要先创建一个数据库，如php15shop</p>
+<p><img loading="lazy" decoding="async" width="736" height="210" class="wp-image-7695" src="/wp-content/uploads/2018/06/word-image-297.png" srcset="/wp-content/uploads/2018/06/word-image-297.png 736w, /wp-content/uploads/2018/06/word-image-297-300x86.png 300w" sizes="(max-width: 736px) 100vw, 736px" /></p>
+<p>&nbsp;</p>
+<p>每张表的字段信息可以参考数据库文档：</p>
+<p><img loading="lazy" decoding="async" width="652" height="66" class="wp-image-7696" src="/wp-content/uploads/2018/06/word-image-298.png" srcset="/wp-content/uploads/2018/06/word-image-298.png 652w, /wp-content/uploads/2018/06/word-image-298-300x30.png 300w" sizes="(max-width: 652px) 100vw, 652px" /></p>
+<h2>项目前的一些配置</h2>
+<p>我们可以先把数据库、控制器后缀、静态资源目录等一些基本配置先定义好。</p>
+<ul>
+<li>数据库配置</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="935" height="629" class="wp-image-7697" src="/wp-content/uploads/2018/06/word-image-299.png" srcset="/wp-content/uploads/2018/06/word-image-299.png 935w, /wp-content/uploads/2018/06/word-image-299-300x202.png 300w, /wp-content/uploads/2018/06/word-image-299-768x517.png 768w" sizes="(max-width: 935px) 100vw, 935px" /></p>
+<ul>
+<li>控制器后缀</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="798" height="303" class="wp-image-7698" src="/wp-content/uploads/2018/06/word-image-300.png" srcset="/wp-content/uploads/2018/06/word-image-300.png 798w, /wp-content/uploads/2018/06/word-image-300-300x114.png 300w, /wp-content/uploads/2018/06/word-image-300-768x292.png 768w" sizes="(max-width: 798px) 100vw, 798px" /></p>
+<ul>
+<li>配置静态资源路径，把后台静态资源放到相应的目录,配置后台密码加密验salt</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="767" height="329" class="wp-image-7699" src="/wp-content/uploads/2018/06/word-image-301.png" srcset="/wp-content/uploads/2018/06/word-image-301.png 767w, /wp-content/uploads/2018/06/word-image-301-300x129.png 300w" sizes="(max-width: 767px) 100vw, 767px" /></p>
+<ul>
+<li>先设置默认模块为admin、开发前台时（项目上线）设置为home</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="785" height="161" class="wp-image-7700" src="/wp-content/uploads/2018/06/word-image-302.png" srcset="/wp-content/uploads/2018/06/word-image-302.png 785w, /wp-content/uploads/2018/06/word-image-302-300x62.png 300w, /wp-content/uploads/2018/06/word-image-302-768x158.png 768w" sizes="(max-width: 785px) 100vw, 785px" /></p>
+<ul>
+<li>并且开启调试模式,页面trace调试，看到错误的详细信息</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="866" height="277" class="wp-image-7701" src="/wp-content/uploads/2018/06/word-image-303.png" srcset="/wp-content/uploads/2018/06/word-image-303.png 866w, /wp-content/uploads/2018/06/word-image-303-300x96.png 300w, /wp-content/uploads/2018/06/word-image-303-768x246.png 768w" sizes="(max-width: 866px) 100vw, 866px" /></p>
+<p>开启页面trace调试，页面右下角多处一个图标。</p>
+<p><img loading="lazy" decoding="async" width="153" height="49" class="wp-image-7702" src="/wp-content/uploads/2018/06/word-image-304.png" srcset="/wp-content/uploads/2018/06/word-image-304.png 153w, /wp-content/uploads/2018/06/word-image-304-150x49.png 150w" sizes="(max-width: 153px) 100vw, 153px" /></p>
+<ul>
+<li>开启模型获取数据返回关联数组的配置</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="901" height="177" class="wp-image-7703" src="/wp-content/uploads/2018/06/word-image-305.png" srcset="/wp-content/uploads/2018/06/word-image-305.png 901w, /wp-content/uploads/2018/06/word-image-305-300x59.png 300w, /wp-content/uploads/2018/06/word-image-305-768x151.png 768w" sizes="(max-width: 901px) 100vw, 901px" /></p>
+<ul>
+<li>修改重写文件.htaccess隐藏单一入口文件访问</li>
+</ul>
+<p>这里需要在httpd.conf开启rewrite重写模块，和在虚拟主机中把 AllowOverride None改为 AllowOverride All，这两步在安装phpstudy的时候和配置虚拟主机时其已经帮我们设置好了。</p>
+<p>只需要改修改重写文件.htaccess，前面加个问号?</p>
+<h1>三、搭建后台首页</h1>
+<p><img loading="lazy" decoding="async" width="844" height="270" class="wp-image-7704" src="/wp-content/uploads/2018/06/word-image-306.png" srcset="/wp-content/uploads/2018/06/word-image-306.png 844w, /wp-content/uploads/2018/06/word-image-306-300x96.png 300w, /wp-content/uploads/2018/06/word-image-306-768x246.png 768w" sizes="(max-width: 844px) 100vw, 844px" /></p>
+<p>步骤1：在后台admin建立一个index控制器，分别建立top、main、left、index</p>
+<p><img loading="lazy" decoding="async" width="774" height="613" class="wp-image-7705" src="/wp-content/uploads/2018/06/word-image-307.png" srcset="/wp-content/uploads/2018/06/word-image-307.png 774w, /wp-content/uploads/2018/06/word-image-307-300x238.png 300w, /wp-content/uploads/2018/06/word-image-307-768x608.png 768w" sizes="(max-width: 774px) 100vw, 774px" /></p>
+<p>步骤2：复制后台指定的模板到指定的目录，并且修改每个模板的静态资源路径</p>
+<p><img loading="lazy" decoding="async" width="1264" height="457" class="wp-image-7706" src="/wp-content/uploads/2018/06/word-image-308.png" srcset="/wp-content/uploads/2018/06/word-image-308.png 1264w, /wp-content/uploads/2018/06/word-image-308-300x108.png 300w, /wp-content/uploads/2018/06/word-image-308-768x278.png 768w, /wp-content/uploads/2018/06/word-image-308-1024x370.png 1024w" sizes="(max-width: 1264px) 100vw, 1264px" /></p>
+<p>访问效果：</p>
+<p><img loading="lazy" decoding="async" width="744" height="432" class="wp-image-7707" src="/wp-content/uploads/2018/06/word-image-309.png" srcset="/wp-content/uploads/2018/06/word-image-309.png 744w, /wp-content/uploads/2018/06/word-image-309-300x174.png 300w" sizes="(max-width: 744px) 100vw, 744px" /></p>
+<h1>四、用户表的CURD操作</h1>
+<h3>完成用户的添加功能</h3>
+<p>步骤1：在后台创建User控制器，并建立一个add方法输出模板内容</p>
+<p><img loading="lazy" decoding="async" width="794" height="286" class="wp-image-7708" src="/wp-content/uploads/2018/06/word-image-310.png" srcset="/wp-content/uploads/2018/06/word-image-310.png 794w, /wp-content/uploads/2018/06/word-image-310-300x108.png 300w, /wp-content/uploads/2018/06/word-image-310-768x277.png 768w" sizes="(max-width: 794px) 100vw, 794px" /></p>
+<p>步骤2：修改add.html模板的name名称</p>
+<p><img loading="lazy" decoding="async" width="1286" height="622" class="wp-image-7709" src="/wp-content/uploads/2018/06/word-image-311.png" srcset="/wp-content/uploads/2018/06/word-image-311.png 1286w, /wp-content/uploads/2018/06/word-image-311-300x145.png 300w, /wp-content/uploads/2018/06/word-image-311-768x371.png 768w, /wp-content/uploads/2018/06/word-image-311-1024x495.png 1024w" sizes="(max-width: 1286px) 100vw, 1286px" /></p>
+<p>步骤3：定义当前表的验证器</p>
+<p><img loading="lazy" decoding="async" width="1209" height="714" class="wp-image-7710" src="/wp-content/uploads/2018/06/word-image-312.png" srcset="/wp-content/uploads/2018/06/word-image-312.png 1209w, /wp-content/uploads/2018/06/word-image-312-300x177.png 300w, /wp-content/uploads/2018/06/word-image-312-768x454.png 768w, /wp-content/uploads/2018/06/word-image-312-1024x605.png 1024w" sizes="(max-width: 1209px) 100vw, 1209px" /></p>
+<p>步骤4：在模型中定义前入库的钩子事件，完成密码字段的加密</p>
+<p><img loading="lazy" decoding="async" width="1101" height="436" class="wp-image-7711" src="/wp-content/uploads/2018/06/word-image-313.png" srcset="/wp-content/uploads/2018/06/word-image-313.png 1101w, /wp-content/uploads/2018/06/word-image-313-300x119.png 300w, /wp-content/uploads/2018/06/word-image-313-768x304.png 768w, /wp-content/uploads/2018/06/word-image-313-1024x406.png 1024w" sizes="(max-width: 1101px) 100vw, 1101px" /></p>
+<p>步骤5：控制器完成验证入库操作</p>
+<p><img loading="lazy" decoding="async" width="1191" height="699" class="wp-image-7712" src="/wp-content/uploads/2018/06/word-image-314.png" srcset="/wp-content/uploads/2018/06/word-image-314.png 1191w, /wp-content/uploads/2018/06/word-image-314-300x176.png 300w, /wp-content/uploads/2018/06/word-image-314-768x451.png 768w, /wp-content/uploads/2018/06/word-image-314-1024x601.png 1024w" sizes="(max-width: 1191px) 100vw, 1191px" /></p>
+<h3>完成用户列表功能及分页</h3>
+<p>步骤1：在后台User控制器建立一个index方法，取出所有的用户数据，并分配到模板中</p>
+<p><img loading="lazy" decoding="async" width="831" height="395" class="wp-image-7713" src="/wp-content/uploads/2018/06/word-image-315.png" srcset="/wp-content/uploads/2018/06/word-image-315.png 831w, /wp-content/uploads/2018/06/word-image-315-300x143.png 300w, /wp-content/uploads/2018/06/word-image-315-768x365.png 768w" sizes="(max-width: 831px) 100vw, 831px" /></p>
+<p>步骤2：模板遍历数据</p>
+<p><img loading="lazy" decoding="async" width="1039" height="601" class="wp-image-7714" src="/wp-content/uploads/2018/06/word-image-316.png" srcset="/wp-content/uploads/2018/06/word-image-316.png 1039w, /wp-content/uploads/2018/06/word-image-316-300x174.png 300w, /wp-content/uploads/2018/06/word-image-316-768x444.png 768w, /wp-content/uploads/2018/06/word-image-316-1024x592.png 1024w" sizes="(max-width: 1039px) 100vw, 1039px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="941" height="192" class="wp-image-7715" src="/wp-content/uploads/2018/06/word-image-317.png" srcset="/wp-content/uploads/2018/06/word-image-317.png 941w, /wp-content/uploads/2018/06/word-image-317-300x61.png 300w, /wp-content/uploads/2018/06/word-image-317-768x157.png 768w" sizes="(max-width: 941px) 100vw, 941px" /></p>
+<h3>完成用户的编辑功能</h3>
+<p>编辑用户的时候，密码选项需要考虑两种情况：</p>
+<p>①如密码和确认密码都为空，说明用户不想修改密码，则保留原来的密码。</p>
+<p>②如果两个密码有一个不为空，说明用户想修改密码，则必须要求用户两次密码一致。</p>
+<p>代码如下：</p>
+<p>步骤1：给编辑的设置一个链接地址，携带一个主键值</p>
+<p><img loading="lazy" decoding="async" width="1260" height="305" class="wp-image-7716" src="/wp-content/uploads/2018/06/word-image-318.png" srcset="/wp-content/uploads/2018/06/word-image-318.png 1260w, /wp-content/uploads/2018/06/word-image-318-300x73.png 300w, /wp-content/uploads/2018/06/word-image-318-768x186.png 768w, /wp-content/uploads/2018/06/word-image-318-1024x248.png 1024w" sizes="(max-width: 1260px) 100vw, 1260px" /></p>
+<p>步骤2：使用jquery-validate对密码字段进行验证</p>
+<p><img loading="lazy" decoding="async" width="1008" height="318" class="wp-image-7717" src="/wp-content/uploads/2018/06/word-image-319.png" srcset="/wp-content/uploads/2018/06/word-image-319.png 1008w, /wp-content/uploads/2018/06/word-image-319-300x95.png 300w, /wp-content/uploads/2018/06/word-image-319-768x242.png 768w" sizes="(max-width: 1008px) 100vw, 1008px" /></p>
+<p>规则如下：</p>
+<p><img loading="lazy" decoding="async" width="841" height="711" class="wp-image-7718" src="/wp-content/uploads/2018/06/word-image-320.png" srcset="/wp-content/uploads/2018/06/word-image-320.png 841w, /wp-content/uploads/2018/06/word-image-320-300x254.png 300w, /wp-content/uploads/2018/06/word-image-320-768x649.png 768w" sizes="(max-width: 841px) 100vw, 841px" /> <img loading="lazy" decoding="async" width="590" height="144" class="wp-image-7719" src="/wp-content/uploads/2018/06/word-image-321.png" srcset="/wp-content/uploads/2018/06/word-image-321.png 590w, /wp-content/uploads/2018/06/word-image-321-300x73.png 300w" sizes="(max-width: 590px) 100vw, 590px" /></p>
+<p>注：要修改style.css文件样式，因为有样式冲突</p>
+<p><img loading="lazy" decoding="async" width="1138" height="179" class="wp-image-7720" src="/wp-content/uploads/2018/06/word-image-322.png" srcset="/wp-content/uploads/2018/06/word-image-322.png 1138w, /wp-content/uploads/2018/06/word-image-322-300x47.png 300w, /wp-content/uploads/2018/06/word-image-322-768x121.png 768w, /wp-content/uploads/2018/06/word-image-322-1024x161.png 1024w" sizes="(max-width: 1138px) 100vw, 1138px" /></p>
+<p>设置upd.html模板内容回显数据：</p>
+<p><img loading="lazy" decoding="async" width="1270" height="671" class="wp-image-7721" src="/wp-content/uploads/2018/06/word-image-323.png" srcset="/wp-content/uploads/2018/06/word-image-323.png 1270w, /wp-content/uploads/2018/06/word-image-323-300x159.png 300w, /wp-content/uploads/2018/06/word-image-323-768x406.png 768w, /wp-content/uploads/2018/06/word-image-323-1024x541.png 1024w" sizes="(max-width: 1270px) 100vw, 1270px" /></p>
+<p>步骤3：upd方法中完成编辑的验证编辑入库</p>
+<p><img loading="lazy" decoding="async" width="1160" height="520" class="wp-image-7722" src="/wp-content/uploads/2018/06/word-image-324.png" srcset="/wp-content/uploads/2018/06/word-image-324.png 1160w, /wp-content/uploads/2018/06/word-image-324-300x134.png 300w, /wp-content/uploads/2018/06/word-image-324-768x344.png 768w, /wp-content/uploads/2018/06/word-image-324-1024x459.png 1024w" sizes="(max-width: 1160px) 100vw, 1160px" /></p>
+<p>同时修改编辑场景的验证器：</p>
+<p><img loading="lazy" decoding="async" width="1002" height="485" class="wp-image-7723" src="/wp-content/uploads/2018/06/word-image-325.png" srcset="/wp-content/uploads/2018/06/word-image-325.png 1002w, /wp-content/uploads/2018/06/word-image-325-300x145.png 300w, /wp-content/uploads/2018/06/word-image-325-768x372.png 768w" sizes="(max-width: 1002px) 100vw, 1002px" /></p>
+<h3>ajax控制用户的登录状态</h3>
+<p>步骤1：先给标签加一个a标签，并且阻止默认行为，同时加一个is_active和user_id属性，目的是获取当前记录的状态值和主键值，并且绑定类名为changeActive。</p>
+<p><img loading="lazy" decoding="async" width="1197" height="259" class="wp-image-7724" src="/wp-content/uploads/2018/06/word-image-326.png" srcset="/wp-content/uploads/2018/06/word-image-326.png 1197w, /wp-content/uploads/2018/06/word-image-326-300x65.png 300w, /wp-content/uploads/2018/06/word-image-326-768x166.png 768w, /wp-content/uploads/2018/06/word-image-326-1024x222.png 1024w" sizes="(max-width: 1197px) 100vw, 1197px" /></p>
+<p>步骤2：给class=changeActive 绑定单击事件，发送ajax请求</p>
+<p><img loading="lazy" decoding="async" width="1244" height="493" class="wp-image-7725" src="/wp-content/uploads/2018/06/word-image-327.png" srcset="/wp-content/uploads/2018/06/word-image-327.png 1244w, /wp-content/uploads/2018/06/word-image-327-300x119.png 300w, /wp-content/uploads/2018/06/word-image-327-768x304.png 768w, /wp-content/uploads/2018/06/word-image-327-1024x406.png 1024w" sizes="(max-width: 1244px) 100vw, 1244px" /></p>
+<p>步骤3：在User控制器建立一个ajaxChangeActive方法，完成状态的更改</p>
+<p><img loading="lazy" decoding="async" width="831" height="646" class="wp-image-7726" src="/wp-content/uploads/2018/06/word-image-328.png" srcset="/wp-content/uploads/2018/06/word-image-328.png 831w, /wp-content/uploads/2018/06/word-image-328-300x233.png 300w, /wp-content/uploads/2018/06/word-image-328-768x597.png 768w" sizes="(max-width: 831px) 100vw, 831px" /></p>
+<p>注意：由于更改状态值的时候会触发编辑的前钩子，这时候没有携带密码字段前钩子会直接报错，解决办法：对前钩子有没有密码字段进行isset判断即可:</p>
+<p><img loading="lazy" decoding="async" width="971" height="482" class="wp-image-7727" src="/wp-content/uploads/2018/06/word-image-329.png" srcset="/wp-content/uploads/2018/06/word-image-329.png 971w, /wp-content/uploads/2018/06/word-image-329-300x149.png 300w, /wp-content/uploads/2018/06/word-image-329-768x381.png 768w" sizes="(max-width: 971px) 100vw, 971px" /></p>
+<p>提示：调试ajax的时候，务必要打开控制器network进行调试。可以打开response选项看报啥错，这样可以快速定位到错误的原因。</p>
+<h1>五、完成后台用户登录|退出|防翻墙功能</h1>
+<h2>完成后台登录功能</h2>
+<p>步骤1：在后台建立一个Public控制器，并建立一个login方法，输出登录模板同时，同时完成登录的功能实现</p>
+<p><img loading="lazy" decoding="async" width="1135" height="651" class="wp-image-7728" src="/wp-content/uploads/2018/06/word-image-330.png" srcset="/wp-content/uploads/2018/06/word-image-330.png 1135w, /wp-content/uploads/2018/06/word-image-330-300x172.png 300w, /wp-content/uploads/2018/06/word-image-330-768x441.png 768w, /wp-content/uploads/2018/06/word-image-330-1024x587.png 1024w" sizes="(max-width: 1135px) 100vw, 1135px" /></p>
+<p>同时在User模型中，定义一个checkUser的方法，检测用户名和密码是否相等</p>
+<p><img loading="lazy" decoding="async" width="1030" height="529" class="wp-image-7729" src="/wp-content/uploads/2018/06/word-image-331.png" srcset="/wp-content/uploads/2018/06/word-image-331.png 1030w, /wp-content/uploads/2018/06/word-image-331-300x154.png 300w, /wp-content/uploads/2018/06/word-image-331-768x394.png 768w, /wp-content/uploads/2018/06/word-image-331-1024x526.png 1024w" sizes="(max-width: 1030px) 100vw, 1030px" /></p>
+<p>步骤2：修改login.html模板内容，显示验证码</p>
+<p><img loading="lazy" decoding="async" width="1267" height="689" class="wp-image-7730" src="/wp-content/uploads/2018/06/word-image-332.png" srcset="/wp-content/uploads/2018/06/word-image-332.png 1267w, /wp-content/uploads/2018/06/word-image-332-300x163.png 300w, /wp-content/uploads/2018/06/word-image-332-768x418.png 768w, /wp-content/uploads/2018/06/word-image-332-1024x557.png 1024w" sizes="(max-width: 1267px) 100vw, 1267px" /> <img loading="lazy" decoding="async" width="1167" height="425" class="wp-image-7731" src="/wp-content/uploads/2018/06/word-image-333.png" srcset="/wp-content/uploads/2018/06/word-image-333.png 1167w, /wp-content/uploads/2018/06/word-image-333-300x109.png 300w, /wp-content/uploads/2018/06/word-image-333-768x280.png 768w, /wp-content/uploads/2018/06/word-image-333-1024x373.png 1024w" sizes="(max-width: 1167px) 100vw, 1167px" /></p>
+<p>步骤3：在验证器中定义登录场景的验证规则</p>
+<p><img loading="lazy" decoding="async" width="1264" height="690" class="wp-image-7732" src="/wp-content/uploads/2018/06/word-image-334.png" srcset="/wp-content/uploads/2018/06/word-image-334.png 1264w, /wp-content/uploads/2018/06/word-image-334-300x164.png 300w, /wp-content/uploads/2018/06/word-image-334-768x419.png 768w, /wp-content/uploads/2018/06/word-image-334-1024x559.png 1024w" sizes="(max-width: 1264px) 100vw, 1264px" /></p>
+<p>登录成功，在top.html中回显用户名</p>
+<p><img loading="lazy" decoding="async" width="1024" height="214" class="wp-image-7733" src="/wp-content/uploads/2018/06/word-image-335.png" srcset="/wp-content/uploads/2018/06/word-image-335.png 1024w, /wp-content/uploads/2018/06/word-image-335-300x63.png 300w, /wp-content/uploads/2018/06/word-image-335-768x161.png 768w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h2>完成后台退出功能</h2>
+<p>步骤1：在后台Public控制器建立一个logout的退出方法</p>
+<p><img loading="lazy" decoding="async" width="831" height="296" class="wp-image-7734" src="/wp-content/uploads/2018/06/word-image-336.png" srcset="/wp-content/uploads/2018/06/word-image-336.png 831w, /wp-content/uploads/2018/06/word-image-336-300x107.png 300w, /wp-content/uploads/2018/06/word-image-336-768x274.png 768w" sizes="(max-width: 831px) 100vw, 831px" /></p>
+<h2>防用户翻墙</h2>
+<p>防翻墙思想：建立一个父控制器如：CommonController,在此控制器的构造函数中做session的判断，其他需要进行验证session的控制器就继承此公共控制器即可防止翻墙，某些控制器不需要session判断则不继承即可。（如:PublicController）</p>
+<p><img loading="lazy" decoding="async" width="991" height="358" class="wp-image-7735" src="/wp-content/uploads/2018/06/word-image-337.png" srcset="/wp-content/uploads/2018/06/word-image-337.png 991w, /wp-content/uploads/2018/06/word-image-337-300x108.png 300w, /wp-content/uploads/2018/06/word-image-337-768x277.png 768w" sizes="(max-width: 991px) 100vw, 991px" /></p>
+<p>其中Index 和User控制器需要继承Common，public不需要继承</p>
+<p><img loading="lazy" decoding="async" width="831" height="164" class="wp-image-7736" src="/wp-content/uploads/2018/06/word-image-338.png" srcset="/wp-content/uploads/2018/06/word-image-338.png 831w, /wp-content/uploads/2018/06/word-image-338-300x59.png 300w, /wp-content/uploads/2018/06/word-image-338-768x152.png 768w" sizes="(max-width: 831px) 100vw, 831px" /> <img loading="lazy" decoding="async" width="834" height="172" class="wp-image-7737" src="/wp-content/uploads/2018/06/word-image-339.png" srcset="/wp-content/uploads/2018/06/word-image-339.png 834w, /wp-content/uploads/2018/06/word-image-339-300x62.png 300w, /wp-content/uploads/2018/06/word-image-339-768x158.png 768w" sizes="(max-width: 834px) 100vw, 834px" /></p>
+<h1>六、RBAC权限控制</h1>
+<h2>RBAC介绍</h2>
+<p>RBAC: Role Based Access Controller ,即基于角色的访问权限控制。</p>
+<p>简单的说,用户登录可以属于不同的角色，不同的角色拥有的后台访问菜单权限也不一样。</p>
+<p>如：</p>
+<p>如下面的每个菜单就是一个权限。</p>
+<p><img loading="lazy" decoding="async" width="190" height="124" class="wp-image-7738" src="/wp-content/uploads/2018/06/word-image-340.png" /></p>
+<p>后台菜单中权限一般只控制到两级权限，权限级别太深难以维护，具体要看项目需求。</p>
+<p>一级权限：如：商品管理。</p>
+<p>二级权限：如：商品添加、商品列表。</p>
+<p>三级权限：如：商品列表中的编辑或删除操作</p>
+<h2>RBAC表的表设计</h2>
+<p>一般RBAC权限控制都3张表和5张表，其核心都是一样。</p>
+<p>3张表：后台用户表、角色表、权限表。</p>
+<p>而5张表仅把用户表和角色表、角色表和权限表其相关联的字段分别使用一个表来维护。且表多了维护起来更加繁琐。</p>
+<p>这里我们采用3张表来做权限控制。</p>
+<p>三张表的关系如下：</p>
+<p><img loading="lazy" decoding="async" width="749" height="293" class="wp-image-7739" src="/wp-content/uploads/2018/06/word-image-341.png" srcset="/wp-content/uploads/2018/06/word-image-341.png 749w, /wp-content/uploads/2018/06/word-image-341-300x117.png 300w" sizes="(max-width: 749px) 100vw, 749px" /></p>
+<p>分析：</p>
+<ul>
+<li>用户表通过角色字段role_id，找到与其关联的角色表role_id。</li>
+<li>角色表通过所拥有的所有权限字段auth_id_list，找到与其关联的权限表的auth_id。</li>
+</ul>
+<p>控制权限图解：</p>
+<p><img loading="lazy" decoding="async" width="1127" height="449" class="wp-image-7740" src="/wp-content/uploads/2018/06/word-image-342.png" srcset="/wp-content/uploads/2018/06/word-image-342.png 1127w, /wp-content/uploads/2018/06/word-image-342-300x120.png 300w, /wp-content/uploads/2018/06/word-image-342-768x306.png 768w, /wp-content/uploads/2018/06/word-image-342-1024x408.png 1024w" sizes="(max-width: 1127px) 100vw, 1127px" /></p>
+<p>可见，一个用户对应着一个角色，一个角色可以拥有多个权限。</p>
+<h1>七、RBAC功能实现</h1>
+<h2>权限表的curd操作</h2>
+<h3>（1）完成权限的添加</h3>
+<p>步骤1：在后台建立一个Auth控制器，并建立一个add方法，输出模板内容，并完成添加权限的实现</p>
+<p><img loading="lazy" decoding="async" width="1028" height="717" class="wp-image-7741" src="/wp-content/uploads/2018/06/word-image-343.png" srcset="/wp-content/uploads/2018/06/word-image-343.png 1028w, /wp-content/uploads/2018/06/word-image-343-300x209.png 300w, /wp-content/uploads/2018/06/word-image-343-768x536.png 768w, /wp-content/uploads/2018/06/word-image-343-1024x714.png 1024w" sizes="(max-width: 1028px) 100vw, 1028px" /></p>
+<p>同时在Auth模型中取出权限的无限级分类数据：</p>
+<p><img loading="lazy" decoding="async" width="965" height="680" class="wp-image-7742" src="/wp-content/uploads/2018/06/word-image-344.png" srcset="/wp-content/uploads/2018/06/word-image-344.png 965w, /wp-content/uploads/2018/06/word-image-344-300x211.png 300w, /wp-content/uploads/2018/06/word-image-344-768x541.png 768w" sizes="(max-width: 965px) 100vw, 965px" /></p>
+<p>步骤2：设置add.html模板内容</p>
+<p><img loading="lazy" decoding="async" width="1230" height="699" class="wp-image-7743" src="/wp-content/uploads/2018/06/word-image-345.png" srcset="/wp-content/uploads/2018/06/word-image-345.png 1230w, /wp-content/uploads/2018/06/word-image-345-300x170.png 300w, /wp-content/uploads/2018/06/word-image-345-768x436.png 768w, /wp-content/uploads/2018/06/word-image-345-1024x582.png 1024w" sizes="(max-width: 1230px) 100vw, 1230px" /></p>
+<p>当选择顶级权限时，控制器名和方法名不可用，否则可用。因为顶级权限没有控制器名和方法名。</p>
+<p><img loading="lazy" decoding="async" width="1179" height="481" class="wp-image-7744" src="/wp-content/uploads/2018/06/word-image-346.png" srcset="/wp-content/uploads/2018/06/word-image-346.png 1179w, /wp-content/uploads/2018/06/word-image-346-300x122.png 300w, /wp-content/uploads/2018/06/word-image-346-768x313.png 768w, /wp-content/uploads/2018/06/word-image-346-1024x418.png 1024w" sizes="(max-width: 1179px) 100vw, 1179px" /></p>
+<p>注意：表单input设置disabled和readonly的区别</p>
+<p>相同点：都不可以编辑input中的数据</p>
+<p>不同点：设置disabled时，php中通过$_POST接收不到input框name的属性值</p>
+<p>设置readonly时，php中通过$_POST可以收到input的name的属性值</p>
+<p>步骤3：定义Auth验证器，进行验证</p>
+<p><img loading="lazy" decoding="async" width="773" height="636" class="wp-image-7745" src="/wp-content/uploads/2018/06/word-image-347.png" srcset="/wp-content/uploads/2018/06/word-image-347.png 773w, /wp-content/uploads/2018/06/word-image-347-300x247.png 300w, /wp-content/uploads/2018/06/word-image-347-768x632.png 768w" sizes="(max-width: 773px) 100vw, 773px" /></p>
+<p>模板效果：</p>
+<p><img loading="lazy" decoding="async" width="542" height="323" class="wp-image-7746" src="/wp-content/uploads/2018/06/word-image-348.png" srcset="/wp-content/uploads/2018/06/word-image-348.png 542w, /wp-content/uploads/2018/06/word-image-348-300x180.png 300w" sizes="(max-width: 542px) 100vw, 542px" /></p>
+<h3>完成权限的列表展示</h3>
+<h3>完成权限的编辑</h3>
+<h3>完成权限的删除</h3>
+<h2>角色表的curd操作</h2>
+<h3>添加角色及分配权限</h3>
+<p>注：一般系统角色名为超级管理员都会拥有所有的权限，其权限字段auth_id_list可以手动设置为*。</p>
+<h3>（2）角色的列表展示</h3>
+<p>把一个角色所拥有的权限都查出来，这里需要利用到两个mysql函数：</p>
+<p>FIND_IN_SET和group_concat(字段)</p>
+<ul>
+<li>FIND_IN_SET(str,strlist) :</li>
+</ul>
+<p>作用：查询出子串str，是否在由逗号分隔的目标字符串strlist中存在。</p>
+<p>如：判断5是否在字符串1,2,3,4,5中存在：FIND_IN_SET(5,‘1,2,3,4,5’) ，存在则返回所在目标字符串strlist的所在位置，不存在则返回0。</p>
+<p><img loading="lazy" decoding="async" width="643" height="83" class="wp-image-7747" src="/wp-content/uploads/2018/06/word-image-349.png" srcset="/wp-content/uploads/2018/06/word-image-349.png 643w, /wp-content/uploads/2018/06/word-image-349-300x39.png 300w" sizes="(max-width: 643px) 100vw, 643px" /> <img loading="lazy" decoding="async" width="476" height="77" class="wp-image-7748" src="/wp-content/uploads/2018/06/word-image-350.png" srcset="/wp-content/uploads/2018/06/word-image-350.png 476w, /wp-content/uploads/2018/06/word-image-350-300x49.png 300w" sizes="(max-width: 476px) 100vw, 476px" /></p>
+<ul>
+<li>group_concat(字段)</li>
+</ul>
+<p>作用：主要根据某个字段进行分组，把相同字段的值连接在一起。</p>
+<p>默认连接符号是逗号 ，如果用|连接则：</p>
+<p>group_concat(字段名 SEPARATOR “|”)</p>
+<p>例：如下是表tp_article表中的一些数据</p>
+<p><img loading="lazy" decoding="async" width="400" height="150" class="wp-image-7749" src="/wp-content/uploads/2018/06/word-image-351.png" srcset="/wp-content/uploads/2018/06/word-image-351.png 400w, /wp-content/uploads/2018/06/word-image-351-300x113.png 300w" sizes="(max-width: 400px) 100vw, 400px" /></p>
+<p>根据cat_id字段进行分组，把具有相同cat_id的title字段值连接在一起。</p>
+<p><img loading="lazy" decoding="async" width="766" height="159" class="wp-image-7750" src="/wp-content/uploads/2018/06/word-image-352.png" srcset="/wp-content/uploads/2018/06/word-image-352.png 766w, /wp-content/uploads/2018/06/word-image-352-300x62.png 300w" sizes="(max-width: 766px) 100vw, 766px" /></p>
+<h3>（3）完成角色编辑功能</h3>
+<h3>（4）完成角色删除功能</h3>
+<h1>实现不同用户登录展示不同后台菜单</h1>
+<h1>八、权限防翻墙</h1>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7682.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

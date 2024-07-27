@@ -1,0 +1,1822 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>缓存 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E7%BC%93%E5%AD%98/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 14:46:06 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>缓存 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>网站优化（三）MySQL优化 并发、锁机制、索引、缓存、分表、分区算法、分区管理</title>
+		<link>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5356.html</link>
+					<comments>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5356.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 14:46:06 +0000</pubDate>
+				<category><![CDATA[优化方案]]></category>
+		<category><![CDATA[网站优化]]></category>
+		<category><![CDATA[分区算法]]></category>
+		<category><![CDATA[分区管理]]></category>
+		<category><![CDATA[分表]]></category>
+		<category><![CDATA[并发]]></category>
+		<category><![CDATA[索引]]></category>
+		<category><![CDATA[缓存]]></category>
+		<category><![CDATA[锁机制]]></category>
+		<guid isPermaLink="false">/?p=5356</guid>
+
+					<description><![CDATA[大型网站核心优化之MySQL优化 复习 什么是三范式： 就是设计数据库的规则 三范式好处：减少冗余，加快读写效 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>大型网站核心优化之MySQL优化</h1>
+<h1>复习</h1>
+<ul>
+<li>
+    什么是三范式： 就是设计数据库的规则
+  </li>
+<li>
+    三范式好处：减少冗余，加快读写效率
+  </li>
+<li>
+    三范式有哪些：
+  </li>
+</ul>
+<ol>
+<li>
+  每个字段不可以再分
+</li>
+<li>
+  一个表必须有主键、一个表只描述一件事
+</li>
+<li>
+  一个表不能包含其他表的非主键字段（一个表只能包含其他表的主键）
+</li>
+</ol>
+<ul>
+<li>
+    逆范式：以空间换时间
+  </li>
+</ul>
+<p>
+  MyIsam和InnoDB存储引擎区别
+</p>
+<ul>
+<li>
+    存储结构：myisam三个文件、innodb2个文件
+  </li>
+<li>
+    事物和外键支持：myisam都不支持，innodb都支持
+  </li>
+<li>
+    CURD操作：
+  </li>
+</ul>
+<p>
+  myisam读快
+</p>
+<p>
+  innodb增、改快（注：如果需要删除整个表数据，直接用TRUNCATE语句删）
+</p>
+<ul>
+<li>
+    全文检索：mysql5.6+版本innodb和myisam都支持（都不支持中文）
+  </li>
+<li>
+    锁：myisam支持表锁，innodb支持行和表锁
+  </li>
+</ul>
+<p>
+  字段类型选择：略（重要）
+</p>
+<p>
+  #索引种类
+</p>
+<p>
+  普通索引（index）				&#8211;  仅仅为加速
+</p>
+<p>
+  唯一索引（unique）				&#8211;  保证唯一性
+</p>
+<p>
+  主键索引（primary key）  		&#8211;  既保证唯一性又不能为null
+</p>
+<p>
+  全文索引（fulltext）				&#8211;  提取指定字段的内容增加索引
+</p>
+<p>
+  组合索引							&#8211;  给两个字段同时设置索引
+</p>
+<p>
+  #建表创建索引
+</p>
+<p>
+  create table 表名(
+</p>
+<p>
+  index（字段名）,
+</p>
+<p>
+  unique（字段名），
+</p>
+<p>
+  primary key （字段名），
+</p>
+<p>
+  fulltext （字段名），
+</p>
+<p>
+  index（字段名1，字段名2）
+</p>
+<p>
+  );
+</p>
+<p>
+  #修改表创建索引
+</p>
+<p>
+  创建索引：alter table 表名 add 索引类型 索引名（字段名）
+</p>
+<p>
+  删除索引：drop index 索引名 on 表名
+</p>
+<p>
+  慢查询日志作用：记录慢SQL语句
+</p>
+<p>
+  如何开启：
+</p>
+<p>
+  show variables like &#8216;slow_query%&#8217;;
+</p>
+<p>
+  show variables like &#8216;%query_time&#8217;;
+</p>
+<p>
+  如何分析慢SQL语句：explain 待分析的SQL语句 \G
+</p>
+<h1>︴场景：并发</h1>
+<h2>1、概念</h2>
+<p>
+  场景：在实际工作中会出现负库存
+</p>
+<p>
+  原因：并发
+</p>
+<p>
+  并发：好比同时有n多人超市结账
+</p>
+<h2>负库存案例代码</h2>
+<h3>1）SQL语句</h3>
+<p>
+  create database shop;
+</p>
+<p>
+  use shop;
+</p>
+<p>
+  &#8212; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  &#8212; Table structure for `goods`
+</p>
+<p>
+  &#8212; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  DROP TABLE IF EXISTS `goods`;
+</p>
+<p>
+  CREATE TABLE `goods` (
+</p>
+<p>
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+</p>
+<p>
+    `num` int(11) NOT NULL DEFAULT &#8216;0&#8217;,
+</p>
+<p>
+    PRIMARY KEY (`id`)
+</p>
+<p>
+  ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+</p>
+<p>
+  &#8212; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  &#8212; Records of goods
+</p>
+<p>
+  &#8212; &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+</p>
+<p>
+  INSERT INTO `goods` VALUES (&#8216;1&#8217;, &#8216;100&#8217;);
+</p>
+<h3>2）代码</h3>
+<p>
+  // 语法：ab -n 1000 -c 100 http://localhost/test/test.php
+</p>
+<p>
+  // 说明：n &#8211; 请求总数 ,  c  &#8211; 并且
+</p>
+<p>
+  //http://localhost/test/test.php
+</p>
+<p>
+  $conn = @mysql_connect(&#8216;127.0.0.1&#8242;,&#8217;root&#8217;,&#8217;root&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;set names utf8&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;use shop&#8217;);
+</p>
+<p>
+  // $fp = fopen(&#8216;lock.txt&#8217;, &#8216;w&#8217;);
+</p>
+<p>
+  // flock($fp, LOCK_EX);
+</p>
+<p>
+  mysql_query(&#8216;lock table goods write;&#8217;);
+</p>
+<p>
+  $sql = &#8220;select num from goods where id = 1&#8221;;
+</p>
+<p>
+  $res = mysql_query($sql);
+</p>
+<p>
+  $tmp = mysql_fetch_assoc($res);
+</p>
+<p>
+  $num = $tmp[&#8216;num&#8217;];
+</p>
+<p>
+  if ($num) {
+</p>
+<p>
+  //减库存
+</p>
+<p>
+  $sql=&#8221;update goods set num=num-1 where id = 1&#8243;;
+</p>
+<p>
+  mysql_query($sql);
+</p>
+<p>
+  }
+</p>
+<p>
+  // flock($fp, LOCK_UN);
+</p>
+<p>
+  mysql_query(&#8216;unlock table;&#8217;);
+</p>
+<p>
+  echo &#8216;ok&#8217;;
+</p>
+<p>
+  die;
+</p>
+<h2>解决</h2>
+<h3>MySQL锁（强烈不推荐）</h3>
+<p><img fetchpriority="high" decoding="async" width="750" height="653" src="/wp-content/uploads/2018/05/word-image-4848.png" class="wp-image-5357" srcset="/wp-content/uploads/2018/05/word-image-4848.png 750w, /wp-content/uploads/2018/05/word-image-4848-300x261.png 300w" sizes="(max-width: 750px) 100vw, 750px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  // 语法：ab -n 1000 -c 100 http://localhost/test/test.php
+</p>
+<p>
+  // 说明：n &#8211; 请求总数 ,  c  &#8211; 并且
+</p>
+<p>
+  //http://localhost/test/test.php
+</p>
+<p>
+  $conn = @mysql_connect(&#8216;127.0.0.1&#8242;,&#8217;root&#8217;,&#8217;root&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;set names utf8&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;use shop&#8217;);
+</p>
+<p>
+  // mysql_query(&#8216;lock table goods write&#8217;);//开启排它锁
+</p>
+<p>
+  $sql = &#8220;select num from goods where id = 1&#8221;;
+</p>
+<p>
+  $res = mysql_query($sql);
+</p>
+<p>
+  $tmp = mysql_fetch_assoc($res);
+</p>
+<p>
+  $num = $tmp[&#8216;num&#8217;];
+</p>
+<p>
+  if ($num) {
+</p>
+<p>
+  	//减库存
+</p>
+<p>
+  	$sql=&#8221;update goods set num=num-1 where id = 1&#8243;;
+</p>
+<p>
+  	mysql_query($sql);
+</p>
+<p>
+  	// mysql_query(&#8216;unlock table&#8217;);//释放锁
+</p>
+<p>
+  }
+</p>
+<p>
+  echo &#8216;ok&#8217;;
+</p>
+<p>
+  die;
+</p>
+<h3>2）文件锁（不推荐）</h3>
+<p><img decoding="async" width="779" height="659" src="/wp-content/uploads/2018/05/word-image-4849.png" class="wp-image-5358" srcset="/wp-content/uploads/2018/05/word-image-4849.png 779w, /wp-content/uploads/2018/05/word-image-4849-300x254.png 300w, /wp-content/uploads/2018/05/word-image-4849-768x650.png 768w" sizes="(max-width: 779px) 100vw, 779px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  // 语法：ab -n 1000 -c 100 http://localhost/test/test.php
+</p>
+<p>
+  // 说明：n &#8211; 请求总数 ,  c  &#8211; 并且
+</p>
+<p>
+  //http://localhost/test/test.php
+</p>
+<p>
+  $conn = @mysql_connect(&#8216;127.0.0.1&#8242;,&#8217;root&#8217;,&#8217;root&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;set names utf8&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;use shop&#8217;);
+</p>
+<p>
+  // mysql_query(&#8216;lock table goods write&#8217;);//开启排它锁
+</p>
+<p>
+  $fp = fopen(&#8216;lock.txt&#8217;, &#8216;a+&#8217;);
+</p>
+<p>
+  flock($fp, LOCK_EX);
+</p>
+<p>
+  $sql = &#8220;select num from goods where id = 1&#8221;;
+</p>
+<p>
+  $res = mysql_query($sql);
+</p>
+<p>
+  $tmp = mysql_fetch_assoc($res);
+</p>
+<p>
+  $num = $tmp[&#8216;num&#8217;];
+</p>
+<p>
+  if ($num) {
+</p>
+<p>
+  	//减库存
+</p>
+<p>
+  	$sql=&#8221;update goods set num=num-1 where id = 1&#8243;;
+</p>
+<p>
+  	$rs = mysql_query($sql);
+</p>
+<p>
+  	// mysql_query(&#8216;unlock table&#8217;);//释放锁
+</p>
+<p>
+  	flock(LOCK_UN);
+</p>
+<p>
+  }
+</p>
+<p>
+  echo &#8216;ok&#8217;;
+</p>
+<p>
+  die;
+</p>
+<h3>3）消息队列（推荐）</h3>
+<h1>︴扩展：MySQL中锁机制【★★★】</h1>
+<h2>概念</h2>
+<p>
+  在MySQL数据库中MyISAM存储引擎采用的是表级锁，InnoDB存储引擎采用的是行级锁、也支表行级锁。（ps. 锁分两种模式，分别为：共享锁和排他锁）
+</p>
+<p>
+  共享读锁/共享锁（lock table 表名read;）    其他用户：读-可以，写-堵塞
+</p>
+<p>
+  独占写锁/排他锁（lock table 表名 write;）   其他用户：读-堵塞，写-堵塞
+</p>
+<p>
+  释放锁：unlock table
+</p>
+<h2>2、练习</h2>
+<h3>1）表锁的演示</h3>
+<ul>
+<li>
+    MyISAM表锁
+  </li>
+</ul>
+<p>
+  create table lock_t1 (
+</p>
+<p>
+  id int primary key auto_increment,
+</p>
+<p>
+  name varchar(30) not null
+</p>
+<p>
+  )engine=myisam charset=utf8;
+</p>
+<p>
+  #session1，开启共享锁
+</p>
+<p>
+  lock table lock_t1 read;
+</p>
+<p>
+  #session1，读（可以）
+</p>
+<p>
+  #session1，写（不可以，报错）
+</p>
+<p>
+  #session2，读（可以）
+</p>
+<p>
+  #session2，写（堵塞）
+</p>
+<p>
+  unlock table;
+</p>
+<p>
+  #session1，开启排他锁
+</p>
+<p>
+  lock table lock_t1 write;
+</p>
+<p>
+  #session1，读（可以）
+</p>
+<p>
+  #session1，写（可以）
+</p>
+<p>
+  #session2，读（堵塞）
+</p>
+<p>
+  #session2，写（堵塞）
+</p>
+<p>
+  unlock table;
+</p>
+<ul>
+<li>
+    InnoDB表锁
+  </li>
+</ul>
+<p>
+  create table lock_t2 (
+</p>
+<p>
+  id int primary key auto_increment,
+</p>
+<p>
+  name varchar(30) not null
+</p>
+<p>
+  )engine=innodb charset=utf8;
+</p>
+<p>
+  #session1，开启共享锁
+</p>
+<p>
+  lock table lock_t2 read;
+</p>
+<p>
+  #session1，读（可以）
+</p>
+<p>
+  #session1，写（不可以，报错）
+</p>
+<p>
+  #session2，读（可以）
+</p>
+<p>
+  #session2，写（堵塞）
+</p>
+<p>
+  unlock table;
+</p>
+<p>
+  #session1，开启排他锁
+</p>
+<p>
+  lock table lock_t2 write;
+</p>
+<p>
+  #session1，读（可以）
+</p>
+<p>
+  #session1，写（可以）
+</p>
+<p>
+  #session2，读（堵塞）
+</p>
+<p>
+  #session2，写（堵塞）
+</p>
+<p>
+  unlock table;
+</p>
+<ul>
+<li>
+    验证：MyISAM存储引擎默认是表级锁
+  </li>
+</ul>
+<p>
+  上一讲我们插入了1千万数据不适用主键索引查询需要3~4min，问A窗口查询过程中B窗口修改等待还是直接执行？
+</p>
+<p>
+  分析：因为myisam是表锁，所以写堵塞
+</p>
+<p>
+  回答：堵塞
+</p>
+<h3>2）行锁的演示</h3>
+<p>
+  create table t2 (
+</p>
+<p>
+  id int primary key auto_increment,
+</p>
+<p>
+  name varchar(30) not null
+</p>
+<p>
+  )engine=innodb charset=utf8;
+</p>
+<p>
+  insert into t2 value (null, &#8216;aaa&#8217;);
+</p>
+<p>
+  insert into t2 value (null, &#8216;aaa&#8217;);
+</p>
+<p>
+  begin;
+</p>
+<p>
+  update t2 set name = &#8216;bb&#8217; where id = 1;
+</p>
+<p>
+  update t2 set name = &#8216;ccc&#8217; where id = 1;
+</p>
+<h2><a id="post-5356-_Toc435371841"></a>3、锁的特点</h2>
+<ul>
+<li>
+    表级锁代表（MyISAM）：开销小，加锁快；不会出现死锁；锁定粒度大，发生锁
+  </li>
+</ul>
+<p>
+  冲突的概率最高，并发度最低（堵塞频率高）。
+</p>
+<p>
+  开销小：相对行级锁加锁资源较少
+</p>
+<p>
+  锁定颗粒度大：指锁的级别，最小的行级锁，最大的表锁
+</p>
+<p>
+  锁冲突高：因为针对整个表加锁，除非没有其他人操作否则冲突概率大
+</p>
+<ul>
+<li>
+    行级锁（InnoDB）：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突概
+  </li>
+</ul>
+<p>
+  率最低，并发度也最高（堵塞频率低）。
+</p>
+<p>
+  死锁：指开启事物不提交导致
+</p>
+<h1>︴扩展：PHP中的文件锁机制【★★★】</h1>
+<h2>1、说明</h2>
+<p>
+  文件锁机制一般在单独操作文件时看不到效果，需要多人同时操作（并发）
+</p>
+<h2>2、文件锁的用途（举例）</h2>
+<p>
+  若一个人在写入一个文件，另外一个人同时也打个了这个文件进行写入文件。
+</p>
+<p>
+  这情况下，很难明确谁的操作为准。因此，这个时候我们引入锁机制。若用户A在写入或者读取这个文件的时候，将文件加上共享锁。我可以读，其他人也可以读。但是，其他人不可以写。我使用独占锁/排它锁。这个文件归我了，你们都别动，除非我将文件锁进行释放。
+</p>
+<p>
+  A共享锁    B：读-可以，写-不行（堵塞）
+</p>
+<p>
+  A排它锁    B：读-不行（堵塞），写-不行（堵塞）
+</p>
+<h2>语法</h2>
+<ul>
+<li>
+    语法：flock（资源，锁类型）
+  </li>
+<li>
+    锁类型
+  </li>
+</ul>
+<p>
+  LOCK_SH    	取得共享锁定（读取的程序）
+</p>
+<p>
+  LOCK_EX		取得独占锁/排它锁定（写入的程序）
+</p>
+<p>
+  LOCK_UN    	释放锁定（无论共享或独占）
+</p>
+<p>
+  LOCK_NB		当被锁定时，不阻塞，而是提示锁定。
+</p>
+<p>
+  r   读  ，指针文件头
+</p>
+<p>
+  r+  读写，指针文件头（文件必须先存在）
+</p>
+<p>
+  w   写  ，清空数据，文件不存在自动创建
+</p>
+<p>
+  w+  读写，清空数据，文件不存在自动创建
+</p>
+<p>
+  a   写  ，追加数据，文件不存在自动创建
+</p>
+<p>
+  a+  读写，追加数据，文件不存在自动创建
+</p>
+<p>
+  脚下留心：加锁必须释放
+</p>
+<p>
+  浏览器机制：当前用户同一浏览器请求同一个文件，堵塞，所以使用两个文件测试
+</p>
+<ul>
+<li>
+    案例
+  </li>
+</ul>
+<p>
+  a.php
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  header(&#8216;content-type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  /**
+</p>
+<p>
+  r  只读，并且光标行首
+</p>
+<p>
+  r+ 读写（注：文件必须存在）
+</p>
+<p>
+  w  写  （清空数据，文件不存在自动创建）
+</p>
+<p>
+  w+ 读写（清空数据，文件不存在自动创建）
+</p>
+<p>
+  a  写  （追加数据，文件不存在自动创建）
+</p>
+<p>
+  a+ 读写（追加数据，文件不存在自动创建）
+</p>
+<p>
+  */
+</p>
+<p>
+  $fp = fopen(&#8216;./a.txt&#8217;, &#8216;a+&#8217;);
+</p>
+<p>
+  /**
+</p>
+<p>
+  LOCK_SH 获取读锁（共享锁）
+</p>
+<p>
+  LOCK_EX 获取写锁（排他锁）
+</p>
+<p>
+  LOCK_UN 释放锁
+</p>
+<p>
+  LOCK_NB 当被锁定时，不阻塞，而是提示锁定。
+</p>
+<p>
+  */
+</p>
+<p>
+  if (flock($fp, LOCK_EX)) {
+</p>
+<p>
+  	echo fread($fp, 20);
+</p>
+<p>
+  	sleep(15);
+</p>
+<p>
+  	echo fread($fp, 20);
+</p>
+<p>
+  	flock($fp, LOCK_UN);
+</p>
+<p>
+  }
+</p>
+<p>
+  b.php
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  $fp = fopen(&#8216;./a.txt&#8217;, &#8216;a+&#8217;);
+</p>
+<p>
+  /**
+</p>
+<p>
+  LOCK_SH 获取读锁（共享锁）
+</p>
+<p>
+  LOCK_EX 获取写锁（排他锁）
+</p>
+<p>
+  LOCK_UN 释放所
+</p>
+<p>
+  LOCK_NB 当被锁定时，不阻塞，而是提示锁定。
+</p>
+<p>
+  */
+</p>
+<p>
+  if (flock($fp, LOCK_EX | LOCK_NB)) {
+</p>
+<p>
+  	echo 11;die;
+</p>
+<p>
+  	// echo fread($fp, 20);
+</p>
+<p>
+  	$rs = fwrite($fp, 9);
+</p>
+<p>
+  	var_dump($rs);
+</p>
+<p>
+  	flock($fp, LOCK_UN);
+</p>
+<p>
+  }
+</p>
+<h2>应用场景</h2>
+<p>
+  秒杀项目，不推荐   -&gt;  可用 php + redis 消息队列代替
+</p>
+<p>
+  第三方支付通知文件锁案例
+</p>
+<h1>一、前缀索引</h1>
+<h2>1、什么是前缀索引</h2>
+<h3>1）概念</h3>
+<p>
+  前缀索引：指一个字段的内容，只需前面n个字符就可以具备唯一标识，将其创建为索引，最终形成“前缀索引”。
+</p>
+<p>
+  前缀索引好处：索引很长的字符列，它会使索引变大而且变慢，前缀索引能很好地减少索引的大小及提高速度。
+</p>
+<h3>举例</h3>
+<p>
+  name
+</p>
+<p>
+  啊增
+</p>
+<p>
+  小泽
+</p>
+<p>
+  玛丽
+</p>
+<p>
+  苍苍
+</p>
+<p>
+  姚姚
+</p>
+<p>
+  发现：以前需要把整个name字段看完，才能找到数据，现在因为姓名第一个字符【啊、小&#8230;】具备唯一性所以我们只要第一个字符就可以快速查找。
+</p>
+<h2>2、制作前缀索引</h2>
+<h3>1）创建数据</h3>
+<p>
+  create table qianzhui (
+</p>
+<p>
+  id int primary key auto_increment comment &#8216;编号&#8217;,
+</p>
+<p>
+  name varchar(30) not null comment &#8216;姓名&#8217;
+</p>
+<p>
+  )engine=myisam charset=utf8;
+</p>
+<p>
+  insert into qianzhui values (null, &#8216;张三&#8217;);
+</p>
+<p>
+  insert into qianzhui values (null, &#8216;王八三&#8217;);
+</p>
+<p>
+  insert into qianzhui values (null, &#8216;小三&#8217;);
+</p>
+<p>
+  insert into qianzhui values (null, &#8216;大三&#8217;);
+</p>
+<h3>2）创建前缀索引</h3>
+<p>
+  语法：alter table 表名 add  index 索引名(字段名(字符个数))
+</p>
+<p>
+  alter table qianzhui add index qianzhui(name(1));
+</p>
+<p><img decoding="async" width="579" height="374" src="/wp-content/uploads/2018/05/word-image-4850.png" class="wp-image-5359" srcset="/wp-content/uploads/2018/05/word-image-4850.png 579w, /wp-content/uploads/2018/05/word-image-4850-300x194.png 300w" sizes="(max-width: 579px) 100vw, 579px" /></p>
+<h3>3）验证</h3>
+<p><img loading="lazy" decoding="async" width="899" height="527" src="/wp-content/uploads/2018/05/word-image-4851.png" class="wp-image-5360" srcset="/wp-content/uploads/2018/05/word-image-4851.png 899w, /wp-content/uploads/2018/05/word-image-4851-300x176.png 300w, /wp-content/uploads/2018/05/word-image-4851-768x450.png 768w" sizes="(max-width: 899px) 100vw, 899px" /></p>
+<h1>二、全文索引（了解）</h1>
+<h2>1、什么是全文索引</h2>
+<p>
+  试想在1M大小的文件中搜索一个词，可能需要几秒，在100M的文件中可能需要几十秒，如果在更大的文件中搜索那么就需要更大的系统开销，这样的开销是不现实的。
+</p>
+<p>
+  全文索引：提取指定字段里面的内容添加索引
+</p>
+<p>
+  目的：加速like语句查询速度（注：mysql全文索引不支持中文）  sphinx
+</p>
+<p><img loading="lazy" decoding="async" width="820" height="105" src="/wp-content/uploads/2018/05/word-image-4852.png" class="wp-image-5361" srcset="/wp-content/uploads/2018/05/word-image-4852.png 820w, /wp-content/uploads/2018/05/word-image-4852-300x38.png 300w, /wp-content/uploads/2018/05/word-image-4852-768x98.png 768w" sizes="(max-width: 820px) 100vw, 820px" /></p>
+<h2>2、具体操作</h2>
+<h3>1）创建测试数据</h3>
+<p>
+  #创建文章表
+</p>
+<p>
+  create table articles2 (
+</p>
+<p>
+  id int unsigned primary key auto_increment comment &#8216;编号&#8217;,
+</p>
+<p>
+  title varchar(80) not null comment &#8216;标题&#8217;,
+</p>
+<p>
+  content text not null comment &#8216;内容&#8217;
+</p>
+<p>
+  )engine=myisam charset=utf8;
+</p>
+<p>
+  #插入文章数据（禁中文，不支持）
+</p>
+<p>
+  insert into articles2
+</p>
+<p>
+  (title,content)
+</p>
+<p>
+  value
+</p>
+<p>
+  (&#8216;MySQL Tutorial&#8217;,&#8217;DBMS stands for DataBase &#8230;&#8217;),
+</p>
+<p>
+  (&#8216;How To Use MySQL Well&#8217;,&#8217;After you went through a &#8230;&#8217;),
+</p>
+<p>
+  (&#8216;Optimizing MySQL&#8217;,&#8217;In this tutorial we will show &#8230;&#8217;),
+</p>
+<p>
+  (&#8216;1001 MySQL Tricks&#8217;,&#8217;1. Never run mysqld as root. 2. &#8230;&#8217;),
+</p>
+<p>
+  (&#8216;MySQL vs. YourSQL&#8217;,&#8217;In the following database comparison &#8230;&#8217;),
+</p>
+<p>
+  (&#8216;MySQL Security&#8217;,&#8217;When configured properly, MySQL &#8230;&#8217;);
+</p>
+<h3>添加全文所引</h3>
+<p>
+  alter table articles2 add fulltext title(title);
+</p>
+<h3>使用全文索引</h3>
+<ul>
+<li>
+    语法：select * from 表名where match(字段) against(‘内容’ IN BOOLEAN MODE);
+  </li>
+<li>
+    参数：
+  </li>
+<li>
+    如果添加全文索引是多个字段，如：fulltext（title，content）则查询语句字段处格
+  </li>
+</ul>
+<p>
+  式：match（字段1，字段2）
+</p>
+<ul>
+<li>
+    如果需要检索多个关键字，则内容处：‘内容1,内容2’
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="850" height="551" src="/wp-content/uploads/2018/05/word-image-4853.png" class="wp-image-5362" srcset="/wp-content/uploads/2018/05/word-image-4853.png 850w, /wp-content/uploads/2018/05/word-image-4853-300x194.png 300w, /wp-content/uploads/2018/05/word-image-4853-768x498.png 768w" sizes="(max-width: 850px) 100vw, 850px" /></p>
+<h1>三、limit分页优化（百万至千万级快速分页）</h1>
+<h2>1、概念</h2>
+<p>
+  当数据单表数据超过一定量后分页查询特别慢
+</p>
+<h2>分析</h2>
+<p><img loading="lazy" decoding="async" width="816" height="421" src="/wp-content/uploads/2018/05/word-image-4854.png" class="wp-image-5363" srcset="/wp-content/uploads/2018/05/word-image-4854.png 816w, /wp-content/uploads/2018/05/word-image-4854-300x155.png 300w, /wp-content/uploads/2018/05/word-image-4854-768x396.png 768w" sizes="(max-width: 816px) 100vw, 816px" /></p>
+<h2>思路</h2>
+<p>
+  1、从业务角度优化（百度、谷歌分页限制）
+</p>
+<p>
+  2、使用索引查询（where 条件 limit 数字）       索引+缓存（策略：功能+分页作为缓存唯一标识）
+</p>
+<ol>
+<li>
+  索引使用
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="863" height="546" src="/wp-content/uploads/2018/05/word-image-4855.png" class="wp-image-5364" srcset="/wp-content/uploads/2018/05/word-image-4855.png 863w, /wp-content/uploads/2018/05/word-image-4855-300x190.png 300w, /wp-content/uploads/2018/05/word-image-4855-768x486.png 768w" sizes="(max-width: 863px) 100vw, 863px" /><br />
+<img loading="lazy" decoding="async" width="1283" height="443" src="/wp-content/uploads/2018/05/word-image-4856.png" class="wp-image-5365" srcset="/wp-content/uploads/2018/05/word-image-4856.png 1283w, /wp-content/uploads/2018/05/word-image-4856-300x104.png 300w, /wp-content/uploads/2018/05/word-image-4856-768x265.png 768w, /wp-content/uploads/2018/05/word-image-4856-1024x354.png 1024w" sizes="(max-width: 1283px) 100vw, 1283px" /></p>
+<p>
+  发现：where通过主键赛选非常快，但是增加多个条件又慢了
+</p>
+<p><img loading="lazy" decoding="async" width="651" height="109" src="/wp-content/uploads/2018/05/word-image-4857.png" class="wp-image-5366" srcset="/wp-content/uploads/2018/05/word-image-4857.png 651w, /wp-content/uploads/2018/05/word-image-4857-300x50.png 300w" sizes="(max-width: 651px) 100vw, 651px" /></p>
+<p>
+  解决：添加组合索引
+</p>
+<p><img loading="lazy" decoding="async" width="877" height="654" src="/wp-content/uploads/2018/05/word-image-4858.png" class="wp-image-5367" srcset="/wp-content/uploads/2018/05/word-image-4858.png 877w, /wp-content/uploads/2018/05/word-image-4858-300x224.png 300w, /wp-content/uploads/2018/05/word-image-4858-768x573.png 768w" sizes="(max-width: 877px) 100vw, 877px" /></p>
+<h1>五、查询缓存（了解）</h1>
+<h2>1、概念</h2>
+<p>
+  MySQL第一次执行后保存缓存数据，第二次直接从缓存中读取。
+</p>
+<h2>相关SQL语句</h2>
+<p>
+  查看SQL缓存参数：show variables like &#8216;query_cache%&#8217;;
+</p>
+<p>
+  开启SQL缓存：set global query_cache_type = 1
+</p>
+<p>
+  关闭SQL缓存：set global query_cache_type = 0
+</p>
+<p>
+  设置缓存空间：set global query_cache_size = 1024*1024*64  #单位/M
+</p>
+<p>
+  固定SQL语句声明不适用缓存：select sql_no_cache * from 表名
+</p>
+<h2>开启缓存</h2>
+<p>
+  步骤1：测试数据库
+</p>
+<p><img loading="lazy" decoding="async" width="465" height="149" src="/wp-content/uploads/2018/05/word-image-4859.png" class="wp-image-5368" srcset="/wp-content/uploads/2018/05/word-image-4859.png 465w, /wp-content/uploads/2018/05/word-image-4859-300x96.png 300w" sizes="(max-width: 465px) 100vw, 465px" /></p>
+<p>
+  步骤2：开启缓存
+</p>
+<p>
+  set global query_cache_type = 1;
+</p>
+<p><img loading="lazy" decoding="async" width="425" height="450" src="/wp-content/uploads/2018/05/word-image-4860.png" class="wp-image-5369" srcset="/wp-content/uploads/2018/05/word-image-4860.png 425w, /wp-content/uploads/2018/05/word-image-4860-283x300.png 283w" sizes="(max-width: 425px) 100vw, 425px" /></p>
+<p>
+  步骤3：设置缓存空间
+</p>
+<p><img loading="lazy" decoding="async" width="480" height="300" src="/wp-content/uploads/2018/05/word-image-4861.png" class="wp-image-5370" srcset="/wp-content/uploads/2018/05/word-image-4861.png 480w, /wp-content/uploads/2018/05/word-image-4861-300x188.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></p>
+<p>
+  步骤4：测试
+</p>
+<p><img loading="lazy" decoding="async" width="513" height="313" src="/wp-content/uploads/2018/05/word-image-4862.png" class="wp-image-5371" srcset="/wp-content/uploads/2018/05/word-image-4862.png 513w, /wp-content/uploads/2018/05/word-image-4862-300x183.png 300w" sizes="(max-width: 513px) 100vw, 513px" /></p>
+<h2>4、不使用缓存</h2>
+<p><img loading="lazy" decoding="async" width="634" height="392" src="/wp-content/uploads/2018/05/word-image-4863.png" class="wp-image-5372" srcset="/wp-content/uploads/2018/05/word-image-4863.png 634w, /wp-content/uploads/2018/05/word-image-4863-300x185.png 300w" sizes="(max-width: 634px) 100vw, 634px" /></p>
+<h2>说明</h2>
+<p>
+  发现：该功能了解即可，这是从MySQL层面缓存不推荐使用，因为及时缓存了PHP操作MySQL还是有额外开销
+</p>
+<p>
+  解决：后期通过php直接操作内存缓存（内存缓存  &gt; 文件缓存  &gt;  数据库）
+</p>
+<p><img loading="lazy" decoding="async" width="832" height="706" src="/wp-content/uploads/2018/05/word-image-4864.png" class="wp-image-5373" srcset="/wp-content/uploads/2018/05/word-image-4864.png 832w, /wp-content/uploads/2018/05/word-image-4864-300x255.png 300w, /wp-content/uploads/2018/05/word-image-4864-768x652.png 768w" sizes="(max-width: 832px) 100vw, 832px" /></p>
+<h1>六、分表技术（重点）</h1>
+<h2>1、水平分表</h2>
+<h3>1）说明</h3>
+<p>
+  当一个表很大时我们创建索引后，查询速度还是很慢, 把一个巨大的表安装某个
+</p>
+<p>
+  标准分割成小表，这样可以提供查询的速度.
+</p>
+<p><img loading="lazy" decoding="async" width="551" height="384" src="/wp-content/uploads/2018/05/word-image-4865.png" class="wp-image-5374" srcset="/wp-content/uploads/2018/05/word-image-4865.png 551w, /wp-content/uploads/2018/05/word-image-4865-300x209.png 300w" sizes="(max-width: 551px) 100vw, 551px" /></p>
+<h3>2）原理</h3>
+<p><img loading="lazy" decoding="async" width="1128" height="534" src="/wp-content/uploads/2018/05/word-image-4866.png" class="wp-image-5375" srcset="/wp-content/uploads/2018/05/word-image-4866.png 1128w, /wp-content/uploads/2018/05/word-image-4866-300x142.png 300w, /wp-content/uploads/2018/05/word-image-4866-768x364.png 768w, /wp-content/uploads/2018/05/word-image-4866-1024x485.png 1024w" sizes="(max-width: 1128px) 100vw, 1128px" /></p>
+<h2>2、垂直分表</h2>
+<ul>
+<li>
+    目的：减少字段长度，加快查询速度。
+  </li>
+<li>
+    表中存在多个字段：常用字段和非常用字段
+  </li>
+<li>
+    例如：学生表可以分成，分为基础表和额外表，两张表中记录为1:1的关系。
+  </li>
+</ul>
+<p>
+  原表
+</p>
+<p>
+  id   name  pwd   age    sex   籍贯    政治面貌   &#8230;&#8230;
+</p>
+<p>
+  垂直分割表
+</p>
+<p>
+  基础信息表（student_base）
+</p>
+<p>
+  id	 	name	 age  pwd
+</p>
+<p>
+  额外信息表（student_extra）
+</p>
+<p>
+  id		籍贯	政治面貌
+</p>
+<h2><a id="post-5356-_Toc448765224"></a>3、为什么需要MySQL分表/分区</h2>
+<p>
+  假设一个数据表中存储1亿条记录，我们检索数据就必须检索1亿条记录，但
+</p>
+<p>
+  是这样是非常耗时的，因为MySQL本质还是以文件形式存储的，所以其读取
+</p>
+<p>
+  都要涉及到服务器的I/O开销，这就是MySQL的性能瓶颈。遇到这种情况，我
+</p>
+<p>
+  们就可以使用分表程序，把1亿条记录的数据表分割成10份：每一份只需要存
+</p>
+<p>
+  储1000万条数据，这样其数据的检索也会变得更加高效！
+</p>
+<h2>分区算法</h2>
+<h3>1）MySQL四种分区算法介绍</h3>
+<ul>
+<li>
+    求余（主键字段）：
+  </li>
+<li>
+    key  利用某个字段的值，进行求余，完成分区
+  </li>
+<li>
+    hash 利用某个整型表达式的值，完成分区
+  </li>
+<li>
+    条件：
+  </li>
+<li>
+    list   值在指定列表内的分区
+  </li>
+<li>
+    range 值在某个范围内的分区
+  </li>
+</ul>
+<h3>2）分区语法</h3>
+<p>
+  说明：在创建表都得时候进行分区，后期也可以增加和删除分区
+</p>
+<p>
+  语法：
+</p>
+<p>
+  create table 表名(
+</p>
+<p>
+  )engine=存储引擎 charset=编号
+</p>
+<p>
+  partition by 分区算法（字段） 分区选项；
+</p>
+<h3>key分区</h3>
+<p>
+  #创建数据库p1
+</p>
+<p>
+  create database p1;
+</p>
+<p>
+  #选择数据库
+</p>
+<p>
+  use p1;
+</p>
+<p>
+  #创建表
+</p>
+<p>
+  create table articles(
+</p>
+<p>
+    id int unsigned primary key auto_increment,
+</p>
+<p>
+    title varchar(50) not null,
+</p>
+<p>
+    content text
+</p>
+<p>
+  ) engine = myisam charset = utf8
+</p>
+<p>
+  partition by key(id) partitions <strong>10</strong>;
+</p>
+<p>
+  #根据key算法，创建10个分区（注：就相当于创建了10个表）
+</p>
+<p>
+  insert into articles values (null,&#8217;aaa&#8217;,&#8217;bb&#8217;);
+</p>
+<p>
+  flush table articles;
+</p>
+<p><img loading="lazy" decoding="async" width="1079" height="522" src="/wp-content/uploads/2018/05/word-image-4867.png" class="wp-image-5376" srcset="/wp-content/uploads/2018/05/word-image-4867.png 1079w, /wp-content/uploads/2018/05/word-image-4867-300x145.png 300w, /wp-content/uploads/2018/05/word-image-4867-768x372.png 768w, /wp-content/uploads/2018/05/word-image-4867-1024x495.png 1024w" sizes="(max-width: 1079px) 100vw, 1079px" /></p>
+<p>
+  多学一招：flush table 表名; 刷新表清除缓存
+</p>
+<h3>4）hash 分区</h3>
+<p>
+  #创建数据库p2
+</p>
+<p>
+  create database p2;
+</p>
+<p>
+  #选择数据库
+</p>
+<p>
+  use p2;
+</p>
+<p>
+  #创建表
+</p>
+<p>
+  create table articles(
+</p>
+<p>
+    id int unsigned primary key auto_increment,
+</p>
+<p>
+    title varchar(50) not null,
+</p>
+<p>
+    content text
+</p>
+<p>
+  ) engine = myisam charset = utf8
+</p>
+<p>
+  partition by hash (id) partitions <strong>4</strong>;
+</p>
+<p>
+  insert into articles values (null,&#8217;aaa&#8217;,&#8217;bb&#8217;);
+</p>
+<p>
+  flush table articles;
+</p>
+<p><img loading="lazy" decoding="async" width="1072" height="479" src="/wp-content/uploads/2018/05/word-image-4868.png" class="wp-image-5377" srcset="/wp-content/uploads/2018/05/word-image-4868.png 1072w, /wp-content/uploads/2018/05/word-image-4868-300x134.png 300w, /wp-content/uploads/2018/05/word-image-4868-768x343.png 768w, /wp-content/uploads/2018/05/word-image-4868-1024x458.png 1024w" sizes="(max-width: 1072px) 100vw, 1072px" /></p>
+<h3>5）list分区</h3>
+<p>
+  #创建数据库p3
+</p>
+<p>
+  create database p3;
+</p>
+<p>
+  #选择数据库
+</p>
+<p>
+  use p3;
+</p>
+<p>
+  #创建表
+</p>
+<p>
+  create table articles(
+</p>
+<p>
+    id int unsigned auto_increment,
+</p>
+<p>
+    title varchar(50) not null,
+</p>
+<p>
+    content text,
+</p>
+<p>
+    cid int unsigned,
+</p>
+<p>
+  primary key (id,cid)
+</p>
+<p>
+  ) engine = myisam charset = utf8
+</p>
+<p>
+  partition by list(cid) (
+</p>
+<p>
+  partition c1 values in (1,3),
+</p>
+<p>
+  partition c2 values in (2,4),
+</p>
+<p>
+  partition c3 values in (5,6,7)
+</p>
+<p>
+  );
+</p>
+<p>
+  #创建3个分区，当插入cid=1或者3进c1， 当插入cid=2或4进c2分区
+</p>
+<p>
+  insert into articles values (null,&#8217;aaa&#8217;,&#8217;bb&#8217;, 1);
+</p>
+<p>
+  flush table articles;
+</p>
+<p><img loading="lazy" decoding="async" width="1059" height="455" src="/wp-content/uploads/2018/05/word-image-4869.png" class="wp-image-5378" srcset="/wp-content/uploads/2018/05/word-image-4869.png 1059w, /wp-content/uploads/2018/05/word-image-4869-300x129.png 300w, /wp-content/uploads/2018/05/word-image-4869-768x330.png 768w, /wp-content/uploads/2018/05/word-image-4869-1024x440.png 1024w" sizes="(max-width: 1059px) 100vw, 1059px" /></p>
+<h3>5）range分区</h3>
+<p>
+  #创建一个数据库
+</p>
+<p>
+  create database p4;
+</p>
+<p>
+  #选择数据库
+</p>
+<p>
+  use p4;
+</p>
+<p>
+  #创建数据表并实现range分区
+</p>
+<p>
+  create table user(
+</p>
+<p>
+    id int not null auto_increment,
+</p>
+<p>
+    name varchar(40) not null,
+</p>
+<p>
+    birthday date not null default &#8216;0000-00-00&#8217;,
+</p>
+<p>
+    primary key(id,birthday)
+</p>
+<p>
+  ) engine = myisam default charset = utf8
+</p>
+<p>
+  partition by range(year(birthday)) (
+</p>
+<p>
+    partition 70hou values less than (1980),
+</p>
+<p>
+    partition 80hou values less than (1990),
+</p>
+<p>
+    partition 90hou values less than (2000),
+</p>
+<p>
+    partition 00hou values less than (2010)
+</p>
+<p>
+  );
+</p>
+<p>
+  insert into user values (null,&#8217;a&#8217;,&#8217;1970-01-01&#8242;);
+</p>
+<p>
+  insert into user values (null,&#8217;b&#8217;,&#8217;1980-01-01&#8242;);
+</p>
+<p>
+  insert into user values (null,&#8217;c&#8217;,&#8217;1990-01-01&#8242;);
+</p>
+<p>
+  # 有问题不符合条件
+</p>
+<p>
+  insert into user values (null,&#8217;d&#8217;,&#8217;2011-01-01&#8242;);
+</p>
+<p><img loading="lazy" decoding="async" width="340" height="160" src="/wp-content/uploads/2018/05/word-image-4870.png" class="wp-image-5379" srcset="/wp-content/uploads/2018/05/word-image-4870.png 340w, /wp-content/uploads/2018/05/word-image-4870-300x141.png 300w" sizes="(max-width: 340px) 100vw, 340px" /><br />
+<img loading="lazy" decoding="async" width="1052" height="553" src="/wp-content/uploads/2018/05/word-image-4871.png" class="wp-image-5380" srcset="/wp-content/uploads/2018/05/word-image-4871.png 1052w, /wp-content/uploads/2018/05/word-image-4871-300x158.png 300w, /wp-content/uploads/2018/05/word-image-4871-768x404.png 768w, /wp-content/uploads/2018/05/word-image-4871-1024x538.png 1024w" sizes="(max-width: 1052px) 100vw, 1052px" /></p>
+<h2>5、分区管理</h2>
+<h3>1、概念</h3>
+<ul>
+<li>
+    取余管理：增加分区-无影响，删除分区-无影响
+  </li>
+<li>
+    条件管理：增加分区-无影响，删除分区-数据丢失
+  </li>
+</ul>
+<h3>取余管理（key，hash）</h3>
+<p>
+  增加分区数量：alter table 表名 add partition partitions 增加分区的数量
+</p>
+<p>
+  减少分区数量：alter table 表名 coalesce partition 减少分区的数量
+</p>
+<p><img loading="lazy" decoding="async" width="1075" height="625" src="/wp-content/uploads/2018/05/word-image-4872.png" class="wp-image-5381" srcset="/wp-content/uploads/2018/05/word-image-4872.png 1075w, /wp-content/uploads/2018/05/word-image-4872-300x174.png 300w, /wp-content/uploads/2018/05/word-image-4872-768x447.png 768w, /wp-content/uploads/2018/05/word-image-4872-1024x595.png 1024w" sizes="(max-width: 1075px) 100vw, 1075px" /></p>
+<h3>3、条件管理（list，range）</h3>
+<p>
+  删除分区：alter  table  表名  drop  partition  10hou;
+</p>
+<p>
+  添加分区
+</p>
+<p>
+  alter table tp_user add partition(
+</p>
+<p>
+    partition 10hou values less than (maxvalue)
+</p>
+<p>
+  );
+</p>
+<p>
+  alter table tp_goods add partition(
+</p>
+<p>
+    partition c4 values in (8,9,10)
+</p>
+<p>
+  );
+</p>
+<p><img loading="lazy" decoding="async" width="930" height="616" src="/wp-content/uploads/2018/05/word-image-4873.png" class="wp-image-5382" srcset="/wp-content/uploads/2018/05/word-image-4873.png 930w, /wp-content/uploads/2018/05/word-image-4873-300x199.png 300w, /wp-content/uploads/2018/05/word-image-4873-768x509.png 768w" sizes="(max-width: 930px) 100vw, 930px" /><br />
+<img loading="lazy" decoding="async" width="1102" height="638" src="/wp-content/uploads/2018/05/word-image-4874.png" class="wp-image-5383" srcset="/wp-content/uploads/2018/05/word-image-4874.png 1102w, /wp-content/uploads/2018/05/word-image-4874-300x174.png 300w, /wp-content/uploads/2018/05/word-image-4874-768x445.png 768w, /wp-content/uploads/2018/05/word-image-4874-1024x593.png 1024w" sizes="(max-width: 1102px) 100vw, 1102px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96/5356.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>TP3.2商城 （二）图片异步上传、商品列表、缓存、商品编辑、商品类型</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/4627.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/4627.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 12:59:04 +0000</pubDate>
+				<category><![CDATA[TP3.2]]></category>
+		<category><![CDATA[TP3.2商城]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[商品列表]]></category>
+		<category><![CDATA[商品类型]]></category>
+		<category><![CDATA[商品编辑]]></category>
+		<category><![CDATA[图片异步上传]]></category>
+		<category><![CDATA[缓存]]></category>
+		<guid isPermaLink="false">/?p=4627</guid>
+
+					<description><![CDATA[添加商品图片异步上传 1.1、查看layUI使用方式 ①引入对应的js文件 ②查看文件上传使用方式 1.2、项 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>添加商品图片异步上传</h1>
+<h2>1.1、查看layUI使用方式</h2>
+<p>
+  ①引入对应的js文件
+</p>
+<p><img loading="lazy" decoding="async" width="840" height="455" src="/wp-content/uploads/2018/05/word-image-4154.png" class="wp-image-4628" srcset="/wp-content/uploads/2018/05/word-image-4154.png 840w, /wp-content/uploads/2018/05/word-image-4154-300x163.png 300w, /wp-content/uploads/2018/05/word-image-4154-768x416.png 768w" sizes="(max-width: 840px) 100vw, 840px" /></p>
+<p>
+  ②查看文件上传使用方式
+</p>
+<p><img loading="lazy" decoding="async" width="785" height="627" src="/wp-content/uploads/2018/05/word-image-4155.png" class="wp-image-4629" srcset="/wp-content/uploads/2018/05/word-image-4155.png 785w, /wp-content/uploads/2018/05/word-image-4155-300x240.png 300w, /wp-content/uploads/2018/05/word-image-4155-768x613.png 768w" sizes="(max-width: 785px) 100vw, 785px" /></p>
+<h2>1.2、项目中使用文件上传</h2>
+<p>
+  ①将资源文件拷贝到项目中
+</p>
+<p><img loading="lazy" decoding="async" width="1068" height="324" src="/wp-content/uploads/2018/05/word-image-4156.png" class="wp-image-4630" srcset="/wp-content/uploads/2018/05/word-image-4156.png 1068w, /wp-content/uploads/2018/05/word-image-4156-300x91.png 300w, /wp-content/uploads/2018/05/word-image-4156-768x233.png 768w, /wp-content/uploads/2018/05/word-image-4156-1024x311.png 1024w" sizes="(max-width: 1068px) 100vw, 1068px" /></p>
+<p>
+  ②引入layui的js文件
+</p>
+<p><img loading="lazy" decoding="async" width="986" height="263" src="/wp-content/uploads/2018/05/word-image-4157.png" class="wp-image-4631" srcset="/wp-content/uploads/2018/05/word-image-4157.png 986w, /wp-content/uploads/2018/05/word-image-4157-300x80.png 300w, /wp-content/uploads/2018/05/word-image-4157-768x205.png 768w" sizes="(max-width: 986px) 100vw, 986px" /></p>
+<p>
+  ③修改文件上传的type类型
+</p>
+<p><img loading="lazy" decoding="async" width="1003" height="385" src="/wp-content/uploads/2018/05/word-image-4158.png" class="wp-image-4632" srcset="/wp-content/uploads/2018/05/word-image-4158.png 1003w, /wp-content/uploads/2018/05/word-image-4158-300x115.png 300w, /wp-content/uploads/2018/05/word-image-4158-768x295.png 768w" sizes="(max-width: 1003px) 100vw, 1003px" /></p>
+<p>
+  ④对文件上传绑定切换事件
+</p>
+<p><img loading="lazy" decoding="async" width="962" height="640" src="/wp-content/uploads/2018/05/word-image-4159.png" class="wp-image-4633" srcset="/wp-content/uploads/2018/05/word-image-4159.png 962w, /wp-content/uploads/2018/05/word-image-4159-300x200.png 300w, /wp-content/uploads/2018/05/word-image-4159-768x511.png 768w" sizes="(max-width: 962px) 100vw, 962px" /></p>
+<p>
+  ⑤创建upload方法
+</p>
+<p>
+  先抓包结果如下
+</p>
+<p><img loading="lazy" decoding="async" width="1031" height="534" src="/wp-content/uploads/2018/05/word-image-4160.png" class="wp-image-4634" srcset="/wp-content/uploads/2018/05/word-image-4160.png 1031w, /wp-content/uploads/2018/05/word-image-4160-300x155.png 300w, /wp-content/uploads/2018/05/word-image-4160-768x398.png 768w, /wp-content/uploads/2018/05/word-image-4160-1024x530.png 1024w" sizes="(max-width: 1031px) 100vw, 1031px" /><br />
+<img loading="lazy" decoding="async" width="1039" height="672" src="/wp-content/uploads/2018/05/word-image-4161.png" class="wp-image-4635" srcset="/wp-content/uploads/2018/05/word-image-4161.png 1039w, /wp-content/uploads/2018/05/word-image-4161-300x194.png 300w, /wp-content/uploads/2018/05/word-image-4161-768x497.png 768w, /wp-content/uploads/2018/05/word-image-4161-1024x662.png 1024w" sizes="(max-width: 1039px) 100vw, 1039px" /><br />
+<img loading="lazy" decoding="async" width="1030" height="303" src="/wp-content/uploads/2018/05/word-image-4162.png" class="wp-image-4636" srcset="/wp-content/uploads/2018/05/word-image-4162.png 1030w, /wp-content/uploads/2018/05/word-image-4162-300x88.png 300w, /wp-content/uploads/2018/05/word-image-4162-768x226.png 768w, /wp-content/uploads/2018/05/word-image-4162-1024x301.png 1024w" sizes="(max-width: 1030px) 100vw, 1030px" /></p>
+<p>
+  ⑥修改模板增加img显示上传结果
+</p>
+<p><img loading="lazy" decoding="async" width="1010" height="493" src="/wp-content/uploads/2018/05/word-image-4163.png" class="wp-image-4637" srcset="/wp-content/uploads/2018/05/word-image-4163.png 1010w, /wp-content/uploads/2018/05/word-image-4163-300x146.png 300w, /wp-content/uploads/2018/05/word-image-4163-768x375.png 768w" sizes="(max-width: 1010px) 100vw, 1010px" /></p>
+<p>
+  ⑦修改js处理文件上传成功
+</p>
+<p><img loading="lazy" decoding="async" width="1022" height="598" src="/wp-content/uploads/2018/05/word-image-4164.png" class="wp-image-4638" srcset="/wp-content/uploads/2018/05/word-image-4164.png 1022w, /wp-content/uploads/2018/05/word-image-4164-300x176.png 300w, /wp-content/uploads/2018/05/word-image-4164-768x449.png 768w" sizes="(max-width: 1022px) 100vw, 1022px" /></p>
+<p>
+  ⑧修改商品添加的HTML
+</p>
+<p><img loading="lazy" decoding="async" width="1045" height="451" src="/wp-content/uploads/2018/05/word-image-4165.png" class="wp-image-4639" srcset="/wp-content/uploads/2018/05/word-image-4165.png 1045w, /wp-content/uploads/2018/05/word-image-4165-300x129.png 300w, /wp-content/uploads/2018/05/word-image-4165-768x331.png 768w, /wp-content/uploads/2018/05/word-image-4165-1024x442.png 1024w" sizes="(max-width: 1045px) 100vw, 1045px" /></p>
+<p>
+  ⑨修改js
+</p>
+<p><img loading="lazy" decoding="async" width="1037" height="650" src="/wp-content/uploads/2018/05/word-image-4166.png" class="wp-image-4640" srcset="/wp-content/uploads/2018/05/word-image-4166.png 1037w, /wp-content/uploads/2018/05/word-image-4166-300x188.png 300w, /wp-content/uploads/2018/05/word-image-4166-768x481.png 768w, /wp-content/uploads/2018/05/word-image-4166-1024x642.png 1024w" sizes="(max-width: 1037px) 100vw, 1037px" /></p>
+<p>
+  ⑩修改添加的前置钩子函数删除文件上传代码
+</p>
+<p><img loading="lazy" decoding="async" width="1000" height="662" src="/wp-content/uploads/2018/05/word-image-4167.png" class="wp-image-4641" srcset="/wp-content/uploads/2018/05/word-image-4167.png 1000w, /wp-content/uploads/2018/05/word-image-4167-300x199.png 300w, /wp-content/uploads/2018/05/word-image-4167-768x508.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" /></p>
+<p>
+  由于目前文件上传使用了异步的方式因此此处的代码多余
+</p>
+<h2>1.3、使用ajaxReturn返回结果</h2>
+<p>
+  ①查看ajaxReturn方法的使用方式
+</p>
+<p><img loading="lazy" decoding="async" width="1001" height="632" src="/wp-content/uploads/2018/05/word-image-4168.png" class="wp-image-4642" srcset="/wp-content/uploads/2018/05/word-image-4168.png 1001w, /wp-content/uploads/2018/05/word-image-4168-300x189.png 300w, /wp-content/uploads/2018/05/word-image-4168-768x485.png 768w" sizes="(max-width: 1001px) 100vw, 1001px" /></p>
+<p>
+  ②修改upload方法使用ajaxReturn
+</p>
+<p><img loading="lazy" decoding="async" width="1038" height="673" src="/wp-content/uploads/2018/05/word-image-4169.png" class="wp-image-4643" srcset="/wp-content/uploads/2018/05/word-image-4169.png 1038w, /wp-content/uploads/2018/05/word-image-4169-300x195.png 300w, /wp-content/uploads/2018/05/word-image-4169-768x498.png 768w, /wp-content/uploads/2018/05/word-image-4169-1024x664.png 1024w" sizes="(max-width: 1038px) 100vw, 1038px" /></p>
+<h1>商品列表</h1>
+<h2>2.1、实现显示商品的列表</h2>
+<p>
+  ①在控制器中增加方法
+</p>
+<p><img loading="lazy" decoding="async" width="948" height="523" src="/wp-content/uploads/2018/05/word-image-4170.png" class="wp-image-4644" srcset="/wp-content/uploads/2018/05/word-image-4170.png 948w, /wp-content/uploads/2018/05/word-image-4170-300x166.png 300w, /wp-content/uploads/2018/05/word-image-4170-768x424.png 768w" sizes="(max-width: 948px) 100vw, 948px" /></p>
+<p>
+  ②在模型中增加listData方法获取数据
+</p>
+<p>
+  <br />
+  ③拷贝模板
+</p>
+<p><img loading="lazy" decoding="async" width="710" height="428" src="/wp-content/uploads/2018/05/word-image-4171.png" class="wp-image-4645" srcset="/wp-content/uploads/2018/05/word-image-4171.png 710w, /wp-content/uploads/2018/05/word-image-4171-300x181.png 300w" sizes="(max-width: 710px) 100vw, 710px" /><br />
+<img loading="lazy" decoding="async" width="1100" height="457" src="/wp-content/uploads/2018/05/word-image-4172.png" class="wp-image-4646" srcset="/wp-content/uploads/2018/05/word-image-4172.png 1100w, /wp-content/uploads/2018/05/word-image-4172-300x125.png 300w, /wp-content/uploads/2018/05/word-image-4172-768x319.png 768w, /wp-content/uploads/2018/05/word-image-4172-1024x425.png 1024w" sizes="(max-width: 1100px) 100vw, 1100px" /></p>
+<p>
+  ④修改模板
+</p>
+<p><img loading="lazy" decoding="async" width="1026" height="688" src="/wp-content/uploads/2018/05/word-image-4173.png" class="wp-image-4647" srcset="/wp-content/uploads/2018/05/word-image-4173.png 1026w, /wp-content/uploads/2018/05/word-image-4173-300x201.png 300w, /wp-content/uploads/2018/05/word-image-4173-768x515.png 768w, /wp-content/uploads/2018/05/word-image-4173-1024x687.png 1024w" sizes="(max-width: 1026px) 100vw, 1026px" /><br />
+<img loading="lazy" decoding="async" width="1000" height="586" src="/wp-content/uploads/2018/05/word-image-4174.png" class="wp-image-4648" srcset="/wp-content/uploads/2018/05/word-image-4174.png 1000w, /wp-content/uploads/2018/05/word-image-4174-300x176.png 300w, /wp-content/uploads/2018/05/word-image-4174-768x450.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" /><br />
+<img loading="lazy" decoding="async" width="1029" height="558" src="/wp-content/uploads/2018/05/word-image-4175.png" class="wp-image-4649" srcset="/wp-content/uploads/2018/05/word-image-4175.png 1029w, /wp-content/uploads/2018/05/word-image-4175-300x163.png 300w, /wp-content/uploads/2018/05/word-image-4175-768x416.png 768w, /wp-content/uploads/2018/05/word-image-4175-1024x555.png 1024w" sizes="(max-width: 1029px) 100vw, 1029px" /><br />
+<img loading="lazy" decoding="async" width="1013" height="589" src="/wp-content/uploads/2018/05/word-image-4176.png" class="wp-image-4650" srcset="/wp-content/uploads/2018/05/word-image-4176.png 1013w, /wp-content/uploads/2018/05/word-image-4176-300x174.png 300w, /wp-content/uploads/2018/05/word-image-4176-768x447.png 768w" sizes="(max-width: 1013px) 100vw, 1013px" /><br />
+<img loading="lazy" decoding="async" width="982" height="166" src="/wp-content/uploads/2018/05/word-image-4177.png" class="wp-image-4651" srcset="/wp-content/uploads/2018/05/word-image-4177.png 982w, /wp-content/uploads/2018/05/word-image-4177-300x51.png 300w, /wp-content/uploads/2018/05/word-image-4177-768x130.png 768w" sizes="(max-width: 982px) 100vw, 982px" /></p>
+<h2>2.2、实现分页显示商品列表</h2>
+<p>
+  ①修改listData方法
+</p>
+<p><img loading="lazy" decoding="async" width="962" height="677" src="/wp-content/uploads/2018/05/word-image-4178.png" class="wp-image-4652" srcset="/wp-content/uploads/2018/05/word-image-4178.png 962w, /wp-content/uploads/2018/05/word-image-4178-300x211.png 300w, /wp-content/uploads/2018/05/word-image-4178-768x540.png 768w" sizes="(max-width: 962px) 100vw, 962px" /></p>
+<p>
+  ②修改模板
+</p>
+<p>
+  修改循环的变量
+</p>
+<p><img loading="lazy" decoding="async" width="1012" height="492" src="/wp-content/uploads/2018/05/word-image-4179.png" class="wp-image-4653" srcset="/wp-content/uploads/2018/05/word-image-4179.png 1012w, /wp-content/uploads/2018/05/word-image-4179-300x146.png 300w, /wp-content/uploads/2018/05/word-image-4179-768x373.png 768w" sizes="(max-width: 1012px) 100vw, 1012px" /></p>
+<p>
+  修改使用分页
+</p>
+<p><img loading="lazy" decoding="async" width="925" height="483" src="/wp-content/uploads/2018/05/word-image-4180.png" class="wp-image-4654" srcset="/wp-content/uploads/2018/05/word-image-4180.png 925w, /wp-content/uploads/2018/05/word-image-4180-300x157.png 300w, /wp-content/uploads/2018/05/word-image-4180-768x401.png 768w" sizes="(max-width: 925px) 100vw, 925px" /></p>
+<h2>2.3、获取分类名称</h2>
+<p>
+  修改listData方法链表查询分类名称
+</p>
+<p><img loading="lazy" decoding="async" width="1002" height="487" src="/wp-content/uploads/2018/05/word-image-4181.png" class="wp-image-4655" srcset="/wp-content/uploads/2018/05/word-image-4181.png 1002w, /wp-content/uploads/2018/05/word-image-4181-300x146.png 300w, /wp-content/uploads/2018/05/word-image-4181-768x373.png 768w" sizes="(max-width: 1002px) 100vw, 1002px" /></p>
+<h2>2.4、商品搜索</h2>
+<h3>2.4.1、显示搜索的分类</h3>
+<p>
+  ①index方法获取所有的分类信息
+</p>
+<p><img loading="lazy" decoding="async" width="894" height="565" src="/wp-content/uploads/2018/05/word-image-4182.png" class="wp-image-4656" srcset="/wp-content/uploads/2018/05/word-image-4182.png 894w, /wp-content/uploads/2018/05/word-image-4182-300x190.png 300w, /wp-content/uploads/2018/05/word-image-4182-768x485.png 768w" sizes="(max-width: 894px) 100vw, 894px" /></p>
+<p>
+  ②修改模板显示分类
+</p>
+<p><img loading="lazy" decoding="async" width="1030" height="562" src="/wp-content/uploads/2018/05/word-image-4183.png" class="wp-image-4657" srcset="/wp-content/uploads/2018/05/word-image-4183.png 1030w, /wp-content/uploads/2018/05/word-image-4183-300x164.png 300w, /wp-content/uploads/2018/05/word-image-4183-768x419.png 768w, /wp-content/uploads/2018/05/word-image-4183-1024x559.png 1024w" sizes="(max-width: 1030px) 100vw, 1030px" /></p>
+<h3>2.4.2、根据搜索的提交获取数据</h3>
+<p>
+  根据条件对商品进行搜索本质就是表单提交。对于表单提交想要去获取到对应的条件的商品信息就需要去组装sql语句中的where条件
+</p>
+<p>
+  修改listData方法
+</p>
+<p><img loading="lazy" decoding="async" width="1005" height="669" src="/wp-content/uploads/2018/05/word-image-4184.png" class="wp-image-4658" srcset="/wp-content/uploads/2018/05/word-image-4184.png 1005w, /wp-content/uploads/2018/05/word-image-4184-300x200.png 300w, /wp-content/uploads/2018/05/word-image-4184-768x511.png 768w" sizes="(max-width: 1005px) 100vw, 1005px" /><br />
+<img loading="lazy" decoding="async" width="1038" height="606" src="/wp-content/uploads/2018/05/word-image-4185.png" class="wp-image-4659" srcset="/wp-content/uploads/2018/05/word-image-4185.png 1038w, /wp-content/uploads/2018/05/word-image-4185-300x175.png 300w, /wp-content/uploads/2018/05/word-image-4185-768x448.png 768w, /wp-content/uploads/2018/05/word-image-4185-1024x598.png 1024w" sizes="(max-width: 1038px) 100vw, 1038px" /><br />
+<img loading="lazy" decoding="async" width="1013" height="478" src="/wp-content/uploads/2018/05/word-image-4186.png" class="wp-image-4660" srcset="/wp-content/uploads/2018/05/word-image-4186.png 1013w, /wp-content/uploads/2018/05/word-image-4186-300x142.png 300w, /wp-content/uploads/2018/05/word-image-4186-768x362.png 768w" sizes="(max-width: 1013px) 100vw, 1013px" /></p>
+<h2>2.5、对商品列表进行优化</h2>
+<h3>2.5.1、实现方式</h3>
+<p>
+  使用替换的方式将链表查询拆分成为两次sql查询（第一次查询后期可以使用高速内存缓存系统加速）
+</p>
+<ol>
+<li>
+  先获取所有分类的信息
+</li>
+<li>
+  根据页码获取到当前页的商品信息(单表查询)
+</li>
+<li>
+  对商品信息进行循环根据分类的id使用第一次查询结果进行替换
+</li>
+</ol>
+<h3>2.5.2、具体代码操作</h3>
+<p>
+  ①修改index方法传递分类信息作为参数
+</p>
+<p><img loading="lazy" decoding="async" width="906" height="599" src="/wp-content/uploads/2018/05/word-image-4187.png" class="wp-image-4661" srcset="/wp-content/uploads/2018/05/word-image-4187.png 906w, /wp-content/uploads/2018/05/word-image-4187-300x198.png 300w, /wp-content/uploads/2018/05/word-image-4187-768x508.png 768w" sizes="(max-width: 906px) 100vw, 906px" /></p>
+<p>
+  ②修改模型下的listData方法
+</p>
+<p><img loading="lazy" decoding="async" width="994" height="674" src="/wp-content/uploads/2018/05/word-image-4188.png" class="wp-image-4662" srcset="/wp-content/uploads/2018/05/word-image-4188.png 994w, /wp-content/uploads/2018/05/word-image-4188-300x203.png 300w, /wp-content/uploads/2018/05/word-image-4188-768x521.png 768w, /wp-content/uploads/2018/05/word-image-4188-220x150.png 220w" sizes="(max-width: 994px) 100vw, 994px" /><br />
+<img loading="lazy" decoding="async" width="1018" height="578" src="/wp-content/uploads/2018/05/word-image-4189.png" class="wp-image-4663" srcset="/wp-content/uploads/2018/05/word-image-4189.png 1018w, /wp-content/uploads/2018/05/word-image-4189-300x170.png 300w, /wp-content/uploads/2018/05/word-image-4189-768x436.png 768w" sizes="(max-width: 1018px) 100vw, 1018px" /></p>
+<h2>2.6、缓存使用(重点)</h2>
+<h3>2.6.1、缓存使用的原理</h3>
+<ol>
+<li>
+  当读取数据时。优先查询缓存系统(文件、内存)中的内容，如果读取到了数据直接使用。如果没有读取到在查询数据库获取数据，然后在将数据写入到缓存系统中
+</li>
+<li>
+  当修改数据时，需要对缓存系统中的内容进行更新或者删除操作
+</li>
+</ol>
+<h3>2.6.2、TP中的S函数使用</h3>
+<p><img loading="lazy" decoding="async" width="1030" height="634" src="/wp-content/uploads/2018/05/word-image-4190.png" class="wp-image-4664" srcset="/wp-content/uploads/2018/05/word-image-4190.png 1030w, /wp-content/uploads/2018/05/word-image-4190-300x185.png 300w, /wp-content/uploads/2018/05/word-image-4190-768x473.png 768w, /wp-content/uploads/2018/05/word-image-4190-1024x630.png 1024w" sizes="(max-width: 1030px) 100vw, 1030px" /></p>
+<h3>2.6.3、在项目中使用S函数</h3>
+<p>
+  ①修改listData方法使用缓存
+</p>
+<p><img loading="lazy" decoding="async" width="1222" height="611" src="/wp-content/uploads/2018/05/word-image-4191.png" class="wp-image-4665" srcset="/wp-content/uploads/2018/05/word-image-4191.png 1222w, /wp-content/uploads/2018/05/word-image-4191-300x150.png 300w, /wp-content/uploads/2018/05/word-image-4191-768x384.png 768w, /wp-content/uploads/2018/05/word-image-4191-1024x512.png 1024w" sizes="(max-width: 1222px) 100vw, 1222px" /></p>
+<p>
+  ②查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="1285" height="482" src="/wp-content/uploads/2018/05/word-image-4192.png" class="wp-image-4666" srcset="/wp-content/uploads/2018/05/word-image-4192.png 1285w, /wp-content/uploads/2018/05/word-image-4192-300x113.png 300w, /wp-content/uploads/2018/05/word-image-4192-768x288.png 768w, /wp-content/uploads/2018/05/word-image-4192-1024x384.png 1024w" sizes="(max-width: 1285px) 100vw, 1285px" /></p>
+<h3>2.6.4、针对所有的分类的使用缓存</h3>
+<p>
+  ①修改getTree方法
+</p>
+<p><img loading="lazy" decoding="async" width="1039" height="681" src="/wp-content/uploads/2018/05/word-image-4193.png" class="wp-image-4667" srcset="/wp-content/uploads/2018/05/word-image-4193.png 1039w, /wp-content/uploads/2018/05/word-image-4193-300x197.png 300w, /wp-content/uploads/2018/05/word-image-4193-768x503.png 768w, /wp-content/uploads/2018/05/word-image-4193-1024x671.png 1024w" sizes="(max-width: 1039px) 100vw, 1039px" /></p>
+<p>
+  ②修改listData方法
+</p>
+<p><img loading="lazy" decoding="async" width="1032" height="646" src="/wp-content/uploads/2018/05/word-image-4194.png" class="wp-image-4668" srcset="/wp-content/uploads/2018/05/word-image-4194.png 1032w, /wp-content/uploads/2018/05/word-image-4194-300x188.png 300w, /wp-content/uploads/2018/05/word-image-4194-768x481.png 768w, /wp-content/uploads/2018/05/word-image-4194-1024x641.png 1024w" sizes="(max-width: 1032px) 100vw, 1032px" /></p>
+<p>
+  ③针对分类的添加对缓存进行更新
+</p>
+<p><img loading="lazy" decoding="async" width="1020" height="714" src="/wp-content/uploads/2018/05/word-image-4195.png" class="wp-image-4669" srcset="/wp-content/uploads/2018/05/word-image-4195.png 1020w, /wp-content/uploads/2018/05/word-image-4195-300x210.png 300w, /wp-content/uploads/2018/05/word-image-4195-768x538.png 768w" sizes="(max-width: 1020px) 100vw, 1020px" /></p>
+<p>
+  ④分类到的修改更新缓存
+</p>
+<p><img loading="lazy" decoding="async" width="952" height="658" src="/wp-content/uploads/2018/05/word-image-4196.png" class="wp-image-4670" srcset="/wp-content/uploads/2018/05/word-image-4196.png 952w, /wp-content/uploads/2018/05/word-image-4196-300x207.png 300w, /wp-content/uploads/2018/05/word-image-4196-768x531.png 768w" sizes="(max-width: 952px) 100vw, 952px" /></p>
+<p>
+  ⑤删除分类更新缓存
+</p>
+<p><img loading="lazy" decoding="async" width="931" height="688" src="/wp-content/uploads/2018/05/word-image-4197.png" class="wp-image-4671" srcset="/wp-content/uploads/2018/05/word-image-4197.png 931w, /wp-content/uploads/2018/05/word-image-4197-300x222.png 300w, /wp-content/uploads/2018/05/word-image-4197-768x568.png 768w" sizes="(max-width: 931px) 100vw, 931px" /></p>
+<h2>2.7、实现状态的点击切换</h2>
+<p>
+  ①修改商品列表的模板
+</p>
+<p><img loading="lazy" decoding="async" width="1284" height="674" src="/wp-content/uploads/2018/05/word-image-4198.png" class="wp-image-4672" srcset="/wp-content/uploads/2018/05/word-image-4198.png 1284w, /wp-content/uploads/2018/05/word-image-4198-300x157.png 300w, /wp-content/uploads/2018/05/word-image-4198-768x403.png 768w, /wp-content/uploads/2018/05/word-image-4198-1024x538.png 1024w" sizes="(max-width: 1284px) 100vw, 1284px" /></p>
+<p>
+  ②增加函数实现ajax
+</p>
+<p><img loading="lazy" decoding="async" width="955" height="676" src="/wp-content/uploads/2018/05/word-image-4199.png" class="wp-image-4673" srcset="/wp-content/uploads/2018/05/word-image-4199.png 955w, /wp-content/uploads/2018/05/word-image-4199-300x212.png 300w, /wp-content/uploads/2018/05/word-image-4199-768x544.png 768w" sizes="(max-width: 955px) 100vw, 955px" /></p>
+<p>
+  ③创建方法处理请求
+</p>
+<p><img loading="lazy" decoding="async" width="1046" height="644" src="/wp-content/uploads/2018/05/word-image-4200.png" class="wp-image-4674" srcset="/wp-content/uploads/2018/05/word-image-4200.png 1046w, /wp-content/uploads/2018/05/word-image-4200-300x185.png 300w, /wp-content/uploads/2018/05/word-image-4200-768x473.png 768w, /wp-content/uploads/2018/05/word-image-4200-1024x630.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /><br />
+<img loading="lazy" decoding="async" width="1048" height="383" src="/wp-content/uploads/2018/05/word-image-4201.png" class="wp-image-4675" srcset="/wp-content/uploads/2018/05/word-image-4201.png 1048w, /wp-content/uploads/2018/05/word-image-4201-300x110.png 300w, /wp-content/uploads/2018/05/word-image-4201-768x281.png 768w, /wp-content/uploads/2018/05/word-image-4201-1024x374.png 1024w" sizes="(max-width: 1048px) 100vw, 1048px" /></p>
+<p>
+  ④修改模板中代码实现图片的切换
+</p>
+<p><img loading="lazy" decoding="async" width="1034" height="683" src="/wp-content/uploads/2018/05/word-image-4202.png" class="wp-image-4676" srcset="/wp-content/uploads/2018/05/word-image-4202.png 1034w, /wp-content/uploads/2018/05/word-image-4202-300x198.png 300w, /wp-content/uploads/2018/05/word-image-4202-768x507.png 768w, /wp-content/uploads/2018/05/word-image-4202-1024x676.png 1024w" sizes="(max-width: 1034px) 100vw, 1034px" /></p>
+<h1>商品删除</h1>
+<p>
+  ①增加删除的连接地址
+</p>
+<p><img loading="lazy" decoding="async" width="1055" height="644" src="/wp-content/uploads/2018/05/word-image-4203.png" class="wp-image-4677" srcset="/wp-content/uploads/2018/05/word-image-4203.png 1055w, /wp-content/uploads/2018/05/word-image-4203-300x183.png 300w, /wp-content/uploads/2018/05/word-image-4203-768x469.png 768w, /wp-content/uploads/2018/05/word-image-4203-1024x625.png 1024w" sizes="(max-width: 1055px) 100vw, 1055px" /></p>
+<p>
+  ②增加方法进行删除
+</p>
+<p><img loading="lazy" decoding="async" width="1016" height="404" src="/wp-content/uploads/2018/05/word-image-4204.png" class="wp-image-4678" srcset="/wp-content/uploads/2018/05/word-image-4204.png 1016w, /wp-content/uploads/2018/05/word-image-4204-300x119.png 300w, /wp-content/uploads/2018/05/word-image-4204-768x305.png 768w" sizes="(max-width: 1016px) 100vw, 1016px" /></p>
+<p>
+  ③修改模板
+</p>
+<p><img loading="lazy" decoding="async" width="1072" height="693" src="/wp-content/uploads/2018/05/word-image-4205.png" class="wp-image-4679" srcset="/wp-content/uploads/2018/05/word-image-4205.png 1072w, /wp-content/uploads/2018/05/word-image-4205-300x194.png 300w, /wp-content/uploads/2018/05/word-image-4205-768x496.png 768w, /wp-content/uploads/2018/05/word-image-4205-1024x662.png 1024w" sizes="(max-width: 1072px) 100vw, 1072px" /></p>
+<p>
+  ④修改Goods模型下的where条件
+</p>
+<p><img loading="lazy" decoding="async" width="1078" height="696" src="/wp-content/uploads/2018/05/word-image-4206.png" class="wp-image-4680" srcset="/wp-content/uploads/2018/05/word-image-4206.png 1078w, /wp-content/uploads/2018/05/word-image-4206-300x194.png 300w, /wp-content/uploads/2018/05/word-image-4206-768x496.png 768w, /wp-content/uploads/2018/05/word-image-4206-1024x661.png 1024w" sizes="(max-width: 1078px) 100vw, 1078px" /></p>
+<p>
+  去掉了上下架的条件
+</p>
+<p>
+  ⑤再次修改模板
+</p>
+<p><img loading="lazy" decoding="async" width="1046" height="697" src="/wp-content/uploads/2018/05/word-image-4207.png" class="wp-image-4681" srcset="/wp-content/uploads/2018/05/word-image-4207.png 1046w, /wp-content/uploads/2018/05/word-image-4207-300x200.png 300w, /wp-content/uploads/2018/05/word-image-4207-768x512.png 768w, /wp-content/uploads/2018/05/word-image-4207-1024x682.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /></p>
+<h1>商品回收站</h1>
+<h2>4.1、商品回收站列表显示</h2>
+<p>
+  ①创建方法
+</p>
+<p><img loading="lazy" decoding="async" width="1003" height="529" src="/wp-content/uploads/2018/05/word-image-4208.png" class="wp-image-4682" srcset="/wp-content/uploads/2018/05/word-image-4208.png 1003w, /wp-content/uploads/2018/05/word-image-4208-300x158.png 300w, /wp-content/uploads/2018/05/word-image-4208-768x405.png 768w" sizes="(max-width: 1003px) 100vw, 1003px" /></p>
+<p>
+  ②修改模型获取数据方法
+</p>
+<p><img loading="lazy" decoding="async" width="1036" height="421" src="/wp-content/uploads/2018/05/word-image-4209.png" class="wp-image-4683" srcset="/wp-content/uploads/2018/05/word-image-4209.png 1036w, /wp-content/uploads/2018/05/word-image-4209-300x122.png 300w, /wp-content/uploads/2018/05/word-image-4209-768x312.png 768w, /wp-content/uploads/2018/05/word-image-4209-1024x416.png 1024w" sizes="(max-width: 1036px) 100vw, 1036px" /></p>
+<p>
+  ③拷贝模板并且修改
+</p>
+<p><img loading="lazy" decoding="async" width="1060" height="615" src="/wp-content/uploads/2018/05/word-image-4210.png" class="wp-image-4684" srcset="/wp-content/uploads/2018/05/word-image-4210.png 1060w, /wp-content/uploads/2018/05/word-image-4210-300x174.png 300w, /wp-content/uploads/2018/05/word-image-4210-768x446.png 768w, /wp-content/uploads/2018/05/word-image-4210-1024x594.png 1024w" sizes="(max-width: 1060px) 100vw, 1060px" /></p>
+<p>
+  在index模板基础上修改操作即可
+</p>
+<h2>4.2、商品的还原功能</h2>
+<p>
+  ①修改回收站商品列表
+</p>
+<p><img loading="lazy" decoding="async" width="1060" height="377" src="/wp-content/uploads/2018/05/word-image-4211.png" class="wp-image-4685" srcset="/wp-content/uploads/2018/05/word-image-4211.png 1060w, /wp-content/uploads/2018/05/word-image-4211-300x107.png 300w, /wp-content/uploads/2018/05/word-image-4211-768x273.png 768w, /wp-content/uploads/2018/05/word-image-4211-1024x364.png 1024w" sizes="(max-width: 1060px) 100vw, 1060px" /></p>
+<p>
+  ②修改dels方法
+</p>
+<p><img loading="lazy" decoding="async" width="1090" height="623" src="/wp-content/uploads/2018/05/word-image-4212.png" class="wp-image-4686" srcset="/wp-content/uploads/2018/05/word-image-4212.png 1090w, /wp-content/uploads/2018/05/word-image-4212-300x171.png 300w, /wp-content/uploads/2018/05/word-image-4212-768x439.png 768w, /wp-content/uploads/2018/05/word-image-4212-1024x585.png 1024w" sizes="(max-width: 1090px) 100vw, 1090px" /></p>
+<h2>4.3、彻底删除</h2>
+<p>
+  ①修改模板对彻底删除增加连接地址
+</p>
+<p><img loading="lazy" decoding="async" width="1049" height="380" src="/wp-content/uploads/2018/05/word-image-4213.png" class="wp-image-4687" srcset="/wp-content/uploads/2018/05/word-image-4213.png 1049w, /wp-content/uploads/2018/05/word-image-4213-300x109.png 300w, /wp-content/uploads/2018/05/word-image-4213-768x278.png 768w, /wp-content/uploads/2018/05/word-image-4213-1024x371.png 1024w" sizes="(max-width: 1049px) 100vw, 1049px" /></p>
+<p>
+  ②添加方法实现删除
+</p>
+<p><img loading="lazy" decoding="async" width="996" height="475" src="/wp-content/uploads/2018/05/word-image-4214.png" class="wp-image-4688" srcset="/wp-content/uploads/2018/05/word-image-4214.png 996w, /wp-content/uploads/2018/05/word-image-4214-300x143.png 300w, /wp-content/uploads/2018/05/word-image-4214-768x366.png 768w" sizes="(max-width: 996px) 100vw, 996px" /></p>
+<p>
+  ③实现模型下的删除方法
+</p>
+<p><img loading="lazy" decoding="async" width="1046" height="702" src="/wp-content/uploads/2018/05/word-image-4215.png" class="wp-image-4689" srcset="/wp-content/uploads/2018/05/word-image-4215.png 1046w, /wp-content/uploads/2018/05/word-image-4215-300x201.png 300w, /wp-content/uploads/2018/05/word-image-4215-768x515.png 768w, /wp-content/uploads/2018/05/word-image-4215-1024x687.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /></p>
+<h1>商品编辑</h1>
+<h2>5.1、显示原始商品信息</h2>
+<p>
+  ①创建方法获取原始数据
+</p>
+<p><img loading="lazy" decoding="async" width="1050" height="674" src="/wp-content/uploads/2018/05/word-image-4216.png" class="wp-image-4690" srcset="/wp-content/uploads/2018/05/word-image-4216.png 1050w, /wp-content/uploads/2018/05/word-image-4216-300x193.png 300w, /wp-content/uploads/2018/05/word-image-4216-768x493.png 768w, /wp-content/uploads/2018/05/word-image-4216-1024x657.png 1024w" sizes="(max-width: 1050px) 100vw, 1050px" /></p>
+<p>
+  ②拷贝添加模板并且修改
+</p>
+<p><img loading="lazy" decoding="async" width="1030" height="653" src="/wp-content/uploads/2018/05/word-image-4217.png" class="wp-image-4691" srcset="/wp-content/uploads/2018/05/word-image-4217.png 1030w, /wp-content/uploads/2018/05/word-image-4217-300x190.png 300w, /wp-content/uploads/2018/05/word-image-4217-768x487.png 768w, /wp-content/uploads/2018/05/word-image-4217-1024x649.png 1024w" sizes="(max-width: 1030px) 100vw, 1030px" /><br />
+<img loading="lazy" decoding="async" width="1052" height="585" src="/wp-content/uploads/2018/05/word-image-4218.png" class="wp-image-4692" srcset="/wp-content/uploads/2018/05/word-image-4218.png 1052w, /wp-content/uploads/2018/05/word-image-4218-300x167.png 300w, /wp-content/uploads/2018/05/word-image-4218-768x427.png 768w, /wp-content/uploads/2018/05/word-image-4218-1024x569.png 1024w" sizes="(max-width: 1052px) 100vw, 1052px" /><br />
+<img loading="lazy" decoding="async" width="1055" height="614" src="/wp-content/uploads/2018/05/word-image-4219.png" class="wp-image-4693" srcset="/wp-content/uploads/2018/05/word-image-4219.png 1055w, /wp-content/uploads/2018/05/word-image-4219-300x175.png 300w, /wp-content/uploads/2018/05/word-image-4219-768x447.png 768w, /wp-content/uploads/2018/05/word-image-4219-1024x596.png 1024w" sizes="(max-width: 1055px) 100vw, 1055px" /><br />
+<img loading="lazy" decoding="async" width="1044" height="571" src="/wp-content/uploads/2018/05/word-image-4220.png" class="wp-image-4694" srcset="/wp-content/uploads/2018/05/word-image-4220.png 1044w, /wp-content/uploads/2018/05/word-image-4220-300x164.png 300w, /wp-content/uploads/2018/05/word-image-4220-768x420.png 768w, /wp-content/uploads/2018/05/word-image-4220-1024x560.png 1024w" sizes="(max-width: 1044px) 100vw, 1044px" /><br />
+<img loading="lazy" decoding="async" width="1043" height="526" src="/wp-content/uploads/2018/05/word-image-4221.png" class="wp-image-4695" srcset="/wp-content/uploads/2018/05/word-image-4221.png 1043w, /wp-content/uploads/2018/05/word-image-4221-300x151.png 300w, /wp-content/uploads/2018/05/word-image-4221-768x387.png 768w, /wp-content/uploads/2018/05/word-image-4221-1024x516.png 1024w" sizes="(max-width: 1043px) 100vw, 1043px" /><br />
+<img loading="lazy" decoding="async" width="1060" height="597" src="/wp-content/uploads/2018/05/word-image-4222.png" class="wp-image-4696" srcset="/wp-content/uploads/2018/05/word-image-4222.png 1060w, /wp-content/uploads/2018/05/word-image-4222-300x169.png 300w, /wp-content/uploads/2018/05/word-image-4222-768x433.png 768w, /wp-content/uploads/2018/05/word-image-4222-1024x577.png 1024w" sizes="(max-width: 1060px) 100vw, 1060px" /><br />
+<img loading="lazy" decoding="async" width="1050" height="314" src="/wp-content/uploads/2018/05/word-image-4223.png" class="wp-image-4697" srcset="/wp-content/uploads/2018/05/word-image-4223.png 1050w, /wp-content/uploads/2018/05/word-image-4223-300x90.png 300w, /wp-content/uploads/2018/05/word-image-4223-768x230.png 768w, /wp-content/uploads/2018/05/word-image-4223-1024x306.png 1024w" sizes="(max-width: 1050px) 100vw, 1050px" /></p>
+<h2>5.2、实现修改入库</h2>
+<p>
+  ①修改编辑的方法处理表单提交
+</p>
+<p><img loading="lazy" decoding="async" width="928" height="597" src="/wp-content/uploads/2018/05/word-image-4224.png" class="wp-image-4698" srcset="/wp-content/uploads/2018/05/word-image-4224.png 928w, /wp-content/uploads/2018/05/word-image-4224-300x193.png 300w, /wp-content/uploads/2018/05/word-image-4224-768x494.png 768w" sizes="(max-width: 928px) 100vw, 928px" /></p>
+<p>
+  ②增加方法实现修改
+</p>
+<p><img loading="lazy" decoding="async" width="1068" height="696" src="/wp-content/uploads/2018/05/word-image-4225.png" class="wp-image-4699" srcset="/wp-content/uploads/2018/05/word-image-4225.png 1068w, /wp-content/uploads/2018/05/word-image-4225-300x196.png 300w, /wp-content/uploads/2018/05/word-image-4225-768x500.png 768w, /wp-content/uploads/2018/05/word-image-4225-1024x667.png 1024w" sizes="(max-width: 1068px) 100vw, 1068px" /><br />
+<img loading="lazy" decoding="async" width="1055" height="197" src="/wp-content/uploads/2018/05/word-image-4226.png" class="wp-image-4700" srcset="/wp-content/uploads/2018/05/word-image-4226.png 1055w, /wp-content/uploads/2018/05/word-image-4226-300x56.png 300w, /wp-content/uploads/2018/05/word-image-4226-768x143.png 768w, /wp-content/uploads/2018/05/word-image-4226-1024x191.png 1024w" sizes="(max-width: 1055px) 100vw, 1055px" /></p>
+<h1>商品类型</h1>
+<h2>6.1、商品类型介绍</h2>
+<p>
+  商品归属于某一个分类。通过分类可以方便用户在前台界面中对商品进行筛选。当描述商品信息时，需要将商品的具体信息表述出。例如手机又cpu、内存、存储大小，衣服有颜色，尺码。对于要描述的内容可以称为属性。
+</p>
+<p>
+  为了描述出属性信息，可以在商品表中使用字段记录对应的信息。如果使用此方式会导致数据表特别庞大并且有很多字段时无用的。
+</p>
+<p>
+  因此可以将属性信息保存到一格单独的数据表中(每一条记录就是一个属性)。如果只有商品表跟属性表还不能完整的描述出商品信息
+</p>
+<p>
+  因此可以对属性做一个归类。归类及抽象一个类型出来。一个商品属于某一个类型就可以使用类型下对应的属性对商品进行描述
+</p>
+<p>
+  注意：类型只是在后台中使用，目的是为了方便管理属性
+</p>
+<h2>6.2、创建类型数据表</h2>
+<p>
+  CREATE TABLE `shop_type` (
+</p>
+<p>
+    `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+</p>
+<p>
+    `type_name` varchar(255) NOT NULL DEFAULT &#8221; COMMENT &#8216;类型名称&#8217;,
+</p>
+<p>
+    PRIMARY KEY (`id`)
+</p>
+<p>
+  ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+</p>
+<h2>6.3、类型的添加与修改</h2>
+<p>
+  ①控制中实现根据添加与修改时显示模板
+</p>
+<p><img loading="lazy" decoding="async" width="939" height="681" src="/wp-content/uploads/2018/05/word-image-4227.png" class="wp-image-4701" srcset="/wp-content/uploads/2018/05/word-image-4227.png 939w, /wp-content/uploads/2018/05/word-image-4227-300x218.png 300w, /wp-content/uploads/2018/05/word-image-4227-768x557.png 768w" sizes="(max-width: 939px) 100vw, 939px" /></p>
+<p>
+  ②模板中展示出数据
+</p>
+<p><img loading="lazy" decoding="async" width="1044" height="613" src="/wp-content/uploads/2018/05/word-image-4228.png" class="wp-image-4702" srcset="/wp-content/uploads/2018/05/word-image-4228.png 1044w, /wp-content/uploads/2018/05/word-image-4228-300x176.png 300w, /wp-content/uploads/2018/05/word-image-4228-768x451.png 768w, /wp-content/uploads/2018/05/word-image-4228-1024x601.png 1024w" sizes="(max-width: 1044px) 100vw, 1044px" /></p>
+<p>
+  ③创建自定义模型
+</p>
+<p><img loading="lazy" decoding="async" width="977" height="619" src="/wp-content/uploads/2018/05/word-image-4229.png" class="wp-image-4703" srcset="/wp-content/uploads/2018/05/word-image-4229.png 977w, /wp-content/uploads/2018/05/word-image-4229-300x190.png 300w, /wp-content/uploads/2018/05/word-image-4229-768x487.png 768w" sizes="(max-width: 977px) 100vw, 977px" /></p>
+<p>
+  ④实现数据的入库
+</p>
+<p><img loading="lazy" decoding="async" width="956" height="690" src="/wp-content/uploads/2018/05/word-image-4230.png" class="wp-image-4704" srcset="/wp-content/uploads/2018/05/word-image-4230.png 956w, /wp-content/uploads/2018/05/word-image-4230-300x217.png 300w, /wp-content/uploads/2018/05/word-image-4230-768x554.png 768w" sizes="(max-width: 956px) 100vw, 956px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/4627.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

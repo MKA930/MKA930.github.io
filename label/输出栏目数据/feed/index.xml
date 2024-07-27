@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>输出栏目数据 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E8%BE%93%E5%87%BA%E6%A0%8F%E7%9B%AE%E6%95%B0%E6%8D%AE/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 16:43:22 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>输出栏目数据 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>DedeCMS二次开发（二）完成电影评分榜、输出栏目数据、制作头部文件、制作栏目模板页</title>
+		<link>/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91/6405.html</link>
+					<comments>/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91/6405.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 16:43:22 +0000</pubDate>
+				<category><![CDATA[DedeCMS]]></category>
+		<category><![CDATA[二次开发]]></category>
+		<category><![CDATA[制作头部文件]]></category>
+		<category><![CDATA[制作栏目模板页]]></category>
+		<category><![CDATA[完成电影评分榜]]></category>
+		<category><![CDATA[输出栏目数据]]></category>
+		<guid isPermaLink="false">/?p=6405</guid>
+
+					<description><![CDATA[dedecms第二天 取出最新更新电影数据 页面数据的分析: 这里面需要有图片,标题,评分值还有评分的星星.  [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p><a id="post-6405-_dedecms___"></a><a id="post-6405-_Toc256000000"></a><br />
+  dedecms第二天
+</p>
+<h1><a id="post-6405-___________"></a><a id="post-6405-_Toc256000002"></a>取出最新更新电影数据</h1>
+<p>
+  页面数据的分析:
+</p>
+<p><img fetchpriority="high" decoding="async" width="735" height="350" src="/wp-content/uploads/2018/05/word-image-5838.png" class="wp-image-6406" srcset="/wp-content/uploads/2018/05/word-image-5838.png 735w, /wp-content/uploads/2018/05/word-image-5838-300x143.png 300w" sizes="(max-width: 735px) 100vw, 735px" /></p>
+<p>
+  这里面需要有图片,标题,评分值还有评分的星星.
+</p>
+<p>
+  使用标签取出我们的数据:
+</p>
+<p>
+   这个地方我们需要使用arclist标签,取出四个电影数据
+</p>
+<p><img decoding="async" width="1343" height="507" src="/wp-content/uploads/2018/05/word-image-5839.png" class="wp-image-6407" srcset="/wp-content/uploads/2018/05/word-image-5839.png 1343w, /wp-content/uploads/2018/05/word-image-5839-300x113.png 300w, /wp-content/uploads/2018/05/word-image-5839-768x290.png 768w, /wp-content/uploads/2018/05/word-image-5839-1024x387.png 1024w" sizes="(max-width: 1343px) 100vw, 1343px" /></p>
+<p>
+  在dede的标签中实现自增的效果
+</p>
+<p>
+  [field:global.autoindex /]  这个可以实现自增,从1开始 相当于$i+
+</p>
+<p>
+  dede中调用自定函数的写法:
+</p>
+<p>
+  [field:pfz function=”getStar(@me)” /] 这里的@me表示传值的意思
+</p>
+<p>
+  重点:评分的星星的实现:
+</p>
+<p>
+  思路:因为我们设置的总分是10分,一个星星表示两分.那么总的应该输出5个星星.我们评分的值除以2,得出金星星的个数,然后使用5减去金星星的个数,就可以得出灰星星的个数.
+</p>
+<p>
+  注意:实现评分星星个数的函数要写在include/extend.func.php文件中
+</p>
+<p><img decoding="async" width="988" height="535" src="/wp-content/uploads/2018/05/word-image-5840.png" class="wp-image-6408" srcset="/wp-content/uploads/2018/05/word-image-5840.png 988w, /wp-content/uploads/2018/05/word-image-5840-300x162.png 300w, /wp-content/uploads/2018/05/word-image-5840-768x416.png 768w" sizes="(max-width: 988px) 100vw, 988px" /></p>
+<p>
+  效果如下所示:
+</p>
+<p><img loading="lazy" decoding="async" width="733" height="260" src="/wp-content/uploads/2018/05/word-image-5841.png" class="wp-image-6409" srcset="/wp-content/uploads/2018/05/word-image-5841.png 733w, /wp-content/uploads/2018/05/word-image-5841-300x106.png 300w" sizes="(max-width: 733px) 100vw, 733px" /></p>
+<h1><a id="post-6405-________"></a><a id="post-6405-_Toc256000003"></a>完成电影评分榜</h1>
+<p><img loading="lazy" decoding="async" width="284" height="466" src="/wp-content/uploads/2018/05/word-image-5842.png" class="wp-image-6410" srcset="/wp-content/uploads/2018/05/word-image-5842.png 284w, /wp-content/uploads/2018/05/word-image-5842-183x300.png 183w" sizes="(max-width: 284px) 100vw, 284px" /></p>
+<p>
+  实现的效果如上所示:分析
+</p>
+<p>
+  前三个的排序号,要实现变色.评分中要从高到底进行排列.
+</p>
+<p>
+  取出的字段包含:电影名称,评分值
+</p>
+<p>
+  	a 分析index.html中原来代码的规律
+</p>
+<p><img loading="lazy" decoding="async" width="898" height="196" src="/wp-content/uploads/2018/05/word-image-5843.png" class="wp-image-6411" srcset="/wp-content/uploads/2018/05/word-image-5843.png 898w, /wp-content/uploads/2018/05/word-image-5843-300x65.png 300w, /wp-content/uploads/2018/05/word-image-5843-768x168.png 768w" sizes="(max-width: 898px) 100vw, 898px" /></p>
+<p>
+  b 在页面中使用arclist取出电影的数据,并且实现他们的排序:
+</p>
+<p><img loading="lazy" decoding="async" width="1227" height="481" src="/wp-content/uploads/2018/05/word-image-5844.png" class="wp-image-6412" srcset="/wp-content/uploads/2018/05/word-image-5844.png 1227w, /wp-content/uploads/2018/05/word-image-5844-300x118.png 300w, /wp-content/uploads/2018/05/word-image-5844-768x301.png 768w, /wp-content/uploads/2018/05/word-image-5844-1024x401.png 1024w" sizes="(max-width: 1227px) 100vw, 1227px" /></p>
+<p>
+  实现的页面效果如下所示:
+</p>
+<p><img loading="lazy" decoding="async" width="334" height="256" src="/wp-content/uploads/2018/05/word-image-5845.png" class="wp-image-6413" srcset="/wp-content/uploads/2018/05/word-image-5845.png 334w, /wp-content/uploads/2018/05/word-image-5845-300x230.png 300w" sizes="(max-width: 334px) 100vw, 334px" /></p>
+<p>
+  多学一招:在得的标签中让原生的php代码生效的写法:
+</p>
+<p>
+  语法：
+</p>
+<p>
+  [field:字段名称 runphp=”yes”]
+</p>
+<p>
+     if(@me){
+</p>
+<p>
+  			//具体的代码
+</p>
+<p>
+     }
+</p>
+<p>
+  [/field:字段名称]
+</p>
+<p>
+  注意：runphp=”yes”属性是指，当前字段标签里面要使用业务逻辑。
+</p>
+<p>
+  实现排序并加上自定义样式的完整代码
+</p>
+<p>
+  实现页面排序效果的代码
+</p>
+<p><img loading="lazy" decoding="async" width="755" height="285" src="/wp-content/uploads/2018/05/word-image-5846.png" class="wp-image-6414" srcset="/wp-content/uploads/2018/05/word-image-5846.png 755w, /wp-content/uploads/2018/05/word-image-5846-300x113.png 300w" sizes="(max-width: 755px) 100vw, 755px" /></p>
+<p>
+  实现的效果如下:
+</p>
+<p><img loading="lazy" decoding="async" width="189" height="121" src="/wp-content/uploads/2018/05/word-image-5847.png" class="wp-image-6415" /></p>
+<h2><a id="post-6405-______"></a><a id="post-6405-_Toc256000004"></a>自定义排序</h2>
+<p>
+  因为我们要排序的话,肯定是根据评分值进行排序的,所以我们要在adonmovie这个附加表中,实现其排序.
+</p>
+<p>
+  打印出arclist标签的sql解析语句:
+</p>
+<p><img loading="lazy" decoding="async" width="1013" height="242" src="/wp-content/uploads/2018/05/word-image-5848.png" class="wp-image-6416" srcset="/wp-content/uploads/2018/05/word-image-5848.png 1013w, /wp-content/uploads/2018/05/word-image-5848-300x72.png 300w, /wp-content/uploads/2018/05/word-image-5848-768x183.png 768w" sizes="(max-width: 1013px) 100vw, 1013px" /><br />
+<img loading="lazy" decoding="async" width="848" height="232" src="/wp-content/uploads/2018/05/word-image-5849.png" class="wp-image-6417" srcset="/wp-content/uploads/2018/05/word-image-5849.png 848w, /wp-content/uploads/2018/05/word-image-5849-300x82.png 300w, /wp-content/uploads/2018/05/word-image-5849-768x210.png 768w" sizes="(max-width: 848px) 100vw, 848px" /><br />
+<img loading="lazy" decoding="async" width="1475" height="170" src="/wp-content/uploads/2018/05/word-image-5850.png" class="wp-image-6418" srcset="/wp-content/uploads/2018/05/word-image-5850.png 1475w, /wp-content/uploads/2018/05/word-image-5850-300x35.png 300w, /wp-content/uploads/2018/05/word-image-5850-768x89.png 768w, /wp-content/uploads/2018/05/word-image-5850-1024x118.png 1024w" sizes="(max-width: 1475px) 100vw, 1475px" /></p>
+<p>
+  这个sql语句中虽然连了addonmovie这个表,但是呢并没有根据pfz进行排序的规则.
+</p>
+<p>
+  从sql语句中可以知道,addonmovie这个表的别名是addf.
+</p>
+<p>
+  在arclist的文件中,添加一段代码,实现按照评分值的排序
+</p>
+<p><img loading="lazy" decoding="async" width="1132" height="228" src="/wp-content/uploads/2018/05/word-image-5851.png" class="wp-image-6419" srcset="/wp-content/uploads/2018/05/word-image-5851.png 1132w, /wp-content/uploads/2018/05/word-image-5851-300x60.png 300w, /wp-content/uploads/2018/05/word-image-5851-768x155.png 768w, /wp-content/uploads/2018/05/word-image-5851-1024x206.png 1024w" sizes="(max-width: 1132px) 100vw, 1132px" /></p>
+<p>
+  添加评分排序之后的sql语句,注意调用的时候要写上排序的条件:
+</p>
+<p><img loading="lazy" decoding="async" width="1226" height="196" src="/wp-content/uploads/2018/05/word-image-5852.png" class="wp-image-6420" srcset="/wp-content/uploads/2018/05/word-image-5852.png 1226w, /wp-content/uploads/2018/05/word-image-5852-300x48.png 300w, /wp-content/uploads/2018/05/word-image-5852-768x123.png 768w, /wp-content/uploads/2018/05/word-image-5852-1024x164.png 1024w" sizes="(max-width: 1226px) 100vw, 1226px" /></p>
+<p>
+  打印的sql语句如下所示:
+</p>
+<p><img loading="lazy" decoding="async" width="1349" height="244" src="/wp-content/uploads/2018/05/word-image-5853.png" class="wp-image-6421" srcset="/wp-content/uploads/2018/05/word-image-5853.png 1349w, /wp-content/uploads/2018/05/word-image-5853-300x54.png 300w, /wp-content/uploads/2018/05/word-image-5853-768x139.png 768w, /wp-content/uploads/2018/05/word-image-5853-1024x185.png 1024w" sizes="(max-width: 1349px) 100vw, 1349px" /></p>
+<p><a id="post-6405-_______________"></a>
+</p>
+<h1><a id="post-6405-____________"></a><a id="post-6405-_Toc256000006"></a>输出栏目以及栏目下数据</h1>
+<p>
+  对页面效果的分析:
+</p>
+<p><img loading="lazy" decoding="async" width="730" height="176" src="/wp-content/uploads/2018/05/word-image-5854.png" class="wp-image-6422" srcset="/wp-content/uploads/2018/05/word-image-5854.png 730w, /wp-content/uploads/2018/05/word-image-5854-300x72.png 300w" sizes="(max-width: 730px) 100vw, 730px" /></p>
+<h2><a id="post-6405-_channelartlist________"></a><a id="post-6405-_Toc256000007"></a>channelartlist标签实现循环嵌套</h2>
+<p>
+  语法格式：
+</p>
+<p>
+  {dede:channelartlist}
+</p>
+<p>
+  		<strong>{dede:field name=’字段名称’/}</strong>//第一层循环输出的内容
+</p>
+<p>
+  		{dede:channel|arclist }
+</p>
+<p>
+  				[field:字段名称]
+</p>
+<p>
+  		{/dede:channel|arclist}
+</p>
+<p>
+  {/dede:channelartlist}
+</p>
+<p>
+  channelartlist标签可以实现循环嵌套效果，一般情况和channel标签或者arclist标签配合使用
+</p>
+<p>
+  案例：将当前电影网站的顶级栏目以及其子栏目循环遍历出来。这里的typeid对应arctype栏目表中reid
+</p>
+<p>
+  a 直接在html页面中循环取出我们需要的数据
+</p>
+<p><img loading="lazy" decoding="async" width="916" height="546" src="/wp-content/uploads/2018/05/word-image-5855.png" class="wp-image-6423" srcset="/wp-content/uploads/2018/05/word-image-5855.png 916w, /wp-content/uploads/2018/05/word-image-5855-300x179.png 300w, /wp-content/uploads/2018/05/word-image-5855-768x458.png 768w" sizes="(max-width: 916px) 100vw, 916px" /></p>
+<p>
+  b 展示的效果如下所示:
+</p>
+<p><img loading="lazy" decoding="async" width="682" height="171" src="/wp-content/uploads/2018/05/word-image-5856.png" class="wp-image-6424" srcset="/wp-content/uploads/2018/05/word-image-5856.png 682w, /wp-content/uploads/2018/05/word-image-5856-300x75.png 300w" sizes="(max-width: 682px) 100vw, 682px" /></p>
+<h1><a id="post-6405-____________2"></a><a id="post-6405-_Toc256000008"></a>单独制作一个头部文件</h1>
+<p>
+  需求:我们需要将所有的页面的公共部分,制作成为一个公用的头部,这样我们在使用的时候直接引入即可
+</p>
+<p><img loading="lazy" decoding="async" width="1418" height="368" src="/wp-content/uploads/2018/05/word-image-5857.png" class="wp-image-6425" srcset="/wp-content/uploads/2018/05/word-image-5857.png 1418w, /wp-content/uploads/2018/05/word-image-5857-300x78.png 300w, /wp-content/uploads/2018/05/word-image-5857-768x199.png 768w, /wp-content/uploads/2018/05/word-image-5857-1024x266.png 1024w" sizes="(max-width: 1418px) 100vw, 1418px" /></p>
+<p>
+  a 在tmplets/a67下眠声明一个header.html文件
+</p>
+<p><img loading="lazy" decoding="async" width="839" height="287" src="/wp-content/uploads/2018/05/word-image-5858.png" class="wp-image-6426" srcset="/wp-content/uploads/2018/05/word-image-5858.png 839w, /wp-content/uploads/2018/05/word-image-5858-300x103.png 300w, /wp-content/uploads/2018/05/word-image-5858-768x263.png 768w" sizes="(max-width: 839px) 100vw, 839px" /></p>
+<p>
+  b 从index.html中拿到公共页面的html代码,放在header中
+</p>
+<p>
+  公共代码开始的位置
+</p>
+<p><img loading="lazy" decoding="async" width="423" height="173" src="/wp-content/uploads/2018/05/word-image-5859.png" class="wp-image-6427" srcset="/wp-content/uploads/2018/05/word-image-5859.png 423w, /wp-content/uploads/2018/05/word-image-5859-300x123.png 300w" sizes="(max-width: 423px) 100vw, 423px" /></p>
+<p>
+  公共代码结束的位置
+</p>
+<p><img loading="lazy" decoding="async" width="646" height="181" src="/wp-content/uploads/2018/05/word-image-5860.png" class="wp-image-6428" srcset="/wp-content/uploads/2018/05/word-image-5860.png 646w, /wp-content/uploads/2018/05/word-image-5860-300x84.png 300w" sizes="(max-width: 646px) 100vw, 646px" /></p>
+<p>
+  c 在index.html中使用include进行引入:
+</p>
+<p>
+  {dede:include filename=”header.html” /}
+</p>
+<p><img loading="lazy" decoding="async" width="952" height="273" src="/wp-content/uploads/2018/05/word-image-5861.png" class="wp-image-6429" srcset="/wp-content/uploads/2018/05/word-image-5861.png 952w, /wp-content/uploads/2018/05/word-image-5861-300x86.png 300w, /wp-content/uploads/2018/05/word-image-5861-768x220.png 768w" sizes="(max-width: 952px) 100vw, 952px" /></p>
+<p>
+  结果如下所示:
+</p>
+<p><img loading="lazy" decoding="async" width="1344" height="231" src="/wp-content/uploads/2018/05/word-image-5862.png" class="wp-image-6430" srcset="/wp-content/uploads/2018/05/word-image-5862.png 1344w, /wp-content/uploads/2018/05/word-image-5862-300x52.png 300w, /wp-content/uploads/2018/05/word-image-5862-768x132.png 768w, /wp-content/uploads/2018/05/word-image-5862-1024x176.png 1024w" sizes="(max-width: 1344px) 100vw, 1344px" /></p>
+<h1><a id="post-6405-_____________2"></a><a id="post-6405-_Toc256000009"></a>完成栏目模板页面的制作</h1>
+<p>
+  需求:当点击首页的栏目时,直接跳转到栏目的列表页:
+</p>
+<p><img loading="lazy" decoding="async" width="1174" height="270" src="/wp-content/uploads/2018/05/word-image-5863.png" class="wp-image-6431" srcset="/wp-content/uploads/2018/05/word-image-5863.png 1174w, /wp-content/uploads/2018/05/word-image-5863-300x69.png 300w, /wp-content/uploads/2018/05/word-image-5863-768x177.png 768w, /wp-content/uploads/2018/05/word-image-5863-1024x236.png 1024w" sizes="(max-width: 1174px) 100vw, 1174px" /></p>
+<h2><a id="post-6405-__________"></a><a id="post-6405-_Toc256000010"></a>制作栏目的模板文件</h2>
+<p>
+  将我们模板页面中电影列表页修改为list_movie.htm
+</p>
+<p><img loading="lazy" decoding="async" width="795" height="270" src="/wp-content/uploads/2018/05/word-image-5864.png" class="wp-image-6432" srcset="/wp-content/uploads/2018/05/word-image-5864.png 795w, /wp-content/uploads/2018/05/word-image-5864-300x102.png 300w, /wp-content/uploads/2018/05/word-image-5864-768x261.png 768w" sizes="(max-width: 795px) 100vw, 795px" /></p>
+<p>
+  要在后台更新栏目页面的地址:
+</p>
+<p><img loading="lazy" decoding="async" width="1846" height="493" src="/wp-content/uploads/2018/05/word-image-5865.png" class="wp-image-6433" srcset="/wp-content/uploads/2018/05/word-image-5865.png 1846w, /wp-content/uploads/2018/05/word-image-5865-300x80.png 300w, /wp-content/uploads/2018/05/word-image-5865-768x205.png 768w, /wp-content/uploads/2018/05/word-image-5865-1024x273.png 1024w" sizes="(max-width: 1846px) 100vw, 1846px" /><br />
+<img loading="lazy" decoding="async" width="728" height="288" src="/wp-content/uploads/2018/05/word-image-5866.png" class="wp-image-6434" srcset="/wp-content/uploads/2018/05/word-image-5866.png 728w, /wp-content/uploads/2018/05/word-image-5866-300x119.png 300w" sizes="(max-width: 728px) 100vw, 728px" /></p>
+<p>
+  使用后台生成列表页文件
+</p>
+<p><img loading="lazy" decoding="async" width="1305" height="381" src="/wp-content/uploads/2018/05/word-image-5867.png" class="wp-image-6435" srcset="/wp-content/uploads/2018/05/word-image-5867.png 1305w, /wp-content/uploads/2018/05/word-image-5867-300x88.png 300w, /wp-content/uploads/2018/05/word-image-5867-768x224.png 768w, /wp-content/uploads/2018/05/word-image-5867-1024x299.png 1024w" sizes="(max-width: 1305px) 100vw, 1305px" /></p>
+<p>
+  栏目更新完成:
+</p>
+<p><img loading="lazy" decoding="async" width="1331" height="489" src="/wp-content/uploads/2018/05/word-image-5868.png" class="wp-image-6436" srcset="/wp-content/uploads/2018/05/word-image-5868.png 1331w, /wp-content/uploads/2018/05/word-image-5868-300x110.png 300w, /wp-content/uploads/2018/05/word-image-5868-768x282.png 768w, /wp-content/uploads/2018/05/word-image-5868-1024x376.png 1024w" sizes="(max-width: 1331px) 100vw, 1331px" /></p>
+<p>
+  当我们再次点击首页的栏目时,出现的效果如下:
+</p>
+<p><img loading="lazy" decoding="async" width="720" height="178" src="/wp-content/uploads/2018/05/word-image-5869.png" class="wp-image-6437" srcset="/wp-content/uploads/2018/05/word-image-5869.png 720w, /wp-content/uploads/2018/05/word-image-5869-300x74.png 300w" sizes="(max-width: 720px) 100vw, 720px" /></p>
+<p>
+  点击之后就可以跳转到我的电影下面
+</p>
+<p><img loading="lazy" decoding="async" width="869" height="490" src="/wp-content/uploads/2018/05/word-image-5870.png" class="wp-image-6438" srcset="/wp-content/uploads/2018/05/word-image-5870.png 869w, /wp-content/uploads/2018/05/word-image-5870-300x169.png 300w, /wp-content/uploads/2018/05/word-image-5870-768x433.png 768w" sizes="(max-width: 869px) 100vw, 869px" /></p>
+<p>
+  引入样式文件
+</p>
+<p><img loading="lazy" decoding="async" width="1071" height="246" src="/wp-content/uploads/2018/05/word-image-5871.png" class="wp-image-6439" srcset="/wp-content/uploads/2018/05/word-image-5871.png 1071w, /wp-content/uploads/2018/05/word-image-5871-300x69.png 300w, /wp-content/uploads/2018/05/word-image-5871-768x176.png 768w, /wp-content/uploads/2018/05/word-image-5871-1024x235.png 1024w" sizes="(max-width: 1071px) 100vw, 1071px" /></p>
+<p>
+  脚下留心:这里的页面修改完成之后.一定要进行后台的更新才可以查看到效果.
+</p>
+<p><img loading="lazy" decoding="async" width="1094" height="206" src="/wp-content/uploads/2018/05/word-image-5872.png" class="wp-image-6440" srcset="/wp-content/uploads/2018/05/word-image-5872.png 1094w, /wp-content/uploads/2018/05/word-image-5872-300x56.png 300w, /wp-content/uploads/2018/05/word-image-5872-768x145.png 768w, /wp-content/uploads/2018/05/word-image-5872-1024x193.png 1024w" sizes="(max-width: 1094px) 100vw, 1094px" /></p>
+<p>
+  最终效果：
+</p>
+<p><img loading="lazy" decoding="async" width="1211" height="453" src="/wp-content/uploads/2018/05/word-image-5873.png" class="wp-image-6441" srcset="/wp-content/uploads/2018/05/word-image-5873.png 1211w, /wp-content/uploads/2018/05/word-image-5873-300x112.png 300w, /wp-content/uploads/2018/05/word-image-5873-768x287.png 768w, /wp-content/uploads/2018/05/word-image-5873-1024x383.png 1024w" sizes="(max-width: 1211px) 100vw, 1211px" /></p>
+<p><a id="post-6405-_________"></a>
+</p>
+<h1><a id="post-6405-_________________"></a><a id="post-6405-_Toc256000012"></a>在栏目页面取出所属当前栏目的电影</h1>
+<p><img loading="lazy" decoding="async" width="1032" height="241" src="/wp-content/uploads/2018/05/word-image-5874.png" class="wp-image-6442" srcset="/wp-content/uploads/2018/05/word-image-5874.png 1032w, /wp-content/uploads/2018/05/word-image-5874-300x70.png 300w, /wp-content/uploads/2018/05/word-image-5874-768x179.png 768w, /wp-content/uploads/2018/05/word-image-5874-1024x239.png 1024w" sizes="(max-width: 1032px) 100vw, 1032px" /></p>
+<p>
+  这个地方需要取出当前栏目下的电影,所以需要使用arclist标签即可
+</p>
+<p>
+  观察list_movie.html的结构
+</p>
+<p><img loading="lazy" decoding="async" width="1046" height="393" src="/wp-content/uploads/2018/05/word-image-5875.png" class="wp-image-6443" srcset="/wp-content/uploads/2018/05/word-image-5875.png 1046w, /wp-content/uploads/2018/05/word-image-5875-300x113.png 300w, /wp-content/uploads/2018/05/word-image-5875-768x289.png 768w, /wp-content/uploads/2018/05/word-image-5875-1024x385.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /></p>
+<p>
+  在代码中添加标签,获取到相应的电影数据
+</p>
+<p><img loading="lazy" decoding="async" width="1141" height="436" src="/wp-content/uploads/2018/05/word-image-5876.png" class="wp-image-6444" srcset="/wp-content/uploads/2018/05/word-image-5876.png 1141w, /wp-content/uploads/2018/05/word-image-5876-300x115.png 300w, /wp-content/uploads/2018/05/word-image-5876-768x293.png 768w, /wp-content/uploads/2018/05/word-image-5876-1024x391.png 1024w" sizes="(max-width: 1141px) 100vw, 1141px" /></p>
+<p>
+  当我们标签定义完成之后,一定要在后台重新生成栏目列表页面,才可以看到效果.
+</p>
+<p><img loading="lazy" decoding="async" width="1392" height="369" src="/wp-content/uploads/2018/05/word-image-5877.png" class="wp-image-6445" srcset="/wp-content/uploads/2018/05/word-image-5877.png 1392w, /wp-content/uploads/2018/05/word-image-5877-300x80.png 300w, /wp-content/uploads/2018/05/word-image-5877-768x204.png 768w, /wp-content/uploads/2018/05/word-image-5877-1024x271.png 1024w" sizes="(max-width: 1392px) 100vw, 1392px" /></p>
+<p>
+  最终效果：
+</p>
+<p><img loading="lazy" decoding="async" width="881" height="369" src="/wp-content/uploads/2018/05/word-image-5878.png" class="wp-image-6446" srcset="/wp-content/uploads/2018/05/word-image-5878.png 881w, /wp-content/uploads/2018/05/word-image-5878-300x126.png 300w, /wp-content/uploads/2018/05/word-image-5878-768x322.png 768w" sizes="(max-width: 881px) 100vw, 881px" /></p>
+<h1><a id="post-6405-________________2"></a><a id="post-6405-_Toc256000013"></a>在栏目模板中取出‘大陆’电影</h1>
+<p>
+  在页面中的显示位置:
+</p>
+<p><img loading="lazy" decoding="async" width="1030" height="223" src="/wp-content/uploads/2018/05/word-image-5879.png" class="wp-image-6447" srcset="/wp-content/uploads/2018/05/word-image-5879.png 1030w, /wp-content/uploads/2018/05/word-image-5879-300x65.png 300w, /wp-content/uploads/2018/05/word-image-5879-768x166.png 768w, /wp-content/uploads/2018/05/word-image-5879-1024x222.png 1024w" sizes="(max-width: 1030px) 100vw, 1030px" /></p>
+<p>
+  分析:如果我们要取出大陆电影,那么他的sql语句的where条件一定是把地区当做筛选条件的.
+</p>
+<p><img loading="lazy" decoding="async" width="1171" height="406" src="/wp-content/uploads/2018/05/word-image-5880.png" class="wp-image-6448" srcset="/wp-content/uploads/2018/05/word-image-5880.png 1171w, /wp-content/uploads/2018/05/word-image-5880-300x104.png 300w, /wp-content/uploads/2018/05/word-image-5880-768x266.png 768w, /wp-content/uploads/2018/05/word-image-5880-1024x355.png 1024w" sizes="(max-width: 1171px) 100vw, 1171px" /><br />
+<img loading="lazy" decoding="async" width="1589" height="234" src="/wp-content/uploads/2018/05/word-image-5881.png" class="wp-image-6449" srcset="/wp-content/uploads/2018/05/word-image-5881.png 1589w, /wp-content/uploads/2018/05/word-image-5881-300x44.png 300w, /wp-content/uploads/2018/05/word-image-5881-768x113.png 768w, /wp-content/uploads/2018/05/word-image-5881-1024x151.png 1024w" sizes="(max-width: 1589px) 100vw, 1589px" /></p>
+<p>
+  默认的情况下,arclist标签在解析的时候,是不会把addf.diqu=’大陆’ 这个条件加进sql语句中的.所以我们要人为的进行添加.
+</p>
+<p>
+  在arclist.lib.php中把where条件拼接上.
+</p>
+<p><img loading="lazy" decoding="async" width="860" height="408" src="/wp-content/uploads/2018/05/word-image-5882.png" class="wp-image-6450" srcset="/wp-content/uploads/2018/05/word-image-5882.png 860w, /wp-content/uploads/2018/05/word-image-5882-300x142.png 300w, /wp-content/uploads/2018/05/word-image-5882-768x364.png 768w" sizes="(max-width: 860px) 100vw, 860px" /></p>
+<p>
+  a 将where条件从list_movie.html页面传递到arclist.lib.php中
+</p>
+<p><img loading="lazy" decoding="async" width="980" height="176" src="/wp-content/uploads/2018/05/word-image-5883.png" class="wp-image-6451" srcset="/wp-content/uploads/2018/05/word-image-5883.png 980w, /wp-content/uploads/2018/05/word-image-5883-300x54.png 300w, /wp-content/uploads/2018/05/word-image-5883-768x138.png 768w" sizes="(max-width: 980px) 100vw, 980px" /><br />
+<img loading="lazy" decoding="async" width="810" height="179" src="/wp-content/uploads/2018/05/word-image-5884.png" class="wp-image-6452" srcset="/wp-content/uploads/2018/05/word-image-5884.png 810w, /wp-content/uploads/2018/05/word-image-5884-300x66.png 300w, /wp-content/uploads/2018/05/word-image-5884-768x170.png 768w" sizes="(max-width: 810px) 100vw, 810px" /></p>
+<p>
+  打印的结果如下:
+</p>
+<p><img loading="lazy" decoding="async" width="681" height="134" src="/wp-content/uploads/2018/05/word-image-5885.png" class="wp-image-6453" srcset="/wp-content/uploads/2018/05/word-image-5885.png 681w, /wp-content/uploads/2018/05/word-image-5885-300x59.png 300w" sizes="(max-width: 681px) 100vw, 681px" /></p>
+<p>
+  b 将接受到的where条件到底拼接到sql&#8217;中
+</p>
+<p><img loading="lazy" decoding="async" width="978" height="465" src="/wp-content/uploads/2018/05/word-image-5886.png" class="wp-image-6454" srcset="/wp-content/uploads/2018/05/word-image-5886.png 978w, /wp-content/uploads/2018/05/word-image-5886-300x143.png 300w, /wp-content/uploads/2018/05/word-image-5886-768x365.png 768w" sizes="(max-width: 978px) 100vw, 978px" /></p>
+<p>
+  最终打印出来的sql语句如下所示:
+</p>
+<p><img loading="lazy" decoding="async" width="1664" height="267" src="/wp-content/uploads/2018/05/word-image-5887.png" class="wp-image-6455" srcset="/wp-content/uploads/2018/05/word-image-5887.png 1664w, /wp-content/uploads/2018/05/word-image-5887-300x48.png 300w, /wp-content/uploads/2018/05/word-image-5887-768x123.png 768w, /wp-content/uploads/2018/05/word-image-5887-1024x164.png 1024w" sizes="(max-width: 1664px) 100vw, 1664px" /></p>
+<p>
+  最终实现效果的代码
+</p>
+<p><img loading="lazy" decoding="async" width="1164" height="349" src="/wp-content/uploads/2018/05/word-image-5888.png" class="wp-image-6456" srcset="/wp-content/uploads/2018/05/word-image-5888.png 1164w, /wp-content/uploads/2018/05/word-image-5888-300x90.png 300w, /wp-content/uploads/2018/05/word-image-5888-768x230.png 768w, /wp-content/uploads/2018/05/word-image-5888-1024x307.png 1024w" sizes="(max-width: 1164px) 100vw, 1164px" /></p>
+<p>
+  在arclist.lib.php中的添加的where条件
+</p>
+<p><img loading="lazy" decoding="async" width="1057" height="585" src="/wp-content/uploads/2018/05/word-image-5889.png" class="wp-image-6457" srcset="/wp-content/uploads/2018/05/word-image-5889.png 1057w, /wp-content/uploads/2018/05/word-image-5889-300x166.png 300w, /wp-content/uploads/2018/05/word-image-5889-768x425.png 768w, /wp-content/uploads/2018/05/word-image-5889-1024x567.png 1024w" sizes="(max-width: 1057px) 100vw, 1057px" /></p>
+<p>
+  最终的效果如下:
+</p>
+<p><img loading="lazy" decoding="async" width="735" height="311" src="/wp-content/uploads/2018/05/word-image-5890.png" class="wp-image-6458" srcset="/wp-content/uploads/2018/05/word-image-5890.png 735w, /wp-content/uploads/2018/05/word-image-5890-300x127.png 300w" sizes="(max-width: 735px) 100vw, 735px" /></p>
+<h1><a id="post-6405-__________________2"></a><a id="post-6405-_Toc256000014"></a>‘国产大片’栏目使用单独模板文件</h1>
+<p>
+  a 找到国产大片栏目进行修改
+</p>
+<p><img loading="lazy" decoding="async" width="1773" height="353" src="/wp-content/uploads/2018/05/word-image-5891.png" class="wp-image-6459" srcset="/wp-content/uploads/2018/05/word-image-5891.png 1773w, /wp-content/uploads/2018/05/word-image-5891-300x60.png 300w, /wp-content/uploads/2018/05/word-image-5891-768x153.png 768w, /wp-content/uploads/2018/05/word-image-5891-1024x204.png 1024w" sizes="(max-width: 1773px) 100vw, 1773px" /><br />
+<img loading="lazy" decoding="async" width="980" height="450" src="/wp-content/uploads/2018/05/word-image-5892.png" class="wp-image-6460" srcset="/wp-content/uploads/2018/05/word-image-5892.png 980w, /wp-content/uploads/2018/05/word-image-5892-300x138.png 300w, /wp-content/uploads/2018/05/word-image-5892-768x353.png 768w" sizes="(max-width: 980px) 100vw, 980px" /></p>
+<p>
+  b 复制一个栏目模板文件,然后进行改名
+</p>
+<p><img loading="lazy" decoding="async" width="651" height="283" src="/wp-content/uploads/2018/05/word-image-5893.png" class="wp-image-6461" srcset="/wp-content/uploads/2018/05/word-image-5893.png 651w, /wp-content/uploads/2018/05/word-image-5893-300x130.png 300w" sizes="(max-width: 651px) 100vw, 651px" /></p>
+<p>
+  复制完成模板之后,重新更新栏目就可以看到效果
+</p>
+<p><img loading="lazy" decoding="async" width="1401" height="377" src="/wp-content/uploads/2018/05/word-image-5894.png" class="wp-image-6462" srcset="/wp-content/uploads/2018/05/word-image-5894.png 1401w, /wp-content/uploads/2018/05/word-image-5894-300x81.png 300w, /wp-content/uploads/2018/05/word-image-5894-768x207.png 768w, /wp-content/uploads/2018/05/word-image-5894-1024x276.png 1024w" sizes="(max-width: 1401px) 100vw, 1401px" /></p>
+<p>
+  c 点击首页的国产大片按钮,进行访问
+</p>
+<p><img loading="lazy" decoding="async" width="919" height="300" src="/wp-content/uploads/2018/05/word-image-5895.png" class="wp-image-6463" srcset="/wp-content/uploads/2018/05/word-image-5895.png 919w, /wp-content/uploads/2018/05/word-image-5895-300x98.png 300w, /wp-content/uploads/2018/05/word-image-5895-768x251.png 768w" sizes="(max-width: 919px) 100vw, 919px" /><br />
+<img loading="lazy" decoding="async" width="959" height="163" src="/wp-content/uploads/2018/05/word-image-5896.png" class="wp-image-6464" srcset="/wp-content/uploads/2018/05/word-image-5896.png 959w, /wp-content/uploads/2018/05/word-image-5896-300x51.png 300w, /wp-content/uploads/2018/05/word-image-5896-768x131.png 768w" sizes="(max-width: 959px) 100vw, 959px" /></p>
+<h1><a id="post-6405-__________2"></a><a id="post-6405-_Toc256000015"></a>完成内容详情页面</h1>
+<h2><a id="post-6405-______________"></a><a id="post-6405-_Toc256000016"></a>制作内容详情页面的模板文件</h2>
+<p><img loading="lazy" decoding="async" width="775" height="288" src="/wp-content/uploads/2018/05/word-image-5897.png" class="wp-image-6465" srcset="/wp-content/uploads/2018/05/word-image-5897.png 775w, /wp-content/uploads/2018/05/word-image-5897-300x111.png 300w, /wp-content/uploads/2018/05/word-image-5897-768x285.png 768w" sizes="(max-width: 775px) 100vw, 775px" /></p>
+<p>
+  需求:当我们点击某一个电影时,就可以跳转到这个电影的详情页,查看其详细的信息
+</p>
+<p>
+  a 制作电影详情的页面:
+</p>
+<p><img loading="lazy" decoding="async" width="857" height="299" src="/wp-content/uploads/2018/05/word-image-5898.png" class="wp-image-6466" srcset="/wp-content/uploads/2018/05/word-image-5898.png 857w, /wp-content/uploads/2018/05/word-image-5898-300x105.png 300w, /wp-content/uploads/2018/05/word-image-5898-768x268.png 768w" sizes="(max-width: 857px) 100vw, 857px" /></p>
+<p>
+  b 修改栏目中电影详情页的名字
+</p>
+<p><img loading="lazy" decoding="async" width="1536" height="354" src="/wp-content/uploads/2018/05/word-image-5899.png" class="wp-image-6467" srcset="/wp-content/uploads/2018/05/word-image-5899.png 1536w, /wp-content/uploads/2018/05/word-image-5899-300x69.png 300w, /wp-content/uploads/2018/05/word-image-5899-768x177.png 768w, /wp-content/uploads/2018/05/word-image-5899-1024x236.png 1024w" sizes="(max-width: 1536px) 100vw, 1536px" /></p>
+<p>
+  c 更新所有的文档,查看电影详情的页面
+</p>
+<p><img loading="lazy" decoding="async" width="1326" height="518" src="/wp-content/uploads/2018/05/word-image-5900.png" class="wp-image-6468" srcset="/wp-content/uploads/2018/05/word-image-5900.png 1326w, /wp-content/uploads/2018/05/word-image-5900-300x117.png 300w, /wp-content/uploads/2018/05/word-image-5900-768x300.png 768w, /wp-content/uploads/2018/05/word-image-5900-1024x400.png 1024w" sizes="(max-width: 1326px) 100vw, 1326px" /></p>
+<p>
+  d 修改article_movie中的css和js的路径
+</p>
+<p><img loading="lazy" decoding="async" width="974" height="275" src="/wp-content/uploads/2018/05/word-image-5901.png" class="wp-image-6469" srcset="/wp-content/uploads/2018/05/word-image-5901.png 974w, /wp-content/uploads/2018/05/word-image-5901-300x85.png 300w, /wp-content/uploads/2018/05/word-image-5901-768x217.png 768w" sizes="(max-width: 974px) 100vw, 974px" /></p>
+<p>
+  路径更新完成之后,重新新生页面,然后再查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="1535" height="279" src="/wp-content/uploads/2018/05/word-image-5902.png" class="wp-image-6470" srcset="/wp-content/uploads/2018/05/word-image-5902.png 1535w, /wp-content/uploads/2018/05/word-image-5902-300x55.png 300w, /wp-content/uploads/2018/05/word-image-5902-768x140.png 768w, /wp-content/uploads/2018/05/word-image-5902-1024x186.png 1024w" sizes="(max-width: 1535px) 100vw, 1535px" /></p>
+<p>
+  页面路径修改完成之后的页面,如下:
+</p>
+<p><img loading="lazy" decoding="async" width="1303" height="817" src="/wp-content/uploads/2018/05/word-image-5903.png" class="wp-image-6471" srcset="/wp-content/uploads/2018/05/word-image-5903.png 1303w, /wp-content/uploads/2018/05/word-image-5903-300x188.png 300w, /wp-content/uploads/2018/05/word-image-5903-768x482.png 768w, /wp-content/uploads/2018/05/word-image-5903-1024x642.png 1024w" sizes="(max-width: 1303px) 100vw, 1303px" /></p>
+<h2><a id="post-6405-_______________2"></a><a id="post-6405-_Toc256000017"></a>在内容页面中取出对应的数据</h2>
+<p>
+  需求:把自己的电影数据填充到这里.
+</p>
+<p>
+  这里可以使用一个dede单标签
+</p>
+<p>
+  注意在内容详情页：取出具体的电影数据信息需要使用单标签：{dede:field.字段名称/}
+</p>
+<p>
+  在内容详情页，取出数据的时候，即可以取出内容主表中的信息，也可以取出附加表中的信息，也可以取出其栏目表中的对应信息
+</p>
+<p><img loading="lazy" decoding="async" width="1500" height="725" src="/wp-content/uploads/2018/05/word-image-5904.png" class="wp-image-6472" srcset="/wp-content/uploads/2018/05/word-image-5904.png 1500w, /wp-content/uploads/2018/05/word-image-5904-300x145.png 300w, /wp-content/uploads/2018/05/word-image-5904-768x371.png 768w, /wp-content/uploads/2018/05/word-image-5904-1024x495.png 1024w" sizes="(max-width: 1500px) 100vw, 1500px" /></p>
+<p>
+  这里我们取出数据的时候,使用的都是单标签
+</p>
+<p>
+  当标签填写完成之后,一定要更新文档html才能查看到具体的效果
+</p>
+<p>
+  页面的最后效果如下所示:
+</p>
+<p><img loading="lazy" decoding="async" width="1068" height="565" src="/wp-content/uploads/2018/05/word-image-5905.png" class="wp-image-6473" srcset="/wp-content/uploads/2018/05/word-image-5905.png 1068w, /wp-content/uploads/2018/05/word-image-5905-300x159.png 300w, /wp-content/uploads/2018/05/word-image-5905-768x406.png 768w, /wp-content/uploads/2018/05/word-image-5905-1024x542.png 1024w" sizes="(max-width: 1068px) 100vw, 1068px" /></p>
+<h2><a id="post-6405-__________________"></a><a id="post-6405-_Toc256000018"></a>取出和当前电影同属于一个栏目的电影</h2>
+<p>
+  页面的效果图:
+</p>
+<p><img loading="lazy" decoding="async" width="1028" height="243" src="/wp-content/uploads/2018/05/word-image-5906.png" class="wp-image-6474" srcset="/wp-content/uploads/2018/05/word-image-5906.png 1028w, /wp-content/uploads/2018/05/word-image-5906-300x71.png 300w, /wp-content/uploads/2018/05/word-image-5906-768x182.png 768w, /wp-content/uploads/2018/05/word-image-5906-1024x242.png 1024w" sizes="(max-width: 1028px) 100vw, 1028px" /></p>
+<p>
+  还可能喜欢的就是同一个栏目下的电影
+</p>
+</p>
+<p>
+  	代码如下所示:
+</p>
+<p><img loading="lazy" decoding="async" width="1300" height="443" src="/wp-content/uploads/2018/05/word-image-5907.png" class="wp-image-6475" srcset="/wp-content/uploads/2018/05/word-image-5907.png 1300w, /wp-content/uploads/2018/05/word-image-5907-300x102.png 300w, /wp-content/uploads/2018/05/word-image-5907-768x262.png 768w, /wp-content/uploads/2018/05/word-image-5907-1024x349.png 1024w" sizes="(max-width: 1300px) 100vw, 1300px" /><br />
+<img loading="lazy" decoding="async" width="1338" height="457" src="/wp-content/uploads/2018/05/word-image-5908.png" class="wp-image-6476" srcset="/wp-content/uploads/2018/05/word-image-5908.png 1338w, /wp-content/uploads/2018/05/word-image-5908-300x102.png 300w, /wp-content/uploads/2018/05/word-image-5908-768x262.png 768w, /wp-content/uploads/2018/05/word-image-5908-1024x350.png 1024w" sizes="(max-width: 1338px) 100vw, 1338px" /></p>
+<p>
+  效果如下:
+</p>
+<p><img loading="lazy" decoding="async" width="713" height="316" src="/wp-content/uploads/2018/05/word-image-5909.png" class="wp-image-6477" srcset="/wp-content/uploads/2018/05/word-image-5909.png 713w, /wp-content/uploads/2018/05/word-image-5909-300x133.png 300w" sizes="(max-width: 713px) 100vw, 713px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91/6405.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

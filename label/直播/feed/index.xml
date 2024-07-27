@@ -1,0 +1,3870 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>直播 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E7%9B%B4%E6%92%AD/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 15:42:11 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>直播 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Laravel在线教育平台（四）直播、七牛云、OBS、直播流管理、直播课程管理、首页直播、在线观看</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/5812.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/5812.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 15:42:11 +0000</pubDate>
+				<category><![CDATA[Laravel]]></category>
+		<category><![CDATA[Laravel在线教育平台]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[OBS]]></category>
+		<category><![CDATA[七牛云]]></category>
+		<category><![CDATA[在线观看]]></category>
+		<category><![CDATA[直播]]></category>
+		<category><![CDATA[直播流管理]]></category>
+		<category><![CDATA[直播课程管理]]></category>
+		<category><![CDATA[首页直播]]></category>
+		<guid isPermaLink="false">/?p=5812</guid>
+
+					<description><![CDATA[Laravel框架实战-在线教育平台（4） 一、直播介绍【★★★】 1、术语介绍 直播：实时播放某个画面（国内 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1><a id="post-5812-_Toc488249285"></a>Laravel框架实战-在线教育平台（4）</h1>
+<h1><a id="post-5812-_Toc488249288"></a>一、直播介绍【★★★】</h1>
+<h2><a id="post-5812-_Toc488249289"></a>1、术语介绍</h2>
+<p>
+  直播：实时播放某个画面（国内最大的有yy、战旗、斗鱼tv、龙珠等）
+</p>
+<p>
+  点播：类似于重播，编辑好的视频，观众可以重任意时间段观看（优酷、土豆、爱奇艺等）
+</p>
+<p>
+  直播流：也可以称之为数据流，就是直播中的视频画面数据
+</p>
+<p>
+  七牛：目前比较大的云数据服务公司
+</p>
+<h2>直播和点播实现原理</h2>
+<h3>1）概括</h3>
+<p>
+  步骤1：采集视频画面数据，通过摄像机、手机、录屏软件等设备。
+</p>
+<p>
+  步骤2：用户打开视频播放器拉去视频中的数据播放
+</p>
+<p>
+  思考：直播和点播步骤1和步骤2的区别
+</p>
+<p>
+  回答：直播必须实时采集视频画面数据、点播是提前录制
+</p>
+<h3>直播流程详细说明</h3>
+<ul>
+<li>
+    直播<strong>推流</strong>（push）：指视频画面数据，从采集点到服务器的过程。
+  </li>
+<li>
+    直播<strong>拉流</strong>（pull）：指视频画面数据，从服务器到观众的过程。
+  </li>
+</ul>
+<p><img fetchpriority="high" decoding="async" width="676" height="209" src="/wp-content/uploads/2018/05/word-image-5275.png" class="wp-image-5813" srcset="/wp-content/uploads/2018/05/word-image-5275.png 676w, /wp-content/uploads/2018/05/word-image-5275-300x93.png 300w" sizes="(max-width: 676px) 100vw, 676px" /><br />
+<img decoding="async" width="801" height="184" src="/wp-content/uploads/2018/05/word-image-5276.png" class="wp-image-5814" srcset="/wp-content/uploads/2018/05/word-image-5276.png 801w, /wp-content/uploads/2018/05/word-image-5276-300x69.png 300w, /wp-content/uploads/2018/05/word-image-5276-768x176.png 768w" sizes="(max-width: 801px) 100vw, 801px" /></p>
+<h1>直播初体验</h1>
+<h2>1、申请直播云服务步骤</h2>
+<h3>1）注册并登陆七牛云</h3>
+<ul>
+<li>
+    官网网址：<a href="https://www.qiniu.com/">https://www.qiniu.com/</a>
+  </li>
+<li>
+    步骤
+  </li>
+</ul>
+<p><img decoding="async" width="834" height="468" src="/wp-content/uploads/2018/05/word-image-5277.png" class="wp-image-5815" srcset="/wp-content/uploads/2018/05/word-image-5277.png 834w, /wp-content/uploads/2018/05/word-image-5277-300x168.png 300w, /wp-content/uploads/2018/05/word-image-5277-768x431.png 768w" sizes="(max-width: 834px) 100vw, 834px" /><br />
+<img loading="lazy" decoding="async" width="908" height="562" src="/wp-content/uploads/2018/05/word-image-5278.png" class="wp-image-5816" srcset="/wp-content/uploads/2018/05/word-image-5278.png 908w, /wp-content/uploads/2018/05/word-image-5278-300x186.png 300w, /wp-content/uploads/2018/05/word-image-5278-768x475.png 768w" sizes="(max-width: 908px) 100vw, 908px" /></p>
+<h3>2）申请直播云服务，填写如下信息</h3>
+<p><img loading="lazy" decoding="async" width="1074" height="513" src="/wp-content/uploads/2018/05/word-image-5279.png" class="wp-image-5817" srcset="/wp-content/uploads/2018/05/word-image-5279.png 1074w, /wp-content/uploads/2018/05/word-image-5279-300x143.png 300w, /wp-content/uploads/2018/05/word-image-5279-768x367.png 768w, /wp-content/uploads/2018/05/word-image-5279-1024x489.png 1024w" sizes="(max-width: 1074px) 100vw, 1074px" /></p>
+<h3><a id="post-5812-_Toc488249290"></a>3）填写完成后，要等待审核（目前：1~3个工作日）</h3>
+<p><img loading="lazy" decoding="async" width="762" height="289" src="/wp-content/uploads/2018/05/word-image-5280.png" class="wp-image-5818" srcset="/wp-content/uploads/2018/05/word-image-5280.png 762w, /wp-content/uploads/2018/05/word-image-5280-300x114.png 300w" sizes="(max-width: 762px) 100vw, 762px" /></p>
+<h3>4）审核通过后，重新选择‘立即添加’直播云服务</h3>
+<p><img loading="lazy" decoding="async" width="860" height="494" src="/wp-content/uploads/2018/05/word-image-5281.png" class="wp-image-5819" srcset="/wp-content/uploads/2018/05/word-image-5281.png 860w, /wp-content/uploads/2018/05/word-image-5281-300x172.png 300w, /wp-content/uploads/2018/05/word-image-5281-768x441.png 768w" sizes="(max-width: 860px) 100vw, 860px" /><br />
+<img loading="lazy" decoding="async" width="821" height="595" src="/wp-content/uploads/2018/05/word-image-5282.png" class="wp-image-5820" srcset="/wp-content/uploads/2018/05/word-image-5282.png 821w, /wp-content/uploads/2018/05/word-image-5282-300x217.png 300w, /wp-content/uploads/2018/05/word-image-5282-768x557.png 768w" sizes="(max-width: 821px) 100vw, 821px" /></p>
+<h2>直播云服务管理</h2>
+<h3>1）介绍</h3>
+<p>
+  直播空间（1）   对应   ‘直播流’（n）
+</p>
+<p>
+  ‘直播流’（1）    对应     直播项目（1）
+</p>
+<h3>2）直播空间管理</h3>
+<ul>
+<li>
+    创建空间
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1304" height="637" src="/wp-content/uploads/2018/05/word-image-5283.png" class="wp-image-5821" srcset="/wp-content/uploads/2018/05/word-image-5283.png 1304w, /wp-content/uploads/2018/05/word-image-5283-300x147.png 300w, /wp-content/uploads/2018/05/word-image-5283-768x375.png 768w, /wp-content/uploads/2018/05/word-image-5283-1024x500.png 1024w" sizes="(max-width: 1304px) 100vw, 1304px" /><br />
+<img loading="lazy" decoding="async" width="1312" height="629" src="/wp-content/uploads/2018/05/word-image-5284.png" class="wp-image-5822" srcset="/wp-content/uploads/2018/05/word-image-5284.png 1312w, /wp-content/uploads/2018/05/word-image-5284-300x144.png 300w, /wp-content/uploads/2018/05/word-image-5284-768x368.png 768w, /wp-content/uploads/2018/05/word-image-5284-1024x491.png 1024w" sizes="(max-width: 1312px) 100vw, 1312px" /><br />
+<img loading="lazy" decoding="async" width="1327" height="587" src="/wp-content/uploads/2018/05/word-image-5285.png" class="wp-image-5823" srcset="/wp-content/uploads/2018/05/word-image-5285.png 1327w, /wp-content/uploads/2018/05/word-image-5285-300x133.png 300w, /wp-content/uploads/2018/05/word-image-5285-768x340.png 768w, /wp-content/uploads/2018/05/word-image-5285-1024x453.png 1024w" sizes="(max-width: 1327px) 100vw, 1327px" /><br />
+<img loading="lazy" decoding="async" width="1324" height="588" src="/wp-content/uploads/2018/05/word-image-5286.png" class="wp-image-5824" srcset="/wp-content/uploads/2018/05/word-image-5286.png 1324w, /wp-content/uploads/2018/05/word-image-5286-300x133.png 300w, /wp-content/uploads/2018/05/word-image-5286-768x341.png 768w, /wp-content/uploads/2018/05/word-image-5286-1024x455.png 1024w" sizes="(max-width: 1324px) 100vw, 1324px" /><br />
+<img loading="lazy" decoding="async" width="1228" height="616" src="/wp-content/uploads/2018/05/word-image-5287.png" class="wp-image-5825" srcset="/wp-content/uploads/2018/05/word-image-5287.png 1228w, /wp-content/uploads/2018/05/word-image-5287-300x150.png 300w, /wp-content/uploads/2018/05/word-image-5287-768x385.png 768w, /wp-content/uploads/2018/05/word-image-5287-1024x514.png 1024w" sizes="(max-width: 1228px) 100vw, 1228px" /></p>
+<p>
+  域名解析操作
+</p>
+<p><img loading="lazy" decoding="async" width="698" height="520" src="/wp-content/uploads/2018/05/word-image-5288.png" class="wp-image-5826" srcset="/wp-content/uploads/2018/05/word-image-5288.png 698w, /wp-content/uploads/2018/05/word-image-5288-300x223.png 300w" sizes="(max-width: 698px) 100vw, 698px" /><br />
+<img loading="lazy" decoding="async" width="1158" height="402" src="/wp-content/uploads/2018/05/word-image-5289.png" class="wp-image-5827" srcset="/wp-content/uploads/2018/05/word-image-5289.png 1158w, /wp-content/uploads/2018/05/word-image-5289-300x104.png 300w, /wp-content/uploads/2018/05/word-image-5289-768x267.png 768w, /wp-content/uploads/2018/05/word-image-5289-1024x355.png 1024w" sizes="(max-width: 1158px) 100vw, 1158px" /></p>
+<p>
+  设置推流地址
+</p>
+<p><img loading="lazy" decoding="async" width="1348" height="595" src="/wp-content/uploads/2018/05/word-image-5290.png" class="wp-image-5828" srcset="/wp-content/uploads/2018/05/word-image-5290.png 1348w, /wp-content/uploads/2018/05/word-image-5290-300x132.png 300w, /wp-content/uploads/2018/05/word-image-5290-768x339.png 768w, /wp-content/uploads/2018/05/word-image-5290-1024x452.png 1024w" sizes="(max-width: 1348px) 100vw, 1348px" /></p>
+<p>
+  设置拉流地址
+</p>
+<p><img loading="lazy" decoding="async" width="1328" height="487" src="/wp-content/uploads/2018/05/word-image-5291.png" class="wp-image-5829" srcset="/wp-content/uploads/2018/05/word-image-5291.png 1328w, /wp-content/uploads/2018/05/word-image-5291-300x110.png 300w, /wp-content/uploads/2018/05/word-image-5291-768x282.png 768w, /wp-content/uploads/2018/05/word-image-5291-1024x376.png 1024w" sizes="(max-width: 1328px) 100vw, 1328px" /><br />
+<img loading="lazy" decoding="async" width="1086" height="439" src="/wp-content/uploads/2018/05/word-image-5292.png" class="wp-image-5830" srcset="/wp-content/uploads/2018/05/word-image-5292.png 1086w, /wp-content/uploads/2018/05/word-image-5292-300x121.png 300w, /wp-content/uploads/2018/05/word-image-5292-768x310.png 768w, /wp-content/uploads/2018/05/word-image-5292-1024x414.png 1024w" sizes="(max-width: 1086px) 100vw, 1086px" /></p>
+<ul>
+<li>
+    删除空间（慎用）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="790" height="582" src="/wp-content/uploads/2018/05/word-image-5293.png" class="wp-image-5831" srcset="/wp-content/uploads/2018/05/word-image-5293.png 790w, /wp-content/uploads/2018/05/word-image-5293-300x221.png 300w, /wp-content/uploads/2018/05/word-image-5293-768x566.png 768w" sizes="(max-width: 790px) 100vw, 790px" /><br />
+<img loading="lazy" decoding="async" width="925" height="598" src="/wp-content/uploads/2018/05/word-image-5294.png" class="wp-image-5832" srcset="/wp-content/uploads/2018/05/word-image-5294.png 925w, /wp-content/uploads/2018/05/word-image-5294-300x194.png 300w, /wp-content/uploads/2018/05/word-image-5294-768x497.png 768w" sizes="(max-width: 925px) 100vw, 925px" /></p>
+<h3>3）直播空间-直播流管理</h3>
+<p><img loading="lazy" decoding="async" width="980" height="402" src="/wp-content/uploads/2018/05/word-image-5295.png" class="wp-image-5833" srcset="/wp-content/uploads/2018/05/word-image-5295.png 980w, /wp-content/uploads/2018/05/word-image-5295-300x123.png 300w, /wp-content/uploads/2018/05/word-image-5295-768x315.png 768w" sizes="(max-width: 980px) 100vw, 980px" /><br />
+<img loading="lazy" decoding="async" width="1253" height="333" src="/wp-content/uploads/2018/05/word-image-5296.png" class="wp-image-5834" srcset="/wp-content/uploads/2018/05/word-image-5296.png 1253w, /wp-content/uploads/2018/05/word-image-5296-300x80.png 300w, /wp-content/uploads/2018/05/word-image-5296-768x204.png 768w, /wp-content/uploads/2018/05/word-image-5296-1024x272.png 1024w" sizes="(max-width: 1253px) 100vw, 1253px" /><br />
+<img loading="lazy" decoding="async" width="1260" height="604" src="/wp-content/uploads/2018/05/word-image-5297.png" class="wp-image-5835" srcset="/wp-content/uploads/2018/05/word-image-5297.png 1260w, /wp-content/uploads/2018/05/word-image-5297-300x144.png 300w, /wp-content/uploads/2018/05/word-image-5297-768x368.png 768w, /wp-content/uploads/2018/05/word-image-5297-1024x491.png 1024w" sizes="(max-width: 1260px) 100vw, 1260px" /></p>
+<h2>初体验（一套直播实现流程）</h2>
+<h3>【推流】使用OBS软件获将幕、摄像头等数据推送到七牛云</h3>
+<ul>
+<li>
+    步骤1：打开OBS软件官网：<a href="http://www.obsapp.net/">http://www.obsapp.net/</a>
+  </li>
+<li>
+    步骤2：下载并安装（注：安装就是傻瓜式下一步即可）
+  </li>
+<li>
+    步骤3：设置使用获取屏幕数据或者摄像头数据
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="909" height="676" src="/wp-content/uploads/2018/05/word-image-5298.png" class="wp-image-5836" srcset="/wp-content/uploads/2018/05/word-image-5298.png 909w, /wp-content/uploads/2018/05/word-image-5298-300x223.png 300w, /wp-content/uploads/2018/05/word-image-5298-768x571.png 768w" sizes="(max-width: 909px) 100vw, 909px" /><br />
+<img loading="lazy" decoding="async" width="658" height="547" src="/wp-content/uploads/2018/05/word-image-5299.png" class="wp-image-5837" srcset="/wp-content/uploads/2018/05/word-image-5299.png 658w, /wp-content/uploads/2018/05/word-image-5299-300x249.png 300w" sizes="(max-width: 658px) 100vw, 658px" /></p>
+<ul>
+<li>
+    步骤4：继续设置，将通过OBS软件获取的屏幕或摄像头等数据
+  </li>
+</ul>
+<p>
+  内容推送到七牛云
+</p>
+<ol>
+<li>
+  获取推送地址
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1231" height="454" src="/wp-content/uploads/2018/05/word-image-5300.png" class="wp-image-5838" srcset="/wp-content/uploads/2018/05/word-image-5300.png 1231w, /wp-content/uploads/2018/05/word-image-5300-300x111.png 300w, /wp-content/uploads/2018/05/word-image-5300-768x283.png 768w, /wp-content/uploads/2018/05/word-image-5300-1024x378.png 1024w" sizes="(max-width: 1231px) 100vw, 1231px" /></p>
+<p>
+  2）打开软件设置推送地址
+</p>
+<p><img loading="lazy" decoding="async" width="227" height="256" src="/wp-content/uploads/2018/05/word-image-5301.png" class="wp-image-5839" /><br />
+<img loading="lazy" decoding="async" width="1136" height="711" src="/wp-content/uploads/2018/05/word-image-5302.png" class="wp-image-5840" srcset="/wp-content/uploads/2018/05/word-image-5302.png 1136w, /wp-content/uploads/2018/05/word-image-5302-300x188.png 300w, /wp-content/uploads/2018/05/word-image-5302-768x481.png 768w, /wp-content/uploads/2018/05/word-image-5302-1024x641.png 1024w" sizes="(max-width: 1136px) 100vw, 1136px" /><br />
+<img loading="lazy" decoding="async" width="1365" height="572" src="/wp-content/uploads/2018/05/word-image-5303.png" class="wp-image-5841" srcset="/wp-content/uploads/2018/05/word-image-5303.png 1365w, /wp-content/uploads/2018/05/word-image-5303-300x126.png 300w, /wp-content/uploads/2018/05/word-image-5303-768x322.png 768w, /wp-content/uploads/2018/05/word-image-5303-1024x429.png 1024w" sizes="(max-width: 1365px) 100vw, 1365px" /></p>
+<p><strong>rtmp://pili-publish.php12.sk-school.com/201801140001/test2?e=1515897779&amp;token=RlWO59USAL86QtQ4LhYFWsAGjLZEYbgD5H9_Fhob:8_jLY7p5M34epelW0oKP66WBZ40=</strong>
+</p>
+<p><strong>红色填入：URL</strong>
+</p>
+<p><strong>绿色填入：流秘钥</strong>
+</p>
+<p>
+  多学一招：OBS就是一个软件，作用就是推送直播所需画面数据）
+</p>
+<h3>【拉流1】flash方式播放【直播】</h3>
+<p>
+  &lt;!DOCTYPE html&gt;
+</p>
+<p>
+  &lt;html xmlns=&#8221;http://www.w3.org/1999/xhtml&#8221;&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Content-Type&#8221; content=&#8221;text/html; charset=utf-8&#8243; /&gt;
+</p>
+<p>
+  &lt;title&gt;ckplayer简单调用演示&lt;/title&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;div id=&#8221;a1&#8243;&gt;&lt;/div&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;ckplayer/ckplayer.js&#8221; charset=&#8221;utf-8&#8243;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  	var flashvars={
+</p>
+<p>
+  		f:&#8217;<strong>rtmp://pili-live-rtmp.php12.sk-school.com/201801140001/test2?sign=930b44c2efd1e384e3dfc8a6aee6035c&amp;t=5a5aba5d</strong>&#8216;,
+</p>
+<p>
+  		c:0,
+</p>
+<p>
+  		b:1,
+</p>
+<p>
+  		i:&#8217;http://www.ckplayer.com/static/images/cqdw.jpg&#8217;
+</p>
+<p>
+  		};
+</p>
+<p>
+  	var video=[&#8216;http://img.ksbbs.com/asset/Mon_1605/0ec8cc80112a2d6.mp4-&gt;video/mp4&#8217;];
+</p>
+<p>
+  	CKobject.embed(&#8216;ckplayer/ckplayer.swf&#8217;,&#8217;a1&#8242;,&#8217;ckplayer_a1&#8242;,&#8217;600&#8242;,&#8217;400&#8242;,false,flashvars,video)
+</p>
+<p>
+  	function closelights(){//关灯
+</p>
+<p>
+  		alert(&#8216; 本演示不支持开关灯&#8217;);
+</p>
+<p>
+  	}
+</p>
+<p>
+  	function openlights(){//开灯
+</p>
+<p>
+  		alert(&#8216; 本演示不支持开关灯&#8217;);
+</p>
+<p>
+  	}
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h3>【拉流2】html5方式播放【√】</h3>
+<p>
+  仓库地址：<a href="https://github.com/huangyaoxin/hLive">https://github.com/huangyaoxin/hLive</a>
+</p>
+<p>
+  &lt;!DOCTYPE html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=utf-8 /&gt;
+</p>
+<p>
+  &lt;title&gt;fz-live&lt;/title&gt;
+</p>
+<p>
+    &lt;link href=&#8221;./css/video.css&#8221; rel=&#8221;stylesheet&#8221;&gt;
+</p>
+<p>
+    &lt;script src=&#8221;./js/video.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+    &lt;script src=&#8221;./js/videojs-live.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+    &lt;video id=&#8221;my_video_1&#8243; class=&#8221;video-js vjs-default-skin&#8221; controls preload=&#8221;auto&#8221; width=&#8221;1000&#8243; height=&#8221;500&#8243;
+</p>
+<p>
+    data-setup='{}&#8217;&gt;
+</p>
+<p>
+      &lt;source src=&#8221;http://pili-live-hls.php12.sk-school.com/201801140001/test2.m3u8?sign=2f34f36a8c32f69a87559da2dfd1e3e4&amp;t=5a5ac230&#8243; type=&#8221;application/x-mpegURL&#8221;&gt;
+</p>
+<p>
+    &lt;/video&gt;
+</p>
+</p>
+<p>
+    &lt;script&gt;
+</p>
+<p>
+    &lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h2>︴扩展</h2>
+<p>
+  手机APP开发直播功能相关文档
+</p>
+<ul>
+<li><a href="https://www.apicloud.com/mod_detail/45964">https://www.apicloud.com/mod_detail/45964</a>
+  </li>
+<li><a href="https://docs.apicloud.com/Client-API/Open-SDK/qiniuLive">https://docs.apicloud.com/Client-API/Open-SDK/qiniuLive</a>
+  </li>
+</ul>
+<h1>三、直播流管理（在线教育后台）</h1>
+<h2>1、准备</h2>
+<h3>1）直播流表</h3>
+<p><strong>后台直播流表</strong>
+</p>
+<table>
+<tr>
+<td>
+<p><strong>表名</strong>
+</p>
+</td>
+<td colspan="6">
+<p>
+  stream
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>序号</strong>
+</p>
+</td>
+<td>
+<p><strong>字段</strong>
+</p>
+</td>
+<td>
+<p><strong>类型</strong>
+</p>
+</td>
+<td>
+<p><strong>说明</strong>
+</p>
+</td>
+<td>
+<p><strong>空</strong>
+</p>
+</td>
+<td>
+<p><strong>默认值</strong>
+</p>
+</td>
+<td>
+<p><strong>主键</strong>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  id
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  自增主键
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  N/A
+</p>
+</td>
+<td>
+<p>
+  是
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  2
+</p>
+</td>
+<td>
+<p>
+  stream _name
+</p>
+</td>
+<td>
+<p>
+  varchar(200)
+</p>
+</td>
+<td>
+<p>
+  直播流名称
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  3
+</p>
+</td>
+<td>
+<p>
+  state
+</p>
+</td>
+<td>
+<p>
+  tinyint
+</p>
+</td>
+<td>
+<p>
+  直播流状态：1=正常，2=永久禁播，3=限时禁播
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  正常
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  4
+</p>
+</td>
+<td>
+<p>
+  created_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  创建于
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  5
+</p>
+</td>
+<td>
+<p>
+  update_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  更新于
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+</table>
+<p>
+  步骤1：创建迁移文件并书写
+</p>
+<p>
+  步骤2：执行迁移文件
+</p>
+<p><img loading="lazy" decoding="async" width="1167" height="599" src="/wp-content/uploads/2018/05/word-image-5304.png" class="wp-image-5842" srcset="/wp-content/uploads/2018/05/word-image-5304.png 1167w, /wp-content/uploads/2018/05/word-image-5304-300x154.png 300w, /wp-content/uploads/2018/05/word-image-5304-768x394.png 768w, /wp-content/uploads/2018/05/word-image-5304-1024x526.png 1024w" sizes="(max-width: 1167px) 100vw, 1167px" /></p>
+<p>
+  Schema::create(&#8216;stream&#8217;, function (Blueprint $table) {
+</p>
+<p>
+      $table-&gt;increments(&#8216;id&#8217;);
+</p>
+<p>
+      $table-&gt;string(&#8216;stream_name&#8217;)-&gt;comment(&#8216;直播流名称&#8217;);
+</p>
+<p>
+      $table-&gt;unsignedTinyInteger(&#8216;state&#8217;)-&gt;default(1)-&gt;comment(&#8216;直播流状态:1-正常,2-永久禁播,3-限时禁播&#8217;);
+</p>
+<p>
+      $table-&gt;unsignedInteger(&#8216;created_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+      $table-&gt;unsignedInteger(&#8216;updated_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+  });
+</p>
+<p><img loading="lazy" decoding="async" width="739" height="312" src="/wp-content/uploads/2018/05/word-image-5305.png" class="wp-image-5843" srcset="/wp-content/uploads/2018/05/word-image-5305.png 739w, /wp-content/uploads/2018/05/word-image-5305-300x127.png 300w" sizes="(max-width: 739px) 100vw, 739px" /></p>
+<h3>模型</h3>
+<p><img loading="lazy" decoding="async" width="1109" height="586" src="/wp-content/uploads/2018/05/word-image-5306.png" class="wp-image-5844" srcset="/wp-content/uploads/2018/05/word-image-5306.png 1109w, /wp-content/uploads/2018/05/word-image-5306-300x159.png 300w, /wp-content/uploads/2018/05/word-image-5306-768x406.png 768w, /wp-content/uploads/2018/05/word-image-5306-1024x541.png 1024w" sizes="(max-width: 1109px) 100vw, 1109px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Model;
+</p>
+<p>
+  use Illuminate\Database\Eloquent\Model;
+</p>
+<p>
+  class Stream extends Model
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明表名（注：laravel会自动加s所以自己声明覆盖）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $table = &#8216;stream&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Unix时间戳形式填充创建于和更新于（注：模型默认托管时间但是是datetime类型）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $dateFormat = &#8216;U&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明可批量设置的属性（注：当使用create静态方式时）
+</p>
+<p>
+       * @var array
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $fillable = [&#8216;stream_name&#8217;, &#8216;state&#8217;];
+</p>
+<p>
+  }
+</p>
+<h3>更改后台菜单</h3>
+<p><img loading="lazy" decoding="async" width="1335" height="491" src="/wp-content/uploads/2018/05/word-image-5307.png" class="wp-image-5845" srcset="/wp-content/uploads/2018/05/word-image-5307.png 1335w, /wp-content/uploads/2018/05/word-image-5307-300x110.png 300w, /wp-content/uploads/2018/05/word-image-5307-768x282.png 768w, /wp-content/uploads/2018/05/word-image-5307-1024x377.png 1024w" sizes="(max-width: 1335px) 100vw, 1335px" /></p>
+<h2>2、列表功能</h2>
+<h3>1）加载视图</h3>
+<p>
+  步骤1：路由
+</p>
+<p><img loading="lazy" decoding="async" width="992" height="138" src="/wp-content/uploads/2018/05/word-image-5308.png" class="wp-image-5846" srcset="/wp-content/uploads/2018/05/word-image-5308.png 992w, /wp-content/uploads/2018/05/word-image-5308-300x42.png 300w, /wp-content/uploads/2018/05/word-image-5308-768x107.png 768w" sizes="(max-width: 992px) 100vw, 992px" /></p>
+<p>
+  步骤2：创建控制器方法并加载视图
+</p>
+<p><img loading="lazy" decoding="async" width="866" height="509" src="/wp-content/uploads/2018/05/word-image-5309.png" class="wp-image-5847" srcset="/wp-content/uploads/2018/05/word-image-5309.png 866w, /wp-content/uploads/2018/05/word-image-5309-300x176.png 300w, /wp-content/uploads/2018/05/word-image-5309-768x451.png 768w" sizes="(max-width: 866px) 100vw, 866px" /></p>
+<p>
+  步骤3：创建视图
+</p>
+<p><img loading="lazy" decoding="async" width="1057" height="638" src="/wp-content/uploads/2018/05/word-image-5310.png" class="wp-image-5848" srcset="/wp-content/uploads/2018/05/word-image-5310.png 1057w, /wp-content/uploads/2018/05/word-image-5310-300x181.png 300w, /wp-content/uploads/2018/05/word-image-5310-768x464.png 768w, /wp-content/uploads/2018/05/word-image-5310-1024x618.png 1024w" sizes="(max-width: 1057px) 100vw, 1057px" /></p>
+<h3>2）数据处理</h3>
+<ul>
+<li>
+    步骤1：控制器方法调用模型查询所有数据并分页，传递给视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1015" height="501" src="/wp-content/uploads/2018/05/word-image-5311.png" class="wp-image-5849" srcset="/wp-content/uploads/2018/05/word-image-5311.png 1015w, /wp-content/uploads/2018/05/word-image-5311-300x148.png 300w, /wp-content/uploads/2018/05/word-image-5311-768x379.png 768w" sizes="(max-width: 1015px) 100vw, 1015px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use App\Http\Model\Stream;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class StreamController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function index()
+</p>
+<p>
+      {
+</p>
+<p>
+      	//1.分页获取数据
+</p>
+<p>
+      	$streams = Stream::orderBy(&#8216;id&#8217;, &#8216;desc&#8217;)-&gt;paginate(8);
+</p>
+<p>
+      	//2.加载视图并传递数据
+</p>
+<p>
+          return view(&#8216;admin.stream.index&#8217;, compact(&#8216;streams&#8217;));
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤2：视图循环显示即可
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="934" height="525" src="/wp-content/uploads/2018/05/word-image-5312.png" class="wp-image-5850" srcset="/wp-content/uploads/2018/05/word-image-5312.png 934w, /wp-content/uploads/2018/05/word-image-5312-300x169.png 300w, /wp-content/uploads/2018/05/word-image-5312-768x432.png 768w" sizes="(max-width: 934px) 100vw, 934px" /><br />
+<img loading="lazy" decoding="async" width="1202" height="303" src="/wp-content/uploads/2018/05/word-image-5313.png" class="wp-image-5851" srcset="/wp-content/uploads/2018/05/word-image-5313.png 1202w, /wp-content/uploads/2018/05/word-image-5313-300x76.png 300w, /wp-content/uploads/2018/05/word-image-5313-768x194.png 768w, /wp-content/uploads/2018/05/word-image-5313-1024x258.png 1024w" sizes="(max-width: 1202px) 100vw, 1202px" /></p>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;renderer&#8221; content=&#8221;webkit|ie-comp|ie-stand&#8221;&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;X-UA-Compatible&#8221; content=&#8221;IE=edge,chrome=1&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&#8221; /&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Cache-Control&#8221; content=&#8221;no-siteapp&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if lt IE 9]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/html5shiv.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/respond.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/css/H-ui.min.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/H-ui.admin.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/Hui-iconfont/1.0.8/iconfont.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/skin/default/skin.css&#8221; id=&#8221;skin&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/style.css&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if IE 6]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/DD_belatedPNG_0.0.8a-min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script&gt;DD_belatedPNG.fix(&#8216;*&#8217;);&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;title&gt;直播流管理&lt;/title&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;nav class=&#8221;breadcrumb&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe67f;&lt;/i&gt; 首页 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 管理员管理 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 直播流管理 &lt;a class=&#8221;btn btn-success radius r&#8221; style=&#8221;line-height:1.6em;margin-top:3px&#8221; href=&#8221;javascript:location.replace(location.href);&#8221; title=&#8221;刷新&#8221; &gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe68f;&lt;/i&gt;&lt;/a&gt;&lt;/nav&gt;
+</p>
+<p>
+  &lt;div class=&#8221;page-container&#8221;&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  		&lt;form class=&#8221;Huiform&#8221; method=&#8221;post&#8221; action=&#8221;&#8221; target=&#8221;_self&#8221;&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;text&#8221; class=&#8221;input-text&#8221; style=&#8221;width:250px&#8221; placeholder=&#8221;直播流名称&#8221; id=&#8221;&#8221; name=&#8221;&#8221;&gt;
+</p>
+<p>
+  			&lt;button type=&#8221;submit&#8221; class=&#8221;btn btn-success&#8221; id=&#8221;&#8221; name=&#8221;&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe665;&lt;/i&gt; 搜直播流节点&lt;/button&gt;
+</p>
+<p>
+  		&lt;/form&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;cl pd-5 bg-1 bk-gray mt-20&#8243;&gt;
+</p>
+<p>
+  		&lt;span class=&#8221;l&#8221;&gt;
+</p>
+<p>
+  			&lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;datadel()&#8221; class=&#8221;btn btn-danger radius&#8221;&gt;
+</p>
+<p>
+  				&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt; 批量删除
+</p>
+<p>
+  			&lt;/a&gt;
+</p>
+<p>
+  			&lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_add(&#8216;添加直播流节点&#8217;,'{{ url(&#8216;admin/stream/add&#8217;) }}&#8217;,&#8221;,&#8217;310&#8242;)&#8221; class=&#8221;btn btn-primary radius&#8221;&gt;
+</p>
+<p>
+  				&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe600;&lt;/i&gt; 添加直播流节点
+</p>
+<p>
+  			&lt;/a&gt;
+</p>
+<p>
+  		&lt;/span&gt;
+</p>
+<p>
+  		&lt;span class=&#8221;r&#8221;&gt;共有数据：&lt;strong&gt;54&lt;/strong&gt; 条&lt;/span&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;table class=&#8221;table table-border table-bordered table-bg&#8221;&gt;
+</p>
+<p>
+  		&lt;thead&gt;
+</p>
+<p>
+  			&lt;tr&gt;
+</p>
+<p>
+  				&lt;th scope=&#8221;col&#8221; colspan=&#8221;6&#8243;&gt;直播流节点&lt;/th&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  			&lt;tr class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;25&#8243;&gt;&lt;input type=&#8221;checkbox&#8221; name=&#8221;&#8221; value=&#8221;&#8221;&gt;&lt;/th&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;40&#8243;&gt;ID&lt;/th&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;200&#8243;&gt;数据流名称&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;状态&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;创建于&lt;/th&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;100&#8243;&gt;操作&lt;/th&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  		&lt;/thead&gt;
+</p>
+<p>
+  		&lt;tbody&gt;
+</p>
+<p>
+  			@foreach ($streams as $stream)
+</p>
+<p>
+  			&lt;tr class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;input type=&#8221;checkbox&#8221; value=&#8221;1&#8243; name=&#8221;&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $stream-&gt;id }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $stream-&gt;stream_name }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;
+</p>
+<p>
+  					@if($stream-&gt;state == 1)
+</p>
+<p>
+  					正常
+</p>
+<p>
+  					@elseif($stream-&gt;state == 2)
+</p>
+<p>
+  					永久禁用
+</p>
+<p>
+  					@else
+</p>
+<p>
+  					限时禁用
+</p>
+<p>
+  					@endif
+</p>
+<p>
+  				&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $stream-&gt;created_at }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;a title=&#8221;编辑&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_edit(&#8216;角色编辑&#8217;,&#8217;admin-permission-add.html&#8217;,&#8217;1&#8242;,&#8221;,&#8217;310&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6df;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;删除&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_del(this,&#8217;1&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  			@endforeach
+</p>
+<p>
+  		&lt;/tbody&gt;
+</p>
+<p>
+  	&lt;/table&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;!&#8211;_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery/1.9.1/jquery.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/layer/2.4/layer.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/js/H-ui.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/js/H-ui.admin.js&#8221;&gt;&lt;/script&gt; &lt;!&#8211;/_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;请在下方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/datatables/1.10.0/jquery.dataTables.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  /*
+</p>
+<p>
+  	参数解释：
+</p>
+<p>
+  	title	标题
+</p>
+<p>
+  	url		请求的url
+</p>
+<p>
+  	id		需要操作的数据id
+</p>
+<p>
+  	w		弹出层宽度（缺省调默认值）
+</p>
+<p>
+  	h		弹出层高度（缺省调默认值）
+</p>
+<p>
+  */
+</p>
+<p>
+  /*管理员-直播流-添加*/
+</p>
+<p>
+  function admin_permission_add(title,url,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-直播流-编辑*/
+</p>
+<p>
+  function admin_permission_edit(title,url,id,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-直播流-删除*/
+</p>
+<p>
+  function admin_permission_del(obj,id){
+</p>
+<p>
+  	layer.confirm(&#8216;确认要删除吗？&#8217;,function(index){
+</p>
+<p>
+  		$.ajax({
+</p>
+<p>
+  			type: &#8216;POST&#8217;,
+</p>
+<p>
+  			url: &#8221;,
+</p>
+<p>
+  			dataType: &#8216;json&#8217;,
+</p>
+<p>
+  			success: function(data){
+</p>
+<p>
+  				$(obj).parents(&#8220;tr&#8221;).remove();
+</p>
+<p>
+  				layer.msg(&#8216;已删除!&#8217;,{icon:1,time:1000});
+</p>
+<p>
+  			},
+</p>
+<p>
+  			error:function(data) {
+</p>
+<p>
+  				console.log(data.msg);
+</p>
+<p>
+  			},
+</p>
+<p>
+  		});
+</p>
+<p>
+  	});
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h2>添加功能</h2>
+<h3>1）加载视图</h3>
+<p>
+  步骤1：路由
+</p>
+<p><img loading="lazy" decoding="async" width="978" height="152" src="/wp-content/uploads/2018/05/word-image-5314.png" class="wp-image-5852" srcset="/wp-content/uploads/2018/05/word-image-5314.png 978w, /wp-content/uploads/2018/05/word-image-5314-300x47.png 300w, /wp-content/uploads/2018/05/word-image-5314-768x119.png 768w" sizes="(max-width: 978px) 100vw, 978px" /></p>
+<p>
+  步骤2：设置控制器方法并加载视图
+</p>
+<p><img loading="lazy" decoding="async" width="791" height="328" src="/wp-content/uploads/2018/05/word-image-5315.png" class="wp-image-5853" srcset="/wp-content/uploads/2018/05/word-image-5315.png 791w, /wp-content/uploads/2018/05/word-image-5315-300x124.png 300w, /wp-content/uploads/2018/05/word-image-5315-768x318.png 768w" sizes="(max-width: 791px) 100vw, 791px" /></p>
+<p>
+  步骤3：创建视图
+</p>
+<p><img loading="lazy" decoding="async" width="1023" height="459" src="/wp-content/uploads/2018/05/word-image-5316.png" class="wp-image-5854" srcset="/wp-content/uploads/2018/05/word-image-5316.png 1023w, /wp-content/uploads/2018/05/word-image-5316-300x135.png 300w, /wp-content/uploads/2018/05/word-image-5316-768x345.png 768w" sizes="(max-width: 1023px) 100vw, 1023px" /></p>
+<h3>2）数据处理</h3>
+<p>
+  步骤1：更改路由
+</p>
+<p><img loading="lazy" decoding="async" width="1093" height="172" src="/wp-content/uploads/2018/05/word-image-5317.png" class="wp-image-5855" srcset="/wp-content/uploads/2018/05/word-image-5317.png 1093w, /wp-content/uploads/2018/05/word-image-5317-300x47.png 300w, /wp-content/uploads/2018/05/word-image-5317-768x121.png 768w, /wp-content/uploads/2018/05/word-image-5317-1024x161.png 1024w" sizes="(max-width: 1093px) 100vw, 1093px" /></p>
+<p>
+  步骤2：更改视图
+</p>
+<p><img loading="lazy" decoding="async" width="1192" height="637" src="/wp-content/uploads/2018/05/word-image-5318.png" class="wp-image-5856" srcset="/wp-content/uploads/2018/05/word-image-5318.png 1192w, /wp-content/uploads/2018/05/word-image-5318-300x160.png 300w, /wp-content/uploads/2018/05/word-image-5318-768x410.png 768w, /wp-content/uploads/2018/05/word-image-5318-1024x547.png 1024w" sizes="(max-width: 1192px) 100vw, 1192px" /><br />
+<img loading="lazy" decoding="async" width="992" height="605" src="/wp-content/uploads/2018/05/word-image-5319.png" class="wp-image-5857" srcset="/wp-content/uploads/2018/05/word-image-5319.png 992w, /wp-content/uploads/2018/05/word-image-5319-300x183.png 300w, /wp-content/uploads/2018/05/word-image-5319-768x468.png 768w" sizes="(max-width: 992px) 100vw, 992px" /></p>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;renderer&#8221; content=&#8221;webkit|ie-comp|ie-stand&#8221;&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;X-UA-Compatible&#8221; content=&#8221;IE=edge,chrome=1&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&#8221; /&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Cache-Control&#8221; content=&#8221;no-siteapp&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if lt IE 9]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/html5shiv.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/respond.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/css/H-ui.min.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/H-ui.admin.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/Hui-iconfont/1.0.8/iconfont.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/skin/default/skin.css&#8221; id=&#8221;skin&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/style.css&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if IE 6]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/DD_belatedPNG_0.0.8a-min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script&gt;DD_belatedPNG.fix(&#8216;*&#8217;);&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;title&gt;添加管理员 &#8211; 管理员管理 &#8211; H-ui.admin v3.1&lt;/title&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;keywords&#8221; content=&#8221;H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载&#8221;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;description&#8221; content=&#8221;H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。&#8221;&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;article class=&#8221;page-container&#8221;&gt;
+</p>
+<p>
+  	&lt;form class=&#8221;form form-horizontal&#8221; id=&#8221;form-admin-add&#8221;&gt;
+</p>
+<p>
+  		{{ csrf_field() }}
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;&lt;span class=&#8221;c-red&#8221;&gt;*&lt;/span&gt;数据流名称&lt;/label&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;formControls col-xs-8 col-sm-9&#8243;&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;text&#8221; class=&#8221;input-text&#8221; value=&#8221;&#8221; placeholder=&#8221;&#8221; id=&#8221;stream_name&#8221; name=&#8221;stream_name&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;&lt;span class=&#8221;c-red&#8221;&gt;*&lt;/span&gt;直播流状态&lt;/label&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;formControls col-xs-8 col-sm-9 skin-minimal&#8221;&gt;
+</p>
+<p>
+  			&lt;div class=&#8221;radio-box&#8221;&gt;
+</p>
+<p>
+  				&lt;input type=&#8221;radio&#8221; name=&#8221;state&#8221; id=&#8221;sex-1&#8243; value=&#8221;1&#8243; checked&gt;
+</p>
+<p>
+  				&lt;label for=&#8221;sex-1&#8243;&gt;正常&lt;/label&gt;
+</p>
+<p>
+  			&lt;/div&gt;
+</p>
+<p>
+  			&lt;div class=&#8221;radio-box&#8221;&gt;
+</p>
+<p>
+  				&lt;input type=&#8221;radio&#8221; name=&#8221;state&#8221; id=&#8221;sex-2&#8243; value=&#8221;2&#8243; name=&#8221;sex&#8221;&gt;
+</p>
+<p>
+  				&lt;label for=&#8221;sex-2&#8243;&gt;永久禁播&lt;/label&gt;
+</p>
+<p>
+  			&lt;/div&gt;
+</p>
+<p>
+  			&lt;div class=&#8221;radio-box&#8221;&gt;
+</p>
+<p>
+  				&lt;input type=&#8221;radio&#8221; name=&#8221;state&#8221; id=&#8221;sex-2&#8243; value=&#8221;3&#8243; name=&#8221;sex&#8221;&gt;
+</p>
+<p>
+  				&lt;label for=&#8221;sex-2&#8243;&gt;限时禁播&lt;/label&gt;
+</p>
+<p>
+  			&lt;/div&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3&#8243;&gt;
+</p>
+<p>
+  			&lt;input class=&#8221;btn btn-primary radius&#8221; type=&#8221;submit&#8221; value=&#8221;&amp;nbsp;&amp;nbsp;提交&amp;nbsp;&amp;nbsp;&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;/form&gt;
+</p>
+<p>
+  &lt;/article&gt;
+</p>
+<p>
+  &lt;!&#8211;_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery/1.9.1/jquery.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/layer/2.4/layer.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/js/H-ui.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/js/H-ui.admin.js&#8221;&gt;&lt;/script&gt; &lt;!&#8211;/_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;请在下方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/jquery.validate.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/validate-methods.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/messages_zh.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(function(){
+</p>
+<p>
+  	$(&#8216;.skin-minimal input&#8217;).iCheck({
+</p>
+<p>
+  		checkboxClass: &#8216;icheckbox-blue&#8217;,
+</p>
+<p>
+  		radioClass: &#8216;iradio-blue&#8217;,
+</p>
+<p>
+  		increaseArea: &#8216;20%&#8217;
+</p>
+<p>
+  	});
+</p>
+</p>
+<p>
+  	$(&#8220;#form-admin-add&#8221;).validate({
+</p>
+<p>
+  		rules:{
+</p>
+<p>
+  			stream_name:{
+</p>
+<p>
+  				required:true,
+</p>
+<p>
+  				minlength:4,
+</p>
+<p>
+  				maxlength:16
+</p>
+<p>
+  			},
+</p>
+<p>
+  		},
+</p>
+<p>
+  		onkeyup:false,
+</p>
+<p>
+  		focusCleanup:true,
+</p>
+<p>
+  		success:&#8221;valid&#8221;,
+</p>
+<p>
+  		submitHandler:function(form){
+</p>
+<p>
+  			$(form).ajaxSubmit({
+</p>
+<p>
+  				type: &#8216;post&#8217;,
+</p>
+<p>
+  				url: &#8220;{{ url(&#8216;admin/stream/add&#8217;) }}&#8221; ,
+</p>
+<p>
+  				success: function(data){
+</p>
+<p>
+  					window.parent.location.reload(); //刷新父页面
+</p>
+</p>
+<p>
+  					parent.layer.msg(&#8216;添加成功!&#8217;,{icon:1,time:1000});
+</p>
+<p>
+  					var index = parent.layer.getFrameIndex(window.name);
+</p>
+<p>
+  					parent.$(&#8216;.btn-refresh&#8217;).click();
+</p>
+<p>
+  					parent.layer.close(index);
+</p>
+<p>
+  					// window.location.href = location.href;
+</p>
+<p>
+  					// alert(location.href);
+</p>
+<p>
+  				},
+</p>
+<p>
+                  error: function(XmlHttpRequest, textStatus, errorThrown){
+</p>
+<p>
+  					layer.msg(&#8216;error!&#8217;,{icon:1,time:1000});
+</p>
+<p>
+  				}
+</p>
+<p>
+  			});
+</p>
+<p>
+  		}
+</p>
+<p>
+  	});
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;!&#8211;/请在上方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<p>
+  步骤3：更改控制器
+</p>
+<p><img loading="lazy" decoding="async" width="945" height="383" src="/wp-content/uploads/2018/05/word-image-5320.png" class="wp-image-5858" srcset="/wp-content/uploads/2018/05/word-image-5320.png 945w, /wp-content/uploads/2018/05/word-image-5320-300x122.png 300w, /wp-content/uploads/2018/05/word-image-5320-768x311.png 768w" sizes="(max-width: 945px) 100vw, 945px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use App\Http\Model\Stream;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class StreamController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function index()
+</p>
+<p>
+      {
+</p>
+<p>
+      	//1.分页获取数据
+</p>
+<p>
+      	$streams = Stream::orderBy(&#8216;id&#8217;, &#8216;desc&#8217;)-&gt;paginate(8);
+</p>
+<p>
+      	//2.加载视图并传递数据
+</p>
+<p>
+          return view(&#8216;admin.stream.index&#8217;, compact(&#8216;streams&#8217;));
+</p>
+<p>
+      }
+</p>
+<p>
+      //添加
+</p>
+<p>
+      public function add(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+      	//1.判断HTTP请求类型
+</p>
+<p>
+      	if ($request-&gt;ismethod(&#8216;post&#8217;)) {
+</p>
+<p>
+      		//2.接受数据
+</p>
+<p>
+      		$postData = $request-&gt;only([&#8216;stream_name&#8217;,&#8217;state&#8217;]);
+</p>
+<p>
+      		//3.通过模型添加数据
+</p>
+<p>
+      		$rs = Stream::create($postData);
+</p>
+<p>
+      		//4.判断
+</p>
+<p>
+      		echo $rs ? 1 : 0;
+</p>
+<p>
+      	} else {
+</p>
+<p>
+  	    	//2.加载视图并传递数据
+</p>
+<p>
+  	        return view(&#8216;admin.stream.add&#8217;);
+</p>
+<p>
+      	}
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h2>同步七牛云创建直播流</h2>
+<h3>1）接口文档说明</h3>
+<p>
+  接口说明：<a href="https://developer.qiniu.com/pili/api/2515/create-a-flow">https://developer.qiniu.com/pili/api/2515/create-a-flow</a>
+</p>
+<p><img loading="lazy" decoding="async" width="1246" height="327" src="/wp-content/uploads/2018/05/word-image-5321.png" class="wp-image-5859" srcset="/wp-content/uploads/2018/05/word-image-5321.png 1246w, /wp-content/uploads/2018/05/word-image-5321-300x79.png 300w, /wp-content/uploads/2018/05/word-image-5321-768x202.png 768w, /wp-content/uploads/2018/05/word-image-5321-1024x269.png 1024w" sizes="(max-width: 1246px) 100vw, 1246px" /><br />
+<img loading="lazy" decoding="async" width="785" height="614" src="/wp-content/uploads/2018/05/word-image-5322.png" class="wp-image-5860" srcset="/wp-content/uploads/2018/05/word-image-5322.png 785w, /wp-content/uploads/2018/05/word-image-5322-300x235.png 300w, /wp-content/uploads/2018/05/word-image-5322-768x601.png 768w" sizes="(max-width: 785px) 100vw, 785px" /><br />
+<img loading="lazy" decoding="async" width="886" height="613" src="/wp-content/uploads/2018/05/word-image-5323.png" class="wp-image-5861" srcset="/wp-content/uploads/2018/05/word-image-5323.png 886w, /wp-content/uploads/2018/05/word-image-5323-300x208.png 300w, /wp-content/uploads/2018/05/word-image-5323-768x531.png 768w" sizes="(max-width: 886px) 100vw, 886px" /><br />
+<img loading="lazy" decoding="async" width="1340" height="598" src="/wp-content/uploads/2018/05/word-image-5324.png" class="wp-image-5862" srcset="/wp-content/uploads/2018/05/word-image-5324.png 1340w, /wp-content/uploads/2018/05/word-image-5324-300x134.png 300w, /wp-content/uploads/2018/05/word-image-5324-768x343.png 768w, /wp-content/uploads/2018/05/word-image-5324-1024x457.png 1024w" sizes="(max-width: 1340px) 100vw, 1340px" /></p>
+<h3>安装配置工具库（七牛SDK、发送请求工具库）</h3>
+<ul>
+<li>
+    七牛SDK（zgldh/qiniu-laravel-storage）
+  </li>
+</ul>
+<p>
+  #【安装并配置】
+</p>
+<p><img loading="lazy" decoding="async" width="900" height="461" src="/wp-content/uploads/2018/05/word-image-5325.png" class="wp-image-5863" srcset="/wp-content/uploads/2018/05/word-image-5325.png 900w, /wp-content/uploads/2018/05/word-image-5325-300x154.png 300w, /wp-content/uploads/2018/05/word-image-5325-768x393.png 768w" sizes="(max-width: 900px) 100vw, 900px" /><br />
+<img loading="lazy" decoding="async" width="1151" height="459" src="/wp-content/uploads/2018/05/word-image-5326.png" class="wp-image-5864" srcset="/wp-content/uploads/2018/05/word-image-5326.png 1151w, /wp-content/uploads/2018/05/word-image-5326-300x120.png 300w, /wp-content/uploads/2018/05/word-image-5326-768x306.png 768w, /wp-content/uploads/2018/05/word-image-5326-1024x408.png 1024w" sizes="(max-width: 1151px) 100vw, 1151px" /><br />
+<img loading="lazy" decoding="async" width="944" height="535" src="/wp-content/uploads/2018/05/word-image-5327.png" class="wp-image-5865" srcset="/wp-content/uploads/2018/05/word-image-5327.png 944w, /wp-content/uploads/2018/05/word-image-5327-300x170.png 300w, /wp-content/uploads/2018/05/word-image-5327-768x435.png 768w" sizes="(max-width: 944px) 100vw, 944px" /><br />
+<img loading="lazy" decoding="async" width="1226" height="577" src="/wp-content/uploads/2018/05/word-image-5328.png" class="wp-image-5866" srcset="/wp-content/uploads/2018/05/word-image-5328.png 1226w, /wp-content/uploads/2018/05/word-image-5328-300x141.png 300w, /wp-content/uploads/2018/05/word-image-5328-768x361.png 768w, /wp-content/uploads/2018/05/word-image-5328-1024x482.png 1024w" sizes="(max-width: 1226px) 100vw, 1226px" /><br />
+<img loading="lazy" decoding="async" width="718" height="216" src="/wp-content/uploads/2018/05/word-image-5329.png" class="wp-image-5867" srcset="/wp-content/uploads/2018/05/word-image-5329.png 718w, /wp-content/uploads/2018/05/word-image-5329-300x90.png 300w" sizes="(max-width: 718px) 100vw, 718px" /><br />
+<img loading="lazy" decoding="async" width="1301" height="500" src="/wp-content/uploads/2018/05/word-image-5330.png" class="wp-image-5868" srcset="/wp-content/uploads/2018/05/word-image-5330.png 1301w, /wp-content/uploads/2018/05/word-image-5330-300x115.png 300w, /wp-content/uploads/2018/05/word-image-5330-768x295.png 768w, /wp-content/uploads/2018/05/word-image-5330-1024x394.png 1024w" sizes="(max-width: 1301px) 100vw, 1301px" /></p>
+<ul>
+<li>
+    发送请求工具库（guzzlehttp/guzzle）：是更加强大的curl
+  </li>
+</ul>
+<p>
+  #【安装】composer require guzzlehttp/guzzle
+</p>
+<p><img loading="lazy" decoding="async" width="538" height="311" src="/wp-content/uploads/2018/05/word-image-5331.png" class="wp-image-5869" srcset="/wp-content/uploads/2018/05/word-image-5331.png 538w, /wp-content/uploads/2018/05/word-image-5331-300x173.png 300w" sizes="(max-width: 538px) 100vw, 538px" /></p>
+<p>
+  #【基本语法】
+</p>
+<p>
+  $client = new \Guzzle\Client();
+</p>
+<p>
+  $client-&gt;request(方式，host，[headers  body]);
+</p>
+<h3>使用</h3>
+<p><img loading="lazy" decoding="async" width="1170" height="710" src="/wp-content/uploads/2018/05/word-image-5332.png" class="wp-image-5870" srcset="/wp-content/uploads/2018/05/word-image-5332.png 1170w, /wp-content/uploads/2018/05/word-image-5332-300x182.png 300w, /wp-content/uploads/2018/05/word-image-5332-768x466.png 768w, /wp-content/uploads/2018/05/word-image-5332-1024x621.png 1024w" sizes="(max-width: 1170px) 100vw, 1170px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use App\Http\Model\Stream;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class StreamController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function index()
+</p>
+<p>
+      {
+</p>
+<p>
+      	//1.分页获取数据
+</p>
+<p>
+      	$streams = Stream::orderBy(&#8216;id&#8217;, &#8216;desc&#8217;)-&gt;paginate(8);
+</p>
+<p>
+      	//2.加载视图并传递数据
+</p>
+<p>
+          return view(&#8216;admin.stream.index&#8217;, compact(&#8216;streams&#8217;));
+</p>
+<p>
+      }
+</p>
+<p>
+      //添加
+</p>
+<p>
+      public function add(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+      	//1.判断HTTP请求类型
+</p>
+<p>
+      	if ($request-&gt;ismethod(&#8216;post&#8217;)) {
+</p>
+<p>
+              //直播流名称过滤：必须唯一
+</p>
+</p>
+<p>
+      		//2.接受数据
+</p>
+<p>
+      		$postData = $request-&gt;only([&#8216;stream_name&#8217;,&#8217;state&#8217;]);
+</p>
+<p>
+      		//3.通过模型添加数据
+</p>
+<p>
+      		$rs = Stream::create($postData);
+</p>
+<p>
+      		//4.判断
+</p>
+<p>
+              if ($rs) {
+</p>
+<p>
+              <strong>//成功同步创建直播流</strong>
+</p>
+<p><strong>                $method = &#8216;POST&#8217;;                       //HTTP请求类型</strong>
+</p>
+<p><strong>                $space = &#8216;201801140002&#8217;;                //空间名称（注：该空间必须存在）</strong>
+</p>
+<p><strong>                $path = &#8216;/v2/hubs/&#8217;.$space.&#8217;/streams&#8217;;  //请求接口地址</strong>
+</p>
+<p><strong>                $host = &#8216;pili.qiniuapi.com&#8217;;            //接口请求域名</strong>
+</p>
+<p><strong>                $contentType = &#8216;application/json&#8217;;  </strong>
+</p>
+<p><strong>                $body = json_encode([                   //将请求体数据转化为json格式</strong>
+</p>
+<p><strong>                    &#8216;key&#8217;=&gt;$request-&gt;input(&#8216;stream_name&#8217;)</strong>
+</p>
+<p><strong>                ]);</strong>
+</p>
+<p><strong>                //根据请求包，我们要制作鉴权信息(用于验证请求包在传输中是否被篡改)；</strong>
+</p>
+<p><strong>                //Authorization: &lt;QiniuToken&gt;</strong>
+</p>
+<p><strong>                //生成签名字符串；</strong>
+</p>
+<p><strong>                $data = &#8220;$method $path\nHost: $host\nContent-Type: $contentType\n\n$body&#8221;;</strong>
+</p>
+<p><strong>                $ak =  config(&#8216;filesystems.disks.qiniu.access_key&#8217;); //通过config函数获取配置文件信息</strong>
+</p>
+<p><strong>                $sk =  config(&#8216;filesystems.disks.qiniu.secret_key&#8217;);</strong>
+</p>
+<p><strong>                $qiniu = new  \Qiniu\Auth($ak,$sk);</strong>
+</p>
+<p><strong>                $token =  &#8220;Qiniu &#8220;.$qiniu-&gt;sign($data); //根据HTTP请求鉴权接口生成秘钥</strong>
+</p>
+<p><strong>                //利用GuzzleHttp发送请求表</strong>
+</p>
+<p><strong>                $cli = new \GuzzleHttp\Client();</strong>
+</p>
+<p><strong>                $res = $cli-&gt;request($method, $host.$path, [</strong>
+</p>
+<p><strong>                    &#8216;headers&#8217; =&gt; [</strong>
+</p>
+<p><strong>                        &#8216;Authorization&#8217; =&gt; $token,</strong>
+</p>
+<p><strong>                        &#8216;Content-Type&#8217; =&gt; $contentType,</strong>
+</p>
+<p><strong>                        &#8216;Accept-Encoding&#8217; =&gt; &#8216;gzip&#8217;,</strong>
+</p>
+<p><strong>                        &#8216;Content-Length&#8217; =&gt; strlen($body),</strong>
+</p>
+<p><strong>                        &#8216;User-Agent&#8217; =&gt; &#8216;pili-sdk-go/v2 go1.6 darwin/amd64&#8217;,</strong>
+</p>
+<p><strong>                    ],</strong>
+</p>
+<p><strong>                    &#8216;body&#8217;=&gt;$body,</strong>
+</p>
+<p><strong>                ]);</strong>
+</p>
+<p><strong>                //var_dump($res);die;</strong>
+</p>
+<p><strong>            }</strong>
+</p>
+<p><strong>    		echo $rs ? 1 : 0;</strong>
+</p>
+<p>
+      	} else {
+</p>
+<p>
+  	    	//2.加载视图并传递数据
+</p>
+<p>
+  	        return view(&#8216;admin.stream.add&#8217;);
+</p>
+<p>
+      	}
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h1>四、直播课程管理（在线教育后台）</h1>
+<h2>1、准备</h2>
+<h3>1）直播课程流表</h3>
+<p><strong>后台直播课程表</strong>
+</p>
+<table>
+<tr>
+<td>
+<p><strong>表名</strong>
+</p>
+</td>
+<td colspan="6">
+<p>
+  live
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>序号</strong>
+</p>
+</td>
+<td>
+<p><strong>字段</strong>
+</p>
+</td>
+<td>
+<p><strong>类型</strong>
+</p>
+</td>
+<td>
+<p><strong>说明</strong>
+</p>
+</td>
+<td>
+<p><strong>空</strong>
+</p>
+</td>
+<td>
+<p><strong>默认值</strong>
+</p>
+</td>
+<td>
+<p><strong>主键</strong>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  id
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  自增主键
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  N/A
+</p>
+</td>
+<td>
+<p>
+  是
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  2
+</p>
+</td>
+<td>
+<p>
+  live_name
+</p>
+</td>
+<td>
+<p>
+  varchar(200)
+</p>
+</td>
+<td>
+<p>
+  直播课程名称
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  3
+</p>
+</td>
+<td>
+<p>
+  stream_id
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  所属直播流
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  4
+</p>
+</td>
+<td>
+<p>
+  img
+</p>
+</td>
+<td>
+<p>
+  varchar(255)
+</p>
+</td>
+<td>
+<p>
+  封面
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  5
+</p>
+</td>
+<td>
+<p>
+  start_time
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  直播开始时间
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  6
+</p>
+</td>
+<td>
+<p>
+  end_time
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  直播结束时间
+</p>
+</td>
+<td>
+<p>
+  Y
+</p>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  7
+</p>
+</td>
+<td>
+<p>
+  created_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  创建于
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p>
+  8
+</p>
+</td>
+<td>
+<p>
+  update_at
+</p>
+</td>
+<td>
+<p>
+  int
+</p>
+</td>
+<td>
+<p>
+  更新于
+</p>
+</td>
+<td>
+<p>
+  N
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+<td></td>
+</tr>
+</table>
+<p><img loading="lazy" decoding="async" width="1251" height="676" src="/wp-content/uploads/2018/05/word-image-5333.png" class="wp-image-5871" srcset="/wp-content/uploads/2018/05/word-image-5333.png 1251w, /wp-content/uploads/2018/05/word-image-5333-300x162.png 300w, /wp-content/uploads/2018/05/word-image-5333-768x415.png 768w, /wp-content/uploads/2018/05/word-image-5333-1024x553.png 1024w" sizes="(max-width: 1251px) 100vw, 1251px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  use Illuminate\Support\Facades\Schema;
+</p>
+<p>
+  use Illuminate\Database\Schema\Blueprint;
+</p>
+<p>
+  use Illuminate\Database\Migrations\Migration;
+</p>
+<p>
+  class CreateLiveTable extends Migration
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Run the migrations.
+</p>
+<p>
+       *
+</p>
+<p>
+       * @return void
+</p>
+<p>
+       */
+</p>
+<p>
+      public function up()
+</p>
+<p>
+      {
+</p>
+<p>
+          Schema::create(&#8216;live&#8217;, function (Blueprint $table) {
+</p>
+<p>
+              $table-&gt;increments(&#8216;id&#8217;);
+</p>
+<p>
+              $table-&gt;string(&#8216;live_name&#8217;, 200)-&gt;comment(&#8216;直播课程名称&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedInteger(&#8216;stream_id&#8217;)-&gt;comment(&#8216;所属直播流&#8217;);
+</p>
+<p>
+              $table-&gt;string(&#8216;img&#8217;)-&gt;default(&#8221;)-&gt;comment(&#8216;封面&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedInteger(&#8216;start_time&#8217;)-&gt;default(0)-&gt;comment(&#8216;直播开始时间&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedInteger(&#8216;end_time&#8217;)-&gt;default(0)-&gt;comment(&#8216;直播结束时间&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedInteger(&#8216;created_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+              $table-&gt;unsignedInteger(&#8216;updated_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;更新于&#8217;);
+</p>
+<p>
+          });
+</p>
+<p>
+      }
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Reverse the migrations.
+</p>
+<p>
+       *
+</p>
+<p>
+       * @return void
+</p>
+<p>
+       */
+</p>
+<p>
+      public function down()
+</p>
+<p>
+      {
+</p>
+<p>
+          Schema::dropIfExists(&#8216;live&#8217;);
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h3>2）模型</h3>
+<p><img loading="lazy" decoding="async" width="1213" height="581" src="/wp-content/uploads/2018/05/word-image-5334.png" class="wp-image-5872" srcset="/wp-content/uploads/2018/05/word-image-5334.png 1213w, /wp-content/uploads/2018/05/word-image-5334-300x144.png 300w, /wp-content/uploads/2018/05/word-image-5334-768x368.png 768w, /wp-content/uploads/2018/05/word-image-5334-1024x490.png 1024w" sizes="(max-width: 1213px) 100vw, 1213px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Model;
+</p>
+<p>
+  use Illuminate\Database\Eloquent\Model;
+</p>
+<p>
+  class Live extends Model
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明表名（注：laravel会自动加s所以自己声明覆盖）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $table = &#8216;live&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Unix时间戳形式填充创建于和更新于（注：模型默认托管时间但是是datetime类型）
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $dateFormat = &#8216;U&#8217;;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明可批量设置的属性（注：当使用create静态方式时）
+</p>
+<p>
+       * @var array
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $fillable = [&#8216;live_name&#8217;, &#8216;stream_id&#8217;, &#8216;img&#8217;, &#8216;start_time&#8217;, &#8216;end_time&#8217;];
+</p>
+<p>
+  }
+</p>
+<h2>2、列表功能</h2>
+<p>
+  步骤1：路由
+</p>
+<p><img loading="lazy" decoding="async" width="1037" height="247" src="/wp-content/uploads/2018/05/word-image-5335.png" class="wp-image-5873" srcset="/wp-content/uploads/2018/05/word-image-5335.png 1037w, /wp-content/uploads/2018/05/word-image-5335-300x71.png 300w, /wp-content/uploads/2018/05/word-image-5335-768x183.png 768w, /wp-content/uploads/2018/05/word-image-5335-1024x244.png 1024w" sizes="(max-width: 1037px) 100vw, 1037px" /></p>
+<p>
+  步骤2：创建控制器方法，分页获取数据，加载视图并传递数据
+</p>
+<p><img loading="lazy" decoding="async" width="1020" height="567" src="/wp-content/uploads/2018/05/word-image-5336.png" class="wp-image-5874" srcset="/wp-content/uploads/2018/05/word-image-5336.png 1020w, /wp-content/uploads/2018/05/word-image-5336-300x167.png 300w, /wp-content/uploads/2018/05/word-image-5336-768x427.png 768w" sizes="(max-width: 1020px) 100vw, 1020px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use App\Http\Model\Live;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class LiveController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //列表
+</p>
+<p>
+      public function index()
+</p>
+<p>
+      {
+</p>
+<p>
+      	//1.分页获取数据
+</p>
+<p>
+      	$lives = Live::orderBy(&#8216;id&#8217;, &#8216;desc&#8217;)-&gt;paginate(8);
+</p>
+<p>
+      	//2.加载视图并传递数据
+</p>
+<p>
+          return view(&#8216;admin.stream.index&#8217;, compact(&#8216;lives&#8217;));
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p>
+  步骤3：创建视图
+</p>
+<p><img loading="lazy" decoding="async" width="1362" height="385" src="/wp-content/uploads/2018/05/word-image-5337.png" class="wp-image-5875" srcset="/wp-content/uploads/2018/05/word-image-5337.png 1362w, /wp-content/uploads/2018/05/word-image-5337-300x85.png 300w, /wp-content/uploads/2018/05/word-image-5337-768x217.png 768w, /wp-content/uploads/2018/05/word-image-5337-1024x289.png 1024w" sizes="(max-width: 1362px) 100vw, 1362px" /></p>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;renderer&#8221; content=&#8221;webkit|ie-comp|ie-stand&#8221;&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;X-UA-Compatible&#8221; content=&#8221;IE=edge,chrome=1&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&#8221; /&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Cache-Control&#8221; content=&#8221;no-siteapp&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if lt IE 9]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/html5shiv.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/respond.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/css/H-ui.min.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/H-ui.admin.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/Hui-iconfont/1.0.8/iconfont.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/skin/default/skin.css&#8221; id=&#8221;skin&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/style.css&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if IE 6]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/DD_belatedPNG_0.0.8a-min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script&gt;DD_belatedPNG.fix(&#8216;*&#8217;);&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;title&gt;直播课程管理&lt;/title&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;nav class=&#8221;breadcrumb&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe67f;&lt;/i&gt; 首页 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 管理员管理 &lt;span class=&#8221;c-gray en&#8221;&gt;&amp;gt;&lt;/span&gt; 直播课程管理 &lt;a class=&#8221;btn btn-success radius r&#8221; style=&#8221;line-height:1.6em;margin-top:3px&#8221; href=&#8221;javascript:location.replace(location.href);&#8221; title=&#8221;刷新&#8221; &gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe68f;&lt;/i&gt;&lt;/a&gt;&lt;/nav&gt;
+</p>
+<p>
+  &lt;div class=&#8221;page-container&#8221;&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  		&lt;form class=&#8221;Huiform&#8221; method=&#8221;post&#8221; action=&#8221;&#8221; target=&#8221;_self&#8221;&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;text&#8221; class=&#8221;input-text&#8221; style=&#8221;width:250px&#8221; placeholder=&#8221;直播课程名称&#8221; id=&#8221;&#8221; name=&#8221;&#8221;&gt;
+</p>
+<p>
+  			&lt;button type=&#8221;submit&#8221; class=&#8221;btn btn-success&#8221; id=&#8221;&#8221; name=&#8221;&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe665;&lt;/i&gt; 搜直播课程节点&lt;/button&gt;
+</p>
+<p>
+  		&lt;/form&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;cl pd-5 bg-1 bk-gray mt-20&#8243;&gt;
+</p>
+<p>
+  		&lt;span class=&#8221;l&#8221;&gt;
+</p>
+<p>
+  			&lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;datadel()&#8221; class=&#8221;btn btn-danger radius&#8221;&gt;
+</p>
+<p>
+  				&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt; 批量删除
+</p>
+<p>
+  			&lt;/a&gt;
+</p>
+<p>
+  			&lt;a href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_add(&#8216;添加直播课程节点&#8217;,'{{ url(&#8216;admin/stream/add&#8217;) }}&#8217;,&#8221;,&#8217;310&#8242;)&#8221; class=&#8221;btn btn-primary radius&#8221;&gt;
+</p>
+<p>
+  				&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe600;&lt;/i&gt; 添加直播课程节点
+</p>
+<p>
+  			&lt;/a&gt;
+</p>
+<p>
+  		&lt;/span&gt;
+</p>
+<p>
+  		&lt;span class=&#8221;r&#8221;&gt;共有数据：&lt;strong&gt;54&lt;/strong&gt; 条&lt;/span&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;table class=&#8221;table table-border table-bordered table-bg&#8221;&gt;
+</p>
+<p>
+  		&lt;thead&gt;
+</p>
+<p>
+  			&lt;tr&gt;
+</p>
+<p>
+  				&lt;th scope=&#8221;col&#8221; colspan=&#8221;6&#8243;&gt;直播课程节点&lt;/th&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  			&lt;tr class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;25&#8243;&gt;&lt;input type=&#8221;checkbox&#8221; name=&#8221;&#8221; value=&#8221;&#8221;&gt;&lt;/th&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;40&#8243;&gt;ID&lt;/th&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;40&#8243;&gt;封面&lt;/th&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;200&#8243;&gt;直播课程名称&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;直播开始时间&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;直播结束时间&lt;/th&gt;
+</p>
+<p>
+  				&lt;th&gt;创建于&lt;/th&gt;
+</p>
+<p>
+  				&lt;th width=&#8221;100&#8243;&gt;操作&lt;/th&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  		&lt;/thead&gt;
+</p>
+<p>
+  		&lt;tbody&gt;
+</p>
+<p>
+  			@foreach ($lives as $live)
+</p>
+<p>
+  			&lt;tr class=&#8221;text-c&#8221;&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;input type=&#8221;checkbox&#8221; value=&#8221;1&#8243; name=&#8221;&#8221;&gt;&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $live-&gt;id }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;
+</p>
+<p>
+  					@if ($live-&gt;img )
+</p>
+<p>
+  						&lt;img src=&#8221;{{ $live-&gt;img }}&#8221; /&gt;
+</p>
+<p>
+  					@else
+</p>
+<p>
+  						&lt;img src=&#8221;{{ asset(&#8216;img/default.png&#8217;) }}&#8221; /&gt;
+</p>
+<p>
+  					@endif
+</p>
+<p>
+  				&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $live-&gt;start_time }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $live-&gt;end_time }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;{{ $live-&gt;created_at }}&lt;/td&gt;
+</p>
+<p>
+  				&lt;td&gt;&lt;a title=&#8221;编辑&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_edit(&#8216;角色编辑&#8217;,&#8217;admin-permission-add.html&#8217;,&#8217;1&#8242;,&#8221;,&#8217;310&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6df;&lt;/i&gt;&lt;/a&gt; &lt;a title=&#8221;删除&#8221; href=&#8221;javascript:;&#8221; onclick=&#8221;admin_permission_del(this,&#8217;1&#8242;)&#8221; class=&#8221;ml-5&#8243; style=&#8221;text-decoration:none&#8221;&gt;&lt;i class=&#8221;Hui-iconfont&#8221;&gt;&amp;#xe6e2;&lt;/i&gt;&lt;/a&gt;&lt;/td&gt;
+</p>
+<p>
+  			&lt;/tr&gt;
+</p>
+<p>
+  			@endforeach
+</p>
+<p>
+  		&lt;/tbody&gt;
+</p>
+<p>
+  	&lt;/table&gt;
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;!&#8211;_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery/1.9.1/jquery.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/layer/2.4/layer.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/js/H-ui.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/js/H-ui.admin.js&#8221;&gt;&lt;/script&gt; &lt;!&#8211;/_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;请在下方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/datatables/1.10.0/jquery.dataTables.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  /*
+</p>
+<p>
+  	参数解释：
+</p>
+<p>
+  	title	标题
+</p>
+<p>
+  	url		请求的url
+</p>
+<p>
+  	id		需要操作的数据id
+</p>
+<p>
+  	w		弹出层宽度（缺省调默认值）
+</p>
+<p>
+  	h		弹出层高度（缺省调默认值）
+</p>
+<p>
+  */
+</p>
+<p>
+  /*管理员-直播课程-添加*/
+</p>
+<p>
+  function admin_permission_add(title,url,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-直播课程-编辑*/
+</p>
+<p>
+  function admin_permission_edit(title,url,id,w,h){
+</p>
+<p>
+  	layer_show(title,url,w,h);
+</p>
+<p>
+  }
+</p>
+<p>
+  /*管理员-直播课程-删除*/
+</p>
+<p>
+  function admin_permission_del(obj,id){
+</p>
+<p>
+  	layer.confirm(&#8216;确认要删除吗？&#8217;,function(index){
+</p>
+<p>
+  		$.ajax({
+</p>
+<p>
+  			type: &#8216;POST&#8217;,
+</p>
+<p>
+  			url: &#8221;,
+</p>
+<p>
+  			dataType: &#8216;json&#8217;,
+</p>
+<p>
+  			success: function(data){
+</p>
+<p>
+  				$(obj).parents(&#8220;tr&#8221;).remove();
+</p>
+<p>
+  				layer.msg(&#8216;已删除!&#8217;,{icon:1,time:1000});
+</p>
+<p>
+  			},
+</p>
+<p>
+  			error:function(data) {
+</p>
+<p>
+  				console.log(data.msg);
+</p>
+<p>
+  			},
+</p>
+<p>
+  		});
+</p>
+<p>
+  	});
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<h2>3、添加功能</h2>
+<h3>1）加载视图</h3>
+<p>
+  步骤1：路由
+</p>
+<p><img loading="lazy" decoding="async" width="1171" height="288" src="/wp-content/uploads/2018/05/word-image-5338.png" class="wp-image-5876" srcset="/wp-content/uploads/2018/05/word-image-5338.png 1171w, /wp-content/uploads/2018/05/word-image-5338-300x74.png 300w, /wp-content/uploads/2018/05/word-image-5338-768x189.png 768w, /wp-content/uploads/2018/05/word-image-5338-1024x252.png 1024w" sizes="(max-width: 1171px) 100vw, 1171px" /></p>
+<p>
+  步骤2：创建控制器对应方法并加载视图
+</p>
+<p><img loading="lazy" decoding="async" width="889" height="433" src="/wp-content/uploads/2018/05/word-image-5339.png" class="wp-image-5877" srcset="/wp-content/uploads/2018/05/word-image-5339.png 889w, /wp-content/uploads/2018/05/word-image-5339-300x146.png 300w, /wp-content/uploads/2018/05/word-image-5339-768x374.png 768w" sizes="(max-width: 889px) 100vw, 889px" /></p>
+<p>
+  步骤3：创建视图
+</p>
+<p>
+  步骤1：
+</p>
+<p><img loading="lazy" decoding="async" width="1033" height="699" src="/wp-content/uploads/2018/05/word-image-5340.png" class="wp-image-5878" srcset="/wp-content/uploads/2018/05/word-image-5340.png 1033w, /wp-content/uploads/2018/05/word-image-5340-300x203.png 300w, /wp-content/uploads/2018/05/word-image-5340-768x520.png 768w, /wp-content/uploads/2018/05/word-image-5340-1024x693.png 1024w, /wp-content/uploads/2018/05/word-image-5340-220x150.png 220w" sizes="(max-width: 1033px) 100vw, 1033px" /></p>
+<p>
+  步骤2：打开列表页，设置添加弹出看连接
+</p>
+<p><img loading="lazy" decoding="async" width="1248" height="268" src="/wp-content/uploads/2018/05/word-image-5341.png" class="wp-image-5879" srcset="/wp-content/uploads/2018/05/word-image-5341.png 1248w, /wp-content/uploads/2018/05/word-image-5341-300x64.png 300w, /wp-content/uploads/2018/05/word-image-5341-768x165.png 768w, /wp-content/uploads/2018/05/word-image-5341-1024x220.png 1024w" sizes="(max-width: 1248px) 100vw, 1248px" /></p>
+<h3>2）加载视图 （修改form表单）</h3>
+<p>
+  步骤1：控制器方法获取所有直播流数据传递给视图显示
+</p>
+<p><img loading="lazy" decoding="async" width="955" height="440" src="/wp-content/uploads/2018/05/word-image-5342.png" class="wp-image-5880" srcset="/wp-content/uploads/2018/05/word-image-5342.png 955w, /wp-content/uploads/2018/05/word-image-5342-300x138.png 300w, /wp-content/uploads/2018/05/word-image-5342-768x354.png 768w" sizes="(max-width: 955px) 100vw, 955px" /></p>
+<p>
+  步骤2：更改form表单
+</p>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;renderer&#8221; content=&#8221;webkit|ie-comp|ie-stand&#8221;&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;X-UA-Compatible&#8221; content=&#8221;IE=edge,chrome=1&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&#8221; /&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Cache-Control&#8221; content=&#8221;no-siteapp&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if lt IE 9]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/html5shiv.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/respond.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/css/H-ui.min.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/H-ui.admin.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/Hui-iconfont/1.0.8/iconfont.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/skin/default/skin.css&#8221; id=&#8221;skin&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/style.css&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if IE 6]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/DD_belatedPNG_0.0.8a-min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script&gt;DD_belatedPNG.fix(&#8216;*&#8217;);&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;title&gt;添加管理员 &#8211; 管理员管理 &#8211; H-ui.admin v3.1&lt;/title&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;keywords&#8221; content=&#8221;H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载&#8221;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;description&#8221; content=&#8221;H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。&#8221;&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;article class=&#8221;page-container&#8221;&gt;
+</p>
+<p>
+  	&lt;form class=&#8221;form form-horizontal&#8221; id=&#8221;form-admin-add&#8221;&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;&lt;span class=&#8221;c-red&#8221;&gt;*&lt;/span&gt;直播课程名称：&lt;/label&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;formControls col-xs-8 col-sm-9&#8243;&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;text&#8221; class=&#8221;input-text&#8221; value=&#8221;&#8221; placeholder=&#8221;&#8221; id=&#8221;adminName&#8221; name=&#8221;adminName&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;所属直播流：&lt;/label&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;formControls col-xs-8 col-sm-9&#8243;&gt; &lt;span class=&#8221;select-box&#8221; style=&#8221;width:150px;&#8221;&gt;
+</p>
+<p>
+  			&lt;select class=&#8221;select&#8221; name=&#8221;adminRole&#8221; size=&#8221;1&#8243;&gt;
+</p>
+<p>
+  				@foreach ($streams as $stream)
+</p>
+<p>
+  				&lt;option value=&#8221;{{ $stream-&gt;id }}&#8221;&gt;{{ $stream-&gt;stream_name }}&lt;/option&gt;
+</p>
+<p>
+  				@endforeach
+</p>
+<p>
+  			&lt;/select&gt;
+</p>
+<p>
+  			&lt;/span&gt; &lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;&lt;span class=&#8221;c-red&#8221;&gt;*&lt;/span&gt;直播日期：&lt;/label&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;formControls col-xs-8 col-sm-9&#8243;&gt;
+</p>
+<p>
+  			&lt;input type=&#8221;text&#8221; onfocus=&#8221;WdatePicker({ maxDate:&#8217;#F{$dp.$D(\&#8217;start_time\&#8217;)||\&#8217;%y-%M-%d\&#8217;}&#8217; })&#8221; id=&#8221;start_time&#8221; class=&#8221;input-text Wdate&#8221; style=&#8221;width:120px;&#8221;&gt;
+</p>
+<p>
+  			&#8211;
+</p>
+<p>
+  			&lt;input type=&#8221;text&#8221; onfocus=&#8221;WdatePicker({ minDate:&#8217;#F{$dp.$D(\&#8217;end_time\&#8217;)}&#8217;,maxDate:&#8217;%y-%M-%d&#8217; })&#8221; id=&#8221;end_time&#8221; class=&#8221;input-text Wdate&#8221; style=&#8221;width:120px;&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3&#8243;&gt;
+</p>
+<p>
+  			&lt;input class=&#8221;btn btn-primary radius&#8221; type=&#8221;submit&#8221; value=&#8221;&amp;nbsp;&amp;nbsp;提交&amp;nbsp;&amp;nbsp;&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;/form&gt;
+</p>
+<p>
+  &lt;/article&gt;
+</p>
+<p>
+  &lt;!&#8211;_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/My97DatePicker/4.8/WdatePicker.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery/1.9.1/jquery.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/layer/2.4/layer.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/js/H-ui.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/js/H-ui.admin.js&#8221;&gt;&lt;/script&gt; &lt;!&#8211;/_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;请在下方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/jquery.validate.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/validate-methods.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/messages_zh.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  $(function(){
+</p>
+<p>
+  	$(&#8216;.skin-minimal input&#8217;).iCheck({
+</p>
+<p>
+  		checkboxClass: &#8216;icheckbox-blue&#8217;,
+</p>
+<p>
+  		radioClass: &#8216;iradio-blue&#8217;,
+</p>
+<p>
+  		increaseArea: &#8216;20%&#8217;
+</p>
+<p>
+  	});
+</p>
+</p>
+<p>
+  	$(&#8220;#form-admin-add&#8221;).validate({
+</p>
+<p>
+  		rules:{
+</p>
+<p>
+  			adminName:{
+</p>
+<p>
+  				required:true,
+</p>
+<p>
+  				minlength:4,
+</p>
+<p>
+  				maxlength:16
+</p>
+<p>
+  			},
+</p>
+<p>
+  			password:{
+</p>
+<p>
+  				required:true,
+</p>
+<p>
+  			},
+</p>
+<p>
+  			password2:{
+</p>
+<p>
+  				required:true,
+</p>
+<p>
+  				equalTo: &#8220;#password&#8221;
+</p>
+<p>
+  			},
+</p>
+<p>
+  			sex:{
+</p>
+<p>
+  				required:true,
+</p>
+<p>
+  			},
+</p>
+<p>
+  			phone:{
+</p>
+<p>
+  				required:true,
+</p>
+<p>
+  				isPhone:true,
+</p>
+<p>
+  			},
+</p>
+<p>
+  			email:{
+</p>
+<p>
+  				required:true,
+</p>
+<p>
+  				email:true,
+</p>
+<p>
+  			},
+</p>
+<p>
+  			adminRole:{
+</p>
+<p>
+  				required:true,
+</p>
+<p>
+  			},
+</p>
+<p>
+  		},
+</p>
+<p>
+  		onkeyup:false,
+</p>
+<p>
+  		focusCleanup:true,
+</p>
+<p>
+  		success:&#8221;valid&#8221;,
+</p>
+<p>
+  		submitHandler:function(form){
+</p>
+<p>
+  			$(form).ajaxSubmit({
+</p>
+<p>
+  				type: &#8216;post&#8217;,
+</p>
+<p>
+  				url: &#8220;xxxxxxx&#8221; ,
+</p>
+<p>
+  				success: function(data){
+</p>
+<p>
+  					layer.msg(&#8216;添加成功!&#8217;,{icon:1,time:1000});
+</p>
+<p>
+  				},
+</p>
+<p>
+                  error: function(XmlHttpRequest, textStatus, errorThrown){
+</p>
+<p>
+  					layer.msg(&#8216;error!&#8217;,{icon:1,time:1000});
+</p>
+<p>
+  				}
+</p>
+<p>
+  			});
+</p>
+<p>
+  			var index = parent.layer.getFrameIndex(window.name);
+</p>
+<p>
+  			parent.$(&#8216;.btn-refresh&#8217;).click();
+</p>
+<p>
+  			parent.layer.close(index);
+</p>
+<p>
+  		}
+</p>
+<p>
+  	});
+</p>
+<p>
+  });
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;!&#8211;/请在上方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="1065" height="485" src="/wp-content/uploads/2018/05/word-image-5343.png" class="wp-image-5881" srcset="/wp-content/uploads/2018/05/word-image-5343.png 1065w, /wp-content/uploads/2018/05/word-image-5343-300x137.png 300w, /wp-content/uploads/2018/05/word-image-5343-768x350.png 768w, /wp-content/uploads/2018/05/word-image-5343-1024x466.png 1024w" sizes="(max-width: 1065px) 100vw, 1065px" /></p>
+<h3>3）数据处理</h3>
+<p>
+  表单验证插件：<a href="http://validform.rjboy.cn/">http://validform.rjboy.cn/</a>
+</p>
+<p>
+  后台表单提交插件说明：<a href="https://www.cnblogs.com/si-shaohua/p/3780321.html">https://www.cnblogs.com/si-shaohua/p/3780321.html</a>
+</p>
+<p>
+  步骤1：更改表单插件
+</p>
+<p>
+  &lt;!DOCTYPE HTML&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;renderer&#8221; content=&#8221;webkit|ie-comp|ie-stand&#8221;&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;X-UA-Compatible&#8221; content=&#8221;IE=edge,chrome=1&#8243;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;viewport&#8221; content=&#8221;width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&#8221; /&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Cache-Control&#8221; content=&#8221;no-siteapp&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if lt IE 9]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/html5shiv.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/respond.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/css/H-ui.min.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/H-ui.admin.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/Hui-iconfont/1.0.8/iconfont.css&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/skin/default/skin.css&#8221; id=&#8221;skin&#8221; /&gt;
+</p>
+<p>
+  &lt;link rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; href=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/css/style.css&#8221; /&gt;
+</p>
+<p>
+  &lt;!&#8211;[if IE 6]&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/DD_belatedPNG_0.0.8a-min.js&#8221; &gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script&gt;DD_belatedPNG.fix(&#8216;*&#8217;);&lt;/script&gt;
+</p>
+<p>
+  &lt;![endif]&#8211;&gt;
+</p>
+<p>
+  &lt;title&gt;添加管理员 &#8211; 管理员管理 &#8211; H-ui.admin v3.1&lt;/title&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;keywords&#8221; content=&#8221;H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载&#8221;&gt;
+</p>
+<p>
+  &lt;meta name=&#8221;description&#8221; content=&#8221;H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。&#8221;&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;article class=&#8221;page-container&#8221;&gt;
+</p>
+<p>
+  	&lt;form class=&#8221;form form-horizontal&#8221; id=&#8221;form-admin-add&#8221;&gt;
+</p>
+<p>
+  		{{ csrf_field() }}
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;&lt;span class=&#8221;c-red&#8221;&gt;*&lt;/span&gt;直播课程名称：&lt;/label&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;formControls col-xs-8 col-sm-9&#8243;&gt;
+</p>
+<p>
+  			&lt;input required type=&#8221;text&#8221; class=&#8221;input-text&#8221; value=&#8221;&#8221; placeholder=&#8221;&#8221; id=&#8221;live_name&#8221; name=&#8221;live_name&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;所属直播流：&lt;/label&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;formControls col-xs-8 col-sm-9&#8243;&gt; &lt;span class=&#8221;select-box&#8221; style=&#8221;width:150px;&#8221;&gt;
+</p>
+<p>
+  			&lt;select class=&#8221;select&#8221; name=&#8221;stream_id&#8221; size=&#8221;1&#8243;&gt;
+</p>
+<p>
+  				@foreach ($streams as $stream)
+</p>
+<p>
+  				&lt;option value=&#8221;{{ $stream-&gt;id }}&#8221;&gt;{{ $stream-&gt;stream_name }}&lt;/option&gt;
+</p>
+<p>
+  				@endforeach
+</p>
+<p>
+  			&lt;/select&gt;
+</p>
+<p>
+  			&lt;/span&gt; &lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;label class=&#8221;form-label col-xs-4 col-sm-3&#8243;&gt;&lt;span class=&#8221;c-red&#8221;&gt;*&lt;/span&gt;直播日期：&lt;/label&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;formControls col-xs-8 col-sm-9&#8243;&gt;
+</p>
+<p>
+  			&lt;input required type=&#8221;text&#8221; onfocus=&#8221;WdatePicker({ maxDate:&#8217;#F{$dp.$D(\&#8217;start_time\&#8217;)||\&#8217;%y-%M-%d\&#8217;}&#8217; })&#8221; id=&#8221;start_time&#8221; name=&#8221;start_time&#8221; class=&#8221;input-text Wdate&#8221; style=&#8221;width:120px;&#8221;&gt;
+</p>
+<p>
+  			&#8211;
+</p>
+<p>
+  			&lt;input required type=&#8221;text&#8221; onfocus=&#8221;WdatePicker({ minDate:&#8217;#F{$dp.$D(\&#8217;end_time\&#8217;)}&#8217;,maxDate:&#8217;%y-%M-%d&#8217; })&#8221; id=&#8221;end_time&#8221; name=&#8221;end_time&#8221; class=&#8221;input-text Wdate&#8221; style=&#8221;width:120px;&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;div class=&#8221;row cl&#8221;&gt;
+</p>
+<p>
+  		&lt;div class=&#8221;col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3&#8243;&gt;
+</p>
+<p>
+  			&lt;input class=&#8221;btn btn-primary radius&#8221; type=&#8221;submit&#8221; value=&#8221;&amp;nbsp;&amp;nbsp;提交&amp;nbsp;&amp;nbsp;&#8221;&gt;
+</p>
+<p>
+  		&lt;/div&gt;
+</p>
+<p>
+  	&lt;/div&gt;
+</p>
+<p>
+  	&lt;/form&gt;
+</p>
+<p>
+  &lt;/article&gt;
+</p>
+<p>
+  &lt;!&#8211;_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/My97DatePicker/4.8/WdatePicker.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery/1.9.1/jquery.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/layer/2.4/layer.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui/js/H-ui.min.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/static&#8217;) }}/h-ui.admin/js/H-ui.admin.js&#8221;&gt;&lt;/script&gt; &lt;!&#8211;/_footer 作为公共模版分离出去&#8211;&gt;
+</p>
+<p>
+  &lt;!&#8211;请在下方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/jquery.validate.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/validate-methods.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; src=&#8221;{{ asset(&#8216;admin/lib&#8217;) }}/jquery.validation/1.14.0/messages_zh.js&#8221;&gt;&lt;/script&gt;
+</p>
+<p><strong>&lt;script type=&#8221;text/javascript&#8221;&gt;</strong>
+</p>
+<p><strong>$(function(){</strong>
+</p>
+<p><strong>	$(&#8216;.skin-minimal input&#8217;).iCheck({</strong>
+</p>
+<p><strong>		checkboxClass: &#8216;icheckbox-blue&#8217;,</strong>
+</p>
+<p><strong>		radioClass: &#8216;iradio-blue&#8217;,</strong>
+</p>
+<p><strong>		increaseArea: &#8216;20%&#8217;</strong>
+</p>
+<p><strong>	});</strong>
+</p>
+<p><strong>	</strong>
+</p>
+<p><strong>	$(&#8220;#form-admin-add&#8221;).validate({</strong>
+</p>
+<p><strong>		rules:{</strong>
+</p>
+<p><strong>			live_name:{</strong>
+</p>
+<p><strong>				required:true,</strong>
+</p>
+<p><strong>				minlength:4,</strong>
+</p>
+<p><strong>				maxlength:16</strong>
+</p>
+<p><strong>			},</strong>
+</p>
+<p><strong>			start_time:{</strong>
+</p>
+<p><strong>				required:true,</strong>
+</p>
+<p><strong>			},</strong>
+</p>
+<p><strong>			end_time:{</strong>
+</p>
+<p><strong>				required:true,</strong>
+</p>
+<p><strong>			},</strong>
+</p>
+<p><strong>		},</strong>
+</p>
+<p><strong>		onkeyup:false,</strong>
+</p>
+<p><strong>		focusCleanup:true,</strong>
+</p>
+<p><strong>		success:&#8221;valid&#8221;,</strong>
+</p>
+<p><strong>		submitHandler:function(form){</strong>
+</p>
+<p><strong>			$(form).ajaxSubmit({</strong>
+</p>
+<p><strong>				type: &#8216;post&#8217;,</strong>
+</p>
+<p><strong>				url: &#8220;{{ url(&#8216;admin/live/add&#8217;) }}&#8221; ,</strong>
+</p>
+<p><strong>				success: function(data){</strong>
+</p>
+<p><strong>					window.parent.location.reload();</strong>
+</p>
+<p><strong>					parent.layer.msg(&#8216;添加成功!&#8217;,{icon:1,time:1000});</strong>
+</p>
+<p><strong>					var index = parent.layer.getFrameIndex(window.name);</strong>
+</p>
+<p><strong>					parent.$(&#8216;.btn-refresh&#8217;).click();</strong>
+</p>
+<p><strong>					parent.layer.close(index);</strong>
+</p>
+<p><strong>				},</strong>
+</p>
+<p><strong>                error: function(XmlHttpRequest, textStatus, errorThrown){</strong>
+</p>
+<p><strong>					layer.msg(&#8216;error!&#8217;,{icon:1,time:1000});</strong>
+</p>
+<p><strong>				}</strong>
+</p>
+<p><strong>			});</strong>
+</p>
+<p><strong>		}</strong>
+</p>
+<p><strong>	});</strong>
+</p>
+<p><strong>});</strong>
+</p>
+<p><strong>&lt;/script&gt; </strong>
+</p>
+<p>
+  &lt;!&#8211;/请在上方写此页面业务相关的脚本&#8211;&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<p>
+  步骤2：数据处理
+</p>
+<p><img loading="lazy" decoding="async" width="1168" height="607" src="/wp-content/uploads/2018/05/word-image-5344.png" class="wp-image-5882" srcset="/wp-content/uploads/2018/05/word-image-5344.png 1168w, /wp-content/uploads/2018/05/word-image-5344-300x156.png 300w, /wp-content/uploads/2018/05/word-image-5344-768x399.png 768w, /wp-content/uploads/2018/05/word-image-5344-1024x532.png 1024w" sizes="(max-width: 1168px) 100vw, 1168px" /></p>
+<p>
+  //添加方法
+</p>
+<p>
+  public function add(Request $request)
+</p>
+<p>
+  {
+</p>
+<p>
+  	//1.判断HTTP请求类型
+</p>
+<p>
+  	if ($request-&gt;isMethod(&#8216;post&#8217;)) {
+</p>
+<p>
+  		//2.接受数据
+</p>
+<p>
+  		$postData = $request-&gt;only([&#8216;live_name&#8217;, &#8216;stream_id&#8217;, &#8216;start_time&#8217;, &#8216;end_time&#8217;]);
+</p>
+<p>
+  		$postData[&#8216;start_time&#8217;] = strtotime($postData[&#8216;start_time&#8217;]);
+</p>
+<p>
+  		$postData[&#8216;end_time&#8217;] = strtotime($postData[&#8216;end_time&#8217;]);
+</p>
+<p>
+  		//3.插入数据库
+</p>
+<p>
+  		$rs = Live::create($postData);
+</p>
+<p>
+  		//4.判断状态
+</p>
+<p>
+  		echo $rs ? 1 : 0;
+</p>
+<p>
+  	} else {
+</p>
+<p>
+  		//2.获取所有直播流数据
+</p>
+<p>
+  		$streams = Stream::get();
+</p>
+<p>
+  		//3.加载视图并传递数据
+</p>
+<p>
+  		return view(&#8216;admin.live.add&#8217;, compact(&#8216;streams&#8217;));
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<h1>在线教育首页</h1>
+<h2>加载视图</h2>
+<ul>
+<li>
+    步骤1：创建路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="951" height="221" src="/wp-content/uploads/2018/05/word-image-5345.png" class="wp-image-5883" srcset="/wp-content/uploads/2018/05/word-image-5345.png 951w, /wp-content/uploads/2018/05/word-image-5345-300x70.png 300w, /wp-content/uploads/2018/05/word-image-5345-768x178.png 768w" sizes="(max-width: 951px) 100vw, 951px" /></p>
+<ul>
+<li>
+    步骤2：创建控制器方法并加载视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="878" height="485" src="/wp-content/uploads/2018/05/word-image-5346.png" class="wp-image-5884" srcset="/wp-content/uploads/2018/05/word-image-5346.png 878w, /wp-content/uploads/2018/05/word-image-5346-300x166.png 300w, /wp-content/uploads/2018/05/word-image-5346-768x424.png 768w" sizes="(max-width: 878px) 100vw, 878px" /></p>
+<ul>
+<li>
+    步骤3：创建视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1037" height="659" src="/wp-content/uploads/2018/05/word-image-5347.png" class="wp-image-5885" srcset="/wp-content/uploads/2018/05/word-image-5347.png 1037w, /wp-content/uploads/2018/05/word-image-5347-300x191.png 300w, /wp-content/uploads/2018/05/word-image-5347-768x488.png 768w, /wp-content/uploads/2018/05/word-image-5347-1024x651.png 1024w" sizes="(max-width: 1037px) 100vw, 1037px" /></p>
+<h2>数据处理（循环直播数据）</h2>
+<ul>
+<li>
+    步骤1：更改控制器方法，查询数据
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1105" height="472" src="/wp-content/uploads/2018/05/word-image-5348.png" class="wp-image-5886" srcset="/wp-content/uploads/2018/05/word-image-5348.png 1105w, /wp-content/uploads/2018/05/word-image-5348-300x128.png 300w, /wp-content/uploads/2018/05/word-image-5348-768x328.png 768w, /wp-content/uploads/2018/05/word-image-5348-1024x437.png 1024w" sizes="(max-width: 1105px) 100vw, 1105px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Home;
+</p>
+<p>
+  use App\Http\Model\Live;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class IndexController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //首页
+</p>
+<p>
+      public function index()
+</p>
+<p>
+      {
+</p>
+<p>
+      	//1.获取所有直播数据（保证正在直播中，注：实战工作中根据产品经理的算法显示首页数据）
+</p>
+<p>
+      	$lives = Live::where(&#8216;start_time&#8217;, &#8216;&lt;&#8216;, time())
+</p>
+<p>
+      		-&gt;where(&#8216;end_time&#8217;, &#8216;&gt;&#8217;, time())
+</p>
+<p>
+      		-&gt;limit(4)
+</p>
+<p>
+      		-&gt;get();
+</p>
+<p>
+      	//2.传递给视图
+</p>
+<p>
+          return view(&#8216;home.index.index&#8217;, compact(&#8216;lives&#8217;));
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<ul>
+<li>
+    步骤2：视图循环显示
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1277" height="588" src="/wp-content/uploads/2018/05/word-image-5349.png" class="wp-image-5887" srcset="/wp-content/uploads/2018/05/word-image-5349.png 1277w, /wp-content/uploads/2018/05/word-image-5349-300x138.png 300w, /wp-content/uploads/2018/05/word-image-5349-768x354.png 768w, /wp-content/uploads/2018/05/word-image-5349-1024x472.png 1024w" sizes="(max-width: 1277px) 100vw, 1277px" /></p>
+<p>
+  &lt;ul class=&#8221;public-class-live-content clearfix&#8221;&gt;
+</p>
+<p>
+      &lt;!&#8211; &lt;li&gt;
+</p>
+<p>
+          &lt;a style=&#8221;cursor:pointer&#8221; data-url=&#8221;/web/html/liveVideo.html?roomId=2C2A076B02BDE9FE9C33DC5901307461&amp;amp;courseId=126&#8243;&gt;
+</p>
+<p>
+              &lt;div class=&#8221;img&#8221;&gt;
+</p>
+<p>
+                  &lt;img src=&#8221;{{ asset(&#8216;home/img&#8217;) }}/7fc5a47439f2483b8dca9536144dcb6d.jpg&#8221;&gt;
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+              &lt;div class=&#8221;public-class-live-detail&#8221;&gt;
+</p>
+<p>
+                  &lt;div class=&#8221;detailCourseInfo clearfix&#8221;&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;detailCourseName&#8221; title=&#8221;PS超级设计师公开课&#8221;&gt;PS超级设计师公开课&lt;/div&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;detailTeacher&#8221;&gt;讲师：任老师&lt;/div&gt;
+</p>
+<p>
+                  &lt;/div&gt;
+</p>
+<p>
+                  &lt;div class=&#8221;detailLiveInfo clearfix&#8221;&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;detailLiveDate&#8221;&gt;最近直播：03/24  20:00&lt;/div&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;detailLiving&#8221;&gt;
+</p>
+<p>
+                          &lt;img src=&#8221;{{ asset(&#8216;home/img&#8217;) }}/zhiboNoStart.png&#8221; alt=&#8221;&#8221;&gt;
+</p>
+<p>
+                          &lt;span class=&#8221;noStart&#8221;&gt;直播未开始&lt;/span&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                  &lt;/div&gt;
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+          &lt;/a&gt;
+</p>
+<p>
+      &lt;/li&gt; &#8211;&gt;
+</p>
+<p>
+      @foreach ($lives as $live)
+</p>
+<p>
+      &lt;li&gt;
+</p>
+<p>
+          &lt;a style=&#8221;cursor:pointer&#8221; &gt;
+</p>
+<p>
+              &lt;div class=&#8221;img&#8221;&gt;
+</p>
+<p>
+                  @if ($live-&gt;img )
+</p>
+<p>
+                      &lt;img src=&#8221;{{ $live-&gt;img }}&#8221; with=&#8221;285&#8243; height=&#8221;161&#8243;/&gt;
+</p>
+<p>
+                  @else
+</p>
+<p>
+                      &lt;img src=&#8221;{{ asset(&#8216;img/default.png&#8217;) }}&#8221; with=&#8221;285&#8243; height=&#8221;161&#8243;/&gt;
+</p>
+<p>
+                  @endif
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+              &lt;div class=&#8221;public-class-live-detail&#8221;&gt;
+</p>
+<p>
+                   &lt;div class=&#8221;detailCourseInfo clearfix&#8221;&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;detailCourseName&#8221; title=&#8221;PS超级设计师公开课&#8221;&gt;{{ $live-&gt;live_name}}&lt;/div&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;detailTeacher&#8221;&gt;讲师：任老师&lt;/div&gt;
+</p>
+<p>
+                  &lt;/div&gt;
+</p>
+<p>
+                  &lt;div class=&#8221;detailLiveInfo clearfix&#8221;&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;detailLiveDate&#8221;&gt;最近直播：03/24  20:00&lt;/div&gt;
+</p>
+<p>
+                      &lt;div class=&#8221;detailLiving&#8221;&gt;
+</p>
+<p>
+                          &lt;img src=&#8221;{{ asset(&#8216;home/img&#8217;) }}/zhiboNoStart.png&#8221; alt=&#8221;&#8221;&gt;
+</p>
+<p>
+                          &lt;span class=&#8221;noStart&#8221;&gt;直播未开始&lt;/span&gt;
+</p>
+<p>
+                      &lt;/div&gt;
+</p>
+<p>
+                  &lt;/div&gt;
+</p>
+<p>
+              &lt;/div&gt;
+</p>
+<p>
+          &lt;/a&gt;
+</p>
+<p>
+      &lt;/li&gt;
+</p>
+<p>
+      @endforeach
+</p>
+<p>
+  &lt;/ul&gt;
+</p>
+<h1>点击首页直播，在线观看</h1>
+<p>
+  步骤1：点击跳转到直播详情页
+</p>
+<p>
+  1）定义路由
+</p>
+<p><img loading="lazy" decoding="async" width="853" height="191" src="/wp-content/uploads/2018/05/word-image-5350.png" class="wp-image-5888" srcset="/wp-content/uploads/2018/05/word-image-5350.png 853w, /wp-content/uploads/2018/05/word-image-5350-300x67.png 300w, /wp-content/uploads/2018/05/word-image-5350-768x172.png 768w" sizes="(max-width: 853px) 100vw, 853px" /></p>
+<p>
+  2）修改首页跳转链接
+</p>
+<p><img loading="lazy" decoding="async" width="1203" height="307" src="/wp-content/uploads/2018/05/word-image-5351.png" class="wp-image-5889" srcset="/wp-content/uploads/2018/05/word-image-5351.png 1203w, /wp-content/uploads/2018/05/word-image-5351-300x77.png 300w, /wp-content/uploads/2018/05/word-image-5351-768x196.png 768w, /wp-content/uploads/2018/05/word-image-5351-1024x261.png 1024w" sizes="(max-width: 1203px) 100vw, 1203px" /></p>
+<p>
+  步骤2：创建控制器方法，接受直播id，获取直播流相关信息拼接拉流地址
+</p>
+<p><img loading="lazy" decoding="async" width="1207" height="580" src="/wp-content/uploads/2018/05/word-image-5352.png" class="wp-image-5890" srcset="/wp-content/uploads/2018/05/word-image-5352.png 1207w, /wp-content/uploads/2018/05/word-image-5352-300x144.png 300w, /wp-content/uploads/2018/05/word-image-5352-768x369.png 768w, /wp-content/uploads/2018/05/word-image-5352-1024x492.png 1024w" sizes="(max-width: 1207px) 100vw, 1207px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Home;
+</p>
+<p>
+  use App\Http\Model\Live;
+</p>
+<p>
+  use App\Http\Model\Stream;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  class LiveController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //视频播放页
+</p>
+<p>
+      public function detail(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+      	//1.接受数据获取直播流信息
+</p>
+<p>
+          $stream_id = $request-&gt;input(&#8216;stream_id&#8217;);
+</p>
+<p>
+          //2.查询直播流信息
+</p>
+<p>
+          $stream = Stream::where(&#8216;id&#8217;, $stream_id)-&gt;first();
+</p>
+<p>
+          //3.拼接拉流地址
+</p>
+<p>
+          $pullVideo = &#8220;rtmp://pili-live-rtmp.php.sk-school.com/201801140002/&#8221;.$stream-&gt;stream_name;
+</p>
+</p>
+<p>
+      	//2.传递给视图
+</p>
+<p>
+          return view(&#8216;home.live.detail&#8217;, compact(&#8216;pullVideo&#8217;));
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p>
+  步骤3：点击进入详情通过ck播放器播放
+</p>
+<p>
+  &lt;!DOCTYPE html&gt;
+</p>
+<p>
+  &lt;html xmlns=&#8221;http://www.w3.org/1999/xhtml&#8221;&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta http-equiv=&#8221;Content-Type&#8221; content=&#8221;text/html; charset=utf-8&#8243; /&gt;
+</p>
+<p>
+  &lt;title&gt;ckplayer简单调用演示&lt;/title&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;div id=&#8221;a1&#8243;&gt;&lt;/div&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221; <strong>src=&#8221;{{ asset(&#8216;ck/ckplayer&#8217;) }}/ckplayer.js&#8221; </strong>charset=&#8221;utf-8&#8243;&gt;&lt;/script&gt;
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  	var flashvars={
+</p>
+<p><strong>		f:'{{ $pullVideo }}&#8217;,</strong>
+</p>
+<p>
+  		c:0,
+</p>
+<p>
+  		b:1,
+</p>
+<p>
+  		i:&#8217;http://www.ckplayer.com/static/images/cqdw.jpg&#8217;
+</p>
+<p>
+  		};
+</p>
+<p>
+  	var video=[&#8216;http://img.ksbbs.com/asset/Mon_1605/0ec8cc80112a2d6.mp4-&gt;video/mp4&#8217;];
+</p>
+<p>
+  	CKobject.embed(&#8220;<strong>{{ asset(&#8216;ck/ckplayer&#8217;) }}</strong>/ckplayer.swf&#8221;,&#8217;a1&#8242;,&#8217;ckplayer_a1&#8242;,&#8217;600&#8242;,&#8217;400&#8242;,false,flashvars,video)
+</p>
+<p>
+  	function closelights(){//关灯
+</p>
+<p>
+  		alert(&#8216; 本演示不支持开关灯&#8217;);
+</p>
+<p>
+  	}
+</p>
+<p>
+  	function openlights(){//开灯
+</p>
+<p>
+  		alert(&#8216; 本演示不支持开关灯&#8217;);
+</p>
+<p>
+  	}
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/5812.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

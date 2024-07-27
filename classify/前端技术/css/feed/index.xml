@@ -1,0 +1,1259 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>CSS &#8211; 个人随笔</title>
+	<atom:link href="/classify/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/css/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 12:15:11 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>CSS &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>CSS（一）CSS、 伪类、 进制、 选择器、 颜色</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/193.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/193.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 14:03:14 +0000</pubDate>
+				<category><![CDATA[CSS]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[伪类]]></category>
+		<category><![CDATA[进制]]></category>
+		<category><![CDATA[选择器]]></category>
+		<category><![CDATA[颜色]]></category>
+		<guid isPermaLink="false">/?p=193</guid>
+
+					<description><![CDATA[回顾 标签通用属性 id：标签唯一的编号 class：标签属于的类别 width：宽度 height：高度 n [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h2>回顾</h2>
+<ol>
+<li>标签通用属性
+<ol>
+<li>id：标签唯一的编号</li>
+<li>class：标签属于的类别</li>
+<li>width：宽度 height：高度</li>
+<li>name：元素的名字</li>
+</ol>
+</li>
+<li>表单域：&lt;form&gt;</li>
+<li>表单元素
+<ol>
+<li>文本框：&lt;input type=’text’ name=’’ size=’’ maxlengh=’’/&gt;</li>
+<li>密码框：&lt;input type=’password’ name=’’/&gt;</li>
+<li>单选按钮：&lt;input type=radio&gt;
+<ol>
+<li>同一组的单选按钮的名字要一致</li>
+<li>要给无法输入的表单元素赋值</li>
+</ol>
+</li>
+<li>复选按钮：&lt;input type=’checkbox’&gt;</li>
+<li>下拉菜单：&lt;select&gt;&lt;option&gt;&lt;/option&gt;&lt;/select&gt;</li>
+<li>下拉列表：&lt;select size=’’ multiple&gt;&lt;option&gt;&lt;/option&gt;&lt;/select&gt;</li>
+<li>文本域：&lt;textarea cols=’’ rows=’’&gt;&lt;/textarea&gt;</li>
+<li>提交按钮：&lt;input type=’submit’ name=’’/&gt;</li>
+<li>重置按钮：&lt;input type=’reset’ name=’’/&gt;</li>
+<li>普通按钮：&lt;input type=’button’/&gt;</li>
+</ol>
+</li>
+<li>使用表单
+<ol>
+<li>action属性：表单提交的位置，如果action=’’表示表单提交给自己</li>
+<li>method属性：值有get和post</li>
+</ol>
+</li>
+<li>框架
+<ol>
+<li>&lt;frameset&gt;框架集</li>
+<li>&lt;frame&gt;框架</li>
+</ol>
+</li>
+</ol>
+<p>练习一：写入如下的框架结构</p>
+<p><img decoding="async" width="208" height="87" class="wp-image-196" src="/wp-content/uploads/2018/05/word-image-170.png" /></p>
+<p>&lt;html&gt;</p>
+<p>&lt;frameset cols=&#8221;100,*&#8221;&gt;</p>
+<p>&lt;frame src=&#8221;&#8221;&gt;</p>
+<p>&lt;frameset rows=&#8221;100,*&#8221;&gt;</p>
+<p>&lt;frame src=&#8221;&#8221;&gt;</p>
+<p>&lt;frame src=&#8221;&#8221;&gt;</p>
+<p>&lt;/frameset&gt;</p>
+<p>&lt;/frameset&gt;</p>
+<p>&lt;/html&gt;</p>
+<p>练习二：写出如下框架</p>
+<p><img decoding="async" width="218" height="75" class="wp-image-197" src="/wp-content/uploads/2018/05/word-image-171.png" /></p>
+<p>&lt;html&gt;</p>
+<p>&lt;frameset rows=&#8221;*,*&#8221;&gt;</p>
+<p>&lt;frameset cols=&#8221;*,*&#8221;&gt;</p>
+<p>&lt;frame src=&#8221;&#8221;/&gt;</p>
+<p>&lt;frame src=&#8221;/&gt;&#8221;</p>
+<p>&lt;/frameset&gt;</p>
+<p>&lt;frameset cols=&#8221;*,*&#8221;&gt;</p>
+<p>&lt;frame src=&#8221;&#8221;/&gt;</p>
+<p>&lt;frame src=&#8221;&#8221;/&gt;</p>
+<p>&lt;/frameset&gt;</p>
+<p>&lt;/frameset&gt;</p>
+<p>&lt;/html&gt;</p>
+<ol>
+<li>内嵌框架：&lt;iframe&gt;，嵌套在页面内部</li>
+<li>HTML5新特点
+<ol>
+<li>语法更加简单</li>
+<li>语法更加宽松</li>
+<li>标签语义化</li>
+</ol>
+</li>
+<li>HTML5新增常用属性
+<ol>
+<li>required：必填</li>
+<li>placeholder：默认显示内容</li>
+<li>autofocus：自动获取焦点</li>
+</ol>
+</li>
+<li>input标签新增type属性
+<ol>
+<li>type=&#8221;email&#8221;</li>
+<li>type=&#8221;date&#8221;</li>
+<li>type=&#8221;time&#8221;</li>
+<li>type=&#8221;month&#8221;</li>
+<li>type=&#8221;week&#8221;</li>
+<li>type=&#8221;number&#8221;</li>
+<li>type=&#8221;range&#8221;</li>
+<li>type=&#8221;color&#8221;</li>
+</ol>
+</li>
+<li>多媒体标签
+<ol>
+<li>&lt;embed&gt;：可以播放音频和视频</li>
+<li>&lt;audio&gt;
+<ol>
+<li>方法一</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>&lt;audio src=&#8221;music/music.mp3&#8243; controls autoplay=&#8221;autoplay&#8221;&gt;&lt;/audio&gt;</p>
+<ul>
+<li>
+<ul>
+<li>
+<ol>
+<li>方法二：</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p>&lt;audio controls autoplay&gt;</p>
+<p>&lt;source src=&#8221;music/music.mp3&#8243;&gt;</p>
+<p>&lt;source src=&#8221;music/music.ogg&#8221;&gt;</p>
+<p>&lt;/audio&gt;</p>
+<ul>
+<li>
+<ol>
+<li>&lt;video&gt;</li>
+</ol>
+</li>
+</ul>
+<h2>多学两招</h2>
+<h3>optgroup</h3>
+<p><img fetchpriority="high" decoding="async" width="568" height="187" class="wp-image-198" src="/wp-content/uploads/2018/05/word-image-172.png" srcset="/wp-content/uploads/2018/05/word-image-172.png 568w, /wp-content/uploads/2018/05/word-image-172-300x99.png 300w" sizes="(max-width: 568px) 100vw, 568px" /></p>
+<h3>HTML5中表单元素可以不放在表单中</h3>
+<p>HTML5中表单元素可以不放在表单中，通过id属性将他们关联起来</p>
+<p><img loading="lazy" decoding="async" width="896" height="100" class="wp-image-199" src="/wp-content/uploads/2018/05/word-image-173.png" srcset="/wp-content/uploads/2018/05/word-image-173.png 896w, /wp-content/uploads/2018/05/word-image-173-300x33.png 300w, /wp-content/uploads/2018/05/word-image-173-768x86.png 768w" sizes="(max-width: 896px) 100vw, 896px" /></p>
+<h2>计算机的单位，进制与进制间的转换</h2>
+<h3>计算机的单位</h3>
+<ol>
+<li>计算机中的电子器件，电子器件只有两个状态，通电与不通电，通就是1，不通就是0。所以计算机内部只能传输0和1。</li>
+<li>既然只能传输0和1，计算机用的是二进制。</li>
+<li>一个字节的大小可以一个字符，一个字节=8位</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="356" height="176" class="wp-image-200" src="/wp-content/uploads/2018/05/word-image-174.png" srcset="/wp-content/uploads/2018/05/word-image-174.png 356w, /wp-content/uploads/2018/05/word-image-174-300x148.png 300w" sizes="(max-width: 356px) 100vw, 356px" /></p>
+<ol>
+<li>计算机最小的单位是“位”，一个位就是一根线传输的数据</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="569" height="326" class="wp-image-201" src="/wp-content/uploads/2018/05/word-image-175.png" srcset="/wp-content/uploads/2018/05/word-image-175.png 569w, /wp-content/uploads/2018/05/word-image-175-300x172.png 300w" sizes="(max-width: 569px) 100vw, 569px" /></p>
+<p>1K=1024（2<sup>10</sup>）个字节</p>
+<p>1M=1024K，2<sup>20</sup>个字节</p>
+<p>1G=1024M，2<sup>30</sup>个字节</p>
+<p>1T=1024G，2<sup>40</sup>个字节</p>
+<h3>进制</h3>
+<p>我们原来学习的是十进制，逢十进一，十进制中有十个数字。我们以此类推，二进制就是逢二进一，二进制就两个数字，0和1。</p>
+<p>在计算机中，我们需要用到的进制有，二进制，八进制，十进制，十六进制。</p>
+<table>
+<tbody>
+<tr>
+<td>进制</td>
+<td>包含数字</td>
+</tr>
+<tr>
+<td>二进制</td>
+<td>0,1</td>
+</tr>
+<tr>
+<td>八进制</td>
+<td>0,1,2,3,4,5,6,7</td>
+</tr>
+<tr>
+<td>十进制</td>
+<td>0,1,2,3,4,5,6,7,8,9</td>
+</tr>
+<tr>
+<td>十六进制</td>
+<td>0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F</td>
+</tr>
+</tbody>
+</table>
+<p>（1+1）<sub>2</sub>=（10）<sub>2</sub></p>
+<p>（7+6）<sub>8</sub>=（15）<sub>8</sub></p>
+<p>（A+6+B）<sub>16</sub>=（1B）<sub>16</sub></p>
+<h3>进制转换（将其他进制转成10进制）</h3>
+<p>分析：以十进制为例，以10为底，指数从右往左以此为0次方，1次方，2次方…</p>
+<p>(123)<sub>10</sub>=1*10<sup>2</sup>+2*10<sup>1</sup>+3*10<sup>0</sup></p>
+<p>（3456）<sub>10</sub>=3*10<sup>3</sup>+4*10<sup>2</sup>+5*10<sup>1</sup>+6*10<sup>0</sup></p>
+<p>以此类推</p>
+<p>(1100)<sub>2</sub>=1*2<sup>3</sup>+1*2<sup>2</sup>+0*2<sup>1</sup>+0*2<sup>0=</sup>12</p>
+<p>(1011)<sub>2</sub>=1*2<sup>3</sup>+0*2<sup>2</sup>+1*2<sup>1</sup>+1*2<sup>0</sup>=11</p>
+<p>(763)<sub>8</sub>=7*8<sup>2</sup>+6*8<sup>1</sup>+3*8<sup>0</sup></p>
+<p>(FF)<sub>16</sub>=15*16<sup>1</sup>+15*16<sup>0</sup>=255</p>
+<p>(2B)<sub>16</sub>=2*16<sup>1</sup>+11*16<sup>0</sup>=43</p>
+<h3>进制转换（十进制转成二进制）</h3>
+<p>整数方法：除2反向取余数，小数部分是乘2正向取整数</p>
+<p>(11)<sub>10</sub>=(1011)<sub>2</sub></p>
+<p><img loading="lazy" decoding="async" width="410" height="221" class="wp-image-202" src="/wp-content/uploads/2018/05/word-image-176.png" srcset="/wp-content/uploads/2018/05/word-image-176.png 410w, /wp-content/uploads/2018/05/word-image-176-300x162.png 300w" sizes="(max-width: 410px) 100vw, 410px" /></p>
+<p>(19)<sub>10</sub>=(10011)<sub>2</sub></p>
+<p><img loading="lazy" decoding="async" width="364" height="285" class="wp-image-203" src="/wp-content/uploads/2018/05/word-image-177.png" srcset="/wp-content/uploads/2018/05/word-image-177.png 364w, /wp-content/uploads/2018/05/word-image-177-300x235.png 300w" sizes="(max-width: 364px) 100vw, 364px" /></p>
+<p>多学一招：八进制和十六进制转成二进制和十进制转换不一样，八进制是将每一八进制位数字转成3位的2进制，16进制是将每一位数字转成4位的二进制数字，然后合并起来</p>
+<p>(13)<sub>8</sub>=(1011)<sub>2</sub></p>
+<p>分析：</p>
+<p>1的3位二进制是001</p>
+<p>3的3位二进制是011</p>
+<p>(13)<sub>16</sub>=(10011)<sub>2</sub></p>
+<p>分析：1的4位二进制0001</p>
+<p>3的4位二进制是0011</p>
+<p>(0.25)<sub>10</sub>=(0.01)<sub>2</sub></p>
+<p><img loading="lazy" decoding="async" width="310" height="225" class="wp-image-204" src="/wp-content/uploads/2018/05/word-image-178.png" srcset="/wp-content/uploads/2018/05/word-image-178.png 310w, /wp-content/uploads/2018/05/word-image-178-300x218.png 300w" sizes="(max-width: 310px) 100vw, 310px" /></p>
+<p>重点：十进制和二进制的整数部分的转换。</p>
+<h2>网页中颜色表示的含义</h2>
+<ol>
+<li>光的三原色（RGB），red green blue，他们的取值范围是0-255，转成十六进制00-FF。</li>
+<li>颜色的色值以#开头</li>
+<li>例题
+<ol>
+<li>#FF0000：红色</li>
+<li>#00FF00：绿色</li>
+<li>#006600：绿色</li>
+<li>#0000FF：蓝色</li>
+<li>#000000：黑色</li>
+<li>#FFFFFF：白色</li>
+<li>#555555：灰色</li>
+<li>#5c5c5c：灰色</li>
+<li>#112233：由11的红，22的绿，33的蓝组成的颜色</li>
+</ol>
+</li>
+</ol>
+<h2>DW设计器的使用</h2>
+<h3>插入图片</h3>
+<p>方法一：</p>
+<p><img loading="lazy" decoding="async" width="627" height="95" class="wp-image-205" src="/wp-content/uploads/2018/05/word-image-179.png" srcset="/wp-content/uploads/2018/05/word-image-179.png 627w, /wp-content/uploads/2018/05/word-image-179-300x45.png 300w" sizes="(max-width: 627px) 100vw, 627px" /></p>
+<p>方法二：</p>
+<p><img loading="lazy" decoding="async" width="813" height="185" class="wp-image-206" src="/wp-content/uploads/2018/05/word-image-180.png" srcset="/wp-content/uploads/2018/05/word-image-180.png 813w, /wp-content/uploads/2018/05/word-image-180-300x68.png 300w, /wp-content/uploads/2018/05/word-image-180-768x175.png 768w" sizes="(max-width: 813px) 100vw, 813px" /></p>
+<h3>插入换行</h3>
+<p>回车：换段</p>
+<p>shift+回车：换行</p>
+<h3>添加超链接</h3>
+<p>第一步：选中文本或图片</p>
+<p><img loading="lazy" decoding="async" width="225" height="85" class="wp-image-207" src="/wp-content/uploads/2018/05/word-image-181.png" /></p>
+<p>第二步：在属性面板上</p>
+<p><img loading="lazy" decoding="async" width="783" height="106" class="wp-image-208" src="/wp-content/uploads/2018/05/word-image-182.png" srcset="/wp-content/uploads/2018/05/word-image-182.png 783w, /wp-content/uploads/2018/05/word-image-182-300x41.png 300w, /wp-content/uploads/2018/05/word-image-182-768x104.png 768w" sizes="(max-width: 783px) 100vw, 783px" /></p>
+<h3>插入表格</h3>
+<p><img loading="lazy" decoding="async" width="578" height="54" class="wp-image-209" src="/wp-content/uploads/2018/05/word-image-183.png" srcset="/wp-content/uploads/2018/05/word-image-183.png 578w, /wp-content/uploads/2018/05/word-image-183-300x28.png 300w" sizes="(max-width: 578px) 100vw, 578px" /></p>
+<p>脚下留心：表格是可以嵌套的。</p>
+<h3>合并单元格</h3>
+<p><img loading="lazy" decoding="async" width="622" height="49" class="wp-image-210" src="/wp-content/uploads/2018/05/word-image-184.png" srcset="/wp-content/uploads/2018/05/word-image-184.png 622w, /wp-content/uploads/2018/05/word-image-184-300x24.png 300w" sizes="(max-width: 622px) 100vw, 622px" /></p>
+<p>选中需要合并的单元格，点击“合并”按钮即可</p>
+<p>选中需要拆分的单元格，点击“拆分”按钮即可。</p>
+<h3>标签选择器的使用</h3>
+<p><img loading="lazy" decoding="async" width="626" height="61" class="wp-image-211" src="/wp-content/uploads/2018/05/word-image-185.png" srcset="/wp-content/uploads/2018/05/word-image-185.png 626w, /wp-content/uploads/2018/05/word-image-185-300x29.png 300w" sizes="(max-width: 626px) 100vw, 626px" /></p>
+<p>此工具用来选择标签内容非常方便。</p>
+<h2>CSS介绍</h2>
+<ol>
+<li>我们在做网站的时候有一个原则：表现（样式）和内容要分离。表现是由CSS控制的，内容是由HTML控制器的。</li>
+<li>CSS是Cascading Style Sheet(层叠样式表)的缩写。是用于控制网页样式并允许将样式信息与网页内容分离的一种标记性语言。</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="560" height="52" class="wp-image-212" src="/wp-content/uploads/2018/05/word-image-186.png" srcset="/wp-content/uploads/2018/05/word-image-186.png 560w, /wp-content/uploads/2018/05/word-image-186-300x28.png 300w" sizes="(max-width: 560px) 100vw, 560px" /></p>
+<h2>语法</h2>
+<p>CSS以&lt;style&gt;开头，&lt;/style&gt;结束，建议样式代码写在&lt;head&gt;&lt;/head&gt;之间。</p>
+<p>语法结构：</p>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>选择器{</p>
+<p>属性:属性的值;</p>
+<p>属性:属性的值;</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>CSS样式由选择器、属性、属性的值组成。</p>
+<h2>注释</h2>
+<p>语法：/* 注释的内容 */</p>
+<h2>两个排版标签</h2>
+<p>&lt;div&gt;&lt;/div&gt;</p>
+<p>&lt;span&gt;&lt;/span&gt;</p>
+<p>这两个标签叫块标记，这两个标记中用来放内容。他们的区别：</p>
+<ol>
+<li>一般来说，&lt;div&gt;中可以放图片，文字，视频等网页内容，&lt;span&gt;一般只能存放文字。</li>
+<li>显示方式不一样</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="480" height="79" class="wp-image-213" src="/wp-content/uploads/2018/05/word-image-187.png" srcset="/wp-content/uploads/2018/05/word-image-187.png 480w, /wp-content/uploads/2018/05/word-image-187-300x49.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></p>
+<h2>CSS选择器（符）</h2>
+<h3>ID选择器</h3>
+<ol>
+<li>id选择器以#开头</li>
+<li>id选择器只能供一个元素使用</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="510" height="171" class="wp-image-214" src="/wp-content/uploads/2018/05/word-image-188.png" srcset="/wp-content/uploads/2018/05/word-image-188.png 510w, /wp-content/uploads/2018/05/word-image-188-300x101.png 300w" sizes="(max-width: 510px) 100vw, 510px" /></p>
+<h3>类样式（class样式）</h3>
+<ol>
+<li>以点（.）开头</li>
+<li>可以供多个元素使用</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="592" height="180" class="wp-image-215" src="/wp-content/uploads/2018/05/word-image-189.png" srcset="/wp-content/uploads/2018/05/word-image-189.png 592w, /wp-content/uploads/2018/05/word-image-189-300x91.png 300w" sizes="(max-width: 592px) 100vw, 592px" /></p>
+<h3>标签选择器</h3>
+<p>通过标签来选择元素</p>
+<p><img loading="lazy" decoding="async" width="400" height="191" class="wp-image-216" src="/wp-content/uploads/2018/05/word-image-190.png" srcset="/wp-content/uploads/2018/05/word-image-190.png 400w, /wp-content/uploads/2018/05/word-image-190-300x143.png 300w" sizes="(max-width: 400px) 100vw, 400px" /></p>
+<h3>通配选择器</h3>
+<p>通过星号（*）来表示所有标签，对所有标签添加样式</p>
+<p><img loading="lazy" decoding="async" width="477" height="186" class="wp-image-217" src="/wp-content/uploads/2018/05/word-image-191.png" srcset="/wp-content/uploads/2018/05/word-image-191.png 477w, /wp-content/uploads/2018/05/word-image-191-300x117.png 300w" sizes="(max-width: 477px) 100vw, 477px" /></p>
+<h3>组合选择器</h3>
+<p>如果有多个选择器的样式是一样的，我们可以将这些选择器组合起来一起写。</p>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>/*组合选择器*/</p>
+<p>div,span{</p>
+<p>color:#F00;</p>
+<p>}</p>
+<p>#first,h1{</p>
+<p>color:#060;</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;div&gt;锄禾日当午，&lt;/div&gt;</p>
+<p>&lt;p id=&#8221;first&#8221;&gt;汗滴禾下土。&lt;/p&gt;</p>
+<p>&lt;span&gt;谁知盘中餐，&lt;/span&gt;</p>
+<p>&lt;h1&gt;粒粒皆辛苦。&lt;/h1&gt;</p>
+<p><img loading="lazy" decoding="async" width="491" height="152" class="wp-image-218" src="/wp-content/uploads/2018/05/word-image-192.png" srcset="/wp-content/uploads/2018/05/word-image-192.png 491w, /wp-content/uploads/2018/05/word-image-192-300x93.png 300w" sizes="(max-width: 491px) 100vw, 491px" /></p>
+<h3>后代选择器</h3>
+<p><img loading="lazy" decoding="async" width="791" height="238" class="wp-image-219" src="/wp-content/uploads/2018/05/word-image-193.png" srcset="/wp-content/uploads/2018/05/word-image-193.png 791w, /wp-content/uploads/2018/05/word-image-193-300x90.png 300w, /wp-content/uploads/2018/05/word-image-193-768x231.png 768w" sizes="(max-width: 791px) 100vw, 791px" /></p>
+<h3>子元素选择器（父元素&gt;子元素）</h3>
+<p><img loading="lazy" decoding="async" width="794" height="230" class="wp-image-220" src="/wp-content/uploads/2018/05/word-image-194.png" srcset="/wp-content/uploads/2018/05/word-image-194.png 794w, /wp-content/uploads/2018/05/word-image-194-300x87.png 300w, /wp-content/uploads/2018/05/word-image-194-768x222.png 768w" sizes="(max-width: 794px) 100vw, 794px" /></p>
+<h3>相邻元素选择器</h3>
+<p>#first+div：紧挨着#first之后的div</p>
+<p><img loading="lazy" decoding="async" width="656" height="173" class="wp-image-221" src="/wp-content/uploads/2018/05/word-image-195.png" srcset="/wp-content/uploads/2018/05/word-image-195.png 656w, /wp-content/uploads/2018/05/word-image-195-300x79.png 300w" sizes="(max-width: 656px) 100vw, 656px" /></p>
+<p>#first~div：#first之后的所有的div</p>
+<p><img loading="lazy" decoding="async" width="661" height="181" class="wp-image-222" src="/wp-content/uploads/2018/05/word-image-196.png" srcset="/wp-content/uploads/2018/05/word-image-196.png 661w, /wp-content/uploads/2018/05/word-image-196-300x82.png 300w" sizes="(max-width: 661px) 100vw, 661px" /></p>
+<h3>伪类</h3>
+<p>元素:link 正常连接时候的状态</p>
+<p>元素:visited 点击以后的状态</p>
+<p>元素:hover 当鼠标移动上去的状态</p>
+<p>元素:active 当鼠标按下去时候的状态</p>
+<p>脚下留心：不是所有的元素都支持这4个状态，有的元素可能只支持其中的某个状态。但是超链接支持这4种状态。</p>
+<p>脚下留心：这四种状态要按照lvha的顺序写。（love 爱 hate 恨）</p>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>a:link{ /*正常连接时候的状态*/</p>
+<p>color:#F00;</p>
+<p>text-decoration:none; /*文本修饰*/</p>
+<p>font-size:12px;</p>
+<p>}</p>
+<p>a:visited{ /*点击后的状态*/</p>
+<p>color:#F0F;</p>
+<p>text-decoration:none;</p>
+<p>font-size:12px;</p>
+<p>}</p>
+<p>a:hover{ /*当鼠标移动到a标记的时候状态*/</p>
+<p>color:#060;</p>
+<p>text-decoration:underline;</p>
+<p>font-size:24px;</p>
+<p>}</p>
+<p>a:active{ /*当鼠标点击下去的状态*/</p>
+<p>color:#00F;</p>
+<p>text-decoration:underline;</p>
+<p>font-size:24px;</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;a href=&#8221;#&#8221;&gt;超链接1&lt;/a&gt; &lt;br&gt;</p>
+<p>&lt;a href=&#8221;#&#8221;&gt;超链接2&lt;/a&gt;</p>
+<p><img loading="lazy" decoding="async" width="341" height="114" class="wp-image-223" src="/wp-content/uploads/2018/05/word-image-197.png" srcset="/wp-content/uploads/2018/05/word-image-197.png 341w, /wp-content/uploads/2018/05/word-image-197-300x100.png 300w" sizes="(max-width: 341px) 100vw, 341px" /></p>
+<p>例题一</p>
+<p><img loading="lazy" decoding="async" width="481" height="180" class="wp-image-224" src="/wp-content/uploads/2018/05/word-image-198.png" srcset="/wp-content/uploads/2018/05/word-image-198.png 481w, /wp-content/uploads/2018/05/word-image-198-300x112.png 300w" sizes="(max-width: 481px) 100vw, 481px" /></p>
+<p>例题二：</p>
+<p><img loading="lazy" decoding="async" width="952" height="239" class="wp-image-225" src="/wp-content/uploads/2018/05/word-image-199.png" srcset="/wp-content/uploads/2018/05/word-image-199.png 952w, /wp-content/uploads/2018/05/word-image-199-300x75.png 300w, /wp-content/uploads/2018/05/word-image-199-768x193.png 768w" sizes="(max-width: 952px) 100vw, 952px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/193.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>CSS（二）属性、 标签、 样式</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/227.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/227.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 14:02:43 +0000</pubDate>
+				<category><![CDATA[CSS]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[属性]]></category>
+		<category><![CDATA[标签]]></category>
+		<category><![CDATA[样式]]></category>
+		<guid isPermaLink="false">/?p=227</guid>
+
+					<description><![CDATA[CSS2 回顾 计算机单位 最小单位是位（B） 字节（b） 一个字符的大小 1K=1024b 1M=1024K [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>CSS2</h1>
+<h2>回顾</h2>
+<ol>
+<li>计算机单位
+<ol>
+<li>最小单位是位（B）</li>
+<li>字节（b） 一个字符的大小</li>
+<li>1K=1024b</li>
+<li>1M=1024K</li>
+<li>1G=1024M</li>
+<li>1T=1024G</li>
+</ol>
+</li>
+<li>进制转换
+<ol>
+<li>十进制转二进制：整数除2反向取余，小数乘2正向取整</li>
+<li>二进制转成十进制：以2为底，从右往左依次是2的0次方，1次方…</li>
+<li>八进制转二进制，一个八进制转成3位的二进制，然后再合并起来</li>
+<li>十六进制转二进制：一个十六进制转成4位的二进制，然后在合并起来。</li>
+</ol>
+</li>
+<li>网页中的颜色表示：光的三原色，红色（red），绿色(green)，蓝色（blue）。所有光的颜色都是由这三种颜色组成。他们的范围都是0-255，颜色的表示通过RGB的十六机制数表示，</li>
+<li>CSS介绍：层叠样式表，用来控制网页的外在表现（网页的装修），</li>
+<li>语法</li>
+</ol>
+<p>选择器{</p>
+<p>属性:属性的值;</p>
+<p>属性:属性的值;</p>
+<p>}</p>
+<ol>
+<li>注释 /* */</li>
+<li>CSS选择器
+<ol>
+<li>ID选择器
+<ol>
+<li>以#开头</li>
+<li>只能供一个元素使用。</li>
+</ol>
+</li>
+<li>类选择器
+<ol>
+<li>以点（.）开头</li>
+<li>可以供多个元素使用</li>
+</ol>
+</li>
+<li>标签选择器：选择标签</li>
+<li>通配选择器：*</li>
+<li>组合选择器：h1,#aa,.bb</li>
+<li>后代选择器：p b #aa .bb</li>
+<li>子元素选择器p&gt;b</li>
+<li>相邻元素选择器div+p div~p</li>
+<li>伪类：4种状态。 lvha
+<ol>
+<li>:link 正常连接的状态</li>
+<li>:visited 点击完后代状态</li>
+<li>:hover 当鼠标移上去的时候状态</li>
+<li>:active 当鼠标点击下去的状态</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2>网页中图像的基础知识</h2>
+<ol>
+<li>位图：由像素点组成的图
+<ol>
+<li>体积大</li>
+<li>放大失真</li>
+<li>颜色丰富，达到256*256*256种颜色</li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="437" height="127" class="wp-image-229" src="/wp-content/uploads/2018/05/word-image-201.png" srcset="/wp-content/uploads/2018/05/word-image-201.png 437w, /wp-content/uploads/2018/05/word-image-201-300x87.png 300w" sizes="(max-width: 437px) 100vw, 437px" /></p>
+<ol>
+<li>矢量：是由线条和面组成的图形
+<ol>
+<li>体积小</li>
+<li>可以无限制的放大</li>
+<li>支持的颜色数比较少</li>
+</ol>
+</li>
+</ol>
+<p>脚下留心：网页上的图片都是位图</p>
+<ol>
+<li>分辨率</li>
+</ol>
+<p>思考：是不是像素点越多，图片的质量越高？</p>
+<p>答：不是，衡量一个照片的质量通过的是分辨率。</p>
+<p>分辨率：单位长度里的像素点的多少，一般都以一英寸为单位。</p>
+<p>在尺寸一定情况下，分辨率越大质量也好，图片的体积也越大，网页打开的速度也越慢。网页上的分辨率一般是72。（印刷的分辨率一般在300）</p>
+<ol>
+<li>网站默认尺寸单位为象素（px）。</li>
+<li>网页常见的图象格式：网页中常用的图片格式有png，jpg，gif</li>
+</ol>
+<table>
+<tbody>
+<tr>
+<td>格式</td>
+<td>特点</td>
+</tr>
+<tr>
+<td>jpg（jpeg）</td>
+<td>
+<ol>
+<li>有损压缩格式</li>
+<li>支持的颜色数达到256*256*256</li>
+<li>不支持无背景</li>
+</ol>
+</td>
+</tr>
+<tr>
+<td>png</td>
+<td>
+<ol>
+<li>无损压缩格式</li>
+<li>支持的颜色数达到256*256*256</li>
+<li>支持无背景</li>
+</ol>
+</td>
+</tr>
+<tr>
+<td>gif</td>
+<td>
+<ol>
+<li>只能支持256种颜色（现在已经不常用）</li>
+<li>支持动画</li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+<p><img loading="lazy" decoding="async" width="364" height="134" class="wp-image-230" src="/wp-content/uploads/2018/05/word-image-202.png" srcset="/wp-content/uploads/2018/05/word-image-202.png 364w, /wp-content/uploads/2018/05/word-image-202-300x110.png 300w" sizes="(max-width: 364px) 100vw, 364px" /></p>
+<h2>伪类选择器与类选择器一起使用</h2>
+<p>思考一个场景：如何实现一个页面中有两种超链接的样式。</p>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>a.first:link{</p>
+<p>color:#F00;</p>
+<p>text-decoration:none;</p>
+<p>font-size:12px;</p>
+<p>}</p>
+<p>a.first:hover{</p>
+<p>color:#060;</p>
+<p>text-decoration:underline;</p>
+<p>font-size:12px;</p>
+<p>}</p>
+<p>a.second:link{</p>
+<p>color:#00F;</p>
+<p>text-decoration:overline;</p>
+<p>font-size:36px;</p>
+<p>}</p>
+<p>a.second:hover{</p>
+<p>color:#90F;</p>
+<p>text-decoration:underline;</p>
+<p>font-size:36px;</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;a href=&#8221;#&#8221; class=&#8221;first&#8221;&gt;链接1&lt;/a&gt; &lt;br&gt;</p>
+<p>&lt;a href=&#8221;#&#8221; class=&#8221;first&#8221;&gt;链接1&lt;/a&gt; &lt;hr&gt;</p>
+<p>&lt;a href=&#8221;#&#8221; class=&#8221;second&#8221;&gt;链接2&lt;/a&gt; &lt;br&gt;</p>
+<p>&lt;a href=&#8221;#&#8221; class=&#8221;second&#8221;&gt;链接2&lt;/a&gt; &lt;hr&gt;</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="152" height="165" class="wp-image-231" src="/wp-content/uploads/2018/05/word-image-203.png" /></p>
+<p>思考题：a.first和a .first的区别</p>
+<p><img loading="lazy" decoding="async" width="715" height="229" class="wp-image-232" src="/wp-content/uploads/2018/05/word-image-204.png" srcset="/wp-content/uploads/2018/05/word-image-204.png 715w, /wp-content/uploads/2018/05/word-image-204-300x96.png 300w" sizes="(max-width: 715px) 100vw, 715px" /></p>
+<h2>伪对象选择器</h2>
+<p>伪类描述的是状态，伪对象描述的是对象。</p>
+<p>元素:first-letter，选择元素中内容的第一个字</p>
+<p>元素:first-line，选择元素中是内容的第一行</p>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>p:first-letter{ /*选择元素的第一个字*/</p>
+<p>font-size:24px;</p>
+<p>color:#F00;</p>
+<p>}</p>
+<p>div:first-line{ /*选择元素的第一行*/</p>
+<p>font-size:12px;</p>
+<p>color:#060;</p>
+<p>text-decoration:underline;</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;p&gt;</p>
+<p>锄禾日当午，&lt;br&gt;</p>
+<p>汗滴禾下土。&lt;br&gt;</p>
+<p>谁知盘中餐，&lt;br&gt;</p>
+<p>粒粒皆辛苦。&lt;br&gt;</p>
+<p>&lt;/p&gt;</p>
+<p>&lt;div&gt;</p>
+<p>离离原上草，一岁一枯荣。&lt;br&gt;</p>
+<p>野火烧不尽，春风吹又生。&lt;br&gt;</p>
+<p>远芳侵古道，晴翠接荒城。&lt;br&gt;</p>
+<p>又送王孙去，萋萋满别情。</p>
+<p>&lt;/div&gt;</p>
+<p><img loading="lazy" decoding="async" width="313" height="214" class="wp-image-233" src="/wp-content/uploads/2018/05/word-image-205.png" srcset="/wp-content/uploads/2018/05/word-image-205.png 313w, /wp-content/uploads/2018/05/word-image-205-300x205.png 300w, /wp-content/uploads/2018/05/word-image-205-220x150.png 220w" sizes="(max-width: 313px) 100vw, 313px" /></p>
+<h2>属性选择器</h2>
+<ol>
+<li>元素[属性]：具备指定属性的元素</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="569" height="153" class="wp-image-234" src="/wp-content/uploads/2018/05/word-image-206.png" srcset="/wp-content/uploads/2018/05/word-image-206.png 569w, /wp-content/uploads/2018/05/word-image-206-300x81.png 300w" sizes="(max-width: 569px) 100vw, 569px" /></p>
+<ol>
+<li>元素[属性=值]：选择指定属性指定值的元素</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="544" height="138" class="wp-image-235" src="/wp-content/uploads/2018/05/word-image-207.png" srcset="/wp-content/uploads/2018/05/word-image-207.png 544w, /wp-content/uploads/2018/05/word-image-207-300x76.png 300w" sizes="(max-width: 544px) 100vw, 544px" /></p>
+<ol>
+<li>元素[属性~=值]: 选择具有attr属性且属性值为用空格分隔的字词列表，其中一个等于指定值的元素</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="714" height="111" class="wp-image-236" src="/wp-content/uploads/2018/05/word-image-208.png" srcset="/wp-content/uploads/2018/05/word-image-208.png 714w, /wp-content/uploads/2018/05/word-image-208-300x47.png 300w" sizes="(max-width: 714px) 100vw, 714px" /></p>
+<ol>
+<li>元素[属性|=值]：选择具有attr属性且属性值为用连字符分隔的字词列表，并且由指定的值开始的元素</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="618" height="113" class="wp-image-237" src="/wp-content/uploads/2018/05/word-image-209.png" srcset="/wp-content/uploads/2018/05/word-image-209.png 618w, /wp-content/uploads/2018/05/word-image-209-300x55.png 300w" sizes="(max-width: 618px) 100vw, 618px" /></p>
+<p>E1[attr] element（元素） attribute（属性）</p>
+<h2>常用CSS属性的讲解</h2>
+<h3>字体属性</h3>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>body{</p>
+<p>color:#F00; /*字体颜色*/</p>
+<p>font-family:&#8221;黑体&#8221;, &#8220;隶书&#8221;, &#8220;微软雅黑&#8221;, &#8220;宋体&#8221;; /*字体*/</p>
+<p>font-size:16px; /*字号*/</p>
+<p>font-weight:bold; /*字体粗细*/</p>
+<p>text-decoration:underline; /*文本修饰*/</p>
+<p>text-transform:uppercase; /*文本转换（大小写）*/</p>
+<p>line-height:30px; /*行高*/</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>锄禾日当午，&lt;br&gt;</p>
+<p>汗滴禾下土。&lt;br&gt;</p>
+<p>谁知盘中餐，&lt;br&gt;</p>
+<p>粒粒皆辛苦。&lt;br&gt;</p>
+<p>I a am boy!</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="204" height="179" class="wp-image-238" src="/wp-content/uploads/2018/05/word-image-210.png" /></p>
+<p>详细说明text-transform属性值</p>
+<p><img loading="lazy" decoding="async" width="425" height="108" class="wp-image-239" src="/wp-content/uploads/2018/05/word-image-211.png" srcset="/wp-content/uploads/2018/05/word-image-211.png 425w, /wp-content/uploads/2018/05/word-image-211-300x76.png 300w" sizes="(max-width: 425px) 100vw, 425px" /></p>
+<p>思考：为什么font-family跟多个字体？</p>
+<p>font-family:&#8221;黑体&#8221;, &#8220;隶书&#8221;, &#8220;微软雅黑&#8221;, &#8220;宋体&#8221;;</p>
+<p>答：客户端首先用第一个字体来解析，如果没有就选择第二个字体，依次类推，一直到最后。如果一个字体都没有，就选择客户端的默认字体。中文的浏览器默认字体是宋体。</p>
+<h3>文本属性</h3>
+<p><img loading="lazy" decoding="async" width="1101" height="131" class="wp-image-240" src="/wp-content/uploads/2018/05/word-image-212.png" srcset="/wp-content/uploads/2018/05/word-image-212.png 1101w, /wp-content/uploads/2018/05/word-image-212-300x36.png 300w, /wp-content/uploads/2018/05/word-image-212-768x91.png 768w, /wp-content/uploads/2018/05/word-image-212-1024x122.png 1024w" sizes="(max-width: 1101px) 100vw, 1101px" /></p>
+<p>text-align的值</p>
+<p><img loading="lazy" decoding="async" width="299" height="150" class="wp-image-241" src="/wp-content/uploads/2018/05/word-image-213.png" /></p>
+<h3>尺寸属性</h3>
+<p>width：宽度</p>
+<p>height：高度</p>
+<h3>边框属性</h3>
+<p><img loading="lazy" decoding="async" width="714" height="189" class="wp-image-242" src="/wp-content/uploads/2018/05/word-image-214.png" srcset="/wp-content/uploads/2018/05/word-image-214.png 714w, /wp-content/uploads/2018/05/word-image-214-300x79.png 300w" sizes="(max-width: 714px) 100vw, 714px" /></p>
+<p>多学一招：</p>
+<p><img loading="lazy" decoding="async" width="760" height="99" class="wp-image-243" src="/wp-content/uploads/2018/05/word-image-215.png" srcset="/wp-content/uploads/2018/05/word-image-215.png 760w, /wp-content/uploads/2018/05/word-image-215-300x39.png 300w" sizes="(max-width: 760px) 100vw, 760px" /></p>
+<h3>背景属性</h3>
+<p><img loading="lazy" decoding="async" width="1096" height="248" class="wp-image-244" src="/wp-content/uploads/2018/05/word-image-216.png" srcset="/wp-content/uploads/2018/05/word-image-216.png 1096w, /wp-content/uploads/2018/05/word-image-216-300x68.png 300w, /wp-content/uploads/2018/05/word-image-216-768x174.png 768w, /wp-content/uploads/2018/05/word-image-216-1024x232.png 1024w" sizes="(max-width: 1096px) 100vw, 1096px" /></p>
+<h3>边距属性 （margin）</h3>
+<p><a href="mk:@MSITStore:F:\帮助文档\css2.0中文手册.chm::/css2/c_margintop.html">margin-top</a>：上边距</p>
+<p><a href="mk:@MSITStore:F:\帮助文档\css2.0中文手册.chm::/css2/c_marginright.html">margin-right</a>：右边距</p>
+<p><a href="mk:@MSITStore:F:\帮助文档\css2.0中文手册.chm::/css2/c_marginbottom.html">margin-bottom</a>：下边距</p>
+<p><a href="mk:@MSITStore:F:\帮助文档\css2.0中文手册.chm::/css2/c_marginleft.html">margin-left</a>：左边距</p>
+<p><img loading="lazy" decoding="async" width="303" height="41" class="wp-image-245" src="/wp-content/uploads/2018/05/word-image-217.png" srcset="/wp-content/uploads/2018/05/word-image-217.png 303w, /wp-content/uploads/2018/05/word-image-217-300x41.png 300w" sizes="(max-width: 303px) 100vw, 303px" /></p>
+<p>margin：符合边距</p>
+<p><img loading="lazy" decoding="async" width="525" height="82" class="wp-image-246" src="/wp-content/uploads/2018/05/word-image-218.png" srcset="/wp-content/uploads/2018/05/word-image-218.png 525w, /wp-content/uploads/2018/05/word-image-218-300x47.png 300w" sizes="(max-width: 525px) 100vw, 525px" /></p>
+<h3>列表属性</h3>
+<p><img loading="lazy" decoding="async" width="558" height="173" class="wp-image-247" src="/wp-content/uploads/2018/05/word-image-219.png" srcset="/wp-content/uploads/2018/05/word-image-219.png 558w, /wp-content/uploads/2018/05/word-image-219-300x93.png 300w" sizes="(max-width: 558px) 100vw, 558px" /></p>
+<h3>内容溢出属性</h3>
+<p>overflow:hidden; /*溢出部分隐藏*/</p>
+<p>overflow:auto; /*如果有溢出，就会出现垂直滚动条*/</p>
+<p><img loading="lazy" decoding="async" width="672" height="282" class="wp-image-248" src="/wp-content/uploads/2018/05/word-image-220.png" srcset="/wp-content/uploads/2018/05/word-image-220.png 672w, /wp-content/uploads/2018/05/word-image-220-300x126.png 300w" sizes="(max-width: 672px) 100vw, 672px" /></p>
+<h2>CSS样式的的分类</h2>
+<p>样式按照写的地方不同分成3类：</p>
+<ol>
+<li>内部样式：写在页面的内部，只能给当前页面使用</li>
+</ol>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;&lt;/style&gt;</p>
+<ol>
+<li>外部样式：写在页面的外部，可以给所有页面使用</li>
+</ol>
+<p>新建一个css文件，将样式写到文件中</p>
+<ol>
+<li>行内样式：写在元素的后面，只能给当前元素使用</li>
+</ol>
+<p>&lt;div style=&#8221;&#8221;&gt;&lt;/div&gt;</p>
+<h3>内部样式</h3>
+<p>写在页面的内部，通过&lt;style&gt;开头&lt;/style&gt;结束，可以给整个页面使用</p>
+<h3>行内样式</h3>
+<p>每个元素都有style属性，通过style属性也元素添加样式</p>
+<p><img loading="lazy" decoding="async" width="884" height="22" class="wp-image-249" src="/wp-content/uploads/2018/05/word-image-221.png" srcset="/wp-content/uploads/2018/05/word-image-221.png 884w, /wp-content/uploads/2018/05/word-image-221-300x7.png 300w, /wp-content/uploads/2018/05/word-image-221-768x19.png 768w" sizes="(max-width: 884px) 100vw, 884px" /></p>
+<h3>外部样式</h3>
+<p>将样式写到外部文件中，给所有页面使用</p>
+<p>第一步：创建CSS文件</p>
+<p><img loading="lazy" decoding="async" width="333" height="154" class="wp-image-250" src="/wp-content/uploads/2018/05/word-image-222.png" srcset="/wp-content/uploads/2018/05/word-image-222.png 333w, /wp-content/uploads/2018/05/word-image-222-300x139.png 300w" sizes="(max-width: 333px) 100vw, 333px" /></p>
+<p>脚下留心：在CSS文件中，不需要&lt;style&gt;开头，&lt;/style&gt;结束。</p>
+<p>第二步：新建html，并引入css文件</p>
+<p>引入CSS文件的方式：链接和导入</p>
+<ol>
+<li>链接</li>
+</ol>
+<p>语法：&lt;link rel=’stylesheet’ href=’地址’&gt;</p>
+<p><img loading="lazy" decoding="async" width="655" height="71" class="wp-image-251" src="/wp-content/uploads/2018/05/word-image-223.png" srcset="/wp-content/uploads/2018/05/word-image-223.png 655w, /wp-content/uploads/2018/05/word-image-223-300x33.png 300w" sizes="(max-width: 655px) 100vw, 655px" /></p>
+<ol>
+<li>导入</li>
+</ol>
+<p>语法：@import url(地址);</p>
+<p><img loading="lazy" decoding="async" width="340" height="94" class="wp-image-252" src="/wp-content/uploads/2018/05/word-image-224.png" srcset="/wp-content/uploads/2018/05/word-image-224.png 340w, /wp-content/uploads/2018/05/word-image-224-300x83.png 300w" sizes="(max-width: 340px) 100vw, 340px" /></p>
+<p>思考：为什么&lt;link&gt;不需要写在&lt;style&gt;&lt;/style&gt;之间，而@import需要呢？</p>
+<p>答：因为&lt;link&gt;是HTML标签，而@import是CSS指令</p>
+<p>思考：&lt;link&gt;和@import引入样式的区别？</p>
+<p>分析：</p>
+<p><img loading="lazy" decoding="async" width="626" height="227" class="wp-image-253" src="/wp-content/uploads/2018/05/word-image-225.png" srcset="/wp-content/uploads/2018/05/word-image-225.png 626w, /wp-content/uploads/2018/05/word-image-225-300x109.png 300w" sizes="(max-width: 626px) 100vw, 626px" /></p>
+<p>答：1、&lt;link&gt;在HTML页面中引入CSS文件</p>
+<p>2、@import在HTML页面和CSS页面都能引入。</p>
+<p><img loading="lazy" decoding="async" width="576" height="166" class="wp-image-254" src="/wp-content/uploads/2018/05/word-image-226.png" srcset="/wp-content/uploads/2018/05/word-image-226.png 576w, /wp-content/uploads/2018/05/word-image-226-300x86.png 300w" sizes="(max-width: 576px) 100vw, 576px" /></p>
+<h2>样式的继承</h2>
+<p>内层标签继承和覆盖外层标签的样式。</p>
+<ol>
+<li>子级标签继承父级标签没有的样式</li>
+<li>子级标签覆盖父级标签相同的样式</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="715" height="266" class="wp-image-255" src="/wp-content/uploads/2018/05/word-image-227.png" srcset="/wp-content/uploads/2018/05/word-image-227.png 715w, /wp-content/uploads/2018/05/word-image-227-300x112.png 300w" sizes="(max-width: 715px) 100vw, 715px" /></p>
+<h2>样式的优先级</h2>
+<ol>
+<li>ID选择器&gt;CLASS选择器&gt;HTML标签选择器</li>
+<li>直接（行内）样式表&gt;内部样式表&gt;外部样式表</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="609" height="266" class="wp-image-256" src="/wp-content/uploads/2018/05/word-image-228.png" srcset="/wp-content/uploads/2018/05/word-image-228.png 609w, /wp-content/uploads/2018/05/word-image-228-300x131.png 300w" sizes="(max-width: 609px) 100vw, 609px" /></p>
+<p>例题2</p>
+<p><img loading="lazy" decoding="async" width="800" height="269" class="wp-image-257" src="/wp-content/uploads/2018/05/word-image-229.png" srcset="/wp-content/uploads/2018/05/word-image-229.png 800w, /wp-content/uploads/2018/05/word-image-229-300x101.png 300w, /wp-content/uploads/2018/05/word-image-229-768x258.png 768w" sizes="(max-width: 800px) 100vw, 800px" /></p>
+<ol>
+<li>class=“类1，类2”，以类的加载的顺序为优先级，后加载的将先加载的覆盖。</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="699" height="211" class="wp-image-258" src="/wp-content/uploads/2018/05/word-image-230.png" srcset="/wp-content/uploads/2018/05/word-image-230.png 699w, /wp-content/uploads/2018/05/word-image-230-300x91.png 300w" sizes="(max-width: 699px) 100vw, 699px" /></p>
+<ol>
+<li>强制优先级（important）</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="762" height="286" class="wp-image-259" src="/wp-content/uploads/2018/05/word-image-231.png" srcset="/wp-content/uploads/2018/05/word-image-231.png 762w, /wp-content/uploads/2018/05/word-image-231-300x113.png 300w" sizes="(max-width: 762px) 100vw, 762px" /></p>
+<ol>
+<li>权重叠加
+<ul>
+<li>标签 &lt; 类 &lt; id选择器&lt;直接&lt;important</li>
+<li>1 &lt; 10 &lt; 100 &lt;1000&lt;10000</li>
+</ul>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="559" height="177" class="wp-image-260" src="/wp-content/uploads/2018/05/word-image-232.png" srcset="/wp-content/uploads/2018/05/word-image-232.png 559w, /wp-content/uploads/2018/05/word-image-232-300x95.png 300w" sizes="(max-width: 559px) 100vw, 559px" /></p>
+<p>例题：</p>
+<p><img loading="lazy" decoding="async" width="545" height="172" class="wp-image-261" src="/wp-content/uploads/2018/05/word-image-233.png" srcset="/wp-content/uploads/2018/05/word-image-233.png 545w, /wp-content/uploads/2018/05/word-image-233-300x95.png 300w" sizes="(max-width: 545px) 100vw, 545px" /></p>
+<h2>标签的显示模式</h2>
+<p>标签的显示模式有两种：块显示，行显示</p>
+<ol>
+<li>块显示特点
+<ol>
+<li>上下排列</li>
+<li>默认宽度是100%，高度0px</li>
+<li>可以设置宽度和高度</li>
+</ol>
+</li>
+<li>行显示特点
+<ol>
+<li>左右排列</li>
+<li>默认框架是宽度0px，高度是0px</li>
+<li>不能设置宽度和高度</li>
+</ol>
+</li>
+</ol>
+<p>思考：如何设置行显示标记的宽度和高度？</p>
+<p>答：将行显示转成块显示即可</p>
+<p><img loading="lazy" decoding="async" width="457" height="189" class="wp-image-262" src="/wp-content/uploads/2018/05/word-image-234.png" srcset="/wp-content/uploads/2018/05/word-image-234.png 457w, /wp-content/uploads/2018/05/word-image-234-300x124.png 300w" sizes="(max-width: 457px) 100vw, 457px" /></p>
+<p>思考：既要设置宽高，又要显示在一行，如何实现？</p>
+<p><img loading="lazy" decoding="async" width="489" height="188" class="wp-image-263" src="/wp-content/uploads/2018/05/word-image-235.png" srcset="/wp-content/uploads/2018/05/word-image-235.png 489w, /wp-content/uploads/2018/05/word-image-235-300x115.png 300w" sizes="(max-width: 489px) 100vw, 489px" /></p>
+<p>display:block; 将标签显示方式改为块显示</p>
+<p>display:inline：将标签显示方式改为行显示</p>
+<h2>div+css拼版好处</h2>
+<ol>
+<li>提高页面执行效率</li>
+<li>代码维护变得简单</li>
+<li>提高代码的可重用性。</li>
+</ol>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/227.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>CSS（三）伪类选择器、 定位、 浮动、 盒子模型</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/265.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/265.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 14:01:07 +0000</pubDate>
+				<category><![CDATA[CSS]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[伪类选择器]]></category>
+		<category><![CDATA[定位]]></category>
+		<category><![CDATA[浮动]]></category>
+		<category><![CDATA[盒子模型]]></category>
+		<guid isPermaLink="false">/?p=265</guid>
+
+					<description><![CDATA[CSS（三） 盒子模型 页面的所有元素都放在盒子（容器标记）中，无拼版不盒子 盒子模型 盒子由3部分组成 边界 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>CSS（三）</h1>
+<h2>盒子模型</h2>
+<p>页面的所有元素都放在盒子（容器标记）中，无拼版不盒子</p>
+<p><img loading="lazy" decoding="async" width="1082" height="296" class="wp-image-267" src="/wp-content/uploads/2018/05/word-image-237.png" srcset="/wp-content/uploads/2018/05/word-image-237.png 1082w, /wp-content/uploads/2018/05/word-image-237-300x82.png 300w, /wp-content/uploads/2018/05/word-image-237-768x210.png 768w, /wp-content/uploads/2018/05/word-image-237-1024x280.png 1024w" sizes="(max-width: 1082px) 100vw, 1082px" /></p>
+<h3>盒子模型</h3>
+<p>盒子由3部分组成</p>
+<ol>
+<li>边界（外边距）,盒子外面的部分</li>
+<li>填充（内边距），盒子的内部</li>
+<li>边框：盒子本上的4个边</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="566" height="300" class="wp-image-268" src="/wp-content/uploads/2018/05/word-image-238.png" srcset="/wp-content/uploads/2018/05/word-image-238.png 566w, /wp-content/uploads/2018/05/word-image-238-300x159.png 300w" sizes="(max-width: 566px) 100vw, 566px" /></p>
+<h2>标准流的注意事项</h2>
+<ol>
+<li>块显示标记默认宽带100%，高度是0px，上下排列，可以设定宽高</li>
+<li>行显示标记，默认宽度0px，高度0px，左右排列，不能设置宽高</li>
+<li>盒子是可以被撑开的</li>
+<li>文字和图片不能放在图片之上，如果字在图上，或者图在图上，那么这个图必定是背景图</li>
+<li>如果看到图片重复出现，这个图必定是背景图</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1001" height="136" class="wp-image-269" src="/wp-content/uploads/2018/05/word-image-239.png" srcset="/wp-content/uploads/2018/05/word-image-239.png 1001w, /wp-content/uploads/2018/05/word-image-239-300x41.png 300w, /wp-content/uploads/2018/05/word-image-239-768x104.png 768w" sizes="(max-width: 1001px) 100vw, 1001px" /></p>
+<h2>例题（银杏的优点）</h2>
+<h3>结果预览</h3>
+<p><img loading="lazy" decoding="async" width="1046" height="276" class="wp-image-270" src="/wp-content/uploads/2018/05/word-image-240.png" srcset="/wp-content/uploads/2018/05/word-image-240.png 1046w, /wp-content/uploads/2018/05/word-image-240-300x79.png 300w, /wp-content/uploads/2018/05/word-image-240-768x203.png 768w, /wp-content/uploads/2018/05/word-image-240-1024x270.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /></p>
+<h3>难点分析</h3>
+<p><img loading="lazy" decoding="async" width="473" height="251" class="wp-image-271" src="/wp-content/uploads/2018/05/word-image-241.png" srcset="/wp-content/uploads/2018/05/word-image-241.png 473w, /wp-content/uploads/2018/05/word-image-241-300x159.png 300w" sizes="(max-width: 473px) 100vw, 473px" /></p>
+<h3>代码实现</h3>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>body{</p>
+<p>background-image:url(images1/bg7.jpg); /*设置背景*/</p>
+<p>background-repeat:no-repeat; /*背景不平铺*/</p>
+<p>}</p>
+<p>div{</p>
+<p>background:url(images1/bg8.gif) repeat-y; /*银杏的叶子垂直平铺*/</p>
+<p>padding-left:110px; /*文字距离div的宽度110px*/</p>
+<p>font-size:18px; /*字号18px*/</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>&lt;div&gt;</p>
+<p>&lt;h1&gt;银杏的优点&lt;/h1&gt;</p>
+<p>1. 叶色秀雅，花色清淡。&lt;br /&gt;</p>
+<p>2. 树体高大，寿命绵长，树粗可达4米，寿命可达3000年之多。固长与古老寺庙相配伍，以名山大川、风景名胜为伴。&lt;br /&gt;</p>
+<p>3. 树干光洁，愈伤力强，轻微的损伤很快便可愈合。&lt;br /&gt;</p>
+<p>4. 发芽晚落叶早，有利于早春和晚秋树下能及时得到和暧的阳光。&lt;br /&gt;</p>
+<p>5. 银杏冠大荫浓，具有降温作用；直射阳光下，气温高达40.20c，银杏树下的气温仅为35.30c。降温4.90c，优于其它树种。&lt;br /&gt;</p>
+<p>6. 萌蘖力强、耐修剪。根际萌蘖旺盛，可以形成五代同堂&amp;rdquo;，怀中抱孙&amp;rdquo;等自然风景。&lt;br /&gt;</p>
+<p>7. 银杏绝少病虫害，不污染环境，是著名的无公害树种。&lt;br /&gt;</p>
+<p>8. 抗旱力较强。&lt;br /&gt;</p>
+<p>9. 抗烟尘、抗火灾、抗有毒气体（如二氧化硫、氨气、臭氧等），抗辐射能力也强。</p>
+<p>&lt;/div&gt;</p>
+<h2>浮动（float）</h2>
+<p>浮动可以左浮动，也可以右浮动，只要浮动的元素都会脱离标准流</p>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>#aa,#bb{</p>
+<p>width:200px;</p>
+<p>height:100px;</p>
+<p>background-color:#F00;</p>
+<p>float:left; /*左浮动*/</p>
+<p>}</p>
+<p>#bb{</p>
+<p>background-color:#060;</p>
+<p>}</p>
+<p>#cc{</p>
+<p>width:200px;</p>
+<p>height:130px;</p>
+<p>background-color:#00F;</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;div id=&#8221;aa&#8221;&gt;&lt;/div&gt;</p>
+<p>&lt;div id=&#8221;bb&#8221;&gt;&lt;/div&gt;</p>
+<p>&lt;div id=&#8221;cc&#8221;&gt;&lt;/div&gt;</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="528" height="231" class="wp-image-272" src="/wp-content/uploads/2018/05/word-image-242.png" srcset="/wp-content/uploads/2018/05/word-image-242.png 528w, /wp-content/uploads/2018/05/word-image-242-300x131.png 300w" sizes="(max-width: 528px) 100vw, 528px" /></p>
+<p>例题一（全部左浮动）：</p>
+<p><img loading="lazy" decoding="async" width="1017" height="326" class="wp-image-273" src="/wp-content/uploads/2018/05/word-image-243.png" srcset="/wp-content/uploads/2018/05/word-image-243.png 1017w, /wp-content/uploads/2018/05/word-image-243-300x96.png 300w, /wp-content/uploads/2018/05/word-image-243-768x246.png 768w" sizes="(max-width: 1017px) 100vw, 1017px" /></p>
+<p>例题二（全部右浮动）</p>
+<p><img loading="lazy" decoding="async" width="974" height="329" class="wp-image-274" src="/wp-content/uploads/2018/05/word-image-244.png" srcset="/wp-content/uploads/2018/05/word-image-244.png 974w, /wp-content/uploads/2018/05/word-image-244-300x101.png 300w, /wp-content/uploads/2018/05/word-image-244-768x259.png 768w" sizes="(max-width: 974px) 100vw, 974px" /></p>
+<p>例题三（有左浮动，有右浮动）</p>
+<p><img loading="lazy" decoding="async" width="1020" height="400" class="wp-image-275" src="/wp-content/uploads/2018/05/word-image-245.png" srcset="/wp-content/uploads/2018/05/word-image-245.png 1020w, /wp-content/uploads/2018/05/word-image-245-300x118.png 300w, /wp-content/uploads/2018/05/word-image-245-768x301.png 768w" sizes="(max-width: 1020px) 100vw, 1020px" /></p>
+<p>脚下留心：盒子里面的子盒子浮动起来，子盒子就脱离标准流了，这时父盒子就不能精确的检测到它内部的内容到底有多高，父盒子会变成一根线；我们可以给父盒子加一个overflow:hidden属性让它精确检测一下内部的高度。盒子就会自动撑开了。</p>
+<p><img loading="lazy" decoding="async" width="946" height="344" class="wp-image-276" src="/wp-content/uploads/2018/05/word-image-246.png" srcset="/wp-content/uploads/2018/05/word-image-246.png 946w, /wp-content/uploads/2018/05/word-image-246-300x109.png 300w, /wp-content/uploads/2018/05/word-image-246-768x279.png 768w" sizes="(max-width: 946px) 100vw, 946px" /></p>
+<p>解决：给父盒子添加overflow:hidden</p>
+<p><img loading="lazy" decoding="async" width="1085" height="363" class="wp-image-277" src="/wp-content/uploads/2018/05/word-image-247.png" srcset="/wp-content/uploads/2018/05/word-image-247.png 1085w, /wp-content/uploads/2018/05/word-image-247-300x100.png 300w, /wp-content/uploads/2018/05/word-image-247-768x257.png 768w, /wp-content/uploads/2018/05/word-image-247-1024x343.png 1024w" sizes="(max-width: 1085px) 100vw, 1085px" /></p>
+<h2>例题（春季）</h2>
+<h3>难点分析</h3>
+<p><img loading="lazy" decoding="async" width="1330" height="221" class="wp-image-278" src="/wp-content/uploads/2018/05/word-image-248.png" srcset="/wp-content/uploads/2018/05/word-image-248.png 1330w, /wp-content/uploads/2018/05/word-image-248-300x50.png 300w, /wp-content/uploads/2018/05/word-image-248-768x128.png 768w, /wp-content/uploads/2018/05/word-image-248-1024x170.png 1024w" sizes="(max-width: 1330px) 100vw, 1330px" /> <img loading="lazy" decoding="async" width="466" height="220" class="wp-image-279" src="/wp-content/uploads/2018/05/word-image-249.png" srcset="/wp-content/uploads/2018/05/word-image-249.png 466w, /wp-content/uploads/2018/05/word-image-249-300x142.png 300w" sizes="(max-width: 466px) 100vw, 466px" /></p>
+<h3>代码实现</h3>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>body{</p>
+<p>background-color:#5B8A00;</p>
+<p>color:#c4f762;</p>
+<p>font-size:18px;</p>
+<p>}</p>
+<p>img{</p>
+<p>float:right;</p>
+<p>}</p>
+<p>#first{</p>
+<p>font-size:80px;</p>
+<p>font-family:&#8217;黑体&#8217;;</p>
+<p>float:left;</p>
+<p>/*margin-right:20px;*/ 这两种方法都行</p>
+<p>padding-right:20px;</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;img src=&#8221;images4/mainroad.jpg&#8221; /&gt;</p>
+<p>&lt;span id=&#8221;first&#8221;&gt;春&lt;/span&gt;季，地球的北半球开始倾向太阳，受到越来越多的太阳光直射，因而气温开始升高。随着冰雪消融，河流水位上涨。春季植物开始发芽生长，许多鲜花开放。冬眠的动物苏醒，许多以卵过冬的动物孵化，鸟类开始迁徙，离开越冬地向繁殖地进发。许多动物在这段时间里发情，因此中国也将春季称为“万物复苏”的季节。春季气温和生物界的变化对人的心理和生理也有影响。</p>
+<p>对农民来说，春季是播种许多农作物的季节。在春季，地球的北半球开始倾向太阳，受到越来越多的太阳光直射，因而气温开始升高。随着冰雪消融，河流水位上涨。春季植物开始发芽生长，许多鲜花开放。冬眠的动物苏醒，许多以卵过冬的动物孵化，鸟类开始迁徙，离开越冬地向繁殖地进发。许多动物在这段时间里发情，因此中国也将春季称为“万物复苏”的季节。</p>
+<h2>清除浮动</h2>
+<p>浮动属性会影响到其他的盒子</p>
+<p><img loading="lazy" decoding="async" width="829" height="363" class="wp-image-280" src="/wp-content/uploads/2018/05/word-image-250.png" srcset="/wp-content/uploads/2018/05/word-image-250.png 829w, /wp-content/uploads/2018/05/word-image-250-300x131.png 300w, /wp-content/uploads/2018/05/word-image-250-768x336.png 768w" sizes="(max-width: 829px) 100vw, 829px" /></p>
+<p>解决：清除c盒子的左浮动的影响</p>
+<p>clear：left 清除左浮动</p>
+<p>clear：right 清除右浮动</p>
+<p>clear：both 清除所有浮动</p>
+<p><img loading="lazy" decoding="async" width="799" height="375" class="wp-image-281" src="/wp-content/uploads/2018/05/word-image-251.png" srcset="/wp-content/uploads/2018/05/word-image-251.png 799w, /wp-content/uploads/2018/05/word-image-251-300x141.png 300w, /wp-content/uploads/2018/05/word-image-251-768x360.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+<p>多学一招：Clear属性不但能清除float属性，还能清除margin属性，如果用了clear属性的盒子就不能再使用margin属性。</p>
+<p>解决方法：在上下的盒子之间插入一个空div,专门用来清除浮动的影响。</p>
+<p><img loading="lazy" decoding="async" width="813" height="455" class="wp-image-282" src="/wp-content/uploads/2018/05/word-image-252.png" srcset="/wp-content/uploads/2018/05/word-image-252.png 813w, /wp-content/uploads/2018/05/word-image-252-300x168.png 300w, /wp-content/uploads/2018/05/word-image-252-768x430.png 768w" sizes="(max-width: 813px) 100vw, 813px" /></p>
+<h2>定位</h2>
+<p>定位有四种</p>
+<ol>
+<li>absolute：局对定位</li>
+<li>relative：相对定位</li>
+<li>fixed：固定定位</li>
+<li>static：静态定位（默认）</li>
+</ol>
+<p>除了默认定位以外，其他三种定位必须结合如下的属性使用</p>
+<p>top：距上 left：距左 right：距右 bottom：距下</p>
+<p><img loading="lazy" decoding="async" width="319" height="124" class="wp-image-283" src="/wp-content/uploads/2018/05/word-image-253.png" srcset="/wp-content/uploads/2018/05/word-image-253.png 319w, /wp-content/uploads/2018/05/word-image-253-300x117.png 300w" sizes="(max-width: 319px) 100vw, 319px" /></p>
+<h3>absolute（绝对定位）</h3>
+<ol>
+<li>要脱离标准流</li>
+<li>以浏览器客户端的左上角为原点</li>
+<li>不保留原先位置的占位</li>
+</ol>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>div{</p>
+<p>width:200px;</p>
+<p>height:200px;</p>
+<p>}</p>
+<p>#aa{</p>
+<p>background-color:#F00;</p>
+<p>position:absolute; /*绝对定位*/</p>
+<p>top:100px;</p>
+<p>left:100px;</p>
+<p>z-index:10 /*图层顺序*/</p>
+<p>}</p>
+<p>#bb{</p>
+<p>background-color:#060;</p>
+<p>position:absolute;</p>
+<p>top:0px;</p>
+<p>left:0px;</p>
+<p>z-index:2; /*图层顺序*/</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;div id=&#8221;aa&#8221;&gt;&lt;/div&gt;</p>
+<p>&lt;div id=&#8221;bb&#8221;&gt;&lt;/div&gt;</p>
+<p><img loading="lazy" decoding="async" width="393" height="346" class="wp-image-284" src="/wp-content/uploads/2018/05/word-image-254.png" srcset="/wp-content/uploads/2018/05/word-image-254.png 393w, /wp-content/uploads/2018/05/word-image-254-300x264.png 300w" sizes="(max-width: 393px) 100vw, 393px" /></p>
+<h3>relative（相对定位）</h3>
+<ol>
+<li>保留原先位置的占位</li>
+<li>默认原点是自身左上角</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="662" height="326" class="wp-image-285" src="/wp-content/uploads/2018/05/word-image-255.png" srcset="/wp-content/uploads/2018/05/word-image-255.png 662w, /wp-content/uploads/2018/05/word-image-255-300x148.png 300w" sizes="(max-width: 662px) 100vw, 662px" /></p>
+<h3>fixed（固定定位）</h3>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>#win{</p>
+<p>width:100px;</p>
+<p>height:100px;</p>
+<p>background-color:#F00;</p>
+<p>position:fixed; /*固定定位*/</p>
+<p>right:0px; /*距右0px*/</p>
+<p>bottom:0px; /*距下0px*/</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;body style=&#8221;height:2000px;&#8221;&gt;</p>
+<p>&lt;div id=&#8221;win&#8221;&gt;&lt;/div&gt;</p>
+<p><img loading="lazy" decoding="async" width="256" height="201" class="wp-image-286" src="/wp-content/uploads/2018/05/word-image-256.png" /></p>
+<h3>定位例题（通过绝对定位盒子居中）</h3>
+<p>分析：</p>
+<p>&nbsp;</p>
+<p><img loading="lazy" decoding="async" width="300" height="176" class="wp-image-287" src="/wp-content/uploads/2018/05/word-image-257.png" /> <img loading="lazy" decoding="async" width="296" height="123" class="wp-image-288" src="/wp-content/uploads/2018/05/word-image-258.png" /></p>
+<p>例题</p>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>div{</p>
+<p>width:200px;</p>
+<p>height:200px;</p>
+<p>background-color:#F00;</p>
+<p>position:absolute; /*绝对定位*/</p>
+<p>left:50%; /*距左边界50%*/</p>
+<p>top:50%; /*距上边界50%*/</p>
+<p>margin-left:-100px; /*将盒子左移动100px;*/</p>
+<p>margin-top:-100px; /*将盒子上移100px;*/</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;div&gt;&lt;/div&gt;</p>
+<p><img loading="lazy" decoding="async" width="405" height="406" class="wp-image-289" src="/wp-content/uploads/2018/05/word-image-259.png" srcset="/wp-content/uploads/2018/05/word-image-259.png 405w, /wp-content/uploads/2018/05/word-image-259-150x150.png 150w, /wp-content/uploads/2018/05/word-image-259-300x300.png 300w" sizes="(max-width: 405px) 100vw, 405px" /></p>
+<h3>定位例题（以父级元素为原点）</h3>
+<p>口诀：父级相对，子级绝对，这个子级就以父级的左上角为原点。</p>
+<p><img loading="lazy" decoding="async" width="556" height="317" class="wp-image-290" src="/wp-content/uploads/2018/05/word-image-260.png" srcset="/wp-content/uploads/2018/05/word-image-260.png 556w, /wp-content/uploads/2018/05/word-image-260-300x171.png 300w" sizes="(max-width: 556px) 100vw, 556px" /></p>
+<h2>内减模式</h2>
+<p>默认情况下，盒子的尺寸是外加模式，盒子实际宽度=盒子的宽度+填充+边框粗细。所以很多情况下，指定了填充以后，盒子尺寸会变大，解决方法：我们可以使用內减模式，就是指定盒子的宽度就是总宽度，如果指定填充，盒子中内容的宽度-填充=实际内容的宽度。这是css3增加的属性</p>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>div{</p>
+<p>width:200px;</p>
+<p>height:200px;</p>
+<p>border:#000 solid 1px;</p>
+<p>padding-left:50px;</p>
+<p>box-sizing:border-box; /*内减模式*/</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;div&gt;锄禾日当午&lt;/div&gt;</p>
+<h2>例题（导航栏）</h2>
+<p>难点：</p>
+<ol>
+<li>很多标签本身带有边界和填充，我们拼版的第一步是清除这些距离。</li>
+</ol>
+<p>*{ /*所有标签都清空自带的距离*/</p>
+<p>margin:0px;</p>
+<p>padding:0px;</p>
+<p>}</p>
+<ol>
+<li>元素居中（左边界自动，右边界自动）</li>
+</ol>
+<p>margin-left:auto;</p>
+<p>margin-right:auto;</p>
+<ol>
+<li>去除无序列表的前面的点</li>
+</ol>
+<p>list-style-type:none; /*去除小圆点*/</p>
+<ol>
+<li>导航内容垂直居中（设置行高）</li>
+</ol>
+<p>line-height:30px; /*内容可以垂直居中*/</p>
+<p>实现方法</p>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>*{ /*所有标签都清空自带的距离*/</p>
+<p>margin:0px;</p>
+<p>padding:0px;</p>
+<p>}</p>
+<p>ul{</p>
+<p>width:780px;</p>
+<p>margin-left:auto;</p>
+<p>margin-right:auto;</p>
+<p>margin-top:100px;</p>
+<p>list-style-type:none; /*去除小圆点*/</p>
+<p>overflow:hidden; /*重新测定子元素的高度*/</p>
+<p>background-color:#060;</p>
+<p>}</p>
+<p>li{</p>
+<p>float:left;</p>
+<p>font-size:14px;</p>
+<p>font-family:&#8217;微软雅黑&#8217;;</p>
+<p>width:130px;</p>
+<p>line-height:30px; /*内容可以垂直居中*/</p>
+<p>text-align:center; /*文本居中*/</p>
+<p>border-right:#930 solid 1px;</p>
+<p>box-sizing:border-box; /*内减模式*/</p>
+<p>}</p>
+<p>a{</p>
+<p>text-decoration:none;</p>
+<p>color:#FFF;</p>
+<p>}</p>
+<p>a:hover{</p>
+<p>background-color:#090;</p>
+<p>display:block;</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>&lt;ul&gt;</p>
+<p>&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;公司首页&lt;/a&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;产品介绍&lt;/a&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;用户反馈&lt;/a&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;给我留言&lt;/a&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;联系我们&lt;/a&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;公司简介&lt;/a&gt;&lt;/li&gt;</p>
+<p>&lt;/ul&gt;</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="799" height="41" class="wp-image-291" src="/wp-content/uploads/2018/05/word-image-261.png" srcset="/wp-content/uploads/2018/05/word-image-261.png 799w, /wp-content/uploads/2018/05/word-image-261-300x15.png 300w, /wp-content/uploads/2018/05/word-image-261-768x39.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+<h2>例题（图片排版）</h2>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>*{</p>
+<p>margin:0px;</p>
+<p>padding:0px;</p>
+<p>}</p>
+<p>#con{</p>
+<p>width:440px;</p>
+<p>margin:auto;</p>
+<p>list-style-type:none;</p>
+<p>overflow:hidden;</p>
+<p>}</p>
+<p>#con li{</p>
+<p>float:left;</p>
+<p>width:110px;</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;ul id=&#8221;con&#8221;&gt;</p>
+<p>&lt;li&gt;&lt;img src=&#8221;images14/ba1.jpg&#8221; width=&#8221;100&#8243; height=&#8221;167&#8243; /&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;img src=&#8221;images14/ba2.jpg&#8221; width=&#8221;100&#8243; height=&#8221;167&#8243; /&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;img src=&#8221;images14/ba3.jpg&#8221; width=&#8221;100&#8243; height=&#8221;167&#8243; /&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;img src=&#8221;images14/ba4.jpg&#8221; width=&#8221;100&#8243; height=&#8221;167&#8243; /&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;img src=&#8221;images14/ba5.jpg&#8221; width=&#8221;100&#8243; height=&#8221;167&#8243; /&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;img src=&#8221;images14/ba6.jpg&#8221; width=&#8221;100&#8243; height=&#8221;167&#8243; /&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;img src=&#8221;images14/ba7.jpg&#8221; width=&#8221;100&#8243; height=&#8221;167&#8243; /&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;img src=&#8221;images14/ba8.jpg&#8221; width=&#8221;100&#8243; height=&#8221;167&#8243; /&gt;&lt;/li&gt;</p>
+<p>&lt;/ul&gt;</p>
+<p><img loading="lazy" decoding="async" width="480" height="368" class="wp-image-292" src="/wp-content/uploads/2018/05/word-image-262.png" srcset="/wp-content/uploads/2018/05/word-image-262.png 480w, /wp-content/uploads/2018/05/word-image-262-300x230.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></p>
+<h2>css3和css2的区别</h2>
+<p>CSS3比CSS2 多了一些属性，在做特效上功能变得很强大。</p>
+<p>广义上的h5=html5+css3+js+js框架</p>
+<h2>css3的新增属性</h2>
+<ol>
+<li>內减模式：默认情况下，盒子的尺寸是外加模式，盒子实际宽度=盒子的宽度+填充+边框粗细。所以很多情况下，指定了填充以后，盒子尺寸会变大，解决方法：我们可以使用內减模式，就是指定盒子的宽度就是总宽度，如果指定填充，盒子中内容的宽度-填充=实际内容的宽度。</li>
+</ol>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>div{</p>
+<p>width:200px;</p>
+<p>height:200px;</p>
+<p>border:#000 solid 1px;</p>
+<p>padding-left:50px;</p>
+<p>box-sizing:border-box; /*内减模式*/</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;div&gt;锄禾日当午&lt;/div&gt;</p>
+<h2>css3的新增属性选择器</h2>
+<p>CSS2有4个属性选择器，CSS3添加了3个。</p>
+<p><img loading="lazy" decoding="async" width="656" height="56" class="wp-image-293" src="/wp-content/uploads/2018/05/word-image-263.png" srcset="/wp-content/uploads/2018/05/word-image-263.png 656w, /wp-content/uploads/2018/05/word-image-263-300x26.png 300w" sizes="(max-width: 656px) 100vw, 656px" /> <img loading="lazy" decoding="async" width="603" height="60" class="wp-image-294" src="/wp-content/uploads/2018/05/word-image-264.png" srcset="/wp-content/uploads/2018/05/word-image-264.png 603w, /wp-content/uploads/2018/05/word-image-264-300x30.png 300w" sizes="(max-width: 603px) 100vw, 603px" /> <img loading="lazy" decoding="async" width="622" height="58" class="wp-image-295" src="/wp-content/uploads/2018/05/word-image-265.png" srcset="/wp-content/uploads/2018/05/word-image-265.png 622w, /wp-content/uploads/2018/05/word-image-265-300x28.png 300w" sizes="(max-width: 622px) 100vw, 622px" /></p>
+<h2>CSS3新增的伪类选择器</h2>
+<table>
+<tbody>
+<tr>
+<td>选择器</td>
+<td>含义</td>
+</tr>
+<tr>
+<td>:root</td>
+<td>文档的根，就是html</td>
+</tr>
+<tr>
+<td>E:nth-child(n)</td>
+<td>E的父元素的第n个子元素，n是从1开始</td>
+</tr>
+<tr>
+<td>li:nth-child(even)</td>
+<td>li父元素(ul)的第偶数个子元素</td>
+</tr>
+<tr>
+<td>li:nth-child(odd)</td>
+<td>li父元素(ul)的第奇数个子元素</td>
+</tr>
+<tr>
+<td>li:first-child</td>
+<td>li父元素(ul)的第1个子元素</td>
+</tr>
+<tr>
+<td>li:last-child</td>
+<td>li父元素(ul)的最后一个子元素</td>
+</tr>
+<tr>
+<td>li:empty</td>
+<td>li中不包含内容的元素</td>
+</tr>
+<tr>
+<td>li:first-of-type</td>
+<td>第一个li</td>
+</tr>
+<tr>
+<td>li:last-of-type</td>
+<td>最后一个li</td>
+</tr>
+<tr>
+<td>li:nth-of-type(n)</td>
+<td>第n个li元素</td>
+</tr>
+</tbody>
+</table>
+<h2>CSS3新增的伪对象选择器</h2>
+<p>E:before 在E元素里面前面插入一个盒子（行显示）</p>
+<p>E:after 在E元素的里面的后面插入一个盒子（行显示）</p>
+<p>注意：这个两个伪对象必须和content属性一起使用</p>
+<p><img loading="lazy" decoding="async" width="366" height="93" class="wp-image-296" src="/wp-content/uploads/2018/05/word-image-266.png" srcset="/wp-content/uploads/2018/05/word-image-266.png 366w, /wp-content/uploads/2018/05/word-image-266-300x76.png 300w" sizes="(max-width: 366px) 100vw, 366px" /></p>
+<p>例题：</p>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>*{</p>
+<p>margin:0px;</p>
+<p>padding:0px;</p>
+<p>}</p>
+<p>div{</p>
+<p>width:290px;</p>
+<p>height:25px;</p>
+<p>border:#000 solid 1px;</p>
+<p>margin:100px auto;</p>
+<p>}</p>
+<p>div:before,div:after{</p>
+<p>content:&#8221;;</p>
+<p>width:25px;</p>
+<p>height:25px;</p>
+<p>display:inline-block;</p>
+<p>margin:0px 10px;</p>
+<p>background:url(images17/tu1.png) no-repeat;</p>
+<p>vertical-align:middle; /*盒子的居中对齐*/</p>
+<p>}</p>
+<p>input[type=&#8217;text&#8217;]{</p>
+<p>height:25px;</p>
+<p>width:200px;</p>
+<p>border:none;</p>
+<p>}</p>
+<p>div:after{</p>
+<p>background:url(images17/tu2.png) no-repeat;</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;div&gt;&lt;input type=&#8221;text&#8221; name=&#8221;con&#8221; /&gt;&lt;/div&gt;</p>
+<p><img loading="lazy" decoding="async" width="314" height="45" class="wp-image-297" src="/wp-content/uploads/2018/05/word-image-267.png" srcset="/wp-content/uploads/2018/05/word-image-267.png 314w, /wp-content/uploads/2018/05/word-image-267-300x43.png 300w" sizes="(max-width: 314px) 100vw, 314px" /></p>
+<h2>作业：</h2>
+<ol>
+<li>实现如下效果</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="321" height="33" class="wp-image-298" src="/wp-content/uploads/2018/05/word-image-268.png" srcset="/wp-content/uploads/2018/05/word-image-268.png 321w, /wp-content/uploads/2018/05/word-image-268-300x31.png 300w" sizes="(max-width: 321px) 100vw, 321px" /></p>
+<ol>
+<li>实现如下效果</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="842" height="416" class="wp-image-299" src="/wp-content/uploads/2018/05/word-image-269.png" srcset="/wp-content/uploads/2018/05/word-image-269.png 842w, /wp-content/uploads/2018/05/word-image-269-300x148.png 300w, /wp-content/uploads/2018/05/word-image-269-768x379.png 768w" sizes="(max-width: 842px) 100vw, 842px" /></p>
+<ol>
+<li>实现如下导航</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="799" height="193" class="wp-image-300" src="/wp-content/uploads/2018/05/word-image-270.png" srcset="/wp-content/uploads/2018/05/word-image-270.png 799w, /wp-content/uploads/2018/05/word-image-270-300x72.png 300w, /wp-content/uploads/2018/05/word-image-270-768x186.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+<p>拼版</p>
+<p><img loading="lazy" decoding="async" width="799" height="535" class="wp-image-301" src="/wp-content/uploads/2018/05/word-image-271.png" srcset="/wp-content/uploads/2018/05/word-image-271.png 799w, /wp-content/uploads/2018/05/word-image-271-300x201.png 300w, /wp-content/uploads/2018/05/word-image-271-768x514.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/265.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

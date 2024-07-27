@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>定位 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%AE%9A%E4%BD%8D/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 12:14:35 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>定位 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>CSS（三）伪类选择器、 定位、 浮动、 盒子模型</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/265.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/265.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 14:01:07 +0000</pubDate>
+				<category><![CDATA[CSS]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[伪类选择器]]></category>
+		<category><![CDATA[定位]]></category>
+		<category><![CDATA[浮动]]></category>
+		<category><![CDATA[盒子模型]]></category>
+		<guid isPermaLink="false">/?p=265</guid>
+
+					<description><![CDATA[CSS（三） 盒子模型 页面的所有元素都放在盒子（容器标记）中，无拼版不盒子 盒子模型 盒子由3部分组成 边界 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>CSS（三）</h1>
+<h2>盒子模型</h2>
+<p>页面的所有元素都放在盒子（容器标记）中，无拼版不盒子</p>
+<p><img fetchpriority="high" decoding="async" width="1082" height="296" class="wp-image-267" src="/wp-content/uploads/2018/05/word-image-237.png" srcset="/wp-content/uploads/2018/05/word-image-237.png 1082w, /wp-content/uploads/2018/05/word-image-237-300x82.png 300w, /wp-content/uploads/2018/05/word-image-237-768x210.png 768w, /wp-content/uploads/2018/05/word-image-237-1024x280.png 1024w" sizes="(max-width: 1082px) 100vw, 1082px" /></p>
+<h3>盒子模型</h3>
+<p>盒子由3部分组成</p>
+<ol>
+<li>边界（外边距）,盒子外面的部分</li>
+<li>填充（内边距），盒子的内部</li>
+<li>边框：盒子本上的4个边</li>
+</ol>
+<p><img decoding="async" width="566" height="300" class="wp-image-268" src="/wp-content/uploads/2018/05/word-image-238.png" srcset="/wp-content/uploads/2018/05/word-image-238.png 566w, /wp-content/uploads/2018/05/word-image-238-300x159.png 300w" sizes="(max-width: 566px) 100vw, 566px" /></p>
+<h2>标准流的注意事项</h2>
+<ol>
+<li>块显示标记默认宽带100%，高度是0px，上下排列，可以设定宽高</li>
+<li>行显示标记，默认宽度0px，高度0px，左右排列，不能设置宽高</li>
+<li>盒子是可以被撑开的</li>
+<li>文字和图片不能放在图片之上，如果字在图上，或者图在图上，那么这个图必定是背景图</li>
+<li>如果看到图片重复出现，这个图必定是背景图</li>
+</ol>
+<p><img decoding="async" width="1001" height="136" class="wp-image-269" src="/wp-content/uploads/2018/05/word-image-239.png" srcset="/wp-content/uploads/2018/05/word-image-239.png 1001w, /wp-content/uploads/2018/05/word-image-239-300x41.png 300w, /wp-content/uploads/2018/05/word-image-239-768x104.png 768w" sizes="(max-width: 1001px) 100vw, 1001px" /></p>
+<h2>例题（银杏的优点）</h2>
+<h3>结果预览</h3>
+<p><img loading="lazy" decoding="async" width="1046" height="276" class="wp-image-270" src="/wp-content/uploads/2018/05/word-image-240.png" srcset="/wp-content/uploads/2018/05/word-image-240.png 1046w, /wp-content/uploads/2018/05/word-image-240-300x79.png 300w, /wp-content/uploads/2018/05/word-image-240-768x203.png 768w, /wp-content/uploads/2018/05/word-image-240-1024x270.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /></p>
+<h3>难点分析</h3>
+<p><img loading="lazy" decoding="async" width="473" height="251" class="wp-image-271" src="/wp-content/uploads/2018/05/word-image-241.png" srcset="/wp-content/uploads/2018/05/word-image-241.png 473w, /wp-content/uploads/2018/05/word-image-241-300x159.png 300w" sizes="(max-width: 473px) 100vw, 473px" /></p>
+<h3>代码实现</h3>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>body{</p>
+<p>background-image:url(images1/bg7.jpg); /*设置背景*/</p>
+<p>background-repeat:no-repeat; /*背景不平铺*/</p>
+<p>}</p>
+<p>div{</p>
+<p>background:url(images1/bg8.gif) repeat-y; /*银杏的叶子垂直平铺*/</p>
+<p>padding-left:110px; /*文字距离div的宽度110px*/</p>
+<p>font-size:18px; /*字号18px*/</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>&lt;div&gt;</p>
+<p>&lt;h1&gt;银杏的优点&lt;/h1&gt;</p>
+<p>1. 叶色秀雅，花色清淡。&lt;br /&gt;</p>
+<p>2. 树体高大，寿命绵长，树粗可达4米，寿命可达3000年之多。固长与古老寺庙相配伍，以名山大川、风景名胜为伴。&lt;br /&gt;</p>
+<p>3. 树干光洁，愈伤力强，轻微的损伤很快便可愈合。&lt;br /&gt;</p>
+<p>4. 发芽晚落叶早，有利于早春和晚秋树下能及时得到和暧的阳光。&lt;br /&gt;</p>
+<p>5. 银杏冠大荫浓，具有降温作用；直射阳光下，气温高达40.20c，银杏树下的气温仅为35.30c。降温4.90c，优于其它树种。&lt;br /&gt;</p>
+<p>6. 萌蘖力强、耐修剪。根际萌蘖旺盛，可以形成五代同堂&amp;rdquo;，怀中抱孙&amp;rdquo;等自然风景。&lt;br /&gt;</p>
+<p>7. 银杏绝少病虫害，不污染环境，是著名的无公害树种。&lt;br /&gt;</p>
+<p>8. 抗旱力较强。&lt;br /&gt;</p>
+<p>9. 抗烟尘、抗火灾、抗有毒气体（如二氧化硫、氨气、臭氧等），抗辐射能力也强。</p>
+<p>&lt;/div&gt;</p>
+<h2>浮动（float）</h2>
+<p>浮动可以左浮动，也可以右浮动，只要浮动的元素都会脱离标准流</p>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>#aa,#bb{</p>
+<p>width:200px;</p>
+<p>height:100px;</p>
+<p>background-color:#F00;</p>
+<p>float:left; /*左浮动*/</p>
+<p>}</p>
+<p>#bb{</p>
+<p>background-color:#060;</p>
+<p>}</p>
+<p>#cc{</p>
+<p>width:200px;</p>
+<p>height:130px;</p>
+<p>background-color:#00F;</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;div id=&#8221;aa&#8221;&gt;&lt;/div&gt;</p>
+<p>&lt;div id=&#8221;bb&#8221;&gt;&lt;/div&gt;</p>
+<p>&lt;div id=&#8221;cc&#8221;&gt;&lt;/div&gt;</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="528" height="231" class="wp-image-272" src="/wp-content/uploads/2018/05/word-image-242.png" srcset="/wp-content/uploads/2018/05/word-image-242.png 528w, /wp-content/uploads/2018/05/word-image-242-300x131.png 300w" sizes="(max-width: 528px) 100vw, 528px" /></p>
+<p>例题一（全部左浮动）：</p>
+<p><img loading="lazy" decoding="async" width="1017" height="326" class="wp-image-273" src="/wp-content/uploads/2018/05/word-image-243.png" srcset="/wp-content/uploads/2018/05/word-image-243.png 1017w, /wp-content/uploads/2018/05/word-image-243-300x96.png 300w, /wp-content/uploads/2018/05/word-image-243-768x246.png 768w" sizes="(max-width: 1017px) 100vw, 1017px" /></p>
+<p>例题二（全部右浮动）</p>
+<p><img loading="lazy" decoding="async" width="974" height="329" class="wp-image-274" src="/wp-content/uploads/2018/05/word-image-244.png" srcset="/wp-content/uploads/2018/05/word-image-244.png 974w, /wp-content/uploads/2018/05/word-image-244-300x101.png 300w, /wp-content/uploads/2018/05/word-image-244-768x259.png 768w" sizes="(max-width: 974px) 100vw, 974px" /></p>
+<p>例题三（有左浮动，有右浮动）</p>
+<p><img loading="lazy" decoding="async" width="1020" height="400" class="wp-image-275" src="/wp-content/uploads/2018/05/word-image-245.png" srcset="/wp-content/uploads/2018/05/word-image-245.png 1020w, /wp-content/uploads/2018/05/word-image-245-300x118.png 300w, /wp-content/uploads/2018/05/word-image-245-768x301.png 768w" sizes="(max-width: 1020px) 100vw, 1020px" /></p>
+<p>脚下留心：盒子里面的子盒子浮动起来，子盒子就脱离标准流了，这时父盒子就不能精确的检测到它内部的内容到底有多高，父盒子会变成一根线；我们可以给父盒子加一个overflow:hidden属性让它精确检测一下内部的高度。盒子就会自动撑开了。</p>
+<p><img loading="lazy" decoding="async" width="946" height="344" class="wp-image-276" src="/wp-content/uploads/2018/05/word-image-246.png" srcset="/wp-content/uploads/2018/05/word-image-246.png 946w, /wp-content/uploads/2018/05/word-image-246-300x109.png 300w, /wp-content/uploads/2018/05/word-image-246-768x279.png 768w" sizes="(max-width: 946px) 100vw, 946px" /></p>
+<p>解决：给父盒子添加overflow:hidden</p>
+<p><img loading="lazy" decoding="async" width="1085" height="363" class="wp-image-277" src="/wp-content/uploads/2018/05/word-image-247.png" srcset="/wp-content/uploads/2018/05/word-image-247.png 1085w, /wp-content/uploads/2018/05/word-image-247-300x100.png 300w, /wp-content/uploads/2018/05/word-image-247-768x257.png 768w, /wp-content/uploads/2018/05/word-image-247-1024x343.png 1024w" sizes="(max-width: 1085px) 100vw, 1085px" /></p>
+<h2>例题（春季）</h2>
+<h3>难点分析</h3>
+<p><img loading="lazy" decoding="async" width="1330" height="221" class="wp-image-278" src="/wp-content/uploads/2018/05/word-image-248.png" srcset="/wp-content/uploads/2018/05/word-image-248.png 1330w, /wp-content/uploads/2018/05/word-image-248-300x50.png 300w, /wp-content/uploads/2018/05/word-image-248-768x128.png 768w, /wp-content/uploads/2018/05/word-image-248-1024x170.png 1024w" sizes="(max-width: 1330px) 100vw, 1330px" /> <img loading="lazy" decoding="async" width="466" height="220" class="wp-image-279" src="/wp-content/uploads/2018/05/word-image-249.png" srcset="/wp-content/uploads/2018/05/word-image-249.png 466w, /wp-content/uploads/2018/05/word-image-249-300x142.png 300w" sizes="(max-width: 466px) 100vw, 466px" /></p>
+<h3>代码实现</h3>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>body{</p>
+<p>background-color:#5B8A00;</p>
+<p>color:#c4f762;</p>
+<p>font-size:18px;</p>
+<p>}</p>
+<p>img{</p>
+<p>float:right;</p>
+<p>}</p>
+<p>#first{</p>
+<p>font-size:80px;</p>
+<p>font-family:&#8217;黑体&#8217;;</p>
+<p>float:left;</p>
+<p>/*margin-right:20px;*/ 这两种方法都行</p>
+<p>padding-right:20px;</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;img src=&#8221;images4/mainroad.jpg&#8221; /&gt;</p>
+<p>&lt;span id=&#8221;first&#8221;&gt;春&lt;/span&gt;季，地球的北半球开始倾向太阳，受到越来越多的太阳光直射，因而气温开始升高。随着冰雪消融，河流水位上涨。春季植物开始发芽生长，许多鲜花开放。冬眠的动物苏醒，许多以卵过冬的动物孵化，鸟类开始迁徙，离开越冬地向繁殖地进发。许多动物在这段时间里发情，因此中国也将春季称为“万物复苏”的季节。春季气温和生物界的变化对人的心理和生理也有影响。</p>
+<p>对农民来说，春季是播种许多农作物的季节。在春季，地球的北半球开始倾向太阳，受到越来越多的太阳光直射，因而气温开始升高。随着冰雪消融，河流水位上涨。春季植物开始发芽生长，许多鲜花开放。冬眠的动物苏醒，许多以卵过冬的动物孵化，鸟类开始迁徙，离开越冬地向繁殖地进发。许多动物在这段时间里发情，因此中国也将春季称为“万物复苏”的季节。</p>
+<h2>清除浮动</h2>
+<p>浮动属性会影响到其他的盒子</p>
+<p><img loading="lazy" decoding="async" width="829" height="363" class="wp-image-280" src="/wp-content/uploads/2018/05/word-image-250.png" srcset="/wp-content/uploads/2018/05/word-image-250.png 829w, /wp-content/uploads/2018/05/word-image-250-300x131.png 300w, /wp-content/uploads/2018/05/word-image-250-768x336.png 768w" sizes="(max-width: 829px) 100vw, 829px" /></p>
+<p>解决：清除c盒子的左浮动的影响</p>
+<p>clear：left 清除左浮动</p>
+<p>clear：right 清除右浮动</p>
+<p>clear：both 清除所有浮动</p>
+<p><img loading="lazy" decoding="async" width="799" height="375" class="wp-image-281" src="/wp-content/uploads/2018/05/word-image-251.png" srcset="/wp-content/uploads/2018/05/word-image-251.png 799w, /wp-content/uploads/2018/05/word-image-251-300x141.png 300w, /wp-content/uploads/2018/05/word-image-251-768x360.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+<p>多学一招：Clear属性不但能清除float属性，还能清除margin属性，如果用了clear属性的盒子就不能再使用margin属性。</p>
+<p>解决方法：在上下的盒子之间插入一个空div,专门用来清除浮动的影响。</p>
+<p><img loading="lazy" decoding="async" width="813" height="455" class="wp-image-282" src="/wp-content/uploads/2018/05/word-image-252.png" srcset="/wp-content/uploads/2018/05/word-image-252.png 813w, /wp-content/uploads/2018/05/word-image-252-300x168.png 300w, /wp-content/uploads/2018/05/word-image-252-768x430.png 768w" sizes="(max-width: 813px) 100vw, 813px" /></p>
+<h2>定位</h2>
+<p>定位有四种</p>
+<ol>
+<li>absolute：局对定位</li>
+<li>relative：相对定位</li>
+<li>fixed：固定定位</li>
+<li>static：静态定位（默认）</li>
+</ol>
+<p>除了默认定位以外，其他三种定位必须结合如下的属性使用</p>
+<p>top：距上 left：距左 right：距右 bottom：距下</p>
+<p><img loading="lazy" decoding="async" width="319" height="124" class="wp-image-283" src="/wp-content/uploads/2018/05/word-image-253.png" srcset="/wp-content/uploads/2018/05/word-image-253.png 319w, /wp-content/uploads/2018/05/word-image-253-300x117.png 300w" sizes="(max-width: 319px) 100vw, 319px" /></p>
+<h3>absolute（绝对定位）</h3>
+<ol>
+<li>要脱离标准流</li>
+<li>以浏览器客户端的左上角为原点</li>
+<li>不保留原先位置的占位</li>
+</ol>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>div{</p>
+<p>width:200px;</p>
+<p>height:200px;</p>
+<p>}</p>
+<p>#aa{</p>
+<p>background-color:#F00;</p>
+<p>position:absolute; /*绝对定位*/</p>
+<p>top:100px;</p>
+<p>left:100px;</p>
+<p>z-index:10 /*图层顺序*/</p>
+<p>}</p>
+<p>#bb{</p>
+<p>background-color:#060;</p>
+<p>position:absolute;</p>
+<p>top:0px;</p>
+<p>left:0px;</p>
+<p>z-index:2; /*图层顺序*/</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;div id=&#8221;aa&#8221;&gt;&lt;/div&gt;</p>
+<p>&lt;div id=&#8221;bb&#8221;&gt;&lt;/div&gt;</p>
+<p><img loading="lazy" decoding="async" width="393" height="346" class="wp-image-284" src="/wp-content/uploads/2018/05/word-image-254.png" srcset="/wp-content/uploads/2018/05/word-image-254.png 393w, /wp-content/uploads/2018/05/word-image-254-300x264.png 300w" sizes="(max-width: 393px) 100vw, 393px" /></p>
+<h3>relative（相对定位）</h3>
+<ol>
+<li>保留原先位置的占位</li>
+<li>默认原点是自身左上角</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="662" height="326" class="wp-image-285" src="/wp-content/uploads/2018/05/word-image-255.png" srcset="/wp-content/uploads/2018/05/word-image-255.png 662w, /wp-content/uploads/2018/05/word-image-255-300x148.png 300w" sizes="(max-width: 662px) 100vw, 662px" /></p>
+<h3>fixed（固定定位）</h3>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>#win{</p>
+<p>width:100px;</p>
+<p>height:100px;</p>
+<p>background-color:#F00;</p>
+<p>position:fixed; /*固定定位*/</p>
+<p>right:0px; /*距右0px*/</p>
+<p>bottom:0px; /*距下0px*/</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;body style=&#8221;height:2000px;&#8221;&gt;</p>
+<p>&lt;div id=&#8221;win&#8221;&gt;&lt;/div&gt;</p>
+<p><img loading="lazy" decoding="async" width="256" height="201" class="wp-image-286" src="/wp-content/uploads/2018/05/word-image-256.png" /></p>
+<h3>定位例题（通过绝对定位盒子居中）</h3>
+<p>分析：</p>
+<p>&nbsp;</p>
+<p><img loading="lazy" decoding="async" width="300" height="176" class="wp-image-287" src="/wp-content/uploads/2018/05/word-image-257.png" /> <img loading="lazy" decoding="async" width="296" height="123" class="wp-image-288" src="/wp-content/uploads/2018/05/word-image-258.png" /></p>
+<p>例题</p>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>div{</p>
+<p>width:200px;</p>
+<p>height:200px;</p>
+<p>background-color:#F00;</p>
+<p>position:absolute; /*绝对定位*/</p>
+<p>left:50%; /*距左边界50%*/</p>
+<p>top:50%; /*距上边界50%*/</p>
+<p>margin-left:-100px; /*将盒子左移动100px;*/</p>
+<p>margin-top:-100px; /*将盒子上移100px;*/</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;div&gt;&lt;/div&gt;</p>
+<p><img loading="lazy" decoding="async" width="405" height="406" class="wp-image-289" src="/wp-content/uploads/2018/05/word-image-259.png" srcset="/wp-content/uploads/2018/05/word-image-259.png 405w, /wp-content/uploads/2018/05/word-image-259-150x150.png 150w, /wp-content/uploads/2018/05/word-image-259-300x300.png 300w" sizes="(max-width: 405px) 100vw, 405px" /></p>
+<h3>定位例题（以父级元素为原点）</h3>
+<p>口诀：父级相对，子级绝对，这个子级就以父级的左上角为原点。</p>
+<p><img loading="lazy" decoding="async" width="556" height="317" class="wp-image-290" src="/wp-content/uploads/2018/05/word-image-260.png" srcset="/wp-content/uploads/2018/05/word-image-260.png 556w, /wp-content/uploads/2018/05/word-image-260-300x171.png 300w" sizes="(max-width: 556px) 100vw, 556px" /></p>
+<h2>内减模式</h2>
+<p>默认情况下，盒子的尺寸是外加模式，盒子实际宽度=盒子的宽度+填充+边框粗细。所以很多情况下，指定了填充以后，盒子尺寸会变大，解决方法：我们可以使用內减模式，就是指定盒子的宽度就是总宽度，如果指定填充，盒子中内容的宽度-填充=实际内容的宽度。这是css3增加的属性</p>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>div{</p>
+<p>width:200px;</p>
+<p>height:200px;</p>
+<p>border:#000 solid 1px;</p>
+<p>padding-left:50px;</p>
+<p>box-sizing:border-box; /*内减模式*/</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;div&gt;锄禾日当午&lt;/div&gt;</p>
+<h2>例题（导航栏）</h2>
+<p>难点：</p>
+<ol>
+<li>很多标签本身带有边界和填充，我们拼版的第一步是清除这些距离。</li>
+</ol>
+<p>*{ /*所有标签都清空自带的距离*/</p>
+<p>margin:0px;</p>
+<p>padding:0px;</p>
+<p>}</p>
+<ol>
+<li>元素居中（左边界自动，右边界自动）</li>
+</ol>
+<p>margin-left:auto;</p>
+<p>margin-right:auto;</p>
+<ol>
+<li>去除无序列表的前面的点</li>
+</ol>
+<p>list-style-type:none; /*去除小圆点*/</p>
+<ol>
+<li>导航内容垂直居中（设置行高）</li>
+</ol>
+<p>line-height:30px; /*内容可以垂直居中*/</p>
+<p>实现方法</p>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>*{ /*所有标签都清空自带的距离*/</p>
+<p>margin:0px;</p>
+<p>padding:0px;</p>
+<p>}</p>
+<p>ul{</p>
+<p>width:780px;</p>
+<p>margin-left:auto;</p>
+<p>margin-right:auto;</p>
+<p>margin-top:100px;</p>
+<p>list-style-type:none; /*去除小圆点*/</p>
+<p>overflow:hidden; /*重新测定子元素的高度*/</p>
+<p>background-color:#060;</p>
+<p>}</p>
+<p>li{</p>
+<p>float:left;</p>
+<p>font-size:14px;</p>
+<p>font-family:&#8217;微软雅黑&#8217;;</p>
+<p>width:130px;</p>
+<p>line-height:30px; /*内容可以垂直居中*/</p>
+<p>text-align:center; /*文本居中*/</p>
+<p>border-right:#930 solid 1px;</p>
+<p>box-sizing:border-box; /*内减模式*/</p>
+<p>}</p>
+<p>a{</p>
+<p>text-decoration:none;</p>
+<p>color:#FFF;</p>
+<p>}</p>
+<p>a:hover{</p>
+<p>background-color:#090;</p>
+<p>display:block;</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body&gt;</p>
+<p>&lt;ul&gt;</p>
+<p>&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;公司首页&lt;/a&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;产品介绍&lt;/a&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;用户反馈&lt;/a&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;给我留言&lt;/a&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;联系我们&lt;/a&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;a href=&#8221;#&#8221;&gt;公司简介&lt;/a&gt;&lt;/li&gt;</p>
+<p>&lt;/ul&gt;</p>
+<p>运行结果</p>
+<p><img loading="lazy" decoding="async" width="799" height="41" class="wp-image-291" src="/wp-content/uploads/2018/05/word-image-261.png" srcset="/wp-content/uploads/2018/05/word-image-261.png 799w, /wp-content/uploads/2018/05/word-image-261-300x15.png 300w, /wp-content/uploads/2018/05/word-image-261-768x39.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+<h2>例题（图片排版）</h2>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>*{</p>
+<p>margin:0px;</p>
+<p>padding:0px;</p>
+<p>}</p>
+<p>#con{</p>
+<p>width:440px;</p>
+<p>margin:auto;</p>
+<p>list-style-type:none;</p>
+<p>overflow:hidden;</p>
+<p>}</p>
+<p>#con li{</p>
+<p>float:left;</p>
+<p>width:110px;</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;ul id=&#8221;con&#8221;&gt;</p>
+<p>&lt;li&gt;&lt;img src=&#8221;images14/ba1.jpg&#8221; width=&#8221;100&#8243; height=&#8221;167&#8243; /&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;img src=&#8221;images14/ba2.jpg&#8221; width=&#8221;100&#8243; height=&#8221;167&#8243; /&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;img src=&#8221;images14/ba3.jpg&#8221; width=&#8221;100&#8243; height=&#8221;167&#8243; /&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;img src=&#8221;images14/ba4.jpg&#8221; width=&#8221;100&#8243; height=&#8221;167&#8243; /&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;img src=&#8221;images14/ba5.jpg&#8221; width=&#8221;100&#8243; height=&#8221;167&#8243; /&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;img src=&#8221;images14/ba6.jpg&#8221; width=&#8221;100&#8243; height=&#8221;167&#8243; /&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;img src=&#8221;images14/ba7.jpg&#8221; width=&#8221;100&#8243; height=&#8221;167&#8243; /&gt;&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;img src=&#8221;images14/ba8.jpg&#8221; width=&#8221;100&#8243; height=&#8221;167&#8243; /&gt;&lt;/li&gt;</p>
+<p>&lt;/ul&gt;</p>
+<p><img loading="lazy" decoding="async" width="480" height="368" class="wp-image-292" src="/wp-content/uploads/2018/05/word-image-262.png" srcset="/wp-content/uploads/2018/05/word-image-262.png 480w, /wp-content/uploads/2018/05/word-image-262-300x230.png 300w" sizes="(max-width: 480px) 100vw, 480px" /></p>
+<h2>css3和css2的区别</h2>
+<p>CSS3比CSS2 多了一些属性，在做特效上功能变得很强大。</p>
+<p>广义上的h5=html5+css3+js+js框架</p>
+<h2>css3的新增属性</h2>
+<ol>
+<li>內减模式：默认情况下，盒子的尺寸是外加模式，盒子实际宽度=盒子的宽度+填充+边框粗细。所以很多情况下，指定了填充以后，盒子尺寸会变大，解决方法：我们可以使用內减模式，就是指定盒子的宽度就是总宽度，如果指定填充，盒子中内容的宽度-填充=实际内容的宽度。</li>
+</ol>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>div{</p>
+<p>width:200px;</p>
+<p>height:200px;</p>
+<p>border:#000 solid 1px;</p>
+<p>padding-left:50px;</p>
+<p>box-sizing:border-box; /*内减模式*/</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;div&gt;锄禾日当午&lt;/div&gt;</p>
+<h2>css3的新增属性选择器</h2>
+<p>CSS2有4个属性选择器，CSS3添加了3个。</p>
+<p><img loading="lazy" decoding="async" width="656" height="56" class="wp-image-293" src="/wp-content/uploads/2018/05/word-image-263.png" srcset="/wp-content/uploads/2018/05/word-image-263.png 656w, /wp-content/uploads/2018/05/word-image-263-300x26.png 300w" sizes="(max-width: 656px) 100vw, 656px" /> <img loading="lazy" decoding="async" width="603" height="60" class="wp-image-294" src="/wp-content/uploads/2018/05/word-image-264.png" srcset="/wp-content/uploads/2018/05/word-image-264.png 603w, /wp-content/uploads/2018/05/word-image-264-300x30.png 300w" sizes="(max-width: 603px) 100vw, 603px" /> <img loading="lazy" decoding="async" width="622" height="58" class="wp-image-295" src="/wp-content/uploads/2018/05/word-image-265.png" srcset="/wp-content/uploads/2018/05/word-image-265.png 622w, /wp-content/uploads/2018/05/word-image-265-300x28.png 300w" sizes="(max-width: 622px) 100vw, 622px" /></p>
+<h2>CSS3新增的伪类选择器</h2>
+<table>
+<tbody>
+<tr>
+<td>选择器</td>
+<td>含义</td>
+</tr>
+<tr>
+<td>:root</td>
+<td>文档的根，就是html</td>
+</tr>
+<tr>
+<td>E:nth-child(n)</td>
+<td>E的父元素的第n个子元素，n是从1开始</td>
+</tr>
+<tr>
+<td>li:nth-child(even)</td>
+<td>li父元素(ul)的第偶数个子元素</td>
+</tr>
+<tr>
+<td>li:nth-child(odd)</td>
+<td>li父元素(ul)的第奇数个子元素</td>
+</tr>
+<tr>
+<td>li:first-child</td>
+<td>li父元素(ul)的第1个子元素</td>
+</tr>
+<tr>
+<td>li:last-child</td>
+<td>li父元素(ul)的最后一个子元素</td>
+</tr>
+<tr>
+<td>li:empty</td>
+<td>li中不包含内容的元素</td>
+</tr>
+<tr>
+<td>li:first-of-type</td>
+<td>第一个li</td>
+</tr>
+<tr>
+<td>li:last-of-type</td>
+<td>最后一个li</td>
+</tr>
+<tr>
+<td>li:nth-of-type(n)</td>
+<td>第n个li元素</td>
+</tr>
+</tbody>
+</table>
+<h2>CSS3新增的伪对象选择器</h2>
+<p>E:before 在E元素里面前面插入一个盒子（行显示）</p>
+<p>E:after 在E元素的里面的后面插入一个盒子（行显示）</p>
+<p>注意：这个两个伪对象必须和content属性一起使用</p>
+<p><img loading="lazy" decoding="async" width="366" height="93" class="wp-image-296" src="/wp-content/uploads/2018/05/word-image-266.png" srcset="/wp-content/uploads/2018/05/word-image-266.png 366w, /wp-content/uploads/2018/05/word-image-266-300x76.png 300w" sizes="(max-width: 366px) 100vw, 366px" /></p>
+<p>例题：</p>
+<p>&lt;style type=&#8221;text/css&#8221;&gt;</p>
+<p>*{</p>
+<p>margin:0px;</p>
+<p>padding:0px;</p>
+<p>}</p>
+<p>div{</p>
+<p>width:290px;</p>
+<p>height:25px;</p>
+<p>border:#000 solid 1px;</p>
+<p>margin:100px auto;</p>
+<p>}</p>
+<p>div:before,div:after{</p>
+<p>content:&#8221;;</p>
+<p>width:25px;</p>
+<p>height:25px;</p>
+<p>display:inline-block;</p>
+<p>margin:0px 10px;</p>
+<p>background:url(images17/tu1.png) no-repeat;</p>
+<p>vertical-align:middle; /*盒子的居中对齐*/</p>
+<p>}</p>
+<p>input[type=&#8217;text&#8217;]{</p>
+<p>height:25px;</p>
+<p>width:200px;</p>
+<p>border:none;</p>
+<p>}</p>
+<p>div:after{</p>
+<p>background:url(images17/tu2.png) no-repeat;</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;div&gt;&lt;input type=&#8221;text&#8221; name=&#8221;con&#8221; /&gt;&lt;/div&gt;</p>
+<p><img loading="lazy" decoding="async" width="314" height="45" class="wp-image-297" src="/wp-content/uploads/2018/05/word-image-267.png" srcset="/wp-content/uploads/2018/05/word-image-267.png 314w, /wp-content/uploads/2018/05/word-image-267-300x43.png 300w" sizes="(max-width: 314px) 100vw, 314px" /></p>
+<h2>作业：</h2>
+<ol>
+<li>实现如下效果</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="321" height="33" class="wp-image-298" src="/wp-content/uploads/2018/05/word-image-268.png" srcset="/wp-content/uploads/2018/05/word-image-268.png 321w, /wp-content/uploads/2018/05/word-image-268-300x31.png 300w" sizes="(max-width: 321px) 100vw, 321px" /></p>
+<ol>
+<li>实现如下效果</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="842" height="416" class="wp-image-299" src="/wp-content/uploads/2018/05/word-image-269.png" srcset="/wp-content/uploads/2018/05/word-image-269.png 842w, /wp-content/uploads/2018/05/word-image-269-300x148.png 300w, /wp-content/uploads/2018/05/word-image-269-768x379.png 768w" sizes="(max-width: 842px) 100vw, 842px" /></p>
+<ol>
+<li>实现如下导航</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="799" height="193" class="wp-image-300" src="/wp-content/uploads/2018/05/word-image-270.png" srcset="/wp-content/uploads/2018/05/word-image-270.png 799w, /wp-content/uploads/2018/05/word-image-270-300x72.png 300w, /wp-content/uploads/2018/05/word-image-270-768x186.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+<p>拼版</p>
+<p><img loading="lazy" decoding="async" width="799" height="535" class="wp-image-301" src="/wp-content/uploads/2018/05/word-image-271.png" srcset="/wp-content/uploads/2018/05/word-image-271.png 799w, /wp-content/uploads/2018/05/word-image-271-300x201.png 300w, /wp-content/uploads/2018/05/word-image-271-768x514.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/265.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

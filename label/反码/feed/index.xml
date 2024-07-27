@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>反码 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%8F%8D%E7%A0%81/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 12:18:12 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>反码 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>PHP 语法（二）PHP 伪类型、 原码、 反码、 变量类型、 数组、 类型转换、 补码、 资源类型</title>
+		<link>/php/763.html</link>
+					<comments>/php/763.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 16:47:04 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP基本语法]]></category>
+		<category><![CDATA[PHP 伪类型]]></category>
+		<category><![CDATA[原码]]></category>
+		<category><![CDATA[反码]]></category>
+		<category><![CDATA[变量类型]]></category>
+		<category><![CDATA[数组]]></category>
+		<category><![CDATA[类型转换]]></category>
+		<category><![CDATA[补码]]></category>
+		<category><![CDATA[资源类型]]></category>
+		<guid isPermaLink="false">/?p=763</guid>
+
+					<description><![CDATA[PHP语法（二） 回顾 编译型和解析型：在程序运行的时候是否会生成中间代码 PHP执行过程：读取源代码——词法 [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h1>PHP语法（二）</h1>
+<h2>回顾</h2>
+<ol>
+<li>
+  编译型和解析型：在程序运行的时候是否会生成中间代码
+</li>
+<li>
+  PHP执行过程：读取源代码——词法分析——语法分析——生成opcode编码——有zend engine去执行
+</li>
+<li>
+  PHP四种界定符
+</li>
+</ol>
+<p>
+  第一种：标准风格：
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  第二种：短标记风格，要在php.ini中开启short_open_tag=on
+</p>
+<p>
+  &lt;?
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  第三种：asp风格，要在php.ini中设置asp_tags=on
+</p>
+<p>
+  &lt;%
+</p>
+<p>
+  %&gt;
+</p>
+<p>
+  第四种：脚本风格
+</p>
+<p>
+  &lt;script language=’php’&gt;
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  推荐使用第一种
+</p>
+<p>
+  PHP支持省略结束标记
+</p>
+<ol>
+<li>
+  注释</p>
+<ol>
+<li>
+    单行注释：//和#
+  </li>
+<li>
+    多行注释：/*  */
+  </li>
+</ol>
+</li>
+<li>
+  输出语句</p>
+<ol>
+<li>
+    echo：用来输出字符串和数字，可以输出多个值
+  </li>
+<li>
+    print：用来输出字符串和数字，可以输出一个值，输出成功返回1
+  </li>
+<li>
+    print_r：用来输出数组
+  </li>
+<li>
+    var_dump()：输出所有的数据类型。
+  </li>
+</ol>
+</li>
+</ol>
+<p><img fetchpriority="high" decoding="async" width="682" height="94" src="/wp-content/uploads/2018/05/word-image-666.png" class="wp-image-765" srcset="/wp-content/uploads/2018/05/word-image-666.png 682w, /wp-content/uploads/2018/05/word-image-666-300x41.png 300w" sizes="(max-width: 682px) 100vw, 682px" /></p>
+<ol>
+<li>
+  变量</p>
+<ol>
+<li>
+    概念：变量是内存中的一段空间
+  </li>
+<li>
+    变量的命名规则：</p>
+<ol>
+<li>
+      变量必须以$开头，但是$不是变量的组成部分
+    </li>
+<li>
+      变量名以字母、下划线开头，后面跟的是字母、数字、下划线。
+    </li>
+<li>
+      变量赋值的时候分为值传递和引用传递。&amp;表示获取变量的地址
+    </li>
+<li>
+      unset()用来删除变量，删除的是变量名，变量值由垃圾回收机制去销毁。
+    </li>
+<li>
+      isset()用来判断变量是否存在。
+    </li>
+<li>
+      预定义变量</p>
+<ol>
+<li>
+        $_GET：数组，用来保存http协议GET提交的数据
+      </li>
+<li>
+        $_POST：数组，用来保存http协议POST提交的数组
+      </li>
+<li>
+        $_REQUEST：数组，用来保存http协议GET和POST提交的数组。如果$_REQUEST获取数据，如果GET提交的和POST提交的数据名一样，默认POST覆盖GET数据。在php.ini中
+      </li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>
+  Request_order=’GP’
+</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ol>
+<li>
+              $argc：传递给脚本的参数数目
+            </li>
+<li>
+              $argv：传递给脚本的参数数组
+            </li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>
+  常量</p>
+<ol>
+<li>
+    定义常量 define(常量名,常量值，是否区分大小写)和const
+  </li>
+<li>
+    可以使用特殊字符做常量名，调用的时候要使用constant()来调用
+  </li>
+<li>
+    常量一旦定义就不能重复定义，通过defined()函数判断常量是否定义。
+  </li>
+<li>
+    预定义常量：PHP_OS，PHP_VERSION
+  </li>
+<li>
+    魔术常量：__LINE__，__FILE__，__DIR__
+  </li>
+<li>
+    get_defined_constants()获取所有的常量
+  </li>
+</ol>
+</li>
+</ol>
+<h2>变量数据类型</h2>
+<h3>强数据类型和弱数据类型</h3>
+<p><strong>弱数据类型：</strong>变量的类型取决于保存的值。什么样的值决定什么样的数据类型。
+</p>
+<p><strong>强数据类型：</strong>声明一个空间保存什么类型的数据，那么这个空间就不允许保存其他类型的数据。
+</p>
+<p>
+  PHP和JS都是弱数据类型。
+</p>
+<h3>数据类型的分类（8种）</h3>
+<p><img decoding="async" width="653" height="324" src="/wp-content/uploads/2018/05/word-image-667.png" class="wp-image-766" srcset="/wp-content/uploads/2018/05/word-image-667.png 653w, /wp-content/uploads/2018/05/word-image-667-300x149.png 300w" sizes="(max-width: 653px) 100vw, 653px" /></p>
+<h3>标量类型（基本类型）</h3>
+<table>
+<tr>
+<td>
+<p>
+  数据类型
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+<td>
+<p>
+  备注
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  boolean（布尔型）
+</p>
+</td>
+<td>
+<p>
+  true和false
+</p>
+</td>
+<td></td>
+</tr>
+<tr>
+<td>
+<p><a href="mk:@MSITStore:F:\帮助文档\php_manual_zh_2014.chm::/res/language.types.integer.html">integer</a>（整形）
+</p>
+</td>
+<td>
+<p>
+  整数，用4个字节保存
+</p>
+</td>
+<td>
+<p>
+  范围-2<sup>31</sup>~2<sup>31</sup>-1
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  float（浮点型）
+</p>
+</td>
+<td>
+<p>
+  实数
+</p>
+</td>
+<td>
+<p>
+  理论最大值1.8E+308
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  string（字符串）
+</p>
+</td>
+<td>
+<p>
+  单引号和双引号
+</p>
+</td>
+<td></td>
+</tr>
+</table>
+<p><img decoding="async" width="941" height="51" src="/wp-content/uploads/2018/05/word-image-668.png" class="wp-image-767" srcset="/wp-content/uploads/2018/05/word-image-668.png 941w, /wp-content/uploads/2018/05/word-image-668-300x16.png 300w, /wp-content/uploads/2018/05/word-image-668-768x42.png 768w" sizes="(max-width: 941px) 100vw, 941px" /><br />
+<img loading="lazy" decoding="async" width="451" height="53" src="/wp-content/uploads/2018/05/word-image-669.png" class="wp-image-768" srcset="/wp-content/uploads/2018/05/word-image-669.png 451w, /wp-content/uploads/2018/05/word-image-669-300x35.png 300w" sizes="(max-width: 451px) 100vw, 451px" /><br />
+<img loading="lazy" decoding="async" width="732" height="34" src="/wp-content/uploads/2018/05/word-image-670.png" class="wp-image-769" srcset="/wp-content/uploads/2018/05/word-image-670.png 732w, /wp-content/uploads/2018/05/word-image-670-300x14.png 300w" sizes="(max-width: 732px) 100vw, 732px" /></p>
+<p>
+  PHP支持八进制和十六进制的整型
+</p>
+<p><img loading="lazy" decoding="async" width="405" height="131" src="/wp-content/uploads/2018/05/word-image-671.png" class="wp-image-770" srcset="/wp-content/uploads/2018/05/word-image-671.png 405w, /wp-content/uploads/2018/05/word-image-671-300x97.png 300w" sizes="(max-width: 405px) 100vw, 405px" /></p>
+<p>
+  进制转换
+</p>
+<table>
+<tr>
+<td>
+<p>
+  进制
+</p>
+</td>
+<td>
+<p>
+  缩写
+</p>
+</td>
+<td>
+<p>
+  单词
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  十进制
+</p>
+</td>
+<td>
+<p>
+  dec
+</p>
+</td>
+<td>
+<p>
+  decimalist
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  八进制
+</p>
+</td>
+<td>
+<p>
+  oct
+</p>
+</td>
+<td>
+<p>
+  octonary
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  二进制
+</p>
+</td>
+<td>
+<p>
+  bin
+</p>
+</td>
+<td>
+<p>
+  binary
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  十六进制
+</p>
+</td>
+<td>
+<p>
+  hex
+</p>
+</td>
+<td>
+<p>
+  hexadecimal
+</p>
+</td>
+</tr>
+</table>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="387" height="71" src="/wp-content/uploads/2018/05/word-image-672.png" class="wp-image-771" srcset="/wp-content/uploads/2018/05/word-image-672.png 387w, /wp-content/uploads/2018/05/word-image-672-300x55.png 300w" sizes="(max-width: 387px) 100vw, 387px" /></p>
+<ol>
+<li>
+  十进制的整数转二进制（除2反向取余）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="664" height="181" src="/wp-content/uploads/2018/05/word-image-673.png" class="wp-image-772" srcset="/wp-content/uploads/2018/05/word-image-673.png 664w, /wp-content/uploads/2018/05/word-image-673-300x82.png 300w" sizes="(max-width: 664px) 100vw, 664px" /></p>
+<ol>
+<li>
+  十进制的小数转二进制（乘2正向取整）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="528" height="165" src="/wp-content/uploads/2018/05/word-image-674.png" class="wp-image-773" srcset="/wp-content/uploads/2018/05/word-image-674.png 528w, /wp-content/uploads/2018/05/word-image-674-300x94.png 300w" sizes="(max-width: 528px) 100vw, 528px" /></p>
+<ol>
+<li>
+  二进制转十进制，个位是2的0次方，往左一次是1次方，2次方，往右依次是-1次方，-2次方
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="575" height="167" src="/wp-content/uploads/2018/05/word-image-675.png" class="wp-image-774" srcset="/wp-content/uploads/2018/05/word-image-675.png 575w, /wp-content/uploads/2018/05/word-image-675-300x87.png 300w" sizes="(max-width: 575px) 100vw, 575px" /></p>
+<ol>
+<li>
+  八进制转二进制：把每位的八进制转成3位的二级制然后合并起来
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="577" height="133" src="/wp-content/uploads/2018/05/word-image-676.png" class="wp-image-775" srcset="/wp-content/uploads/2018/05/word-image-676.png 577w, /wp-content/uploads/2018/05/word-image-676-300x69.png 300w" sizes="(max-width: 577px) 100vw, 577px" /></p>
+<ol>
+<li>
+  十六进制转二进制：把每位的十六进制转成4位的二级制然后合并起来
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="594" height="142" src="/wp-content/uploads/2018/05/word-image-677.png" class="wp-image-776" srcset="/wp-content/uploads/2018/05/word-image-677.png 594w, /wp-content/uploads/2018/05/word-image-677-300x72.png 300w" sizes="(max-width: 594px) 100vw, 594px" /></p>
+<p>
+  脚下留心：小数可能在内存中保存的是近似值。
+</p>
+<p><img loading="lazy" decoding="async" width="721" height="308" src="/wp-content/uploads/2018/05/word-image-678.png" class="wp-image-777" srcset="/wp-content/uploads/2018/05/word-image-678.png 721w, /wp-content/uploads/2018/05/word-image-678-300x128.png 300w" sizes="(max-width: 721px) 100vw, 721px" /></p>
+<p>
+  浮点数尽可能不要参与比较
+</p>
+<p><img loading="lazy" decoding="async" width="671" height="68" src="/wp-content/uploads/2018/05/word-image-679.png" class="wp-image-778" srcset="/wp-content/uploads/2018/05/word-image-679.png 671w, /wp-content/uploads/2018/05/word-image-679-300x30.png 300w" sizes="(max-width: 671px) 100vw, 671px" /></p>
+<p>
+  如果浮点数要比较，使用bccomp()函数比较
+</p>
+<p><img loading="lazy" decoding="async" width="432" height="31" src="/wp-content/uploads/2018/05/word-image-680.png" class="wp-image-779" srcset="/wp-content/uploads/2018/05/word-image-680.png 432w, /wp-content/uploads/2018/05/word-image-680-300x22.png 300w" sizes="(max-width: 432px) 100vw, 432px" /></p>
+<p>
+  bccomp()返回0表示相等，1表示左边的数大，-1表示右边的数大
+</p>
+<h3>字符串型</h3>
+<ol>
+<li>
+  如果字符串中没有变量，双引号和单引号是一样的
+</li>
+<li>
+  如果字符串中有变量，单引号字符串中的变量不被解析，双引号字符串中的变量要解析。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="536" height="85" src="/wp-content/uploads/2018/05/word-image-681.png" class="wp-image-780" srcset="/wp-content/uploads/2018/05/word-image-681.png 536w, /wp-content/uploads/2018/05/word-image-681-300x48.png 300w" sizes="(max-width: 536px) 100vw, 536px" /></p>
+<p>
+  分析如下代码
+</p>
+<p><img loading="lazy" decoding="async" width="914" height="67" src="/wp-content/uploads/2018/05/word-image-682.png" class="wp-image-781" srcset="/wp-content/uploads/2018/05/word-image-682.png 914w, /wp-content/uploads/2018/05/word-image-682-300x22.png 300w, /wp-content/uploads/2018/05/word-image-682-768x56.png 768w" sizes="(max-width: 914px) 100vw, 914px" /></p>
+<p>
+  解决：
+</p>
+<p><img loading="lazy" decoding="async" width="697" height="51" src="/wp-content/uploads/2018/05/word-image-683.png" class="wp-image-782" srcset="/wp-content/uploads/2018/05/word-image-683.png 697w, /wp-content/uploads/2018/05/word-image-683-300x22.png 300w" sizes="(max-width: 697px) 100vw, 697px" /></p>
+<p>
+  完美解决：
+</p>
+<p>
+  通过添加{ }来解决
+</p>
+<p><img loading="lazy" decoding="async" width="754" height="47" src="/wp-content/uploads/2018/05/word-image-684.png" class="wp-image-783" srcset="/wp-content/uploads/2018/05/word-image-684.png 754w, /wp-content/uploads/2018/05/word-image-684-300x19.png 300w" sizes="(max-width: 754px) 100vw, 754px" /></p>
+<p>
+  {和$必须紧挨在一起
+</p>
+<p><img loading="lazy" decoding="async" width="510" height="69" src="/wp-content/uploads/2018/05/word-image-685.png" class="wp-image-784" srcset="/wp-content/uploads/2018/05/word-image-685.png 510w, /wp-content/uploads/2018/05/word-image-685-300x41.png 300w" sizes="(max-width: 510px) 100vw, 510px" /></p>
+<p>
+  {和$没有顺序，主要挨在一起就行
+</p>
+<p><img loading="lazy" decoding="async" width="536" height="69" src="/wp-content/uploads/2018/05/word-image-686.png" class="wp-image-785" srcset="/wp-content/uploads/2018/05/word-image-686.png 536w, /wp-content/uploads/2018/05/word-image-686-300x39.png 300w" sizes="(max-width: 536px) 100vw, 536px" /></p>
+<p>
+  使用字符串定界符
+</p>
+<table>
+<tr>
+<td>
+<p>
+  heredoc
+</p>
+</td>
+<td>
+<p>
+  nowdoc
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  类似于双引号
+</p>
+</td>
+<td>
+<p>
+  类似于单引号
+</p>
+</td>
+</tr>
+</table>
+<p><img loading="lazy" decoding="async" width="590" height="237" src="/wp-content/uploads/2018/05/word-image-687.png" class="wp-image-786" srcset="/wp-content/uploads/2018/05/word-image-687.png 590w, /wp-content/uploads/2018/05/word-image-687-300x121.png 300w" sizes="(max-width: 590px) 100vw, 590px" /></p>
+<p>
+  字符串定界符注意事项：
+</p>
+<ol>
+<li>
+  以“&lt;&lt;&lt;”开头
+</li>
+<li>
+  字符串定界符的命名规则和变量的命名规则一样，不能以数字开头。
+</li>
+<li>
+  结束定界符必须顶格写
+</li>
+<li>
+  适用于输出大段文本
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="878" height="78" src="/wp-content/uploads/2018/05/word-image-688.png" class="wp-image-787" srcset="/wp-content/uploads/2018/05/word-image-688.png 878w, /wp-content/uploads/2018/05/word-image-688-300x27.png 300w, /wp-content/uploads/2018/05/word-image-688-768x68.png 768w" sizes="(max-width: 878px) 100vw, 878px" /></p>
+<p>
+  字符串的四种声明方法：
+</p>
+<ol>
+<li>
+  单引号字符串
+</li>
+<li>
+  双引号字符串
+</li>
+<li>
+  heredoc
+</li>
+<li>
+  nowdoc
+</li>
+</ol>
+<h3>转义字符（\）</h3>
+<ol>
+<li>
+  将特殊字符转成普通字符   \’	\”	\$  \\
+</li>
+<li>
+  和r，t，n在一起组成新的具有特殊含义的字符
+</li>
+</ol>
+<p>
+  \t	\r	\n
+</p>
+<p><img loading="lazy" decoding="async" width="653" height="73" src="/wp-content/uploads/2018/05/word-image-689.png" class="wp-image-788" srcset="/wp-content/uploads/2018/05/word-image-689.png 653w, /wp-content/uploads/2018/05/word-image-689-300x34.png 300w" sizes="(max-width: 653px) 100vw, 653px" /></p>
+<p>
+  3、可以用转义字符转义asc||码
+</p>
+<p>
+  ASC||：给键盘上的每个键都编一个对应的数字编码，成为ASC||码。ASC由7位的二进制数组成，最多可以编128个键。
+</p>
+<p>
+  字符比较其实比较的是字符的ASC||码。 A&lt;a   a-A=32
+</p>
+<p>
+  填空题：已知A=65，求d=?
+</p>
+<p>
+  d=a+3=A+32+3=65+35=100
+</p>
+<p><img loading="lazy" decoding="async" width="663" height="69" src="/wp-content/uploads/2018/05/word-image-690.png" class="wp-image-789" srcset="/wp-content/uploads/2018/05/word-image-690.png 663w, /wp-content/uploads/2018/05/word-image-690-300x31.png 300w" sizes="(max-width: 663px) 100vw, 663px" /></p>
+<h2>数组</h2>
+<p>
+  数组是内存中一段连续的空间，通过下标来区分每个元素
+</p>
+<h3>数组的声明</h3>
+<p><img loading="lazy" decoding="async" width="774" height="72" src="/wp-content/uploads/2018/05/word-image-691.png" class="wp-image-790" srcset="/wp-content/uploads/2018/05/word-image-691.png 774w, /wp-content/uploads/2018/05/word-image-691-300x28.png 300w, /wp-content/uploads/2018/05/word-image-691-768x71.png 768w" sizes="(max-width: 774px) 100vw, 774px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="738" height="152" src="/wp-content/uploads/2018/05/word-image-692.png" class="wp-image-791" srcset="/wp-content/uploads/2018/05/word-image-692.png 738w, /wp-content/uploads/2018/05/word-image-692-300x62.png 300w" sizes="(max-width: 738px) 100vw, 738px" /></p>
+<p>
+  关联数组中,一个下标对应一个值，称为键值对。
+</p>
+<p>
+  通过“=&gt;”符号给关联数组赋值。
+</p>
+<p>
+  注意：不是所有的数字做下标的都是索引数组，如果做下标的数字不是表示值的位置，这也是关联数组。
+</p>
+<p><img loading="lazy" decoding="async" width="504" height="68" src="/wp-content/uploads/2018/05/word-image-693.png" class="wp-image-792" srcset="/wp-content/uploads/2018/05/word-image-693.png 504w, /wp-content/uploads/2018/05/word-image-693-300x40.png 300w" sizes="(max-width: 504px) 100vw, 504px" /></p>
+<p>
+  注意：以数字做下标的情况下，后面的元素在前面元素的下标上递增1.
+</p>
+<p><img loading="lazy" decoding="async" width="822" height="48" src="/wp-content/uploads/2018/05/word-image-694.png" class="wp-image-793" srcset="/wp-content/uploads/2018/05/word-image-694.png 822w, /wp-content/uploads/2018/05/word-image-694-300x18.png 300w, /wp-content/uploads/2018/05/word-image-694-768x45.png 768w" sizes="(max-width: 822px) 100vw, 822px" /></p>
+<p>
+  例题：写出如下下标
+</p>
+<p><img loading="lazy" decoding="async" width="705" height="45" src="/wp-content/uploads/2018/05/word-image-695.png" class="wp-image-794" srcset="/wp-content/uploads/2018/05/word-image-695.png 705w, /wp-content/uploads/2018/05/word-image-695-300x19.png 300w" sizes="(max-width: 705px) 100vw, 705px" /><br />
+<img loading="lazy" decoding="async" width="691" height="45" src="/wp-content/uploads/2018/05/word-image-696.png" class="wp-image-795" srcset="/wp-content/uploads/2018/05/word-image-696.png 691w, /wp-content/uploads/2018/05/word-image-696-300x20.png 300w" sizes="(max-width: 691px) 100vw, 691px" /><br />
+<img loading="lazy" decoding="async" width="884" height="44" src="/wp-content/uploads/2018/05/word-image-697.png" class="wp-image-796" srcset="/wp-content/uploads/2018/05/word-image-697.png 884w, /wp-content/uploads/2018/05/word-image-697-300x15.png 300w, /wp-content/uploads/2018/05/word-image-697-768x38.png 768w" sizes="(max-width: 884px) 100vw, 884px" /><br />
+<img loading="lazy" decoding="async" width="706" height="45" src="/wp-content/uploads/2018/05/word-image-698.png" class="wp-image-797" srcset="/wp-content/uploads/2018/05/word-image-698.png 706w, /wp-content/uploads/2018/05/word-image-698-300x19.png 300w" sizes="(max-width: 706px) 100vw, 706px" /></p>
+<h3>数组下标的思考</h3>
+<p>
+  在一般情况下，数组下标就是数字和字符串。如果是其他情况会怎么样？
+</p>
+<p><img loading="lazy" decoding="async" width="868" height="194" src="/wp-content/uploads/2018/05/word-image-699.png" class="wp-image-798" srcset="/wp-content/uploads/2018/05/word-image-699.png 868w, /wp-content/uploads/2018/05/word-image-699-300x67.png 300w, /wp-content/uploads/2018/05/word-image-699-768x172.png 768w" sizes="(max-width: 868px) 100vw, 868px" /></p>
+<h3>extract()</h3>
+<p>
+  从数组中将变量导入到当前的符号表
+</p>
+<p><img loading="lazy" decoding="async" width="511" height="67" src="/wp-content/uploads/2018/05/word-image-700.png" class="wp-image-799" srcset="/wp-content/uploads/2018/05/word-image-700.png 511w, /wp-content/uploads/2018/05/word-image-700-300x39.png 300w" sizes="(max-width: 511px) 100vw, 511px" /></p>
+<h3>数组的分类</h3>
+<ol>
+<li>
+  按照元素的键值关系来分类</p>
+<ol>
+<li>
+    索引数组：通过元素的位置坐下标
+  </li>
+<li>
+    关联数组：元素的值和下标没有位置上的关系。关联数组中元素顺序与下标无关。
+  </li>
+</ol>
+</li>
+<li>
+  按照数组的结构来分类：</p>
+<ol>
+<li>
+    一维数组
+  </li>
+<li>
+    多维数组
+  </li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="896" height="185" src="/wp-content/uploads/2018/05/word-image-701.png" class="wp-image-800" srcset="/wp-content/uploads/2018/05/word-image-701.png 896w, /wp-content/uploads/2018/05/word-image-701-300x62.png 300w, /wp-content/uploads/2018/05/word-image-701-768x159.png 768w" sizes="(max-width: 896px) 100vw, 896px" /></p>
+<p>
+  注意：在PHP和JS中，二维数组不一定是二维表。
+</p>
+<p><img loading="lazy" decoding="async" width="981" height="229" src="/wp-content/uploads/2018/05/word-image-702.png" class="wp-image-801" srcset="/wp-content/uploads/2018/05/word-image-702.png 981w, /wp-content/uploads/2018/05/word-image-702-300x70.png 300w, /wp-content/uploads/2018/05/word-image-702-768x179.png 768w" sizes="(max-width: 981px) 100vw, 981px" /></p>
+<h2>资源类型（resource）</h2>
+<ol>
+<li>
+  PHP引用的外部数据都是资源类型
+</li>
+<li>
+  资源类型只能获取，不能创建
+</li>
+<li>
+  资源也是有类别的，比如有链接资源，文本流资源
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="787" height="87" src="/wp-content/uploads/2018/05/word-image-703.png" class="wp-image-802" srcset="/wp-content/uploads/2018/05/word-image-703.png 787w, /wp-content/uploads/2018/05/word-image-703-300x33.png 300w, /wp-content/uploads/2018/05/word-image-703-768x85.png 768w" sizes="(max-width: 787px) 100vw, 787px" /></p>
+<h2>NULL类型</h2>
+<ol>
+<li>
+  表示没有
+</li>
+<li>
+  NULL是不区分大小写的，写null也是一样的。
+</li>
+</ol>
+<h2>PHP <a href="mk:@MSITStore:F:\帮助文档\php_manual_zh_2014.chm::/res/language.pseudo-types.html">伪类型</a></h2>
+<p>
+  PHP除了上面8种原始数据类型外，还提供了3种伪类型
+</p>
+<h3>混合类型（<a href="mk:@MSITStore:F:\帮助文档\php_manual_zh_2014.chm::/res/language.pseudo-types.html#language.types.mixed">mixed</a>）</h3>
+<p><em>mixed</em> 说明一个参数可以接受多种不同的类型
+</p>
+<p><img loading="lazy" decoding="async" width="606" height="82" src="/wp-content/uploads/2018/05/word-image-704.png" class="wp-image-803" srcset="/wp-content/uploads/2018/05/word-image-704.png 606w, /wp-content/uploads/2018/05/word-image-704-300x41.png 300w" sizes="(max-width: 606px) 100vw, 606px" /></p>
+<h3>number</h3>
+<p><img loading="lazy" decoding="async" width="303" height="24" src="/wp-content/uploads/2018/05/word-image-705.png" class="wp-image-804" srcset="/wp-content/uploads/2018/05/word-image-705.png 303w, /wp-content/uploads/2018/05/word-image-705-300x24.png 300w" sizes="(max-width: 303px) 100vw, 303px" /></p>
+<h3>callback</h3>
+<p>
+  callback表示回调函数。在某种条件下，计算机自动调用的函数称为回调函数。具体在后面讲解。
+</p>
+<h2>类型转换</h2>
+<p>
+  数据类型是数据在内存中的存储结构，并在此结构上的操作运行的集合。这就意味着不同的数据类型的运算操作会不一样，不同的数据类型之间运算首先先要组成相同的数据类型，还个转换有可能是计算机自己转换的。我们要注意这个数据类型的转换。
+</p>
+<h3>自动转换</h3>
+<p>
+  在计算机期望类型和实际类型不符的条件下自动转换成计算机期望的类型
+</p>
+<p>
+  
+</p>
+<p><img loading="lazy" decoding="async" width="693" height="83" src="/wp-content/uploads/2018/05/word-image-706.png" class="wp-image-805" srcset="/wp-content/uploads/2018/05/word-image-706.png 693w, /wp-content/uploads/2018/05/word-image-706-300x36.png 300w" sizes="(max-width: 693px) 100vw, 693px" /><br />
+<img loading="lazy" decoding="async" width="516" height="89" src="/wp-content/uploads/2018/05/word-image-707.png" class="wp-image-806" srcset="/wp-content/uploads/2018/05/word-image-707.png 516w, /wp-content/uploads/2018/05/word-image-707-300x52.png 300w" sizes="(max-width: 516px) 100vw, 516px" /></p>
+<h3>强制转换</h3>
+<p><img loading="lazy" decoding="async" width="436" height="45" src="/wp-content/uploads/2018/05/word-image-708.png" class="wp-image-807" srcset="/wp-content/uploads/2018/05/word-image-708.png 436w, /wp-content/uploads/2018/05/word-image-708-300x31.png 300w" sizes="(max-width: 436px) 100vw, 436px" /></p>
+<p>
+  int：整数
+</p>
+<p>
+  bool：布尔型
+</p>
+<p>
+  float：浮点型
+</p>
+<p>
+  string：字符串型
+</p>
+<h3>其他类型和bool之间的关系</h3>
+<ol>
+<li>
+  数字转布尔：0为假，非0为真
+</li>
+<li>
+  字符串，数组转布尔：如果一个字符串你们转成0或者转成空就为false，否则为true。
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  //整数转布尔
+</p>
+<p>
+  var_dump((bool)1);echo &#8216;&lt;br&gt;&#8217;;		//true
+</p>
+<p>
+  var_dump((bool)0);echo &#8216;&lt;br&gt;&#8217;;		//false
+</p>
+<p>
+  var_dump((bool)-1);echo &#8216;&lt;hr&gt;&#8217;;		//true
+</p>
+<p>
+  //浮点数转布尔
+</p>
+<p>
+  var_dump((bool)1.1);echo &#8216;&lt;br&gt;&#8217;;		//true
+</p>
+<p>
+  var_dump((bool)0.0);echo &#8216;&lt;br&gt;&#8217;;		//false
+</p>
+<p>
+  var_dump((bool)-1.1);echo &#8216;&lt;hr&gt;&#8217;;		//true
+</p>
+<p>
+  //字符串转布尔
+</p>
+<p>
+  var_dump((bool)&#8217;abc&#8217;);echo &#8216;&lt;br&gt;&#8217;;		//true
+</p>
+<p>
+  var_dump((bool)&#8217;0&#8242;);echo &#8216;&lt;br&gt;&#8217;;		//false
+</p>
+<p>
+  var_dump((bool)&#8217;0.0&#8242;);echo &#8216;&lt;br&gt;&#8217;;		//true
+</p>
+<p>
+  var_dump((bool)&#8217;00&#8217;);echo &#8216;&lt;br&gt;&#8217;;		//true
+</p>
+<p>
+  var_dump((bool)&#8221;);echo &#8216;&lt;br&gt;&#8217;;			//false
+</p>
+<p>
+  var_dump((bool)&#8217;null&#8217;);echo &#8216;&lt;br&gt;&#8217;;		//true
+</p>
+<p>
+  var_dump((bool)&#8217;false&#8217;);echo &#8216;&lt;hr&gt;&#8217;;	//true
+</p>
+<p>
+  //数组转成布尔
+</p>
+<p>
+  var_dump((bool)array());echo &#8216;&lt;br&gt;&#8217;;	//false
+</p>
+<p>
+  var_dump((bool)array(1));echo &#8216;&lt;br&gt;&#8217;;	//true
+</p>
+<p>
+  var_dump((bool)array(false));echo &#8216;&lt;br&gt;&#8217;;	//true
+</p>
+<p>
+  var_dump((bool)null);echo &#8216;&lt;br&gt;&#8217;;			//false
+</p>
+<h3>与类型有关的函数</h3>
+<p><img loading="lazy" decoding="async" width="213" height="42" src="/wp-content/uploads/2018/05/word-image-709.png" class="wp-image-808" /></p>
+<p>
+  能够返回的值有
+</p>
+<p><img loading="lazy" decoding="async" width="519" height="251" src="/wp-content/uploads/2018/05/word-image-710.png" class="wp-image-809" srcset="/wp-content/uploads/2018/05/word-image-710.png 519w, /wp-content/uploads/2018/05/word-image-710-300x145.png 300w" sizes="(max-width: 519px) 100vw, 519px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="466" height="91" src="/wp-content/uploads/2018/05/word-image-711.png" class="wp-image-810" srcset="/wp-content/uploads/2018/05/word-image-711.png 466w, /wp-content/uploads/2018/05/word-image-711-300x59.png 300w" sizes="(max-width: 466px) 100vw, 466px" /></p>
+<p>
+  is_XXX系列，用来判断变量是否是某种数据类型
+</p>
+<p><img loading="lazy" decoding="async" width="865" height="129" src="/wp-content/uploads/2018/05/word-image-712.png" class="wp-image-811" srcset="/wp-content/uploads/2018/05/word-image-712.png 865w, /wp-content/uploads/2018/05/word-image-712-300x45.png 300w, /wp-content/uploads/2018/05/word-image-712-768x115.png 768w" sizes="(max-width: 865px) 100vw, 865px" /></p>
+<h2>原码、反码、补码</h2>
+<h3>原码</h3>
+<p>
+  原码：数字转成二进制，这个二级制数就是原码
+</p>
+<p>
+  比如5对应的二进制是101。101就是5的原码。
+</p>
+<h3>反码</h3>
+<p>
+  反码就是原码的相同位取反，0变1,1变0.
+</p>
+<h3>补码</h3>
+<ol>
+<li>
+  正数的原码，反码，补码是一样的。
+</li>
+<li>
+  负数的反码：符号位不变，其他位取反。最高位就是符号位，正数是0，负数是1。
+</li>
+<li>
+  负数的补码：补码=反码+1
+</li>
+</ol>
+<p>
+  例题：
+</p>
+<p>
+  X=5
+</p>
+<p>
+  X[原]=x[反]=x[补]=0101
+</p>
+<p>
+  X=-5
+</p>
+<p>
+  X[原]=1101
+</p>
+<p>
+  X[反]=1010
+</p>
+<p>
+  X[补]=1011
+</p>
+<h3>为什么计算机要使用补码运算？</h3>
+<ol>
+<li>
+  在补码中+0和-0表示方法一样
+</li>
+<li>
+  计算机的运行有高位溢出原则
+</li>
+</ol>
+<p>
+  为什么+0和-0补码是一样的？
+</p>
+<p>
+  +0的反码是  +0[反]=0000
+</p>
+<p>
+  -0[原]=1000   -0[反]=1111   -0[补]=10000  高位溢出后 0000
+</p>
+<ol>
+<li>
+  利用补码运算，可以将减法变成加法来运算
+</li>
+</ol>
+<p>
+  比如：4-1
+</p>
+<p>
+  =4+（-1）
+</p>
+<p>
+  =0100[原]+1001[原]
+</p>
+<p>
+  =0100[反]+1110[反]
+</p>
+<p>
+  =0100[补]+1111[补]
+</p>
+<p>
+  =10011[补]
+</p>
+<p>
+  =0011[补]  高位溢出
+</p>
+<p>
+  =0011[原]
+</p>
+<p>
+  =3
+</p>
+<p>
+  例题：1-4
+</p>
+<p>
+  =1+（-4）
+</p>
+<p>
+  =0001[原]+1100[原]
+</p>
+<p>
+  =0001[反]+1011[反]
+</p>
+<p>
+  =0001[补]+1100[补]
+</p>
+<p>
+  =1101[补]
+</p>
+<p>
+  =1100[反]
+</p>
+<p>
+  =1011[原]
+</p>
+<p>
+  =-3</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/763.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

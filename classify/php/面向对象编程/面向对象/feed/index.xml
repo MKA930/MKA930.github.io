@@ -1,0 +1,3695 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>面向对象 &#8211; 个人随笔</title>
+	<atom:link href="/classify/php/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sun, 20 May 2018 01:23:47 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>面向对象 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>面向对象（一）$This、 子类、 实例化、 对象、 封装、 属性操作、 构造函数、 析构函数、 父类、 类、 继承、 访问修饰符</title>
+		<link>/php/1789.html</link>
+					<comments>/php/1789.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 13:04:34 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[面向对象]]></category>
+		<category><![CDATA[面向对象编程]]></category>
+		<category><![CDATA[$This]]></category>
+		<category><![CDATA[子类]]></category>
+		<category><![CDATA[实例化]]></category>
+		<category><![CDATA[对象]]></category>
+		<category><![CDATA[封装]]></category>
+		<category><![CDATA[属性操作]]></category>
+		<category><![CDATA[构造函数]]></category>
+		<category><![CDATA[析构函数]]></category>
+		<category><![CDATA[父类]]></category>
+		<category><![CDATA[类]]></category>
+		<category><![CDATA[继承]]></category>
+		<category><![CDATA[访问修饰符]]></category>
+		<guid isPermaLink="false">/?p=1789</guid>
+
+					<description><![CDATA[面向对象（一） 常见的编程思想 面向过程思想 通过程序的执行顺序为主线开发代码 优点：简单，易学，上手快。 缺 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>面向对象（一）</h1>
+<h2>常见的编程思想</h2>
+<h3>面向过程思想</h3>
+<p>
+  通过程序的执行顺序为主线开发代码
+</p>
+<p>
+  优点：简单，易学，上手快。
+</p>
+<p>
+  缺点：多人合作不方便
+</p>
+<h3>面向对象思想</h3>
+<p>
+  以组成项目的对象为主线进行开发。在面向对象的思想里面，所有的事物都看成对象。
+</p>
+<p>
+  优点：多人合作方便，代码冗余很少
+</p>
+<p>
+  缺点：学起来比面向过程复杂。
+</p>
+<h2>面向对象简介</h2>
+<p>
+  OOP：面向对象编程（Object Oriented Programming），OOP，面向对象编程
+</p>
+<p>
+  OOAD：OOA和OOD
+</p>
+<p>
+  OOA: 面向对象分析(Object-Oriented Analysis,OOA)
+</p>
+<p>
+  OOD: 面向对象设计（Object-Oriented Design，OOD）
+</p>
+<h3>对象</h3>
+<p>
+  对象是由属性和方法组成的
+</p>
+<p>
+  属性的本质就是变量
+</p>
+<p>
+  方法的本质就是函数
+</p>
+<p><img fetchpriority="high" decoding="async" width="666" height="269" src="/wp-content/uploads/2018/05/word-image-1568.png" class="wp-image-1791" srcset="/wp-content/uploads/2018/05/word-image-1568.png 666w, /wp-content/uploads/2018/05/word-image-1568-300x121.png 300w" sizes="(max-width: 666px) 100vw, 666px" /></p>
+<h3>类</h3>
+<p>
+  类是所有对象共同的属性和方法的组合。
+</p>
+<p>
+  我们在开发时候是通过调用对象的方法或属性来实现某个效果，要调用方法必须先有对象，要想有对象必须先有类。
+</p>
+<p>
+  开发顺序：类——（实例化）对象——调用对象的方法和属性。
+</p>
+<h3>类和对象的关系</h3>
+<p>
+  通过类可以创建多个对象，类就类似于模具，一个模具制造很多形状一致的对象。
+</p>
+<p><img decoding="async" width="456" height="304" src="/wp-content/uploads/2018/05/word-image-1569.png" class="wp-image-1792" srcset="/wp-content/uploads/2018/05/word-image-1569.png 456w, /wp-content/uploads/2018/05/word-image-1569-300x200.png 300w" sizes="(max-width: 456px) 100vw, 456px" /></p>
+<h3>类是有父类和子类之分的</h3>
+<p><img decoding="async" width="692" height="245" src="/wp-content/uploads/2018/05/word-image-1570.png" class="wp-image-1793" srcset="/wp-content/uploads/2018/05/word-image-1570.png 692w, /wp-content/uploads/2018/05/word-image-1570-300x106.png 300w" sizes="(max-width: 692px) 100vw, 692px" /></p>
+<p>
+  再比如：老师是类，语文老师也是类，老师是父类，语文老师是子类。
+</p>
+<h2>在PHP中实现类</h2>
+<h3>语法</h3>
+<p>
+  class 类名{
+</p>
+<p>
+  	//属性
+</p>
+<p>
+  	//方法
+</p>
+<p>
+  	//常量
+</p>
+<p>
+  }
+</p>
+<h3>类名的命名规则</h3>
+<ol>
+<li>
+  以字母、下划线开头，后面跟的是字母、数字、下划线
+</li>
+<li>
+  一般用帕斯卡命名法
+</li>
+<li>
+  不能用PHP关键字做类名
+</li>
+<li>
+  类名不区分大小写
+</li>
+</ol>
+<h3>实例化对象</h3>
+<p>
+  实例化：创造实例（对象）的过程
+</p>
+<p>
+  通过new关键字实例化
+</p>
+<p>
+  $对象名=new 类名()
+</p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="542" height="248" src="/wp-content/uploads/2018/05/word-image-1571.png" class="wp-image-1794" srcset="/wp-content/uploads/2018/05/word-image-1571.png 542w, /wp-content/uploads/2018/05/word-image-1571-300x137.png 300w" sizes="(max-width: 542px) 100vw, 542px" /></p>
+<h2>对象的传递</h2>
+<p>
+  对象的传递的地址传递
+</p>
+<p><img loading="lazy" decoding="async" width="839" height="206" src="/wp-content/uploads/2018/05/word-image-1572.png" class="wp-image-1795" srcset="/wp-content/uploads/2018/05/word-image-1572.png 839w, /wp-content/uploads/2018/05/word-image-1572-300x74.png 300w, /wp-content/uploads/2018/05/word-image-1572-768x189.png 768w" sizes="(max-width: 839px) 100vw, 839px" /></p>
+<h2>操作属性</h2>
+<p>
+  对象调用属性和方法使用“-&gt;”，
+</p>
+<p>
+  语法：
+</p>
+<p>
+  对象名-&gt;属性
+</p>
+<p>
+  对象名-&gt;方法名()
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //类
+</p>
+<p>
+  class Student {
+</p>
+<p>
+  	public $name;	     //语法结构：访问修饰符+变量名
+</p>
+<p>
+  }
+</p>
+<p>
+  //实例化
+</p>
+<p>
+  $stu1=new Student;						//类名后不加()也可以
+</p>
+<p>
+  $stu2=new Student();					//类名后加()也可以
+</p>
+<p>
+  $stu1-&gt;name=&#8217;tom&#8217;;						//操作1、给属性赋值
+</p>
+<p>
+  echo $stu1-&gt;name,'&lt;br&gt;&#8217;;	//tom		//操作2、显示属性的值
+</p>
+<p>
+  $stu1-&gt;add=&#8217;beijing&#8217;;					//操作3、给stu1对象添加add属性
+</p>
+<p>
+  unset($stu2-&gt;name);						//操作4、删除stu2对象的name属性
+</p>
+<p>
+  var_dump(isset($stu1-&gt;name));//bool(true) 	//操作5：判断属性是否存在
+</p>
+<h2>定义方法</h2>
+<p>
+  语法结构
+</p>
+<p>
+  访问修饰符 function 方法名(参数){
+</p>
+<p>
+  	//方法体
+</p>
+<p>
+  }
+</p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="567" height="214" src="/wp-content/uploads/2018/05/word-image-1573.png" class="wp-image-1796" srcset="/wp-content/uploads/2018/05/word-image-1573.png 567w, /wp-content/uploads/2018/05/word-image-1573-300x113.png 300w" sizes="(max-width: 567px) 100vw, 567px" /></p>
+<h2>对象的比较</h2>
+<p>
+  全等：指向同一个对象是全等
+</p>
+<p>
+  相等：只要属于同一个类，结构和属性值都一致才相等
+</p>
+<p><img loading="lazy" decoding="async" width="777" height="345" src="/wp-content/uploads/2018/05/word-image-1574.png" class="wp-image-1797" srcset="/wp-content/uploads/2018/05/word-image-1574.png 777w, /wp-content/uploads/2018/05/word-image-1574-300x133.png 300w, /wp-content/uploads/2018/05/word-image-1574-768x341.png 768w" sizes="(max-width: 777px) 100vw, 777px" /><br />
+<img loading="lazy" decoding="async" width="724" height="381" src="/wp-content/uploads/2018/05/word-image-1575.png" class="wp-image-1798" srcset="/wp-content/uploads/2018/05/word-image-1575.png 724w, /wp-content/uploads/2018/05/word-image-1575-300x158.png 300w" sizes="(max-width: 724px) 100vw, 724px" /></p>
+<h2>访问修饰符</h2>
+<p>
+  用来修饰属性和方法，控制属性和方法的权限
+</p>
+<table>
+<tr>
+<td>
+<p>
+  访问修饰符
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+   Public（公有的）
+</p>
+</td>
+<td>
+<p>
+  在类的内部和外部都能访问
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+   private（私有的）
+</p>
+</td>
+<td>
+<p>
+  只能在类的内部访问
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  protected（受保护的）
+</p>
+</td>
+<td>
+<p>
+  在整个继承链上访问
+</p>
+</td>
+</tr>
+</table>
+<p>
+  例题一
+</p>
+<p><img loading="lazy" decoding="async" width="1080" height="240" src="/wp-content/uploads/2018/05/word-image-1576.png" class="wp-image-1799" srcset="/wp-content/uploads/2018/05/word-image-1576.png 1080w, /wp-content/uploads/2018/05/word-image-1576-300x67.png 300w, /wp-content/uploads/2018/05/word-image-1576-768x171.png 768w, /wp-content/uploads/2018/05/word-image-1576-1024x228.png 1024w" sizes="(max-width: 1080px) 100vw, 1080px" /></p>
+<p>
+  脚下留心：一般来说，属性都是私有的，通过公有的方法对私有的属性进行赋值和取值。这样做可以在方法中对数据进行过滤，提高数据安全性。
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Student {
+</p>
+<p>
+  	public $name;	//私有属性
+</p>
+<p>
+  	public $sex;	//私有属性
+</p>
+<p>
+  	//通过公有的方法进行赋值
+</p>
+<p>
+  	public function setInfo($name,$sex) {
+</p>
+<p>
+  		if($sex!=&#8217;男&#8217; &amp;&amp; $sex!=&#8217;女&#8217;){
+</p>
+<p>
+  			echo &#8216;性别只能是男或女&lt;br&gt;&#8217;;
+</p>
+<p>
+  			return;
+</p>
+<p>
+  		}
+</p>
+<p>
+  		$this-&gt;name=$name;  //$this表示调用当前方法的对象
+</p>
+<p>
+  		$this-&gt;sex=$sex;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//通过公有的方法进行取值
+</p>
+<p>
+  	public function getInfo() {
+</p>
+<p>
+  		echo &#8216;姓名：&#8217;.$this-&gt;name,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  		echo &#8216;性别：&#8217;.$this-&gt;sex.'&lt;hr&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //调用
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $stu1=new Student;
+</p>
+<p>
+  $stu1-&gt;setInfo(&#8216;tom&#8217;,&#8217;男&#8217;);
+</p>
+<p>
+  $stu1-&gt;getInfo();
+</p>
+<p>
+  $stu2=new Student;
+</p>
+<p>
+  $stu2-&gt;setInfo(&#8216;berry&#8217;,&#8217;女&#8217;);
+</p>
+<p>
+  $stu2-&gt;getInfo();
+</p>
+<p><img loading="lazy" decoding="async" width="510" height="189" src="/wp-content/uploads/2018/05/word-image-1577.png" class="wp-image-1800" srcset="/wp-content/uploads/2018/05/word-image-1577.png 510w, /wp-content/uploads/2018/05/word-image-1577-300x111.png 300w" sizes="(max-width: 510px) 100vw, 510px" /></p>
+<h2>$this</h2>
+<p>
+  $this在方法的内部使用，表示调用当前方法的对象。
+</p>
+<h2>构造函数</h2>
+<p>
+  普通方法不调用就不执行
+</p>
+<p>
+  构造函数也叫构造方法，在实例化对象的时候自动调用执行
+</p>
+<h3>语法一：</h3>
+<p>
+  Public function __construct(){
+</p>
+<p>
+  }
+</p>
+<p>
+  脚下留心：__construct()前面是两个下划线。
+</p>
+<p><img loading="lazy" decoding="async" width="597" height="171" src="/wp-content/uploads/2018/05/word-image-1578.png" class="wp-image-1801" srcset="/wp-content/uploads/2018/05/word-image-1578.png 597w, /wp-content/uploads/2018/05/word-image-1578-300x86.png 300w" sizes="(max-width: 597px) 100vw, 597px" /></p>
+<h3>语法二：和类名同名的函数是构造函数</h3>
+<p>
+  Public function 类名(){
+</p>
+<p>
+  }
+</p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="660" height="173" src="/wp-content/uploads/2018/05/word-image-1579.png" class="wp-image-1802" srcset="/wp-content/uploads/2018/05/word-image-1579.png 660w, /wp-content/uploads/2018/05/word-image-1579-300x79.png 300w" sizes="(max-width: 660px) 100vw, 660px" /></p>
+<p>
+  脚下留心：推荐使用__construct(),因为__construct()的优先级最高。
+</p>
+<p><img loading="lazy" decoding="async" width="843" height="198" src="/wp-content/uploads/2018/05/word-image-1580.png" class="wp-image-1803" srcset="/wp-content/uploads/2018/05/word-image-1580.png 843w, /wp-content/uploads/2018/05/word-image-1580-300x70.png 300w, /wp-content/uploads/2018/05/word-image-1580-768x180.png 768w" sizes="(max-width: 843px) 100vw, 843px" /></p>
+<h3>构造函数用来初始化成员变量</h3>
+<p>
+  成员变量就是属性
+</p>
+<p><img loading="lazy" decoding="async" width="845" height="415" src="/wp-content/uploads/2018/05/word-image-1581.png" class="wp-image-1804" srcset="/wp-content/uploads/2018/05/word-image-1581.png 845w, /wp-content/uploads/2018/05/word-image-1581-300x147.png 300w, /wp-content/uploads/2018/05/word-image-1581-768x377.png 768w" sizes="(max-width: 845px) 100vw, 845px" /></p>
+<h2>析构函数</h2>
+<p>
+  当对象销毁的时候自动调用
+</p>
+<h3>语法</h3>
+<p>
+  Public function __destruct(){
+</p>
+<p>
+  }
+</p>
+<h3>代码</h3>
+<p><img loading="lazy" decoding="async" width="788" height="419" src="/wp-content/uploads/2018/05/word-image-1582.png" class="wp-image-1805" srcset="/wp-content/uploads/2018/05/word-image-1582.png 788w, /wp-content/uploads/2018/05/word-image-1582-300x160.png 300w, /wp-content/uploads/2018/05/word-image-1582-768x408.png 768w" sizes="(max-width: 788px) 100vw, 788px" /></p>
+<p>
+  脚下留心：
+</p>
+<ol>
+<li>
+  构造函数和析构函数是PHP自己调用，不能手动调用
+</li>
+<li>
+  构造函数可以带有参数，析构函数不能带有参数。
+</li>
+</ol>
+<p>
+  多学一招：数据的存储和销毁分为两种情况:先进先出（队列）
+</p>
+<p><img loading="lazy" decoding="async" width="643" height="124" src="/wp-content/uploads/2018/05/word-image-1583.png" class="wp-image-1806" srcset="/wp-content/uploads/2018/05/word-image-1583.png 643w, /wp-content/uploads/2018/05/word-image-1583-300x58.png 300w" sizes="(max-width: 643px) 100vw, 643px" /></p>
+<p>
+  先进后出（出入栈）
+</p>
+<p><img loading="lazy" decoding="async" width="311" height="189" src="/wp-content/uploads/2018/05/word-image-1584.png" class="wp-image-1807" srcset="/wp-content/uploads/2018/05/word-image-1584.png 311w, /wp-content/uploads/2018/05/word-image-1584-300x182.png 300w" sizes="(max-width: 311px) 100vw, 311px" /></p>
+<h2>对象在内存中的分布</h2>
+<p>
+  对象的本质就是复杂变量
+</p>
+<p>
+  类的本质就是复杂的数据类型
+</p>
+<p>
+  分析如下代码
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Student {
+</p>
+<p>
+  	private $name;
+</p>
+<p>
+  	private $sex;
+</p>
+<p>
+  	public function show() {
+</p>
+<p>
+  		echo &#8216;i am a student&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  $stu1=new Student();	//将堆区的地址付给栈区的$stu1
+</p>
+<p>
+  $stu1-&gt;show();
+</p>
+<p>
+  $stu2=new Student();
+</p>
+<p>
+  $stu2-&gt;show();
+</p>
+<p>
+  在内存中结构
+</p>
+<p><img loading="lazy" decoding="async" width="1032" height="281" src="/wp-content/uploads/2018/05/word-image-1585.png" class="wp-image-1808" srcset="/wp-content/uploads/2018/05/word-image-1585.png 1032w, /wp-content/uploads/2018/05/word-image-1585-300x82.png 300w, /wp-content/uploads/2018/05/word-image-1585-768x209.png 768w, /wp-content/uploads/2018/05/word-image-1585-1024x279.png 1024w" sizes="(max-width: 1032px) 100vw, 1032px" /></p>
+<p>
+  堆区特点：体积大，查询速度慢
+</p>
+<p>
+  栈区特点：体积小，查询速度快
+</p>
+<p>
+  基本数据类型的数据都存放在栈区中；复杂数据类型都存储在堆区中，但是堆区中的地址保存到栈区中。
+</p>
+<h2>继承</h2>
+<ol>
+<li>
+  代码具有层次结构
+</li>
+<li>
+  子类继承了父类的属性和方法，实现了代码的可重用性。
+</li>
+</ol>
+<h3>语法</h3>
+<p>
+  Class 子类 extends 父类{
+</p>
+<p>
+  }
+</p>
+<h3>继承的例题</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  //父类
+</p>
+<p>
+  class Person {
+</p>
+<p>
+  	public $name=&#8217;tom&#8217;;
+</p>
+<p>
+  	public function show() {
+</p>
+<p>
+  		echo &#8216;i am a boy!&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //子类
+</p>
+<p>
+  class Student extends Person {
+</p>
+<p>
+  }
+</p>
+<p>
+  //测试
+</p>
+<p>
+  $stu=new Student();
+</p>
+<p>
+  echo $stu-&gt;name,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  $stu-&gt;show();
+</p>
+<p><img loading="lazy" decoding="async" width="375" height="66" src="/wp-content/uploads/2018/05/word-image-1586.png" class="wp-image-1809" srcset="/wp-content/uploads/2018/05/word-image-1586.png 375w, /wp-content/uploads/2018/05/word-image-1586-300x53.png 300w" sizes="(max-width: 375px) 100vw, 375px" /></p>
+<p>
+  分析：$stu-&gt;name执行过程，首先在Student中寻找$name,如果找到就访问，如果找不到，就到Person类中找$name。
+</p>
+<h3>调用父类的属性和方法</h3>
+<p>
+  在子类中通过$this关键字可以调用父类属性和方法
+</p>
+<p><img loading="lazy" decoding="async" width="964" height="398" src="/wp-content/uploads/2018/05/word-image-1587.png" class="wp-image-1810" srcset="/wp-content/uploads/2018/05/word-image-1587.png 964w, /wp-content/uploads/2018/05/word-image-1587-300x124.png 300w, /wp-content/uploads/2018/05/word-image-1587-768x317.png 768w" sizes="(max-width: 964px) 100vw, 964px" /></p>
+<h3>调用父类的构造方法</h3>
+<table>
+<tr>
+<td>
+<p>
+  父类的构造方法
+</p>
+</td>
+<td>
+<p>
+  子类的构造方法
+</p>
+</td>
+<td>
+<p>
+  实例化子类
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  没有
+</p>
+</td>
+<td>
+<p>
+  有
+</p>
+</td>
+<td>
+<p>
+  调用子类构造方法
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  有
+</p>
+</td>
+<td>
+<p>
+  没有
+</p>
+</td>
+<td>
+<p>
+  调用父类构造方法
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  有
+</p>
+</td>
+<td>
+<p>
+  有
+</p>
+</td>
+<td>
+<p>
+  调用子类构造方法
+</p>
+</td>
+</tr>
+</table>
+<p>
+  总结一句话：如果子类有构造方法就调用子类的，如果子类没有就调用父类的。
+</p>
+<p>
+  通过parent::__construct()调用父类的构造函数
+</p>
+<p><img loading="lazy" decoding="async" width="993" height="430" src="/wp-content/uploads/2018/05/word-image-1588.png" class="wp-image-1811" srcset="/wp-content/uploads/2018/05/word-image-1588.png 993w, /wp-content/uploads/2018/05/word-image-1588-300x130.png 300w, /wp-content/uploads/2018/05/word-image-1588-768x333.png 768w" sizes="(max-width: 993px) 100vw, 993px" /></p>
+<p>
+  Parent表示父类的名字
+</p>
+<h3>给父类传递参数</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  //父类
+</p>
+<p>
+  class Person {
+</p>
+<p>
+  	protected $name;
+</p>
+<p>
+  	protected $sex;
+</p>
+<p>
+  	public function __construct($name,$sex) {
+</p>
+<p>
+  		$this-&gt;name=$name;
+</p>
+<p>
+  		$this-&gt;sex=$sex;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //子类
+</p>
+<p>
+  class Student extends Person {
+</p>
+<p>
+  	private $score;
+</p>
+<p>
+  	public function __construct($name,$sex,$score) {
+</p>
+<p>
+  		parent::__construct($name,$sex);//调用父类的构造函数
+</p>
+<p>
+  		$this-&gt;score=$score;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	public function show() {
+</p>
+<p>
+  		echo &#8220;姓名：{$this-&gt;name}&lt;br&gt;&#8221;;
+</p>
+<p>
+  		echo &#8220;性别：{$this-&gt;sex}&lt;br&gt;&#8221;;
+</p>
+<p>
+  		echo &#8220;成绩：{$this-&gt;score}&lt;br&gt;&#8221;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //测试
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $stu=new Student(&#8216;tom&#8217;,&#8217;男&#8217;,88);
+</p>
+<p>
+  $stu-&gt;show();
+</p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="204" height="76" src="/wp-content/uploads/2018/05/word-image-1589.png" class="wp-image-1812" /></p>
+<h2>parent表示父类的名字</h2>
+<p><img loading="lazy" decoding="async" width="653" height="280" src="/wp-content/uploads/2018/05/word-image-1590.png" class="wp-image-1813" srcset="/wp-content/uploads/2018/05/word-image-1590.png 653w, /wp-content/uploads/2018/05/word-image-1590-300x129.png 300w" sizes="(max-width: 653px) 100vw, 653px" /></p>
+<p>
+  提醒：使用parent关键字可以降低程序的耦合性。
+</p>
+<h2> protected（受保护的）</h2>
+<p>
+  protected修饰的在整个继承链上访问
+</p>
+<p><img loading="lazy" decoding="async" width="711" height="257" src="/wp-content/uploads/2018/05/word-image-1591.png" class="wp-image-1814" srcset="/wp-content/uploads/2018/05/word-image-1591.png 711w, /wp-content/uploads/2018/05/word-image-1591-300x108.png 300w" sizes="(max-width: 711px) 100vw, 711px" /></p>
+<h2>$this</h2>
+<p>
+  $this表示当前对象的引用（地址）
+</p>
+<p><img loading="lazy" decoding="async" width="488" height="228" src="/wp-content/uploads/2018/05/word-image-1592.png" class="wp-image-1815" srcset="/wp-content/uploads/2018/05/word-image-1592.png 488w, /wp-content/uploads/2018/05/word-image-1592-300x140.png 300w" sizes="(max-width: 488px) 100vw, 488px" /></p>
+<h2>封装</h2>
+<p>
+  通过访问修饰符来封装，有选择性的提供数据。
+</p>
+<p><img loading="lazy" decoding="async" width="956" height="565" src="/wp-content/uploads/2018/05/word-image-1593.png" class="wp-image-1816" srcset="/wp-content/uploads/2018/05/word-image-1593.png 956w, /wp-content/uploads/2018/05/word-image-1593-300x177.png 300w, /wp-content/uploads/2018/05/word-image-1593-768x454.png 768w" sizes="(max-width: 956px) 100vw, 956px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/1789.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>面向对象（二）分页、 多态、 封装、 接口、 方法修饰符、 方法重写、 方法重载、 类常量、 继承</title>
+		<link>/php/1759.html</link>
+					<comments>/php/1759.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 13:01:26 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[面向对象]]></category>
+		<category><![CDATA[面向对象编程]]></category>
+		<category><![CDATA[分页]]></category>
+		<category><![CDATA[多态]]></category>
+		<category><![CDATA[封装]]></category>
+		<category><![CDATA[接口]]></category>
+		<category><![CDATA[方法修饰符]]></category>
+		<category><![CDATA[方法重写]]></category>
+		<category><![CDATA[方法重载]]></category>
+		<category><![CDATA[类常量]]></category>
+		<category><![CDATA[继承]]></category>
+		<guid isPermaLink="false">/?p=1759</guid>
+
+					<description><![CDATA[面向对象（二） 多态 多种形态，多态分为两种，方法重写和方法重载，PHP不支持方法重载 方法重写 子类重写了父 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>面向对象（二）</h1>
+<h2>多态</h2>
+<p>
+  多种形态，多态分为两种，方法重写和方法重载，PHP不支持方法重载
+</p>
+<h3>方法重写</h3>
+<p>
+  子类重写了父类的同名方法
+</p>
+<p><img loading="lazy" decoding="async" width="849" height="364" src="/wp-content/uploads/2018/05/word-image-1540.png" class="wp-image-1761" srcset="/wp-content/uploads/2018/05/word-image-1540.png 849w, /wp-content/uploads/2018/05/word-image-1540-300x129.png 300w, /wp-content/uploads/2018/05/word-image-1540-768x329.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<p>
+  规则：
+</p>
+<ol>
+<li>
+  子类中的方法必须和父类中的方法同名
+</li>
+<li>
+  子类可以拥有和父类不同数量的参数
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1099" height="362" src="/wp-content/uploads/2018/05/word-image-1541.png" class="wp-image-1762" srcset="/wp-content/uploads/2018/05/word-image-1541.png 1099w, /wp-content/uploads/2018/05/word-image-1541-300x99.png 300w, /wp-content/uploads/2018/05/word-image-1541-768x253.png 768w, /wp-content/uploads/2018/05/word-image-1541-1024x337.png 1024w" sizes="(max-width: 1099px) 100vw, 1099px" /></p>
+<ol>
+<li>
+  子类中覆盖的方法不能比父类中被覆盖的方法更加严格
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1010" height="261" src="/wp-content/uploads/2018/05/word-image-1542.png" class="wp-image-1763" srcset="/wp-content/uploads/2018/05/word-image-1542.png 1010w, /wp-content/uploads/2018/05/word-image-1542-300x78.png 300w, /wp-content/uploads/2018/05/word-image-1542-768x198.png 768w" sizes="(max-width: 1010px) 100vw, 1010px" /></p>
+<h3>方法重载</h3>
+<p>
+  通过参数的个数来区分不同的方法，PHP不支持。
+</p>
+<p><img loading="lazy" decoding="async" width="938" height="169" src="/wp-content/uploads/2018/05/word-image-1543.png" class="wp-image-1764" srcset="/wp-content/uploads/2018/05/word-image-1543.png 938w, /wp-content/uploads/2018/05/word-image-1543-300x54.png 300w, /wp-content/uploads/2018/05/word-image-1543-768x138.png 768w" sizes="(max-width: 938px) 100vw, 938px" /></p>
+<h2>面向对象的三大特性</h2>
+<ol>
+<li>
+  封装，通过访问修饰符来实现封装</p>
+<ol>
+<li>
+    Public
+  </li>
+<li>
+    Private
+  </li>
+<li>
+    protected
+  </li>
+</ol>
+</li>
+<li>
+  继承：子类继承了父类的属性和方法
+</li>
+<li>
+  多态：多种形态</p>
+<ol>
+<li>
+    方法重写
+  </li>
+<li>
+    方法重载（PHP不支持）
+  </li>
+</ol>
+</li>
+</ol>
+<h2>私有属性的继承和重写</h2>
+<p>
+  私有属性可以被继承，但是不能被重写
+</p>
+<p><img loading="lazy" decoding="async" width="688" height="273" src="/wp-content/uploads/2018/05/word-image-1544.png" class="wp-image-1765" srcset="/wp-content/uploads/2018/05/word-image-1544.png 688w, /wp-content/uploads/2018/05/word-image-1544-300x119.png 300w" sizes="(max-width: 688px) 100vw, 688px" /></p>
+<p>
+  思考如下例题
+</p>
+<p><img loading="lazy" decoding="async" width="745" height="280" src="/wp-content/uploads/2018/05/word-image-1545.png" class="wp-image-1766" srcset="/wp-content/uploads/2018/05/word-image-1545.png 745w, /wp-content/uploads/2018/05/word-image-1545-300x113.png 300w" sizes="(max-width: 745px) 100vw, 745px" /></p>
+<h2>方法修饰符</h2>
+<ol>
+<li>
+  static：静态的
+</li>
+<li>
+  final：最终的
+</li>
+<li>
+  abstract：抽象的
+</li>
+</ol>
+<h2>static修饰符</h2>
+<ol>
+<li>
+  static修饰属性叫静态属性，static修饰方法叫静态方法
+</li>
+<li>
+  静态属性在加载类的时候分配空间（普通属性在实例化的时候分配空间）,所以不需要实例化就可以访问
+</li>
+<li>
+  因为静态成员属于类，不属于某个对象，所以通过类名来调用静态成员</p>
+<ol>
+<li>
+    类名::静态属性
+  </li>
+<li>
+    类名::静态方法()
+  </li>
+</ol>
+</li>
+<li>
+  静态成员在内存中就一份。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="944" height="191" src="/wp-content/uploads/2018/05/word-image-1546.png" class="wp-image-1767" srcset="/wp-content/uploads/2018/05/word-image-1546.png 944w, /wp-content/uploads/2018/05/word-image-1546-300x61.png 300w, /wp-content/uploads/2018/05/word-image-1546-768x155.png 768w" sizes="(max-width: 944px) 100vw, 944px" /></p>
+<p>
+  多学一招： 由于普通方法在加载类的时候也加载了，所以也可以通过静态调用的方式来调用普通方法。
+</p>
+<p><img loading="lazy" decoding="async" width="1009" height="158" src="/wp-content/uploads/2018/05/word-image-1547.png" class="wp-image-1768" srcset="/wp-content/uploads/2018/05/word-image-1547.png 1009w, /wp-content/uploads/2018/05/word-image-1547-300x47.png 300w, /wp-content/uploads/2018/05/word-image-1547-768x120.png 768w" sizes="(max-width: 1009px) 100vw, 1009px" /></p>
+<h3>静态成员可以被继承</h3>
+<p><img loading="lazy" decoding="async" width="743" height="301" src="/wp-content/uploads/2018/05/word-image-1548.png" class="wp-image-1769" srcset="/wp-content/uploads/2018/05/word-image-1548.png 743w, /wp-content/uploads/2018/05/word-image-1548-300x122.png 300w" sizes="(max-width: 743px) 100vw, 743px" /></p>
+<h3>静态延时绑定</h3>
+<p>
+  static也可以表示类名，表示调用当前访问的对象所属的类。
+</p>
+<p><img loading="lazy" decoding="async" width="771" height="469" src="/wp-content/uploads/2018/05/word-image-1549.png" class="wp-image-1770" srcset="/wp-content/uploads/2018/05/word-image-1549.png 771w, /wp-content/uploads/2018/05/word-image-1549-300x182.png 300w, /wp-content/uploads/2018/05/word-image-1549-768x467.png 768w" sizes="(max-width: 771px) 100vw, 771px" /></p>
+<h2>self：当前类的名字</h2>
+<p><img loading="lazy" decoding="async" width="727" height="396" src="/wp-content/uploads/2018/05/word-image-1550.png" class="wp-image-1771" srcset="/wp-content/uploads/2018/05/word-image-1550.png 727w, /wp-content/uploads/2018/05/word-image-1550-300x163.png 300w" sizes="(max-width: 727px) 100vw, 727px" /></p>
+<h3>self总是表示当前类的名字</h3>
+<p><img loading="lazy" decoding="async" width="626" height="204" src="/wp-content/uploads/2018/05/word-image-1551.png" class="wp-image-1772" srcset="/wp-content/uploads/2018/05/word-image-1551.png 626w, /wp-content/uploads/2018/05/word-image-1551-300x98.png 300w" sizes="(max-width: 626px) 100vw, 626px" /></p>
+<h2>final修饰符</h2>
+<p>
+  final修饰的类不能被继承
+</p>
+<p><img loading="lazy" decoding="async" width="899" height="91" src="/wp-content/uploads/2018/05/word-image-1552.png" class="wp-image-1773" srcset="/wp-content/uploads/2018/05/word-image-1552.png 899w, /wp-content/uploads/2018/05/word-image-1552-300x30.png 300w, /wp-content/uploads/2018/05/word-image-1552-768x78.png 768w" sizes="(max-width: 899px) 100vw, 899px" /></p>
+<p>
+  final修饰的方法不能被重写
+</p>
+<p><img loading="lazy" decoding="async" width="824" height="172" src="/wp-content/uploads/2018/05/word-image-1553.png" class="wp-image-1774" srcset="/wp-content/uploads/2018/05/word-image-1553.png 824w, /wp-content/uploads/2018/05/word-image-1553-300x63.png 300w, /wp-content/uploads/2018/05/word-image-1553-768x160.png 768w" sizes="(max-width: 824px) 100vw, 824px" /></p>
+<h2>abstract修饰符</h2>
+<ol>
+<li>
+  abstract修饰的方法叫抽象方法，abstract修饰的类叫抽象类
+</li>
+<li>
+  只有方法的声明，没有方法的实现称为抽象方法。
+</li>
+<li>
+  一个类中只要只要有一个方法是抽象方法，这个类必须是抽象类
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="799" height="90" src="/wp-content/uploads/2018/05/word-image-1554.png" class="wp-image-1775" srcset="/wp-content/uploads/2018/05/word-image-1554.png 799w, /wp-content/uploads/2018/05/word-image-1554-300x34.png 300w, /wp-content/uploads/2018/05/word-image-1554-768x87.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+<ol>
+<li>
+  抽象类不可以被实例化，必须在子类中重新实现抽象方法
+</li>
+<li>
+  抽象方法的作用：用来定义命名规范的。
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  //类中只要有一个方法是抽象的，这个类就是抽象类
+</p>
+<p>
+  abstract class Goods {
+</p>
+<p>
+  	protected $name;	//商品名
+</p>
+<p>
+  	public function setName($name) {
+</p>
+<p>
+  		$this-&gt;name=$name;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	public abstract function show();	//只有方法的声明，没有方法的实现
+</p>
+<p>
+  }
+</p>
+<p>
+  //手机类继承商品类
+</p>
+<p>
+  class Mobile extends Goods {
+</p>
+<p>
+  	public function show() {	//实现父类的抽象方法
+</p>
+<p>
+  		echo $this-&gt;name,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //图书类继承商品类
+</p>
+<p>
+  class Book extends Goods {
+</p>
+<p>
+  	public function show() {	//实现父类的抽象方法
+</p>
+<p>
+  		echo &#8220;《{$this-&gt;name}》&lt;br&gt;&#8221;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //测试
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $mobile=new Mobile();
+</p>
+<p>
+  $mobile-&gt;setName(&#8216;iPhone7&#8217;);
+</p>
+<p>
+  $mobile-&gt;show();
+</p>
+<p>
+  $book=new Book();
+</p>
+<p>
+  $book-&gt;setName(&#8216;PHP入门与精通&#8217;);
+</p>
+<p>
+  $book-&gt;show();
+</p>
+<p><img loading="lazy" decoding="async" width="175" height="52" src="/wp-content/uploads/2018/05/word-image-1555.png" class="wp-image-1776" /></p>
+<p>
+  多学一招：类中一个抽象方法都没有也可以声明成抽象类。可以通过这种方法阻止类的实例化。
+</p>
+<p><img loading="lazy" decoding="async" width="591" height="148" src="/wp-content/uploads/2018/05/word-image-1556.png" class="wp-image-1777" srcset="/wp-content/uploads/2018/05/word-image-1556.png 591w, /wp-content/uploads/2018/05/word-image-1556-300x75.png 300w" sizes="(max-width: 591px) 100vw, 591px" /></p>
+<h2>接口（interface）</h2>
+<ol>
+<li>
+  如果一个类中所有的方法都是抽象方法，这个类就可以声明成接口。
+</li>
+<li>
+  使用interface关键字声明接口
+</li>
+<li>
+  接口中的抽象方法只能是public的，默认也是public。
+</li>
+<li>
+  接口不能继承，而是实现接口（implements）
+</li>
+<li>
+  abstract和final不能修饰接口中的抽象方法
+</li>
+<li>
+  接口的作用也是用来定义命名规范
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="789" height="407" src="/wp-content/uploads/2018/05/word-image-1557.png" class="wp-image-1778" srcset="/wp-content/uploads/2018/05/word-image-1557.png 789w, /wp-content/uploads/2018/05/word-image-1557-300x155.png 300w, /wp-content/uploads/2018/05/word-image-1557-768x396.png 768w" sizes="(max-width: 789px) 100vw, 789px" /></p>
+<h3>类不允许多重继承</h3>
+<p>
+  一个父类可以有多个子类
+</p>
+<p><img loading="lazy" decoding="async" width="803" height="227" src="/wp-content/uploads/2018/05/word-image-1558.png" class="wp-image-1779" srcset="/wp-content/uploads/2018/05/word-image-1558.png 803w, /wp-content/uploads/2018/05/word-image-1558-300x85.png 300w, /wp-content/uploads/2018/05/word-image-1558-768x217.png 768w" sizes="(max-width: 803px) 100vw, 803px" /></p>
+<p>
+  一个子类不能有多个父类（只有c++可以多重继承，其他语言都不允许多重继承。）
+</p>
+<p><img loading="lazy" decoding="async" width="732" height="169" src="/wp-content/uploads/2018/05/word-image-1559.png" class="wp-image-1780" srcset="/wp-content/uploads/2018/05/word-image-1559.png 732w, /wp-content/uploads/2018/05/word-image-1559-300x69.png 300w" sizes="(max-width: 732px) 100vw, 732px" /></p>
+<p>
+  多学一招：为什么很多语言不支持多重继承，因为多重继承容易产生二义性。
+</p>
+<h3>接口的多重实现</h3>
+<p><img loading="lazy" decoding="async" width="966" height="429" src="/wp-content/uploads/2018/05/word-image-1560.png" class="wp-image-1781" srcset="/wp-content/uploads/2018/05/word-image-1560.png 966w, /wp-content/uploads/2018/05/word-image-1560-300x133.png 300w, /wp-content/uploads/2018/05/word-image-1560-768x341.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<h3>继承类同时实现接口</h3>
+<p>
+  必须是先继承类再实现接口
+</p>
+<p><img loading="lazy" decoding="async" width="952" height="427" src="/wp-content/uploads/2018/05/word-image-1561.png" class="wp-image-1782" srcset="/wp-content/uploads/2018/05/word-image-1561.png 952w, /wp-content/uploads/2018/05/word-image-1561-300x135.png 300w, /wp-content/uploads/2018/05/word-image-1561-768x344.png 768w" sizes="(max-width: 952px) 100vw, 952px" /></p>
+<h2>类常量</h2>
+<p>
+  常量也是加载代码的时候加载，所以也是通过类名来方法
+</p>
+<p>
+  类常量用const声明
+</p>
+<p><img loading="lazy" decoding="async" width="716" height="167" src="/wp-content/uploads/2018/05/word-image-1562.png" class="wp-image-1783" srcset="/wp-content/uploads/2018/05/word-image-1562.png 716w, /wp-content/uploads/2018/05/word-image-1562-300x70.png 300w" sizes="(max-width: 716px) 100vw, 716px" /></p>
+<p>
+  const常量也可以放在接口中（接口中只能放抽象方法和常量）
+</p>
+<p><img loading="lazy" decoding="async" width="338" height="100" src="/wp-content/uploads/2018/05/word-image-1563.png" class="wp-image-1784" srcset="/wp-content/uploads/2018/05/word-image-1563.png 338w, /wp-content/uploads/2018/05/word-image-1563-300x89.png 300w" sizes="(max-width: 338px) 100vw, 338px" /></p>
+<h2>参数约束</h2>
+<ol>
+<li>
+  参数约束在PHP5.3以后才支持
+</li>
+<li>
+  只能约束对象，不能约束基本类型
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="596" height="172" src="/wp-content/uploads/2018/05/word-image-1564.png" class="wp-image-1785" srcset="/wp-content/uploads/2018/05/word-image-1564.png 596w, /wp-content/uploads/2018/05/word-image-1564-300x87.png 300w" sizes="(max-width: 596px) 100vw, 596px" /></p>
+<h2>父类可以指向子类的引用</h2>
+<p>
+  父类可以保存子类对象的地址
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Person {
+</p>
+<p>
+  }
+</p>
+<p>
+  class Student extends Person {
+</p>
+<p>
+  }
+</p>
+<p>
+  class Employee extends Person {
+</p>
+<p>
+  }
+</p>
+<p>
+  function show(Person $obj) {
+</p>
+<p>
+  }
+</p>
+<p>
+  //测试
+</p>
+<p>
+  show(new Student);
+</p>
+<p>
+  show(new Employee);
+</p>
+<h2>分页功能</h2>
+<p>
+  知识点：select * from 表名 limit 起始位置，记录数
+</p>
+<p>
+  起始位置从0开始。
+</p>
+<h3>分析：起始位置和页码的关系</h3>
+<p>
+  一页放10条记录（$pagesize=10）
+</p>
+<table>
+<tr>
+<td>
+<p>
+  页码（$pageno）
+</p>
+</td>
+<td>
+<p>
+  SQL语句
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  select * from contents limit 0,10
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  2
+</p>
+</td>
+<td>
+<p>
+  select * from contents limit 10,10
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  3
+</p>
+</td>
+<td>
+<p>
+  select * from contents limit 20,10
+</p>
+</td>
+</tr>
+</table>
+<p>
+  推导公式：$startno(起始位置)=($pageno-1)*$pagesize;
+</p>
+<h3>分析：总共有多少页</h3>
+<table>
+<tr>
+<td>
+<p>
+  记录数($rowcount)
+</p>
+</td>
+<td>
+<p>
+  页面总数($pagecount)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  30
+</p>
+</td>
+<td>
+<p>
+  3
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  31
+</p>
+</td>
+<td>
+<p>
+  4
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  1
+</p>
+</td>
+</tr>
+</table>
+<p>
+  推导公式：$pagecount=ceil($rowcount/$pagesize)
+</p>
+<h3>实现第一步：输出页码</h3>
+<p>
+  点击页码——获取页码——通过页码获取页码的内容
+</p>
+<p><img loading="lazy" decoding="async" width="706" height="31" src="/wp-content/uploads/2018/05/word-image-1565.png" class="wp-image-1786" srcset="/wp-content/uploads/2018/05/word-image-1565.png 706w, /wp-content/uploads/2018/05/word-image-1565-300x13.png 300w" sizes="(max-width: 706px) 100vw, 706px" /></p>
+<p>
+  代码实现
+</p>
+<p>
+  //第一步：获取总记录数
+</p>
+<p>
+  $sql=&#8221;select count(*) from contents where title=$titleid&#8221;;
+</p>
+<p>
+  $rs=mysql_query($sql);
+</p>
+<p>
+  $rows=mysql_fetch_row($rs);
+</p>
+<p>
+  $rowcount=$rows[0];	//获取到总记录数
+</p>
+<p>
+  //第二步：求得总页数
+</p>
+<p>
+  $pagesize=10;		//页码大小
+</p>
+<p>
+  $pagecount=ceil($rowcount/$pagesize);	//求得总页数
+</p>
+<p>
+  在页码底部循环输出页码
+</p>
+<p>
+  &lt;tr&gt;
+</p>
+<p>
+  	&lt;td colspan=&#8217;3&#8242;&gt;
+</p>
+<p>
+  	&lt;?php for($i=1;$i&lt;=$pagecount;$i++):?&gt;
+</p>
+<p>
+  		&lt;?php if($pageno==$i):?&gt;
+</p>
+<p>
+  			&lt;span class=&#8221;pageno&#8221;&gt;&lt;?php echo $i?&gt;&lt;/span&gt; &amp;nbsp;
+</p>
+<p>
+  		&lt;?php else:?&gt;
+</p>
+<p>
+  			&lt;a href=&#8221;?pageno=&lt;?php echo $i?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;&lt;?php echo $i?&gt;&lt;/a&gt;&amp;nbsp;
+</p>
+<p>
+  		&lt;?php endif;?&gt;
+</p>
+</p>
+<p>
+  	&lt;?php endfor;?&gt;
+</p>
+<p>
+  	&lt;a href=&#8221;?pageno=1&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【首页】&lt;/a&gt;
+</p>
+<p>
+  	&lt;a href=&#8221;?pageno=&lt;?php echo $pageno-1?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【上一页】&lt;/a&gt;
+</p>
+<p>
+  	&lt;a href=&#8221;?pageno=&lt;?php echo $pageno+1?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【下一页】&lt;/a&gt;
+</p>
+<p>
+  	&lt;a href=&#8221;?pageno=&lt;?php echo $pagecount?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【末页】&lt;/a&gt;
+</p>
+<p>
+  	&lt;/td&gt;
+</p>
+<p>
+  &lt;/tr&gt;
+</p>
+<h3>实现第二步：获取页码，并取出当前页面中的内容</h3>
+<p>
+  代码
+</p>
+<p>
+  //第三步：获取当前页的内容
+</p>
+<p>
+  $pageno=isset($_GET[&#8216;pageno&#8217;])?$_GET[&#8216;pageno&#8217;]:1;		//获取当前页码
+</p>
+<p>
+  $pageno=$pageno&lt;1?1:$pageno;		//如果页码小于1，定位到第一页
+</p>
+<p>
+  $pageno=$pageno&gt;$pagecount?$pagecount:$pageno; //页码大于总页数，定位到最后一页
+</p>
+<p>
+  $startno=($pageno-1)*$pagesize;	//计算当前页的起始位置
+</p>
+<p>
+  $sql=&#8221;select * from contents where title=$titleid limit {$startno},{$pagesize}&#8221;;
+</p>
+<p>
+  $rs=mysql_query($sql);
+</p>
+<h3>完整代码</h3>
+<p>
+  &lt;!doctype html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;title&gt;无标题文档&lt;/title&gt;
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  	table{
+</p>
+<p>
+  		width:980px;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	table,td,th{
+</p>
+<p>
+  		border:solid 1px #000;
+</p>
+<p>
+  		margin:auto;
+</p>
+<p>
+  		font-size:14px;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	.pageno{
+</p>
+<p>
+  		font-size:24px;
+</p>
+<p>
+  		color:#FF0000;
+</p>
+<p>
+  	}
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //连接数据库
+</p>
+<p>
+  mysql_connect(&#8216;localhost&#8217;,&#8217;root&#8217;,&#8217;root&#8217;) or die(&#8216;数据库连接失败&#8217;);
+</p>
+<p>
+  mysql_select_db(&#8216;jokedb&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;set names utf8&#8217;);
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;!&#8211;显示分类&#8211;&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	$rs=mysql_query(&#8216;select * from title&#8217;);
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;table&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  	&lt;?php
+</p>
+<p>
+  	$n=0;
+</p>
+<p>
+  	while($rows=mysql_fetch_assoc($rs)):
+</p>
+<p>
+  	?&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;a href=&#8221;?titleid=&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&#8221;&gt;&lt;?php echo $rows[&#8216;Title&#8217;]?&gt;&lt;/a&gt;&lt;/td&gt;
+</p>
+<p>
+  	&lt;?php
+</p>
+<p>
+  		if(++$n%9==0)
+</p>
+<p>
+  			echo &#8216;&lt;/tr&gt;&lt;tr&gt;&#8217;;
+</p>
+<p>
+  	endwhile;
+</p>
+<p>
+  	?&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p>
+  &lt;!&#8211;显示内容&#8211;&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	$titleid=isset($_GET[&#8216;titleid&#8217;])?$_GET[&#8216;titleid&#8217;]:1;
+</p>
+<p>
+  	//第一步：获取总记录数
+</p>
+<p>
+  	$sql=&#8221;select count(*) from contents where title=$titleid&#8221;;
+</p>
+<p>
+  	$rs=mysql_query($sql);
+</p>
+<p>
+  	$rows=mysql_fetch_row($rs);
+</p>
+<p>
+  	$rowcount=$rows[0];	//获取到总记录数
+</p>
+<p>
+  	//第二步：求得总页数
+</p>
+<p>
+  	$pagesize=10;		//页码大小
+</p>
+<p>
+  	$pagecount=ceil($rowcount/$pagesize);	//求得总页数
+</p>
+<p>
+  	//第三步：获取当前页的内容
+</p>
+<p>
+  	$pageno=isset($_GET[&#8216;pageno&#8217;])?$_GET[&#8216;pageno&#8217;]:1;		//获取当前页码
+</p>
+<p>
+  	$pageno=$pageno&lt;1?1:$pageno;		//如果页码小于1，定位到第一页
+</p>
+<p>
+  	$pageno=$pageno&gt;$pagecount?$pagecount:$pageno; //页码大于总页数，定位到最后一页
+</p>
+<p>
+  	$startno=($pageno-1)*$pagesize;	//计算当前页的起始位置
+</p>
+<p>
+  	$sql=&#8221;select * from contents where title=$titleid limit {$startno},{$pagesize}&#8221;;
+</p>
+<p>
+  	$rs=mysql_query($sql);
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;table&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;th&gt;编号&lt;/th&gt; &lt;th&gt;内容&lt;/th&gt; &lt;th&gt;作者&lt;/th&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  	&lt;?php while($rows=mysql_fetch_assoc($rs)):?&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Contents&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Author&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  	&lt;?php endwhile;?&gt;
+</p>
+<p>
+  &lt;!&#8211;输出页码&#8211;&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;td colspan=&#8217;3&#8242;&gt;
+</p>
+<p>
+  		&lt;?php for($i=1;$i&lt;=$pagecount;$i++):?&gt;
+</p>
+<p>
+  			&lt;?php if($pageno==$i):?&gt;
+</p>
+<p>
+  				&lt;span class=&#8221;pageno&#8221;&gt;&lt;?php echo $i?&gt;&lt;/span&gt; &amp;nbsp;
+</p>
+<p>
+  			&lt;?php else:?&gt;
+</p>
+<p>
+  				&lt;a href=&#8221;?pageno=&lt;?php echo $i?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;&lt;?php echo $i?&gt;&lt;/a&gt;&amp;nbsp;
+</p>
+<p>
+  			&lt;?php endif;?&gt;
+</p>
+</p>
+<p>
+  		&lt;?php endfor;?&gt;
+</p>
+<p>
+  		&lt;a href=&#8221;?pageno=1&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【首页】&lt;/a&gt;
+</p>
+<p>
+  		&lt;a href=&#8221;?pageno=&lt;?php echo $pageno-1?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【上一页】&lt;/a&gt;
+</p>
+<p>
+  		&lt;a href=&#8221;?pageno=&lt;?php echo $pageno+1?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【下一页】&lt;/a&gt;
+</p>
+<p>
+  		&lt;a href=&#8221;?pageno=&lt;?php echo $pagecount?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【末页】&lt;/a&gt;
+</p>
+<p>
+  		&lt;/td&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="1023" height="423" src="/wp-content/uploads/2018/05/word-image-1566.png" class="wp-image-1787" srcset="/wp-content/uploads/2018/05/word-image-1566.png 1023w, /wp-content/uploads/2018/05/word-image-1566-300x124.png 300w, /wp-content/uploads/2018/05/word-image-1566-768x318.png 768w" sizes="(max-width: 1023px) 100vw, 1023px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/1759.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>面向对象编程（三）Clone、 foreach 遍历对象、 三私一公、 单例模式、 单例模式封装 MyPDO、 工厂模式、 序列化反序列化、 策略模式、 自动加载类、 迭代器、 魔术方法</title>
+		<link>/php/1735.html</link>
+					<comments>/php/1735.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 12:58:41 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[面向对象]]></category>
+		<category><![CDATA[面向对象编程]]></category>
+		<category><![CDATA[Clone]]></category>
+		<category><![CDATA[foreach 遍历对象]]></category>
+		<category><![CDATA[三私一公]]></category>
+		<category><![CDATA[单例模式]]></category>
+		<category><![CDATA[单例模式封装 MyPDO]]></category>
+		<category><![CDATA[工厂模式]]></category>
+		<category><![CDATA[序列化反序列化]]></category>
+		<category><![CDATA[策略模式]]></category>
+		<category><![CDATA[自动加载类]]></category>
+		<category><![CDATA[迭代器]]></category>
+		<category><![CDATA[魔术方法]]></category>
+		<guid isPermaLink="false">/?p=1735</guid>
+
+					<description><![CDATA[面向对象编程（三） 回顾 多态：多种形态 多态分为：方法重载和方法重写 方法重写：之类重写了父类的同名方法 规 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>面向对象编程（三）</h1>
+<h2>回顾</h2>
+<ol>
+<li>
+  多态：多种形态
+</li>
+<li>
+  多态分为：方法重载和方法重写</p>
+<ol>
+<li>
+    方法重写：之类重写了父类的同名方法</p>
+<ol>
+<li>
+      规则：</p>
+<ol>
+<li>
+        子类重写的方法必须和父类名字一样
+      </li>
+<li>
+        可以具有不同个数的参数，但是严格标准必须是个数一样
+      </li>
+<li>
+        子类中覆盖的方法不能比父类更加严格
+      </li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+    方法重载：在同一个类中有多个同名的方法，通过不同的参数个数和参数类型区分不同方法。PHP不支持方法重载。
+  </li>
+</ol>
+</li>
+<li>
+  私有属性可以继承，但不能被重写
+</li>
+<li>
+  方法修饰符</p>
+<ol>
+<li>
+    Static（静态的）</p>
+<ol>
+<li>
+      Static可以修饰属性和方法
+    </li>
+<li>
+      静态成员在加载类的分配空间
+    </li>
+<li>
+      静态成员在内存中只有一份，属于类，不属于某个对象
+    </li>
+<li>
+      通过类名来调用静态成员     类名::静态成员
+    </li>
+<li>
+      静态成员也是可以被继承的
+    </li>
+<li>
+      Static也可以表示类名，表示调用当前方法对象的所属的类
+    </li>
+</ol>
+</li>
+<li>
+    Final（最终的）</p>
+<ol>
+<li>
+      Final修饰的方法不能被重写
+    </li>
+<li>
+      Final修饰的类不能被继承
+    </li>
+</ol>
+</li>
+<li>
+    Abstract（抽象的）</p>
+<ol>
+<li>
+      只有方法的声明，没有方法的实现成为抽象方法
+    </li>
+<li>
+      一个类中只要有一个方法是抽象方法这个类必须是抽象类
+    </li>
+<li>
+      没有抽象方法的类也可以声明成抽象类
+    </li>
+<li>
+      抽象类不可以被实例化，抽象方法必须在子类中重新实现
+    </li>
+<li>
+      抽象方法是用来定义方法的命名规范的
+    </li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+  Self：总是表示当前类的类名
+</li>
+<li>
+  接口</p>
+<ol>
+<li>
+    如果一个类中所有的方法都是抽象类，这个类可以声明成接口
+  </li>
+<li>
+    使用interface关键字
+  </li>
+<li>
+    通过implements关键字实现接口
+  </li>
+<li>
+    接口中所有的方法都是抽象的，公有的
+  </li>
+<li>
+    不能使用abstract和final来修饰接口中的方法
+  </li>
+<li>
+    类不允许多重继承，接口可以多种实现
+  </li>
+</ol>
+</li>
+<li>
+  类常量</p>
+<ol>
+<li>
+    使用const关键字声明
+  </li>
+<li>
+    Const常量可以放在类和接口中
+  </li>
+</ol>
+</li>
+<li>
+  参数约束：只能约束对象
+</li>
+<li>
+  父类可以指向子类的引用。
+</li>
+</ol>
+<p>
+  思考：如何实现C可以调用A和B中的方法
+</p>
+<p><img loading="lazy" decoding="async" width="792" height="204" src="/wp-content/uploads/2018/05/word-image-1518.png" class="wp-image-1737" srcset="/wp-content/uploads/2018/05/word-image-1518.png 792w, /wp-content/uploads/2018/05/word-image-1518-300x77.png 300w, /wp-content/uploads/2018/05/word-image-1518-768x198.png 768w" sizes="(max-width: 792px) 100vw, 792px" /><br />
+<img loading="lazy" decoding="async" width="329" height="311" src="/wp-content/uploads/2018/05/word-image-1519.png" class="wp-image-1738" srcset="/wp-content/uploads/2018/05/word-image-1519.png 329w, /wp-content/uploads/2018/05/word-image-1519-300x284.png 300w" sizes="(max-width: 329px) 100vw, 329px" /></p>
+<h2>类的自动加载</h2>
+<h3>在项目层面上类文件规则</h3>
+<ol>
+<li>
+  一个文件中只能有一个类
+</li>
+<li>
+  文件名和类名同名
+</li>
+<li>
+  文件名以.class.php结尾
+</li>
+</ol>
+<h3>场景（一个文件中需要用到3个类）</h3>
+<ol>
+<li>
+  创建Goods.class.php页面
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  //商品类
+</p>
+<p>
+  abstract class Goods {
+</p>
+<p>
+  	protected $name;
+</p>
+<p>
+  	final public function setName($name) {
+</p>
+<p>
+  		$this-&gt;name=$name;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	abstract function getName();
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  创建Book.class.php页面
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  //图书类
+</p>
+<p>
+  class Book extends Goods {
+</p>
+<p>
+  	public function getName() {	//重写了父类的方法
+</p>
+<p>
+  		echo &#8220;《{$this-&gt;name}》&lt;br&gt;&#8221;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  创建Mobile.class.php
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  //手机类
+</p>
+<p>
+  class Mobile extends Goods {
+</p>
+<p>
+  	public function getName() {
+</p>
+<p>
+  		echo $this-&gt;name,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  在PHP页面中使用上面的3个类
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="757" height="259" src="/wp-content/uploads/2018/05/word-image-1520.png" class="wp-image-1739" srcset="/wp-content/uploads/2018/05/word-image-1520.png 757w, /wp-content/uploads/2018/05/word-image-1520-300x103.png 300w" sizes="(max-width: 757px) 100vw, 757px" /></p>
+<p>
+  问题：在代码之前要引入需要的类。如果页面中需要用到很多的类，这样引入就很麻烦了。
+</p>
+<h3>类的自动加载</h3>
+<p>
+  当页面执行的时候，通过PHP核心程序（zend engine）判断用户需要用到那个类，如果没有找到该类，就会自动调用__autoload()函数，并且以缺少的类名做为参数传递到__autoload()函数中，我们只要在__autoload()函数中加载需要的类即可。
+</p>
+<h3>通过缺少的类名加载类文件</h3>
+<p>
+  在类文件保存地址规则的情况下使用
+</p>
+<p><img loading="lazy" decoding="async" width="842" height="333" src="/wp-content/uploads/2018/05/word-image-1521.png" class="wp-image-1740" srcset="/wp-content/uploads/2018/05/word-image-1521.png 842w, /wp-content/uploads/2018/05/word-image-1521-300x119.png 300w, /wp-content/uploads/2018/05/word-image-1521-768x304.png 768w" sizes="(max-width: 842px) 100vw, 842px" /></p>
+<h3>把类的地址映射到数组中然后加载</h3>
+<p>
+  适合在类文件保存不规则的时候使用
+</p>
+<p><img loading="lazy" decoding="async" width="738" height="200" src="/wp-content/uploads/2018/05/word-image-1522.png" class="wp-image-1741" srcset="/wp-content/uploads/2018/05/word-image-1522.png 738w, /wp-content/uploads/2018/05/word-image-1522-300x81.png 300w" sizes="(max-width: 738px) 100vw, 738px" /></p>
+<h2>clone和__clone()</h2>
+<p>
+  clone：用来创建一个对象
+</p>
+<p>
+  __clone()：当调用clone指令的时候自动执行__clone()函数
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Student {
+</p>
+<p>
+  	//执行clone指令的时候自动调用__clone()方法
+</p>
+<p>
+  	public function __clone() {
+</p>
+<p>
+  		echo &#8216;你调用了clone指令&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $stu1=new Student;
+</p>
+<p>
+  $stu2=clone $stu1;	//创建一个新的对象
+</p>
+<p>
+  var_dump($stu1);echo &#8216;&lt;br&gt;&#8217;;
+</p>
+<p>
+  var_dump($stu2);
+</p>
+<p><img loading="lazy" decoding="async" width="476" height="81" src="/wp-content/uploads/2018/05/word-image-1523.png" class="wp-image-1742" srcset="/wp-content/uploads/2018/05/word-image-1523.png 476w, /wp-content/uploads/2018/05/word-image-1523-300x51.png 300w" sizes="(max-width: 476px) 100vw, 476px" /></p>
+<p>
+  总结：创建对象的方式：
+</p>
+<ol>
+<li>
+  实例化
+</li>
+<li>
+  clone
+</li>
+</ol>
+<h2>单例模式</h2>
+<p>
+  一个类只能创建一个对象
+</p>
+<h3>阻止类实例化的方法</h3>
+<ol>
+<li>
+  抽象方法（可以阻止在类的外部和内部实例化）
+</li>
+<li>
+  私有的构造函数（阻止在类的外部实例化）
+</li>
+</ol>
+<h3>判断对象是否属于某个类</h3>
+<p><img loading="lazy" decoding="async" width="467" height="87" src="/wp-content/uploads/2018/05/word-image-1524.png" class="wp-image-1743" srcset="/wp-content/uploads/2018/05/word-image-1524.png 467w, /wp-content/uploads/2018/05/word-image-1524-300x56.png 300w" sizes="(max-width: 467px) 100vw, 467px" /></p>
+<h3>通过三私一公来实现</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  /**
+</p>
+<p>
+  *单例模式，三私一公
+</p>
+<p>
+  */
+</p>
+<p>
+  class MySQL {
+</p>
+<p>
+  	//保存MySQL的单例
+</p>
+<p>
+  private static $instance;
+</p>
+<p>
+  	//阻止在类的外部实例化对象
+</p>
+<p>
+  	private function __construct() {
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//阻止在类的外部clone对象
+</p>
+<p>
+  	private function __clone() {
+</p>
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//获取MySQL的单例
+</p>
+<p>
+  	public static function getInstance() {
+</p>
+<p>
+  		if(!self::$instance instanceof self)	//静态属性中保存的对象是否属于MySQL类
+</p>
+<p>
+  			self::$instance= new self();		//实例化对象对象
+</p>
+<p>
+  		return self::$instance;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //测试
+</p>
+<p>
+  $db1=MySQL::getInstance();
+</p>
+<p>
+  $db2=MySQL::getInstance();
+</p>
+<p>
+  var_dump($db1);		// object(MySQL)#1 (0) { } 
+</p>
+<p>
+  echo &#8216;&lt;br&gt;&#8217;;
+</p>
+<p>
+  var_dump($db2);		// object(MySQL)#1 (0) { } 
+</p>
+<h2>项目层面的单例模式</h2>
+<p>
+  多个对象的单例
+</p>
+<p><img loading="lazy" decoding="async" width="645" height="448" src="/wp-content/uploads/2018/05/word-image-1525.png" class="wp-image-1744" srcset="/wp-content/uploads/2018/05/word-image-1525.png 645w, /wp-content/uploads/2018/05/word-image-1525-300x208.png 300w" sizes="(max-width: 645px) 100vw, 645px" /></p>
+<h2>工厂模式</h2>
+<p>
+  传递不同的参数，返回不同的对象
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  class ProductA {
+</p>
+<p>
+  	public function show() {
+</p>
+<p>
+  		echo &#8216;获取A商品&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  class ProductB {
+</p>
+<p>
+  	public function show() {
+</p>
+<p>
+  		echo &#8216;获取B商品&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //工厂模式(传递不同的参数获取不同的对象)
+</p>
+<p>
+  class Factory {
+</p>
+<p>
+  	public static function create($num) {
+</p>
+<p>
+  		switch($num%2) {
+</p>
+<p>
+  			case 1:
+</p>
+<p>
+  				return new ProductA();
+</p>
+<p>
+  			case 0:
+</p>
+<p>
+  				return new ProductB;
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //测试
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $objA=Factory::create(10);
+</p>
+<p>
+  $objB=Factory::create(15);
+</p>
+<p>
+  $objA-&gt;show();	//获取B商品
+</p>
+<p>
+  $objB-&gt;show();	//获取A商品
+</p>
+<h2>策略模式</h2>
+<p>
+  传递不同的参数调用不同的策略（方法）
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Walk {
+</p>
+<p>
+  	public function method() {
+</p>
+<p>
+  		echo &#8216;走着去学校&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  class Bus {
+</p>
+<p>
+  	public function method() {
+</p>
+<p>
+  		echo &#8216;坐车去学校&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  class Bike {
+</p>
+<p>
+  	public function method() {
+</p>
+<p>
+  		echo &#8216;骑车去学校&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //策略模式，传递不同的对象，调用不同的方法
+</p>
+<p>
+  class Strategy {
+</p>
+<p>
+  	public function go($obj) {
+</p>
+<p>
+  		$obj-&gt;method();
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //测试
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $strategy=new Strategy();
+</p>
+<p>
+  $strategy-&gt;go(new Walk());		//走着去学校
+</p>
+<p>
+  $strategy-&gt;go(new Bus());		//坐车去学校
+</p>
+<p>
+  $strategy-&gt;go(new Bike());		//骑车去学校
+</p>
+<h2>魔术方法</h2>
+<p><img loading="lazy" decoding="async" width="959" height="79" src="/wp-content/uploads/2018/05/word-image-1526.png" class="wp-image-1745" srcset="/wp-content/uploads/2018/05/word-image-1526.png 959w, /wp-content/uploads/2018/05/word-image-1526-300x25.png 300w, /wp-content/uploads/2018/05/word-image-1526-768x63.png 768w" sizes="(max-width: 959px) 100vw, 959px" /></p>
+<h3>已经学过的魔术方法</h3>
+<p>
+  __construct()：构造函数，当实例化对象的时候自动调用
+</p>
+<p>
+  __destruct()：析构函数，当对象销毁的时候自动调用
+</p>
+<p>
+  __clone()：当调用clone指令的时候自动调用
+</p>
+<h3><a href="mk:@MSITStore:F:\\帮助文档\\php_manual_zh.chm::/res/language.oop5.magic.html&quot; \l &quot;object.tostring">__toString()</a>和__invoke()</h3>
+<p>
+  __tostring()：当对象作为字符串使用的时候自动执行
+</p>
+<p>
+  __invoke()：当将对象作为函数使用的时候自动执行
+</p>
+<p><img loading="lazy" decoding="async" width="915" height="299" src="/wp-content/uploads/2018/05/word-image-1527.png" class="wp-image-1746" srcset="/wp-content/uploads/2018/05/word-image-1527.png 915w, /wp-content/uploads/2018/05/word-image-1527-300x98.png 300w, /wp-content/uploads/2018/05/word-image-1527-768x251.png 768w" sizes="(max-width: 915px) 100vw, 915px" /></p>
+<h3>__set()、__get()、__isset()</h3>
+<p>
+  1、__set($key,$value)：当给无法访问的属性赋值的时候自动调用
+</p>
+<p>
+  2、__get($key)：当给无法访问的属性取值的时候自动调用
+</p>
+<p>
+  3、__isset($key)：当判断无法访问的属性是否存在
+</p>
+<p>
+  4、__unset($key)：当销毁无法访问的属性的时候自动调用
+</p>
+<p>
+  总结：给私有属性赋值的方法
+</p>
+<ol>
+<li>
+  通过公有的方法给私有属性赋值
+</li>
+<li>
+  通过构造函数给私有属性赋值
+</li>
+<li>
+  通过魔术方法__set()赋值，__get()取值
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Student {
+</p>
+<p>
+  	private $name;
+</p>
+<p>
+  	private $age;
+</p>
+<p>
+  	/**
+</p>
+<p>
+  	*当给无法访问的属性赋值的时候自动调用
+</p>
+<p>
+  	*@param $key string 属性名
+</p>
+<p>
+  	*@param $value string 属性值
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	public function __set($key,$value) {
+</p>
+<p>
+  		if($key==&#8217;age&#8217; &amp;&amp; !($value&gt;=20 &amp;&amp; $value&lt;=30)){
+</p>
+<p>
+  			echo &#8216;年龄必须在20~30之间&lt;br&gt;&#8217;;
+</p>
+<p>
+  			return;
+</p>
+<p>
+  		}
+</p>
+<p>
+  		$this-&gt;$key=$value;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	/**
+</p>
+<p>
+  	*当给无法访问的属性取值的时候自动调用
+</p>
+<p>
+  	*@param $key string 属性名
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	public function __get($key) {
+</p>
+<p>
+  		return $this-&gt;$key;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	/**
+</p>
+<p>
+  	*当判断无法访问的属性是否存在
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	public function __isset($key) {
+</p>
+<p>
+  		return isset($this-&gt;$key);
+</p>
+<p>
+  	}
+</p>
+<p>
+  	/**
+</p>
+<p>
+  	*当销毁无法访问的属性的时候自动调用
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	public function __unset($key) {
+</p>
+<p>
+  		unset($this-&gt;$key);
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $stu=new Student;
+</p>
+<p>
+  $stu-&gt;name=&#8217;tom&#8217;;	//给私有属性赋值
+</p>
+<p>
+  $stu-&gt;age=25;
+</p>
+<p>
+  echo &#8216;姓名：&#8217;.$stu-&gt;name,'&lt;br&gt;&#8217;;	//获取私有属性的值
+</p>
+<p>
+  echo &#8216;年龄：&#8217;.$stu-&gt;age,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  var_dump(isset($stu-&gt;name));	//判断私有属性是否存在
+</p>
+<p>
+  echo &#8216;&lt;br&gt;&#8217;;
+</p>
+<p>
+  unset($stu-&gt;name);		//销毁私有属性
+</p>
+<p>
+  var_dump($stu);
+</p>
+<p><img loading="lazy" decoding="async" width="534" height="93" src="/wp-content/uploads/2018/05/word-image-1528.png" class="wp-image-1747" srcset="/wp-content/uploads/2018/05/word-image-1528.png 534w, /wp-content/uploads/2018/05/word-image-1528-300x52.png 300w" sizes="(max-width: 534px) 100vw, 534px" /></p>
+<h3><a href="mk:@MSITStore:F:\\帮助文档\\php_manual_zh.chm::/res/language.oop5.overloading.html&quot; \l &quot;object.call">__call()</a>、 <a href="mk:@MSITStore:F:\\帮助文档\\php_manual_zh.chm::/res/language.oop5.overloading.html&quot; \l &quot;object.callstatic">__callStatic()</a></h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Student {
+</p>
+<p>
+  	/**
+</p>
+<p>
+  	*当调用无法访问的属性的时候自动调用
+</p>
+<p>
+  	*@param $name string 方法名
+</p>
+<p>
+  	*@param $args array  参数数组
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	public function __call($name,$args) {
+</p>
+<p>
+  		echo &#8220;对象中没有'{$name}&#8217;的方法&lt;br&gt;&#8221;;
+</p>
+<p>
+  		echo &#8216;你传递&#8221;&#8216;.implode(&#8216;,&#8217;,$args).'&#8221;参数给我也没用&lt;hr&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	/**
+</p>
+<p>
+  	*当调用无法访问的静态方法的时候自动调用
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	public static function __callstatic($name,$args) {
+</p>
+<p>
+  		echo &#8220;对象中没有'{$name}&#8217;这个静态方法&lt;br&gt;&#8221;;
+</p>
+<p>
+  		echo &#8216;你传递&#8221;&#8216;.implode(&#8216;,&#8217;,$args).'&#8221;参数给我也没用&lt;hr&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $stu=new Student;
+</p>
+<p>
+  $stu-&gt;show(10,20);	//调用无法访问的方法
+</p>
+<p>
+  Student::connect();	//调用无法访问的静态方法
+</p>
+<p><img loading="lazy" decoding="async" width="302" height="118" src="/wp-content/uploads/2018/05/word-image-1529.png" class="wp-image-1748" srcset="/wp-content/uploads/2018/05/word-image-1529.png 302w, /wp-content/uploads/2018/05/word-image-1529-300x117.png 300w" sizes="(max-width: 302px) 100vw, 302px" /></p>
+<h3><a href="mk:@MSITStore:F:\\帮助文档\\php_manual_zh.chm::/res/language.oop5.magic.html&quot; \l &quot;object.sleep">__sleep()</a>和 <a href="mk:@MSITStore:F:\\帮助文档\\php_manual_zh.chm::/res/language.oop5.magic.html&quot; \l &quot;object.wakeup">__wakeup()</a></h3>
+<p>
+  __sleep()：在序列化的时候自动调用
+</p>
+<p>
+  __wakeup()；在反序列化的时候自动调用
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Student {
+</p>
+<p>
+  	private $name;
+</p>
+<p>
+  	private $sex;
+</p>
+<p>
+  	private $add;
+</p>
+<p>
+  	/**
+</p>
+<p>
+  	*在调用serialize时候自动调用
+</p>
+<p>
+  	*作用：只保留需要序列化的属性
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	public function __sleep() {
+</p>
+<p>
+  		return array(&#8216;name&#8217;,&#8217;sex&#8217;);	//返回需要序列化的属性
+</p>
+<p>
+  	}
+</p>
+<p>
+  	/**
+</p>
+<p>
+  	*在调用unserialize时候自动调用
+</p>
+<p>
+  	*作用：初始化对象的值
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	public function __wakeup() {
+</p>
+<p>
+  		$this-&gt;name=&#8217;tom&#8217;;
+</p>
+<p>
+  		$this-&gt;sex=&#8217;男&#8217;;
+</p>
+<p>
+  		$this-&gt;add=&#8217;中国&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $stu=new Student;
+</p>
+<p>
+  $str=serialize($stu);
+</p>
+<p>
+  echo $str,'&lt;hr&gt;&#8217;;
+</p>
+<p>
+  $stu=unserialize($str);
+</p>
+<p>
+  print_r($stu);
+</p>
+<p><img loading="lazy" decoding="async" width="624" height="92" src="/wp-content/uploads/2018/05/word-image-1530.png" class="wp-image-1749" srcset="/wp-content/uploads/2018/05/word-image-1530.png 624w, /wp-content/uploads/2018/05/word-image-1530-300x44.png 300w" sizes="(max-width: 624px) 100vw, 624px" /></p>
+<h2>序列化（serialize）和反序列化（unserialize）</h2>
+<p>
+  思考：能否将数组和对象永久保存？
+</p>
+<p>
+  答：可以，但是必须先序列化
+</p>
+<p>
+  序列化就是将数组或对象变成一个字符串序列
+</p>
+<h3>数组序列化和反序列化</h3>
+<p>
+  序列化
+</p>
+<p><img loading="lazy" decoding="async" width="879" height="67" src="/wp-content/uploads/2018/05/word-image-1531.png" class="wp-image-1750" srcset="/wp-content/uploads/2018/05/word-image-1531.png 879w, /wp-content/uploads/2018/05/word-image-1531-300x23.png 300w, /wp-content/uploads/2018/05/word-image-1531-768x59.png 768w" sizes="(max-width: 879px) 100vw, 879px" /></p>
+<p>
+  反序列化
+</p>
+<p><img loading="lazy" decoding="async" width="760" height="75" src="/wp-content/uploads/2018/05/word-image-1532.png" class="wp-image-1751" srcset="/wp-content/uploads/2018/05/word-image-1532.png 760w, /wp-content/uploads/2018/05/word-image-1532-300x30.png 300w" sizes="(max-width: 760px) 100vw, 760px" /></p>
+<h3>对象序列化和反序列化</h3>
+<p>
+  序列化
+</p>
+<p><img loading="lazy" decoding="async" width="981" height="106" src="/wp-content/uploads/2018/05/word-image-1533.png" class="wp-image-1752" srcset="/wp-content/uploads/2018/05/word-image-1533.png 981w, /wp-content/uploads/2018/05/word-image-1533-300x32.png 300w, /wp-content/uploads/2018/05/word-image-1533-768x83.png 768w" sizes="(max-width: 981px) 100vw, 981px" /></p>
+<p>
+  反序列化
+</p>
+<p><img loading="lazy" decoding="async" width="1035" height="75" src="/wp-content/uploads/2018/05/word-image-1534.png" class="wp-image-1753" srcset="/wp-content/uploads/2018/05/word-image-1534.png 1035w, /wp-content/uploads/2018/05/word-image-1534-300x22.png 300w, /wp-content/uploads/2018/05/word-image-1534-768x56.png 768w, /wp-content/uploads/2018/05/word-image-1534-1024x74.png 1024w" sizes="(max-width: 1035px) 100vw, 1035px" /></p>
+<p>
+  发现可以反序列化，但是类名没有反编译出来，解决方法在反序列化之前引入对应的类就可以了
+</p>
+<p><img loading="lazy" decoding="async" width="1020" height="95" src="/wp-content/uploads/2018/05/word-image-1535.png" class="wp-image-1754" srcset="/wp-content/uploads/2018/05/word-image-1535.png 1020w, /wp-content/uploads/2018/05/word-image-1535-300x28.png 300w, /wp-content/uploads/2018/05/word-image-1535-768x72.png 768w" sizes="(max-width: 1020px) 100vw, 1020px" /></p>
+<h2>foreach遍历对象</h2>
+<p>
+  foreach遍历只能遍历到可以访问到的属性
+</p>
+<p><img loading="lazy" decoding="async" width="657" height="336" src="/wp-content/uploads/2018/05/word-image-1536.png" class="wp-image-1755" srcset="/wp-content/uploads/2018/05/word-image-1536.png 657w, /wp-content/uploads/2018/05/word-image-1536-300x153.png 300w" sizes="(max-width: 657px) 100vw, 657px" /></p>
+<h2>迭代器（Iterator）</h2>
+<p>
+  场景：一个班级有60个学生，如何遍历这个班？
+</p>
+<p>
+  解决：
+</p>
+<p>
+  Iterator是PHP内置的接口，定义了5个抽象方法，只要实现了这5个抽象方法，迭代器就可以工作了。
+</p>
+<p><img loading="lazy" decoding="async" width="354" height="116" src="/wp-content/uploads/2018/05/word-image-1537.png" class="wp-image-1756" srcset="/wp-content/uploads/2018/05/word-image-1537.png 354w, /wp-content/uploads/2018/05/word-image-1537-300x98.png 300w" sizes="(max-width: 354px) 100vw, 354px" /></p>
+<p>
+  例题
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //班级类
+</p>
+<p>
+  class MyClass implements Iterator {
+</p>
+<p>
+  	private $list=array(&#8216;tom&#8217;,&#8217;berry&#8217;,&#8217;ketty&#8217;,&#8217;rose&#8217;);	//学生数组
+</p>
+<p>
+  	//复位数组
+</p>
+<p>
+  	public function rewind() {
+</p>
+<p>
+  		reset($this-&gt;list);
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//判断当前指针是否有效
+</p>
+<p>
+  	public function valid() {
+</p>
+<p>
+  		return key($this-&gt;list)!==null;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//返回当前键
+</p>
+<p>
+  	public function key() {
+</p>
+<p>
+  		return key($this-&gt;list);
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//返回当前值
+</p>
+<p>
+  	public function current() {
+</p>
+<p>
+  		return current($this-&gt;list);
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//指针下移
+</p>
+<p>
+  	public function next() {
+</p>
+<p>
+  		next($this-&gt;list);
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //测试
+</p>
+<p>
+  $class=new MyClass();
+</p>
+<p>
+  foreach($class as $key=&gt;$val) {
+</p>
+<p>
+  	echo $key,&#8217;-&#8216;,$val,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="163" height="94" src="/wp-content/uploads/2018/05/word-image-1538.png" class="wp-image-1757" /></p>
+<h2>通过单例模式封装MySQL数据库操作类</h2>
+<p>
+  实现功能
+</p>
+<ol>
+<li>
+  连接数据库
+</li>
+<li>
+  查询数据
+</li>
+</ol>
+<p>
+  需要注意的点：
+</p>
+<ol>
+<li>
+  一个方法只实现一个功能，方法的功能越单一越好，这样可以最大限度的实现代码的可重用性。
+</li>
+</ol>
+<p>
+  代码
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  /**
+</p>
+<p>
+  *MySQL数据库操作类(单例模式实现)
+</p>
+<p>
+  */
+</p>
+<p>
+  class MySQLDB {
+</p>
+<p>
+  	private $host;		//主机地址
+</p>
+<p>
+  	private $port;		//端口号
+</p>
+<p>
+  	private $user;		//用户名
+</p>
+<p>
+  	private $pwd;		//密码
+</p>
+<p>
+  	private $dbname;	//数据库名称
+</p>
+<p>
+  	private $charset;	//支付编码
+</p>
+<p>
+  	private static $instance;	//保存MySQLDB的实例
+</p>
+<p>
+  	//阻止在类的外部实例化
+</p>
+<p>
+  	private function __construct($config) {
+</p>
+<p>
+  		$this-&gt;initParam($config);
+</p>
+<p>
+  		$this-&gt;connect();
+</p>
+<p>
+  		$this-&gt;selectDb();
+</p>
+<p>
+  		$this-&gt;setCharSet();
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//阻止在类的外部调用clone指令
+</p>
+<p>
+  	private function __clone() {
+</p>
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//获取MySQLDB类的单例
+</p>
+<p>
+  	public static function getInstrance($config=array()) {
+</p>
+<p>
+  		if(!self::$instance instanceof self)
+</p>
+<p>
+  			self::$instance=new self($config);
+</p>
+<p>
+  		return self::$instance;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//初始化数据
+</p>
+<p>
+  	private function initParam($config) {
+</p>
+<p>
+  		$this-&gt;host=isset($config[&#8216;host&#8217;])?$config[&#8216;host&#8217;]:&#8217;127.0.0.1&#8242;;
+</p>
+<p>
+  		$this-&gt;port=isset($config[&#8216;port&#8217;])?$config[&#8216;port&#8217;]:&#8217;3306&#8242;;
+</p>
+<p>
+  		$this-&gt;user=isset($config[&#8216;user&#8217;])?$config[&#8216;user&#8217;]:&#8221;;
+</p>
+<p>
+  		$this-&gt;pwd=isset($config[&#8216;pwd&#8217;])?$config[&#8216;pwd&#8217;]:&#8221;;
+</p>
+<p>
+  		$this-&gt;dbname=isset($config[&#8216;dbname&#8217;])?$config[&#8216;dbname&#8217;]:&#8217;data&#8217;;
+</p>
+<p>
+  		$this-&gt;charset=isset($config[&#8216;charset&#8217;])?$config[&#8216;charset&#8217;]:&#8217;utf8&#8242;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//连接数据库
+</p>
+<p>
+  	private function connect() {
+</p>
+<p>
+  		if(!$link=@mysql_connect(&#8220;{$this-&gt;host}:{$this-&gt;port}&#8221;,$this-&gt;user,$this-&gt;pwd))
+</p>
+<p>
+  			$this-&gt;showMessage();
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//选择数据库
+</p>
+<p>
+  	private function selectDb() {
+</p>
+<p>
+  		if(!mysql_select_db(&#8220;$this-&gt;dbname&#8221;))
+</p>
+<p>
+  			$this-&gt;showMessage();
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//设置字符编码
+</p>
+<p>
+  	private function setCharSet() {
+</p>
+<p>
+  		if(!@mysql_query(&#8220;set names {$this-&gt;charset}&#8221;)){
+</p>
+<p>
+  			$this-&gt;showMessage();
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//显示错误的方法
+</p>
+<p>
+  	private function showMessage($sql=&#8221;) {
+</p>
+<p>
+  		if($sql!=&#8221;)
+</p>
+<p>
+  			echo &#8216;错误SQL语句：&#8217;.$sql,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  		echo &#8216;错误信息：&#8217;.mysql_error(),'&lt;br&gt;&#8217;;
+</p>
+<p>
+  		echo &#8216;错误编号：&#8217;.mysql_errno(),'&lt;br&gt;&#8217;;
+</p>
+<p>
+  		exit;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//执行SQL语句的方法
+</p>
+<p>
+  	private function query($sql) {
+</p>
+<p>
+  		if($rs=mysql_query($sql))
+</p>
+<p>
+  			return $rs;
+</p>
+<p>
+  		$this-&gt;showMessage($sql);
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//拼接函数名
+</p>
+<p>
+  	private function createFunction($type) {
+</p>
+<p>
+  		$allow=array(&#8216;assoc&#8217;,&#8217;row&#8217;,&#8217;array&#8217;);
+</p>
+<p>
+  		if(!in_array($type,$allow))
+</p>
+<p>
+  			$type=&#8217;assoc&#8217;;
+</p>
+<p>
+  		return &#8216;mysql_fetch_&#8217;.$type;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//获取二维表的数据
+</p>
+<p>
+  	public function getAll($sql,$type=&#8217;assoc&#8217;) {
+</p>
+<p>
+  		$fn=$this-&gt;createFunction($type);
+</p>
+<p>
+  		$rs=$this-&gt;query($sql);
+</p>
+<p>
+  		$array=array();
+</p>
+<p>
+  		while($rows=$fn($rs)) {
+</p>
+<p>
+  			$array[]=$rows;
+</p>
+<p>
+  		}
+</p>
+<p>
+  		return $array;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  //测试
+</p>
+<p>
+  $config=array(
+</p>
+<p>
+  	&#8216;user&#8217;	=&gt;	&#8216;root&#8217;,
+</p>
+<p>
+  	&#8216;pwd&#8217;	=&gt;	&#8216;root&#8217;,
+</p>
+<p>
+  	&#8216;dbname&#8217;=&gt;	&#8216;jokedb&#8217;,
+</p>
+<p>
+  );
+</p>
+<p>
+  $mysql=MySQLDB::getInstrance($config);
+</p>
+<p>
+  $rs=$mysql-&gt;getAll(&#8216;select * from title&#8217;,&#8217;aa&#8217;);
+</p>
+<p>
+  echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+  var_dump($rs);</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/1735.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>面向对象编程（四）netbeans、 反射 Reflection、 命名空间、 异常处理、 类、 类别名</title>
+		<link>/php/1707.html</link>
+					<comments>/php/1707.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 12:54:40 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[面向对象]]></category>
+		<category><![CDATA[面向对象编程]]></category>
+		<category><![CDATA[netbeans]]></category>
+		<category><![CDATA[反射 Reflection]]></category>
+		<category><![CDATA[命名空间]]></category>
+		<category><![CDATA[异常处理]]></category>
+		<category><![CDATA[类]]></category>
+		<category><![CDATA[类别名]]></category>
+		<guid isPermaLink="false">/?p=1707</guid>
+
+					<description><![CDATA[面向对象编程（四） 命名空间 命名空间介绍 如果一个项目很大，项目中由很多文件组成，如何有序的组织这些文件就是 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>面向对象编程（四）</h1>
+<h2>命名空间</h2>
+<h3>命名空间介绍</h3>
+<p>
+  如果一个项目很大，项目中由很多文件组成，如何有序的组织这些文件就是一个大问题，PHP提供了命名空间来解决。
+</p>
+<p>
+  多学一招：
+</p>
+<p>
+  C#语言中也是通过“命名空间”来解决的
+</p>
+<p>
+  Java语言通过“包”来解决的。
+</p>
+<h3>命名空间的声明与使用</h3>
+<p>
+  通过namespace来声明命名空间
+</p>
+<p><img loading="lazy" decoding="async" width="767" height="278" src="/wp-content/uploads/2018/05/word-image-1493.png" class="wp-image-1709" srcset="/wp-content/uploads/2018/05/word-image-1493.png 767w, /wp-content/uploads/2018/05/word-image-1493-300x109.png 300w" sizes="(max-width: 767px) 100vw, 767px" /></p>
+<h3>多级命名空间</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace China\ShangHai\PuDong;		//多级命名空间
+</p>
+<p>
+  function getInfo() {
+</p>
+<p>
+  	echo &#8216;我是中国人&lt;br&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  namespace USA\Washington;
+</p>
+<p>
+  function getInfo() {
+</p>
+<p>
+  	echo &#8216;I am a America&lt;br&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  //调用
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  getInfo();		//I am a America
+</p>
+<p>
+  \China\ShangHai\PuDong\getInfo();	//我是中国人
+</p>
+<h3>访问空间元素的三种方法</h3>
+<ol>
+<li>
+  非限定名称访问（类似于相对路径）
+</li>
+<li>
+  完全限定名称访问（绝对路径）
+</li>
+<li>
+  【部分】限定名称访问（相对路径）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="991" height="341" src="/wp-content/uploads/2018/05/word-image-1494.png" class="wp-image-1710" srcset="/wp-content/uploads/2018/05/word-image-1494.png 991w, /wp-content/uploads/2018/05/word-image-1494-300x103.png 300w, /wp-content/uploads/2018/05/word-image-1494-768x264.png 768w" sizes="(max-width: 991px) 100vw, 991px" /></p>
+<h3>引入命名空间（use）</h3>
+<p><img loading="lazy" decoding="async" width="893" height="278" src="/wp-content/uploads/2018/05/word-image-1495.png" class="wp-image-1711" srcset="/wp-content/uploads/2018/05/word-image-1495.png 893w, /wp-content/uploads/2018/05/word-image-1495-300x93.png 300w, /wp-content/uploads/2018/05/word-image-1495-768x239.png 768w" sizes="(max-width: 893px) 100vw, 893px" /></p>
+<p>
+  分析：PuDong\getInfo()如何调用的？
+</p>
+<p>
+  第一步：通过命名空间拼接，拼接成\ USA\Washington\ PuDong\getInfo()，但是在这个地址下找不到此函数，所以继续执行第二步
+</p>
+<p>
+  第二步：由于引入了China\ShangHai\PuDong命名空间，又可以拼接成China\ShangHai\PuDong\ getInfo()，这个地址是可以找到函数的，所以调用此函数。
+</p>
+<h3>引入类（use）</h3>
+<p>
+  通过use关键字引入类
+</p>
+<p><img loading="lazy" decoding="async" width="892" height="427" src="/wp-content/uploads/2018/05/word-image-1496.png" class="wp-image-1712" srcset="/wp-content/uploads/2018/05/word-image-1496.png 892w, /wp-content/uploads/2018/05/word-image-1496-300x144.png 300w, /wp-content/uploads/2018/05/word-image-1496-768x368.png 768w" sizes="(max-width: 892px) 100vw, 892px" /></p>
+<h3>给类取别名（as）</h3>
+<p>
+  如果引入的类和已经存在的类同名，就会报错，我们可以引入类的同时给类取别名
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace China\ShangHai\PuDong;
+</p>
+<p>
+  class Person {
+</p>
+<p>
+  	public $name=&#8217;中国人&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  namespace USA\Washington;
+</p>
+<p>
+  class Person{
+</p>
+<p>
+  	public $name=&#8217;美国人&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  use China\ShangHai\PuDong\Person as P;		//引入类,并给类取别名
+</p>
+<p>
+  $person=new P();
+</p>
+<p>
+  echo $person-&gt;name;		//中国人
+</p>
+<h3>公共命名空间</h3>
+<p>
+  如果PHP文件中没有namespace关键字声明，该文件的元素都在“公共命名空间”下，访问公共命名空间用“\”。
+</p>
+<p><img loading="lazy" decoding="async" width="506" height="123" src="/wp-content/uploads/2018/05/word-image-1497.png" class="wp-image-1713" srcset="/wp-content/uploads/2018/05/word-image-1497.png 506w, /wp-content/uploads/2018/05/word-image-1497-300x73.png 300w" sizes="(max-width: 506px) 100vw, 506px" /></p>
+<h3>命名空间的注意事项</h3>
+<ol>
+<li>
+  命名空间中可以放函数，类，const常量
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="658" height="128" src="/wp-content/uploads/2018/05/word-image-1498.png" class="wp-image-1714" srcset="/wp-content/uploads/2018/05/word-image-1498.png 658w, /wp-content/uploads/2018/05/word-image-1498-300x58.png 300w" sizes="(max-width: 658px) 100vw, 658px" /><br />
+<img loading="lazy" decoding="async" width="922" height="90" src="/wp-content/uploads/2018/05/word-image-1499.png" class="wp-image-1715" srcset="/wp-content/uploads/2018/05/word-image-1499.png 922w, /wp-content/uploads/2018/05/word-image-1499-300x29.png 300w, /wp-content/uploads/2018/05/word-image-1499-768x75.png 768w" sizes="(max-width: 922px) 100vw, 922px" /></p>
+<ol>
+<li>
+  在第一个namespace之前不能有任何的代码，header()也不行。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1106" height="108" src="/wp-content/uploads/2018/05/word-image-1500.png" class="wp-image-1716" srcset="/wp-content/uploads/2018/05/word-image-1500.png 1106w, /wp-content/uploads/2018/05/word-image-1500-300x29.png 300w, /wp-content/uploads/2018/05/word-image-1500-768x75.png 768w, /wp-content/uploads/2018/05/word-image-1500-1024x100.png 1024w" sizes="(max-width: 1106px) 100vw, 1106px" /></p>
+<ol>
+<li>
+  包含文件不能改变当前的命名空间
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="675" height="87" src="/wp-content/uploads/2018/05/word-image-1501.png" class="wp-image-1717" srcset="/wp-content/uploads/2018/05/word-image-1501.png 675w, /wp-content/uploads/2018/05/word-image-1501-300x39.png 300w" sizes="(max-width: 675px) 100vw, 675px" /></p>
+<h3>用文件的地址做命名空间，通过命名空间就可以实现自动加载类</h3>
+<ol>
+<li>
+  在Framework/Core文件夹下创建Student.class.php
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace Framework\Core;
+</p>
+<p>
+  class Student {
+</p>
+<p>
+  	public function show() {
+</p>
+<p>
+  		echo &#8216;Core\Student\show()&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  在Framework/Lib文件夹下创建Student.class.php
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace Framework\Lib;
+</p>
+<p>
+  class Student {
+</p>
+<p>
+  	public function show() {
+</p>
+<p>
+  		echo &#8216;Lib\Student\show()&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  在php中通过命名空间实现自动加载类
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="852" height="217" src="/wp-content/uploads/2018/05/word-image-1502.png" class="wp-image-1718" srcset="/wp-content/uploads/2018/05/word-image-1502.png 852w, /wp-content/uploads/2018/05/word-image-1502-300x76.png 300w, /wp-content/uploads/2018/05/word-image-1502-768x196.png 768w" sizes="(max-width: 852px) 100vw, 852px" /></p>
+<h2>异常处理（Exception）</h2>
+<h3>使用的关键字</h3>
+<p>
+  try：检测代码中的异常
+</p>
+<p>
+  catch：捕获抛出的异常
+</p>
+<p>
+  throw：抛出异常
+</p>
+<p>
+  Exception：PHP内置的异常类
+</p>
+<h3>Exception异常类中的方法</h3>
+<p>
+  Exception是基础异常类，该类提供了一些方法
+</p>
+<table>
+<tr>
+<td>
+<p>
+  方法
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  getMessage()
+</p>
+</td>
+<td>
+<p>
+  获取异常中的错误信息
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  getCode()
+</p>
+</td>
+<td>
+<p>
+  获取异常的编码
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  getFile()
+</p>
+</td>
+<td>
+<p>
+  产生异常的文件路径
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  getLine()
+</p>
+</td>
+<td>
+<p>
+  产生异常的行号
+</p>
+</td>
+</tr>
+</table>
+<h3>异常的例题</h3>
+<p><img loading="lazy" decoding="async" width="754" height="421" src="/wp-content/uploads/2018/05/word-image-1503.png" class="wp-image-1719" srcset="/wp-content/uploads/2018/05/word-image-1503.png 754w, /wp-content/uploads/2018/05/word-image-1503-300x168.png 300w" sizes="(max-width: 754px) 100vw, 754px" /></p>
+<h3>自定义异常，捕获多个异常</h3>
+<p>
+  PHP只提供了异常类，没有提供具体的某种异常，比如年龄异常，邮件异常等。
+</p>
+<p>
+  自定义异常必须继承Exception类，Exception类是所有异常类的父类。
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //空异常
+</p>
+<p>
+  class NullException extends Exception {
+</p>
+<p>
+  }
+</p>
+<p>
+  //年龄异常
+</p>
+<p>
+  class AgeException extends Exception {
+</p>
+<p>
+  }
+</p>
+<p>
+  if(isset($_POST[&#8216;button&#8217;])) {
+</p>
+<p>
+  	$name=$_POST[&#8216;name&#8217;];
+</p>
+<p>
+  	$age=$_POST[&#8216;age&#8217;];
+</p>
+<p>
+  	try
+</p>
+<p>
+  	{
+</p>
+<p>
+  		if($name==&#8221;)
+</p>
+<p>
+  			throw new NullException(&#8216;姓名不能为空&#8217;);	//抛出空异常
+</p>
+<p>
+  		if($age==&#8221;)
+</p>
+<p>
+  			throw new NullException(&#8216;年龄不能为空&#8217;);	//抛出空异常
+</p>
+<p>
+  		if(!($age&gt;=10 &amp;&amp; $age&lt;=20))
+</p>
+<p>
+  			throw new AgeException(&#8216;年龄必须在10-20之间&#8217;);	//抛出年龄异常
+</p>
+<p>
+  	}
+</p>
+<p>
+  	catch(NullException $e)
+</p>
+<p>
+  	{
+</p>
+<p>
+  		echo $e-&gt;getMessage();
+</p>
+<p>
+  	}
+</p>
+<p>
+  	catch(AgeException $e)
+</p>
+<p>
+  	{
+</p>
+<p>
+  		echo $e-&gt;getMessage();
+</p>
+<p>
+  	}
+</p>
+<p>
+  	catch(Exception $e){		//必须放在所有的catch的最后
+</p>
+<p>
+  		echo $e-&gt;getMessage();
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;form method=&#8221;post&#8221; action=&#8221;&#8221;&gt;
+</p>
+<p>
+  	姓名： &lt;input type=&#8221;text&#8221; name=&#8221;name&#8221;&gt; &lt;br /&gt;
+</p>
+<p>
+  	年龄： &lt;input type=&#8221;text&#8221; name=&#8221;age&#8221;&gt; &lt;br /&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;submit&#8221; name=&#8221;button&#8221; value=&#8221;提交&#8221;&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<h2>介绍netbeans</h2>
+<h3>安装netbeans</h3>
+<p>
+  在安装netbeans之前必须先安装jdk（java开发包）
+</p>
+<p><img loading="lazy" decoding="async" width="567" height="41" src="/wp-content/uploads/2018/05/word-image-1504.png" class="wp-image-1720" srcset="/wp-content/uploads/2018/05/word-image-1504.png 567w, /wp-content/uploads/2018/05/word-image-1504-300x22.png 300w" sizes="(max-width: 567px) 100vw, 567px" /></p>
+<p>
+  安装JDK后，再下一步，下一步安装netbeans.。
+</p>
+<p><img loading="lazy" decoding="async" width="212" height="22" src="/wp-content/uploads/2018/05/word-image-1505.png" class="wp-image-1721" /></p>
+<h3>使用netbeans</h3>
+<p>
+  双击netbeans图标
+</p>
+<p><img loading="lazy" decoding="async" width="67" height="91" src="/wp-content/uploads/2018/05/word-image-1506.png" class="wp-image-1722" /></p>
+<p>
+  继续如下操作
+</p>
+<p><img loading="lazy" decoding="async" width="779" height="173" src="/wp-content/uploads/2018/05/word-image-1507.png" class="wp-image-1723" srcset="/wp-content/uploads/2018/05/word-image-1507.png 779w, /wp-content/uploads/2018/05/word-image-1507-300x67.png 300w, /wp-content/uploads/2018/05/word-image-1507-768x171.png 768w" sizes="(max-width: 779px) 100vw, 779px" /><br />
+<img loading="lazy" decoding="async" width="716" height="501" src="/wp-content/uploads/2018/05/word-image-1508.png" class="wp-image-1724" srcset="/wp-content/uploads/2018/05/word-image-1508.png 716w, /wp-content/uploads/2018/05/word-image-1508-300x210.png 300w" sizes="(max-width: 716px) 100vw, 716px" /><br />
+<img loading="lazy" decoding="async" width="732" height="505" src="/wp-content/uploads/2018/05/word-image-1509.png" class="wp-image-1725" srcset="/wp-content/uploads/2018/05/word-image-1509.png 732w, /wp-content/uploads/2018/05/word-image-1509-300x207.png 300w" sizes="(max-width: 732px) 100vw, 732px" /></p>
+<p>
+  创建完毕后，在虚拟目录的文件夹中多了一个“nbproject”文件夹，此文件夹用来让netbeans软件管理虚拟目录的，不是项目文件夹。在最后项目上传到服务器的时候要将此文件夹删除。
+</p>
+<h2>反射（Reflection）</h2>
+<h3>反射的概念</h3>
+<p>
+  程序可以访问、检测和修改它本身状态或行为的一种能力
+</p>
+<h3>反射的作用</h3>
+<p>
+  获取对象对应的类中的属性，方法，参数，注释等封闭的信息，主要用来了解类、方法等内部结构。
+</p>
+<h3>反射的分类</h3>
+<p>
+  了解如下几个反射类即可。
+</p>
+<p><img loading="lazy" decoding="async" width="720" height="278" src="/wp-content/uploads/2018/05/word-image-1510.png" class="wp-image-1726" srcset="/wp-content/uploads/2018/05/word-image-1510.png 720w, /wp-content/uploads/2018/05/word-image-1510-300x116.png 300w" sizes="(max-width: 720px) 100vw, 720px" /></p>
+<h2>使用反射类（了解内容）</h2>
+<h3>通过反射了解类的内部结构</h3>
+<p>
+  语法：
+</p>
+<p>
+  ReflectionClass::export(类名);
+</p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="772" height="289" src="/wp-content/uploads/2018/05/word-image-1511.png" class="wp-image-1727" srcset="/wp-content/uploads/2018/05/word-image-1511.png 772w, /wp-content/uploads/2018/05/word-image-1511-300x112.png 300w, /wp-content/uploads/2018/05/word-image-1511-768x288.png 768w" sizes="(max-width: 772px) 100vw, 772px" /></p>
+<p>
+  通过上面的例题可以得出结论，PHP最顶层的父类是一个空类，代码
+</p>
+<p>
+  class stdClass{
+</p>
+<p>
+  }
+</p>
+<h3>通过反射获取类中的属性、方法、常量</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Student{
+</p>
+<p>
+      const PI=3.14;
+</p>
+<p>
+      public $name=&#8217;tom&#8217;;
+</p>
+<p>
+      private $sex=&#8217;f&#8217;;
+</p>
+<p>
+      public function show(){
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p>
+  //通过反射获取类中的成员
+</p>
+<p>
+  $info= new ReflectionClass(&#8216;Student&#8217;);  //实例化反射类对象，此对象中包含了Student类中的信息
+</p>
+<p>
+  //获取常量信息
+</p>
+<p>
+  $const=$info-&gt;getConstants();       //获取所有常量,返回常量数组
+</p>
+<p>
+  $const=$info-&gt;getConstant(&#8216;PI&#8217;);    //获取PI常量
+</p>
+<p>
+  //获取方法信息
+</p>
+<p>
+  $method=$info-&gt;getMethods();        //获取所有方法,返回方法信息数组
+</p>
+<p>
+  $method=$info-&gt;getMethod(&#8216;show&#8217;);   //获取show()方法信息
+</p>
+<p>
+  //获取属性信息
+</p>
+<p>
+  $propty=$info-&gt;getProperties();     //获取所有属性信息
+</p>
+<p>
+  $propty=$info-&gt;getProperty(&#8216;sex&#8217;);  //获取sex属性
+</p>
+<p>
+  var_dump($propty);
+</p>
+<h3>通过反射实例化对象</h3>
+<p><img loading="lazy" decoding="async" width="803" height="303" src="/wp-content/uploads/2018/05/word-image-1512.png" class="wp-image-1728" srcset="/wp-content/uploads/2018/05/word-image-1512.png 803w, /wp-content/uploads/2018/05/word-image-1512-300x113.png 300w, /wp-content/uploads/2018/05/word-image-1512-768x290.png 768w" sizes="(max-width: 803px) 100vw, 803px" /></p>
+<p>
+  newInstance()就是用来实例化对象，构造函数需要几个参数，就通过newInstance()传递几个参数。
+</p>
+<h3>通过反向代理调用类方法</h3>
+<p>
+  正向代理：局域网中所有电脑通过服务器访问外网，局域网中电脑感受到服务器的存在，这种代理是正向代理
+</p>
+<p><img loading="lazy" decoding="async" width="611" height="130" src="/wp-content/uploads/2018/05/word-image-1513.png" class="wp-image-1729" srcset="/wp-content/uploads/2018/05/word-image-1513.png 611w, /wp-content/uploads/2018/05/word-image-1513-300x64.png 300w" sizes="(max-width: 611px) 100vw, 611px" /></p>
+<p>
+  反向代理
+</p>
+<p><img loading="lazy" decoding="async" width="653" height="206" src="/wp-content/uploads/2018/05/word-image-1514.png" class="wp-image-1730" srcset="/wp-content/uploads/2018/05/word-image-1514.png 653w, /wp-content/uploads/2018/05/word-image-1514-300x95.png 300w" sizes="(max-width: 653px) 100vw, 653px" /></p>
+<p>
+  将上面的理论平移到反射中来
+</p>
+<p>
+  A调用A的方法：正向代理
+</p>
+<p><img loading="lazy" decoding="async" width="547" height="175" src="/wp-content/uploads/2018/05/word-image-1515.png" class="wp-image-1731" srcset="/wp-content/uploads/2018/05/word-image-1515.png 547w, /wp-content/uploads/2018/05/word-image-1515-300x96.png 300w" sizes="(max-width: 547px) 100vw, 547px" /></p>
+<p>
+  通过反射，A调用B的方法：反向代理
+</p>
+<p><img loading="lazy" decoding="async" width="835" height="258" src="/wp-content/uploads/2018/05/word-image-1516.png" class="wp-image-1732" srcset="/wp-content/uploads/2018/05/word-image-1516.png 835w, /wp-content/uploads/2018/05/word-image-1516-300x93.png 300w, /wp-content/uploads/2018/05/word-image-1516-768x237.png 768w" sizes="(max-width: 835px) 100vw, 835px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/1707.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>文件操作 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 12:20:44 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>文件操作 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>PHP 核心编程（三）HTTP 协议、 文件操作、 页面静态化</title>
+		<link>/php/1554.html</link>
+					<comments>/php/1554.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 10:04:25 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP核心编程]]></category>
+		<category><![CDATA[HTTP 协议]]></category>
+		<category><![CDATA[文件操作]]></category>
+		<category><![CDATA[页面静态化]]></category>
+		<guid isPermaLink="false">/?p=1554</guid>
+
+					<description><![CDATA[文件操作、HTTP协议 文件夹操作 创建文件夹 注意事项： 创建文件夹模式介绍： 每个文件和文件夹都有三个权限 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>文件操作、HTTP协议</h1>
+<h2>文件夹操作</h2>
+<h3>创建文件夹</h3>
+<p><img fetchpriority="high" decoding="async" width="599" height="275" src="/wp-content/uploads/2018/05/word-image-1391.png" class="wp-image-1556" srcset="/wp-content/uploads/2018/05/word-image-1391.png 599w, /wp-content/uploads/2018/05/word-image-1391-300x138.png 300w" sizes="(max-width: 599px) 100vw, 599px" /></p>
+<p>
+  注意事项：
+</p>
+<p><img decoding="async" width="1216" height="60" src="/wp-content/uploads/2018/05/word-image-1392.png" class="wp-image-1557" srcset="/wp-content/uploads/2018/05/word-image-1392.png 1216w, /wp-content/uploads/2018/05/word-image-1392-300x15.png 300w, /wp-content/uploads/2018/05/word-image-1392-768x38.png 768w, /wp-content/uploads/2018/05/word-image-1392-1024x51.png 1024w" sizes="(max-width: 1216px) 100vw, 1216px" /></p>
+<p>
+  创建文件夹模式介绍：
+</p>
+<p>
+  每个文件和文件夹都有三个权限：读权限（2<sup>0</sup>=1），写权限（2<sup>1</sup>=2），可执行权限（2<sup>2</sup>=4）
+</p>
+<p>
+  7=1+2+4（表示读，写，执行权限都有）
+</p>
+<p>
+  5=1+4（表示读，执行权限）
+</p>
+<p><img decoding="async" width="643" height="94" src="/wp-content/uploads/2018/05/word-image-1393.png" class="wp-image-1558" srcset="/wp-content/uploads/2018/05/word-image-1393.png 643w, /wp-content/uploads/2018/05/word-image-1393-300x44.png 300w" sizes="(max-width: 643px) 100vw, 643px" /></p>
+<p>
+  例题
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //mkdir(&#8216;./aa&#8217;);		//在当前目录下创建aa文件夹
+</p>
+<p>
+  //mkdir(&#8216;./aa/bb&#8217;);		//在aa文件夹下创建bb文件夹（前提aa文件夹必须存在）
+</p>
+<p>
+  mkdir(&#8216;./aa/bb/cc&#8217;,777,true);	//递归创建文件夹
+</p>
+<h3>删除文件夹</h3>
+<p><img loading="lazy" decoding="async" width="738" height="71" src="/wp-content/uploads/2018/05/word-image-1394.png" class="wp-image-1559" srcset="/wp-content/uploads/2018/05/word-image-1394.png 738w, /wp-content/uploads/2018/05/word-image-1394-300x29.png 300w" sizes="(max-width: 738px) 100vw, 738px" /></p>
+<p>
+  注意：
+</p>
+<p><img loading="lazy" decoding="async" width="765" height="52" src="/wp-content/uploads/2018/05/word-image-1395.png" class="wp-image-1560" srcset="/wp-content/uploads/2018/05/word-image-1395.png 765w, /wp-content/uploads/2018/05/word-image-1395-300x20.png 300w" sizes="(max-width: 765px) 100vw, 765px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="464" height="68" src="/wp-content/uploads/2018/05/word-image-1396.png" class="wp-image-1561" srcset="/wp-content/uploads/2018/05/word-image-1396.png 464w, /wp-content/uploads/2018/05/word-image-1396-300x44.png 300w" sizes="(max-width: 464px) 100vw, 464px" /></p>
+<h3>重命名、移动文件夹</h3>
+<p>
+  语法：rename()
+</p>
+<p><img loading="lazy" decoding="async" width="527" height="96" src="/wp-content/uploads/2018/05/word-image-1397.png" class="wp-image-1562" srcset="/wp-content/uploads/2018/05/word-image-1397.png 527w, /wp-content/uploads/2018/05/word-image-1397-300x55.png 300w" sizes="(max-width: 527px) 100vw, 527px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="1121" height="81" src="/wp-content/uploads/2018/05/word-image-1398.png" class="wp-image-1563" srcset="/wp-content/uploads/2018/05/word-image-1398.png 1121w, /wp-content/uploads/2018/05/word-image-1398-300x22.png 300w, /wp-content/uploads/2018/05/word-image-1398-768x55.png 768w, /wp-content/uploads/2018/05/word-image-1398-1024x74.png 1024w" sizes="(max-width: 1121px) 100vw, 1121px" /></p>
+<p>
+  多学一招：rename也可以给文件重命名。
+</p>
+<h3>打开文件夹</h3>
+<p><img loading="lazy" decoding="async" width="569" height="148" src="/wp-content/uploads/2018/05/word-image-1399.png" class="wp-image-1564" srcset="/wp-content/uploads/2018/05/word-image-1399.png 569w, /wp-content/uploads/2018/05/word-image-1399-300x78.png 300w" sizes="(max-width: 569px) 100vw, 569px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="968" height="151" src="/wp-content/uploads/2018/05/word-image-1400.png" class="wp-image-1565" srcset="/wp-content/uploads/2018/05/word-image-1400.png 968w, /wp-content/uploads/2018/05/word-image-1400-300x47.png 300w, /wp-content/uploads/2018/05/word-image-1400-768x120.png 768w" sizes="(max-width: 968px) 100vw, 968px" /></p>
+<h3>其他与文件夹相关的函数</h3>
+<ol>
+<li>
+  is_dir()：是否是文件夹
+</li>
+<li>
+  basename()：获取文件名
+</li>
+<li>
+  dirname()：获取目录路径
+</li>
+<li>
+  realpath()：获取绝对路径
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="982" height="89" src="/wp-content/uploads/2018/05/word-image-1401.png" class="wp-image-1566" srcset="/wp-content/uploads/2018/05/word-image-1401.png 982w, /wp-content/uploads/2018/05/word-image-1401-300x27.png 300w, /wp-content/uploads/2018/05/word-image-1401-768x70.png 768w" sizes="(max-width: 982px) 100vw, 982px" /></p>
+<h3>遍历文件夹</h3>
+<p><img loading="lazy" decoding="async" width="1069" height="399" src="/wp-content/uploads/2018/05/word-image-1402.png" class="wp-image-1567" srcset="/wp-content/uploads/2018/05/word-image-1402.png 1069w, /wp-content/uploads/2018/05/word-image-1402-300x112.png 300w, /wp-content/uploads/2018/05/word-image-1402-768x287.png 768w, /wp-content/uploads/2018/05/word-image-1402-1024x382.png 1024w" sizes="(max-width: 1069px) 100vw, 1069px" /></p>
+<h2>文件操作</h2>
+<h3>file_put_contents — 将一个字符串写入文件</h3>
+<p>
+  将字符串写到文件中，如果文件不存在就创建该文件，如果文件存在清空文件内容重新写入新内容。
+</p>
+<p><img loading="lazy" decoding="async" width="685" height="45" src="/wp-content/uploads/2018/05/word-image-1403.png" class="wp-image-1568" srcset="/wp-content/uploads/2018/05/word-image-1403.png 685w, /wp-content/uploads/2018/05/word-image-1403-300x20.png 300w" sizes="(max-width: 685px) 100vw, 685px" /></p>
+<h3>file_get_contents — 将整个文件读入一个字符串</h3>
+<p><img loading="lazy" decoding="async" width="885" height="24" src="/wp-content/uploads/2018/05/word-image-1404.png" class="wp-image-1569" srcset="/wp-content/uploads/2018/05/word-image-1404.png 885w, /wp-content/uploads/2018/05/word-image-1404-300x8.png 300w, /wp-content/uploads/2018/05/word-image-1404-768x21.png 768w" sizes="(max-width: 885px) 100vw, 885px" /></p>
+<h3>readfile — 输出一个文件</h3>
+<p><img loading="lazy" decoding="async" width="831" height="31" src="/wp-content/uploads/2018/05/word-image-1405.png" class="wp-image-1570" srcset="/wp-content/uploads/2018/05/word-image-1405.png 831w, /wp-content/uploads/2018/05/word-image-1405-300x11.png 300w, /wp-content/uploads/2018/05/word-image-1405-768x29.png 768w" sizes="(max-width: 831px) 100vw, 831px" /></p>
+<h3>fopen()——打开文件</h3>
+<p><img loading="lazy" decoding="async" width="758" height="93" src="/wp-content/uploads/2018/05/word-image-1406.png" class="wp-image-1571" srcset="/wp-content/uploads/2018/05/word-image-1406.png 758w, /wp-content/uploads/2018/05/word-image-1406-300x37.png 300w" sizes="(max-width: 758px) 100vw, 758px" /></p>
+<p>
+  打开模式
+</p>
+<p><img loading="lazy" decoding="async" width="752" height="235" src="/wp-content/uploads/2018/05/word-image-1407.png" class="wp-image-1572" srcset="/wp-content/uploads/2018/05/word-image-1407.png 752w, /wp-content/uploads/2018/05/word-image-1407-300x94.png 300w" sizes="(max-width: 752px) 100vw, 752px" /></p>
+<p>
+  注意：“w”是写操作，如果文件不存在就创建，如果文件存在就清空内容重新写操作。如果要继续在原来文件后天就内容，使用“a”追加。
+</p>
+<h3>fgets()读取一行，并且指针下移</h3>
+<p><img loading="lazy" decoding="async" width="575" height="86" src="/wp-content/uploads/2018/05/word-image-1408.png" class="wp-image-1573" srcset="/wp-content/uploads/2018/05/word-image-1408.png 575w, /wp-content/uploads/2018/05/word-image-1408-300x45.png 300w" sizes="(max-width: 575px) 100vw, 575px" /></p>
+<h3>fputs()写入一行，并且指针下移</h3>
+<p>
+  fputs()等价于fwrite()
+</p>
+<p><img loading="lazy" decoding="async" width="918" height="91" src="/wp-content/uploads/2018/05/word-image-1409.png" class="wp-image-1574" srcset="/wp-content/uploads/2018/05/word-image-1409.png 918w, /wp-content/uploads/2018/05/word-image-1409-300x30.png 300w, /wp-content/uploads/2018/05/word-image-1409-768x76.png 768w" sizes="(max-width: 918px) 100vw, 918px" /></p>
+<h3>feof()文件指针是否到了文件结束的位置</h3>
+<p><img loading="lazy" decoding="async" width="748" height="150" src="/wp-content/uploads/2018/05/word-image-1410.png" class="wp-image-1575" srcset="/wp-content/uploads/2018/05/word-image-1410.png 748w, /wp-content/uploads/2018/05/word-image-1410-300x60.png 300w" sizes="(max-width: 748px) 100vw, 748px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="741" height="107" src="/wp-content/uploads/2018/05/word-image-1411.png" class="wp-image-1576" srcset="/wp-content/uploads/2018/05/word-image-1411.png 741w, /wp-content/uploads/2018/05/word-image-1411-300x43.png 300w" sizes="(max-width: 741px) 100vw, 741px" /></p>
+<h3>fseek()复位指针</h3>
+<p>
+  如果一个文件要输出多次，后面的输出需要将指针复位到文件的最前面
+</p>
+<p><img loading="lazy" decoding="async" width="350" height="23" src="/wp-content/uploads/2018/05/word-image-1412.png" class="wp-image-1577" srcset="/wp-content/uploads/2018/05/word-image-1412.png 350w, /wp-content/uploads/2018/05/word-image-1412-300x20.png 300w" sizes="(max-width: 350px) 100vw, 350px" /></p>
+<h3>fread()读取文件</h3>
+<p>
+  语法：fread(文件指针，文件长度)
+</p>
+<p><img loading="lazy" decoding="async" width="830" height="69" src="/wp-content/uploads/2018/05/word-image-1413.png" class="wp-image-1578" srcset="/wp-content/uploads/2018/05/word-image-1413.png 830w, /wp-content/uploads/2018/05/word-image-1413-300x25.png 300w, /wp-content/uploads/2018/05/word-image-1413-768x64.png 768w" sizes="(max-width: 830px) 100vw, 830px" /></p>
+<h3>unlink()：删除文件</h3>
+<p><img loading="lazy" decoding="async" width="396" height="25" src="/wp-content/uploads/2018/05/word-image-1414.png" class="wp-image-1579" srcset="/wp-content/uploads/2018/05/word-image-1414.png 396w, /wp-content/uploads/2018/05/word-image-1414-300x19.png 300w" sizes="(max-width: 396px) 100vw, 396px" /></p>
+<h3>is_file()：判断是否是文件</h3>
+<h3>file_exists()：文件或文件夹是否存在</h3>
+<p><img loading="lazy" decoding="async" width="667" height="70" src="/wp-content/uploads/2018/05/word-image-1415.png" class="wp-image-1580" srcset="/wp-content/uploads/2018/05/word-image-1415.png 667w, /wp-content/uploads/2018/05/word-image-1415-300x31.png 300w" sizes="(max-width: 667px) 100vw, 667px" /></p>
+<h3>例题：诗歌的分页</h3>
+<p>
+  运行结果：点击页码显示不同的诗歌
+</p>
+<p><img loading="lazy" decoding="async" width="463" height="233" src="/wp-content/uploads/2018/05/word-image-1416.png" class="wp-image-1581" srcset="/wp-content/uploads/2018/05/word-image-1416.png 463w, /wp-content/uploads/2018/05/word-image-1416-300x151.png 300w" sizes="(max-width: 463px) 100vw, 463px" /></p>
+<p>
+  代码
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //第一步：读取诗歌的内容
+</p>
+<p>
+  $fp=fopen(&#8216;./shi.txt&#8217;,&#8217;r&#8217;);
+</p>
+<p>
+  $str=&#8221;;
+</p>
+<p>
+  while(!feof($fp)) {
+</p>
+<p>
+  	$str.=fgets($fp).'&lt;br&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  //第三步：获取页码
+</p>
+<p>
+  $pageno=isset($_GET[&#8216;pageno&#8217;])?$_GET[&#8216;pageno&#8217;]:1;
+</p>
+<p>
+  //第二步：分割字符串成数组
+</p>
+<p>
+  $array=explode(&#8216;&#8211;&#8216;,$str);
+</p>
+<p>
+  //显示内容
+</p>
+<p>
+  echo $array[$pageno-1];
+</p>
+<p>
+  echo &#8216;&lt;hr&gt;&#8217;;
+</p>
+<p>
+  for($i=1;$i&lt;=count($array);$i++)
+</p>
+<p>
+  	echo &#8220;&lt;a href=&#8217;?pageno={$i}&#8217;&gt;{$i}&lt;/a&gt;&amp;nbsp;&#8221;;
+</p>
+<p>
+  ?&gt;
+</p>
+<h2>HTTP协议</h2>
+<h3>简介</h3>
+<ol>
+<li><a href="http://baike.baidu.com/view/468465.htm" target="_blank">超文本传输协议</a>（HyperText Transfer Protocol)是<a href="http://baike.baidu.com/view/6825.htm" target="_blank">互联网</a>上应用最为广<a href="http://baike.baidu.com/view/16603.htm" target="_blank">网络协议</a>。所有的www文件都必须遵守这个标准。设计HTTP是为了发送和接收<a href="http://baike.baidu.com/view/692.htm" target="_blank">HTML</a>页面。
+</li>
+<li>
+  http协议是B/S模式的访问方式
+</li>
+<li>
+  断开式连接，服务器处理完客户端请求后立即关闭当前连接
+</li>
+<li>
+  无状态性：服务器不记录用户的状态，也就是说用户多次访问服务器，服务器无法识别是否是同一个用户。
+</li>
+<li>
+  http协议分为HTTP请求协议和http响应协议。
+</li>
+</ol>
+<h3>http请求报文格式</h3>
+<ol>
+<li>
+  http请求报文=请求行+请求头+空行+请求主体
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="187" height="163" src="/wp-content/uploads/2018/05/word-image-1417.png" class="wp-image-1582" /></p>
+<ol>
+<li>
+  请求行：</p>
+<ol>
+<li>
+    语法：请求方式+URL地址+协议版本
+  </li>
+<li>
+    请求方式有：GET、POST
+  </li>
+<li>
+    URL地址必须从根目录开始匹配
+  </li>
+<li>
+    协议版本是“HTTP/1.1”
+  </li>
+<li>
+    通过\r\n表示行结束
+  </li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="366" height="24" src="/wp-content/uploads/2018/05/word-image-1418.png" class="wp-image-1583" srcset="/wp-content/uploads/2018/05/word-image-1418.png 366w, /wp-content/uploads/2018/05/word-image-1418-300x20.png 300w" sizes="(max-width: 366px) 100vw, 366px" /></p>
+<ol>
+<li>
+  请求头：
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="750" height="149" src="/wp-content/uploads/2018/05/word-image-1419.png" class="wp-image-1584" srcset="/wp-content/uploads/2018/05/word-image-1419.png 750w, /wp-content/uploads/2018/05/word-image-1419-300x60.png 300w" sizes="(max-width: 750px) 100vw, 750px" /></p>
+<ul>
+<li>
+<ol>
+<li>
+      格式：头标识:头数据
+    </li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>
+  请求主体</p>
+<ol>
+<li>
+    如果是GET请求没有主体数据
+  </li>
+<li>
+    如果是POST请求提交的数据就是主体数据
+  </li>
+</ol>
+</li>
+</ol>
+<h3>PHP模拟GET请求</h3>
+<p>
+  客户端要访问页面1，通过页面1做代理去访问页面2
+</p>
+<p><img loading="lazy" decoding="async" width="735" height="96" src="/wp-content/uploads/2018/05/word-image-1420.png" class="wp-image-1585" srcset="/wp-content/uploads/2018/05/word-image-1420.png 735w, /wp-content/uploads/2018/05/word-image-1420-300x39.png 300w" sizes="(max-width: 735px) 100vw, 735px" /></p>
+<p>
+  代码实现
+</p>
+<p><img loading="lazy" decoding="async" width="1232" height="339" src="/wp-content/uploads/2018/05/word-image-1421.png" class="wp-image-1586" srcset="/wp-content/uploads/2018/05/word-image-1421.png 1232w, /wp-content/uploads/2018/05/word-image-1421-300x83.png 300w, /wp-content/uploads/2018/05/word-image-1421-768x211.png 768w, /wp-content/uploads/2018/05/word-image-1421-1024x282.png 1024w" sizes="(max-width: 1232px) 100vw, 1232px" /></p>
+<h3>PHP模拟POST请求</h3>
+<p><img loading="lazy" decoding="async" width="1168" height="282" src="/wp-content/uploads/2018/05/word-image-1422.png" class="wp-image-1587" srcset="/wp-content/uploads/2018/05/word-image-1422.png 1168w, /wp-content/uploads/2018/05/word-image-1422-300x72.png 300w, /wp-content/uploads/2018/05/word-image-1422-768x185.png 768w, /wp-content/uploads/2018/05/word-image-1422-1024x247.png 1024w" sizes="(max-width: 1168px) 100vw, 1168px" /></p>
+<p>
+  脚下留心：POST必须大写。
+</p>
+<p>
+  在index.php页面中获取数据
+</p>
+<p><img loading="lazy" decoding="async" width="767" height="209" src="/wp-content/uploads/2018/05/word-image-1423.png" class="wp-image-1588" srcset="/wp-content/uploads/2018/05/word-image-1423.png 767w, /wp-content/uploads/2018/05/word-image-1423-300x82.png 300w" sizes="(max-width: 767px) 100vw, 767px" /></p>
+<h3>http响应报文格式</h3>
+<p><img loading="lazy" decoding="async" width="195" height="169" src="/wp-content/uploads/2018/05/word-image-1424.png" class="wp-image-1589" /></p>
+<p>
+  http响应报文由：响应行+响应头+空行+响应主体
+</p>
+<ol>
+<li>
+  响应行：协议版本+返回状态吗
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="156" height="25" src="/wp-content/uploads/2018/05/word-image-1425.png" class="wp-image-1590" srcset="/wp-content/uploads/2018/05/word-image-1425.png 156w, /wp-content/uploads/2018/05/word-image-1425-150x25.png 150w" sizes="(max-width: 156px) 100vw, 156px" /></p>
+<ol>
+<li>
+  状态码分类总结</p>
+<ol>
+<li>
+    2xx：正常
+  </li>
+<li>
+    3xx：重定向错误
+  </li>
+<li>
+    4xx：客户端错误
+  </li>
+<li>
+    5xx：服务器错误
+  </li>
+</ol>
+</li>
+<li>
+  常见状态码：</p>
+<ol>
+<li>
+    200	正常
+  </li>
+<li>
+    301	临时重定向    302	永久重定向
+  </li>
+<li>
+    404	找不到文件
+  </li>
+<li>
+    403	拒绝访问
+  </li>
+<li>
+    500	服务器错误
+  </li>
+</ol>
+</li>
+<li>
+  响应头
+</li>
+<li>
+  响应主体：所有的输出都是响应主体
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="763" height="384" src="/wp-content/uploads/2018/05/word-image-1426.png" class="wp-image-1591" srcset="/wp-content/uploads/2018/05/word-image-1426.png 763w, /wp-content/uploads/2018/05/word-image-1426-300x151.png 300w" sizes="(max-width: 763px) 100vw, 763px" /></p>
+<h3>操作响应头</h3>
+<p>
+  通过header()函数操作响应头
+</p>
+<p><img loading="lazy" decoding="async" width="760" height="65" src="/wp-content/uploads/2018/05/word-image-1427.png" class="wp-image-1592" srcset="/wp-content/uploads/2018/05/word-image-1427.png 760w, /wp-content/uploads/2018/05/word-image-1427-300x26.png 300w" sizes="(max-width: 760px) 100vw, 760px" /></p>
+<p>
+  脚下留心：header()函数用了操作响应头，在header()函数之前是不能有任何输出的。一旦有输出就表示响应头已经结束，不能操作头信息。
+</p>
+<p>
+  可以通过更改输出缓存的大小使得header()前面可以有输出。
+</p>
+<p><img loading="lazy" decoding="async" width="693" height="35" src="/wp-content/uploads/2018/05/word-image-1428.png" class="wp-image-1593" srcset="/wp-content/uploads/2018/05/word-image-1428.png 693w, /wp-content/uploads/2018/05/word-image-1428-300x15.png 300w" sizes="(max-width: 693px) 100vw, 693px" /></p>
+<p>
+  将输出缓存改为off或0就表示关闭缓存
+</p>
+<h2>响应头的应用</h2>
+<h3>文件下载</h3>
+<p>
+  正常情况下，浏览器接受到主体内容进行打开操作，通过操作响应头告诉浏览器将响应主体作为附件。
+</p>
+<p><img loading="lazy" decoding="async" width="694" height="169" src="/wp-content/uploads/2018/05/word-image-1429.png" class="wp-image-1594" srcset="/wp-content/uploads/2018/05/word-image-1429.png 694w, /wp-content/uploads/2018/05/word-image-1429-300x73.png 300w" sizes="(max-width: 694px) 100vw, 694px" /></p>
+<p>
+  图片下载
+</p>
+<p><img loading="lazy" decoding="async" width="791" height="128" src="/wp-content/uploads/2018/05/word-image-1430.png" class="wp-image-1595" srcset="/wp-content/uploads/2018/05/word-image-1430.png 791w, /wp-content/uploads/2018/05/word-image-1430-300x49.png 300w, /wp-content/uploads/2018/05/word-image-1430-768x124.png 768w" sizes="(max-width: 791px) 100vw, 791px" /></p>
+<p>
+  octet：八位字节
+</p>
+<p>
+  stream：流
+</p>
+<h3>控制器浏览器缓存</h3>
+<p><img loading="lazy" decoding="async" width="1185" height="177" src="/wp-content/uploads/2018/05/word-image-1431.png" class="wp-image-1596" srcset="/wp-content/uploads/2018/05/word-image-1431.png 1185w, /wp-content/uploads/2018/05/word-image-1431-300x45.png 300w, /wp-content/uploads/2018/05/word-image-1431-768x115.png 768w, /wp-content/uploads/2018/05/word-image-1431-1024x153.png 1024w" sizes="(max-width: 1185px) 100vw, 1185px" /></p>
+<p>
+  Expires：过期时间
+</p>
+<h2>页面静态化</h2>
+<table>
+<tr>
+<td></td>
+<td>
+<p>
+  静态页面
+</p>
+</td>
+<td>
+<p>
+  动态页面
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  执行效率
+</p>
+</td>
+<td>
+<p>
+  高
+</p>
+</td>
+<td>
+<p>
+  低
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  数据修改
+</p>
+</td>
+<td>
+<p>
+  不方便
+</p>
+</td>
+<td>
+<p>
+  方便
+</p>
+</td>
+</tr>
+</table>
+<p>
+  页面静态化可以将静态页面和动态页面的优点结合起来。
+</p>
+<h3>通过输出缓存实现页面静态化</h3>
+<p>
+  原理：将缓存中的生成完毕的静态的HTML读取出来 并写到静态文件中
+</p>
+<p><img loading="lazy" decoding="async" width="898" height="109" src="/wp-content/uploads/2018/05/word-image-1432.png" class="wp-image-1597" srcset="/wp-content/uploads/2018/05/word-image-1432.png 898w, /wp-content/uploads/2018/05/word-image-1432-300x36.png 300w, /wp-content/uploads/2018/05/word-image-1432-768x93.png 768w" sizes="(max-width: 898px) 100vw, 898px" /></p>
+<h3>通过file_get_contents实现页面静态化</h3>
+<p><img loading="lazy" decoding="async" width="986" height="51" src="/wp-content/uploads/2018/05/word-image-1433.png" class="wp-image-1598" srcset="/wp-content/uploads/2018/05/word-image-1433.png 986w, /wp-content/uploads/2018/05/word-image-1433-300x16.png 300w, /wp-content/uploads/2018/05/word-image-1433-768x40.png 768w" sizes="(max-width: 986px) 100vw, 986px" /></p>
+<h3>通过curl扩展实现页面静态化</h3>
+<p>
+  要在php.ini中开启curl扩展
+</p>
+<p><img loading="lazy" decoding="async" width="327" height="23" src="/wp-content/uploads/2018/05/word-image-1434.png" class="wp-image-1599" srcset="/wp-content/uploads/2018/05/word-image-1434.png 327w, /wp-content/uploads/2018/05/word-image-1434-300x21.png 300w" sizes="(max-width: 327px) 100vw, 327px" /></p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="883" height="198" src="/wp-content/uploads/2018/05/word-image-1435.png" class="wp-image-1600" srcset="/wp-content/uploads/2018/05/word-image-1435.png 883w, /wp-content/uploads/2018/05/word-image-1435-300x67.png 300w, /wp-content/uploads/2018/05/word-image-1435-768x172.png 768w" sizes="(max-width: 883px) 100vw, 883px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/1554.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

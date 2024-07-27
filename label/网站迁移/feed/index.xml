@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>网站迁移 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E7%BD%91%E7%AB%99%E8%BF%81%E7%A7%BB/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Mon, 04 May 2020 06:51:10 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>网站迁移 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>WordPress 域名&#038;服务器迁移</title>
+		<link>/%e8%b5%84%e6%96%99/8739.html</link>
+					<comments>/%e8%b5%84%e6%96%99/8739.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 01 Feb 2020 16:00:21 +0000</pubDate>
+				<category><![CDATA[资料]]></category>
+		<category><![CDATA[wordpress]]></category>
+		<category><![CDATA[wordpress迁移]]></category>
+		<category><![CDATA[网站迁移]]></category>
+		<guid isPermaLink="false">/?p=8739</guid>
+
+					<description><![CDATA[WordPress 作为全球最流行的博客系统，使用简单，功能丰富，用它来建站的用户非常多。对于站长们来说，网站 [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p>WordPress 作为全球最流行的博客系统，使用简单，功能丰富，用它来建站的用户非常多。对于站长们来说，网站搬家也是少不了的，有时我们需要更换主机空间，把网站从一个服务器迁移到另一个服务器上，或者更换域名。</p>
+
+
+
+<p>本文就详细介绍下 WordPress 网站搬家的几种方法，我们可以通过手动备份搬家，也可以使用插件工具一键完成网站迁移。还是很简单的。</p>
+
+
+
+<p>参考资料：<a href="/goto/sb47" rel="nofollow">https://zhuanlan.zhihu.com/p/50803437</a></p>
+
+
+
+<h3 class="wp-block-heading">第一步:在新服务器安装运行环境</h3>
+
+
+
+<p><strong>系统需求:</strong></p>
+
+
+
+<ul class="wp-block-list"><li>CentOS/RHEL/Fedora/Debian/Ubuntu/Raspbian/Deepin/Aliyun/Amazon/Mint Linux发行版</li><li>需要5GB以上硬盘剩余空间，MySQL 5.7,MariaDB 10至少9GB剩余空间</li><li>需要128MB以上内存(128MB小内存VPS,Xen需有SWAP,OpenVZ至少要有128MB以上的vSWAP或突发内存)，注意小内存请勿使用64位系统！</li><li><strong>安装MySQL 5.6或5.7及MariaDB 10必须1G以上内存，更高版本至少要2G内存!</strong>。</li><li><strong>安装PHP 7及以上版本必须1G以上内存!</strong>。</li><li>VPS或服务器必须设置好可用的yum或apt-get源并确保能正常工作，<a href="/goto/mgpy" rel="nofollow">离线安装</a>需要增加 CheckMirror=n 参数！</li><li>Linux下区分大小写，输入命令时请注意！</li><li>如有通过yum或apt-get安装的MySQL/MariaDB请自行备份数据等相关文件！</li><li>CentOS 5,Debian 6及之前版本其官网已经结束支持无法使用！</li><li>Ubuntu 18+,Debian 9+,Mint 19+,Deepin 15.7+及所有新的Linux发行版只能使用1.6进行安装！</li><li>PHP 7.1.*以下版本不支持Ubuntu 19+、Debian 10等等非常新的Linux发行版！</li><li><a href="/goto/536t" target="_blank" rel="nofollow noreferrer noopener">阿里云</a>Ubuntu 14.04系统模版有问题不要用！！！</li></ul>
+
+
+
+<p>LNMP一键安装包 V1.6 已经在<a href="/goto/wgcm" target="_blank" rel="nofollow noreferrer noopener">Vultr</a>、<a href="/goto/r40i" target="_blank" rel="nofollow noreferrer noopener">遨游主机</a>、<a href="/goto/lg11" target="_blank" rel="nofollow noreferrer noopener">搬瓦工</a>、<a href="/goto/ftn1" target="_blank" rel="nofollow noreferrer noopener">LocVPS</a>、<a href="/goto/63m3" target="_blank" rel="nofollow noreferrer noopener">Linode</a>、<a href="/goto/930c" target="_blank" rel="nofollow noreferrer noopener">vps2ez</a>、<a href="/goto/1c1m" target="_blank" rel="nofollow noreferrer noopener">DiaHosting</a>、<a href="/goto/vhcf" target="_blank" rel="nofollow noreferrer noopener">DigitalOcean</a>、<a href="/goto/kfx2" target="_blank" rel="nofollow noreferrer noopener">KVMLA</a>、<a href="/goto/lq8m" target="_blank" rel="nofollow noreferrer noopener">景文互联</a>、<a href="/goto/z9b2" target="_blank" rel="nofollow noreferrer noopener">BuyVM</a>、<a href="/goto/jeak" target="_blank" rel="nofollow noreferrer noopener">快易互联</a>、<a href="/goto/niwm" target="_blank" rel="nofollow noreferrer noopener">80VPS</a>、<a href="/goto/x89h" target="_blank" rel="nofollow noreferrer noopener">腾讯云</a>等众多VPS的CentOS 6-8、RHEL 6-8、Fedora 21-30、Debian 7-10、Ubuntu 10.04-19.10的32位和64位系统上测试通过(CentOS 5,Debian 6及之前版本其官网已经结束支持无法使用,Debian9上Apache需选2.4.26版本以上。</p>
+
+
+
+<p><strong>安装步骤:</strong><br><strong>1、使用<a href="/goto/dsf0" target="_blank" rel="nofollow noreferrer noopener">putty</a>或类似的SSH工具登陆VPS或服务器；</strong><br><br>登陆后运行：<strong>screen -S lnmp</strong><br>如果提示screen: command not found 命令不存在可以执行：yum install screen 或 apt-get install screen安装，详细内容参考<a href="/goto/a8vt" target="_blank" rel="nofollow noreferrer noopener">screen教程</a>。<br><br><strong>2、下载并安装LNMP一键安装包：</strong><br><br>您可以选择使用下载版(推荐美国及海外VPS或空间较小用户使用)或者完整版(推荐国内VPS使用，国内用户可用在<a href="/goto/2oyi" target="_blank" rel="nofollow noreferrer noopener">下载</a>中找国内下载地址替换)，两者没什么区别，只是完整版把一些需要的源码文件预先放到安装包里。<br><br><strong>安装LNMP稳定版</strong><br>如需无人值守安装，请使用&nbsp;<a href="/goto/pk6m" target="_blank" rel="nofollow noreferrer noopener">无人值守命令生成工具</a>，或<a href="/goto/qkmb" target="_blank" rel="nofollow noreferrer noopener">查看无人值守说明教程</a><br><br><strong>wget http://soft.vpser.net/lnmp/lnmp1.6.tar.gz -cO lnmp1.6.tar.gz &amp;&amp; tar zxf lnmp1.6.tar.gz &amp;&amp; cd lnmp1.6 &amp;&amp; ./install.sh&nbsp;lnmp</strong><br><br>如需要安装LNMPA或LAMP，将./install.sh 后面的参数lnmp替换为lnmpa或lamp即可。如需更改网站和数据库目录、自定义Nginx参数、PHP参数模块、开启lua等需在运行./install.sh 命令前修改安装包目录下的 lnmp.conf 文件，详细可以查看<a href="/goto/ysgl" target="_blank" rel="nofollow noreferrer noopener">lnmp.conf文件参数说明</a>。<br><br>如提示wget: command not found ，使用yum install wget 或 apt-get install wget 命令安装。<br><br>如下载速度慢或无法下载请更换其他下载节点，请查看<a href="/goto/0mak" target="_blank" rel="nofollow noreferrer noopener">LNMP下载节点具体替换方法</a>。<br><br>运行上述LNMP安装命令后，会出现如下提示：</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.5/lnmp1.5-install-1.png" alt=""/></figure>
+
+
+
+<p>目前提供了较多的MySQL、MariaDB版本和不安装数据库的选项，需要<strong>注意的是MySQL 5.6,5.7及MariaDB 10必须在1G以上内存的更高配置上才能选择</strong>！如仅需安装数据库在lnmp安装包目录下执行：./install.sh db</p>
+
+
+
+<p>输入对应MySQL或MariaDB版本前面的序号，回车进入下一步.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.5/lnmp1.5-install-2.png" alt=""/></figure>
+
+
+
+<p>设置MySQL的root密码（为了安全不输入直接回车将会设置为lnmp.org#随机数字）如果输入有错误需要删除时，可以按住Ctrl再按Backspace键进行删除(个别情况下是只需要Backspace键)。输入后回车进入下一步，如下图所示：<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.5/lnmp1.5-install-3.png" alt=""/></figure>
+
+
+
+<p></p>
+
+
+
+<p>询问是否需要启用MySQL InnoDB，InnoDB引擎默认为开启，一般建议开启，直接回车或输入 y ，如果确定确实不需要该引擎可以输入 n，(MySQL 5.7+版本无法关闭InnoDB),输入完成，回车进入下一步。<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.5/lnmp1.5-install-4.png" alt=""/></figure>
+
+
+
+<p>注意：选择PHP 7+版本时需要自行确认PHP版本是否与自己的程序兼容。</p>
+
+
+
+<p>输入要选择的PHP版本的序号，回车进入下一步，选择是否安装内存优化：<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.5/lnmp1.5-install-5.png" alt=""/></figure>
+
+
+
+<p>可以选择不安装、Jemalloc或TCmalloc，输入对应序号回车，直接回车为默认为不安装。</p>
+
+
+
+<p>如果是LNMPA或LAMP的话还会提示设置邮箱和选择Apache</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.5/lnmp1.5-install-6.png" alt=""/></figure>
+
+
+
+<p>“Please enter Administrator Email Address:”，需要设置管理员邮箱，该邮箱会在报错时显示在错误页面上。</p>
+
+
+
+<p>再选择Apache版本<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.5/lnmp1.5-install-7.png" alt=""/></figure>
+
+
+
+<p>按提示输入对应版本前面的数字序号，回车。</p>
+
+
+
+<p>提示&#8221;Press any key to install&#8230;or Press Ctrl+c to cancel&#8221;后，按回车键确认开始安装。<br>LNMP脚本就会自动安装编译Nginx、MySQL、PHP、phpMyAdmin等软件及相关的组件。</p>
+
+
+
+<p>安装时间可能会几十分钟到几个小时不等，主要是机器的配置网速等原因会造成影响。</p>
+
+
+
+<p><strong>3、安装完成</strong><br>如果显示Nginx: OK，MySQL: OK，PHP: OK</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.5/lnmp1.5-install-success.png" alt=""/></figure>
+
+
+
+<p>并且Nginx、MySQL、PHP都是running，80和3306端口都存在，并提示安装使用的时间及Install lnmp V1.6 completed! enjoy it.的话，说明已经安装成功。<br>某些系统可能会一直卡在Install lnmp V1.5 completed! enjoy it.不自动退出，可以按Ctrl+c退出。</p>
+
+
+
+<p>安装完成接下来开始使用就可以了，按<a href="/goto/qa97" target="_blank" rel="nofollow noreferrer noopener"><strong>添加虚拟主机教程</strong></a>，添加虚拟主机后可以使用<a href="/goto/aj5n" target="_blank" rel="nofollow noreferrer noopener">sftp</a>或<a href="/goto/8uv2" target="_blank" rel="nofollow noreferrer noopener">ftp服务器</a>上传网站代码，将域名解析到VPS或服务器的IP上，解析生效即可使用。</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.5/lnmp1.5-install-failed.png" alt=""/></figure>
+
+
+
+<p><br><strong>4、安装失败</strong><br><br>如果出现类似上图的提示，有一个或几个没安装成功表明安装失败！！需要用<a href="/goto/cl24" target="_blank" rel="nofollow noreferrer noopener">winscp</a>或其他类似工具，将/root目录下面的lnmp-install.log下载下来，到<a href="/goto/tgnw" rel="nofollow">LNMP支持论坛</a>发帖注明你的系统发行版名称及版本号、32位还是64位等信息，并将lnmp-install.log压缩以附件形式上传到论坛，我们会通过日志查找错误，并给予相应的解决方法。</p>
+
+
+
+<p><strong>默认LNMP是不安装FTP服务器的，如需要FTP服务器：<a href="/goto/8uv2" target="_blank" rel="nofollow noreferrer noopener">https://lnmp.org/faq/ftpserver.html</a></strong></p>
+
+
+
+<p><strong>5、添加、删除虚拟主机及伪静态管理</strong><br><a href="/goto/qa97" target="_blank" rel="nofollow noreferrer noopener">https://lnmp.org/faq/lnmp-vhost-add-howto.html</a></p>
+
+
+
+<p><strong>6、eAccelerator、xcache、memcached、imageMagick、ionCube、redis、opcache的安装</strong><br><a href="/goto/7wl7" target="_blank" rel="nofollow noreferrer noopener">https://lnmp.org/faq/addons.html</a></p>
+
+
+
+<p><strong>7、LNMP相关软件目录及文件位置</strong><br><a href="/goto/dad9" target="_blank" rel="nofollow noreferrer noopener">https://lnmp.org/faq/lnmp-software-list.html</a></p>
+
+
+
+<p><strong>8、LNMP状态管理命令</strong><br><a href="/goto/igko" target="_blank" rel="nofollow noreferrer noopener">https://lnmp.org/faq/lnmp-status-manager.html</a></p>
+
+
+
+<p><strong>9、仅安装数据库、Nginx</strong><br>lnmp 1.5开始支持只安装MySQL/MariaDB数据库或Nginx<br>增加单独nginx安装，安装包目录下运行：./install.sh nginx 进行安装；<br>增加单独数据库安装，安装包目录下运行：./install.sh db 进行安装；</p>
+
+
+
+<p><strong>10、lnmp一键安装包支持完全离线模式进行安装</strong><br>CentOS系统下离线安装教程：<a href="/goto/jk9l" target="_blank" rel="nofollow noreferrer noopener">https://www.vpser.net/manage/centos-iso-local-yum-repository.html</a><br>Debian/Ubuntu发行版下类似。</p>
+
+
+
+<p>参考链接 ：<a href="/goto/ljby" rel="nofollow">https://lnmp.org/install.html</a></p>
+
+
+
+<h3 class="wp-block-heading">第二步：添加虚拟机</h3>
+
+
+
+<p>如果输入有错误需要删除时，可以按住Ctrl再按Backspace键进行删除。</p>
+
+
+
+<p>执行：<strong>lnmp vhost add</strong>&nbsp;出现如下界面：<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.4/lnmp1.4-vhost-add-1.png" alt=""/></figure>
+
+
+
+<p>这里要输入要添加网站的域名，我们已添加www.vpser.net域名为例，如上图提示后输入域名 www.vpser.net 回车后提示</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.4/lnmp1.4-vhost-add-2.png" alt=""/></figure>
+
+
+
+<p><br>这里询问是否添加更多域名，直接再输入要绑定的域名，这里我们将 vpser.net 也绑上，多个域名空格隔开，如不需要绑其他域名就直接回车。</p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"><p>(注：带www和不带www的是不同的域名，如需带www和不带的www的域名都访问同一个网站需要同时都绑定)。</p></blockquote>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.4/lnmp1.4-vhost-add-3.png" alt=""/></figure>
+
+
+
+<p>下面需要设置网站的目录<br><br>网站目录不存在的话会创建目录。也可以输入已经存在的目录或要设置的目录（<strong>注意如要输入必须是全路径即以/开头的完整路径！！！</strong>）。不输入直接回车的话，采用默认目录：/home/wwwroot/域名</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.4/lnmp1.4-vhost-add-4.png" alt=""/></figure>
+
+
+
+<p>伪静态可以使URL更加简洁也利于SEO，如程序支持并且需要设置伪静态的话，如启用输入 y ，不启用输入 n 回车(注意LNMPA或LAMP模式没有该选择项！)。<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.4/lnmp1.4-vhost-add-5.png" alt=""/></figure>
+
+
+
+<p>默认已经有了discuz、discuzx、discuzx2(Discuz X二级目录)、wordpress、wp2(WordPress二级目录)、typecho、typecho2(Typecho二级目录)、sablog、emlog、dabr、phpwind、、dedecms、drupal、ecshop、shopex等常用的Nginx伪静态配置文件，可以直接输入名称进行使用，如果是二级目录则需要对应配置文件里的二级目录的名称。<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.4/lnmp1.4-vhost-add-6.png" alt=""/></figure>
+
+
+
+<p>这一步是设置日志，如启用日志输入 y ，不启用输入 n 回车。<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.4/lnmp1.4-vhost-add-7.png" alt=""/></figure>
+
+
+
+<p>如果启用需要再输入要设置的日志的名称，默认日志目录为：/home/wwwlogs/ 默认文件名为：域名.log 回车确认后，会询问是否添加数据库和数据库用户。<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.4/lnmp1.4-vhost-add-8.png" alt=""/></figure>
+
+
+
+<p>如果需要添加数据库输入 y ，不添加数据库输入 n 回车。<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.4/lnmp1.4-vhost-add-9.png" alt=""/></figure>
+
+
+
+<p>如果要添加，需要先验证MySQL的root密码(注：输入密码将不显示)<br>提示Enter database name: 后输入要创建的数据库名称，要创建的数据库用户名会和数据库同名，回车确认。</p>
+
+
+
+<p>提示Please enter password for mysql user 数据库名: 后输入要设置的密码，回车确认。</p>
+
+
+
+<p><strong>如果安装了FTP服务器</strong>会询问是否添加FTP账号<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.4/lnmp1.4-vhost-add-10.png" alt=""/></figure>
+
+
+
+<p>如果需要添加输入 y ，不添加输入 n 回车。<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.4/lnmp1.4-vhost-add-11.png" alt=""/></figure>
+
+
+
+<p>提示Enter ftp account name: 后输入要创建的FTP账号名称，回车确认。<br>提示Enter password for ftp account FTP账号: 后输入要设置的密码，回车确认。</p>
+
+
+
+<p>接下来是1.4新增的添加SSL功能<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.4/lnmp1.4-vhost-add-12.png" alt=""/></figure>
+
+
+
+<p>如果需要添加输入 y ，不添加输入 n 回车。<br>选择了添加SSL会提示<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.4/lnmp1.4-vhost-add-13.png" alt=""/></figure>
+
+
+
+<p>有两个选项，1 选项为使用自己准备好的SSL证书和key。<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.4/lnmp1.4-vhost-add-14.png" alt=""/></figure>
+
+
+
+<p>&gt; &gt; 提示Please enter full path to SSL Certificate file 后输入要SSL证书的完整路径和文件名，回车确认。<br>&gt; &gt; 提示Please enter full path to SSL Certificate Key file: 后输入输入要key文件的完整路径和文件名，回车确认。<br>&gt; &gt; LAMP下会提示Please enter full path to SSL Chain file: 一般Apache2.2需要用到这个添加上证书链，2.4前面证书是补全证书链的话不用。</p>
+
+
+
+<p>2 选项为使用免费SSL证书提供商Letsencrypt的证书，自动生成SSL证书等信息。<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.4/lnmp1.4-vhost-add-15.png" alt=""/></figure>
+
+
+
+<p>需要输入一个邮箱回车确认。</p>
+
+
+
+<p>提示 Press any key to start create virtul host&#8230; 后，回车确认便会开始创建虚拟主机。</p>
+
+
+
+<p>添加成功会提示添加的域名、目录、伪静态、日志、数据库、FTP等相关信息，如下图：<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/1.4/lnmp1.4-vhost-info.png" alt=""/></figure>
+
+
+
+<p>参考链接: <a href="/goto/qa97" rel="nofollow">https://lnmp.org/faq/lnmp-vhost-add-howto.html</a></p>
+
+
+
+<h3 class="wp-block-heading">第三步：伪静态管理</h3>
+
+
+
+<p><strong>将原服务器/usr/local/nginx/conf/下配置文件同步到新服务器，并同步虚拟主机配置文件：/usr/local/nginx/conf/vhost/域名.conf</strong></p>
+
+
+
+<p>LNMPA或LAMP可以直接使用网站根目录下放.htaccess 来设置伪静态规则(具体规则可以去程序官网网站找google百度)，但是在LNMP下，需要使用Nginx伪静态规则。<br>伪静态可以随时添加或删除，如果添加完虚拟主机后忘记或没有添加伪静态，可以通过修改配置文件来添加伪静态。<br>虚拟主机配置文件在：/usr/local/nginx/conf/vhost/域名.conf</p>
+
+
+
+<p>伪静态规则文件需要放在/usr/local/nginx/conf/ 下面。<br>编辑虚拟主机配置文件，可以使用<a href="/goto/9e25" target="_blank" rel="nofollow noreferrer noopener">vi</a>、<a href="/goto/wlq3" target="_blank" rel="nofollow noreferrer noopener">nano</a>或<a href="/goto/cl24" target="_blank" rel="nofollow noreferrer noopener">winscp</a>，后2个工具对新手来说简单些。</p>
+
+
+
+<p>例如前面我们添加的虚拟主机，打开后前半部分配置会显示如下：</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://lnmp.org/images/lnmp-rewrite-modify.png" alt=""/></figure>
+
+
+
+<p>在root /home/wwwroot/www.vpser.net;这一行下面添加：<br>include wordpress.conf;<br>上面的wordpress.conf为伪静态文件，如需要其他伪静态文件自己创建个并上传到/usr/local/nginx/conf/ 下面并include 伪静态.conf; 加完保存，执行：<strong>/etc/init.d/nginx restart</strong>&nbsp;重启生效，如果报错可能是添加有误或伪静态规则有误。</p>
+
+
+
+<p>1.4及之前版本伪静态文件都在 /usr/local/nginx/conf/ 目录下<br>1.5及之后版本伪静态文件都在 /usr/local/nginx/conf/rewrite 目录下<br>伪静态文件名称后面带2的是二级目录的伪静态，可以根据自己需求修改里面二级目录的名称或复制为其他名字后include到虚拟主机配置文件中。</p>
+
+
+
+<p>参考链接: <a href="/goto/qa97" rel="nofollow">https://lnmp.org/faq/lnmp-vhost-add-howto.html</a></p>
+
+
+
+<h3 class="wp-block-heading">第四步：安装wordpress</h3>
+
+
+
+<p>下载WordPress</p>
+
+
+
+<pre class="wp-block-code"><code>cd /home/wwwroot/文件根目录
+yum -y install wget unzip net-tools
+wget http://wordpress.org/latest.zip
+</code></pre>
+
+
+
+<p>解压文件，并且将其复制到/home/wwwroot/文件根目录 下</p>
+
+
+
+<pre class="wp-block-code"><code>unzip -q latest.zip
+cp -rf wordpress/* /home/wwwroot/文件根目录</code></pre>
+
+
+
+<p>参考链接：<a href="/goto/dgm4" rel="nofollow">https://segmentfault.com/a/1190000016119293?utm_source=tag-newest</a></p>
+
+
+
+<h3 class="wp-block-heading">第五步：备份与恢复数据库和博客网站文件</h3>
+
+
+
+<p>可以采用phpMyadmin备份数据库或者mysqldump来备份</p>
+
+
+
+<pre class="wp-block-code"><code>mysqldump -u用户名 -p密码 数据库名 > /备份目录/数据库名.sql 
+mysql -u用户名 -p密码 数据库名 &lt; 导入数据库名.sql
+参考链接: https://segmentfault.com/a/1190000019305858</code></pre>
+
+
+
+<p>可以采用zip压缩打包的形式备份原wordpress网站目录文件或者在已知新服务器的情况下用scp命令直接迁移文件</p>
+
+
+
+<pre class="wp-block-code"><code>scp -r   /home/wwwroot/文件根目录/  新服务器登录账号@新服务器域名:/home/wwwroot
+参考链接: https://www.cnblogs.com/gudongcheng/p/8064808.html</code></pre>
+
+
+
+<p>参考链接：<a href="/goto/qrt3" rel="nofollow">https://www.22vd.com/3979.html</a></p>
+
+
+
+<h3 class="wp-block-heading">第六步：修改网站配置和数据库（关键）</h3>
+
+
+
+<p>1.修改 wp-config 文件，最好不要用记事本来修改，用 notepad++或者 UltraEdit 等编辑器，把里面的数据库信息改为您新空间的数据库信息，如下：</p>
+
+
+
+<pre class="wp-block-code"><code>/** WordPress 数据库的名称 */
+define('DB_NAME', '你的新空间数据库名称');
+/** MySQL 数据库用户名 */
+define('DB_USER', '你的数据库用户名');
+/** MySQL 数据库密码 */
+define('DB_PASSWORD', '你的数据库登录密码');
+/** MySQL 主机 */
+define('DB_HOST', '你的数据库地址');</code></pre>
+
+
+
+<p>2.原来的文章里有链接或者图片是用以前域名的地址，所以还要修改那些地址。可以在 phpadmin 直接修改数据库或者 velvet-blues-update-urls 这个插件（推荐）。比如在 phpadmin 里，执行执行以下语句：</p>
+
+
+
+<pre class="wp-block-code"><code>UPDATE wp_options SET option_value = REPLACE(option_value,'旧地址','新地址');
+UPDATE wp_posts SET post_content = replace(post_content,'旧地址','新地址');
+UPDATE wp_posts SET post_excerpt= replace(post_excerpt,'旧地址','新地址');
+UPDATE wp_posts SET guid= replace(guid, '旧地址','新地址');</code></pre>
+
+
+
+<p>参考链接：<a href="/goto/qrt3" rel="nofollow">https://www.22vd.com/3979.html</a></p>
+
+
+
+<h3 class="wp-block-heading">第七步：访问网站域名，检测网站运行情况</h3>
+
+
+
+<p>同步wordpess插件，wordpress主题，主题设置，<strong>主题菜单结构</strong>，<strong>勾选自动添加页面及显示位置。</strong></p>
+
+
+
+<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="337" src="/wp-content/uploads/2020/02/image-1024x337.png" alt="" class="wp-image-8740" srcset="/wp-content/uploads/2020/02/image-1024x337.png 1024w, /wp-content/uploads/2020/02/image-300x99.png 300w, /wp-content/uploads/2020/02/image-768x253.png 768w, /wp-content/uploads/2020/02/image-1536x505.png 1536w, /wp-content/uploads/2020/02/image-2048x674.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>参考链接：<a href="/goto/qrt3" rel="nofollow">https://www.22vd.com/3979.html</a></p>
+
+
+
+<h3 class="wp-block-heading">异常情况：Wordpress 文章特色图无法显示</h3>
+
+
+
+<p>在使用wordpress建设个人网站时，新手可能会遇到有的主题无法显示文章的特色图，如下：</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" src="https://img-blog.csdn.net/20170915192127606?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcWludGFpd3U=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""/></figure>
+
+
+
+<p>如果使用的是官方的主题，一般都不会出现无法显示的的情况！那么为什么我们（新手）常常会遇到这样的问题呢？这是因为wordpress官方的主题和你当前使用的主题，对网站图片的管理方式不一样，wordpress官方使用的是“一次生成”的方式，而我们使用国内的主题常常会引入一个叫“timthumb.php”的小程序来管理我们网站中的图片调用等（两者的具体差异，可自行深入查询）。</p>
+
+
+
+<p>主要原因是一些文件的权限问题所引起的，解决方案如下：</p>
+
+
+
+<p>1、检查你是否设置了文章的特色图</p>
+
+
+
+<p>2、检查当前系统环境是否开启了 “GD库”支持功能</p>
+
+
+
+<p>3、查看主题目录下的 “&nbsp;cache ”&nbsp;文件夹(及子目录的两个文件)的权限是否为 777</p>
+
+
+
+<p>4、检查主题目录下的 “&nbsp;timthumb.php&nbsp;”&nbsp;文件权限是否为755或777<br> </p>
+
+
+
+<p>具体操作如下：</p>
+
+
+
+<p>a )&nbsp;检查你是否设置了文章的特色图</p>
+
+
+
+<p>进入“编辑文章”页面，查看右下角的“特色图”设置..</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://img-blog.csdn.net/20170915192209712?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcWludGFpd3U=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""/></figure>
+
+
+
+<p>b ) 检查是否开启 “&nbsp;GD库”&nbsp;功能</p>
+
+
+
+<p>方法一：</p>
+
+
+
+<p>终端模式下输入： &nbsp;php -i | grep -i &#8211;color gd</p>
+
+
+
+<p>运行回车，如果返回的信息中有：</p>
+
+
+
+<p>GD Support =&gt; enabled</p>
+
+
+
+<p>表示 GD库 支持功能已开启。</p>
+
+
+
+<p>方法二：</p>
+
+
+
+<p>在网站根目录下创建一个 “&nbsp;.php “&nbsp;的文件(文件名随意起)，并打开输入以下内容：</p>
+
+
+
+<p>保存！然后使用网页访问的方式去访问这个文件，如：xxx.com/xxx.php.</p>
+
+
+
+<p>如果有返回以下界面，表示成功访问到该文件，否则请检查是否哪里有误：</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" src="https://img-blog.csdn.net/20170915192241817?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcWludGFpd3U=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""/></figure>
+
+
+
+<p>往下查看文件（可使用查询），当浏览到 GD项中浏览其状态信息，如果同样显示 “&nbsp;GD Support &nbsp;enable”，表明该功能已开启。</p>
+
+
+
+<p>c ) 查看主题目录下的 “&nbsp;cache ”&nbsp;文件夹的权限是否为 777</p>
+
+
+
+<p>在终端下输入: &nbsp;ls -lh cache &nbsp;&nbsp;可获得权限信息。</p>
+
+
+
+<p>如果不符合权限要求，可输入：</p>
+
+
+
+<p>chmod 777 cache &nbsp;&nbsp;//获取所有权限</p>
+
+
+
+<p>同时进入其子目录将 inddx.html 和 timthumb_cacheLastCleanTime.touch 文件权限改为 777</p>
+
+
+
+<p>d )&nbsp;检查主题目录下的&nbsp;“&nbsp;timthumb.php&nbsp;”&nbsp;文件权限是否为755或777</p>
+
+
+
+<p>e )&nbsp;有些教程还说需要修改”&nbsp;timthumb.php&nbsp;”文件内部的：</p>
+
+
+
+<p>define (‘ALLOW_ALL_EXTERNAL_SITES’,false)　语句，将其改为</p>
+
+
+
+<p>define (‘ALLOW_ALL_EXTERNAL_SITES’,TRUE)</p>
+
+
+
+<p>但尝试后，发现有没有修改都没什么影响，可能是小编环境的问题吧！</p>
+
+
+
+<p>这里只是给大家最后一个参考的调试方案！<br> 参考链接：<a href="/goto/ggib" rel="nofollow">https://blog.csdn.net/qintaiwu/article/details/77994917</a></p>
+
+
+
+<p><strong>至此教程结束！</strong><br> ————————————————</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e8%b5%84%e6%96%99/8739.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

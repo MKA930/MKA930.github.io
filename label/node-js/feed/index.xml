@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>node.js &#8211; 个人随笔</title>
+	<atom:link href="/label/node-js/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Mon, 11 Jul 2022 08:06:24 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>node.js &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>node.js面试题大全－侧重后端应用与对Node核心的理解</title>
+		<link>/uncategorized/8689.html</link>
+					<comments>/uncategorized/8689.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Mon, 26 Aug 2019 12:05:37 +0000</pubDate>
+				<category><![CDATA[Node]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[未分类]]></category>
+		<category><![CDATA[node]]></category>
+		<category><![CDATA[node.js]]></category>
+		<guid isPermaLink="false">/?p=8689</guid>
+
+					<description><![CDATA[Node是搞后端的，不应该被被归为前端，更不应该用前端的观点去理解，去面试node开发人员。所以这份面试题大全 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p><strong>Node是搞后端的，不应该被被归为前端，更不应该用前端的观点去理解，去面试node开发人员。所以这份面试题大全，更侧重后端应用与对Node核心的理解。</strong></p>
+<h3 id="为什么用nodejs它有哪些缺点">1、为什么用Nodejs,它有哪些缺点？</h3>
+<ul>
+<li>事件驱动，通过闭包很容易实现客户端的生命活期。</li>
+<li>不用担心多线程，锁，并行计算的问题</li>
+<li>V8引擎速度非常快</li>
+<li>对于游戏来说，写一遍游戏逻辑代码，前端后端通用</li>
+</ul>
+<h4 id="当然nodejs也有一些缺点">当然Nodejs也有一些缺点：</h4>
+<ul>
+<li>nodejs更新很快，可能会出现版本兼容</li>
+<li>nodejs还不算成熟，还没有大制作</li>
+<li>nodejs不像其他的服务器，对于不同的链接，不支持进程和线程操作</li>
+</ul>
+<h3 id="什么是错误优先的回调函数">2、什么是错误优先的回调函数？</h3>
+<ul>
+<li>错误优先(Error-first)的回调函数（Error-First Callback）用于同时返回错误和数据。第一个参数返回错误，并且验证它是否出错；其他参数返回数据。
+<pre><code class="hljs javascript">  fs.readFile(filePath, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, data</span>)
+
+  </span>{
+
+      <span class="hljs-keyword">if</span> (err)
+
+      {
+
+          <span class="hljs-comment">// 处理错误</span>
+
+          <span class="hljs-keyword">return</span> <span class="hljs-built_in">console</span>.log(err);
+
+      }
+
+      <span class="hljs-built_in">console</span>.log(data);
+
+  });</code></pre>
+</li>
+</ul>
+<h3 id="如何避免回调地狱">3、如何避免回调地狱？</h3>
+<h4 id="以下方式避免回调地狱">以下方式避免回调地狱</h4>
+<ul>
+<li>模块化：将回调函数转换为独立的函数</li>
+<li>使用流程控制库，例如[aync]</li>
+<li>使用Promise</li>
+<li>使用aync/await</li>
+</ul>
+<h3 id="什么是promise">4、什么是Promise?</h3>
+<ul>
+<li>Promise可以帮助我们更好地处理异步操作。下面的实例中，100ms后会打印result字符串。catch用于错误处理。多个Promise可以链接起来。
+<pre><code class="hljs coffeescript">  <span class="hljs-keyword">new</span> Promise(<span class="hljs-function"><span class="hljs-params">(resolve, reject)</span> =&gt;</span>
+
+      {
+
+          setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span>
+
+          {
+
+              resolve(<span class="hljs-string">'result'</span>);
+
+          }, <span class="hljs-number">100</span>)
+
+      })
+
+      .<span class="hljs-keyword">then</span>(<span class="hljs-built_in">console</span>.log)
+
+      .<span class="hljs-keyword">catch</span>(<span class="hljs-built_in">console</span>.error);</code></pre>
+</li>
+</ul>
+<h3 id="用什么工具保证一致的代码风格为什么要这样">5、用什么工具保证一致的代码风格？为什么要这样？</h3>
+<ul>
+<li>团队协作时，保证一致的代码风格是非常重要的，这样团队成员才可以更快地修改代码，而不需要每次去适应新的风格。这些工具可以帮助我们：</li>
+<li>[ESLint] (<a class="uri" href="/goto/scp8" rel="nofollow">http://eslint.org/</a>)</li>
+<li>[Standard] (<a class="uri" href="/goto/temy" rel="nofollow">https://standardjs.com/</a>)</li>
+<li>JSLint</li>
+<li>JSHint</li>
+<li>ESLint</li>
+<li>JSCS推荐</li>
+</ul>
+<h3 id="什么是stub举例说明">6、什么是stub？举例说明</h3>
+<ul>
+<li>stub用于模块的行为。测试时，stub可以为函数调用返回模拟的结果。比如说，我们写文件时，实际上并不需要真正去写。
+<pre><code class="hljs javascript">      <span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+      <span class="hljs-keyword">var</span> writeFileStub = sinon.stub(fs, <span class="hljs-string">'writeFile'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">path, data, cb</span>)
+
+      </span>{
+
+          <span class="hljs-keyword">return</span> cb(<span class="hljs-literal">null</span>);
+
+      });
+
+      expect(writeFileStub).to.be.called;
+
+      writeFileStub.restore();</code></pre>
+</li>
+</ul>
+<h3 id="什么是测试金字塔举例说明">7、什么是测试金字塔？举例说明</h3>
+<ul>
+<li>测试金字塔反应了需要写的单元测试，集成测试以及端到端测试的比例：<br />
+<img decoding="async" src="https://images2018.cnblogs.com/blog/1201653/201711/1201653-20171127104813253-720616924.png" /></li>
+<li>测试HTTP接口时应该是这样的：</li>
+<li>很多单元测试，分别测试各个模块(依赖需要stub)</li>
+<li>较少的集成测试，测试各个模块之间的交互(依赖不能stub)</li>
+<li>少量端到端测试，去调用真正地接口(依赖不能stub)</li>
+</ul>
+<h3 id="如何用node监听80端口">8、如何用Node监听80端口</h3>
+<ul>
+<li>这题有陷阱！在类Unix系统中你不应该去监听80端口，因为这需要超级用户权限。因此不推荐让你的应用直接监听这个端口。</li>
+<li>目前，如果你一定要让你的应用80端口的话，你可以有通过在Node应用的前方再添加一层反向代理（例如nginx）来实现，如下图。否则，建议你直接监听大于1024的端口<br />
+<img decoding="async" src="https://images2018.cnblogs.com/blog/1201653/201711/1201653-20171127113957737-1743742030.png" /></li>
+<li>方向代理指的是以代理服务器来接收Internet上的连接请求，然后将请求转发给内部网络上的服务器， 并且将服务器返回的结果发送给客户端。</li>
+</ul>
+<h3 id="什么是事件循环">9、什么是事件循环</h3>
+<ul>
+<li>Node采用的是单线程的处理机制(所有的I/O请求都采用非阻塞的工作方式)，至少从Node.js开发者的角度是这样的。而在底层，Node.js借助libuv来作为抽象封装层，从而屏蔽不同操作系统的差异，Node可以借助livuv来实现线程。下图表示Node和libuv的关系<br />
+<img decoding="async" src="https://images2018.cnblogs.com/blog/1201653/201711/1201653-20171127114014956-1412280481.png" /></li>
+<li>Libuv库负责Node API的执行。它将不同的任务分配给不同的线程，形成一个事件循环，以异步的方式将任务的执行结果返回给V8引擎。可以简单用下面这张图来表示<br />
+<img decoding="async" src="https://images2018.cnblogs.com/blog/1201653/201711/1201653-20171127114035472-900672231.png" /></li>
+<li>每一个I/O都需要一个回调函数————一旦执行完便堆到事件循环上用于执行</li>
+</ul>
+<h3 id="运算错误与程序员错误的区别">10、运算错误与程序员错误的区别</h3>
+<ul>
+<li>运算错误并不是bug，这是和系统相关的问题，例如请求超时或者硬件故障。而程序员错误就是所谓的bug</li>
+</ul>
+<h3 id="使用npm有哪些好处">11、使用NPM有哪些好处？</h3>
+<ul>
+<li>通过NPM，你可以安装和管理项目的依赖，并且能够指明依赖项的具体版本号。对于Node应用开发而言，你可以通过<code>package.json</code>文件来管理项目信息，配置脚本，以及指明依赖的具体版本</li>
+</ul>
+<h3 id="什么是stub举个使用场景">12、什么是stub？举个使用场景</h3>
+<ul>
+<li>stub是用于模拟一个组件或模块的函数或程序。在测试用例中，简单的说，你可以用stub去模拟一个方法，从而避免调用真实的方法，使用stub你还可以返回虚构的结果。你可以配合断言使用stub。</li>
+<li>举个例子，在一个读取文件的场景中，当你不想读取一个真正的文件时：
+<pre><code class="hljs javascript">  <span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>); <span class="hljs-keyword">var</span> readFileStub = sinon.stub(fs, <span class="hljs-string">'readFile'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">path, cb</span>) </span>{ <span class="hljs-keyword">return</span> cb(<span class="hljs-literal">null</span>, <span class="hljs-string">'filecontent'</span>); }); expect(readFileStub).to.be.called; readFileStub.restore(); </code></pre>
+</li>
+</ul>
+<p><code>在单元测试中：Stub是完全模拟一个外部依赖，而Mock常用来判断测试通过还是失败</code></p>
+<h1>node开发技能图解</h1>
+<p><img decoding="async" src="https://images2015.cnblogs.com/blog/730090/201509/730090-20150919214515695-745120854.jpg" alt="" /></p>
+<h1><a id="user-content-起源" class="anchor" href="/goto/i8j3" rel="nofollow"></a>起源</h1>
+<ul>
+<li>node正风生火起，很多介绍却停留在入门阶段，无法投入生产</li>
+<li>node相关的高质量面试题更是少之又少，很难全面考查应聘者的node能力</li>
+<li>许多文章在讲第三方类库，可是这些库质量差距较大，一旦遇到问题怎么办</li>
+<li>必需的，全面了解node核心才能成为一名合格的node开发人员</li>
+</ul>
+<h1><a id="user-content-目标与原则" class="anchor" href="/goto/ww2r" rel="nofollow"></a>目标与原则</h1>
+<ul>
+<li>前后端兼顾，更侧重后端</li>
+<li>理论实战兼顾，侧重考察对实战中应用较多的理论的理解</li>
+<li>参考答案简单明了，一针见血，不为追求严谨而浪费口舌，绕弯子</li>
+<li>尽量用代码讲清理论的应用与区别，以接地气</li>
+<li>终极目标是让大家对node有一个快速完整的认识</li>
+</ul>
+<h1><a id="user-content-内容大纲" class="anchor" href="/goto/hogw" rel="nofollow"></a>内容大纲</h1>
+<ul>
+<li>javascript高级话题(面向对象，作用域，闭包，设计模式等)</li>
+<li>node核心内置类库(事件，流，文件，网络等)</li>
+<li>node高级话题(异步，部署，性能调优，异常调试等)</li>
+<li>常用知名第三方类库(Async, Express等)</li>
+<li>其它相关后端常用技术(MongoDB, Redis, Apache, Nginx等)</li>
+<li>常用前端技术(Html5, CSS3, JQuery等)</li>
+</ul>
+<h2><a id="user-content-javascript高级话题面向对象作用域闭包设计模式等" class="anchor" href="/goto/gaiy" rel="nofollow"></a><a name="user-content-jsAdvanced"></a>javascript高级话题(面向对象，作用域，闭包，设计模式等)</h2>
+<ul>
+<li><strong>1. 常用js类定义的方法有哪些？</strong></li>
+</ul>
+<p>参考答案：主要有构造函数原型和对象创建两种方法。原型法是通用老方法，对象创建是ES5推荐使用的方法.目前来看，原型法更普遍.</p>
+<p>代码演示<br />
+1) 构造函数方法定义类</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-k">function <span class="pl-en">Person(){
+        <span class="pl-v">this.<span class="pl-c1">name = <span class="pl-s"><span class="pl-pds">'michaelqin';
+    }
+    Person.prototype.sayName = function(){
+        alert(this.name);
+    }
+
+    var person = new Person();
+    person.sayName();</span></span></span></span></span></span></pre>
+</div>
+<p>2) 对象创建方法定义类</p>
+<pre><code class="hljs javascript">    <span class="hljs-keyword">var</span> Person = {
+        <span class="hljs-attr">name</span>: <span class="hljs-string">'michaelqin'</span>,
+        <span class="hljs-attr">sayName</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>()</span>{ alert(<span class="hljs-keyword">this</span>.name); }
+    };
+
+    <span class="hljs-keyword">var</span> person = <span class="hljs-built_in">Object</span>.create(Person);
+    person.sayName();
+</code></pre>
+<ul>
+<li><strong>2. js类继承的方法有哪些</strong></li>
+</ul>
+<p>参考答案：原型链法，属性复制法和构造器应用法. 另外，由于每个对象可以是一个类，这些方法也可以用于对象类的继承．</p>
+<p>代码演示<br />
+1) 原型链法</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-k">function <span class="pl-en">Animal() {
+        <span class="pl-v">this.<span class="pl-c1">name = <span class="pl-s"><span class="pl-pds">'animal';
+    }
+    Animal.prototype.sayName = {
+        alert(this.name);
+    };
+
+    function Person() {}
+    Person.prototype = Animal.prototype; <span class="pl-c">// 人继承自动物
+    Person.prototype.constructor = 'Person'; // 更新构造函数为人</span></span></span></span></span></span></span></pre>
+</div>
+<p>2) 属性自制法</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-k">function <span class="pl-en">Animal() {
+        <span class="pl-v">this.<span class="pl-c1">name = <span class="pl-s"><span class="pl-pds">'animal';
+    }
+    Animal.prototype.sayName = {
+        alert(this.name);
+    };
+
+    function Person() {}
+
+    for(prop in Animal.prototype) {
+        Person.prototype[prop] = Animal.prototype[prop];
+    } <span class="pl-c">// 复制动物的所有属性到人量边
+    Person.prototype.constructor = 'Person'; // 更新构造函数为人</span></span></span></span></span></span></span></pre>
+</div>
+<p>3) 构造器应用法</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-k">function <span class="pl-en">Animal() {
+        <span class="pl-v">this.<span class="pl-c1">name = <span class="pl-s"><span class="pl-pds">'animal';
+    }
+    Animal.prototype.sayName = {
+        alert(this.name);
+    };
+
+    function Person() {
+        Animal.call(this); <span class="pl-c">// apply, call, bind方法都可以．细微区别，后面会提到．
+    }</span></span></span></span></span></span></span></pre>
+</div>
+<ul>
+<li><strong>3. js类多重继承的实现方法是怎么样的?</strong></li>
+</ul>
+<p>参考答案：就是类继承里边的属性复制法来实现．因为当所有父类的prototype属性被复制后，子类自然拥有类似行为和属性．</p>
+<ul>
+<li><strong>4. js里的作用域是什么样子的？</strong></li>
+</ul>
+<p>参考答案：大多数语言里边都是块作作用域，以{}进行限定，js里边不是．js里边叫函数作用域，就是一个变量在全函数里有效．比如有个变量p1在函数最后一行定义，第一行也有效，但是值是undefined.</p>
+<p>代码演示</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-k">var globalVar = <span class="pl-s"><span class="pl-pds">'global var';
+
+    function <span class="pl-en">test() {
+        <span class="pl-c1">alert(globalVar); <span class="pl-c">// undefined, 因为globalVar在本函数内被重定义了，导致全局失效，这里使用函数内的变量值，可是此时还没定义
+        var globalVar = 'overrided var'; //　globalVar在本函数内被重定义
+        alert(globalVar);　// overrided var
+    }
+    alert(globalVar); // global var，使用全局变量</span></span></span></span></span></span></pre>
+</div>
+<ul>
+<li><strong>5. js里边的this指的是什么?</strong></li>
+</ul>
+<p>参考答案: this指的是对象本身，而不是构造函数．</p>
+<p>代码演示</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-k">function <span class="pl-en">Person() {
+    }
+    Person.<span class="pl-c1">prototype.sayName() { alert(<span class="pl-v">this.name); }
+
+    var person1 = new Person();
+    person1.name = <span class="pl-s"><span class="pl-pds">'michaelqin';
+    person1.sayName(); <span class="pl-c">// michaelqin</span></span></span></span></span></span></span></pre>
+</div>
+<ul>
+<li><strong>6. apply, call和bind有什么区别?</strong></li>
+</ul>
+<p>参考答案：三者都可以把一个函数应用到其他对象上，注意不是自身对象．apply,call是直接执行函数调用，bind是绑定，执行需要再次调用．apply和call的区别是apply接受数组作为参数，而call是接受逗号分隔的无限多个参数列表，</p>
+<p>代码演示</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-k">function <span class="pl-en">Person() {
+    }
+    Person.<span class="pl-c1">prototype.sayName() { alert(<span class="pl-v">this.name); }
+
+    var obj = {name: <span class="pl-s"><span class="pl-pds">'michaelqin'}; <span class="pl-c">// 注意这是一个普通对象，它不是Person的实例
+    1) apply
+    Person.prototype.sayName.apply(obj, [param1, param2, param3]);
+
+    2) call
+    Person.prototype.sayName.call(obj, param1, param2, param3);
+
+    3) bind
+    var sn = Person.prototype.sayName.bind(obj);    
+    sn([param1, param2, param3]); // bind需要先绑定，再执行 
+    sn(param1, param2, param3); // bind需要先绑定，再执行</span></span></span></span></span></span></span></pre>
+</div>
+<ul>
+<li><strong>7. caller, callee和arguments分别是什么?</strong></li>
+</ul>
+<p>参考答案: caller,callee之间的关系就像是employer和employee之间的关系，就是调用与被调用的关系，二者返回的都是函数对象引用．arguments是函数的所有参数列表，它是一个类数组的变量．</p>
+<p>代码演示</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-k">function <span class="pl-en">parent(<span class="pl-smi">param1, param2, param3) {
+        child(param1, param2, param3);
+    }
+
+    function child() {
+        console<span class="pl-c1">.log(arguments); <span class="pl-c">// { '0': 'mqin1', '1': 'mqin2', '2': 'mqin3' }
+        console.log(arguments.callee); // [Function: child]
+        console.log(child.caller); // [Function: parent]
+    }
+
+    parent(<span class="pl-s"><span class="pl-pds">'mqin1', 'mqin2', 'mqin3');</span></span></span></span></span></span></span></pre>
+</div>
+<ul>
+<li><strong>8. 什么是闭包，闭包有哪些用处?</strong></li>
+</ul>
+<p>参考答案: 闭包这个术语它其实什么都不是．非要讲它是什么的话，两个字函数，更多字嵌套函数的父子自我引用关系．所有函数都是闭包．通俗的说，闭包就是作用域范围，因为js是函数作用域，所以函数就是闭包．全局函数的作用域范围就是全局，所以无须讨论．更多的应用其实是在内嵌函数，这就会涉及到内嵌作用域，或者叫作用域链．说到内嵌，其实就是父子引用关系(父函数包含子函数，子函数因为函数作用域又引用父函数，这不是死结吗？所以叫闭包），这就会带来另外一个问题，什么时候引用结束？如果不结束，就会一直占用内存，引起内存泄漏．好吧，不用的时候就引用设为空，死结就解开了．</p>
+<ul>
+<li><strong>9. defineProperty, hasOwnProperty, isEnumerable都是做什么用的？</strong></li>
+</ul>
+<p>参考答案：Object.defineProperty(obj, prop, descriptor)用来给对象定义属性,有value,writable,configurable,enumerable,set/get等.hasOwnProerty用于检查某一属性是不是存在于对象本身，继承来的父亲的属性不算．isEnumerable用来检测某一属性是否可遍历，也就是能不能用for..in循环来取到.</p>
+<ul>
+<li><strong>10. js常用设计模式的实现思路，单例，工厂，代理，装饰，观察者模式等</strong></li>
+</ul>
+<p>参考答案：</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-c1">1) 单例：　任意对象都是单例，无须特别处理
+    <span class="pl-k">var obj = {name: <span class="pl-s"><span class="pl-pds">'michaelqin', age: 30};
+
+    2) 工厂: 就是同样形式参数返回不同的实例
+    function <span class="pl-en">Person() { <span class="pl-v">this.name = 'Person1'; }
+    function Animal() { this.name = 'Animal1'; }
+
+    function Factory() {}
+    Factory.prototype.getInstance = function(<span class="pl-smi">className) {
+        return eval('new ' + className + '()');
+    }
+
+    var factory = new Factory();
+    var obj1 = factory.getInstance('Person');
+    var obj2 = factory.getInstance('Animal');
+    console.log(obj1.name); <span class="pl-c">// Person1
+    console.log(obj2.name); // Animal1
+
+    3) 代理: 就是新建个类调用老类的接口,包一下
+    function Person() { }
+    Person.prototype.sayName = function() { console.log('michaelqin'); }
+    Person.prototype.sayAge = function() { console.log(30); }
+
+    function PersonProxy() { 
+        this.person = new Person();
+        var that = this;
+        this.callMethod = function(functionName) {
+            console.log('before proxy:', functionName);
+            that.person[functionName](); // 代理
+            console.log('after proxy:', functionName);
+        }
+    }
+
+    var pp = new PersonProxy();
+    pp.callMethod('sayName'); // 代理调用Person的方法sayName()
+    pp.callMethod('sayAge'); // 代理调用Person的方法sayAge() 
+
+    4) 观察者: 就是事件模式，比如按钮的onclick这样的应用.
+    function Publisher() {
+        this.listeners = [];
+    }
+    Publisher.prototype = {
+        'addListener': function(listener) {
+            this.listeners.push(listener);
+        },
+
+        'removeListener': function(listener) {
+            delete this.listeners[listener];
+        },
+
+        'notify': function(obj) {
+            for(var i = 0; i &lt; this.listeners.length; i++) {
+                var listener = this.listeners[i];
+                if (typeof listener !== 'undefined') {
+                    listener.process(obj);
+                }
+            }
+        }
+    }; // 发布者
+
+    function Subscriber() {
+
+    }
+    Subscriber.prototype = {
+        'process': function(obj) {
+            console.log(obj);
+        }
+    };　// 订阅者
+
+
+    var publisher = new Publisher();
+    publisher.addListener(new Subscriber());
+    publisher.addListener(new Subscriber());
+    publisher.notify({name: 'michaelqin', ageo: 30}); // 发布一个对象到所有订阅者
+    publisher.notify('2 subscribers will both perform process'); // 发布一个字符串到所有订阅者</span></span></span></span></span></span></span></span></pre>
+</div>
+<ul>
+<li><strong>11. 列举数组相关的常用方法</strong></li>
+</ul>
+<p>参考答案: push/pop, shift/unshift, split/join, slice/splice/concat, sort/reverse, map/reduce, forEach, filter</p>
+<ul>
+<li><strong>12. 列举字符串相关的常用方法</strong></li>
+</ul>
+<p>参考答案: indexOf/lastIndexOf/charAt, split/match/test, slice/substring/substr, toLowerCase/toUpperCase</p>
+<h2><a id="user-content-node核心内置类库事件流文件网络等" class="anchor" href="/goto/143g" rel="nofollow"></a><a name="user-content-nodeCore"></a>node核心内置类库(事件，流，文件，网络等)</h2>
+<h3><a id="user-content-node概览" class="anchor" href="/goto/guxb" rel="nofollow"></a>node概览</h3>
+<ul>
+<li><strong>1. 为什么要用node?</strong></li>
+</ul>
+<p>参考答案: 总结起来node有以下几个特点:简单强大，轻量可扩展．简单体现在node使用的是javascript,json来进行编码，人人都会；强大体现在非阻塞IO,可以适应分块传输数据，较慢的网络环境，尤其擅长高并发访问；轻量体现在node本身既是代码，又是服务器，前后端使用统一语言;可扩展体现在可以轻松应对多实例，多服务器架构，同时有海量的第三方应用组件．</p>
+<ul>
+<li><strong>2. node的构架是什么样子的?</strong></li>
+</ul>
+<p>参考答案: 主要分为三层，应用app &gt;&gt; V8及node内置架构 &gt;&gt; 操作系统. V8是node运行的环境，可以理解为node虚拟机．node内置架构又可分为三层: 核心模块(javascript实现) &gt;&gt; c++绑定 &gt;&gt; libuv + CAes + http.</p>
+<p><a href="/goto/x4ix" target="_blank" rel="nofollow noopener"><img decoding="async" src="https://camo.githubusercontent.com/233315761d49d4c75fe7969e36bda22ecf5bbc0f/687474703a2f2f6a6f616f7073696c76612e6769746875622e696f2f74616c6b732f456e642d746f2d456e642d4a6176615363726970742d776974682d7468652d4d45414e2d537461636b2f696d672f6e6f64656a732d617263682d7070742e706e67" alt="" data-canonical-src="http://joaopsilva.github.io/talks/End-to-End-JavaScript-with-the-MEAN-Stack/img/nodejs-arch-ppt.png" /></a></p>
+<ul>
+<li><strong>3. node有哪些核心模块?</strong></li>
+</ul>
+<p>参考答案: EventEmitter, Stream, FS, Net和全局对象</p>
+<h3><a id="user-content-node全局对象" class="anchor" href="/goto/x7hg" rel="nofollow"></a>node全局对象</h3>
+<ul>
+<li><strong>1. node有哪些全局对象?</strong></li>
+</ul>
+<p>参考答案: process, console, Buffer和exports</p>
+<ul>
+<li><strong>2. process有哪些常用方法?</strong></li>
+</ul>
+<p>参考答案: process.stdin, process.stdout, process.stderr, process.on, process.env, process.argv, process.arch, process.platform, process.exit</p>
+<ul>
+<li><strong>3. console有哪些常用方法?</strong></li>
+</ul>
+<p>参考答案: console.log/console.info, console.error/console.warning, console.time/console.timeEnd, console.trace, console.table</p>
+<ul>
+<li><strong>4. node有哪些定时功能?</strong></li>
+</ul>
+<p>参考答案: setTimeout/clearTimeout, setInterval/clearInterval, setImmediate/clearImmediate, process.nextTick</p>
+<ul>
+<li><strong>5. node中的事件循环是什么样子的?</strong></li>
+</ul>
+<p>参考答案: event loop其实就是一个事件队列，先加入先执行，执行完一次队列，再次循环遍历看有没有新事件加入队列．执行中的叫IO events, setImmediate是在当前队列立即执行,setTimout/setInterval是把执行定时到下一个队列，process.nextTick是在当前执行完，下次遍历前执行．所以总体顺序是: IO events &gt;&gt; setImmediate &gt;&gt; setTimeout/setInterval &gt;&gt; process.nextTick</p>
+<ul>
+<li><strong>6. node中的Buffer如何应用?</strong></li>
+</ul>
+<p>参考答案: Buffer是用来处理二进制数据的，比如图片，mp3,数据库文件等.Buffer支持各种编码解码，二进制字符串互转．</p>
+<h3><a id="user-content-eventemitter" class="anchor" href="/goto/9iwd" rel="nofollow"></a>EventEmitter</h3>
+<ul>
+<li><strong>1. 什么是EventEmitter?</strong></li>
+</ul>
+<p>参考答案: EventEmitter是node中一个实现观察者模式的类，主要功能是监听和发射消息，用于处理多模块交互问题.</p>
+<ul>
+<li><strong>2. 如何实现一个EventEmitter?</strong></li>
+</ul>
+<p>参考答案: 主要分三步：定义一个子类，调用构造函数，继承EventEmitter</p>
+<p>代码演示</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-k">var util = <span class="pl-c1">require(<span class="pl-s"><span class="pl-pds">'util');
+    var EventEmitter = require('events').EventEmitter;
+
+    function <span class="pl-en">MyEmitter() {
+        EventEmitter.call(<span class="pl-v">this);
+    } <span class="pl-c">// 构造函数
+
+    util.inherits(MyEmitter, EventEmitter); // 继承
+
+    var em = new MyEmitter();
+    em.on('hello', function(<span class="pl-smi">data) {
+        console.log('收到事件hello的数据:', data);
+    }); // 接收事件，并打印到控制台
+    em.emit('hello', 'EventEmitter传递消息真方便!');</span></span></span></span></span></span></span></span></pre>
+</div>
+<ul>
+<li><strong>3. EventEmitter有哪些典型应用?</strong></li>
+</ul>
+<p>参考答案: 1) 模块间传递消息 2) 回调函数内外传递消息 3) 处理流数据，因为流是在EventEmitter基础上实现的. 4) 观察者模式发射触发机制相关应用</p>
+<ul>
+<li><strong>4. 怎么捕获EventEmitter的错误事件?</strong></li>
+</ul>
+<p>参考答案: 监听error事件即可．如果有多个EventEmitter,也可以用domain来统一处理错误事件.</p>
+<p>代码演示</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-k">var domain = <span class="pl-c1">require(<span class="pl-s"><span class="pl-pds">'domain');
+    var myDomain = domain.create();
+    myDomain.on('error', function(<span class="pl-smi">err){
+        <span class="pl-en">console.log('domain接收到的错误事件:', err);
+    }); <span class="pl-c">// 接收事件并打印
+    myDomain.run(function(){
+        var emitter1 = new MyEmitter();
+        emitter1.emit('error', '错误事件来自emitter1');
+        emitter2 = new MyEmitter();
+        emitter2.emit('error', '错误事件来自emitter2');
+    });</span></span></span></span></span></span></span></pre>
+</div>
+<ul>
+<li><strong>5. EventEmitter中的newListenser事件有什么用处?</strong></li>
+</ul>
+<p>参考答案: newListener可以用来做事件机制的反射，特殊应用，事件管理等．当任何on事件添加到EventEmitter时，就会触发newListener事件，基于这种模式，我们可以做很多自定义处理.</p>
+<p>代码演示</p>
+<div class="highlight highlight-source-js">
+<pre><span class="pl-k">var emitter3 = new <span class="pl-en">MyEmitter();
+emitter3.on(<span class="pl-s"><span class="pl-pds">'newListener', function(<span class="pl-smi">name, listener) {
+    console<span class="pl-c1">.log("新事件的名字:", name);
+    console.log("新事件的代码:", listener);
+    setTimeout(function(){ console.log("我是自定义延时处理机制"); }, 1000);
+});
+emitter3.on('hello', function(){
+    console.log('hello　node');
+});</span></span></span></span></span></span></pre>
+</div>
+<h3><a id="user-content-stream" class="anchor" href="/goto/irdg" rel="nofollow"></a>Stream</h3>
+<ul>
+<li><strong>1. 什么是Stream?</strong></li>
+</ul>
+<p>参考答案: stream是基于事件EventEmitter的数据管理模式．由各种不同的抽象接口组成，主要包括可写，可读，可读写，可转换等几种类型．</p>
+<ul>
+<li><strong>2. Stream有什么好处?</strong></li>
+</ul>
+<p>参考答案: 非阻塞式数据处理提升效率，片断处理节省内存，管道处理方便可扩展等.</p>
+<ul>
+<li><strong>3. Stream有哪些典型应用?</strong></li>
+</ul>
+<p>参考答案: 文件，网络，数据转换，音频视频等.</p>
+<ul>
+<li><strong>4. 怎么捕获Stream的错误事件?</strong></li>
+</ul>
+<p>参考答案: 监听error事件，方法同EventEmitter.</p>
+<ul>
+<li><strong>5. 有哪些常用Stream,分别什么时候使用?</strong></li>
+</ul>
+<p>参考答案: Readable为可被读流，在作为输入数据源时使用；Writable为可被写流,在作为输出源时使用；Duplex为可读写流,它作为输出源接受被写入，同时又作为输入源被后面的流读出．Transform机制和Duplex一样，都是双向流，区别时Transfrom只需要实现一个函数_transfrom(chunk, encoding, callback);而Duplex需要分别实现_read(size)函数和_write(chunk, encoding, callback)函数.</p>
+<ul>
+<li><strong>6. 实现一个Writable Stream?</strong></li>
+</ul>
+<p>参考答案: 三步走:1)构造函数call Writable 2)　继承Writable 3) 实现_write(chunk, encoding, callback)函数</p>
+<p>代码演示</p>
+<div class="highlight highlight-source-js">
+<pre><span class="pl-k">var Writable = <span class="pl-c1">require(<span class="pl-s"><span class="pl-pds">'stream').Writable;
+var util = require('util');
+
+function <span class="pl-en">MyWritable(<span class="pl-smi">options) {
+    Writable.call(<span class="pl-v">this, options);
+} <span class="pl-c">// 构造函数
+util.inherits(MyWritable, Writable); // 继承自Writable
+MyWritable.prototype._write = function(chunk, encoding, callback) {
+    console.log("被写入的数据是:", chunk.toString()); // 此处可对写入的数据进行处理
+    callback();
+};
+
+process.stdin.pipe(new MyWritable()); // stdin作为输入源，MyWritable作为输出源   </span></span></span></span></span></span></span></span></pre>
+</div>
+<h3><a id="user-content-文件系统" class="anchor" href="/goto/pu7z" rel="nofollow"></a>文件系统</h3>
+<ul>
+<li><strong>1. 内置的fs模块架构是什么样子的?</strong></li>
+</ul>
+<p>参考答案: fs模块主要由下面几部分组成: 1) POSIX文件Wrapper,对应于操作系统的原生文件操作 2) 文件流 fs.createReadStream和fs.createWriteStream 3) 同步文件读写,fs.readFileSync和fs.writeFileSync 4) 异步文件读写, fs.readFile和fs.writeFile</p>
+<ul>
+<li><strong>2. 读写一个文件有多少种方法?</strong></li>
+</ul>
+<p>参考答案: 总体来说有四种: 1) POSIX式低层读写 2) 流式读写 3) 同步文件读写 4) 异步文件读写</p>
+<ul>
+<li><strong>3. 怎么读取json配置文件?</strong></li>
+</ul>
+<p>参考答案: 主要有两种方式，第一种是利用node内置的require(&#8216;data.json&#8217;)机制，直接得到js对象; 第二种是读入文件入内容，然后用JSON.parse(content)转换成js对象．二者的区别是require机制情况下，如果多个模块都加载了同一个json文件，那么其中一个改变了js对象，其它跟着改变，这是由node模块的缓存机制造成的，只有一个js模块对象; 第二种方式则可以随意改变加载后的js变量，而且各模块互不影响，因为他们都是独立的，是多个js对象.</p>
+<ul>
+<li><strong>4. fs.watch和fs.watchFile有什么区别，怎么应用?</strong></li>
+</ul>
+<p>参考答案: 二者主要用来监听文件变动．fs.watch利用操作系统原生机制来监听，可能不适用网络文件系统; fs.watchFile则是定期检查文件状态变更，适用于网络文件系统，但是相比fs.watch有些慢，因为不是实时机制．</p>
+<h3><a id="user-content-网络" class="anchor" href="/goto/ybcr" rel="nofollow"></a>网络</h3>
+<ul>
+<li><strong>1. node的网络模块架构是什么样子的?</strong></li>
+</ul>
+<p>参考答案: node全面支持各种网络服务器和客户端，包括tcp, http/https, tcp, udp, dns, tls/ssl等.</p>
+<ul>
+<li><strong>2. node是怎样支持https,tls的?</strong></li>
+</ul>
+<p>参考答案: 主要实现以下几个步骤即可: 1) openssl生成公钥私钥 2) 服务器或客户端使用https替代http 3) 服务器或客户端加载公钥私钥证书</p>
+<ul>
+<li><strong>3. 实现一个简单的http服务器?</strong></li>
+</ul>
+<p>参考答案: 经典又很没毛意义的一个题目．思路是加载http模块，创建服务器，监听端口.</p>
+<p>代码演示</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-k">var http = <span class="pl-c1">require(<span class="pl-s"><span class="pl-pds">'http'); <span class="pl-c">// 加载http模块
+
+    http.createServer(function(<span class="pl-smi">req, res) {
+        res.writeHead(200, {'Content-Type': 'text/html'}); // 200代表状态成功, 文档类型是给浏览器识别用的
+        res.write('&lt;meta charset="UTF-8"&gt; &lt;h1&gt;我是标题啊！&lt;/h1&gt; &lt;font color="red"&gt;这么原生，初级的服务器，下辈子能用着吗?!&lt;/font&gt;'); // 返回给客户端的html数据
+        res.end(); // 结束输出流
+    }).listen(3000); // 绑定3ooo, 查看效果请访问 http://localhost:3000/ </span></span></span></span></span></span></pre>
+</div>
+<h3><a id="user-content-child-process" class="anchor" href="/goto/obuo" rel="nofollow"></a>child-process</h3>
+<ul>
+<li><strong>1. 为什么需要child-process?</strong></li>
+</ul>
+<p>参考答案: node是异步非阻塞的，这对高并发非常有效．可是我们还有其它一些常用需求，比如和操作系统shell命令交互，调用可执行文件，创建子进程进行阻塞式访问或高CPU计算等，child-process就是为满足这些需求而生的．child-process顾名思义，就是把node阻塞的工作交给子进程去做．</p>
+<ul>
+<li><strong>2. exec,execFile,spawn和fork都是做什么用的?</strong></li>
+</ul>
+<p>参考答案: exec可以用操作系统原生的方式执行各种命令，如管道 cat ab.txt | grep hello; execFile是执行一个文件; spawn是流式和操作系统进行交互; fork是两个node程序(javascript)之间时行交互.</p>
+<ul>
+<li><strong>3. 实现一个简单的命令行交互程序?</strong></li>
+</ul>
+<p>参考答案: 那就用spawn吧.</p>
+<p>代码演示</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-k">var cp = <span class="pl-c1">require(<span class="pl-s"><span class="pl-pds">'child_process');
+
+    var child = cp.spawn('echo', ['你好', "钩子"]); <span class="pl-c">// 执行命令
+    child.stdout.pipe(process.stdout); // child.stdout是输入流，process.stdout是输出流
+    // 这句的意思是将子进程的输出作为当前程序的输入流，然后重定向到当前程序的标准输出，即控制台</span></span></span></span></span></pre>
+</div>
+<ul>
+<li>4. 两个node程序之间怎样交互?</li>
+</ul>
+<p>参考答案: 用fork嘛，上面讲过了．原理是子程序用process.on, process.send，父程序里用child.on,child.send进行交互.<br />
+代码演示</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-c1">1) fork<span class="pl-k">-parent.js
+    var cp = require(<span class="pl-s"><span class="pl-pds">'child_process');
+    var child = cp.fork('./fork-child.js');
+    child.on('message', function(<span class="pl-smi">msg){
+        <span class="pl-en">console.log('老爸从儿子接受到数据:', msg);
+    });
+    child.send('我是你爸爸，送关怀来了!');
+
+    2) fork-child.js
+    process.on('message', function(msg){
+        console.log("儿子从老爸接收到的数据:", msg);
+        process.send("我不要关怀，我要银民币！");
+    });</span></span></span></span></span></span></pre>
+</div>
+<ul>
+<li><strong>5. 怎样让一个js文件变得像linux命令一样可执行?</strong></li>
+</ul>
+<p>参考答案: 1) 在myCommand.js文件头部加入 #!/usr/bin/env node 2) chmod命令把js文件改为可执行即可 3) 进入文件目录，命令行输入myComand就是相当于node myComand.js了</p>
+<ul>
+<li><strong>6. child-process和process的stdin,stdout,stderror是一样的吗?</strong></li>
+</ul>
+<p>参考答案: 概念都是一样的，输入，输出，错误，都是流．区别是在父程序眼里，子程序的stdout是输入流，stdin是输出流．</p>
+<h2><a id="user-content-node高级话题异步部署性能调优异常调试等" class="anchor" href="/goto/4f8b" rel="nofollow"></a><a name="user-content-nodeAdvanced"></a>node高级话题(异步，部署，性能调优，异常调试等)</h2>
+<ul>
+<li><strong>1. node中的异步和同步怎么理解</strong></li>
+</ul>
+<p>参考答案: node是单线程的，异步是通过一次次的循环事件队列来实现的．同步则是说阻塞式的IO,这在高并发环境会是一个很大的性能问题，所以同步一般只在基础框架的启动时使用，用来加载配置文件，初始化程序什么的．</p>
+<ul>
+<li><strong>2. 有哪些方法可以进行异步流程的控制?</strong></li>
+</ul>
+<p>参考答案: 1) 多层嵌套回调 2)　为每一个回调写单独的函数，函数里边再回调 3) 用第三方框架比方async, q, promise等</p>
+<ul>
+<li><strong>3. 怎样绑定node程序到80端口?</strong></li>
+</ul>
+<p>参考答案: 多种方式 1) sudo 2) apache/nginx代理 3) 用操作系统的firewall iptables进行端口重定向</p>
+<ul>
+<li><strong>4. 有哪些方法可以让node程序遇到错误后自动重启?</strong></li>
+</ul>
+<p>参考答案: 1) runit 2) forever 3) nohup npm start &amp;</p>
+<ul>
+<li><strong>5. 怎样充分利用多个CPU?</strong></li>
+</ul>
+<p>参考答案: 一个CPU运行一个node实例</p>
+<ul>
+<li><strong>6. 怎样调节node执行单元的内存大小?</strong></li>
+</ul>
+<p>参考答案: 用&#8211;max-old-space-size 和 &#8211;max-new-space-size 来设置 v8 使用内存的上限</p>
+<ul>
+<li><strong>7. 程序总是崩溃，怎样找出问题在哪里?</strong></li>
+</ul>
+<p>参考答案: 1) node &#8211;prof 查看哪些函数调用次数多 2) memwatch和heapdump获得内存快照进行对比，查找内存溢出</p>
+<ul>
+<li><strong>8. 有哪些常用方法可以防止程序崩溃?</strong></li>
+</ul>
+<p>参考答案: 1) try-catch-finally 2) EventEmitter/Stream error事件处理 3) domain统一控制 4) jshint静态检查 5) jasmine/mocha进行单元测试</p>
+<ul>
+<li><strong>9. 怎样调试node程序?</strong></li>
+</ul>
+<p>参考答案: node &#8211;debug app.js 和node-inspector</p>
+<h2><a id="user-content-常用知名第三方类库async-express等" class="anchor" href="/goto/f3xe" rel="nofollow"></a><a name="user-content-node3rd"></a>常用知名第三方类库(Async, Express等)</h2>
+<ul>
+<li><strong>1. async都有哪些常用方法，分别是怎么用?</strong></li>
+</ul>
+<p>参考答案: async是一个js类库，它的目的是解决js中异常流程难以控制的问题．async不仅适用在node.js里，浏览器中也可以使用． 1) async.parallel并行执行完多个函数后，调用结束函数</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-k">async.parallel([
+        function(){ ... },
+        function(){ ... }
+    ], callback);</span></pre>
+</div>
+<p>2) async.series串行执行完多个函数后，调用结束函数</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-k">async.series([
+        function(){ ... },
+        function(){ ... }
+    ]);</span></pre>
+</div>
+<p>3) async.waterfall依次执行多个函数，后一个函数以前面函数的结果作为输入参数</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-k">async.waterfall([
+        function(<span class="pl-smi">callback) {
+            callback(<span class="pl-c1">null, <span class="pl-s"><span class="pl-pds">'one', 'two');
+        },
+        function(arg1, arg2, callback) {
+          <span class="pl-c">// arg1 now equals 'one' and arg2 now equals 'two' 
+            callback(null, 'three');
+        },
+        function(arg1, callback) {
+            // arg1 now equals 'three' 
+            callback(null, 'done');
+        }
+    ], function (err, result) {
+        // result now equals 'done' 
+    });</span></span></span></span></span></span></pre>
+</div>
+<p>4) async.map异步执行多个数组，返回结果数组</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-k">async.map([<span class="pl-s"><span class="pl-pds">'file1','file2','file3'], fs.stat, function(<span class="pl-smi">err, results){
+        <span class="pl-c">// results is now an array of stats for each file 
+    });</span></span></span></span></span></pre>
+</div>
+<p>5) async.filter异步过滤多个数组，返回结果数组</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-k">async.filter([<span class="pl-s"><span class="pl-pds">'file1','file2','file3'], fs.exists, function(<span class="pl-smi">results){
+        <span class="pl-c">// results now equals an array of the existing files 
+    });</span></span></span></span></span></pre>
+</div>
+<ul>
+<li><strong>2. express项目的目录大致是什么样子的</strong></li>
+</ul>
+<p>参考答案: app.js, package.json, bin/www, public, routes, views.</p>
+<ul>
+<li><strong>3. express常用函数</strong></li>
+</ul>
+<p>参考答案: express.Router路由组件,app.get路由定向，app.configure配置，app.set设定参数,app.use使用中间件</p>
+<ul>
+<li><strong>4. express中如何获取路由的参数</strong></li>
+</ul>
+<p>参考答案: /users/:name使用req.params.name来获取; req.body.username则是获得表单传入参数username; express路由支持常用通配符 ?, +, *, and ()</p>
+<ul>
+<li><strong>5. express response有哪些常用方法</strong></li>
+</ul>
+<p>参考答案: res.download() 弹出文件下载<br />
+res.end() 结束response<br />
+res.json() 返回json<br />
+res.jsonp() 返回jsonp<br />
+res.redirect() 重定向请求<br />
+res.render() 渲染模板<br />
+res.send() 返回多种形式数据<br />
+res.sendFile 返回文件<br />
+res.sendStatus() 返回状态</p>
+<h2><a id="user-content-其它相关后端常用技术mongodb-redis-apache-nginx等" class="anchor" href="/goto/wzxv" rel="nofollow"></a><a name="user-content-otherBackend"></a>其它相关后端常用技术(MongoDB, Redis, Apache, Nginx等)</h2>
+<ul>
+<li><strong>1. mongodb有哪些常用优化措施</strong></li>
+</ul>
+<p>参考答案: 类似传统数据库，索引和分区．</p>
+<ul>
+<li><strong>2. redis支持哪些功能</strong></li>
+</ul>
+<p>参考答案: set/get, hset/hget, publish/subscribe, expire</p>
+<ul>
+<li><strong>3. redis最简单的应用</strong></li>
+</ul>
+<p>参考答案:</p>
+<div class="highlight highlight-source-js">
+<pre>    <span class="pl-k">var redis = <span class="pl-c1">require(<span class="pl-s"><span class="pl-pds">"redis"),
+        client = redis.createClient();
+
+    client.set("foo_rand000000000000", "some fantastic value");
+    client.get("foo_rand000000000000", function (<span class="pl-smi">err, reply) {
+        <span class="pl-en">console.log(reply.toString());
+    });
+    client.end();</span></span></span></span></span></span></pre>
+</div>
+<ul>
+<li><strong>4. apache,nginx有什么区别?</strong></li>
+</ul>
+<p>参考答案: 二者都是代理服务器，功能类似．apache应用简单，相当广泛．nginx在分布式，静态转发方面比较有优势．</p>
+<h2><a id="user-content-常用前端技术html5-css3-jquery等" class="anchor" href="/goto/syd6" rel="nofollow"></a><a name="user-content-otherFrontEnd"></a>常用前端技术(Html5, CSS3, JQuery等)</h2>
+<ul>
+<li><strong>1. Html5有哪些比较实用新功能</strong></li>
+</ul>
+<p>参考答案: File API支持本地文件操作; Canvans/SVG支持绘图; 拖拽功能支持; 本地存储支持; 表单多属性验证支持; 原生音频视频支持等</p>
+<ul>
+<li><strong>2. CSS3/JQuery有哪些学常见选择器</strong></li>
+</ul>
+<p>参考答案: id, 元素，属性, 值，父子兄弟, 序列等</p>
+<ul>
+<li><strong>3. JQuery有哪些经典应用</strong></li>
+</ul>
+<p>参考答案: 文档选择，文档操作，动画, ajax, json, js扩展等.</p>
+<h1><a id="user-content-nodejs-设计模式" class="anchor" href="/goto/o8pw" rel="nofollow" aria-hidden="true"></a>node.js 设计模式</h1>
+<ul>
+<li>HeadFirstDesignPatternInJavascript</li>
+<li>HeadFirstDesignPattern是一本非常经典的设计模式入门书籍。可是Javascript由于语言本身的限制，比较难以应用。随着新浏览器和Node.js开始普遍支持ES5, ES6,尤其是对类的支持。设计模式已经变得触手可及，对于大型Node.js项目更是非常必要。 HeadFirstDesignPatternInJavascript正是js版本的设计模式实现。</li>
+</ul>
+]]></content:encoded>
+					
+					<wfw:commentRss>/uncategorized/8689.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

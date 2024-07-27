@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>字段映射 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%AD%97%E6%AE%B5%E6%98%A0%E5%B0%84/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 09 Jun 2018 01:13:45 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>字段映射 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP 3.2 （三）字段缓存、自动验证、字段映射、连贯操作、Trace 工具</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/3815.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/3815.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 13:06:34 +0000</pubDate>
+				<category><![CDATA[TP3.2]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[Trace 工具]]></category>
+		<category><![CDATA[字段映射]]></category>
+		<category><![CDATA[字段缓存]]></category>
+		<category><![CDATA[自动验证]]></category>
+		<category><![CDATA[连贯操作]]></category>
+		<guid isPermaLink="false">/?p=3815</guid>
+
+					<description><![CDATA[TP中的模型(二) 1.1、字段缓存 1.1.1、思考问题一 当使用save方法进行修改数据时。需要在传递的修 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>TP中的模型(二)</h1>
+<h2>1.1、字段缓存</h2>
+<h3>1.1.1、思考问题一</h3>
+<p>
+  当使用save方法进行修改数据时。需要在传递的修改数据中增加主键才能正常的修改数据。为什么加上主键TP就知道了条件呢？原因是因为TP会自动的分析数据表结构
+</p>
+<p>
+  ①创建测试方法
+</p>
+<p><img fetchpriority="high" decoding="async" width="852" height="410" src="/wp-content/uploads/2018/05/word-image-3363.png" class="wp-image-3816" srcset="/wp-content/uploads/2018/05/word-image-3363.png 852w, /wp-content/uploads/2018/05/word-image-3363-300x144.png 300w, /wp-content/uploads/2018/05/word-image-3363-768x370.png 768w" sizes="(max-width: 852px) 100vw, 852px" /></p>
+<p>
+  ②结果如下
+</p>
+<p><img decoding="async" width="746" height="255" src="/wp-content/uploads/2018/05/word-image-3364.png" class="wp-image-3817" srcset="/wp-content/uploads/2018/05/word-image-3364.png 746w, /wp-content/uploads/2018/05/word-image-3364-300x103.png 300w" sizes="(max-width: 746px) 100vw, 746px" /></p>
+<h3>1.1.2、思考问题二</h3>
+<p>
+  从目前所知当每次实例化模型对象时TP会自动的分析表结构(查询数据)。如果当前业务中有多次实例化操作，并且当前方法访问的比较多。那么就对项目的性能产生影响
+</p>
+<h3>1.1.3、字段缓存</h3>
+<p>
+  当每次实例化对象时TP不会再去分析表结构。而是直接去读取”缓存”(读文件)中的内容
+</p>
+<p>
+  ①开启TP的字段缓存功能
+</p>
+<p><img decoding="async" width="1081" height="388" src="/wp-content/uploads/2018/05/word-image-3365.png" class="wp-image-3818" srcset="/wp-content/uploads/2018/05/word-image-3365.png 1081w, /wp-content/uploads/2018/05/word-image-3365-300x108.png 300w, /wp-content/uploads/2018/05/word-image-3365-768x276.png 768w, /wp-content/uploads/2018/05/word-image-3365-1024x368.png 1024w" sizes="(max-width: 1081px) 100vw, 1081px" /></p>
+<p>
+  ②查看第一次效果
+</p>
+<p><img loading="lazy" decoding="async" width="743" height="225" src="/wp-content/uploads/2018/05/word-image-3366.png" class="wp-image-3819" srcset="/wp-content/uploads/2018/05/word-image-3366.png 743w, /wp-content/uploads/2018/05/word-image-3366-300x91.png 300w" sizes="(max-width: 743px) 100vw, 743px" /></p>
+<p>
+  ③第二次效果
+</p>
+<p><img loading="lazy" decoding="async" width="809" height="175" src="/wp-content/uploads/2018/05/word-image-3367.png" class="wp-image-3820" srcset="/wp-content/uploads/2018/05/word-image-3367.png 809w, /wp-content/uploads/2018/05/word-image-3367-300x65.png 300w, /wp-content/uploads/2018/05/word-image-3367-768x166.png 768w" sizes="(max-width: 809px) 100vw, 809px" /></p>
+<p>
+  ④查看缓存文件
+</p>
+<p><img loading="lazy" decoding="async" width="1295" height="215" src="/wp-content/uploads/2018/05/word-image-3368.png" class="wp-image-3821" srcset="/wp-content/uploads/2018/05/word-image-3368.png 1295w, /wp-content/uploads/2018/05/word-image-3368-300x50.png 300w, /wp-content/uploads/2018/05/word-image-3368-768x128.png 768w, /wp-content/uploads/2018/05/word-image-3368-1024x170.png 1024w" sizes="(max-width: 1295px) 100vw, 1295px" /></p>
+<p>
+  解释：当开启字段缓存功能时。第一次实例化模型对象需要去读取数据表的结构信息。但是目前文件不存在，先读取数据库然后将结果写入到文件中。当第二次实例化对象时由于文件已经存在直接读取即可
+</p>
+<p>
+  更新缓存
+</p>
+<p>
+  注意：在调试模式下虽然有对应的字段缓存的文件存在。但是也不会使用
+</p>
+<h2>1.2、字段定义</h2>
+<p>
+  对于字段缓存功能将信息存在文件中。文件读取受到磁盘的IO性能影响。磁盘相对于内存效率明显低。为了效率可以将数据表的结果信息保存到变量中(内存)。TP提供了一个变量$fileds容许定义数据表的结构信息。Tp会自动的载入该变量
+</p>
+<h3>1.2.1、实现字段定义</h3>
+<p>
+  ①定义字段信息
+</p>
+<p><img loading="lazy" decoding="async" width="675" height="571" src="/wp-content/uploads/2018/05/word-image-3369.png" class="wp-image-3822" srcset="/wp-content/uploads/2018/05/word-image-3369.png 675w, /wp-content/uploads/2018/05/word-image-3369-300x254.png 300w" sizes="(max-width: 675px) 100vw, 675px" /></p>
+<p>
+  ②创建测试方法
+</p>
+<p><img loading="lazy" decoding="async" width="809" height="323" src="/wp-content/uploads/2018/05/word-image-3370.png" class="wp-image-3823" srcset="/wp-content/uploads/2018/05/word-image-3370.png 809w, /wp-content/uploads/2018/05/word-image-3370-300x120.png 300w, /wp-content/uploads/2018/05/word-image-3370-768x307.png 768w" sizes="(max-width: 809px) 100vw, 809px" /></p>
+<p>
+  ③结果
+</p>
+<p><img loading="lazy" decoding="async" width="933" height="452" src="/wp-content/uploads/2018/05/word-image-3371.png" class="wp-image-3824" srcset="/wp-content/uploads/2018/05/word-image-3371.png 933w, /wp-content/uploads/2018/05/word-image-3371-300x145.png 300w, /wp-content/uploads/2018/05/word-image-3371-768x372.png 768w" sizes="(max-width: 933px) 100vw, 933px" /></p>
+<h3>1.2.2、案例数据写入</h3>
+<p>
+  ①创建方法
+</p>
+<p><img loading="lazy" decoding="async" width="873" height="374" src="/wp-content/uploads/2018/05/word-image-3372.png" class="wp-image-3825" srcset="/wp-content/uploads/2018/05/word-image-3372.png 873w, /wp-content/uploads/2018/05/word-image-3372-300x129.png 300w, /wp-content/uploads/2018/05/word-image-3372-768x329.png 768w" sizes="(max-width: 873px) 100vw, 873px" /></p>
+<p>
+  ②访问测试
+</p>
+<p><img loading="lazy" decoding="async" width="966" height="219" src="/wp-content/uploads/2018/05/word-image-3373.png" class="wp-image-3826" srcset="/wp-content/uploads/2018/05/word-image-3373.png 966w, /wp-content/uploads/2018/05/word-image-3373-300x68.png 300w, /wp-content/uploads/2018/05/word-image-3373-768x174.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<p>
+  ③修改表结构
+</p>
+<p><img loading="lazy" decoding="async" width="780" height="189" src="/wp-content/uploads/2018/05/word-image-3374.png" class="wp-image-3827" srcset="/wp-content/uploads/2018/05/word-image-3374.png 780w, /wp-content/uploads/2018/05/word-image-3374-300x73.png 300w, /wp-content/uploads/2018/05/word-image-3374-768x186.png 768w" sizes="(max-width: 780px) 100vw, 780px" /></p>
+<p>
+  ④再次写入数据
+</p>
+<p><img loading="lazy" decoding="async" width="800" height="195" src="/wp-content/uploads/2018/05/word-image-3375.png" class="wp-image-3828" srcset="/wp-content/uploads/2018/05/word-image-3375.png 800w, /wp-content/uploads/2018/05/word-image-3375-300x73.png 300w, /wp-content/uploads/2018/05/word-image-3375-768x187.png 768w" sizes="(max-width: 800px) 100vw, 800px" /></p>
+<p>
+  结果如下
+</p>
+<p><img loading="lazy" decoding="async" width="957" height="646" src="/wp-content/uploads/2018/05/word-image-3376.png" class="wp-image-3829" srcset="/wp-content/uploads/2018/05/word-image-3376.png 957w, /wp-content/uploads/2018/05/word-image-3376-300x203.png 300w, /wp-content/uploads/2018/05/word-image-3376-768x518.png 768w, /wp-content/uploads/2018/05/word-image-3376-220x150.png 220w" sizes="(max-width: 957px) 100vw, 957px" /></p>
+<p>
+  对于上述问题的原因是因为修改了数据表结构。但是在属性中的自定义的字段信息没有变化。没有修改导致数据永远不能正常操作到。
+</p>
+<p>
+  注意：修改表结构之后一定要修改字段信息
+</p>
+<p>
+  ⑤修改属性
+</p>
+<p><img loading="lazy" decoding="async" width="1058" height="587" src="/wp-content/uploads/2018/05/word-image-3377.png" class="wp-image-3830" srcset="/wp-content/uploads/2018/05/word-image-3377.png 1058w, /wp-content/uploads/2018/05/word-image-3377-300x166.png 300w, /wp-content/uploads/2018/05/word-image-3377-768x426.png 768w, /wp-content/uploads/2018/05/word-image-3377-1024x568.png 1024w" sizes="(max-width: 1058px) 100vw, 1058px" /></p>
+<p>
+  结果如下
+</p>
+<p><img loading="lazy" decoding="async" width="872" height="177" src="/wp-content/uploads/2018/05/word-image-3378.png" class="wp-image-3831" srcset="/wp-content/uploads/2018/05/word-image-3378.png 872w, /wp-content/uploads/2018/05/word-image-3378-300x61.png 300w, /wp-content/uploads/2018/05/word-image-3378-768x156.png 768w" sizes="(max-width: 872px) 100vw, 872px" /></p>
+<p>
+  注意：字段缓存不论怎么实例化只要开启都会使用。字段定义只针对使用D实例化方式
+</p>
+<h2>1.3、数据创建</h2>
+<p>
+  当进行数据提交入库时需要每一个要入库的字段需要逐个接受。对于此方式操作特别麻烦。此时可以使用模型提供的数据创建功能方便接受数据并且对数据进行安全的验证
+</p>
+<p>
+  ①创建表单
+</p>
+<p><img loading="lazy" decoding="async" width="951" height="599" src="/wp-content/uploads/2018/05/word-image-3379.png" class="wp-image-3832" srcset="/wp-content/uploads/2018/05/word-image-3379.png 951w, /wp-content/uploads/2018/05/word-image-3379-300x189.png 300w, /wp-content/uploads/2018/05/word-image-3379-768x484.png 768w" sizes="(max-width: 951px) 100vw, 951px" /></p>
+<p>
+  ②创建方法
+</p>
+<p><img loading="lazy" decoding="async" width="864" height="487" src="/wp-content/uploads/2018/05/word-image-3380.png" class="wp-image-3833" srcset="/wp-content/uploads/2018/05/word-image-3380.png 864w, /wp-content/uploads/2018/05/word-image-3380-300x169.png 300w, /wp-content/uploads/2018/05/word-image-3380-768x433.png 768w" sizes="(max-width: 864px) 100vw, 864px" /></p>
+<p>
+  结果可以正常接受但是麻烦并且缺少安全验证
+</p>
+<p><img loading="lazy" decoding="async" width="617" height="266" src="/wp-content/uploads/2018/05/word-image-3381.png" class="wp-image-3834" srcset="/wp-content/uploads/2018/05/word-image-3381.png 617w, /wp-content/uploads/2018/05/word-image-3381-300x129.png 300w" sizes="(max-width: 617px) 100vw, 617px" /></p>
+<p>
+  ③使用数据创建
+</p>
+<p><img loading="lazy" decoding="async" width="1099" height="648" src="/wp-content/uploads/2018/05/word-image-3382.png" class="wp-image-3835" srcset="/wp-content/uploads/2018/05/word-image-3382.png 1099w, /wp-content/uploads/2018/05/word-image-3382-300x177.png 300w, /wp-content/uploads/2018/05/word-image-3382-768x453.png 768w, /wp-content/uploads/2018/05/word-image-3382-1024x604.png 1024w" sizes="(max-width: 1099px) 100vw, 1099px" /></p>
+<p>
+  ④查看结果
+</p>
+<p>
+  修改前台的html
+</p>
+<p><img loading="lazy" decoding="async" width="1007" height="569" src="/wp-content/uploads/2018/05/word-image-3383.png" class="wp-image-3836" srcset="/wp-content/uploads/2018/05/word-image-3383.png 1007w, /wp-content/uploads/2018/05/word-image-3383-300x170.png 300w, /wp-content/uploads/2018/05/word-image-3383-768x434.png 768w" sizes="(max-width: 1007px) 100vw, 1007px" /></p>
+<p>
+  结果如下
+</p>
+<p><img loading="lazy" decoding="async" width="605" height="208" src="/wp-content/uploads/2018/05/word-image-3384.png" class="wp-image-3837" srcset="/wp-content/uploads/2018/05/word-image-3384.png 605w, /wp-content/uploads/2018/05/word-image-3384-300x103.png 300w" sizes="(max-width: 605px) 100vw, 605px" /></p>
+<p>
+  对于使用create数据创建默认情况下只能处理post表单提交的数据。如果表单提交为GET默认就不支持
+</p>
+<h2>1.4、自动验证(重点)</h2>
+<p>
+  就目前使用create方法能够简单的验证数据(通过根据数据表的字段信息过滤无用的字段)。但是还不能满足要求。需要针对每一个字段的格式都进行验证。
+</p>
+<ol>
+<li>
+  可以使用最原始的方式的逐个校验
+</li>
+<li>
+  使用TP所提供的自动验证功能
+</li>
+</ol>
+<h3>1.4.1、验证方式</h3>
+<p><img loading="lazy" decoding="async" width="881" height="355" src="/wp-content/uploads/2018/05/word-image-3385.png" class="wp-image-3838" srcset="/wp-content/uploads/2018/05/word-image-3385.png 881w, /wp-content/uploads/2018/05/word-image-3385-300x121.png 300w, /wp-content/uploads/2018/05/word-image-3385-768x309.png 768w" sizes="(max-width: 881px) 100vw, 881px" /></p>
+<p>
+  TP所提供的自动验证方式有两种：分别为静态方式跟动态方式。对于两种方式都需要编写验证规则
+</p>
+<h3>1.4.2、验证规则</h3>
+<p><img loading="lazy" decoding="async" width="1033" height="252" src="/wp-content/uploads/2018/05/word-image-3386.png" class="wp-image-3839" srcset="/wp-content/uploads/2018/05/word-image-3386.png 1033w, /wp-content/uploads/2018/05/word-image-3386-300x73.png 300w, /wp-content/uploads/2018/05/word-image-3386-768x187.png 768w, /wp-content/uploads/2018/05/word-image-3386-1024x250.png 1024w" sizes="(max-width: 1033px) 100vw, 1033px" /></p>
+<p><strong>验证字段</strong>：需要进行验证的字段名称(对应数据表中的字段)。对于其他特殊（数据表中无字段但是需要验证）的可以使用表单名称
+</p>
+<p><strong>验证规则</strong>：与附加规则配合使用。附加规则指定一个大的验证方式。验证规则在附加规则的基础上在指定更为精确的验证规则。
+</p>
+<p>
+  如果附加规则为regex验证规则就需要写上具体的正则表达式
+</p>
+<p>
+  如果附加规则为function验证规则就需要写上公共函数名称
+</p>
+<p>
+  如果附加规则为callback验证规则就需要写上当前模型下的方法
+</p>
+<p><strong>错误提示</strong>：当验证不通过提示个用户的信息
+</p>
+<p><strong>验证条件：</strong>设置用户的提交的内容存在与否  是否进行判断
+</p>
+<p><img loading="lazy" decoding="async" width="635" height="193" src="/wp-content/uploads/2018/05/word-image-3387.png" class="wp-image-3840" srcset="/wp-content/uploads/2018/05/word-image-3387.png 635w, /wp-content/uploads/2018/05/word-image-3387-300x91.png 300w" sizes="(max-width: 635px) 100vw, 635px" /></p>
+<p><strong>附加规则：</strong>指定验证使用哪一种方式进行验证
+</p>
+<p><img loading="lazy" decoding="async" width="1018" height="582" src="/wp-content/uploads/2018/05/word-image-3388.png" class="wp-image-3841" srcset="/wp-content/uploads/2018/05/word-image-3388.png 1018w, /wp-content/uploads/2018/05/word-image-3388-300x172.png 300w, /wp-content/uploads/2018/05/word-image-3388-768x439.png 768w" sizes="(max-width: 1018px) 100vw, 1018px" /></p>
+<p><strong>验证时间：</strong>指定什么时间进行验证
+</p>
+<p><img loading="lazy" decoding="async" width="813" height="267" src="/wp-content/uploads/2018/05/word-image-3389.png" class="wp-image-3842" srcset="/wp-content/uploads/2018/05/word-image-3389.png 813w, /wp-content/uploads/2018/05/word-image-3389-300x99.png 300w, /wp-content/uploads/2018/05/word-image-3389-768x252.png 768w" sizes="(max-width: 813px) 100vw, 813px" /></p>
+<p>
+  关于验证规则在第一维下。每一个元素就是一条验证规则。如果针对一个内容需要有多个验证规则可以写多条
+</p>
+<h3>1.4.3、静态方式进行验证-正则</h3>
+<p>
+  ①创建验证规则
+</p>
+<p><img loading="lazy" decoding="async" width="1069" height="601" src="/wp-content/uploads/2018/05/word-image-3390.png" class="wp-image-3843" srcset="/wp-content/uploads/2018/05/word-image-3390.png 1069w, /wp-content/uploads/2018/05/word-image-3390-300x169.png 300w, /wp-content/uploads/2018/05/word-image-3390-768x432.png 768w, /wp-content/uploads/2018/05/word-image-3390-1024x576.png 1024w" sizes="(max-width: 1069px) 100vw, 1069px" /></p>
+<p>
+  ②查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="653" height="343" src="/wp-content/uploads/2018/05/word-image-3391.png" class="wp-image-3844" srcset="/wp-content/uploads/2018/05/word-image-3391.png 653w, /wp-content/uploads/2018/05/word-image-3391-300x158.png 300w" sizes="(max-width: 653px) 100vw, 653px" /></p>
+<p>
+  ③不填写内容时的提交
+</p>
+<p><img loading="lazy" decoding="async" width="631" height="196" src="/wp-content/uploads/2018/05/word-image-3392.png" class="wp-image-3845" srcset="/wp-content/uploads/2018/05/word-image-3392.png 631w, /wp-content/uploads/2018/05/word-image-3392-300x93.png 300w" sizes="(max-width: 631px) 100vw, 631px" /></p>
+<p>
+  ④修改代码获取提示内容
+</p>
+<p><img loading="lazy" decoding="async" width="937" height="703" src="/wp-content/uploads/2018/05/word-image-3393.png" class="wp-image-3846" srcset="/wp-content/uploads/2018/05/word-image-3393.png 937w, /wp-content/uploads/2018/05/word-image-3393-300x225.png 300w, /wp-content/uploads/2018/05/word-image-3393-768x576.png 768w" sizes="(max-width: 937px) 100vw, 937px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="618" height="383" src="/wp-content/uploads/2018/05/word-image-3394.png" class="wp-image-3847" srcset="/wp-content/uploads/2018/05/word-image-3394.png 618w, /wp-content/uploads/2018/05/word-image-3394-300x186.png 300w" sizes="(max-width: 618px) 100vw, 618px" /></p>
+<p>
+  ⑤关于系统支持的正则表达式
+</p>
+<p><img loading="lazy" decoding="async" width="1077" height="628" src="/wp-content/uploads/2018/05/word-image-3395.png" class="wp-image-3848" srcset="/wp-content/uploads/2018/05/word-image-3395.png 1077w, /wp-content/uploads/2018/05/word-image-3395-300x175.png 300w, /wp-content/uploads/2018/05/word-image-3395-768x448.png 768w, /wp-content/uploads/2018/05/word-image-3395-1024x597.png 1024w" sizes="(max-width: 1077px) 100vw, 1077px" /></p>
+<p>
+  对于使用正则验证。对于第二个参数如果不使用系统内置的正则表达式可以自己编写正则
+</p>
+<h3>1.4.3、静态方式验证-函数</h3>
+<p>
+  函数可以使用php内置的已经TP中定的公共函数
+</p>
+<p>
+  ①定义验证规则
+</p>
+<p><img loading="lazy" decoding="async" width="1097" height="494" src="/wp-content/uploads/2018/05/word-image-3396.png" class="wp-image-3849" srcset="/wp-content/uploads/2018/05/word-image-3396.png 1097w, /wp-content/uploads/2018/05/word-image-3396-300x135.png 300w, /wp-content/uploads/2018/05/word-image-3396-768x346.png 768w, /wp-content/uploads/2018/05/word-image-3396-1024x461.png 1024w" sizes="(max-width: 1097px) 100vw, 1097px" /></p>
+<p>
+  ②创建自定义的公共函数
+</p>
+<p><img loading="lazy" decoding="async" width="987" height="480" src="/wp-content/uploads/2018/05/word-image-3397.png" class="wp-image-3850" srcset="/wp-content/uploads/2018/05/word-image-3397.png 987w, /wp-content/uploads/2018/05/word-image-3397-300x146.png 300w, /wp-content/uploads/2018/05/word-image-3397-768x373.png 768w" sizes="(max-width: 987px) 100vw, 987px" /></p>
+<p>
+  ③查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="598" height="341" src="/wp-content/uploads/2018/05/word-image-3398.png" class="wp-image-3851" srcset="/wp-content/uploads/2018/05/word-image-3398.png 598w, /wp-content/uploads/2018/05/word-image-3398-300x171.png 300w" sizes="(max-width: 598px) 100vw, 598px" /></p>
+<h3>1.4.4、静态方式验证-方法</h3>
+<p>
+  ①增加验证规则
+</p>
+<p><img loading="lazy" decoding="async" width="1072" height="525" src="/wp-content/uploads/2018/05/word-image-3399.png" class="wp-image-3852" srcset="/wp-content/uploads/2018/05/word-image-3399.png 1072w, /wp-content/uploads/2018/05/word-image-3399-300x147.png 300w, /wp-content/uploads/2018/05/word-image-3399-768x376.png 768w, /wp-content/uploads/2018/05/word-image-3399-1024x501.png 1024w" sizes="(max-width: 1072px) 100vw, 1072px" /></p>
+<p>
+  ②增加方法
+</p>
+<p><img loading="lazy" decoding="async" width="1063" height="461" src="/wp-content/uploads/2018/05/word-image-3400.png" class="wp-image-3853" srcset="/wp-content/uploads/2018/05/word-image-3400.png 1063w, /wp-content/uploads/2018/05/word-image-3400-300x130.png 300w, /wp-content/uploads/2018/05/word-image-3400-768x333.png 768w, /wp-content/uploads/2018/05/word-image-3400-1024x444.png 1024w" sizes="(max-width: 1063px) 100vw, 1063px" /></p>
+<p>
+  ③效果
+</p>
+<p><img loading="lazy" decoding="async" width="542" height="365" src="/wp-content/uploads/2018/05/word-image-3401.png" class="wp-image-3854" srcset="/wp-content/uploads/2018/05/word-image-3401.png 542w, /wp-content/uploads/2018/05/word-image-3401-300x202.png 300w" sizes="(max-width: 542px) 100vw, 542px" /></p>
+<h3>1.4.5、使用动态方式进行验证</h3>
+<p>
+  ①注释静态的方式验证
+</p>
+<p><img loading="lazy" decoding="async" width="1066" height="634" src="/wp-content/uploads/2018/05/word-image-3402.png" class="wp-image-3855" srcset="/wp-content/uploads/2018/05/word-image-3402.png 1066w, /wp-content/uploads/2018/05/word-image-3402-300x178.png 300w, /wp-content/uploads/2018/05/word-image-3402-768x457.png 768w, /wp-content/uploads/2018/05/word-image-3402-1024x609.png 1024w" sizes="(max-width: 1066px) 100vw, 1066px" /></p>
+<p>
+  ②创建测试方法显示模板并且提交验证
+</p>
+<p><img loading="lazy" decoding="async" width="1023" height="685" src="/wp-content/uploads/2018/05/word-image-3403.png" class="wp-image-3856" srcset="/wp-content/uploads/2018/05/word-image-3403.png 1023w, /wp-content/uploads/2018/05/word-image-3403-300x201.png 300w, /wp-content/uploads/2018/05/word-image-3403-768x514.png 768w" sizes="(max-width: 1023px) 100vw, 1023px" /></p>
+<h2>1.5、字段映射</h2>
+<p>
+  在实际处理表单提交时，在每一个文本框中需要设置表单名称。对于表单名称一般都是使用数据表的字段名称。此方式存在安全隐患。暴露了数据表的字段信息。可以通过使用字段映射功能隐藏真实数据表的字段名称
+</p>
+<p>
+  ①增加自定义字段映射
+</p>
+<p><img loading="lazy" decoding="async" width="912" height="400" src="/wp-content/uploads/2018/05/word-image-3404.png" class="wp-image-3857" srcset="/wp-content/uploads/2018/05/word-image-3404.png 912w, /wp-content/uploads/2018/05/word-image-3404-300x132.png 300w, /wp-content/uploads/2018/05/word-image-3404-768x337.png 768w" sizes="(max-width: 912px) 100vw, 912px" /></p>
+<p>
+  ②创建方法
+</p>
+<p><img loading="lazy" decoding="async" width="813" height="513" src="/wp-content/uploads/2018/05/word-image-3405.png" class="wp-image-3858" srcset="/wp-content/uploads/2018/05/word-image-3405.png 813w, /wp-content/uploads/2018/05/word-image-3405-300x189.png 300w, /wp-content/uploads/2018/05/word-image-3405-768x485.png 768w" sizes="(max-width: 813px) 100vw, 813px" /></p>
+<p>
+  ③创建模板
+</p>
+<p><img loading="lazy" decoding="async" width="992" height="583" src="/wp-content/uploads/2018/05/word-image-3406.png" class="wp-image-3859" srcset="/wp-content/uploads/2018/05/word-image-3406.png 992w, /wp-content/uploads/2018/05/word-image-3406-300x176.png 300w, /wp-content/uploads/2018/05/word-image-3406-768x451.png 768w" sizes="(max-width: 992px) 100vw, 992px" /></p>
+<h2>1.6、自动完成</h2>
+<p>
+  在使用create时自动处理数据。例如有addtime字段需要记录写入时间。可以通过自动完成当create创建数据之后。会自动的增加对应的内容
+</p>
+<h3>1.6.1、自动完成规则</h3>
+<p><img loading="lazy" decoding="async" width="1049" height="402" src="/wp-content/uploads/2018/05/word-image-3407.png" class="wp-image-3860" srcset="/wp-content/uploads/2018/05/word-image-3407.png 1049w, /wp-content/uploads/2018/05/word-image-3407-300x115.png 300w, /wp-content/uploads/2018/05/word-image-3407-768x294.png 768w, /wp-content/uploads/2018/05/word-image-3407-1024x392.png 1024w" sizes="(max-width: 1049px) 100vw, 1049px" /></p>
+<p>
+  完成字段：填写具体的字段名称即可
+</p>
+<p>
+  完成规则：与附加规则配合使用。附加规则指定具体完成方式。完成规则在附加规则的基础上再次确认使用哪种更为准确的方式进行处理
+</p>
+<p>
+  当附加规则为function 完成规则需要写上函数名称
+</p>
+<p>
+  当附加规则为callback完成规则需要写上当前模型下的方法名称
+</p>
+<p>
+  完成条件：规定使用规则的时间
+</p>
+<p><img loading="lazy" decoding="async" width="605" height="275" src="/wp-content/uploads/2018/05/word-image-3408.png" class="wp-image-3861" srcset="/wp-content/uploads/2018/05/word-image-3408.png 605w, /wp-content/uploads/2018/05/word-image-3408-300x136.png 300w" sizes="(max-width: 605px) 100vw, 605px" /></p>
+<p>
+  附加规则：指定自动完成方式
+</p>
+<p><img loading="lazy" decoding="async" width="664" height="358" src="/wp-content/uploads/2018/05/word-image-3409.png" class="wp-image-3862" srcset="/wp-content/uploads/2018/05/word-image-3409.png 664w, /wp-content/uploads/2018/05/word-image-3409-300x162.png 300w" sizes="(max-width: 664px) 100vw, 664px" /></p>
+<h3>1.6.2、自动完成案例</h3>
+<p>
+  ①修改表结果
+</p>
+<p><img loading="lazy" decoding="async" width="669" height="336" src="/wp-content/uploads/2018/05/word-image-3410.png" class="wp-image-3863" srcset="/wp-content/uploads/2018/05/word-image-3410.png 669w, /wp-content/uploads/2018/05/word-image-3410-300x151.png 300w" sizes="(max-width: 669px) 100vw, 669px" /></p>
+<p>
+  ②修改自定义的字段信息
+</p>
+<p><img loading="lazy" decoding="async" width="972" height="316" src="/wp-content/uploads/2018/05/word-image-3411.png" class="wp-image-3864" srcset="/wp-content/uploads/2018/05/word-image-3411.png 972w, /wp-content/uploads/2018/05/word-image-3411-300x98.png 300w, /wp-content/uploads/2018/05/word-image-3411-768x250.png 768w" sizes="(max-width: 972px) 100vw, 972px" /></p>
+<p>
+  ③创建自动完成规则
+</p>
+<p><img loading="lazy" decoding="async" width="865" height="343" src="/wp-content/uploads/2018/05/word-image-3412.png" class="wp-image-3865" srcset="/wp-content/uploads/2018/05/word-image-3412.png 865w, /wp-content/uploads/2018/05/word-image-3412-300x119.png 300w, /wp-content/uploads/2018/05/word-image-3412-768x305.png 768w" sizes="(max-width: 865px) 100vw, 865px" /></p>
+<p>
+  ④查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="572" height="239" src="/wp-content/uploads/2018/05/word-image-3413.png" class="wp-image-3866" srcset="/wp-content/uploads/2018/05/word-image-3413.png 572w, /wp-content/uploads/2018/05/word-image-3413-300x125.png 300w" sizes="(max-width: 572px) 100vw, 572px" /></p>
+<p>
+  自动完成帮助自动增加或者修改数据的
+</p>
+<h2>1.7、特殊表操作</h2>
+<p>
+  一般模型名称跟数据表的名称保持一致的。但是部分业务场景可能数据表的名称比较奇怪。对此情况可以使用模型中提供的属性tableName跟trueTbaleName控制操作的数据表
+</p>
+<h3>1.7.1、tableName</h3>
+<p>
+  指定表的名称不包括表前缀。表前缀会自动的补上
+</p>
+<p>
+  ①复制数据表
+</p>
+<p><img loading="lazy" decoding="async" width="720" height="354" src="/wp-content/uploads/2018/05/word-image-3414.png" class="wp-image-3867" srcset="/wp-content/uploads/2018/05/word-image-3414.png 720w, /wp-content/uploads/2018/05/word-image-3414-300x148.png 300w" sizes="(max-width: 720px) 100vw, 720px" /></p>
+<p>
+  ②在模型中定义表的名称
+</p>
+<p><img loading="lazy" decoding="async" width="1064" height="393" src="/wp-content/uploads/2018/05/word-image-3415.png" class="wp-image-3868" srcset="/wp-content/uploads/2018/05/word-image-3415.png 1064w, /wp-content/uploads/2018/05/word-image-3415-300x111.png 300w, /wp-content/uploads/2018/05/word-image-3415-768x284.png 768w, /wp-content/uploads/2018/05/word-image-3415-1024x378.png 1024w" sizes="(max-width: 1064px) 100vw, 1064px" /></p>
+<p>
+  ③修改方法实现数据写入
+</p>
+<p><img loading="lazy" decoding="async" width="937" height="565" src="/wp-content/uploads/2018/05/word-image-3416.png" class="wp-image-3869" srcset="/wp-content/uploads/2018/05/word-image-3416.png 937w, /wp-content/uploads/2018/05/word-image-3416-300x181.png 300w, /wp-content/uploads/2018/05/word-image-3416-768x463.png 768w" sizes="(max-width: 937px) 100vw, 937px" /></p>
+<p>
+  ④查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="614" height="200" src="/wp-content/uploads/2018/05/word-image-3417.png" class="wp-image-3870" srcset="/wp-content/uploads/2018/05/word-image-3417.png 614w, /wp-content/uploads/2018/05/word-image-3417-300x98.png 300w" sizes="(max-width: 614px) 100vw, 614px" /></p>
+<h3>1.7.2、trueTableName</h3>
+<p>
+  真实表名称
+</p>
+<p>
+  ①复制数据表
+</p>
+<p><img loading="lazy" decoding="async" width="626" height="376" src="/wp-content/uploads/2018/05/word-image-3418.png" class="wp-image-3871" srcset="/wp-content/uploads/2018/05/word-image-3418.png 626w, /wp-content/uploads/2018/05/word-image-3418-300x180.png 300w" sizes="(max-width: 626px) 100vw, 626px" /></p>
+<p>
+  ②指定模型对应的真实表名称
+</p>
+<p><img loading="lazy" decoding="async" width="1016" height="324" src="/wp-content/uploads/2018/05/word-image-3419.png" class="wp-image-3872" srcset="/wp-content/uploads/2018/05/word-image-3419.png 1016w, /wp-content/uploads/2018/05/word-image-3419-300x96.png 300w, /wp-content/uploads/2018/05/word-image-3419-768x245.png 768w" sizes="(max-width: 1016px) 100vw, 1016px" /></p>
+<p>
+  ③数据写入
+</p>
+<p><img loading="lazy" decoding="async" width="589" height="243" src="/wp-content/uploads/2018/05/word-image-3420.png" class="wp-image-3873" srcset="/wp-content/uploads/2018/05/word-image-3420.png 589w, /wp-content/uploads/2018/05/word-image-3420-300x124.png 300w" sizes="(max-width: 589px) 100vw, 589px" /></p>
+<h3>1.7.3、connection指定连接的数据库</h3>
+<p>
+  ①修改模板连接的数据库
+</p>
+<p><img loading="lazy" decoding="async" width="1057" height="456" src="/wp-content/uploads/2018/05/word-image-3421.png" class="wp-image-3874" srcset="/wp-content/uploads/2018/05/word-image-3421.png 1057w, /wp-content/uploads/2018/05/word-image-3421-300x129.png 300w, /wp-content/uploads/2018/05/word-image-3421-768x331.png 768w, /wp-content/uploads/2018/05/word-image-3421-1024x442.png 1024w" sizes="(max-width: 1057px) 100vw, 1057px" /></p>
+<p>
+  由于配置项中存在tp_shop数据库的配置。Connection对应的值跟M函数的第三个参数是一致
+</p>
+<p>
+  ②在tp5_shop下创建数据表
+</p>
+<p><img loading="lazy" decoding="async" width="648" height="503" src="/wp-content/uploads/2018/05/word-image-3422.png" class="wp-image-3875" srcset="/wp-content/uploads/2018/05/word-image-3422.png 648w, /wp-content/uploads/2018/05/word-image-3422-300x233.png 300w" sizes="(max-width: 648px) 100vw, 648px" /></p>
+<p>
+  ③测试
+</p>
+<p><img loading="lazy" decoding="async" width="824" height="172" src="/wp-content/uploads/2018/05/word-image-3423.png" class="wp-image-3876" srcset="/wp-content/uploads/2018/05/word-image-3423.png 824w, /wp-content/uploads/2018/05/word-image-3423-300x63.png 300w, /wp-content/uploads/2018/05/word-image-3423-768x160.png 768w" sizes="(max-width: 824px) 100vw, 824px" /><br />
+<img loading="lazy" decoding="async" width="587" height="248" src="/wp-content/uploads/2018/05/word-image-3424.png" class="wp-image-3877" srcset="/wp-content/uploads/2018/05/word-image-3424.png 587w, /wp-content/uploads/2018/05/word-image-3424-300x127.png 300w" sizes="(max-width: 587px) 100vw, 587px" /></p>
+<p>
+  从目前所知模型名称不一定要跟数据表的名称绝对保持一致。但是一般都会使用同名
+</p>
+<h2>1.8、连贯操作（重点）</h2>
+<p>
+  对于目前数据的CURD操作只能进行简单的操作。当需要设计复杂的SQL语句操作可以使用连贯操作中提供的方法。常用的where、limit、order、page。
+</p>
+<p>
+  对于连贯方法使用：模型对象-&gt;连贯方法-&gt;curd方法
+</p>
+<p>
+  在使用连贯方法的过程中没有任何的优先顺序
+</p>
+<p><img loading="lazy" decoding="async" width="835" height="420" src="/wp-content/uploads/2018/05/word-image-3425.png" class="wp-image-3878" srcset="/wp-content/uploads/2018/05/word-image-3425.png 835w, /wp-content/uploads/2018/05/word-image-3425-300x151.png 300w, /wp-content/uploads/2018/05/word-image-3425-768x386.png 768w" sizes="(max-width: 835px) 100vw, 835px" /></p>
+<h3>1.8.1、where使用</h3>
+<p>
+  Where的作用指定具体的sql语句中的where条件
+</p>
+<p>
+  ①where字符串参数的格式
+</p>
+<p><img loading="lazy" decoding="async" width="1042" height="547" src="/wp-content/uploads/2018/05/word-image-3426.png" class="wp-image-3879" srcset="/wp-content/uploads/2018/05/word-image-3426.png 1042w, /wp-content/uploads/2018/05/word-image-3426-300x157.png 300w, /wp-content/uploads/2018/05/word-image-3426-768x403.png 768w, /wp-content/uploads/2018/05/word-image-3426-1024x538.png 1024w" sizes="(max-width: 1042px) 100vw, 1042px" /></p>
+<p>
+  结果如下
+</p>
+<p><img loading="lazy" decoding="async" width="773" height="307" src="/wp-content/uploads/2018/05/word-image-3427.png" class="wp-image-3880" srcset="/wp-content/uploads/2018/05/word-image-3427.png 773w, /wp-content/uploads/2018/05/word-image-3427-300x119.png 300w, /wp-content/uploads/2018/05/word-image-3427-768x305.png 768w" sizes="(max-width: 773px) 100vw, 773px" /></p>
+<p>
+  ②where数组参数的格式
+</p>
+<p>
+  <br />
+  ③where预处理
+</p>
+<p><img loading="lazy" decoding="async" width="708" height="306" src="/wp-content/uploads/2018/05/word-image-3428.png" class="wp-image-3881" srcset="/wp-content/uploads/2018/05/word-image-3428.png 708w, /wp-content/uploads/2018/05/word-image-3428-300x130.png 300w" sizes="(max-width: 708px) 100vw, 708px" /><br />
+<img loading="lazy" decoding="async" width="1074" height="653" src="/wp-content/uploads/2018/05/word-image-3429.png" class="wp-image-3882" srcset="/wp-content/uploads/2018/05/word-image-3429.png 1074w, /wp-content/uploads/2018/05/word-image-3429-300x182.png 300w, /wp-content/uploads/2018/05/word-image-3429-768x467.png 768w, /wp-content/uploads/2018/05/word-image-3429-1024x623.png 1024w" sizes="(max-width: 1074px) 100vw, 1074px" /></p>
+<p>
+  ④where指定like查询
+</p>
+<p><img loading="lazy" decoding="async" width="1045" height="675" src="/wp-content/uploads/2018/05/word-image-3430.png" class="wp-image-3883" srcset="/wp-content/uploads/2018/05/word-image-3430.png 1045w, /wp-content/uploads/2018/05/word-image-3430-300x194.png 300w, /wp-content/uploads/2018/05/word-image-3430-768x496.png 768w, /wp-content/uploads/2018/05/word-image-3430-1024x661.png 1024w" sizes="(max-width: 1045px) 100vw, 1045px" /><br />
+<img loading="lazy" decoding="async" width="759" height="356" src="/wp-content/uploads/2018/05/word-image-3431.png" class="wp-image-3884" srcset="/wp-content/uploads/2018/05/word-image-3431.png 759w, /wp-content/uploads/2018/05/word-image-3431-300x141.png 300w" sizes="(max-width: 759px) 100vw, 759px" /></p>
+<h3>1.8.2、field指定字段信息</h3>
+<p>
+  一般查询数据尽量不要使用*,而是指定字段。需要哪些字段就指定哪些
+</p>
+<p><img loading="lazy" decoding="async" width="1014" height="381" src="/wp-content/uploads/2018/05/word-image-3432.png" class="wp-image-3885" srcset="/wp-content/uploads/2018/05/word-image-3432.png 1014w, /wp-content/uploads/2018/05/word-image-3432-300x113.png 300w, /wp-content/uploads/2018/05/word-image-3432-768x289.png 768w" sizes="(max-width: 1014px) 100vw, 1014px" /></p>
+<p>
+  结果如下
+</p>
+<p><img loading="lazy" decoding="async" width="659" height="426" src="/wp-content/uploads/2018/05/word-image-3433.png" class="wp-image-3886" srcset="/wp-content/uploads/2018/05/word-image-3433.png 659w, /wp-content/uploads/2018/05/word-image-3433-300x194.png 300w" sizes="(max-width: 659px) 100vw, 659px" /></p>
+<h3>1.8.3、limit限制条数</h3>
+<p>
+  作用限制sql语句中limit条目数、可以实现分页功能
+</p>
+<p>
+  ①传递一个数字参数
+</p>
+<p><img loading="lazy" decoding="async" width="1052" height="430" src="/wp-content/uploads/2018/05/word-image-3434.png" class="wp-image-3887" srcset="/wp-content/uploads/2018/05/word-image-3434.png 1052w, /wp-content/uploads/2018/05/word-image-3434-300x123.png 300w, /wp-content/uploads/2018/05/word-image-3434-768x314.png 768w, /wp-content/uploads/2018/05/word-image-3434-1024x419.png 1024w" sizes="(max-width: 1052px) 100vw, 1052px" /><br />
+<img loading="lazy" decoding="async" width="672" height="262" src="/wp-content/uploads/2018/05/word-image-3435.png" class="wp-image-3888" srcset="/wp-content/uploads/2018/05/word-image-3435.png 672w, /wp-content/uploads/2018/05/word-image-3435-300x117.png 300w" sizes="(max-width: 672px) 100vw, 672px" /></p>
+<p>
+  ②传递字符串的参数
+</p>
+<p><img loading="lazy" decoding="async" width="1039" height="574" src="/wp-content/uploads/2018/05/word-image-3436.png" class="wp-image-3889" srcset="/wp-content/uploads/2018/05/word-image-3436.png 1039w, /wp-content/uploads/2018/05/word-image-3436-300x166.png 300w, /wp-content/uploads/2018/05/word-image-3436-768x424.png 768w, /wp-content/uploads/2018/05/word-image-3436-1024x566.png 1024w" sizes="(max-width: 1039px) 100vw, 1039px" /><br />
+<img loading="lazy" decoding="async" width="752" height="255" src="/wp-content/uploads/2018/05/word-image-3437.png" class="wp-image-3890" srcset="/wp-content/uploads/2018/05/word-image-3437.png 752w, /wp-content/uploads/2018/05/word-image-3437-300x102.png 300w" sizes="(max-width: 752px) 100vw, 752px" /></p>
+<p>
+  对于此方式可以实现分页功能
+</p>
+<h3>1.8.4、page分页</h3>
+<p>
+  Page也是用于限制条数。也可以用于分页。但是在使用分页时page方法不需要进行运算。直接传递页码即可
+</p>
+<p><img loading="lazy" decoding="async" width="1044" height="497" src="/wp-content/uploads/2018/05/word-image-3438.png" class="wp-image-3891" srcset="/wp-content/uploads/2018/05/word-image-3438.png 1044w, /wp-content/uploads/2018/05/word-image-3438-300x143.png 300w, /wp-content/uploads/2018/05/word-image-3438-768x366.png 768w, /wp-content/uploads/2018/05/word-image-3438-1024x487.png 1024w" sizes="(max-width: 1044px) 100vw, 1044px" /><br />
+<img loading="lazy" decoding="async" width="634" height="241" src="/wp-content/uploads/2018/05/word-image-3439.png" class="wp-image-3892" srcset="/wp-content/uploads/2018/05/word-image-3439.png 634w, /wp-content/uploads/2018/05/word-image-3439-300x114.png 300w" sizes="(max-width: 634px) 100vw, 634px" /></p>
+<h3>1.8.5、Order排序</h3>
+<p><img loading="lazy" decoding="async" width="1028" height="465" src="/wp-content/uploads/2018/05/word-image-3440.png" class="wp-image-3893" srcset="/wp-content/uploads/2018/05/word-image-3440.png 1028w, /wp-content/uploads/2018/05/word-image-3440-300x136.png 300w, /wp-content/uploads/2018/05/word-image-3440-768x347.png 768w, /wp-content/uploads/2018/05/word-image-3440-1024x463.png 1024w" sizes="(max-width: 1028px) 100vw, 1028px" /><br />
+<img loading="lazy" decoding="async" width="788" height="263" src="/wp-content/uploads/2018/05/word-image-3441.png" class="wp-image-3894" srcset="/wp-content/uploads/2018/05/word-image-3441.png 788w, /wp-content/uploads/2018/05/word-image-3441-300x100.png 300w, /wp-content/uploads/2018/05/word-image-3441-768x256.png 768w" sizes="(max-width: 788px) 100vw, 788px" /></p>
+<h2>1.9、模型中的钩子函数</h2>
+<p>
+  当进行数据的增删改查操作时。如果有定义对应的钩子函数。会自动的进行。对于钩子函数可以实现格式化处理或者是去处理其他的业务逻辑。
+</p>
+<p>
+  增加：_before_insert前置钩子函数 _after_insert后置钩子函数
+</p>
+<p>
+  删除：_before_delete前置钩子函数 _after_delete后置钩子函数
+</p>
+<p>
+  修改：_before_update前置钩子函数 _after_update后置钩子函数
+</p>
+<p>
+  查询：_after_select后置钩子函数
+</p>
+<h3>1.9.1、添加的前置钩子函数</h3>
+<p>
+  ①创建方法
+</p>
+<p><img loading="lazy" decoding="async" width="868" height="479" src="/wp-content/uploads/2018/05/word-image-3442.png" class="wp-image-3895" srcset="/wp-content/uploads/2018/05/word-image-3442.png 868w, /wp-content/uploads/2018/05/word-image-3442-300x166.png 300w, /wp-content/uploads/2018/05/word-image-3442-768x424.png 768w" sizes="(max-width: 868px) 100vw, 868px" /></p>
+<p>
+  ②创建前置的钩子函数
+</p>
+<p><img loading="lazy" decoding="async" width="904" height="534" src="/wp-content/uploads/2018/05/word-image-3443.png" class="wp-image-3896" srcset="/wp-content/uploads/2018/05/word-image-3443.png 904w, /wp-content/uploads/2018/05/word-image-3443-300x177.png 300w, /wp-content/uploads/2018/05/word-image-3443-768x454.png 768w" sizes="(max-width: 904px) 100vw, 904px" /></p>
+<p>
+  ③查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="681" height="152" src="/wp-content/uploads/2018/05/word-image-3444.png" class="wp-image-3897" srcset="/wp-content/uploads/2018/05/word-image-3444.png 681w, /wp-content/uploads/2018/05/word-image-3444-300x67.png 300w" sizes="(max-width: 681px) 100vw, 681px" /><br />
+<img loading="lazy" decoding="async" width="578" height="263" src="/wp-content/uploads/2018/05/word-image-3445.png" class="wp-image-3898" srcset="/wp-content/uploads/2018/05/word-image-3445.png 578w, /wp-content/uploads/2018/05/word-image-3445-300x137.png 300w" sizes="(max-width: 578px) 100vw, 578px" /></p>
+<h3>1.9.2、后置钩子函数</h3>
+<p><img loading="lazy" decoding="async" width="1012" height="593" src="/wp-content/uploads/2018/05/word-image-3446.png" class="wp-image-3899" srcset="/wp-content/uploads/2018/05/word-image-3446.png 1012w, /wp-content/uploads/2018/05/word-image-3446-300x176.png 300w, /wp-content/uploads/2018/05/word-image-3446-768x450.png 768w" sizes="(max-width: 1012px) 100vw, 1012px" /><br />
+<img loading="lazy" decoding="async" width="845" height="417" src="/wp-content/uploads/2018/05/word-image-3447.png" class="wp-image-3900" srcset="/wp-content/uploads/2018/05/word-image-3447.png 845w, /wp-content/uploads/2018/05/word-image-3447-300x148.png 300w, /wp-content/uploads/2018/05/word-image-3447-768x379.png 768w" sizes="(max-width: 845px) 100vw, 845px" /></p>
+<h2>1.9、trace工具使用</h2>
+<p>
+  Trace工具可以帮助分析整个框架执行流程以及对项目进行性能的分析
+</p>
+<p>
+  ①开启trace工具
+</p>
+<p><img loading="lazy" decoding="async" width="989" height="525" src="/wp-content/uploads/2018/05/word-image-3448.png" class="wp-image-3901" srcset="/wp-content/uploads/2018/05/word-image-3448.png 989w, /wp-content/uploads/2018/05/word-image-3448-300x159.png 300w, /wp-content/uploads/2018/05/word-image-3448-768x408.png 768w" sizes="(max-width: 989px) 100vw, 989px" /></p>
+<p>
+  ②查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="844" height="694" src="/wp-content/uploads/2018/05/word-image-3449.png" class="wp-image-3902" srcset="/wp-content/uploads/2018/05/word-image-3449.png 844w, /wp-content/uploads/2018/05/word-image-3449-300x247.png 300w, /wp-content/uploads/2018/05/word-image-3449-768x632.png 768w" sizes="(max-width: 844px) 100vw, 844px" /></p>
+<p>
+  会发现右下角有一个小图标，可以点击查看具体的情况
+</p>
+<p><img loading="lazy" decoding="async" width="836" height="659" src="/wp-content/uploads/2018/05/word-image-3450.png" class="wp-image-3903" srcset="/wp-content/uploads/2018/05/word-image-3450.png 836w, /wp-content/uploads/2018/05/word-image-3450-300x236.png 300w, /wp-content/uploads/2018/05/word-image-3450-768x605.png 768w" sizes="(max-width: 836px) 100vw, 836px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/3815.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

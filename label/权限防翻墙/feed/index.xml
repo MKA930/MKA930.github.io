@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>权限防翻墙 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E6%9D%83%E9%99%90%E9%98%B2%E7%BF%BB%E5%A2%99/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Mon, 11 Jun 2018 13:38:35 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>权限防翻墙 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP5 商城（二）RBAC、权限增删改查、角色增删改查、不同用户显示不同后台、权限防翻墙</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7751.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7751.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 09 Jun 2018 00:39:13 +0000</pubDate>
+				<category><![CDATA[TP5.0]]></category>
+		<category><![CDATA[TP5.0商城]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[RBAC]]></category>
+		<category><![CDATA[不同用户显示不同后台]]></category>
+		<category><![CDATA[权限增删改查]]></category>
+		<category><![CDATA[权限防翻墙]]></category>
+		<category><![CDATA[角色增删改查]]></category>
+		<guid isPermaLink="false">/?p=7751</guid>
+
+					<description><![CDATA[一、RBAC功能实现 权限表的curd操作 （1）完成权限的添加 步骤1：在后台建立一个Auth控制器，并建立 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>一、RBAC功能实现</h1>
+<h2>权限表的curd操作</h2>
+<h3>（1）完成权限的添加</h3>
+<p>步骤1：在后台建立一个Auth控制器，并建立一个add方法，输出模板内容，并完成添加权限的实现</p>
+<p><img fetchpriority="high" decoding="async" width="1028" height="717" class="wp-image-7825" src="/wp-content/uploads/2018/06/word-image-424.png" srcset="/wp-content/uploads/2018/06/word-image-424.png 1028w, /wp-content/uploads/2018/06/word-image-424-300x209.png 300w, /wp-content/uploads/2018/06/word-image-424-768x536.png 768w, /wp-content/uploads/2018/06/word-image-424-1024x714.png 1024w" sizes="(max-width: 1028px) 100vw, 1028px" /></p>
+<p>同时在Auth模型中取出权限的无限级分类数据：</p>
+<p><img decoding="async" width="965" height="680" class="wp-image-7826" src="/wp-content/uploads/2018/06/word-image-425.png" srcset="/wp-content/uploads/2018/06/word-image-425.png 965w, /wp-content/uploads/2018/06/word-image-425-300x211.png 300w, /wp-content/uploads/2018/06/word-image-425-768x541.png 768w" sizes="(max-width: 965px) 100vw, 965px" /></p>
+<p>步骤2：设置add.html模板内容</p>
+<p><img decoding="async" width="1230" height="699" class="wp-image-7827" src="/wp-content/uploads/2018/06/word-image-426.png" srcset="/wp-content/uploads/2018/06/word-image-426.png 1230w, /wp-content/uploads/2018/06/word-image-426-300x170.png 300w, /wp-content/uploads/2018/06/word-image-426-768x436.png 768w, /wp-content/uploads/2018/06/word-image-426-1024x582.png 1024w" sizes="(max-width: 1230px) 100vw, 1230px" /></p>
+<p>当选择顶级权限时，控制器名和方法名不可用，否则可用。因为顶级权限没有控制器名和方法名。</p>
+<p><img loading="lazy" decoding="async" width="1179" height="481" class="wp-image-7828" src="/wp-content/uploads/2018/06/word-image-427.png" srcset="/wp-content/uploads/2018/06/word-image-427.png 1179w, /wp-content/uploads/2018/06/word-image-427-300x122.png 300w, /wp-content/uploads/2018/06/word-image-427-768x313.png 768w, /wp-content/uploads/2018/06/word-image-427-1024x418.png 1024w" sizes="(max-width: 1179px) 100vw, 1179px" /></p>
+<p>注意：表单input设置disabled和readonly的区别</p>
+<p>相同点：都不可以编辑input中的数据</p>
+<p>不同点：设置disabled时，php中通过$_POST接收不到input框name的属性值</p>
+<p>设置readonly时，php中通过$_POST可以收到input的name的属性值</p>
+<p>步骤3：定义Auth验证器，进行验证</p>
+<p><img loading="lazy" decoding="async" width="773" height="636" class="wp-image-7829" src="/wp-content/uploads/2018/06/word-image-428.png" srcset="/wp-content/uploads/2018/06/word-image-428.png 773w, /wp-content/uploads/2018/06/word-image-428-300x247.png 300w, /wp-content/uploads/2018/06/word-image-428-768x632.png 768w" sizes="(max-width: 773px) 100vw, 773px" /></p>
+<p>模板效果：</p>
+<p><img loading="lazy" decoding="async" width="542" height="323" class="wp-image-7830" src="/wp-content/uploads/2018/06/word-image-429.png" srcset="/wp-content/uploads/2018/06/word-image-429.png 542w, /wp-content/uploads/2018/06/word-image-429-300x180.png 300w" sizes="(max-width: 542px) 100vw, 542px" /></p>
+<h3>完成权限的列表展示</h3>
+<p>步骤1：在后台的Auth控制器中建立一个index方法，取出所有的权限数据，分配到模板中。</p>
+<p><img loading="lazy" decoding="async" width="1021" height="355" class="wp-image-7832" src="/wp-content/uploads/2018/06/word-image-430.png" srcset="/wp-content/uploads/2018/06/word-image-430.png 1021w, /wp-content/uploads/2018/06/word-image-430-300x104.png 300w, /wp-content/uploads/2018/06/word-image-430-768x267.png 768w" sizes="(max-width: 1021px) 100vw, 1021px" /></p>
+<p>注：需要指定getAuthsSon方法返回的结果下标值：</p>
+<p><img loading="lazy" decoding="async" width="994" height="413" class="wp-image-7833" src="/wp-content/uploads/2018/06/word-image-431.png" srcset="/wp-content/uploads/2018/06/word-image-431.png 994w, /wp-content/uploads/2018/06/word-image-431-300x125.png 300w, /wp-content/uploads/2018/06/word-image-431-768x319.png 768w" sizes="(max-width: 994px) 100vw, 994px" /></p>
+<p>步骤：模板中遍历数据</p>
+<p><img loading="lazy" decoding="async" width="1267" height="529" class="wp-image-7834" src="/wp-content/uploads/2018/06/word-image-432.png" srcset="/wp-content/uploads/2018/06/word-image-432.png 1267w, /wp-content/uploads/2018/06/word-image-432-300x125.png 300w, /wp-content/uploads/2018/06/word-image-432-768x321.png 768w, /wp-content/uploads/2018/06/word-image-432-1024x428.png 1024w" sizes="(max-width: 1267px) 100vw, 1267px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="967" height="329" class="wp-image-7835" src="/wp-content/uploads/2018/06/word-image-433.png" srcset="/wp-content/uploads/2018/06/word-image-433.png 967w, /wp-content/uploads/2018/06/word-image-433-300x102.png 300w, /wp-content/uploads/2018/06/word-image-433-768x261.png 768w" sizes="(max-width: 967px) 100vw, 967px" /></p>
+<h3>完成权限的编辑</h3>
+<p>编辑一个角色注意的地方：</p>
+<p>a、不能以当前分类作为父权限 b.不能以当前子孙作为父权限</p>
+<p>步骤1：修改编辑的链接地址</p>
+<p><img loading="lazy" decoding="async" width="1155" height="428" class="wp-image-7836" src="/wp-content/uploads/2018/06/word-image-434.png" srcset="/wp-content/uploads/2018/06/word-image-434.png 1155w, /wp-content/uploads/2018/06/word-image-434-300x111.png 300w, /wp-content/uploads/2018/06/word-image-434-768x285.png 768w, /wp-content/uploads/2018/06/word-image-434-1024x379.png 1024w" sizes="(max-width: 1155px) 100vw, 1155px" /></p>
+<p>步骤2：在Auth控制器建立一个upd的完成编辑功能</p>
+<p><img loading="lazy" decoding="async" width="1056" height="699" class="wp-image-7837" src="/wp-content/uploads/2018/06/word-image-435.png" srcset="/wp-content/uploads/2018/06/word-image-435.png 1056w, /wp-content/uploads/2018/06/word-image-435-300x199.png 300w, /wp-content/uploads/2018/06/word-image-435-768x508.png 768w, /wp-content/uploads/2018/06/word-image-435-1024x678.png 1024w" sizes="(max-width: 1056px) 100vw, 1056px" /></p>
+<p>步骤3：模板回显数据</p>
+<p><img loading="lazy" decoding="async" width="1262" height="673" class="wp-image-7838" src="/wp-content/uploads/2018/06/word-image-436.png" srcset="/wp-content/uploads/2018/06/word-image-436.png 1262w, /wp-content/uploads/2018/06/word-image-436-300x160.png 300w, /wp-content/uploads/2018/06/word-image-436-768x410.png 768w, /wp-content/uploads/2018/06/word-image-436-1024x546.png 1024w" sizes="(max-width: 1262px) 100vw, 1262px" /> <img loading="lazy" decoding="async" width="1189" height="503" class="wp-image-7839" src="/wp-content/uploads/2018/06/word-image-437.png" srcset="/wp-content/uploads/2018/06/word-image-437.png 1189w, /wp-content/uploads/2018/06/word-image-437-300x127.png 300w, /wp-content/uploads/2018/06/word-image-437-768x325.png 768w, /wp-content/uploads/2018/06/word-image-437-1024x433.png 1024w" sizes="(max-width: 1189px) 100vw, 1189px" /></p>
+<p>步骤4：需要考虑编辑注意的地方</p>
+<p>a、不能以当前分类作为父权限 b.不能以当前子孙作为父权限</p>
+<p><img loading="lazy" decoding="async" width="671" height="258" class="wp-image-7840" src="/wp-content/uploads/2018/06/word-image-438.png" srcset="/wp-content/uploads/2018/06/word-image-438.png 671w, /wp-content/uploads/2018/06/word-image-438-300x115.png 300w" sizes="(max-width: 671px) 100vw, 671px" /></p>
+<p>解决办法：通过js递归实现，把当前权限以及子孙权限给删除即可。</p>
+<p><img loading="lazy" decoding="async" width="1249" height="301" class="wp-image-7841" src="/wp-content/uploads/2018/06/word-image-439.png" srcset="/wp-content/uploads/2018/06/word-image-439.png 1249w, /wp-content/uploads/2018/06/word-image-439-300x72.png 300w, /wp-content/uploads/2018/06/word-image-439-768x185.png 768w, /wp-content/uploads/2018/06/word-image-439-1024x247.png 1024w" sizes="(max-width: 1249px) 100vw, 1249px" /> <img loading="lazy" decoding="async" width="1108" height="542" class="wp-image-7842" src="/wp-content/uploads/2018/06/word-image-440.png" srcset="/wp-content/uploads/2018/06/word-image-440.png 1108w, /wp-content/uploads/2018/06/word-image-440-300x147.png 300w, /wp-content/uploads/2018/06/word-image-440-768x376.png 768w, /wp-content/uploads/2018/06/word-image-440-1024x501.png 1024w" sizes="(max-width: 1108px) 100vw, 1108px" /></p>
+<h3>【作业】完成权限的删除</h3>
+<p>自行完成</p>
+<p><img loading="lazy" decoding="async" width="603" height="415" class="wp-image-7843" src="/wp-content/uploads/2018/06/word-image-441.png" srcset="/wp-content/uploads/2018/06/word-image-441.png 603w, /wp-content/uploads/2018/06/word-image-441-300x206.png 300w" sizes="(max-width: 603px) 100vw, 603px" /></p>
+<p>未考虑子分类 直接删除全部</p>
+<h2>角色表的curd操作</h2>
+<p><img loading="lazy" decoding="async" width="749" height="293" class="wp-image-7844" src="/wp-content/uploads/2018/06/word-image-442.png" srcset="/wp-content/uploads/2018/06/word-image-442.png 749w, /wp-content/uploads/2018/06/word-image-442-300x117.png 300w" sizes="(max-width: 749px) 100vw, 749px" /></p>
+<p>分析：</p>
+<ul>
+<li>用户表通过角色字段role_id，找到与其关联的角色表role_id。</li>
+<li>角色表通过所拥有的所有权限字段auth_id_list，找到与其关联的权限表的auth_id。</li>
+</ul>
+<h3>添加角色及分配权限</h3>
+<p>步骤1：在后台建立一个Role控制器，并建立一个add方法，获取所有的权限</p>
+<p><img loading="lazy" decoding="async" width="1023" height="699" class="wp-image-7845" src="/wp-content/uploads/2018/06/word-image-443.png" srcset="/wp-content/uploads/2018/06/word-image-443.png 1023w, /wp-content/uploads/2018/06/word-image-443-300x205.png 300w, /wp-content/uploads/2018/06/word-image-443-768x525.png 768w" sizes="(max-width: 1023px) 100vw, 1023px" /></p>
+<p>我们这里取出所有的权限需要一定技巧，两个：</p>
+<p>技巧一：取出所有的权限：并且以auth_id为每个元素的下标。</p>
+<p>技巧二：取出所有的权限，通过pid进行分组，把具有相同的pid划分为同一组</p>
+<p>其中上面变量$auths和$children的打印结果如下：</p>
+<p><img loading="lazy" decoding="async" width="337" height="285" class="wp-image-7846" src="/wp-content/uploads/2018/06/word-image-444.png" srcset="/wp-content/uploads/2018/06/word-image-444.png 337w, /wp-content/uploads/2018/06/word-image-444-300x254.png 300w" sizes="(max-width: 337px) 100vw, 337px" /></p>
+<p>其中pid=0,有两个元素即auth_id为46和49。其他以此类推。</p>
+<p><img loading="lazy" decoding="async" width="479" height="270" class="wp-image-7847" src="/wp-content/uploads/2018/06/word-image-445.png" srcset="/wp-content/uploads/2018/06/word-image-445.png 479w, /wp-content/uploads/2018/06/word-image-445-300x169.png 300w" sizes="(max-width: 479px) 100vw, 479px" /></p>
+<p>步骤2：模板中遍历权限，这里需要参考课件的权限布局文件：</p>
+<p><img loading="lazy" decoding="async" width="442" height="67" class="wp-image-7848" src="/wp-content/uploads/2018/06/word-image-446.png" srcset="/wp-content/uploads/2018/06/word-image-446.png 442w, /wp-content/uploads/2018/06/word-image-446-300x45.png 300w" sizes="(max-width: 442px) 100vw, 442px" /></p>
+<p>注意：如下一级中有个二级，二级中有三级、</p>
+<p><img loading="lazy" decoding="async" width="520" height="106" class="wp-image-7849" src="/wp-content/uploads/2018/06/word-image-447.png" srcset="/wp-content/uploads/2018/06/word-image-447.png 520w, /wp-content/uploads/2018/06/word-image-447-300x61.png 300w" sizes="(max-width: 520px) 100vw, 520px" /> <img loading="lazy" decoding="async" width="1298" height="691" class="wp-image-7850" src="/wp-content/uploads/2018/06/word-image-448.png" srcset="/wp-content/uploads/2018/06/word-image-448.png 1298w, /wp-content/uploads/2018/06/word-image-448-300x160.png 300w, /wp-content/uploads/2018/06/word-image-448-768x409.png 768w, /wp-content/uploads/2018/06/word-image-448-1024x545.png 1024w" sizes="(max-width: 1298px) 100vw, 1298px" /></p>
+<p>结果如下：</p>
+<p><img loading="lazy" decoding="async" width="680" height="312" class="wp-image-7851" src="/wp-content/uploads/2018/06/word-image-449.png" srcset="/wp-content/uploads/2018/06/word-image-449.png 680w, /wp-content/uploads/2018/06/word-image-449-300x138.png 300w" sizes="(max-width: 680px) 100vw, 680px" /></p>
+<p>步骤3：进行添加权限入库</p>
+<p><img loading="lazy" decoding="async" width="966" height="529" class="wp-image-7852" src="/wp-content/uploads/2018/06/word-image-450.png" srcset="/wp-content/uploads/2018/06/word-image-450.png 966w, /wp-content/uploads/2018/06/word-image-450-300x164.png 300w, /wp-content/uploads/2018/06/word-image-450-768x421.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<p>同时给表角色表添加模型和验证器</p>
+<p>模型：</p>
+<p><img loading="lazy" decoding="async" width="842" height="401" class="wp-image-7853" src="/wp-content/uploads/2018/06/word-image-451.png" srcset="/wp-content/uploads/2018/06/word-image-451.png 842w, /wp-content/uploads/2018/06/word-image-451-300x143.png 300w, /wp-content/uploads/2018/06/word-image-451-768x366.png 768w" sizes="(max-width: 842px) 100vw, 842px" /></p>
+<p>验证器：</p>
+<p><img loading="lazy" decoding="async" width="707" height="519" class="wp-image-7854" src="/wp-content/uploads/2018/06/word-image-452.png" srcset="/wp-content/uploads/2018/06/word-image-452.png 707w, /wp-content/uploads/2018/06/word-image-452-300x220.png 300w" sizes="(max-width: 707px) 100vw, 707px" /></p>
+<p>数据库存储的格式：</p>
+<p><img loading="lazy" decoding="async" width="667" height="118" class="wp-image-7855" src="/wp-content/uploads/2018/06/word-image-453.png" srcset="/wp-content/uploads/2018/06/word-image-453.png 667w, /wp-content/uploads/2018/06/word-image-453-300x53.png 300w" sizes="(max-width: 667px) 100vw, 667px" /></p>
+<p>注：一般系统角色名为超级管理员都会拥有所有的权限，其权限字段auth_id_list可以手动设置为*。</p>
+<h3>（2）完成添加权限分配的特效操作</h3>
+<p>role/add.html模板文件：</p>
+<p><img loading="lazy" decoding="async" width="1326" height="697" class="wp-image-7856" src="/wp-content/uploads/2018/06/word-image-454.png" srcset="/wp-content/uploads/2018/06/word-image-454.png 1326w, /wp-content/uploads/2018/06/word-image-454-300x158.png 300w, /wp-content/uploads/2018/06/word-image-454-768x404.png 768w, /wp-content/uploads/2018/06/word-image-454-1024x538.png 1024w" sizes="(max-width: 1326px) 100vw, 1326px" /></p>
+<p>特效代码：</p>
+<p><img loading="lazy" decoding="async" width="912" height="488" class="wp-image-7857" src="/wp-content/uploads/2018/06/word-image-455.png" srcset="/wp-content/uploads/2018/06/word-image-455.png 912w, /wp-content/uploads/2018/06/word-image-455-300x161.png 300w, /wp-content/uploads/2018/06/word-image-455-768x411.png 768w" sizes="(max-width: 912px) 100vw, 912px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="703" height="336" class="wp-image-7858" src="/wp-content/uploads/2018/06/word-image-456.png" srcset="/wp-content/uploads/2018/06/word-image-456.png 703w, /wp-content/uploads/2018/06/word-image-456-300x143.png 300w" sizes="(max-width: 703px) 100vw, 703px" /></p>
+<h3>（3）【重要】小结</h3>
+<ol>
+<li>记住，以后去公司做有关权限分配的时候，可以直接参考以下的模板布局</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="686" height="76" class="wp-image-7859" src="/wp-content/uploads/2018/06/word-image-457.png" srcset="/wp-content/uploads/2018/06/word-image-457.png 686w, /wp-content/uploads/2018/06/word-image-457-300x33.png 300w" sizes="(max-width: 686px) 100vw, 686px" /></p>
+<p>b、以后在模板中凡是需要取出含有（父子孙）层级关系的数据，可以使用下面这个技巧。</p>
+<p>技巧一：取出所有的权限：并且以auth_id为每个元素的下标。</p>
+<p>技巧二：取出所有的权限，通过pid进行分组，把具有相同的pid划分为同一组</p>
+<p>此技巧的典型使用场景有：</p>
+<ol>
+<li>如遍历权限可以用到，上面代码就是。</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="617" height="128" class="wp-image-7860" src="/wp-content/uploads/2018/06/word-image-458.png" srcset="/wp-content/uploads/2018/06/word-image-458.png 617w, /wp-content/uploads/2018/06/word-image-458-300x62.png 300w" sizes="(max-width: 617px) 100vw, 617px" /></p>
+<ol>
+<li>如京东商城遍历三级分类菜单</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="839" height="53" class="wp-image-7861" src="/wp-content/uploads/2018/06/word-image-459.png" srcset="/wp-content/uploads/2018/06/word-image-459.png 839w, /wp-content/uploads/2018/06/word-image-459-300x19.png 300w, /wp-content/uploads/2018/06/word-image-459-768x49.png 768w" sizes="(max-width: 839px) 100vw, 839px" /></p>
+<p>3、分类菜单的折叠</p>
+<p><img loading="lazy" decoding="async" width="230" height="342" class="wp-image-7862" src="/wp-content/uploads/2018/06/word-image-460.png" srcset="/wp-content/uploads/2018/06/word-image-460.png 230w, /wp-content/uploads/2018/06/word-image-460-202x300.png 202w" sizes="(max-width: 230px) 100vw, 230px" /></p>
+<h3>（4）角色的列表展示</h3>
+<p>把一个角色所拥有的权限都查出来，这里需要利用到两个mysql函数：</p>
+<p>FIND_IN_SET和group_concat(字段)</p>
+<ul>
+<li>FIND_IN_SET(str,strlist) :</li>
+</ul>
+<p>作用：查询出子串str，是否在由逗号分隔的目标字符串strlist中存在。</p>
+<p>如：判断5是否在字符串1,2,3,4,5中存在：FIND_IN_SET(5,‘1,2,3,4,5’) ，存在则返回所在目标字符串strlist的所在位置，不存在则返回0。</p>
+<p>执行函数mysql函数： select 函数名();</p>
+<p><img loading="lazy" decoding="async" width="643" height="83" class="wp-image-7863" src="/wp-content/uploads/2018/06/word-image-461.png" srcset="/wp-content/uploads/2018/06/word-image-461.png 643w, /wp-content/uploads/2018/06/word-image-461-300x39.png 300w" sizes="(max-width: 643px) 100vw, 643px" /> <img loading="lazy" decoding="async" width="476" height="77" class="wp-image-7864" src="/wp-content/uploads/2018/06/word-image-462.png" srcset="/wp-content/uploads/2018/06/word-image-462.png 476w, /wp-content/uploads/2018/06/word-image-462-300x49.png 300w" sizes="(max-width: 476px) 100vw, 476px" /></p>
+<ul>
+<li>group_concat(字段)</li>
+</ul>
+<p>作用：主要根据某个字段进行分组，把相同字段的值连接在一起。</p>
+<p>默认连接符号是逗号 ，如果用|连接则：</p>
+<p>group_concat(字段名 SEPARATOR “|”)</p>
+<p>例：如下是表tp_article表中的一些数据</p>
+<p><img loading="lazy" decoding="async" width="400" height="150" class="wp-image-7865" src="/wp-content/uploads/2018/06/word-image-463.png" srcset="/wp-content/uploads/2018/06/word-image-463.png 400w, /wp-content/uploads/2018/06/word-image-463-300x113.png 300w" sizes="(max-width: 400px) 100vw, 400px" /></p>
+<p>根据cat_id字段进行分组，把具有相同cat_id的title字段值连接在一起。</p>
+<p><img loading="lazy" decoding="async" width="766" height="159" class="wp-image-7866" src="/wp-content/uploads/2018/06/word-image-464.png" srcset="/wp-content/uploads/2018/06/word-image-464.png 766w, /wp-content/uploads/2018/06/word-image-464-300x62.png 300w" sizes="(max-width: 766px) 100vw, 766px" /></p>
+<p>查询出当前角色所拥有的全部权限拼接在一起：</p>
+<p><img loading="lazy" decoding="async" width="1117" height="403" class="wp-image-7867" src="/wp-content/uploads/2018/06/word-image-465.png" srcset="/wp-content/uploads/2018/06/word-image-465.png 1117w, /wp-content/uploads/2018/06/word-image-465-300x108.png 300w, /wp-content/uploads/2018/06/word-image-465-768x277.png 768w, /wp-content/uploads/2018/06/word-image-465-1024x369.png 1024w" sizes="(max-width: 1117px) 100vw, 1117px" /></p>
+<h3>完成角色编辑功能（给角色分配权限）</h3>
+<p>步骤1：修改role/index.html的链接地址</p>
+<p><img loading="lazy" decoding="async" width="1283" height="476" class="wp-image-7868" src="/wp-content/uploads/2018/06/word-image-466.png" srcset="/wp-content/uploads/2018/06/word-image-466.png 1283w, /wp-content/uploads/2018/06/word-image-466-300x111.png 300w, /wp-content/uploads/2018/06/word-image-466-768x285.png 768w, /wp-content/uploads/2018/06/word-image-466-1024x380.png 1024w" sizes="(max-width: 1283px) 100vw, 1283px" /></p>
+<p>步骤2：在admin-RoleController-upd的方法中完成数据的回显到模板中</p>
+<p>注意： 模块-控制器-方法</p>
+<p><img loading="lazy" decoding="async" width="879" height="699" class="wp-image-7869" src="/wp-content/uploads/2018/06/word-image-467.png" srcset="/wp-content/uploads/2018/06/word-image-467.png 879w, /wp-content/uploads/2018/06/word-image-467-300x239.png 300w, /wp-content/uploads/2018/06/word-image-467-768x611.png 768w" sizes="(max-width: 879px) 100vw, 879px" /></p>
+<p>步骤3：复制添加角色的add.html模板即可，改名为html.进行回显数据和把角色已有的权限默认选中</p>
+<p><img loading="lazy" decoding="async" width="1122" height="620" class="wp-image-7870" src="/wp-content/uploads/2018/06/word-image-468.png" srcset="/wp-content/uploads/2018/06/word-image-468.png 1122w, /wp-content/uploads/2018/06/word-image-468-300x166.png 300w, /wp-content/uploads/2018/06/word-image-468-768x424.png 768w, /wp-content/uploads/2018/06/word-image-468-1024x566.png 1024w" sizes="(max-width: 1122px) 100vw, 1122px" /></p>
+<p>已有权限默认选中：</p>
+<p><img loading="lazy" decoding="async" width="1160" height="587" class="wp-image-7871" src="/wp-content/uploads/2018/06/word-image-469.png" srcset="/wp-content/uploads/2018/06/word-image-469.png 1160w, /wp-content/uploads/2018/06/word-image-469-300x152.png 300w, /wp-content/uploads/2018/06/word-image-469-768x389.png 768w, /wp-content/uploads/2018/06/word-image-469-1024x518.png 1024w" sizes="(max-width: 1160px) 100vw, 1160px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="661" height="295" class="wp-image-7872" src="/wp-content/uploads/2018/06/word-image-470.png" srcset="/wp-content/uploads/2018/06/word-image-470.png 661w, /wp-content/uploads/2018/06/word-image-470-300x134.png 300w" sizes="(max-width: 661px) 100vw, 661px" /></p>
+<h3>（6）【作业】完成角色删除功能</h3>
+<p>自行完成</p>
+<p><img loading="lazy" decoding="async" width="636" height="397" class="wp-image-7873" src="/wp-content/uploads/2018/06/word-image-471.png" srcset="/wp-content/uploads/2018/06/word-image-471.png 636w, /wp-content/uploads/2018/06/word-image-471-300x187.png 300w" sizes="(max-width: 636px) 100vw, 636px" /></p>
+<h3>（7）添加用户分配权限</h3>
+<p>步骤1：修改admin-view-user-add.html模板内容，加一个显示角色的下拉框</p>
+<h1>实现不同用户登录展示不同后台菜单</h1>
+<h2>思路</h2>
+<p><img loading="lazy" decoding="async" width="848" height="291" class="wp-image-7874" src="/wp-content/uploads/2018/06/word-image-472.png" srcset="/wp-content/uploads/2018/06/word-image-472.png 848w, /wp-content/uploads/2018/06/word-image-472-300x103.png 300w, /wp-content/uploads/2018/06/word-image-472-768x264.png 768w" sizes="(max-width: 848px) 100vw, 848px" /></p>
+<ol>
+<li>用户登录成功的时候，获取到role_id。</li>
+<li>通过role_id获取角色表的auth_id_list字段</li>
+<li>通过权限表auth_id 只要在auth_id_list字段存在即可，查出所拥有的权限</li>
+</ol>
+<p>超级管理员auth_id_list字段的值为*，代表拥有后台操作的所有权限。</p>
+<h2>代码实现</h2>
+<p>步骤1：在用户登录成功的模型的checkUser方法中，通过角色id把当前角色所有的权限写入到session。</p>
+<p><img loading="lazy" decoding="async" width="973" height="627" class="wp-image-7875" src="/wp-content/uploads/2018/06/word-image-473.png" srcset="/wp-content/uploads/2018/06/word-image-473.png 973w, /wp-content/uploads/2018/06/word-image-473-300x193.png 300w, /wp-content/uploads/2018/06/word-image-473-768x495.png 768w" sizes="(max-width: 973px) 100vw, 973px" /></p>
+<p>步骤2：定义user模型中定义writeAuthToSession方法把权限写入到session中</p>
+<p>注：后台left.html模板文件中，只需要显示一级和二级的权限即可：</p>
+<p>我们需要构造出一个特定数据结构的数据：</p>
+<p>如下：通过每个顶级（pid=0）的元素加个一个sonsAuth下标存储其对应的子级权限</p>
+<p>[</p>
+<p>auth_name=&gt;‘用户管理’</p>
+<p>auth_id =&gt;46</p>
+<p>pid =&gt; 0</p>
+<p>&#8230;&#8230;</p>
+<p>sonsAuth=&gt;[</p>
+<p>[auth_name=&gt;用户列表,’pid’=&gt;46]</p>
+<p>[auth_name=&gt;用户添加,’pid’=&gt;46]</p>
+<p>&#8230;..</p>
+<p>]</p>
+<p>]</p>
+<p>超级管理员：</p>
+<p><img loading="lazy" decoding="async" width="1265" height="387" class="wp-image-7876" src="/wp-content/uploads/2018/06/word-image-474.png" srcset="/wp-content/uploads/2018/06/word-image-474.png 1265w, /wp-content/uploads/2018/06/word-image-474-300x92.png 300w, /wp-content/uploads/2018/06/word-image-474-768x235.png 768w, /wp-content/uploads/2018/06/word-image-474-1024x313.png 1024w" sizes="(max-width: 1265px) 100vw, 1265px" /></p>
+<p>非超级管理员：</p>
+<p><img loading="lazy" decoding="async" width="1163" height="577" class="wp-image-7877" src="/wp-content/uploads/2018/06/word-image-475.png" srcset="/wp-content/uploads/2018/06/word-image-475.png 1163w, /wp-content/uploads/2018/06/word-image-475-300x149.png 300w, /wp-content/uploads/2018/06/word-image-475-768x381.png 768w, /wp-content/uploads/2018/06/word-image-475-1024x508.png 1024w" sizes="(max-width: 1163px) 100vw, 1163px" /></p>
+<p>步骤3：在left.html取出session中的权限，遍历访问的菜单</p>
+<p><img loading="lazy" decoding="async" width="1235" height="668" class="wp-image-7878" src="/wp-content/uploads/2018/06/word-image-476.png" srcset="/wp-content/uploads/2018/06/word-image-476.png 1235w, /wp-content/uploads/2018/06/word-image-476-300x162.png 300w, /wp-content/uploads/2018/06/word-image-476-768x415.png 768w, /wp-content/uploads/2018/06/word-image-476-1024x554.png 1024w" sizes="(max-width: 1235px) 100vw, 1235px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="219" height="159" class="wp-image-7879" src="/wp-content/uploads/2018/06/word-image-477.png" /></p>
+<h1>权限防翻墙</h1>
+<p>如下：</p>
+<p><img loading="lazy" decoding="async" width="1347" height="258" class="wp-image-7880" src="/wp-content/uploads/2018/06/word-image-478.png" srcset="/wp-content/uploads/2018/06/word-image-478.png 1347w, /wp-content/uploads/2018/06/word-image-478-300x57.png 300w, /wp-content/uploads/2018/06/word-image-478-768x147.png 768w, /wp-content/uploads/2018/06/word-image-478-1024x196.png 1024w" sizes="(max-width: 1347px) 100vw, 1347px" /></p>
+<p>解决办法：在common控制器中的_initialize的方法中，做防翻墙的操作。</p>
+<p>1、要先获取到用户所访问的控制器名和方法名，在去做相关判断是否有权限</p>
+<p><img loading="lazy" decoding="async" width="1111" height="626" class="wp-image-7881" src="/wp-content/uploads/2018/06/word-image-479.png" srcset="/wp-content/uploads/2018/06/word-image-479.png 1111w, /wp-content/uploads/2018/06/word-image-479-300x169.png 300w, /wp-content/uploads/2018/06/word-image-479-768x433.png 768w, /wp-content/uploads/2018/06/word-image-479-1024x577.png 1024w" sizes="(max-width: 1111px) 100vw, 1111px" /></p>
+<ol>
+<li>把用户可以访问的权限存储在session中</li>
+</ol>
+<p>超级管理员：</p>
+<p><img loading="lazy" decoding="async" width="1240" height="517" class="wp-image-7882" src="/wp-content/uploads/2018/06/word-image-480.png" srcset="/wp-content/uploads/2018/06/word-image-480.png 1240w, /wp-content/uploads/2018/06/word-image-480-300x125.png 300w, /wp-content/uploads/2018/06/word-image-480-768x320.png 768w, /wp-content/uploads/2018/06/word-image-480-1024x427.png 1024w" sizes="(max-width: 1240px) 100vw, 1240px" /></p>
+<p>非超级管理员：</p>
+<p><img loading="lazy" decoding="async" width="998" height="625" class="wp-image-7883" src="/wp-content/uploads/2018/06/word-image-481.png" srcset="/wp-content/uploads/2018/06/word-image-481.png 998w, /wp-content/uploads/2018/06/word-image-481-300x188.png 300w, /wp-content/uploads/2018/06/word-image-481-768x481.png 768w" sizes="(max-width: 998px) 100vw, 998px" /></p>
+<p>今天重点：</p>
+<ol>
+<li>一张牛逼的图</li>
+<li>怎么构造满足我们要求的数组结构数据</li>
+</ol>
+<h1>四、商品有关的基本概念</h1>
+<p>这里主要涉及到以下几个概念：</p>
+<ul>
+<li>商品类型：不同的网站的卖的商品是不一样的，比如化妆品网站专门卖化妆品、手机网站专门卖手机、汽车网站专门卖汽车。</li>
+<li>商品属性：不同的商品类型对应的商品属性也是不一样的。</li>
+</ul>
+<p>比如卖汽车网站，商品(汽车)属性有轴距、变速箱、驱动方式、进气方式、排量等</p>
+<p>比如卖电脑网站，商品（电脑）属性有尺寸、内存、cpu、操作系统、系统核数等</p>
+<p>比如卖手机网站，商品（手机）属性有尺寸、内存、系统、颜色、网络类型、电池容量等</p>
+<p>商品类型决定了商品属性</p>
+<ul>
+<li>商品分类</li>
+</ul>
+<p>一个电商网站卖的商品不一样，其商品分类也是不一样的。</p>
+<p>比如：卖汽车分类有：国产（吉利、 广汽）、日产(本田、丰田)、德国（奔驰、宝马）、韩国（起亚、现代）。</p>
+<p>比如：卖手机分类有: 小米、华为、三星、苹果、oppo、vivo、魅族。</p>
+<ul>
+<li>商品（产品+属性=商品）</li>
+</ul>
+<p>如：iphoneX+64G , iphoneX+256G</p>
+<h3>商品类型</h3>
+<p>不同的商品类型会有不同的属性</p>
+<p>可以在ecshop后台中新建一个商品类型，如下：建立一个汽车商品类型</p>
+<p><img loading="lazy" decoding="async" width="1344" height="238" class="wp-image-7884" src="/wp-content/uploads/2018/06/word-image-482.png" srcset="/wp-content/uploads/2018/06/word-image-482.png 1344w, /wp-content/uploads/2018/06/word-image-482-300x53.png 300w, /wp-content/uploads/2018/06/word-image-482-768x136.png 768w, /wp-content/uploads/2018/06/word-image-482-1024x181.png 1024w" sizes="(max-width: 1344px) 100vw, 1344px" /> <img loading="lazy" decoding="async" width="797" height="395" class="wp-image-7885" src="/wp-content/uploads/2018/06/word-image-483.png" srcset="/wp-content/uploads/2018/06/word-image-483.png 797w, /wp-content/uploads/2018/06/word-image-483-300x149.png 300w, /wp-content/uploads/2018/06/word-image-483-768x381.png 768w" sizes="(max-width: 797px) 100vw, 797px" /></p>
+<p>属性分组：有些属性是可以归为一组的，参考京东电脑商品：</p>
+<p><img loading="lazy" decoding="async" width="546" height="381" class="wp-image-7886" src="/wp-content/uploads/2018/06/word-image-484.png" srcset="/wp-content/uploads/2018/06/word-image-484.png 546w, /wp-content/uploads/2018/06/word-image-484-300x209.png 300w" sizes="(max-width: 546px) 100vw, 546px" /></p>
+<h3>商品属性</h3>
+<p>给商品类型添加商品属性： 商品类型&#8211;&gt;属性列表：</p>
+<p><img loading="lazy" decoding="async" width="1147" height="34" class="wp-image-7887" src="/wp-content/uploads/2018/06/word-image-485.png" srcset="/wp-content/uploads/2018/06/word-image-485.png 1147w, /wp-content/uploads/2018/06/word-image-485-300x9.png 300w, /wp-content/uploads/2018/06/word-image-485-768x23.png 768w, /wp-content/uploads/2018/06/word-image-485-1024x30.png 1024w" sizes="(max-width: 1147px) 100vw, 1147px" /> <img loading="lazy" decoding="async" width="1142" height="200" class="wp-image-7888" src="/wp-content/uploads/2018/06/word-image-486.png" srcset="/wp-content/uploads/2018/06/word-image-486.png 1142w, /wp-content/uploads/2018/06/word-image-486-300x53.png 300w, /wp-content/uploads/2018/06/word-image-486-768x135.png 768w, /wp-content/uploads/2018/06/word-image-486-1024x179.png 1024w" sizes="(max-width: 1142px) 100vw, 1142px" /></p>
+<p>给汽车类型商品添加进气方式的属性：</p>
+<p><img loading="lazy" decoding="async" width="658" height="419" class="wp-image-7889" src="/wp-content/uploads/2018/06/word-image-487.png" srcset="/wp-content/uploads/2018/06/word-image-487.png 658w, /wp-content/uploads/2018/06/word-image-487-300x191.png 300w" sizes="(max-width: 658px) 100vw, 658px" /></p>
+<p>单选属性： 指买商品的时候，可以选择一个属性，不同的属性价格不一样</p>
+<p><img loading="lazy" decoding="async" width="676" height="145" class="wp-image-7890" src="/wp-content/uploads/2018/06/word-image-488.png" srcset="/wp-content/uploads/2018/06/word-image-488.png 676w, /wp-content/uploads/2018/06/word-image-488-300x64.png 300w" sizes="(max-width: 676px) 100vw, 676px" /></p>
+<p>唯一属性：只能看不能选。</p>
+<p><img loading="lazy" decoding="async" width="802" height="232" class="wp-image-7891" src="/wp-content/uploads/2018/06/word-image-489.png" srcset="/wp-content/uploads/2018/06/word-image-489.png 802w, /wp-content/uploads/2018/06/word-image-489-300x87.png 300w, /wp-content/uploads/2018/06/word-image-489-768x222.png 768w" sizes="(max-width: 802px) 100vw, 802px" /></p>
+<p>复选属性：可以选择多个，一般买商品的附加配件都是复选的。</p>
+<p><img loading="lazy" decoding="async" width="1016" height="261" class="wp-image-7892" src="/wp-content/uploads/2018/06/word-image-490.png" srcset="/wp-content/uploads/2018/06/word-image-490.png 1016w, /wp-content/uploads/2018/06/word-image-490-300x77.png 300w, /wp-content/uploads/2018/06/word-image-490-768x197.png 768w" sizes="(max-width: 1016px) 100vw, 1016px" /></p>
+<p>当在后台添加一个商品的时候要选择一个商品类型，选择了一个商品类型就决定了这个商品的有哪些属性，如下是添加商品设置其商品属性：</p>
+<p><img loading="lazy" decoding="async" width="921" height="440" class="wp-image-7893" src="/wp-content/uploads/2018/06/word-image-491.png" srcset="/wp-content/uploads/2018/06/word-image-491.png 921w, /wp-content/uploads/2018/06/word-image-491-300x143.png 300w, /wp-content/uploads/2018/06/word-image-491-768x367.png 768w" sizes="(max-width: 921px) 100vw, 921px" /></p>
+<p>添加属性的特点：</p>
+<p>唯一属性（只能看，不能选）：前面没有【+】，不可以设置价格</p>
+<p>单选属性（可选择）：前面有【+】，点击+即可复制多个，不同的单选属性可设置不同的价格</p>
+<p>属性值手工输入：对应的是个input框，需要自己输入。</p>
+<p>属性值是列表选择： 对应的是个select下拉框，需选中一个属性值。</p>
+<h3>商品分类</h3>
+<p>一般一个网站决定卖什么类型商品就决定了其商品分类。</p>
+<p>如卖汽车网站：分类有国产、日系、德系、韩系等</p>
+<p>如卖化妆品网站：分类洗面奶、乳液、面膜、保湿、祛痘、眼霜等</p>
+<p><img loading="lazy" decoding="async" width="1323" height="236" class="wp-image-7894" src="/wp-content/uploads/2018/06/word-image-492.png" srcset="/wp-content/uploads/2018/06/word-image-492.png 1323w, /wp-content/uploads/2018/06/word-image-492-300x54.png 300w, /wp-content/uploads/2018/06/word-image-492-768x137.png 768w, /wp-content/uploads/2018/06/word-image-492-1024x183.png 1024w" sizes="(max-width: 1323px) 100vw, 1323px" /></p>
+<h1>五、完成商品类型的curd</h1>
+<h2>商品类型介绍</h2>
+<p>商品类型：不同的网站的卖的商品类型是不一样的，比如化妆品网站专卖化妆品、手机网站专卖手机、二手汽车网站专买二手汽车。</p>
+<p>网站决定卖什么商品类型，也就决定了商品的商品属性</p>
+<h2>商品类型的增加</h2>
+<h2>商品类型的列表</h2>
+<h2>商品类型的编辑</h2>
+<h2>【作业】商品类型的删除</h2>
+<h1>六、完成商品属性的curd</h1>
+<h2>1、商品属性的认识</h2>
+<p>网站决定卖什么商品类型，也就决定了商品的商品属性</p>
+<p>可以参考ecshop添加属性的方式:</p>
+<p><img loading="lazy" decoding="async" width="960" height="427" class="wp-image-7895" src="/wp-content/uploads/2018/06/word-image-493.png" srcset="/wp-content/uploads/2018/06/word-image-493.png 960w, /wp-content/uploads/2018/06/word-image-493-300x133.png 300w, /wp-content/uploads/2018/06/word-image-493-768x342.png 768w" sizes="(max-width: 960px) 100vw, 960px" /></p>
+<p>属性这里重点两种属性：唯一属性和单选属性</p>
+<p>唯一属性：只能看，不能选。</p>
+<p><img loading="lazy" decoding="async" width="389" height="55" class="wp-image-7896" src="/wp-content/uploads/2018/06/word-image-494.png" srcset="/wp-content/uploads/2018/06/word-image-494.png 389w, /wp-content/uploads/2018/06/word-image-494-300x42.png 300w" sizes="(max-width: 389px) 100vw, 389px" /></p>
+<p>单选属性：我们购买商品的时候，可以选择的，后面添加商品的时候，不同的单选属性价格也是不一样的，如iphone6银色和iphone黑色价格是不一样的。</p>
+<p><img loading="lazy" decoding="async" width="678" height="186" class="wp-image-7897" src="/wp-content/uploads/2018/06/word-image-495.png" srcset="/wp-content/uploads/2018/06/word-image-495.png 678w, /wp-content/uploads/2018/06/word-image-495-300x82.png 300w" sizes="(max-width: 678px) 100vw, 678px" /></p>
+<p>②属性的值的录入方式</p>
+<p><img loading="lazy" decoding="async" width="643" height="114" class="wp-image-7898" src="/wp-content/uploads/2018/06/word-image-496.png" srcset="/wp-content/uploads/2018/06/word-image-496.png 643w, /wp-content/uploads/2018/06/word-image-496-300x53.png 300w" sizes="(max-width: 643px) 100vw, 643px" /></p>
+<p>手工输入：不可以输入属性值，且可选值列表是禁用状态，只能在添加商品的时候输入属性值。</p>
+<p>列表选择：在可选择列表输入一些我们指定的属性值，添加商品的时候，从中选中一个属性值即可。</p>
+<p>表结构：</p>
+<h2>完成商品属性的添加</h2>
+<h2>完成商品属性的列表</h2>
+<h2>完成商品属性的编辑</h2>
+<h2>完成商品属性的删除</h2>
+<h2>完成商品类型列表中属性的查看</h2>
+<h1>七、完成商品分类的curd</h1>
+<h2>1、分析分类表结构</h2>
+<p>表字段结构如下：</p>
+<h2>完成商品分类的添加</h2>
+<h2>完成商品分类的列表</h2>
+<h2>4、完成商品分类的编辑</h2>
+<h2>5、【作业】完成商品分类的删除</h2>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7751.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

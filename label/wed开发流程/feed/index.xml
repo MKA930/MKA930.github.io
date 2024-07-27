@@ -1,0 +1,907 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>WED开发流程 &#8211; 个人随笔</title>
+	<atom:link href="/label/wed%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 06:17:48 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>WED开发流程 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>博客项目（一）封装SQL语句、WED开发流程、后台显示</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/2885.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/2885.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 06:17:48 +0000</pubDate>
+				<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[源码Blog项目]]></category>
+		<category><![CDATA[WED开发流程]]></category>
+		<category><![CDATA[后台显示]]></category>
+		<category><![CDATA[封装SQL语句]]></category>
+		<guid isPermaLink="false">/?p=2885</guid>
+
+					<description><![CDATA[博客项目（一） 常用SQL语句封装 在一个项目中，增、删、改、查的SQL语句比较多，我们可以封装生成增、删、改 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>博客项目（一）</h1>
+<h2>常用SQL语句封装</h2>
+<p>
+  在一个项目中，增、删、改、查的SQL语句比较多，我们可以封装生成增、删、改、查的SQL语句的方法，就会达到一劳永逸。
+</p>
+<h3>封装insert语句</h3>
+<p>
+  用到的知识点：
+</p>
+<ol>
+<li>
+  array_map()：数组中每个元素依次调用匿名函数
+</li>
+<li>
+  use()：将变量引入到匿名函数内部使用。
+</li>
+</ol>
+<p><img decoding="async" width="491" height="93" src="/wp-content/uploads/2018/05/word-image-2537.png" class="wp-image-2886" srcset="/wp-content/uploads/2018/05/word-image-2537.png 491w, /wp-content/uploads/2018/05/word-image-2537-300x57.png 300w" sizes="(max-width: 491px) 100vw, 491px" /></p>
+<p>
+  代码实现：
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  $table=&#8217;stu&#8217;;		//表名
+</p>
+<p>
+  $data[&#8216;id&#8217;]=1;	//插入数据    键是字段名，值是插入的值
+</p>
+<p>
+  $data[&#8216;name&#8217;]=&#8217;tom&#8217;;
+</p>
+<p>
+  $data[&#8216;score&#8217;]=99;
+</p>
+<p>
+  /**********拼接字段字符串**************/
+</p>
+<p>
+  $keys=array_keys($data);		//获取所有键
+</p>
+<p>
+  $keys=array_map(function($k){	//keys数组中元素依次调用匿名函数，每个元素添加反引号
+</p>
+<p>
+  	return &#8220;`{$k}`&#8221;;
+</p>
+<p>
+  },$keys);
+</p>
+<p>
+  $keys=implode(&#8216;,&#8217;,$keys);		//数组中元素通过逗号连接起来
+</p>
+<p>
+  /**********拼接值字符串**************/
+</p>
+<p>
+  $values=array_values($data);	//获取所有值
+</p>
+<p>
+  $values=array_map(function($v){	//在values数组中所有元素添加单引号
+</p>
+<p>
+  	return &#8220;&#8216;{$v}'&#8221;;
+</p>
+<p>
+  },$values);
+</p>
+<p>
+  $values=implode(&#8216;,&#8217;,$values);	//连接成字符串
+</p>
+<p>
+  //拼接SQL语句
+</p>
+<p>
+  $sql=&#8221;insert into `{$table}` ($keys) values ($values)&#8221;;
+</p>
+<p>
+  echo $sql;
+</p>
+<p>
+  运行结果
+</p>
+<p><img decoding="async" width="517" height="27" src="/wp-content/uploads/2018/05/word-image-2538.png" class="wp-image-2887" srcset="/wp-content/uploads/2018/05/word-image-2538.png 517w, /wp-content/uploads/2018/05/word-image-2538-300x16.png 300w" sizes="(max-width: 517px) 100vw, 517px" /></p>
+<h3>封装update方法</h3>
+<p>
+  用到的知识点：
+</p>
+<ol>
+<li>
+  查看表的主键
+</li>
+</ol>
+<p><img fetchpriority="high" decoding="async" width="740" height="242" src="/wp-content/uploads/2018/05/word-image-2539.png" class="wp-image-2888" srcset="/wp-content/uploads/2018/05/word-image-2539.png 740w, /wp-content/uploads/2018/05/word-image-2539-300x98.png 300w" sizes="(max-width: 740px) 100vw, 740px" /></p>
+<p>
+  代码实现：
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  $table=&#8217;products&#8217;;	//表名
+</p>
+<p>
+  $data[&#8216;proID&#8217;]=1;
+</p>
+<p>
+  $data[&#8216;proname&#8217;]=&#8217;mobile&#8217;;
+</p>
+<p>
+  $data[&#8216;proprice&#8217;]=50;
+</p>
+<p>
+  mysql_connect(&#8216;localhost&#8217;,&#8217;root&#8217;,&#8217;root&#8217;);
+</p>
+<p>
+  mysql_select_db(&#8216;data&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;set names utf8&#8217;);
+</p>
+<p>
+  /**************获取表中的主键************/
+</p>
+<p>
+  function getPrimaryKey($table) {
+</p>
+<p>
+  	$rs=mysql_query(&#8220;desc `{$table}`&#8221;);
+</p>
+<p>
+  	while($rows=mysql_fetch_assoc($rs)) {
+</p>
+<p>
+  		if($rows[&#8216;Key&#8217;]==&#8217;PRI&#8217;)
+</p>
+<p>
+  			return $rows[&#8216;Field&#8217;];
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  /**************拼接update语句****************/
+</p>
+<p>
+  $pk=getPrimaryKey($table);		//获取主键
+</p>
+<p>
+  $keys=array_keys($data);		//获取所有的键
+</p>
+<p>
+  $index=array_search($pk,$keys);	//主键在数组中的索引
+</p>
+<p>
+  unset($keys[$index]);			//删除键数组中的主键
+</p>
+<p>
+  $fields=array_map(function($k) use ($data){
+</p>
+<p>
+  	return &#8220;`{$k}`='{$data[$k]}'&#8221;;
+</p>
+<p>
+  },$keys);
+</p>
+<p>
+  $fields=implode(&#8216;,&#8217;,$fields);
+</p>
+<p>
+  $sql=&#8221;update `{$table}` set $fields where `{$pk}`='{$data[$pk]}'&#8221;;
+</p>
+<p>
+  echo $sql;
+</p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="608" height="22" src="/wp-content/uploads/2018/05/word-image-2540.png" class="wp-image-2889" srcset="/wp-content/uploads/2018/05/word-image-2540.png 608w, /wp-content/uploads/2018/05/word-image-2540-300x11.png 300w" sizes="(max-width: 608px) 100vw, 608px" /></p>
+<h3>获取表名</h3>
+<p>
+  用到的知识点：
+</p>
+<ol>
+<li>
+  get_class()：获取对象的类名
+</li>
+</ol>
+<p>
+  实现代码
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace China;
+</p>
+<p>
+  //基础模型
+</p>
+<p>
+  class Model {
+</p>
+<p>
+  	private $table;
+</p>
+<p>
+  	public function __construct($table=&#8221;) {
+</p>
+<p>
+  		$this-&gt;table=$table;
+</p>
+<p>
+  		if($table==&#8221;)
+</p>
+<p>
+  			$this-&gt;table=substr(basename(get_class($this)),0,-5);	//获取模型名
+</p>
+<p>
+  		echo $this-&gt;table,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //Prodcuts表模型
+</p>
+<p>
+  class ProductsModel extends Model {}
+</p>
+<p>
+  //User表模型
+</p>
+<p>
+  class UserModel extends Model {}
+</p>
+<p>
+  //实例化模型
+</p>
+<p>
+  $model=new \China\ProductsModel();
+</p>
+<p>
+  $model=new \China\UserModel();
+</p>
+<p>
+  $model=new Model(&#8216;user&#8217;);
+</p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="282" height="58" src="/wp-content/uploads/2018/05/word-image-2541.png" class="wp-image-2890" /></p>
+<h3>在类中封装增、删、改、查语句</h3>
+<p>
+  因为这些方法供所有的模型使用，将这些方法封装到基础模型类中。
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //基础模型类
+</p>
+<p>
+  namespace Core;
+</p>
+<p>
+  class Model {
+</p>
+<p>
+      protected $mypdo;	//保存mypdo对象
+</p>
+<p>
+      private $table;     //操作的表名
+</p>
+<p>
+      public function __construct($table=&#8221;) {
+</p>
+<p>
+              $this-&gt;initMyPDO();
+</p>
+<p>
+              $this-&gt;getTable($table);
+</p>
+<p>
+      }
+</p>
+<p>
+      //初始化mypdo对象
+</p>
+<p>
+      private function initMyPDO() {
+</p>
+<p>
+              $this-&gt;mypdo=  MyPDO::getInstance($GLOBALS[&#8216;config&#8217;][&#8216;database&#8217;]);
+</p>
+<p>
+      }
+</p>
+<p>
+      //获取表名
+</p>
+<p>
+      private function getTable($table){
+</p>
+<p>
+          $this-&gt;table=$table;
+</p>
+<p>
+          if($table==&#8221;)
+</p>
+<p>
+              $this-&gt;table=substr(basename(get_class($this)),0,-5);	//获取模型名
+</p>
+<p>
+      }
+</p>
+<p>
+      //获取表的主键
+</p>
+<p>
+      private function getPrimaryKey(){
+</p>
+<p>
+          $rs=  $this-&gt;mypdo-&gt;fetchAll(&#8220;desc `{$this-&gt;table}`&#8221;);
+</p>
+<p>
+          foreach($rs as $rows){
+</p>
+<p>
+              if($rows[&#8216;Key&#8217;]==&#8217;PRI&#8217;)
+</p>
+<p>
+                  return $rows[&#8216;Field&#8217;];
+</p>
+<p>
+          }
+</p>
+<p>
+          return null;
+</p>
+<p>
+      }
+</p>
+<p>
+      //封装insert方法
+</p>
+<p>
+      public function insert($data){
+</p>
+<p>
+          $keys=array_keys($data);
+</p>
+<p>
+          $keys=array_map(function($k){
+</p>
+<p>
+                  return &#8220;`{$k}`&#8221;;
+</p>
+<p>
+          },$keys);
+</p>
+<p>
+          $keys=implode(&#8216;,&#8217;,$keys);
+</p>
+<p>
+          $values=array_values($data);
+</p>
+<p>
+          $values=array_map(function($v){
+</p>
+<p>
+                  return &#8220;&#8216;{$v}'&#8221;;
+</p>
+<p>
+          },$values);
+</p>
+<p>
+          $values=implode(&#8216;,&#8217;,$values);
+</p>
+<p>
+          //拼接SQL语句
+</p>
+<p>
+          $sql=&#8221;insert into `{$this-&gt;table}` ($keys) values ($values)&#8221;;
+</p>
+<p>
+          if($this-&gt;mypdo-&gt;exec($sql))
+</p>
+<p>
+              return $this-&gt;mypdo-&gt;lastInsertId();
+</p>
+<p>
+          return false;
+</p>
+<p>
+      }
+</p>
+<p>
+      //封装update方法
+</p>
+<p>
+      public function update($data){
+</p>
+<p>
+          $pk=  $this-&gt;getPrimaryKey();
+</p>
+<p>
+          $keys=array_keys($data);
+</p>
+<p>
+          $index=array_search($pk,$keys);
+</p>
+<p>
+          unset($keys[$index]);
+</p>
+<p>
+          $fields=array_map(function($k) use ($data){
+</p>
+<p>
+                  return &#8220;`{$k}`='{$data[$k]}'&#8221;;
+</p>
+<p>
+          },$keys);
+</p>
+<p>
+          $fields=implode(&#8216;,&#8217;,$fields);
+</p>
+<p>
+          $sql=&#8221;update `{$this-&gt;table}` set $fields where `{$pk}`='{$data[$pk]}'&#8221;;
+</p>
+<p>
+          return $this-&gt;mypdo-&gt;exec($sql);
+</p>
+<p>
+      }
+</p>
+<p>
+      //封装delete方法
+</p>
+<p>
+      public function delete($id){
+</p>
+<p>
+          $pk=  $this-&gt;getPrimaryKey();
+</p>
+<p>
+          $sql=&#8221;delete from `{$this-&gt;table}` where `{$pk}`=&#8217;$id'&#8221;;
+</p>
+<p>
+          return $this-&gt;mypdo-&gt;exec($sql);
+</p>
+<p>
+      }
+</p>
+<p>
+      //封装查询的方法,返回二维数组
+</p>
+<p>
+      public function select($field=&#8221;,$order=&#8217;asc&#8217;){
+</p>
+<p>
+          if($field==&#8221;)
+</p>
+<p>
+              $field=  $this-&gt;getPrimaryKey ();
+</p>
+<p>
+          $sql=&#8221;select * from `{$this-&gt;table}` order by `{$field}` $order&#8221;;
+</p>
+<p>
+          return $this-&gt;mypdo-&gt;fetchAll($sql);
+</p>
+<p>
+      }
+</p>
+<p>
+      //封装查询的方法，返回一维数组
+</p>
+<p>
+      public function find($id){
+</p>
+<p>
+          $pk=  $this-&gt;getPrimaryKey();
+</p>
+<p>
+          $sql=&#8221;select * from `{$this-&gt;table}` where `{$pk}`=&#8217;$id'&#8221;;
+</p>
+<p>
+          return $this-&gt;mypdo-&gt;fetchRow($sql);
+</p>
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h2>web项目的开发流程</h2>
+<p><img loading="lazy" decoding="async" width="766" height="217" src="/wp-content/uploads/2018/05/word-image-2542.png" class="wp-image-2891" srcset="/wp-content/uploads/2018/05/word-image-2542.png 766w, /wp-content/uploads/2018/05/word-image-2542-300x85.png 300w" sizes="(max-width: 766px) 100vw, 766px" /></p>
+<h2>用户表</h2>
+<h3>注意事项</h3>
+<ol>
+<li>
+  密码需要md5加密：md5是一个加密的算法，提供任意一个字符串都可以加密成32位的字符。理论上所有密码都可以解密，md5目前不能反向解密。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="659" height="45" src="/wp-content/uploads/2018/05/word-image-2543.png" class="wp-image-2892" srcset="/wp-content/uploads/2018/05/word-image-2543.png 659w, /wp-content/uploads/2018/05/word-image-2543-300x20.png 300w" sizes="(max-width: 659px) 100vw, 659px" /></p>
+<p>
+  多学一招：虽然md5不能反向解密，但是可以通过数据字典破解md5加密的字符串。
+</p>
+<p><img loading="lazy" decoding="async" width="681" height="142" src="/wp-content/uploads/2018/05/word-image-2544.png" class="wp-image-2893" srcset="/wp-content/uploads/2018/05/word-image-2544.png 681w, /wp-content/uploads/2018/05/word-image-2544-300x63.png 300w" sizes="(max-width: 681px) 100vw, 681px" /></p>
+<ol>
+<li>
+  保存登录的IP地址用整形：如果用varchar保存需要15个字节，如果用int保存只要4个字节。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="804" height="55" src="/wp-content/uploads/2018/05/word-image-2545.png" class="wp-image-2894" srcset="/wp-content/uploads/2018/05/word-image-2545.png 804w, /wp-content/uploads/2018/05/word-image-2545-300x21.png 300w, /wp-content/uploads/2018/05/word-image-2545-768x53.png 768w" sizes="(max-width: 804px) 100vw, 804px" /></p>
+<ol>
+<li>
+  登录时间用int保存，如果用datetime需要占用8个字节，int只占4个字节。
+</li>
+</ol>
+<p>
+  drop table if exists `user`;
+</p>
+<p>
+  &#8212; 创建user表
+</p>
+<p>
+  create table `user`(
+</p>
+<p>
+         user_id int unsigned auto_increment primary key comment &#8216;用户id&#8217;,
+</p>
+<p>
+         user_name varchar(20) not null unique comment &#8216;用户名&#8217;,
+</p>
+<p>
+         user_pwd varchar(32) not null comment &#8216;密码&#8217;,
+</p>
+<p>
+         user_face varchar(50) not null comment &#8216;头像地址&#8217;,
+</p>
+<p>
+         last_login_ip int comment &#8216;最后登录的IP地址&#8217;,
+</p>
+<p>
+         last_login_time int comment &#8216;最后登录的时间&#8217;,
+</p>
+<p>
+         login_count int unsigned default 0 not null comment &#8216;登录次数&#8217;,
+</p>
+<p>
+         is_admin tinyint not null default 0 comment &#8216;是否在超级管理员&#8217;
+</p>
+<p>
+  )engine=innodb charset=utf8 comment &#8216;用户表&#8217;
+</p>
+<p>
+  &#8212; 插入测试数据
+</p>
+<p>
+  insert into `user` (user_id,user_name,user_pwd) values (1,&#8217;aa&#8217;,md5(&#8216;aa&#8217;));
+</p>
+<p>
+  表中数据如下：
+</p>
+<p><img loading="lazy" decoding="async" width="750" height="41" src="/wp-content/uploads/2018/05/word-image-2546.png" class="wp-image-2895" srcset="/wp-content/uploads/2018/05/word-image-2546.png 750w, /wp-content/uploads/2018/05/word-image-2546-300x16.png 300w" sizes="(max-width: 750px) 100vw, 750px" /></p>
+<h2>实现用户注册</h2>
+<h3>显示后台登录页面</h3>
+<ol>
+<li>
+  将后台的模板和后台的静态资源拷贝到View\Admin目录中
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="364" height="322" src="/wp-content/uploads/2018/05/word-image-2547.png" class="wp-image-2896" srcset="/wp-content/uploads/2018/05/word-image-2547.png 364w, /wp-content/uploads/2018/05/word-image-2547-300x265.png 300w" sizes="(max-width: 364px) 100vw, 364px" /></p>
+<ol>
+<li>
+  在Controller\Admin目录下创建LoginController.class.php页面（登录控制器）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1123" height="377" src="/wp-content/uploads/2018/05/word-image-2548.png" class="wp-image-2897" srcset="/wp-content/uploads/2018/05/word-image-2548.png 1123w, /wp-content/uploads/2018/05/word-image-2548-300x101.png 300w, /wp-content/uploads/2018/05/word-image-2548-768x258.png 768w, /wp-content/uploads/2018/05/word-image-2548-1024x344.png 1024w" sizes="(max-width: 1123px) 100vw, 1123px" /></p>
+<ol>
+<li>
+  访问登录页面
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="679" height="323" src="/wp-content/uploads/2018/05/word-image-2549.png" class="wp-image-2898" srcset="/wp-content/uploads/2018/05/word-image-2549.png 679w, /wp-content/uploads/2018/05/word-image-2549-300x143.png 300w" sizes="(max-width: 679px) 100vw, 679px" /></p>
+<p>
+  多学一招：引入静态资源建议使用绝对路径，从根目录开始匹配（/）。
+</p>
+<ol>
+<li>
+  引入静态资源
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1065" height="282" src="/wp-content/uploads/2018/05/word-image-2550.png" class="wp-image-2899" srcset="/wp-content/uploads/2018/05/word-image-2550.png 1065w, /wp-content/uploads/2018/05/word-image-2550-300x79.png 300w, /wp-content/uploads/2018/05/word-image-2550-768x203.png 768w, /wp-content/uploads/2018/05/word-image-2550-1024x271.png 1024w" sizes="(max-width: 1065px) 100vw, 1065px" /></p>
+<ol>
+<li>
+  再次访问登录页面
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="712" height="297" src="/wp-content/uploads/2018/05/word-image-2551.png" class="wp-image-2900" srcset="/wp-content/uploads/2018/05/word-image-2551.png 712w, /wp-content/uploads/2018/05/word-image-2551-300x125.png 300w" sizes="(max-width: 712px) 100vw, 712px" /></p>
+<h3>注册用户</h3>
+<ol>
+<li>
+  在LoginController类中添加用户注册的方法
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1059" height="447" src="/wp-content/uploads/2018/05/word-image-2552.png" class="wp-image-2901" srcset="/wp-content/uploads/2018/05/word-image-2552.png 1059w, /wp-content/uploads/2018/05/word-image-2552-300x127.png 300w, /wp-content/uploads/2018/05/word-image-2552-768x324.png 768w, /wp-content/uploads/2018/05/word-image-2552-1024x432.png 1024w" sizes="(max-width: 1059px) 100vw, 1059px" /></p>
+<ol>
+<li>
+  对应的模板页面（register.html）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1074" height="224" src="/wp-content/uploads/2018/05/word-image-2553.png" class="wp-image-2902" srcset="/wp-content/uploads/2018/05/word-image-2553.png 1074w, /wp-content/uploads/2018/05/word-image-2553-300x63.png 300w, /wp-content/uploads/2018/05/word-image-2553-768x160.png 768w, /wp-content/uploads/2018/05/word-image-2553-1024x214.png 1024w" sizes="(max-width: 1074px) 100vw, 1074px" /></p>
+<h3>用户登录</h3>
+<p>
+  模型：在Model文件夹下创建UserModel.class.php（User模型类）
+</p>
+<p><img loading="lazy" decoding="async" width="1315" height="315" src="/wp-content/uploads/2018/05/word-image-2554.png" class="wp-image-2903" srcset="/wp-content/uploads/2018/05/word-image-2554.png 1315w, /wp-content/uploads/2018/05/word-image-2554-300x72.png 300w, /wp-content/uploads/2018/05/word-image-2554-768x184.png 768w, /wp-content/uploads/2018/05/word-image-2554-1024x245.png 1024w" sizes="(max-width: 1315px) 100vw, 1315px" /></p>
+<p>
+  控制器（LoginController）
+</p>
+<p><img loading="lazy" decoding="async" width="1229" height="471" src="/wp-content/uploads/2018/05/word-image-2555.png" class="wp-image-2904" srcset="/wp-content/uploads/2018/05/word-image-2555.png 1229w, /wp-content/uploads/2018/05/word-image-2555-300x115.png 300w, /wp-content/uploads/2018/05/word-image-2555-768x294.png 768w, /wp-content/uploads/2018/05/word-image-2555-1024x392.png 1024w" sizes="(max-width: 1229px) 100vw, 1229px" /></p>
+<p>
+  视图
+</p>
+<p>
+  没有变化
+</p>
+<h2>显示后台管理页面</h2>
+<ol>
+<li>
+  在Controller/Admin文件夹中创建AdminController.class.php页面（后台管理员控制器）
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  /*
+</p>
+<p>
+   * 管理员控制器
+</p>
+<p>
+   */
+</p>
+<p>
+  namespace Controller\Admin;
+</p>
+<p>
+  class AdminController extends \Core\Controller{
+</p>
+<p>
+      public function adminAction(){
+</p>
+<p>
+          $this-&gt;smarty-&gt;display(&#8216;admin.html&#8217;);
+</p>
+<p>
+      }
+</p>
+<p>
+      public function topAction(){
+</p>
+<p>
+          $this-&gt;smarty-&gt;display(&#8216;top.html&#8217;);
+</p>
+<p>
+      }
+</p>
+<p>
+      public function menuAction(){
+</p>
+<p>
+          $this-&gt;smarty-&gt;display(&#8216;menu.html&#8217;);
+</p>
+<p>
+      }
+</p>
+<p>
+      public function mainAction(){
+</p>
+<p>
+          $this-&gt;smarty-&gt;display(&#8216;main.html&#8217;);
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  更新admin.html中的URL地址
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1114" height="283" src="/wp-content/uploads/2018/05/word-image-2556.png" class="wp-image-2905" srcset="/wp-content/uploads/2018/05/word-image-2556.png 1114w, /wp-content/uploads/2018/05/word-image-2556-300x76.png 300w, /wp-content/uploads/2018/05/word-image-2556-768x195.png 768w, /wp-content/uploads/2018/05/word-image-2556-1024x260.png 1024w" sizes="(max-width: 1114px) 100vw, 1114px" /></p>
+<ol>
+<li>
+  更改top.html，menu.html，main.html中的静态资源的路径
+</li>
+<li>
+  登录成功后跳转到admin页面。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="910" height="114" src="/wp-content/uploads/2018/05/word-image-2557.png" class="wp-image-2906" srcset="/wp-content/uploads/2018/05/word-image-2557.png 910w, /wp-content/uploads/2018/05/word-image-2557-300x38.png 300w, /wp-content/uploads/2018/05/word-image-2557-768x96.png 768w" sizes="(max-width: 910px) 100vw, 910px" /></p>
+<h2>防止翻墙</h2>
+<p>
+  问题：可以不用登录，直接引入后台管理页面
+</p>
+<p><img loading="lazy" decoding="async" width="945" height="125" src="/wp-content/uploads/2018/05/word-image-2558.png" class="wp-image-2907" srcset="/wp-content/uploads/2018/05/word-image-2558.png 945w, /wp-content/uploads/2018/05/word-image-2558-300x40.png 300w, /wp-content/uploads/2018/05/word-image-2558-768x102.png 768w" sizes="(max-width: 945px) 100vw, 945px" /></p>
+<p>
+  解决：登录成功后，给用户付一个令牌（会话），在后面的操作中，检查令牌是否存在，如果不存在跳转到登录页面。
+</p>
+<h3>代码实现</h3>
+<p><img loading="lazy" decoding="async" width="807" height="238" src="/wp-content/uploads/2018/05/word-image-2559.png" class="wp-image-2908" srcset="/wp-content/uploads/2018/05/word-image-2559.png 807w, /wp-content/uploads/2018/05/word-image-2559-300x88.png 300w, /wp-content/uploads/2018/05/word-image-2559-768x226.png 768w" sizes="(max-width: 807px) 100vw, 807px" /></p>
+<ol>
+<li>
+  由于前后台都要使用会话，所以开启会话放在基础控制器中
+</li>
+<li>
+  检查是否登录只在后台中使用，检查是否登录的方法写在后台基础控制器中
+</li>
+<li>
+  在基础控制器中， 开启会话
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="890" height="318" src="/wp-content/uploads/2018/05/word-image-2560.png" class="wp-image-2909" srcset="/wp-content/uploads/2018/05/word-image-2560.png 890w, /wp-content/uploads/2018/05/word-image-2560-300x107.png 300w, /wp-content/uploads/2018/05/word-image-2560-768x274.png 768w" sizes="(max-width: 890px) 100vw, 890px" /></p>
+<ol>
+<li>
+  在Controller\Admin文件夹中创建BaseController.class.php（后台基础控制器） ，在此控制器中验证是否登录
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1201" height="482" src="/wp-content/uploads/2018/05/word-image-2561.png" class="wp-image-2910" srcset="/wp-content/uploads/2018/05/word-image-2561.png 1201w, /wp-content/uploads/2018/05/word-image-2561-300x120.png 300w, /wp-content/uploads/2018/05/word-image-2561-768x308.png 768w, /wp-content/uploads/2018/05/word-image-2561-1024x411.png 1024w" sizes="(max-width: 1201px) 100vw, 1201px" /></p>
+<ol>
+<li>
+  登录成功后，将用户信息保存到会话中
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1230" height="244" src="/wp-content/uploads/2018/05/word-image-2562.png" class="wp-image-2911" srcset="/wp-content/uploads/2018/05/word-image-2562.png 1230w, /wp-content/uploads/2018/05/word-image-2562-300x60.png 300w, /wp-content/uploads/2018/05/word-image-2562-768x152.png 768w, /wp-content/uploads/2018/05/word-image-2562-1024x203.png 1024w" sizes="(max-width: 1230px) 100vw, 1230px" /></p>
+<ol>
+<li>
+  所有后台控制器都继承后台基础控制器
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="644" height="135" src="/wp-content/uploads/2018/05/word-image-2563.png" class="wp-image-2912" srcset="/wp-content/uploads/2018/05/word-image-2563.png 644w, /wp-content/uploads/2018/05/word-image-2563-300x63.png 300w" sizes="(max-width: 644px) 100vw, 644px" /></p>
+<ol>
+<li>
+  测试
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1056" height="80" src="/wp-content/uploads/2018/05/word-image-2564.png" class="wp-image-2913" srcset="/wp-content/uploads/2018/05/word-image-2564.png 1056w, /wp-content/uploads/2018/05/word-image-2564-300x23.png 300w, /wp-content/uploads/2018/05/word-image-2564-768x58.png 768w, /wp-content/uploads/2018/05/word-image-2564-1024x78.png 1024w" sizes="(max-width: 1056px) 100vw, 1056px" /></p>
+<h2>防止注入</h2>
+<p>
+  通过传递参数拼接SQL语句达到攻击的目的
+</p>
+<p>
+  原理
+</p>
+<p><img loading="lazy" decoding="async" width="715" height="138" src="/wp-content/uploads/2018/05/word-image-2565.png" class="wp-image-2914" srcset="/wp-content/uploads/2018/05/word-image-2565.png 715w, /wp-content/uploads/2018/05/word-image-2565-300x58.png 300w" sizes="(max-width: 715px) 100vw, 715px" /></p>
+<p>
+  解决：
+</p>
+<ol>
+<li>
+  如果传递的是数字，必须进行整形转换
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="190" height="31" src="/wp-content/uploads/2018/05/word-image-2566.png" class="wp-image-2915" /></p>
+<ol>
+<li>
+  如果传递字符串，必须添加转义
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="781" height="105" src="/wp-content/uploads/2018/05/word-image-2567.png" class="wp-image-2916" srcset="/wp-content/uploads/2018/05/word-image-2567.png 781w, /wp-content/uploads/2018/05/word-image-2567-300x40.png 300w, /wp-content/uploads/2018/05/word-image-2567-768x103.png 768w" sizes="(max-width: 781px) 100vw, 781px" /></p>
+<ol>
+<li>
+  方法</p>
+<ol>
+<li>
+    mysql_escape_string — 转义一个字符串用于 mysql_query
+  </li>
+<li>
+    mysql_real_escape_string — 转义 SQL 语句中使用的字符串中的特殊字符
+  </li>
+<li>
+    addslashes()
+  </li>
+<li>
+    PDO-&gt;quote()
+  </li>
+</ol>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="591" height="42" src="/wp-content/uploads/2018/05/word-image-2568.png" class="wp-image-2917" srcset="/wp-content/uploads/2018/05/word-image-2568.png 591w, /wp-content/uploads/2018/05/word-image-2568-300x21.png 300w" sizes="(max-width: 591px) 100vw, 591px" /></p>
+<h3>代码实现</h3>
+<p>
+  方法一：
+</p>
+<p><img loading="lazy" decoding="async" width="1302" height="375" src="/wp-content/uploads/2018/05/word-image-2569.png" class="wp-image-2918" srcset="/wp-content/uploads/2018/05/word-image-2569.png 1302w, /wp-content/uploads/2018/05/word-image-2569-300x86.png 300w, /wp-content/uploads/2018/05/word-image-2569-768x221.png 768w, /wp-content/uploads/2018/05/word-image-2569-1024x295.png 1024w" sizes="(max-width: 1302px) 100vw, 1302px" /></p>
+<p>
+  方法二：可以调用pdo的quote方法
+</p>
+<ol>
+<li>
+  在MyPDO中添加addQuote()方法，pdo-&gt;quote()用来给参数添加单引号，如果参数本身带有单引号则添加转义。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="788" height="256" src="/wp-content/uploads/2018/05/word-image-2570.png" class="wp-image-2919" srcset="/wp-content/uploads/2018/05/word-image-2570.png 788w, /wp-content/uploads/2018/05/word-image-2570-300x97.png 300w, /wp-content/uploads/2018/05/word-image-2570-768x250.png 768w" sizes="(max-width: 788px) 100vw, 788px" /></p>
+<ol>
+<li>
+  在UserModel类中调用addQuote()方法
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="953" height="294" src="/wp-content/uploads/2018/05/word-image-2571.png" class="wp-image-2920" srcset="/wp-content/uploads/2018/05/word-image-2571.png 953w, /wp-content/uploads/2018/05/word-image-2571-300x93.png 300w, /wp-content/uploads/2018/05/word-image-2571-768x237.png 768w" sizes="(max-width: 953px) 100vw, 953px" /></p>
+<p>
+  防止注册成功
+</p>
+<h2>更新登录信息</h2>
+<p>
+  模型（UserModel）类中
+</p>
+<p><img loading="lazy" decoding="async" width="927" height="310" src="/wp-content/uploads/2018/05/word-image-2572.png" class="wp-image-2921" srcset="/wp-content/uploads/2018/05/word-image-2572.png 927w, /wp-content/uploads/2018/05/word-image-2572-300x100.png 300w, /wp-content/uploads/2018/05/word-image-2572-768x257.png 768w" sizes="(max-width: 927px) 100vw, 927px" /></p>
+<p>
+  在控制器中调用updateLoginInfo()
+</p>
+<p><img loading="lazy" decoding="async" width="934" height="159" src="/wp-content/uploads/2018/05/word-image-2573.png" class="wp-image-2922" srcset="/wp-content/uploads/2018/05/word-image-2573.png 934w, /wp-content/uploads/2018/05/word-image-2573-300x51.png 300w, /wp-content/uploads/2018/05/word-image-2573-768x131.png 768w" sizes="(max-width: 934px) 100vw, 934px" /></p>
+<ol>
+<li>
+  能够理解一个web项目的开发流程
+</li>
+<li>
+  能够搭建或使用自定义的MVC框架
+</li>
+<li>
+  能够实现后台的登录身份验证功能
+</li>
+<li>
+  能够理解SQL注入行为并加以防范
+</li>
+<li>
+  能够使用会话技术进行后台功能的身份验证
+</li>
+</ol>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/2885.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

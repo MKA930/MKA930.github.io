@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>电商项目面试总结 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E7%94%B5%E5%95%86%E9%A1%B9%E7%9B%AE%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sun, 28 Apr 2024 07:54:41 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>电商项目面试总结 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>电商项目面试总结</title>
+		<link>/%e8%b5%84%e6%96%99/6945.html</link>
+					<comments>/%e8%b5%84%e6%96%99/6945.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sun, 20 May 2018 01:53:43 +0000</pubDate>
+				<category><![CDATA[资料]]></category>
+		<category><![CDATA[电商项目面试总结]]></category>
+		<guid isPermaLink="false">/?p=6945</guid>
+
+					<description><![CDATA[电商项目面试 电商总概 电商项目的重要性 找工作面试的过程中，项目将会是整个流程的核心灵魂，也是能在面试中能让 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p><strong>电商项目面试</strong></p>
+<p><strong>电商总概</strong></p>
+<p><strong>电商项目的重要性</strong></p>
+<p>找工作面试的过程中，项目将会是整个流程的核心灵魂，也是能在面试中能让面试官尽快认同你的一个强有力的依据，所以在面试中把电商项目清晰的表述出来是极为关键的。</p>
+<p><strong>电商项目里的技术特点</strong></p>
+<p>①技术更新较快：根据市场的需求，不断迭代更新</p>
+<p>②技术涉及面广：除了PHP，还会用到Python,GO等其他的一些语言；数据库中MySQL,nosql是最频繁使用的（当然也有的公司会用oracle，但是PHP一般都是以MySQL为主），服务器端使用Linux（少部分公司会用到Unix），还经常涉及到服务器安全、系统安全等安全方面的技术</p>
+<p>③分布式：从前的单一的机器上运行，现在是分散到不同机器上，最后将数据集中汇总。集中式向分布式进行发展是由需求来推动</p>
+<p>④高并发、集群（高可用集群）、负载均衡：由并发问题采用集群进行处理，其中，集群会涉及服务器的主从以及分布问题，使用负载均衡。(权重高低)高可用是对用户而言，用户的服务不中断(系统升级，服务不中断，公司电商系统的部分更新等)。</p>
+<p>⑤海量数据：每年商家的各类活动（双11，双12等等）订单量、浏览数、商品量、活动相关数据都将会超级大超级多（一般随同高并发出现）</p>
+<p>⑥业务复杂：电商业务并不简单：并不是商品展示出来后，简单的加入购物车后购买就完成了。除此以外后台业务逻辑是相当复杂，比如优惠(包邮、满减)，秒杀，抢购等</p>
+<p>⑦系统安全：系统上线必须通过系统安全部门审核通过，安全性问题正逐步的被放到台面上，而且很多企业对这块相当重视</p>
+<p><strong>系统功能</strong></p>
+<p>本商城系统是一个综合性的B2C平台，类似京东商城、天猫商城。</p>
+<p>用户：</p>
+<p>1.用户可以通过注册成为商城的会员，登录商城</p>
+<p>2.根据会员等级获得相应的优惠和特权</p>
+<p>3.用户可以浏览商品，可以根据商品类型进行搜索</p>
+<p>4.用户可以对购物车进行操作（增删改查商品的数量、商品详情等）</p>
+<p>5.用户下订单、退订单，对订单的结算等</p>
+<p>商家：</p>
+<p>1.商家可以入驻商城，在商城里开店售卖自己的商品</p>
+<p>2.商家也有商家等级，如果在商城好评和商品销售量到达一定数量，可获得商家的一些特权</p>
+<p>3.商家可以管理自己店铺的商品：上架下架商品；设定库存量；设定自己店铺的会员制度等</p>
+<p><strong>电商项目的思维图</strong></p>
+<p><img fetchpriority="high" decoding="async" width="1192" height="740" class="wp-image-6946" src="/wp-content/uploads/2018/05/qq20161103103720.png" alt="QQ截图20161103103720" srcset="/wp-content/uploads/2018/05/qq20161103103720.png 1192w, /wp-content/uploads/2018/05/qq20161103103720-300x186.png 300w, /wp-content/uploads/2018/05/qq20161103103720-768x477.png 768w, /wp-content/uploads/2018/05/qq20161103103720-1024x636.png 1024w" sizes="(max-width: 1192px) 100vw, 1192px" /></p>
+<p>以上是大部分常用模块，如有其它模块自行补充。根据上图的体系架构，一层层的进行归纳记忆，从项目——模块——功能一点点的往深入熟悉记忆，并且加以理解</p>
+<p><strong>项目团队构成</strong></p>
+<ul>
+<li>产品经理：1人，确定需求以及给出产品原型图。</li>
+<li>项目经理：1人，项目管理。</li>
+<li>前端团队：1人，根据产品经理给出的原型制作静态页面。</li>
+<li>后端团队：3人，实现产品功能。</li>
+<li>测试团队：2人，测试所有的功能。</li>
+</ul>
+<p>（上述是以团队为单位，有的公司技术部不止一个团队，还有运维、UI、交互设计师等等，视情况而定）</p>
+<p><strong>项目开发流程</strong></p>
+<p><img decoding="async" width="1125" height="985" class="wp-image-6947" src="/wp-content/uploads/2018/05/word-image-6338.png" srcset="/wp-content/uploads/2018/05/word-image-6338.png 1125w, /wp-content/uploads/2018/05/word-image-6338-300x263.png 300w, /wp-content/uploads/2018/05/word-image-6338-768x672.png 768w, /wp-content/uploads/2018/05/word-image-6338-1024x897.png 1024w" sizes="(max-width: 1125px) 100vw, 1125px" /></p>
+<p><strong>涉及技术</strong></p>
+<p>框架：ThinkPHP CI YII Laravel等</p>
+<p>前端：HTML CSS JS/JQ(Bootstrap、node.js、angluar.js等可以了解下) AJAX</p>
+<p>PHP：PHP+MySQL session和cookie Nosql（redis memcache mongdb） 接口技术 缓存技术 优化技术等等</p>
+<p>服务器方面：Linux Nginx</p>
+<p><strong>开发环境及工具</strong></p>
+<p>WAMP或者是LAMP比较常见，除此以外还有LNMP等</p>
+<p>常用的工具：PHPStorm（PHP最正统的工具） NetBeans Editplus</p>
+<p>Webstorm（web最正统的工具） Sublime Dreamweaver</p>
+<p>SVN GIT</p>
+<p>（简历中或者是面试中尽量不要提及版本号，如果要写则需要把版本号对齐，否则不要写版本号）</p>
+<p><strong>电商面试常见问题</strong></p>
+<ol>
+<li><strong>说说你最近做的这个项目的背景，简单的介绍一下你这个项目？</strong></li>
+</ol>
+<p>我们公司之前主要以实体店为主，进行批发与零售，业务也相对比较传统。为了适应市场需求，增强公司竞争力，提升业务绩效，另一方面，也为基于互联网的商务模式创新奠定基础。所以开始xxx商城建设项目，其中包含商品管理、订单管理、类目管理、客户管理、合作商管理、客服管理、购物平台、内容管理等，很大程度上分担了人工的压力，对提高客户服务效率和客户满意度能够起到较好的作用。（先大体的描述下项目，然后能够挑一两个自己最为熟悉的模块进行叙述）</p>
+<ol>
+<li><strong>项目的整体结构（从框架和具体技术来说）</strong></li>
+</ol>
+<p>框架方面：从大处进行描述，比如本项目是属于电商项目，采用的是TP框架，运用php+MySQL+Apache进行开发。因为TP框架是开源的、轻量级的，所以用起来更加方便快捷，从效率和成本方面来讲都是性价比比较高的，所以那时候团队决定用这个框架进行开发。然后再从框架的一些优点特性进行说明下，让面试官觉得你对这个框架很了解</p>
+<p>技术：描述技术时首先用从自己比较熟悉的模块入手（比如说注册验证时会用到的JS技术、正则匹配、ajax无刷新验证等等），然后由此慢慢的向其他方面的技术进行拓展，在说具体技术的时候如果能说到目前比较新或者是比较有难度的技术，能够让面 试官眼前一亮，这样能为自己的面试增加不少分。</p>
+<p><strong>3.分布式架构，对比传统架构的优势。</strong></p>
+<p>①最为明显的一点，在传统的架构中，如果某个功能需要进行维护，那么我们必须停掉整个服务，这对于公司的运营会造成损失。分布式系统在核心功能模块使用单独服务器，维护部分模块不影响用户的其他操作。</p>
+<p>②在海量数据处理方面，传统架构显得比较乏力；分布式系统架构采用服务器集群，使用负载均衡，海量数据处理游刃有余！</p>
+<p>③在性能(检索)以及维护方面，分布式系统架构也有较为明显的优势。</p>
+<ol>
+<li><strong>本项目提供了哪些模块（功能和服务）</strong></li>
+</ol>
+<ul>
+<li>商品模块：其中包括商品管理，类型管理，属性管理，栏目管理等等</li>
+<li>订单模块：其中包括下单，退单，库存，收货人信息等</li>
+<li>会员模块：会员注册，会员信息管理，会员等级管理，会员权限等</li>
+<li>购物车模块：购物车数据存储，增删改查购物车商品，清空购物车等</li>
+<li>提交订单页面：提交用户的订单信息, 处理并发问题。</li>
+<li>个人中心：包括用户的登录，个人信息的管理，收货地址的管理，用户所下的订单的管理</li>
+<li>支付模块：支付方式管理（在线支付、货到付款）等</li>
+</ul>
+<ol>
+<li><strong>你负责的哪些模块</strong></li>
+</ol>
+<p>在项目中主要负责相关功能的开发，主要有：</p>
+<p>1) 后台管理系统：主要实现商品管理、商品规格参数管理、订单管理、会员管理等、CMS(内容管理系统)等，并且提供了跨域支持；</p>
+<p>2) 前台系统：主要是面向用户访问，使用js、ajax进行前后台数据交互（一般是用json格式数据返回）</p>
+<p>3) 会员登录：提供和用户信息相关的接口，比如说用户注册、查询等接口（登录时需要进行多重验证，特别注意安全方面）</p>
+<p>4) 订单功能：主要是提供和订单相关的业务接口，在订单系统了做了严格的数据校验以及高并发写的支持（这里可以说使用队列实现），并且使用了定时器实现对下单的时间控制，比如说关闭超时未付款的订单；</p>
+<p>5) 搜索功能：主要是提供商品的搜索，可以采用Sphinx全文搜索，当然也有其他的搜索方式；</p>
+<p>6) 会员系统：主要是维护用户的信息，已购买订单、优惠券、系统消息、修改密码、绑定手机等功能；</p>
+<p>7) 缓存：主要是用Redis实现，并且对Redis做了集群来保证Redis服务的高可用（缓存方面除了redis外还有memcached）</p>
+<p>8) 支付系统：主要是负责订单的支付、对账等功能，主要是对接了支付宝的接口；</p>
+<p>（根据个人的实际情况选择最为熟悉的模块，进行叙述）</p>
+<ol>
+<li><strong>简述下这些模块怎么实现的？（描述举例只给出部分功能的过程）</strong></li>
+</ol>
+<p><strong>商品类型管理</strong></p>
+<p>包含功能：添加商品类型、显示商品类型列表、修改商品类别、删除商品类型</p>
+<p>描述举例：</p>
+<p>1、添加商品类型：在后台模块新建一个商品类型的控制器(TypeController)，并添加 add方法， 同时建立好对应的静态页。新建一个对应的商品类型表，在表里添加数据验证。在商品类型控制器中的add方法中完成商品类型的添加。（其中关键点是create验证和防止非法字段提交）</p>
+<p>2、商品类型列表：在商品类型控制器中添加一个lst方法，取出商品类型数据，并在对应的静态页中完成数据遍历，就能在页面中得出相应的商品类型列表</p>
+<p><strong>属性管理</strong></p>
+<p>包含功能：添加属性、显示属性列表、根据商品类型搜索属性、修改属性、删除属性</p>
+<p>描述举例：</p>
+<p>前提条件：建立一个属性表将各字段全部预先设置好，才可以进行一下操作</p>
+<p>1、添加属性：在后台模块新建一个AttributeController的控制器，并添加add方法，并建立好对应的静态页面，修改页面里的表单。然后新建一个attribute表对应的模型文件，进行数据验证（验证规则可以查手册），在方法中完成属性添加的代码。在属性控制器中写入lst方法，并且完成对应静态页，把取出的数据遍历到对应的静态页</p>
+<p>2、根据商品类型搜索属性：（给select添加change事件，完成提交表单，表单提 交到当前页面。）首先在方法中将商品显示出来，并将商品数据完成遍历,给显示商品类型的select添加change事件，完成表单提交，其中会引用JQ添加 change事件，当触发change事件后，显示出当前显示的商品类型。在商品类型列表，添加“属性列表“的连接，在添加完成属性后，跳转到属性列表，直接显示所属当前商品类型的属性，最后实现分页</p>
+<p><strong>商品栏目管理</strong></p>
+<p>包含功能：创建栏目、栏目的增删改查 （注：商品类型和商品栏目的区别，类型是大类，栏目是小类）</p>
+<p>描述举例：</p>
+<p>前提条件：要创建一个栏目表，以便进行下面的功能开发</p>
+<ol>
+<li>添加栏目：在admin模块里面新建一个category的控制器，添加add方法，并完成对应页面设计。在页面上设计好表单，在添加栏目时将已经添加的栏目显示出来（新建一个商品栏目模型，在里面定义好方法，用于取出栏目的数据，并且已经格式化好的），然后在add方法里将数据取出来，并且进行遍历，在此方法中完成栏目的添加</li>
+<li>栏目列表：在category的控制器里添加lst方法，并且完成对应页面的设计，在页面中遍历栏目数据，将其遍历显示到页面中</li>
+<li>删除栏目：（注：在删除栏目时，如果有子栏目则不能删除）在栏目列表中添加删除栏目的链接（用U函数自动生成路径），在相应的category控制器里，写上del方法，接受传递过来的id,实例化自定义模型，利用sql拼接进行查询，找出对应的栏目记录，将其删除</li>
+</ol>
+<p><strong>商品管理</strong></p>
+<p>包含功能：商品的增删改查，在线编辑器，属性选项卡，属性的增删改查，商品相册选项卡，添加相册，文件上传，相册上传等</p>
+<p>描述举例：</p>
+<p>前提条件：要将商品表创建好，具体字段根据需求开设计</p>
+<p>1、添加商品：在后台模块（admin模块）里新建一个Goods控制器，写入add方法，同时完成相应的页面设计，在add方法对应的页面中对表单行进相应的修改（具体的页面要求感觉需求来修改）。在add方法中完成商品的添加功能代码，例如生成唯一的商品id号、添加商品的时间等（利用前缀+时间+唯一码=唯一id）</p>
+<p>2、图片上传：可以利用TP已经定义好的钩子函数，来完成图片文件的上传，返回保存图片的路径。钩子函数在模型里面会自动调用，比如：入库之前：_before_insert() 和入库之后：_after_insert() 会被模型里面的add方法，自动调用。只需要在上传之前，把图片的路径、上传单个文件的最大值、允许上传格式限制好</p>
+<p>3、缩略图：在图片上传的基础上利用new \Think\Image()按照原生图片的比例生成一个缩略像素*缩略像素的缩略图，每个缩略图都会生成一个唯一的id名，并且保存到预设好的路径文件夹中（这里要注意的是生成多张缩略图的时候，必须先生成大图，再生成小图），图片生成后将路径入库。</p>
+<p>4、显示属性选项卡：（选项卡的显示重点是给标签设置一个onclick事件函数）要在选项卡中显示商品类型，在goods控制器里面的add方法中取出商品类型数据，然后在相应的页面商品属性选项卡位置遍历商品类型数据，分别显示出来</p>
+<p>5、完成商品属性的添加：前提将商品属性表设计好，然后根据实际的静态页面进行表单的修改，修改指定表单的域名（即标签中的name），修改完成后在Goods模型里定义一个钩子_after_insert，在该方法中完成属性数据的入库，由此属性的添加完成</p>
+<p><strong>权限管理</strong></p>
+<p>包含功能：管理员登录，权限管理（权限管理控制），角色管理，管理员管理</p>
+<p>权限管理简述：权限管理是根据不同等级，不同管理员的情况下，授予不同的权限，各自操作各自授权。授权方式大体分为两种：一种是直接给管理员授权权限，适合于管理员比较少，权限数量也比较少的情况下；第二种是RBAC基于角色的访问控制。</p>
+<p>在建表方面，采用五张表</p>
+<p>其中有三张主表，权限表、角色表、管理员表，两张从表，角色与权限的中间表、管理员与角色的中间表。</p>
+<p>角色表与权限表的关系：一个角色可以有多个权限，一个权限可以属于多个角色，权限表与角色表是多对多的关系，要体现这种关系，要使用角色与权限的中间表；管理员表与角色表的关系：一个管理员可以属于多个角色，一个角色可以包含多个管理员，角色表与管理员表是多对多的关系，要体现这种关系，要使用管理员与角色的中间表。五张表关系图如下：</p>
+<p><img decoding="async" width="808" height="253" class="wp-image-6948" src="/wp-content/uploads/2018/05/word-image-6339.png" srcset="/wp-content/uploads/2018/05/word-image-6339.png 808w, /wp-content/uploads/2018/05/word-image-6339-300x94.png 300w, /wp-content/uploads/2018/05/word-image-6339-768x240.png 768w" sizes="(max-width: 808px) 100vw, 808px" /></p>
+<p>描述举例：</p>
+<ol>
+<li>权限管理：在项目中权限管理就是按钮，通过按钮给对应的管理员或者是角色分配权限。在后台模块新建一个权限的控制器，并写入add方法，完成对应的页面设计，修改好页面上的表单，完善页面。新建一个权限模型，并且在模型中添加数据验证，设置好验证规则（具体代码参考项目中的），在模型中完成权限添加。在父级权限完成后，继续添加子级权限：在模型里面定义一个方法，用于取出权限，并格式化好权限数据，然后在添加权限控制器里面，取出权限数据，并进行遍历，将遍历出来的子级权限显示在页面中</li>
+</ol>
+<p>2、角色管理：角色管理中包含对角色的增删改查，授权等等。添加角色首先要在在后台模块新建一个RoleController的控制器，写入添加add 方法，完成对应的静态页面，取出权限数据，并修改对应的表单。在后台模块里面，添加一个RoleModel 模型，写入添加数据验证。接下来就是数据入库，在入库时要注意的是该表单提交的数据，是入库两张的表，一个是角色表，一个是角色与权限的中间表，其中角色与权限的中间表的数据，是使用钩子函数_after_insert()来完成。</p>
+<p>3、角色删除：如果角色里面有管理员，则不能删除，在删除角色的同时，要删除角色与权限的中间表里面的对应的数据。首先在角色列表中添加删除的链接（用U函数自动生成路径），然后在角色控制器中添加删除del方法，用于删除角色，其次在角色模型中添加钩子函数_after_delete()用来删除角色与权限中间表对应的角色数据，删除完成</p>
+<p>4、管理员管理：在添加管理员时，要分配管理员所属角色，并且将管理员各个数据根据要求设定好格式。创建管理员控制器，添加add方法，取出角色数据，并完成页面设计将数据显示到页面上。在管理员模型中添加数据验证，使用静态方法来完成验证，</p>
+<p><img loading="lazy" decoding="async" width="858" height="329" class="wp-image-6949" src="/wp-content/uploads/2018/05/word-image-6340.png" srcset="/wp-content/uploads/2018/05/word-image-6340.png 858w, /wp-content/uploads/2018/05/word-image-6340-300x115.png 300w, /wp-content/uploads/2018/05/word-image-6340-768x294.png 768w" sizes="(max-width: 858px) 100vw, 858px" /></p>
+<p>使用模型添加数据，接受明文密码，然后用双重md5进行加密，这个过程的代码可以直接写到钩子函数里。使用钩子函数添加管理员与角色中间表的数据，在管理员的模型里面，添加_after_insert()钩子函数</p>
+<p><img loading="lazy" decoding="async" width="552" height="276" class="wp-image-6950" src="/wp-content/uploads/2018/05/word-image-6341.png" srcset="/wp-content/uploads/2018/05/word-image-6341.png 552w, /wp-content/uploads/2018/05/word-image-6341-300x150.png 300w" sizes="(max-width: 552px) 100vw, 552px" /></p>
+<p>5、管理员列表：在管理员的控制器里面添加lst方法，用于取出管理员数据，并完成对应的静态页面，要注意：显示管理员的同时，要显示出所属角色的名称，因此要连表查询（管理员表管理员角色表角色表）</p>
+<p><img loading="lazy" decoding="async" width="1013" height="198" class="wp-image-6951" src="/wp-content/uploads/2018/05/word-image-6342.png" srcset="/wp-content/uploads/2018/05/word-image-6342.png 1013w, /wp-content/uploads/2018/05/word-image-6342-300x59.png 300w, /wp-content/uploads/2018/05/word-image-6342-768x150.png 768w" sizes="(max-width: 1013px) 100vw, 1013px" /></p>
+<p>然后在对应的界面中进行管理员数据遍历并且显示到页面上。</p>
+<p>6、删除管理员：要操作的表是：it_admin和it_admin_role，在删除it_admin_role表里面数据时，则可以使用钩子函数_after_delete()，钩子函数是TP框架里面提供的，主要有：_before_insert()、_after_insert()、_before_update()、_after_update()</p>
+<p>，_before_delete()，_after_delete()（该系列函数是在模型里面定义，会被自动调用。）</p>
+<p>注意：超级管理员不能被删除（拥有最高权限）</p>
+<p><strong>邮件发送验证管理</strong></p>
+<p>包含功能：（原理要理解、）注册、登录、发送、密码找回等</p>
+<p>描述举例：</p>
+<p>原理：</p>
+<p><img loading="lazy" decoding="async" width="753" height="373" class="wp-image-6952" src="/wp-content/uploads/2018/05/word-image-6343.png" srcset="/wp-content/uploads/2018/05/word-image-6343.png 753w, /wp-content/uploads/2018/05/word-image-6343-300x149.png 300w" sizes="(max-width: 753px) 100vw, 753px" /></p>
+<ol>
+<li>邮件的SMTP（Simple Mail Transfer Protocol）：即简单邮件传输协议,它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。SMTP协议属于TCP/IP协议族，它帮助每台计算机在发送或中转信件时找到下一个目的地。通过SMTP协议所指定的服务器,就可以把E－mail寄到收信人的服务器上了，整个过程只要几分钟。SMTP服务器则是遵循SMTP协议的发送邮件服务器，用来发送或中转发出的电子邮件。</li>
+</ol>
+<p>2、用户注册：创建用户表，将所需字段设置好（在设置字段的时候可以预留一些字段以便后面拓展使用）。在前台模块中新建一个user控制器，添加register 方法，并且完成对应静态页。在user模型中添加数据验证，返回数据</p>
+<p><img loading="lazy" decoding="async" width="667" height="403" class="wp-image-6953" src="/wp-content/uploads/2018/05/word-image-6344.png" srcset="/wp-content/uploads/2018/05/word-image-6344.png 667w, /wp-content/uploads/2018/05/word-image-6344-300x181.png 300w" sizes="(max-width: 667px) 100vw, 667px" /></p>
+<p>在控制器中完成注册后，发送邮件：</p>
+<p><img loading="lazy" decoding="async" width="932" height="485" class="wp-image-6954" src="/wp-content/uploads/2018/05/word-image-6345.png" srcset="/wp-content/uploads/2018/05/word-image-6345.png 932w, /wp-content/uploads/2018/05/word-image-6345-300x156.png 300w, /wp-content/uploads/2018/05/word-image-6345-768x400.png 768w" sizes="(max-width: 932px) 100vw, 932px" /></p>
+<p>邮件发送后，由用户进行激活认证，因此在控制器中新建active方法。方法中首先要接受数据（key值，用户邮件数据），然后判断链接是否合法，根据传递的email查找出vaildate字段内容和key值进行匹配。如果匹配成功那么，就让用户进行激活，激活的同时将active的初始状态更改为1，则功能完结</p>
+<p>3、密码找回功能：实现方式，根据用户名-&gt;查找出注册时设置的问题-&gt;输入问题的答案-&gt;如果答案正确-&gt;发送一封邮件，根据该邮件里面的链接去完成密码的修改。首先在页面上将密码找回的链接设置好，在user控制器里添加findpwd1方法（用于找回密码的第一个方法），该方法显示出找回密码输入用户的一个界面，同时应该完成对应页面的编写。再在user控制器中添加findpwd2方法，根据用户名查找出注册时设置的问题，让用户输入问题的答案。第三是在user控制器中写入findpwd3方法，用于问题答案的匹配并发送邮件，通过邮件的链接来完成密码的修改。最后在user控制器中添加一个update方法，用于完成密码的修改</p>
+<p><strong> 购物车管理</strong></p>
+<p>包含功能：提交商品到购物车、显示购物车列表、删除购物车里商品、修改购物车、清空购物车等等</p>
+<ol>
+<li>购物车的实现方式：①可以把购物车的数据，给存储到cookie里面，一旦关闭浏览器，则商品数据就丢失；②可以把购物车的数据，给存储到session里面，可以长久的保存购物车里面的数据；③可以把购物车的数据，给存储到mysql数据库里面，可以长久的保存购物车里面的数据；④可以把购物车的数据，给存储到缓存里（memcache,redis），也可以长久的保存购物车的数据。</li>
+</ol>
+<p>注：Session可能会引起并发问题，如果脚本很短，这通常没有问题。但如果脚本运行时间比较长，那就可能会产生问题。在现代Web应用程序开发中，有一个非常常见的情况，就是使用AJAX技术在同一个页面内发送多个请求获取数据。如果这些请求都需要使用Session，那么第一个请求到达服务器后会取得Session锁，其它请求就必须等待，所有请求将串行处理，即使它们彼此之间并没有依赖关系。这将大大增加页面的响应时间。有一个方法可以避免这个问题，就是在使用完Session以后立即调用session_write_close（）方法关闭Session。这样Session锁就会释放，即使当前脚本还在等在处理。需要注意的是，调用该方法后，当前脚本就不能进一步操作Session了</p>
+<p>实例：</p>
+<p>2、京东购物车的设置，如果用户已经登录，则把购物车数据保存到数据库里面，如果没有登录，则把购物车的数据给保存到cookie里面，当登录时，要判断cookie是否有购物车的数据，如果有，则把cookie里面的数据给移动到数据库里面。</p>
+<p>3、提交商品到购物车：在前台模块里新建一个CartController控制器，添加addCart方法</p>
+<p><img loading="lazy" decoding="async" width="764" height="431" class="wp-image-6955" src="/wp-content/uploads/2018/05/word-image-6346.png" srcset="/wp-content/uploads/2018/05/word-image-6346.png 764w, /wp-content/uploads/2018/05/word-image-6346-300x169.png 300w" sizes="(max-width: 764px) 100vw, 764px" /></p>
+<p>4、购物车列表：在购物车模型里添加（对应方法）cartList方法，用于显示列表。如果用户已经登录，则直接从购物车数据库里面取出数据，如果用户没有登录，则直接从cookie里面获取数据。最后在购物车控制器里面的cartList的方法中，并取出购物车数据，并在对应的静态页面里完成遍历，显示出来</p>
+<p>cookie移到DB中：用户登录后，要判断cookie里面是否有购物车数据，如果有，则就移动到数据库，在购物车模型里面定义一个方法cookie2db</p>
+<p><img loading="lazy" decoding="async" width="832" height="688" class="wp-image-6956" src="/wp-content/uploads/2018/05/word-image-6347.png" srcset="/wp-content/uploads/2018/05/word-image-6347.png 832w, /wp-content/uploads/2018/05/word-image-6347-300x248.png 300w, /wp-content/uploads/2018/05/word-image-6347-768x635.png 768w" sizes="(max-width: 832px) 100vw, 832px" /></p>
+<p>登录成功后调用cookie2db方法即可</p>
+<p><strong> 订单管理</strong></p>
+<p>描述举例：</p>
+<ol>
+<li>建立订单控制器，添加对应方法（如flow方法），完成对应的静态页面。在order控制器里面添加一个done方法，用来完成下订单功能:首先接受传递过来的订单信息数据，判断购物车里面是否有商品，防止出现能够直接访问该方法的情况，如果没有商品则提示无法下单，接着判断用户是否已经登陆，如果没有登录把当前访问的地址存储到session里，跳转登录页面，完成登录后再跳转回来，再判断是否填写收货人的信息，同理，如果没有填写则跳转填写页面。下单时会自动算出订单总额，生成唯一的订单号，并且从session中取出用户id，获取收货人信息。随后将订单信息和订单商品信息入库结算完成后，清空购物车，订单完成</li>
+</ol>
+<p>2、下订单注意事项：</p>
+<p>①在下订单之前要判断库存是否充足：判断商品属性id是否有值，如果有说明该商品有属性，直接从product表里进行判断，如果没有属性则直接从goods表里判断库存</p>
+<p>②下完订单后要减掉库存：在入库it_order_goods表时，要完成减掉库存</p>
+<p>③高并发下订单问题：使用文件锁，对文件锁定后，不是操作文件，是锁定文件后，执行下订单，查看库存之前，就要加锁，一直到购买完成</p>
+<p><img loading="lazy" decoding="async" width="437" height="200" class="wp-image-6957" src="/wp-content/uploads/2018/05/word-image-6348.png" srcset="/wp-content/uploads/2018/05/word-image-6348.png 437w, /wp-content/uploads/2018/05/word-image-6348-300x137.png 300w" sizes="(max-width: 437px) 100vw, 437px" /></p>
+<p>④添加事务：防止某些操作只完成一半</p>
+<p><strong> 网上支付管理</strong></p>
+<p>支付过程主要是调用第三方支付接口</p>
+<p>网上支付流程：</p>
+<p><img loading="lazy" decoding="async" width="867" height="462" class="wp-image-6958" src="/wp-content/uploads/2018/05/word-image-6349.png" srcset="/wp-content/uploads/2018/05/word-image-6349.png 867w, /wp-content/uploads/2018/05/word-image-6349-300x160.png 300w, /wp-content/uploads/2018/05/word-image-6349-768x409.png 768w" sizes="(max-width: 867px) 100vw, 867px" /></p>
+<p>商城与银行对接方案：</p>
+<p>直接与银行对接</p>
+<p><img loading="lazy" decoding="async" width="574" height="340" class="wp-image-6959" src="/wp-content/uploads/2018/05/word-image-6350.png" srcset="/wp-content/uploads/2018/05/word-image-6350.png 574w, /wp-content/uploads/2018/05/word-image-6350-300x178.png 300w" sizes="(max-width: 574px) 100vw, 574px" /></p>
+<p>优点：</p>
+<p>因为直接与银行进行财务结算，交易资金结算比较安全。适合资金流量比较大的企业，这种方案适合于，每月结算金额百万以上的企业。</p>
+<p>缺点：</p>
+<p>开发工作量比较大，而且银行会不定期升级交易系统，随着银行系统的升级，企业也也需要做相应的改动，所以维护工作量也是比较大的，而且企业每年还需要向银行交纳一定数量的接口使用费用。</p>
+<p>通过中间公司间接与银行对接</p>
+<p><img loading="lazy" decoding="async" width="543" height="322" class="wp-image-6960" src="/wp-content/uploads/2018/05/word-image-6351.png" srcset="/wp-content/uploads/2018/05/word-image-6351.png 543w, /wp-content/uploads/2018/05/word-image-6351-300x178.png 300w" sizes="(max-width: 543px) 100vw, 543px" /></p>
+<p>优点：</p>
+<p>开发工作量较少，银行升级系统，不需要企业做相应的修改，除非中间企业的接入规范发生了改变，相对前一种接入方案，这种方案的维护工作量比较少的。因为只与一家企业对接，所以接入费用相对比较低。这种方案适合于：每月结算资金在几十万以下的中小企业。</p>
+<p>缺点：</p>
+<p>因为是与中间企业进行资金结算，目前所有中间企业都是私企，资金安全是个大问题</p>
+<p><strong>7.对于大流量的网站,您采用什么样的方法来解决访问量问题?</strong></p>
+<p>①确认服务器硬件是否足够支持当前的流量</p>
+<p>②优化数据库访问<br />
+③禁止外部的盗链<br />
+④控制大文件的下载<br />
+⑤使用不同主机分流主要流量、集群<br />
+⑥使用流量分析统计软件</p>
+<p><strong>8.数据库的存储引擎？有什么区别？</strong></p>
+<p>MyISAM、InnoDB</p>
+<p>构成上，MyISAM 的表在磁盘中有三个文件组成，分别是表定义文件（.frm）、数据文件（.MYD）、索引文件（.MYI）,而 InnoDB 的表由表定义文件(.frm)、表空间数据和日志文件组成。</p>
+<p>安全方面，MyISAM强调的是性能，其查询效率较高，但不支持事务和外键等安全性方面的功能，而 InnoDB 支持事务和外键等高级功能，查询效率稍低。</p>
+<p>对锁的支持，MyISAM 支持表锁，而 InnoDB 支持行锁。</p>
+<p><strong>9.Sql语句的优化？ </strong></p>
+<p>1)尽量选择较小的列</p>
+<p>2)将where中用的比较频繁的字段建立索引</p>
+<p>3)select子句中避免使用‘*’</p>
+<p>4)避免在索引列上使用计算、not in 和&lt;&gt;等操作</p>
+<p>5)当只需要一行数据的时候使用limit 1</p>
+<p>6)保证单表数据不超过200W，适时分割表。 针对查询较慢的语句，可以使用explain 来分析该语句具体的执行情况。</p>
+<p><strong>10.什么是页面静态化？</strong></p>
+<p>就是把一个动态的页面（操作数据库的php页面）变成一个静态页面，后续用户直接访问静态页面。</p>
+<p>页面静态化技术分为两种：真静态和伪静态。</p>
+<p>真静态：把一个动态的页面，实实在在的转成一个静态的页面,即.html文件</p>
+<p>伪静态：所谓伪静态是从url地址上看是一个静态页面，但是实际上还是对应一个动态页面</p>
+<p><strong>11.如何实现用户的安全登录？</strong></p>
+<p>①防止 Sql 注入，对特殊字符进行转义、过滤或者使用预编译的 sql 语句绑定变量。 最小权限原则，特别是不要用 root 账户，为不同的类型的动作或者组建使用不同的账户。</p>
+<p>②当sql运行出错时，不要把数据库返回的错误信息全部显示给用户，以防止泄露服务器和数据库相关信息</p>
+<p>③XSS攻击</p>
+<p>④暴力破解</p>
+<p>⑤CSRF：</p>
+<p><strong>12.使用过Memcache缓存吗？请简述一下</strong></p>
+<p>Memcache是把所有的数据保存在内存中，采用hash表的方式，把每条数据有key和value组成，每个key独一无二的，当要访问的某个值的时候先按照找到值，然后在返回结果，Memcache采用LRU算法来逐渐把过期的数据清除掉</p>
+<p><strong>13.说出JQUERY常用的几个函数？</strong></p>
+<p>$(selector).hide() 隐藏被选元素</p>
+<p>$(selector).show() 显示被选元素</p>
+<p>$(selector).toggle() 切换（在隐藏与显示之间）被选元素</p>
+<p>$(selector).slideDown() 向下滑动（显示）被选元素</p>
+<p>$(selector).slideUp() 向上滑动（隐藏）被选元素</p>
+<p>$(selector).slideToggle() 对被选元素切换向上滑动和向下</p>
+<p>$(selector).fadeIn() 淡入被选元素$(selector).fadeOut() 淡出被选元素 $(selector).fadeTo() 把被选元素淡出为给定的不透明度</p>
+<p>$(selector).animate() 对被选元素执行自定义动画</p>
+<p><strong>14.什么是二次开发？二次开发的弊端？</strong></p>
+<p>二次开发，简单的说就是在现有的软件上进行定制修改，功能的扩展，然后达到自己想要的功能，一般来说都不会改变原有系统的内核。dede二次开发就是以dede织梦系统为基础进行的二次开发。</p>
+<p>弊端：1）插件限制太多；</p>
+<p>2）修改源文件对升级有影响。</p>
+<p><strong>15.单例模式</strong></p>
+<p><img loading="lazy" decoding="async" width="727" height="328" class="wp-image-6961" src="/wp-content/uploads/2018/05/word-image-6352.png" srcset="/wp-content/uploads/2018/05/word-image-6352.png 727w, /wp-content/uploads/2018/05/word-image-6352-300x135.png 300w" sizes="(max-width: 727px) 100vw, 727px" /></p>
+<p><strong>16.Redis有几种持久化的方式？ redis缺点是什么？</strong></p>
+<p>两种，分别是RDB和AOF快照；</p>
+<p>Redis的主要缺点是数据库容量受到物理内存的限制，不能用作海量数据的高性能读写，</p>
+<p>因此Redis适合的场景主要局限在较小数据量的高性能操作和运算上</p>
+<p><strong>17.前后台数据不一致怎么办？</strong></p>
+<p>前后操作人员录入数据保持一致，开启验证功能，由于通讯故障造成的前台数据积压，维护时及时备份</p>
+<p><strong>18.数据库的读写分离？主从复制？</strong></p>
+<p>读写分离，基本的原理是让主<a href="/goto/ra05" rel="nofollow">数据库</a>处理事务性增、改、删操作（INSERT、UPDATE、DELETE），而从数据库处理SELECT查询操作。数据库复制被用来把事务性操作导致的变更同步到集群中的从数据库。</p>
+<p>至少两台数据库服务器，可以分别设置主服务器和从服务器，对主服务器的任何操作都会同步到从服务器上</p>
+<p>原理：mysql中有一种日志，叫做bin日志（二进制日志），会记录下所有修改过数据库的sql语句。主从复制的原理实际是多台服务器都开启bin日志，然后主服务器会把执行过的sql语句记录到bin日志中，之后把这个bin日志发给从服务器，在从服务器再把bin日志中记录的sql语句同样的执行一遍。这样从服务器上的数据就和主服务器相同了。</p>
+<p><strong>19.高并发如何处理？</strong></p>
+<p>需要对服务器的架构分层，重新布局，负载均衡，集群策略。</p>
+<p>负载均衡器（硬件和软件）</p>
+<p>硬件：F5-Bigip:立竿见影，价格昂贵，网游公司或大网站用的比较多</p>
+<p>软件：lvs(linux virtual server 虚拟服务，集成到内核中)，nginx(可以做web服务器，也可以做负载均衡使用)</p>
+<p>负载均衡策略：</p>
+<p>（1）轮询技术：把客户端的请求轮流分发给服务器。</p>
+<p>（2）最少连接；负载均衡把请求给最空闲的服务器</p>
+<p>（3）ip哈希：同一地址的客户端，始终请求同一台服务器。</p>
+<p><strong>20.前后台数据交互时用到那些技术？</strong></p>
+<p>Ajax，Ajax的跨域请求常用的有两种方式：</p>
+<p>1）使用中间层过渡的方式：</p>
+<p>中间过渡，很明显，就是在AJAX与不同域的服务器进行通讯的中间加一层过渡，这一层过渡可以是PHP 、JSP、c++等任何具备网络通讯功能的语言，由中间层向不同域的服务器进行读取数据的操作。拿PHP做 一个例子，如果需要对不同域的某一个php进行通讯，现在客户端的xmlhttprequest先query本域的一个 PHP，然后由本域的这个PHP去和不同</p>
+<p>域的PHP进行通讯，然后由本域的PHP输出response；</p>
+<p>2）使用标签</p>
+<p>这个方法是利用标签中的src来query一个PHP获得response，因为标签 的src属性不存在跨域的问题。</p>
+<p><strong>21.什么是Ajax，Ajax异步处理？</strong></p>
+<p>Ajax是一种在页面没有刷新的情况下，通过客户端（浏览器）与服务器交互的一种技术。</p>
+<p>Ajax语言的载体是javascript,最大特点：页面不刷新完成请求。</p>
+<p>open方法：如xhr.open(‘get’,’demo.php’,true)open方法，第三个参数表示是异步请求，默认true表示异步请求处理</p>
+<p><strong>22.什么是Bootstrap？有什么优势？</strong></p>
+<p>简单、直观、强悍的前端开发框架，让Web开发更快速、简单</p>
+<p>优势：入门简单，支持响应式，优先支持移动设备</p>
+<p><strong>23.http协议请求的状态？404是什么？500？</strong></p>
+<p>200（成功）：服务器已成功处理了请求。通常，这表示服务器提供了请求的网页</p>
+<p>201（已创建）：请求成功并且服务器创建了新的资源</p>
+<p>202（已接受）：服务器已接受请求，但尚未处理</p>
+<p>203（非授权信息）：服务器已成功处理了请求，但返回的信息可能来自另一来源</p>
+<p>204（无内容）：服务器成功处理了请求，但没有返回任何内容</p>
+<p>205（重置内容）：服务器成功处理了请求，但没有返回任何内容</p>
+<p>206 （部分内容）：服务器成功处理了部分 GET 请求</p>
+<p>404（未找到）：服务器找不到请求的网页</p>
+<p>500（服务器内部错误）：服务器遇到错误，无法完成请求</p>
+<p><strong>25.Hybird APP</strong></p>
+<p>1、主要分为三种主流类型：</p>
+<p>（1）webapp开发：其本身不是一个软件，只是一个 web移动端</p>
+<p>使用技术： Jquery Mobile,html5,响应式设计</p>
+<p>优点：可以移植性强，扩展能力强，开发周期短。</p>
+<p>缺点：必须依赖web服务器，其用户体验度较差</p>
+<p>（2）原生开发（native-app）</p>
+<p>使用原声语言开发手机App应用： android IOS</p>
+<p>android:基于Java开发的。</p>
+<p>IOS:swift,object-c开发</p>
+<p>优点：用户体验度最好，应用更容易扩展</p>
+<p>缺点：开发周期长，费用高。</p>
+<p>（3）混合式开发</p>
+<p>Hybrid App(混合式移动应用)是指介于web-app,native-app这两者之间的app,兼具’Native app良好的用户交互体验的优势’和‘webapp跨平台开发优势’。</p>
+<p>现在市场上一些主流移动应用都是基于Hybrid App的方式开发，比如国外有Facebook,国内有百度搜索等。</p>
+<p>特点：Hybrid同时使用网页语言（html,css,js）与程序语言（php,java等）开发，用户需要安装才能使用，总体特性更接近于Native-app，开发成本与难度比原生要小很多。</p>
+<p>三种APP开发方式表格对比：</p>
+<p><img loading="lazy" decoding="async" width="652" height="266" class="wp-image-6962" src="/wp-content/uploads/2018/05/word-image-6353.png" srcset="/wp-content/uploads/2018/05/word-image-6353.png 652w, /wp-content/uploads/2018/05/word-image-6353-300x122.png 300w" sizes="(max-width: 652px) 100vw, 652px" /></p>
+<p>开发原理：</p>
+<p>使用html,css,js,php开发的代码，借助于Hybrid App开发框架，生成手机的安装包，安装到手机即可使用。</p>
+<p><img loading="lazy" decoding="async" width="1090" height="228" class="wp-image-6963" src="/wp-content/uploads/2018/05/word-image-6354.png" srcset="/wp-content/uploads/2018/05/word-image-6354.png 1090w, /wp-content/uploads/2018/05/word-image-6354-300x63.png 300w, /wp-content/uploads/2018/05/word-image-6354-768x161.png 768w, /wp-content/uploads/2018/05/word-image-6354-1024x214.png 1024w" sizes="(max-width: 1090px) 100vw, 1090px" /></p>
+<ol>
+<li>目前集中主流的Hybird APP开发框架</li>
+</ol>
+<p>（1）PhoneGap框架：可以把应用打包成手机的App（兼容几乎所有手机）因为很多应用必须通过java脚本调用原生应用。</p>
+<p>（2）Appcan 框架：UI 、插件，功能的支持非常丰富，但是学习曲线陡。</p>
+<p>（3）wex5框架：用于非常广泛，插件比较丰富，本身是收费。</p>
+<p>（4）APICloud框架：国内非常优秀的一款Hybrid开发框架，UI功能，插件非常强大（几乎囊括了所有的主流应用功能</p>
+<p><strong>混合开发应用场景</strong></p>
+<p>（1）折中考虑——如果企业使用 Hybrid 开发方法，就能集Native 和web两者之所长。一方面，Native 让开发者可以充分利用现代移动设备所提供的全部不同的特性和功能。另一方面，使用 Web 语言编写的所有代码都可以在不同的移动平台之间共享，使得开发和日常维护过程变得集中式、更简短、更经济高效。</p>
+<p>（2）内部技能——许多企业都拥有Web 开发技能。如果选择 Hybrid 开发方法，在合适解决方案的支持下，Web 开发者只要仅仅运用 HTML、CSS 和 JavaScript 等 Web 技能，就能构建 App，同时提供 Native 用户体验。</p>
+<p>（3）考虑未来——HTML5的可用性和功能都在迅速改进。许多分析师预测，它可能会成为开发前端 App 的默认技术。如果用 HTML 来编写 App 的大部分代码，并且只有在需要时才使用 Native 代码，公司就能确保他们今天的投入在明天不会变得过时，因为 HTML 功能变得更丰富，可以满足现代企业一系列更广泛的移动要求。</p>
+<p>Hyrbrid App开发流程</p>
+<p>静态资源本地化</p>
+<p>该方案，会先在app里面内嵌一份静态资源，然后在用户启动app或者访问html页面并且符合一定条件的情况下，会发送请求去后台，询问资源的情况。如果发现有更新，那么就把最新的资源下载到本地，然后接下来用户访问的都是本地的静态资源了。如果更新失败，那么他访问的就是内嵌的或者已经下载好的静态资源。</p>
+<p>HTML 5 应用程序缓存</p>
+<p>这个方案，其实就是采用HTML5的应用程序缓存（HTML5 Cache Manifest ）。在这里就不详述了，网上关于这个的资料很多。值得注意的点，就是manifest的配置文件，需要配置正确的MIME-type，即 &#8220;text/cache-manifest&#8221; 。</p>
+<p>一般是在开发一些活动或者专题页面（上线时间短，ui变化多端）的时候，采用第二个方案。</p>
+<p>而大多数的app页面都是相对稳定，或者说是迭代开发，定期更新的，具备规律性，这种情况下，我们采用的是第一个方案。采用这个方案的时候，我们需要严格控制资源文件的大小，除了必要的压缩之外，还可以把长期固定的资源提取出来，提前内置到app里面。那么，用户每次更新资源时，只需要去服务器获取变化的部分，大大减小了流量使用。</p>
+<p>以上两个方案，相对于每次都访问服务器静态资源来说，具有明显的优点：离线访问；资源加载快；服务器负载低</p>
+<p>1、页面加载</p>
+<p>首先，客户端加载某页面，加载完成后（pagefinish）,客户端会调用前端提供的初始化方法（initParams）。通过该方法实现参数的传递和页面的初始化。</p>
+<p>2、资源构建</p>
+<p>目前使用fis3进行资源的压缩、合并、添加 md5 戳等构建功能，对于使用了es6的项目，还需要用到Babel。在此基础上，我们还开发了一些内部使用的基于fis3的插件。最终的目的，就是为了实现一条命令行，完成全部构建工作。</p>
+<p>3、开发环境搭建</p>
+<p>搭建本地web服务，使用的是nodejs+express。</p>
+<p>4、开发流程</p>
+<p><img loading="lazy" decoding="async" width="700" height="352" class="wp-image-6964" src="/wp-content/uploads/2018/05/img_256.jpeg" alt="IMG_256" srcset="/wp-content/uploads/2018/05/img_256.jpeg 700w, /wp-content/uploads/2018/05/img_256-300x151.jpeg 300w" sizes="(max-width: 700px) 100vw, 700px" /></p>
+<p>从上图可以看出，视觉设计、前端开发、客户端开发、后台开发都在很大程度上实现了并行开发。</p>
+<p>接下来，简单描述一下前端开发怎么实现和后台，还有和客户端解耦，然后实现并行开发的。</p>
+<p>a、首先，接口文档（后台接口文档和客户端接口文档）是不阻塞的前提。有了后台接口文档，就可以依此构建相应的假数据，并且模拟相应的接口请求。而有了android接口文档后，也可以模拟调用客户端接口，至少保证了基本的逻辑是顺畅的。所以，只要有了接口文档，在进行到真正的联调之前，前端、后台、客户端这3者都是独立开发，互不阻塞的。</p>
+<p>b、然后联调的话分三个阶段：</p>
+<p>模拟假数据联调</p>
+<p>这个阶段的话其实只需要编写一些假数据在本地，然后用ajax请求就行了。而android接口的调用，也是模拟调用便可。在这一阶段，主要是为了确保前端逻辑基本跑通。</p>
+<p>后台真实接口调用</p>
+<p>到了这已阶段，我们需要的是访问本地静态资源，调用的却是远程服务器的接口。此种情况下，主要是要解决ajax的跨域请求问题。实现方式也挺多的，最简单的就是设置一下浏览器支持跨域。当然，你也可以使用nginx或者apache的反向代理来实现ajax的跨域请求。</p>
+<p>三方联调</p>
+<p>这一步，已经到了提测前的最后一个步骤。这个时候，客户端已经和静态资源集成，然后调用的接口，无论是android接口还是后台服务器接口，都不再是模拟的了。</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e8%b5%84%e6%96%99/6945.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

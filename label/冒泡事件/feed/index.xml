@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>冒泡事件 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%86%92%E6%B3%A1%E4%BA%8B%E4%BB%B6/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 06:53:28 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>冒泡事件 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>JS高级（三）Json、淡入、事件、冒泡事件、可编辑表格、内置对象</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3098.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3098.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 06:53:28 +0000</pubDate>
+				<category><![CDATA[Javascript]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[Json]]></category>
+		<category><![CDATA[事件]]></category>
+		<category><![CDATA[内置对象]]></category>
+		<category><![CDATA[冒泡事件]]></category>
+		<category><![CDATA[可编辑表格]]></category>
+		<category><![CDATA[淡入]]></category>
+		<guid isPermaLink="false">/?p=3098</guid>
+
+					<description><![CDATA[JavaScript高级（3） 0、知识点补充 查找节点： firstChild lastChild：会把空白 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>
+  JavaScript高级（3）
+</p>
+<h1>0、知识点补充</h1>
+<p>
+  查找节点：
+</p>
+<p>
+  firstChild  lastChild：会把空白计算在内
+</p>
+<p>
+  firstElementChild  lastElementChild ：只查找元素类型的子节点，不会计算空白，但是在IE8+才支持
+</p>
+<p>
+  <img fetchpriority="high" decoding="async" width="1105" height="309" src="/wp-content/uploads/2018/05/word-image-2722.png" class="wp-image-3099" srcset="/wp-content/uploads/2018/05/word-image-2722.png 1105w, /wp-content/uploads/2018/05/word-image-2722-300x84.png 300w, /wp-content/uploads/2018/05/word-image-2722-768x215.png 768w, /wp-content/uploads/2018/05/word-image-2722-1024x286.png 1024w" sizes="(max-width: 1105px) 100vw, 1105px" />
+</p>
+<p>
+  克隆节点：cloneNode()
+</p>
+<p>
+  <img decoding="async" width="1144" height="403" src="/wp-content/uploads/2018/05/word-image-2723.png" class="wp-image-3100" srcset="/wp-content/uploads/2018/05/word-image-2723.png 1144w, /wp-content/uploads/2018/05/word-image-2723-300x106.png 300w, /wp-content/uploads/2018/05/word-image-2723-768x271.png 768w, /wp-content/uploads/2018/05/word-image-2723-1024x361.png 1024w" sizes="(max-width: 1144px) 100vw, 1144px" />
+</p>
+<h1>一、案例—淡入效果</h1>
+<p>
+  1、做默认的html+css
+</p>
+<p>
+  <img decoding="async" width="631" height="564" src="/wp-content/uploads/2018/05/word-image-2724.png" class="wp-image-3101" srcset="/wp-content/uploads/2018/05/word-image-2724.png 631w, /wp-content/uploads/2018/05/word-image-2724-300x268.png 300w" sizes="(max-width: 631px) 100vw, 631px" />
+</p>
+<p>
+  2、每隔两秒生硬的变化
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="674" height="313" src="/wp-content/uploads/2018/05/word-image-2725.png" class="wp-image-3102" srcset="/wp-content/uploads/2018/05/word-image-2725.png 674w, /wp-content/uploads/2018/05/word-image-2725-300x139.png 300w" sizes="(max-width: 674px) 100vw, 674px" />
+</p>
+<p>
+  加入临界条件，控制inIndex和outIndex的范围：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="728" height="418" src="/wp-content/uploads/2018/05/word-image-2726.png" class="wp-image-3103" srcset="/wp-content/uploads/2018/05/word-image-2726.png 728w, /wp-content/uploads/2018/05/word-image-2726-300x172.png 300w" sizes="(max-width: 728px) 100vw, 728px" />
+</p>
+<p>
+  3、创建一个设置透明图的方法
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="752" height="229" src="/wp-content/uploads/2018/05/word-image-2727.png" class="wp-image-3104" srcset="/wp-content/uploads/2018/05/word-image-2727.png 752w, /wp-content/uploads/2018/05/word-image-2727-300x91.png 300w" sizes="(max-width: 752px) 100vw, 752px" />
+</p>
+<p>
+  4、让图片慢慢变化
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="822" height="560" src="/wp-content/uploads/2018/05/word-image-2728.png" class="wp-image-3105" srcset="/wp-content/uploads/2018/05/word-image-2728.png 822w, /wp-content/uploads/2018/05/word-image-2728-300x204.png 300w, /wp-content/uploads/2018/05/word-image-2728-768x523.png 768w, /wp-content/uploads/2018/05/word-image-2728-220x150.png 220w" sizes="(max-width: 822px) 100vw, 822px" />
+</p>
+<p>
+  5、解决变化过程中，最后一张总是显示的问题
+</p>
+<p>
+  变化过程中，待显示的图片的透明度还没有达到1，也就是半透明状态，而其他图片的z-index值又都为1，z-index值相同的话，默认总是显示最后一张。
+</p>
+<p>
+  解决的办法，变化这一刻（在变化的1秒钟之内），待显示的图片的z-index设置为3，其他的图片的z-index的值设置为1，让待隐藏的图片的z-index值为2.
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1089" height="625" src="/wp-content/uploads/2018/05/word-image-2729.png" class="wp-image-3106" srcset="/wp-content/uploads/2018/05/word-image-2729.png 1089w, /wp-content/uploads/2018/05/word-image-2729-300x172.png 300w, /wp-content/uploads/2018/05/word-image-2729-768x441.png 768w, /wp-content/uploads/2018/05/word-image-2729-1024x588.png 1024w" sizes="(max-width: 1089px) 100vw, 1089px" />
+</p>
+<h1><a id="post-3098-_Toc488784655"></a>二、事件与事件对象</h1>
+<p><a id="post-3098-_Toc488784656"></a><br />
+  1、事件监听与移除事件监听
+</p>
+<p>
+  事件监听要解决的问是给一个dom对象绑定多个事件。
+</p>
+<p>
+  1、事件监听
+</p>
+<p>
+  针对IE8+及火狐浏览器，使用addEventLister()，在绑定事件的时候，不要写on。
+</p>
+<p>
+  针对IE8及更低版本浏览器使用attachEvent()，绑定的事件倒序执行。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="758" height="475" src="/wp-content/uploads/2018/05/word-image-2730.png" class="wp-image-3107" srcset="/wp-content/uploads/2018/05/word-image-2730.png 758w, /wp-content/uploads/2018/05/word-image-2730-300x188.png 300w" sizes="(max-width: 758px) 100vw, 758px" />
+</p>
+<p>
+  写一个兼容性的函数：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="714" height="330" src="/wp-content/uploads/2018/05/word-image-2731.png" class="wp-image-3108" srcset="/wp-content/uploads/2018/05/word-image-2731.png 714w, /wp-content/uploads/2018/05/word-image-2731-300x139.png 300w" sizes="(max-width: 714px) 100vw, 714px" />
+</p>
+<p>
+  2、移除事件监听
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="821" height="552" src="/wp-content/uploads/2018/05/word-image-2732.png" class="wp-image-3109" srcset="/wp-content/uploads/2018/05/word-image-2732.png 821w, /wp-content/uploads/2018/05/word-image-2732-300x202.png 300w, /wp-content/uploads/2018/05/word-image-2732-768x516.png 768w" sizes="(max-width: 821px) 100vw, 821px" />
+</p>
+<p>
+  兼容性写法：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="613" height="209" src="/wp-content/uploads/2018/05/word-image-2733.png" class="wp-image-3110" srcset="/wp-content/uploads/2018/05/word-image-2733.png 613w, /wp-content/uploads/2018/05/word-image-2733-300x102.png 300w" sizes="(max-width: 613px) 100vw, 613px" />
+</p>
+<p><a id="post-3098-_Toc488784657"></a><br />
+  2、事件对象
+</p>
+<p>
+  事件对象存在于事件处理函数中。
+</p>
+<p>
+  事件对象就是描述当前事件的具体的情况的对象。这个对象根据事件的不同，内容可能会发生细微的变化，比如键盘事件，事件对象就会包括keyCode，比如单击事件，事件对象就会包含点击的坐标。
+</p>
+<p>
+  获取事件对象的兼容性写法：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="689" height="244" src="/wp-content/uploads/2018/05/word-image-2734.png" class="wp-image-3111" srcset="/wp-content/uploads/2018/05/word-image-2734.png 689w, /wp-content/uploads/2018/05/word-image-2734-300x106.png 300w" sizes="(max-width: 689px) 100vw, 689px" />
+</p>
+<p>
+  shiftKey：表示是否按了shift键，如果按了返回true，没有按返回false
+</p>
+<p>
+  ctrlKey：表示是否按了ctrl键，如果按了返回true，没有按返回false
+</p>
+<p>
+  altKey：表示是否按了alt键，如果按了返回true，没有按返回false
+</p>
+<p>
+  keyCode：表示键盘的代码，是一个数字，每个键都会对应一个数字。具体查看“键盘KeyCode对照表.docx”
+</p>
+<p>
+  判断是否按了@键：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="736" height="409" src="/wp-content/uploads/2018/05/word-image-2735.png" class="wp-image-3112" srcset="/wp-content/uploads/2018/05/word-image-2735.png 736w, /wp-content/uploads/2018/05/word-image-2735-300x167.png 300w" sizes="(max-width: 736px) 100vw, 736px" />
+</p>
+<p><a id="post-3098-_Toc488784658"></a><br />
+  3、阻止冒泡事件
+</p>
+<p>
+  1、什么是冒泡事件？
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="962" height="356" src="/wp-content/uploads/2018/05/word-image-2736.png" class="wp-image-3113" srcset="/wp-content/uploads/2018/05/word-image-2736.png 962w, /wp-content/uploads/2018/05/word-image-2736-300x111.png 300w, /wp-content/uploads/2018/05/word-image-2736-768x284.png 768w" sizes="(max-width: 962px) 100vw, 962px" />
+</p>
+<p>
+  在点击b这个div的时候，由于b在a的上面，也相当于点击了a。所以会触发两个事件，这种情况就是冒泡事件。
+</p>
+<p>
+  2、如何阻止冒泡行为
+</p>
+<p>
+  如果要阻止冒泡，
+</p>
+<p>
+  标准浏览器使用evt.stopPropagation()
+</p>
+<p>
+  IE内核浏览器使用window.event.cancelBubble = true;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="569" height="491" src="/wp-content/uploads/2018/05/word-image-2737.png" class="wp-image-3114" srcset="/wp-content/uploads/2018/05/word-image-2737.png 569w, /wp-content/uploads/2018/05/word-image-2737-300x259.png 300w" sizes="(max-width: 569px) 100vw, 569px" />
+</p>
+<p><a id="post-3098-_Toc488784659"></a><br />
+  4、阻止默认行为
+</p>
+<p>
+  比如表单提交或者超链接跳转，都会有一个地址，点击表单中的提交按钮或者超链接就会跳转到相应的地址。如果点击之后不希望这样跳转，就使用js方法阻止它，这就是阻止默认行为。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="810" height="486" src="/wp-content/uploads/2018/05/word-image-2738.png" class="wp-image-3115" srcset="/wp-content/uploads/2018/05/word-image-2738.png 810w, /wp-content/uploads/2018/05/word-image-2738-300x180.png 300w, /wp-content/uploads/2018/05/word-image-2738-768x461.png 768w" sizes="(max-width: 810px) 100vw, 810px" />
+</p>
+<p>
+  另外的方法：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="867" height="452" src="/wp-content/uploads/2018/05/word-image-2739.png" class="wp-image-3116" srcset="/wp-content/uploads/2018/05/word-image-2739.png 867w, /wp-content/uploads/2018/05/word-image-2739-300x156.png 300w, /wp-content/uploads/2018/05/word-image-2739-768x400.png 768w" sizes="(max-width: 867px) 100vw, 867px" />
+</p>
+<h1>三、案例—可编辑的表格</h1>
+<p>
+  1、完成html+css布局
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="484" height="391" src="/wp-content/uploads/2018/05/word-image-2740.png" class="wp-image-3117" srcset="/wp-content/uploads/2018/05/word-image-2740.png 484w, /wp-content/uploads/2018/05/word-image-2740-300x242.png 300w" sizes="(max-width: 484px) 100vw, 484px" />
+</p>
+<p>
+  css：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="644" height="437" src="/wp-content/uploads/2018/05/word-image-2741.png" class="wp-image-3118" srcset="/wp-content/uploads/2018/05/word-image-2741.png 644w, /wp-content/uploads/2018/05/word-image-2741-300x204.png 300w, /wp-content/uploads/2018/05/word-image-2741-220x150.png 220w" sizes="(max-width: 644px) 100vw, 644px" />
+</p>
+<p>
+  2、隔行换色
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="637" height="160" src="/wp-content/uploads/2018/05/word-image-2742.png" class="wp-image-3119" srcset="/wp-content/uploads/2018/05/word-image-2742.png 637w, /wp-content/uploads/2018/05/word-image-2742-300x75.png 300w" sizes="(max-width: 637px) 100vw, 637px" />
+</p>
+<p>
+  3、找到包括名字的td，并绑定单击事件
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="744" height="414" src="/wp-content/uploads/2018/05/word-image-2743.png" class="wp-image-3120" srcset="/wp-content/uploads/2018/05/word-image-2743.png 744w, /wp-content/uploads/2018/05/word-image-2743-300x167.png 300w" sizes="(max-width: 744px) 100vw, 744px" />
+</p>
+<p>
+  4、点击td后，将input放到td中
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="728" height="359" src="/wp-content/uploads/2018/05/word-image-2744.png" class="wp-image-3121" srcset="/wp-content/uploads/2018/05/word-image-2744.png 728w, /wp-content/uploads/2018/05/word-image-2744-300x148.png 300w" sizes="(max-width: 728px) 100vw, 728px" />
+</p>
+<p>
+  设置input的样式，阻止产生多个input
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="872" height="657" src="/wp-content/uploads/2018/05/word-image-2745.png" class="wp-image-3122" srcset="/wp-content/uploads/2018/05/word-image-2745.png 872w, /wp-content/uploads/2018/05/word-image-2745-300x226.png 300w, /wp-content/uploads/2018/05/word-image-2745-768x579.png 768w" sizes="(max-width: 872px) 100vw, 872px" />
+</p>
+<p>
+  5、给input绑定事件
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="716" height="462" src="/wp-content/uploads/2018/05/word-image-2746.png" class="wp-image-3123" srcset="/wp-content/uploads/2018/05/word-image-2746.png 716w, /wp-content/uploads/2018/05/word-image-2746-300x194.png 300w" sizes="(max-width: 716px) 100vw, 716px" />
+</p>
+<h1>四、面向对象概述</h1>
+<p>
+  1、什么是对象
+</p>
+<p>
+  我喜欢大眼睛，长头发，大长腿，小蛮腰，会洗衣服，会做饭，会生孩子的女孩。比如有孙俪，范冰冰。
+</p>
+<p>
+  上面这句话中的“大眼睛，长头发，大长腿，小蛮腰，会洗衣服，会做饭，会生孩子”表示一类人，在程序中就是一个类。而孙俪，范冰冰是符合这类的人，在程序中就的对象。
+</p>
+<p>
+  2、面向对象编程
+</p>
+<p>
+  面向对象编程简称OOP（Object-Oritened Programming）为软件开发人员敞开了一扇大门，它使得代码的编写更加简洁、高效、可读性和维护性增强。它实现了软件工程的三大目标：（代码）重用性、（功能）扩展性和（操作）灵活性，它的实现是依赖于面向对象的三大特性：封装、继承、多态。在实际开发中 使用面向对象编程 可以实现系统化、模块化和结构化的设计 它是每位软件开发员不可或缺的一项技能。
+</p>
+<h1>五、自定义对象</h1>
+<p>
+  1、构造函数和类的说明
+</p>
+<p>
+  PHP中要声明一个对象的话，必须先声明一个类，然后通过关键字new实例化得到一个对象。
+</p>
+<p>
+  在js中，没有类的概念，只有构造函数的概念，js中会把构造函数当做类。
+</p>
+<p>
+  在ES6（ECMAScript6）中才引入了类的概念。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="595" height="179" src="/wp-content/uploads/2018/05/word-image-2747.png" class="wp-image-3124" srcset="/wp-content/uploads/2018/05/word-image-2747.png 595w, /wp-content/uploads/2018/05/word-image-2747-300x90.png 300w" sizes="(max-width: 595px) 100vw, 595px" />
+</p>
+<p>
+  2、this关键字和成员
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="628" height="429" src="/wp-content/uploads/2018/05/word-image-2748.png" class="wp-image-3125" srcset="/wp-content/uploads/2018/05/word-image-2748.png 628w, /wp-content/uploads/2018/05/word-image-2748-300x205.png 300w, /wp-content/uploads/2018/05/word-image-2748-220x150.png 220w" sizes="(max-width: 628px) 100vw, 628px" />
+</p>
+<p>
+  用this关键字，在构造函数中添加成员：<br />
+  <br />
+  <img loading="lazy" decoding="async" width="794" height="338" src="/wp-content/uploads/2018/05/word-image-2749.png" class="wp-image-3126" srcset="/wp-content/uploads/2018/05/word-image-2749.png 794w, /wp-content/uploads/2018/05/word-image-2749-300x128.png 300w, /wp-content/uploads/2018/05/word-image-2749-768x327.png 768w" sizes="(max-width: 794px) 100vw, 794px" />
+</p>
+<p>
+  this表示根据Person实例化的每个对象。当前用的是哪个对象，this就表示哪个对象。
+</p>
+<p>
+  3、删除成员
+</p>
+<p>
+  使用的关键字是delete。delete关键字用于删除对象的成员，既可以删除成员属性，也可以删除成员方法。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="633" height="382" src="/wp-content/uploads/2018/05/word-image-2750.png" class="wp-image-3127" srcset="/wp-content/uploads/2018/05/word-image-2750.png 633w, /wp-content/uploads/2018/05/word-image-2750-300x181.png 300w" sizes="(max-width: 633px) 100vw, 633px" />
+</p>
+<p>
+  4、练习
+</p>
+<p>
+  案例目的是设置dom对象的css样式：
+</p>
+<p>
+  使用的办法不是直接设置，而是将设置dom对象css样式写到对象的成员方法中
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="716" height="371" src="/wp-content/uploads/2018/05/word-image-2751.png" class="wp-image-3128" srcset="/wp-content/uploads/2018/05/word-image-2751.png 716w, /wp-content/uploads/2018/05/word-image-2751-300x155.png 300w" sizes="(max-width: 716px) 100vw, 716px" />
+</p>
+<p>
+  完成链式调用：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1032" height="383" src="/wp-content/uploads/2018/05/word-image-2752.png" class="wp-image-3129" srcset="/wp-content/uploads/2018/05/word-image-2752.png 1032w, /wp-content/uploads/2018/05/word-image-2752-300x111.png 300w, /wp-content/uploads/2018/05/word-image-2752-768x285.png 768w, /wp-content/uploads/2018/05/word-image-2752-1024x380.png 1024w" sizes="(max-width: 1032px) 100vw, 1032px" />
+</p>
+<p>
+  5、自定义对象在内存中的表现形式
+</p>
+<p>
+  创建一个对象后，会在内存中栈和堆都开辟一个新的空间，堆中存储的是对象的实际内容，栈区存放的是堆的地址。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="798" height="282" src="/wp-content/uploads/2018/05/word-image-2753.png" class="wp-image-3130" srcset="/wp-content/uploads/2018/05/word-image-2753.png 798w, /wp-content/uploads/2018/05/word-image-2753-300x106.png 300w, /wp-content/uploads/2018/05/word-image-2753-768x271.png 768w" sizes="(max-width: 798px) 100vw, 798px" />
+</p>
+<p>
+  删除其中一个对象，会不会对另外的对象有影响？
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="797" height="280" src="/wp-content/uploads/2018/05/word-image-2754.png" class="wp-image-3131" srcset="/wp-content/uploads/2018/05/word-image-2754.png 797w, /wp-content/uploads/2018/05/word-image-2754-300x105.png 300w, /wp-content/uploads/2018/05/word-image-2754-768x270.png 768w" sizes="(max-width: 797px) 100vw, 797px" />
+</p>
+<h1>六、json格式的对象</h1>
+<p>
+  1、json简介
+</p>
+<p>
+  json就是符合某种格式的字符串。
+</p>
+<p>
+  JavaScript 对象表示法（JavaScript Object Notation）。
+</p>
+<p>
+  JSON 是存储和交换文本信息的语法。类似 XML。
+</p>
+<p>
+  JSON 比 XML 更小、更快，更易解析
+</p>
+<p>
+  JSON是独立于语言和平台的。所有的编程语言都认识JSON，这一点和XML一样。
+</p>
+<p>
+  2、json格式
+</p>
+<p>
+  有两种写法：
+</p>
+<p>
+  ①：方括号在外层，和JavaScript中的数组格式一样。
+</p>
+<p>
+  [&#8216;apple&#8217;, &#8216;banana&#8217;, &#8216;pear&#8217;, &#8216;orange&#8217;, &#8216;xigua&#8217;]
+</p>
+<p>
+  [{id:1, name:&#8217;宋江&#8217;, nickname:&#8217;及时雨&#8217;}, {id:2, name:&#8217;卢俊义&#8217;, nickname:&#8217;玉麒麟&#8217;},{id:1, name:&#8217;林冲&#8217;, nickname:&#8217;豹子头&#8217;}]
+</p>
+<p>
+  ②、大括号在外，和JavaScript中的对象格式一样。
+</p>
+<p>
+  {键:值, 键:值, ….}
+</p>
+<p>
+  {键:[], 键:[], …}
+</p>
+<p>
+  只要是[]，就要符合中括号的语法（和数组写法一样）;
+</p>
+<p>
+  只要是大括号，就要符合大括号的语法（键:值, …）
+</p>
+<p>
+  3、json格式的对象
+</p>
+<p>
+  我们最终要讨论的是JavaScript的对象写法，只不过这种写法和json的格式一样。
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="598" height="104" src="/wp-content/uploads/2018/05/word-image-2755.png" class="wp-image-3132" srcset="/wp-content/uploads/2018/05/word-image-2755.png 598w, /wp-content/uploads/2018/05/word-image-2755-300x52.png 300w" sizes="(max-width: 598px) 100vw, 598px" />
+</p>
+<p>
+  成员属性和成员方法：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="711" height="420" src="/wp-content/uploads/2018/05/word-image-2756.png" class="wp-image-3133" srcset="/wp-content/uploads/2018/05/word-image-2756.png 711w, /wp-content/uploads/2018/05/word-image-2756-300x177.png 300w" sizes="(max-width: 711px) 100vw, 711px" />
+</p>
+<p>
+  调用成员：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="559" height="310" src="/wp-content/uploads/2018/05/word-image-2757.png" class="wp-image-3134" srcset="/wp-content/uploads/2018/05/word-image-2757.png 559w, /wp-content/uploads/2018/05/word-image-2757-300x166.png 300w" sizes="(max-width: 559px) 100vw, 559px" />
+</p>
+<h1>七、内置对象</h1>
+<p>
+  手册位置：上面的JavaScript—左侧的JavaScript—右侧的参考书
+</p>
+<p>
+  1、Object
+</p>
+<p>
+  2、String对象
+</p>
+<p>
+  使用方法：
+</p>
+<p><strong>属性</strong>
+</p>
+<p>
+  length：表示字符串的长度。
+</p>
+<p><strong>方法</strong>：
+</p>
+<p>
+  indexOf() – 查找一个字符串是否存在，返回值是存在的位置（存在的情况），或-1（不存在）
+</p>
+<p>
+  substr() – 截取字符串。两个参数，第一个参数表示起始位置可以是负数；第二个参数可选，表示长度，非负，不填表示到结尾
+</p>
+<p>
+  substring() –截取字符串。两个参数，都是非负数。分别表示起始位置和结束位置，第二个参数不写表示到结尾
+</p>
+<p>
+  slice() –截取字符串。两个参数，第一个表示起始位置，可以是负数。第二个是结尾位置。注意结尾位置不能在起始位置之前。
+</p>
+<p>
+  split() – 将字符串分割成数组。两个参数，第一个表示分隔符，第二个可选表示数组的最大长度
+</p>
+<p>
+  replace – 替换字符串中的值。两个参数，第一个表示查找的值，第二个表示替换后的值。
+</p>
+<p>
+  3、Date对象
+</p>
+<p>
+  使用方法，先new Date()，得到一个对象，然后用这个对象调用它里面的成员方法。
+</p>
+<p>
+  4、Array对象
+</p>
+<p><strong>属性</strong>：
+</p>
+<p>
+  length，表示数组元素个数
+</p>
+<p><strong>方法</strong>：
+</p>
+<p>
+  concat()   连接两个或更多的数组，并返回结果。
+</p>
+<p>
+  join()     把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。
+</p>
+<p>
+  pop()     删除并返回数组的最后一个元素
+</p>
+<p>
+  push()    向数组的末尾添加一个或更多元素，并返回新的长度。
+</p>
+<p>
+  reverse()  颠倒数组中元素的顺序。
+</p>
+<p>
+  shift()    删除并返回数组的第一个元素
+</p>
+<p>
+  slice()    从某个已有的数组返回选定的元素
+</p>
+<p>
+  splice()   删除元素，并向数组添加新元素。
+</p>
+<p>
+  toString() 把数组转换为字符串，并返回结果。
+</p>
+<p>
+  unshift()   向数组的开头添加一个或更多元素，并返回新的长度。
+</p>
+<p>
+  5、Math对象
+</p>
+<p><strong>方法</strong>：
+</p>
+<p>
+  abs(x)   返回数的绝对值。 正数的绝对值是它本身，负数的绝对值是它的相反数。
+</p>
+<p>
+  ceil(x)   对数进行上舍入。
+</p>
+<p>
+  floor(x)  对数进行下舍入。
+</p>
+<p>
+  max(x,y) 返回 x 和 y 中的最高值。
+</p>
+<p>
+  min(x,y) 返回 x 和 y 中的最低值。
+</p>
+<p>
+  random() 返回 0 ~ 1 之间的随机数。包含0，不包含1。[0,1)
+</p>
+<p>
+  随机整数公式：Math.floor(<em>i</em> + Math.random() * (<em>j</em> – <em>i</em> + 1))
+</p>
+<p>
+  round(x)  把数四舍五入为最接近的整数。
+</p>
+<p>
+  6、window对象
+</p>
+<p><strong>方法</strong>：
+</p>
+<p>
+  alert(); &#8212; 弹出一个警告框
+</p>
+<p>
+  confirm(&#8216;你确定要删除吗&#8217;);  点击确定返回true，点击取消返回false
+</p>
+<p>
+  prompt() – 弹出一个可输入的对话框，点击确定返回输入的内容，点击取消返回null
+</p>
+<p>
+  open() – 打开一个新窗口
+</p>
+<p>
+  var s =setTimeout(&#8220;js代码或js函数&#8221;, 毫秒数) – 表示多少毫秒后，执行前面的js代码或函数，只执行一次
+</p>
+<p>
+  var t =setInterval(&#8220;js代码或js函数&#8221;, 毫秒数) – 表示每隔多少毫秒，执行一次前面的js代码或函数。
+</p>
+<p>
+  clearTimeout(s); &#8212; 清除由setTimeout产生的定时器
+</p>
+<p>
+  clearInterval(t); &#8212; 清除由setInterval产生的定时器
+</p>
+<p>
+  7、navigator
+</p>
+<p>
+   navigator.userAgent，从这个结果中可以查看到浏览器及浏览器的版本。
+</p>
+<p>
+  8、screen
+</p>
+<p>
+  screen.availHeight 返回显示屏幕的高度 (除 Windows 任务栏之外)。
+</p>
+<p>
+  screen.availWidth 返回显示屏幕的宽度 (除 Windows 任务栏之外)。
+</p>
+<p>
+  screen.height返回显示屏幕的高度
+</p>
+<p>
+  screen.width返回显示屏幕的宽度
+</p>
+<p>
+  9、history
+</p>
+<p>
+  back() 加载 history 列表中的前一个 URL。
+</p>
+<p>
+  forward() 加载 history 列表中的下一个 URL。
+</p>
+<p>
+  go() 加载 history 列表中的某个具体页面。
+</p>
+<p>
+  10、location
+</p>
+<p>
+  reload() – 刷新页面，和点击浏览器中的刷新按钮是一个意思，如果添加参数为true表示强制刷新，和按Ctrl+F5一样，都表示清除缓存刷新。
+</p>
+<p>
+  location的属性：</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/3098.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

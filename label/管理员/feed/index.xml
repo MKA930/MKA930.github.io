@@ -1,0 +1,1103 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>管理员 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E7%AE%A1%E7%90%86%E5%91%98/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 06:12:53 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>管理员 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>博客项目（三）文件上传、管理员、更改个人信息、递归、无限极联动</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/2824.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/2824.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 06:12:53 +0000</pubDate>
+				<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[源码Blog项目]]></category>
+		<category><![CDATA[文件上传]]></category>
+		<category><![CDATA[无限极联动]]></category>
+		<category><![CDATA[更改个人信息]]></category>
+		<category><![CDATA[管理员]]></category>
+		<category><![CDATA[递归]]></category>
+		<guid isPermaLink="false">/?p=2824</guid>
+
+					<description><![CDATA[博客项目（三） 在项目中封装文件上传 在Lib文件夹下创建Upload.class.php页面 &#60;?ph [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>博客项目（三）</h1>
+<h2>在项目中封装文件上传</h2>
+<ol>
+<li>
+  在Lib文件夹下创建Upload.class.php页面
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace Lib;
+</p>
+<p>
+  class Upload{
+</p>
+<p>
+      private $path;  //文件上传路径
+</p>
+<p>
+      private $size;  //文件允许大小
+</p>
+<p>
+      private $type;  //文件允许上传的类型
+</p>
+<p>
+      private $error; //保存错误信息
+</p>
+<p>
+      public function __construct(){
+</p>
+<p>
+          $this-&gt;path=$GLOBALS[&#8216;config&#8217;][&#8216;app&#8217;][&#8216;upload_path&#8217;];
+</p>
+<p>
+          $this-&gt;size=$GLOBALS[&#8216;config&#8217;][&#8216;app&#8217;][&#8216;upload_size&#8217;];
+</p>
+<p>
+          $this-&gt;type=$GLOBALS[&#8216;config&#8217;][&#8216;app&#8217;][&#8216;upload_type&#8217;];
+</p>
+<p>
+      }
+</p>
+<p>
+      public function getError(){
+</p>
+<p>
+          return $this-&gt;error;
+</p>
+<p>
+      }
+</p>
+<p>
+      /*
+</p>
+<p>
+       * 文件上传的方法
+</p>
+<p>
+       * @param $file array $_FIELS[]
+</p>
+<p>
+       */
+</p>
+<p>
+      public function uploadOne($file){
+</p>
+<p>
+          if(!$this-&gt;checkError($file)){     //验证上传过程是否有误
+</p>
+<p>
+              return false;
+</p>
+<p>
+          }
+</p>
+<p>
+          if(!$this-&gt;checkType($file)){       //验证格式
+</p>
+<p>
+              return false;
+</p>
+<p>
+          }
+</p>
+<p>
+          if(!$this-&gt;checkSize($file)){       //验证大小
+</p>
+<p>
+              return false;
+</p>
+<p>
+          }
+</p>
+<p>
+          if(!$this-&gt;checkHttpPost($file)){    //验证文件是否是http的post上传
+</p>
+<p>
+              return false;
+</p>
+<p>
+          }
+</p>
+<p>
+          //创建文件夹
+</p>
+<p>
+          $foldername=date(&#8216;Y-m-d&#8217;);      //文件夹名
+</p>
+<p>
+          $folderpath=  $this-&gt;path.$foldername;  //文件夹路径
+</p>
+<p>
+          if(!file_exists($folderpath))
+</p>
+<p>
+              mkdir ($folderpath);
+</p>
+<p>
+          //文件上传
+</p>
+<p>
+          $filename=  uniqid(&#8221;,true).strtolower(strrchr($file[&#8216;name&#8217;],&#8217;.&#8217;));  //文件名
+</p>
+<p>
+          $filepath=  $folderpath.DS.$filename;   //文件路径
+</p>
+<p>
+          if(move_uploaded_file($file[&#8216;tmp_name&#8217;], $filepath))
+</p>
+<p>
+                  return $foldername.&#8217;/&#8217;.$filename;
+</p>
+<p>
+          else{
+</p>
+<p>
+              $this-&gt;error=&#8217;文件上传失败&#8217;;
+</p>
+<p>
+              return false;
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+      //检查上传过程中是否有误
+</p>
+<p>
+      private function checkError($file){
+</p>
+<p>
+          //$file[&#8216;error&#8217;]!=0表示文件上传有误
+</p>
+<p>
+          if($file[&#8216;error&#8217;]!=0){
+</p>
+<p>
+              switch ($file[&#8216;error&#8217;]){
+</p>
+<p>
+                  case 1:
+</p>
+<p>
+                      $this-&gt;error=&#8217;上传文件超出了PHP配置文件允许的最大值&#8217;;
+</p>
+<p>
+                      break;
+</p>
+<p>
+                  case 2:
+</p>
+<p>
+                      $this-&gt;error=&#8217;上传文件超出了表单允许的最大值&#8217;;
+</p>
+<p>
+                      break;
+</p>
+<p>
+                  case 3:
+</p>
+<p>
+                      $this-&gt;error=&#8217;只有部分文件上传&#8217;;
+</p>
+<p>
+                      break;
+</p>
+<p>
+                  case 4:
+</p>
+<p>
+                      $this-&gt;error=&#8217;上传文件为空&#8217;;
+</p>
+<p>
+                      break;
+</p>
+<p>
+                  case 6:
+</p>
+<p>
+                      $this-&gt;error=&#8217;找不到临时文件&#8217;;
+</p>
+<p>
+                      break;
+</p>
+<p>
+                  case 7:
+</p>
+<p>
+                      $this-&gt;error=&#8217;文件写入失败&#8217;;
+</p>
+<p>
+                      break;
+</p>
+<p>
+                  default:
+</p>
+<p>
+                      $this-&gt;error=&#8217;未知错误&#8217;;
+</p>
+<p>
+              }
+</p>
+<p>
+              return false;
+</p>
+<p>
+          }
+</p>
+<p>
+          return true;
+</p>
+<p>
+      }
+</p>
+<p>
+      //验证上传格式
+</p>
+<p>
+      private function checkType($file){
+</p>
+<p>
+          $finfo=  finfo_open(FILEINFO_MIME);
+</p>
+<p>
+          $info=finfo_file($finfo, $file[&#8216;tmp_name&#8217;]);
+</p>
+<p>
+          $info_array=  explode(&#8216;;&#8217;, $info); //分割
+</p>
+<p>
+          if(!in_array($info_array[0], $this-&gt;type)){
+</p>
+<p>
+              $this-&gt;error=&#8217;文件类型上传错误，只能允许：&#8217;.implode(&#8216;,&#8217;, $this-&gt;type);  //转化字符串
+</p>
+<p>
+              return false;
+</p>
+<p>
+          }
+</p>
+<p>
+          return true;
+</p>
+<p>
+      }
+</p>
+<p>
+      //验证大小
+</p>
+<p>
+      private function checkSize($file){
+</p>
+<p>
+          if($file[&#8216;size&#8217;]&gt;$this-&gt;size){
+</p>
+<p>
+              $this-&gt;error=&#8217;文件不能操作&#8217;.  number_format($this-&gt;size/1024,1).&#8217;K&#8217;;
+</p>
+<p>
+              return false;
+</p>
+<p>
+          }
+</p>
+<p>
+          return true;
+</p>
+<p>
+      }
+</p>
+<p>
+      //验证是否是http的post上传
+</p>
+<p>
+      private function checkHttpPost($file){
+</p>
+<p>
+          if(!is_uploaded_file($file[&#8216;tmp_name&#8217;])){
+</p>
+<p>
+              $this-&gt;error=&#8217;文件必须是HTTP上传&#8217;;
+</p>
+<p>
+              return false;
+</p>
+<p>
+          }
+</p>
+<p>
+          return true;
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  在config.php配置中，配置文件上传的信息
+</li>
+</ol>
+<p><img fetchpriority="high" decoding="async" width="1148" height="175" src="/wp-content/uploads/2018/05/word-image-2481.png" class="wp-image-2826" srcset="/wp-content/uploads/2018/05/word-image-2481.png 1148w, /wp-content/uploads/2018/05/word-image-2481-300x46.png 300w, /wp-content/uploads/2018/05/word-image-2481-768x117.png 768w, /wp-content/uploads/2018/05/word-image-2481-1024x156.png 1024w" sizes="(max-width: 1148px) 100vw, 1148px" /></p>
+<h2>在用户注册中上传头像</h2>
+<p>
+  完善LoginController控制器中的register()方法
+</p>
+<p><img decoding="async" width="1300" height="430" src="/wp-content/uploads/2018/05/word-image-2482.png" class="wp-image-2827" srcset="/wp-content/uploads/2018/05/word-image-2482.png 1300w, /wp-content/uploads/2018/05/word-image-2482-300x99.png 300w, /wp-content/uploads/2018/05/word-image-2482-768x254.png 768w, /wp-content/uploads/2018/05/word-image-2482-1024x339.png 1024w" sizes="(max-width: 1300px) 100vw, 1300px" /></p>
+<h2>登录成功后显示头像</h2>
+<p><img decoding="async" width="1314" height="175" src="/wp-content/uploads/2018/05/word-image-2483.png" class="wp-image-2828" srcset="/wp-content/uploads/2018/05/word-image-2483.png 1314w, /wp-content/uploads/2018/05/word-image-2483-300x40.png 300w, /wp-content/uploads/2018/05/word-image-2483-768x102.png 768w, /wp-content/uploads/2018/05/word-image-2483-1024x136.png 1024w" sizes="(max-width: 1314px) 100vw, 1314px" /></p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="494" height="193" src="/wp-content/uploads/2018/05/word-image-2484.png" class="wp-image-2829" srcset="/wp-content/uploads/2018/05/word-image-2484.png 494w, /wp-content/uploads/2018/05/word-image-2484-300x117.png 300w" sizes="(max-width: 494px) 100vw, 494px" /></p>
+<h2>管理员登录后显示用户列表</h2>
+<ol>
+<li>
+  在Controller\Admin文件夹下创建UserController.class.php页面
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="966" height="377" src="/wp-content/uploads/2018/05/word-image-2485.png" class="wp-image-2830" srcset="/wp-content/uploads/2018/05/word-image-2485.png 966w, /wp-content/uploads/2018/05/word-image-2485-300x117.png 300w, /wp-content/uploads/2018/05/word-image-2485-768x300.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<ol>
+<li>
+  在View/Admin目录下的user_list.html中循环取出普通用户
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1184" height="296" src="/wp-content/uploads/2018/05/word-image-2486.png" class="wp-image-2831" srcset="/wp-content/uploads/2018/05/word-image-2486.png 1184w, /wp-content/uploads/2018/05/word-image-2486-300x75.png 300w, /wp-content/uploads/2018/05/word-image-2486-768x192.png 768w, /wp-content/uploads/2018/05/word-image-2486-1024x256.png 1024w" sizes="(max-width: 1184px) 100vw, 1184px" /></p>
+<ol>
+<li>
+  在menu.html中，点击“用户管理”跳转到user_list页面中
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1157" height="227" src="/wp-content/uploads/2018/05/word-image-2487.png" class="wp-image-2832" srcset="/wp-content/uploads/2018/05/word-image-2487.png 1157w, /wp-content/uploads/2018/05/word-image-2487-300x59.png 300w, /wp-content/uploads/2018/05/word-image-2487-768x151.png 768w, /wp-content/uploads/2018/05/word-image-2487-1024x201.png 1024w" sizes="(max-width: 1157px) 100vw, 1157px" /></p>
+<ol>
+<li>
+  运行结果
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1344" height="196" src="/wp-content/uploads/2018/05/word-image-2488.png" class="wp-image-2833" srcset="/wp-content/uploads/2018/05/word-image-2488.png 1344w, /wp-content/uploads/2018/05/word-image-2488-300x44.png 300w, /wp-content/uploads/2018/05/word-image-2488-768x112.png 768w, /wp-content/uploads/2018/05/word-image-2488-1024x149.png 1024w" sizes="(max-width: 1344px) 100vw, 1344px" /></p>
+<h2>管理员删除普通用户</h2>
+<ol>
+<li>
+  在UserController.class.php页面中，添加接受删除用户的请求
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1196" height="357" src="/wp-content/uploads/2018/05/word-image-2489.png" class="wp-image-2834" srcset="/wp-content/uploads/2018/05/word-image-2489.png 1196w, /wp-content/uploads/2018/05/word-image-2489-300x90.png 300w, /wp-content/uploads/2018/05/word-image-2489-768x229.png 768w, /wp-content/uploads/2018/05/word-image-2489-1024x306.png 1024w" sizes="(max-width: 1196px) 100vw, 1196px" /></p>
+<ol>
+<li>
+  在user_list中，点击“删除”
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1172" height="173" src="/wp-content/uploads/2018/05/word-image-2490.png" class="wp-image-2835" srcset="/wp-content/uploads/2018/05/word-image-2490.png 1172w, /wp-content/uploads/2018/05/word-image-2490-300x44.png 300w, /wp-content/uploads/2018/05/word-image-2490-768x113.png 768w, /wp-content/uploads/2018/05/word-image-2490-1024x151.png 1024w" sizes="(max-width: 1172px) 100vw, 1172px" /></p>
+<h2>更改个人信息</h2>
+<h3>显示个人信息</h3>
+<p>
+  模型
+</p>
+<p>
+  无
+</p>
+<p>
+  控制器（UserController）
+</p>
+<p><img loading="lazy" decoding="async" width="991" height="325" src="/wp-content/uploads/2018/05/word-image-2491.png" class="wp-image-2836" srcset="/wp-content/uploads/2018/05/word-image-2491.png 991w, /wp-content/uploads/2018/05/word-image-2491-300x98.png 300w, /wp-content/uploads/2018/05/word-image-2491-768x252.png 768w" sizes="(max-width: 991px) 100vw, 991px" /></p>
+<p>
+  视图（user_edit.html）
+</p>
+<p><img loading="lazy" decoding="async" width="852" height="139" src="/wp-content/uploads/2018/05/word-image-2492.png" class="wp-image-2837" srcset="/wp-content/uploads/2018/05/word-image-2492.png 852w, /wp-content/uploads/2018/05/word-image-2492-300x49.png 300w, /wp-content/uploads/2018/05/word-image-2492-768x125.png 768w" sizes="(max-width: 852px) 100vw, 852px" /></p>
+<p>
+  点击menu.html中的“个人设置”
+</p>
+<p><img loading="lazy" decoding="async" width="1056" height="208" src="/wp-content/uploads/2018/05/word-image-2493.png" class="wp-image-2838" srcset="/wp-content/uploads/2018/05/word-image-2493.png 1056w, /wp-content/uploads/2018/05/word-image-2493-300x59.png 300w, /wp-content/uploads/2018/05/word-image-2493-768x151.png 768w, /wp-content/uploads/2018/05/word-image-2493-1024x202.png 1024w" sizes="(max-width: 1056px) 100vw, 1056px" /></p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="816" height="338" src="/wp-content/uploads/2018/05/word-image-2494.png" class="wp-image-2839" srcset="/wp-content/uploads/2018/05/word-image-2494.png 816w, /wp-content/uploads/2018/05/word-image-2494-300x124.png 300w, /wp-content/uploads/2018/05/word-image-2494-768x318.png 768w" sizes="(max-width: 816px) 100vw, 816px" /></p>
+<h3>更改个人信息</h3>
+<p>
+  在UserController的edit()方法中，更改个人信息
+</p>
+<p>
+  public function editAction(){
+</p>
+<p>
+      $id=$_SESSION[&#8216;user&#8217;][&#8216;user_id&#8217;];
+</p>
+<p>
+      $model=new \Model\UserModel();
+</p>
+<p>
+      //更改个人信息
+</p>
+<p>
+      if(!empty($_POST)){
+</p>
+<p>
+          if(!empty($_POST[&#8216;password&#8217;]))      //更改密码
+</p>
+<p>
+              $data[&#8216;user_pwd&#8217;]=md5($_POST[&#8216;password&#8217;]);
+</p>
+<p>
+          if($_FILES[&#8216;face&#8217;][&#8216;error&#8217;]!=4){    //更改头像
+</p>
+<p>
+              $upload=new \Lib\Upload();
+</p>
+<p>
+               if(!$data[&#8216;user_face&#8217;]=$upload-&gt;uploadOne($_FILES[&#8216;face&#8217;]))
+</p>
+<p>
+                   $this-&gt;error (&#8216;index.php?p=Admin&amp;c=User&amp;a=edit&#8217;,$upload-&gt;getError ());
+</p>
+<p>
+               //删除原来的头像
+</p>
+<p>
+               $old_face=$GLOBALS[&#8216;config&#8217;][&#8216;app&#8217;][&#8216;upload_path&#8217;].$_SESSION[&#8216;user&#8217;][&#8216;user_face&#8217;];
+</p>
+<p>
+               if(file_exists($old_face))
+</p>
+<p>
+                   unlink ($old_face);
+</p>
+<p>
+          }
+</p>
+<p>
+          //如果有$data就说明需要修改
+</p>
+<p>
+          if(isset($data)){
+</p>
+<p>
+              $data[&#8216;user_id&#8217;]=$id;
+</p>
+<p>
+              if($model-&gt;update($data)){
+</p>
+<p>
+                  session_destroy();
+</p>
+<p>
+                  echo &#8216;&lt;div style=&#8221;text-align:center&#8221;&gt;修改成功，重新登录&lt;/div&gt;&#8217;;
+</p>
+<p>
+                  echo &lt;&lt;&lt;str
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  setTimeout(function(){
+</p>
+<p>
+          top.window.location.href=&#8217;index.php?p=Admin&amp;c=Login&amp;a=login&#8217;;	//top表示框架的最顶端窗口
+</p>
+<p>
+  },3000)
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  str;
+</p>
+<p>
+                  exit;
+</p>
+<p>
+              }
+</p>
+<p>
+              else
+</p>
+<p>
+                  $this-&gt;error (&#8216;index.php?p=Admin&amp;c=User&amp;a=edit&#8217;, &#8216;修改失败&#8217;);
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  //个人设置修改结束
+</p>
+<p>
+      $info=$model-&gt;find($id);
+</p>
+<p>
+      $this-&gt;smarty-&gt;assign(&#8216;info&#8217;,$info);
+</p>
+<p>
+      $this-&gt;smarty-&gt;display(&#8216;user_edit.html&#8217;);
+</p>
+<p>
+  }
+</p>
+<h2>博客类别模块</h2>
+<h3>多级联动</h3>
+<p>
+  多级联动在网站开发中非常常见。
+</p>
+<p><img loading="lazy" decoding="async" width="971" height="167" src="/wp-content/uploads/2018/05/word-image-2495.png" class="wp-image-2840" srcset="/wp-content/uploads/2018/05/word-image-2495.png 971w, /wp-content/uploads/2018/05/word-image-2495-300x52.png 300w, /wp-content/uploads/2018/05/word-image-2495-768x132.png 768w" sizes="(max-width: 971px) 100vw, 971px" /></p>
+<p>
+  思考：如何使用一个表实现无限极联动？
+</p>
+<table>
+<tr>
+<td>
+<p>
+  id
+</p>
+</td>
+<td>
+<p>
+  name
+</p>
+</td>
+<td>
+<p>
+  parent_id
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  江苏
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  2
+</p>
+</td>
+<td>
+<p>
+  安徽
+</p>
+</td>
+<td>
+<p>
+  0
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  3
+</p>
+</td>
+<td>
+<p>
+  苏州
+</p>
+</td>
+<td>
+<p>
+  1
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  4
+</p>
+</td>
+<td>
+<p>
+  昆山
+</p>
+</td>
+<td>
+<p>
+  3
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  5
+</p>
+</td>
+<td>
+<p>
+  花桥
+</p>
+</td>
+<td>
+<p>
+  4
+</p>
+</td>
+</tr>
+</table>
+<p>
+  实现无限极联动主要在于表设计
+</p>
+<h3>创建类别表</h3>
+<p>
+  create table category(
+</p>
+<p>
+         cat_id int unsigned auto_increment primary key comment &#8216;类别id&#8217;,
+</p>
+<p>
+         cat_name varchar(20) not null comment &#8216;类别名称&#8217;,
+</p>
+<p>
+         parent_id int unsigned not null comment &#8216;父级id&#8217;,
+</p>
+<p>
+         sort_order int default 50 comment &#8216;排序&#8217;
+</p>
+<p>
+  )engine=innodb charset=utf8 comment &#8216;类别表&#8217;;
+</p>
+<p>
+  表结构
+</p>
+<p><img loading="lazy" decoding="async" width="747" height="98" src="/wp-content/uploads/2018/05/word-image-2496.png" class="wp-image-2841" srcset="/wp-content/uploads/2018/05/word-image-2496.png 747w, /wp-content/uploads/2018/05/word-image-2496-300x39.png 300w" sizes="(max-width: 747px) 100vw, 747px" /></p>
+<p>
+  插入测试数据
+</p>
+<p>
+  insert into category values (null,&#8217;计算机&#8217;,0,default),(null,&#8217;文学&#8217;,0,default);
+</p>
+<p>
+  insert into category values (null,&#8217;硬件&#8217;,1,default),(null,&#8217;软件&#8217;,1,default);
+</p>
+<p>
+  insert into category values (null,&#8217;国内文学&#8217;,2,default),(null,&#8217;国外文件&#8217;,2,default)
+</p>
+<p>
+  insert into category values (null,&#8217;PHP&#8217;,4,default),(null,&#8217;java&#8217;,4,default)
+</p>
+<p>
+  查看数据并按层次摆放
+</p>
+<p><img loading="lazy" decoding="async" width="904" height="248" src="/wp-content/uploads/2018/05/word-image-2497.png" class="wp-image-2842" srcset="/wp-content/uploads/2018/05/word-image-2497.png 904w, /wp-content/uploads/2018/05/word-image-2497-300x82.png 300w, /wp-content/uploads/2018/05/word-image-2497-768x211.png 768w" sizes="(max-width: 904px) 100vw, 904px" /></p>
+<h3>通过递归创建多级联动的树形结构</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  mysql_connect(&#8216;localhost&#8217;,&#8217;root&#8217;,&#8217;root&#8217;);
+</p>
+<p>
+  mysql_select_db(&#8216;data&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;set names utf8&#8217;);
+</p>
+<p>
+  $rs=mysql_query(&#8216;select * from category order by sort_order,cat_id&#8217;);
+</p>
+<p>
+  $array=array();
+</p>
+<p>
+  while($rows=mysql_fetch_assoc($rs)) {
+</p>
+<p>
+  	$array[]=$rows;
+</p>
+<p>
+  }
+</p>
+<p>
+  header(&#8216;content-type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  /**
+</p>
+<p>
+  *$list array 需要创建树形结构的数组
+</p>
+<p>
+  *$parent_id int 指定的父级下的元素创建树形结构
+</p>
+<p>
+  *$deep int 当前元素的深度级别
+</p>
+<p>
+  */
+</p>
+<p>
+  function createTree($list,$parent_id=0,$deep=0) {
+</p>
+<p>
+  	static $tree=array();
+</p>
+<p>
+  	foreach($list as $rows){
+</p>
+<p>
+  		if($rows[&#8216;parent_id&#8217;]==$parent_id){
+</p>
+<p>
+  			$rows[&#8216;deep&#8217;]=$deep;
+</p>
+<p>
+  			$tree[]=$rows;
+</p>
+<p>
+  			createTree($list,$rows[&#8216;cat_id&#8217;],$deep+1);
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  	return $tree;
+</p>
+<p>
+  }
+</p>
+<p>
+  $tree=createTree($array);
+</p>
+<p>
+  //输出
+</p>
+<p>
+  foreach($tree as $rows) {
+</p>
+<p>
+  	echo str_repeat(&#8216;&amp;nbsp;&#8217;,$rows[&#8216;deep&#8217;]*8),$rows[&#8216;cat_name&#8217;],'&lt;br&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="440" height="216" src="/wp-content/uploads/2018/05/word-image-2498.png" class="wp-image-2843" srcset="/wp-content/uploads/2018/05/word-image-2498.png 440w, /wp-content/uploads/2018/05/word-image-2498-300x147.png 300w" sizes="(max-width: 440px) 100vw, 440px" /></p>
+<h2>博客中显示类别列表</h2>
+<ol>
+<li>
+  在Model文件夹中创建CategoryModel.class.php页面
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace Model;
+</p>
+<p>
+  class CategoryModel extends \Core\Model{
+</p>
+<p>
+      //获取类别的树
+</p>
+<p>
+      public function getCategoryTree($parent_id=0){
+</p>
+<p>
+          $list=  $this-&gt;select();
+</p>
+<p>
+          $list=  $this-&gt;createTree($list,$parent_id);
+</p>
+<p>
+          return $list;
+</p>
+<p>
+      }
+</p>
+<p>
+      //创建树形结构
+</p>
+<p>
+      private function createTree($list,$parent_id=0,$deep=0) {
+</p>
+<p>
+  	static $tree=array();
+</p>
+<p>
+  	foreach($list as $rows){
+</p>
+<p>
+              if($rows[&#8216;parent_id&#8217;]==$parent_id){
+</p>
+<p>
+                  $rows[&#8216;deep&#8217;]=$deep;
+</p>
+<p>
+                  $tree[]=$rows;
+</p>
+<p>
+                  $this-&gt;createTree($list,$rows[&#8216;cat_id&#8217;],$deep+1);
+</p>
+<p>
+              }
+</p>
+<p>
+  	}
+</p>
+<p>
+  	return $tree;
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  在Controller\Admin目录下创建CategoryController.class.php页面
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="966" height="381" src="/wp-content/uploads/2018/05/word-image-2499.png" class="wp-image-2844" srcset="/wp-content/uploads/2018/05/word-image-2499.png 966w, /wp-content/uploads/2018/05/word-image-2499-300x118.png 300w, /wp-content/uploads/2018/05/word-image-2499-768x303.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<ol>
+<li>
+  在menu.html页面中点击“类别管理”
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1043" height="200" src="/wp-content/uploads/2018/05/word-image-2500.png" class="wp-image-2845" srcset="/wp-content/uploads/2018/05/word-image-2500.png 1043w, /wp-content/uploads/2018/05/word-image-2500-300x58.png 300w, /wp-content/uploads/2018/05/word-image-2500-768x147.png 768w, /wp-content/uploads/2018/05/word-image-2500-1024x196.png 1024w" sizes="(max-width: 1043px) 100vw, 1043px" /></p>
+<ol>
+<li>
+  在cat_list.html页面中取出类别
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1274" height="238" src="/wp-content/uploads/2018/05/word-image-2501.png" class="wp-image-2846" srcset="/wp-content/uploads/2018/05/word-image-2501.png 1274w, /wp-content/uploads/2018/05/word-image-2501-300x56.png 300w, /wp-content/uploads/2018/05/word-image-2501-768x143.png 768w, /wp-content/uploads/2018/05/word-image-2501-1024x191.png 1024w" sizes="(max-width: 1274px) 100vw, 1274px" /></p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="1348" height="453" src="/wp-content/uploads/2018/05/word-image-2502.png" class="wp-image-2847" srcset="/wp-content/uploads/2018/05/word-image-2502.png 1348w, /wp-content/uploads/2018/05/word-image-2502-300x101.png 300w, /wp-content/uploads/2018/05/word-image-2502-768x258.png 768w, /wp-content/uploads/2018/05/word-image-2502-1024x344.png 1024w" sizes="(max-width: 1348px) 100vw, 1348px" /></p>
+<h2>添加类别</h2>
+<h3>入口位置</h3>
+<p><img loading="lazy" decoding="async" width="985" height="136" src="/wp-content/uploads/2018/05/word-image-2503.png" class="wp-image-2848" srcset="/wp-content/uploads/2018/05/word-image-2503.png 985w, /wp-content/uploads/2018/05/word-image-2503-300x41.png 300w, /wp-content/uploads/2018/05/word-image-2503-768x106.png 768w" sizes="(max-width: 985px) 100vw, 985px" /><br />
+<img loading="lazy" decoding="async" width="1108" height="122" src="/wp-content/uploads/2018/05/word-image-2504.png" class="wp-image-2849" srcset="/wp-content/uploads/2018/05/word-image-2504.png 1108w, /wp-content/uploads/2018/05/word-image-2504-300x33.png 300w, /wp-content/uploads/2018/05/word-image-2504-768x85.png 768w, /wp-content/uploads/2018/05/word-image-2504-1024x113.png 1024w" sizes="(max-width: 1108px) 100vw, 1108px" /></p>
+<h3>显示添加类别</h3>
+<p>
+  模型
+</p>
+<p>
+  无
+</p>
+<p>
+  控制器（CategoryController）
+</p>
+<p><img loading="lazy" decoding="async" width="1010" height="335" src="/wp-content/uploads/2018/05/word-image-2505.png" class="wp-image-2850" srcset="/wp-content/uploads/2018/05/word-image-2505.png 1010w, /wp-content/uploads/2018/05/word-image-2505-300x100.png 300w, /wp-content/uploads/2018/05/word-image-2505-768x255.png 768w" sizes="(max-width: 1010px) 100vw, 1010px" /></p>
+<p>
+  视图（cat_add.html）
+</p>
+<p><img loading="lazy" decoding="async" width="1186" height="218" src="/wp-content/uploads/2018/05/word-image-2506.png" class="wp-image-2851" srcset="/wp-content/uploads/2018/05/word-image-2506.png 1186w, /wp-content/uploads/2018/05/word-image-2506-300x55.png 300w, /wp-content/uploads/2018/05/word-image-2506-768x141.png 768w, /wp-content/uploads/2018/05/word-image-2506-1024x188.png 1024w" sizes="(max-width: 1186px) 100vw, 1186px" /></p>
+<p>
+  运行结果
+</p>
+<p><img loading="lazy" decoding="async" width="697" height="314" src="/wp-content/uploads/2018/05/word-image-2507.png" class="wp-image-2852" srcset="/wp-content/uploads/2018/05/word-image-2507.png 697w, /wp-content/uploads/2018/05/word-image-2507-300x135.png 300w" sizes="(max-width: 697px) 100vw, 697px" /></p>
+<h3>实现添加的业务逻辑</h3>
+<p>
+  模型
+</p>
+<p>
+  无
+</p>
+<p>
+  控制器
+</p>
+<p><img loading="lazy" decoding="async" width="1268" height="570" src="/wp-content/uploads/2018/05/word-image-2508.png" class="wp-image-2853" srcset="/wp-content/uploads/2018/05/word-image-2508.png 1268w, /wp-content/uploads/2018/05/word-image-2508-300x135.png 300w, /wp-content/uploads/2018/05/word-image-2508-768x345.png 768w, /wp-content/uploads/2018/05/word-image-2508-1024x460.png 1024w" sizes="(max-width: 1268px) 100vw, 1268px" /></p>
+<p>
+  视图
+</p>
+<p>
+  无
+</p>
+<h2>修改类别</h2>
+<h3>修改入口</h3>
+<p><img loading="lazy" decoding="async" width="1185" height="187" src="/wp-content/uploads/2018/05/word-image-2509.png" class="wp-image-2854" srcset="/wp-content/uploads/2018/05/word-image-2509.png 1185w, /wp-content/uploads/2018/05/word-image-2509-300x47.png 300w, /wp-content/uploads/2018/05/word-image-2509-768x121.png 768w, /wp-content/uploads/2018/05/word-image-2509-1024x162.png 1024w" sizes="(max-width: 1185px) 100vw, 1185px" /><br />
+<img loading="lazy" decoding="async" width="1338" height="120" src="/wp-content/uploads/2018/05/word-image-2510.png" class="wp-image-2855" srcset="/wp-content/uploads/2018/05/word-image-2510.png 1338w, /wp-content/uploads/2018/05/word-image-2510-300x27.png 300w, /wp-content/uploads/2018/05/word-image-2510-768x69.png 768w, /wp-content/uploads/2018/05/word-image-2510-1024x92.png 1024w" sizes="(max-width: 1338px) 100vw, 1338px" /></p>
+<h3>显示修改页面</h3>
+<p>
+  模型
+</p>
+<p>
+  无
+</p>
+<p>
+  控制器
+</p>
+<p><img loading="lazy" decoding="async" width="1082" height="367" src="/wp-content/uploads/2018/05/word-image-2511.png" class="wp-image-2856" srcset="/wp-content/uploads/2018/05/word-image-2511.png 1082w, /wp-content/uploads/2018/05/word-image-2511-300x102.png 300w, /wp-content/uploads/2018/05/word-image-2511-768x260.png 768w, /wp-content/uploads/2018/05/word-image-2511-1024x347.png 1024w" sizes="(max-width: 1082px) 100vw, 1082px" /></p>
+<p>
+  视图（将cat_add.html页面复制一份，改名为cat_edit.html）
+</p>
+<p><img loading="lazy" decoding="async" width="1345" height="592" src="/wp-content/uploads/2018/05/word-image-2512.png" class="wp-image-2857" srcset="/wp-content/uploads/2018/05/word-image-2512.png 1345w, /wp-content/uploads/2018/05/word-image-2512-300x132.png 300w, /wp-content/uploads/2018/05/word-image-2512-768x338.png 768w, /wp-content/uploads/2018/05/word-image-2512-1024x451.png 1024w" sizes="(max-width: 1345px) 100vw, 1345px" /></p>
+<h3>执行修改的业务逻辑（CategoryController控制器中实现）</h3>
+<p>
+  public function editAction(){
+</p>
+<p>
+      $cat_id=(int)$_GET[&#8216;cat_id&#8217;];
+</p>
+<p>
+      $model=new \Model\CategoryModel();
+</p>
+<p>
+      //修改业务逻辑
+</p>
+<p>
+      if(!empty($_POST)){
+</p>
+<p>
+          $data[&#8216;cat_name&#8217;]=$_POST[&#8216;cat_name&#8217;];
+</p>
+<p>
+          $data[&#8216;parent_id&#8217;]=$_POST[&#8216;parentid&#8217;];
+</p>
+<p>
+          $data[&#8216;sort_order&#8217;]=$_POST[&#8216;sort_order&#8217;];
+</p>
+<p>
+          $data[&#8216;cat_id&#8217;]=$cat_id;
+</p>
+<p>
+          //错误一：指定的父级是自己
+</p>
+<p>
+          if($data[&#8216;parent_id&#8217;]==$cat_id){
+</p>
+<p>
+              $this-&gt;error (&#8216;index.php?p=Admin&amp;c=Category&amp;a=edit&amp;cat_id=&#8217;.$cat_id, &#8216;自己不能做自己的父亲&#8217;);
+</p>
+<p>
+          }
+</p>
+<p>
+          //错误二：指定的父级是自己的后代
+</p>
+<p>
+          $sublist=$model-&gt;getCategoryTree($cat_id);
+</p>
+<p>
+          foreach($sublist as $rows){
+</p>
+<p>
+              if($rows[&#8216;cat_id&#8217;]==$data[&#8216;parent_id&#8217;])
+</p>
+<p>
+                  $this-&gt;error (&#8216;index.php?p=Admin&amp;c=Category&amp;a=edit&amp;cat_id=&#8217;.$cat_id, &#8216;指定的父级是自己的后代&#8217;);
+</p>
+<p>
+          }
+</p>
+<p>
+          //更新操作
+</p>
+<p>
+          if($model-&gt;update($data))
+</p>
+<p>
+              $this-&gt;success (&#8216;index.php?p=Admin&amp;c=Category&amp;a=list&#8217;,&#8217;修改成功&#8217;);
+</p>
+<p>
+          else
+</p>
+<p>
+              $this-&gt;error (&#8216;index.php?p=Admin&amp;c=Category&amp;a=edit&amp;cat_id=&#8217;.$cat_id, &#8216;修改失败&#8217;);
+</p>
+<p>
+      }
+</p>
+<p>
+      $info=$model-&gt;find($cat_id);
+</p>
+<p>
+      $cat_list=$model-&gt;getCategoryTree();
+</p>
+<p>
+      $this-&gt;smarty-&gt;assign(&#8216;cat_list&#8217;,$cat_list);
+</p>
+<p>
+      $this-&gt;smarty-&gt;assign(&#8216;info&#8217;,$info);
+</p>
+<p>
+      $this-&gt;smarty-&gt;display(&#8216;cat_edit.html&#8217;);
+</p>
+<p>
+  }
+</p>
+<h2>删除类别</h2>
+<h3>删除入口</h3>
+<p><img loading="lazy" decoding="async" width="1280" height="205" src="/wp-content/uploads/2018/05/word-image-2513.png" class="wp-image-2858" srcset="/wp-content/uploads/2018/05/word-image-2513.png 1280w, /wp-content/uploads/2018/05/word-image-2513-300x48.png 300w, /wp-content/uploads/2018/05/word-image-2513-768x123.png 768w, /wp-content/uploads/2018/05/word-image-2513-1024x164.png 1024w" sizes="(max-width: 1280px) 100vw, 1280px" /></p>
+<p>
+  模型
+</p>
+<p><img loading="lazy" decoding="async" width="1171" height="246" src="/wp-content/uploads/2018/05/word-image-2514.png" class="wp-image-2859" srcset="/wp-content/uploads/2018/05/word-image-2514.png 1171w, /wp-content/uploads/2018/05/word-image-2514-300x63.png 300w, /wp-content/uploads/2018/05/word-image-2514-768x161.png 768w, /wp-content/uploads/2018/05/word-image-2514-1024x215.png 1024w" sizes="(max-width: 1171px) 100vw, 1171px" /></p>
+<p>
+  视图
+</p>
+<p>
+  无
+</p>
+<p>
+  控制器
+</p>
+<p><img loading="lazy" decoding="async" width="1299" height="437" src="/wp-content/uploads/2018/05/word-image-2515.png" class="wp-image-2860" srcset="/wp-content/uploads/2018/05/word-image-2515.png 1299w, /wp-content/uploads/2018/05/word-image-2515-300x101.png 300w, /wp-content/uploads/2018/05/word-image-2515-768x258.png 768w, /wp-content/uploads/2018/05/word-image-2515-1024x344.png 1024w" sizes="(max-width: 1299px) 100vw, 1299px" /></p>
+<h2>作业：</h2>
+<p>
+  在项目中上传头像，可能这个头像尺寸会很大，在项目中封装一个生成缩略图的方法来处理头像。</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/2824.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

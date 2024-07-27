@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>前台会员登录与验证码 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%89%8D%E5%8F%B0%E4%BC%9A%E5%91%98%E7%99%BB%E5%BD%95%E4%B8%8E%E9%AA%8C%E8%AF%81%E7%A0%81/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 16 Jun 2018 10:37:44 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>前台会员登录与验证码 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP5 商城（五）商城前台首页、首页导航栏、首页分类筛选、首页推荐位、前台会员注册、短信验证、前台会员登录与验证码、前台退出功能、邮箱找回密码</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8157.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8157.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 09 Jun 2018 00:36:50 +0000</pubDate>
+				<category><![CDATA[TP5.0]]></category>
+		<category><![CDATA[TP5.0商城]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[前台会员注册]]></category>
+		<category><![CDATA[前台会员登录与验证码]]></category>
+		<category><![CDATA[前台退出功能]]></category>
+		<category><![CDATA[商城前台首页]]></category>
+		<category><![CDATA[短信验证]]></category>
+		<category><![CDATA[邮箱找回密码]]></category>
+		<category><![CDATA[首页分类筛选]]></category>
+		<category><![CDATA[首页导航栏]]></category>
+		<category><![CDATA[首页推荐位]]></category>
+		<guid isPermaLink="false">/?p=8157</guid>
+
+					<description><![CDATA[商城实战第五天 搭建商城前台首页 把商城前台资源文件复制到/home下面 在home-indexControl [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>商城实战第五天</h1>
+<h1>搭建商城前台首页</h1>
+<ol>
+<li>把商城前台资源文件复制到/home下面</li>
+</ol>
+<p><img fetchpriority="high" decoding="async" width="817" height="247" class="wp-image-8158" src="/wp-content/uploads/2018/06/word-image-743.png" srcset="/wp-content/uploads/2018/06/word-image-743.png 817w, /wp-content/uploads/2018/06/word-image-743-300x91.png 300w, /wp-content/uploads/2018/06/word-image-743-768x232.png 768w" sizes="(max-width: 817px) 100vw, 817px" /></p>
+<ol>
+<li>在home-indexController-index方法中，输出模板</li>
+</ol>
+<p><img decoding="async" width="779" height="311" class="wp-image-8159" src="/wp-content/uploads/2018/06/word-image-744.png" srcset="/wp-content/uploads/2018/06/word-image-744.png 779w, /wp-content/uploads/2018/06/word-image-744-300x120.png 300w, /wp-content/uploads/2018/06/word-image-744-768x307.png 768w" sizes="(max-width: 779px) 100vw, 779px" /></p>
+<ol>
+<li>复制前台的index.html模板到/home/view/index/目录下，并修改进行静态资源目录</li>
+</ol>
+<p><img decoding="async" width="739" height="383" class="wp-image-8160" src="/wp-content/uploads/2018/06/word-image-745.png" srcset="/wp-content/uploads/2018/06/word-image-745.png 739w, /wp-content/uploads/2018/06/word-image-745-300x155.png 300w" sizes="(max-width: 739px) 100vw, 739px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="957" height="296" class="wp-image-8161" src="/wp-content/uploads/2018/06/word-image-746.png" srcset="/wp-content/uploads/2018/06/word-image-746.png 957w, /wp-content/uploads/2018/06/word-image-746-300x93.png 300w, /wp-content/uploads/2018/06/word-image-746-768x238.png 768w" sizes="(max-width: 957px) 100vw, 957px" /></p>
+<p>注：开发前台先把默认访问的模块改为Home，修改config.php配置</p>
+<p><img loading="lazy" decoding="async" width="666" height="180" class="wp-image-8162" src="/wp-content/uploads/2018/06/word-image-747.png" srcset="/wp-content/uploads/2018/06/word-image-747.png 666w, /wp-content/uploads/2018/06/word-image-747-300x81.png 300w" sizes="(max-width: 666px) 100vw, 666px" /></p>
+<h1>url访问模块报错（for Bidden）的解决</h1>
+<p>如访问 <a href="/goto/htjc" rel="nofollow">http://域名/模块名/这样会报错。</a> 这是因为直接访问到 /public/home/目录，此目录下面没有默认的访问页index.html，解决办法：把前后台资源目录放在/public/static/下面，并且修改config.php配置文件中的前后台资源目录：</p>
+<p><img loading="lazy" decoding="async" width="224" height="262" class="wp-image-8163" src="/wp-content/uploads/2018/06/word-image-748.png" /> <img loading="lazy" decoding="async" width="520" height="178" class="wp-image-8164" src="/wp-content/uploads/2018/06/word-image-749.png" srcset="/wp-content/uploads/2018/06/word-image-749.png 520w, /wp-content/uploads/2018/06/word-image-749-300x103.png 300w" sizes="(max-width: 520px) 100vw, 520px" /></p>
+<h1>二、实现前台首页相关功能</h1>
+<h2>完成首页的导航栏</h2>
+<p><img loading="lazy" decoding="async" width="1046" height="158" class="wp-image-8165" src="/wp-content/uploads/2018/06/word-image-750.png" srcset="/wp-content/uploads/2018/06/word-image-750.png 1046w, /wp-content/uploads/2018/06/word-image-750-300x45.png 300w, /wp-content/uploads/2018/06/word-image-750-768x116.png 768w, /wp-content/uploads/2018/06/word-image-750-1024x155.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /></p>
+<p>因为导航栏的栏目比较多，我们只取出顶级栏目（即pid=0），并且is_show=1,加上limit限制取出的条数即可</p>
+<p>代码如下：</p>
+<p>1、在home-IndexController-index方法中取出对应导航栏分类数据。</p>
+<p><img loading="lazy" decoding="async" width="1043" height="388" class="wp-image-8166" src="/wp-content/uploads/2018/06/word-image-751.png" srcset="/wp-content/uploads/2018/06/word-image-751.png 1043w, /wp-content/uploads/2018/06/word-image-751-300x112.png 300w, /wp-content/uploads/2018/06/word-image-751-768x286.png 768w, /wp-content/uploads/2018/06/word-image-751-1024x381.png 1024w" sizes="(max-width: 1043px) 100vw, 1043px" /></p>
+<ol>
+<li>在home-view-index-index.html模板中遍历数据</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1162" height="420" class="wp-image-8167" src="/wp-content/uploads/2018/06/word-image-752.png" srcset="/wp-content/uploads/2018/06/word-image-752.png 1162w, /wp-content/uploads/2018/06/word-image-752-300x108.png 300w, /wp-content/uploads/2018/06/word-image-752-768x278.png 768w, /wp-content/uploads/2018/06/word-image-752-1024x370.png 1024w" sizes="(max-width: 1162px) 100vw, 1162px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="535" height="57" class="wp-image-8168" src="/wp-content/uploads/2018/06/word-image-753.png" srcset="/wp-content/uploads/2018/06/word-image-753.png 535w, /wp-content/uploads/2018/06/word-image-753-300x32.png 300w" sizes="(max-width: 535px) 100vw, 535px" /></p>
+<h2>2、完成首页的分类筛选</h2>
+<p><img loading="lazy" decoding="async" width="740" height="254" class="wp-image-8169" src="/wp-content/uploads/2018/06/word-image-754.png" srcset="/wp-content/uploads/2018/06/word-image-754.png 740w, /wp-content/uploads/2018/06/word-image-754-300x103.png 300w" sizes="(max-width: 740px) 100vw, 740px" /></p>
+<p>上面的三级分类的做法和角色分配权限技巧是一样。</p>
+<ol>
+<li>取出所有的分类数据，以主键cat_id作为select返回结果的下标</li>
+<li>根据pid进行分组，把具有相同pid的值归为同一个组，方便模板中循环。</li>
+</ol>
+<p>代码如下：</p>
+<p>1、按照上面两个技巧进行组装数据，分配到模板中</p>
+<p><img loading="lazy" decoding="async" width="1014" height="623" class="wp-image-8170" src="/wp-content/uploads/2018/06/word-image-755.png" srcset="/wp-content/uploads/2018/06/word-image-755.png 1014w, /wp-content/uploads/2018/06/word-image-755-300x184.png 300w, /wp-content/uploads/2018/06/word-image-755-768x472.png 768w" sizes="(max-width: 1014px) 100vw, 1014px" /></p>
+<p>其中$cats和$children变量数据如下：</p>
+<p><img loading="lazy" decoding="async" width="774" height="432" class="wp-image-8171" src="/wp-content/uploads/2018/06/word-image-756.png" srcset="/wp-content/uploads/2018/06/word-image-756.png 774w, /wp-content/uploads/2018/06/word-image-756-300x167.png 300w, /wp-content/uploads/2018/06/word-image-756-768x429.png 768w" sizes="(max-width: 774px) 100vw, 774px" /></p>
+<ol>
+<li>在模板中遍历</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1236" height="677" class="wp-image-8172" src="/wp-content/uploads/2018/06/word-image-757.png" srcset="/wp-content/uploads/2018/06/word-image-757.png 1236w, /wp-content/uploads/2018/06/word-image-757-300x164.png 300w, /wp-content/uploads/2018/06/word-image-757-768x421.png 768w, /wp-content/uploads/2018/06/word-image-757-1024x561.png 1024w" sizes="(max-width: 1236px) 100vw, 1236px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="727" height="121" class="wp-image-8173" src="/wp-content/uploads/2018/06/word-image-758.png" srcset="/wp-content/uploads/2018/06/word-image-758.png 727w, /wp-content/uploads/2018/06/word-image-758-300x50.png 300w" sizes="(max-width: 727px) 100vw, 727px" /></p>
+<h2>3、首页的推荐位</h2>
+<p><img loading="lazy" decoding="async" width="915" height="275" class="wp-image-8174" src="/wp-content/uploads/2018/06/word-image-759.png" srcset="/wp-content/uploads/2018/06/word-image-759.png 915w, /wp-content/uploads/2018/06/word-image-759-300x90.png 300w, /wp-content/uploads/2018/06/word-image-759-768x231.png 768w" sizes="(max-width: 915px) 100vw, 915px" /></p>
+<p>一共五个推荐位：</p>
+<p>上面的五个推荐位商品的都应该在正常的商品列表中（即不在回收站中），且为上架商品。</p>
+<p>即字段is_delete = 0 and is_sale = 1。</p>
+<p>五个推荐位：</p>
+<p>疯狂抢购：按照自己商城一些特点取商品，如可以取出价格最低的几个。</p>
+<p>热卖：即is_hot = 1</p>
+<p>推荐：即is_best = 1</p>
+<p>新品：即is_new = 1</p>
+<p>猜你喜欢：随机取出几个商品,利用mysql的 rand()的随机函数，使用模型的方法order( ‘rand()’ )实现</p>
+<p>代码如下：</p>
+<ol>
+<li>在home-Goods模型中定义一个获取指定类型商品的getTypeGoods方法</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1275" height="700" class="wp-image-8175" src="/wp-content/uploads/2018/06/word-image-760.png" srcset="/wp-content/uploads/2018/06/word-image-760.png 1275w, /wp-content/uploads/2018/06/word-image-760-300x165.png 300w, /wp-content/uploads/2018/06/word-image-760-768x422.png 768w, /wp-content/uploads/2018/06/word-image-760-1024x562.png 1024w" sizes="(max-width: 1275px) 100vw, 1275px" /></p>
+<ol>
+<li>在admin-indexController-index方法中获取对应类型的数据</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="914" height="652" class="wp-image-8176" src="/wp-content/uploads/2018/06/word-image-761.png" srcset="/wp-content/uploads/2018/06/word-image-761.png 914w, /wp-content/uploads/2018/06/word-image-761-300x214.png 300w, /wp-content/uploads/2018/06/word-image-761-768x548.png 768w" sizes="(max-width: 914px) 100vw, 914px" /></p>
+<ol>
+<li>模板中遍历数据</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1256" height="696" class="wp-image-8177" src="/wp-content/uploads/2018/06/word-image-762.png" srcset="/wp-content/uploads/2018/06/word-image-762.png 1256w, /wp-content/uploads/2018/06/word-image-762-300x166.png 300w, /wp-content/uploads/2018/06/word-image-762-768x426.png 768w, /wp-content/uploads/2018/06/word-image-762-1024x567.png 1024w" sizes="(max-width: 1256px) 100vw, 1256px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="874" height="249" class="wp-image-8178" src="/wp-content/uploads/2018/06/word-image-763.png" srcset="/wp-content/uploads/2018/06/word-image-763.png 874w, /wp-content/uploads/2018/06/word-image-763-300x85.png 300w, /wp-content/uploads/2018/06/word-image-763-768x219.png 768w" sizes="(max-width: 874px) 100vw, 874px" /></p>
+<h1>三、完成前台会员的注册功能</h1>
+<h2>1、相关的会员表分析</h2>
+<p><img loading="lazy" decoding="async" width="971" height="284" class="wp-image-8179" src="/wp-content/uploads/2018/06/word-image-764.png" srcset="/wp-content/uploads/2018/06/word-image-764.png 971w, /wp-content/uploads/2018/06/word-image-764-300x88.png 300w, /wp-content/uploads/2018/06/word-image-764-768x225.png 768w" sizes="(max-width: 971px) 100vw, 971px" /></p>
+<p>其中openid字段，是用于后面实现qq第三方登录用的。</p>
+<h2>代码实现</h2>
+<ol>
+<li>定义member验证器和member模型</li>
+</ol>
+<p>member验证器：</p>
+<p><img loading="lazy" decoding="async" width="911" height="632" class="wp-image-8180" src="/wp-content/uploads/2018/06/word-image-765.png" srcset="/wp-content/uploads/2018/06/word-image-765.png 911w, /wp-content/uploads/2018/06/word-image-765-300x208.png 300w, /wp-content/uploads/2018/06/word-image-765-768x533.png 768w" sizes="(max-width: 911px) 100vw, 911px" /></p>
+<p>member模型：</p>
+<p><img loading="lazy" decoding="async" width="995" height="419" class="wp-image-8181" src="/wp-content/uploads/2018/06/word-image-766.png" srcset="/wp-content/uploads/2018/06/word-image-766.png 995w, /wp-content/uploads/2018/06/word-image-766-300x126.png 300w, /wp-content/uploads/2018/06/word-image-766-768x323.png 768w" sizes="(max-width: 995px) 100vw, 995px" /></p>
+<ol>
+<li>设置注册模板register.html的表单name字段名称</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1161" height="709" class="wp-image-8182" src="/wp-content/uploads/2018/06/word-image-767.png" srcset="/wp-content/uploads/2018/06/word-image-767.png 1161w, /wp-content/uploads/2018/06/word-image-767-300x183.png 300w, /wp-content/uploads/2018/06/word-image-767-768x469.png 768w, /wp-content/uploads/2018/06/word-image-767-1024x625.png 1024w" sizes="(max-width: 1161px) 100vw, 1161px" /></p>
+<p>3、在home-publicController-register方法中完成注册的实现</p>
+<p><img loading="lazy" decoding="async" width="976" height="626" class="wp-image-8183" src="/wp-content/uploads/2018/06/word-image-768.png" srcset="/wp-content/uploads/2018/06/word-image-768.png 976w, /wp-content/uploads/2018/06/word-image-768-300x192.png 300w, /wp-content/uploads/2018/06/word-image-768-768x493.png 768w" sizes="(max-width: 976px) 100vw, 976px" /></p>
+<h1>四、使用短信验证完成注册</h1>
+<h2>1、短信验证技术介绍</h2>
+<p><strong>应用场景：</strong></p>
+<p>主要用于用户注册、身份确认、重要资料修改的短信认证以及生成订单成功短信的通知等。</p>
+<p><img loading="lazy" decoding="async" width="732" height="208" class="wp-image-8184" src="/wp-content/uploads/2018/06/word-image-769.png" srcset="/wp-content/uploads/2018/06/word-image-769.png 732w, /wp-content/uploads/2018/06/word-image-769-300x85.png 300w" sizes="(max-width: 732px) 100vw, 732px" /></p>
+<p>如百度利用手机号登录：</p>
+<p><img loading="lazy" decoding="async" width="349" height="248" class="wp-image-8185" src="/wp-content/uploads/2018/06/word-image-770.png" srcset="/wp-content/uploads/2018/06/word-image-770.png 349w, /wp-content/uploads/2018/06/word-image-770-300x213.png 300w" sizes="(max-width: 349px) 100vw, 349px" /></p>
+<p>如新浪手机邮箱注册验证</p>
+<p><a href="/goto/ozwd" rel="nofollow">https://mail.sina.com.cn/register/regmail.php</a></p>
+<p><img loading="lazy" decoding="async" width="502" height="434" class="wp-image-8186" src="/wp-content/uploads/2018/06/word-image-771.png" srcset="/wp-content/uploads/2018/06/word-image-771.png 502w, /wp-content/uploads/2018/06/word-image-771-300x259.png 300w" sizes="(max-width: 502px) 100vw, 502px" /></p>
+<h2>2、发送短信的实现</h2>
+<p>网站应用中的短信发送一般要借助第三方提供商提供的API接口来发送短信。而且大部分是要收费的，内容方面的规范检验也越来越严格，常常都需要按照事先审核过的短信模板来发送内容，否则无法发送成功。</p>
+<p>目前国内有很多这方面的短信提供商，只不过收费标准和稳定性都不一样。所以我们优先选择能免费体验的平台 ，比如容联云通讯（官方网址是：<a href="/goto/4d4z" rel="nofollow">http://www.yuntongxun.com/</a>）。</p>
+<p>还有接口网：<a href="/goto/thuu" rel="nofollow">http://www.106jiekou.com/</a> ，</p>
+<p>如下是容联云通讯（<a href="/goto/4d4z" rel="nofollow">http://www.yuntongxun.com/</a> ）的界面</p>
+<p><img loading="lazy" decoding="async" width="1273" height="154" class="wp-image-8187" src="/wp-content/uploads/2018/06/word-image-772.png" srcset="/wp-content/uploads/2018/06/word-image-772.png 1273w, /wp-content/uploads/2018/06/word-image-772-300x36.png 300w, /wp-content/uploads/2018/06/word-image-772-768x93.png 768w, /wp-content/uploads/2018/06/word-image-772-1024x124.png 1024w" sizes="(max-width: 1273px) 100vw, 1273px" /></p>
+<h2>3、容联运通讯的使用</h2>
+<h3>（1）注册账号</h3>
+<p>地址：<a href="/goto/30gu" rel="nofollow">http://www.yuntongxun.com/user/reg/init</a></p>
+<p><img loading="lazy" decoding="async" width="637" height="571" class="wp-image-8188" src="/wp-content/uploads/2018/06/word-image-773.png" srcset="/wp-content/uploads/2018/06/word-image-773.png 637w, /wp-content/uploads/2018/06/word-image-773-300x269.png 300w" sizes="(max-width: 637px) 100vw, 637px" /></p>
+<p>2、注册成功登录后进入控制中心</p>
+<p><img loading="lazy" decoding="async" width="1330" height="544" class="wp-image-8189" src="/wp-content/uploads/2018/06/word-image-774.png" srcset="/wp-content/uploads/2018/06/word-image-774.png 1330w, /wp-content/uploads/2018/06/word-image-774-300x123.png 300w, /wp-content/uploads/2018/06/word-image-774-768x314.png 768w, /wp-content/uploads/2018/06/word-image-774-1024x419.png 1024w" sizes="(max-width: 1330px) 100vw, 1330px" /></p>
+<p>3、设置发送短信的测试手机号</p>
+<p><img loading="lazy" decoding="async" width="1023" height="487" class="wp-image-8190" src="/wp-content/uploads/2018/06/word-image-775.png" srcset="/wp-content/uploads/2018/06/word-image-775.png 1023w, /wp-content/uploads/2018/06/word-image-775-300x143.png 300w, /wp-content/uploads/2018/06/word-image-775-768x366.png 768w" sizes="(max-width: 1023px) 100vw, 1023px" /></p>
+<p>注意：只有填写测试的手机号才可以发送短信，通过身份证认证之后无限制。</p>
+<h3>（2）查看开发文档和下载demo代码</h3>
+<p>1、开发文档：</p>
+<p><img loading="lazy" decoding="async" width="1089" height="422" class="wp-image-8191" src="/wp-content/uploads/2018/06/word-image-776.png" srcset="/wp-content/uploads/2018/06/word-image-776.png 1089w, /wp-content/uploads/2018/06/word-image-776-300x116.png 300w, /wp-content/uploads/2018/06/word-image-776-768x298.png 768w, /wp-content/uploads/2018/06/word-image-776-1024x397.png 1024w" sizes="(max-width: 1089px) 100vw, 1089px" /></p>
+<p>2、进入demo示例，查看使如何使用</p>
+<p><img loading="lazy" decoding="async" width="1061" height="525" class="wp-image-8192" src="/wp-content/uploads/2018/06/word-image-777.png" srcset="/wp-content/uploads/2018/06/word-image-777.png 1061w, /wp-content/uploads/2018/06/word-image-777-300x148.png 300w, /wp-content/uploads/2018/06/word-image-777-768x380.png 768w, /wp-content/uploads/2018/06/word-image-777-1024x507.png 1024w" sizes="(max-width: 1061px) 100vw, 1061px" /></p>
+<p>下载后的DEMO文件：</p>
+<p><img loading="lazy" decoding="async" width="549" height="179" class="wp-image-8193" src="/wp-content/uploads/2018/06/word-image-778.png" srcset="/wp-content/uploads/2018/06/word-image-778.png 549w, /wp-content/uploads/2018/06/word-image-778-300x98.png 300w" sizes="(max-width: 549px) 100vw, 549px" /></p>
+<p>注：发送短信要开启PHP的curl模块，在php配置文件php.ini中开启</p>
+<p><img loading="lazy" decoding="async" width="770" height="70" class="wp-image-8194" src="/wp-content/uploads/2018/06/word-image-779.png" srcset="/wp-content/uploads/2018/06/word-image-779.png 770w, /wp-content/uploads/2018/06/word-image-779-300x27.png 300w, /wp-content/uploads/2018/06/word-image-779-768x70.png 768w" sizes="(max-width: 770px) 100vw, 770px" /></p>
+<h3>（3）短信发送案例</h3>
+<p>参考以下示例：</p>
+<p><img loading="lazy" decoding="async" width="510" height="54" class="wp-image-8195" src="/wp-content/uploads/2018/06/word-image-780.png" srcset="/wp-content/uploads/2018/06/word-image-780.png 510w, /wp-content/uploads/2018/06/word-image-780-300x32.png 300w" sizes="(max-width: 510px) 100vw, 510px" /></p>
+<h1>使用短信验证完成注册</h1>
+<ol>
+<li>上面演示代码放在虚拟主机中测试如果可以正常发送短信则把对应的文件夹sendSMS复制到我们[项目目录]/extend/目录下面：</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="784" height="268" class="wp-image-8196" src="/wp-content/uploads/2018/06/word-image-781.png" srcset="/wp-content/uploads/2018/06/word-image-781.png 784w, /wp-content/uploads/2018/06/word-image-781-300x103.png 300w, /wp-content/uploads/2018/06/word-image-781-768x263.png 768w" sizes="(max-width: 784px) 100vw, 784px" /></p>
+<p>只需要上面一个文件即可发送短信。</p>
+<ol>
+<li>封装一个发送短信的方法，封装在common.php</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1134" height="716" class="wp-image-8197" src="/wp-content/uploads/2018/06/word-image-782.png" srcset="/wp-content/uploads/2018/06/word-image-782.png 1134w, /wp-content/uploads/2018/06/word-image-782-300x189.png 300w, /wp-content/uploads/2018/06/word-image-782-768x485.png 768w, /wp-content/uploads/2018/06/word-image-782-1024x647.png 1024w" sizes="(max-width: 1134px) 100vw, 1134px" /></p>
+<p>测试下是否可以发送短信：</p>
+<p><img loading="lazy" decoding="async" width="864" height="263" class="wp-image-8198" src="/wp-content/uploads/2018/06/word-image-783.png" srcset="/wp-content/uploads/2018/06/word-image-783.png 864w, /wp-content/uploads/2018/06/word-image-783-300x91.png 300w, /wp-content/uploads/2018/06/word-image-783-768x234.png 768w" sizes="(max-width: 864px) 100vw, 864px" /></p>
+<p>成功和失败返回如下数据：</p>
+<p><img loading="lazy" decoding="async" width="744" height="284" class="wp-image-8199" src="/wp-content/uploads/2018/06/word-image-784.png" srcset="/wp-content/uploads/2018/06/word-image-784.png 744w, /wp-content/uploads/2018/06/word-image-784-300x115.png 300w" sizes="(max-width: 744px) 100vw, 744px" /></p>
+<ol>
+<li>在register.html注册的页面，设置发送短信的html布局</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1216" height="475" class="wp-image-8200" src="/wp-content/uploads/2018/06/word-image-785.png" srcset="/wp-content/uploads/2018/06/word-image-785.png 1216w, /wp-content/uploads/2018/06/word-image-785-300x117.png 300w, /wp-content/uploads/2018/06/word-image-785-768x300.png 768w, /wp-content/uploads/2018/06/word-image-785-1024x400.png 1024w" sizes="(max-width: 1216px) 100vw, 1216px" /></p>
+<ol>
+<li>给id=sendSms绑定单击事件，发送ajax请求，进行短信的发送</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1048" height="493" class="wp-image-8201" src="/wp-content/uploads/2018/06/word-image-786.png" srcset="/wp-content/uploads/2018/06/word-image-786.png 1048w, /wp-content/uploads/2018/06/word-image-786-300x141.png 300w, /wp-content/uploads/2018/06/word-image-786-768x361.png 768w, /wp-content/uploads/2018/06/word-image-786-1024x482.png 1024w" sizes="(max-width: 1048px) 100vw, 1048px" /></p>
+<ol>
+<li>在home-publicController-sendSms定义发送短信的方法</li>
+</ol>
+<p>先在config.php中加入一个短信盐：用于加密</p>
+<p><img loading="lazy" decoding="async" width="664" height="217" class="wp-image-8202" src="/wp-content/uploads/2018/06/word-image-787.png" srcset="/wp-content/uploads/2018/06/word-image-787.png 664w, /wp-content/uploads/2018/06/word-image-787-300x98.png 300w" sizes="(max-width: 664px) 100vw, 664px" /></p>
+<p>进行发送短信：</p>
+<p><img loading="lazy" decoding="async" width="1231" height="459" class="wp-image-8203" src="/wp-content/uploads/2018/06/word-image-788.png" srcset="/wp-content/uploads/2018/06/word-image-788.png 1231w, /wp-content/uploads/2018/06/word-image-788-300x112.png 300w, /wp-content/uploads/2018/06/word-image-788-768x286.png 768w, /wp-content/uploads/2018/06/word-image-788-1024x382.png 1024w" sizes="(max-width: 1231px) 100vw, 1231px" /></p>
+<p>同时定义一个验证:</p>
+<p><img loading="lazy" decoding="async" width="998" height="697" class="wp-image-8204" src="/wp-content/uploads/2018/06/word-image-789.png" srcset="/wp-content/uploads/2018/06/word-image-789.png 998w, /wp-content/uploads/2018/06/word-image-789-300x210.png 300w, /wp-content/uploads/2018/06/word-image-789-768x536.png 768w" sizes="(max-width: 998px) 100vw, 998px" /></p>
+<p>6、发送短信的倒计时特效:</p>
+<p><img loading="lazy" decoding="async" width="1040" height="283" class="wp-image-8205" src="/wp-content/uploads/2018/06/word-image-790.png" srcset="/wp-content/uploads/2018/06/word-image-790.png 1040w, /wp-content/uploads/2018/06/word-image-790-300x82.png 300w, /wp-content/uploads/2018/06/word-image-790-768x209.png 768w, /wp-content/uploads/2018/06/word-image-790-1024x279.png 1024w" sizes="(max-width: 1040px) 100vw, 1040px" /></p>
+<p>countDown倒计时方法代码如下：</p>
+<p><img loading="lazy" decoding="async" width="972" height="491" class="wp-image-8206" src="/wp-content/uploads/2018/06/word-image-791.png" srcset="/wp-content/uploads/2018/06/word-image-791.png 972w, /wp-content/uploads/2018/06/word-image-791-300x152.png 300w, /wp-content/uploads/2018/06/word-image-791-768x388.png 768w" sizes="(max-width: 972px) 100vw, 972px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="512" height="112" class="wp-image-8207" src="/wp-content/uploads/2018/06/word-image-792.png" srcset="/wp-content/uploads/2018/06/word-image-792.png 512w, /wp-content/uploads/2018/06/word-image-792-300x66.png 300w" sizes="(max-width: 512px) 100vw, 512px" /></p>
+<ol>
+<li>同时点击注册按钮的时候，需要判断手机号短信验证码是否输入正确</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1084" height="559" class="wp-image-8208" src="/wp-content/uploads/2018/06/word-image-793.png" srcset="/wp-content/uploads/2018/06/word-image-793.png 1084w, /wp-content/uploads/2018/06/word-image-793-300x155.png 300w, /wp-content/uploads/2018/06/word-image-793-768x396.png 768w, /wp-content/uploads/2018/06/word-image-793-1024x528.png 1024w" sizes="(max-width: 1084px) 100vw, 1084px" /></p>
+<h1>六、完成前台会员的登录和验证码功能</h1>
+<p>1、先在member验证器中定义一个login的验证场景</p>
+<p><img loading="lazy" decoding="async" width="992" height="674" class="wp-image-8209" src="/wp-content/uploads/2018/06/word-image-794.png" srcset="/wp-content/uploads/2018/06/word-image-794.png 992w, /wp-content/uploads/2018/06/word-image-794-300x204.png 300w, /wp-content/uploads/2018/06/word-image-794-768x522.png 768w" sizes="(max-width: 992px) 100vw, 992px" /></p>
+<ol>
+<li>在Member模型中定义一个checkUser方法，判断用户名和密码是否正确</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="894" height="399" class="wp-image-8210" src="/wp-content/uploads/2018/06/word-image-795.png" srcset="/wp-content/uploads/2018/06/word-image-795.png 894w, /wp-content/uploads/2018/06/word-image-795-300x134.png 300w, /wp-content/uploads/2018/06/word-image-795-768x343.png 768w" sizes="(max-width: 894px) 100vw, 894px" /></p>
+<ol>
+<li>在登录模板login.html设置表单的name名称</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1142" height="618" class="wp-image-8211" src="/wp-content/uploads/2018/06/word-image-796.png" srcset="/wp-content/uploads/2018/06/word-image-796.png 1142w, /wp-content/uploads/2018/06/word-image-796-300x162.png 300w, /wp-content/uploads/2018/06/word-image-796-768x416.png 768w, /wp-content/uploads/2018/06/word-image-796-1024x554.png 1024w" sizes="(max-width: 1142px) 100vw, 1142px" /></p>
+<p>同时单击换一张更换验证码：</p>
+<p><img loading="lazy" decoding="async" width="995" height="152" class="wp-image-8212" src="/wp-content/uploads/2018/06/word-image-797.png" srcset="/wp-content/uploads/2018/06/word-image-797.png 995w, /wp-content/uploads/2018/06/word-image-797-300x46.png 300w, /wp-content/uploads/2018/06/word-image-797-768x117.png 768w" sizes="(max-width: 995px) 100vw, 995px" /></p>
+<p>注：上面生成验证码的时候，带了参数为2，在验证器验证的时候，记得带上对应的标识2.</p>
+<p><img loading="lazy" decoding="async" width="339" height="41" class="wp-image-8213" src="/wp-content/uploads/2018/06/word-image-798.png" srcset="/wp-content/uploads/2018/06/word-image-798.png 339w, /wp-content/uploads/2018/06/word-image-798-300x36.png 300w" sizes="(max-width: 339px) 100vw, 339px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="556" height="205" class="wp-image-8214" src="/wp-content/uploads/2018/06/word-image-799.png" srcset="/wp-content/uploads/2018/06/word-image-799.png 556w, /wp-content/uploads/2018/06/word-image-799-300x111.png 300w" sizes="(max-width: 556px) 100vw, 556px" /></p>
+<p>4、在home-publicController-login方法中完成登录模板的展示和登录的逻辑实现</p>
+<p><img loading="lazy" decoding="async" width="1103" height="501" class="wp-image-8215" src="/wp-content/uploads/2018/06/word-image-800.png" srcset="/wp-content/uploads/2018/06/word-image-800.png 1103w, /wp-content/uploads/2018/06/word-image-800-300x136.png 300w, /wp-content/uploads/2018/06/word-image-800-768x349.png 768w, /wp-content/uploads/2018/06/word-image-800-1024x465.png 1024w" sizes="(max-width: 1103px) 100vw, 1103px" /></p>
+<h1>七、退出功能，显示用户是否登录</h1>
+<p>判断用户是否登录思想：</p>
+<p><img loading="lazy" decoding="async" width="474" height="50" class="wp-image-8216" src="/wp-content/uploads/2018/06/word-image-801.png" srcset="/wp-content/uploads/2018/06/word-image-801.png 474w, /wp-content/uploads/2018/06/word-image-801-300x32.png 300w" sizes="(max-width: 474px) 100vw, 474px" /></p>
+<p>当用户登录，显示退出的按钮</p>
+<p>当用户未登录，显示登录和注册的按钮</p>
+<p>做法：可以通过session进行判断</p>
+<p>修改home-view-index-index.html模板内容：</p>
+<p><img loading="lazy" decoding="async" width="1245" height="423" class="wp-image-8217" src="/wp-content/uploads/2018/06/word-image-802.png" srcset="/wp-content/uploads/2018/06/word-image-802.png 1245w, /wp-content/uploads/2018/06/word-image-802-300x102.png 300w, /wp-content/uploads/2018/06/word-image-802-768x261.png 768w, /wp-content/uploads/2018/06/word-image-802-1024x348.png 1024w" sizes="(max-width: 1245px) 100vw, 1245px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="273" height="61" class="wp-image-8218" src="/wp-content/uploads/2018/06/word-image-803.png" /></p>
+<p>同时在home-publicController-logout方法中完成退出功能的实现</p>
+<p><img loading="lazy" decoding="async" width="784" height="369" class="wp-image-8219" src="/wp-content/uploads/2018/06/word-image-804.png" srcset="/wp-content/uploads/2018/06/word-image-804.png 784w, /wp-content/uploads/2018/06/word-image-804-300x141.png 300w, /wp-content/uploads/2018/06/word-image-804-768x361.png 768w" sizes="(max-width: 784px) 100vw, 784px" /></p>
+<h1>八、邮件技术实现密码找回</h1>
+<h2>1、邮件发送概述</h2>
+<h3>（1）邮件发送的原理</h3>
+<p>&nbsp;</p>
+<p><img loading="lazy" decoding="async" width="993" height="380" class="wp-image-8220" src="/wp-content/uploads/2018/06/word-image-805.png" srcset="/wp-content/uploads/2018/06/word-image-805.png 993w, /wp-content/uploads/2018/06/word-image-805-300x115.png 300w, /wp-content/uploads/2018/06/word-image-805-768x294.png 768w" sizes="(max-width: 993px) 100vw, 993px" /></p>
+<p>解释：</p>
+<p>POP3：全名为“Post Office Protocol &#8211; Version 3”，即“邮局协议版本3”。是TCP/IP协议族中的一员，由RFC1939 定义。本协议主要用于支持使用客户端远程管理在服务器上的电子邮件，提供了SSL加密。</p>
+<p>简单一句话，POP服务器是用来收信的。</p>
+<h3>（2）SMTP协议（Simple Mail Transfer Protocol）</h3>
+<p><a id="post-8157-_Toc449198636"></a> SMTP（Simple Mail Transfer Protocol）：</p>
+<p>即简单邮件传输协议,它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。</p>
+<p>SMTP协议属于TCP/IP协议族，它帮助每台计算机在发送或中转信件时找到下一个目的地。</p>
+<p>通过SMTP协议所指定的服务器,就可以把E－mail寄到收信人的服务器上了，整个过程只要几分钟。SMTP服务器则是遵循SMTP协议的发送邮件服务器，用来发送或中转发出的电子邮件。</p>
+<p>简单的说：　SMTP则是负责邮件服务器与邮件服务器之间的寄信的通讯协定（类似于http协议）</p>
+<h2>2、如何实现邮件的发送</h2>
+<p>（1）需要有邮件发送的第三方程序包，比如可以使用开源免费的PHPMailer</p>
+<p><img loading="lazy" decoding="async" width="236" height="25" class="wp-image-8221" src="/wp-content/uploads/2018/06/word-image-806.png" /></p>
+<p>（2）需要邮件服务器</p>
+<p>利用互联网上的第三方免费邮件服务器，例如 163， qq等，有些大公司会自己搭建邮件服务器。</p>
+<p>（3）需要在免费的邮件服务器里面（可以去注册163的），注册一个邮箱，进入邮箱后，要开通smtp服务。</p>
+<p>以163为例，先注册一个邮箱账号。</p>
+<p><img loading="lazy" decoding="async" width="691" height="616" class="wp-image-8222" src="/wp-content/uploads/2018/06/word-image-807.png" srcset="/wp-content/uploads/2018/06/word-image-807.png 691w, /wp-content/uploads/2018/06/word-image-807-300x267.png 300w" sizes="(max-width: 691px) 100vw, 691px" /></p>
+<p>注册成功然后登录进入用户设置</p>
+<p><img loading="lazy" decoding="async" width="950" height="304" class="wp-image-8223" src="/wp-content/uploads/2018/06/word-image-808.png" srcset="/wp-content/uploads/2018/06/word-image-808.png 950w, /wp-content/uploads/2018/06/word-image-808-300x96.png 300w, /wp-content/uploads/2018/06/word-image-808-768x246.png 768w" sizes="(max-width: 950px) 100vw, 950px" /></p>
+<p>开通smtp服务</p>
+<p><img loading="lazy" decoding="async" width="1107" height="644" class="wp-image-8224" src="/wp-content/uploads/2018/06/word-image-809.png" srcset="/wp-content/uploads/2018/06/word-image-809.png 1107w, /wp-content/uploads/2018/06/word-image-809-300x175.png 300w, /wp-content/uploads/2018/06/word-image-809-768x447.png 768w, /wp-content/uploads/2018/06/word-image-809-1024x596.png 1024w" sizes="(max-width: 1107px) 100vw, 1107px" /></p>
+<p>设置客户端授权密码</p>
+<p><img loading="lazy" decoding="async" width="987" height="529" class="wp-image-8225" src="/wp-content/uploads/2018/06/word-image-810.png" srcset="/wp-content/uploads/2018/06/word-image-810.png 987w, /wp-content/uploads/2018/06/word-image-810-300x161.png 300w, /wp-content/uploads/2018/06/word-image-810-768x412.png 768w" sizes="(max-width: 987px) 100vw, 987px" /></p>
+<p>（4） php.ini配置文件中需要启用sockets扩展。</p>
+<p><img loading="lazy" decoding="async" width="475" height="229" class="wp-image-8226" src="/wp-content/uploads/2018/06/word-image-811.png" srcset="/wp-content/uploads/2018/06/word-image-811.png 475w, /wp-content/uploads/2018/06/word-image-811-300x145.png 300w" sizes="(max-width: 475px) 100vw, 475px" /></p>
+<p>记得重启apache服务器</p>
+<h2>3、邮件发送案例</h2>
+<p>参考以下示例：</p>
+<p><img loading="lazy" decoding="async" width="264" height="48" class="wp-image-8227" src="/wp-content/uploads/2018/06/word-image-812.png" /></p>
+<h2>集成到项目中实现忘记密码功能</h2>
+<ol>
+<li>把上面测试通过的发送邮件的sendEmail复制到[应用目录]/extend目录中</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="509" height="208" class="wp-image-8228" src="/wp-content/uploads/2018/06/word-image-813.png" srcset="/wp-content/uploads/2018/06/word-image-813.png 509w, /wp-content/uploads/2018/06/word-image-813-300x123.png 300w" sizes="(max-width: 509px) 100vw, 509px" /></p>
+<p>注：测试的时候，记得修改demo.php中的基本配置。</p>
+<ol>
+<li>在common.php文件中封装一个发送邮件的方法sendEmail</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1042" height="714" class="wp-image-8229" src="/wp-content/uploads/2018/06/word-image-814.png" srcset="/wp-content/uploads/2018/06/word-image-814.png 1042w, /wp-content/uploads/2018/06/word-image-814-300x206.png 300w, /wp-content/uploads/2018/06/word-image-814-768x526.png 768w, /wp-content/uploads/2018/06/word-image-814-1024x702.png 1024w" sizes="(max-width: 1042px) 100vw, 1042px" /></p>
+<ol>
+<li>记得测试一下是否ok</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1077" height="265" class="wp-image-8230" src="/wp-content/uploads/2018/06/word-image-815.png" srcset="/wp-content/uploads/2018/06/word-image-815.png 1077w, /wp-content/uploads/2018/06/word-image-815-300x74.png 300w, /wp-content/uploads/2018/06/word-image-815-768x189.png 768w, /wp-content/uploads/2018/06/word-image-815-1024x252.png 1024w" sizes="(max-width: 1077px) 100vw, 1077px" /></p>
+<h2>实现登录的忘记密码功能</h2>
+<p>找回密码的基本流程图解：</p>
+<p><img loading="lazy" decoding="async" width="460" height="660" class="wp-image-8231" src="/wp-content/uploads/2018/06/word-image-816.png" srcset="/wp-content/uploads/2018/06/word-image-816.png 460w, /wp-content/uploads/2018/06/word-image-816-209x300.png 209w" sizes="(max-width: 460px) 100vw, 460px" /></p>
+<ol>
+<li>修改登录页面的忘记密码的链接地址</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1135" height="294" class="wp-image-8232" src="/wp-content/uploads/2018/06/word-image-817.png" srcset="/wp-content/uploads/2018/06/word-image-817.png 1135w, /wp-content/uploads/2018/06/word-image-817-300x78.png 300w, /wp-content/uploads/2018/06/word-image-817-768x199.png 768w, /wp-content/uploads/2018/06/word-image-817-1024x265.png 1024w" sizes="(max-width: 1135px) 100vw, 1135px" /></p>
+<ol>
+<li>在home-publicController-findpassword方法，展示一个输入注册时候的邮箱的模板显示。</li>
+</ol>
+<p>注:模板可以直接复制登录的login.html模板即可，稍做修改</p>
+<p><img loading="lazy" decoding="async" width="1271" height="399" class="wp-image-8233" src="/wp-content/uploads/2018/06/word-image-818.png" srcset="/wp-content/uploads/2018/06/word-image-818.png 1271w, /wp-content/uploads/2018/06/word-image-818-300x94.png 300w, /wp-content/uploads/2018/06/word-image-818-768x241.png 768w, /wp-content/uploads/2018/06/word-image-818-1024x321.png 1024w" sizes="(max-width: 1271px) 100vw, 1271px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="471" height="161" class="wp-image-8234" src="/wp-content/uploads/2018/06/word-image-819.png" srcset="/wp-content/uploads/2018/06/word-image-819.png 471w, /wp-content/uploads/2018/06/word-image-819-300x103.png 300w" sizes="(max-width: 471px) 100vw, 471px" /></p>
+<ol>
+<li>给上面的按钮绑定单击事件，进行发送ajax，触发发送邮件。</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1032" height="380" class="wp-image-8235" src="/wp-content/uploads/2018/06/word-image-820.png" srcset="/wp-content/uploads/2018/06/word-image-820.png 1032w, /wp-content/uploads/2018/06/word-image-820-300x110.png 300w, /wp-content/uploads/2018/06/word-image-820-768x283.png 768w, /wp-content/uploads/2018/06/word-image-820-1024x377.png 1024w" sizes="(max-width: 1032px) 100vw, 1032px" /></p>
+<ol>
+<li>在home模块的PublicController控制器中的findPassword方法中判断是否是ajax请求，接收重置的邮箱，进行一些发送邮件前的判断</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1000" height="504" class="wp-image-8236" src="/wp-content/uploads/2018/06/word-image-821.png" srcset="/wp-content/uploads/2018/06/word-image-821.png 1000w, /wp-content/uploads/2018/06/word-image-821-300x151.png 300w, /wp-content/uploads/2018/06/word-image-821-768x387.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" /></p>
+<ol>
+<li>当输入的邮箱在系统中存在的时候，就进行发送邮件。</li>
+</ol>
+<p>明天讲！！</p>
+<h2>6、验证邮件地址的合法性</h2>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8157.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

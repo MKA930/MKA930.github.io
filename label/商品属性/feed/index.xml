@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>商品属性 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%95%86%E5%93%81%E5%B1%9E%E6%80%A7/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Thu, 14 Jun 2018 10:56:19 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>商品属性 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP5 商城（四）商品属性、商品添加、图片上传、商品列表、ajax+layer 展示商品详情</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8031.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8031.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 09 Jun 2018 00:37:00 +0000</pubDate>
+				<category><![CDATA[TP5.0]]></category>
+		<category><![CDATA[TP5.0商城]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[ajax+layer 展示商品详情]]></category>
+		<category><![CDATA[商品列表]]></category>
+		<category><![CDATA[商品属性]]></category>
+		<category><![CDATA[商品添加]]></category>
+		<category><![CDATA[图片上传]]></category>
+		<guid isPermaLink="false">/?p=8031</guid>
+
+					<description><![CDATA[一、查看商品类型属性 不同的商品类型其属性也是不一样的。 在admin-view-type-index.htm [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>一、查看商品类型属性</h1>
+<p>不同的商品类型其属性也是不一样的。</p>
+<ol>
+<li>在admin-view-type-index.html修改链接地址</li>
+</ol>
+<p><img fetchpriority="high" decoding="async" width="1241" height="484" class="wp-image-8093" src="/wp-content/uploads/2018/06/word-image-684.png" srcset="/wp-content/uploads/2018/06/word-image-684.png 1241w, /wp-content/uploads/2018/06/word-image-684-300x117.png 300w, /wp-content/uploads/2018/06/word-image-684-768x300.png 768w, /wp-content/uploads/2018/06/word-image-684-1024x399.png 1024w" sizes="(max-width: 1241px) 100vw, 1241px" /></p>
+<ol>
+<li>在admin-typeController-getAttr方法中，取出当前分类所有的属性展示在模板中</li>
+</ol>
+<p><img decoding="async" width="987" height="385" class="wp-image-8094" src="/wp-content/uploads/2018/06/word-image-685.png" srcset="/wp-content/uploads/2018/06/word-image-685.png 987w, /wp-content/uploads/2018/06/word-image-685-300x117.png 300w, /wp-content/uploads/2018/06/word-image-685-768x300.png 768w" sizes="(max-width: 987px) 100vw, 987px" /></p>
+<ol>
+<li>模板中遍历数据</li>
+</ol>
+<p><img decoding="async" width="1257" height="500" class="wp-image-8095" src="/wp-content/uploads/2018/06/word-image-686.png" srcset="/wp-content/uploads/2018/06/word-image-686.png 1257w, /wp-content/uploads/2018/06/word-image-686-300x119.png 300w, /wp-content/uploads/2018/06/word-image-686-768x305.png 768w, /wp-content/uploads/2018/06/word-image-686-1024x407.png 1024w" sizes="(max-width: 1257px) 100vw, 1257px" /></p>
+<h1>二、去除编辑属性时属性值的多个空格</h1>
+<p>修改admin/view/attribute/upd.html模板</p>
+<p><img loading="lazy" decoding="async" width="1003" height="339" class="wp-image-8096" src="/wp-content/uploads/2018/06/word-image-687.png" srcset="/wp-content/uploads/2018/06/word-image-687.png 1003w, /wp-content/uploads/2018/06/word-image-687-300x101.png 300w, /wp-content/uploads/2018/06/word-image-687-768x260.png 768w" sizes="(max-width: 1003px) 100vw, 1003px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="574" height="120" class="wp-image-8097" src="/wp-content/uploads/2018/06/word-image-688.png" srcset="/wp-content/uploads/2018/06/word-image-688.png 574w, /wp-content/uploads/2018/06/word-image-688-300x63.png 300w" sizes="(max-width: 574px) 100vw, 574px" /></p>
+<h1>三、完成商品的添加</h1>
+<h2>商品的认识</h2>
+<p>商品=产品+商品属性，即同一个产品，但是商品属性不同，就不是同一个商品，且价格也不同。</p>
+<p>如：iphone6s黑色 和iphone6s银色</p>
+<h2>商品添加所需的数据表</h2>
+<p>当在后台添加一个商品的时候，商品相关数据需要入库到以下两个表：</p>
+<p>商品表sh_goods和商品属性表sh_goods_attr</p>
+<p><img loading="lazy" decoding="async" width="159" height="40" class="wp-image-8098" src="/wp-content/uploads/2018/06/word-image-689.png" /></p>
+<p>商品的基本信息数据存储在sh_goods表中，商品属性数据存储在sh_goods_attr中</p>
+<p>商品表sh_goods表结构：</p>
+<p><img loading="lazy" decoding="async" width="967" height="381" class="wp-image-8099" src="/wp-content/uploads/2018/06/word-image-690.png" srcset="/wp-content/uploads/2018/06/word-image-690.png 967w, /wp-content/uploads/2018/06/word-image-690-300x118.png 300w, /wp-content/uploads/2018/06/word-image-690-768x303.png 768w" sizes="(max-width: 967px) 100vw, 967px" /></p>
+<p>注：给我们的商品表添加一个goods_middle字段，存储图片的生成的中图的路径</p>
+<p><img loading="lazy" decoding="async" width="731" height="200" class="wp-image-8100" src="/wp-content/uploads/2018/06/word-image-691.png" srcset="/wp-content/uploads/2018/06/word-image-691.png 731w, /wp-content/uploads/2018/06/word-image-691-300x82.png 300w" sizes="(max-width: 731px) 100vw, 731px" /></p>
+<p>商品属性表sh_goods_attr表结构：</p>
+<p><img loading="lazy" decoding="async" width="935" height="267" class="wp-image-8102" src="/wp-content/uploads/2018/06/word-image-692.png" srcset="/wp-content/uploads/2018/06/word-image-692.png 935w, /wp-content/uploads/2018/06/word-image-692-300x86.png 300w, /wp-content/uploads/2018/06/word-image-692-768x219.png 768w" sizes="(max-width: 935px) 100vw, 935px" /></p>
+<h2>完成商品基本信息的入库</h2>
+<p>基本信息：商品名称、商品价格、库存、详情、是否热卖&#8230;..</p>
+<h3>展示添加商品模板</h3>
+<ol>
+<li>在admin-GoodsController-add方法中，输出添加商品的模板</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="889" height="348" class="wp-image-8103" src="/wp-content/uploads/2018/06/word-image-693.png" srcset="/wp-content/uploads/2018/06/word-image-693.png 889w, /wp-content/uploads/2018/06/word-image-693-300x117.png 300w, /wp-content/uploads/2018/06/word-image-693-768x301.png 768w" sizes="(max-width: 889px) 100vw, 889px" /></p>
+<ol>
+<li>把后台的添加商品的模板复制到admin/view/goods/目录下面，并且修改静态资源路径</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="762" height="305" class="wp-image-8104" src="/wp-content/uploads/2018/06/word-image-694.png" srcset="/wp-content/uploads/2018/06/word-image-694.png 762w, /wp-content/uploads/2018/06/word-image-694-300x120.png 300w" sizes="(max-width: 762px) 100vw, 762px" /></p>
+<p>模板是四个选项卡构成：</p>
+<p><img loading="lazy" decoding="async" width="1252" height="541" class="wp-image-8105" src="/wp-content/uploads/2018/06/word-image-695.png" srcset="/wp-content/uploads/2018/06/word-image-695.png 1252w, /wp-content/uploads/2018/06/word-image-695-300x130.png 300w, /wp-content/uploads/2018/06/word-image-695-768x332.png 768w, /wp-content/uploads/2018/06/word-image-695-1024x442.png 1024w" sizes="(max-width: 1252px) 100vw, 1252px" /></p>
+<p>先修改第一个和第四选项卡的name名称：</p>
+<p>第一个选项卡：</p>
+<p><img loading="lazy" decoding="async" width="1217" height="599" class="wp-image-8106" src="/wp-content/uploads/2018/06/word-image-696.png" srcset="/wp-content/uploads/2018/06/word-image-696.png 1217w, /wp-content/uploads/2018/06/word-image-696-300x148.png 300w, /wp-content/uploads/2018/06/word-image-696-768x378.png 768w, /wp-content/uploads/2018/06/word-image-696-1024x504.png 1024w" sizes="(max-width: 1217px) 100vw, 1217px" /> <img loading="lazy" decoding="async" width="1118" height="625" class="wp-image-8107" src="/wp-content/uploads/2018/06/word-image-697.png" srcset="/wp-content/uploads/2018/06/word-image-697.png 1118w, /wp-content/uploads/2018/06/word-image-697-300x168.png 300w, /wp-content/uploads/2018/06/word-image-697-768x429.png 768w, /wp-content/uploads/2018/06/word-image-697-1024x572.png 1024w" sizes="(max-width: 1118px) 100vw, 1118px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="526" height="488" class="wp-image-8108" src="/wp-content/uploads/2018/06/word-image-698.png" srcset="/wp-content/uploads/2018/06/word-image-698.png 526w, /wp-content/uploads/2018/06/word-image-698-300x278.png 300w" sizes="(max-width: 526px) 100vw, 526px" /></p>
+<p>第四个选项卡内容：</p>
+<p><img loading="lazy" decoding="async" width="880" height="418" class="wp-image-8109" src="/wp-content/uploads/2018/06/word-image-699.png" srcset="/wp-content/uploads/2018/06/word-image-699.png 880w, /wp-content/uploads/2018/06/word-image-699-300x143.png 300w, /wp-content/uploads/2018/06/word-image-699-768x365.png 768w" sizes="(max-width: 880px) 100vw, 880px" /></p>
+<h3>基本信息入库操作</h3>
+<ol>
+<li>定义添加商品的验证器Goods</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1145" height="592" class="wp-image-8110" src="/wp-content/uploads/2018/06/word-image-700.png" srcset="/wp-content/uploads/2018/06/word-image-700.png 1145w, /wp-content/uploads/2018/06/word-image-700-300x155.png 300w, /wp-content/uploads/2018/06/word-image-700-768x397.png 768w, /wp-content/uploads/2018/06/word-image-700-1024x529.png 1024w" sizes="(max-width: 1145px) 100vw, 1145px" /></p>
+<ol>
+<li>在admin-GoodsController-add 方法中完成商品的入库操作</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="949" height="620" class="wp-image-8111" src="/wp-content/uploads/2018/06/word-image-701.png" srcset="/wp-content/uploads/2018/06/word-image-701.png 949w, /wp-content/uploads/2018/06/word-image-701-300x196.png 300w, /wp-content/uploads/2018/06/word-image-701-768x502.png 768w" sizes="(max-width: 949px) 100vw, 949px" /></p>
+<ol>
+<li>使用ueditor 完成商品的详情</li>
+</ol>
+<p>引入三个核心js文件：</p>
+<p><img loading="lazy" decoding="async" width="1257" height="383" class="wp-image-8112" src="/wp-content/uploads/2018/06/word-image-702.png" srcset="/wp-content/uploads/2018/06/word-image-702.png 1257w, /wp-content/uploads/2018/06/word-image-702-300x91.png 300w, /wp-content/uploads/2018/06/word-image-702-768x234.png 768w, /wp-content/uploads/2018/06/word-image-702-1024x312.png 1024w" sizes="(max-width: 1257px) 100vw, 1257px" /></p>
+<p>设置textarea的id,初始化编辑器：</p>
+<p><img loading="lazy" decoding="async" width="1236" height="504" class="wp-image-8113" src="/wp-content/uploads/2018/06/word-image-703.png" srcset="/wp-content/uploads/2018/06/word-image-703.png 1236w, /wp-content/uploads/2018/06/word-image-703-300x122.png 300w, /wp-content/uploads/2018/06/word-image-703-768x313.png 768w, /wp-content/uploads/2018/06/word-image-703-1024x418.png 1024w" sizes="(max-width: 1236px) 100vw, 1236px" /></p>
+<h2>添加商品的多图片上传</h2>
+<p><img loading="lazy" decoding="async" width="901" height="51" class="wp-image-8114" src="/wp-content/uploads/2018/06/word-image-704.png" srcset="/wp-content/uploads/2018/06/word-image-704.png 901w, /wp-content/uploads/2018/06/word-image-704-300x17.png 300w, /wp-content/uploads/2018/06/word-image-704-768x43.png 768w" sizes="(max-width: 901px) 100vw, 901px" /></p>
+<p>建议原图上传800*800 ，生成两种缩略图</p>
+<p>中图缩略图：350*350 比例为2</p>
+<p>小图：50*50 生成缩略图的类型为2位等比例补白</p>
+<ol>
+<li>上传文件的form两个要求：post提交 和enctype = multipart/form-data</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="826" height="169" class="wp-image-8115" src="/wp-content/uploads/2018/06/word-image-705.png" srcset="/wp-content/uploads/2018/06/word-image-705.png 826w, /wp-content/uploads/2018/06/word-image-705-300x61.png 300w, /wp-content/uploads/2018/06/word-image-705-768x157.png 768w" sizes="(max-width: 826px) 100vw, 826px" /></p>
+<ol>
+<li>设置文件上传的name属性，因为是多图上传，所以呢name后需要加[]。</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="957" height="229" class="wp-image-8116" src="/wp-content/uploads/2018/06/word-image-706.png" srcset="/wp-content/uploads/2018/06/word-image-706.png 957w, /wp-content/uploads/2018/06/word-image-706-300x72.png 300w, /wp-content/uploads/2018/06/word-image-706-768x184.png 768w" sizes="(max-width: 957px) 100vw, 957px" /></p>
+<h3>（1）思路分析</h3>
+<p>实现思路：可以参考ecshop开源商城：</p>
+<p><img loading="lazy" decoding="async" width="985" height="188" class="wp-image-8117" src="/wp-content/uploads/2018/06/word-image-707.png" srcset="/wp-content/uploads/2018/06/word-image-707.png 985w, /wp-content/uploads/2018/06/word-image-707-300x57.png 300w, /wp-content/uploads/2018/06/word-image-707-768x147.png 768w" sizes="(max-width: 985px) 100vw, 985px" /></p>
+<p>①构建布局：</p>
+<p>每个文件上传域名其实可以看做是一个li标签，其中包含a标签和input上传文件域</p>
+<p>如下结构：</p>
+<p>&lt;li&gt; &lt;a href=’javascript:;’ &gt;[+]&lt;/a&gt;&lt;input type=’file’/&gt; &lt;/li&gt;</p>
+<p>&lt;li&gt; &lt;a href=’javascript:;’ &gt;[-]&lt;/a&gt;&lt;input type=’file’/&gt; &lt;/li&gt;</p>
+<p>②怎么实现图片前的[+][-]加减功能？</p>
+<p>思路：</p>
+<ol>
+<li>给li中的a标签绑定单击事件，获取当前单击元素的内容</li>
+<li>判断内容，含两种情况[+]、[-]</li>
+</ol>
+<p>若是[+]: 则获取当前元素的父元素（即li），克隆一份，在把内部的a标签的[+]变成[-]。</p>
+<p>若是[-]: 则获取当前元素的父元素（即li），并移除。</p>
+<h3>多图片上传加减特效</h3>
+<p>1、修改第三个选项卡的内容，设置标签。以及绑定单击事件</p>
+<p><img loading="lazy" decoding="async" width="1244" height="382" class="wp-image-8118" src="/wp-content/uploads/2018/06/word-image-708.png" srcset="/wp-content/uploads/2018/06/word-image-708.png 1244w, /wp-content/uploads/2018/06/word-image-708-300x92.png 300w, /wp-content/uploads/2018/06/word-image-708-768x236.png 768w, /wp-content/uploads/2018/06/word-image-708-1024x314.png 1024w" sizes="(max-width: 1244px) 100vw, 1244px" /></p>
+<ol>
+<li>实现上面的单击事件克隆图片</li>
+</ol>
+<p>通过看思路实现代码：</p>
+<p>思路：</p>
+<p>a、给li中的a标签绑定单击事件，获取当前单击元素的内容</p>
+<p>b、判断内容，含两种情况[+]、[-]</p>
+<p>若是[+]: 则获取当前元素的父元素（即li），克隆一份，在把内部的a标签的[+]变成[-]。</p>
+<p>若是[-]: 则获取当前元素的父元素（即li），并移除。</p>
+<p><img loading="lazy" decoding="async" width="795" height="408" class="wp-image-8119" src="/wp-content/uploads/2018/06/word-image-709.png" srcset="/wp-content/uploads/2018/06/word-image-709.png 795w, /wp-content/uploads/2018/06/word-image-709-300x154.png 300w, /wp-content/uploads/2018/06/word-image-709-768x394.png 768w" sizes="(max-width: 795px) 100vw, 795px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="512" height="225" class="wp-image-8120" src="/wp-content/uploads/2018/06/word-image-710.png" srcset="/wp-content/uploads/2018/06/word-image-710.png 512w, /wp-content/uploads/2018/06/word-image-710-300x132.png 300w" sizes="(max-width: 512px) 100vw, 512px" /></p>
+<h3>实现多图片的上传</h3>
+<ol>
+<li>在Goods模型中定义一个方法，判断进行图片的原图上传，并返回上传成功的文件路径</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="971" height="580" class="wp-image-8121" src="/wp-content/uploads/2018/06/word-image-711.png" srcset="/wp-content/uploads/2018/06/word-image-711.png 971w, /wp-content/uploads/2018/06/word-image-711-300x180.png 300w, /wp-content/uploads/2018/06/word-image-711-768x459.png 768w" sizes="(max-width: 971px) 100vw, 971px" /></p>
+<ol>
+<li>add方法中进行调用上面的方法，把图片的路径转化为json格式存储到表对应字段中</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1127" height="599" class="wp-image-8122" src="/wp-content/uploads/2018/06/word-image-712.png" srcset="/wp-content/uploads/2018/06/word-image-712.png 1127w, /wp-content/uploads/2018/06/word-image-712-300x159.png 300w, /wp-content/uploads/2018/06/word-image-712-768x408.png 768w, /wp-content/uploads/2018/06/word-image-712-1024x544.png 1024w" sizes="(max-width: 1127px) 100vw, 1127px" /></p>
+<h3>（4）生成多图片的缩略图</h3>
+<p>生成缩略图的步骤：</p>
+<ul>
+<li>Image打开源图片 $image = \Think\Image::open(源图片);</li>
+<li>进行缩放处理 $image -&gt; thumb(宽度，高度，类型)</li>
+<li>把缩放好的图片保存到服务器上 $image -&gt; save(小图路径名);</li>
+</ul>
+<ol>
+<li>在goods模型中定义处理原图缩放的方法</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1040" height="699" class="wp-image-8123" src="/wp-content/uploads/2018/06/word-image-713.png" srcset="/wp-content/uploads/2018/06/word-image-713.png 1040w, /wp-content/uploads/2018/06/word-image-713-300x202.png 300w, /wp-content/uploads/2018/06/word-image-713-768x516.png 768w, /wp-content/uploads/2018/06/word-image-713-1024x688.png 1024w" sizes="(max-width: 1040px) 100vw, 1040px" /></p>
+<ol>
+<li>add方法中若原图上传成功，则调用上面的方法进行缩略图处理</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1215" height="705" class="wp-image-8124" src="/wp-content/uploads/2018/06/word-image-714.png" srcset="/wp-content/uploads/2018/06/word-image-714.png 1215w, /wp-content/uploads/2018/06/word-image-714-300x174.png 300w, /wp-content/uploads/2018/06/word-image-714-768x446.png 768w, /wp-content/uploads/2018/06/word-image-714-1024x594.png 1024w" sizes="(max-width: 1215px) 100vw, 1215px" /></p>
+<p>最终生成的各图片名：</p>
+<p><img loading="lazy" decoding="async" width="358" height="440" class="wp-image-8125" src="/wp-content/uploads/2018/06/word-image-715.png" srcset="/wp-content/uploads/2018/06/word-image-715.png 358w, /wp-content/uploads/2018/06/word-image-715-244x300.png 244w" sizes="(max-width: 358px) 100vw, 358px" /></p>
+<h1>三、[难点-重点]完成商品的属性添加</h1>
+<h2>1、分析商品动态属性的生成</h2>
+<p>添加一个商品，其商品属性可能有多个。</p>
+<p>即商品表sh_goods的一条记录对应商品属性表sh_goods_attr的多条记录，属于一对多关系。</p>
+<p>问题：怎么给商品设置商品属性？</p>
+<p>这里可以参考ecshop的方案，当添加商品的,必须先选择一个商品类型，在通过ajax动态获取商品类型的属性，再给商品设置这些属性值。</p>
+<p>如在ecshop后台添加商品的时候，选择手机类型，动态生成的属性框如下：</p>
+<p><img loading="lazy" decoding="async" width="1084" height="312" class="wp-image-8126" src="/wp-content/uploads/2018/06/word-image-716.png" srcset="/wp-content/uploads/2018/06/word-image-716.png 1084w, /wp-content/uploads/2018/06/word-image-716-300x86.png 300w, /wp-content/uploads/2018/06/word-image-716-768x221.png 768w, /wp-content/uploads/2018/06/word-image-716-1024x295.png 1024w" sizes="(max-width: 1084px) 100vw, 1084px" /></p>
+<p>从上面添加商品属性可以看出，动态生成商品属性的时候，共有4种组合情况。</p>
+<p>其实就是属性类型和属性值录入方式的互相组合：</p>
+<p>①唯一属性+手工输入</p>
+<p>②唯一属性+列表选择</p>
+<p>③单选属性+手工输入</p>
+<p>④单选属性+列表选择</p>
+<p>其实可以把上面每个动态生成的属性信息看作是被包含在一个li标签中。</p>
+<p>分析四种组合情况生成动态属性的特点如下：元素从左到右分析：</p>
+<p><img loading="lazy" decoding="async" width="1084" height="312" class="wp-image-8127" src="/wp-content/uploads/2018/06/word-image-717.png" srcset="/wp-content/uploads/2018/06/word-image-717.png 1084w, /wp-content/uploads/2018/06/word-image-717-300x86.png 300w, /wp-content/uploads/2018/06/word-image-717-768x221.png 768w, /wp-content/uploads/2018/06/word-image-717-1024x295.png 1024w" sizes="(max-width: 1084px) 100vw, 1084px" /> <img loading="lazy" decoding="async" width="857" height="274" class="wp-image-8128" src="/wp-content/uploads/2018/06/word-image-718.png" srcset="/wp-content/uploads/2018/06/word-image-718.png 857w, /wp-content/uploads/2018/06/word-image-718-300x96.png 300w, /wp-content/uploads/2018/06/word-image-718-768x246.png 768w" sizes="(max-width: 857px) 100vw, 857px" /></p>
+<ul>
+<li>单选属性属性名称前有个[+]或[-]号，可以进行加减，而唯一属性则没有</li>
+<li>属性名称</li>
+<li>属性值录入方式为手工输入，则对应属性值的输入方式的是一个输入框(&lt;input type=’text’/&gt;)，而属性值录入方式为列表选择的时候则对应属性值的输入方式的是一个select下拉框。</li>
+<li>单选属性可以输入价格，而唯一属性则没有</li>
+</ul>
+<h2>完成商品的动态属性生成</h2>
+<ol>
+<li>在商品添加的add方法中取出所有的商品类型</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="919" height="281" class="wp-image-8129" src="/wp-content/uploads/2018/06/word-image-719.png" srcset="/wp-content/uploads/2018/06/word-image-719.png 919w, /wp-content/uploads/2018/06/word-image-719-300x92.png 300w, /wp-content/uploads/2018/06/word-image-719-768x235.png 768w" sizes="(max-width: 919px) 100vw, 919px" /></p>
+<ol>
+<li>模板中遍历数据在第二个选项卡</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1084" height="348" class="wp-image-8130" src="/wp-content/uploads/2018/06/word-image-720.png" srcset="/wp-content/uploads/2018/06/word-image-720.png 1084w, /wp-content/uploads/2018/06/word-image-720-300x96.png 300w, /wp-content/uploads/2018/06/word-image-720-768x247.png 768w, /wp-content/uploads/2018/06/word-image-720-1024x329.png 1024w" sizes="(max-width: 1084px) 100vw, 1084px" /></p>
+<p>3、设置一个存储动态生成属性的容器</p>
+<p><img loading="lazy" decoding="async" width="914" height="337" class="wp-image-8131" src="/wp-content/uploads/2018/06/word-image-721.png" srcset="/wp-content/uploads/2018/06/word-image-721.png 914w, /wp-content/uploads/2018/06/word-image-721-300x111.png 300w, /wp-content/uploads/2018/06/word-image-721-768x283.png 768w" sizes="(max-width: 914px) 100vw, 914px" /></p>
+<ol>
+<li>绑定onchange事件给select框</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1157" height="338" class="wp-image-8132" src="/wp-content/uploads/2018/06/word-image-722.png" srcset="/wp-content/uploads/2018/06/word-image-722.png 1157w, /wp-content/uploads/2018/06/word-image-722-300x88.png 300w, /wp-content/uploads/2018/06/word-image-722-768x224.png 768w, /wp-content/uploads/2018/06/word-image-722-1024x299.png 1024w" sizes="(max-width: 1157px) 100vw, 1157px" /></p>
+<ol>
+<li>在admin-GoodsController-ajaxGetTypeAttr方法，获取对应类型的属性，并以json格式输出</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="944" height="379" class="wp-image-8133" src="/wp-content/uploads/2018/06/word-image-723.png" srcset="/wp-content/uploads/2018/06/word-image-723.png 944w, /wp-content/uploads/2018/06/word-image-723-300x120.png 300w, /wp-content/uploads/2018/06/word-image-723-768x308.png 768w" sizes="(max-width: 944px) 100vw, 944px" /></p>
+<ol>
+<li>根据ajax返回的属性数据，动态构建属性框</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="972" height="527" class="wp-image-8134" src="/wp-content/uploads/2018/06/word-image-724.png" srcset="/wp-content/uploads/2018/06/word-image-724.png 972w, /wp-content/uploads/2018/06/word-image-724-300x163.png 300w, /wp-content/uploads/2018/06/word-image-724-768x416.png 768w" sizes="(max-width: 972px) 100vw, 972px" /> <img loading="lazy" decoding="async" width="1093" height="581" class="wp-image-8135" src="/wp-content/uploads/2018/06/word-image-725.png" srcset="/wp-content/uploads/2018/06/word-image-725.png 1093w, /wp-content/uploads/2018/06/word-image-725-300x159.png 300w, /wp-content/uploads/2018/06/word-image-725-768x408.png 768w, /wp-content/uploads/2018/06/word-image-725-1024x544.png 1024w" sizes="(max-width: 1093px) 100vw, 1093px" /></p>
+<p>注：上面代码173行有错误：把判断attr_input_type改为attr_type</p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="623" height="423" class="wp-image-8136" src="/wp-content/uploads/2018/06/word-image-726.png" srcset="/wp-content/uploads/2018/06/word-image-726.png 623w, /wp-content/uploads/2018/06/word-image-726-300x204.png 300w" sizes="(max-width: 623px) 100vw, 623px" /></p>
+<ol>
+<li>完成单选属性的[+]功能</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="992" height="331" class="wp-image-8137" src="/wp-content/uploads/2018/06/word-image-727.png" srcset="/wp-content/uploads/2018/06/word-image-727.png 992w, /wp-content/uploads/2018/06/word-image-727-300x100.png 300w, /wp-content/uploads/2018/06/word-image-727-768x256.png 768w" sizes="(max-width: 992px) 100vw, 992px" /></p>
+<p>说明，逻辑和之前相册的是完全一致</p>
+<p><img loading="lazy" decoding="async" width="802" height="283" class="wp-image-8138" src="/wp-content/uploads/2018/06/word-image-728.png" srcset="/wp-content/uploads/2018/06/word-image-728.png 802w, /wp-content/uploads/2018/06/word-image-728-300x106.png 300w, /wp-content/uploads/2018/06/word-image-728-768x271.png 768w" sizes="(max-width: 802px) 100vw, 802px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="626" height="288" class="wp-image-8139" src="/wp-content/uploads/2018/06/word-image-729.png" srcset="/wp-content/uploads/2018/06/word-image-729.png 626w, /wp-content/uploads/2018/06/word-image-729-300x138.png 300w" sizes="(max-width: 626px) 100vw, 626px" /></p>
+<h2>完成商品动态属性的入库</h2>
+<p>分析：</p>
+<p>在表单中把单选属性值和单选属性价格通过属性attr_id归为同一组，方便后续获取对应属性的值和价格。</p>
+<p>单选属性值： name=goodsAttrValue[attr_id][]</p>
+<p>单选属性值价格： name=goodsAttrValue[attr_id][]</p>
+<p>因为单选属性用户可以点击[+]号会生成多个，所以多个单选属性值和价格name的值后面都必须加上中括号[]。</p>
+<p>由于唯一属性只能选择一个值，所以name后不需要加[]</p>
+<p>我们最终需要构造类似于下面的数组，存储商品属性值和商品属性价格：</p>
+<p><img loading="lazy" decoding="async" width="393" height="372" class="wp-image-8140" src="/wp-content/uploads/2018/06/word-image-730.png" srcset="/wp-content/uploads/2018/06/word-image-730.png 393w, /wp-content/uploads/2018/06/word-image-730-300x284.png 300w" sizes="(max-width: 393px) 100vw, 393px" /></p>
+<p>在动态生成的属性框元素中设置name属性：</p>
+<p><img loading="lazy" decoding="async" width="1224" height="674" class="wp-image-8141" src="/wp-content/uploads/2018/06/word-image-731.png" srcset="/wp-content/uploads/2018/06/word-image-731.png 1224w, /wp-content/uploads/2018/06/word-image-731-300x165.png 300w, /wp-content/uploads/2018/06/word-image-731-768x423.png 768w, /wp-content/uploads/2018/06/word-image-731-1024x564.png 1024w" sizes="(max-width: 1224px) 100vw, 1224px" /></p>
+<p>在admin-GoodsController-add方法中打印提交过来的$postData数据如下：</p>
+<p><img loading="lazy" decoding="async" width="675" height="657" class="wp-image-8142" src="/wp-content/uploads/2018/06/word-image-732.png" srcset="/wp-content/uploads/2018/06/word-image-732.png 675w, /wp-content/uploads/2018/06/word-image-732-300x292.png 300w" sizes="(max-width: 675px) 100vw, 675px" /></p>
+<p>由于商品属性表（sh_goods_attr）数据需要得到入库成功的商品主键goods_id,所以我们可以在商品模型Goods的入库后钩子after_insert中完成完成商品属性表数据的入库。</p>
+<p><img loading="lazy" decoding="async" width="876" height="498" class="wp-image-8143" src="/wp-content/uploads/2018/06/word-image-733.png" srcset="/wp-content/uploads/2018/06/word-image-733.png 876w, /wp-content/uploads/2018/06/word-image-733-300x171.png 300w, /wp-content/uploads/2018/06/word-image-733-768x437.png 768w" sizes="(max-width: 876px) 100vw, 876px" /> <img loading="lazy" decoding="async" width="769" height="611" class="wp-image-8144" src="/wp-content/uploads/2018/06/word-image-734.png" srcset="/wp-content/uploads/2018/06/word-image-734.png 769w, /wp-content/uploads/2018/06/word-image-734-300x238.png 300w, /wp-content/uploads/2018/06/word-image-734-768x610.png 768w" sizes="(max-width: 769px) 100vw, 769px" /></p>
+<h1>商品列表展示</h1>
+<ol>
+<li>在admin-GoodsController-index方法中取出商品数据进行分配到模板</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="805" height="296" class="wp-image-8145" src="/wp-content/uploads/2018/06/word-image-735.png" srcset="/wp-content/uploads/2018/06/word-image-735.png 805w, /wp-content/uploads/2018/06/word-image-735-300x110.png 300w, /wp-content/uploads/2018/06/word-image-735-768x282.png 768w" sizes="(max-width: 805px) 100vw, 805px" /></p>
+<ol>
+<li>模板中遍历数据</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1259" height="464" class="wp-image-8146" src="/wp-content/uploads/2018/06/word-image-736.png" srcset="/wp-content/uploads/2018/06/word-image-736.png 1259w, /wp-content/uploads/2018/06/word-image-736-300x111.png 300w, /wp-content/uploads/2018/06/word-image-736-768x283.png 768w, /wp-content/uploads/2018/06/word-image-736-1024x377.png 1024w" sizes="(max-width: 1259px) 100vw, 1259px" /></p>
+<h1>使用ajax+layer弹出层查看商品详情</h1>
+<ol>
+<li>给admin-view-goods-index.html模板内容设置查看商品详情的标签属性</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1287" height="364" class="wp-image-8147" src="/wp-content/uploads/2018/06/word-image-737.png" srcset="/wp-content/uploads/2018/06/word-image-737.png 1287w, /wp-content/uploads/2018/06/word-image-737-300x85.png 300w, /wp-content/uploads/2018/06/word-image-737-768x217.png 768w, /wp-content/uploads/2018/06/word-image-737-1024x290.png 1024w" sizes="(max-width: 1287px) 100vw, 1287px" /></p>
+<ol>
+<li>给上面的class=showContent绑定单击事件，发送ajax请求</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1139" height="500" class="wp-image-8148" src="/wp-content/uploads/2018/06/word-image-738.png" srcset="/wp-content/uploads/2018/06/word-image-738.png 1139w, /wp-content/uploads/2018/06/word-image-738-300x132.png 300w, /wp-content/uploads/2018/06/word-image-738-768x337.png 768w, /wp-content/uploads/2018/06/word-image-738-1024x450.png 1024w" sizes="(max-width: 1139px) 100vw, 1139px" /></p>
+<p>同时引入layer弹出层插件的核心js文件layer.js:</p>
+<p><img loading="lazy" decoding="async" width="1109" height="286" class="wp-image-8149" src="/wp-content/uploads/2018/06/word-image-739.png" srcset="/wp-content/uploads/2018/06/word-image-739.png 1109w, /wp-content/uploads/2018/06/word-image-739-300x77.png 300w, /wp-content/uploads/2018/06/word-image-739-768x198.png 768w, /wp-content/uploads/2018/06/word-image-739-1024x264.png 1024w" sizes="(max-width: 1109px) 100vw, 1109px" /></p>
+<p>3、在admin-GoodsController-ajaxGetContent获取商品的数据，返回json数据</p>
+<p><img loading="lazy" decoding="async" width="1051" height="469" class="wp-image-8150" src="/wp-content/uploads/2018/06/word-image-740.png" srcset="/wp-content/uploads/2018/06/word-image-740.png 1051w, /wp-content/uploads/2018/06/word-image-740-300x134.png 300w, /wp-content/uploads/2018/06/word-image-740-768x343.png 768w, /wp-content/uploads/2018/06/word-image-740-1024x457.png 1024w" sizes="(max-width: 1051px) 100vw, 1051px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="1005" height="472" class="wp-image-8151" src="/wp-content/uploads/2018/06/word-image-741.png" srcset="/wp-content/uploads/2018/06/word-image-741.png 1005w, /wp-content/uploads/2018/06/word-image-741-300x141.png 300w, /wp-content/uploads/2018/06/word-image-741-768x361.png 768w" sizes="(max-width: 1005px) 100vw, 1005px" /></p>
+<p>作业：使用ajax修改商品的是否热卖等状态，类似于ecshop如下：</p>
+<p><img loading="lazy" decoding="async" width="1229" height="181" class="wp-image-8152" src="/wp-content/uploads/2018/06/word-image-742.png" srcset="/wp-content/uploads/2018/06/word-image-742.png 1229w, /wp-content/uploads/2018/06/word-image-742-300x44.png 300w, /wp-content/uploads/2018/06/word-image-742-768x113.png 768w, /wp-content/uploads/2018/06/word-image-742-1024x151.png 1024w" sizes="(max-width: 1229px) 100vw, 1229px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/8031.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>TP3.2商城 （三）类型管理、属性管理、商品属性</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/4552.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/4552.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 12:53:50 +0000</pubDate>
+				<category><![CDATA[TP3.2]]></category>
+		<category><![CDATA[TP3.2商城]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[商品属性]]></category>
+		<category><![CDATA[属性管理]]></category>
+		<category><![CDATA[类型管理]]></category>
+		<guid isPermaLink="false">/?p=4552</guid>
+
+					<description><![CDATA[类型管理 1.1、类型的列表显示 ①增加方法 ②修改模型增加listData方法 ③处理模板 效果如下 1.2 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>类型管理</h1>
+<h2>1.1、类型的列表显示</h2>
+<p>
+  ①增加方法
+</p>
+<p><img loading="lazy" decoding="async" width="686" height="494" src="/wp-content/uploads/2018/05/word-image-4081.png" class="wp-image-4553" srcset="/wp-content/uploads/2018/05/word-image-4081.png 686w, /wp-content/uploads/2018/05/word-image-4081-300x216.png 300w" sizes="(max-width: 686px) 100vw, 686px" /></p>
+<p>
+  ②修改模型增加listData方法
+</p>
+<p><img loading="lazy" decoding="async" width="884" height="658" src="/wp-content/uploads/2018/05/word-image-4082.png" class="wp-image-4554" srcset="/wp-content/uploads/2018/05/word-image-4082.png 884w, /wp-content/uploads/2018/05/word-image-4082-300x223.png 300w, /wp-content/uploads/2018/05/word-image-4082-768x572.png 768w" sizes="(max-width: 884px) 100vw, 884px" /></p>
+<p>
+  ③处理模板
+</p>
+<p><img loading="lazy" decoding="async" width="1076" height="673" src="/wp-content/uploads/2018/05/word-image-4083.png" class="wp-image-4555" srcset="/wp-content/uploads/2018/05/word-image-4083.png 1076w, /wp-content/uploads/2018/05/word-image-4083-300x188.png 300w, /wp-content/uploads/2018/05/word-image-4083-768x480.png 768w, /wp-content/uploads/2018/05/word-image-4083-1024x640.png 1024w" sizes="(max-width: 1076px) 100vw, 1076px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="1334" height="265" src="/wp-content/uploads/2018/05/word-image-4084.png" class="wp-image-4556" srcset="/wp-content/uploads/2018/05/word-image-4084.png 1334w, /wp-content/uploads/2018/05/word-image-4084-300x60.png 300w, /wp-content/uploads/2018/05/word-image-4084-768x153.png 768w, /wp-content/uploads/2018/05/word-image-4084-1024x203.png 1024w" sizes="(max-width: 1334px) 100vw, 1334px" /></p>
+<h2>1.2、类型的删除</h2>
+<p>
+  ①创建方法
+</p>
+<p><img loading="lazy" decoding="async" width="841" height="588" src="/wp-content/uploads/2018/05/word-image-4085.png" class="wp-image-4557" srcset="/wp-content/uploads/2018/05/word-image-4085.png 841w, /wp-content/uploads/2018/05/word-image-4085-300x210.png 300w, /wp-content/uploads/2018/05/word-image-4085-768x537.png 768w" sizes="(max-width: 841px) 100vw, 841px" /></p>
+<p>
+  ②定义模型的dels方法实现删除
+</p>
+<p><img loading="lazy" decoding="async" width="926" height="376" src="/wp-content/uploads/2018/05/word-image-4086.png" class="wp-image-4558" srcset="/wp-content/uploads/2018/05/word-image-4086.png 926w, /wp-content/uploads/2018/05/word-image-4086-300x122.png 300w, /wp-content/uploads/2018/05/word-image-4086-768x312.png 768w" sizes="(max-width: 926px) 100vw, 926px" /></p>
+<h2>1.3、批量删除功能</h2>
+<p>
+  ①修改模板
+</p>
+<p><img loading="lazy" decoding="async" width="1123" height="646" src="/wp-content/uploads/2018/05/word-image-4087.png" class="wp-image-4559" srcset="/wp-content/uploads/2018/05/word-image-4087.png 1123w, /wp-content/uploads/2018/05/word-image-4087-300x173.png 300w, /wp-content/uploads/2018/05/word-image-4087-768x442.png 768w, /wp-content/uploads/2018/05/word-image-4087-1024x589.png 1024w" sizes="(max-width: 1123px) 100vw, 1123px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="1249" height="160" src="/wp-content/uploads/2018/05/word-image-4088.png" class="wp-image-4560" srcset="/wp-content/uploads/2018/05/word-image-4088.png 1249w, /wp-content/uploads/2018/05/word-image-4088-300x38.png 300w, /wp-content/uploads/2018/05/word-image-4088-768x98.png 768w, /wp-content/uploads/2018/05/word-image-4088-1024x131.png 1024w" sizes="(max-width: 1249px) 100vw, 1249px" /></p>
+<p>
+  ②实现全选
+</p>
+<p><img loading="lazy" decoding="async" width="945" height="365" src="/wp-content/uploads/2018/05/word-image-4089.png" class="wp-image-4561" srcset="/wp-content/uploads/2018/05/word-image-4089.png 945w, /wp-content/uploads/2018/05/word-image-4089-300x116.png 300w, /wp-content/uploads/2018/05/word-image-4089-768x297.png 768w" sizes="(max-width: 945px) 100vw, 945px" /></p>
+<p>
+  ③实现反选
+</p>
+<p><img loading="lazy" decoding="async" width="975" height="551" src="/wp-content/uploads/2018/05/word-image-4090.png" class="wp-image-4562" srcset="/wp-content/uploads/2018/05/word-image-4090.png 975w, /wp-content/uploads/2018/05/word-image-4090-300x170.png 300w, /wp-content/uploads/2018/05/word-image-4090-768x434.png 768w" sizes="(max-width: 975px) 100vw, 975px" /></p>
+<p>
+  ④点击删除触发ajax
+</p>
+<p><img loading="lazy" decoding="async" width="985" height="702" src="/wp-content/uploads/2018/05/word-image-4091.png" class="wp-image-4563" srcset="/wp-content/uploads/2018/05/word-image-4091.png 985w, /wp-content/uploads/2018/05/word-image-4091-300x214.png 300w, /wp-content/uploads/2018/05/word-image-4091-768x547.png 768w" sizes="(max-width: 985px) 100vw, 985px" /></p>
+<p>
+  ⑤修改dels方法
+</p>
+<p><img loading="lazy" decoding="async" width="1015" height="678" src="/wp-content/uploads/2018/05/word-image-4092.png" class="wp-image-4564" srcset="/wp-content/uploads/2018/05/word-image-4092.png 1015w, /wp-content/uploads/2018/05/word-image-4092-300x200.png 300w, /wp-content/uploads/2018/05/word-image-4092-768x513.png 768w" sizes="(max-width: 1015px) 100vw, 1015px" /></p>
+<p>
+  ⑥修改模型中的dels方法
+</p>
+<p><img loading="lazy" decoding="async" width="935" height="610" src="/wp-content/uploads/2018/05/word-image-4093.png" class="wp-image-4565" srcset="/wp-content/uploads/2018/05/word-image-4093.png 935w, /wp-content/uploads/2018/05/word-image-4093-300x196.png 300w, /wp-content/uploads/2018/05/word-image-4093-768x501.png 768w" sizes="(max-width: 935px) 100vw, 935px" /></p>
+<p>
+  ⑦修改前台的js
+</p>
+<p><img loading="lazy" decoding="async" width="1004" height="610" src="/wp-content/uploads/2018/05/word-image-4094.png" class="wp-image-4566" srcset="/wp-content/uploads/2018/05/word-image-4094.png 1004w, /wp-content/uploads/2018/05/word-image-4094-300x182.png 300w, /wp-content/uploads/2018/05/word-image-4094-768x467.png 768w" sizes="(max-width: 1004px) 100vw, 1004px" /></p>
+<h1>属性管理</h1>
+<h2>2.1、属性了解</h2>
+<p>
+  属性作用是用于描述商品信息
+</p>
+<h3>2.1.1、单选属性</h3>
+<p><img loading="lazy" decoding="async" width="643" height="393" src="/wp-content/uploads/2018/05/word-image-4095.png" class="wp-image-4567" srcset="/wp-content/uploads/2018/05/word-image-4095.png 643w, /wp-content/uploads/2018/05/word-image-4095-300x183.png 300w" sizes="(max-width: 643px) 100vw, 643px" /></p>
+<h3>2.1.2、唯一属性</h3>
+<p><img loading="lazy" decoding="async" width="1002" height="198" src="/wp-content/uploads/2018/05/word-image-4096.png" class="wp-image-4568" srcset="/wp-content/uploads/2018/05/word-image-4096.png 1002w, /wp-content/uploads/2018/05/word-image-4096-300x59.png 300w, /wp-content/uploads/2018/05/word-image-4096-768x152.png 768w" sizes="(max-width: 1002px) 100vw, 1002px" /></p>
+<h2>2.2、属性的录入方式</h2>
+<p>
+  属性录入方式可以划分为两种。一种手工输入另外一种就是列表选择
+</p>
+<p>
+  关于属性的录入方式就是当描述商品时对应的内容，是使用选择框(列表选择)还是文本框(手工输入)
+</p>
+<p>
+  对于属性内容是属于固定的某几个可以使用列表选择
+</p>
+<p>
+  对于属性的内容是不固定可以使用手工输入
+</p>
+<p><img loading="lazy" decoding="async" width="941" height="374" src="/wp-content/uploads/2018/05/word-image-4097.png" class="wp-image-4569" srcset="/wp-content/uploads/2018/05/word-image-4097.png 941w, /wp-content/uploads/2018/05/word-image-4097-300x119.png 300w, /wp-content/uploads/2018/05/word-image-4097-768x305.png 768w" sizes="(max-width: 941px) 100vw, 941px" /></p>
+<h2>2.3、实现属性入库功能</h2>
+<h3>2.3.1、创建属性的数据表</h3>
+<p>
+  CREATE TABLE `shop_attribute` (
+</p>
+<p>
+    `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+</p>
+<p>
+    `attr_name` varchar(255) NOT NULL DEFAULT &#8221; COMMENT &#8216;属性名称&#8217;,
+</p>
+<p>
+    `type_id` int(11) NOT NULL DEFAULT &#8216;0&#8217; COMMENT &#8216;属性的所属类型 对应shop_type表中的id字段&#8217;,
+</p>
+<p>
+    `attr_type` tinyint(4) NOT NULL DEFAULT &#8216;1&#8217; COMMENT &#8216;属性本身的类型  1唯一属性 2、单选属性&#8217;,
+</p>
+<p>
+    `attr_input_type` tinyint(4) NOT NULL DEFAULT &#8216;1&#8217; COMMENT &#8216;属性的录入方式 1手工输入  2列表选择&#8217;,
+</p>
+<p>
+    `attr_values` varchar(255) NOT NULL DEFAULT &#8221; COMMENT &#8216;属性的默认值 多个值使用逗号隔开&#8217;,
+</p>
+<p>
+    PRIMARY KEY (`id`)
+</p>
+<p>
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</p>
+<h3>2.3.2、显示属性的添加表单</h3>
+<p>
+  ①创建控制器方法显示模板
+</p>
+<p><img loading="lazy" decoding="async" width="978" height="551" src="/wp-content/uploads/2018/05/word-image-4098.png" class="wp-image-4570" srcset="/wp-content/uploads/2018/05/word-image-4098.png 978w, /wp-content/uploads/2018/05/word-image-4098-300x169.png 300w, /wp-content/uploads/2018/05/word-image-4098-768x433.png 768w" sizes="(max-width: 978px) 100vw, 978px" /></p>
+<p>
+  ②创建模板
+</p>
+<p><img loading="lazy" decoding="async" width="1091" height="683" src="/wp-content/uploads/2018/05/word-image-4099.png" class="wp-image-4571" srcset="/wp-content/uploads/2018/05/word-image-4099.png 1091w, /wp-content/uploads/2018/05/word-image-4099-300x188.png 300w, /wp-content/uploads/2018/05/word-image-4099-768x481.png 768w, /wp-content/uploads/2018/05/word-image-4099-1024x641.png 1024w" sizes="(max-width: 1091px) 100vw, 1091px" /><br />
+<img loading="lazy" decoding="async" width="1067" height="633" src="/wp-content/uploads/2018/05/word-image-4100.png" class="wp-image-4572" srcset="/wp-content/uploads/2018/05/word-image-4100.png 1067w, /wp-content/uploads/2018/05/word-image-4100-300x178.png 300w, /wp-content/uploads/2018/05/word-image-4100-768x456.png 768w, /wp-content/uploads/2018/05/word-image-4100-1024x607.png 1024w" sizes="(max-width: 1067px) 100vw, 1067px" /><br />
+<img loading="lazy" decoding="async" width="965" height="343" src="/wp-content/uploads/2018/05/word-image-4101.png" class="wp-image-4573" srcset="/wp-content/uploads/2018/05/word-image-4101.png 965w, /wp-content/uploads/2018/05/word-image-4101-300x107.png 300w, /wp-content/uploads/2018/05/word-image-4101-768x273.png 768w" sizes="(max-width: 965px) 100vw, 965px" /></p>
+<p>
+  ③修改默认值增加id属性
+</p>
+<p><img loading="lazy" decoding="async" width="1043" height="510" src="/wp-content/uploads/2018/05/word-image-4102.png" class="wp-image-4574" srcset="/wp-content/uploads/2018/05/word-image-4102.png 1043w, /wp-content/uploads/2018/05/word-image-4102-300x147.png 300w, /wp-content/uploads/2018/05/word-image-4102-768x376.png 768w, /wp-content/uploads/2018/05/word-image-4102-1024x501.png 1024w" sizes="(max-width: 1043px) 100vw, 1043px" /></p>
+<p>
+  ④使用js实现禁用与取消
+</p>
+<p><img loading="lazy" decoding="async" width="961" height="640" src="/wp-content/uploads/2018/05/word-image-4103.png" class="wp-image-4575" srcset="/wp-content/uploads/2018/05/word-image-4103.png 961w, /wp-content/uploads/2018/05/word-image-4103-300x200.png 300w, /wp-content/uploads/2018/05/word-image-4103-768x511.png 768w" sizes="(max-width: 961px) 100vw, 961px" /></p>
+<h3>2.3.3、实现添加的入库</h3>
+<p>
+  ①修改add方法
+</p>
+<p><img loading="lazy" decoding="async" width="1044" height="658" src="/wp-content/uploads/2018/05/word-image-4104.png" class="wp-image-4576" srcset="/wp-content/uploads/2018/05/word-image-4104.png 1044w, /wp-content/uploads/2018/05/word-image-4104-300x189.png 300w, /wp-content/uploads/2018/05/word-image-4104-768x484.png 768w, /wp-content/uploads/2018/05/word-image-4104-1024x645.png 1024w" sizes="(max-width: 1044px) 100vw, 1044px" /></p>
+<p>
+  ②创建模型编写自动验证
+</p>
+<p><img loading="lazy" decoding="async" width="1033" height="616" src="/wp-content/uploads/2018/05/word-image-4105.png" class="wp-image-4577" srcset="/wp-content/uploads/2018/05/word-image-4105.png 1033w, /wp-content/uploads/2018/05/word-image-4105-300x179.png 300w, /wp-content/uploads/2018/05/word-image-4105-768x458.png 768w, /wp-content/uploads/2018/05/word-image-4105-1024x611.png 1024w" sizes="(max-width: 1033px) 100vw, 1033px" /></p>
+<h2>2.4、属性列表显示功能</h2>
+<p>
+  ①创建方法获取数据显示模板
+</p>
+<p><img loading="lazy" decoding="async" width="741" height="334" src="/wp-content/uploads/2018/05/word-image-4106.png" class="wp-image-4578" srcset="/wp-content/uploads/2018/05/word-image-4106.png 741w, /wp-content/uploads/2018/05/word-image-4106-300x135.png 300w" sizes="(max-width: 741px) 100vw, 741px" /></p>
+<p>
+  ②创建listData方法
+</p>
+<p><img loading="lazy" decoding="async" width="1003" height="597" src="/wp-content/uploads/2018/05/word-image-4107.png" class="wp-image-4579" srcset="/wp-content/uploads/2018/05/word-image-4107.png 1003w, /wp-content/uploads/2018/05/word-image-4107-300x179.png 300w, /wp-content/uploads/2018/05/word-image-4107-768x457.png 768w" sizes="(max-width: 1003px) 100vw, 1003px" /></p>
+<p>
+  ③处理模板显示
+</p>
+<p><img loading="lazy" decoding="async" width="1084" height="684" src="/wp-content/uploads/2018/05/word-image-4108.png" class="wp-image-4580" srcset="/wp-content/uploads/2018/05/word-image-4108.png 1084w, /wp-content/uploads/2018/05/word-image-4108-300x189.png 300w, /wp-content/uploads/2018/05/word-image-4108-768x485.png 768w, /wp-content/uploads/2018/05/word-image-4108-1024x646.png 1024w" sizes="(max-width: 1084px) 100vw, 1084px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="1352" height="349" src="/wp-content/uploads/2018/05/word-image-4109.png" class="wp-image-4581" srcset="/wp-content/uploads/2018/05/word-image-4109.png 1352w, /wp-content/uploads/2018/05/word-image-4109-300x77.png 300w, /wp-content/uploads/2018/05/word-image-4109-768x198.png 768w, /wp-content/uploads/2018/05/word-image-4109-1024x264.png 1024w" sizes="(max-width: 1352px) 100vw, 1352px" /></p>
+<h2>2.5、属性的删除</h2>
+<p>
+  ①修改模板中的连接地址
+</p>
+<p><img loading="lazy" decoding="async" width="1093" height="268" src="/wp-content/uploads/2018/05/word-image-4110.png" class="wp-image-4582" srcset="/wp-content/uploads/2018/05/word-image-4110.png 1093w, /wp-content/uploads/2018/05/word-image-4110-300x74.png 300w, /wp-content/uploads/2018/05/word-image-4110-768x188.png 768w, /wp-content/uploads/2018/05/word-image-4110-1024x251.png 1024w" sizes="(max-width: 1093px) 100vw, 1093px" /></p>
+<p>
+  ②创建方法实现删除
+</p>
+<p><img loading="lazy" decoding="async" width="899" height="706" src="/wp-content/uploads/2018/05/word-image-4111.png" class="wp-image-4583" srcset="/wp-content/uploads/2018/05/word-image-4111.png 899w, /wp-content/uploads/2018/05/word-image-4111-300x236.png 300w, /wp-content/uploads/2018/05/word-image-4111-768x603.png 768w" sizes="(max-width: 899px) 100vw, 899px" /></p>
+<p>
+  ③在模型下实现删除
+</p>
+<p><img loading="lazy" decoding="async" width="956" height="520" src="/wp-content/uploads/2018/05/word-image-4112.png" class="wp-image-4584" srcset="/wp-content/uploads/2018/05/word-image-4112.png 956w, /wp-content/uploads/2018/05/word-image-4112-300x163.png 300w, /wp-content/uploads/2018/05/word-image-4112-768x418.png 768w" sizes="(max-width: 956px) 100vw, 956px" /></p>
+<h2>2.6、属性编辑</h2>
+<h3>2.6.1、显示原始数据</h3>
+<p>
+  ①创建方法获取原始数据
+</p>
+<p><img loading="lazy" decoding="async" width="1037" height="536" src="/wp-content/uploads/2018/05/word-image-4113.png" class="wp-image-4585" srcset="/wp-content/uploads/2018/05/word-image-4113.png 1037w, /wp-content/uploads/2018/05/word-image-4113-300x155.png 300w, /wp-content/uploads/2018/05/word-image-4113-768x397.png 768w, /wp-content/uploads/2018/05/word-image-4113-1024x529.png 1024w" sizes="(max-width: 1037px) 100vw, 1037px" /></p>
+<p>
+  ②处理模板
+</p>
+<p><img loading="lazy" decoding="async" width="1074" height="694" src="/wp-content/uploads/2018/05/word-image-4114.png" class="wp-image-4586" srcset="/wp-content/uploads/2018/05/word-image-4114.png 1074w, /wp-content/uploads/2018/05/word-image-4114-300x194.png 300w, /wp-content/uploads/2018/05/word-image-4114-768x496.png 768w, /wp-content/uploads/2018/05/word-image-4114-1024x662.png 1024w" sizes="(max-width: 1074px) 100vw, 1074px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="647" height="260" src="/wp-content/uploads/2018/05/word-image-4115.png" class="wp-image-4587" srcset="/wp-content/uploads/2018/05/word-image-4115.png 647w, /wp-content/uploads/2018/05/word-image-4115-300x121.png 300w" sizes="(max-width: 647px) 100vw, 647px" /></p>
+<h3>2.6.2、实现入库修改</h3>
+<p><img loading="lazy" decoding="async" width="1041" height="704" src="/wp-content/uploads/2018/05/word-image-4116.png" class="wp-image-4588" srcset="/wp-content/uploads/2018/05/word-image-4116.png 1041w, /wp-content/uploads/2018/05/word-image-4116-300x203.png 300w, /wp-content/uploads/2018/05/word-image-4116-768x519.png 768w, /wp-content/uploads/2018/05/word-image-4116-1024x693.png 1024w, /wp-content/uploads/2018/05/word-image-4116-220x150.png 220w" sizes="(max-width: 1041px) 100vw, 1041px" /></p>
+<h1>商品的属性关联</h1>
+<h2>3.1、添加商品时显示类型</h2>
+<p>
+  ①增加商品属性选项卡
+</p>
+<p><img loading="lazy" decoding="async" width="967" height="399" src="/wp-content/uploads/2018/05/word-image-4117.png" class="wp-image-4589" srcset="/wp-content/uploads/2018/05/word-image-4117.png 967w, /wp-content/uploads/2018/05/word-image-4117-300x124.png 300w, /wp-content/uploads/2018/05/word-image-4117-768x317.png 768w" sizes="(max-width: 967px) 100vw, 967px" /></p>
+<p>
+  ②增加商品属性选项卡对应的table
+</p>
+<p><img loading="lazy" decoding="async" width="1069" height="560" src="/wp-content/uploads/2018/05/word-image-4118.png" class="wp-image-4590" srcset="/wp-content/uploads/2018/05/word-image-4118.png 1069w, /wp-content/uploads/2018/05/word-image-4118-300x157.png 300w, /wp-content/uploads/2018/05/word-image-4118-768x402.png 768w, /wp-content/uploads/2018/05/word-image-4118-1024x536.png 1024w" sizes="(max-width: 1069px) 100vw, 1069px" /></p>
+<p>
+  ③修改商品添加获取类型
+</p>
+<p><img loading="lazy" decoding="async" width="1007" height="631" src="/wp-content/uploads/2018/05/word-image-4119.png" class="wp-image-4591" srcset="/wp-content/uploads/2018/05/word-image-4119.png 1007w, /wp-content/uploads/2018/05/word-image-4119-300x188.png 300w, /wp-content/uploads/2018/05/word-image-4119-768x481.png 768w" sizes="(max-width: 1007px) 100vw, 1007px" /></p>
+<p>
+  ④修改模板循环显示类型
+</p>
+<p><img loading="lazy" decoding="async" width="1116" height="697" src="/wp-content/uploads/2018/05/word-image-4120.png" class="wp-image-4592" srcset="/wp-content/uploads/2018/05/word-image-4120.png 1116w, /wp-content/uploads/2018/05/word-image-4120-300x187.png 300w, /wp-content/uploads/2018/05/word-image-4120-768x480.png 768w, /wp-content/uploads/2018/05/word-image-4120-1024x640.png 1024w" sizes="(max-width: 1116px) 100vw, 1116px" /></p>
+<p>
+  ⑤修改商品表结构
+</p>
+<p><img loading="lazy" decoding="async" width="872" height="312" src="/wp-content/uploads/2018/05/word-image-4121.png" class="wp-image-4593" srcset="/wp-content/uploads/2018/05/word-image-4121.png 872w, /wp-content/uploads/2018/05/word-image-4121-300x107.png 300w, /wp-content/uploads/2018/05/word-image-4121-768x275.png 768w" sizes="(max-width: 872px) 100vw, 872px" /></p>
+<p>
+  ⑥修改模型中自定义字段
+</p>
+<p><img loading="lazy" decoding="async" width="1053" height="384" src="/wp-content/uploads/2018/05/word-image-4122.png" class="wp-image-4594" srcset="/wp-content/uploads/2018/05/word-image-4122.png 1053w, /wp-content/uploads/2018/05/word-image-4122-300x109.png 300w, /wp-content/uploads/2018/05/word-image-4122-768x280.png 768w, /wp-content/uploads/2018/05/word-image-4122-1024x373.png 1024w" sizes="(max-width: 1053px) 100vw, 1053px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="1134" height="276" src="/wp-content/uploads/2018/05/word-image-4123.png" class="wp-image-4595" srcset="/wp-content/uploads/2018/05/word-image-4123.png 1134w, /wp-content/uploads/2018/05/word-image-4123-300x73.png 300w, /wp-content/uploads/2018/05/word-image-4123-768x187.png 768w, /wp-content/uploads/2018/05/word-image-4123-1024x249.png 1024w" sizes="(max-width: 1134px) 100vw, 1134px" /></p>
+<h2>3.2、实现类型切换属性变化</h2>
+<p>
+  ①给select增加id属性
+</p>
+<p><img loading="lazy" decoding="async" width="1019" height="445" src="/wp-content/uploads/2018/05/word-image-4124.png" class="wp-image-4596" srcset="/wp-content/uploads/2018/05/word-image-4124.png 1019w, /wp-content/uploads/2018/05/word-image-4124-300x131.png 300w, /wp-content/uploads/2018/05/word-image-4124-768x335.png 768w" sizes="(max-width: 1019px) 100vw, 1019px" /></p>
+<p>
+  ②绑定切换事件
+</p>
+<p><img loading="lazy" decoding="async" width="1091" height="700" src="/wp-content/uploads/2018/05/word-image-4125.png" class="wp-image-4597" srcset="/wp-content/uploads/2018/05/word-image-4125.png 1091w, /wp-content/uploads/2018/05/word-image-4125-300x192.png 300w, /wp-content/uploads/2018/05/word-image-4125-768x493.png 768w, /wp-content/uploads/2018/05/word-image-4125-1024x657.png 1024w" sizes="(max-width: 1091px) 100vw, 1091px" /></p>
+<p>
+  ③创建方法
+</p>
+<p><img loading="lazy" decoding="async" width="1064" height="681" src="/wp-content/uploads/2018/05/word-image-4126.png" class="wp-image-4598" srcset="/wp-content/uploads/2018/05/word-image-4126.png 1064w, /wp-content/uploads/2018/05/word-image-4126-300x192.png 300w, /wp-content/uploads/2018/05/word-image-4126-768x492.png 768w, /wp-content/uploads/2018/05/word-image-4126-1024x655.png 1024w" sizes="(max-width: 1064px) 100vw, 1064px" /></p>
+<p>
+  ④创建视图
+</p>
+<p><img loading="lazy" decoding="async" width="1046" height="701" src="/wp-content/uploads/2018/05/word-image-4127.png" class="wp-image-4599" srcset="/wp-content/uploads/2018/05/word-image-4127.png 1046w, /wp-content/uploads/2018/05/word-image-4127-300x201.png 300w, /wp-content/uploads/2018/05/word-image-4127-768x515.png 768w, /wp-content/uploads/2018/05/word-image-4127-1024x686.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /></p>
+<h2>3.3、实现单选属性的增加功能</h2>
+<p>
+  由于单选属性是用于控制商品购买的。会提供多个值由用户进行选择。因此在数据录入时对于有单选属性的需要设置为可以提交多个内容
+</p>
+<p>
+  ①修改模板
+</p>
+<p><img loading="lazy" decoding="async" width="1095" height="696" src="/wp-content/uploads/2018/05/word-image-4128.png" class="wp-image-4600" srcset="/wp-content/uploads/2018/05/word-image-4128.png 1095w, /wp-content/uploads/2018/05/word-image-4128-300x191.png 300w, /wp-content/uploads/2018/05/word-image-4128-768x488.png 768w, /wp-content/uploads/2018/05/word-image-4128-1024x651.png 1024w" sizes="(max-width: 1095px) 100vw, 1095px" /></p>
+<p>
+  ②编写js代码
+</p>
+<p><img loading="lazy" decoding="async" width="1070" height="696" src="/wp-content/uploads/2018/05/word-image-4129.png" class="wp-image-4601" srcset="/wp-content/uploads/2018/05/word-image-4129.png 1070w, /wp-content/uploads/2018/05/word-image-4129-300x195.png 300w, /wp-content/uploads/2018/05/word-image-4129-768x500.png 768w, /wp-content/uploads/2018/05/word-image-4129-1024x666.png 1024w" sizes="(max-width: 1070px) 100vw, 1070px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="889" height="294" src="/wp-content/uploads/2018/05/word-image-4130.png" class="wp-image-4602" srcset="/wp-content/uploads/2018/05/word-image-4130.png 889w, /wp-content/uploads/2018/05/word-image-4130-300x99.png 300w, /wp-content/uploads/2018/05/word-image-4130-768x254.png 768w" sizes="(max-width: 889px) 100vw, 889px" /></p>
+<h2>3.4、商品添加属性值入库功能</h2>
+<h3>3.4.1、创建商品属性表</h3>
+<p>
+  CREATE TABLE `shop_goods_attr` (
+</p>
+<p>
+    `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+</p>
+<p>
+    `goods_id` int(11) NOT NULL DEFAULT &#8216;0&#8217; COMMENT &#8216;商品ID&#8217;,
+</p>
+<p>
+    `attr_id` int(11) NOT NULL DEFAULT &#8216;0&#8217; COMMENT &#8216;属性ID 对应attribute表中的id字段&#8217;,
+</p>
+<p>
+    `attr_value` varchar(255) NOT NULL DEFAULT &#8221; COMMENT &#8216;属性值&#8217;,
+</p>
+<p>
+    PRIMARY KEY (`id`)
+</p>
+<p>
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</p>
+<h3>3.4.2、实现可以提交属性ID及值</h3>
+<p>
+  考虑有多个属性值需要提交因此需要使用数组格式
+</p>
+<p>
+  ①修改模板设置数组格式的name
+</p>
+<p><img loading="lazy" decoding="async" width="989" height="577" src="/wp-content/uploads/2018/05/word-image-4131.png" class="wp-image-4603" srcset="/wp-content/uploads/2018/05/word-image-4131.png 989w, /wp-content/uploads/2018/05/word-image-4131-300x175.png 300w, /wp-content/uploads/2018/05/word-image-4131-768x448.png 768w" sizes="(max-width: 989px) 100vw, 989px" /></p>
+<p>
+  ②修改添加的提交方法查看结果
+</p>
+<p><img loading="lazy" decoding="async" width="842" height="520" src="/wp-content/uploads/2018/05/word-image-4132.png" class="wp-image-4604" srcset="/wp-content/uploads/2018/05/word-image-4132.png 842w, /wp-content/uploads/2018/05/word-image-4132-300x185.png 300w, /wp-content/uploads/2018/05/word-image-4132-768x474.png 768w" sizes="(max-width: 842px) 100vw, 842px" /><br />
+<img loading="lazy" decoding="async" width="549" height="273" src="/wp-content/uploads/2018/05/word-image-4133.png" class="wp-image-4605" srcset="/wp-content/uploads/2018/05/word-image-4133.png 549w, /wp-content/uploads/2018/05/word-image-4133-300x149.png 300w" sizes="(max-width: 549px) 100vw, 549px" /></p>
+<p>
+  ③再次修改name值格式
+</p>
+<p><img loading="lazy" decoding="async" width="977" height="577" src="/wp-content/uploads/2018/05/word-image-4134.png" class="wp-image-4606" srcset="/wp-content/uploads/2018/05/word-image-4134.png 977w, /wp-content/uploads/2018/05/word-image-4134-300x177.png 300w, /wp-content/uploads/2018/05/word-image-4134-768x454.png 768w" sizes="(max-width: 977px) 100vw, 977px" /></p>
+<p>
+  ④再次查看结果
+</p>
+<p><img loading="lazy" decoding="async" width="790" height="296" src="/wp-content/uploads/2018/05/word-image-4135.png" class="wp-image-4607" srcset="/wp-content/uploads/2018/05/word-image-4135.png 790w, /wp-content/uploads/2018/05/word-image-4135-300x112.png 300w, /wp-content/uploads/2018/05/word-image-4135-768x288.png 768w" sizes="(max-width: 790px) 100vw, 790px" /></p>
+<p>
+  ⑤再次修改name格式
+</p>
+<p><img loading="lazy" decoding="async" width="1041" height="643" src="/wp-content/uploads/2018/05/word-image-4136.png" class="wp-image-4608" srcset="/wp-content/uploads/2018/05/word-image-4136.png 1041w, /wp-content/uploads/2018/05/word-image-4136-300x185.png 300w, /wp-content/uploads/2018/05/word-image-4136-768x474.png 768w, /wp-content/uploads/2018/05/word-image-4136-1024x632.png 1024w" sizes="(max-width: 1041px) 100vw, 1041px" /></p>
+<p>
+  ⑥查看结果
+</p>
+<p><img loading="lazy" decoding="async" width="703" height="359" src="/wp-content/uploads/2018/05/word-image-4137.png" class="wp-image-4609" srcset="/wp-content/uploads/2018/05/word-image-4137.png 703w, /wp-content/uploads/2018/05/word-image-4137-300x153.png 300w" sizes="(max-width: 703px) 100vw, 703px" /></p>
+<h3>3.4.3、实现入库</h3>
+<p>
+  ①查看添加后置钩子函数传输的结果
+</p>
+<p><img loading="lazy" decoding="async" width="665" height="374" src="/wp-content/uploads/2018/05/word-image-4138.png" class="wp-image-4610" srcset="/wp-content/uploads/2018/05/word-image-4138.png 665w, /wp-content/uploads/2018/05/word-image-4138-300x169.png 300w" sizes="(max-width: 665px) 100vw, 665px" /></p>
+<p>
+  ②添加后置钩子函数处理属性
+</p>
+<p><img loading="lazy" decoding="async" width="1051" height="649" src="/wp-content/uploads/2018/05/word-image-4139.png" class="wp-image-4611" srcset="/wp-content/uploads/2018/05/word-image-4139.png 1051w, /wp-content/uploads/2018/05/word-image-4139-300x185.png 300w, /wp-content/uploads/2018/05/word-image-4139-768x474.png 768w, /wp-content/uploads/2018/05/word-image-4139-1024x632.png 1024w" sizes="(max-width: 1051px) 100vw, 1051px" /></p>
+<p>
+  结果查看数据表即可
+</p>
+<p><img loading="lazy" decoding="async" width="669" height="403" src="/wp-content/uploads/2018/05/word-image-4140.png" class="wp-image-4612" srcset="/wp-content/uploads/2018/05/word-image-4140.png 669w, /wp-content/uploads/2018/05/word-image-4140-300x181.png 300w" sizes="(max-width: 669px) 100vw, 669px" /></p>
+<h2>3.5、商品修改属性入库修改</h2>
+<h3>3.5.1、实现显示已有的属性信息</h3>
+<p>
+  ①修改编辑的方法获取已有的属性信息
+</p>
+<p><img loading="lazy" decoding="async" width="1056" height="661" src="/wp-content/uploads/2018/05/word-image-4141.png" class="wp-image-4613" srcset="/wp-content/uploads/2018/05/word-image-4141.png 1056w, /wp-content/uploads/2018/05/word-image-4141-300x188.png 300w, /wp-content/uploads/2018/05/word-image-4141-768x481.png 768w, /wp-content/uploads/2018/05/word-image-4141-1024x641.png 1024w" sizes="(max-width: 1056px) 100vw, 1056px" /></p>
+<p>
+  ②查看结果
+</p>
+<p><img loading="lazy" decoding="async" width="857" height="615" src="/wp-content/uploads/2018/05/word-image-4142.png" class="wp-image-4614" srcset="/wp-content/uploads/2018/05/word-image-4142.png 857w, /wp-content/uploads/2018/05/word-image-4142-300x215.png 300w, /wp-content/uploads/2018/05/word-image-4142-768x551.png 768w" sizes="(max-width: 857px) 100vw, 857px" /></p>
+<p>
+  ③继续修改编辑方法获取已有的类型信息
+</p>
+<p><img loading="lazy" decoding="async" width="1049" height="473" src="/wp-content/uploads/2018/05/word-image-4143.png" class="wp-image-4615" srcset="/wp-content/uploads/2018/05/word-image-4143.png 1049w, /wp-content/uploads/2018/05/word-image-4143-300x135.png 300w, /wp-content/uploads/2018/05/word-image-4143-768x346.png 768w, /wp-content/uploads/2018/05/word-image-4143-1024x462.png 1024w" sizes="(max-width: 1049px) 100vw, 1049px" /></p>
+<p>
+  ④继续格式化所获取到的属性信息
+</p>
+<p><img loading="lazy" decoding="async" width="1068" height="627" src="/wp-content/uploads/2018/05/word-image-4144.png" class="wp-image-4616" srcset="/wp-content/uploads/2018/05/word-image-4144.png 1068w, /wp-content/uploads/2018/05/word-image-4144-300x176.png 300w, /wp-content/uploads/2018/05/word-image-4144-768x451.png 768w, /wp-content/uploads/2018/05/word-image-4144-1024x601.png 1024w" sizes="(max-width: 1068px) 100vw, 1068px" /><br />
+<img loading="lazy" decoding="async" width="899" height="583" src="/wp-content/uploads/2018/05/word-image-4145.png" class="wp-image-4617" srcset="/wp-content/uploads/2018/05/word-image-4145.png 899w, /wp-content/uploads/2018/05/word-image-4145-300x195.png 300w, /wp-content/uploads/2018/05/word-image-4145-768x498.png 768w" sizes="(max-width: 899px) 100vw, 899px" /></p>
+<p>
+  ④继续格式化数据
+</p>
+<p><img loading="lazy" decoding="async" width="1069" height="698" src="/wp-content/uploads/2018/05/word-image-4146.png" class="wp-image-4618" srcset="/wp-content/uploads/2018/05/word-image-4146.png 1069w, /wp-content/uploads/2018/05/word-image-4146-300x196.png 300w, /wp-content/uploads/2018/05/word-image-4146-768x501.png 768w, /wp-content/uploads/2018/05/word-image-4146-1024x669.png 1024w" sizes="(max-width: 1069px) 100vw, 1069px" /></p>
+<p>
+  格式化效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="1105" height="703" src="/wp-content/uploads/2018/05/word-image-4147.png" class="wp-image-4619" srcset="/wp-content/uploads/2018/05/word-image-4147.png 1105w, /wp-content/uploads/2018/05/word-image-4147-300x191.png 300w, /wp-content/uploads/2018/05/word-image-4147-768x489.png 768w, /wp-content/uploads/2018/05/word-image-4147-1024x651.png 1024w" sizes="(max-width: 1105px) 100vw, 1105px" /></p>
+<p>
+  ②模板显示数据
+</p>
+<p><img loading="lazy" decoding="async" width="1069" height="465" src="/wp-content/uploads/2018/05/word-image-4148.png" class="wp-image-4620" srcset="/wp-content/uploads/2018/05/word-image-4148.png 1069w, /wp-content/uploads/2018/05/word-image-4148-300x130.png 300w, /wp-content/uploads/2018/05/word-image-4148-768x334.png 768w, /wp-content/uploads/2018/05/word-image-4148-1024x445.png 1024w" sizes="(max-width: 1069px) 100vw, 1069px" /><br />
+<img loading="lazy" decoding="async" width="1067" height="556" src="/wp-content/uploads/2018/05/word-image-4149.png" class="wp-image-4621" srcset="/wp-content/uploads/2018/05/word-image-4149.png 1067w, /wp-content/uploads/2018/05/word-image-4149-300x156.png 300w, /wp-content/uploads/2018/05/word-image-4149-768x400.png 768w, /wp-content/uploads/2018/05/word-image-4149-1024x534.png 1024w" sizes="(max-width: 1067px) 100vw, 1067px" /><br />
+<img loading="lazy" decoding="async" width="1075" height="194" src="/wp-content/uploads/2018/05/word-image-4150.png" class="wp-image-4622" srcset="/wp-content/uploads/2018/05/word-image-4150.png 1075w, /wp-content/uploads/2018/05/word-image-4150-300x54.png 300w, /wp-content/uploads/2018/05/word-image-4150-768x139.png 768w, /wp-content/uploads/2018/05/word-image-4150-1024x185.png 1024w" sizes="(max-width: 1075px) 100vw, 1075px" /></p>
+<p>
+  最终效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="975" height="539" src="/wp-content/uploads/2018/05/word-image-4151.png" class="wp-image-4623" srcset="/wp-content/uploads/2018/05/word-image-4151.png 975w, /wp-content/uploads/2018/05/word-image-4151-300x166.png 300w, /wp-content/uploads/2018/05/word-image-4151-768x425.png 768w" sizes="(max-width: 975px) 100vw, 975px" /></p>
+<h3>3.5.2、实现属性的入库修改</h3>
+<p><img loading="lazy" decoding="async" width="991" height="678" src="/wp-content/uploads/2018/05/word-image-4152.png" class="wp-image-4624" srcset="/wp-content/uploads/2018/05/word-image-4152.png 991w, /wp-content/uploads/2018/05/word-image-4152-300x205.png 300w, /wp-content/uploads/2018/05/word-image-4152-768x525.png 768w, /wp-content/uploads/2018/05/word-image-4152-220x150.png 220w" sizes="(max-width: 991px) 100vw, 991px" /></p>
+<h1>总结商品属性之间的关系</h1>
+<p><img loading="lazy" decoding="async" width="1141" height="624" src="/wp-content/uploads/2018/05/word-image-4153.png" class="wp-image-4625" srcset="/wp-content/uploads/2018/05/word-image-4153.png 1141w, /wp-content/uploads/2018/05/word-image-4153-300x164.png 300w, /wp-content/uploads/2018/05/word-image-4153-768x420.png 768w, /wp-content/uploads/2018/05/word-image-4153-1024x560.png 1024w" sizes="(max-width: 1141px) 100vw, 1141px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/4552.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

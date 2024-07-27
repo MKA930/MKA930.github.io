@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>重命名表 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E9%87%8D%E5%91%BD%E5%90%8D%E8%A1%A8/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 12:19:44 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>重命名表 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Mysql（二）修改表结构、 复制表、 字段类型、 数据类型、 重命名表</title>
+		<link>/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/1018.html</link>
+					<comments>/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/1018.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 17:13:09 +0000</pubDate>
+				<category><![CDATA[Mysql]]></category>
+		<category><![CDATA[修改表结构]]></category>
+		<category><![CDATA[复制表]]></category>
+		<category><![CDATA[字段类型]]></category>
+		<category><![CDATA[数据类型]]></category>
+		<category><![CDATA[重命名表]]></category>
+		<guid isPermaLink="false">/?p=1018</guid>
+
+					<description><![CDATA[字段类型 扩充： 复制表就是在原有表基础上，把原有的表的东西拿过来创建一个新的数据表 语法：create ta [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>字段类型</h1>
+<p>
+  扩充：
+</p>
+<p>
+  复制表就是在原有表基础上，把原有的表的东西拿过来创建一个新的数据表
+</p>
+<ul>
+<li>
+    语法：create table 表名 select * from 表名;
+  </li>
+<li>
+    作用:复制表的结构和表内容信息
+  </li>
+</ul>
+<p>
+  复制前：
+</p>
+<p>
+  <img fetchpriority="high" decoding="async" width="955" height="317" src="/wp-content/uploads/2018/05/word-image-909.png" class="wp-image-1019" srcset="/wp-content/uploads/2018/05/word-image-909.png 955w, /wp-content/uploads/2018/05/word-image-909-300x100.png 300w, /wp-content/uploads/2018/05/word-image-909-768x255.png 768w" sizes="(max-width: 955px) 100vw, 955px" />
+</p>
+<p>
+  复制
+</p>
+<p>
+  <img decoding="async" width="579" height="82" src="/wp-content/uploads/2018/05/word-image-910.png" class="wp-image-1020" srcset="/wp-content/uploads/2018/05/word-image-910.png 579w, /wp-content/uploads/2018/05/word-image-910-300x42.png 300w" sizes="(max-width: 579px) 100vw, 579px" />
+</p>
+<p>
+  复制后
+</p>
+<p>
+  <img decoding="async" width="866" height="323" src="/wp-content/uploads/2018/05/word-image-911.png" class="wp-image-1021" srcset="/wp-content/uploads/2018/05/word-image-911.png 866w, /wp-content/uploads/2018/05/word-image-911-300x112.png 300w, /wp-content/uploads/2018/05/word-image-911-768x286.png 768w" sizes="(max-width: 866px) 100vw, 866px" />
+</p>
+<p>
+  第二种复制表
+</p>
+<p>
+  语法：create table 表名 like 表名;
+</p>
+<p>
+  作用：只复制表结构，不复制表信息
+</p>
+<p>
+  复制前
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="914" height="320" src="/wp-content/uploads/2018/05/word-image-912.png" class="wp-image-1022" srcset="/wp-content/uploads/2018/05/word-image-912.png 914w, /wp-content/uploads/2018/05/word-image-912-300x105.png 300w, /wp-content/uploads/2018/05/word-image-912-768x269.png 768w" sizes="(max-width: 914px) 100vw, 914px" />
+</p>
+<p>
+  复制
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="525" height="46" src="/wp-content/uploads/2018/05/word-image-913.png" class="wp-image-1023" srcset="/wp-content/uploads/2018/05/word-image-913.png 525w, /wp-content/uploads/2018/05/word-image-913-300x26.png 300w" sizes="(max-width: 525px) 100vw, 525px" />
+</p>
+<p>
+  复制后
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="814" height="244" src="/wp-content/uploads/2018/05/word-image-914.png" class="wp-image-1024" srcset="/wp-content/uploads/2018/05/word-image-914.png 814w, /wp-content/uploads/2018/05/word-image-914-300x90.png 300w, /wp-content/uploads/2018/05/word-image-914-768x230.png 768w" sizes="(max-width: 814px) 100vw, 814px" />
+</p>
+<h2>数值型</h2>
+<h3>整数</h3>
+<p>
+  <img loading="lazy" decoding="async" width="578" height="350" src="/wp-content/uploads/2018/05/word-image-915.png" class="wp-image-1025" srcset="/wp-content/uploads/2018/05/word-image-915.png 578w, /wp-content/uploads/2018/05/word-image-915-300x182.png 300w" sizes="(max-width: 578px) 100vw, 578px" />
+</p>
+<p>
+  思考？&#8212;一个字节占多少位？&#8212;8位&#8212;&#8211;整形存储占8位&#8212;2*2*2*2*2*2*2*2=256
+</p>
+<p>
+  		Tinyint的范围就是256个这里   -128&#8212;-127 刚好256个数
+</p>
+<p>
+  整形存储的范围和，存储的空间有关系
+</p>
+<h4>数值范围</h4>
+<p>
+  <img loading="lazy" decoding="async" width="562" height="106" src="/wp-content/uploads/2018/05/word-image-916.png" class="wp-image-1026" srcset="/wp-content/uploads/2018/05/word-image-916.png 562w, /wp-content/uploads/2018/05/word-image-916-300x57.png 300w" sizes="(max-width: 562px) 100vw, 562px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="759" height="234" src="/wp-content/uploads/2018/05/word-image-917.png" class="wp-image-1027" srcset="/wp-content/uploads/2018/05/word-image-917.png 759w, /wp-content/uploads/2018/05/word-image-917-300x92.png 300w" sizes="(max-width: 759px) 100vw, 759px" />
+</p>
+<h4>无符号</h4>
+<p>
+  	Unsigned 只能存储正数，不能存储负数
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="721" height="174" src="/wp-content/uploads/2018/05/word-image-918.png" class="wp-image-1028" srcset="/wp-content/uploads/2018/05/word-image-918.png 721w, /wp-content/uploads/2018/05/word-image-918-300x72.png 300w" sizes="(max-width: 721px) 100vw, 721px" />
+</p>
+<p>
+  注意：无符号没有负数，正数方向范围加倍
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="681" height="274" src="/wp-content/uploads/2018/05/word-image-919.png" class="wp-image-1029" srcset="/wp-content/uploads/2018/05/word-image-919.png 681w, /wp-content/uploads/2018/05/word-image-919-300x121.png 300w" sizes="(max-width: 681px) 100vw, 681px" />
+</p>
+<h4>显示宽度&amp;零填充</h4>
+<p>
+  <img loading="lazy" decoding="async" width="919" height="118" src="/wp-content/uploads/2018/05/word-image-920.png" class="wp-image-1030" srcset="/wp-content/uploads/2018/05/word-image-920.png 919w, /wp-content/uploads/2018/05/word-image-920-300x39.png 300w, /wp-content/uploads/2018/05/word-image-920-768x99.png 768w" sizes="(max-width: 919px) 100vw, 919px" />
+</p>
+<p>
+  插入数据：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="730" height="116" src="/wp-content/uploads/2018/05/word-image-921.png" class="wp-image-1031" srcset="/wp-content/uploads/2018/05/word-image-921.png 730w, /wp-content/uploads/2018/05/word-image-921-300x48.png 300w" sizes="(max-width: 730px) 100vw, 730px" />
+</p>
+<p>
+  显示效果
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="747" height="141" src="/wp-content/uploads/2018/05/word-image-922.png" class="wp-image-1032" srcset="/wp-content/uploads/2018/05/word-image-922.png 747w, /wp-content/uploads/2018/05/word-image-922-300x57.png 300w" sizes="(max-width: 747px) 100vw, 747px" />
+</p>
+<p>
+  注意：
+</p>
+<ul>
+<li>
+    显示长度和零填充一块使用才有效果；
+  </li>
+<li>
+    当插入数据的长度大于显示长度的话
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="724" height="250" src="/wp-content/uploads/2018/05/word-image-923.png" class="wp-image-1033" srcset="/wp-content/uploads/2018/05/word-image-923.png 724w, /wp-content/uploads/2018/05/word-image-923-300x104.png 300w" sizes="(max-width: 724px) 100vw, 724px" />
+</p>
+<h3>小数</h3>
+<p>
+  浮点型
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1010" height="246" src="/wp-content/uploads/2018/05/word-image-924.png" class="wp-image-1034" srcset="/wp-content/uploads/2018/05/word-image-924.png 1010w, /wp-content/uploads/2018/05/word-image-924-300x73.png 300w, /wp-content/uploads/2018/05/word-image-924-768x187.png 768w" sizes="(max-width: 1010px) 100vw, 1010px" />
+</p>
+<h4>Float</h4>
+<p>
+  	单精度浮点型
+</p>
+<p>
+  这个float一般在数据类型中不使用，因为有误差；
+</p>
+<ul>
+<li>
+    误差问题测试案例
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="664" height="121" src="/wp-content/uploads/2018/05/word-image-925.png" class="wp-image-1035" srcset="/wp-content/uploads/2018/05/word-image-925.png 664w, /wp-content/uploads/2018/05/word-image-925-300x55.png 300w" sizes="(max-width: 664px) 100vw, 664px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="683" height="199" src="/wp-content/uploads/2018/05/word-image-926.png" class="wp-image-1036" srcset="/wp-content/uploads/2018/05/word-image-926.png 683w, /wp-content/uploads/2018/05/word-image-926-300x87.png 300w" sizes="(max-width: 683px) 100vw, 683px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="604" height="227" src="/wp-content/uploads/2018/05/word-image-927.png" class="wp-image-1037" srcset="/wp-content/uploads/2018/05/word-image-927.png 604w, /wp-content/uploads/2018/05/word-image-927-300x113.png 300w" sizes="(max-width: 604px) 100vw, 604px" />
+</p>
+<p>
+  误差的原因&#8212;-MySQL内部存储计算使用的都是double类型
+</p>
+<h4>Double</h4>
+<p>
+  <img loading="lazy" decoding="async" width="666" height="113" src="/wp-content/uploads/2018/05/word-image-928.png" class="wp-image-1038" srcset="/wp-content/uploads/2018/05/word-image-928.png 666w, /wp-content/uploads/2018/05/word-image-928-300x51.png 300w" sizes="(max-width: 666px) 100vw, 666px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="807" height="163" src="/wp-content/uploads/2018/05/word-image-929.png" class="wp-image-1039" srcset="/wp-content/uploads/2018/05/word-image-929.png 807w, /wp-content/uploads/2018/05/word-image-929-300x61.png 300w, /wp-content/uploads/2018/05/word-image-929-768x155.png 768w" sizes="(max-width: 807px) 100vw, 807px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="855" height="191" src="/wp-content/uploads/2018/05/word-image-930.png" class="wp-image-1040" srcset="/wp-content/uploads/2018/05/word-image-930.png 855w, /wp-content/uploads/2018/05/word-image-930-300x67.png 300w, /wp-content/uploads/2018/05/word-image-930-768x172.png 768w" sizes="(max-width: 855px) 100vw, 855px" />
+</p>
+<ul>
+<li>
+    无符号问题测试案例
+  </li>
+</ul>
+<p>
+  Unsigned 无符号，也就是不能插入负数
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="831" height="187" src="/wp-content/uploads/2018/05/word-image-931.png" class="wp-image-1041" srcset="/wp-content/uploads/2018/05/word-image-931.png 831w, /wp-content/uploads/2018/05/word-image-931-300x68.png 300w, /wp-content/uploads/2018/05/word-image-931-768x173.png 768w" sizes="(max-width: 831px) 100vw, 831px" />
+</p>
+<ul>
+<li>
+    设置显示宽度
+  </li>
+</ul>
+<p>
+  			create table 表名
+</p>
+<p>
+  			(
+</p>
+<p>
+  				num double(m,d)
+</p>
+<p>
+  				&#8212; m是可以显示的总字符长度，d显示的是可以显示几个小数字符
+</p>
+<p>
+  			)charset=utf8;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="829" height="108" src="/wp-content/uploads/2018/05/word-image-932.png" class="wp-image-1042" srcset="/wp-content/uploads/2018/05/word-image-932.png 829w, /wp-content/uploads/2018/05/word-image-932-300x39.png 300w, /wp-content/uploads/2018/05/word-image-932-768x100.png 768w" sizes="(max-width: 829px) 100vw, 829px" />
+</p>
+<ul>
+<li>
+    如果插入的数据的小数长度唱过了设置的d小数的显示长度1位，那么把超出的部分直接去掉
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="841" height="182" src="/wp-content/uploads/2018/05/word-image-933.png" class="wp-image-1043" srcset="/wp-content/uploads/2018/05/word-image-933.png 841w, /wp-content/uploads/2018/05/word-image-933-300x65.png 300w, /wp-content/uploads/2018/05/word-image-933-768x166.png 768w" sizes="(max-width: 841px) 100vw, 841px" />
+</p>
+<ul>
+<li>
+    果插入的数据的小数长度唱过了设置的d小数的显示长度1位以上，会四舍五入
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="764" height="221" src="/wp-content/uploads/2018/05/word-image-934.png" class="wp-image-1044" srcset="/wp-content/uploads/2018/05/word-image-934.png 764w, /wp-content/uploads/2018/05/word-image-934-300x87.png 300w" sizes="(max-width: 764px) 100vw, 764px" />
+</p>
+<ul>
+<li>
+    如果整数的显示长度超过了m – d(减号)，那么会直接报错，范围超出的错误
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="874" height="48" src="/wp-content/uploads/2018/05/word-image-935.png" class="wp-image-1045" srcset="/wp-content/uploads/2018/05/word-image-935.png 874w, /wp-content/uploads/2018/05/word-image-935-300x16.png 300w, /wp-content/uploads/2018/05/word-image-935-768x42.png 768w" sizes="(max-width: 874px) 100vw, 874px" />
+</p>
+<p>
+  零填充
+</p>
+<p>
+  	Zerofill—当显示的长度不够设置的长度的时候在左侧补0占位显示；
+</p>
+<p>
+  创建表
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="926" height="111" src="/wp-content/uploads/2018/05/word-image-936.png" class="wp-image-1046" srcset="/wp-content/uploads/2018/05/word-image-936.png 926w, /wp-content/uploads/2018/05/word-image-936-300x36.png 300w, /wp-content/uploads/2018/05/word-image-936-768x92.png 768w" sizes="(max-width: 926px) 100vw, 926px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="816" height="221" src="/wp-content/uploads/2018/05/word-image-937.png" class="wp-image-1047" srcset="/wp-content/uploads/2018/05/word-image-937.png 816w, /wp-content/uploads/2018/05/word-image-937-300x81.png 300w, /wp-content/uploads/2018/05/word-image-937-768x208.png 768w" sizes="(max-width: 816px) 100vw, 816px" />
+</p>
+<p>
+  注意：这里如果有zerofill零填充会把小数点算一个长度
+</p>
+<ul>
+<li>
+    默认精度就是默认的显示长度
+  </li>
+</ul>
+<p>
+  Float和double是没有默认精度的
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="923" height="288" src="/wp-content/uploads/2018/05/word-image-938.png" class="wp-image-1048" srcset="/wp-content/uploads/2018/05/word-image-938.png 923w, /wp-content/uploads/2018/05/word-image-938-300x94.png 300w, /wp-content/uploads/2018/05/word-image-938-768x240.png 768w" sizes="(max-width: 923px) 100vw, 923px" /><br />
+  <img loading="lazy" decoding="async" width="1085" height="278" src="/wp-content/uploads/2018/05/word-image-939.png" class="wp-image-1049" srcset="/wp-content/uploads/2018/05/word-image-939.png 1085w, /wp-content/uploads/2018/05/word-image-939-300x77.png 300w, /wp-content/uploads/2018/05/word-image-939-768x197.png 768w, /wp-content/uploads/2018/05/word-image-939-1024x262.png 1024w" sizes="(max-width: 1085px) 100vw, 1085px" />
+</p>
+<p>
+  但是有一个类型是有默认精度的就是decimal小数类型
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="817" height="282" src="/wp-content/uploads/2018/05/word-image-940.png" class="wp-image-1050" srcset="/wp-content/uploads/2018/05/word-image-940.png 817w, /wp-content/uploads/2018/05/word-image-940-300x104.png 300w, /wp-content/uploads/2018/05/word-image-940-768x265.png 768w" sizes="(max-width: 817px) 100vw, 817px" />
+</p>
+<p>
+  定点型
+</p>
+<p>
+  	Decimal比较准确，一般在存储关于钱的数据的时候都使用decimal
+</p>
+<p>
+  Decimal的默认精度是（10,0）;
+</p>
+<p>
+  案例：
+</p>
+<p>
+  表结构创建
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="752" height="122" src="/wp-content/uploads/2018/05/word-image-941.png" class="wp-image-1051" srcset="/wp-content/uploads/2018/05/word-image-941.png 752w, /wp-content/uploads/2018/05/word-image-941-300x49.png 300w" sizes="(max-width: 752px) 100vw, 752px" />
+</p>
+<p>
+  数据测试
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="796" height="70" src="/wp-content/uploads/2018/05/word-image-942.png" class="wp-image-1052" srcset="/wp-content/uploads/2018/05/word-image-942.png 796w, /wp-content/uploads/2018/05/word-image-942-300x26.png 300w, /wp-content/uploads/2018/05/word-image-942-768x68.png 768w" sizes="(max-width: 796px) 100vw, 796px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="725" height="208" src="/wp-content/uploads/2018/05/word-image-943.png" class="wp-image-1053" srcset="/wp-content/uploads/2018/05/word-image-943.png 725w, /wp-content/uploads/2018/05/word-image-943-300x86.png 300w" sizes="(max-width: 725px) 100vw, 725px" />
+</p>
+<h3>总结</h3>
+<p>
+  Float和double的比较
+</p>
+<p>
+  	精度方面：float有误差，double存储没有误差，因为数据库存储计算的时候使用的就是double类型
+</p>
+<p>
+  Decimal和float的标准
+</p>
+<p>
+  	四舍五入方面
+</p>
+<p>
+  		Float;如果小数长度超过了设置长度的1位&#8212;直接舍去，如果超过了一位以上四舍五入
+</p>
+<p>
+  		Decimal: 如果小数长度超过了设置的长度直接四舍五入
+</p>
+<p>
+  通常如果这个小数类型是用来存储钱的时候就用decimal
+</p>
+<h2>字符串型</h2>
+<p>
+  <img loading="lazy" decoding="async" width="886" height="263" src="/wp-content/uploads/2018/05/word-image-944.png" class="wp-image-1054" srcset="/wp-content/uploads/2018/05/word-image-944.png 886w, /wp-content/uploads/2018/05/word-image-944-300x89.png 300w, /wp-content/uploads/2018/05/word-image-944-768x228.png 768w" sizes="(max-width: 886px) 100vw, 886px" />
+</p>
+<ul>
+<li>
+    在utf8编码中一个字符占用3个字节
+  </li>
+<li>
+    在gbk编码中一个字符占用2个字节
+  </li>
+</ul>
+<h3>Char</h3>
+<p>
+  Char是一个定长的最多能存储255个字符
+</p>
+<ul>
+<li>
+    插入时，字符串长度问题
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="782" height="315" src="/wp-content/uploads/2018/05/word-image-945.png" class="wp-image-1055" srcset="/wp-content/uploads/2018/05/word-image-945.png 782w, /wp-content/uploads/2018/05/word-image-945-300x121.png 300w, /wp-content/uploads/2018/05/word-image-945-768x309.png 768w" sizes="(max-width: 782px) 100vw, 782px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="741" height="113" src="/wp-content/uploads/2018/05/word-image-946.png" class="wp-image-1056" srcset="/wp-content/uploads/2018/05/word-image-946.png 741w, /wp-content/uploads/2018/05/word-image-946-300x46.png 300w" sizes="(max-width: 741px) 100vw, 741px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="744" height="63" src="/wp-content/uploads/2018/05/word-image-947.png" class="wp-image-1057" srcset="/wp-content/uploads/2018/05/word-image-947.png 744w, /wp-content/uploads/2018/05/word-image-947-300x25.png 300w" sizes="(max-width: 744px) 100vw, 744px" />
+</p>
+<ul>
+<li>
+    自动填充空格的问题
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="767" height="115" src="/wp-content/uploads/2018/05/word-image-948.png" class="wp-image-1058" srcset="/wp-content/uploads/2018/05/word-image-948.png 767w, /wp-content/uploads/2018/05/word-image-948-300x45.png 300w" sizes="(max-width: 767px) 100vw, 767px" />
+</p>
+<p>
+  插入数据
+</p>
+<p>
+  	插入7个长度的字符串
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="626" height="65" src="/wp-content/uploads/2018/05/word-image-949.png" class="wp-image-1059" srcset="/wp-content/uploads/2018/05/word-image-949.png 626w, /wp-content/uploads/2018/05/word-image-949-300x31.png 300w" sizes="(max-width: 626px) 100vw, 626px" />
+</p>
+<p>
+  	插入10个长度的字符串
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="588" height="56" src="/wp-content/uploads/2018/05/word-image-950.png" class="wp-image-1060" srcset="/wp-content/uploads/2018/05/word-image-950.png 588w, /wp-content/uploads/2018/05/word-image-950-300x29.png 300w" sizes="(max-width: 588px) 100vw, 588px" />
+</p>
+<p>
+  查看结果
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="802" height="134" src="/wp-content/uploads/2018/05/word-image-951.png" class="wp-image-1061" srcset="/wp-content/uploads/2018/05/word-image-951.png 802w, /wp-content/uploads/2018/05/word-image-951-300x50.png 300w, /wp-content/uploads/2018/05/word-image-951-768x128.png 768w" sizes="(max-width: 802px) 100vw, 802px" />
+</p>
+<h3>Varchar</h3>
+<p>
+  Varchar:可变字符类型，这里如果插入的字符不够设置的长度，会自动回收多于的空间
+</p>
+<p>
+  		存储时以字节存储，会受到字符编码的影响 最多存储65535个字节
+</p>
+<p>
+  		create table num12
+</p>
+<p>
+  		(
+</p>
+<p>
+  			name varchar()  &#8212; 这里规定的可以显示的字符长度  一个字符占3个字节
+</p>
+<p>
+  						   &#8212; 计算这里括号里最多可以设置多长  65535字节/3=2万多个字符
+</p>
+<p>
+  		)charset=utf8
+</p>
+<p>
+  	Utf8中一个字符占3个字节
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="994" height="171" src="/wp-content/uploads/2018/05/word-image-952.png" class="wp-image-1062" srcset="/wp-content/uploads/2018/05/word-image-952.png 994w, /wp-content/uploads/2018/05/word-image-952-300x52.png 300w, /wp-content/uploads/2018/05/word-image-952-768x132.png 768w" sizes="(max-width: 994px) 100vw, 994px" />
+</p>
+<p>
+  	Gbk中一个字符占2个字节
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1014" height="134" src="/wp-content/uploads/2018/05/word-image-953.png" class="wp-image-1063" srcset="/wp-content/uploads/2018/05/word-image-953.png 1014w, /wp-content/uploads/2018/05/word-image-953-300x40.png 300w, /wp-content/uploads/2018/05/word-image-953-768x101.png 768w" sizes="(max-width: 1014px) 100vw, 1014px" />
+</p>
+<p>
+  案例：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="735" height="177" src="/wp-content/uploads/2018/05/word-image-954.png" class="wp-image-1064" srcset="/wp-content/uploads/2018/05/word-image-954.png 735w, /wp-content/uploads/2018/05/word-image-954-300x72.png 300w" sizes="(max-width: 735px) 100vw, 735px" />
+</p>
+<p>
+  Char和varchar的比较
+</p>
+<ul>
+<li>
+    Char是定长，之规定存储多少字符，也是按照字符的个数来存储的,如果存储的字符少于规定的长度，多于的空间不能自动回收
+  </li>
+<li>
+    Varchar 是变长（不够设置的长度的话会自动的回收多于的空间），以字节来存的，但是<strong>varchar(20)规定的是最多存储20个字符</strong>
+  </li>
+</ul>
+<p>
+  什么时候使用char ,什么时候使用varchar
+</p>
+<p>
+  问题：手机号存用什么存？
+</p>
+<p>
+  	用char（定长）来存，手机号是固定的长度，都是11位
+</p>
+<p>
+  问题：新闻标题用什么存？
+</p>
+<p>
+  	新闻标题字符数不确定，用varchar来存
+</p>
+<p>
+  Char 会浪费空间，执行效率高
+</p>
+<p>
+  Varchar 节省空间，执行效率低
+</p>
+<h3>Set</h3>
+<p>
+  在MySQL中是一个多选类型，存储的是字符串，用途是供用户来选择，用户插入的值只能从set选项里边来插入
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="593" height="82" src="/wp-content/uploads/2018/05/word-image-955.png" class="wp-image-1065" srcset="/wp-content/uploads/2018/05/word-image-955.png 593w, /wp-content/uploads/2018/05/word-image-955-300x41.png 300w" sizes="(max-width: 593px) 100vw, 593px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="679" height="169" src="/wp-content/uploads/2018/05/word-image-956.png" class="wp-image-1066" srcset="/wp-content/uploads/2018/05/word-image-956.png 679w, /wp-content/uploads/2018/05/word-image-956-300x75.png 300w" sizes="(max-width: 679px) 100vw, 679px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="909" height="70" src="/wp-content/uploads/2018/05/word-image-957.png" class="wp-image-1067" srcset="/wp-content/uploads/2018/05/word-image-957.png 909w, /wp-content/uploads/2018/05/word-image-957-300x23.png 300w, /wp-content/uploads/2018/05/word-image-957-768x59.png 768w" sizes="(max-width: 909px) 100vw, 909px" />
+</p>
+<p>
+  扩展：set 在MySQL底层计算的时候是以整数来计算的
+</p>
+<p>
+  sex set(&#8216;男&#8217;,&#8217;女&#8217;,&#8217;保密&#8217;)
+</p>
+<p>
+  这里第一个值是   男&#8212;-1&#8212;2的0次方
+</p>
+<p>
+  这里第二个值是   女&#8212;-2&#8212;2的1次方
+</p>
+<p>
+  这里第三个值是    保密&#8212;4&#8212;2的2次方
+</p>
+<p>
+  所以在插入数据的时候我们还可以以整数的形式进行插入
+</p>
+<p>
+  表结构
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="640" height="114" src="/wp-content/uploads/2018/05/word-image-958.png" class="wp-image-1068" srcset="/wp-content/uploads/2018/05/word-image-958.png 640w, /wp-content/uploads/2018/05/word-image-958-300x53.png 300w" sizes="(max-width: 640px) 100vw, 640px" />
+</p>
+<p>
+  插入数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="701" height="180" src="/wp-content/uploads/2018/05/word-image-959.png" class="wp-image-1069" srcset="/wp-content/uploads/2018/05/word-image-959.png 701w, /wp-content/uploads/2018/05/word-image-959-300x77.png 300w" sizes="(max-width: 701px) 100vw, 701px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="833" height="197" src="/wp-content/uploads/2018/05/word-image-960.png" class="wp-image-1070" srcset="/wp-content/uploads/2018/05/word-image-960.png 833w, /wp-content/uploads/2018/05/word-image-960-300x71.png 300w, /wp-content/uploads/2018/05/word-image-960-768x182.png 768w" sizes="(max-width: 833px) 100vw, 833px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="718" height="230" src="/wp-content/uploads/2018/05/word-image-961.png" class="wp-image-1071" srcset="/wp-content/uploads/2018/05/word-image-961.png 718w, /wp-content/uploads/2018/05/word-image-961-300x96.png 300w" sizes="(max-width: 718px) 100vw, 718px" />
+</p>
+<h3>Enum</h3>
+<p>
+  单选，单选的值是以字符串来保存的，内计算的时候是以整形来计算，所以单选的执行效率比较高
+</p>
+<p>
+  表结构
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="709" height="112" src="/wp-content/uploads/2018/05/word-image-962.png" class="wp-image-1072" srcset="/wp-content/uploads/2018/05/word-image-962.png 709w, /wp-content/uploads/2018/05/word-image-962-300x47.png 300w" sizes="(max-width: 709px) 100vw, 709px" />
+</p>
+<p>
+  插入数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="953" height="176" src="/wp-content/uploads/2018/05/word-image-963.png" class="wp-image-1073" srcset="/wp-content/uploads/2018/05/word-image-963.png 953w, /wp-content/uploads/2018/05/word-image-963-300x55.png 300w, /wp-content/uploads/2018/05/word-image-963-768x142.png 768w" sizes="(max-width: 953px) 100vw, 953px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="864" height="65" src="/wp-content/uploads/2018/05/word-image-964.png" class="wp-image-1074" srcset="/wp-content/uploads/2018/05/word-image-964.png 864w, /wp-content/uploads/2018/05/word-image-964-300x23.png 300w, /wp-content/uploads/2018/05/word-image-964-768x58.png 768w" sizes="(max-width: 864px) 100vw, 864px" />
+</p>
+<p>
+  扩展enum也可以用数字来插入
+</p>
+<p>
+  	enum中有三个值
+</p>
+<p>
+  		第一个是 男&#8212;-1
+</p>
+<p>
+  		第二个是 女&#8212;-2
+</p>
+<p>
+  		第三个是 保密&#8212;-3
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="709" height="112" src="/wp-content/uploads/2018/05/word-image-965.png" class="wp-image-1075" srcset="/wp-content/uploads/2018/05/word-image-965.png 709w, /wp-content/uploads/2018/05/word-image-965-300x47.png 300w" sizes="(max-width: 709px) 100vw, 709px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="783" height="215" src="/wp-content/uploads/2018/05/word-image-966.png" class="wp-image-1076" srcset="/wp-content/uploads/2018/05/word-image-966.png 783w, /wp-content/uploads/2018/05/word-image-966-300x82.png 300w, /wp-content/uploads/2018/05/word-image-966-768x211.png 768w" sizes="(max-width: 783px) 100vw, 783px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="638" height="210" src="/wp-content/uploads/2018/05/word-image-967.png" class="wp-image-1077" srcset="/wp-content/uploads/2018/05/word-image-967.png 638w, /wp-content/uploads/2018/05/word-image-967-300x99.png 300w" sizes="(max-width: 638px) 100vw, 638px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="862" height="217" src="/wp-content/uploads/2018/05/word-image-968.png" class="wp-image-1078" srcset="/wp-content/uploads/2018/05/word-image-968.png 862w, /wp-content/uploads/2018/05/word-image-968-300x76.png 300w, /wp-content/uploads/2018/05/word-image-968-768x193.png 768w" sizes="(max-width: 862px) 100vw, 862px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="861" height="62" src="/wp-content/uploads/2018/05/word-image-969.png" class="wp-image-1079" srcset="/wp-content/uploads/2018/05/word-image-969.png 861w, /wp-content/uploads/2018/05/word-image-969-300x22.png 300w, /wp-content/uploads/2018/05/word-image-969-768x55.png 768w" sizes="(max-width: 861px) 100vw, 861px" />
+</p>
+<p>
+  第一个值就是1，第二个值就是2，第三个值就是3，第四个值就是4；
+</p>
+<p>
+  注意：单选每次只能插入一个值
+</p>
+<h3>比较set和enum的区别和相同点</h3>
+<p>
+  不同的地方
+</p>
+<ul>
+<li>
+<ul>
+<li>
+        Set每次可以插入多个选项的值   Enum每次只能插入一个选项的值
+      </li>
+<li>
+        Set用整数插入的时候 第一个选项的值2的0次方 第二个值是2的1次方…   Enum用整数插入的时候，第一个选项的是是1，第二个选项的值是2，第三个选项的设置是3
+      </li>
+<li>
+        Set 可以用整数的和代表几个选项，比如  3=2的零次方+2的一次方  = 男,女
+      </li>
+</ul>
+</li>
+</ul>
+<p>
+  相同的地方
+</p>
+<ul>
+<li>
+    Set和enum底层计算都是用整数来计算，插入的时候都可以使用整数来插入
+  </li>
+</ul>
+<h2>时间型</h2>
+<p>
+  这个类型不常用，一般存储时间的我们用int
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1149" height="248" src="/wp-content/uploads/2018/05/word-image-970.png" class="wp-image-1080" srcset="/wp-content/uploads/2018/05/word-image-970.png 1149w, /wp-content/uploads/2018/05/word-image-970-300x65.png 300w, /wp-content/uploads/2018/05/word-image-970-768x166.png 768w, /wp-content/uploads/2018/05/word-image-970-1024x221.png 1024w" sizes="(max-width: 1149px) 100vw, 1149px" />
+</p>
+<p>
+  这里datetime和timestamp类型比较相似，最大的区别就是取值范围不一样
+</p>
+<p>
+  时间类型插入的时间格式（注意插入的时候时间用引号引起来）
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="355" height="75" src="/wp-content/uploads/2018/05/word-image-971.png" class="wp-image-1081" srcset="/wp-content/uploads/2018/05/word-image-971.png 355w, /wp-content/uploads/2018/05/word-image-971-300x63.png 300w" sizes="(max-width: 355px) 100vw, 355px" />
+</p>
+<p>
+  案例使用
+</p>
+<p>
+  	表结构
+</p>
+<p>  <img loading="lazy" decoding="async" width="660" height="186" src="/wp-content/uploads/2018/05/word-image-972.png" class="wp-image-1082" srcset="/wp-content/uploads/2018/05/word-image-972.png 660w, /wp-content/uploads/2018/05/word-image-972-300x85.png 300w" sizes="(max-width: 660px) 100vw, 660px" />
+</p>
+<p>
+  插入数据时间格式1
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1126" height="195" src="/wp-content/uploads/2018/05/word-image-973.png" class="wp-image-1083" srcset="/wp-content/uploads/2018/05/word-image-973.png 1126w, /wp-content/uploads/2018/05/word-image-973-300x52.png 300w, /wp-content/uploads/2018/05/word-image-973-768x133.png 768w, /wp-content/uploads/2018/05/word-image-973-1024x177.png 1024w" sizes="(max-width: 1126px) 100vw, 1126px" />
+</p>
+<p>
+  插入的时间格式2
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1106" height="215" src="/wp-content/uploads/2018/05/word-image-974.png" class="wp-image-1084" srcset="/wp-content/uploads/2018/05/word-image-974.png 1106w, /wp-content/uploads/2018/05/word-image-974-300x58.png 300w, /wp-content/uploads/2018/05/word-image-974-768x149.png 768w, /wp-content/uploads/2018/05/word-image-974-1024x199.png 1024w" sizes="(max-width: 1106px) 100vw, 1106px" />
+</p>
+<p>
+  插入的时间格式3
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1142" height="258" src="/wp-content/uploads/2018/05/word-image-975.png" class="wp-image-1085" srcset="/wp-content/uploads/2018/05/word-image-975.png 1142w, /wp-content/uploads/2018/05/word-image-975-300x68.png 300w, /wp-content/uploads/2018/05/word-image-975-768x174.png 768w, /wp-content/uploads/2018/05/word-image-975-1024x231.png 1024w" sizes="(max-width: 1142px) 100vw, 1142px" />
+</p>
+<h1>字段属性</h1>
+<h2>Not null /null</h2>
+<p>
+  含义:限制字段值是否是null
+</p>
+<p>
+  	Not null&#8212;-限制字段值不能为null
+</p>
+<p>
+  	Null&#8212;&#8212;字段值允许为 null
+</p>
+<p>
+  这里 空字符串 等于null 吗？  0等于 null吗？ 不全等
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="593" height="122" src="/wp-content/uploads/2018/05/word-image-976.png" class="wp-image-1086" srcset="/wp-content/uploads/2018/05/word-image-976.png 593w, /wp-content/uploads/2018/05/word-image-976-300x62.png 300w" sizes="(max-width: 593px) 100vw, 593px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="710" height="53" src="/wp-content/uploads/2018/05/word-image-977.png" class="wp-image-1087" srcset="/wp-content/uploads/2018/05/word-image-977.png 710w, /wp-content/uploads/2018/05/word-image-977-300x22.png 300w" sizes="(max-width: 710px) 100vw, 710px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="726" height="120" src="/wp-content/uploads/2018/05/word-image-978.png" class="wp-image-1088" srcset="/wp-content/uploads/2018/05/word-image-978.png 726w, /wp-content/uploads/2018/05/word-image-978-300x50.png 300w" sizes="(max-width: 726px) 100vw, 726px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="715" height="317" src="/wp-content/uploads/2018/05/word-image-979.png" class="wp-image-1089" srcset="/wp-content/uploads/2018/05/word-image-979.png 715w, /wp-content/uploads/2018/05/word-image-979-300x133.png 300w" sizes="(max-width: 715px) 100vw, 715px" />
+</p>
+<h2>Comment</h2>
+<p>
+  	一个字段的说明
+</p>
+<h2>Auto_increment &amp;&amp;Primary key</h2>
+<p>
+  <img loading="lazy" decoding="async" width="896" height="344" src="/wp-content/uploads/2018/05/word-image-980.png" class="wp-image-1090" srcset="/wp-content/uploads/2018/05/word-image-980.png 896w, /wp-content/uploads/2018/05/word-image-980-300x115.png 300w, /wp-content/uploads/2018/05/word-image-980-768x295.png 768w" sizes="(max-width: 896px) 100vw, 896px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="671" height="216" src="/wp-content/uploads/2018/05/word-image-981.png" class="wp-image-1091" srcset="/wp-content/uploads/2018/05/word-image-981.png 671w, /wp-content/uploads/2018/05/word-image-981-300x97.png 300w" sizes="(max-width: 671px) 100vw, 671px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="715" height="203" src="/wp-content/uploads/2018/05/word-image-982.png" class="wp-image-1092" srcset="/wp-content/uploads/2018/05/word-image-982.png 715w, /wp-content/uploads/2018/05/word-image-982-300x85.png 300w" sizes="(max-width: 715px) 100vw, 715px" />
+</p>
+<p>
+  	Auto_increment：自动增长，用于整形，每次默认自动加1
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1156" height="134" src="/wp-content/uploads/2018/05/word-image-983.png" class="wp-image-1093" srcset="/wp-content/uploads/2018/05/word-image-983.png 1156w, /wp-content/uploads/2018/05/word-image-983-300x35.png 300w, /wp-content/uploads/2018/05/word-image-983-768x89.png 768w, /wp-content/uploads/2018/05/word-image-983-1024x119.png 1024w" sizes="(max-width: 1156px) 100vw, 1156px" />
+</p>
+<p>
+  	Primary key : 就是能唯一确定一行（记录）的字段，说白了就是一个‘<strong>身份证号</strong>‘
+</p>
+<p>
+  总结：主键字段一般和auto_increment 连用，自动增长，
+</p>
+<p>
+  		设置过主键和自动增长的字段表属性里会多增加一个属性AUTO_INCREMENT
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="784" height="193" src="/wp-content/uploads/2018/05/word-image-984.png" class="wp-image-1094" srcset="/wp-content/uploads/2018/05/word-image-984.png 784w, /wp-content/uploads/2018/05/word-image-984-300x74.png 300w, /wp-content/uploads/2018/05/word-image-984-768x189.png 768w" sizes="(max-width: 784px) 100vw, 784px" />
+</p>
+<p>
+  用来表示下一次插入记录的时候，主键的值；如果主键的值是null那么就会使用表属性里边自动增长的值
+</p>
+<ul>
+<li>
+    表属性自动增长的值是表最大的主键值加1
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="666" height="237" src="/wp-content/uploads/2018/05/word-image-985.png" class="wp-image-1095" srcset="/wp-content/uploads/2018/05/word-image-985.png 666w, /wp-content/uploads/2018/05/word-image-985-300x107.png 300w" sizes="(max-width: 666px) 100vw, 666px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1117" height="179" src="/wp-content/uploads/2018/05/word-image-986.png" class="wp-image-1096" srcset="/wp-content/uploads/2018/05/word-image-986.png 1117w, /wp-content/uploads/2018/05/word-image-986-300x48.png 300w, /wp-content/uploads/2018/05/word-image-986-768x123.png 768w, /wp-content/uploads/2018/05/word-image-986-1024x164.png 1024w" sizes="(max-width: 1117px) 100vw, 1117px" />
+</p>
+<ul>
+<li>
+    主键能重复吗
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="863" height="270" src="/wp-content/uploads/2018/05/word-image-987.png" class="wp-image-1097" srcset="/wp-content/uploads/2018/05/word-image-987.png 863w, /wp-content/uploads/2018/05/word-image-987-300x94.png 300w, /wp-content/uploads/2018/05/word-image-987-768x240.png 768w" sizes="(max-width: 863px) 100vw, 863px" />
+</p>
+<h2>Unique key </h2>
+<p>
+  	含义：字段的值不能重复
+</p>
+<p>
+  测试：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="774" height="139" src="/wp-content/uploads/2018/05/word-image-988.png" class="wp-image-1098" srcset="/wp-content/uploads/2018/05/word-image-988.png 774w, /wp-content/uploads/2018/05/word-image-988-300x54.png 300w, /wp-content/uploads/2018/05/word-image-988-768x138.png 768w" sizes="(max-width: 774px) 100vw, 774px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="822" height="270" src="/wp-content/uploads/2018/05/word-image-989.png" class="wp-image-1099" srcset="/wp-content/uploads/2018/05/word-image-989.png 822w, /wp-content/uploads/2018/05/word-image-989-300x99.png 300w, /wp-content/uploads/2018/05/word-image-989-768x252.png 768w" sizes="(max-width: 822px) 100vw, 822px" />
+</p>
+<p>
+  一般unique key会自动的加一个默认值是 null
+</p>
+<p>
+  这个null的含义就是’没有值’,多以唯一键一般都会加一个not null字段属性
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="773" height="252" src="/wp-content/uploads/2018/05/word-image-990.png" class="wp-image-1100" srcset="/wp-content/uploads/2018/05/word-image-990.png 773w, /wp-content/uploads/2018/05/word-image-990-300x98.png 300w, /wp-content/uploads/2018/05/word-image-990-768x250.png 768w" sizes="(max-width: 773px) 100vw, 773px" />
+</p>
+<h2>Default（一般不单独使用）</h2>
+<p>
+    含义：如果添加数据的时候没有给值，会自动用设置的默认值填充；一般和not null 连用
+</p>
+<p>
+  create table test20
+</p>
+<p>
+  (
+</p>
+<p>
+  	id int primary key auto_increment,
+</p>
+<p>
+  	name char(8) unique key not null default &#8216;a&#8217;
+</p>
+<p>
+  ) charset = utf8;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="520" height="47" src="/wp-content/uploads/2018/05/word-image-991.png" class="wp-image-1101" srcset="/wp-content/uploads/2018/05/word-image-991.png 520w, /wp-content/uploads/2018/05/word-image-991-300x27.png 300w" sizes="(max-width: 520px) 100vw, 520px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="559" height="121" src="/wp-content/uploads/2018/05/word-image-992.png" class="wp-image-1102" srcset="/wp-content/uploads/2018/05/word-image-992.png 559w, /wp-content/uploads/2018/05/word-image-992-300x65.png 300w" sizes="(max-width: 559px) 100vw, 559px" />
+</p>
+<p>
+  一般数据库表设计的时候，都会加上一个not null,
+</p>
+<ul>
+<li>
+    第一执行效率比较快
+  </li>
+<li>
+    Null的特殊性
+  </li>
+</ul>
+<p>
+  优化第一天案例英雄表
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1272" height="211" src="/wp-content/uploads/2018/05/word-image-993.png" class="wp-image-1103" srcset="/wp-content/uploads/2018/05/word-image-993.png 1272w, /wp-content/uploads/2018/05/word-image-993-300x50.png 300w, /wp-content/uploads/2018/05/word-image-993-768x127.png 768w, /wp-content/uploads/2018/05/word-image-993-1024x170.png 1024w" sizes="(max-width: 1272px) 100vw, 1272px" />
+</p>
+<p>
+  设计表：
+</p>
+<ul>
+<li>
+    一般字段类型的选择够用就行，不能过大（浪费空间）
+  </li>
+<li>
+    一个表一般都有主键这个主键一般都设置成自动增长
+  </li>
+<li>
+    字符串类型，看情况选择定长char(执行效率高)或是varchar(节省空间)
+  </li>
+<li>
+    表字段除了主键一般都会使用字段属性  not null 如果不设置，后期的数据处理比较麻烦（唯一键的时候，可以有多个记录是null的情况出现）
+  </li>
+</ul>
+<h1>修改表结构</h1>
+<h2>增加字段</h2>
+<p>
+  语法：alter table 表名 add 字段名 类型  [字段属性]  [after 字段名]||[first ]
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1021" height="326" src="/wp-content/uploads/2018/05/word-image-994.png" class="wp-image-1104" srcset="/wp-content/uploads/2018/05/word-image-994.png 1021w, /wp-content/uploads/2018/05/word-image-994-300x96.png 300w, /wp-content/uploads/2018/05/word-image-994-768x245.png 768w" sizes="(max-width: 1021px) 100vw, 1021px" />
+</p>
+<p>
+  扩展
+</p>
+<ul>
+<li>
+    在某个字段后增加字段
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="1092" height="376" src="/wp-content/uploads/2018/05/word-image-995.png" class="wp-image-1105" srcset="/wp-content/uploads/2018/05/word-image-995.png 1092w, /wp-content/uploads/2018/05/word-image-995-300x103.png 300w, /wp-content/uploads/2018/05/word-image-995-768x264.png 768w, /wp-content/uploads/2018/05/word-image-995-1024x353.png 1024w" sizes="(max-width: 1092px) 100vw, 1092px" />
+</p>
+<ul>
+<li>
+    增加的字段在表的字段顺序第一个
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="1111" height="362" src="/wp-content/uploads/2018/05/word-image-996.png" class="wp-image-1106" srcset="/wp-content/uploads/2018/05/word-image-996.png 1111w, /wp-content/uploads/2018/05/word-image-996-300x98.png 300w, /wp-content/uploads/2018/05/word-image-996-768x250.png 768w, /wp-content/uploads/2018/05/word-image-996-1024x334.png 1024w" sizes="(max-width: 1111px) 100vw, 1111px" />
+</p>
+<h2>修改字段属性</h2>
+<p>
+  语法：alter table 表名 modify 字段名  新的类型 新的字段属性
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1056" height="278" src="/wp-content/uploads/2018/05/word-image-997.png" class="wp-image-1107" srcset="/wp-content/uploads/2018/05/word-image-997.png 1056w, /wp-content/uploads/2018/05/word-image-997-300x79.png 300w, /wp-content/uploads/2018/05/word-image-997-768x202.png 768w, /wp-content/uploads/2018/05/word-image-997-1024x270.png 1024w" sizes="(max-width: 1056px) 100vw, 1056px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1023" height="373" src="/wp-content/uploads/2018/05/word-image-998.png" class="wp-image-1108" srcset="/wp-content/uploads/2018/05/word-image-998.png 1023w, /wp-content/uploads/2018/05/word-image-998-300x109.png 300w, /wp-content/uploads/2018/05/word-image-998-768x280.png 768w" sizes="(max-width: 1023px) 100vw, 1023px" />
+</p>
+<h2>修改字段名&amp;属性</h2>
+<p>
+  语法：alter table表名 change 老字段名   新的字段名  新类型  新字段属性;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1101" height="303" src="/wp-content/uploads/2018/05/word-image-999.png" class="wp-image-1109" srcset="/wp-content/uploads/2018/05/word-image-999.png 1101w, /wp-content/uploads/2018/05/word-image-999-300x83.png 300w, /wp-content/uploads/2018/05/word-image-999-768x211.png 768w, /wp-content/uploads/2018/05/word-image-999-1024x282.png 1024w" sizes="(max-width: 1101px) 100vw, 1101px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1047" height="399" src="/wp-content/uploads/2018/05/word-image-1000.png" class="wp-image-1110" srcset="/wp-content/uploads/2018/05/word-image-1000.png 1047w, /wp-content/uploads/2018/05/word-image-1000-300x114.png 300w, /wp-content/uploads/2018/05/word-image-1000-768x293.png 768w, /wp-content/uploads/2018/05/word-image-1000-1024x390.png 1024w" sizes="(max-width: 1047px) 100vw, 1047px" />
+</p>
+<h2>删除字段</h2>
+<p>
+  语法：alter table 表名 drop 字段名；
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1011" height="271" src="/wp-content/uploads/2018/05/word-image-1001.png" class="wp-image-1111" srcset="/wp-content/uploads/2018/05/word-image-1001.png 1011w, /wp-content/uploads/2018/05/word-image-1001-300x80.png 300w, /wp-content/uploads/2018/05/word-image-1001-768x206.png 768w" sizes="(max-width: 1011px) 100vw, 1011px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1039" height="349" src="/wp-content/uploads/2018/05/word-image-1002.png" class="wp-image-1112" srcset="/wp-content/uploads/2018/05/word-image-1002.png 1039w, /wp-content/uploads/2018/05/word-image-1002-300x101.png 300w, /wp-content/uploads/2018/05/word-image-1002-768x258.png 768w, /wp-content/uploads/2018/05/word-image-1002-1024x344.png 1024w" sizes="(max-width: 1039px) 100vw, 1039px" />
+</p>
+<h2>修改数据表引擎</h2>
+<p>
+  表属性的修改
+</p>
+<p>
+  语法：alter table 表名 表属性=新属性
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="955" height="338" src="/wp-content/uploads/2018/05/word-image-1003.png" class="wp-image-1113" srcset="/wp-content/uploads/2018/05/word-image-1003.png 955w, /wp-content/uploads/2018/05/word-image-1003-300x106.png 300w, /wp-content/uploads/2018/05/word-image-1003-768x272.png 768w" sizes="(max-width: 955px) 100vw, 955px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="840" height="425" src="/wp-content/uploads/2018/05/word-image-1004.png" class="wp-image-1114" srcset="/wp-content/uploads/2018/05/word-image-1004.png 840w, /wp-content/uploads/2018/05/word-image-1004-300x152.png 300w, /wp-content/uploads/2018/05/word-image-1004-768x389.png 768w" sizes="(max-width: 840px) 100vw, 840px" />
+</p>
+<p>
+  扩展：修改字符集
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="692" height="84" src="/wp-content/uploads/2018/05/word-image-1005.png" class="wp-image-1115" srcset="/wp-content/uploads/2018/05/word-image-1005.png 692w, /wp-content/uploads/2018/05/word-image-1005-300x36.png 300w" sizes="(max-width: 692px) 100vw, 692px" />
+</p>
+<h2>重命名表</h2>
+<p>
+  语法: alter table 表名 rename [to] 新表名
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="677" height="212" src="/wp-content/uploads/2018/05/word-image-1006.png" class="wp-image-1116" srcset="/wp-content/uploads/2018/05/word-image-1006.png 677w, /wp-content/uploads/2018/05/word-image-1006-300x94.png 300w" sizes="(max-width: 677px) 100vw, 677px" />
+</p>
+<h2>重命名表移动到别的数据库</h2>
+<p>
+  语法 :  alter table  表名  rename  [to]  数据库名.表名；
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1066" height="60" src="/wp-content/uploads/2018/05/word-image-1007.png" class="wp-image-1117" srcset="/wp-content/uploads/2018/05/word-image-1007.png 1066w, /wp-content/uploads/2018/05/word-image-1007-300x17.png 300w, /wp-content/uploads/2018/05/word-image-1007-768x43.png 768w, /wp-content/uploads/2018/05/word-image-1007-1024x58.png 1024w" sizes="(max-width: 1066px) 100vw, 1066px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="763" height="154" src="/wp-content/uploads/2018/05/word-image-1008.png" class="wp-image-1118" srcset="/wp-content/uploads/2018/05/word-image-1008.png 763w, /wp-content/uploads/2018/05/word-image-1008-300x61.png 300w" sizes="(max-width: 763px) 100vw, 763px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="750" height="274" src="/wp-content/uploads/2018/05/word-image-1009.png" class="wp-image-1119" srcset="/wp-content/uploads/2018/05/word-image-1009.png 750w, /wp-content/uploads/2018/05/word-image-1009-300x110.png 300w" sizes="(max-width: 750px) 100vw, 750px" />
+</p>
+<p>
+  注意：移动数据表的时候同时还可以给表重新命名
+</p>
+<h1>思考题</h1>
+<ul>
+<li>
+    手机号码一般使用什么数据类型存储?			Char
+  </li>
+<li>
+    QQ号										    varchar
+  </li>
+<li>
+    性别一般使用什么数据类型存储?				Set 或enum
+  </li>
+<li>
+    年龄信息一般使用什么数据类型存储?			Int 或者 tinyint
+  </li>
+<li>
+    照片信息一般使用什么数据类型存储?			varchar
+  </li>
+<li>
+    薪水一般使用什么数据类型存储?				Num Decimal
+  </li>
+<li>
+    学员姓名允许为空吗?							Not null
+  </li>
+<li>
+    家庭地址允许为空吗?							Not Null
+  </li>
+<li>
+    电子邮件信息允许为空吗?						Null
+  </li>
+<li>
+    考试成绩允许为空吗?							Not null
+  </li>
+<li>
+    在主键列输入的数值，允许为空吗?				Not null
+  </li>
+<li>
+    一个表可以有多个主键吗?						不可以
+  </li>
+<li>
+    在一个学校数据库中，如果一个学校内允许重名的学员，但是一个班级内不允许学员重名，可以组合班级和姓名两个字段一起来作为主键吗？		        可以
+  </li>
+<li>
+    标识列允许为字符数据类型吗？			标识列主键，主键任意类型列都要每行值都唯种，要求自增标识列能用数值型
+  </li>
+<li>
+    表中没有合适的列作为主键怎么办？	    想加主键alter table table_name add constaint pk_tablename primary key (表主键列)
+  </li>
+<li>
+    如果标识列A的初始值为1，增量为1，则输入三行数据以后，再删除两行，下次再输入数据行的时候，标识值从多少开始？4
+  </li>
+</ul>
+<p>
+  注意注释的使用</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/1018.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

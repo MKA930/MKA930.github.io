@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Socket 服务器 &#8211; 个人随笔</title>
+	<atom:link href="/label/socket-%E6%9C%8D%E5%8A%A1%E5%99%A8/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Tue, 29 Mar 2022 15:19:30 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>Socket 服务器 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Socket 七层网络、Socket 服务器</title>
+		<link>/php/6503.html</link>
+					<comments>/php/6503.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 17:29:51 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[Socket]]></category>
+		<category><![CDATA[Socket 服务器]]></category>
+		<category><![CDATA[七层网络]]></category>
+		<guid isPermaLink="false">/?p=6503</guid>
+
+					<description><![CDATA[Socket Socket使用的方向 智能化家居，pos刷卡机，和浏览器的websocket协议的通信。 七层 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p><strong>Socket</strong></p>
+<h1>Socket使用的方向</h1>
+<p>智能化家居，pos刷卡机，和浏览器的websocket协议的通信。</p>
+<h1>七层网路</h1>
+<p><img fetchpriority="high" decoding="async" width="539" height="472" class="wp-image-6802" src="/wp-content/uploads/2018/05/word-image-6202.png" srcset="/wp-content/uploads/2018/05/word-image-6202.png 539w, /wp-content/uploads/2018/05/word-image-6202-300x263.png 300w" sizes="(max-width: 539px) 100vw, 539px" /></p>
+<h1>PHP的socket操作</h1>
+<p>Socket扩展，这个扩展就是给php操作socket的，在linux/mac sockets.so</p>
+<p>在php.ini里面讲sockets扩展打开</p>
+<p><img decoding="async" width="584" height="366" class="wp-image-6806" src="/wp-content/uploads/2018/05/word-image-6206.png" srcset="/wp-content/uploads/2018/05/word-image-6206.png 584w, /wp-content/uploads/2018/05/word-image-6206-300x188.png 300w" sizes="(max-width: 584px) 100vw, 584px" /></p>
+<p>使用官网查看sockets内容</p>
+<p>http://php.net/sockets</p>
+<h2>创建一个sockets服务器</h2>
+<p>这个使用php创建http服务器</p>
+<p>scoket_create():http://php.net/manual/zh/function.socket-create.php</p>
+<p>第一个参数：制定坚挺的类型，ipv4和ipv6，另一个是socket文件</p>
+<p>第二个参数：制定这个套接字的类型，一般我们选择SOCK_STREAM,因为这个类型传输数据是可靠的，性能比较好</p>
+<p>第三个参数：制定socket使用的底层协议，一般是tcp</p>
+<p><img decoding="async" width="898" height="180" class="wp-image-6810" src="/wp-content/uploads/2018/05/word-image-6210.png" srcset="/wp-content/uploads/2018/05/word-image-6210.png 898w, /wp-content/uploads/2018/05/word-image-6210-300x60.png 300w, /wp-content/uploads/2018/05/word-image-6210-768x154.png 768w" sizes="(max-width: 898px) 100vw, 898px" /></p>
+<h2>给上面创建的socket标识棒冰ip和端口</h2>
+<p>socket_bind():http://php.net/manual/en/function.socket-bind.php</p>
+<p>第一个参数：就是创建的socket的资源</p>
+<p>第二个参数是本地的ip地址</p>
+<p>本地的ip地址可以通过ipconfig来查看</p>
+<p><img loading="lazy" decoding="async" width="621" height="193" class="wp-image-6814" src="/wp-content/uploads/2018/05/word-image-6214.png" srcset="/wp-content/uploads/2018/05/word-image-6214.png 621w, /wp-content/uploads/2018/05/word-image-6214-300x93.png 300w" sizes="(max-width: 621px) 100vw, 621px" /></p>
+<p>第三个参数：输入一个自定义的端口号，这个端口号不要有重复即可</p>
+<h2>启动socket服务器</h2>
+<p>socket_listen()</p>
+<p>第一个参数：socket资源</p>
+<p>第二个参数：监听的数量</p>
+<p><img loading="lazy" decoding="async" width="596" height="89" class="wp-image-6818" src="/wp-content/uploads/2018/05/word-image-6218.png" srcset="/wp-content/uploads/2018/05/word-image-6218.png 596w, /wp-content/uploads/2018/05/word-image-6218-300x45.png 300w" sizes="(max-width: 596px) 100vw, 596px" /></p>
+<h2>把socket保存到数组里面</h2>
+<p><img loading="lazy" decoding="async" width="547" height="70" class="wp-image-6822" src="/wp-content/uploads/2018/05/word-image-6222.png" srcset="/wp-content/uploads/2018/05/word-image-6222.png 547w, /wp-content/uploads/2018/05/word-image-6222-300x38.png 300w" sizes="(max-width: 547px) 100vw, 547px" /></p>
+<h2>保存浏览器的websocket连接能否进行握手通信</h2>
+<p><img loading="lazy" decoding="async" width="612" height="76" class="wp-image-6826" src="/wp-content/uploads/2018/05/word-image-6226.png" srcset="/wp-content/uploads/2018/05/word-image-6226.png 612w, /wp-content/uploads/2018/05/word-image-6226-300x37.png 300w" sizes="(max-width: 612px) 100vw, 612px" /></p>
+<h2>socket在每一次刷新页面会执行，需要使用死循环让这个socket一直执行</h2>
+<p><img loading="lazy" decoding="async" width="811" height="76" class="wp-image-6830" src="/wp-content/uploads/2018/05/word-image-6230.png" srcset="/wp-content/uploads/2018/05/word-image-6230.png 811w, /wp-content/uploads/2018/05/word-image-6230-300x28.png 300w, /wp-content/uploads/2018/05/word-image-6230-768x72.png 768w" sizes="(max-width: 811px) 100vw, 811px" /></p>
+<h2>找出活跃的socket</h2>
+<p>socket_select():</p>
+<p>只依靠这个socket_select()选出活跃的socket是不可靠的，还需要通过socket_select()返回的值进一步进行判断</p>
+<p>0：代表的没有任何的客户端给我们传递信息</p>
+<p>false:标识出现了错误</p>
+<p><img loading="lazy" decoding="async" width="952" height="453" class="wp-image-6834" src="/wp-content/uploads/2018/05/word-image-6234.png" srcset="/wp-content/uploads/2018/05/word-image-6234.png 952w, /wp-content/uploads/2018/05/word-image-6234-300x143.png 300w, /wp-content/uploads/2018/05/word-image-6234-768x365.png 768w" sizes="(max-width: 952px) 100vw, 952px" /></p>
+<h2>处理当前正在获取的socket，分开对待主socket和其他的socket</h2>
+<p>主socket：负责接收新的socket，不负责和socket客户端进行数据交互</p>
+<p>其它的socket：不负责接收新的socket，负责和socket客户端进行数据的交互，一个socket对应的一个客户端的数据交互</p>
+<p>处理主socket，接收新的socket客户端的连接</p>
+<p>socket_accept():</p>
+<p>第一个参数：主socket</p>
+<p>返回的就是负责和新的socket客户端进行的数据交互的socket资源</p>
+<p><img loading="lazy" decoding="async" width="829" height="147" class="wp-image-6838" src="/wp-content/uploads/2018/05/word-image-6238.png" srcset="/wp-content/uploads/2018/05/word-image-6238.png 829w, /wp-content/uploads/2018/05/word-image-6238-300x53.png 300w, /wp-content/uploads/2018/05/word-image-6238-768x136.png 768w" sizes="(max-width: 829px) 100vw, 829px" /></p>
+<h2>接收socket客户端传递过来的数据</h2>
+<p>socket_recv():</p>
+<p>第一个参数：和这个socket客户端进行数据交互的socket</p>
+<p>第二个参数：这个socket客户端传递给这个ssocket服务器的数据</p>
+<p>第三个参数：从这个socket客户端传递给我们的数据中读取多少字节的数据，一般设置为2048</p>
+<p>第四个参数：设置读取客户端数据的这个标记，一般给个0</p>
+<p>返回值：实际读取了多少字节的数据</p>
+<p><img loading="lazy" decoding="async" width="841" height="108" class="wp-image-6842" src="/wp-content/uploads/2018/05/word-image-6242.png" srcset="/wp-content/uploads/2018/05/word-image-6242.png 841w, /wp-content/uploads/2018/05/word-image-6242-300x39.png 300w, /wp-content/uploads/2018/05/word-image-6242-768x99.png 768w" sizes="(max-width: 841px) 100vw, 841px" /></p>
+<h2>Websocket</h2>
+<p>匹配</p>
+<p>preg_match(&#8220;/Sec\-WebSocket\-Key:\ (.+)\r\n/&#8221;, $data, $matchs);</p>
+<p>$responseKey=base64_encode(sha1($matchs[1] . &#8220;258EAFA5-E914-47DA-95CA-C5AB0DC85B11&#8221;, true));</p>
+<p>匹配设置</p>
+<p>$responseData = &#8220;HTTP/1.1 101 Switching Protocols\r\n&#8221;;</p>
+<p>$responseData .= &#8220;Upgrade: websocket\r\n&#8221;;</p>
+<p>$responseData .= &#8220;Connection: Upgrade\r\n&#8221;;</p>
+<p>$responseData .= &#8220;Sec-WebSocket-Accept: {$responseKey}\r\n\r\n&#8221;;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/6503.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

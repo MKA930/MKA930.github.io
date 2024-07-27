@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Volist &#8211; 个人随笔</title>
+	<atom:link href="/label/volist/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 09 Jun 2018 01:13:54 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>Volist &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP 3.2 （二）视图、模板变量、模板函数、Foreach、Volist、D、M、模型 CURD、电商案例之分类添加</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/3905.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/3905.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 13:07:18 +0000</pubDate>
+				<category><![CDATA[TP3.2]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[D]]></category>
+		<category><![CDATA[Foreach]]></category>
+		<category><![CDATA[M]]></category>
+		<category><![CDATA[Volist]]></category>
+		<category><![CDATA[模型 CURD]]></category>
+		<category><![CDATA[模板函数]]></category>
+		<category><![CDATA[模板变量]]></category>
+		<category><![CDATA[电商案例之分类添加]]></category>
+		<category><![CDATA[视图]]></category>
+		<guid isPermaLink="false">/?p=3905</guid>
+
+					<description><![CDATA[视图(二) 1.1、模板变量 在模板中直接使用变量对数据进行输入显示。 1.1.1、使用assign赋值数据  [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>视图(二)</h1>
+<h2>1.1、模板变量</h2>
+<p>
+  在模板中直接使用变量对数据进行输入显示。
+</p>
+<h3>1.1.1、使用assign赋值数据</h3>
+<p>
+  ①创建方法赋值变量
+</p>
+<p><img fetchpriority="high" decoding="async" width="1064" height="621" src="/wp-content/uploads/2018/05/word-image-3451.png" class="wp-image-3906" srcset="/wp-content/uploads/2018/05/word-image-3451.png 1064w, /wp-content/uploads/2018/05/word-image-3451-300x175.png 300w, /wp-content/uploads/2018/05/word-image-3451-768x448.png 768w, /wp-content/uploads/2018/05/word-image-3451-1024x598.png 1024w" sizes="(max-width: 1064px) 100vw, 1064px" /></p>
+<p>
+  ②创建模板
+</p>
+<p><img decoding="async" width="978" height="594" src="/wp-content/uploads/2018/05/word-image-3452.png" class="wp-image-3907" srcset="/wp-content/uploads/2018/05/word-image-3452.png 978w, /wp-content/uploads/2018/05/word-image-3452-300x182.png 300w, /wp-content/uploads/2018/05/word-image-3452-768x466.png 768w" sizes="(max-width: 978px) 100vw, 978px" /></p>
+<p>
+  ③查看效果
+</p>
+<p><img decoding="async" width="701" height="242" src="/wp-content/uploads/2018/05/word-image-3453.png" class="wp-image-3908" srcset="/wp-content/uploads/2018/05/word-image-3453.png 701w, /wp-content/uploads/2018/05/word-image-3453-300x104.png 300w" sizes="(max-width: 701px) 100vw, 701px" /></p>
+<p>
+  关于模板引擎的配置项如下
+</p>
+<p><img loading="lazy" decoding="async" width="1108" height="698" src="/wp-content/uploads/2018/05/word-image-3454.png" class="wp-image-3909" srcset="/wp-content/uploads/2018/05/word-image-3454.png 1108w, /wp-content/uploads/2018/05/word-image-3454-300x189.png 300w, /wp-content/uploads/2018/05/word-image-3454-768x484.png 768w, /wp-content/uploads/2018/05/word-image-3454-1024x645.png 1024w" sizes="(max-width: 1108px) 100vw, 1108px" /></p>
+<h3>1.1.2、模板赋值基本数据</h3>
+<p>
+  ①创建测试方法
+</p>
+<p><img loading="lazy" decoding="async" width="881" height="564" src="/wp-content/uploads/2018/05/word-image-3455.png" class="wp-image-3910" srcset="/wp-content/uploads/2018/05/word-image-3455.png 881w, /wp-content/uploads/2018/05/word-image-3455-300x192.png 300w, /wp-content/uploads/2018/05/word-image-3455-768x492.png 768w" sizes="(max-width: 881px) 100vw, 881px" /></p>
+<p>
+  ②创建模板
+</p>
+<p><img loading="lazy" decoding="async" width="769" height="529" src="/wp-content/uploads/2018/05/word-image-3456.png" class="wp-image-3911" srcset="/wp-content/uploads/2018/05/word-image-3456.png 769w, /wp-content/uploads/2018/05/word-image-3456-300x206.png 300w, /wp-content/uploads/2018/05/word-image-3456-768x528.png 768w, /wp-content/uploads/2018/05/word-image-3456-220x150.png 220w" sizes="(max-width: 769px) 100vw, 769px" /></p>
+<p>
+  ③效果
+</p>
+<p><img loading="lazy" decoding="async" width="640" height="239" src="/wp-content/uploads/2018/05/word-image-3457.png" class="wp-image-3912" srcset="/wp-content/uploads/2018/05/word-image-3457.png 640w, /wp-content/uploads/2018/05/word-image-3457-300x112.png 300w" sizes="(max-width: 640px) 100vw, 640px" /></p>
+<h3>1.1.3、模板赋值数组</h3>
+<p>
+  ①创建测试方法
+</p>
+<p><img loading="lazy" decoding="async" width="1000" height="507" src="/wp-content/uploads/2018/05/word-image-3458.png" class="wp-image-3913" srcset="/wp-content/uploads/2018/05/word-image-3458.png 1000w, /wp-content/uploads/2018/05/word-image-3458-300x152.png 300w, /wp-content/uploads/2018/05/word-image-3458-768x389.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" /></p>
+<p>
+  ②编写模板
+</p>
+<p><img loading="lazy" decoding="async" width="961" height="546" src="/wp-content/uploads/2018/05/word-image-3459.png" class="wp-image-3914" srcset="/wp-content/uploads/2018/05/word-image-3459.png 961w, /wp-content/uploads/2018/05/word-image-3459-300x170.png 300w, /wp-content/uploads/2018/05/word-image-3459-768x436.png 768w" sizes="(max-width: 961px) 100vw, 961px" /></p>
+<p>
+  ③效果
+</p>
+<p><img loading="lazy" decoding="async" width="653" height="213" src="/wp-content/uploads/2018/05/word-image-3460.png" class="wp-image-3915" srcset="/wp-content/uploads/2018/05/word-image-3460.png 653w, /wp-content/uploads/2018/05/word-image-3460-300x98.png 300w" sizes="(max-width: 653px) 100vw, 653px" /></p>
+<p>
+  ④查看模板解析之后的结果
+</p>
+<p><img loading="lazy" decoding="async" width="1080" height="607" src="/wp-content/uploads/2018/05/word-image-3461.png" class="wp-image-3916" srcset="/wp-content/uploads/2018/05/word-image-3461.png 1080w, /wp-content/uploads/2018/05/word-image-3461-300x169.png 300w, /wp-content/uploads/2018/05/word-image-3461-768x432.png 768w, /wp-content/uploads/2018/05/word-image-3461-1024x576.png 1024w" sizes="(max-width: 1080px) 100vw, 1080px" /></p>
+<h3>1.1.4、模板赋值对象</h3>
+<p>
+  ①创建方法赋值对象
+</p>
+<p><img loading="lazy" decoding="async" width="894" height="656" src="/wp-content/uploads/2018/05/word-image-3462.png" class="wp-image-3917" srcset="/wp-content/uploads/2018/05/word-image-3462.png 894w, /wp-content/uploads/2018/05/word-image-3462-300x220.png 300w, /wp-content/uploads/2018/05/word-image-3462-768x564.png 768w" sizes="(max-width: 894px) 100vw, 894px" /></p>
+<p>
+  ②模板
+</p>
+<p><img loading="lazy" decoding="async" width="898" height="497" src="/wp-content/uploads/2018/05/word-image-3463.png" class="wp-image-3918" srcset="/wp-content/uploads/2018/05/word-image-3463.png 898w, /wp-content/uploads/2018/05/word-image-3463-300x166.png 300w, /wp-content/uploads/2018/05/word-image-3463-768x425.png 768w" sizes="(max-width: 898px) 100vw, 898px" /></p>
+<p>
+  ③效果
+</p>
+<p><img loading="lazy" decoding="async" width="627" height="160" src="/wp-content/uploads/2018/05/word-image-3464.png" class="wp-image-3919" srcset="/wp-content/uploads/2018/05/word-image-3464.png 627w, /wp-content/uploads/2018/05/word-image-3464-300x77.png 300w" sizes="(max-width: 627px) 100vw, 627px" /></p>
+<h2>1.2、系统模板变量</h2>
+<p>
+  对于普通的模板变量需要在方法中进行赋值在模板中才能使用。对于有些数据。是属于经常使用。每次赋值就会比较麻烦。因此TP在系统运行过程中已经讲变量赋值给了模板。可以在模板中直接使用。
+</p>
+<h3>1.2.1、在控制器中赋值数据</h3>
+<p>
+  ①创建测试方法
+</p>
+<p><img loading="lazy" decoding="async" width="935" height="479" src="/wp-content/uploads/2018/05/word-image-3465.png" class="wp-image-3920" srcset="/wp-content/uploads/2018/05/word-image-3465.png 935w, /wp-content/uploads/2018/05/word-image-3465-300x154.png 300w, /wp-content/uploads/2018/05/word-image-3465-768x393.png 768w" sizes="(max-width: 935px) 100vw, 935px" /></p>
+<p>
+  ②模板显示
+</p>
+<p><img loading="lazy" decoding="async" width="944" height="559" src="/wp-content/uploads/2018/05/word-image-3466.png" class="wp-image-3921" srcset="/wp-content/uploads/2018/05/word-image-3466.png 944w, /wp-content/uploads/2018/05/word-image-3466-300x178.png 300w, /wp-content/uploads/2018/05/word-image-3466-768x455.png 768w" sizes="(max-width: 944px) 100vw, 944px" /></p>
+<p>
+  ③效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="606" height="182" src="/wp-content/uploads/2018/05/word-image-3467.png" class="wp-image-3922" srcset="/wp-content/uploads/2018/05/word-image-3467.png 606w, /wp-content/uploads/2018/05/word-image-3467-300x90.png 300w" sizes="(max-width: 606px) 100vw, 606px" /></p>
+<h3>1.2.2、系统模板变量的作用</h3>
+<ol>
+<li>
+  可以显示TP或者PHP中的内置常量
+</li>
+<li>
+  显示PHP的超全局变量例如 $_GET、$_POST、$_REQUEST等
+</li>
+</ol>
+<p>
+  3、显示TP的配置信息
+</p>
+<h3>1.2.3、案例查看</h3>
+<p>
+  ①创建方法渲染模板
+</p>
+<p><img loading="lazy" decoding="async" width="817" height="440" src="/wp-content/uploads/2018/05/word-image-3468.png" class="wp-image-3923" srcset="/wp-content/uploads/2018/05/word-image-3468.png 817w, /wp-content/uploads/2018/05/word-image-3468-300x162.png 300w, /wp-content/uploads/2018/05/word-image-3468-768x414.png 768w" sizes="(max-width: 817px) 100vw, 817px" /></p>
+<p>
+  ②创建模板
+</p>
+<p><img loading="lazy" decoding="async" width="958" height="547" src="/wp-content/uploads/2018/05/word-image-3469.png" class="wp-image-3924" srcset="/wp-content/uploads/2018/05/word-image-3469.png 958w, /wp-content/uploads/2018/05/word-image-3469-300x171.png 300w, /wp-content/uploads/2018/05/word-image-3469-768x439.png 768w" sizes="(max-width: 958px) 100vw, 958px" /></p>
+<p>
+  ③效果
+</p>
+<p><img loading="lazy" decoding="async" width="794" height="287" src="/wp-content/uploads/2018/05/word-image-3470.png" class="wp-image-3925" srcset="/wp-content/uploads/2018/05/word-image-3470.png 794w, /wp-content/uploads/2018/05/word-image-3470-300x108.png 300w, /wp-content/uploads/2018/05/word-image-3470-768x278.png 768w" sizes="(max-width: 794px) 100vw, 794px" /></p>
+<h2>1.3、模板函数(重点)</h2>
+<h3>1.3.1、在控制器中实现格式化</h3>
+<p>
+  ①创建方法格式化数据
+</p>
+<p><img loading="lazy" decoding="async" width="1042" height="681" src="/wp-content/uploads/2018/05/word-image-3471.png" class="wp-image-3926" srcset="/wp-content/uploads/2018/05/word-image-3471.png 1042w, /wp-content/uploads/2018/05/word-image-3471-300x196.png 300w, /wp-content/uploads/2018/05/word-image-3471-768x502.png 768w, /wp-content/uploads/2018/05/word-image-3471-1024x669.png 1024w" sizes="(max-width: 1042px) 100vw, 1042px" /></p>
+<p>
+  ②处理模板
+</p>
+<p><img loading="lazy" decoding="async" width="972" height="495" src="/wp-content/uploads/2018/05/word-image-3472.png" class="wp-image-3927" srcset="/wp-content/uploads/2018/05/word-image-3472.png 972w, /wp-content/uploads/2018/05/word-image-3472-300x153.png 300w, /wp-content/uploads/2018/05/word-image-3472-768x391.png 768w" sizes="(max-width: 972px) 100vw, 972px" /></p>
+<p>
+  ③效果
+</p>
+<p><img loading="lazy" decoding="async" width="906" height="182" src="/wp-content/uploads/2018/05/word-image-3473.png" class="wp-image-3928" srcset="/wp-content/uploads/2018/05/word-image-3473.png 906w, /wp-content/uploads/2018/05/word-image-3473-300x60.png 300w, /wp-content/uploads/2018/05/word-image-3473-768x154.png 768w" sizes="(max-width: 906px) 100vw, 906px" /></p>
+<p>
+  对于此方式虽然能后正常的显示内容。但是操作麻烦因此可以使用模板函数实现格式化的操作
+</p>
+<h3>1.3.2、使用模板函数进行数据格式化</h3>
+<p>
+  在模板中使用函数可以使用PHP内置的或者是TP所提供的公共函数以及自己定义的公共函数。
+</p>
+<p>
+  ①创建测试方法
+</p>
+<p><img loading="lazy" decoding="async" width="1002" height="585" src="/wp-content/uploads/2018/05/word-image-3474.png" class="wp-image-3929" srcset="/wp-content/uploads/2018/05/word-image-3474.png 1002w, /wp-content/uploads/2018/05/word-image-3474-300x175.png 300w, /wp-content/uploads/2018/05/word-image-3474-768x448.png 768w" sizes="(max-width: 1002px) 100vw, 1002px" /></p>
+<p>
+  ②创建模板
+</p>
+<p><img loading="lazy" decoding="async" width="1030" height="563" src="/wp-content/uploads/2018/05/word-image-3475.png" class="wp-image-3930" srcset="/wp-content/uploads/2018/05/word-image-3475.png 1030w, /wp-content/uploads/2018/05/word-image-3475-300x164.png 300w, /wp-content/uploads/2018/05/word-image-3475-768x420.png 768w, /wp-content/uploads/2018/05/word-image-3475-1024x560.png 1024w" sizes="(max-width: 1030px) 100vw, 1030px" /></p>
+<p>
+  ③效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="543" height="159" src="/wp-content/uploads/2018/05/word-image-3476.png" class="wp-image-3931" srcset="/wp-content/uploads/2018/05/word-image-3476.png 543w, /wp-content/uploads/2018/05/word-image-3476-300x88.png 300w" sizes="(max-width: 543px) 100vw, 543px" /></p>
+<h3>1.3.3、案例二将字符串转换大写</h3>
+<p>
+  ①测试方法
+</p>
+<p><img loading="lazy" decoding="async" width="756" height="361" src="/wp-content/uploads/2018/05/word-image-3477.png" class="wp-image-3932" srcset="/wp-content/uploads/2018/05/word-image-3477.png 756w, /wp-content/uploads/2018/05/word-image-3477-300x143.png 300w" sizes="(max-width: 756px) 100vw, 756px" /></p>
+<p>
+  ②编写模板
+</p>
+<p><img loading="lazy" decoding="async" width="945" height="544" src="/wp-content/uploads/2018/05/word-image-3478.png" class="wp-image-3933" srcset="/wp-content/uploads/2018/05/word-image-3478.png 945w, /wp-content/uploads/2018/05/word-image-3478-300x173.png 300w, /wp-content/uploads/2018/05/word-image-3478-768x442.png 768w" sizes="(max-width: 945px) 100vw, 945px" /></p>
+<p>
+  结果如下
+</p>
+<p><img loading="lazy" decoding="async" width="720" height="261" src="/wp-content/uploads/2018/05/word-image-3479.png" class="wp-image-3934" srcset="/wp-content/uploads/2018/05/word-image-3479.png 720w, /wp-content/uploads/2018/05/word-image-3479-300x109.png 300w" sizes="(max-width: 720px) 100vw, 720px" /></p>
+<h3>1.3.4、模板中使用多个函数格式化处理</h3>
+<p>
+  ①修改模板
+</p>
+<p><img loading="lazy" decoding="async" width="1037" height="543" src="/wp-content/uploads/2018/05/word-image-3480.png" class="wp-image-3935" srcset="/wp-content/uploads/2018/05/word-image-3480.png 1037w, /wp-content/uploads/2018/05/word-image-3480-300x157.png 300w, /wp-content/uploads/2018/05/word-image-3480-768x402.png 768w, /wp-content/uploads/2018/05/word-image-3480-1024x536.png 1024w" sizes="(max-width: 1037px) 100vw, 1037px" /></p>
+<p>
+  ②查看效果
+</p>
+<p><img loading="lazy" decoding="async" width="693" height="299" src="/wp-content/uploads/2018/05/word-image-3481.png" class="wp-image-3936" srcset="/wp-content/uploads/2018/05/word-image-3481.png 693w, /wp-content/uploads/2018/05/word-image-3481-300x129.png 300w" sizes="(max-width: 693px) 100vw, 693px" /></p>
+<h3>1.3.5、使用PHP原生写法格式化</h3>
+<p>
+  修改模板
+</p>
+<p><img loading="lazy" decoding="async" width="1041" height="615" src="/wp-content/uploads/2018/05/word-image-3482.png" class="wp-image-3937" srcset="/wp-content/uploads/2018/05/word-image-3482.png 1041w, /wp-content/uploads/2018/05/word-image-3482-300x177.png 300w, /wp-content/uploads/2018/05/word-image-3482-768x454.png 768w, /wp-content/uploads/2018/05/word-image-3482-1024x605.png 1024w" sizes="(max-width: 1041px) 100vw, 1041px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="856" height="314" src="/wp-content/uploads/2018/05/word-image-3483.png" class="wp-image-3938" srcset="/wp-content/uploads/2018/05/word-image-3483.png 856w, /wp-content/uploads/2018/05/word-image-3483-300x110.png 300w, /wp-content/uploads/2018/05/word-image-3483-768x282.png 768w" sizes="(max-width: 856px) 100vw, 856px" /></p>
+<h3>1.3.6、格式化特殊写法</h3>
+<p>
+  修改模板
+</p>
+<p><img loading="lazy" decoding="async" width="1017" height="546" src="/wp-content/uploads/2018/05/word-image-3484.png" class="wp-image-3939" srcset="/wp-content/uploads/2018/05/word-image-3484.png 1017w, /wp-content/uploads/2018/05/word-image-3484-300x161.png 300w, /wp-content/uploads/2018/05/word-image-3484-768x412.png 768w" sizes="(max-width: 1017px) 100vw, 1017px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="622" height="263" src="/wp-content/uploads/2018/05/word-image-3485.png" class="wp-image-3940" srcset="/wp-content/uploads/2018/05/word-image-3485.png 622w, /wp-content/uploads/2018/05/word-image-3485-300x127.png 300w" sizes="(max-width: 622px) 100vw, 622px" /></p>
+<p>
+  对于特殊写法使用比较多的就是在模板中使用U函数生成链接地址
+</p>
+<h2>1.4、模板变量默认值</h2>
+<p>
+  当模板变量数据为空时输出的内容
+</p>
+<p>
+  ①创建测试方法
+</p>
+<p><img loading="lazy" decoding="async" width="714" height="384" src="/wp-content/uploads/2018/05/word-image-3486.png" class="wp-image-3941" srcset="/wp-content/uploads/2018/05/word-image-3486.png 714w, /wp-content/uploads/2018/05/word-image-3486-300x161.png 300w" sizes="(max-width: 714px) 100vw, 714px" /></p>
+<p>
+  ②创建模板
+</p>
+<p><img loading="lazy" decoding="async" width="684" height="479" src="/wp-content/uploads/2018/05/word-image-3487.png" class="wp-image-3942" srcset="/wp-content/uploads/2018/05/word-image-3487.png 684w, /wp-content/uploads/2018/05/word-image-3487-300x210.png 300w" sizes="(max-width: 684px) 100vw, 684px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="609" height="162" src="/wp-content/uploads/2018/05/word-image-3488.png" class="wp-image-3943" srcset="/wp-content/uploads/2018/05/word-image-3488.png 609w, /wp-content/uploads/2018/05/word-image-3488-300x80.png 300w" sizes="(max-width: 609px) 100vw, 609px" /></p>
+<h2>1.5、模板运算</h2>
+<p>
+  模板运算即直接在模板中进行数据的加减乘除操作
+</p>
+<h3>1.5.1、基本运算</h3>
+<p>
+  创建方法
+</p>
+<p><img loading="lazy" decoding="async" width="774" height="293" src="/wp-content/uploads/2018/05/word-image-3489.png" class="wp-image-3944" srcset="/wp-content/uploads/2018/05/word-image-3489.png 774w, /wp-content/uploads/2018/05/word-image-3489-300x114.png 300w, /wp-content/uploads/2018/05/word-image-3489-768x291.png 768w" sizes="(max-width: 774px) 100vw, 774px" /></p>
+<p>
+  创建模板
+</p>
+<p><img loading="lazy" decoding="async" width="848" height="492" src="/wp-content/uploads/2018/05/word-image-3490.png" class="wp-image-3945" srcset="/wp-content/uploads/2018/05/word-image-3490.png 848w, /wp-content/uploads/2018/05/word-image-3490-300x174.png 300w, /wp-content/uploads/2018/05/word-image-3490-768x446.png 768w" sizes="(max-width: 848px) 100vw, 848px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="577" height="225" src="/wp-content/uploads/2018/05/word-image-3491.png" class="wp-image-3946" srcset="/wp-content/uploads/2018/05/word-image-3491.png 577w, /wp-content/uploads/2018/05/word-image-3491-300x117.png 300w" sizes="(max-width: 577px) 100vw, 577px" /></p>
+<h3>1.5.2、数组的运算</h3>
+<p>
+  在模板中对数组进行运算不在支持点语法。需要使用PHP原生的方式操作数据
+</p>
+<ol>
+<li>
+  创建方法
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1028" height="500" src="/wp-content/uploads/2018/05/word-image-3492.png" class="wp-image-3947" srcset="/wp-content/uploads/2018/05/word-image-3492.png 1028w, /wp-content/uploads/2018/05/word-image-3492-300x146.png 300w, /wp-content/uploads/2018/05/word-image-3492-768x374.png 768w, /wp-content/uploads/2018/05/word-image-3492-1024x498.png 1024w" sizes="(max-width: 1028px) 100vw, 1028px" /></p>
+<p>
+  ②创建模板d
+</p>
+<p><img loading="lazy" decoding="async" width="1036" height="466" src="/wp-content/uploads/2018/05/word-image-3493.png" class="wp-image-3948" srcset="/wp-content/uploads/2018/05/word-image-3493.png 1036w, /wp-content/uploads/2018/05/word-image-3493-300x135.png 300w, /wp-content/uploads/2018/05/word-image-3493-768x345.png 768w, /wp-content/uploads/2018/05/word-image-3493-1024x461.png 1024w" sizes="(max-width: 1036px) 100vw, 1036px" /></p>
+<p>
+  ③效果
+</p>
+<p><img loading="lazy" decoding="async" width="706" height="196" src="/wp-content/uploads/2018/05/word-image-3494.png" class="wp-image-3949" srcset="/wp-content/uploads/2018/05/word-image-3494.png 706w, /wp-content/uploads/2018/05/word-image-3494-300x83.png 300w" sizes="(max-width: 706px) 100vw, 706px" /></p>
+<h2>1.6、内置标签</h2>
+<p>
+  TP内置的模板引擎中支持很多标签需要重点的volist foreache if
+</p>
+<p><img loading="lazy" decoding="async" width="629" height="463" src="/wp-content/uploads/2018/05/word-image-3495.png" class="wp-image-3950" srcset="/wp-content/uploads/2018/05/word-image-3495.png 629w, /wp-content/uploads/2018/05/word-image-3495-300x221.png 300w" sizes="(max-width: 629px) 100vw, 629px" /></p>
+<h3>1.6.1、关于标签解析的源码位置</h3>
+<h3>1.6.2、foreach标签</h3>
+<p>
+  ①查看使用方式
+</p>
+<p><img loading="lazy" decoding="async" width="885" height="506" src="/wp-content/uploads/2018/05/word-image-3497.png" class="wp-image-3952" srcset="/wp-content/uploads/2018/05/word-image-3497.png 885w, /wp-content/uploads/2018/05/word-image-3497-300x172.png 300w, /wp-content/uploads/2018/05/word-image-3497-768x439.png 768w" sizes="(max-width: 885px) 100vw, 885px" /></p>
+<p>
+  ②创建方法
+</p>
+<p><img loading="lazy" decoding="async" width="1011" height="532" src="/wp-content/uploads/2018/05/word-image-3498.png" class="wp-image-3953" srcset="/wp-content/uploads/2018/05/word-image-3498.png 1011w, /wp-content/uploads/2018/05/word-image-3498-300x158.png 300w, /wp-content/uploads/2018/05/word-image-3498-768x404.png 768w" sizes="(max-width: 1011px) 100vw, 1011px" /></p>
+<p>
+  ③创建模板
+</p>
+<p><img loading="lazy" decoding="async" width="800" height="500" src="/wp-content/uploads/2018/05/word-image-3499.png" class="wp-image-3954" srcset="/wp-content/uploads/2018/05/word-image-3499.png 800w, /wp-content/uploads/2018/05/word-image-3499-300x188.png 300w, /wp-content/uploads/2018/05/word-image-3499-768x480.png 768w" sizes="(max-width: 800px) 100vw, 800px" /></p>
+<p>
+  ④效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="562" height="151" src="/wp-content/uploads/2018/05/word-image-3500.png" class="wp-image-3955" srcset="/wp-content/uploads/2018/05/word-image-3500.png 562w, /wp-content/uploads/2018/05/word-image-3500-300x81.png 300w" sizes="(max-width: 562px) 100vw, 562px" /></p>
+<h3>1.6.3、volist标签</h3>
+<p>
+  Volist跟foreach功能是一模一样都是为了循环数据。但是volist标签所支持的功能比foreach更加强大。除了循环数据在循环的过程中可以指定长度、偏移量、计数器等
+</p>
+<p>
+  ①查看volist使用方式
+</p>
+<p><img loading="lazy" decoding="async" width="1013" height="415" src="/wp-content/uploads/2018/05/word-image-3501.png" class="wp-image-3956" srcset="/wp-content/uploads/2018/05/word-image-3501.png 1013w, /wp-content/uploads/2018/05/word-image-3501-300x123.png 300w, /wp-content/uploads/2018/05/word-image-3501-768x315.png 768w" sizes="(max-width: 1013px) 100vw, 1013px" /></p>
+<p>
+  ②创建测试方法
+</p>
+<p><img loading="lazy" decoding="async" width="986" height="602" src="/wp-content/uploads/2018/05/word-image-3502.png" class="wp-image-3957" srcset="/wp-content/uploads/2018/05/word-image-3502.png 986w, /wp-content/uploads/2018/05/word-image-3502-300x183.png 300w, /wp-content/uploads/2018/05/word-image-3502-768x469.png 768w" sizes="(max-width: 986px) 100vw, 986px" /></p>
+<ol>
+<li>
+  创建模板
+</li>
+</ol>
+<p>
+  n
+</p>
+<p><img loading="lazy" decoding="async" width="976" height="634" src="/wp-content/uploads/2018/05/word-image-3503.png" class="wp-image-3958" srcset="/wp-content/uploads/2018/05/word-image-3503.png 976w, /wp-content/uploads/2018/05/word-image-3503-300x195.png 300w, /wp-content/uploads/2018/05/word-image-3503-768x499.png 768w" sizes="(max-width: 976px) 100vw, 976px" /><br />
+<img loading="lazy" decoding="async" width="999" height="436" src="/wp-content/uploads/2018/05/word-image-3504.png" class="wp-image-3959" srcset="/wp-content/uploads/2018/05/word-image-3504.png 999w, /wp-content/uploads/2018/05/word-image-3504-300x131.png 300w, /wp-content/uploads/2018/05/word-image-3504-768x335.png 768w" sizes="(max-width: 999px) 100vw, 999px" /></p>
+<p>
+  ③效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="1080" height="682" src="/wp-content/uploads/2018/05/word-image-3505.png" class="wp-image-3960" srcset="/wp-content/uploads/2018/05/word-image-3505.png 1080w, /wp-content/uploads/2018/05/word-image-3505-300x189.png 300w, /wp-content/uploads/2018/05/word-image-3505-768x485.png 768w, /wp-content/uploads/2018/05/word-image-3505-1024x647.png 1024w" sizes="(max-width: 1080px) 100vw, 1080px" /><br />
+<img loading="lazy" decoding="async" width="858" height="234" src="/wp-content/uploads/2018/05/word-image-3506.png" class="wp-image-3961" srcset="/wp-content/uploads/2018/05/word-image-3506.png 858w, /wp-content/uploads/2018/05/word-image-3506-300x82.png 300w, /wp-content/uploads/2018/05/word-image-3506-768x209.png 768w" sizes="(max-width: 858px) 100vw, 858px" /></p>
+<h3>1.6.4、if标签</h3>
+<p>
+  if标签作用进行判断
+</p>
+<p>
+  ①查看使用方式
+</p>
+<p><img loading="lazy" decoding="async" width="1055" height="344" src="/wp-content/uploads/2018/05/word-image-3507.png" class="wp-image-3962" srcset="/wp-content/uploads/2018/05/word-image-3507.png 1055w, /wp-content/uploads/2018/05/word-image-3507-300x98.png 300w, /wp-content/uploads/2018/05/word-image-3507-768x250.png 768w, /wp-content/uploads/2018/05/word-image-3507-1024x334.png 1024w" sizes="(max-width: 1055px) 100vw, 1055px" /></p>
+<p>
+  ②创建测试方法
+</p>
+<p><img loading="lazy" decoding="async" width="810" height="312" src="/wp-content/uploads/2018/05/word-image-3508.png" class="wp-image-3963" srcset="/wp-content/uploads/2018/05/word-image-3508.png 810w, /wp-content/uploads/2018/05/word-image-3508-300x116.png 300w, /wp-content/uploads/2018/05/word-image-3508-768x296.png 768w" sizes="(max-width: 810px) 100vw, 810px" /></p>
+<p>
+  ③模板编写
+</p>
+<p><img loading="lazy" decoding="async" width="1085" height="593" src="/wp-content/uploads/2018/05/word-image-3509.png" class="wp-image-3964" srcset="/wp-content/uploads/2018/05/word-image-3509.png 1085w, /wp-content/uploads/2018/05/word-image-3509-300x164.png 300w, /wp-content/uploads/2018/05/word-image-3509-768x420.png 768w, /wp-content/uploads/2018/05/word-image-3509-1024x560.png 1024w" sizes="(max-width: 1085px) 100vw, 1085px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="573" height="151" src="/wp-content/uploads/2018/05/word-image-3510.png" class="wp-image-3965" srcset="/wp-content/uploads/2018/05/word-image-3510.png 573w, /wp-content/uploads/2018/05/word-image-3510-300x79.png 300w" sizes="(max-width: 573px) 100vw, 573px" /></p>
+<h1>模型</h1>
+<h2>2.1、开启PDO扩展</h2>
+<p>
+  ①修改php.ini文件
+</p>
+<p><img loading="lazy" decoding="async" width="954" height="526" src="/wp-content/uploads/2018/05/word-image-3511.png" class="wp-image-3966" srcset="/wp-content/uploads/2018/05/word-image-3511.png 954w, /wp-content/uploads/2018/05/word-image-3511-300x165.png 300w, /wp-content/uploads/2018/05/word-image-3511-768x423.png 768w" sizes="(max-width: 954px) 100vw, 954px" /></p>
+<p>
+  ②重启Apache查看phpinfo
+</p>
+<p><img loading="lazy" decoding="async" width="1348" height="474" src="/wp-content/uploads/2018/05/word-image-3512.png" class="wp-image-3967" srcset="/wp-content/uploads/2018/05/word-image-3512.png 1348w, /wp-content/uploads/2018/05/word-image-3512-300x105.png 300w, /wp-content/uploads/2018/05/word-image-3512-768x270.png 768w, /wp-content/uploads/2018/05/word-image-3512-1024x360.png 1024w" sizes="(max-width: 1348px) 100vw, 1348px" /></p>
+<h2>2.2、配置数据库的连接</h2>
+<p>
+  ①创建数据库
+</p>
+<p><img loading="lazy" decoding="async" width="280" height="291" src="/wp-content/uploads/2018/05/word-image-3513.png" class="wp-image-3968" /></p>
+<p>
+  ②创建测试数据表
+</p>
+<p>
+  CREATE TABLE `tp_student` (
+</p>
+<p>
+    `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+</p>
+<p>
+    `sname` varchar(255) NOT NULL DEFAULT &#8221; COMMENT &#8216;名称&#8217;,
+</p>
+<p>
+    `sage` int(11) NOT NULL DEFAULT &#8216;0&#8217; COMMENT &#8216;年纪&#8217;,
+</p>
+<p>
+    `sdept` varchar(255) NOT NULL DEFAULT &#8221; COMMENT &#8216;班级&#8217;,
+</p>
+<p>
+    PRIMARY KEY (`id`)
+</p>
+<p>
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</p>
+<p>
+  ③修改配置文件
+</p>
+<p><img loading="lazy" decoding="async" width="1070" height="672" src="/wp-content/uploads/2018/05/word-image-3514.png" class="wp-image-3969" srcset="/wp-content/uploads/2018/05/word-image-3514.png 1070w, /wp-content/uploads/2018/05/word-image-3514-300x188.png 300w, /wp-content/uploads/2018/05/word-image-3514-768x482.png 768w, /wp-content/uploads/2018/05/word-image-3514-1024x643.png 1024w" sizes="(max-width: 1070px) 100vw, 1070px" /></p>
+<h2>2.3、创建自定义的模型</h2>
+<h3>2.3.1、自定义模型存储规则</h3>
+<ol>
+<li>
+  存储位置：应用/模块/Model
+</li>
+<li>
+  文件名称：模型名称(一般模型名称对应数据表的名称)+Model.class.php
+</li>
+</ol>
+<h3>2.3.2、模型编写规则</h3>
+<ol>
+<li>
+  申明命名空间
+</li>
+<li>
+  引入TP模型基类
+</li>
+<li>
+  编写自定义的模型
+</li>
+</ol>
+<h3>2.3.2、创建自定义模型</h3>
+<p><img loading="lazy" decoding="async" width="906" height="560" src="/wp-content/uploads/2018/05/word-image-3515.png" class="wp-image-3970" srcset="/wp-content/uploads/2018/05/word-image-3515.png 906w, /wp-content/uploads/2018/05/word-image-3515-300x185.png 300w, /wp-content/uploads/2018/05/word-image-3515-768x475.png 768w" sizes="(max-width: 906px) 100vw, 906px" /></p>
+<h2>2.4、模型实例化</h2>
+<h3>2.4.1、模型实例化的三种方式</h3>
+<p>
+  ①使用new进行实例化
+</p>
+<p><img loading="lazy" decoding="async" width="996" height="533" src="/wp-content/uploads/2018/05/word-image-3516.png" class="wp-image-3971" srcset="/wp-content/uploads/2018/05/word-image-3516.png 996w, /wp-content/uploads/2018/05/word-image-3516-300x161.png 300w, /wp-content/uploads/2018/05/word-image-3516-768x411.png 768w" sizes="(max-width: 996px) 100vw, 996px" /></p>
+<p>
+  结果如下
+</p>
+<p><img loading="lazy" decoding="async" width="869" height="369" src="/wp-content/uploads/2018/05/word-image-3517.png" class="wp-image-3972" srcset="/wp-content/uploads/2018/05/word-image-3517.png 869w, /wp-content/uploads/2018/05/word-image-3517-300x127.png 300w, /wp-content/uploads/2018/05/word-image-3517-768x326.png 768w" sizes="(max-width: 869px) 100vw, 869px" /></p>
+<p>
+  ②使用M进行实例化
+</p>
+<p><img loading="lazy" decoding="async" width="965" height="622" src="/wp-content/uploads/2018/05/word-image-3518.png" class="wp-image-3973" srcset="/wp-content/uploads/2018/05/word-image-3518.png 965w, /wp-content/uploads/2018/05/word-image-3518-300x193.png 300w, /wp-content/uploads/2018/05/word-image-3518-768x495.png 768w" sizes="(max-width: 965px) 100vw, 965px" /></p>
+<p>
+  结果
+</p>
+<p><img loading="lazy" decoding="async" width="706" height="277" src="/wp-content/uploads/2018/05/word-image-3519.png" class="wp-image-3974" srcset="/wp-content/uploads/2018/05/word-image-3519.png 706w, /wp-content/uploads/2018/05/word-image-3519-300x118.png 300w" sizes="(max-width: 706px) 100vw, 706px" /></p>
+<p>
+  ③使用D函数实例化
+</p>
+<p><img loading="lazy" decoding="async" width="878" height="545" src="/wp-content/uploads/2018/05/word-image-3520.png" class="wp-image-3975" srcset="/wp-content/uploads/2018/05/word-image-3520.png 878w, /wp-content/uploads/2018/05/word-image-3520-300x186.png 300w, /wp-content/uploads/2018/05/word-image-3520-768x477.png 768w" sizes="(max-width: 878px) 100vw, 878px" /></p>
+<p>
+  结果
+</p>
+<p><img loading="lazy" decoding="async" width="732" height="321" src="/wp-content/uploads/2018/05/word-image-3521.png" class="wp-image-3976" srcset="/wp-content/uploads/2018/05/word-image-3521.png 732w, /wp-content/uploads/2018/05/word-image-3521-300x132.png 300w" sizes="(max-width: 732px) 100vw, 732px" /></p>
+<h3>2.4.2、M函数使用</h3>
+<p>
+  M函数一共有三个参数
+</p>
+<p>
+  第一个：指定具体表的名称
+</p>
+<p>
+  第二个：指定表的前缀
+</p>
+<p>
+  第三个：指定数据库的连接信息
+</p>
+<p>
+  ①演示M实例化特殊名称的表
+</p>
+<p>
+  先复制一个特殊的数据表
+</p>
+<p><img loading="lazy" decoding="async" width="781" height="163" src="/wp-content/uploads/2018/05/word-image-3522.png" class="wp-image-3977" srcset="/wp-content/uploads/2018/05/word-image-3522.png 781w, /wp-content/uploads/2018/05/word-image-3522-300x63.png 300w, /wp-content/uploads/2018/05/word-image-3522-768x160.png 768w" sizes="(max-width: 781px) 100vw, 781px" /></p>
+<p>
+  编写代码实例化
+</p>
+<p><img loading="lazy" decoding="async" width="841" height="359" src="/wp-content/uploads/2018/05/word-image-3523.png" class="wp-image-3978" srcset="/wp-content/uploads/2018/05/word-image-3523.png 841w, /wp-content/uploads/2018/05/word-image-3523-300x128.png 300w, /wp-content/uploads/2018/05/word-image-3523-768x328.png 768w" sizes="(max-width: 841px) 100vw, 841px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="857" height="422" src="/wp-content/uploads/2018/05/word-image-3524.png" class="wp-image-3979" srcset="/wp-content/uploads/2018/05/word-image-3524.png 857w, /wp-content/uploads/2018/05/word-image-3524-300x148.png 300w, /wp-content/uploads/2018/05/word-image-3524-768x378.png 768w" sizes="(max-width: 857px) 100vw, 857px" /></p>
+<p>
+  ②演示第三个参数的使用方式
+</p>
+<p>
+  先在其他数据库下创建数据表
+</p>
+<p><img loading="lazy" decoding="async" width="881" height="390" src="/wp-content/uploads/2018/05/word-image-3525.png" class="wp-image-3980" srcset="/wp-content/uploads/2018/05/word-image-3525.png 881w, /wp-content/uploads/2018/05/word-image-3525-300x133.png 300w, /wp-content/uploads/2018/05/word-image-3525-768x340.png 768w" sizes="(max-width: 881px) 100vw, 881px" /></p>
+<p>
+  编写代码连接Tp5_shop数据库下的student表
+</p>
+<p><img loading="lazy" decoding="async" width="1048" height="707" src="/wp-content/uploads/2018/05/word-image-3526.png" class="wp-image-3981" srcset="/wp-content/uploads/2018/05/word-image-3526.png 1048w, /wp-content/uploads/2018/05/word-image-3526-300x202.png 300w, /wp-content/uploads/2018/05/word-image-3526-768x518.png 768w, /wp-content/uploads/2018/05/word-image-3526-1024x691.png 1024w" sizes="(max-width: 1048px) 100vw, 1048px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="772" height="590" src="/wp-content/uploads/2018/05/word-image-3527.png" class="wp-image-3982" srcset="/wp-content/uploads/2018/05/word-image-3527.png 772w, /wp-content/uploads/2018/05/word-image-3527-300x229.png 300w, /wp-content/uploads/2018/05/word-image-3527-768x587.png 768w" sizes="(max-width: 772px) 100vw, 772px" /></p>
+<p>
+  对于M函数的第三个参数可以实现跨数据库服务器、数据库进行操作
+</p>
+<p>
+  ③关于M函数第三个参数的变形写法
+</p>
+<p>
+  首先配置数据库的连接
+</p>
+<p><img loading="lazy" decoding="async" width="1046" height="604" src="/wp-content/uploads/2018/05/word-image-3528.png" class="wp-image-3983" srcset="/wp-content/uploads/2018/05/word-image-3528.png 1046w, /wp-content/uploads/2018/05/word-image-3528-300x173.png 300w, /wp-content/uploads/2018/05/word-image-3528-768x443.png 768w, /wp-content/uploads/2018/05/word-image-3528-1024x591.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /></p>
+<p>
+  修改方法
+</p>
+<p><img loading="lazy" decoding="async" width="971" height="511" src="/wp-content/uploads/2018/05/word-image-3529.png" class="wp-image-3984" srcset="/wp-content/uploads/2018/05/word-image-3529.png 971w, /wp-content/uploads/2018/05/word-image-3529-300x158.png 300w, /wp-content/uploads/2018/05/word-image-3529-768x404.png 768w" sizes="(max-width: 971px) 100vw, 971px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="912" height="558" src="/wp-content/uploads/2018/05/word-image-3530.png" class="wp-image-3985" srcset="/wp-content/uploads/2018/05/word-image-3530.png 912w, /wp-content/uploads/2018/05/word-image-3530-300x184.png 300w, /wp-content/uploads/2018/05/word-image-3530-768x470.png 768w" sizes="(max-width: 912px) 100vw, 912px" /></p>
+<p>
+  总结：M函数实例化模型对象永远是实例化TP模型基类的对象
+</p>
+<h3>2.4.3、D函数的使用</h3>
+<p>
+  ①D函数的基本使用
+</p>
+<p><img loading="lazy" decoding="async" width="810" height="325" src="/wp-content/uploads/2018/05/word-image-3531.png" class="wp-image-3986" srcset="/wp-content/uploads/2018/05/word-image-3531.png 810w, /wp-content/uploads/2018/05/word-image-3531-300x120.png 300w, /wp-content/uploads/2018/05/word-image-3531-768x308.png 768w" sizes="(max-width: 810px) 100vw, 810px" /><br />
+<img loading="lazy" decoding="async" width="962" height="542" src="/wp-content/uploads/2018/05/word-image-3532.png" class="wp-image-3987" srcset="/wp-content/uploads/2018/05/word-image-3532.png 962w, /wp-content/uploads/2018/05/word-image-3532-300x169.png 300w, /wp-content/uploads/2018/05/word-image-3532-768x433.png 768w" sizes="(max-width: 962px) 100vw, 962px" /></p>
+<p>
+  ②实例化一个没有自定义模型的对象
+</p>
+<p>
+  复制一个tp_class数据表
+</p>
+<p><img loading="lazy" decoding="async" width="900" height="312" src="/wp-content/uploads/2018/05/word-image-3533.png" class="wp-image-3988" srcset="/wp-content/uploads/2018/05/word-image-3533.png 900w, /wp-content/uploads/2018/05/word-image-3533-300x104.png 300w, /wp-content/uploads/2018/05/word-image-3533-768x266.png 768w" sizes="(max-width: 900px) 100vw, 900px" /></p>
+<p>
+  编写代码
+</p>
+<p><img loading="lazy" decoding="async" width="947" height="384" src="/wp-content/uploads/2018/05/word-image-3534.png" class="wp-image-3989" srcset="/wp-content/uploads/2018/05/word-image-3534.png 947w, /wp-content/uploads/2018/05/word-image-3534-300x122.png 300w, /wp-content/uploads/2018/05/word-image-3534-768x311.png 768w" sizes="(max-width: 947px) 100vw, 947px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="757" height="436" src="/wp-content/uploads/2018/05/word-image-3535.png" class="wp-image-3990" srcset="/wp-content/uploads/2018/05/word-image-3535.png 757w, /wp-content/uploads/2018/05/word-image-3535-300x173.png 300w" sizes="(max-width: 757px) 100vw, 757px" /></p>
+<p>
+  总结：D函数会实例化自定义的模型对象。如果自定义的模型对象不存在。实例化TP模型基类的对象。如果数据表不存在报错
+</p>
+<h3>2.4.4、总结M跟D的区别</h3>
+<p>
+  M实例化永远是模型基类。实例化一个不存在的数据表对应的对象时也会报错
+</p>
+<p>
+  D优先自定义的模型。如果自定义模型不存在使用模型基类进行实例化如果数据表不存在报错
+</p>
+<p>
+  D有缓存功能。再次实例化相同的模型对象。不会再次实例化
+</p>
+<h2>2.5、模型的CURD操作</h2>
+<p>
+  可以通过TP模型基类中所提供的方法进行数据的增删改查
+</p>
+<p>
+  增加：模型对象-&gt;add()
+</p>
+<p>
+  删除：模型对象-&gt;delete()
+</p>
+<p>
+  修改：模型对象-&gt;save()
+</p>
+<p>
+  查询：模型对象-&gt;find/select()
+</p>
+<h3>2.5.1、数据增加</h3>
+<p>
+  ①创建测试
+</p>
+<p><img loading="lazy" decoding="async" width="999" height="667" src="/wp-content/uploads/2018/05/word-image-3536.png" class="wp-image-3991" srcset="/wp-content/uploads/2018/05/word-image-3536.png 999w, /wp-content/uploads/2018/05/word-image-3536-300x200.png 300w, /wp-content/uploads/2018/05/word-image-3536-768x513.png 768w" sizes="(max-width: 999px) 100vw, 999px" /></p>
+<p>
+  ②访问测试
+</p>
+<p><img loading="lazy" decoding="async" width="1031" height="235" src="/wp-content/uploads/2018/05/word-image-3537.png" class="wp-image-3992" srcset="/wp-content/uploads/2018/05/word-image-3537.png 1031w, /wp-content/uploads/2018/05/word-image-3537-300x68.png 300w, /wp-content/uploads/2018/05/word-image-3537-768x175.png 768w, /wp-content/uploads/2018/05/word-image-3537-1024x233.png 1024w" sizes="(max-width: 1031px) 100vw, 1031px" /></p>
+<p>
+  ③查看数据库
+</p>
+<p><img loading="lazy" decoding="async" width="409" height="123" src="/wp-content/uploads/2018/05/word-image-3538.png" class="wp-image-3993" srcset="/wp-content/uploads/2018/05/word-image-3538.png 409w, /wp-content/uploads/2018/05/word-image-3538-300x90.png 300w" sizes="(max-width: 409px) 100vw, 409px" /></p>
+<h3>2.5.2、数据的批量写入</h3>
+<p>
+  数据批量写入可以使用addAll方法实现。写入数据时需要注意。数据的下标必须从0,1,2,3顺序下来。最后的返回结果为写入数据第一条的主键标识
+</p>
+<p><img loading="lazy" decoding="async" width="1006" height="641" src="/wp-content/uploads/2018/05/word-image-3539.png" class="wp-image-3994" srcset="/wp-content/uploads/2018/05/word-image-3539.png 1006w, /wp-content/uploads/2018/05/word-image-3539-300x191.png 300w, /wp-content/uploads/2018/05/word-image-3539-768x489.png 768w" sizes="(max-width: 1006px) 100vw, 1006px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="528" height="139" src="/wp-content/uploads/2018/05/word-image-3540.png" class="wp-image-3995" srcset="/wp-content/uploads/2018/05/word-image-3540.png 528w, /wp-content/uploads/2018/05/word-image-3540-300x79.png 300w" sizes="(max-width: 528px) 100vw, 528px" /></p>
+<h3>2.5.3、数据修改</h3>
+<p><img loading="lazy" decoding="async" width="1053" height="699" src="/wp-content/uploads/2018/05/word-image-3541.png" class="wp-image-3996" srcset="/wp-content/uploads/2018/05/word-image-3541.png 1053w, /wp-content/uploads/2018/05/word-image-3541-300x199.png 300w, /wp-content/uploads/2018/05/word-image-3541-768x510.png 768w, /wp-content/uploads/2018/05/word-image-3541-1024x680.png 1024w" sizes="(max-width: 1053px) 100vw, 1053px" /></p>
+<p>
+  效果如下
+</p>
+<p><img loading="lazy" decoding="async" width="827" height="284" src="/wp-content/uploads/2018/05/word-image-3542.png" class="wp-image-3997" srcset="/wp-content/uploads/2018/05/word-image-3542.png 827w, /wp-content/uploads/2018/05/word-image-3542-300x103.png 300w, /wp-content/uploads/2018/05/word-image-3542-768x264.png 768w" sizes="(max-width: 827px) 100vw, 827px" /></p>
+<h3>2.5.4、数据查询</h3>
+<p>
+  Find：查询获取一条数据。结果为一维数组
+</p>
+<p>
+  Select：查询获取多条数据。结果为二维数组
+</p>
+<p><img loading="lazy" decoding="async" width="907" height="395" src="/wp-content/uploads/2018/05/word-image-3543.png" class="wp-image-3998" srcset="/wp-content/uploads/2018/05/word-image-3543.png 907w, /wp-content/uploads/2018/05/word-image-3543-300x131.png 300w, /wp-content/uploads/2018/05/word-image-3543-768x334.png 768w" sizes="(max-width: 907px) 100vw, 907px" /></p>
+<p>
+  结果如下
+</p>
+<p><img loading="lazy" decoding="async" width="961" height="500" src="/wp-content/uploads/2018/05/word-image-3544.png" class="wp-image-3999" srcset="/wp-content/uploads/2018/05/word-image-3544.png 961w, /wp-content/uploads/2018/05/word-image-3544-300x156.png 300w, /wp-content/uploads/2018/05/word-image-3544-768x400.png 768w" sizes="(max-width: 961px) 100vw, 961px" /></p>
+<h3>2.5.5、数据删除</h3>
+<p><img loading="lazy" decoding="async" width="960" height="504" src="/wp-content/uploads/2018/05/word-image-3545.png" class="wp-image-4000" srcset="/wp-content/uploads/2018/05/word-image-3545.png 960w, /wp-content/uploads/2018/05/word-image-3545-300x158.png 300w, /wp-content/uploads/2018/05/word-image-3545-768x403.png 768w" sizes="(max-width: 960px) 100vw, 960px" /><br />
+<img loading="lazy" decoding="async" width="745" height="233" src="/wp-content/uploads/2018/05/word-image-3546.png" class="wp-image-4001" srcset="/wp-content/uploads/2018/05/word-image-3546.png 745w, /wp-content/uploads/2018/05/word-image-3546-300x94.png 300w" sizes="(max-width: 745px) 100vw, 745px" /></p>
+<h1>电商案例-分类的添加</h1>
+<h2>3.1、实现步骤</h2>
+<ol>
+<li>
+  显示添加表单模板
+</li>
+<li>
+  创建数据表
+</li>
+<li>
+  接受表单的提交数据
+</li>
+<li>
+  接受之后写入数据库
+</li>
+</ol>
+<h2>3.2、显示商品的添加模板</h2>
+<p>
+  ①创建控制器方法显示模板
+</p>
+<p><img loading="lazy" decoding="async" width="923" height="407" src="/wp-content/uploads/2018/05/word-image-3547.png" class="wp-image-4002" srcset="/wp-content/uploads/2018/05/word-image-3547.png 923w, /wp-content/uploads/2018/05/word-image-3547-300x132.png 300w, /wp-content/uploads/2018/05/word-image-3547-768x339.png 768w" sizes="(max-width: 923px) 100vw, 923px" /></p>
+<p>
+  ②拷贝添加的模板
+</p>
+<p><img loading="lazy" decoding="async" width="1144" height="553" src="/wp-content/uploads/2018/05/word-image-3548.png" class="wp-image-4003" srcset="/wp-content/uploads/2018/05/word-image-3548.png 1144w, /wp-content/uploads/2018/05/word-image-3548-300x145.png 300w, /wp-content/uploads/2018/05/word-image-3548-768x371.png 768w, /wp-content/uploads/2018/05/word-image-3548-1024x495.png 1024w" sizes="(max-width: 1144px) 100vw, 1144px" /></p>
+<p>
+  ③修改资源地址
+</p>
+<p><img loading="lazy" decoding="async" width="1047" height="476" src="/wp-content/uploads/2018/05/word-image-3549.png" class="wp-image-4004" srcset="/wp-content/uploads/2018/05/word-image-3549.png 1047w, /wp-content/uploads/2018/05/word-image-3549-300x136.png 300w, /wp-content/uploads/2018/05/word-image-3549-768x349.png 768w, /wp-content/uploads/2018/05/word-image-3549-1024x466.png 1024w" sizes="(max-width: 1047px) 100vw, 1047px" /></p>
+<h2>3.3、创建数据表</h2>
+<p>
+  ①创建数据库
+</p>
+<p><img loading="lazy" decoding="async" width="757" height="394" src="/wp-content/uploads/2018/05/word-image-3550.png" class="wp-image-4005" srcset="/wp-content/uploads/2018/05/word-image-3550.png 757w, /wp-content/uploads/2018/05/word-image-3550-300x156.png 300w" sizes="(max-width: 757px) 100vw, 757px" /></p>
+<p>
+  ②创建分类的数据表
+</p>
+<p>
+  CREATE TABLE `shop_category` (
+</p>
+<p>
+    `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+</p>
+<p>
+    `cname` varchar(255) NOT NULL DEFAULT &#8221; COMMENT &#8216;分类名称&#8217;,
+</p>
+<p>
+    `parent_id` smallint(6) NOT NULL DEFAULT &#8216;0&#8217; COMMENT &#8216;父分类的ID 0表示顶级&#8217;,
+</p>
+<p>
+    PRIMARY KEY (`id`)
+</p>
+<p>
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</p>
+<h2>3.4、接受表单的提交数据</h2>
+<p>
+  ①修改表单提交的地址
+</p>
+<p><img loading="lazy" decoding="async" width="1056" height="650" src="/wp-content/uploads/2018/05/word-image-3551.png" class="wp-image-4006" srcset="/wp-content/uploads/2018/05/word-image-3551.png 1056w, /wp-content/uploads/2018/05/word-image-3551-300x185.png 300w, /wp-content/uploads/2018/05/word-image-3551-768x473.png 768w, /wp-content/uploads/2018/05/word-image-3551-1024x630.png 1024w" sizes="(max-width: 1056px) 100vw, 1056px" /></p>
+<p>
+  ②创建方法
+</p>
+<p><img loading="lazy" decoding="async" width="690" height="417" src="/wp-content/uploads/2018/05/word-image-3552.png" class="wp-image-4007" srcset="/wp-content/uploads/2018/05/word-image-3552.png 690w, /wp-content/uploads/2018/05/word-image-3552-300x181.png 300w" sizes="(max-width: 690px) 100vw, 690px" /></p>
+<p>
+  ③测试数据提交
+</p>
+<p><img loading="lazy" decoding="async" width="563" height="190" src="/wp-content/uploads/2018/05/word-image-3553.png" class="wp-image-4008" srcset="/wp-content/uploads/2018/05/word-image-3553.png 563w, /wp-content/uploads/2018/05/word-image-3553-300x101.png 300w" sizes="(max-width: 563px) 100vw, 563px" /></p>
+<h2>3.5、实现数据入库</h2>
+<p>
+  ①配置数据库的连接
+</p>
+<p><img loading="lazy" decoding="async" width="1022" height="492" src="/wp-content/uploads/2018/05/word-image-3554.png" class="wp-image-4009" srcset="/wp-content/uploads/2018/05/word-image-3554.png 1022w, /wp-content/uploads/2018/05/word-image-3554-300x144.png 300w, /wp-content/uploads/2018/05/word-image-3554-768x370.png 768w" sizes="(max-width: 1022px) 100vw, 1022px" /></p>
+<p>
+  ②自定义模型
+</p>
+<p><img loading="lazy" decoding="async" width="902" height="533" src="/wp-content/uploads/2018/05/word-image-3555.png" class="wp-image-4010" srcset="/wp-content/uploads/2018/05/word-image-3555.png 902w, /wp-content/uploads/2018/05/word-image-3555-300x177.png 300w, /wp-content/uploads/2018/05/word-image-3555-768x454.png 768w" sizes="(max-width: 902px) 100vw, 902px" /></p>
+<p>
+  ③实现数据入库
+</p>
+<p><img loading="lazy" decoding="async" width="894" height="624" src="/wp-content/uploads/2018/05/word-image-3556.png" class="wp-image-4011" srcset="/wp-content/uploads/2018/05/word-image-3556.png 894w, /wp-content/uploads/2018/05/word-image-3556-300x209.png 300w, /wp-content/uploads/2018/05/word-image-3556-768x536.png 768w" sizes="(max-width: 894px) 100vw, 894px" /></p>
+<h2>3.6、实现显示表单与数据提交一个方法实现</h2>
+<p>
+  实现此功能的关键点就是需要判断出当前的请求方式
+</p>
+<p>
+  ①查看手册中的常量
+</p>
+<p><img loading="lazy" decoding="async" width="1023" height="473" src="/wp-content/uploads/2018/05/word-image-3557.png" class="wp-image-4012" srcset="/wp-content/uploads/2018/05/word-image-3557.png 1023w, /wp-content/uploads/2018/05/word-image-3557-300x139.png 300w, /wp-content/uploads/2018/05/word-image-3557-768x355.png 768w" sizes="(max-width: 1023px) 100vw, 1023px" /></p>
+<p>
+  ②修改add方法
+</p>
+<p><img loading="lazy" decoding="async" width="1065" height="701" src="/wp-content/uploads/2018/05/word-image-3558.png" class="wp-image-4013" srcset="/wp-content/uploads/2018/05/word-image-3558.png 1065w, /wp-content/uploads/2018/05/word-image-3558-300x197.png 300w, /wp-content/uploads/2018/05/word-image-3558-768x506.png 768w, /wp-content/uploads/2018/05/word-image-3558-1024x674.png 1024w" sizes="(max-width: 1065px) 100vw, 1065px" /></p>
+<p>
+  ③修改表单的提交地址
+</p>
+<p><img loading="lazy" decoding="async" width="1048" height="534" src="/wp-content/uploads/2018/05/word-image-3559.png" class="wp-image-4014" srcset="/wp-content/uploads/2018/05/word-image-3559.png 1048w, /wp-content/uploads/2018/05/word-image-3559-300x153.png 300w, /wp-content/uploads/2018/05/word-image-3559-768x391.png 768w, /wp-content/uploads/2018/05/word-image-3559-1024x522.png 1024w" sizes="(max-width: 1048px) 100vw, 1048px" /></p>
+<h2>3.7、过滤参数</h2>
+<p>
+  ①查看I函数使用方式
+</p>
+<p><img loading="lazy" decoding="async" width="824" height="532" src="/wp-content/uploads/2018/05/word-image-3560.png" class="wp-image-4015" srcset="/wp-content/uploads/2018/05/word-image-3560.png 824w, /wp-content/uploads/2018/05/word-image-3560-300x194.png 300w, /wp-content/uploads/2018/05/word-image-3560-768x496.png 768w" sizes="(max-width: 824px) 100vw, 824px" /></p>
+<p>
+  ②修改add方法对数据进行过滤
+</p>
+<p><img loading="lazy" decoding="async" width="1094" height="663" src="/wp-content/uploads/2018/05/word-image-3561.png" class="wp-image-4016" srcset="/wp-content/uploads/2018/05/word-image-3561.png 1094w, /wp-content/uploads/2018/05/word-image-3561-300x182.png 300w, /wp-content/uploads/2018/05/word-image-3561-768x465.png 768w, /wp-content/uploads/2018/05/word-image-3561-1024x621.png 1024w" sizes="(max-width: 1094px) 100vw, 1094px" /></p>
+<h2>3.8、实现可以添加子分类</h2>
+<p>
+  ①修改add能够获取已有的分类信息
+</p>
+<p><img loading="lazy" decoding="async" width="1065" height="558" src="/wp-content/uploads/2018/05/word-image-3562.png" class="wp-image-4017" srcset="/wp-content/uploads/2018/05/word-image-3562.png 1065w, /wp-content/uploads/2018/05/word-image-3562-300x157.png 300w, /wp-content/uploads/2018/05/word-image-3562-768x402.png 768w, /wp-content/uploads/2018/05/word-image-3562-1024x537.png 1024w" sizes="(max-width: 1065px) 100vw, 1065px" /></p>
+<p>
+  ②创建模型方法实现获取数据
+</p>
+<p><img loading="lazy" decoding="async" width="962" height="607" src="/wp-content/uploads/2018/05/word-image-3563.png" class="wp-image-4018" srcset="/wp-content/uploads/2018/05/word-image-3563.png 962w, /wp-content/uploads/2018/05/word-image-3563-300x189.png 300w, /wp-content/uploads/2018/05/word-image-3563-768x485.png 768w" sizes="(max-width: 962px) 100vw, 962px" /></p>
+<p>
+  ③增加公共函数
+</p>
+<p><img loading="lazy" decoding="async" width="952" height="595" src="/wp-content/uploads/2018/05/word-image-3564.png" class="wp-image-4019" srcset="/wp-content/uploads/2018/05/word-image-3564.png 952w, /wp-content/uploads/2018/05/word-image-3564-300x188.png 300w, /wp-content/uploads/2018/05/word-image-3564-768x480.png 768w" sizes="(max-width: 952px) 100vw, 952px" /></p>
+<p>
+  ④修改模板显示数据
+</p>
+<p><img loading="lazy" decoding="async" width="1022" height="549" src="/wp-content/uploads/2018/05/word-image-3565.png" class="wp-image-4020" srcset="/wp-content/uploads/2018/05/word-image-3565.png 1022w, /wp-content/uploads/2018/05/word-image-3565-300x161.png 300w, /wp-content/uploads/2018/05/word-image-3565-768x413.png 768w" sizes="(max-width: 1022px) 100vw, 1022px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/3905.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

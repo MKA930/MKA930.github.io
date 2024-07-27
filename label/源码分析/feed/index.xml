@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>源码分析 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sun, 20 May 2018 01:22:49 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>源码分析 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>CI框架 安装、路由、模型、视图、控制器、实现用户CURD、跳转函数封装、分页插件、源码分析</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6501.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6501.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 17:29:40 +0000</pubDate>
+				<category><![CDATA[CodeIgniter]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[分页插件]]></category>
+		<category><![CDATA[安装]]></category>
+		<category><![CDATA[实现用户CURD]]></category>
+		<category><![CDATA[控制器]]></category>
+		<category><![CDATA[模型]]></category>
+		<category><![CDATA[源码分析]]></category>
+		<category><![CDATA[视图]]></category>
+		<category><![CDATA[路由]]></category>
+		<category><![CDATA[跳转函数封装]]></category>
+		<guid isPermaLink="false">/?p=6501</guid>
+
+					<description><![CDATA[CI框架 angularJs框架（运行一些设计模式、依赖注入）、laravel（依赖注入）。学习思想上的东西。 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>CI框架</h1>
+<p>angularJs框架（运行一些设计模式、依赖注入）、laravel（依赖注入）。学习思想上的东西。</p>
+<p>今天CI框架会带大家看源码（前题声明难度有点大）。</p>
+<h2>①-框架简介</h2>
+<p>CI框架，是一个非常小巧和轻量级的框架，也是最容易入门的框架（里面有一个按需加载的概念，CI框架很多东西都不会自动的载入，当你需要的时候，需要自己去手工的载入，所以它的性能在众多框架中算是比较快的一个（php框架），至少比laravel快了很多。在众多框架中laravel应该是算得上是最慢的。</p>
+<p>目前比较流行的框架有CI、laravel；同时还有一些性能为主的C语言框架，例如yaf（c语言框架、使用C语言为php编写了一个扩展windows php_yaf.dll文件 mbstring.dll Linux php_yaf.so&#8212;php.ini）、phaclon（这个框架是国外开发的，性能完全不必yaf差，普及度不及国人开发的yaf）等。</p>
+<p>框架就是php自带的，直接可以使用，yaf框架是不提供模型的。</p>
+<p>class UserController extends Yaf_Controller{</p>
+<p>}</p>
+<p><img fetchpriority="high" decoding="async" width="819" height="290" class="wp-image-6746" src="/wp-content/uploads/2018/05/word-image-6150.png" srcset="/wp-content/uploads/2018/05/word-image-6150.png 819w, /wp-content/uploads/2018/05/word-image-6150-300x106.png 300w, /wp-content/uploads/2018/05/word-image-6150-768x272.png 768w" sizes="(max-width: 819px) 100vw, 819px" /></p>
+<p>面对过程、面向对象、面向切面？</p>
+<p>答：这三种思想没有哪一个是最好，只有合适自己的业务就是最优的。</p>
+<p>问题：为什么laravel这么慢，还有那么多企业在使用？</p>
+<p>答：谈一下个人的理解。</p>
+<ol>
+<li>属于跟风比较多。（很多企业压根就不了解这个框架，只是看到市场现状很多人在使用，那么觉得也要跟上潮流、不得不使用）鸭子现象（从众）</li>
+<li>这个框架应用了很多的设计模式，便于开发和维护（并且还要知道laravel产品就是syfomy框架的儿子）</li>
+<li>非常明显的一个特点，重路由设计。每一个控制器的方法的访问都必须要设计一个URL地址（路由规则）。index.php/user/add &#8212;&#8212;-&gt; goods/lst 设置在laravel里面可以不存在控制器、也可以不存在模型，视图也可以不存在，但是路由必须存在（可以把所有的业务逻辑放在路由里面完成）。主要是现在web项目相关的项目更倾向于前后端相分离（API接口&#8212;》URL地址&#8212;》路由规则）。</li>
+<li>目前框架使用composer的管理工具，可以把互联网上所有php好的工具类库全部整合在一起。（composer理解成node的npm或者Linux的yum工具、前端的bower） composer install upload</li>
+<li>并且laravel框架是完全的面向对象的框架，并且只有面向对象的编程思想才可以更好的和现实社会形成联系。（面向对象里面的思想可以和一物一世界完全对应）（面向过程、面向对象、面向切面【钩子函数的思想】&#8230;..）</li>
+</ol>
+<p>TP里面钩子函数：只需要用户定义在特定的位置，不需要手工的执行，框架会在特定的时间执行这个钩子函数，对数据进行处理。（AOP就是面向切面编程的缩写）</p>
+<h2>②-CI框架简介</h2>
+<ol>
+<li>什么CI框架？</li>
+</ol>
+<p>答：是一个外国人开发的小巧的框架。目前存在两个主流分支版本，一个是3.x系列，一个是2.x系列。本次课程学习是2.x系列，企业基本都是选择这个版本。（LTS:长时间维护，3年左右的维护期）</p>
+<p><img decoding="async" width="1188" height="337" class="wp-image-6747" src="/wp-content/uploads/2018/05/word-image-6151.png" srcset="/wp-content/uploads/2018/05/word-image-6151.png 1188w, /wp-content/uploads/2018/05/word-image-6151-300x85.png 300w, /wp-content/uploads/2018/05/word-image-6151-768x218.png 768w, /wp-content/uploads/2018/05/word-image-6151-1024x290.png 1024w" sizes="(max-width: 1188px) 100vw, 1188px" /></p>
+<h2>③-CI框架入门使用</h2>
+<p>框架资料</p>
+<p><img decoding="async" width="849" height="591" class="wp-image-6748" src="/wp-content/uploads/2018/05/word-image-6152.png" srcset="/wp-content/uploads/2018/05/word-image-6152.png 849w, /wp-content/uploads/2018/05/word-image-6152-300x209.png 300w, /wp-content/uploads/2018/05/word-image-6152-768x535.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<ol>
+<li>在虚拟主机目录解压对应的框架</li>
+</ol>
+<p>整体目录结构</p>
+<p><img loading="lazy" decoding="async" width="849" height="591" class="wp-image-6749" src="/wp-content/uploads/2018/05/word-image-6153.png" srcset="/wp-content/uploads/2018/05/word-image-6153.png 849w, /wp-content/uploads/2018/05/word-image-6153-300x209.png 300w, /wp-content/uploads/2018/05/word-image-6153-768x535.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<p>分析核心代码目录</p>
+<p><img loading="lazy" decoding="async" width="849" height="591" class="wp-image-6750" src="/wp-content/uploads/2018/05/word-image-6154.png" srcset="/wp-content/uploads/2018/05/word-image-6154.png 849w, /wp-content/uploads/2018/05/word-image-6154-300x209.png 300w, /wp-content/uploads/2018/05/word-image-6154-768x535.png 768w" sizes="(max-width: 849px) 100vw, 849px" /> <img loading="lazy" decoding="async" width="311" height="223" class="wp-image-6751" src="/wp-content/uploads/2018/05/word-image-6155.png" srcset="/wp-content/uploads/2018/05/word-image-6155.png 311w, /wp-content/uploads/2018/05/word-image-6155-300x215.png 300w" sizes="(max-width: 311px) 100vw, 311px" /> <img loading="lazy" decoding="async" width="362" height="321" class="wp-image-6752" src="/wp-content/uploads/2018/05/word-image-6156.png" srcset="/wp-content/uploads/2018/05/word-image-6156.png 362w, /wp-content/uploads/2018/05/word-image-6156-300x266.png 300w" sizes="(max-width: 362px) 100vw, 362px" /></p>
+<p>application目录</p>
+<p><img loading="lazy" decoding="async" width="849" height="591" class="wp-image-6753" src="/wp-content/uploads/2018/05/word-image-6157.png" srcset="/wp-content/uploads/2018/05/word-image-6157.png 849w, /wp-content/uploads/2018/05/word-image-6157-300x209.png 300w, /wp-content/uploads/2018/05/word-image-6157-768x535.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<p>例如：自己扩展CI的控制器类</p>
+<p><img loading="lazy" decoding="async" width="626" height="217" class="wp-image-6754" src="/wp-content/uploads/2018/05/word-image-6158.png" srcset="/wp-content/uploads/2018/05/word-image-6158.png 626w, /wp-content/uploads/2018/05/word-image-6158-300x104.png 300w" sizes="(max-width: 626px) 100vw, 626px" /> <img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6755" src="/wp-content/uploads/2018/05/word-image-6159.png" srcset="/wp-content/uploads/2018/05/word-image-6159.png 1366w, /wp-content/uploads/2018/05/word-image-6159-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6159-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6159-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<ol>
+<li>ci框架的访问</li>
+</ol>
+<p>两种访问方式，直接访问，全路径访问</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6756" src="/wp-content/uploads/2018/05/word-image-6160.png" srcset="/wp-content/uploads/2018/05/word-image-6160.png 1366w, /wp-content/uploads/2018/05/word-image-6160-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6160-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6160-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>全路径访问（默认控制器是welcome控制器、方法是index方法；URL访问模式叫做pathinfo）</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6758" src="/wp-content/uploads/2018/05/word-image-6161.png" srcset="/wp-content/uploads/2018/05/word-image-6161.png 1366w, /wp-content/uploads/2018/05/word-image-6161-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6161-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6161-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>index.php?m=Home&amp;c=Index&amp;a=index （普通模式）</p>
+<p>index.php/Home/Index/index （pathinfo模式）</p>
+<p>index.php?s=Home&amp;Index&amp;lst（兼容模式）</p>
+<p>Index-lst-12.html &#8212;-&gt; index/Home/Index/lst/12 （重写模式）</p>
+<h2>④-CI框架-控制器</h2>
+<p>如何上手一个CI框架？</p>
+<p>答：1. 学习控制器 2. 学习视图 3. 学习模型</p>
+<p>具体：</p>
+<p>一个控制器如何学习？</p>
+<ol>
+<li>学习控制器写在哪里？</li>
+<li>控制器文件的命令如何命名？</li>
+<li>文件里面的内容如何书写？有哪些注意事项？</li>
+<li>控制器里面的方法如何书写？注意事项？</li>
+<li>控制器方法里面如何载入视图？</li>
+<li>如何给视图赋值变量？</li>
+<li>视图里面如何显示变量信息？</li>
+<li>最后如何在控制器里面实例化模型，从数据库获取数据？</li>
+</ol>
+<p>实操：</p>
+<ol>
+<li>控制器文件写在哪里？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="849" height="591" class="wp-image-6759" src="/wp-content/uploads/2018/05/word-image-6162.png" srcset="/wp-content/uploads/2018/05/word-image-6162.png 849w, /wp-content/uploads/2018/05/word-image-6162-300x209.png 300w, /wp-content/uploads/2018/05/word-image-6162-768x535.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<ol>
+<li>控制器文件如何命名？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="849" height="591" class="wp-image-6760" src="/wp-content/uploads/2018/05/word-image-6163.png" srcset="/wp-content/uploads/2018/05/word-image-6163.png 849w, /wp-content/uploads/2018/05/word-image-6163-300x209.png 300w, /wp-content/uploads/2018/05/word-image-6163-768x535.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<ol>
+<li>控制器里面的内容如何书写？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1314" height="145" class="wp-image-6761" src="/wp-content/uploads/2018/05/word-image-6164.png" srcset="/wp-content/uploads/2018/05/word-image-6164.png 1314w, /wp-content/uploads/2018/05/word-image-6164-300x33.png 300w, /wp-content/uploads/2018/05/word-image-6164-768x85.png 768w, /wp-content/uploads/2018/05/word-image-6164-1024x113.png 1024w" sizes="(max-width: 1314px) 100vw, 1314px" /></p>
+<p>确保所有的请求都是从单入口开始的。</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6762" src="/wp-content/uploads/2018/05/word-image-6165.png" srcset="/wp-content/uploads/2018/05/word-image-6165.png 1366w, /wp-content/uploads/2018/05/word-image-6165-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6165-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6165-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<ol>
+<li>控制器里面的方法如何书写？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6763" src="/wp-content/uploads/2018/05/word-image-6166.png" srcset="/wp-content/uploads/2018/05/word-image-6166.png 1366w, /wp-content/uploads/2018/05/word-image-6166-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6166-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6166-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>浏览器访问</p>
+<p><img loading="lazy" decoding="async" width="631" height="192" class="wp-image-6764" src="/wp-content/uploads/2018/05/word-image-6167.png" srcset="/wp-content/uploads/2018/05/word-image-6167.png 631w, /wp-content/uploads/2018/05/word-image-6167-300x91.png 300w" sizes="(max-width: 631px) 100vw, 631px" /></p>
+<p>注意：在CI框架里面，方法名称不能以_下划线开头，在浏览器是无法访问，但是不影响在类的方法内部被调用</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6765" src="/wp-content/uploads/2018/05/word-image-6168.png" srcset="/wp-content/uploads/2018/05/word-image-6168.png 1366w, /wp-content/uploads/2018/05/word-image-6168-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6168-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6168-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="602" height="220" class="wp-image-6766" src="/wp-content/uploads/2018/05/word-image-6169.png" srcset="/wp-content/uploads/2018/05/word-image-6169.png 602w, /wp-content/uploads/2018/05/word-image-6169-300x110.png 300w" sizes="(max-width: 602px) 100vw, 602px" /></p>
+<p>注意：内部使用不受影响</p>
+<p><img loading="lazy" decoding="async" width="842" height="482" class="wp-image-6767" src="/wp-content/uploads/2018/05/word-image-6170.png" srcset="/wp-content/uploads/2018/05/word-image-6170.png 842w, /wp-content/uploads/2018/05/word-image-6170-300x172.png 300w, /wp-content/uploads/2018/05/word-image-6170-768x440.png 768w" sizes="(max-width: 842px) 100vw, 842px" /></p>
+<p>5. 注意：CI框架控制器里面有一个方法比较特殊，叫做_remap方法，该方法会在其他方法被调用之前，自动的调用</p>
+<p><img loading="lazy" decoding="async" width="1160" height="371" class="wp-image-6768" src="/wp-content/uploads/2018/05/word-image-6171.png" srcset="/wp-content/uploads/2018/05/word-image-6171.png 1160w, /wp-content/uploads/2018/05/word-image-6171-300x96.png 300w, /wp-content/uploads/2018/05/word-image-6171-768x246.png 768w, /wp-content/uploads/2018/05/word-image-6171-1024x328.png 1024w" sizes="(max-width: 1160px) 100vw, 1160px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="852" height="216" class="wp-image-6769" src="/wp-content/uploads/2018/05/word-image-6172.png" srcset="/wp-content/uploads/2018/05/word-image-6172.png 852w, /wp-content/uploads/2018/05/word-image-6172-300x76.png 300w, /wp-content/uploads/2018/05/word-image-6172-768x195.png 768w" sizes="(max-width: 852px) 100vw, 852px" /></p>
+<p>实际操作：可以做一个简单的前台权限的验证操作。</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6770" src="/wp-content/uploads/2018/05/word-image-6173.png" srcset="/wp-content/uploads/2018/05/word-image-6173.png 1366w, /wp-content/uploads/2018/05/word-image-6173-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6173-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6173-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>验证</p>
+<p><img loading="lazy" decoding="async" width="1177" height="510" class="wp-image-6771" src="/wp-content/uploads/2018/05/word-image-6174.png" srcset="/wp-content/uploads/2018/05/word-image-6174.png 1177w, /wp-content/uploads/2018/05/word-image-6174-300x130.png 300w, /wp-content/uploads/2018/05/word-image-6174-768x333.png 768w, /wp-content/uploads/2018/05/word-image-6174-1024x444.png 1024w" sizes="(max-width: 1177px) 100vw, 1177px" /></p>
+<p>6. 方法里面如何载入视图？</p>
+<p><img loading="lazy" decoding="async" width="885" height="272" class="wp-image-6772" src="/wp-content/uploads/2018/05/word-image-6175.png" srcset="/wp-content/uploads/2018/05/word-image-6175.png 885w, /wp-content/uploads/2018/05/word-image-6175-300x92.png 300w, /wp-content/uploads/2018/05/word-image-6175-768x236.png 768w" sizes="(max-width: 885px) 100vw, 885px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="970" height="471" class="wp-image-6773" src="/wp-content/uploads/2018/05/word-image-6176.png" srcset="/wp-content/uploads/2018/05/word-image-6176.png 970w, /wp-content/uploads/2018/05/word-image-6176-300x146.png 300w, /wp-content/uploads/2018/05/word-image-6176-768x373.png 768w" sizes="(max-width: 970px) 100vw, 970px" /></p>
+<h2>⑤-CI框架-视图</h2>
+<p>思考：</p>
+<ol>
+<li>视图写在哪里？</li>
+<li>视图文件如何命名？</li>
+<li>视图内容如何书写？</li>
+<li>控制器如何调用视图，如何给视图赋值</li>
+<li>视图里面如何显示变量（是否可以使用标签语法、或者原生写法）</li>
+<li>视图可以分目录管理</li>
+<li>控制器里面可以载入多个视图</li>
+<li>视图可以分目录管理，那么控制器是否可以分目录管理？可以（分目录其实就是之前其他框架里面的分模块管理：前台、后台）</li>
+</ol>
+<p>实操</p>
+<ol>
+<li>写在哪里？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="849" height="591" class="wp-image-6774" src="/wp-content/uploads/2018/05/word-image-6177.png" srcset="/wp-content/uploads/2018/05/word-image-6177.png 849w, /wp-content/uploads/2018/05/word-image-6177-300x209.png 300w, /wp-content/uploads/2018/05/word-image-6177-768x535.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<ol>
+<li>视图文件如何命名？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="849" height="591" class="wp-image-6775" src="/wp-content/uploads/2018/05/word-image-6178.png" srcset="/wp-content/uploads/2018/05/word-image-6178.png 849w, /wp-content/uploads/2018/05/word-image-6178-300x209.png 300w, /wp-content/uploads/2018/05/word-image-6178-768x535.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<ol>
+<li>视图里面的内容如何书写？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6776" src="/wp-content/uploads/2018/05/word-image-6179.png" srcset="/wp-content/uploads/2018/05/word-image-6179.png 1366w, /wp-content/uploads/2018/05/word-image-6179-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6179-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6179-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>4. 如何在控制器里面载入视图文件？</p>
+<p><img loading="lazy" decoding="async" width="793" height="316" class="wp-image-6777" src="/wp-content/uploads/2018/05/word-image-6180.png" srcset="/wp-content/uploads/2018/05/word-image-6180.png 793w, /wp-content/uploads/2018/05/word-image-6180-300x120.png 300w, /wp-content/uploads/2018/05/word-image-6180-768x306.png 768w" sizes="(max-width: 793px) 100vw, 793px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="635" height="187" class="wp-image-6778" src="/wp-content/uploads/2018/05/word-image-6181.png" srcset="/wp-content/uploads/2018/05/word-image-6181.png 635w, /wp-content/uploads/2018/05/word-image-6181-300x88.png 300w" sizes="(max-width: 635px) 100vw, 635px" /></p>
+<p>5. 如何在控制器里面给视图赋值变量，然后让变量在视图文件显示？</p>
+<p>第一种方式赋值[使用少]</p>
+<p><img loading="lazy" decoding="async" width="930" height="449" class="wp-image-6779" src="/wp-content/uploads/2018/05/word-image-6182.png" srcset="/wp-content/uploads/2018/05/word-image-6182.png 930w, /wp-content/uploads/2018/05/word-image-6182-300x145.png 300w, /wp-content/uploads/2018/05/word-image-6182-768x371.png 768w" sizes="(max-width: 930px) 100vw, 930px" /></p>
+<p>视图代码</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6780" src="/wp-content/uploads/2018/05/word-image-6183.png" srcset="/wp-content/uploads/2018/05/word-image-6183.png 1366w, /wp-content/uploads/2018/05/word-image-6183-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6183-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6183-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="493" height="181" class="wp-image-6781" src="/wp-content/uploads/2018/05/word-image-6184.png" srcset="/wp-content/uploads/2018/05/word-image-6184.png 493w, /wp-content/uploads/2018/05/word-image-6184-300x110.png 300w" sizes="(max-width: 493px) 100vw, 493px" /></p>
+<p>第二种方式[使用多]</p>
+<p><img loading="lazy" decoding="async" width="1193" height="502" class="wp-image-6782" src="/wp-content/uploads/2018/05/word-image-6185.png" srcset="/wp-content/uploads/2018/05/word-image-6185.png 1193w, /wp-content/uploads/2018/05/word-image-6185-300x126.png 300w, /wp-content/uploads/2018/05/word-image-6185-768x323.png 768w, /wp-content/uploads/2018/05/word-image-6185-1024x431.png 1024w" sizes="(max-width: 1193px) 100vw, 1193px" /></p>
+<p>视图代码</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6783" src="/wp-content/uploads/2018/05/word-image-6186.png" srcset="/wp-content/uploads/2018/05/word-image-6186.png 1366w, /wp-content/uploads/2018/05/word-image-6186-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6186-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6186-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="549" height="322" class="wp-image-6784" src="/wp-content/uploads/2018/05/word-image-6187.png" srcset="/wp-content/uploads/2018/05/word-image-6187.png 549w, /wp-content/uploads/2018/05/word-image-6187-300x176.png 300w" sizes="(max-width: 549px) 100vw, 549px" /></p>
+<p>6. 注意：CI框架里面的控制器和视图是否可以分目录保存？</p>
+<p>控制器分目录，书写位置：</p>
+<p><img loading="lazy" decoding="async" width="647" height="192" class="wp-image-6785" src="/wp-content/uploads/2018/05/word-image-6188.png" srcset="/wp-content/uploads/2018/05/word-image-6188.png 647w, /wp-content/uploads/2018/05/word-image-6188-300x89.png 300w" sizes="(max-width: 647px) 100vw, 647px" /></p>
+<p>控制器代码：</p>
+<p><img loading="lazy" decoding="async" width="1025" height="376" class="wp-image-6786" src="/wp-content/uploads/2018/05/word-image-6189.png" srcset="/wp-content/uploads/2018/05/word-image-6189.png 1025w, /wp-content/uploads/2018/05/word-image-6189-300x110.png 300w, /wp-content/uploads/2018/05/word-image-6189-768x282.png 768w, /wp-content/uploads/2018/05/word-image-6189-1024x376.png 1024w" sizes="(max-width: 1025px) 100vw, 1025px" /></p>
+<p>访问：</p>
+<p><img loading="lazy" decoding="async" width="801" height="189" class="wp-image-6787" src="/wp-content/uploads/2018/05/word-image-6190.png" srcset="/wp-content/uploads/2018/05/word-image-6190.png 801w, /wp-content/uploads/2018/05/word-image-6190-300x71.png 300w, /wp-content/uploads/2018/05/word-image-6190-768x181.png 768w" sizes="(max-width: 801px) 100vw, 801px" /></p>
+<p>视图分目录，书写位置：</p>
+<p><img loading="lazy" decoding="async" width="849" height="591" class="wp-image-6790" src="/wp-content/uploads/2018/05/word-image-6191.png" srcset="/wp-content/uploads/2018/05/word-image-6191.png 849w, /wp-content/uploads/2018/05/word-image-6191-300x209.png 300w, /wp-content/uploads/2018/05/word-image-6191-768x535.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<p>控制器代码</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6792" src="/wp-content/uploads/2018/05/word-image-6192.png" srcset="/wp-content/uploads/2018/05/word-image-6192.png 1366w, /wp-content/uploads/2018/05/word-image-6192-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6192-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6192-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6793" src="/wp-content/uploads/2018/05/word-image-6193.png" srcset="/wp-content/uploads/2018/05/word-image-6193.png 1366w, /wp-content/uploads/2018/05/word-image-6193-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6193-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6193-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>注意：CI框架里面的控制器里面可以载入多个视图</p>
+<p>视图文件位置：</p>
+<p><img loading="lazy" decoding="async" width="849" height="591" class="wp-image-6794" src="/wp-content/uploads/2018/05/word-image-6194.png" srcset="/wp-content/uploads/2018/05/word-image-6194.png 849w, /wp-content/uploads/2018/05/word-image-6194-300x209.png 300w, /wp-content/uploads/2018/05/word-image-6194-768x535.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<p>控制器代码：</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6795" src="/wp-content/uploads/2018/05/word-image-6195.png" srcset="/wp-content/uploads/2018/05/word-image-6195.png 1366w, /wp-content/uploads/2018/05/word-image-6195-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6195-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6195-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6796" src="/wp-content/uploads/2018/05/word-image-6196.png" srcset="/wp-content/uploads/2018/05/word-image-6196.png 1366w, /wp-content/uploads/2018/05/word-image-6196-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6196-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6196-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<h2>⑥-数据库操作</h2>
+<p>思考：</p>
+<ol>
+<li>在CI如何书写配置信息？</li>
+<li>在CI里面如何从数据库里面获取数据？</li>
+</ol>
+<p>实操：</p>
+<ol>
+<li>建一个用户表</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="770" height="298" class="wp-image-6797" src="/wp-content/uploads/2018/05/word-image-6197.png" srcset="/wp-content/uploads/2018/05/word-image-6197.png 770w, /wp-content/uploads/2018/05/word-image-6197-300x116.png 300w, /wp-content/uploads/2018/05/word-image-6197-768x297.png 768w" sizes="(max-width: 770px) 100vw, 770px" /></p>
+<ol>
+<li>先配置数据库的信息</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="849" height="591" class="wp-image-6798" src="/wp-content/uploads/2018/05/word-image-6198.png" srcset="/wp-content/uploads/2018/05/word-image-6198.png 849w, /wp-content/uploads/2018/05/word-image-6198-300x209.png 300w, /wp-content/uploads/2018/05/word-image-6198-768x535.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<p>配置</p>
+<p><img loading="lazy" decoding="async" width="565" height="291" class="wp-image-6799" src="/wp-content/uploads/2018/05/word-image-6199.png" srcset="/wp-content/uploads/2018/05/word-image-6199.png 565w, /wp-content/uploads/2018/05/word-image-6199-300x155.png 300w" sizes="(max-width: 565px) 100vw, 565px" /></p>
+<ol>
+<li>在控制器里面获取数据库的数据</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6800" src="/wp-content/uploads/2018/05/word-image-6200.png" srcset="/wp-content/uploads/2018/05/word-image-6200.png 1366w, /wp-content/uploads/2018/05/word-image-6200-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6200-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6200-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<ol>
+<li>在视图里面显示</li>
+</ol>
+<p>视图</p>
+<p><img loading="lazy" decoding="async" width="730" height="373" class="wp-image-6803" src="/wp-content/uploads/2018/05/word-image-6203.png" srcset="/wp-content/uploads/2018/05/word-image-6203.png 730w, /wp-content/uploads/2018/05/word-image-6203-300x153.png 300w" sizes="(max-width: 730px) 100vw, 730px" /> <img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6807" src="/wp-content/uploads/2018/05/word-image-6207.png" srcset="/wp-content/uploads/2018/05/word-image-6207.png 1366w, /wp-content/uploads/2018/05/word-image-6207-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6207-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6207-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6812" src="/wp-content/uploads/2018/05/word-image-6212.png" srcset="/wp-content/uploads/2018/05/word-image-6212.png 1366w, /wp-content/uploads/2018/05/word-image-6212-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6212-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6212-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>注意事项：在获取数据操作的时候，必须连接数据[$this-&gt;load-&gt;datebase()], 但是有的时候容易忘记，所以可以自动载入</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6816" src="/wp-content/uploads/2018/05/word-image-6216.png" srcset="/wp-content/uploads/2018/05/word-image-6216.png 1366w, /wp-content/uploads/2018/05/word-image-6216-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6216-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6216-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>在控制器里面就不需要在手工的连接</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6820" src="/wp-content/uploads/2018/05/word-image-6220.png" srcset="/wp-content/uploads/2018/05/word-image-6220.png 1366w, /wp-content/uploads/2018/05/word-image-6220-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6220-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6220-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>这个也被称为CI里面的按需加载。【要连接数据库，才使用$this-&gt;load-&gt;database()连接】</p>
+<h2>⑦-CI框架-模型</h2>
+<p>思考：</p>
+<ol>
+<li>模型文件写哪里？</li>
+<li>模型文件如何命名？</li>
+<li>模型文件里面的内容如何书写？</li>
+<li>在控制器里面如何调用模型？</li>
+</ol>
+<p>实操：</p>
+<ol>
+<li>模型文件写哪里？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="849" height="591" class="wp-image-6824" src="/wp-content/uploads/2018/05/word-image-6224.png" srcset="/wp-content/uploads/2018/05/word-image-6224.png 849w, /wp-content/uploads/2018/05/word-image-6224-300x209.png 300w, /wp-content/uploads/2018/05/word-image-6224-768x535.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<ol>
+<li>模型文件如何命名的问题？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="849" height="591" class="wp-image-6828" src="/wp-content/uploads/2018/05/word-image-6228.png" srcset="/wp-content/uploads/2018/05/word-image-6228.png 849w, /wp-content/uploads/2018/05/word-image-6228-300x209.png 300w, /wp-content/uploads/2018/05/word-image-6228-768x535.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<ol>
+<li>模型里面的内容书写</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6832" src="/wp-content/uploads/2018/05/word-image-6232.png" srcset="/wp-content/uploads/2018/05/word-image-6232.png 1366w, /wp-content/uploads/2018/05/word-image-6232-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6232-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6232-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>书写一个get_user方法获取数据</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6837" src="/wp-content/uploads/2018/05/word-image-6237.png" srcset="/wp-content/uploads/2018/05/word-image-6237.png 1366w, /wp-content/uploads/2018/05/word-image-6237-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6237-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6237-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>在控制器里面调用</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6841" src="/wp-content/uploads/2018/05/word-image-6241.png" srcset="/wp-content/uploads/2018/05/word-image-6241.png 1366w, /wp-content/uploads/2018/05/word-image-6241-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6241-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6241-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>视图显示数据</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6845" src="/wp-content/uploads/2018/05/word-image-6245.png" srcset="/wp-content/uploads/2018/05/word-image-6245.png 1366w, /wp-content/uploads/2018/05/word-image-6245-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6245-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6245-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<h1>简单的实现一套用户的curd</h1>
+<p>使用CI框架实现一套完整的增删改查。</p>
+<h2>①-用户增加</h2>
+<ol>
+<li>在user.php控制器文件增加一个add_user方法</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6848" src="/wp-content/uploads/2018/05/word-image-6248.png" srcset="/wp-content/uploads/2018/05/word-image-6248.png 1366w, /wp-content/uploads/2018/05/word-image-6248-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6248-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6248-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<ol>
+<li>增加一个add_user.php视图文件</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6851" src="/wp-content/uploads/2018/05/word-image-6251.png" srcset="/wp-content/uploads/2018/05/word-image-6251.png 1366w, /wp-content/uploads/2018/05/word-image-6251-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6251-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6251-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p><strong>备注：在form表单提交的actione里面使用site_url函数之前，需要在自动载入里面进行配置。</strong></p>
+<p><img loading="lazy" decoding="async" width="839" height="247" class="wp-image-6854" src="/wp-content/uploads/2018/05/word-image-6254.png" srcset="/wp-content/uploads/2018/05/word-image-6254.png 839w, /wp-content/uploads/2018/05/word-image-6254-300x88.png 300w, /wp-content/uploads/2018/05/word-image-6254-768x226.png 768w" sizes="(max-width: 839px) 100vw, 839px" /></p>
+<ol>
+<li>在user_model.php文件里面增加一个add_user方法，入库数据</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6856" src="/wp-content/uploads/2018/05/word-image-6256.png" srcset="/wp-content/uploads/2018/05/word-image-6256.png 1366w, /wp-content/uploads/2018/05/word-image-6256-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6256-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6256-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<h2>②-用户展示</h2>
+<p>1. 在user_model.php模型文件增加一个get_user方法</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6859" src="/wp-content/uploads/2018/05/word-image-6259.png" srcset="/wp-content/uploads/2018/05/word-image-6259.png 1366w, /wp-content/uploads/2018/05/word-image-6259-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6259-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6259-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<ol>
+<li>在user.php控制器里面增加一个get_user方法</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6861" src="/wp-content/uploads/2018/05/word-image-6261.png" srcset="/wp-content/uploads/2018/05/word-image-6261.png 1366w, /wp-content/uploads/2018/05/word-image-6261-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6261-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6261-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>3. 在lst.php视图显示数据</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6863" src="/wp-content/uploads/2018/05/word-image-6263.png" srcset="/wp-content/uploads/2018/05/word-image-6263.png 1366w, /wp-content/uploads/2018/05/word-image-6263-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6263-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6263-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<h2>③-用户删除</h2>
+<ol>
+<li>修改lst.php视图文件，增加删除链接</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6865" src="/wp-content/uploads/2018/05/word-image-6265.png" srcset="/wp-content/uploads/2018/05/word-image-6265.png 1366w, /wp-content/uploads/2018/05/word-image-6265-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6265-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6265-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6867" src="/wp-content/uploads/2018/05/word-image-6267.png" srcset="/wp-content/uploads/2018/05/word-image-6267.png 1366w, /wp-content/uploads/2018/05/word-image-6267-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6267-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6267-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<ol>
+<li>在user.php控制器里面定义del_user方法，完成删除操作</li>
+</ol>
+<p>注意：获取地址栏里的主键id，需要使用按段获取</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6869" src="/wp-content/uploads/2018/05/word-image-6269.png" srcset="/wp-content/uploads/2018/05/word-image-6269.png 1366w, /wp-content/uploads/2018/05/word-image-6269-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6269-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6269-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /> <img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6871" src="/wp-content/uploads/2018/05/word-image-6271.png" srcset="/wp-content/uploads/2018/05/word-image-6271.png 1366w, /wp-content/uploads/2018/05/word-image-6271-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6271-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6271-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>3. 在user_model.php模型里面定义一个del_user方法【特别注意：在CI里面做数据删除的时候，需要根据受影响的行来判断数据是否删除成功！】【$this-&gt;db-&gt;delete方法的返回值是sql语句是否成功运行】</p>
+<p><img loading="lazy" decoding="async" width="1190" height="392" class="wp-image-6873" src="/wp-content/uploads/2018/05/word-image-6273.png" srcset="/wp-content/uploads/2018/05/word-image-6273.png 1190w, /wp-content/uploads/2018/05/word-image-6273-300x99.png 300w, /wp-content/uploads/2018/05/word-image-6273-768x253.png 768w, /wp-content/uploads/2018/05/word-image-6273-1024x337.png 1024w" sizes="(max-width: 1190px) 100vw, 1190px" /></p>
+<p>调试技巧：获取上一次执行的sql语句。</p>
+<p><img loading="lazy" decoding="async" width="1159" height="409" class="wp-image-6875" src="/wp-content/uploads/2018/05/word-image-6275.png" srcset="/wp-content/uploads/2018/05/word-image-6275.png 1159w, /wp-content/uploads/2018/05/word-image-6275-300x106.png 300w, /wp-content/uploads/2018/05/word-image-6275-768x271.png 768w, /wp-content/uploads/2018/05/word-image-6275-1024x361.png 1024w" sizes="(max-width: 1159px) 100vw, 1159px" /></p>
+<h2>④-用户编辑</h2>
+<ol>
+<li>在lst.php视图里面增加一个编辑的链接</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6877" src="/wp-content/uploads/2018/05/word-image-6277.png" srcset="/wp-content/uploads/2018/05/word-image-6277.png 1366w, /wp-content/uploads/2018/05/word-image-6277-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6277-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6277-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6879" src="/wp-content/uploads/2018/05/word-image-6279.png" srcset="/wp-content/uploads/2018/05/word-image-6279.png 1366w, /wp-content/uploads/2018/05/word-image-6279-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6279-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6279-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<ol>
+<li>在user.php控制器里面增加一个edt_user方法</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6881" src="/wp-content/uploads/2018/05/word-image-6281.png" srcset="/wp-content/uploads/2018/05/word-image-6281.png 1366w, /wp-content/uploads/2018/05/word-image-6281-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6281-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6281-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /> <img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6884" src="/wp-content/uploads/2018/05/word-image-6283.png" srcset="/wp-content/uploads/2018/05/word-image-6283.png 1366w, /wp-content/uploads/2018/05/word-image-6283-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6283-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6283-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<ol>
+<li>在user_model.php模型文件增加两个方法find_one和edt_user方法</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1166" height="721" class="wp-image-6887" src="/wp-content/uploads/2018/05/word-image-6286.png" srcset="/wp-content/uploads/2018/05/word-image-6286.png 1166w, /wp-content/uploads/2018/05/word-image-6286-300x186.png 300w, /wp-content/uploads/2018/05/word-image-6286-768x475.png 768w, /wp-content/uploads/2018/05/word-image-6286-1024x633.png 1024w" sizes="(max-width: 1166px) 100vw, 1166px" /></p>
+<ol>
+<li>增加一个edt.php视图文件</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6889" src="/wp-content/uploads/2018/05/word-image-6288.png" srcset="/wp-content/uploads/2018/05/word-image-6288.png 1366w, /wp-content/uploads/2018/05/word-image-6288-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6288-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6288-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<h1>三、跳转函数封装</h1>
+<p>由于CI框架里面的跳转函数是redirect函数，它不能实现跳转的时候带提示信息。</p>
+<p>我们可以参照TP的实现，封装一个带提示的跳转函数。</p>
+<ol>
+<li>参照TP的实现，完成一个函数的封装，写到如下位置</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="849" height="591" class="wp-image-6891" src="/wp-content/uploads/2018/05/word-image-6290.png" srcset="/wp-content/uploads/2018/05/word-image-6290.png 849w, /wp-content/uploads/2018/05/word-image-6290-300x209.png 300w, /wp-content/uploads/2018/05/word-image-6290-768x535.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<ol>
+<li>调用</li>
+</ol>
+<p>自动载入自己定义的函数</p>
+<p><img loading="lazy" decoding="async" width="1057" height="355" class="wp-image-6893" src="/wp-content/uploads/2018/05/word-image-6292.png" srcset="/wp-content/uploads/2018/05/word-image-6292.png 1057w, /wp-content/uploads/2018/05/word-image-6292-300x101.png 300w, /wp-content/uploads/2018/05/word-image-6292-768x258.png 768w, /wp-content/uploads/2018/05/word-image-6292-1024x344.png 1024w" sizes="(max-width: 1057px) 100vw, 1057px" /></p>
+<p>使用</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6895" src="/wp-content/uploads/2018/05/word-image-6294.png" srcset="/wp-content/uploads/2018/05/word-image-6294.png 1366w, /wp-content/uploads/2018/05/word-image-6294-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6294-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6294-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="587" height="348" class="wp-image-6897" src="/wp-content/uploads/2018/05/word-image-6296.png" srcset="/wp-content/uploads/2018/05/word-image-6296.png 587w, /wp-content/uploads/2018/05/word-image-6296-300x178.png 300w" sizes="(max-width: 587px) 100vw, 587px" /></p>
+<h1>四、分页插件</h1>
+<h2>①-Ajax分页</h2>
+<p>在CI里面实现Ajax无刷新分页的效果，还使用一个pagination插件。</p>
+<p>网站:http://www.zhangxinxu.com/jq/pagination_zh/</p>
+<ol>
+<li>在项目引入分页插件</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="849" height="591" class="wp-image-6899" src="/wp-content/uploads/2018/05/word-image-6298.png" srcset="/wp-content/uploads/2018/05/word-image-6298.png 849w, /wp-content/uploads/2018/05/word-image-6298-300x209.png 300w, /wp-content/uploads/2018/05/word-image-6298-768x535.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<ol>
+<li>在页面调用分页插件css和js</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1085" height="301" class="wp-image-6901" src="/wp-content/uploads/2018/05/word-image-6300.png" srcset="/wp-content/uploads/2018/05/word-image-6300.png 1085w, /wp-content/uploads/2018/05/word-image-6300-300x83.png 300w, /wp-content/uploads/2018/05/word-image-6300-768x213.png 768w, /wp-content/uploads/2018/05/word-image-6300-1024x284.png 1024w" sizes="(max-width: 1085px) 100vw, 1085px" /> <img loading="lazy" decoding="async" width="1043" height="97" class="wp-image-6903" src="/wp-content/uploads/2018/05/word-image-6302.png" srcset="/wp-content/uploads/2018/05/word-image-6302.png 1043w, /wp-content/uploads/2018/05/word-image-6302-300x28.png 300w, /wp-content/uploads/2018/05/word-image-6302-768x71.png 768w, /wp-content/uploads/2018/05/word-image-6302-1024x95.png 1024w" sizes="(max-width: 1043px) 100vw, 1043px" /></p>
+<p>注意：必须先引入jQuery</p>
+<ol>
+<li>定义数据显示容器和分页字符串</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6905" src="/wp-content/uploads/2018/05/word-image-6304.png" srcset="/wp-content/uploads/2018/05/word-image-6304.png 1366w, /wp-content/uploads/2018/05/word-image-6304-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6304-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6304-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<ol>
+<li>在js里面调用</li>
+</ol>
+<p>在user.php控制器的get_user方法获取总记录</p>
+<p><img loading="lazy" decoding="async" width="1003" height="326" class="wp-image-6908" src="/wp-content/uploads/2018/05/word-image-6307.png" srcset="/wp-content/uploads/2018/05/word-image-6307.png 1003w, /wp-content/uploads/2018/05/word-image-6307-300x98.png 300w, /wp-content/uploads/2018/05/word-image-6307-768x250.png 768w" sizes="(max-width: 1003px) 100vw, 1003px" /></p>
+<p>在user_model.php文件定义一个方法获取总记录</p>
+<p><img loading="lazy" decoding="async" width="687" height="294" class="wp-image-6910" src="/wp-content/uploads/2018/05/word-image-6309.png" srcset="/wp-content/uploads/2018/05/word-image-6309.png 687w, /wp-content/uploads/2018/05/word-image-6309-300x128.png 300w" sizes="(max-width: 687px) 100vw, 687px" /></p>
+<p>分页插件调用</p>
+<p><img loading="lazy" decoding="async" width="952" height="439" class="wp-image-6911" src="/wp-content/uploads/2018/05/word-image-6310.png" srcset="/wp-content/uploads/2018/05/word-image-6310.png 952w, /wp-content/uploads/2018/05/word-image-6310-300x138.png 300w, /wp-content/uploads/2018/05/word-image-6310-768x354.png 768w" sizes="(max-width: 952px) 100vw, 952px" /></p>
+<p>分页页码点击回调，发送Ajax获取数据</p>
+<p><img loading="lazy" decoding="async" width="960" height="731" class="wp-image-6912" src="/wp-content/uploads/2018/05/word-image-6311.png" srcset="/wp-content/uploads/2018/05/word-image-6311.png 960w, /wp-content/uploads/2018/05/word-image-6311-300x228.png 300w, /wp-content/uploads/2018/05/word-image-6311-768x585.png 768w" sizes="(max-width: 960px) 100vw, 960px" /></p>
+<p>数据格式化函数</p>
+<p><img loading="lazy" decoding="async" width="1155" height="385" class="wp-image-6913" src="/wp-content/uploads/2018/05/word-image-6312.png" srcset="/wp-content/uploads/2018/05/word-image-6312.png 1155w, /wp-content/uploads/2018/05/word-image-6312-300x100.png 300w, /wp-content/uploads/2018/05/word-image-6312-768x256.png 768w, /wp-content/uploads/2018/05/word-image-6312-1024x341.png 1024w" sizes="(max-width: 1155px) 100vw, 1155px" /></p>
+<ol>
+<li>user.php后台返回Ajax数据</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="918" height="750" class="wp-image-6914" src="/wp-content/uploads/2018/05/word-image-6313.png" srcset="/wp-content/uploads/2018/05/word-image-6313.png 918w, /wp-content/uploads/2018/05/word-image-6313-300x245.png 300w, /wp-content/uploads/2018/05/word-image-6313-768x627.png 768w" sizes="(max-width: 918px) 100vw, 918px" /></p>
+<h1>五、CI框架源码分析</h1>
+<h2>①-分析入口文件</h2>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6915" src="/wp-content/uploads/2018/05/word-image-6314.png" srcset="/wp-content/uploads/2018/05/word-image-6314.png 1366w, /wp-content/uploads/2018/05/word-image-6314-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6314-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6314-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /> <img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6916" src="/wp-content/uploads/2018/05/word-image-6315.png" srcset="/wp-content/uploads/2018/05/word-image-6315.png 1366w, /wp-content/uploads/2018/05/word-image-6315-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6315-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6315-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /> <img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6917" src="/wp-content/uploads/2018/05/word-image-6316.png" srcset="/wp-content/uploads/2018/05/word-image-6316.png 1366w, /wp-content/uploads/2018/05/word-image-6316-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6316-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6316-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /> <img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6918" src="/wp-content/uploads/2018/05/word-image-6317.png" srcset="/wp-content/uploads/2018/05/word-image-6317.png 1366w, /wp-content/uploads/2018/05/word-image-6317-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6317-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6317-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<h2>②-CI的核心引导类</h2>
+<p>注意：一般开源产品的common.php里面存放都是项目必须要使用的函数。</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6919" src="/wp-content/uploads/2018/05/word-image-6318.png" srcset="/wp-content/uploads/2018/05/word-image-6318.png 1366w, /wp-content/uploads/2018/05/word-image-6318-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6318-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6318-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>先分析一下common.php里面的函数【重点分析】</p>
+<p>load_class函数</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6920" src="/wp-content/uploads/2018/05/word-image-6319.png" srcset="/wp-content/uploads/2018/05/word-image-6319.png 1366w, /wp-content/uploads/2018/05/word-image-6319-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6319-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6319-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>函数主要是配置load_class使用</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6921" src="/wp-content/uploads/2018/05/word-image-6320.png" srcset="/wp-content/uploads/2018/05/word-image-6320.png 1366w, /wp-content/uploads/2018/05/word-image-6320-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6320-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6320-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /> <img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6922" src="/wp-content/uploads/2018/05/word-image-6321.png" srcset="/wp-content/uploads/2018/05/word-image-6321.png 1366w, /wp-content/uploads/2018/05/word-image-6321-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6321-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6321-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /> <img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6923" src="/wp-content/uploads/2018/05/word-image-6322.png" srcset="/wp-content/uploads/2018/05/word-image-6322.png 1366w, /wp-content/uploads/2018/05/word-image-6322-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6322-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6322-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /> <img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6924" src="/wp-content/uploads/2018/05/word-image-6323.png" srcset="/wp-content/uploads/2018/05/word-image-6323.png 1366w, /wp-content/uploads/2018/05/word-image-6323-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6323-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6323-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<h2>③-CI里面的模型实例化1-装载器分析</h2>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6925" src="/wp-content/uploads/2018/05/word-image-6324.png" srcset="/wp-content/uploads/2018/05/word-image-6324.png 1366w, /wp-content/uploads/2018/05/word-image-6324-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6324-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6324-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>在上面user.php文件里面完成模型的实例化，底层原理是怎么样的？</p>
+<p>思考：在控制器里面$this-&gt;load代表是什么？</p>
+<p>答：$this-&gt;load 这个属性在用户自定义的控制器里面是不存在的，会去父类的控制器里面查询CI_Controller.php里面查找</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6926" src="/wp-content/uploads/2018/05/word-image-6325.png" srcset="/wp-content/uploads/2018/05/word-image-6325.png 1366w, /wp-content/uploads/2018/05/word-image-6325-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6325-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6325-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>通过查找发现父类里面的构造方法里面使用load_calss(‘Loader’,’core’)进行赋值操作。查看 load_class.php的源码，进行分析</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6927" src="/wp-content/uploads/2018/05/word-image-6326.png" srcset="/wp-content/uploads/2018/05/word-image-6326.png 1366w, /wp-content/uploads/2018/05/word-image-6326-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6326-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6326-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<table>
+<tbody>
+<tr>
+<td>面试题：CI装载器是做什么的？主要是负责类的实例化操作，是system/core/loader.php的实例</td>
+</tr>
+</tbody>
+</table>
+<p>先记住：load_class功能：1. 载入类 2. 实例化类 3. 记录类</p>
+<p>并且：整个CI框架没有类的自动载入机制，全部使用load_class完成。</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6928" src="/wp-content/uploads/2018/05/word-image-6327.png" srcset="/wp-content/uploads/2018/05/word-image-6327.png 1366w, /wp-content/uploads/2018/05/word-image-6327-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6327-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6327-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<h2>④-CI里面的模型实例化2-实例化模型</h2>
+<p>$this-&gt;load-&gt;model(‘user_model’,’user’); === new CI_Loader()-&gt;model(‘user_model’,’user’)</p>
+<p>底层原理：</p>
+<p>$this-&gt;load本质就是CI_Loader的实例，所以我们需要分析一下Loader.php这个文件里面的内容，在分析一下里面model方法，这个方法是实例化模型的关键。</p>
+<p><img loading="lazy" decoding="async" width="1067" height="367" class="wp-image-6929" src="/wp-content/uploads/2018/05/word-image-6328.png" srcset="/wp-content/uploads/2018/05/word-image-6328.png 1067w, /wp-content/uploads/2018/05/word-image-6328-300x103.png 300w, /wp-content/uploads/2018/05/word-image-6328-768x264.png 768w, /wp-content/uploads/2018/05/word-image-6328-1024x352.png 1024w" sizes="(max-width: 1067px) 100vw, 1067px" /></p>
+<h2>⑤-CI模型里面的db属性是咋回事？</h2>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6930" src="/wp-content/uploads/2018/05/word-image-6329.png" srcset="/wp-content/uploads/2018/05/word-image-6329.png 1366w, /wp-content/uploads/2018/05/word-image-6329-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6329-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6329-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>之前：$this-&gt;db = new DB(); 这里的$this也是超级对象(get_instance()函数的返回值，或者就是CI_Controller::instance属性&#8212;$this)</p>
+<ol>
+<li>查找db属性，肯定是在自己的类里面查找，不存在则去父类里面查找</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6931" src="/wp-content/uploads/2018/05/word-image-6330.png" srcset="/wp-content/uploads/2018/05/word-image-6330.png 1366w, /wp-content/uploads/2018/05/word-image-6330-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6330-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6330-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<ol>
+<li>查看超级对象下是否存在db属性</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6933" src="/wp-content/uploads/2018/05/word-image-6331.png" srcset="/wp-content/uploads/2018/05/word-image-6331.png 1366w, /wp-content/uploads/2018/05/word-image-6331-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6331-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6331-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<p>3. 查看系统的控制器</p>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6934" src="/wp-content/uploads/2018/05/word-image-6332.png" srcset="/wp-content/uploads/2018/05/word-image-6332.png 1366w, /wp-content/uploads/2018/05/word-image-6332-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6332-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6332-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<ol>
+<li>查看装载器的方法</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6935" src="/wp-content/uploads/2018/05/word-image-6333.png" srcset="/wp-content/uploads/2018/05/word-image-6333.png 1366w, /wp-content/uploads/2018/05/word-image-6333-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6333-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6333-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+<ol>
+<li>分析装载器里面的_ci_autoloader方法</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6936" src="/wp-content/uploads/2018/05/word-image-6334.png" srcset="/wp-content/uploads/2018/05/word-image-6334.png 1366w, /wp-content/uploads/2018/05/word-image-6334-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6334-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6334-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /> <img loading="lazy" decoding="async" width="1114" height="553" class="wp-image-6937" src="/wp-content/uploads/2018/05/word-image-6335.png" srcset="/wp-content/uploads/2018/05/word-image-6335.png 1114w, /wp-content/uploads/2018/05/word-image-6335-300x149.png 300w, /wp-content/uploads/2018/05/word-image-6335-768x381.png 768w, /wp-content/uploads/2018/05/word-image-6335-1024x508.png 1024w" sizes="(max-width: 1114px) 100vw, 1114px" /></p>
+<ol>
+<li>查看装载器的$this-&gt;dabase()方法</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6938" src="/wp-content/uploads/2018/05/word-image-6336.png" srcset="/wp-content/uploads/2018/05/word-image-6336.png 1366w, /wp-content/uploads/2018/05/word-image-6336-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6336-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6336-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /> <img loading="lazy" decoding="async" width="1366" height="736" class="wp-image-6939" src="/wp-content/uploads/2018/05/word-image-6337.png" srcset="/wp-content/uploads/2018/05/word-image-6337.png 1366w, /wp-content/uploads/2018/05/word-image-6337-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6337-768x414.png 768w, /wp-content/uploads/2018/05/word-image-6337-1024x552.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6501.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

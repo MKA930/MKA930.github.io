@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>开发背景 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%BC%80%E5%8F%91%E8%83%8C%E6%99%AF/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 15:59:47 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>开发背景 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Laravel在线教育平台（一）开发背景、涉及技术点、开发周期、项目初始化、后台登录功能、路由、防翻墙、注册激活</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6025.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6025.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 15:59:47 +0000</pubDate>
+				<category><![CDATA[Laravel]]></category>
+		<category><![CDATA[Laravel在线教育平台]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[后台登录功能]]></category>
+		<category><![CDATA[开发周期]]></category>
+		<category><![CDATA[开发背景]]></category>
+		<category><![CDATA[注册激活]]></category>
+		<category><![CDATA[涉及技术点]]></category>
+		<category><![CDATA[路由]]></category>
+		<category><![CDATA[防翻墙]]></category>
+		<category><![CDATA[项目初始化]]></category>
+		<guid isPermaLink="false">/?p=6025</guid>
+
+					<description><![CDATA[Laravel框架实战-在线教育平台（1） 一、项目说明 1、开发背景 现在社会流行视频直播，应用场景：在线教 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1><a id="post-6025-_Toc487731707"></a>Laravel框架实战-在线教育平台（1）</h1>
+<h1><a id="post-6025-_Toc487731708"></a>一、项目说明</h1>
+<h2><a id="post-6025-_Toc487731709"></a>1、开发背景</h2>
+<p>
+  现在社会流行视频直播，应用场景：在线教育、主播大秀、游戏直播等
+</p>
+<p>
+  现在社会非常重视教育，各种教育机构层出不穷，教育形式多种多样，大班授课，中班
+</p>
+<p>
+  授课，小班授课，1对1授课，但是有的学员由于地域、时间、条件、经济的限制并适合面授形式接受教育，故出现在线教育形式，即在网上就可以完成学习的过程，是一种非常灵活的学习方式。我们开发的线上教育系统，集成视频授课、试卷作答、直播课程、等功能。
+</p>
+<p>
+  在线教育涉略的领域也非常广泛，基本上所有的教育内容都可以搬到网上进行。
+</p>
+<h2><a id="post-6025-_Toc487731713"></a>2、涉及到的技术点</h2>
+<p>
+  Datatables（无刷新分页插件）、webuploader（无刷新上传插件）、
+</p>
+<p>
+  zyupload（多文件无刷新上传）、播放器插件、七牛接口、支付宝支付等等。
+</p>
+<h2><a id="post-6025-_Toc487731710"></a>3、项目开发周期规划</h2>
+<ul>
+<li>
+    开发周期：6天（2天前台+4天后台）
+  </li>
+<li>
+    开发框架：Laravel框架
+  </li>
+<li>
+    开发功能：
+  </li>
+<li>
+    后台4天：
+  </li>
+<li>
+    后台登录功能、RBAC、专业管理、课程管理、课时管理、会员管理、试卷管理
+  </li>
+<li>
+    前台2天：
+  </li>
+<li>
+    登录、首页显示课程、课程详情页面、视频点播页面、视频直播页面、答题功能
+  </li>
+</ul>
+<h1><a id="post-6025-_Toc487731715"></a>二、项目初始化</h1>
+<h2><a id="post-6025-_Toc487731716"></a>1、创建项目</h2>
+<p>
+  步骤1：切换国内镜像
+</p>
+<p>
+  composer config -g repo.packagist composer https://packagist.phpcomposer.com/
+</p>
+<p>
+  步骤2：通过composer创建项目
+</p>
+<p>
+  composer create-project laravel/laravel=5.4.* edu
+</p>
+<p><img fetchpriority="high" decoding="async" width="908" height="473" src="/wp-content/uploads/2018/05/word-image-5478.png" class="wp-image-6026" srcset="/wp-content/uploads/2018/05/word-image-5478.png 908w, /wp-content/uploads/2018/05/word-image-5478-300x156.png 300w, /wp-content/uploads/2018/05/word-image-5478-768x400.png 768w" sizes="(max-width: 908px) 100vw, 908px" /><br />
+<img decoding="async" width="1096" height="467" src="/wp-content/uploads/2018/05/word-image-5479.png" class="wp-image-6027" srcset="/wp-content/uploads/2018/05/word-image-5479.png 1096w, /wp-content/uploads/2018/05/word-image-5479-300x128.png 300w, /wp-content/uploads/2018/05/word-image-5479-768x327.png 768w, /wp-content/uploads/2018/05/word-image-5479-1024x436.png 1024w" sizes="(max-width: 1096px) 100vw, 1096px" /></p>
+<h2><a id="post-6025-_Toc487731717"></a>开发前的准备工作</h2>
+<h3><a id="post-6025-_Toc491186203"></a><a id="post-6025-_Toc493776230"></a><a id="post-6025-_Toc498268261"></a><a id="post-6025-_Toc499911971"></a>1）建立数据库开发前的准备工作</h3>
+<p>
+  步骤1：创建edu数据库
+</p>
+<p><img decoding="async" width="600" height="288" src="/wp-content/uploads/2018/05/word-image-5480.png" class="wp-image-6028" srcset="/wp-content/uploads/2018/05/word-image-5480.png 600w, /wp-content/uploads/2018/05/word-image-5480-300x144.png 300w" sizes="(max-width: 600px) 100vw, 600px" /></p>
+<p>
+  步骤2：修改.env配置文件
+</p>
+<p><img loading="lazy" decoding="async" width="787" height="455" src="/wp-content/uploads/2018/05/word-image-5481.png" class="wp-image-6029" srcset="/wp-content/uploads/2018/05/word-image-5481.png 787w, /wp-content/uploads/2018/05/word-image-5481-300x173.png 300w, /wp-content/uploads/2018/05/word-image-5481-768x444.png 768w" sizes="(max-width: 787px) 100vw, 787px" /></p>
+<p>
+  多学一招：utf8升级版本utf8mb4一个字符支持4个字节
+</p>
+<p><img loading="lazy" decoding="async" width="222" height="196" src="/wp-content/uploads/2018/05/word-image-5482.png" class="wp-image-6030" /></p>
+<h3>2）设置语言包</h3>
+<p>
+  步骤1：下载（<a href="https://github.com/caouecs/Laravel-lang">https://github.com/caouecs/Laravel-lang</a>）
+</p>
+<p>
+  步骤2：将zh-CH移动到resources\lang目录中
+</p>
+<p><img loading="lazy" decoding="async" width="763" height="424" src="/wp-content/uploads/2018/05/word-image-5483.png" class="wp-image-6031" srcset="/wp-content/uploads/2018/05/word-image-5483.png 763w, /wp-content/uploads/2018/05/word-image-5483-300x167.png 300w" sizes="(max-width: 763px) 100vw, 763px" /></p>
+<p>
+  步骤3：修改配置config\app.php
+</p>
+<p><img loading="lazy" decoding="async" width="773" height="566" src="/wp-content/uploads/2018/05/word-image-5484.png" class="wp-image-6032" srcset="/wp-content/uploads/2018/05/word-image-5484.png 773w, /wp-content/uploads/2018/05/word-image-5484-300x220.png 300w, /wp-content/uploads/2018/05/word-image-5484-768x562.png 768w" sizes="(max-width: 773px) 100vw, 773px" /></p>
+<h3><a id="post-6025-_Toc499911973"></a><a id="post-6025-_Toc491186205"></a><a id="post-6025-_Toc498268263"></a><a id="post-6025-_Toc493776232"></a>设置时区为中国（config/app.php文件）</h3>
+<p><img loading="lazy" decoding="async" width="713" height="285" src="/wp-content/uploads/2018/05/word-image-5485.png" class="wp-image-6033" srcset="/wp-content/uploads/2018/05/word-image-5485.png 713w, /wp-content/uploads/2018/05/word-image-5485-300x120.png 300w" sizes="(max-width: 713px) 100vw, 713px" /></p>
+<h3><a id="post-6025-_Toc491186206"></a><a id="post-6025-_Toc498268264"></a><a id="post-6025-_Toc499911974"></a><a id="post-6025-_Toc493776233"></a>4）清理项目</h3>
+<ul>
+<li>
+    删除app/Http/Controllers/Auth目录，因为需要自定义登录逻辑
+  </li>
+<li>
+    删除
+  </li>
+</ul>
+<p>
+  database/migrations/2014_10_12_000000_create_users_table.php
+</p>
+<p>
+  database/migrations/2014_10_12_100000_create_password_resets_table.php
+</p>
+<ul>
+<li>
+    删除resources/views/welcome.blade.php欢迎页面
+  </li>
+</ul>
+<h3>5）session机制</h3>
+<p><img loading="lazy" decoding="async" width="922" height="417" src="/wp-content/uploads/2018/05/word-image-5486.png" class="wp-image-6034" srcset="/wp-content/uploads/2018/05/word-image-5486.png 922w, /wp-content/uploads/2018/05/word-image-5486-300x136.png 300w, /wp-content/uploads/2018/05/word-image-5486-768x347.png 768w" sizes="(max-width: 922px) 100vw, 922px" /></p>
+<h1><a id="post-6025-_Toc487731721"></a>后台登录功能</h1>
+<h2><a id="post-6025-_Toc487731718"></a>1、创建管理员数据表</h2>
+<h3><a id="post-6025-_Toc487731719"></a>1）创建管理员的数据表</h3>
+<p>
+  create table admin (
+</p>
+<p>
+  id int unsigned primary key auto_increment comment &#8216;管理员ID&#8217;,
+</p>
+<p>
+  username varchar(20) not null comment &#8216;用户名&#8217;,
+</p>
+<p>
+  password varchar(255) not null comment &#8216;密码&#8217;,
+</p>
+<p>
+  sex tinyint(1) unsigned not null default 1 comment &#8216;性别:1-男,2-女,3-未知&#8217;,
+</p>
+<p>
+  mobile char(11) not null default &#8221; comment &#8216;手机号&#8217;,
+</p>
+<p>
+  email varchar(40) not null default &#8221; comment &#8216;邮箱&#8217;,
+</p>
+<p>
+  role_id tinyint  unsigned not null comment &#8216;角色ID&#8217;,
+</p>
+<p>
+  created_at int unsigned not null default 0 comment &#8216;创建于&#8217;,
+</p>
+<p>
+  updated_at int unsigned not null default 0 comment &#8216;更新于&#8217;,
+</p>
+<p>
+  state tinyint unsigned not null default 1 comment &#8216;用户状态:0-禁用,1启动&#8217;,
+</p>
+<p>
+  remember_token varchar(255) not null default &#8221; comment &#8216;记住密码TOKEN&#8217;
+</p>
+<p>
+  )engine=myisam charset=utf8mb4;
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+</p>
+<p><img loading="lazy" decoding="async" width="1217" height="638" src="/wp-content/uploads/2018/05/word-image-5487.png" class="wp-image-6035" srcset="/wp-content/uploads/2018/05/word-image-5487.png 1217w, /wp-content/uploads/2018/05/word-image-5487-300x157.png 300w, /wp-content/uploads/2018/05/word-image-5487-768x403.png 768w, /wp-content/uploads/2018/05/word-image-5487-1024x537.png 1024w" sizes="(max-width: 1217px) 100vw, 1217px" /></p>
+<p>
+  Schema::create(&#8216;admin&#8217;, function (Blueprint $table) {
+</p>
+<p>
+      $table-&gt;engine = &#8216;myisam&#8217;;
+</p>
+<p>
+      $table-&gt;increments(&#8216;id&#8217;)-&gt;comment(&#8216;管理员ID&#8217;);
+</p>
+<p>
+      $table-&gt;string(&#8216;username&#8217;, 20)-&gt;comment(&#8216;用户名&#8217;);
+</p>
+<p>
+      $table-&gt;string(&#8216;password&#8217;, 255)-&gt;comment(&#8216;密码&#8217;);
+</p>
+<p>
+      $table-&gt;unsignedTinyInteger(&#8216;sex&#8217;)-&gt;default(1)-&gt;comment(&#8216;性别:1-男,2-女,3-未知&#8217;);
+</p>
+<p>
+      $table-&gt;char(&#8216;mobile&#8217;, 11)-&gt;default(&#8221;)-&gt;comment(&#8216;手机号&#8217;);
+</p>
+<p>
+      $table-&gt;string(&#8217;email&#8217;, 40)-&gt;default(&#8221;)-&gt;comment(&#8216;邮箱&#8217;);
+</p>
+<p>
+      $table-&gt;unsignedTinyInteger(&#8216;role_id&#8217;)-&gt;comment(&#8216;角色ID&#8217;);
+</p>
+<p>
+      $table-&gt;unsignedInteger(&#8216;created_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;创建于&#8217;);
+</p>
+<p>
+      $table-&gt;unsignedInteger(&#8216;updated_at&#8217;)-&gt;default(0)-&gt;comment(&#8216;更新于&#8217;);
+</p>
+<p>
+      $table-&gt;unsignedTinyInteger(&#8216;state&#8217;)-&gt;default(1)-&gt;comment(&#8216;用户状态:0-禁用,1-启动&#8217;);
+</p>
+<p>
+      $table-&gt;string(&#8216;remember_token&#8217;, 255)-&gt;default(&#8221;)-&gt;comment(&#8216;记住密码TOKEN&#8217;);
+</p>
+<p>
+  });
+</p>
+<p>
+  效果图
+</p>
+<p><img loading="lazy" decoding="async" width="1036" height="297" src="/wp-content/uploads/2018/05/word-image-5488.png" class="wp-image-6036" srcset="/wp-content/uploads/2018/05/word-image-5488.png 1036w, /wp-content/uploads/2018/05/word-image-5488-300x86.png 300w, /wp-content/uploads/2018/05/word-image-5488-768x220.png 768w, /wp-content/uploads/2018/05/word-image-5488-1024x294.png 1024w" sizes="(max-width: 1036px) 100vw, 1036px" /></p>
+<h3><a id="post-6025-_Toc487731720"></a>2）插入测试数据（填充器 + Faker）</h3>
+<p>
+  步骤1：创建填充器
+</p>
+<p><img loading="lazy" decoding="async" width="1294" height="535" src="/wp-content/uploads/2018/05/word-image-5489.png" class="wp-image-6037" srcset="/wp-content/uploads/2018/05/word-image-5489.png 1294w, /wp-content/uploads/2018/05/word-image-5489-300x124.png 300w, /wp-content/uploads/2018/05/word-image-5489-768x318.png 768w, /wp-content/uploads/2018/05/word-image-5489-1024x423.png 1024w" sizes="(max-width: 1294px) 100vw, 1294px" /></p>
+<p>
+  public function run()
+</p>
+<p>
+  {
+</p>
+<p>
+      $faker = Faker\Factory::create(&#8216;zh_CN&#8217;);
+</p>
+<p>
+      for ($i = 1; $i&lt;30; $i++) {
+</p>
+<p>
+          DB::table(&#8216;admin&#8217;)-&gt;insert([
+</p>
+<p>
+              &#8216;username&#8217; =&gt; $faker-&gt;userName,
+</p>
+<p>
+              &#8216;password&#8217; =&gt; bcrypt($faker-&gt;password),
+</p>
+<p>
+              &#8216;sex&#8217; =&gt; mt_rand(1,3),
+</p>
+<p>
+              &#8216;mobile&#8217; =&gt; $faker-&gt;phoneNumber,
+</p>
+<p>
+              &#8217;email&#8217; =&gt; $faker-&gt;email,
+</p>
+<p>
+              &#8216;role_id&#8217; =&gt; mt_rand(1,150),
+</p>
+<p>
+              &#8216;created_at&#8217; =&gt; time(),
+</p>
+<p>
+              &#8216;updated_at&#8217; =&gt; time()
+</p>
+<p>
+          ]);
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p>
+  步骤2：执行填充器
+</p>
+<p><img loading="lazy" decoding="async" width="944" height="404" src="/wp-content/uploads/2018/05/word-image-5490.png" class="wp-image-6038" srcset="/wp-content/uploads/2018/05/word-image-5490.png 944w, /wp-content/uploads/2018/05/word-image-5490-300x128.png 300w, /wp-content/uploads/2018/05/word-image-5490-768x329.png 768w" sizes="(max-width: 944px) 100vw, 944px" /></p>
+<h2><a id="post-6025-_Toc487731722"></a>2、显示登录页</h2>
+<h3>1）后台静态模板介绍</h3>
+<ul>
+<li>
+    模版文件：H-ui Admin后台模版
+  </li>
+<li>
+    下载地址：http://www.h-ui.net/H-ui.admin.shtml
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="711" height="167" src="/wp-content/uploads/2018/05/word-image-5491.png" class="wp-image-6039" srcset="/wp-content/uploads/2018/05/word-image-5491.png 711w, /wp-content/uploads/2018/05/word-image-5491-300x70.png 300w" sizes="(max-width: 711px) 100vw, 711px" /></p>
+<h3>2）显示登录页</h3>
+<p>
+  步骤1：
+</p>
+<p>
+  创建路由，访问/admin/login就通过Admin\LoginController@login加载视图
+</p>
+<p><img loading="lazy" decoding="async" width="1198" height="324" src="/wp-content/uploads/2018/05/word-image-5492.png" class="wp-image-6040" srcset="/wp-content/uploads/2018/05/word-image-5492.png 1198w, /wp-content/uploads/2018/05/word-image-5492-300x81.png 300w, /wp-content/uploads/2018/05/word-image-5492-768x208.png 768w, /wp-content/uploads/2018/05/word-image-5492-1024x277.png 1024w" sizes="(max-width: 1198px) 100vw, 1198px" /></p>
+<p>
+  步骤2：创建登录控制器和方法，并在方法中加载视图
+</p>
+<p><img loading="lazy" decoding="async" width="1057" height="509" src="/wp-content/uploads/2018/05/word-image-5493.png" class="wp-image-6041" srcset="/wp-content/uploads/2018/05/word-image-5493.png 1057w, /wp-content/uploads/2018/05/word-image-5493-300x144.png 300w, /wp-content/uploads/2018/05/word-image-5493-768x370.png 768w, /wp-content/uploads/2018/05/word-image-5493-1024x493.png 1024w" sizes="(max-width: 1057px) 100vw, 1057px" /></p>
+<p>
+  步骤3：创建视图
+</p>
+<p><img loading="lazy" decoding="async" width="892" height="691" src="/wp-content/uploads/2018/05/word-image-5494.png" class="wp-image-6042" srcset="/wp-content/uploads/2018/05/word-image-5494.png 892w, /wp-content/uploads/2018/05/word-image-5494-300x232.png 300w, /wp-content/uploads/2018/05/word-image-5494-768x595.png 768w" sizes="(max-width: 892px) 100vw, 892px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="811" height="546" src="/wp-content/uploads/2018/05/word-image-5495.png" class="wp-image-6043" srcset="/wp-content/uploads/2018/05/word-image-5495.png 811w, /wp-content/uploads/2018/05/word-image-5495-300x202.png 300w, /wp-content/uploads/2018/05/word-image-5495-768x517.png 768w" sizes="(max-width: 811px) 100vw, 811px" /></p>
+<h2>登录数据处理（用户认证，使用Auth做登录和退出功能）</h2>
+<h3>用户认证（Auth）相关语法</h3>
+<p>
+  验证信息并登陆：Auth::guard(参数)-&gt;attempt（用户名和密码数组，是否保存用户状态:true-是,false-否）
+</p>
+<p>
+  检查状态：Auth::guard(参数)-&gt;check（）
+</p>
+<p>
+  获得登陆用户：Auth::guard(参数)-&gt;user（）-&gt;键
+</p>
+<p>
+  退出登录：Auth::guard(参数)-&gt;logout（）
+</p>
+<h3>2）准备</h3>
+<p><strong>步骤1：创建模型（注：因为该模型需要使用Auth类所以必须实现指定接口）</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="1172" height="523" src="/wp-content/uploads/2018/05/word-image-5496.png" class="wp-image-6044" srcset="/wp-content/uploads/2018/05/word-image-5496.png 1172w, /wp-content/uploads/2018/05/word-image-5496-300x134.png 300w, /wp-content/uploads/2018/05/word-image-5496-768x343.png 768w, /wp-content/uploads/2018/05/word-image-5496-1024x457.png 1024w" sizes="(max-width: 1172px) 100vw, 1172px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Model;
+</p>
+<p>
+  use Illuminate\Auth\Authenticatable;
+</p>
+<p>
+  use Illuminate\Database\Eloquent\Model;
+</p>
+<p>
+  class Admin extends Model implements \Illuminate\Contracts\Auth\Authenticatable
+</p>
+<p>
+  {
+</p>
+<p>
+      use Authenticatable;
+</p>
+<p>
+      /**
+</p>
+<p>
+       * 声明表名
+</p>
+<p>
+       * @var string
+</p>
+<p>
+       */
+</p>
+<p>
+      protected $table = &#8216;admin&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  步骤2：修改config/auth.php用户认证配置文件，目的设置（验证用户信息并登陆语法中的参数 Auth::guard(参数)）
+</p>
+<p><img loading="lazy" decoding="async" width="1086" height="457" src="/wp-content/uploads/2018/05/word-image-5497.png" class="wp-image-6045" srcset="/wp-content/uploads/2018/05/word-image-5497.png 1086w, /wp-content/uploads/2018/05/word-image-5497-300x126.png 300w, /wp-content/uploads/2018/05/word-image-5497-768x323.png 768w, /wp-content/uploads/2018/05/word-image-5497-1024x431.png 1024w" sizes="(max-width: 1086px) 100vw, 1086px" /><br />
+<img loading="lazy" decoding="async" width="1005" height="271" src="/wp-content/uploads/2018/05/word-image-5498.png" class="wp-image-6046" srcset="/wp-content/uploads/2018/05/word-image-5498.png 1005w, /wp-content/uploads/2018/05/word-image-5498-300x81.png 300w, /wp-content/uploads/2018/05/word-image-5498-768x207.png 768w" sizes="(max-width: 1005px) 100vw, 1005px" /></p>
+<h3>代码1：身份验证</h3>
+<p>
+  步骤1：修改路由，既可以get又可以post
+</p>
+<p><img loading="lazy" decoding="async" width="1124" height="370" src="/wp-content/uploads/2018/05/word-image-5499.png" class="wp-image-6047" srcset="/wp-content/uploads/2018/05/word-image-5499.png 1124w, /wp-content/uploads/2018/05/word-image-5499-300x99.png 300w, /wp-content/uploads/2018/05/word-image-5499-768x253.png 768w, /wp-content/uploads/2018/05/word-image-5499-1024x337.png 1024w" sizes="(max-width: 1124px) 100vw, 1124px" /></p>
+<p>
+  步骤2：修改登录form表单参数
+</p>
+<p><img loading="lazy" decoding="async" width="1129" height="588" src="/wp-content/uploads/2018/05/word-image-5500.png" class="wp-image-6048" srcset="/wp-content/uploads/2018/05/word-image-5500.png 1129w, /wp-content/uploads/2018/05/word-image-5500-300x156.png 300w, /wp-content/uploads/2018/05/word-image-5500-768x400.png 768w, /wp-content/uploads/2018/05/word-image-5500-1024x533.png 1024w" sizes="(max-width: 1129px) 100vw, 1129px" /></p>
+<p>
+  步骤3：在login方法中增加判断是否post提交，否-则加载视图，是-则接受数据，并调用Auth类的验证信息并登录方法实现登录功能
+</p>
+<p><img loading="lazy" decoding="async" width="1211" height="603" src="/wp-content/uploads/2018/05/word-image-5501.png" class="wp-image-6049" srcset="/wp-content/uploads/2018/05/word-image-5501.png 1211w, /wp-content/uploads/2018/05/word-image-5501-300x149.png 300w, /wp-content/uploads/2018/05/word-image-5501-768x382.png 768w, /wp-content/uploads/2018/05/word-image-5501-1024x510.png 1024w" sizes="(max-width: 1211px) 100vw, 1211px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p><strong>use Illuminate\Support\Facades\Auth;</strong>
+</p>
+<p>
+  class LoginController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //加载登录视图
+</p>
+<p>
+      public function login(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.判断HTTP请求类型
+</p>
+<p>
+          if ($request-&gt;isMethod(&#8216;post&#8217;)) {
+</p>
+<p>
+              //2.接受数据
+</p>
+<p>
+              $postData = $request-&gt;only([&#8216;username&#8217;, &#8216;password&#8217;]);
+</p>
+<p>
+              //3.验证身份 并 登录（注：也就是调用Auth类的方法会自动帮我们验证数据并且保存session）
+</p>
+<p>
+              //语法；Auth::guard(参数)-&gt;attempt(用户名和密码数组，是否保存用户状态:true-是,false-否)
+</p>
+<p>
+                                                                   //true-后期相当于cookie存储，false-session
+</p>
+<p>
+           <strong>  $rs = Auth::guard(&#8216;admin&#8217;)-&gt;attempt($postData, $request-&gt;only(&#8216;online&#8217;)[&#8216;online&#8217;]);</strong>
+</p>
+<p>
+             //4.判断用户是否登录成功
+</p>
+<p>
+              if ($rs) {
+</p>
+<p>
+                  return redirect(&#8216;admin/index/index&#8217;);
+</p>
+<p>
+              } else {
+</p>
+<p>
+                  return redirect(&#8216;admin/login&#8217;);
+</p>
+<p>
+              }
+</p>
+<p>
+          } else {
+</p>
+<p>
+              //2.加载视图
+</p>
+<p>
+              return view(&#8216;admin.login.login&#8217;);
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h3>代码2：数据过滤</h3>
+<p>
+  用户名：必须，3~2个字符
+</p>
+<p>
+  密码：必须，6~32个字符
+</p>
+<p>
+  验证码：必须，5个字符
+</p>
+<p><strong>步骤1：控制器通过validate方法进行数据过滤</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="1230" height="335" src="/wp-content/uploads/2018/05/word-image-5502.png" class="wp-image-6050" srcset="/wp-content/uploads/2018/05/word-image-5502.png 1230w, /wp-content/uploads/2018/05/word-image-5502-300x82.png 300w, /wp-content/uploads/2018/05/word-image-5502-768x209.png 768w, /wp-content/uploads/2018/05/word-image-5502-1024x279.png 1024w" sizes="(max-width: 1230px) 100vw, 1230px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Controllers\Admin;
+</p>
+<p>
+  use Illuminate\Http\Request;
+</p>
+<p>
+  use App\Http\Controllers\Controller;
+</p>
+<p>
+  use Illuminate\Support\Facades\Auth;
+</p>
+<p>
+  class LoginController extends Controller
+</p>
+<p>
+  {
+</p>
+<p>
+      //加载登录视图
+</p>
+<p>
+      public function login(Request $request)
+</p>
+<p>
+      {
+</p>
+<p>
+          //1.判断HTTP请求类型
+</p>
+<p>
+          if ($request-&gt;isMethod(&#8216;post&#8217;)) {
+</p>
+<p>
+            <strong>  //数据过滤，发送HTTP请求进行验证：成功-则不管，失败-重定向到来源页面，并给视图传递$errors变量</strong>
+</p>
+<p><strong>            $this-&gt;validate($request, [</strong>
+</p>
+<p><strong>                &#8216;username&#8217; =&gt; &#8216;required|min:2|max:10&#8217;,</strong>
+</p>
+<p><strong>                &#8216;password&#8217; =&gt; &#8216;required|min:6|max:32&#8217;,</strong>
+</p>
+<p><strong>                &#8216;captcha&#8217; =&gt; &#8216;required|size:5&#8217;,</strong>
+</p>
+<p><strong>            ]);</strong>
+</p>
+<p>
+              //2.接受数据
+</p>
+<p>
+              $postData = $request-&gt;only([&#8216;username&#8217;, &#8216;password&#8217;]);
+</p>
+<p>
+              //3.验证身份 并 登录（注：也就是调用Auth类的方法会自动帮我们验证数据并且保存session）
+</p>
+<p>
+              //语法；Auth::guard(参数)-&gt;attempt(用户名和密码数组，是否保存用户状态:true-是,false-否)
+</p>
+<p>
+              //true-后期相当于cookie存储，false-session
+</p>
+<p>
+              $rs = Auth::guard(&#8216;admin&#8217;)-&gt;attempt($postData, $request-&gt;only(&#8216;online&#8217;)[&#8216;online&#8217;]);
+</p>
+<p>
+              //4.判断用户是否登录成功
+</p>
+<p>
+              if ($rs) {
+</p>
+<p>
+                  return redirect(&#8216;admin/index/index&#8217;);
+</p>
+<p>
+              } else {
+</p>
+<p>
+                  return redirect(&#8216;admin/login&#8217;);
+</p>
+<p>
+              }
+</p>
+<p>
+          } else {
+</p>
+<p>
+              //2.加载视图
+</p>
+<p>
+              return view(&#8216;admin.login.login&#8217;);
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;
+</p>
+<p><strong>步骤2：视图弹出错误信息</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="878" height="363" src="/wp-content/uploads/2018/05/word-image-5503.png" class="wp-image-6051" srcset="/wp-content/uploads/2018/05/word-image-5503.png 878w, /wp-content/uploads/2018/05/word-image-5503-300x124.png 300w, /wp-content/uploads/2018/05/word-image-5503-768x318.png 768w" sizes="(max-width: 878px) 100vw, 878px" /></p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  @if (count($errors) &gt; 0)
+</p>
+<p>
+      var errors = &#8221;;
+</p>
+<p>
+      @foreach ($errors-&gt;all() as $error)
+</p>
+<p>
+          errors += &#8220;{{ $error }} \n&#8221;;
+</p>
+<p>
+      @endforeach
+</p>
+<p>
+      alert(errors);
+</p>
+<p>
+  @endif
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+</p>
+<p><strong>步骤3：发现验证码captcha不能被识别</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="941" height="284" src="/wp-content/uploads/2018/05/word-image-5504.png" class="wp-image-6052" srcset="/wp-content/uploads/2018/05/word-image-5504.png 941w, /wp-content/uploads/2018/05/word-image-5504-300x91.png 300w, /wp-content/uploads/2018/05/word-image-5504-768x232.png 768w" sizes="(max-width: 941px) 100vw, 941px" /><br />
+<img loading="lazy" decoding="async" width="954" height="417" src="/wp-content/uploads/2018/05/word-image-5505.png" class="wp-image-6053" srcset="/wp-content/uploads/2018/05/word-image-5505.png 954w, /wp-content/uploads/2018/05/word-image-5505-300x131.png 300w, /wp-content/uploads/2018/05/word-image-5505-768x336.png 768w" sizes="(max-width: 954px) 100vw, 954px" /><br />
+<img loading="lazy" decoding="async" width="1007" height="341" src="/wp-content/uploads/2018/05/word-image-5506.png" class="wp-image-6054" srcset="/wp-content/uploads/2018/05/word-image-5506.png 1007w, /wp-content/uploads/2018/05/word-image-5506-300x102.png 300w, /wp-content/uploads/2018/05/word-image-5506-768x260.png 768w" sizes="(max-width: 1007px) 100vw, 1007px" /></p>
+<h2><a id="post-6025-_Toc487731724"></a>4、登录验证码（mews/captcha）</h2>
+<h3>1）通过composer下载验证码类库 并 激活</h3>
+<p>
+  步骤1：下载
+</p>
+<p><img loading="lazy" decoding="async" width="776" height="401" src="/wp-content/uploads/2018/05/word-image-5507.png" class="wp-image-6055" srcset="/wp-content/uploads/2018/05/word-image-5507.png 776w, /wp-content/uploads/2018/05/word-image-5507-300x155.png 300w, /wp-content/uploads/2018/05/word-image-5507-768x397.png 768w" sizes="(max-width: 776px) 100vw, 776px" /></p>
+<p>
+  步骤2：打开config\app.php进行机会
+</p>
+<p><img loading="lazy" decoding="async" width="1029" height="313" src="/wp-content/uploads/2018/05/word-image-5508.png" class="wp-image-6056" srcset="/wp-content/uploads/2018/05/word-image-5508.png 1029w, /wp-content/uploads/2018/05/word-image-5508-300x91.png 300w, /wp-content/uploads/2018/05/word-image-5508-768x234.png 768w, /wp-content/uploads/2018/05/word-image-5508-1024x311.png 1024w" sizes="(max-width: 1029px) 100vw, 1029px" /><br />
+<img loading="lazy" decoding="async" width="985" height="248" src="/wp-content/uploads/2018/05/word-image-5509.png" class="wp-image-6057" srcset="/wp-content/uploads/2018/05/word-image-5509.png 985w, /wp-content/uploads/2018/05/word-image-5509-300x76.png 300w, /wp-content/uploads/2018/05/word-image-5509-768x193.png 768w" sizes="(max-width: 985px) 100vw, 985px" /></p>
+<p>
+  步骤3：打开视图显示验证码
+</p>
+<p><img loading="lazy" decoding="async" width="828" height="276" src="/wp-content/uploads/2018/05/word-image-5510.png" class="wp-image-6058" srcset="/wp-content/uploads/2018/05/word-image-5510.png 828w, /wp-content/uploads/2018/05/word-image-5510-300x100.png 300w, /wp-content/uploads/2018/05/word-image-5510-768x256.png 768w" sizes="(max-width: 828px) 100vw, 828px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="503" height="239" src="/wp-content/uploads/2018/05/word-image-5511.png" class="wp-image-6059" srcset="/wp-content/uploads/2018/05/word-image-5511.png 503w, /wp-content/uploads/2018/05/word-image-5511-300x143.png 300w" sizes="(max-width: 503px) 100vw, 503px" /></p>
+<h3>视图显示验证码，并实现点击切换</h3>
+<p><img loading="lazy" decoding="async" width="1216" height="261" src="/wp-content/uploads/2018/05/word-image-5512.png" class="wp-image-6060" srcset="/wp-content/uploads/2018/05/word-image-5512.png 1216w, /wp-content/uploads/2018/05/word-image-5512-300x64.png 300w, /wp-content/uploads/2018/05/word-image-5512-768x165.png 768w, /wp-content/uploads/2018/05/word-image-5512-1024x220.png 1024w" sizes="(max-width: 1216px) 100vw, 1216px" /></p>
+<p>
+  &lt;img src=&#8221;{{ Captcha::src() }}&#8221; onclick=&#8221;this.src = &#8216;{{ Captcha::src() }}&#8217; + &#8216;&amp;_=&#8217;+Math.random()&#8221;&gt;
+</p>
+<h3>控制器判断验证码是否正确</h3>
+<p>
+  步骤1：直接在validate方法中使用captcha验证规则即可
+</p>
+<p><img loading="lazy" decoding="async" width="939" height="299" src="/wp-content/uploads/2018/05/word-image-5513.png" class="wp-image-6061" srcset="/wp-content/uploads/2018/05/word-image-5513.png 939w, /wp-content/uploads/2018/05/word-image-5513-300x96.png 300w, /wp-content/uploads/2018/05/word-image-5513-768x245.png 768w" sizes="(max-width: 939px) 100vw, 939px" /></p>
+<p>
+   步骤2：提示汉化
+</p>
+<p><img loading="lazy" decoding="async" width="957" height="293" src="/wp-content/uploads/2018/05/word-image-5514.png" class="wp-image-6062" srcset="/wp-content/uploads/2018/05/word-image-5514.png 957w, /wp-content/uploads/2018/05/word-image-5514-300x92.png 300w, /wp-content/uploads/2018/05/word-image-5514-768x235.png 768w" sizes="(max-width: 957px) 100vw, 957px" /></p>
+<h1><a id="post-6025-_Toc487731727"></a>四、后台首页展示</h1>
+<h2>1、显示后台首页</h2>
+<p>
+  步骤1：定义路由  /admin/index/index  对应  Admin\IndexController@index
+</p>
+<p><img loading="lazy" decoding="async" width="1025" height="356" src="/wp-content/uploads/2018/05/word-image-5515.png" class="wp-image-6063" srcset="/wp-content/uploads/2018/05/word-image-5515.png 1025w, /wp-content/uploads/2018/05/word-image-5515-300x104.png 300w, /wp-content/uploads/2018/05/word-image-5515-768x267.png 768w, /wp-content/uploads/2018/05/word-image-5515-1024x356.png 1024w" sizes="(max-width: 1025px) 100vw, 1025px" /></p>
+<p>
+  步骤2：创建控制器和方法并调用视图
+</p>
+<p><img loading="lazy" decoding="async" width="1098" height="522" src="/wp-content/uploads/2018/05/word-image-5516.png" class="wp-image-6064" srcset="/wp-content/uploads/2018/05/word-image-5516.png 1098w, /wp-content/uploads/2018/05/word-image-5516-300x143.png 300w, /wp-content/uploads/2018/05/word-image-5516-768x365.png 768w, /wp-content/uploads/2018/05/word-image-5516-1024x487.png 1024w" sizes="(max-width: 1098px) 100vw, 1098px" /></p>
+<p>
+  步骤3：创建视图
+</p>
+<p><img loading="lazy" decoding="async" width="1098" height="660" src="/wp-content/uploads/2018/05/word-image-5517.png" class="wp-image-6065" srcset="/wp-content/uploads/2018/05/word-image-5517.png 1098w, /wp-content/uploads/2018/05/word-image-5517-300x180.png 300w, /wp-content/uploads/2018/05/word-image-5517-768x462.png 768w, /wp-content/uploads/2018/05/word-image-5517-1024x616.png 1024w" sizes="(max-width: 1098px) 100vw, 1098px" /></p>
+<h2>2、显示后台欢迎页</h2>
+<p>
+  步骤1：定义路由
+</p>
+<p><img loading="lazy" decoding="async" width="1100" height="355" src="/wp-content/uploads/2018/05/word-image-5518.png" class="wp-image-6066" srcset="/wp-content/uploads/2018/05/word-image-5518.png 1100w, /wp-content/uploads/2018/05/word-image-5518-300x97.png 300w, /wp-content/uploads/2018/05/word-image-5518-768x248.png 768w, /wp-content/uploads/2018/05/word-image-5518-1024x330.png 1024w" sizes="(max-width: 1100px) 100vw, 1100px" /></p>
+<p>
+  步骤2：创建控制器和方法
+</p>
+<p><img loading="lazy" decoding="async" width="858" height="519" src="/wp-content/uploads/2018/05/word-image-5519.png" class="wp-image-6067" srcset="/wp-content/uploads/2018/05/word-image-5519.png 858w, /wp-content/uploads/2018/05/word-image-5519-300x181.png 300w, /wp-content/uploads/2018/05/word-image-5519-768x465.png 768w" sizes="(max-width: 858px) 100vw, 858px" /></p>
+<p>
+  步骤3：创建视图
+</p>
+<p><img loading="lazy" decoding="async" width="1044" height="556" src="/wp-content/uploads/2018/05/word-image-5520.png" class="wp-image-6068" srcset="/wp-content/uploads/2018/05/word-image-5520.png 1044w, /wp-content/uploads/2018/05/word-image-5520-300x160.png 300w, /wp-content/uploads/2018/05/word-image-5520-768x409.png 768w, /wp-content/uploads/2018/05/word-image-5520-1024x545.png 1024w" sizes="(max-width: 1044px) 100vw, 1044px" /></p>
+<p>
+  步骤4：修改后台首页的iframe的src地址
+</p>
+<p><img loading="lazy" decoding="async" width="1143" height="334" src="/wp-content/uploads/2018/05/word-image-5521.png" class="wp-image-6069" srcset="/wp-content/uploads/2018/05/word-image-5521.png 1143w, /wp-content/uploads/2018/05/word-image-5521-300x88.png 300w, /wp-content/uploads/2018/05/word-image-5521-768x224.png 768w, /wp-content/uploads/2018/05/word-image-5521-1024x299.png 1024w" sizes="(max-width: 1143px) 100vw, 1143px" /></p>
+<p>
+  效果
+</p>
+<p><img loading="lazy" decoding="async" width="1072" height="476" src="/wp-content/uploads/2018/05/word-image-5522.png" class="wp-image-6070" srcset="/wp-content/uploads/2018/05/word-image-5522.png 1072w, /wp-content/uploads/2018/05/word-image-5522-300x133.png 300w, /wp-content/uploads/2018/05/word-image-5522-768x341.png 768w, /wp-content/uploads/2018/05/word-image-5522-1024x455.png 1024w" sizes="(max-width: 1072px) 100vw, 1072px" /></p>
+<h2>3、显示后台首页右上角（当前登录用户名称）</h2>
+<p><img loading="lazy" decoding="async" width="1317" height="467" src="/wp-content/uploads/2018/05/word-image-5523.png" class="wp-image-6071" srcset="/wp-content/uploads/2018/05/word-image-5523.png 1317w, /wp-content/uploads/2018/05/word-image-5523-300x106.png 300w, /wp-content/uploads/2018/05/word-image-5523-768x272.png 768w, /wp-content/uploads/2018/05/word-image-5523-1024x363.png 1024w" sizes="(max-width: 1317px) 100vw, 1317px" /></p>
+<h2>退出功能</h2>
+<p>
+  步骤1：定义路由
+</p>
+<p><img loading="lazy" decoding="async" width="1153" height="398" src="/wp-content/uploads/2018/05/word-image-5524.png" class="wp-image-6072" srcset="/wp-content/uploads/2018/05/word-image-5524.png 1153w, /wp-content/uploads/2018/05/word-image-5524-300x104.png 300w, /wp-content/uploads/2018/05/word-image-5524-768x265.png 768w, /wp-content/uploads/2018/05/word-image-5524-1024x353.png 1024w" sizes="(max-width: 1153px) 100vw, 1153px" /></p>
+<p>
+  步骤2：书写退出功能代码
+</p>
+<p><img loading="lazy" decoding="async" width="1134" height="393" src="/wp-content/uploads/2018/05/word-image-5525.png" class="wp-image-6073" srcset="/wp-content/uploads/2018/05/word-image-5525.png 1134w, /wp-content/uploads/2018/05/word-image-5525-300x104.png 300w, /wp-content/uploads/2018/05/word-image-5525-768x266.png 768w, /wp-content/uploads/2018/05/word-image-5525-1024x355.png 1024w" sizes="(max-width: 1134px) 100vw, 1134px" /></p>
+<p>
+  步骤3：设置退出连接
+</p>
+<p><img loading="lazy" decoding="async" width="1012" height="333" src="/wp-content/uploads/2018/05/word-image-5526.png" class="wp-image-6074" srcset="/wp-content/uploads/2018/05/word-image-5526.png 1012w, /wp-content/uploads/2018/05/word-image-5526-300x99.png 300w, /wp-content/uploads/2018/05/word-image-5526-768x253.png 768w" sizes="(max-width: 1012px) 100vw, 1012px" /></p>
+<h1>五、防翻墙</h1>
+<h2>1、创建中间件，并书写过滤代码</h2>
+<p><img loading="lazy" decoding="async" width="1284" height="617" src="/wp-content/uploads/2018/05/word-image-5527.png" class="wp-image-6075" srcset="/wp-content/uploads/2018/05/word-image-5527.png 1284w, /wp-content/uploads/2018/05/word-image-5527-300x144.png 300w, /wp-content/uploads/2018/05/word-image-5527-768x369.png 768w, /wp-content/uploads/2018/05/word-image-5527-1024x492.png 1024w" sizes="(max-width: 1284px) 100vw, 1284px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  namespace App\Http\Middleware;
+</p>
+<p>
+  use Closure;
+</p>
+<p>
+  use Illuminate\Support\Facades\Auth;
+</p>
+<p>
+  class CheckAdminLogin
+</p>
+<p>
+  {
+</p>
+<p>
+      /**
+</p>
+<p>
+       * Handle an incoming request.
+</p>
+<p>
+       *
+</p>
+<p>
+       * @param  \Illuminate\Http\Request  $request
+</p>
+<p>
+       * @param  \Closure  $next
+</p>
+<p>
+       * @return mixed
+</p>
+<p>
+       */
+</p>
+<p>
+      public function handle($request, Closure $next)
+</p>
+<p>
+      {
+</p>
+<p>
+          if (!Auth::guard(&#8216;admin&#8217;)-&gt;check()) {
+</p>
+<p>
+              return redirect(&#8216;admin/login&#8217;)-&gt;withErrors([&#8216;errors&#8217; =&gt; &#8216;登录超时，请重新登录&#8217;]);
+</p>
+<p>
+          }
+</p>
+<p>
+          return $next($request);
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h2>注册激活</h2>
+<p><img loading="lazy" decoding="async" width="1199" height="422" src="/wp-content/uploads/2018/05/word-image-5528.png" class="wp-image-6076" srcset="/wp-content/uploads/2018/05/word-image-5528.png 1199w, /wp-content/uploads/2018/05/word-image-5528-300x106.png 300w, /wp-content/uploads/2018/05/word-image-5528-768x270.png 768w, /wp-content/uploads/2018/05/word-image-5528-1024x360.png 1024w" sizes="(max-width: 1199px) 100vw, 1199px" /></p>
+<h2>3、路由使用</h2>
+<p><img loading="lazy" decoding="async" width="1219" height="446" src="/wp-content/uploads/2018/05/word-image-5529.png" class="wp-image-6077" srcset="/wp-content/uploads/2018/05/word-image-5529.png 1219w, /wp-content/uploads/2018/05/word-image-5529-300x110.png 300w, /wp-content/uploads/2018/05/word-image-5529-768x281.png 768w, /wp-content/uploads/2018/05/word-image-5529-1024x375.png 1024w" sizes="(max-width: 1219px) 100vw, 1219px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //后台登录
+</p>
+<p>
+  Route::match([&#8216;get&#8217;, &#8216;post&#8217;], &#8216;admin/login&#8217;, &#8216;Admin\LoginController@login&#8217;);
+</p>
+<p>
+  Route::group([&#8216;middleware&#8217; =&gt; &#8216;CheckAdminLogin&#8217;], function(){
+</p>
+<p>
+  //退出功能
+</p>
+<p>
+      Route::get(&#8216;admin/loginout&#8217;, &#8216;Admin\LoginController@loginout&#8217;);
+</p>
+<p>
+  //后台首页
+</p>
+<p>
+      Route::get(&#8216;admin/index/index&#8217;, &#8216;Admin\IndexController@index&#8217;);
+</p>
+<p>
+      Route::get(&#8216;admin/index/welcome&#8217;, &#8216;Admin\IndexController@welcome&#8217;);
+</p>
+<p>
+  });
+</p>
+<h1><a id="post-6025-_Toc487731728"></a>六、管理员管理</h1>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6025.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>毫秒定时器 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E6%AF%AB%E7%A7%92%E5%AE%9A%E6%97%B6%E5%99%A8/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 10 Feb 2024 04:34:14 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>毫秒定时器 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Swoole 安装、扩展源码、线程、进程、执行过程、常用事件、Http 服务器、WebSocket 服务器、Mysql 连接池、毫秒定时器、异步文件读取</title>
+		<link>/php/6504.html</link>
+					<comments>/php/6504.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 17:29:53 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[Swoole]]></category>
+		<category><![CDATA[Http 服务器]]></category>
+		<category><![CDATA[Mysql 连接池]]></category>
+		<category><![CDATA[WebSocket 服务器]]></category>
+		<category><![CDATA[安装]]></category>
+		<category><![CDATA[常用事件]]></category>
+		<category><![CDATA[异步文件读取]]></category>
+		<category><![CDATA[执行过程]]></category>
+		<category><![CDATA[扩展源码]]></category>
+		<category><![CDATA[毫秒定时器]]></category>
+		<category><![CDATA[线程]]></category>
+		<category><![CDATA[进程]]></category>
+		<guid isPermaLink="false">/?p=6504</guid>
+
+					<description><![CDATA[Swoole Swoole 1 1. 概念介绍 2 2. 编译安装Swoole扩展 2 2.1. 下载Swoo [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p><a id="post-6504-_Swoole"></a><a id="post-6504-_Toc256000000"></a> Swoole</p>
+<p><a href="#post-6504-_Toc256000000">Swoole 1</a></p>
+<p><a href="#post-6504-_Toc256000002">1. 概念介绍 2</a></p>
+<p><a href="#post-6504-_Toc256000003">2. 编译安装Swoole扩展 2</a></p>
+<p><a href="#post-6504-_Toc256000004">2.1. 下载Swoole扩展源码 3</a></p>
+<p><a href="#post-6504-_Toc256000005">2.2. 解压源码压缩包 3</a></p>
+<p><a href="#post-6504-_Toc256000006">2.3. 编译Swoole 3</a></p>
+<p><a href="#post-6504-_Toc256000007">2.4. 在php.ini开启swoole扩展 3</a></p>
+<p><a href="#post-6504-_Toc256000008">2.5. Swoole的线程和进程的模型 4</a></p>
+<p><a href="#post-6504-_Toc256000009">2.6. Swoole的执行过程 5</a></p>
+<p><a href="#post-6504-_Toc256000010">2.7. Swoole支持的常用事件列表 5</a></p>
+<p><a href="#post-6504-_Toc256000011">2.8. swoole执行流程中几个需要注意的点 6</a></p>
+<p><a href="#post-6504-_Toc256000012">3. Swoole的HTTP服务器 6</a></p>
+<p><a href="#post-6504-_Toc256000013">4. Swoole的WebSocket服务器 7</a></p>
+<p><a href="#post-6504-_Toc256000014">5. MySQL连接池 7</a></p>
+<p><a href="#post-6504-_Toc256000015">6. 使用Swoole管理进程 8</a></p>
+<p><a href="#post-6504-_Toc256000016">6.1. 创建一个子进程并设置进程名称为worker-process 9</a></p>
+<p><a href="#post-6504-_Toc256000017">7. Swoole常用配置选项 9</a></p>
+<p><a href="#post-6504-_Toc256000018">7.1. 调整worker进程数量 9</a></p>
+<p><a href="#post-6504-_Toc256000019">8. Swoole毫秒级定时器 10</a></p>
+<p><a href="#post-6504-_Toc256000020">9. 异步文件读取 10</a></p>
+<p><img fetchpriority="high" decoding="async" width="1000" height="430" class="wp-image-6801" src="/wp-content/uploads/2018/05/word-image-6201.png" srcset="/wp-content/uploads/2018/05/word-image-6201.png 1000w, /wp-content/uploads/2018/05/word-image-6201-300x129.png 300w, /wp-content/uploads/2018/05/word-image-6201-768x330.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" /></p>
+<h1><a id="post-6504-_____"></a><a id="post-6504-_Toc256000002"></a>概念介绍</h1>
+<p>参考网址：<a href="/goto/yepj" rel="nofollow">http://www.swoole.com/</a></p>
+<p>Swoole设计的目的就是为了使PHP得到更好的性能，同时也拓展了PHP的应用场景如：</p>
+<p>互联网、移动通信、企业软件、云计算、网络游戏、物联网（IOT）、车联网、智能家居等领域</p>
+<p>Swoole在PHP里的角色：就是PHP的一个扩展，类似mbstring扩展一样，使用之前需要先开启这个扩展</p>
+<p>注意：swoole暂时还不支持Windows系统</p>
+<h1><a id="post-6504-_____Swoole__"></a><a id="post-6504-_Toc256000003"></a>编译安装Swoole扩展</h1>
+<p><img decoding="async" width="1302" height="344" class="wp-image-6805" src="/wp-content/uploads/2018/05/word-image-6205.png" srcset="/wp-content/uploads/2018/05/word-image-6205.png 1302w, /wp-content/uploads/2018/05/word-image-6205-300x79.png 300w, /wp-content/uploads/2018/05/word-image-6205-768x203.png 768w, /wp-content/uploads/2018/05/word-image-6205-1024x271.png 1024w" sizes="(max-width: 1302px) 100vw, 1302px" /></p>
+<p>在Linux系统上安装使用源码进行编译安装</p>
+<p>环境准备：</p>
+<p>1、 安装PHP</p>
+<p>2、 安装编译swoole源代码的软件：autoconf（生成配置文件）、gcc（将C语言编译成可执行文件）、make（编译器）</p>
+<p>安装autoconf、gcc、make等软件方式：</p>
+<p>yum: yum install -y autoconf gcc make</p>
+<p>apt-get: apt-get install autoconf gcc make</p>
+<h2><a id="post-6504-___Swoole____"></a><a id="post-6504-_Toc256000004"></a>下载Swoole扩展源码</h2>
+<p>Github：<a href="/goto/9x5j" rel="nofollow">https://github.com/swoole/swoole-src/releases</a></p>
+<p>（比较新，可能有些版本不稳定）</p>
+<p>pecl.php.net：<a href="/goto/fy8k" rel="nofollow">http://pecl.php.net/package/swoole</a></p>
+<p>使用swoole 1.9.6版本：<a href="/goto/9gr1" rel="nofollow">http://pecl.php.net/get/swoole-1.9.6.tgz</a></p>
+<p>&nbsp;</p>
+<p>-&gt;wget <a href="/goto/9gr1" rel="nofollow">http://pecl.php.net/get/swoole-1.9.6.tgz</a></p>
+<p><img decoding="async" width="1636" height="383" class="wp-image-6809" src="/wp-content/uploads/2018/05/word-image-6209.png" srcset="/wp-content/uploads/2018/05/word-image-6209.png 1636w, /wp-content/uploads/2018/05/word-image-6209-300x70.png 300w, /wp-content/uploads/2018/05/word-image-6209-768x180.png 768w, /wp-content/uploads/2018/05/word-image-6209-1024x240.png 1024w" sizes="(max-width: 1636px) 100vw, 1636px" /></p>
+<h2><a id="post-6504-________"></a><a id="post-6504-_Toc256000005"></a>解压源码压缩包</h2>
+<p>-&gt;tar xf swoole-1.9.6.tgz</p>
+<p><img loading="lazy" decoding="async" width="1476" height="556" class="wp-image-6813" src="/wp-content/uploads/2018/05/word-image-6213.png" srcset="/wp-content/uploads/2018/05/word-image-6213.png 1476w, /wp-content/uploads/2018/05/word-image-6213-300x113.png 300w, /wp-content/uploads/2018/05/word-image-6213-768x289.png 768w, /wp-content/uploads/2018/05/word-image-6213-1024x386.png 1024w" sizes="(max-width: 1476px) 100vw, 1476px" /></p>
+<h2><a id="post-6504-___Swoole"></a><a id="post-6504-_Toc256000006"></a>编译Swoole</h2>
+<p>-&gt;phpize</p>
+<p><img loading="lazy" decoding="async" width="1247" height="217" class="wp-image-6817" src="/wp-content/uploads/2018/05/word-image-6217.png" srcset="/wp-content/uploads/2018/05/word-image-6217.png 1247w, /wp-content/uploads/2018/05/word-image-6217-300x52.png 300w, /wp-content/uploads/2018/05/word-image-6217-768x134.png 768w, /wp-content/uploads/2018/05/word-image-6217-1024x178.png 1024w" sizes="(max-width: 1247px) 100vw, 1247px" /></p>
+<p>-&gt;./configure</p>
+<p><img loading="lazy" decoding="async" width="1131" height="269" class="wp-image-6821" src="/wp-content/uploads/2018/05/word-image-6221.png" srcset="/wp-content/uploads/2018/05/word-image-6221.png 1131w, /wp-content/uploads/2018/05/word-image-6221-300x71.png 300w, /wp-content/uploads/2018/05/word-image-6221-768x183.png 768w, /wp-content/uploads/2018/05/word-image-6221-1024x244.png 1024w" sizes="(max-width: 1131px) 100vw, 1131px" /></p>
+<p>如果提示没有php-config文件那么使用如下办法解决</p>
+<p><img loading="lazy" decoding="async" width="1672" height="82" class="wp-image-6825" src="/wp-content/uploads/2018/05/word-image-6225.png" srcset="/wp-content/uploads/2018/05/word-image-6225.png 1672w, /wp-content/uploads/2018/05/word-image-6225-300x15.png 300w, /wp-content/uploads/2018/05/word-image-6225-768x38.png 768w, /wp-content/uploads/2018/05/word-image-6225-1024x50.png 1024w" sizes="(max-width: 1672px) 100vw, 1672px" /></p>
+<p>后面的安装路径是自己的PHP安装路径</p>
+<p>-&gt;make</p>
+<p>注意：如果想加快make 编译速度，那么可以使用 -jCPU核心数</p>
+<p>例如make -j2 后面的2指的就是使用两个CPU核心同时运算。</p>
+<p><img loading="lazy" decoding="async" width="1105" height="164" class="wp-image-6829" src="/wp-content/uploads/2018/05/word-image-6229.png" srcset="/wp-content/uploads/2018/05/word-image-6229.png 1105w, /wp-content/uploads/2018/05/word-image-6229-300x45.png 300w, /wp-content/uploads/2018/05/word-image-6229-768x114.png 768w, /wp-content/uploads/2018/05/word-image-6229-1024x152.png 1024w" sizes="(max-width: 1105px) 100vw, 1105px" /></p>
+<p>-&gt;make install</p>
+<p><img loading="lazy" decoding="async" width="1669" height="118" class="wp-image-6833" src="/wp-content/uploads/2018/05/word-image-6233.png" srcset="/wp-content/uploads/2018/05/word-image-6233.png 1669w, /wp-content/uploads/2018/05/word-image-6233-300x21.png 300w, /wp-content/uploads/2018/05/word-image-6233-768x54.png 768w, /wp-content/uploads/2018/05/word-image-6233-1024x72.png 1024w" sizes="(max-width: 1669px) 100vw, 1669px" /></p>
+<h2><a id="post-6504-__php_ini__swoole__"></a><a id="post-6504-_Toc256000007"></a>在php.ini开启swoole扩展</h2>
+<p><img loading="lazy" decoding="async" width="1683" height="148" class="wp-image-6836" src="/wp-content/uploads/2018/05/word-image-6236.png" srcset="/wp-content/uploads/2018/05/word-image-6236.png 1683w, /wp-content/uploads/2018/05/word-image-6236-300x26.png 300w, /wp-content/uploads/2018/05/word-image-6236-768x68.png 768w, /wp-content/uploads/2018/05/word-image-6236-1024x90.png 1024w" sizes="(max-width: 1683px) 100vw, 1683px" /></p>
+<p>编译好的swoole.so文件</p>
+<p>/usr/local/php/lib/php/extensions/no-debug-non-zts-20160303/ 一般是默认位置</p>
+<p><img loading="lazy" decoding="async" width="1542" height="96" class="wp-image-6840" src="/wp-content/uploads/2018/05/word-image-6240.png" srcset="/wp-content/uploads/2018/05/word-image-6240.png 1542w, /wp-content/uploads/2018/05/word-image-6240-300x19.png 300w, /wp-content/uploads/2018/05/word-image-6240-768x48.png 768w, /wp-content/uploads/2018/05/word-image-6240-1024x64.png 1024w" sizes="(max-width: 1542px) 100vw, 1542px" /></p>
+<p>查看扩展是否开启成功</p>
+<p>-&gt;php -m|grep swoole</p>
+<p><img loading="lazy" decoding="async" width="1098" height="118" class="wp-image-6844" src="/wp-content/uploads/2018/05/word-image-6244.png" srcset="/wp-content/uploads/2018/05/word-image-6244.png 1098w, /wp-content/uploads/2018/05/word-image-6244-300x32.png 300w, /wp-content/uploads/2018/05/word-image-6244-768x83.png 768w, /wp-content/uploads/2018/05/word-image-6244-1024x110.png 1024w" sizes="(max-width: 1098px) 100vw, 1098px" /></p>
+<p>到此swoole扩展编译安装完成。</p>
+<h2><a id="post-6504-_Swoole_________"></a><a id="post-6504-_Toc256000008"></a>Swoole的线程和进程的模型</h2>
+<p>参考网址：<a href="/goto/82ey" rel="nofollow">http://rango.swoole.com/</a> 开发者博客</p>
+<p><img loading="lazy" decoding="async" width="756" height="752" class="wp-image-6847" src="/wp-content/uploads/2018/05/word-image-6247.png" srcset="/wp-content/uploads/2018/05/word-image-6247.png 756w, /wp-content/uploads/2018/05/word-image-6247-150x150.png 150w, /wp-content/uploads/2018/05/word-image-6247-300x298.png 300w" sizes="(max-width: 756px) 100vw, 756px" /></p>
+<p>Swoole会开启<strong> “多个”</strong>进程</p>
+<p>Worker进程：代码业务逻辑通常是在Worker进程中处理的</p>
+<p>Worker进程被Manager进程所管理</p>
+<p>Master进程负责管理一系列的线程这些线程比较偏底层</p>
+<h2><a id="post-6504-_Swoole_____"></a><a id="post-6504-_Toc256000009"></a>Swoole的执行过程</h2>
+<p><img loading="lazy" decoding="async" width="673" height="551" class="wp-image-6850" src="/wp-content/uploads/2018/05/word-image-6250.png" srcset="/wp-content/uploads/2018/05/word-image-6250.png 673w, /wp-content/uploads/2018/05/word-image-6250-300x246.png 300w" sizes="(max-width: 673px) 100vw, 673px" /></p>
+<h2><a id="post-6504-_Swoole__________2"></a><a id="post-6504-_Toc256000010"></a>Swoole支持的常用事件列表</h2>
+<p><img loading="lazy" decoding="async" width="1009" height="464" class="wp-image-6853" src="/wp-content/uploads/2018/05/word-image-6253.png" srcset="/wp-content/uploads/2018/05/word-image-6253.png 1009w, /wp-content/uploads/2018/05/word-image-6253-300x138.png 300w, /wp-content/uploads/2018/05/word-image-6253-768x353.png 768w" sizes="(max-width: 1009px) 100vw, 1009px" /></p>
+<h2><a id="post-6504-_swoole_____________"></a><a id="post-6504-_Toc256000011"></a>swoole执行流程中几个需要注意的点</h2>
+<p>1. 在swoole服务器启动后，会创建三个进程</p>
+<p>* Manager</p>
+<p>* Worker</p>
+<p>* Task</p>
+<p>这个<strong>Manager进程是Worker进程的守护进程</strong>，在这个Worker进程意外结束后，这个Manager进程会重新启动Workder进程，Manager进程只有一个，而这个Worker可以有多个。</p>
+<p>Worker进程通过给这个Task进程发送任务，可以把一些<strong>计算量大</strong>的任务转移到Task进程，这样我们的Worker进程就可以高速处理客户端的请求，提高并发量。</p>
+<h1><a id="post-6504-_Swoole_HTTP___"></a><a id="post-6504-_Toc256000012"></a>Swoole的HTTP服务器</h1>
+<p>swoole的http请求对象是：swoole_http_request这个类的对象</p>
+<p>swoole的http响应对象是：swoole_http_response这个类的对象</p>
+<p><img loading="lazy" decoding="async" width="865" height="332" class="wp-image-6857" src="/wp-content/uploads/2018/05/word-image-6257.png" srcset="/wp-content/uploads/2018/05/word-image-6257.png 865w, /wp-content/uploads/2018/05/word-image-6257-300x115.png 300w, /wp-content/uploads/2018/05/word-image-6257-768x295.png 768w" sizes="(max-width: 865px) 100vw, 865px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="513" height="296" class="wp-image-6858" src="/wp-content/uploads/2018/05/word-image-6258.png" srcset="/wp-content/uploads/2018/05/word-image-6258.png 513w, /wp-content/uploads/2018/05/word-image-6258-300x173.png 300w" sizes="(max-width: 513px) 100vw, 513px" /></p>
+<p>swoole程序编写的流程</p>
+<p>1. 创建swoole服务器对象</p>
+<p>2. 为这个对象设置回调函数</p>
+<p>3. 处理业务逻辑</p>
+<p>4．启动swoole服务器</p>
+<h1><a id="post-6504-_Swoole_WebSocket___"></a><a id="post-6504-_Toc256000013"></a>Swoole的WebSocket服务器</h1>
+<p><strong>websocket服务器的事件</strong></p>
+<p><img loading="lazy" decoding="async" width="966" height="337" class="wp-image-6860" src="/wp-content/uploads/2018/05/word-image-6260.png" srcset="/wp-content/uploads/2018/05/word-image-6260.png 966w, /wp-content/uploads/2018/05/word-image-6260-300x105.png 300w, /wp-content/uploads/2018/05/word-image-6260-768x268.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<p>通过调用这个类swoole_websocket_server的push可以给websocket客户端发送消息</p>
+<p>通过调用这个类swoole_websocket_frame的data属性可以得到websocket客户端发送给websocket服务器的消息</p>
+<p><img loading="lazy" decoding="async" width="1327" height="375" class="wp-image-6862" src="/wp-content/uploads/2018/05/word-image-6262.png" srcset="/wp-content/uploads/2018/05/word-image-6262.png 1327w, /wp-content/uploads/2018/05/word-image-6262-300x85.png 300w, /wp-content/uploads/2018/05/word-image-6262-768x217.png 768w, /wp-content/uploads/2018/05/word-image-6262-1024x289.png 1024w" sizes="(max-width: 1327px) 100vw, 1327px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="1187" height="619" class="wp-image-6864" src="/wp-content/uploads/2018/05/word-image-6264.png" srcset="/wp-content/uploads/2018/05/word-image-6264.png 1187w, /wp-content/uploads/2018/05/word-image-6264-300x156.png 300w, /wp-content/uploads/2018/05/word-image-6264-768x400.png 768w, /wp-content/uploads/2018/05/word-image-6264-1024x534.png 1024w" sizes="(max-width: 1187px) 100vw, 1187px" /></p>
+<p>处理计算器的业务逻辑：</p>
+<p>#创建一个websocket服务器</p>
+<p>$serv=new swoole_websocket_server(&#8220;0.0.0.0&#8221;,8000);</p>
+<p>$serv-&gt;on(&#8220;message&#8221;,function(swoole_websocket_server <strong>$server</strong>, $frame){</p>
+<p>// var_dump($server,$frame);</p>
+<p>#获取客户端发送的数据信息</p>
+<p>$data=json_decode($frame-&gt;data,true);</p>
+<p>// var_dump($data);</p>
+<p>switch ($data[&#8216;operator&#8217;]){</p>
+<p>case &#8220;+&#8221;:</p>
+<p>$resust=$data[&#8216;firstNumber&#8217;]+$data[&#8216;secondNumber&#8217;];</p>
+<p>break;</p>
+<p>case &#8220;-&#8220;:</p>
+<p>$resust=$data[&#8216;firstNumber&#8217;]-$data[&#8216;secondNumber&#8217;];</p>
+<p>break;</p>
+<p>case &#8220;*&#8221;:</p>
+<p>$resust=$data[&#8216;firstNumber&#8217;]*$data[&#8216;secondNumber&#8217;];</p>
+<p>break;</p>
+<p>case &#8220;/&#8221;:</p>
+<p>$resust=$data[&#8216;firstNumber&#8217;]/$data[&#8216;secondNumber&#8217;];</p>
+<p>break;</p>
+<p>}</p>
+<p>//从服务器端将运算的结果推送给浏览器客户端。</p>
+<p>$server-&gt;push(<strong>$frame-&gt;fd</strong>,$resust);//$frame-&gt;fd就是客户端的唯一标识</p>
+<p>});</p>
+<p>#启动websocket_server服务器</p>
+<p>$serv-&gt;start();</p>
+<p>最终效果：</p>
+<p><img loading="lazy" decoding="async" width="1242" height="689" class="wp-image-6866" src="/wp-content/uploads/2018/05/word-image-6266.png" srcset="/wp-content/uploads/2018/05/word-image-6266.png 1242w, /wp-content/uploads/2018/05/word-image-6266-300x166.png 300w, /wp-content/uploads/2018/05/word-image-6266-768x426.png 768w, /wp-content/uploads/2018/05/word-image-6266-1024x568.png 1024w" sizes="(max-width: 1242px) 100vw, 1242px" /></p>
+<h1><a id="post-6504-_MySQL___"></a><a id="post-6504-_Toc256000014"></a>MySQL连接池</h1>
+<p>场景：<strong>每秒同时</strong>有1000个并发，但是这个mysql同时只能处理400个连接，<strong>mysql会宕机</strong>。</p>
+<p>解决方案：连接池：连接池建立了200个和mysql的连接，这1000个并发就有顺序的共享这连接池中的200个连接。</p>
+<p>连接池能够带来额外的性能提升，因为mysql建立连接的过程消耗较大，使用连接池<strong>只需连接一次mysql</strong>。</p>
+<p>连接池</p>
+<p>1. <strong>“永不断开”</strong>，要求我们的程序是一个<strong>常驻内存的程序</strong></p>
+<p>首先swoole满足上面的要求那么就用swoole编写mysql的连接池。</p>
+<p>分析思路：</p>
+<p>1、 使用<strong>单例模式固定连接池</strong></p>
+<p>2、 确定连接池的<strong>连接数</strong>（总数），以及<strong>可用的连接数 </strong></p>
+<p>3、 使<strong>用数组保存连接池中的连接对象</strong></p>
+<p>4、 在<strong>构造函数</strong>中，根据<strong>连接数</strong>，<strong>逐个</strong>产生连接对象（MySQL资源连接），并存入数组中</p>
+<p>5、 封装一个查询的方法：</p>
+<p>1) 首先要判断的是连接数是否已经分配完毕，如果分配完毕，抛出异常</p>
+<p>2) 每次查询之前从连接池（数组）中<strong>取出</strong>一个连接，对应的可用连接数要进行<strong>减1</strong>操作</p>
+<p>3) 查询完成之后，将之前取出的连接<strong>放入</strong>连接池（数组中），对应的可用连接数要进行<strong>加1</strong>操作</p>
+<p>6、 创建一个http服务器</p>
+<p>7、 在request事件内部进行数据查询操作</p>
+<p>#编写一个类实现连接池的效果。</p>
+<p>class MysqlConnectionsPool{</p>
+<p>private static $instance;//该属性用来保存单例对象</p>
+<p>private $connections=[];//用来存放生成的mysql连接（池子）</p>
+<p>private <strong>$conncetionNumber=20</strong>;//批量生成20个mysql连接。</p>
+<p>private $enableNumber=20;//可用连接数</p>
+<p>//编写一个单例</p>
+<p>public static function getInstance(){</p>
+<p>//判断当前静态属性self::instance是否为空</p>
+<p>if(is_null(self::$instance)){</p>
+<p>//这里如果为空，那么就需要进行实例化</p>
+<p>self::$instance=new self();</p>
+<p>}</p>
+<p>return self::$instance;</p>
+<p>}</p>
+<p>private function __clone(){}</p>
+<p>private function __construct()</p>
+<p>{</p>
+<p>//在该构造方法中实现连接池中连接的批量生成。</p>
+<p>for($i=0;$i&lt;$this-&gt;conncetionNumber;$i++){</p>
+<p>//每循环一次生成一个mysql连接</p>
+<p>//使用pdo连实现</p>
+<p>$dsn=&#8221;mysql:host=127.0.0.1;dbname=swoole&#8221;;</p>
+<p>//生成mysql连接并存入数组中</p>
+<p>$this-&gt;connections[]=new PDO($dsn,&#8221;swoole&#8221;,&#8221;123456&#8243;);</p>
+<p>}</p>
+<p>var_dump($this-&gt;connections);</p>
+<p>}</p>
+<p>//封装一个查询方法，实现从连接池中取出连接查询数据，查询结束之后要将连接还回连接池</p>
+<p>public function query($sql){</p>
+<p>if($this-&gt;enableNumber==0){</p>
+<p>//如果可用连接数为0，那么就说明连接池中的连接被分配完毕</p>
+<p>//那么抛出一个异常</p>
+<p>throw new Exception(&#8220;MySql连接池中的连接已经分配完毕&#8221;);</p>
+<p>}</p>
+<p>#执行到这里则说明连接池中还有连接可用</p>
+<p>//那么就从连接池中取出一个连接用来查询数据。</p>
+<p>$pdo=array_pop($this-&gt;connections);</p>
+<p>//可用连接数要对应减一</p>
+<p>$this-&gt;enableNumber&#8211;;</p>
+<p>//使用取出的连接进行数据查询</p>
+<p>$rows=$pdo-&gt;query($sql)-&gt;fetchAll(PDO::FETCH_ASSOC);</p>
+<p>#把使用后的mysql连接放入连接池中</p>
+<p><strong>array_push($this-&gt;connections,$pdo);</strong></p>
+<p>#更改可用连接数</p>
+<p><strong> $this-&gt;enableNumber++;</strong></p>
+<p>//返回查询到的数据信息</p>
+<p>return $rows;</p>
+<p>}</p>
+<p>}</p>
+<p>MysqlConnectionsPool::getInstance();</p>
+<p>#创建一个swoole的http服务器</p>
+<p>$serv=new swoole_http_server(&#8220;0.0.0.0&#8221;,8000);</p>
+<p>#绑定事件，目标：当浏览器连接http 服务器时，给浏览器发送一条消息</p>
+<p>$serv-&gt;on(&#8220;request&#8221;,function($request,$response){</p>
+<p>// var_dump($request,$response);</p>
+<p>$stop=false;</p>
+<p>while(!$stop){//初始状态下是一个死循环</p>
+<p>try{</p>
+<p>$sql=&#8221;select * from student&#8221;;</p>
+<p>//调用query方法实现查询效果。</p>
+<p>$rows=MysqlConnectionsPool::getInstance()-&gt;query($sql);</p>
+<p>var_dump($rows);</p>
+<p>$stop=true;//查询完成之后修改死循环的状态</p>
+<p>}catch(Exception $e){</p>
+<p>//如果捕捉到异常，那么就说明连接池中的可用连接已经分配完毕,那么暂停0.1秒再去连接池中取连接</p>
+<p><strong>usleep(100000);//暂停0.1秒</strong></p>
+<p>}</p>
+<p>}</p>
+<p>$response-&gt;end(&#8220;hello swoole&#8221;);</p>
+<p>});</p>
+<p>#启动swoole_http_server服务器</p>
+<p>$serv-&gt;start();</p>
+<p>最终效果：</p>
+<p><img loading="lazy" decoding="async" width="1003" height="540" class="wp-image-6868" src="/wp-content/uploads/2018/05/word-image-6268.png" srcset="/wp-content/uploads/2018/05/word-image-6268.png 1003w, /wp-content/uploads/2018/05/word-image-6268-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6268-768x413.png 768w" sizes="(max-width: 1003px) 100vw, 1003px" /></p>
+<p>在mysql中查看当前有多少个连接</p>
+<p>-&gt;show processlist</p>
+<p><img loading="lazy" decoding="async" width="1516" height="476" class="wp-image-6870" src="/wp-content/uploads/2018/05/word-image-6270.png" srcset="/wp-content/uploads/2018/05/word-image-6270.png 1516w, /wp-content/uploads/2018/05/word-image-6270-300x94.png 300w, /wp-content/uploads/2018/05/word-image-6270-768x241.png 768w, /wp-content/uploads/2018/05/word-image-6270-1024x322.png 1024w" sizes="(max-width: 1516px) 100vw, 1516px" /></p>
+<h1><a id="post-6504-___Swoole_____2"></a><a id="post-6504-_Toc256000015"></a>使用Swoole管理进程</h1>
+<p><img loading="lazy" decoding="async" width="1049" height="192" class="wp-image-6872" src="/wp-content/uploads/2018/05/word-image-6272.png" srcset="/wp-content/uploads/2018/05/word-image-6272.png 1049w, /wp-content/uploads/2018/05/word-image-6272-300x55.png 300w, /wp-content/uploads/2018/05/word-image-6272-768x141.png 768w, /wp-content/uploads/2018/05/word-image-6272-1024x187.png 1024w" sizes="(max-width: 1049px) 100vw, 1049px" /></p>
+<p>PHP有一个pcntl的扩展用来管理进程，但是这个扩展比较底层，不好用。</p>
+<p>多进程一般用来解决大计算量的问题。</p>
+<p>场景：修改当前进程的名字</p>
+<p>常规情况下，一个文件在执行，那么必然会有一个对应的进程</p>
+<p><img loading="lazy" decoding="async" width="659" height="142" class="wp-image-6874" src="/wp-content/uploads/2018/05/word-image-6274.png" srcset="/wp-content/uploads/2018/05/word-image-6274.png 659w, /wp-content/uploads/2018/05/word-image-6274-300x65.png 300w" sizes="(max-width: 659px) 100vw, 659px" /> <img loading="lazy" decoding="async" width="1580" height="47" class="wp-image-6876" src="/wp-content/uploads/2018/05/word-image-6276.png" srcset="/wp-content/uploads/2018/05/word-image-6276.png 1580w, /wp-content/uploads/2018/05/word-image-6276-300x9.png 300w, /wp-content/uploads/2018/05/word-image-6276-768x23.png 768w, /wp-content/uploads/2018/05/word-image-6276-1024x30.png 1024w" sizes="(max-width: 1580px) 100vw, 1580px" /></p>
+<p>解决办法：使用swoole_set_process_name函数修改进程名称</p>
+<p><img loading="lazy" decoding="async" width="823" height="275" class="wp-image-6878" src="/wp-content/uploads/2018/05/word-image-6278.png" srcset="/wp-content/uploads/2018/05/word-image-6278.png 823w, /wp-content/uploads/2018/05/word-image-6278-300x100.png 300w, /wp-content/uploads/2018/05/word-image-6278-768x257.png 768w" sizes="(max-width: 823px) 100vw, 823px" /></p>
+<p>更改效果：</p>
+<p><img loading="lazy" decoding="async" width="1421" height="35" class="wp-image-6880" src="/wp-content/uploads/2018/05/word-image-6280.png" srcset="/wp-content/uploads/2018/05/word-image-6280.png 1421w, /wp-content/uploads/2018/05/word-image-6280-300x7.png 300w, /wp-content/uploads/2018/05/word-image-6280-768x19.png 768w, /wp-content/uploads/2018/05/word-image-6280-1024x25.png 1024w" sizes="(max-width: 1421px) 100vw, 1421px" /></p>
+<h2><a id="post-6504-________________worker_process"></a><a id="post-6504-_Toc256000016"></a>创建一个子进程并设置进程名称为worker-process</h2>
+<p><img loading="lazy" decoding="async" width="1066" height="596" class="wp-image-6883" src="/wp-content/uploads/2018/05/word-image-6282.png" srcset="/wp-content/uploads/2018/05/word-image-6282.png 1066w, /wp-content/uploads/2018/05/word-image-6282-300x168.png 300w, /wp-content/uploads/2018/05/word-image-6282-768x429.png 768w, /wp-content/uploads/2018/05/word-image-6282-1024x573.png 1024w" sizes="(max-width: 1066px) 100vw, 1066px" /></p>
+<p>等待子进程退出：swoole_process:wait()效果就是只有所有子进程全部退出了，这个主进程才退出。</p>
+<p><img loading="lazy" decoding="async" width="1562" height="147" class="wp-image-6885" src="/wp-content/uploads/2018/05/word-image-6284.png" srcset="/wp-content/uploads/2018/05/word-image-6284.png 1562w, /wp-content/uploads/2018/05/word-image-6284-300x28.png 300w, /wp-content/uploads/2018/05/word-image-6284-768x72.png 768w, /wp-content/uploads/2018/05/word-image-6284-1024x96.png 1024w" sizes="(max-width: 1562px) 100vw, 1562px" /></p>
+<h1><a id="post-6504-_Swoole______"></a><a id="post-6504-_Toc256000017"></a>Swoole常用配置选项</h1>
+<p><img loading="lazy" decoding="async" width="785" height="175" class="wp-image-6886" src="/wp-content/uploads/2018/05/word-image-6285.png" srcset="/wp-content/uploads/2018/05/word-image-6285.png 785w, /wp-content/uploads/2018/05/word-image-6285-300x67.png 300w, /wp-content/uploads/2018/05/word-image-6285-768x171.png 768w" sizes="(max-width: 785px) 100vw, 785px" /></p>
+<h2><a id="post-6504-___worker____"></a><a id="post-6504-_Toc256000018"></a>调整worker进程数量</h2>
+<p>worker进程的数量越多，能同时处理的并发量更高。</p>
+<p>默认情况下：创建一个http服务器那么就会产生多个进程</p>
+<p><img loading="lazy" decoding="async" width="982" height="362" class="wp-image-6888" src="/wp-content/uploads/2018/05/word-image-6287.png" srcset="/wp-content/uploads/2018/05/word-image-6287.png 982w, /wp-content/uploads/2018/05/word-image-6287-300x111.png 300w, /wp-content/uploads/2018/05/word-image-6287-768x283.png 768w" sizes="(max-width: 982px) 100vw, 982px" /></p>
+<p>查看生成的进程数量</p>
+<p><img loading="lazy" decoding="async" width="1597" height="213" class="wp-image-6890" src="/wp-content/uploads/2018/05/word-image-6289.png" srcset="/wp-content/uploads/2018/05/word-image-6289.png 1597w, /wp-content/uploads/2018/05/word-image-6289-300x40.png 300w, /wp-content/uploads/2018/05/word-image-6289-768x102.png 768w, /wp-content/uploads/2018/05/word-image-6289-1024x137.png 1024w" sizes="(max-width: 1597px) 100vw, 1597px" /></p>
+<p>修改进程数量的代码：</p>
+<p><img loading="lazy" decoding="async" width="1044" height="446" class="wp-image-6892" src="/wp-content/uploads/2018/05/word-image-6291.png" srcset="/wp-content/uploads/2018/05/word-image-6291.png 1044w, /wp-content/uploads/2018/05/word-image-6291-300x128.png 300w, /wp-content/uploads/2018/05/word-image-6291-768x328.png 768w, /wp-content/uploads/2018/05/word-image-6291-1024x437.png 1024w" sizes="(max-width: 1044px) 100vw, 1044px" /></p>
+<p>修改task进程数量</p>
+<p><img loading="lazy" decoding="async" width="1157" height="768" class="wp-image-6894" src="/wp-content/uploads/2018/05/word-image-6293.png" srcset="/wp-content/uploads/2018/05/word-image-6293.png 1157w, /wp-content/uploads/2018/05/word-image-6293-300x199.png 300w, /wp-content/uploads/2018/05/word-image-6293-768x510.png 768w, /wp-content/uploads/2018/05/word-image-6293-1024x680.png 1024w" sizes="(max-width: 1157px) 100vw, 1157px" /></p>
+<p><strong>实现任务投递功能</strong></p>
+<p>#创建一个http服务器</p>
+<p>$serv=new swoole_http_server(&#8220;0.0.0.0&#8221;,8000);</p>
+<p>$serv-&gt;set(array(</p>
+<p>&#8216;worker_num&#8217;=&gt;5,//指定worker进程数量为20个</p>
+<p>&#8216;task_worker_num&#8217;=&gt;3</p>
+<p>));</p>
+<p>$serv-&gt;on(&#8220;connect&#8221;,function($server, $fd, $from_id){</p>
+<p>//当有新的连接进来是，那么就可以进行任务投递</p>
+<p>$server-&gt;task(&#8220;worker进程投递了任务&#8221;);//①投递任务</p>
+<p>});</p>
+<p>$serv-&gt;on(&#8220;request&#8221;,function($requset,$response){</p>
+<p>$response-&gt;end(&#8220;hello swoole&#8221;);</p>
+<p>});</p>
+<p>$serv-&gt;on(&#8220;Task&#8221;,function($serv, $task_id, $from_id, $data){</p>
+<p>//这里负责处理任务数据</p>
+<p>var_dump($task_id, $from_id,$data);//这个$data就是接受的任务数据信息</p>
+<p>//任务处理完成之后②处理任务投递</p>
+<p>return &#8220;任务进程处理完毕&#8221;;</p>
+<p>});</p>
+<p>$serv-&gt;on(&#8220;finish&#8221;,function( $serv, $task_id, $data){</p>
+<p>//处理完成之后向主进程返回数据信息</p>
+<p>var_dump($task_id,$data);//③向worker进程返回处理结果</p>
+<p>});</p>
+<p>#启动服务器</p>
+<p>$serv-&gt;start();</p>
+<h1><a id="post-6504-_Swoole_______2"></a><a id="post-6504-_Toc256000019"></a>Swoole毫秒级定时器</h1>
+<p>场景一：将一段代码延时执行</p>
+<p>swoole_timer_after(要执行的函数，延时的毫秒)</p>
+<p><img loading="lazy" decoding="async" width="889" height="156" class="wp-image-6896" src="/wp-content/uploads/2018/05/word-image-6295.png" srcset="/wp-content/uploads/2018/05/word-image-6295.png 889w, /wp-content/uploads/2018/05/word-image-6295-300x53.png 300w, /wp-content/uploads/2018/05/word-image-6295-768x135.png 768w" sizes="(max-width: 889px) 100vw, 889px" /></p>
+<p>执行效果：</p>
+<p><img loading="lazy" decoding="async" width="933" height="88" class="wp-image-6898" src="/wp-content/uploads/2018/05/word-image-6297.png" srcset="/wp-content/uploads/2018/05/word-image-6297.png 933w, /wp-content/uploads/2018/05/word-image-6297-300x28.png 300w, /wp-content/uploads/2018/05/word-image-6297-768x72.png 768w" sizes="(max-width: 933px) 100vw, 933px" /></p>
+<p>场景二：每隔3秒输出123</p>
+<p><img loading="lazy" decoding="async" width="1053" height="228" class="wp-image-6900" src="/wp-content/uploads/2018/05/word-image-6299.png" srcset="/wp-content/uploads/2018/05/word-image-6299.png 1053w, /wp-content/uploads/2018/05/word-image-6299-300x65.png 300w, /wp-content/uploads/2018/05/word-image-6299-768x166.png 768w, /wp-content/uploads/2018/05/word-image-6299-1024x222.png 1024w" sizes="(max-width: 1053px) 100vw, 1053px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="1064" height="238" class="wp-image-6902" src="/wp-content/uploads/2018/05/word-image-6301.png" srcset="/wp-content/uploads/2018/05/word-image-6301.png 1064w, /wp-content/uploads/2018/05/word-image-6301-300x67.png 300w, /wp-content/uploads/2018/05/word-image-6301-768x172.png 768w, /wp-content/uploads/2018/05/word-image-6301-1024x229.png 1024w" sizes="(max-width: 1064px) 100vw, 1064px" /></p>
+<h1><a id="post-6504-_______"></a><a id="post-6504-_Toc256000020"></a>异步文件读取</h1>
+<p>先看同步执行的案例：</p>
+<p>代码：</p>
+<p><img loading="lazy" decoding="async" width="834" height="177" class="wp-image-6904" src="/wp-content/uploads/2018/05/word-image-6303.png" srcset="/wp-content/uploads/2018/05/word-image-6303.png 834w, /wp-content/uploads/2018/05/word-image-6303-300x64.png 300w, /wp-content/uploads/2018/05/word-image-6303-768x163.png 768w" sizes="(max-width: 834px) 100vw, 834px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="1109" height="140" class="wp-image-6906" src="/wp-content/uploads/2018/05/word-image-6305.png" srcset="/wp-content/uploads/2018/05/word-image-6305.png 1109w, /wp-content/uploads/2018/05/word-image-6305-300x38.png 300w, /wp-content/uploads/2018/05/word-image-6305-768x97.png 768w, /wp-content/uploads/2018/05/word-image-6305-1024x129.png 1024w" sizes="(max-width: 1109px) 100vw, 1109px" /></p>
+<p>异步实现文件读取</p>
+<p><img loading="lazy" decoding="async" width="1301" height="235" class="wp-image-6907" src="/wp-content/uploads/2018/05/word-image-6306.png" srcset="/wp-content/uploads/2018/05/word-image-6306.png 1301w, /wp-content/uploads/2018/05/word-image-6306-300x54.png 300w, /wp-content/uploads/2018/05/word-image-6306-768x139.png 768w, /wp-content/uploads/2018/05/word-image-6306-1024x185.png 1024w" sizes="(max-width: 1301px) 100vw, 1301px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="1134" height="253" class="wp-image-6909" src="/wp-content/uploads/2018/05/word-image-6308.png" srcset="/wp-content/uploads/2018/05/word-image-6308.png 1134w, /wp-content/uploads/2018/05/word-image-6308-300x67.png 300w, /wp-content/uploads/2018/05/word-image-6308-768x171.png 768w, /wp-content/uploads/2018/05/word-image-6308-1024x228.png 1024w" sizes="(max-width: 1134px) 100vw, 1134px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/6504.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

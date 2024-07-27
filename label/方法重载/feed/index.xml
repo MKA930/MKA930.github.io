@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>方法重载 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 13:11:56 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>方法重载 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>面向对象（二）分页、 多态、 封装、 接口、 方法修饰符、 方法重写、 方法重载、 类常量、 继承</title>
+		<link>/php/1759.html</link>
+					<comments>/php/1759.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 13:01:26 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[面向对象]]></category>
+		<category><![CDATA[面向对象编程]]></category>
+		<category><![CDATA[分页]]></category>
+		<category><![CDATA[多态]]></category>
+		<category><![CDATA[封装]]></category>
+		<category><![CDATA[接口]]></category>
+		<category><![CDATA[方法修饰符]]></category>
+		<category><![CDATA[方法重写]]></category>
+		<category><![CDATA[方法重载]]></category>
+		<category><![CDATA[类常量]]></category>
+		<category><![CDATA[继承]]></category>
+		<guid isPermaLink="false">/?p=1759</guid>
+
+					<description><![CDATA[面向对象（二） 多态 多种形态，多态分为两种，方法重写和方法重载，PHP不支持方法重载 方法重写 子类重写了父 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>面向对象（二）</h1>
+<h2>多态</h2>
+<p>
+  多种形态，多态分为两种，方法重写和方法重载，PHP不支持方法重载
+</p>
+<h3>方法重写</h3>
+<p>
+  子类重写了父类的同名方法
+</p>
+<p><img fetchpriority="high" decoding="async" width="849" height="364" src="/wp-content/uploads/2018/05/word-image-1540.png" class="wp-image-1761" srcset="/wp-content/uploads/2018/05/word-image-1540.png 849w, /wp-content/uploads/2018/05/word-image-1540-300x129.png 300w, /wp-content/uploads/2018/05/word-image-1540-768x329.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<p>
+  规则：
+</p>
+<ol>
+<li>
+  子类中的方法必须和父类中的方法同名
+</li>
+<li>
+  子类可以拥有和父类不同数量的参数
+</li>
+</ol>
+<p><img decoding="async" width="1099" height="362" src="/wp-content/uploads/2018/05/word-image-1541.png" class="wp-image-1762" srcset="/wp-content/uploads/2018/05/word-image-1541.png 1099w, /wp-content/uploads/2018/05/word-image-1541-300x99.png 300w, /wp-content/uploads/2018/05/word-image-1541-768x253.png 768w, /wp-content/uploads/2018/05/word-image-1541-1024x337.png 1024w" sizes="(max-width: 1099px) 100vw, 1099px" /></p>
+<ol>
+<li>
+  子类中覆盖的方法不能比父类中被覆盖的方法更加严格
+</li>
+</ol>
+<p><img decoding="async" width="1010" height="261" src="/wp-content/uploads/2018/05/word-image-1542.png" class="wp-image-1763" srcset="/wp-content/uploads/2018/05/word-image-1542.png 1010w, /wp-content/uploads/2018/05/word-image-1542-300x78.png 300w, /wp-content/uploads/2018/05/word-image-1542-768x198.png 768w" sizes="(max-width: 1010px) 100vw, 1010px" /></p>
+<h3>方法重载</h3>
+<p>
+  通过参数的个数来区分不同的方法，PHP不支持。
+</p>
+<p><img loading="lazy" decoding="async" width="938" height="169" src="/wp-content/uploads/2018/05/word-image-1543.png" class="wp-image-1764" srcset="/wp-content/uploads/2018/05/word-image-1543.png 938w, /wp-content/uploads/2018/05/word-image-1543-300x54.png 300w, /wp-content/uploads/2018/05/word-image-1543-768x138.png 768w" sizes="(max-width: 938px) 100vw, 938px" /></p>
+<h2>面向对象的三大特性</h2>
+<ol>
+<li>
+  封装，通过访问修饰符来实现封装</p>
+<ol>
+<li>
+    Public
+  </li>
+<li>
+    Private
+  </li>
+<li>
+    protected
+  </li>
+</ol>
+</li>
+<li>
+  继承：子类继承了父类的属性和方法
+</li>
+<li>
+  多态：多种形态</p>
+<ol>
+<li>
+    方法重写
+  </li>
+<li>
+    方法重载（PHP不支持）
+  </li>
+</ol>
+</li>
+</ol>
+<h2>私有属性的继承和重写</h2>
+<p>
+  私有属性可以被继承，但是不能被重写
+</p>
+<p><img loading="lazy" decoding="async" width="688" height="273" src="/wp-content/uploads/2018/05/word-image-1544.png" class="wp-image-1765" srcset="/wp-content/uploads/2018/05/word-image-1544.png 688w, /wp-content/uploads/2018/05/word-image-1544-300x119.png 300w" sizes="(max-width: 688px) 100vw, 688px" /></p>
+<p>
+  思考如下例题
+</p>
+<p><img loading="lazy" decoding="async" width="745" height="280" src="/wp-content/uploads/2018/05/word-image-1545.png" class="wp-image-1766" srcset="/wp-content/uploads/2018/05/word-image-1545.png 745w, /wp-content/uploads/2018/05/word-image-1545-300x113.png 300w" sizes="(max-width: 745px) 100vw, 745px" /></p>
+<h2>方法修饰符</h2>
+<ol>
+<li>
+  static：静态的
+</li>
+<li>
+  final：最终的
+</li>
+<li>
+  abstract：抽象的
+</li>
+</ol>
+<h2>static修饰符</h2>
+<ol>
+<li>
+  static修饰属性叫静态属性，static修饰方法叫静态方法
+</li>
+<li>
+  静态属性在加载类的时候分配空间（普通属性在实例化的时候分配空间）,所以不需要实例化就可以访问
+</li>
+<li>
+  因为静态成员属于类，不属于某个对象，所以通过类名来调用静态成员</p>
+<ol>
+<li>
+    类名::静态属性
+  </li>
+<li>
+    类名::静态方法()
+  </li>
+</ol>
+</li>
+<li>
+  静态成员在内存中就一份。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="944" height="191" src="/wp-content/uploads/2018/05/word-image-1546.png" class="wp-image-1767" srcset="/wp-content/uploads/2018/05/word-image-1546.png 944w, /wp-content/uploads/2018/05/word-image-1546-300x61.png 300w, /wp-content/uploads/2018/05/word-image-1546-768x155.png 768w" sizes="(max-width: 944px) 100vw, 944px" /></p>
+<p>
+  多学一招： 由于普通方法在加载类的时候也加载了，所以也可以通过静态调用的方式来调用普通方法。
+</p>
+<p><img loading="lazy" decoding="async" width="1009" height="158" src="/wp-content/uploads/2018/05/word-image-1547.png" class="wp-image-1768" srcset="/wp-content/uploads/2018/05/word-image-1547.png 1009w, /wp-content/uploads/2018/05/word-image-1547-300x47.png 300w, /wp-content/uploads/2018/05/word-image-1547-768x120.png 768w" sizes="(max-width: 1009px) 100vw, 1009px" /></p>
+<h3>静态成员可以被继承</h3>
+<p><img loading="lazy" decoding="async" width="743" height="301" src="/wp-content/uploads/2018/05/word-image-1548.png" class="wp-image-1769" srcset="/wp-content/uploads/2018/05/word-image-1548.png 743w, /wp-content/uploads/2018/05/word-image-1548-300x122.png 300w" sizes="(max-width: 743px) 100vw, 743px" /></p>
+<h3>静态延时绑定</h3>
+<p>
+  static也可以表示类名，表示调用当前访问的对象所属的类。
+</p>
+<p><img loading="lazy" decoding="async" width="771" height="469" src="/wp-content/uploads/2018/05/word-image-1549.png" class="wp-image-1770" srcset="/wp-content/uploads/2018/05/word-image-1549.png 771w, /wp-content/uploads/2018/05/word-image-1549-300x182.png 300w, /wp-content/uploads/2018/05/word-image-1549-768x467.png 768w" sizes="(max-width: 771px) 100vw, 771px" /></p>
+<h2>self：当前类的名字</h2>
+<p><img loading="lazy" decoding="async" width="727" height="396" src="/wp-content/uploads/2018/05/word-image-1550.png" class="wp-image-1771" srcset="/wp-content/uploads/2018/05/word-image-1550.png 727w, /wp-content/uploads/2018/05/word-image-1550-300x163.png 300w" sizes="(max-width: 727px) 100vw, 727px" /></p>
+<h3>self总是表示当前类的名字</h3>
+<p><img loading="lazy" decoding="async" width="626" height="204" src="/wp-content/uploads/2018/05/word-image-1551.png" class="wp-image-1772" srcset="/wp-content/uploads/2018/05/word-image-1551.png 626w, /wp-content/uploads/2018/05/word-image-1551-300x98.png 300w" sizes="(max-width: 626px) 100vw, 626px" /></p>
+<h2>final修饰符</h2>
+<p>
+  final修饰的类不能被继承
+</p>
+<p><img loading="lazy" decoding="async" width="899" height="91" src="/wp-content/uploads/2018/05/word-image-1552.png" class="wp-image-1773" srcset="/wp-content/uploads/2018/05/word-image-1552.png 899w, /wp-content/uploads/2018/05/word-image-1552-300x30.png 300w, /wp-content/uploads/2018/05/word-image-1552-768x78.png 768w" sizes="(max-width: 899px) 100vw, 899px" /></p>
+<p>
+  final修饰的方法不能被重写
+</p>
+<p><img loading="lazy" decoding="async" width="824" height="172" src="/wp-content/uploads/2018/05/word-image-1553.png" class="wp-image-1774" srcset="/wp-content/uploads/2018/05/word-image-1553.png 824w, /wp-content/uploads/2018/05/word-image-1553-300x63.png 300w, /wp-content/uploads/2018/05/word-image-1553-768x160.png 768w" sizes="(max-width: 824px) 100vw, 824px" /></p>
+<h2>abstract修饰符</h2>
+<ol>
+<li>
+  abstract修饰的方法叫抽象方法，abstract修饰的类叫抽象类
+</li>
+<li>
+  只有方法的声明，没有方法的实现称为抽象方法。
+</li>
+<li>
+  一个类中只要只要有一个方法是抽象方法，这个类必须是抽象类
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="799" height="90" src="/wp-content/uploads/2018/05/word-image-1554.png" class="wp-image-1775" srcset="/wp-content/uploads/2018/05/word-image-1554.png 799w, /wp-content/uploads/2018/05/word-image-1554-300x34.png 300w, /wp-content/uploads/2018/05/word-image-1554-768x87.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+<ol>
+<li>
+  抽象类不可以被实例化，必须在子类中重新实现抽象方法
+</li>
+<li>
+  抽象方法的作用：用来定义命名规范的。
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  //类中只要有一个方法是抽象的，这个类就是抽象类
+</p>
+<p>
+  abstract class Goods {
+</p>
+<p>
+  	protected $name;	//商品名
+</p>
+<p>
+  	public function setName($name) {
+</p>
+<p>
+  		$this-&gt;name=$name;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	public abstract function show();	//只有方法的声明，没有方法的实现
+</p>
+<p>
+  }
+</p>
+<p>
+  //手机类继承商品类
+</p>
+<p>
+  class Mobile extends Goods {
+</p>
+<p>
+  	public function show() {	//实现父类的抽象方法
+</p>
+<p>
+  		echo $this-&gt;name,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //图书类继承商品类
+</p>
+<p>
+  class Book extends Goods {
+</p>
+<p>
+  	public function show() {	//实现父类的抽象方法
+</p>
+<p>
+  		echo &#8220;《{$this-&gt;name}》&lt;br&gt;&#8221;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //测试
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $mobile=new Mobile();
+</p>
+<p>
+  $mobile-&gt;setName(&#8216;iPhone7&#8217;);
+</p>
+<p>
+  $mobile-&gt;show();
+</p>
+<p>
+  $book=new Book();
+</p>
+<p>
+  $book-&gt;setName(&#8216;PHP入门与精通&#8217;);
+</p>
+<p>
+  $book-&gt;show();
+</p>
+<p><img loading="lazy" decoding="async" width="175" height="52" src="/wp-content/uploads/2018/05/word-image-1555.png" class="wp-image-1776" /></p>
+<p>
+  多学一招：类中一个抽象方法都没有也可以声明成抽象类。可以通过这种方法阻止类的实例化。
+</p>
+<p><img loading="lazy" decoding="async" width="591" height="148" src="/wp-content/uploads/2018/05/word-image-1556.png" class="wp-image-1777" srcset="/wp-content/uploads/2018/05/word-image-1556.png 591w, /wp-content/uploads/2018/05/word-image-1556-300x75.png 300w" sizes="(max-width: 591px) 100vw, 591px" /></p>
+<h2>接口（interface）</h2>
+<ol>
+<li>
+  如果一个类中所有的方法都是抽象方法，这个类就可以声明成接口。
+</li>
+<li>
+  使用interface关键字声明接口
+</li>
+<li>
+  接口中的抽象方法只能是public的，默认也是public。
+</li>
+<li>
+  接口不能继承，而是实现接口（implements）
+</li>
+<li>
+  abstract和final不能修饰接口中的抽象方法
+</li>
+<li>
+  接口的作用也是用来定义命名规范
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="789" height="407" src="/wp-content/uploads/2018/05/word-image-1557.png" class="wp-image-1778" srcset="/wp-content/uploads/2018/05/word-image-1557.png 789w, /wp-content/uploads/2018/05/word-image-1557-300x155.png 300w, /wp-content/uploads/2018/05/word-image-1557-768x396.png 768w" sizes="(max-width: 789px) 100vw, 789px" /></p>
+<h3>类不允许多重继承</h3>
+<p>
+  一个父类可以有多个子类
+</p>
+<p><img loading="lazy" decoding="async" width="803" height="227" src="/wp-content/uploads/2018/05/word-image-1558.png" class="wp-image-1779" srcset="/wp-content/uploads/2018/05/word-image-1558.png 803w, /wp-content/uploads/2018/05/word-image-1558-300x85.png 300w, /wp-content/uploads/2018/05/word-image-1558-768x217.png 768w" sizes="(max-width: 803px) 100vw, 803px" /></p>
+<p>
+  一个子类不能有多个父类（只有c++可以多重继承，其他语言都不允许多重继承。）
+</p>
+<p><img loading="lazy" decoding="async" width="732" height="169" src="/wp-content/uploads/2018/05/word-image-1559.png" class="wp-image-1780" srcset="/wp-content/uploads/2018/05/word-image-1559.png 732w, /wp-content/uploads/2018/05/word-image-1559-300x69.png 300w" sizes="(max-width: 732px) 100vw, 732px" /></p>
+<p>
+  多学一招：为什么很多语言不支持多重继承，因为多重继承容易产生二义性。
+</p>
+<h3>接口的多重实现</h3>
+<p><img loading="lazy" decoding="async" width="966" height="429" src="/wp-content/uploads/2018/05/word-image-1560.png" class="wp-image-1781" srcset="/wp-content/uploads/2018/05/word-image-1560.png 966w, /wp-content/uploads/2018/05/word-image-1560-300x133.png 300w, /wp-content/uploads/2018/05/word-image-1560-768x341.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<h3>继承类同时实现接口</h3>
+<p>
+  必须是先继承类再实现接口
+</p>
+<p><img loading="lazy" decoding="async" width="952" height="427" src="/wp-content/uploads/2018/05/word-image-1561.png" class="wp-image-1782" srcset="/wp-content/uploads/2018/05/word-image-1561.png 952w, /wp-content/uploads/2018/05/word-image-1561-300x135.png 300w, /wp-content/uploads/2018/05/word-image-1561-768x344.png 768w" sizes="(max-width: 952px) 100vw, 952px" /></p>
+<h2>类常量</h2>
+<p>
+  常量也是加载代码的时候加载，所以也是通过类名来方法
+</p>
+<p>
+  类常量用const声明
+</p>
+<p><img loading="lazy" decoding="async" width="716" height="167" src="/wp-content/uploads/2018/05/word-image-1562.png" class="wp-image-1783" srcset="/wp-content/uploads/2018/05/word-image-1562.png 716w, /wp-content/uploads/2018/05/word-image-1562-300x70.png 300w" sizes="(max-width: 716px) 100vw, 716px" /></p>
+<p>
+  const常量也可以放在接口中（接口中只能放抽象方法和常量）
+</p>
+<p><img loading="lazy" decoding="async" width="338" height="100" src="/wp-content/uploads/2018/05/word-image-1563.png" class="wp-image-1784" srcset="/wp-content/uploads/2018/05/word-image-1563.png 338w, /wp-content/uploads/2018/05/word-image-1563-300x89.png 300w" sizes="(max-width: 338px) 100vw, 338px" /></p>
+<h2>参数约束</h2>
+<ol>
+<li>
+  参数约束在PHP5.3以后才支持
+</li>
+<li>
+  只能约束对象，不能约束基本类型
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="596" height="172" src="/wp-content/uploads/2018/05/word-image-1564.png" class="wp-image-1785" srcset="/wp-content/uploads/2018/05/word-image-1564.png 596w, /wp-content/uploads/2018/05/word-image-1564-300x87.png 300w" sizes="(max-width: 596px) 100vw, 596px" /></p>
+<h2>父类可以指向子类的引用</h2>
+<p>
+  父类可以保存子类对象的地址
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Person {
+</p>
+<p>
+  }
+</p>
+<p>
+  class Student extends Person {
+</p>
+<p>
+  }
+</p>
+<p>
+  class Employee extends Person {
+</p>
+<p>
+  }
+</p>
+<p>
+  function show(Person $obj) {
+</p>
+<p>
+  }
+</p>
+<p>
+  //测试
+</p>
+<p>
+  show(new Student);
+</p>
+<p>
+  show(new Employee);
+</p>
+<h2>分页功能</h2>
+<p>
+  知识点：select * from 表名 limit 起始位置，记录数
+</p>
+<p>
+  起始位置从0开始。
+</p>
+<h3>分析：起始位置和页码的关系</h3>
+<p>
+  一页放10条记录（$pagesize=10）
+</p>
+<table>
+<tr>
+<td>
+<p>
+  页码（$pageno）
+</p>
+</td>
+<td>
+<p>
+  SQL语句
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  select * from contents limit 0,10
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  2
+</p>
+</td>
+<td>
+<p>
+  select * from contents limit 10,10
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  3
+</p>
+</td>
+<td>
+<p>
+  select * from contents limit 20,10
+</p>
+</td>
+</tr>
+</table>
+<p>
+  推导公式：$startno(起始位置)=($pageno-1)*$pagesize;
+</p>
+<h3>分析：总共有多少页</h3>
+<table>
+<tr>
+<td>
+<p>
+  记录数($rowcount)
+</p>
+</td>
+<td>
+<p>
+  页面总数($pagecount)
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  30
+</p>
+</td>
+<td>
+<p>
+  3
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  31
+</p>
+</td>
+<td>
+<p>
+  4
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  1
+</p>
+</td>
+<td>
+<p>
+  1
+</p>
+</td>
+</tr>
+</table>
+<p>
+  推导公式：$pagecount=ceil($rowcount/$pagesize)
+</p>
+<h3>实现第一步：输出页码</h3>
+<p>
+  点击页码——获取页码——通过页码获取页码的内容
+</p>
+<p><img loading="lazy" decoding="async" width="706" height="31" src="/wp-content/uploads/2018/05/word-image-1565.png" class="wp-image-1786" srcset="/wp-content/uploads/2018/05/word-image-1565.png 706w, /wp-content/uploads/2018/05/word-image-1565-300x13.png 300w" sizes="(max-width: 706px) 100vw, 706px" /></p>
+<p>
+  代码实现
+</p>
+<p>
+  //第一步：获取总记录数
+</p>
+<p>
+  $sql=&#8221;select count(*) from contents where title=$titleid&#8221;;
+</p>
+<p>
+  $rs=mysql_query($sql);
+</p>
+<p>
+  $rows=mysql_fetch_row($rs);
+</p>
+<p>
+  $rowcount=$rows[0];	//获取到总记录数
+</p>
+<p>
+  //第二步：求得总页数
+</p>
+<p>
+  $pagesize=10;		//页码大小
+</p>
+<p>
+  $pagecount=ceil($rowcount/$pagesize);	//求得总页数
+</p>
+<p>
+  在页码底部循环输出页码
+</p>
+<p>
+  &lt;tr&gt;
+</p>
+<p>
+  	&lt;td colspan=&#8217;3&#8242;&gt;
+</p>
+<p>
+  	&lt;?php for($i=1;$i&lt;=$pagecount;$i++):?&gt;
+</p>
+<p>
+  		&lt;?php if($pageno==$i):?&gt;
+</p>
+<p>
+  			&lt;span class=&#8221;pageno&#8221;&gt;&lt;?php echo $i?&gt;&lt;/span&gt; &amp;nbsp;
+</p>
+<p>
+  		&lt;?php else:?&gt;
+</p>
+<p>
+  			&lt;a href=&#8221;?pageno=&lt;?php echo $i?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;&lt;?php echo $i?&gt;&lt;/a&gt;&amp;nbsp;
+</p>
+<p>
+  		&lt;?php endif;?&gt;
+</p>
+</p>
+<p>
+  	&lt;?php endfor;?&gt;
+</p>
+<p>
+  	&lt;a href=&#8221;?pageno=1&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【首页】&lt;/a&gt;
+</p>
+<p>
+  	&lt;a href=&#8221;?pageno=&lt;?php echo $pageno-1?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【上一页】&lt;/a&gt;
+</p>
+<p>
+  	&lt;a href=&#8221;?pageno=&lt;?php echo $pageno+1?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【下一页】&lt;/a&gt;
+</p>
+<p>
+  	&lt;a href=&#8221;?pageno=&lt;?php echo $pagecount?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【末页】&lt;/a&gt;
+</p>
+<p>
+  	&lt;/td&gt;
+</p>
+<p>
+  &lt;/tr&gt;
+</p>
+<h3>实现第二步：获取页码，并取出当前页面中的内容</h3>
+<p>
+  代码
+</p>
+<p>
+  //第三步：获取当前页的内容
+</p>
+<p>
+  $pageno=isset($_GET[&#8216;pageno&#8217;])?$_GET[&#8216;pageno&#8217;]:1;		//获取当前页码
+</p>
+<p>
+  $pageno=$pageno&lt;1?1:$pageno;		//如果页码小于1，定位到第一页
+</p>
+<p>
+  $pageno=$pageno&gt;$pagecount?$pagecount:$pageno; //页码大于总页数，定位到最后一页
+</p>
+<p>
+  $startno=($pageno-1)*$pagesize;	//计算当前页的起始位置
+</p>
+<p>
+  $sql=&#8221;select * from contents where title=$titleid limit {$startno},{$pagesize}&#8221;;
+</p>
+<p>
+  $rs=mysql_query($sql);
+</p>
+<h3>完整代码</h3>
+<p>
+  &lt;!doctype html&gt;
+</p>
+<p>
+  &lt;html&gt;
+</p>
+<p>
+  &lt;head&gt;
+</p>
+<p>
+  &lt;meta charset=&#8221;utf-8&#8243;&gt;
+</p>
+<p>
+  &lt;title&gt;无标题文档&lt;/title&gt;
+</p>
+<p>
+  &lt;style type=&#8221;text/css&#8221;&gt;
+</p>
+<p>
+  	table{
+</p>
+<p>
+  		width:980px;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	table,td,th{
+</p>
+<p>
+  		border:solid 1px #000;
+</p>
+<p>
+  		margin:auto;
+</p>
+<p>
+  		font-size:14px;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	.pageno{
+</p>
+<p>
+  		font-size:24px;
+</p>
+<p>
+  		color:#FF0000;
+</p>
+<p>
+  	}
+</p>
+<p>
+  &lt;/style&gt;
+</p>
+<p>
+  &lt;/head&gt;
+</p>
+<p>
+  &lt;body&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //连接数据库
+</p>
+<p>
+  mysql_connect(&#8216;localhost&#8217;,&#8217;root&#8217;,&#8217;root&#8217;) or die(&#8216;数据库连接失败&#8217;);
+</p>
+<p>
+  mysql_select_db(&#8216;jokedb&#8217;);
+</p>
+<p>
+  mysql_query(&#8216;set names utf8&#8217;);
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;!&#8211;显示分类&#8211;&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	$rs=mysql_query(&#8216;select * from title&#8217;);
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;table&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  	&lt;?php
+</p>
+<p>
+  	$n=0;
+</p>
+<p>
+  	while($rows=mysql_fetch_assoc($rs)):
+</p>
+<p>
+  	?&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;a href=&#8221;?titleid=&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&#8221;&gt;&lt;?php echo $rows[&#8216;Title&#8217;]?&gt;&lt;/a&gt;&lt;/td&gt;
+</p>
+<p>
+  	&lt;?php
+</p>
+<p>
+  		if(++$n%9==0)
+</p>
+<p>
+  			echo &#8216;&lt;/tr&gt;&lt;tr&gt;&#8217;;
+</p>
+<p>
+  	endwhile;
+</p>
+<p>
+  	?&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p>
+  &lt;!&#8211;显示内容&#8211;&gt;
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  	$titleid=isset($_GET[&#8216;titleid&#8217;])?$_GET[&#8216;titleid&#8217;]:1;
+</p>
+<p>
+  	//第一步：获取总记录数
+</p>
+<p>
+  	$sql=&#8221;select count(*) from contents where title=$titleid&#8221;;
+</p>
+<p>
+  	$rs=mysql_query($sql);
+</p>
+<p>
+  	$rows=mysql_fetch_row($rs);
+</p>
+<p>
+  	$rowcount=$rows[0];	//获取到总记录数
+</p>
+<p>
+  	//第二步：求得总页数
+</p>
+<p>
+  	$pagesize=10;		//页码大小
+</p>
+<p>
+  	$pagecount=ceil($rowcount/$pagesize);	//求得总页数
+</p>
+<p>
+  	//第三步：获取当前页的内容
+</p>
+<p>
+  	$pageno=isset($_GET[&#8216;pageno&#8217;])?$_GET[&#8216;pageno&#8217;]:1;		//获取当前页码
+</p>
+<p>
+  	$pageno=$pageno&lt;1?1:$pageno;		//如果页码小于1，定位到第一页
+</p>
+<p>
+  	$pageno=$pageno&gt;$pagecount?$pagecount:$pageno; //页码大于总页数，定位到最后一页
+</p>
+<p>
+  	$startno=($pageno-1)*$pagesize;	//计算当前页的起始位置
+</p>
+<p>
+  	$sql=&#8221;select * from contents where title=$titleid limit {$startno},{$pagesize}&#8221;;
+</p>
+<p>
+  	$rs=mysql_query($sql);
+</p>
+<p>
+  ?&gt;
+</p>
+<p>
+  &lt;table&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;th&gt;编号&lt;/th&gt; &lt;th&gt;内容&lt;/th&gt; &lt;th&gt;作者&lt;/th&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  	&lt;?php while($rows=mysql_fetch_assoc($rs)):?&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Id&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Contents&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  		&lt;td&gt;&lt;?php echo $rows[&#8216;Author&#8217;]?&gt;&lt;/td&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  	&lt;?php endwhile;?&gt;
+</p>
+<p>
+  &lt;!&#8211;输出页码&#8211;&gt;
+</p>
+<p>
+  	&lt;tr&gt;
+</p>
+<p>
+  		&lt;td colspan=&#8217;3&#8242;&gt;
+</p>
+<p>
+  		&lt;?php for($i=1;$i&lt;=$pagecount;$i++):?&gt;
+</p>
+<p>
+  			&lt;?php if($pageno==$i):?&gt;
+</p>
+<p>
+  				&lt;span class=&#8221;pageno&#8221;&gt;&lt;?php echo $i?&gt;&lt;/span&gt; &amp;nbsp;
+</p>
+<p>
+  			&lt;?php else:?&gt;
+</p>
+<p>
+  				&lt;a href=&#8221;?pageno=&lt;?php echo $i?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;&lt;?php echo $i?&gt;&lt;/a&gt;&amp;nbsp;
+</p>
+<p>
+  			&lt;?php endif;?&gt;
+</p>
+</p>
+<p>
+  		&lt;?php endfor;?&gt;
+</p>
+<p>
+  		&lt;a href=&#8221;?pageno=1&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【首页】&lt;/a&gt;
+</p>
+<p>
+  		&lt;a href=&#8221;?pageno=&lt;?php echo $pageno-1?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【上一页】&lt;/a&gt;
+</p>
+<p>
+  		&lt;a href=&#8221;?pageno=&lt;?php echo $pageno+1?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【下一页】&lt;/a&gt;
+</p>
+<p>
+  		&lt;a href=&#8221;?pageno=&lt;?php echo $pagecount?&gt;&amp;titleid=&lt;?php echo $titleid?&gt;&#8221;&gt;【末页】&lt;/a&gt;
+</p>
+<p>
+  		&lt;/td&gt;
+</p>
+<p>
+  	&lt;/tr&gt;
+</p>
+<p>
+  &lt;/table&gt;
+</p>
+<p>
+  &lt;/body&gt;
+</p>
+<p>
+  &lt;/html&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="1023" height="423" src="/wp-content/uploads/2018/05/word-image-1566.png" class="wp-image-1787" srcset="/wp-content/uploads/2018/05/word-image-1566.png 1023w, /wp-content/uploads/2018/05/word-image-1566-300x124.png 300w, /wp-content/uploads/2018/05/word-image-1566-768x318.png 768w" sizes="(max-width: 1023px) 100vw, 1023px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/1759.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

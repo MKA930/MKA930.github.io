@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>函数类型 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%87%BD%E6%95%B0%E7%B1%BB%E5%9E%8B/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 06:24:52 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>函数类型 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>JS初级（四）事件、 传值与引用、 函数类型、 匿名函数、 转义字符</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/405.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/405.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 14:13:04 +0000</pubDate>
+				<category><![CDATA[Javascript]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[事件]]></category>
+		<category><![CDATA[传值与引用]]></category>
+		<category><![CDATA[函数类型]]></category>
+		<category><![CDATA[匿名函数]]></category>
+		<category><![CDATA[转义字符]]></category>
+		<guid isPermaLink="false">/?p=405</guid>
+
+					<description><![CDATA[回顾 for for(初始值;条件;增量){ //循环体 } while while(条件){ //循环体 } [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h2>回顾</h2>
+<ol>
+<li>
+  for
+</li>
+</ol>
+<p>
+  for(初始值;条件;增量){
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  while
+</li>
+</ol>
+<p>
+  while(条件){
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  do-while
+</li>
+</ol>
+<p>
+  do{
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  }while(条件)
+</p>
+<ol>
+<li>
+  for-in
+</li>
+</ol>
+<p>
+  for(var 变量 in 数组){
+</p>
+<p>
+  	//循环体
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  注意：切记不能出现死循环
+</li>
+<li>
+  跳转语句</p>
+<ol>
+<li>
+    Break：中断循环
+  </li>
+<li>
+    Continue：跳出当前循环，进入下一个循环
+  </li>
+</ol>
+</li>
+</ol>
+<h2>函数</h2>
+<ol>
+<li>
+  函数就是代码块，可以多次调用，很容易实现模块化编程。
+</li>
+<li>
+  函数也叫方法（其实函数和方法有一点点的区别，在面向对象中去讲解，目前我们认为他们是一样的）。
+</li>
+<li>
+  函数分为预定义函数和自定义函数
+</li>
+<li>
+  自定义函数的语法
+</li>
+</ol>
+<p>
+  function 函数名([参数…]){
+</p>
+<p>
+  	//函数体
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  参数分为形式参数（形参）和实际参数（实参）。形参只起一个形式的作用，没有具体的值，只是告诉调用者调用的时候传递几个参数，在定义函数的时候使用。实际参数是传递给函数的具体的值，在调用函数的时候使用。
+</li>
+</ol>
+<p><img decoding="async" width="636" height="71" src="/wp-content/uploads/2018/05/word-image-368.png" class="wp-image-407" srcset="/wp-content/uploads/2018/05/word-image-368.png 636w, /wp-content/uploads/2018/05/word-image-368-300x33.png 300w" sizes="(max-width: 636px) 100vw, 636px" /></p>
+<ol>
+<li>
+  通过函数名来调用函数
+</li>
+</ol>
+<h3>函数的预加载</h3>
+<p>
+  函数有预编译（预加载）的过程，可以实现调用在前，声明再后。在编译的时候先把函数编译好放在内存中，在执行JS的时候函数其实已经编译好了，所以直接调用就可以了。
+</p>
+<p><img fetchpriority="high" decoding="async" width="539" height="94" src="/wp-content/uploads/2018/05/word-image-369.png" class="wp-image-408" srcset="/wp-content/uploads/2018/05/word-image-369.png 539w, /wp-content/uploads/2018/05/word-image-369-300x52.png 300w" sizes="(max-width: 539px) 100vw, 539px" /></p>
+<p>
+  多学一招：不只是函数可以预加载，只要先声明的都可以预加载。
+</p>
+<p><img decoding="async" width="937" height="56" src="/wp-content/uploads/2018/05/word-image-370.png" class="wp-image-409" srcset="/wp-content/uploads/2018/05/word-image-370.png 937w, /wp-content/uploads/2018/05/word-image-370-300x18.png 300w, /wp-content/uploads/2018/05/word-image-370-768x46.png 768w" sizes="(max-width: 937px) 100vw, 937px" /></p>
+<p><strong>提醒一下：在有的资料上也说变量不能预加载，原因是只是声明了空间，并没有将值加载进入。有的资料上称为“预编译”。</strong>
+</p>
+<h3>思考：形参和实参个数不一样会怎么样？</h3>
+<p><img loading="lazy" decoding="async" width="718" height="198" src="/wp-content/uploads/2018/05/word-image-371.png" class="wp-image-410" srcset="/wp-content/uploads/2018/05/word-image-371.png 718w, /wp-content/uploads/2018/05/word-image-371-300x83.png 300w" sizes="(max-width: 718px) 100vw, 718px" /></p>
+<p>
+  总结：
+</p>
+<ol>
+<li>
+  少传递的参数是undefined
+</li>
+<li>
+  多传递的参数函数中接受不到。
+</li>
+</ol>
+<h3>函数的调用</h3>
+<p>
+  函数是通过函数名来调用的
+</p>
+<p>
+  一般函数的调用要结合“事件”来调用
+</p>
+<p>
+  调用的方式：
+</p>
+<p>
+  方法一（通过HTML标签调用）：&lt;标签 事件=”函数名()”/&gt;
+</p>
+<p>
+  方法二（JS调用）：对象.事件=函数
+</p>
+<p>
+  方法一：
+</p>
+<p><img loading="lazy" decoding="async" width="731" height="141" src="/wp-content/uploads/2018/05/word-image-372.png" class="wp-image-411" srcset="/wp-content/uploads/2018/05/word-image-372.png 731w, /wp-content/uploads/2018/05/word-image-372-300x58.png 300w" sizes="(max-width: 731px) 100vw, 731px" /></p>
+<p>
+  方法二：
+</p>
+<p><img loading="lazy" decoding="async" width="598" height="167" src="/wp-content/uploads/2018/05/word-image-373.png" class="wp-image-412" srcset="/wp-content/uploads/2018/05/word-image-373.png 598w, /wp-content/uploads/2018/05/word-image-373-300x84.png 300w" sizes="(max-width: 598px) 100vw, 598px" /></p>
+<h2>事件</h2>
+<h3>事件和事件处理</h3>
+<p>
+  事件：以“on”开头的都是事件，每个事件后面都有“事件处理”，事件处理一般是由函数来担当。
+</p>
+<p>
+  &lt;标签 事件=’事件处理[函数]’&gt;
+</p>
+<h3>常用的事件</h3>
+<ol>
+<li>
+  onclick：当鼠标点击的时候
+</li>
+<li>
+  onfocus：当获得焦点的时候
+</li>
+<li>
+  onblur：当失去焦点的时候
+</li>
+<li>
+  onchange：发生改变的时候
+</li>
+<li>
+  onkeydown：当键盘按键按下去的时候
+</li>
+<li>
+  onkeyup：当键盘的键抬起的时候
+</li>
+<li>
+  onmouseover：当鼠标滑过的时候
+</li>
+<li>
+  onload：当加载的时候
+</li>
+</ol>
+<h3>例题</h3>
+<ol>
+<li>
+  字符串.substr(start [, length ])
+</li>
+<li>
+  字符串.substring(start, end)
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="623" height="98" src="/wp-content/uploads/2018/05/word-image-374.png" class="wp-image-413" srcset="/wp-content/uploads/2018/05/word-image-374.png 623w, /wp-content/uploads/2018/05/word-image-374-300x47.png 300w" sizes="(max-width: 623px) 100vw, 623px" /></p>
+<p>
+  代码如下
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  function fun_focus(){	//得到焦点
+</p>
+<p>
+  	if(frm.card.value==&#8217;请注意格式:10XXXXXX&#8217;)
+</p>
+<p>
+  		frm.card.value=&#8221;;
+</p>
+<p>
+  }
+</p>
+<p>
+  function fun_blur(){	//失去焦点
+</p>
+<p>
+  	if(frm.card.value==&#8221;)
+</p>
+<p>
+  		frm.card.value=&#8217;请注意格式:10XXXXXX&#8217;;
+</p>
+<p>
+  	else{	//判断输入值的格式是否正确
+</p>
+<p>
+  		var card=frm.card.value;
+</p>
+<p>
+  		if(card.length!=8){	//卡号不是8位
+</p>
+<p>
+  			alert(&#8216;卡号是8位的,你输入的是&#8217;+card.length+&#8217;位&#8217;);
+</p>
+<p>
+  		}else{
+</p>
+<p>
+  			if(card.substr(0,2)!=&#8217;10&#8217;){
+</p>
+<p>
+  				alert(&#8216;卡号必须是&#8221;10&#8243;开头&#8217;);
+</p>
+<p>
+  			}else{
+</p>
+<p>
+  				alert(&#8216;卡号正确&#8217;);
+</p>
+<p>
+  			}
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;form name=&#8217;frm&#8217; action=&#8221;&#8221;&gt;
+</p>
+<p>
+  	卡号：&lt;input type=&#8221;text&#8221; name=&#8221;card&#8221; value=&#8217;请注意格式:10XXXXXX&#8217; onfocus=&#8217;fun_focus()&#8217; onblur=&#8217;fun_blur()&#8217;&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="222" height="30" src="/wp-content/uploads/2018/05/word-image-375.png" class="wp-image-414" srcset="/wp-content/uploads/2018/05/word-image-375.png 222w, /wp-content/uploads/2018/05/word-image-375-220x30.png 220w" sizes="(max-width: 222px) 100vw, 222px" /></p>
+<h2>匿名函数</h2>
+<p>
+  没有名字的函数，
+</p>
+<p>
+  语法
+</p>
+<p>
+  function(){
+</p>
+<p>
+  	//匿名函数
+</p>
+<p>
+  }
+</p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="773" height="144" src="/wp-content/uploads/2018/05/word-image-376.png" class="wp-image-415" srcset="/wp-content/uploads/2018/05/word-image-376.png 773w, /wp-content/uploads/2018/05/word-image-376-300x56.png 300w, /wp-content/uploads/2018/05/word-image-376-768x143.png 768w" sizes="(max-width: 773px) 100vw, 773px" /></p>
+<h3>匿名函数自调用</h3>
+<p><img loading="lazy" decoding="async" width="864" height="114" src="/wp-content/uploads/2018/05/word-image-377.png" class="wp-image-416" srcset="/wp-content/uploads/2018/05/word-image-377.png 864w, /wp-content/uploads/2018/05/word-image-377-300x40.png 300w, /wp-content/uploads/2018/05/word-image-377-768x101.png 768w" sizes="(max-width: 864px) 100vw, 864px" /></p>
+<h3>匿名函数的使用</h3>
+<p><img loading="lazy" decoding="async" width="797" height="211" src="/wp-content/uploads/2018/05/word-image-378.png" class="wp-image-417" srcset="/wp-content/uploads/2018/05/word-image-378.png 797w, /wp-content/uploads/2018/05/word-image-378-300x79.png 300w, /wp-content/uploads/2018/05/word-image-378-768x203.png 768w" sizes="(max-width: 797px) 100vw, 797px" /></p>
+<h2>return</h2>
+<p>
+  作用：
+</p>
+<ol>
+<li>
+  作用一：终止函数的执行
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="754" height="188" src="/wp-content/uploads/2018/05/word-image-379.png" class="wp-image-418" srcset="/wp-content/uploads/2018/05/word-image-379.png 754w, /wp-content/uploads/2018/05/word-image-379-300x75.png 300w" sizes="(max-width: 754px) 100vw, 754px" /></p>
+<ol>
+<li>
+  作用二：返回数据
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="626" height="184" src="/wp-content/uploads/2018/05/word-image-380.png" class="wp-image-419" srcset="/wp-content/uploads/2018/05/word-image-380.png 626w, /wp-content/uploads/2018/05/word-image-380-300x88.png 300w" sizes="(max-width: 626px) 100vw, 626px" /></p>
+<p>
+  脚下留心：如果要返回多个数据，将多个数据放到数组中返回，不能写多个return;
+</p>
+<p><img loading="lazy" decoding="async" width="577" height="72" src="/wp-content/uploads/2018/05/word-image-381.png" class="wp-image-420" srcset="/wp-content/uploads/2018/05/word-image-381.png 577w, /wp-content/uploads/2018/05/word-image-381-300x37.png 300w" sizes="(max-width: 577px) 100vw, 577px" /></p>
+<p>
+  应该这样写：
+</p>
+<p><img loading="lazy" decoding="async" width="237" height="26" src="/wp-content/uploads/2018/05/word-image-382.png" class="wp-image-421" /></p>
+<h2>使用类型函数进行类型的获取或转换</h2>
+<p>
+  在计算机内部，所有的数据都可以转成布尔值。转换规律：
+</p>
+<p>
+  1、数字和布尔值转换规律： 0为false，非0为true
+</p>
+<p>
+  2、字符串和布尔值转换规律：空字符串为false，非空字符串为true
+</p>
+<p>
+  我们也可以通过类型函数显式转换
+</p>
+<p>
+  String()：转成字符串
+</p>
+<p>
+  Boolean()：转成布尔型
+</p>
+<p>
+  Number()：转成数字型
+</p>
+<p>
+  typeof 获取数据类型
+</p>
+<p><img loading="lazy" decoding="async" width="651" height="209" src="/wp-content/uploads/2018/05/word-image-383.png" class="wp-image-422" srcset="/wp-content/uploads/2018/05/word-image-383.png 651w, /wp-content/uploads/2018/05/word-image-383-300x96.png 300w" sizes="(max-width: 651px) 100vw, 651px" /></p>
+<h2>值传递和引用传递</h2>
+<p>
+  函数中参数的传递有两种方式，值传递，引用传递（传递地址）
+</p>
+<p>
+  分析如下代码执行过程（值传递）
+</p>
+<p><img loading="lazy" decoding="async" width="520" height="96" src="/wp-content/uploads/2018/05/word-image-384.png" class="wp-image-423" srcset="/wp-content/uploads/2018/05/word-image-384.png 520w, /wp-content/uploads/2018/05/word-image-384-300x55.png 300w" sizes="(max-width: 520px) 100vw, 520px" /></p>
+<p>
+  第一步：将保存10的空间的地址付给x。（x保存的是10的地址）
+</p>
+<p>
+  第二步：将10复制一份，将10的副本的地址付给y
+</p>
+<p><img loading="lazy" decoding="async" width="571" height="190" src="/wp-content/uploads/2018/05/word-image-385.png" class="wp-image-424" srcset="/wp-content/uploads/2018/05/word-image-385.png 571w, /wp-content/uploads/2018/05/word-image-385-300x100.png 300w" sizes="(max-width: 571px) 100vw, 571px" /></p>
+<p>
+  分析如下代码执行过程（地址传递）
+</p>
+<p><img loading="lazy" decoding="async" width="492" height="139" src="/wp-content/uploads/2018/05/word-image-386.png" class="wp-image-425" srcset="/wp-content/uploads/2018/05/word-image-386.png 492w, /wp-content/uploads/2018/05/word-image-386-300x85.png 300w" sizes="(max-width: 492px) 100vw, 492px" /><br />
+<img loading="lazy" decoding="async" width="577" height="192" src="/wp-content/uploads/2018/05/word-image-387.png" class="wp-image-426" srcset="/wp-content/uploads/2018/05/word-image-387.png 577w, /wp-content/uploads/2018/05/word-image-387-300x100.png 300w" sizes="(max-width: 577px) 100vw, 577px" /></p>
+<p>
+  总结：只要是基本数据类型都是值传递，复杂类型都是地址传递。
+</p>
+<h2>传递不确定参数</h2>
+<p>
+  通过arguments关键字保存传递的参数数组
+</p>
+<p><img loading="lazy" decoding="async" width="664" height="288" src="/wp-content/uploads/2018/05/word-image-388.png" class="wp-image-427" srcset="/wp-content/uploads/2018/05/word-image-388.png 664w, /wp-content/uploads/2018/05/word-image-388-300x130.png 300w" sizes="(max-width: 664px) 100vw, 664px" /></p>
+<h2>变量作用域</h2>
+<p>
+  变量按照作用的范围不一样分为
+</p>
+<ol>
+<li>
+  全局变量：在整个页面使用的变量
+</li>
+<li>
+  局部变量：在函数内部使用的变量
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="814" height="195" src="/wp-content/uploads/2018/05/word-image-389.png" class="wp-image-428" srcset="/wp-content/uploads/2018/05/word-image-389.png 814w, /wp-content/uploads/2018/05/word-image-389-300x72.png 300w, /wp-content/uploads/2018/05/word-image-389-768x184.png 768w" sizes="(max-width: 814px) 100vw, 814px" /></p>
+<p>
+  思考：隐式声明局部变量
+</p>
+<p><img loading="lazy" decoding="async" width="649" height="199" src="/wp-content/uploads/2018/05/word-image-390.png" class="wp-image-429" srcset="/wp-content/uploads/2018/05/word-image-390.png 649w, /wp-content/uploads/2018/05/word-image-390-300x92.png 300w" sizes="(max-width: 649px) 100vw, 649px" /></p>
+<p>
+  总结：在函数中，通过var声明的变量是局部变量，不用var声明的变量在全局变量。
+</p>
+<h2>JS嵌入到网页的方法</h2>
+<p>
+  方法一：内嵌引入，直接将函数体写到事件处理中
+</p>
+<p><img loading="lazy" decoding="async" width="680" height="56" src="/wp-content/uploads/2018/05/word-image-391.png" class="wp-image-430" srcset="/wp-content/uploads/2018/05/word-image-391.png 680w, /wp-content/uploads/2018/05/word-image-391-300x25.png 300w" sizes="(max-width: 680px) 100vw, 680px" /><br />
+<img loading="lazy" decoding="async" width="1050" height="41" src="/wp-content/uploads/2018/05/word-image-392.png" class="wp-image-431" srcset="/wp-content/uploads/2018/05/word-image-392.png 1050w, /wp-content/uploads/2018/05/word-image-392-300x12.png 300w, /wp-content/uploads/2018/05/word-image-392-768x30.png 768w, /wp-content/uploads/2018/05/word-image-392-1024x40.png 1024w" sizes="(max-width: 1050px) 100vw, 1050px" /></p>
+<p>
+  方法二：内部引入：在HTML页面的内部通过&lt;script&gt;开头，&lt;/script&gt;结束
+</p>
+<p><img loading="lazy" decoding="async" width="347" height="60" src="/wp-content/uploads/2018/05/word-image-393.png" class="wp-image-432" srcset="/wp-content/uploads/2018/05/word-image-393.png 347w, /wp-content/uploads/2018/05/word-image-393-300x52.png 300w" sizes="(max-width: 347px) 100vw, 347px" /></p>
+<p>
+  方法三：外部文件引入
+</p>
+<p>
+  第一步：创建JS文件，并在JS文件中写入代码
+</p>
+<p><img loading="lazy" decoding="async" width="219" height="86" src="/wp-content/uploads/2018/05/word-image-394.png" class="wp-image-433" /></p>
+<p>
+  第二步：在HTML中引入外部的JS文件
+</p>
+<p><img loading="lazy" decoding="async" width="368" height="25" src="/wp-content/uploads/2018/05/word-image-395.png" class="wp-image-434" srcset="/wp-content/uploads/2018/05/word-image-395.png 368w, /wp-content/uploads/2018/05/word-image-395-300x20.png 300w" sizes="(max-width: 368px) 100vw, 368px" /></p>
+<h2>具有特殊含义的字符</h2>
+<p>
+  “”：字符串
+</p>
+<p>
+  ‘’：字符串
+</p>
+<p>
+  JS换行		\n		（new）
+</p>
+<p>
+  JS回车		\r			（return）
+</p>
+<p>
+  制表位：		\t
+</p>
+<p><img loading="lazy" decoding="async" width="427" height="58" src="/wp-content/uploads/2018/05/word-image-396.png" class="wp-image-435" srcset="/wp-content/uploads/2018/05/word-image-396.png 427w, /wp-content/uploads/2018/05/word-image-396-300x41.png 300w" sizes="(max-width: 427px) 100vw, 427px" /></p>
+<h2>转义字符（\）</h2>
+<p>
+  作用：将具有特殊含义的字符转成普通字符。
+</p>
+<p><img loading="lazy" decoding="async" width="861" height="144" src="/wp-content/uploads/2018/05/word-image-397.png" class="wp-image-436" srcset="/wp-content/uploads/2018/05/word-image-397.png 861w, /wp-content/uploads/2018/05/word-image-397-300x50.png 300w, /wp-content/uploads/2018/05/word-image-397-768x128.png 768w" sizes="(max-width: 861px) 100vw, 861px" /></p>
+<h2>对象</h2>
+<p>
+  能够了解对象的概念以及对象的分类
+</p>
+<p>
+  对象是属性（变量）和方法（函数）的组合。
+</p>
+<p>
+  调用对象的属性：    对象.属性
+</p>
+<p>
+  调用对象的方法:			对象.方法()
+</p>
+<h2>JavaScript三类对象</h2>
+<ol>
+<li>
+  HTML对象：就是HTML标签
+</li>
+<li>
+  脚本对象
+</li>
+<li>
+  浏览器对象
+</li>
+</ol>
+<h2>作业题</h2>
+<h3>计算器</h3>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  function cal(op){
+</p>
+<p>
+  	var num1=frm.num1.value;
+</p>
+<p>
+  	var num2=frm.num2.value;
+</p>
+<p>
+  	if(num1==&#8221; || isNaN(num1) || num2==&#8221; || isNaN(num2))
+</p>
+<p>
+  		return;		//不是数字就终止执行
+</p>
+<p>
+  	num1=parseFloat(num1);	//转换层数字类型
+</p>
+<p>
+  	num2=parseFloat(num2);
+</p>
+<p>
+  	switch(op){
+</p>
+<p>
+  		case &#8216;+&#8217;:
+</p>
+<p>
+  			frm.result.value=num1+num2;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		case &#8216;-&#8216;:
+</p>
+<p>
+  			frm.result.value=num1-num2;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		case &#8216;*&#8217;:
+</p>
+<p>
+  			frm.result.value=num1*num2;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		case &#8216;/&#8217;:
+</p>
+<p>
+  			frm.result.value=num1/num2;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;form action=&#8221;&#8221; name=&#8217;frm&#8217;&gt;
+</p>
+<p>
+  第一个数: &lt;input type=&#8221;text&#8221; name=&#8221;num1&#8243; id=&#8221;&#8221;&gt; &lt;br&gt;
+</p>
+<p>
+  第二个数：&lt;input type=&#8221;text&#8221; name=&#8221;num2&#8243; id=&#8221;&#8221;&gt; &lt;br&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221; + &#8221; onclick=&#8221;cal(&#8216;+&#8217;)&#8221;&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221; &#8211; &#8221; onclick=&#8221;cal(&#8216;-&#8216;)&#8221;&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221; * &#8221; onclick=&#8221;cal(&#8216;*&#8217;)&#8221;&gt;
+</p>
+<p>
+  &lt;input type=&#8221;button&#8221; value=&#8221; / &#8221; onclick=&#8221;cal(&#8216;/&#8217;)&#8221;&gt; &lt;br&gt;
+</p>
+<p>
+  结果：&lt;input type=&#8221;text&#8221; name=&#8221;result&#8221; id=&#8221;&#8221;&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="305" height="99" src="/wp-content/uploads/2018/05/word-image-398.png" class="wp-image-437" srcset="/wp-content/uploads/2018/05/word-image-398.png 305w, /wp-content/uploads/2018/05/word-image-398-300x97.png 300w" sizes="(max-width: 305px) 100vw, 305px" /></p>
+<h3>去字符串的空格</h3>
+<p>
+  思路：声明一个变量用来保存结果字符串，遍历循环字符串，如果不是空格就保存到变量中。最后这个变量就是去掉空格的字符串。
+</p>
+<p><img loading="lazy" decoding="async" width="932" height="408" src="/wp-content/uploads/2018/05/word-image-399.png" class="wp-image-438" srcset="/wp-content/uploads/2018/05/word-image-399.png 932w, /wp-content/uploads/2018/05/word-image-399-300x131.png 300w, /wp-content/uploads/2018/05/word-image-399-768x336.png 768w" sizes="(max-width: 932px) 100vw, 932px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/405.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

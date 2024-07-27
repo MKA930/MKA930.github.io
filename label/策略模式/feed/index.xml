@@ -1,0 +1,1460 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>策略模式 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 13:11:48 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>策略模式 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>面向对象编程（三）Clone、 foreach 遍历对象、 三私一公、 单例模式、 单例模式封装 MyPDO、 工厂模式、 序列化反序列化、 策略模式、 自动加载类、 迭代器、 魔术方法</title>
+		<link>/php/1735.html</link>
+					<comments>/php/1735.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 12:58:41 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[面向对象]]></category>
+		<category><![CDATA[面向对象编程]]></category>
+		<category><![CDATA[Clone]]></category>
+		<category><![CDATA[foreach 遍历对象]]></category>
+		<category><![CDATA[三私一公]]></category>
+		<category><![CDATA[单例模式]]></category>
+		<category><![CDATA[单例模式封装 MyPDO]]></category>
+		<category><![CDATA[工厂模式]]></category>
+		<category><![CDATA[序列化反序列化]]></category>
+		<category><![CDATA[策略模式]]></category>
+		<category><![CDATA[自动加载类]]></category>
+		<category><![CDATA[迭代器]]></category>
+		<category><![CDATA[魔术方法]]></category>
+		<guid isPermaLink="false">/?p=1735</guid>
+
+					<description><![CDATA[面向对象编程（三） 回顾 多态：多种形态 多态分为：方法重载和方法重写 方法重写：之类重写了父类的同名方法 规 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>面向对象编程（三）</h1>
+<h2>回顾</h2>
+<ol>
+<li>
+  多态：多种形态
+</li>
+<li>
+  多态分为：方法重载和方法重写</p>
+<ol>
+<li>
+    方法重写：之类重写了父类的同名方法</p>
+<ol>
+<li>
+      规则：</p>
+<ol>
+<li>
+        子类重写的方法必须和父类名字一样
+      </li>
+<li>
+        可以具有不同个数的参数，但是严格标准必须是个数一样
+      </li>
+<li>
+        子类中覆盖的方法不能比父类更加严格
+      </li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+    方法重载：在同一个类中有多个同名的方法，通过不同的参数个数和参数类型区分不同方法。PHP不支持方法重载。
+  </li>
+</ol>
+</li>
+<li>
+  私有属性可以继承，但不能被重写
+</li>
+<li>
+  方法修饰符</p>
+<ol>
+<li>
+    Static（静态的）</p>
+<ol>
+<li>
+      Static可以修饰属性和方法
+    </li>
+<li>
+      静态成员在加载类的分配空间
+    </li>
+<li>
+      静态成员在内存中只有一份，属于类，不属于某个对象
+    </li>
+<li>
+      通过类名来调用静态成员     类名::静态成员
+    </li>
+<li>
+      静态成员也是可以被继承的
+    </li>
+<li>
+      Static也可以表示类名，表示调用当前方法对象的所属的类
+    </li>
+</ol>
+</li>
+<li>
+    Final（最终的）</p>
+<ol>
+<li>
+      Final修饰的方法不能被重写
+    </li>
+<li>
+      Final修饰的类不能被继承
+    </li>
+</ol>
+</li>
+<li>
+    Abstract（抽象的）</p>
+<ol>
+<li>
+      只有方法的声明，没有方法的实现成为抽象方法
+    </li>
+<li>
+      一个类中只要有一个方法是抽象方法这个类必须是抽象类
+    </li>
+<li>
+      没有抽象方法的类也可以声明成抽象类
+    </li>
+<li>
+      抽象类不可以被实例化，抽象方法必须在子类中重新实现
+    </li>
+<li>
+      抽象方法是用来定义方法的命名规范的
+    </li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+  Self：总是表示当前类的类名
+</li>
+<li>
+  接口</p>
+<ol>
+<li>
+    如果一个类中所有的方法都是抽象类，这个类可以声明成接口
+  </li>
+<li>
+    使用interface关键字
+  </li>
+<li>
+    通过implements关键字实现接口
+  </li>
+<li>
+    接口中所有的方法都是抽象的，公有的
+  </li>
+<li>
+    不能使用abstract和final来修饰接口中的方法
+  </li>
+<li>
+    类不允许多重继承，接口可以多种实现
+  </li>
+</ol>
+</li>
+<li>
+  类常量</p>
+<ol>
+<li>
+    使用const关键字声明
+  </li>
+<li>
+    Const常量可以放在类和接口中
+  </li>
+</ol>
+</li>
+<li>
+  参数约束：只能约束对象
+</li>
+<li>
+  父类可以指向子类的引用。
+</li>
+</ol>
+<p>
+  思考：如何实现C可以调用A和B中的方法
+</p>
+<p><img fetchpriority="high" decoding="async" width="792" height="204" src="/wp-content/uploads/2018/05/word-image-1518.png" class="wp-image-1737" srcset="/wp-content/uploads/2018/05/word-image-1518.png 792w, /wp-content/uploads/2018/05/word-image-1518-300x77.png 300w, /wp-content/uploads/2018/05/word-image-1518-768x198.png 768w" sizes="(max-width: 792px) 100vw, 792px" /><br />
+<img decoding="async" width="329" height="311" src="/wp-content/uploads/2018/05/word-image-1519.png" class="wp-image-1738" srcset="/wp-content/uploads/2018/05/word-image-1519.png 329w, /wp-content/uploads/2018/05/word-image-1519-300x284.png 300w" sizes="(max-width: 329px) 100vw, 329px" /></p>
+<h2>类的自动加载</h2>
+<h3>在项目层面上类文件规则</h3>
+<ol>
+<li>
+  一个文件中只能有一个类
+</li>
+<li>
+  文件名和类名同名
+</li>
+<li>
+  文件名以.class.php结尾
+</li>
+</ol>
+<h3>场景（一个文件中需要用到3个类）</h3>
+<ol>
+<li>
+  创建Goods.class.php页面
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  //商品类
+</p>
+<p>
+  abstract class Goods {
+</p>
+<p>
+  	protected $name;
+</p>
+<p>
+  	final public function setName($name) {
+</p>
+<p>
+  		$this-&gt;name=$name;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	abstract function getName();
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  创建Book.class.php页面
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  //图书类
+</p>
+<p>
+  class Book extends Goods {
+</p>
+<p>
+  	public function getName() {	//重写了父类的方法
+</p>
+<p>
+  		echo &#8220;《{$this-&gt;name}》&lt;br&gt;&#8221;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  创建Mobile.class.php
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  //手机类
+</p>
+<p>
+  class Mobile extends Goods {
+</p>
+<p>
+  	public function getName() {
+</p>
+<p>
+  		echo $this-&gt;name,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  在PHP页面中使用上面的3个类
+</li>
+</ol>
+<p><img decoding="async" width="757" height="259" src="/wp-content/uploads/2018/05/word-image-1520.png" class="wp-image-1739" srcset="/wp-content/uploads/2018/05/word-image-1520.png 757w, /wp-content/uploads/2018/05/word-image-1520-300x103.png 300w" sizes="(max-width: 757px) 100vw, 757px" /></p>
+<p>
+  问题：在代码之前要引入需要的类。如果页面中需要用到很多的类，这样引入就很麻烦了。
+</p>
+<h3>类的自动加载</h3>
+<p>
+  当页面执行的时候，通过PHP核心程序（zend engine）判断用户需要用到那个类，如果没有找到该类，就会自动调用__autoload()函数，并且以缺少的类名做为参数传递到__autoload()函数中，我们只要在__autoload()函数中加载需要的类即可。
+</p>
+<h3>通过缺少的类名加载类文件</h3>
+<p>
+  在类文件保存地址规则的情况下使用
+</p>
+<p><img loading="lazy" decoding="async" width="842" height="333" src="/wp-content/uploads/2018/05/word-image-1521.png" class="wp-image-1740" srcset="/wp-content/uploads/2018/05/word-image-1521.png 842w, /wp-content/uploads/2018/05/word-image-1521-300x119.png 300w, /wp-content/uploads/2018/05/word-image-1521-768x304.png 768w" sizes="(max-width: 842px) 100vw, 842px" /></p>
+<h3>把类的地址映射到数组中然后加载</h3>
+<p>
+  适合在类文件保存不规则的时候使用
+</p>
+<p><img loading="lazy" decoding="async" width="738" height="200" src="/wp-content/uploads/2018/05/word-image-1522.png" class="wp-image-1741" srcset="/wp-content/uploads/2018/05/word-image-1522.png 738w, /wp-content/uploads/2018/05/word-image-1522-300x81.png 300w" sizes="(max-width: 738px) 100vw, 738px" /></p>
+<h2>clone和__clone()</h2>
+<p>
+  clone：用来创建一个对象
+</p>
+<p>
+  __clone()：当调用clone指令的时候自动执行__clone()函数
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Student {
+</p>
+<p>
+  	//执行clone指令的时候自动调用__clone()方法
+</p>
+<p>
+  	public function __clone() {
+</p>
+<p>
+  		echo &#8216;你调用了clone指令&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $stu1=new Student;
+</p>
+<p>
+  $stu2=clone $stu1;	//创建一个新的对象
+</p>
+<p>
+  var_dump($stu1);echo &#8216;&lt;br&gt;&#8217;;
+</p>
+<p>
+  var_dump($stu2);
+</p>
+<p><img loading="lazy" decoding="async" width="476" height="81" src="/wp-content/uploads/2018/05/word-image-1523.png" class="wp-image-1742" srcset="/wp-content/uploads/2018/05/word-image-1523.png 476w, /wp-content/uploads/2018/05/word-image-1523-300x51.png 300w" sizes="(max-width: 476px) 100vw, 476px" /></p>
+<p>
+  总结：创建对象的方式：
+</p>
+<ol>
+<li>
+  实例化
+</li>
+<li>
+  clone
+</li>
+</ol>
+<h2>单例模式</h2>
+<p>
+  一个类只能创建一个对象
+</p>
+<h3>阻止类实例化的方法</h3>
+<ol>
+<li>
+  抽象方法（可以阻止在类的外部和内部实例化）
+</li>
+<li>
+  私有的构造函数（阻止在类的外部实例化）
+</li>
+</ol>
+<h3>判断对象是否属于某个类</h3>
+<p><img loading="lazy" decoding="async" width="467" height="87" src="/wp-content/uploads/2018/05/word-image-1524.png" class="wp-image-1743" srcset="/wp-content/uploads/2018/05/word-image-1524.png 467w, /wp-content/uploads/2018/05/word-image-1524-300x56.png 300w" sizes="(max-width: 467px) 100vw, 467px" /></p>
+<h3>通过三私一公来实现</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  /**
+</p>
+<p>
+  *单例模式，三私一公
+</p>
+<p>
+  */
+</p>
+<p>
+  class MySQL {
+</p>
+<p>
+  	//保存MySQL的单例
+</p>
+<p>
+  private static $instance;
+</p>
+<p>
+  	//阻止在类的外部实例化对象
+</p>
+<p>
+  	private function __construct() {
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//阻止在类的外部clone对象
+</p>
+<p>
+  	private function __clone() {
+</p>
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//获取MySQL的单例
+</p>
+<p>
+  	public static function getInstance() {
+</p>
+<p>
+  		if(!self::$instance instanceof self)	//静态属性中保存的对象是否属于MySQL类
+</p>
+<p>
+  			self::$instance= new self();		//实例化对象对象
+</p>
+<p>
+  		return self::$instance;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //测试
+</p>
+<p>
+  $db1=MySQL::getInstance();
+</p>
+<p>
+  $db2=MySQL::getInstance();
+</p>
+<p>
+  var_dump($db1);		// object(MySQL)#1 (0) { } 
+</p>
+<p>
+  echo &#8216;&lt;br&gt;&#8217;;
+</p>
+<p>
+  var_dump($db2);		// object(MySQL)#1 (0) { } 
+</p>
+<h2>项目层面的单例模式</h2>
+<p>
+  多个对象的单例
+</p>
+<p><img loading="lazy" decoding="async" width="645" height="448" src="/wp-content/uploads/2018/05/word-image-1525.png" class="wp-image-1744" srcset="/wp-content/uploads/2018/05/word-image-1525.png 645w, /wp-content/uploads/2018/05/word-image-1525-300x208.png 300w" sizes="(max-width: 645px) 100vw, 645px" /></p>
+<h2>工厂模式</h2>
+<p>
+  传递不同的参数，返回不同的对象
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  class ProductA {
+</p>
+<p>
+  	public function show() {
+</p>
+<p>
+  		echo &#8216;获取A商品&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  class ProductB {
+</p>
+<p>
+  	public function show() {
+</p>
+<p>
+  		echo &#8216;获取B商品&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //工厂模式(传递不同的参数获取不同的对象)
+</p>
+<p>
+  class Factory {
+</p>
+<p>
+  	public static function create($num) {
+</p>
+<p>
+  		switch($num%2) {
+</p>
+<p>
+  			case 1:
+</p>
+<p>
+  				return new ProductA();
+</p>
+<p>
+  			case 0:
+</p>
+<p>
+  				return new ProductB;
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //测试
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $objA=Factory::create(10);
+</p>
+<p>
+  $objB=Factory::create(15);
+</p>
+<p>
+  $objA-&gt;show();	//获取B商品
+</p>
+<p>
+  $objB-&gt;show();	//获取A商品
+</p>
+<h2>策略模式</h2>
+<p>
+  传递不同的参数调用不同的策略（方法）
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Walk {
+</p>
+<p>
+  	public function method() {
+</p>
+<p>
+  		echo &#8216;走着去学校&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  class Bus {
+</p>
+<p>
+  	public function method() {
+</p>
+<p>
+  		echo &#8216;坐车去学校&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  class Bike {
+</p>
+<p>
+  	public function method() {
+</p>
+<p>
+  		echo &#8216;骑车去学校&lt;br&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //策略模式，传递不同的对象，调用不同的方法
+</p>
+<p>
+  class Strategy {
+</p>
+<p>
+  	public function go($obj) {
+</p>
+<p>
+  		$obj-&gt;method();
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //测试
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $strategy=new Strategy();
+</p>
+<p>
+  $strategy-&gt;go(new Walk());		//走着去学校
+</p>
+<p>
+  $strategy-&gt;go(new Bus());		//坐车去学校
+</p>
+<p>
+  $strategy-&gt;go(new Bike());		//骑车去学校
+</p>
+<h2>魔术方法</h2>
+<p><img loading="lazy" decoding="async" width="959" height="79" src="/wp-content/uploads/2018/05/word-image-1526.png" class="wp-image-1745" srcset="/wp-content/uploads/2018/05/word-image-1526.png 959w, /wp-content/uploads/2018/05/word-image-1526-300x25.png 300w, /wp-content/uploads/2018/05/word-image-1526-768x63.png 768w" sizes="(max-width: 959px) 100vw, 959px" /></p>
+<h3>已经学过的魔术方法</h3>
+<p>
+  __construct()：构造函数，当实例化对象的时候自动调用
+</p>
+<p>
+  __destruct()：析构函数，当对象销毁的时候自动调用
+</p>
+<p>
+  __clone()：当调用clone指令的时候自动调用
+</p>
+<h3><a href="mk:@MSITStore:F:\\帮助文档\\php_manual_zh.chm::/res/language.oop5.magic.html&quot; \l &quot;object.tostring">__toString()</a>和__invoke()</h3>
+<p>
+  __tostring()：当对象作为字符串使用的时候自动执行
+</p>
+<p>
+  __invoke()：当将对象作为函数使用的时候自动执行
+</p>
+<p><img loading="lazy" decoding="async" width="915" height="299" src="/wp-content/uploads/2018/05/word-image-1527.png" class="wp-image-1746" srcset="/wp-content/uploads/2018/05/word-image-1527.png 915w, /wp-content/uploads/2018/05/word-image-1527-300x98.png 300w, /wp-content/uploads/2018/05/word-image-1527-768x251.png 768w" sizes="(max-width: 915px) 100vw, 915px" /></p>
+<h3>__set()、__get()、__isset()</h3>
+<p>
+  1、__set($key,$value)：当给无法访问的属性赋值的时候自动调用
+</p>
+<p>
+  2、__get($key)：当给无法访问的属性取值的时候自动调用
+</p>
+<p>
+  3、__isset($key)：当判断无法访问的属性是否存在
+</p>
+<p>
+  4、__unset($key)：当销毁无法访问的属性的时候自动调用
+</p>
+<p>
+  总结：给私有属性赋值的方法
+</p>
+<ol>
+<li>
+  通过公有的方法给私有属性赋值
+</li>
+<li>
+  通过构造函数给私有属性赋值
+</li>
+<li>
+  通过魔术方法__set()赋值，__get()取值
+</li>
+</ol>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Student {
+</p>
+<p>
+  	private $name;
+</p>
+<p>
+  	private $age;
+</p>
+<p>
+  	/**
+</p>
+<p>
+  	*当给无法访问的属性赋值的时候自动调用
+</p>
+<p>
+  	*@param $key string 属性名
+</p>
+<p>
+  	*@param $value string 属性值
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	public function __set($key,$value) {
+</p>
+<p>
+  		if($key==&#8217;age&#8217; &amp;&amp; !($value&gt;=20 &amp;&amp; $value&lt;=30)){
+</p>
+<p>
+  			echo &#8216;年龄必须在20~30之间&lt;br&gt;&#8217;;
+</p>
+<p>
+  			return;
+</p>
+<p>
+  		}
+</p>
+<p>
+  		$this-&gt;$key=$value;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	/**
+</p>
+<p>
+  	*当给无法访问的属性取值的时候自动调用
+</p>
+<p>
+  	*@param $key string 属性名
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	public function __get($key) {
+</p>
+<p>
+  		return $this-&gt;$key;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	/**
+</p>
+<p>
+  	*当判断无法访问的属性是否存在
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	public function __isset($key) {
+</p>
+<p>
+  		return isset($this-&gt;$key);
+</p>
+<p>
+  	}
+</p>
+<p>
+  	/**
+</p>
+<p>
+  	*当销毁无法访问的属性的时候自动调用
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	public function __unset($key) {
+</p>
+<p>
+  		unset($this-&gt;$key);
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $stu=new Student;
+</p>
+<p>
+  $stu-&gt;name=&#8217;tom&#8217;;	//给私有属性赋值
+</p>
+<p>
+  $stu-&gt;age=25;
+</p>
+<p>
+  echo &#8216;姓名：&#8217;.$stu-&gt;name,'&lt;br&gt;&#8217;;	//获取私有属性的值
+</p>
+<p>
+  echo &#8216;年龄：&#8217;.$stu-&gt;age,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  var_dump(isset($stu-&gt;name));	//判断私有属性是否存在
+</p>
+<p>
+  echo &#8216;&lt;br&gt;&#8217;;
+</p>
+<p>
+  unset($stu-&gt;name);		//销毁私有属性
+</p>
+<p>
+  var_dump($stu);
+</p>
+<p><img loading="lazy" decoding="async" width="534" height="93" src="/wp-content/uploads/2018/05/word-image-1528.png" class="wp-image-1747" srcset="/wp-content/uploads/2018/05/word-image-1528.png 534w, /wp-content/uploads/2018/05/word-image-1528-300x52.png 300w" sizes="(max-width: 534px) 100vw, 534px" /></p>
+<h3><a href="mk:@MSITStore:F:\\帮助文档\\php_manual_zh.chm::/res/language.oop5.overloading.html&quot; \l &quot;object.call">__call()</a>、 <a href="mk:@MSITStore:F:\\帮助文档\\php_manual_zh.chm::/res/language.oop5.overloading.html&quot; \l &quot;object.callstatic">__callStatic()</a></h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Student {
+</p>
+<p>
+  	/**
+</p>
+<p>
+  	*当调用无法访问的属性的时候自动调用
+</p>
+<p>
+  	*@param $name string 方法名
+</p>
+<p>
+  	*@param $args array  参数数组
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	public function __call($name,$args) {
+</p>
+<p>
+  		echo &#8220;对象中没有'{$name}&#8217;的方法&lt;br&gt;&#8221;;
+</p>
+<p>
+  		echo &#8216;你传递&#8221;&#8216;.implode(&#8216;,&#8217;,$args).'&#8221;参数给我也没用&lt;hr&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	/**
+</p>
+<p>
+  	*当调用无法访问的静态方法的时候自动调用
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	public static function __callstatic($name,$args) {
+</p>
+<p>
+  		echo &#8220;对象中没有'{$name}&#8217;这个静态方法&lt;br&gt;&#8221;;
+</p>
+<p>
+  		echo &#8216;你传递&#8221;&#8216;.implode(&#8216;,&#8217;,$args).'&#8221;参数给我也没用&lt;hr&gt;&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $stu=new Student;
+</p>
+<p>
+  $stu-&gt;show(10,20);	//调用无法访问的方法
+</p>
+<p>
+  Student::connect();	//调用无法访问的静态方法
+</p>
+<p><img loading="lazy" decoding="async" width="302" height="118" src="/wp-content/uploads/2018/05/word-image-1529.png" class="wp-image-1748" srcset="/wp-content/uploads/2018/05/word-image-1529.png 302w, /wp-content/uploads/2018/05/word-image-1529-300x117.png 300w" sizes="(max-width: 302px) 100vw, 302px" /></p>
+<h3><a href="mk:@MSITStore:F:\\帮助文档\\php_manual_zh.chm::/res/language.oop5.magic.html&quot; \l &quot;object.sleep">__sleep()</a>和 <a href="mk:@MSITStore:F:\\帮助文档\\php_manual_zh.chm::/res/language.oop5.magic.html&quot; \l &quot;object.wakeup">__wakeup()</a></h3>
+<p>
+  __sleep()：在序列化的时候自动调用
+</p>
+<p>
+  __wakeup()；在反序列化的时候自动调用
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  class Student {
+</p>
+<p>
+  	private $name;
+</p>
+<p>
+  	private $sex;
+</p>
+<p>
+  	private $add;
+</p>
+<p>
+  	/**
+</p>
+<p>
+  	*在调用serialize时候自动调用
+</p>
+<p>
+  	*作用：只保留需要序列化的属性
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	public function __sleep() {
+</p>
+<p>
+  		return array(&#8216;name&#8217;,&#8217;sex&#8217;);	//返回需要序列化的属性
+</p>
+<p>
+  	}
+</p>
+<p>
+  	/**
+</p>
+<p>
+  	*在调用unserialize时候自动调用
+</p>
+<p>
+  	*作用：初始化对象的值
+</p>
+<p>
+  	*/
+</p>
+<p>
+  	public function __wakeup() {
+</p>
+<p>
+  		$this-&gt;name=&#8217;tom&#8217;;
+</p>
+<p>
+  		$this-&gt;sex=&#8217;男&#8217;;
+</p>
+<p>
+  		$this-&gt;add=&#8217;中国&#8217;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  $stu=new Student;
+</p>
+<p>
+  $str=serialize($stu);
+</p>
+<p>
+  echo $str,'&lt;hr&gt;&#8217;;
+</p>
+<p>
+  $stu=unserialize($str);
+</p>
+<p>
+  print_r($stu);
+</p>
+<p><img loading="lazy" decoding="async" width="624" height="92" src="/wp-content/uploads/2018/05/word-image-1530.png" class="wp-image-1749" srcset="/wp-content/uploads/2018/05/word-image-1530.png 624w, /wp-content/uploads/2018/05/word-image-1530-300x44.png 300w" sizes="(max-width: 624px) 100vw, 624px" /></p>
+<h2>序列化（serialize）和反序列化（unserialize）</h2>
+<p>
+  思考：能否将数组和对象永久保存？
+</p>
+<p>
+  答：可以，但是必须先序列化
+</p>
+<p>
+  序列化就是将数组或对象变成一个字符串序列
+</p>
+<h3>数组序列化和反序列化</h3>
+<p>
+  序列化
+</p>
+<p><img loading="lazy" decoding="async" width="879" height="67" src="/wp-content/uploads/2018/05/word-image-1531.png" class="wp-image-1750" srcset="/wp-content/uploads/2018/05/word-image-1531.png 879w, /wp-content/uploads/2018/05/word-image-1531-300x23.png 300w, /wp-content/uploads/2018/05/word-image-1531-768x59.png 768w" sizes="(max-width: 879px) 100vw, 879px" /></p>
+<p>
+  反序列化
+</p>
+<p><img loading="lazy" decoding="async" width="760" height="75" src="/wp-content/uploads/2018/05/word-image-1532.png" class="wp-image-1751" srcset="/wp-content/uploads/2018/05/word-image-1532.png 760w, /wp-content/uploads/2018/05/word-image-1532-300x30.png 300w" sizes="(max-width: 760px) 100vw, 760px" /></p>
+<h3>对象序列化和反序列化</h3>
+<p>
+  序列化
+</p>
+<p><img loading="lazy" decoding="async" width="981" height="106" src="/wp-content/uploads/2018/05/word-image-1533.png" class="wp-image-1752" srcset="/wp-content/uploads/2018/05/word-image-1533.png 981w, /wp-content/uploads/2018/05/word-image-1533-300x32.png 300w, /wp-content/uploads/2018/05/word-image-1533-768x83.png 768w" sizes="(max-width: 981px) 100vw, 981px" /></p>
+<p>
+  反序列化
+</p>
+<p><img loading="lazy" decoding="async" width="1035" height="75" src="/wp-content/uploads/2018/05/word-image-1534.png" class="wp-image-1753" srcset="/wp-content/uploads/2018/05/word-image-1534.png 1035w, /wp-content/uploads/2018/05/word-image-1534-300x22.png 300w, /wp-content/uploads/2018/05/word-image-1534-768x56.png 768w, /wp-content/uploads/2018/05/word-image-1534-1024x74.png 1024w" sizes="(max-width: 1035px) 100vw, 1035px" /></p>
+<p>
+  发现可以反序列化，但是类名没有反编译出来，解决方法在反序列化之前引入对应的类就可以了
+</p>
+<p><img loading="lazy" decoding="async" width="1020" height="95" src="/wp-content/uploads/2018/05/word-image-1535.png" class="wp-image-1754" srcset="/wp-content/uploads/2018/05/word-image-1535.png 1020w, /wp-content/uploads/2018/05/word-image-1535-300x28.png 300w, /wp-content/uploads/2018/05/word-image-1535-768x72.png 768w" sizes="(max-width: 1020px) 100vw, 1020px" /></p>
+<h2>foreach遍历对象</h2>
+<p>
+  foreach遍历只能遍历到可以访问到的属性
+</p>
+<p><img loading="lazy" decoding="async" width="657" height="336" src="/wp-content/uploads/2018/05/word-image-1536.png" class="wp-image-1755" srcset="/wp-content/uploads/2018/05/word-image-1536.png 657w, /wp-content/uploads/2018/05/word-image-1536-300x153.png 300w" sizes="(max-width: 657px) 100vw, 657px" /></p>
+<h2>迭代器（Iterator）</h2>
+<p>
+  场景：一个班级有60个学生，如何遍历这个班？
+</p>
+<p>
+  解决：
+</p>
+<p>
+  Iterator是PHP内置的接口，定义了5个抽象方法，只要实现了这5个抽象方法，迭代器就可以工作了。
+</p>
+<p><img loading="lazy" decoding="async" width="354" height="116" src="/wp-content/uploads/2018/05/word-image-1537.png" class="wp-image-1756" srcset="/wp-content/uploads/2018/05/word-image-1537.png 354w, /wp-content/uploads/2018/05/word-image-1537-300x98.png 300w" sizes="(max-width: 354px) 100vw, 354px" /></p>
+<p>
+  例题
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //班级类
+</p>
+<p>
+  class MyClass implements Iterator {
+</p>
+<p>
+  	private $list=array(&#8216;tom&#8217;,&#8217;berry&#8217;,&#8217;ketty&#8217;,&#8217;rose&#8217;);	//学生数组
+</p>
+<p>
+  	//复位数组
+</p>
+<p>
+  	public function rewind() {
+</p>
+<p>
+  		reset($this-&gt;list);
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//判断当前指针是否有效
+</p>
+<p>
+  	public function valid() {
+</p>
+<p>
+  		return key($this-&gt;list)!==null;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//返回当前键
+</p>
+<p>
+  	public function key() {
+</p>
+<p>
+  		return key($this-&gt;list);
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//返回当前值
+</p>
+<p>
+  	public function current() {
+</p>
+<p>
+  		return current($this-&gt;list);
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//指针下移
+</p>
+<p>
+  	public function next() {
+</p>
+<p>
+  		next($this-&gt;list);
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  //测试
+</p>
+<p>
+  $class=new MyClass();
+</p>
+<p>
+  foreach($class as $key=&gt;$val) {
+</p>
+<p>
+  	echo $key,&#8217;-&#8216;,$val,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p><img loading="lazy" decoding="async" width="163" height="94" src="/wp-content/uploads/2018/05/word-image-1538.png" class="wp-image-1757" /></p>
+<h2>通过单例模式封装MySQL数据库操作类</h2>
+<p>
+  实现功能
+</p>
+<ol>
+<li>
+  连接数据库
+</li>
+<li>
+  查询数据
+</li>
+</ol>
+<p>
+  需要注意的点：
+</p>
+<ol>
+<li>
+  一个方法只实现一个功能，方法的功能越单一越好，这样可以最大限度的实现代码的可重用性。
+</li>
+</ol>
+<p>
+  代码
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  /**
+</p>
+<p>
+  *MySQL数据库操作类(单例模式实现)
+</p>
+<p>
+  */
+</p>
+<p>
+  class MySQLDB {
+</p>
+<p>
+  	private $host;		//主机地址
+</p>
+<p>
+  	private $port;		//端口号
+</p>
+<p>
+  	private $user;		//用户名
+</p>
+<p>
+  	private $pwd;		//密码
+</p>
+<p>
+  	private $dbname;	//数据库名称
+</p>
+<p>
+  	private $charset;	//支付编码
+</p>
+<p>
+  	private static $instance;	//保存MySQLDB的实例
+</p>
+<p>
+  	//阻止在类的外部实例化
+</p>
+<p>
+  	private function __construct($config) {
+</p>
+<p>
+  		$this-&gt;initParam($config);
+</p>
+<p>
+  		$this-&gt;connect();
+</p>
+<p>
+  		$this-&gt;selectDb();
+</p>
+<p>
+  		$this-&gt;setCharSet();
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//阻止在类的外部调用clone指令
+</p>
+<p>
+  	private function __clone() {
+</p>
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//获取MySQLDB类的单例
+</p>
+<p>
+  	public static function getInstrance($config=array()) {
+</p>
+<p>
+  		if(!self::$instance instanceof self)
+</p>
+<p>
+  			self::$instance=new self($config);
+</p>
+<p>
+  		return self::$instance;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//初始化数据
+</p>
+<p>
+  	private function initParam($config) {
+</p>
+<p>
+  		$this-&gt;host=isset($config[&#8216;host&#8217;])?$config[&#8216;host&#8217;]:&#8217;127.0.0.1&#8242;;
+</p>
+<p>
+  		$this-&gt;port=isset($config[&#8216;port&#8217;])?$config[&#8216;port&#8217;]:&#8217;3306&#8242;;
+</p>
+<p>
+  		$this-&gt;user=isset($config[&#8216;user&#8217;])?$config[&#8216;user&#8217;]:&#8221;;
+</p>
+<p>
+  		$this-&gt;pwd=isset($config[&#8216;pwd&#8217;])?$config[&#8216;pwd&#8217;]:&#8221;;
+</p>
+<p>
+  		$this-&gt;dbname=isset($config[&#8216;dbname&#8217;])?$config[&#8216;dbname&#8217;]:&#8217;data&#8217;;
+</p>
+<p>
+  		$this-&gt;charset=isset($config[&#8216;charset&#8217;])?$config[&#8216;charset&#8217;]:&#8217;utf8&#8242;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//连接数据库
+</p>
+<p>
+  	private function connect() {
+</p>
+<p>
+  		if(!$link=@mysql_connect(&#8220;{$this-&gt;host}:{$this-&gt;port}&#8221;,$this-&gt;user,$this-&gt;pwd))
+</p>
+<p>
+  			$this-&gt;showMessage();
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//选择数据库
+</p>
+<p>
+  	private function selectDb() {
+</p>
+<p>
+  		if(!mysql_select_db(&#8220;$this-&gt;dbname&#8221;))
+</p>
+<p>
+  			$this-&gt;showMessage();
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//设置字符编码
+</p>
+<p>
+  	private function setCharSet() {
+</p>
+<p>
+  		if(!@mysql_query(&#8220;set names {$this-&gt;charset}&#8221;)){
+</p>
+<p>
+  			$this-&gt;showMessage();
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//显示错误的方法
+</p>
+<p>
+  	private function showMessage($sql=&#8221;) {
+</p>
+<p>
+  		if($sql!=&#8221;)
+</p>
+<p>
+  			echo &#8216;错误SQL语句：&#8217;.$sql,'&lt;br&gt;&#8217;;
+</p>
+<p>
+  		echo &#8216;错误信息：&#8217;.mysql_error(),'&lt;br&gt;&#8217;;
+</p>
+<p>
+  		echo &#8216;错误编号：&#8217;.mysql_errno(),'&lt;br&gt;&#8217;;
+</p>
+<p>
+  		exit;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//执行SQL语句的方法
+</p>
+<p>
+  	private function query($sql) {
+</p>
+<p>
+  		if($rs=mysql_query($sql))
+</p>
+<p>
+  			return $rs;
+</p>
+<p>
+  		$this-&gt;showMessage($sql);
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//拼接函数名
+</p>
+<p>
+  	private function createFunction($type) {
+</p>
+<p>
+  		$allow=array(&#8216;assoc&#8217;,&#8217;row&#8217;,&#8217;array&#8217;);
+</p>
+<p>
+  		if(!in_array($type,$allow))
+</p>
+<p>
+  			$type=&#8217;assoc&#8217;;
+</p>
+<p>
+  		return &#8216;mysql_fetch_&#8217;.$type;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	//获取二维表的数据
+</p>
+<p>
+  	public function getAll($sql,$type=&#8217;assoc&#8217;) {
+</p>
+<p>
+  		$fn=$this-&gt;createFunction($type);
+</p>
+<p>
+  		$rs=$this-&gt;query($sql);
+</p>
+<p>
+  		$array=array();
+</p>
+<p>
+  		while($rows=$fn($rs)) {
+</p>
+<p>
+  			$array[]=$rows;
+</p>
+<p>
+  		}
+</p>
+<p>
+  		return $array;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  header(&#8216;Content-Type:text/html;charset=utf-8&#8217;);
+</p>
+<p>
+  //测试
+</p>
+<p>
+  $config=array(
+</p>
+<p>
+  	&#8216;user&#8217;	=&gt;	&#8216;root&#8217;,
+</p>
+<p>
+  	&#8216;pwd&#8217;	=&gt;	&#8216;root&#8217;,
+</p>
+<p>
+  	&#8216;dbname&#8217;=&gt;	&#8216;jokedb&#8217;,
+</p>
+<p>
+  );
+</p>
+<p>
+  $mysql=MySQLDB::getInstrance($config);
+</p>
+<p>
+  $rs=$mysql-&gt;getAll(&#8216;select * from title&#8217;,&#8217;aa&#8217;);
+</p>
+<p>
+  echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+  var_dump($rs);</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/1735.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

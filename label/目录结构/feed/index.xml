@@ -1,0 +1,2031 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>目录结构 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sun, 20 May 2018 01:09:44 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>目录结构 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Yaf框架 安装、PHP-ext引入、目录结构、路由、模型、视图、控制器</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6500.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6500.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 17:29:32 +0000</pubDate>
+				<category><![CDATA[Yaf]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[PHP-ext引入]]></category>
+		<category><![CDATA[Yaf安装]]></category>
+		<category><![CDATA[控制器]]></category>
+		<category><![CDATA[模型]]></category>
+		<category><![CDATA[目录结构]]></category>
+		<category><![CDATA[视图]]></category>
+		<category><![CDATA[路由]]></category>
+		<guid isPermaLink="false">/?p=6500</guid>
+
+					<description><![CDATA[写在前面 鸟哥是谁？ 注意：也是PHP核心开发者之一（目前的最新的PHP7参与其中，并且很大部分的代码都是他贡 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>写在前面</h1>
+<h2>鸟哥是谁？</h2>
+<p><img fetchpriority="high" decoding="async" width="684" height="216" class="wp-image-6667" src="/wp-content/uploads/2018/05/word-image-6074.png" srcset="/wp-content/uploads/2018/05/word-image-6074.png 684w, /wp-content/uploads/2018/05/word-image-6074-300x95.png 300w" sizes="(max-width: 684px) 100vw, 684px" /></p>
+<p>注意：也是PHP核心开发者之一（目前的最新的PHP7参与其中，并且很大部分的代码都是他贡献的）。和之前Linux私房菜鸟哥不是同一个人（这个鸟哥是台湾，主要是做Linux教程。）但我们yaf的鸟哥是惠新宸（风雪之隅）（之前是在百度工作的时候网名叫做雪候鸟，年龄相对大一点，所以被称为鸟哥。也在新浪微博工作。目前应该是在链家做架构师）</p>
+<p><img decoding="async" width="1046" height="474" class="wp-image-6669" src="/wp-content/uploads/2018/05/word-image-6076.png" srcset="/wp-content/uploads/2018/05/word-image-6076.png 1046w, /wp-content/uploads/2018/05/word-image-6076-300x136.png 300w, /wp-content/uploads/2018/05/word-image-6076-768x348.png 768w, /wp-content/uploads/2018/05/word-image-6076-1024x464.png 1024w" sizes="(max-width: 1046px) 100vw, 1046px" /></p>
+<p>相关报道：</p>
+<p><a href="http://www.infoq.com/cn/articles/weibo-architect-on-php-development">http://www.infoq.com/cn/articles/weibo-architect-on-php-development</a></p>
+<h2>yaf是什么？</h2>
+<p><img decoding="async" width="1054" height="498" class="wp-image-6671" src="/wp-content/uploads/2018/05/word-image-6078.png" srcset="/wp-content/uploads/2018/05/word-image-6078.png 1054w, /wp-content/uploads/2018/05/word-image-6078-300x142.png 300w, /wp-content/uploads/2018/05/word-image-6078-768x363.png 768w, /wp-content/uploads/2018/05/word-image-6078-1024x484.png 1024w" sizes="(max-width: 1054px) 100vw, 1054px" /></p>
+<p>注意：yaf框架是使用C语言进行编写的，编程之后编程成一个dll文件作为PHP的扩展进行出现，当PHP引入该扩展后，就在PHP里面内置很多的类库。然后我们就可以直接调用这些类库（等价PHP里面内置的一些功能，例如内置的函数、stdClass内置标准类），注意：同类型的框架还有国外的phalcon框架，也是做为PHP的出现，也是一个高性能的扩展，这类框架的性能折损非常少，性能仅次于原生的PHP。看一下官方的简介：</p>
+<p><img loading="lazy" decoding="async" width="1601" height="771" class="wp-image-6673" src="/wp-content/uploads/2018/05/word-image-6080.png" srcset="/wp-content/uploads/2018/05/word-image-6080.png 1601w, /wp-content/uploads/2018/05/word-image-6080-300x144.png 300w, /wp-content/uploads/2018/05/word-image-6080-768x370.png 768w, /wp-content/uploads/2018/05/word-image-6080-1024x493.png 1024w" sizes="(max-width: 1601px) 100vw, 1601px" /></p>
+<h2>相关资源</h2>
+<p>yaf手册：<a href="http://yaf.laruence.com/">http://yaf.laruence.com/</a></p>
+<p>github地址：https://github.com/laruence/yaf</p>
+<p>作者博客：<a href="http://www.laruence.com/">http://www.laruence.com/</a></p>
+<h1>yaf安装</h1>
+<h2>dll扩展下载</h2>
+<p>yaf框架是作为PHP的一个扩展存在的，所以我们需要去下载对应的扩展文件，然后在php.ini文件引入即可。</p>
+<p>扩展下载地址：</p>
+<p><a href="http://pecl.php.net/package/yaf">http://pecl.php.net/package/yaf</a></p>
+<p><img loading="lazy" decoding="async" width="1554" height="853" class="wp-image-6675" src="/wp-content/uploads/2018/05/word-image-6082.png" srcset="/wp-content/uploads/2018/05/word-image-6082.png 1554w, /wp-content/uploads/2018/05/word-image-6082-300x165.png 300w, /wp-content/uploads/2018/05/word-image-6082-768x422.png 768w, /wp-content/uploads/2018/05/word-image-6082-1024x562.png 1024w" sizes="(max-width: 1554px) 100vw, 1554px" /></p>
+<p>这里我们假设使用的朋友都是使用的windows操作系统，点击DLL下载即可，这里我们一2.3.5为例。接下来我们来到具体的下载页面：</p>
+<p><img loading="lazy" decoding="async" width="1580" height="646" class="wp-image-6677" src="/wp-content/uploads/2018/05/word-image-6084.png" srcset="/wp-content/uploads/2018/05/word-image-6084.png 1580w, /wp-content/uploads/2018/05/word-image-6084-300x123.png 300w, /wp-content/uploads/2018/05/word-image-6084-768x314.png 768w, /wp-content/uploads/2018/05/word-image-6084-1024x419.png 1024w" sizes="(max-width: 1580px) 100vw, 1580px" /></p>
+<p>版本新的的选择需要严格的依赖phpinfo函数给出的信息</p>
+<h2>PHP-ext引入</h2>
+<p>将下载后的php_yaf.dll文件复制到PHP的ext扩展目录即可</p>
+<p><img loading="lazy" decoding="async" width="1000" height="389" class="wp-image-6680" src="/wp-content/uploads/2018/05/word-image-6087.png" srcset="/wp-content/uploads/2018/05/word-image-6087.png 1000w, /wp-content/uploads/2018/05/word-image-6087-300x117.png 300w, /wp-content/uploads/2018/05/word-image-6087-768x299.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" /></p>
+<h2>php.ini配置文件</h2>
+<p>最后在php.ini文件最后面中引入如下一段即可：</p>
+<p>[yaf]</p>
+<p>extension=php_yaf.dll</p>
+<p>yaf.environ=product</p>
+<p>重复apache后，使用phpinfo函数见到如下信息即代表扩展配置成功。</p>
+<p><img loading="lazy" decoding="async" width="1349" height="580" class="wp-image-6682" src="/wp-content/uploads/2018/05/word-image-6089.png" srcset="/wp-content/uploads/2018/05/word-image-6089.png 1349w, /wp-content/uploads/2018/05/word-image-6089-300x129.png 300w, /wp-content/uploads/2018/05/word-image-6089-768x330.png 768w, /wp-content/uploads/2018/05/word-image-6089-1024x440.png 1024w" sizes="(max-width: 1349px) 100vw, 1349px" /></p>
+<p>注意：当我们把PHP的yaf扩展引入后，PHP内部就会存在很多的yaf提供的类库，但是yaf官方并没有给出yaf框架的目录文件等信息，但是提供一个官方的建议：yaf框架的目录的组织结构应该如何实现。</p>
+<p><img loading="lazy" decoding="async" width="763" height="519" class="wp-image-6685" src="/wp-content/uploads/2018/05/word-image-6091.png" srcset="/wp-content/uploads/2018/05/word-image-6091.png 763w, /wp-content/uploads/2018/05/word-image-6091-300x204.png 300w, /wp-content/uploads/2018/05/word-image-6091-220x150.png 220w" sizes="(max-width: 763px) 100vw, 763px" /></p>
+<h1>yaf快速入门</h1>
+<h2>项目目录结构</h2>
+<p>在成功安装扩展后，我们就可以使用yaf进行开发，但是在开发之前，我们需要规划一个项目开发目录。</p>
+<p>当让我们也可以使用官方提供的代码生成工具进行自动生成：</p>
+<p><a href="http://www.laruence.com/manual/tutorial.last.html">http://www.laruence.com/manual/tutorial.last.html</a></p>
+<p>官方的建议目录如下：</p>
+<p>application</p>
+<p>│ │ Bootstrap.php</p>
+<p>│ ├─common</p>
+<p>│ │ functions.php</p>
+<p>│ ├─controllers</p>
+<p>│ │ Index.php</p>
+<p>│ ├─library</p>
+<p>│ ├─models</p>
+<p>│ │ │ User.php</p>
+<p>│ │ │</p>
+<p>│ │ └─Db</p>
+<p>│ │ Medoo.php</p>
+<p>│ ├─modules</p>
+<p>│ │ └─Admin</p>
+<p>│ │ ├─controllers</p>
+<p>│ │ │ Back.php</p>
+<p>│ │ └─views</p>
+<p>│ ├─plugins</p>
+<p>│ └─views</p>
+<p>│ └─index</p>
+<p>│ index.phtml</p>
+<p>├─conf</p>
+<p>│ application.ini</p>
+<p>│</p>
+<p>└─public</p>
+<p>index.php</p>
+<h2>虚拟主机配置</h2>
+<p>需要注意的是，项目的入口文件是放在public目录下的，则我们建立的项目的虚拟主机的目录应该是指定到public目录。一个示例的虚拟主机的配置如下：</p>
+<p>&lt;VirtualHost *:80&gt;</p>
+<p>DocumentRoot &#8220;C:\phpStudy\WWW\yaf.dev\public&#8221;</p>
+<p>ServerName yaf.dev</p>
+<p>ServerAlias</p>
+<p>&lt;Directory &#8220;C:\phpStudy\WWW\yaf.dev\public&#8221;&gt;</p>
+<p>Options Indexes FollowSymLinks ExecCGI</p>
+<p>AllowOverride All</p>
+<p>Order allow,deny</p>
+<p>Allow from all</p>
+<p>Require all granted</p>
+<p>&lt;/Directory&gt;</p>
+<p>&lt;/VirtualHost&gt;</p>
+<h2>入口文件编写</h2>
+<p>在public目录的index.php文件的内容如下：</p>
+<p>需要注意的是，只需要在该文件定义一个常量，然后实例化Yaf_application()，同时传递一个配置文件即可。</p>
+<p>&lt;?php</p>
+<p>define(&#8220;APPLICATION_PATH&#8221;, realpath(dirname(__FILE__) . &#8216;/../&#8217;));</p>
+<p>define(&#8220;APPLICATION_COINFIG_FILE&#8221;,APPLICATION_PATH . &#8220;/conf/application.ini&#8221;);</p>
+<p>date_default_timezone_set(&#8216;Asia/Shanghai&#8217;);</p>
+<p>$app = new Yaf_Application(APPLICATION_COINFIG_FILE);</p>
+<p>$app-&gt;bootstrap()-&gt;run();</p>
+<h2>配置文件</h2>
+<p>在config目录的application.ini文件里面只需要定义如下的配置内容即可。</p>
+<p>[product]</p>
+<p>;分号代表注释，支持直接写PHP中的已定义常量</p>
+<p>application.directory=APPLICATION_PATH &#8220;/application/&#8221;</p>
+<p>通过刚才的手工目录创建和yaf官方提供的代码生成器的创建，我们发现目录创建还是比较繁琐不适合入门的人去捯饬，那我们可以使用默认的目录结构来进行学习。</p>
+<p><img loading="lazy" decoding="async" width="789" height="261" class="wp-image-6686" src="/wp-content/uploads/2018/05/word-image-6092.png" srcset="/wp-content/uploads/2018/05/word-image-6092.png 789w, /wp-content/uploads/2018/05/word-image-6092-300x99.png 300w, /wp-content/uploads/2018/05/word-image-6092-768x254.png 768w" sizes="(max-width: 789px) 100vw, 789px" /></p>
+<h1>composer管理</h1>
+<p>简介</p>
+<p>网站：<a href="https://packagist.org/packages/gogery/yaf">https://packagist.org/packages/gogery/yaf</a></p>
+<p><img loading="lazy" decoding="async" width="697" height="307" class="wp-image-6688" src="/wp-content/uploads/2018/05/word-image-6094.png" srcset="/wp-content/uploads/2018/05/word-image-6094.png 697w, /wp-content/uploads/2018/05/word-image-6094-300x132.png 300w" sizes="(max-width: 697px) 100vw, 697px" /></p>
+<ol>
+<li>使用命令创建本地项目 local.yaf.com</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1689" height="518" class="wp-image-6690" src="/wp-content/uploads/2018/05/word-image-6096.png" srcset="/wp-content/uploads/2018/05/word-image-6096.png 1689w, /wp-content/uploads/2018/05/word-image-6096-300x92.png 300w, /wp-content/uploads/2018/05/word-image-6096-768x236.png 768w, /wp-content/uploads/2018/05/word-image-6096-1024x314.png 1024w" sizes="(max-width: 1689px) 100vw, 1689px" /></p>
+<p>&gt; composer create-project gogery/yaf local.yaf.com</p>
+<ol>
+<li>生成目录结构</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="850" height="376" class="wp-image-6692" src="/wp-content/uploads/2018/05/word-image-6098.png" srcset="/wp-content/uploads/2018/05/word-image-6098.png 850w, /wp-content/uploads/2018/05/word-image-6098-300x133.png 300w, /wp-content/uploads/2018/05/word-image-6098-768x340.png 768w" sizes="(max-width: 850px) 100vw, 850px" /></p>
+<ol>
+<li>配置虚拟主机</li>
+</ol>
+<p>&lt;VirtualHost *:80&gt;</p>
+<p>DocumentRoot &#8220;C:\phpStudy\WWW\local.yaf.com\public&#8221;</p>
+<p>ServerName local.yaf.com</p>
+<p>ServerAlias</p>
+<p>&lt;Directory &#8220;C:\phpStudy\WWW\local.yaf.com\public&#8221;&gt;</p>
+<p>Options FollowSymLinks ExecCGI</p>
+<p>AllowOverride All</p>
+<p>Order allow,deny</p>
+<p>Allow from all</p>
+<p>Require all granted</p>
+<p>&lt;/Directory&gt;</p>
+<p>&lt;/VirtualHost&gt;</p>
+<ol>
+<li>浏览器访问效果</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="660" height="308" class="wp-image-6694" src="/wp-content/uploads/2018/05/word-image-6100.png" srcset="/wp-content/uploads/2018/05/word-image-6100.png 660w, /wp-content/uploads/2018/05/word-image-6100-300x140.png 300w" sizes="(max-width: 660px) 100vw, 660px" /></p>
+<p>建议大家直接使用composer进行目录的管理。</p>
+<h1>IDE配置</h1>
+<p>注意：yaf框架扩展的引入，在使用的时候内置了很多的类文件，如果没有一个IDE进行代码的提示，我们是很难记得住到底存在哪些类，哪些方法，则我们可以为IDE配置一下代码提示。yaf代码提示的插件。</p>
+<p>网站：<a href="https://github.com/elad-yosifon/php-yaf-doc">https://github.com/elad-yosifon/php-yaf-doc</a></p>
+<ol>
+<li>插件解压</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1020" height="415" class="wp-image-6696" src="/wp-content/uploads/2018/05/word-image-6102.png" srcset="/wp-content/uploads/2018/05/word-image-6102.png 1020w, /wp-content/uploads/2018/05/word-image-6102-300x122.png 300w, /wp-content/uploads/2018/05/word-image-6102-768x312.png 768w" sizes="(max-width: 1020px) 100vw, 1020px" /></p>
+<ol>
+<li>配置phpstorm的插件目录</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1869" height="524" class="wp-image-6698" src="/wp-content/uploads/2018/05/word-image-6104.png" srcset="/wp-content/uploads/2018/05/word-image-6104.png 1869w, /wp-content/uploads/2018/05/word-image-6104-300x84.png 300w, /wp-content/uploads/2018/05/word-image-6104-768x215.png 768w, /wp-content/uploads/2018/05/word-image-6104-1024x287.png 1024w" sizes="(max-width: 1869px) 100vw, 1869px" /></p>
+<p>配置插件的目录</p>
+<p><img loading="lazy" decoding="async" width="1857" height="520" class="wp-image-6700" src="/wp-content/uploads/2018/05/word-image-6106.png" srcset="/wp-content/uploads/2018/05/word-image-6106.png 1857w, /wp-content/uploads/2018/05/word-image-6106-300x84.png 300w, /wp-content/uploads/2018/05/word-image-6106-768x215.png 768w, /wp-content/uploads/2018/05/word-image-6106-1024x287.png 1024w" sizes="(max-width: 1857px) 100vw, 1857px" /></p>
+<p>目录结构以及插件都安装完成后，则可以正式的学习yaf框架（yaf框架也是一个单一入口 + MVC架构）。</p>
+<p>学习框架主要是从如下几个方面进行学习：（MVC CVM）</p>
+<ol>
+<li>学习控制器</li>
+<li>学习视图</li>
+<li>学习模型（但是需要注意的，yaf框架本身是没有提供模型，这个需要用户自己去完成，因为作者觉得pdo已经是一个很好的操作数据库的工具，没必要在写一个，我们会单独的学习一个第三方的模型类 Medoo）</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1270" height="424" class="wp-image-6703" src="/wp-content/uploads/2018/05/word-image-6109.png" srcset="/wp-content/uploads/2018/05/word-image-6109.png 1270w, /wp-content/uploads/2018/05/word-image-6109-300x100.png 300w, /wp-content/uploads/2018/05/word-image-6109-768x256.png 768w, /wp-content/uploads/2018/05/word-image-6109-1024x342.png 1024w" sizes="(max-width: 1270px) 100vw, 1270px" /></p>
+<ol>
+<li>配置文件</li>
+<li>&#8230;..</li>
+</ol>
+<h1>控制器-constrollers</h1>
+<p>经过上面的操作，基本的目录结构已经搭建完毕，接下来我们完成我们的第一个控制器的编写。在正式编写控制器之前，我们只要弄清楚如下几个问题，即可快速掌握控制器的使用。</p>
+<ol>
+<li>控制器写在哪里？</li>
+<li>控制器的文件如何命名？</li>
+<li>控制器里面的内容如何编写？</li>
+<li>控制器里面的方法如何命名？</li>
+<li>控制器里面如何载入视图？</li>
+<li>控制器里面如何给视图赋值？</li>
+<li>如何在视图里面显示控制器的赋值变量？</li>
+</ol>
+<p>实操：</p>
+<ol>
+<li>控制器写在哪里？（application/controllers目录）</li>
+<li>控制器的文件如何命名？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="897" height="252" class="wp-image-6705" src="/wp-content/uploads/2018/05/word-image-6111.png" srcset="/wp-content/uploads/2018/05/word-image-6111.png 897w, /wp-content/uploads/2018/05/word-image-6111-300x84.png 300w, /wp-content/uploads/2018/05/word-image-6111-768x216.png 768w" sizes="(max-width: 897px) 100vw, 897px" /></p>
+<ol>
+<li>控制器里面的内容如何编写？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1212" height="711" class="wp-image-6706" src="/wp-content/uploads/2018/05/word-image-6112.png" srcset="/wp-content/uploads/2018/05/word-image-6112.png 1212w, /wp-content/uploads/2018/05/word-image-6112-300x176.png 300w, /wp-content/uploads/2018/05/word-image-6112-768x451.png 768w, /wp-content/uploads/2018/05/word-image-6112-1024x601.png 1024w" sizes="(max-width: 1212px) 100vw, 1212px" /></p>
+<ol>
+<li>控制器里面的方法如何命名？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1702" height="653" class="wp-image-6708" src="/wp-content/uploads/2018/05/word-image-6114.png" srcset="/wp-content/uploads/2018/05/word-image-6114.png 1702w, /wp-content/uploads/2018/05/word-image-6114-300x115.png 300w, /wp-content/uploads/2018/05/word-image-6114-768x295.png 768w, /wp-content/uploads/2018/05/word-image-6114-1024x393.png 1024w" sizes="(max-width: 1702px) 100vw, 1702px" /></p>
+<ol>
+<li>控制器里面如何载入视图？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1265" height="522" class="wp-image-6710" src="/wp-content/uploads/2018/05/word-image-6116.png" srcset="/wp-content/uploads/2018/05/word-image-6116.png 1265w, /wp-content/uploads/2018/05/word-image-6116-300x124.png 300w, /wp-content/uploads/2018/05/word-image-6116-768x317.png 768w, /wp-content/uploads/2018/05/word-image-6116-1024x423.png 1024w" sizes="(max-width: 1265px) 100vw, 1265px" /></p>
+<p>视图创建</p>
+<p><img loading="lazy" decoding="async" width="1226" height="646" class="wp-image-6713" src="/wp-content/uploads/2018/05/word-image-6119.png" srcset="/wp-content/uploads/2018/05/word-image-6119.png 1226w, /wp-content/uploads/2018/05/word-image-6119-300x158.png 300w, /wp-content/uploads/2018/05/word-image-6119-768x405.png 768w, /wp-content/uploads/2018/05/word-image-6119-1024x540.png 1024w" sizes="(max-width: 1226px) 100vw, 1226px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="770" height="251" class="wp-image-6715" src="/wp-content/uploads/2018/05/word-image-6121.png" srcset="/wp-content/uploads/2018/05/word-image-6121.png 770w, /wp-content/uploads/2018/05/word-image-6121-300x98.png 300w, /wp-content/uploads/2018/05/word-image-6121-768x250.png 768w" sizes="(max-width: 770px) 100vw, 770px" /></p>
+<ol>
+<li>控制器里面如何给视图赋值？</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1838" height="987" class="wp-image-6717" src="/wp-content/uploads/2018/05/word-image-6123.png" srcset="/wp-content/uploads/2018/05/word-image-6123.png 1838w, /wp-content/uploads/2018/05/word-image-6123-300x161.png 300w, /wp-content/uploads/2018/05/word-image-6123-768x412.png 768w, /wp-content/uploads/2018/05/word-image-6123-1024x550.png 1024w" sizes="(max-width: 1838px) 100vw, 1838px" /></p>
+<ol>
+<li>如何在视图里面显示控制器的赋值变量？（直接使用原生的PHP输出、yaf内置的模板引擎只支持原生的PHP语法）</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1463" height="802" class="wp-image-6719" src="/wp-content/uploads/2018/05/word-image-6125.png" srcset="/wp-content/uploads/2018/05/word-image-6125.png 1463w, /wp-content/uploads/2018/05/word-image-6125-300x164.png 300w, /wp-content/uploads/2018/05/word-image-6125-768x421.png 768w, /wp-content/uploads/2018/05/word-image-6125-1024x561.png 1024w" sizes="(max-width: 1463px) 100vw, 1463px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="995" height="351" class="wp-image-6721" src="/wp-content/uploads/2018/05/word-image-6127.png" srcset="/wp-content/uploads/2018/05/word-image-6127.png 995w, /wp-content/uploads/2018/05/word-image-6127-300x106.png 300w, /wp-content/uploads/2018/05/word-image-6127-768x271.png 768w" sizes="(max-width: 995px) 100vw, 995px" /></p>
+<h1>视图-views</h1>
+<p>视图主要是用户来展示数据和收集用户的数据。</p>
+<p><img loading="lazy" decoding="async" width="1110" height="814" class="wp-image-6722" src="/wp-content/uploads/2018/05/word-image-6128.png" srcset="/wp-content/uploads/2018/05/word-image-6128.png 1110w, /wp-content/uploads/2018/05/word-image-6128-300x220.png 300w, /wp-content/uploads/2018/05/word-image-6128-768x563.png 768w, /wp-content/uploads/2018/05/word-image-6128-1024x751.png 1024w" sizes="(max-width: 1110px) 100vw, 1110px" /></p>
+<p>在正式学习视图之前，我们先思考如下几个问题：</p>
+<p>1. 视图文件写在哪里？</p>
+<p>2. 视图文件如何命名？</p>
+<p>3. 如何在控制器里面调用视图，如何获取视图里面的内容？</p>
+<p>4. 在控制器里面如何给视图赋值？</p>
+<p>5. 如何在视图里面显示控制器的赋值变量？</p>
+<p>实操：</p>
+<ol>
+<li>视图文件写在哪里？（注意：需要注意是存在模块，如果有模块，则写在模块的对应的views目录，没有则写在application/views/目录下）</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1499" height="580" class="wp-image-6723" src="/wp-content/uploads/2018/05/word-image-6129.png" srcset="/wp-content/uploads/2018/05/word-image-6129.png 1499w, /wp-content/uploads/2018/05/word-image-6129-300x116.png 300w, /wp-content/uploads/2018/05/word-image-6129-768x297.png 768w, /wp-content/uploads/2018/05/word-image-6129-1024x396.png 1024w" sizes="(max-width: 1499px) 100vw, 1499px" /></p>
+<ol>
+<li>视图文件如何命名？</li>
+</ol>
+<p>答：文件的命名满足和方法同名，并且后缀是 phtml</p>
+<ol>
+<li>如何在控制器里面调用视图，如何获取视图里面的内容？</li>
+</ol>
+<p>答：yaf框架默认会自动载入视图</p>
+<p>如果终止return false 或者 Yaf_Dispatcher::getInstance()-&gt;disableView();</p>
+<ol>
+<li>在控制器里面如何给视图赋值？</li>
+</ol>
+<p>答：$this-&gt;getView()-&gt;assign(&#8216;视图调用名称&#8217;, $变量名称)</p>
+<ol>
+<li>如何在视图里面显示控制器的赋值变量？</li>
+</ol>
+<p>答：原生的PHP</p>
+<p>注意：Yaf_View_Simple 常见方法使用：</p>
+<p><img loading="lazy" decoding="async" width="1830" height="950" class="wp-image-6724" src="/wp-content/uploads/2018/05/word-image-6130.png" srcset="/wp-content/uploads/2018/05/word-image-6130.png 1830w, /wp-content/uploads/2018/05/word-image-6130-300x156.png 300w, /wp-content/uploads/2018/05/word-image-6130-768x399.png 768w, /wp-content/uploads/2018/05/word-image-6130-1024x532.png 1024w" sizes="(max-width: 1830px) 100vw, 1830px" /></p>
+<h1>yaf模型-models</h1>
+<h2>注意</h2>
+<p>需要注意的是yaf框架并没有提供模型类，这个需要用户自己去实现，我们可以自己封装一个模型，也可以使用被人提供好的模型类文件，例如如下的一个模型类：</p>
+<p>相关文档：<a href="http://medoo.lvtao.net/doc.php">http://medoo.lvtao.net/doc.php</a></p>
+<h2>Medoo基本使用</h2>
+<ol>
+<li>下载</li>
+<li>引入</li>
+<li>实例化（进行数据库配置）</li>
+</ol>
+<p>实操：</p>
+<p>具体代码参考</p>
+<p><img loading="lazy" decoding="async" width="1188" height="695" class="wp-image-6725" src="/wp-content/uploads/2018/05/word-image-6131.png" srcset="/wp-content/uploads/2018/05/word-image-6131.png 1188w, /wp-content/uploads/2018/05/word-image-6131-300x176.png 300w, /wp-content/uploads/2018/05/word-image-6131-768x449.png 768w, /wp-content/uploads/2018/05/word-image-6131-1024x599.png 1024w" sizes="(max-width: 1188px) 100vw, 1188px" /></p>
+<h2>模型命名</h2>
+<p>注意：yaf框架并没有模型类，但是规定了模型的书写的规则以及加载的实现。</p>
+<p>命名、实例化如何加载。</p>
+<p>例如：我们打算在application/models/目录下创建一个Goods.php类文件，则类名应该如下：</p>
+<p><img loading="lazy" decoding="async" width="1607" height="946" class="wp-image-6726" src="/wp-content/uploads/2018/05/word-image-6132.png" srcset="/wp-content/uploads/2018/05/word-image-6132.png 1607w, /wp-content/uploads/2018/05/word-image-6132-300x177.png 300w, /wp-content/uploads/2018/05/word-image-6132-768x452.png 768w, /wp-content/uploads/2018/05/word-image-6132-1024x603.png 1024w" sizes="(max-width: 1607px) 100vw, 1607px" /></p>
+<p>通过上面的操作我们可以很方面的完成模型类的定义，当我们定义好了之后，直接在控制器里面进行实例化即可，yaf框架会自动进行类的载入。</p>
+<p>问题：通过上面的操作定义的模型类是直接在application/models目录下定义的，如果现在我们需要在该目录下在建立子目录，然后在子目录里面定义模型，则模型的类名该如何定义？</p>
+<p><img loading="lazy" decoding="async" width="1819" height="803" class="wp-image-6727" src="/wp-content/uploads/2018/05/word-image-6133.png" srcset="/wp-content/uploads/2018/05/word-image-6133.png 1819w, /wp-content/uploads/2018/05/word-image-6133-300x132.png 300w, /wp-content/uploads/2018/05/word-image-6133-768x339.png 768w, /wp-content/uploads/2018/05/word-image-6133-1024x452.png 1024w" sizes="(max-width: 1819px) 100vw, 1819px" /></p>
+<p>总结：在yaf里面模型的命名是通过下划线来查找类的目录结构。</p>
+<h1>yaf模块化-modules</h1>
+<h2>配置</h2>
+<p>注意：yaf框架默认的目录结构里面使用的Index模块，如果我们需要进行其他的模块的创建，例如配置后台Admin模块，Member模块。则我们需要在application.ini里面进行配置，然后在application/modules/目录创建对应的模块目录，模块目录下创建对应的controllers目录和views目录。</p>
+<p>假如我们要新增加一个Member模块用来做后台管理（需要注意的是如果我们使用模块功能，则必须加上Index模块）。则我们需要在application.ini的某个节里面配置如下信息：</p>
+<p>application.modules = &#8220;Index,Member&#8221;</p>
+<p><img loading="lazy" decoding="async" width="1474" height="642" class="wp-image-6728" src="/wp-content/uploads/2018/05/word-image-6134.png" srcset="/wp-content/uploads/2018/05/word-image-6134.png 1474w, /wp-content/uploads/2018/05/word-image-6134-300x131.png 300w, /wp-content/uploads/2018/05/word-image-6134-768x335.png 768w, /wp-content/uploads/2018/05/word-image-6134-1024x446.png 1024w" sizes="(max-width: 1474px) 100vw, 1474px" /></p>
+<h2>新建模块</h2>
+<p>需要注意的是：其中Admin目录就和配置的模块名称一致，每个模块目录下都可以新建controllers和views目录用作控制器和视图，但是模块下的models内的文件不支持自动载入，所以在该模块下的一些业务方法只能放在application/models目录下。</p>
+<p><img loading="lazy" decoding="async" width="1416" height="583" class="wp-image-6729" src="/wp-content/uploads/2018/05/word-image-6135.png" srcset="/wp-content/uploads/2018/05/word-image-6135.png 1416w, /wp-content/uploads/2018/05/word-image-6135-300x124.png 300w, /wp-content/uploads/2018/05/word-image-6135-768x316.png 768w, /wp-content/uploads/2018/05/word-image-6135-1024x422.png 1024w" sizes="(max-width: 1416px) 100vw, 1416px" /></p>
+<p>模块里面的控制器和视图同上面的控制器的使用一致。</p>
+<h2>访问</h2>
+<p>小写URL访问：</p>
+<p>域名/index.php/模块名称/控制器名称/方法名称</p>
+<h1>yaf表单-Yaf_Request_Http</h1>
+<h2>简介</h2>
+<p>在前后台进行交互的过程中，后端程序不可避免的需要接收用户提交的数据，常见的数据有</p>
+<ol>
+<li>get提交数据</li>
+<li>post提交数据</li>
+<li>上传文件数据</li>
+<li>get查询字符串</li>
+<li>cookie数据等等</li>
+</ol>
+<h2>数据接收</h2>
+<p>在控制器里面我们可以通过$this-&gt;getRequest()来进行数据的接收，该方法返回的是<strong><em>Yaf_Request_Http</em></strong>的实例。</p>
+<h1>yaf之session-Yaf_Session</h1>
+<h2>简介</h2>
+<p>由于http请求是无状态的，则在页面交互的过程中，有的时候我们需要跨脚本共享数据，则我们可以使用cookie或者session进行处理，session相对来说更加的安全，yaf框架内置了一个session处理类，可以非常方便的帮助我们进行session的处理。</p>
+<h2>使用</h2>
+<p>Yaf_Session::getInstance()-&gt;get(&#8216;name&#8217;)</p>
+<h1>yaf配置篇-Yaf_Config_Ini</h1>
+<h2>简介</h2>
+<p>配置文件基本可以说是每个项目都会有，在配置文件中我们通常会配置数据库访问地址、redis连接、url地址等等。</p>
+<p>yaf对于配置文件的解析提供了节（section）的支持，并且还支持节之间的继承功能，将节的设置和yaf运行环境（yaf.environ）结合起来就可以达到很好的配置效果，且看如何实现。</p>
+<h2>php.ini配置</h2>
+<p>在配置php支持yaf的时候，可以设置一个参数yaf.environ：把本地开发设置成develop、测试环境配置成test、生产环境配置成product，如：</p>
+<p><img loading="lazy" decoding="async" width="593" height="226" class="wp-image-6730" src="/wp-content/uploads/2018/05/word-image-6136.png" srcset="/wp-content/uploads/2018/05/word-image-6136.png 593w, /wp-content/uploads/2018/05/word-image-6136-300x114.png 300w" sizes="(max-width: 593px) 100vw, 593px" /></p>
+<h2>application.ini文件配置</h2>
+<p>yaf配置文件一般都放在项目的conf文件夹下。Yaf _Application实例化的时候需要传递一个配置文件路径，假设我们的配置文件叫application.ini，先看下application.ini的结构：</p>
+<p>[common]</p>
+<p>; 通用配置，数据库配置</p>
+<p>resources.database.params.driver = &#8220;pdo_mysql&#8221;</p>
+<p>resources.database.params.hostname = &#8220;127.0.0.1&#8221;</p>
+<p>resources.database.params.port = 3306</p>
+<p>resources.database.params.database = &#8220;database&#8221;</p>
+<p>resources.database.params.username = &#8220;username&#8221;</p>
+<p>resources.database.params.password = &#8220;password&#8221;</p>
+<p>[product : common]</p>
+<p>; 生产环境配置，这里的配置除了节之外，节和节之间还有继承关系。例如[product : common]就表示product的配置会继承common的配置。先配置一个数据库连接看看。</p>
+<p>[test : common]</p>
+<p>; 测试环境配置</p>
+<p>[develop : common]</p>
+<p>; 开发环境配置</p>
+<p>resources.database.params.hostname = &#8220;127.0.0.1&#8221;</p>
+<p>resources.database.params.database = &#8220;database&#8221;</p>
+<p>resources.database.params.username = &#8220;username&#8221;</p>
+<p>resources.database.params.password = &#8220;password&#8221;</p>
+<p>这样当项目运行环境在develop下的时候，会优先读取[develop : common]内的配置，如果没有则会从[common]中获取。在项目中任何地方都可以通过如下的方法获取application.ini里面的配置信息：</p>
+<p>Yaf_Application::app()-&gt;getConfig();</p>
+<h2>额外的配置</h2>
+<p>随着项目越来越庞大，配置也会越来越复杂，如果都放在项目默认的配置文件application.ini中，可能配置会有好几百行，这样就不容易维护了。</p>
+<p>一般我们会考虑新建配置文件用来存储额外的配置。yaf中提供了Yaf_Config_Ini类来处理这些额外的配置文件。</p>
+<p>$config = new Yaf_Config_Ini( APPLICATION_PATH . &#8216;/conf/url.ini&#8217;,  ini_get(&#8216;yaf.environ&#8217;) );</p>
+<h1>类的自动载入机制-libraris</h1>
+<h2>简介</h2>
+<p>在yaf里面类库的默认目录是application下的library目录，比如我们要写一个Page.php类文件，那么我们需要建立这样的application/library/Page.php类文件。</p>
+<p>但是需要注意的是，如果我们需要目录进行嵌套，则类的名称应该是使用下划线进行连接，并且路径的首字母应该大写。</p>
+<p>例如：我们打算在application/library/目录下，建议一个Dao目录，然后在该目录下建议一个Mysql目录，并在Mysql目录下建立一个Query.php类文件，则类名应该如下：</p>
+<p>class Dao_Mysql_Query{</p>
+<p>}</p>
+<p>通过这样定义的类，yaf框架则可以根据我们的类名来获取对于的路径，实现对应的自动加载机制。</p>
+<h1>助手函数扩展-Yaf_Loader</h1>
+<p>在Bootstrap.php文件定义一个加载助手函数的公共方法，使用Yaf_Loader进行助手函数文件导入。</p>
+<p>public function _initCommonFunctions(){</p>
+<p>// 加载定义助手函数</p>
+<p>Yaf_Loader::import(APPLICATION_PATH . &#8216;/application/common/functions.php&#8217;);</p>
+<p>}</p>
+<h1>响应-Yaf_Response_Abstract</h1>
+<p>有的时候我们需要进行URL的跳转，则可以使用该类进行响应处理</p>
+<h1>路由-Yaf_Route-*</h1>
+<h2>简介</h2>
+<p>yaf框架支持如下五种路由：</p>
+<ol>
+<li>Yaf_Route_Simple</li>
+</ol>
+<p>例如：<a href="http://local.yaf.com/index.php?m=index&amp;c=index&amp;a=index">http://local.yaf.com/index.php?m=index&amp;c=index&amp;a=index</a> （普通路由）</p>
+<ol>
+<li>Yaf_Route_Supervar</li>
+<li>Yaf_Route_Static</li>
+<li>Yaf_Route_Rewrite</li>
+<li>Yaf_Route_Regex</li>
+</ol>
+<p>例如：http://local.yaf.com/list-12.html</p>
+<h2>简单路由使用-方式一</h2>
+<p>创建路由规则的步骤：</p>
+<ol>
+<li>在Bootstrap.php文件创建一个路由器对象</li>
+<li>设置路由规则</li>
+<li>调用路由对象的addRoute方法添加路由规则</li>
+</ol>
+<p>public function _initDefineRouter()</p>
+<p>{</p>
+<p>$router = Yaf_Dispatcher::getInstance()-&gt;getRouter();</p>
+<p>$mac = new Yaf_Route_Simple(&#8216;m&#8217;, &#8216;c&#8217;, &#8216;a&#8217;);</p>
+<p>$router-&gt;addRoute(&#8216;mac&#8217;, $mac);</p>
+<p>}</p>
+<h2>简单路由使用-方式二</h2>
+<ol>
+<li>在application.ini定义路由段</li>
+</ol>
+<p>[route]</p>
+<p>routes.simple.type=&#8221;simple&#8221;</p>
+<p>routes.simple.module=md</p>
+<p>routes.simple.controller=c</p>
+<p>routes.simple.action=as</p>
+<p>[product:route]</p>
+<ol>
+<li>在Bootstrap.php里面进行配置注册</li>
+</ol>
+<p>public function _initConfig()</p>
+<p>{</p>
+<p>$config = new Yaf_Config_Ini(APPLICATION_COINFIG_FILE);</p>
+<p>Yaf_Registry::set(&#8220;config&#8221;, $config);</p>
+<p>}</p>
+<p>public function _initDefineRouter()</p>
+<p>{</p>
+<p>$router = Yaf_Dispatcher::getInstance()-&gt;getRouter();</p>
+<p>$router-&gt;addConfig( Yaf_Registry::get(&#8216;config&#8217;)-&gt;route-&gt;routes );</p>
+<p>}</p>
+<h2>正则路由-方式一</h2>
+<p>1. 直接使用正则类进行生成</p>
+<p>$router = Yaf_Dispatcher::getInstance()-&gt;getRouter();</p>
+<p>$route = new Yaf_Route_Regex(</p>
+<p>&#8216;#^/product/([a-zA-Z-_0-9]+)$#&#8217;,</p>
+<p>array(</p>
+<p>&#8216;module&#8217; =&gt; &#8216;index&#8217;,</p>
+<p>&#8216;controller&#8217; =&gt; &#8216;index&#8217;,</p>
+<p>&#8216;action&#8217; =&gt; &#8216;index&#8217;</p>
+<p>),</p>
+<p>array(</p>
+<p>//完成数字到字符变量的映射</p>
+<p>1 =&gt; &#8216;ident&#8217;</p>
+<p>)</p>
+<p>);</p>
+<p>$router-&gt;addRoute(&#8216;reg&#8217;, $route);</p>
+<h2>正则路由-方式二</h2>
+<ol>
+<li>在application.ini定义正则路由段</li>
+</ol>
+<p>[route]</p>
+<p>routes.regex.type=&#8221;regex&#8221;</p>
+<p>routes.regex.match=&#8221;#^/list/([0-9])+\/([a-z0-9]+)$#&#8221;</p>
+<p>routes.regex.route.module=Index</p>
+<p>routes.regex.route.controller=Index</p>
+<p>routes.regex.route.action=index</p>
+<p>routes.regex.map.1=name</p>
+<p>routes.regex.map.2=value</p>
+<p>[product:route]</p>
+<p>2. 在Bootstrap.php里面进行配置注册</p>
+<h1>相关学习资料</h1>
+<p><a href="http://wiki.phpboy.net/">http://wiki.phpboy.net/</a></p>
+<p><a href="http://www.phpabc.cn/yaf-kuang-jia-zhi-phpstrom-dai-ma-zi-dong-bu-quan-yaf-ide-auto-complete-2.html">http://www.phpabc.cn/yaf-kuang-jia-zhi-phpstrom-dai-ma-zi-dong-bu-quan-yaf-ide-auto-complete-2.html</a></p>
+<p><a href="http://www.01happy.com/">http://www.01happy.com/</a></p>
+<p><a href="http://www.widuu.com/archives/category/yaf-framework-2">http://www.widuu.com/archives/category/yaf-framework-2</a></p>
+<p><a href="https://www.mengzhidu.com/">https://www.mengzhidu.com/</a></p>
+<p><a href="http://www.php1.cn/detail/php-wentis-c817f8fa3d.html">http://www.php1.cn/detail/php-wentis-c817f8fa3d.html</a></p>
+<p><a href="https://segmentfault.com/a/1190000004016373">https://segmentfault.com/a/1190000004016373</a></p>
+<p><a href="https://devhub.io/repos/xudianyang-yaf.app">https://devhub.io/repos/xudianyang-yaf.app</a></p>
+<p><a href="http://www.oss.io/p/xudianyang/yaf.app">http://www.oss.io/p/xudianyang/yaf.app</a></p>
+<h1>案例演示</h1>
+<p>使用yaf完成一套curd操作，同时做用户的登录和退出，可以理解完成一个后台的用户模块</p>
+<h2>用户展示</h2>
+<ol>
+<li>定义一个init方法，完成初始化操作</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1762" height="752" class="wp-image-6731" src="/wp-content/uploads/2018/05/word-image-6137.png" srcset="/wp-content/uploads/2018/05/word-image-6137.png 1762w, /wp-content/uploads/2018/05/word-image-6137-300x128.png 300w, /wp-content/uploads/2018/05/word-image-6137-768x328.png 768w, /wp-content/uploads/2018/05/word-image-6137-1024x437.png 1024w" sizes="(max-width: 1762px) 100vw, 1762px" /></p>
+<ol>
+<li>定义一个lst方法，完成数据展示</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1327" height="619" class="wp-image-6732" src="/wp-content/uploads/2018/05/word-image-6138.png" srcset="/wp-content/uploads/2018/05/word-image-6138.png 1327w, /wp-content/uploads/2018/05/word-image-6138-300x140.png 300w, /wp-content/uploads/2018/05/word-image-6138-768x358.png 768w, /wp-content/uploads/2018/05/word-image-6138-1024x478.png 1024w" sizes="(max-width: 1327px) 100vw, 1327px" /></p>
+<ol>
+<li>定义一个lst.phtml视图文件</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1857" height="941" class="wp-image-6733" src="/wp-content/uploads/2018/05/word-image-6139.png" srcset="/wp-content/uploads/2018/05/word-image-6139.png 1857w, /wp-content/uploads/2018/05/word-image-6139-300x152.png 300w, /wp-content/uploads/2018/05/word-image-6139-768x389.png 768w, /wp-content/uploads/2018/05/word-image-6139-1024x519.png 1024w" sizes="(max-width: 1857px) 100vw, 1857px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="1213" height="728" class="wp-image-6734" src="/wp-content/uploads/2018/05/word-image-6140.png" srcset="/wp-content/uploads/2018/05/word-image-6140.png 1213w, /wp-content/uploads/2018/05/word-image-6140-300x180.png 300w, /wp-content/uploads/2018/05/word-image-6140-768x461.png 768w, /wp-content/uploads/2018/05/word-image-6140-1024x615.png 1024w" sizes="(max-width: 1213px) 100vw, 1213px" /></p>
+<h2>用户添加</h2>
+<ol>
+<li>定义一个add方法，完成用户添加</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1615" height="961" class="wp-image-6735" src="/wp-content/uploads/2018/05/word-image-6141.png" srcset="/wp-content/uploads/2018/05/word-image-6141.png 1615w, /wp-content/uploads/2018/05/word-image-6141-300x179.png 300w, /wp-content/uploads/2018/05/word-image-6141-768x457.png 768w, /wp-content/uploads/2018/05/word-image-6141-1024x609.png 1024w" sizes="(max-width: 1615px) 100vw, 1615px" /></p>
+<ol>
+<li>定义一个add.phtml视图文件，展示添加表单</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1862" height="962" class="wp-image-6736" src="/wp-content/uploads/2018/05/word-image-6142.png" srcset="/wp-content/uploads/2018/05/word-image-6142.png 1862w, /wp-content/uploads/2018/05/word-image-6142-300x155.png 300w, /wp-content/uploads/2018/05/word-image-6142-768x397.png 768w, /wp-content/uploads/2018/05/word-image-6142-1024x529.png 1024w" sizes="(max-width: 1862px) 100vw, 1862px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="926" height="730" class="wp-image-6737" src="/wp-content/uploads/2018/05/word-image-6143.png" srcset="/wp-content/uploads/2018/05/word-image-6143.png 926w, /wp-content/uploads/2018/05/word-image-6143-300x237.png 300w, /wp-content/uploads/2018/05/word-image-6143-768x605.png 768w" sizes="(max-width: 926px) 100vw, 926px" /></p>
+<h2>用户删除</h2>
+<ol>
+<li>定义一个del方法，完成用户删除</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1453" height="766" class="wp-image-6738" src="/wp-content/uploads/2018/05/word-image-6144.png" srcset="/wp-content/uploads/2018/05/word-image-6144.png 1453w, /wp-content/uploads/2018/05/word-image-6144-300x158.png 300w, /wp-content/uploads/2018/05/word-image-6144-768x405.png 768w, /wp-content/uploads/2018/05/word-image-6144-1024x540.png 1024w" sizes="(max-width: 1453px) 100vw, 1453px" /></p>
+<h2>用户编辑</h2>
+<ol>
+<li>定义一个edt方法，完成用户编辑</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1420" height="1002" class="wp-image-6739" src="/wp-content/uploads/2018/05/word-image-6145.png" srcset="/wp-content/uploads/2018/05/word-image-6145.png 1420w, /wp-content/uploads/2018/05/word-image-6145-300x212.png 300w, /wp-content/uploads/2018/05/word-image-6145-768x542.png 768w, /wp-content/uploads/2018/05/word-image-6145-1024x723.png 1024w" sizes="(max-width: 1420px) 100vw, 1420px" /></p>
+<ol>
+<li>定义一个edt.phtml视图页面，展示待编辑的数据</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1867" height="974" class="wp-image-6740" src="/wp-content/uploads/2018/05/word-image-6146.png" srcset="/wp-content/uploads/2018/05/word-image-6146.png 1867w, /wp-content/uploads/2018/05/word-image-6146-300x157.png 300w, /wp-content/uploads/2018/05/word-image-6146-768x401.png 768w, /wp-content/uploads/2018/05/word-image-6146-1024x534.png 1024w" sizes="(max-width: 1867px) 100vw, 1867px" /></p>
+<p>效果</p>
+<p><img loading="lazy" decoding="async" width="930" height="590" class="wp-image-6741" src="/wp-content/uploads/2018/05/word-image-6147.png" srcset="/wp-content/uploads/2018/05/word-image-6147.png 930w, /wp-content/uploads/2018/05/word-image-6147-300x190.png 300w, /wp-content/uploads/2018/05/word-image-6147-768x487.png 768w" sizes="(max-width: 930px) 100vw, 930px" /></p>
+<h2>用户登录</h2>
+<ol>
+<li>定义一个login方法，完成用户的登录处理</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1640" height="888" class="wp-image-6742" src="/wp-content/uploads/2018/05/word-image-6148.png" srcset="/wp-content/uploads/2018/05/word-image-6148.png 1640w, /wp-content/uploads/2018/05/word-image-6148-300x162.png 300w, /wp-content/uploads/2018/05/word-image-6148-768x416.png 768w, /wp-content/uploads/2018/05/word-image-6148-1024x554.png 1024w" sizes="(max-width: 1640px) 100vw, 1640px" /></p>
+<h2>用户退出</h2>
+<ol>
+<li>定义一个logout方法，完成用户退出</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1898" height="922" class="wp-image-6743" src="/wp-content/uploads/2018/05/word-image-6149.png" srcset="/wp-content/uploads/2018/05/word-image-6149.png 1898w, /wp-content/uploads/2018/05/word-image-6149-300x146.png 300w, /wp-content/uploads/2018/05/word-image-6149-768x373.png 768w, /wp-content/uploads/2018/05/word-image-6149-1024x497.png 1024w" sizes="(max-width: 1898px) 100vw, 1898px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6500.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>DedeCMS 二次开发（一）CMS介绍、安装、目录结构、取出数据、表、表关系、标签</title>
+		<link>/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91/6479.html</link>
+					<comments>/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91/6479.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 17:26:35 +0000</pubDate>
+				<category><![CDATA[DedeCMS]]></category>
+		<category><![CDATA[二次开发]]></category>
+		<category><![CDATA[CMS介绍]]></category>
+		<category><![CDATA[取出数据]]></category>
+		<category><![CDATA[安装]]></category>
+		<category><![CDATA[标签]]></category>
+		<category><![CDATA[目录结构]]></category>
+		<category><![CDATA[表]]></category>
+		<category><![CDATA[表关系]]></category>
+		<guid isPermaLink="false">/?p=6479</guid>
+
+					<description><![CDATA[dedecms第一天 CMS介绍 什么是cms 就是别人已经把数据库和基本的php代码设计好了。只需要我们填充 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>dedecms第一天</p>
+<h1><a id="post-6479-_CMS__"></a><a id="post-6479-_Toc256000002"></a>CMS介绍</h1>
+<h2><a id="post-6479-____cms"></a><a id="post-6479-_Toc256000003"></a>什么是cms</h2>
+<p>就是别人已经把数据库和基本的php代码设计好了。只需要我们填充静态页面和基本的数据，就可以做成一个网站。</p>
+<p>能做那些网站</p>
+<p>1 只能做一些，逻辑比较简单。</p>
+<p>2 以展示内容为主，主要是静态页面。</p>
+<p>3 不需要和用户进行太多的交互。</p>
+<p>4 适合做企业的门户网站，素材网站等。</p>
+<p>不适合做的网站</p>
+<p>1 逻辑比较复杂的，和用户有较多的交互的。</p>
+<p>2 比如，电商网站，社交网站，新闻类网站。</p>
+<h2><a id="post-6479-____cms_____"></a><a id="post-6479-_Toc256000004"></a>开源的cms系统有哪些</h2>
+<p>dedecms开源网站，偏向于美工使用的系统，操作起来比较简单，只需要套静态页面就行（适合于企业的门户网站）。</p>
+<p>phpcms开源的，相对来说比较复杂，适合于php程序员做一些二次开发，做稍微大一点的网站。</p>
+<h2><a id="post-6479-____cms_______"></a><a id="post-6479-_Toc256000005"></a>开源的cms系统有哪些特点</h2>
+<p>（1） 强大的后台管理功能</p>
+<p>（2） 网站的前台绝大部分页面真静态</p>
+<p>（3） 采用mvc架构，便于扩展新的内容</p>
+<p>（4） 强大的采集功能，便于采集其他的网站内容</p>
+<p>（5） 强大的标签体系，便于在模板中取出数据</p>
+<p>案例演示：http://www.dedecms.com/caseshow/e-gov/</p>
+<p><img loading="lazy" decoding="async" width="1143" height="615" class="wp-image-6606" src="/wp-content/uploads/2018/05/word-image-6014.png" srcset="/wp-content/uploads/2018/05/word-image-6014.png 1143w, /wp-content/uploads/2018/05/word-image-6014-300x161.png 300w, /wp-content/uploads/2018/05/word-image-6014-768x413.png 768w, /wp-content/uploads/2018/05/word-image-6014-1024x551.png 1024w" sizes="(max-width: 1143px) 100vw, 1143px" /><br />
+<img loading="lazy" decoding="async" width="1483" height="648" class="wp-image-6607" src="/wp-content/uploads/2018/05/word-image-6015.png" srcset="/wp-content/uploads/2018/05/word-image-6015.png 1483w, /wp-content/uploads/2018/05/word-image-6015-300x131.png 300w, /wp-content/uploads/2018/05/word-image-6015-768x336.png 768w, /wp-content/uploads/2018/05/word-image-6015-1024x447.png 1024w" sizes="(max-width: 1483px) 100vw, 1483px" /></p>
+<h1><a id="post-6479-___dedecms"></a><a id="post-6479-_Toc256000006"></a>安装dedecms</h1>
+<p>a 下载dedecms</p>
+<p><img loading="lazy" decoding="async" width="1193" height="511" class="wp-image-6608" src="/wp-content/uploads/2018/05/word-image-6016.png" srcset="/wp-content/uploads/2018/05/word-image-6016.png 1193w, /wp-content/uploads/2018/05/word-image-6016-300x128.png 300w, /wp-content/uploads/2018/05/word-image-6016-768x329.png 768w, /wp-content/uploads/2018/05/word-image-6016-1024x439.png 1024w" sizes="(max-width: 1193px) 100vw, 1193px" /><br />
+<img loading="lazy" decoding="async" width="903" height="497" class="wp-image-6609" src="/wp-content/uploads/2018/05/word-image-6017.png" srcset="/wp-content/uploads/2018/05/word-image-6017.png 903w, /wp-content/uploads/2018/05/word-image-6017-300x165.png 300w, /wp-content/uploads/2018/05/word-image-6017-768x423.png 768w" sizes="(max-width: 903px) 100vw, 903px" /></p>
+<p>b 下载完成的页面，放到网站的根目录中直接进行解压</p>
+<p><img loading="lazy" decoding="async" width="850" height="91" class="wp-image-6610" src="/wp-content/uploads/2018/05/word-image-6018.png" srcset="/wp-content/uploads/2018/05/word-image-6018.png 850w, /wp-content/uploads/2018/05/word-image-6018-300x32.png 300w, /wp-content/uploads/2018/05/word-image-6018-768x82.png 768w" sizes="(max-width: 850px) 100vw, 850px" /><br />
+<img loading="lazy" decoding="async" width="857" height="215" class="wp-image-6611" src="/wp-content/uploads/2018/05/word-image-6019.png" srcset="/wp-content/uploads/2018/05/word-image-6019.png 857w, /wp-content/uploads/2018/05/word-image-6019-300x75.png 300w, /wp-content/uploads/2018/05/word-image-6019-768x193.png 768w" sizes="(max-width: 857px) 100vw, 857px" /></p>
+<p>c 访问dede进行安装</p>
+<p><img loading="lazy" decoding="async" width="698" height="312" class="wp-image-6612" src="/wp-content/uploads/2018/05/word-image-6020.png" srcset="/wp-content/uploads/2018/05/word-image-6020.png 698w, /wp-content/uploads/2018/05/word-image-6020-300x134.png 300w" sizes="(max-width: 698px) 100vw, 698px" /></p>
+<p>点击uploads之后出现安装的页面</p>
+<p><img loading="lazy" decoding="async" width="871" height="609" class="wp-image-6613" src="/wp-content/uploads/2018/05/word-image-6021.png" srcset="/wp-content/uploads/2018/05/word-image-6021.png 871w, /wp-content/uploads/2018/05/word-image-6021-300x210.png 300w, /wp-content/uploads/2018/05/word-image-6021-768x537.png 768w" sizes="(max-width: 871px) 100vw, 871px" /></p>
+<p>设置数据库的密码和管理员的初始密码</p>
+<p><img loading="lazy" decoding="async" width="949" height="851" class="wp-image-6614" src="/wp-content/uploads/2018/05/word-image-6022.png" srcset="/wp-content/uploads/2018/05/word-image-6022.png 949w, /wp-content/uploads/2018/05/word-image-6022-300x269.png 300w, /wp-content/uploads/2018/05/word-image-6022-768x689.png 768w" sizes="(max-width: 949px) 100vw, 949px" /></p>
+<p>安装成功之后的页面</p>
+<p><img loading="lazy" decoding="async" width="783" height="427" class="wp-image-6616" src="/wp-content/uploads/2018/05/word-image-6023.png" srcset="/wp-content/uploads/2018/05/word-image-6023.png 783w, /wp-content/uploads/2018/05/word-image-6023-300x164.png 300w, /wp-content/uploads/2018/05/word-image-6023-768x419.png 768w" sizes="(max-width: 783px) 100vw, 783px" /></p>
+<p>网站的首页访问：</p>
+<p><img loading="lazy" decoding="async" width="1122" height="450" class="wp-image-6617" src="/wp-content/uploads/2018/05/word-image-6024.png" srcset="/wp-content/uploads/2018/05/word-image-6024.png 1122w, /wp-content/uploads/2018/05/word-image-6024-300x120.png 300w, /wp-content/uploads/2018/05/word-image-6024-768x308.png 768w, /wp-content/uploads/2018/05/word-image-6024-1024x411.png 1024w" sizes="(max-width: 1122px) 100vw, 1122px" /></p>
+<h2><a id="post-6479-_____"></a><a id="post-6479-_Toc256000007"></a>目录结构</h2>
+<p>使用编辑器将我们的项目搭建起来</p>
+<p><img loading="lazy" decoding="async" width="697" height="357" class="wp-image-6618" src="/wp-content/uploads/2018/05/word-image-6025.png" srcset="/wp-content/uploads/2018/05/word-image-6025.png 697w, /wp-content/uploads/2018/05/word-image-6025-300x154.png 300w" sizes="(max-width: 697px) 100vw, 697px" /></p>
+<h3><a id="post-6479-_a__"></a><a id="post-6479-_Toc256000008"></a>a目录</h3>
+<p>用于存放网站生成的静态页面</p>
+<h3><a id="post-6479-_data__"></a><a id="post-6479-_Toc256000009"></a>data目录</h3>
+<p>用于存放数据库的配置信息文件和一些缓存的数据文件</p>
+<p><img loading="lazy" decoding="async" width="914" height="583" class="wp-image-6619" src="/wp-content/uploads/2018/05/word-image-6026.png" srcset="/wp-content/uploads/2018/05/word-image-6026.png 914w, /wp-content/uploads/2018/05/word-image-6026-300x191.png 300w, /wp-content/uploads/2018/05/word-image-6026-768x490.png 768w" sizes="(max-width: 914px) 100vw, 914px" /></p>
+<h3><a id="post-6479-_include__"></a><a id="post-6479-_Toc256000010"></a>dede目录</h3>
+<p>cms的后台主程序目录</p>
+<h3>include目录</h3>
+<p>用于存放dede核心文件目录，比如数据库类，文档的上传类，标签的解析类。</p>
+<h3><a id="post-6479-_install__"></a><a id="post-6479-_Toc256000011"></a>install目录</h3>
+<p>dede的安装目录</p>
+<h3><a id="post-6479-_memeber__"></a><a id="post-6479-_Toc256000012"></a>memeber目录</h3>
+<p>会员目录，主要是对会员进行增删改查的操作</p>
+<h3><a id="post-6479-_plus__"></a><a id="post-6479-_Toc256000013"></a>plus目录</h3>
+<p>插件目录，如果后期我们有特别的需求，可以自己把相应的程序文件放在这里使用</p>
+<h3><a id="post-6479-_templets__"></a><a id="post-6479-_Toc256000014"></a>templets目录</h3>
+<p>静态文件模板目录，用于存放我们的静态页面</p>
+<h3><a id="post-6479-_uploads__"></a><a id="post-6479-_Toc256000015"></a>uploads目录</h3>
+<p><a id="post-6479-_______"></a><br />
+上传文件的保存目录，比如上传的图片等。</p>
+<h1><a id="post-6479-____________"></a><a id="post-6479-_Toc256000022"></a>完成一个新闻类型的网站</h1>
+<p>访问到dedecms的后台</p>
+<p><a href="http://localhost/dede-1/uploads/dede/login.php">http://localhost/dede-1/uploads/dede/login.php</a></p>
+<p><img loading="lazy" decoding="async" width="890" height="344" class="wp-image-6620" src="/wp-content/uploads/2018/05/word-image-6027.png" srcset="/wp-content/uploads/2018/05/word-image-6027.png 890w, /wp-content/uploads/2018/05/word-image-6027-300x116.png 300w, /wp-content/uploads/2018/05/word-image-6027-768x297.png 768w" sizes="(max-width: 890px) 100vw, 890px" /></p>
+<h2><a id="post-6479-______6"></a><a id="post-6479-_Toc256000023"></a>创建模型</h2>
+<p><img loading="lazy" decoding="async" width="1408" height="493" class="wp-image-6621" src="/wp-content/uploads/2018/05/word-image-6028.png" srcset="/wp-content/uploads/2018/05/word-image-6028.png 1408w, /wp-content/uploads/2018/05/word-image-6028-300x105.png 300w, /wp-content/uploads/2018/05/word-image-6028-768x269.png 768w, /wp-content/uploads/2018/05/word-image-6028-1024x359.png 1024w" sizes="(max-width: 1408px) 100vw, 1408px" /></p>
+<p>现在dede中默认有以上的模型，等到后续如果这些模型不能满足我们的需求我们可以自己创建。</p>
+<p>模型值得就是，这个网站的内容的类型。</p>
+<p>因为我们要创建一个新闻类型的网站，只需要使用使用文章模型即可。</p>
+<h2><a id="post-6479-______7"></a><a id="post-6479-_Toc256000024"></a>创建栏目</h2>
+<p>顶级导航：体育新闻、娱乐新闻</p>
+<p>体育新闻：足球新闻、武术新闻</p>
+<p>娱乐新闻：明星轶事、明星八卦</p>
+<p>a 打开后台创建栏目</p>
+<p><img loading="lazy" decoding="async" width="1768" height="338" class="wp-image-6622" src="/wp-content/uploads/2018/05/word-image-6029.png" srcset="/wp-content/uploads/2018/05/word-image-6029.png 1768w, /wp-content/uploads/2018/05/word-image-6029-300x57.png 300w, /wp-content/uploads/2018/05/word-image-6029-768x147.png 768w, /wp-content/uploads/2018/05/word-image-6029-1024x196.png 1024w" sizes="(max-width: 1768px) 100vw, 1768px" /></p>
+<p>b 进行网站顶级栏目的添加</p>
+<p><img loading="lazy" decoding="async" width="954" height="563" class="wp-image-6623" src="/wp-content/uploads/2018/05/word-image-6030.png" srcset="/wp-content/uploads/2018/05/word-image-6030.png 954w, /wp-content/uploads/2018/05/word-image-6030-300x177.png 300w, /wp-content/uploads/2018/05/word-image-6030-768x453.png 768w" sizes="(max-width: 954px) 100vw, 954px" /></p>
+<p>添加娱乐新闻</p>
+<p><img loading="lazy" decoding="async" width="930" height="586" class="wp-image-6624" src="/wp-content/uploads/2018/05/word-image-6031.png" srcset="/wp-content/uploads/2018/05/word-image-6031.png 930w, /wp-content/uploads/2018/05/word-image-6031-300x189.png 300w, /wp-content/uploads/2018/05/word-image-6031-768x484.png 768w" sizes="(max-width: 930px) 100vw, 930px" /></p>
+<p>c 顶级栏目添加之后的效果</p>
+<p><img loading="lazy" decoding="async" width="1655" height="279" class="wp-image-6625" src="/wp-content/uploads/2018/05/word-image-6032.png" srcset="/wp-content/uploads/2018/05/word-image-6032.png 1655w, /wp-content/uploads/2018/05/word-image-6032-300x51.png 300w, /wp-content/uploads/2018/05/word-image-6032-768x129.png 768w, /wp-content/uploads/2018/05/word-image-6032-1024x173.png 1024w" sizes="(max-width: 1655px) 100vw, 1655px" /></p>
+<p>d 点击增加子级为每一个顶级栏目添加二级栏目</p>
+<p><img loading="lazy" decoding="async" width="1619" height="316" class="wp-image-6626" src="/wp-content/uploads/2018/05/word-image-6033.png" srcset="/wp-content/uploads/2018/05/word-image-6033.png 1619w, /wp-content/uploads/2018/05/word-image-6033-300x59.png 300w, /wp-content/uploads/2018/05/word-image-6033-768x150.png 768w, /wp-content/uploads/2018/05/word-image-6033-1024x200.png 1024w" sizes="(max-width: 1619px) 100vw, 1619px" /><br />
+<img loading="lazy" decoding="async" width="587" height="533" class="wp-image-6627" src="/wp-content/uploads/2018/05/word-image-6034.png" srcset="/wp-content/uploads/2018/05/word-image-6034.png 587w, /wp-content/uploads/2018/05/word-image-6034-300x272.png 300w" sizes="(max-width: 587px) 100vw, 587px" /></p>
+<p>二级栏目增加之后的效果:</p>
+<p><img loading="lazy" decoding="async" width="1574" height="357" class="wp-image-6628" src="/wp-content/uploads/2018/05/word-image-6035.png" srcset="/wp-content/uploads/2018/05/word-image-6035.png 1574w, /wp-content/uploads/2018/05/word-image-6035-300x68.png 300w, /wp-content/uploads/2018/05/word-image-6035-768x174.png 768w, /wp-content/uploads/2018/05/word-image-6035-1024x232.png 1024w" sizes="(max-width: 1574px) 100vw, 1574px" /></p>
+<p>e 栏目增加完成之后,刷线前台页面,即可看到效果</p>
+<p><img loading="lazy" decoding="async" width="814" height="253" class="wp-image-6629" src="/wp-content/uploads/2018/05/word-image-6036.png" srcset="/wp-content/uploads/2018/05/word-image-6036.png 814w, /wp-content/uploads/2018/05/word-image-6036-300x93.png 300w, /wp-content/uploads/2018/05/word-image-6036-768x239.png 768w" sizes="(max-width: 814px) 100vw, 814px" /></p>
+<h2><a id="post-6479-______8"></a><a id="post-6479-_Toc256000025"></a>添加内容</h2>
+<p>a 为网站增加文章</p>
+<p><img loading="lazy" decoding="async" width="1279" height="413" class="wp-image-6630" src="/wp-content/uploads/2018/05/word-image-6037.png" srcset="/wp-content/uploads/2018/05/word-image-6037.png 1279w, /wp-content/uploads/2018/05/word-image-6037-300x97.png 300w, /wp-content/uploads/2018/05/word-image-6037-768x248.png 768w, /wp-content/uploads/2018/05/word-image-6037-1024x331.png 1024w" sizes="(max-width: 1279px) 100vw, 1279px" /></p>
+<p>b 添加具体的文档内容</p>
+<p><img loading="lazy" decoding="async" width="1186" height="766" class="wp-image-6631" src="/wp-content/uploads/2018/05/word-image-6038.png" srcset="/wp-content/uploads/2018/05/word-image-6038.png 1186w, /wp-content/uploads/2018/05/word-image-6038-300x194.png 300w, /wp-content/uploads/2018/05/word-image-6038-768x496.png 768w, /wp-content/uploads/2018/05/word-image-6038-1024x661.png 1024w" sizes="(max-width: 1186px) 100vw, 1186px" /></p>
+<p>c 文章添加完成之后的效果</p>
+<p><img loading="lazy" decoding="async" width="1618" height="304" class="wp-image-6632" src="/wp-content/uploads/2018/05/word-image-6039.png" srcset="/wp-content/uploads/2018/05/word-image-6039.png 1618w, /wp-content/uploads/2018/05/word-image-6039-300x56.png 300w, /wp-content/uploads/2018/05/word-image-6039-768x144.png 768w, /wp-content/uploads/2018/05/word-image-6039-1024x192.png 1024w" sizes="(max-width: 1618px) 100vw, 1618px" /></p>
+<p>d 在首页查看刚才添加的文章内容</p>
+<p>&nbsp;</p>
+<p><img loading="lazy" decoding="async" width="1101" height="920" class="wp-image-6633" src="/wp-content/uploads/2018/05/word-image-6040.png" srcset="/wp-content/uploads/2018/05/word-image-6040.png 1101w, /wp-content/uploads/2018/05/word-image-6040-300x251.png 300w, /wp-content/uploads/2018/05/word-image-6040-768x642.png 768w, /wp-content/uploads/2018/05/word-image-6040-1024x856.png 1024w" sizes="(max-width: 1101px) 100vw, 1101px" /></p>
+<h2><a id="post-6479-________3"></a><a id="post-6479-_Toc256000027"></a>生成静态页面</h2>
+<h3><a id="post-6479-_________"></a><a id="post-6479-_Toc256000028"></a>生成首页静态页面</h3>
+<p><img loading="lazy" decoding="async" width="1134" height="317" class="wp-image-6634" src="/wp-content/uploads/2018/05/word-image-6041.png" srcset="/wp-content/uploads/2018/05/word-image-6041.png 1134w, /wp-content/uploads/2018/05/word-image-6041-300x84.png 300w, /wp-content/uploads/2018/05/word-image-6041-768x215.png 768w, /wp-content/uploads/2018/05/word-image-6041-1024x286.png 1024w" sizes="(max-width: 1134px) 100vw, 1134px" /></p>
+<h3><a id="post-6479-__________2"></a><a id="post-6479-_Toc256000029"></a>生成栏目静态页面</h3>
+<p><img loading="lazy" decoding="async" width="1225" height="403" class="wp-image-6635" src="/wp-content/uploads/2018/05/word-image-6042.png" srcset="/wp-content/uploads/2018/05/word-image-6042.png 1225w, /wp-content/uploads/2018/05/word-image-6042-300x99.png 300w, /wp-content/uploads/2018/05/word-image-6042-768x253.png 768w, /wp-content/uploads/2018/05/word-image-6042-1024x337.png 1024w" sizes="(max-width: 1225px) 100vw, 1225px" /><br />
+<img loading="lazy" decoding="async" width="856" height="204" class="wp-image-6636" src="/wp-content/uploads/2018/05/word-image-6043.png" srcset="/wp-content/uploads/2018/05/word-image-6043.png 856w, /wp-content/uploads/2018/05/word-image-6043-300x71.png 300w, /wp-content/uploads/2018/05/word-image-6043-768x183.png 768w" sizes="(max-width: 856px) 100vw, 856px" /></p>
+<h3><a id="post-6479-__________3"></a><a id="post-6479-_Toc256000030"></a>生成内容静态页面</h3>
+<p><img loading="lazy" decoding="async" width="1175" height="322" class="wp-image-6637" src="/wp-content/uploads/2018/05/word-image-6044.png" srcset="/wp-content/uploads/2018/05/word-image-6044.png 1175w, /wp-content/uploads/2018/05/word-image-6044-300x82.png 300w, /wp-content/uploads/2018/05/word-image-6044-768x210.png 768w, /wp-content/uploads/2018/05/word-image-6044-1024x281.png 1024w" sizes="(max-width: 1175px) 100vw, 1175px" /><br />
+<img loading="lazy" decoding="async" width="832" height="525" class="wp-image-6638" src="/wp-content/uploads/2018/05/word-image-6045.png" srcset="/wp-content/uploads/2018/05/word-image-6045.png 832w, /wp-content/uploads/2018/05/word-image-6045-300x189.png 300w, /wp-content/uploads/2018/05/word-image-6045-768x485.png 768w" sizes="(max-width: 832px) 100vw, 832px" /></p>
+<h1><a id="post-6479-_dedecms______"></a><a id="post-6479-_Toc256000031"></a>dedecms里面主要的表</h1>
+<h2><a id="post-6479-_dede_channeltype_____"></a><a id="post-6479-_Toc256000032"></a>dede_channeltype（模型表）</h2>
+<p><img loading="lazy" decoding="async" width="1482" height="462" class="wp-image-6639" src="/wp-content/uploads/2018/05/word-image-6046.png" srcset="/wp-content/uploads/2018/05/word-image-6046.png 1482w, /wp-content/uploads/2018/05/word-image-6046-300x94.png 300w, /wp-content/uploads/2018/05/word-image-6046-768x239.png 768w, /wp-content/uploads/2018/05/word-image-6046-1024x319.png 1024w" sizes="(max-width: 1482px) 100vw, 1482px" /></p>
+<p>这个表主要使用与我们保存模型的</p>
+<h2><a id="post-6479-_dede_arctype_____"></a><a id="post-6479-_Toc256000033"></a>dede_arctype（栏目表）</h2>
+<p><img loading="lazy" decoding="async" width="1206" height="353" class="wp-image-6640" src="/wp-content/uploads/2018/05/word-image-6047.png" srcset="/wp-content/uploads/2018/05/word-image-6047.png 1206w, /wp-content/uploads/2018/05/word-image-6047-300x88.png 300w, /wp-content/uploads/2018/05/word-image-6047-768x225.png 768w, /wp-content/uploads/2018/05/word-image-6047-1024x300.png 1024w" sizes="(max-width: 1206px) 100vw, 1206px" /></p>
+<h2><a id="post-6479-_deede_archives______"></a><a id="post-6479-_Toc256000034"></a>deede_archives(内容主表)</h2>
+<p><img loading="lazy" decoding="async" width="1152" height="331" class="wp-image-6641" src="/wp-content/uploads/2018/05/word-image-6048.png" srcset="/wp-content/uploads/2018/05/word-image-6048.png 1152w, /wp-content/uploads/2018/05/word-image-6048-300x86.png 300w, /wp-content/uploads/2018/05/word-image-6048-768x221.png 768w, /wp-content/uploads/2018/05/word-image-6048-1024x294.png 1024w" sizes="(max-width: 1152px) 100vw, 1152px" /></p>
+<h2><a id="post-6479-_dede_addonxxx_____"></a><a id="post-6479-_Toc256000035"></a>dede_addonxxx(附加表)</h2>
+<p><img loading="lazy" decoding="async" width="1208" height="304" class="wp-image-6642" src="/wp-content/uploads/2018/05/word-image-6049.png" srcset="/wp-content/uploads/2018/05/word-image-6049.png 1208w, /wp-content/uploads/2018/05/word-image-6049-300x75.png 300w, /wp-content/uploads/2018/05/word-image-6049-768x193.png 768w, /wp-content/uploads/2018/05/word-image-6049-1024x258.png 1024w" sizes="(max-width: 1208px) 100vw, 1208px" /></p>
+<p>每一个附加表,都是为了保存这个模型下面所独有的内容</p>
+<h1><a id="post-6479-________4"></a><a id="post-6479-_Toc256000036"></a>表之间的关系</h1>
+<h2><a id="post-6479-________"></a><a id="post-6479-_Toc256000037"></a>模型表与栏目表</h2>
+<p>由于每个栏目必然要确定是哪一个模型下面的栏目所以这里dede_channeltype模型表中的id字段对应的就是dede_arctype栏目表中的channeltype字段进行关联</p>
+<p><img loading="lazy" decoding="async" width="1264" height="758" class="wp-image-6643" src="/wp-content/uploads/2018/05/word-image-6050.png" srcset="/wp-content/uploads/2018/05/word-image-6050.png 1264w, /wp-content/uploads/2018/05/word-image-6050-300x180.png 300w, /wp-content/uploads/2018/05/word-image-6050-768x461.png 768w, /wp-content/uploads/2018/05/word-image-6050-1024x614.png 1024w" sizes="(max-width: 1264px) 100vw, 1264px" /></p>
+<h2><a id="post-6479-__________4"></a><a id="post-6479-_Toc256000038"></a>内容主表与栏目表</h2>
+<p>内容主表的typeid与栏目表中id是对应的</p>
+<p><img loading="lazy" decoding="async" width="1193" height="792" class="wp-image-6644" src="/wp-content/uploads/2018/05/word-image-6051.png" srcset="/wp-content/uploads/2018/05/word-image-6051.png 1193w, /wp-content/uploads/2018/05/word-image-6051-300x199.png 300w, /wp-content/uploads/2018/05/word-image-6051-768x510.png 768w, /wp-content/uploads/2018/05/word-image-6051-1024x680.png 1024w" sizes="(max-width: 1193px) 100vw, 1193px" /></p>
+<h2><a id="post-6479-__________5"></a><a id="post-6479-_Toc256000039"></a>内容主表和附加表</h2>
+<p><img loading="lazy" decoding="async" width="1078" height="685" class="wp-image-6645" src="/wp-content/uploads/2018/05/word-image-6052.png" srcset="/wp-content/uploads/2018/05/word-image-6052.png 1078w, /wp-content/uploads/2018/05/word-image-6052-300x191.png 300w, /wp-content/uploads/2018/05/word-image-6052-768x488.png 768w, /wp-content/uploads/2018/05/word-image-6052-1024x651.png 1024w" sizes="(max-width: 1078px) 100vw, 1078px" /></p>
+<p>这两个表中的typeid是相对应的</p>
+<h1><a id="post-6479-_________________"></a><a id="post-6479-_Toc256000040"></a>开发一个电影网站（添加数据信息）</h1>
+<h2><a id="post-6479-________5"></a><a id="post-6479-_Toc256000041"></a>创建电影模型</h2>
+<p>a 创建模型的一个步骤</p>
+<p>核心&#8212;-&gt;内容模型管理&#8212;&#8212;&#8211;&gt;增加模型</p>
+<p><img loading="lazy" decoding="async" width="1856" height="483" class="wp-image-6646" src="/wp-content/uploads/2018/05/word-image-6053.png" srcset="/wp-content/uploads/2018/05/word-image-6053.png 1856w, /wp-content/uploads/2018/05/word-image-6053-300x78.png 300w, /wp-content/uploads/2018/05/word-image-6053-768x200.png 768w, /wp-content/uploads/2018/05/word-image-6053-1024x266.png 1024w" sizes="(max-width: 1856px) 100vw, 1856px" /></p>
+<p>b 增加一个电影模型</p>
+<p><img loading="lazy" decoding="async" width="1489" height="858" class="wp-image-6647" src="/wp-content/uploads/2018/05/word-image-6054.png" srcset="/wp-content/uploads/2018/05/word-image-6054.png 1489w, /wp-content/uploads/2018/05/word-image-6054-300x173.png 300w, /wp-content/uploads/2018/05/word-image-6054-768x443.png 768w, /wp-content/uploads/2018/05/word-image-6054-1024x590.png 1024w" sizes="(max-width: 1489px) 100vw, 1489px" /></p>
+<p>增加成功之后的界面</p>
+<p><img loading="lazy" decoding="async" width="1402" height="431" class="wp-image-6648" src="/wp-content/uploads/2018/05/word-image-6055.png" srcset="/wp-content/uploads/2018/05/word-image-6055.png 1402w, /wp-content/uploads/2018/05/word-image-6055-300x92.png 300w, /wp-content/uploads/2018/05/word-image-6055-768x236.png 768w, /wp-content/uploads/2018/05/word-image-6055-1024x315.png 1024w" sizes="(max-width: 1402px) 100vw, 1402px" /></p>
+<p>模型所对应的附加表</p>
+<p><img loading="lazy" decoding="async" width="606" height="299" class="wp-image-6649" src="/wp-content/uploads/2018/05/word-image-6056.png" srcset="/wp-content/uploads/2018/05/word-image-6056.png 606w, /wp-content/uploads/2018/05/word-image-6056-300x148.png 300w" sizes="(max-width: 606px) 100vw, 606px" /></p>
+<h2><a id="post-6479-________6"></a><a id="post-6479-_Toc256000042"></a>添加属性字段</h2>
+<p>因为增加模型时,默认添加的字端,不能满足我们的需求,所以我们要自己手动的增加一些字段.</p>
+<p>a 更改已经创建好的模型</p>
+<p><img loading="lazy" decoding="async" width="1845" height="452" class="wp-image-6650" src="/wp-content/uploads/2018/05/word-image-6057.png" srcset="/wp-content/uploads/2018/05/word-image-6057.png 1845w, /wp-content/uploads/2018/05/word-image-6057-300x73.png 300w, /wp-content/uploads/2018/05/word-image-6057-768x188.png 768w, /wp-content/uploads/2018/05/word-image-6057-1024x251.png 1024w" sizes="(max-width: 1845px) 100vw, 1845px" /><br />
+<img loading="lazy" decoding="async" width="930" height="458" class="wp-image-6651" src="/wp-content/uploads/2018/05/word-image-6058.png" srcset="/wp-content/uploads/2018/05/word-image-6058.png 930w, /wp-content/uploads/2018/05/word-image-6058-300x148.png 300w, /wp-content/uploads/2018/05/word-image-6058-768x378.png 768w" sizes="(max-width: 930px) 100vw, 930px" /></p>
+<p>b 添加主演字段</p>
+<p><img loading="lazy" decoding="async" width="664" height="547" class="wp-image-6652" src="/wp-content/uploads/2018/05/word-image-6059.png" srcset="/wp-content/uploads/2018/05/word-image-6059.png 664w, /wp-content/uploads/2018/05/word-image-6059-300x247.png 300w" sizes="(max-width: 664px) 100vw, 664px" /></p>
+<p>c 添加导演字段</p>
+<p><img loading="lazy" decoding="async" width="966" height="701" class="wp-image-6653" src="/wp-content/uploads/2018/05/word-image-6060.png" srcset="/wp-content/uploads/2018/05/word-image-6060.png 966w, /wp-content/uploads/2018/05/word-image-6060-300x218.png 300w, /wp-content/uploads/2018/05/word-image-6060-768x557.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<p>d 增加年代字段</p>
+<p><img loading="lazy" decoding="async" width="665" height="510" class="wp-image-6654" src="/wp-content/uploads/2018/05/word-image-6061.png" srcset="/wp-content/uploads/2018/05/word-image-6061.png 665w, /wp-content/uploads/2018/05/word-image-6061-300x230.png 300w" sizes="(max-width: 665px) 100vw, 665px" /></p>
+<p>e 增加语言的字段</p>
+<p><img loading="lazy" decoding="async" width="1000" height="577" class="wp-image-6655" src="/wp-content/uploads/2018/05/word-image-6062.png" srcset="/wp-content/uploads/2018/05/word-image-6062.png 1000w, /wp-content/uploads/2018/05/word-image-6062-300x173.png 300w, /wp-content/uploads/2018/05/word-image-6062-768x443.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" /></p>
+<p>f 增加地区的字段</p>
+<p><img loading="lazy" decoding="async" width="1506" height="579" class="wp-image-6656" src="/wp-content/uploads/2018/05/word-image-6063.png" srcset="/wp-content/uploads/2018/05/word-image-6063.png 1506w, /wp-content/uploads/2018/05/word-image-6063-300x115.png 300w, /wp-content/uploads/2018/05/word-image-6063-768x295.png 768w, /wp-content/uploads/2018/05/word-image-6063-1024x394.png 1024w" sizes="(max-width: 1506px) 100vw, 1506px" /></p>
+<p>g 增加评分</p>
+<p><img loading="lazy" decoding="async" width="933" height="603" class="wp-image-6657" src="/wp-content/uploads/2018/05/word-image-6064.png" srcset="/wp-content/uploads/2018/05/word-image-6064.png 933w, /wp-content/uploads/2018/05/word-image-6064-300x194.png 300w, /wp-content/uploads/2018/05/word-image-6064-768x496.png 768w" sizes="(max-width: 933px) 100vw, 933px" /></p>
+<p>h 评分人数</p>
+<p><img loading="lazy" decoding="async" width="736" height="537" class="wp-image-6658" src="/wp-content/uploads/2018/05/word-image-6065.png" srcset="/wp-content/uploads/2018/05/word-image-6065.png 736w, /wp-content/uploads/2018/05/word-image-6065-300x219.png 300w" sizes="(max-width: 736px) 100vw, 736px" /></p>
+<p>j 增加简介的字段</p>
+<p><img loading="lazy" decoding="async" width="950" height="644" class="wp-image-6659" src="/wp-content/uploads/2018/05/word-image-6066.png" srcset="/wp-content/uploads/2018/05/word-image-6066.png 950w, /wp-content/uploads/2018/05/word-image-6066-300x203.png 300w, /wp-content/uploads/2018/05/word-image-6066-768x521.png 768w, /wp-content/uploads/2018/05/word-image-6066-220x150.png 220w" sizes="(max-width: 950px) 100vw, 950px" /></p>
+<p>字段增加完成之后的效果’</p>
+<p><img loading="lazy" decoding="async" width="1646" height="383" class="wp-image-6660" src="/wp-content/uploads/2018/05/word-image-6067.png" srcset="/wp-content/uploads/2018/05/word-image-6067.png 1646w, /wp-content/uploads/2018/05/word-image-6067-300x70.png 300w, /wp-content/uploads/2018/05/word-image-6067-768x179.png 768w, /wp-content/uploads/2018/05/word-image-6067-1024x238.png 1024w" sizes="(max-width: 1646px) 100vw, 1646px" /></p>
+<p>查看已经创建好的电影模型附加表所对应的字段</p>
+<p><img loading="lazy" decoding="async" width="1133" height="213" class="wp-image-6661" src="/wp-content/uploads/2018/05/word-image-6068.png" srcset="/wp-content/uploads/2018/05/word-image-6068.png 1133w, /wp-content/uploads/2018/05/word-image-6068-300x56.png 300w, /wp-content/uploads/2018/05/word-image-6068-768x144.png 768w, /wp-content/uploads/2018/05/word-image-6068-1024x193.png 1024w" sizes="(max-width: 1133px) 100vw, 1133px" /></p>
+<p>&nbsp;</p>
+<h2><a id="post-6479-__________7"></a><a id="post-6479-_Toc256000046"></a>创建电影网站栏目</h2>
+<p>顶级导航：我的电影、国产大片、原声影院、欧美大片、3D影院、公司简介、关于我们</p>
+<p>我的电影：爱情、动作、科幻、惊悚、儿童、动漫</p>
+<p>a 使用批量添加顶级导航栏目</p>
+<p><img loading="lazy" decoding="async" width="1886" height="362" class="wp-image-6662" src="/wp-content/uploads/2018/05/word-image-6069.png" srcset="/wp-content/uploads/2018/05/word-image-6069.png 1886w, /wp-content/uploads/2018/05/word-image-6069-300x58.png 300w, /wp-content/uploads/2018/05/word-image-6069-768x147.png 768w, /wp-content/uploads/2018/05/word-image-6069-1024x197.png 1024w" sizes="(max-width: 1886px) 100vw, 1886px" /></p>
+<p>b 增加导航栏目</p>
+<p><img loading="lazy" decoding="async" width="1289" height="775" class="wp-image-6663" src="/wp-content/uploads/2018/05/word-image-6070.png" srcset="/wp-content/uploads/2018/05/word-image-6070.png 1289w, /wp-content/uploads/2018/05/word-image-6070-300x180.png 300w, /wp-content/uploads/2018/05/word-image-6070-768x462.png 768w, /wp-content/uploads/2018/05/word-image-6070-1024x616.png 1024w" sizes="(max-width: 1289px) 100vw, 1289px" /></p>
+<p>将公司简介,和关于我们两个栏目添加成为文章类型的</p>
+<p>增加之后的页面</p>
+<p><img loading="lazy" decoding="async" width="1701" height="525" class="wp-image-6664" src="/wp-content/uploads/2018/05/word-image-6071.png" srcset="/wp-content/uploads/2018/05/word-image-6071.png 1701w, /wp-content/uploads/2018/05/word-image-6071-300x93.png 300w, /wp-content/uploads/2018/05/word-image-6071-768x237.png 768w, /wp-content/uploads/2018/05/word-image-6071-1024x316.png 1024w" sizes="(max-width: 1701px) 100vw, 1701px" /></p>
+<h2><a id="post-6479-__________8"></a><a id="post-6479-_Toc256000047"></a>添加具体电影数据</h2>
+<p>a 在内容管理中添加电影数据</p>
+<p><img loading="lazy" decoding="async" width="637" height="571" class="wp-image-6665" src="/wp-content/uploads/2018/05/word-image-6072.png" srcset="/wp-content/uploads/2018/05/word-image-6072.png 637w, /wp-content/uploads/2018/05/word-image-6072-300x269.png 300w" sizes="(max-width: 637px) 100vw, 637px" /></p>
+<p>b 增加电影数据:</p>
+<p><img loading="lazy" decoding="async" width="1094" height="556" class="wp-image-6666" src="/wp-content/uploads/2018/05/word-image-6073.png" srcset="/wp-content/uploads/2018/05/word-image-6073.png 1094w, /wp-content/uploads/2018/05/word-image-6073-300x152.png 300w, /wp-content/uploads/2018/05/word-image-6073-768x390.png 768w, /wp-content/uploads/2018/05/word-image-6073-1024x520.png 1024w" sizes="(max-width: 1094px) 100vw, 1094px" /><br />
+<img loading="lazy" decoding="async" width="1075" height="748" class="wp-image-6668" src="/wp-content/uploads/2018/05/word-image-6075.png" srcset="/wp-content/uploads/2018/05/word-image-6075.png 1075w, /wp-content/uploads/2018/05/word-image-6075-300x209.png 300w, /wp-content/uploads/2018/05/word-image-6075-768x534.png 768w, /wp-content/uploads/2018/05/word-image-6075-1024x713.png 1024w" sizes="(max-width: 1075px) 100vw, 1075px" /></p>
+<h1><a id="post-6479-__________9"></a><a id="post-6479-_Toc256000048"></a>制作电影网站首页</h1>
+<h2><a id="post-6479-___________"></a><a id="post-6479-_Toc256000049"></a>复制模板文件到项目中</h2>
+<p>a 将我们的模板复制到templets中</p>
+<p><img loading="lazy" decoding="async" width="976" height="272" class="wp-image-6670" src="/wp-content/uploads/2018/05/word-image-6077.png" srcset="/wp-content/uploads/2018/05/word-image-6077.png 976w, /wp-content/uploads/2018/05/word-image-6077-300x84.png 300w, /wp-content/uploads/2018/05/word-image-6077-768x214.png 768w" sizes="(max-width: 976px) 100vw, 976px" /></p>
+<h2><a id="post-6479-_____________2"></a><a id="post-6479-_Toc256000050"></a>修改模板文件的默认风格</h2>
+<p>修改dede默认加载静态页面的路径</p>
+<p><img loading="lazy" decoding="async" width="1197" height="628" class="wp-image-6672" src="/wp-content/uploads/2018/05/word-image-6079.png" srcset="/wp-content/uploads/2018/05/word-image-6079.png 1197w, /wp-content/uploads/2018/05/word-image-6079-300x157.png 300w, /wp-content/uploads/2018/05/word-image-6079-768x403.png 768w, /wp-content/uploads/2018/05/word-image-6079-1024x537.png 1024w" sizes="(max-width: 1197px) 100vw, 1197px" /></p>
+<h2><a id="post-6479-__a67______"></a><a id="post-6479-_Toc256000051"></a>将a67模板首页改名,作为整个网站的首页</h2>
+<p><img loading="lazy" decoding="async" width="939" height="279" class="wp-image-6674" src="/wp-content/uploads/2018/05/word-image-6081.png" srcset="/wp-content/uploads/2018/05/word-image-6081.png 939w, /wp-content/uploads/2018/05/word-image-6081-300x89.png 300w, /wp-content/uploads/2018/05/word-image-6081-768x228.png 768w" sizes="(max-width: 939px) 100vw, 939px" /></p>
+<h2><a id="post-6479-__________10"></a><a id="post-6479-_Toc256000052"></a>生成首页文件</h2>
+<p>a 在生成栏目下找到更新主页html页面的按钮’</p>
+<p><img loading="lazy" decoding="async" width="1147" height="367" class="wp-image-6676" src="/wp-content/uploads/2018/05/word-image-6083.png" srcset="/wp-content/uploads/2018/05/word-image-6083.png 1147w, /wp-content/uploads/2018/05/word-image-6083-300x96.png 300w, /wp-content/uploads/2018/05/word-image-6083-768x246.png 768w, /wp-content/uploads/2018/05/word-image-6083-1024x328.png 1024w" sizes="(max-width: 1147px) 100vw, 1147px" /></p>
+<p>b 选择a67下面的index.htm文件</p>
+<p><img loading="lazy" decoding="async" width="873" height="353" class="wp-image-6678" src="/wp-content/uploads/2018/05/word-image-6085.png" srcset="/wp-content/uploads/2018/05/word-image-6085.png 873w, /wp-content/uploads/2018/05/word-image-6085-300x121.png 300w, /wp-content/uploads/2018/05/word-image-6085-768x311.png 768w" sizes="(max-width: 873px) 100vw, 873px" /></p>
+<p>c 首页更新成功</p>
+<p><img loading="lazy" decoding="async" width="1008" height="595" class="wp-image-6679" src="/wp-content/uploads/2018/05/word-image-6086.png" srcset="/wp-content/uploads/2018/05/word-image-6086.png 1008w, /wp-content/uploads/2018/05/word-image-6086-300x177.png 300w, /wp-content/uploads/2018/05/word-image-6086-768x453.png 768w" sizes="(max-width: 1008px) 100vw, 1008px" /></p>
+<h2>修改首页资源路径</h2>
+<p>此时的常量所代表的路径:</p>
+<p><img loading="lazy" decoding="async" width="696" height="80" class="wp-image-6681" src="/wp-content/uploads/2018/05/word-image-6088.png" srcset="/wp-content/uploads/2018/05/word-image-6088.png 696w, /wp-content/uploads/2018/05/word-image-6088-300x34.png 300w" sizes="(max-width: 696px) 100vw, 696px" /></p>
+<p>a 新建一个demo.html文件测试</p>
+<p><img loading="lazy" decoding="async" width="1135" height="586" class="wp-image-6684" src="/wp-content/uploads/2018/05/word-image-6090.png" srcset="/wp-content/uploads/2018/05/word-image-6090.png 1135w, /wp-content/uploads/2018/05/word-image-6090-300x155.png 300w, /wp-content/uploads/2018/05/word-image-6090-768x397.png 768w, /wp-content/uploads/2018/05/word-image-6090-1024x529.png 1024w" sizes="(max-width: 1135px) 100vw, 1135px" /></p>
+<p>b 重新生成首页文件,显示出路径</p>
+<p><img loading="lazy" decoding="async" width="868" height="269" class="wp-image-6687" src="/wp-content/uploads/2018/05/word-image-6093.png" srcset="/wp-content/uploads/2018/05/word-image-6093.png 868w, /wp-content/uploads/2018/05/word-image-6093-300x93.png 300w, /wp-content/uploads/2018/05/word-image-6093-768x238.png 768w" sizes="(max-width: 868px) 100vw, 868px" /></p>
+<p>c 更新主页html之后重新生成的页面,路径的输出结果如下</p>
+<p><img loading="lazy" decoding="async" width="664" height="172" class="wp-image-6689" src="/wp-content/uploads/2018/05/word-image-6095.png" srcset="/wp-content/uploads/2018/05/word-image-6095.png 664w, /wp-content/uploads/2018/05/word-image-6095-300x78.png 300w" sizes="(max-width: 664px) 100vw, 664px" /></p>
+<p>d 将index.htm中的静态资源路劲进行修改</p>
+<p><img loading="lazy" decoding="async" width="1021" height="316" class="wp-image-6691" src="/wp-content/uploads/2018/05/word-image-6097.png" srcset="/wp-content/uploads/2018/05/word-image-6097.png 1021w, /wp-content/uploads/2018/05/word-image-6097-300x93.png 300w, /wp-content/uploads/2018/05/word-image-6097-768x238.png 768w" sizes="(max-width: 1021px) 100vw, 1021px" /></p>
+<p>路径修改完成之后,重新生成主页html页面,并且进行访问</p>
+<p><img loading="lazy" decoding="async" width="1156" height="469" class="wp-image-6693" src="/wp-content/uploads/2018/05/word-image-6099.png" srcset="/wp-content/uploads/2018/05/word-image-6099.png 1156w, /wp-content/uploads/2018/05/word-image-6099-300x122.png 300w, /wp-content/uploads/2018/05/word-image-6099-768x312.png 768w, /wp-content/uploads/2018/05/word-image-6099-1024x415.png 1024w" sizes="(max-width: 1156px) 100vw, 1156px" /></p>
+<h1><a id="post-6479-_dede_____"></a><a id="post-6479-_Toc256000054"></a>dede里面的标签</h1>
+<h2><a id="post-6479-____"></a><a id="post-6479-_Toc256000055"></a>单标签</h2>
+<p>语法格式：</p>
+<p>{dede:标签名称 属性1=属性值1 /}</p>
+<p>例如：</p>
+<p>{dede:global.cfg_templets_skin/}</p>
+<p>{dede:include filename=&#8221;head.html&#8221;/} 表示包含一个外部文件</p>
+<p>注意：很多单标签以global开头的变量值都是在common.inc.php这个文件中进行定义的</p>
+<p><img loading="lazy" decoding="async" width="1249" height="706" class="wp-image-6695" src="/wp-content/uploads/2018/05/word-image-6101.png" srcset="/wp-content/uploads/2018/05/word-image-6101.png 1249w, /wp-content/uploads/2018/05/word-image-6101-300x170.png 300w, /wp-content/uploads/2018/05/word-image-6101-768x434.png 768w, /wp-content/uploads/2018/05/word-image-6101-1024x579.png 1024w" sizes="(max-width: 1249px) 100vw, 1249px" /></p>
+<h2><a id="post-6479-_____2"></a><a id="post-6479-_Toc256000056"></a>双标签</h2>
+<p>语法格式：</p>
+<p>{dede:标签名称 属性1=属性值1 属性2=属性值2}</p>
+<p>[field:字段名称/]</p>
+<p>{/dede:标签名称}</p>
+<p>注意：</p>
+<p>1、dede后面要有一个冒号：</p>
+<p>2、标签名和属性之间要有空格</p>
+<p>3、属性与属性之间也要有空格分开</p>
+<p>4、结束双标签要以斜线打头</p>
+<p>5、[field:字段名称/]里面的字段名称，一般是双标签所操作的表里面的字段名称</p>
+<p>举个栗子：</p>
+<p>{dede:channel type=&#8217;top&#8217; row=&#8217;10&#8217; }</p>
+<p>&lt;li&gt;&lt;a href='[field:typeurl/]&#8217; [field:rel/]&gt;&lt;span&gt;[field:typename/]&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</p>
+<p>{/dede:channel}</p>
+<p>每一个双标签都对应一个解析文件，通过该解析文件完成标签到PHP代码的转换。</p>
+<p>解析标签为sql语句的,文件位置</p>
+<p><img loading="lazy" decoding="async" width="588" height="582" class="wp-image-6697" src="/wp-content/uploads/2018/05/word-image-6103.png" srcset="/wp-content/uploads/2018/05/word-image-6103.png 588w, /wp-content/uploads/2018/05/word-image-6103-300x297.png 300w" sizes="(max-width: 588px) 100vw, 588px" /></p>
+<p>所有的前段使用的取数据的标签都在php中被解析了</p>
+<h3><a id="post-6479-______"></a><a id="post-6479-_Toc256000057"></a>常用双标签</h3>
+<p>channel 取出栏目数据的标签</p>
+<p>arclist 取出文章的标签</p>
+<p>channnelartlist 取出栏目和栏目下的所有数据</p>
+<p>标签的定影位置:</p>
+<p><img loading="lazy" decoding="async" width="1505" height="585" class="wp-image-6699" src="/wp-content/uploads/2018/05/word-image-6105.png" srcset="/wp-content/uploads/2018/05/word-image-6105.png 1505w, /wp-content/uploads/2018/05/word-image-6105-300x117.png 300w, /wp-content/uploads/2018/05/word-image-6105-768x299.png 768w, /wp-content/uploads/2018/05/word-image-6105-1024x398.png 1024w" sizes="(max-width: 1505px) 100vw, 1505px" /></p>
+<h1><a id="post-6479-____________2"></a><a id="post-6479-_Toc256000058"></a>取出首页中的栏目数据</h1>
+<p>使用channel标签取出数据库中的数据进行显示:</p>
+<p>举个栗子：</p>
+<p>{dede:channel type=&#8217;top&#8217; row=&#8217;10&#8217; }</p>
+<p>&lt;li&gt;&lt;a href='[field:typeurl/]&#8217; [field:rel/]&gt;&lt;span&gt;[field:typename/]&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</p>
+<p>{/dede:channel}</p>
+<p>type:top表示取出顶级标签</p>
+<p>row:10 取出十条数据</p>
+<p>a 使用demo.html页面进行测试</p>
+<p><img loading="lazy" decoding="async" width="1099" height="248" class="wp-image-6701" src="/wp-content/uploads/2018/05/word-image-6107.png" srcset="/wp-content/uploads/2018/05/word-image-6107.png 1099w, /wp-content/uploads/2018/05/word-image-6107-300x68.png 300w, /wp-content/uploads/2018/05/word-image-6107-768x173.png 768w, /wp-content/uploads/2018/05/word-image-6107-1024x231.png 1024w" sizes="(max-width: 1099px) 100vw, 1099px" /></p>
+<p>输出的效果如下:</p>
+<p><img loading="lazy" decoding="async" width="399" height="313" class="wp-image-6702" src="/wp-content/uploads/2018/05/word-image-6108.png" srcset="/wp-content/uploads/2018/05/word-image-6108.png 399w, /wp-content/uploads/2018/05/word-image-6108-300x235.png 300w" sizes="(max-width: 399px) 100vw, 399px" /></p>
+<p>b 在首页index.htm中使用channel标签,输出顶级栏目</p>
+<p><img loading="lazy" decoding="async" width="1317" height="314" class="wp-image-6704" src="/wp-content/uploads/2018/05/word-image-6110.png" srcset="/wp-content/uploads/2018/05/word-image-6110.png 1317w, /wp-content/uploads/2018/05/word-image-6110-300x72.png 300w, /wp-content/uploads/2018/05/word-image-6110-768x183.png 768w, /wp-content/uploads/2018/05/word-image-6110-1024x244.png 1024w" sizes="(max-width: 1317px) 100vw, 1317px" /></p>
+<p>c 重新生成index.htm页面</p>
+<p><img loading="lazy" decoding="async" width="1223" height="433" class="wp-image-6707" src="/wp-content/uploads/2018/05/word-image-6113.png" srcset="/wp-content/uploads/2018/05/word-image-6113.png 1223w, /wp-content/uploads/2018/05/word-image-6113-300x106.png 300w, /wp-content/uploads/2018/05/word-image-6113-768x272.png 768w, /wp-content/uploads/2018/05/word-image-6113-1024x363.png 1024w" sizes="(max-width: 1223px) 100vw, 1223px" /></p>
+<p>查看效果:</p>
+<p><img loading="lazy" decoding="async" width="820" height="325" class="wp-image-6709" src="/wp-content/uploads/2018/05/word-image-6115.png" srcset="/wp-content/uploads/2018/05/word-image-6115.png 820w, /wp-content/uploads/2018/05/word-image-6115-300x119.png 300w, /wp-content/uploads/2018/05/word-image-6115-768x304.png 768w" sizes="(max-width: 820px) 100vw, 820px" /></p>
+<p>顶级栏目就显示完成</p>
+<h1><a id="post-6479-_______________"></a><a id="post-6479-_Toc256000059"></a>取出“我的电影”栏目的子栏目</h1>
+<p>这里我们还要使用channel标签</p>
+<p><img loading="lazy" decoding="async" width="1137" height="292" class="wp-image-6711" src="/wp-content/uploads/2018/05/word-image-6117.png" srcset="/wp-content/uploads/2018/05/word-image-6117.png 1137w, /wp-content/uploads/2018/05/word-image-6117-300x77.png 300w, /wp-content/uploads/2018/05/word-image-6117-768x197.png 768w, /wp-content/uploads/2018/05/word-image-6117-1024x263.png 1024w" sizes="(max-width: 1137px) 100vw, 1137px" /></p>
+<p>重新生成index.htm查看效果</p>
+<p><img loading="lazy" decoding="async" width="1227" height="295" class="wp-image-6712" src="/wp-content/uploads/2018/05/word-image-6118.png" srcset="/wp-content/uploads/2018/05/word-image-6118.png 1227w, /wp-content/uploads/2018/05/word-image-6118-300x72.png 300w, /wp-content/uploads/2018/05/word-image-6118-768x185.png 768w, /wp-content/uploads/2018/05/word-image-6118-1024x246.png 1024w" sizes="(max-width: 1227px) 100vw, 1227px" /><br />
+<img loading="lazy" decoding="async" width="1130" height="189" class="wp-image-6714" src="/wp-content/uploads/2018/05/word-image-6120.png" srcset="/wp-content/uploads/2018/05/word-image-6120.png 1130w, /wp-content/uploads/2018/05/word-image-6120-300x50.png 300w, /wp-content/uploads/2018/05/word-image-6120-768x128.png 768w, /wp-content/uploads/2018/05/word-image-6120-1024x171.png 1024w" sizes="(max-width: 1130px) 100vw, 1130px" /></p>
+<p>多学一招:解析channel标签的使用,</p>
+<p>每一个标签都是对应的一个PHP文件</p>
+<p><img loading="lazy" decoding="async" width="814" height="656" class="wp-image-6716" src="/wp-content/uploads/2018/05/word-image-6122.png" srcset="/wp-content/uploads/2018/05/word-image-6122.png 814w, /wp-content/uploads/2018/05/word-image-6122-300x242.png 300w, /wp-content/uploads/2018/05/word-image-6122-768x619.png 768w" sizes="(max-width: 814px) 100vw, 814px" /></p>
+<p>在channel.lib.php中打印出执行的sql语句</p>
+<p><img loading="lazy" decoding="async" width="746" height="224" class="wp-image-6718" src="/wp-content/uploads/2018/05/word-image-6124.png" srcset="/wp-content/uploads/2018/05/word-image-6124.png 746w, /wp-content/uploads/2018/05/word-image-6124-300x90.png 300w" sizes="(max-width: 746px) 100vw, 746px" /></p>
+<p>打印到的效果如下:</p>
+<p><img loading="lazy" decoding="async" width="1536" height="188" class="wp-image-6720" src="/wp-content/uploads/2018/05/word-image-6126.png" srcset="/wp-content/uploads/2018/05/word-image-6126.png 1536w, /wp-content/uploads/2018/05/word-image-6126-300x37.png 300w, /wp-content/uploads/2018/05/word-image-6126-768x94.png 768w, /wp-content/uploads/2018/05/word-image-6126-1024x125.png 1024w" sizes="(max-width: 1536px) 100vw, 1536px" /></p>
+<p>这里虽然调用了标签,但是他的后面确实跟着一个php文件</p>
+<h1><a id="post-6479-__________________2"></a><a id="post-6479-_Toc256000060"></a>取出如下电影数据（首页专题电影）</h1>
+<h2><a id="post-6479-___arclist____"></a><a id="post-6479-_Toc256000061"></a>使用arclist标签实现</h2>
+<h3><a id="post-6479-_channelid__"></a><a id="post-6479-_Toc256000062"></a>channelid属性</h3>
+<p>用来确定是哪个模型下面的数据信息以及确定哪个附加表进行关联</p>
+<h3><a id="post-6479-_addfields__"></a><a id="post-6479-_Toc256000063"></a>addfields属性</h3>
+<p>如果不使用addfields属性，则只会关联内容主表和栏目表进行数据查询，所以当我们需要查询附加表中的数据时就必须要使用addfields属性。这个属性标明附加表dede_addmovie需要使用的字段.</p>
+<p>格式：addfields=“字段1,字段2,字段3”;//指定的是要从附加表中获取的字段信息列表。</p>
+<p>注意：要想从附加表中取得数据那么就必须同时使用addfields属性和channelid属性</p>
+<p>取出数据的代码：</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91/6479.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Laravel框架（一）安装、Composer、目录结构、路由、模型、视图、控制器</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6202.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6202.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 16:19:00 +0000</pubDate>
+				<category><![CDATA[Laravel]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[Composer]]></category>
+		<category><![CDATA[安装]]></category>
+		<category><![CDATA[控制器]]></category>
+		<category><![CDATA[模型]]></category>
+		<category><![CDATA[目录结构]]></category>
+		<category><![CDATA[视图]]></category>
+		<category><![CDATA[路由]]></category>
+		<guid isPermaLink="false">/?p=6202</guid>
+
+					<description><![CDATA[Laravel框架第1天 一、Laravel概述 1、Laravel框架简介 Laravel是一套简洁、优雅的 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>Laravel框架第1天</h1>
+<h1>一、Laravel概述</h1>
+<h2>1、Laravel框架简介</h2>
+<ul>
+<li>
+    Laravel是一套简洁、优雅的PHP WEB开发框架（目前最流行的PHP框架，
+  </li>
+</ul>
+<p>
+  基于symfony开发）
+</p>
+<ul>
+<li>
+    具有富于表达性且简洁的语法。更加语意化
+  </li>
+<li>
+    Laravel是易于理解且强大的，它提供了强大的工具用于开发大型、健壮的应用，如：
+  </li>
+</ul>
+<p>
+  验证、反向路由、会话技术、缓存、数据迁移、单元测试等等常用工具和功能
+</p>
+<h2>2、什么是Laravel</h2>
+<p>
+  就是用PHP写的框架
+</p>
+<h2>3、Laravel框架相对于其他框架优势</h2>
+<p>
+  强大路由（route）
+</p>
+<p>
+  命令行工具（artisan）：加快项目开发（很多手动的工作都自动了）
+</p>
+<p>
+  blade模版：可继承、渲染速度快、简化view开发和管理
+</p>
+<p>
+  数据迁移（Migrations）: 管理数据库和版本控制
+</p>
+<p>
+  单元测试（PHPUnit）：保证稳定性（便于发现问题，无论是需求更变还是代码本
+</p>
+<p>
+  身的bug及代码重构）
+</p>
+<p>
+  支持Composer：项目组件管理工具
+</p>
+<h1>二、Laravel的安装</h1>
+<h2> 准备：PHP运行环境</h2>
+<h3>a. 环境要求</h3>
+<p><img loading="lazy" decoding="async" width="321" height="133" src="/wp-content/uploads/2018/05/word-image-5647.png" class="wp-image-6203" srcset="/wp-content/uploads/2018/05/word-image-5647.png 321w, /wp-content/uploads/2018/05/word-image-5647-300x124.png 300w" sizes="(max-width: 321px) 100vw, 321px" /></p>
+<h3>b. 通过phpStudy搭建PHP运行环境</h3>
+<p><img loading="lazy" decoding="async" width="557" height="339" src="/wp-content/uploads/2018/05/word-image-5648.png" class="wp-image-6204" srcset="/wp-content/uploads/2018/05/word-image-5648.png 557w, /wp-content/uploads/2018/05/word-image-5648-300x183.png 300w" sizes="(max-width: 557px) 100vw, 557px" /><br />
+<img loading="lazy" decoding="async" width="290" height="125" src="/wp-content/uploads/2018/05/word-image-5649.png" class="wp-image-6205" /><br />
+<img loading="lazy" decoding="async" width="395" height="346" src="/wp-content/uploads/2018/05/word-image-5650.png" class="wp-image-6206" srcset="/wp-content/uploads/2018/05/word-image-5650.png 395w, /wp-content/uploads/2018/05/word-image-5650-300x263.png 300w" sizes="(max-width: 395px) 100vw, 395px" /></p>
+<h3>c. PHP相关配置（修改并保存）</h3>
+<p><strong>1）切换PHP版本</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="890" height="659" src="/wp-content/uploads/2018/05/word-image-5651.png" class="wp-image-6207" srcset="/wp-content/uploads/2018/05/word-image-5651.png 890w, /wp-content/uploads/2018/05/word-image-5651-300x222.png 300w, /wp-content/uploads/2018/05/word-image-5651-768x569.png 768w" sizes="(max-width: 890px) 100vw, 890px" /></p>
+<p><strong>2）开启openssl、mbstring、pdo、fileinfo扩展</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="1022" height="405" src="/wp-content/uploads/2018/05/word-image-5652.png" class="wp-image-6208" srcset="/wp-content/uploads/2018/05/word-image-5652.png 1022w, /wp-content/uploads/2018/05/word-image-5652-300x119.png 300w, /wp-content/uploads/2018/05/word-image-5652-768x304.png 768w" sizes="(max-width: 1022px) 100vw, 1022px" /><br />
+<img loading="lazy" decoding="async" width="393" height="373" src="/wp-content/uploads/2018/05/word-image-5653.png" class="wp-image-6209" srcset="/wp-content/uploads/2018/05/word-image-5653.png 393w, /wp-content/uploads/2018/05/word-image-5653-300x285.png 300w" sizes="(max-width: 393px) 100vw, 393px" /></p>
+<ol>
+<li><strong>修改时区</strong>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="417" height="214" src="/wp-content/uploads/2018/05/word-image-5654.png" class="wp-image-6210" srcset="/wp-content/uploads/2018/05/word-image-5654.png 417w, /wp-content/uploads/2018/05/word-image-5654-300x154.png 300w" sizes="(max-width: 417px) 100vw, 417px" /></p>
+<ol>
+<li><strong>验证</strong>
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="386" height="320" src="/wp-content/uploads/2018/05/word-image-5655.png" class="wp-image-6211" srcset="/wp-content/uploads/2018/05/word-image-5655.png 386w, /wp-content/uploads/2018/05/word-image-5655-300x249.png 300w" sizes="(max-width: 386px) 100vw, 386px" /><br />
+<img loading="lazy" decoding="async" width="540" height="486" src="/wp-content/uploads/2018/05/word-image-5656.png" class="wp-image-6212" srcset="/wp-content/uploads/2018/05/word-image-5656.png 540w, /wp-content/uploads/2018/05/word-image-5656-300x270.png 300w" sizes="(max-width: 540px) 100vw, 540px" /><br />
+<img loading="lazy" decoding="async" width="1081" height="216" src="/wp-content/uploads/2018/05/word-image-5657.png" class="wp-image-6213" srcset="/wp-content/uploads/2018/05/word-image-5657.png 1081w, /wp-content/uploads/2018/05/word-image-5657-300x60.png 300w, /wp-content/uploads/2018/05/word-image-5657-768x153.png 768w, /wp-content/uploads/2018/05/word-image-5657-1024x205.png 1024w" sizes="(max-width: 1081px) 100vw, 1081px" /><br />
+<img loading="lazy" decoding="async" width="1086" height="289" src="/wp-content/uploads/2018/05/word-image-5658.png" class="wp-image-6214" srcset="/wp-content/uploads/2018/05/word-image-5658.png 1086w, /wp-content/uploads/2018/05/word-image-5658-300x80.png 300w, /wp-content/uploads/2018/05/word-image-5658-768x204.png 768w, /wp-content/uploads/2018/05/word-image-5658-1024x273.png 1024w" sizes="(max-width: 1086px) 100vw, 1086px" /><br />
+<img loading="lazy" decoding="async" width="938" height="336" src="/wp-content/uploads/2018/05/word-image-5659.png" class="wp-image-6215" srcset="/wp-content/uploads/2018/05/word-image-5659.png 938w, /wp-content/uploads/2018/05/word-image-5659-300x107.png 300w, /wp-content/uploads/2018/05/word-image-5659-768x275.png 768w" sizes="(max-width: 938px) 100vw, 938px" /></p>
+<h3>d. 设置PHP环境变量</h3>
+<p><img loading="lazy" decoding="async" width="260" height="362" src="/wp-content/uploads/2018/05/word-image-5660.png" class="wp-image-6216" srcset="/wp-content/uploads/2018/05/word-image-5660.png 260w, /wp-content/uploads/2018/05/word-image-5660-215x300.png 215w" sizes="(max-width: 260px) 100vw, 260px" /><br />
+<img loading="lazy" decoding="async" width="1267" height="711" src="/wp-content/uploads/2018/05/word-image-5661.png" class="wp-image-6217" srcset="/wp-content/uploads/2018/05/word-image-5661.png 1267w, /wp-content/uploads/2018/05/word-image-5661-300x168.png 300w, /wp-content/uploads/2018/05/word-image-5661-768x431.png 768w, /wp-content/uploads/2018/05/word-image-5661-1024x575.png 1024w" sizes="(max-width: 1267px) 100vw, 1267px" /></p>
+<p>
+  验证是否设置成功
+</p>
+<p><img loading="lazy" decoding="async" width="500" height="185" src="/wp-content/uploads/2018/05/word-image-5662.png" class="wp-image-6218" srcset="/wp-content/uploads/2018/05/word-image-5662.png 500w, /wp-content/uploads/2018/05/word-image-5662-300x111.png 300w" sizes="(max-width: 500px) 100vw, 500px" /></p>
+<h3>e. 创建虚拟主机</h3>
+<ol>
+<li>
+  修改C:\Windows\System32\drivers\etc\hosts文件
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="432" height="156" src="/wp-content/uploads/2018/05/word-image-5663.png" class="wp-image-6219" srcset="/wp-content/uploads/2018/05/word-image-5663.png 432w, /wp-content/uploads/2018/05/word-image-5663-300x108.png 300w" sizes="(max-width: 432px) 100vw, 432px" /></p>
+<ol>
+<li>
+  创建文件e:\www\test.php文件
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="478" height="224" src="/wp-content/uploads/2018/05/word-image-5664.png" class="wp-image-6220" srcset="/wp-content/uploads/2018/05/word-image-5664.png 478w, /wp-content/uploads/2018/05/word-image-5664-300x141.png 300w" sizes="(max-width: 478px) 100vw, 478px" /></p>
+<ol>
+<li>
+  新增虚拟主机
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1001" height="638" src="/wp-content/uploads/2018/05/word-image-5665.png" class="wp-image-6221" srcset="/wp-content/uploads/2018/05/word-image-5665.png 1001w, /wp-content/uploads/2018/05/word-image-5665-300x191.png 300w, /wp-content/uploads/2018/05/word-image-5665-768x489.png 768w" sizes="(max-width: 1001px) 100vw, 1001px" /></p>
+<p>
+  发现：直接输入网址不加具体访问的php文件名则显示403 Forbidden
+</p>
+<p>
+  解决：
+</p>
+<p><img loading="lazy" decoding="async" width="1173" height="421" src="/wp-content/uploads/2018/05/word-image-5666.png" class="wp-image-6222" srcset="/wp-content/uploads/2018/05/word-image-5666.png 1173w, /wp-content/uploads/2018/05/word-image-5666-300x108.png 300w, /wp-content/uploads/2018/05/word-image-5666-768x276.png 768w, /wp-content/uploads/2018/05/word-image-5666-1024x368.png 1024w" sizes="(max-width: 1173px) 100vw, 1173px" /></p>
+<h2>1、安装方式</h2>
+<ul>
+<li>
+    方法1：直接下载源代码安装
+  </li>
+<li>
+    方法2：通过composer安装
+  </li>
+</ul>
+<h2>2、直接下载源代码安装【方法1】</h2>
+<h3>步骤1：下载</h3>
+<p>
+  下载地址：<a href="http://laravelacademy.org/resources-download">http://laravelacademy.org/resources-download</a>
+</p>
+<p><img loading="lazy" decoding="async" width="121" height="126" src="/wp-content/uploads/2018/05/word-image-5667.png" class="wp-image-6223" /></p>
+<h3>步骤2：解压到指定虚拟主机目录</h3>
+<p><img loading="lazy" decoding="async" width="682" height="348" src="/wp-content/uploads/2018/05/word-image-5668.png" class="wp-image-6224" srcset="/wp-content/uploads/2018/05/word-image-5668.png 682w, /wp-content/uploads/2018/05/word-image-5668-300x153.png 300w" sizes="(max-width: 682px) 100vw, 682px" /></p>
+<h3>步骤3：访问（注：入口文件在public目录下）</h3>
+<p><img loading="lazy" decoding="async" width="533" height="396" src="/wp-content/uploads/2018/05/word-image-5669.png" class="wp-image-6225" srcset="/wp-content/uploads/2018/05/word-image-5669.png 533w, /wp-content/uploads/2018/05/word-image-5669-300x223.png 300w" sizes="(max-width: 533px) 100vw, 533px" /></p>
+<h2>3、通过Composer安装Laravel【方法2】</h2>
+<h3>1）什么是Composer</h3>
+<p><img loading="lazy" decoding="async" width="233" height="272" src="/wp-content/uploads/2018/05/word-image-5670.png" class="wp-image-6226" /></p>
+<ul>
+<li>
+    介绍：是 PHP 用来管理依赖（dependency）关系的工具。你可以在自己的项目中
+  </li>
+</ul>
+<p>
+  声明所依赖的外部工具库（libraries），Composer 会帮你安装这些依赖的库文件。
+</p>
+<ul>
+<li>
+    理解：
+  </li>
+<li>
+    如果PHP是win操作系统，composer就是杀毒软件的软件管家
+  </li>
+<li>
+    如果PHP是Linux操作系统，composer就是yum
+  </li>
+</ul>
+<p>
+  之前：项目中需要发送邮件、验证码等功能必须自己去网上下载整合到项目中
+</p>
+<p>
+  现在：通过composer命令安装自动整合到项目中
+</p>
+<ul>
+<li>
+    总结：
+  </li>
+<li>
+    Composer是为PHP准备的软件管家，项目所需工具库都可以通过Composer下载
+  </li>
+</ul>
+<h3>2）下载Composer</h3>
+<ul>
+<li>
+    官方网站：<a href="https://getcomposer.org/">https://getcomposer.org/</a>
+  </li>
+<li>
+    中文网站：<a href="http://www.phpcomposer.com/">http://www.phpcomposer.com/</a>
+  </li>
+</ul>
+<p><strong>【方法1】</strong>
+</p>
+<ul>
+<li>
+    下载composer-setup.exe文件安装
+  </li>
+<li>
+    好处：傻瓜式、安装简单
+  </li>
+<li>
+    坏处：容易报错、仅win操作系统使用
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="568" height="380" src="/wp-content/uploads/2018/05/word-image-5671.png" class="wp-image-6227" srcset="/wp-content/uploads/2018/05/word-image-5671.png 568w, /wp-content/uploads/2018/05/word-image-5671-300x201.png 300w" sizes="(max-width: 568px) 100vw, 568px" /></p>
+<p><strong>【方法2】</strong>
+</p>
+<ul>
+<li>
+    下载composer.phar文件安装
+  </li>
+<li>
+    好处：跨平台
+  </li>
+<li>
+    坏处：渣渣上手难
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="678" height="313" src="/wp-content/uploads/2018/05/word-image-5672.png" class="wp-image-6228" srcset="/wp-content/uploads/2018/05/word-image-5672.png 678w, /wp-content/uploads/2018/05/word-image-5672-300x138.png 300w" sizes="(max-width: 678px) 100vw, 678px" /></p>
+<h3>■ 方法1：通过composer-setup.exe安装</h3>
+<p><strong>步骤1：双击</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="425" height="144" src="/wp-content/uploads/2018/05/word-image-5673.png" class="wp-image-6229" srcset="/wp-content/uploads/2018/05/word-image-5673.png 425w, /wp-content/uploads/2018/05/word-image-5673-300x102.png 300w" sizes="(max-width: 425px) 100vw, 425px" /></p>
+<p><strong>步骤2：安装（注：除下图选择php.exe其余直接下一步next）:</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="553" height="271" src="/wp-content/uploads/2018/05/word-image-5674.png" class="wp-image-6230" srcset="/wp-content/uploads/2018/05/word-image-5674.png 553w, /wp-content/uploads/2018/05/word-image-5674-300x147.png 300w" sizes="(max-width: 553px) 100vw, 553px" /></p>
+<p><strong>步骤3：检查是否安装成功（在DOS窗口输入 composer出现下图字样则安装成功）</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="647" height="318" src="/wp-content/uploads/2018/05/word-image-5675.png" class="wp-image-6231" srcset="/wp-content/uploads/2018/05/word-image-5675.png 647w, /wp-content/uploads/2018/05/word-image-5675-300x147.png 300w" sizes="(max-width: 647px) 100vw, 647px" /></p>
+<h3>■ 方法2：通过composer.phar文件安装</h3>
+<p><strong>步骤1：该文件免安装所以可以直接使用</strong>
+</p>
+<p><strong>步骤2：检查是否安装成功（在DOS窗口输入 composer出现下图字样则安装成功）</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="806" height="318" src="/wp-content/uploads/2018/05/word-image-5676.png" class="wp-image-6232" srcset="/wp-content/uploads/2018/05/word-image-5676.png 806w, /wp-content/uploads/2018/05/word-image-5676-300x118.png 300w, /wp-content/uploads/2018/05/word-image-5676-768x303.png 768w" sizes="(max-width: 806px) 100vw, 806px" /></p>
+<h3>3）Composer命令</h3>
+<ul>
+<li>
+    复杂：php composer.phar 指令
+  </li>
+<li>
+    简化：composer 指令
+  </li>
+</ul>
+<p>
+  说明：后期大量使用composer命令，语法：【php composer.phar 指令】
+</p>
+<p>
+  发现：每次重复敲【php composer.phar】太长
+</p>
+<p>
+  解决：
+</p>
+<ol>
+<li>
+  将composer.phar放到www目录中然后输入DOS命令
+</li>
+</ol>
+<p>
+  【echo @php &#8220;%~dp0composer.phar&#8221; %*&gt;composer.bat】后发现www目录下新增了.bat文件将其加入环境变量即可
+</p>
+<p><img loading="lazy" decoding="async" width="722" height="190" src="/wp-content/uploads/2018/05/word-image-5677.png" class="wp-image-6233" srcset="/wp-content/uploads/2018/05/word-image-5677.png 722w, /wp-content/uploads/2018/05/word-image-5677-300x79.png 300w" sizes="(max-width: 722px) 100vw, 722px" /></p>
+<p>
+  2）将composer.bat将去环境变量
+</p>
+<p><img loading="lazy" decoding="async" width="1248" height="717" src="/wp-content/uploads/2018/05/word-image-5678.png" class="wp-image-6234" srcset="/wp-content/uploads/2018/05/word-image-5678.png 1248w, /wp-content/uploads/2018/05/word-image-5678-300x172.png 300w, /wp-content/uploads/2018/05/word-image-5678-768x441.png 768w, /wp-content/uploads/2018/05/word-image-5678-1024x588.png 1024w" sizes="(max-width: 1248px) 100vw, 1248px" /></p>
+<p>
+  3）验证
+</p>
+<p><img loading="lazy" decoding="async" width="464" height="255" src="/wp-content/uploads/2018/05/word-image-5679.png" class="wp-image-6235" srcset="/wp-content/uploads/2018/05/word-image-5679.png 464w, /wp-content/uploads/2018/05/word-image-5679-300x165.png 300w" sizes="(max-width: 464px) 100vw, 464px" /></p>
+<h3>安装Laravel（后天详细讲解）</h3>
+<p>
+  步骤1：配置通过国内镜像下载
+</p>
+<p>
+  composer config -g repo.packagist composer <a href="https://packagist.phpcomposer.com/">https://packagist.phpcomposer.com/</a>
+</p>
+<p>
+  步骤2：通过Composer下载框架
+</p>
+<p>
+  composer create-project laravel/laravel test_laravel
+</p>
+<p><img loading="lazy" decoding="async" width="1135" height="509" src="/wp-content/uploads/2018/05/word-image-5680.png" class="wp-image-6236" srcset="/wp-content/uploads/2018/05/word-image-5680.png 1135w, /wp-content/uploads/2018/05/word-image-5680-300x135.png 300w, /wp-content/uploads/2018/05/word-image-5680-768x344.png 768w, /wp-content/uploads/2018/05/word-image-5680-1024x459.png 1024w" sizes="(max-width: 1135px) 100vw, 1135px" /><br />
+<img loading="lazy" decoding="async" width="777" height="518" src="/wp-content/uploads/2018/05/word-image-5681.png" class="wp-image-6237" srcset="/wp-content/uploads/2018/05/word-image-5681.png 777w, /wp-content/uploads/2018/05/word-image-5681-300x200.png 300w, /wp-content/uploads/2018/05/word-image-5681-768x512.png 768w" sizes="(max-width: 777px) 100vw, 777px" /></p>
+<h1>三、Laravel目录结构分析</h1>
+<h2>1、整体目录</h2>
+<p><img loading="lazy" decoding="async" width="440" height="606" src="/wp-content/uploads/2018/05/word-image-5682.png" class="wp-image-6238" srcset="/wp-content/uploads/2018/05/word-image-5682.png 440w, /wp-content/uploads/2018/05/word-image-5682-218x300.png 218w" sizes="(max-width: 440px) 100vw, 440px" /></p>
+<h2>2、app目录</h2>
+<p><img loading="lazy" decoding="async" width="451" height="265" src="/wp-content/uploads/2018/05/word-image-5683.png" class="wp-image-6239" srcset="/wp-content/uploads/2018/05/word-image-5683.png 451w, /wp-content/uploads/2018/05/word-image-5683-300x176.png 300w" sizes="(max-width: 451px) 100vw, 451px" /></p>
+<h2>3、Http目录</h2>
+<p><img loading="lazy" decoding="async" width="551" height="493" src="/wp-content/uploads/2018/05/word-image-5684.png" class="wp-image-6240" srcset="/wp-content/uploads/2018/05/word-image-5684.png 551w, /wp-content/uploads/2018/05/word-image-5684-300x268.png 300w" sizes="(max-width: 551px) 100vw, 551px" /></p>
+<h2>4、boostrap目录</h2>
+<p><img loading="lazy" decoding="async" width="1004" height="489" src="/wp-content/uploads/2018/05/word-image-5685.png" class="wp-image-6241" srcset="/wp-content/uploads/2018/05/word-image-5685.png 1004w, /wp-content/uploads/2018/05/word-image-5685-300x146.png 300w, /wp-content/uploads/2018/05/word-image-5685-768x374.png 768w" sizes="(max-width: 1004px) 100vw, 1004px" /></p>
+<h2>5、config目录</h2>
+<p><img loading="lazy" decoding="async" width="432" height="452" src="/wp-content/uploads/2018/05/word-image-5686.png" class="wp-image-6242" srcset="/wp-content/uploads/2018/05/word-image-5686.png 432w, /wp-content/uploads/2018/05/word-image-5686-287x300.png 287w" sizes="(max-width: 432px) 100vw, 432px" /></p>
+<h2>6、database目录</h2>
+<p><img loading="lazy" decoding="async" width="403" height="276" src="/wp-content/uploads/2018/05/word-image-5687.png" class="wp-image-6243" srcset="/wp-content/uploads/2018/05/word-image-5687.png 403w, /wp-content/uploads/2018/05/word-image-5687-300x205.png 300w, /wp-content/uploads/2018/05/word-image-5687-220x150.png 220w" sizes="(max-width: 403px) 100vw, 403px" /></p>
+<h2>7、public目录</h2>
+<p><img loading="lazy" decoding="async" width="438" height="469" src="/wp-content/uploads/2018/05/word-image-5688.png" class="wp-image-6244" srcset="/wp-content/uploads/2018/05/word-image-5688.png 438w, /wp-content/uploads/2018/05/word-image-5688-280x300.png 280w" sizes="(max-width: 438px) 100vw, 438px" /></p>
+<p>
+  为什么public下比tp32安全
+</p>
+<p>
+  为什么tp32每个目录下都要新建index.html文件
+</p>
+<h2>8、resource目录</h2>
+<p><img loading="lazy" decoding="async" width="496" height="498" src="/wp-content/uploads/2018/05/word-image-5689.png" class="wp-image-6245" srcset="/wp-content/uploads/2018/05/word-image-5689.png 496w, /wp-content/uploads/2018/05/word-image-5689-150x150.png 150w, /wp-content/uploads/2018/05/word-image-5689-300x300.png 300w" sizes="(max-width: 496px) 100vw, 496px" /></p>
+<h2>9、storage目录</h2>
+<p><img loading="lazy" decoding="async" width="484" height="315" src="/wp-content/uploads/2018/05/word-image-5690.png" class="wp-image-6246" srcset="/wp-content/uploads/2018/05/word-image-5690.png 484w, /wp-content/uploads/2018/05/word-image-5690-300x195.png 300w" sizes="(max-width: 484px) 100vw, 484px" /></p>
+<h2>10、vendor目录</h2>
+<p><img loading="lazy" decoding="async" width="518" height="510" src="/wp-content/uploads/2018/05/word-image-5691.png" class="wp-image-6247" srcset="/wp-content/uploads/2018/05/word-image-5691.png 518w, /wp-content/uploads/2018/05/word-image-5691-300x295.png 300w" sizes="(max-width: 518px) 100vw, 518px" /></p>
+<h2>11、.env文件</h2>
+<p><img loading="lazy" decoding="async" width="992" height="643" src="/wp-content/uploads/2018/05/word-image-5692.png" class="wp-image-6248" srcset="/wp-content/uploads/2018/05/word-image-5692.png 992w, /wp-content/uploads/2018/05/word-image-5692-300x194.png 300w, /wp-content/uploads/2018/05/word-image-5692-768x498.png 768w" sizes="(max-width: 992px) 100vw, 992px" /></p>
+<h1>︴思考：通过框架完成下属功能需要哪些知识点？</h1>
+<h2>1、留言列表显示</h2>
+<p><img loading="lazy" decoding="async" width="397" height="436" src="/wp-content/uploads/2018/05/word-image-5693.png" class="wp-image-6249" srcset="/wp-content/uploads/2018/05/word-image-5693.png 397w, /wp-content/uploads/2018/05/word-image-5693-273x300.png 273w" sizes="(max-width: 397px) 100vw, 397px" /></p>
+<p>
+  【展示视图】
+</p>
+<p>
+  如何创建路由
+</p>
+<p>
+  如何创建控制器
+</p>
+<p>
+  如何创建视图
+</p>
+<p>
+  【循环显示数据】
+</p>
+<p>
+  控制器如何操作数据库
+</p>
+<p>
+  视图如何循环
+</p>
+<h2>添加留言</h2>
+<p><img loading="lazy" decoding="async" width="386" height="315" src="/wp-content/uploads/2018/05/word-image-5694.png" class="wp-image-6250" srcset="/wp-content/uploads/2018/05/word-image-5694.png 386w, /wp-content/uploads/2018/05/word-image-5694-300x245.png 300w" sizes="(max-width: 386px) 100vw, 386px" /></p>
+<p>
+  【页面显示】如何创建路由 -&gt; 如何创建控制器 -&gt; 如何创建添加表单视图
+</p>
+<p>
+  【数据处理】如何接口提交的数据，如何保存到数据库
+</p>
+<h2>总结（新框架快速上手原则）</h2>
+<p>
+  如何创建路由
+</p>
+<p>
+  如何创建控制器
+</p>
+<p>
+  如何创建视图
+</p>
+<h1>四、Laravel框架中的控制器</h1>
+<h2>1、控制器的存放目录</h2>
+<p>
+  app\Http\Controllers\平台名\控制器名Controller.php
+</p>
+<h2>控制器的命名规则</h2>
+<p>
+  规    则：大驼峰命名法（单词首字母大写）
+</p>
+<p>
+  举个栗子：UserController.php 或 GoodsController.php
+</p>
+<h2>3、创建控制器</h2>
+<h3>方法1：artisan命令创建 （使用代码生成器创建控制器）</h3>
+<p>
+  命令：php artisan make:controller 平台名\控制器名Controller
+</p>
+<p>
+  说明：必须在项目根目录下执行，因为artisan在根目录下
+</p>
+<p><img loading="lazy" decoding="async" width="1129" height="659" src="/wp-content/uploads/2018/05/word-image-5695.png" class="wp-image-6251" srcset="/wp-content/uploads/2018/05/word-image-5695.png 1129w, /wp-content/uploads/2018/05/word-image-5695-300x175.png 300w, /wp-content/uploads/2018/05/word-image-5695-768x448.png 768w, /wp-content/uploads/2018/05/word-image-5695-1024x598.png 1024w" sizes="(max-width: 1129px) 100vw, 1129px" /></p>
+<h3>方法2：手动创建</h3>
+<p>
+  直接复制已经创建的控制器即可
+</p>
+<p><img loading="lazy" decoding="async" width="875" height="378" src="/wp-content/uploads/2018/05/word-image-5696.png" class="wp-image-6252" srcset="/wp-content/uploads/2018/05/word-image-5696.png 875w, /wp-content/uploads/2018/05/word-image-5696-300x130.png 300w, /wp-content/uploads/2018/05/word-image-5696-768x332.png 768w" sizes="(max-width: 875px) 100vw, 875px" /></p>
+<h1>路由1</h1>
+<h2>准备：PHP闭包</h2>
+<h3>1）JS闭包</h3>
+<ul>
+<li>
+    概念：在JS中当一个函数执行时可以让其内部局部变量不受其他作用域影响，同
+  </li>
+</ul>
+<p>
+  时当前函数执行完毕后还可能让其内部变量常驻内存不销毁的运行机制被称为JavaScript的闭包。
+</p>
+<ul>
+<li>
+    定义：两个函数彼此嵌套，并返回内部函数
+  </li>
+</ul>
+<p>
+  function f1() {
+</p>
+<p>
+  function f2() {
+</p>
+<p>
+  }
+</p>
+<p>
+  return f2;
+</p>
+<p>
+  }
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+</p>
+<p>
+  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
+</p>
+<p>
+  var arr = new Array();
+</p>
+<p>
+  for (var i = 1; i &lt; 3; i++) {
+</p>
+</p>
+<p>
+  	//arr[i] = function(i) {
+</p>
+<p>
+  	//	alert(i);
+</p>
+<p>
+  	//}
+</p>
+<p>
+  	arr[i] = f1(i);
+</p>
+<p>
+  }
+</p>
+<p>
+  function f1(num) {
+</p>
+<p>
+  	function f2() {
+</p>
+<p>
+  		alert(num);
+</p>
+<p>
+  	}
+</p>
+<p>
+  	return f2;
+</p>
+<p>
+  }
+</p>
+<h3>PHP闭包函数（php5.3+）</h3>
+<p><img loading="lazy" decoding="async" width="747" height="175" src="/wp-content/uploads/2018/05/word-image-5697.png" class="wp-image-6253" srcset="/wp-content/uploads/2018/05/word-image-5697.png 747w, /wp-content/uploads/2018/05/word-image-5697-300x70.png 300w" sizes="(max-width: 747px) 100vw, 747px" /><br />
+<img loading="lazy" decoding="async" width="958" height="471" src="/wp-content/uploads/2018/05/word-image-5698.png" class="wp-image-6254" srcset="/wp-content/uploads/2018/05/word-image-5698.png 958w, /wp-content/uploads/2018/05/word-image-5698-300x147.png 300w, /wp-content/uploads/2018/05/word-image-5698-768x378.png 768w" sizes="(max-width: 958px) 100vw, 958px" /></p>
+<h2>1、路由的作用</h2>
+<ul>
+<li>
+    概念：路由就是网址的参数
+  </li>
+<li>
+    作用：将用户发送的HTTP请求，交给指定的控制器方法处理
+  </li>
+</ul>
+<h2>2、路由配置文件</h2>
+<p><img loading="lazy" decoding="async" width="886" height="387" src="/wp-content/uploads/2018/05/word-image-5699.png" class="wp-image-6255" srcset="/wp-content/uploads/2018/05/word-image-5699.png 886w, /wp-content/uploads/2018/05/word-image-5699-300x131.png 300w, /wp-content/uploads/2018/05/word-image-5699-768x335.png 768w" sizes="(max-width: 886px) 100vw, 886px" /></p>
+<h2><a id="post-6202-_Toc487903151"></a>3、配置路由（routes\web.php）</h2>
+<h3><a id="post-6202-_Toc487903152"></a>1、路由定义格式（语法）</h3>
+<p>
+  Route::HTTP请求方法（路径，闭包函数或者控制器方法）
+</p>
+<p>
+  响应多个HTTP请求
+</p>
+<p>
+  Route::match（[请求类型，请求类型&#8230;.], 路径，闭包函数或者控制器方法）
+</p>
+<p>
+  响应任意HTTP请求
+</p>
+<p>
+  Route::any（路径，闭包函数或者控制器方法）
+</p>
+<h3><a id="post-6202-_Toc487903153"></a>2、请求方式有哪些？</h3>
+<p>
+  可以是HTTP的8种请求类型之一，如：get、put、post、delete&#8230;等，常用get和post
+</p>
+<h3>︴练习</h3>
+<ul>
+<li>
+    不同的请求响应
+  </li>
+<li>
+    get请求，闭包函数响应
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1212" height="610" src="/wp-content/uploads/2018/05/word-image-5700.png" class="wp-image-6256" srcset="/wp-content/uploads/2018/05/word-image-5700.png 1212w, /wp-content/uploads/2018/05/word-image-5700-300x151.png 300w, /wp-content/uploads/2018/05/word-image-5700-768x387.png 768w, /wp-content/uploads/2018/05/word-image-5700-1024x515.png 1024w" sizes="(max-width: 1212px) 100vw, 1212px" /></p>
+<ul>
+<li>
+    get请求，控制器响应
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1335" height="635" src="/wp-content/uploads/2018/05/word-image-5701.png" class="wp-image-6257" srcset="/wp-content/uploads/2018/05/word-image-5701.png 1335w, /wp-content/uploads/2018/05/word-image-5701-300x143.png 300w, /wp-content/uploads/2018/05/word-image-5701-768x365.png 768w, /wp-content/uploads/2018/05/word-image-5701-1024x487.png 1024w" sizes="(max-width: 1335px) 100vw, 1335px" /></p>
+<ul>
+<li>
+    post请求，闭包函数响应（注：app\Http\Kernel.php注释VerifyCsrfToken）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1087" height="672" src="/wp-content/uploads/2018/05/word-image-5702.png" class="wp-image-6258" srcset="/wp-content/uploads/2018/05/word-image-5702.png 1087w, /wp-content/uploads/2018/05/word-image-5702-300x185.png 300w, /wp-content/uploads/2018/05/word-image-5702-768x475.png 768w, /wp-content/uploads/2018/05/word-image-5702-1024x633.png 1024w" sizes="(max-width: 1087px) 100vw, 1087px" /><br />
+<img loading="lazy" decoding="async" width="1251" height="510" src="/wp-content/uploads/2018/05/word-image-5703.png" class="wp-image-6259" srcset="/wp-content/uploads/2018/05/word-image-5703.png 1251w, /wp-content/uploads/2018/05/word-image-5703-300x122.png 300w, /wp-content/uploads/2018/05/word-image-5703-768x313.png 768w, /wp-content/uploads/2018/05/word-image-5703-1024x417.png 1024w" sizes="(max-width: 1251px) 100vw, 1251px" /></p>
+<ul>
+<li>
+    post请求，控制器响应
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1334" height="659" src="/wp-content/uploads/2018/05/word-image-5704.png" class="wp-image-6260" srcset="/wp-content/uploads/2018/05/word-image-5704.png 1334w, /wp-content/uploads/2018/05/word-image-5704-300x148.png 300w, /wp-content/uploads/2018/05/word-image-5704-768x379.png 768w, /wp-content/uploads/2018/05/word-image-5704-1024x506.png 1024w" sizes="(max-width: 1334px) 100vw, 1334px" /></p>
+<ul>
+<li>
+    响应<strong>多个</strong>HTTP请求
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="622" height="159" src="/wp-content/uploads/2018/05/word-image-5705.png" class="wp-image-6261" srcset="/wp-content/uploads/2018/05/word-image-5705.png 622w, /wp-content/uploads/2018/05/word-image-5705-300x77.png 300w" sizes="(max-width: 622px) 100vw, 622px" /></p>
+<ul>
+<li>
+    响应<strong>所有</strong>HTTP请求
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="477" height="176" src="/wp-content/uploads/2018/05/word-image-5706.png" class="wp-image-6262" srcset="/wp-content/uploads/2018/05/word-image-5706.png 477w, /wp-content/uploads/2018/05/word-image-5706-300x111.png 300w" sizes="(max-width: 477px) 100vw, 477px" /></p>
+<h2>4、路由参数</h2>
+<h3>1）语法</h3>
+<p>
+  Route::HTTP请求方式（路径/{参数}，闭包函数或控制器方法名）-&gt;where（参数名,正则表达式）
+</p>
+<p>
+  多个参数： 路径/{参数}/{参数}   或者   路径/{参数}-{参数}/{参数}
+</p>
+<p>
+  多个限制：-&gt;where（[参数=&gt;正则，&#8230;，参数n-&gt;正则n]）
+</p>
+<p>
+  多学一招：{参数名？} 表示可以设置默认值
+</p>
+<h3>2）闭包函数操作参数</h3>
+<ul>
+<li>
+    一个参数
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="663" height="213" src="/wp-content/uploads/2018/05/word-image-5707.png" class="wp-image-6263" srcset="/wp-content/uploads/2018/05/word-image-5707.png 663w, /wp-content/uploads/2018/05/word-image-5707-300x96.png 300w" sizes="(max-width: 663px) 100vw, 663px" /></p>
+<p>
+  #一个参数
+</p>
+<p>
+  Route::get(&#8216;/test7/{id}&#8217;, function($id){
+</p>
+<p>
+      echo $id;
+</p>
+<p>
+  });
+</p>
+<ul>
+<li>
+    多个参数
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="793" height="236" src="/wp-content/uploads/2018/05/word-image-5708.png" class="wp-image-6264" srcset="/wp-content/uploads/2018/05/word-image-5708.png 793w, /wp-content/uploads/2018/05/word-image-5708-300x89.png 300w, /wp-content/uploads/2018/05/word-image-5708-768x229.png 768w" sizes="(max-width: 793px) 100vw, 793px" /></p>
+<p>
+  #多个参数
+</p>
+<p>
+  Route::get(&#8216;/test7/{id}/{name}&#8217;, function($id, $name){
+</p>
+<p>
+      echo $id . &#8216;__&#8217; . $name;
+</p>
+<p>
+  });
+</p>
+<ul>
+<li>
+    默认参数
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="802" height="332" src="/wp-content/uploads/2018/05/word-image-5709.png" class="wp-image-6265" srcset="/wp-content/uploads/2018/05/word-image-5709.png 802w, /wp-content/uploads/2018/05/word-image-5709-300x124.png 300w, /wp-content/uploads/2018/05/word-image-5709-768x318.png 768w" sizes="(max-width: 802px) 100vw, 802px" /></p>
+<h3>3）控制器操作参数</h3>
+<p><img loading="lazy" decoding="async" width="814" height="541" src="/wp-content/uploads/2018/05/word-image-5710.png" class="wp-image-6266" srcset="/wp-content/uploads/2018/05/word-image-5710.png 814w, /wp-content/uploads/2018/05/word-image-5710-300x199.png 300w, /wp-content/uploads/2018/05/word-image-5710-768x510.png 768w" sizes="(max-width: 814px) 100vw, 814px" /><br />
+<img loading="lazy" decoding="async" width="1120" height="527" src="/wp-content/uploads/2018/05/word-image-5711.png" class="wp-image-6267" srcset="/wp-content/uploads/2018/05/word-image-5711.png 1120w, /wp-content/uploads/2018/05/word-image-5711-300x141.png 300w, /wp-content/uploads/2018/05/word-image-5711-768x361.png 768w, /wp-content/uploads/2018/05/word-image-5711-1024x482.png 1024w" sizes="(max-width: 1120px) 100vw, 1120px" /></p>
+<h3>4）正则表达式限制参数</h3>
+<ul>
+<li>
+    限制一个参数
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="544" height="152" src="/wp-content/uploads/2018/05/word-image-5712.png" class="wp-image-6268" srcset="/wp-content/uploads/2018/05/word-image-5712.png 544w, /wp-content/uploads/2018/05/word-image-5712-300x84.png 300w" sizes="(max-width: 544px) 100vw, 544px" /></p>
+<ul>
+<li>
+    限制多个参数
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="751" height="252" src="/wp-content/uploads/2018/05/word-image-5713.png" class="wp-image-6269" srcset="/wp-content/uploads/2018/05/word-image-5713.png 751w, /wp-content/uploads/2018/05/word-image-5713-300x101.png 300w" sizes="(max-width: 751px) 100vw, 751px" /></p>
+<h2>5、路由群组</h2>
+<h3>1）概念</h3>
+<p>
+  多个路由之间共享路由属性，减少冗余。
+</p>
+<h3>语法</h3>
+<p>
+  Route::group（[属性名=&gt;属性值n,&#8230;,属性名=&gt;属性值n]，function（）{
+</p>
+<p>
+       将其他路由放进来即可&#8230;.
+</p>
+<p>
+  }）
+</p>
+<h3>3）案例</h3>
+<p><img loading="lazy" decoding="async" width="1154" height="640" src="/wp-content/uploads/2018/05/word-image-5714.png" class="wp-image-6270" srcset="/wp-content/uploads/2018/05/word-image-5714.png 1154w, /wp-content/uploads/2018/05/word-image-5714-300x166.png 300w, /wp-content/uploads/2018/05/word-image-5714-768x426.png 768w, /wp-content/uploads/2018/05/word-image-5714-1024x568.png 1024w" sizes="(max-width: 1154px) 100vw, 1154px" /></p>
+<p>
+  #路由群组举个栗子（需求：完成用户增删改查）
+</p>
+<p>
+  Route::group([&#8216;namespace&#8217;=&gt;&#8217;Admin&#8217;, &#8216;prefix&#8217; =&gt; &#8216;/user&#8217;], function(){
+</p>
+<p>
+      #Route::get(&#8216;/user/index&#8217;, &#8216;Admin\UserController@index&#8217;);
+</p>
+<p>
+      #Route::get(&#8216;/user/create&#8217;, &#8216;Admin\UserController@create&#8217;);
+</p>
+<p>
+      #Route::get(&#8216;/user/delete/{id}&#8217;, &#8216;Admin\UserController@delete&#8217;);
+</p>
+<p>
+      #Route::get(&#8216;/user/update&#8217;, &#8216;Admin\UserController@update&#8217;);
+</p>
+<p>
+      Route::get(&#8216;index&#8217;, &#8216;UserController@index&#8217;);
+</p>
+<p>
+      Route::get(&#8216;create&#8217;, &#8216;UserController@create&#8217;);
+</p>
+<p>
+      Route::get(&#8216;delete/{id}&#8217;, &#8216;UserController@delete&#8217;);
+</p>
+<p>
+      Route::get(&#8216;update&#8217;, &#8216;UserController@update&#8217;);
+</p>
+<p>
+  });
+</p>
+<h2>6、路由别名</h2>
+<p><img loading="lazy" decoding="async" width="863" height="621" src="/wp-content/uploads/2018/05/word-image-5715.png" class="wp-image-6271" srcset="/wp-content/uploads/2018/05/word-image-5715.png 863w, /wp-content/uploads/2018/05/word-image-5715-300x216.png 300w, /wp-content/uploads/2018/05/word-image-5715-768x553.png 768w" sizes="(max-width: 863px) 100vw, 863px" /></p>
+<p>
+  #路由别名：同MySQL需要别名因为名字太长或者不好记等情况
+</p>
+<p>
+  //Route::get(&#8216;/jintainwofeichangkaixinsdfadsf&#8217;, function() {
+</p>
+<p>
+  //    echo &#8216;test11&#8217;;
+</p>
+<p>
+  //});
+</p>
+<p>
+  Route::get(&#8216;/jintainwofeichangkaixinsdfadsf&#8217;, [
+</p>
+<p>
+      &#8216;as&#8217; =&gt; &#8216;bieming&#8217;,
+</p>
+<p>
+      &#8216;uses&#8217; =&gt; function() {
+</p>
+<p>
+          echo &#8216;我们都不容易&#8217;;
+</p>
+<p>
+      }
+</p>
+<p>
+  ]);
+</p>
+<p>
+  Route::get(&#8216;/test11&#8217;, function() {
+</p>
+<p>
+  //    {{ U（&#8217;user/index&#8217;） }}
+</p>
+<p>
+  //    {{ url(‘/jintainwofeichangkaixinsdfadsf’) }}
+</p>
+<p>
+      echo route(&#8216;bieming&#8217;); //通过路由别名替换url方法，放到表单action属性中
+</p>
+<p>
+  });
+</p>
+<h2>小总结</h2>
+<ul>
+<li>
+    什么是路由：就是网址
+  </li>
+<li>
+    路由作用：将用户的请求交给指定的控制器方法处理
+  </li>
+<li>
+    路由在哪：routes\web.php
+  </li>
+<li>
+    路由语法
+  </li>
+<li>
+    基        本：Route::HTTP类型（路径，闭包函数或控制器方法）
+  </li>
+<li>
+    响应指定请求：Route::match（[类型，..，类型]，路径，闭包函数或控制器方法）
+  </li>
+<li>
+    响应多有请求：Route::any（路径，闭包函数或控制器方法）
+  </li>
+<li>
+    路由参数语法
+  </li>
+<li>
+    Route::HTTP类型（路径/{参数}，闭包函数或控制器方法）-&gt;where（参数，正则）
+  </li>
+</ul>
+<p>
+  多个参数：就是写多个{}
+</p>
+<p>
+  多个限制：则where使用数组 [参数=&gt;正则, &#8230;, 参数n=&gt;正则n]
+</p>
+<ul>
+<li>
+    路由群组
+  </li>
+<li>
+    概念：就是给多个路由设置相同的属性，减少冗余
+  </li>
+<li>
+    语法
+  </li>
+</ul>
+<p>
+  Route::group（[&#8216;namespace&#8217; =&gt; &#8221;, &#8216;preifx&#8217;=&gt;&#8221;]， function（）{
+</p>
+<p>
+       写其他路由&#8230;
+</p>
+<p>
+  }）
+</p>
+<ul>
+<li>
+    路由别名
+  </li>
+<li>
+    概念：就是路由名称太长，则写个别名，后期可以通过方法route获取别名的真实
+  </li>
+</ul>
+<p>
+  路由地址
+</p>
+<ul>
+<li>
+    语法
+  </li>
+</ul>
+<p>
+  Route::请求类型（路径，[
+</p>
+<p>
+      ‘as’ =&gt; 别名,
+</p>
+<p>
+      ‘uses’ =&gt;  闭包函数 或者 控制器方法
+</p>
+<p>
+  ]）
+</p>
+<h1>视图1</h1>
+<h2>控制器调用视图</h2>
+<h3>1）语法</h3>
+<ul>
+<li>
+    方法1：return‘字符串’
+  </li>
+<li>
+    方法2：return view（视图文件，compact（变量名，&#8230;，变量名n））；
+  </li>
+</ul>
+<p>
+  return view加载视图会去resources/views下面找（ps. view所有名称统一小写）
+</p>
+<p>
+  return view（&#8217;php12&#8217;）会优先找blade模板引擎
+</p>
+<p>
+  如果需要调用resources/views/子目录中的文件则用“.”拼接
+</p>
+<h3>2）练习（调用视图）</h3>
+<p>
+  步骤1：
+</p>
+<p><img loading="lazy" decoding="async" width="1045" height="409" src="/wp-content/uploads/2018/05/word-image-5716.png" class="wp-image-6272" srcset="/wp-content/uploads/2018/05/word-image-5716.png 1045w, /wp-content/uploads/2018/05/word-image-5716-300x117.png 300w, /wp-content/uploads/2018/05/word-image-5716-768x301.png 768w, /wp-content/uploads/2018/05/word-image-5716-1024x401.png 1024w" sizes="(max-width: 1045px) 100vw, 1045px" /></p>
+<p>
+  步骤2：
+</p>
+<p><img loading="lazy" decoding="async" width="1048" height="656" src="/wp-content/uploads/2018/05/word-image-5717.png" class="wp-image-6273" srcset="/wp-content/uploads/2018/05/word-image-5717.png 1048w, /wp-content/uploads/2018/05/word-image-5717-300x188.png 300w, /wp-content/uploads/2018/05/word-image-5717-768x481.png 768w, /wp-content/uploads/2018/05/word-image-5717-1024x641.png 1024w" sizes="(max-width: 1048px) 100vw, 1048px" /><br />
+<img loading="lazy" decoding="async" width="1255" height="534" src="/wp-content/uploads/2018/05/word-image-5718.png" class="wp-image-6274" srcset="/wp-content/uploads/2018/05/word-image-5718.png 1255w, /wp-content/uploads/2018/05/word-image-5718-300x128.png 300w, /wp-content/uploads/2018/05/word-image-5718-768x327.png 768w, /wp-content/uploads/2018/05/word-image-5718-1024x436.png 1024w" sizes="(max-width: 1255px) 100vw, 1255px" /></p>
+<h2><a id="post-6202-_Toc487903182"></a>基本用法视图传参</h2>
+<h3>认识compact函数</h3>
+<ul>
+<li>
+    语法：compact（变量名，&#8230;.，变量名n）
+  </li>
+<li>
+    作用：将多个变量组成数组
+  </li>
+<li>
+    代码：
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="785" height="420" src="/wp-content/uploads/2018/05/word-image-5719.png" class="wp-image-6275" srcset="/wp-content/uploads/2018/05/word-image-5719.png 785w, /wp-content/uploads/2018/05/word-image-5719-300x161.png 300w, /wp-content/uploads/2018/05/word-image-5719-768x411.png 768w" sizes="(max-width: 785px) 100vw, 785px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  $a = &#8216;h1&#8217;;
+</p>
+<p>
+  $b = &#8216;h2&#8217;;
+</p>
+<p>
+  $c = &#8216;hd&#8217;;
+</p>
+<p>
+  $data = compact(&#8216;a&#8217;,&#8217;b&#8217;,&#8217;fasdfasd&#8217;);
+</p>
+<p>
+  echo &#8216;&lt;pre&gt;&#8217;;
+</p>
+<p>
+  print_r($data);
+</p>
+<h3>2）数组方式</h3>
+<p><img loading="lazy" decoding="async" width="1316" height="707" src="/wp-content/uploads/2018/05/word-image-5720.png" class="wp-image-6276" srcset="/wp-content/uploads/2018/05/word-image-5720.png 1316w, /wp-content/uploads/2018/05/word-image-5720-300x161.png 300w, /wp-content/uploads/2018/05/word-image-5720-768x413.png 768w, /wp-content/uploads/2018/05/word-image-5720-1024x550.png 1024w" sizes="(max-width: 1316px) 100vw, 1316px" /></p>
+<h3>3）工作常用</h3>
+<p><img loading="lazy" decoding="async" width="1306" height="712" src="/wp-content/uploads/2018/05/word-image-5721.png" class="wp-image-6277" srcset="/wp-content/uploads/2018/05/word-image-5721.png 1306w, /wp-content/uploads/2018/05/word-image-5721-300x164.png 300w, /wp-content/uploads/2018/05/word-image-5721-768x419.png 768w, /wp-content/uploads/2018/05/word-image-5721-1024x558.png 1024w" sizes="(max-width: 1306px) 100vw, 1306px" /></p>
+<h2><a id="post-6202-_Toc487903184"></a>4、【★】blade模板</h2>
+<h3>1）什么是blade模板</h3>
+<ul>
+<li>
+    blade模板同smarty模板一样都是PHP模板引擎
+  </li>
+<li>
+    blade模板是laravel自带模板引擎（推荐使用也可以使用原声php）
+  </li>
+</ul>
+<p>
+  问：什么是模板引擎
+</p>
+<p>
+  答：就是用PHP写的一个类
+</p>
+<p>
+  问：是个类就是模板引擎吗
+</p>
+<p>
+  答：非也，具备将php代码和html代码分离类称之为模板引擎
+</p>
+<h3>2）blade模板标签</h3>
+<ul>
+<li>
+    注释（同Smarty注释响应时不含注释内容）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="992" height="506" src="/wp-content/uploads/2018/05/word-image-5722.png" class="wp-image-6278" srcset="/wp-content/uploads/2018/05/word-image-5722.png 992w, /wp-content/uploads/2018/05/word-image-5722-300x153.png 300w, /wp-content/uploads/2018/05/word-image-5722-768x392.png 768w" sizes="(max-width: 992px) 100vw, 992px" /></p>
+<ul>
+<li>
+    展示变量数据
+  </li>
+</ul>
+<p>
+  {{ $变量名 }}
+</p>
+<p><img loading="lazy" decoding="async" width="717" height="447" src="/wp-content/uploads/2018/05/word-image-5723.png" class="wp-image-6279" srcset="/wp-content/uploads/2018/05/word-image-5723.png 717w, /wp-content/uploads/2018/05/word-image-5723-300x187.png 300w" sizes="(max-width: 717px) 100vw, 717px" /></p>
+<ul>
+<li>
+    循环
+  </li>
+</ul>
+<p>
+  @foreach（变量名 as  键=&gt;值）
+</p>
+<p>
+  @endforeach
+</p>
+<p><img loading="lazy" decoding="async" width="701" height="427" src="/wp-content/uploads/2018/05/word-image-5724.png" class="wp-image-6280" srcset="/wp-content/uploads/2018/05/word-image-5724.png 701w, /wp-content/uploads/2018/05/word-image-5724-300x183.png 300w" sizes="(max-width: 701px) 100vw, 701px" /></p>
+<ul>
+<li>
+    判断
+  </li>
+</ul>
+<p>
+  @if ()
+</p>
+<p>
+  @else if ()
+</p>
+<p>
+  @else
+</p>
+<p>
+  @endif
+</p>
+<p><img loading="lazy" decoding="async" width="665" height="510" src="/wp-content/uploads/2018/05/word-image-5725.png" class="wp-image-6281" srcset="/wp-content/uploads/2018/05/word-image-5725.png 665w, /wp-content/uploads/2018/05/word-image-5725-300x230.png 300w" sizes="(max-width: 665px) 100vw, 665px" /></p>
+<ul>
+<li>
+    指定原声PHP（少用）
+  </li>
+</ul>
+<p>
+  @php
+</p>
+<p>
+  @endphp
+</p>
+<p><img loading="lazy" decoding="async" width="720" height="444" src="/wp-content/uploads/2018/05/word-image-5726.png" class="wp-image-6282" srcset="/wp-content/uploads/2018/05/word-image-5726.png 720w, /wp-content/uploads/2018/05/word-image-5726-300x185.png 300w" sizes="(max-width: 720px) 100vw, 720px" /></p>
+<h1>获取请求输入</h1>
+<h2>1、语法</h2>
+<h3>1）方法1</h3>
+<ul>
+<li>
+    步骤1：导入类【use Illuminate\Http\Request;】
+  </li>
+<li>
+    步骤2：在控制器方法中声明使用，如
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="470" height="65" src="/wp-content/uploads/2018/05/word-image-5727.png" class="wp-image-6283" srcset="/wp-content/uploads/2018/05/word-image-5727.png 470w, /wp-content/uploads/2018/05/word-image-5727-300x41.png 300w" sizes="(max-width: 470px) 100vw, 470px" /></p>
+<ul>
+<li>
+    步骤3：最后使用下属语法获取数据
+  </li>
+<li>
+    $request-&gt;all（）										获取所有数据
+  </li>
+<li>
+    $request-&gt;input（键 [,默认值]）					获取GET数据
+  </li>
+<li>
+    $request-&gt;only（[参数名1，&#8230;，参数名n]）    获取指定数据
+  </li>
+<li>
+    $request-&gt;except（[参数名1，&#8230;，参数名n]）   获取指定数据外的所有数据
+  </li>
+<li>
+    查看更多：<a href="http://laravelacademy.org/post/6750.html#toc_4">http://laravelacademy.org/post/6750.html#toc_4</a>
+  </li>
+</ul>
+<h3>方法2</h3>
+<ul>
+<li>
+    步骤1：导入类【Illuminate\Support\Facades\Input;】
+  </li>
+<li>
+    步骤2：最后使用下属语法获取数据
+  </li>
+<li>
+    Input::all（）										获取所有数据
+  </li>
+<li>
+    Input::get（参数名[，默认值]）  				获取单个数据
+  </li>
+<li>
+    Input::only（[键1，&#8230;，键n]）   				获取指定数据
+  </li>
+<li>
+    Input::except（[键1，&#8230;，键n]） 				获取指定数据外的所有数据
+  </li>
+</ul>
+<h2>2、练习</h2>
+<p>
+  步骤1：定义路由
+</p>
+<p><img loading="lazy" decoding="async" width="1156" height="361" src="/wp-content/uploads/2018/05/word-image-5728.png" class="wp-image-6284" srcset="/wp-content/uploads/2018/05/word-image-5728.png 1156w, /wp-content/uploads/2018/05/word-image-5728-300x94.png 300w, /wp-content/uploads/2018/05/word-image-5728-768x240.png 768w, /wp-content/uploads/2018/05/word-image-5728-1024x320.png 1024w" sizes="(max-width: 1156px) 100vw, 1156px" /></p>
+<p>
+  步骤2：创建控制器方法
+</p>
+<p><img loading="lazy" decoding="async" width="1319" height="536" src="/wp-content/uploads/2018/05/word-image-5729.png" class="wp-image-6285" srcset="/wp-content/uploads/2018/05/word-image-5729.png 1319w, /wp-content/uploads/2018/05/word-image-5729-300x122.png 300w, /wp-content/uploads/2018/05/word-image-5729-768x312.png 768w, /wp-content/uploads/2018/05/word-image-5729-1024x416.png 1024w" sizes="(max-width: 1319px) 100vw, 1319px" /></p>
+<p>
+  步骤3:创建视图
+</p>
+<p><img loading="lazy" decoding="async" width="1196" height="617" src="/wp-content/uploads/2018/05/word-image-5730.png" class="wp-image-6286" srcset="/wp-content/uploads/2018/05/word-image-5730.png 1196w, /wp-content/uploads/2018/05/word-image-5730-300x155.png 300w, /wp-content/uploads/2018/05/word-image-5730-768x396.png 768w, /wp-content/uploads/2018/05/word-image-5730-1024x528.png 1024w" sizes="(max-width: 1196px) 100vw, 1196px" /></p>
+<h1>八、留言板功能</h1>
+<h2>︴准备（数据库初体验，明天详细讲）</h2>
+<ul>
+<li>
+    语法
+  </li>
+</ul>
+<p>
+  查询所有数据语法：DB::table（表名）-&gt;get（）
+</p>
+<p>
+  插入数据语法：DB::table（表名）-&gt;insert（关联数组）
+</p>
+<ul>
+<li>
+    练习
+  </li>
+</ul>
+<p>
+  步骤1：创建数据库和留言表并插入数据
+</p>
+<p>
+  create database laravel54;
+</p>
+<p>
+  use laravel54;
+</p>
+<p>
+  #标准写法
+</p>
+<p>
+  &#8212; create table msg (
+</p>
+<p>
+  &#8212; id int primary key auto_increment comment &#8216;编号&#8217;,
+</p>
+<p>
+  &#8212; uname varchar(45) not null comment &#8216;用户名&#8217;,
+</p>
+<p>
+  &#8212; content text not null comment &#8216;内容&#8217;,
+</p>
+<p>
+  &#8212; created_at int not null default 0 comment &#8216;创建于&#8217;,
+</p>
+<p>
+  &#8212; updated_at int not null default 0 comment &#8216;更新于&#8217;
+</p>
+<p>
+  &#8212; )engine=myisam charset=utf8;
+</p>
+<p>
+  #为铺垫后面课程修改
+</p>
+<p>
+  create table msg (
+</p>
+<p>
+  id int primary key auto_increment comment &#8216;编号&#8217;,
+</p>
+<p>
+  uname varchar(45) comment &#8216;用户名&#8217;,
+</p>
+<p>
+  content text comment &#8216;内容&#8217;,
+</p>
+<p>
+  created_at int not null default 0 comment &#8216;创建于&#8217;,
+</p>
+<p>
+  updated_at int not null default 0 comment &#8216;更新于&#8217;
+</p>
+<p>
+  )engine=myisam charset=utf8;
+</p>
+<p>
+  insert into msg values
+</p>
+<p>
+  (null,&#8217;a&#8217;,&#8217;aaaa&#8217;,0,0),
+</p>
+<p>
+  (null,&#8217;a&#8217;,&#8217;aaaa&#8217;,0,0),
+</p>
+<p>
+  (null,&#8217;a&#8217;,&#8217;aaaa&#8217;,0,0);
+</p>
+<p>
+  步骤2：修改laravel数据库配置文件
+</p>
+<p><img loading="lazy" decoding="async" width="678" height="509" src="/wp-content/uploads/2018/05/word-image-5731.png" class="wp-image-6287" srcset="/wp-content/uploads/2018/05/word-image-5731.png 678w, /wp-content/uploads/2018/05/word-image-5731-300x225.png 300w" sizes="(max-width: 678px) 100vw, 678px" /></p>
+<h2>1、留言列表</h2>
+<h3>1）思路</h3>
+<ul>
+<li>
+    步骤1：定义路由访问列表页（Admin\MsgController@index）
+  </li>
+<li>
+    步骤2：创建控制器MsgController和方法index 并且调用视图
+  </li>
+<li>
+    步骤3：调用视图
+  </li>
+<li>
+    步骤4：获取数据并循环显示
+  </li>
+</ul>
+<h3>2）代码</h3>
+<ul>
+<li>
+    步骤1：定义路由访问列表页（Admin\MsgController@index）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1033" height="425" src="/wp-content/uploads/2018/05/word-image-5732.png" class="wp-image-6288" srcset="/wp-content/uploads/2018/05/word-image-5732.png 1033w, /wp-content/uploads/2018/05/word-image-5732-300x123.png 300w, /wp-content/uploads/2018/05/word-image-5732-768x316.png 768w, /wp-content/uploads/2018/05/word-image-5732-1024x421.png 1024w" sizes="(max-width: 1033px) 100vw, 1033px" /></p>
+<ul>
+<li>
+    步骤2：创建控制器MsgController和方法index 并且调用视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1027" height="638" src="/wp-content/uploads/2018/05/word-image-5733.png" class="wp-image-6289" srcset="/wp-content/uploads/2018/05/word-image-5733.png 1027w, /wp-content/uploads/2018/05/word-image-5733-300x186.png 300w, /wp-content/uploads/2018/05/word-image-5733-768x477.png 768w, /wp-content/uploads/2018/05/word-image-5733-1024x636.png 1024w" sizes="(max-width: 1027px) 100vw, 1027px" /></p>
+<ul>
+<li>
+    步骤3：调用视图
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1189" height="721" src="/wp-content/uploads/2018/05/word-image-5734.png" class="wp-image-6290" srcset="/wp-content/uploads/2018/05/word-image-5734.png 1189w, /wp-content/uploads/2018/05/word-image-5734-300x182.png 300w, /wp-content/uploads/2018/05/word-image-5734-768x466.png 768w, /wp-content/uploads/2018/05/word-image-5734-1024x621.png 1024w" sizes="(max-width: 1189px) 100vw, 1189px" /></p>
+<ul>
+<li>
+    步骤4：获取数据并循环显示
+  </li>
+</ul>
+<p>
+  控制器
+</p>
+<p><img loading="lazy" decoding="async" width="1157" height="460" src="/wp-content/uploads/2018/05/word-image-5735.png" class="wp-image-6291" srcset="/wp-content/uploads/2018/05/word-image-5735.png 1157w, /wp-content/uploads/2018/05/word-image-5735-300x119.png 300w, /wp-content/uploads/2018/05/word-image-5735-768x305.png 768w, /wp-content/uploads/2018/05/word-image-5735-1024x407.png 1024w" sizes="(max-width: 1157px) 100vw, 1157px" /></p>
+<p>
+  视图
+</p>
+<p><img loading="lazy" decoding="async" width="1171" height="549" src="/wp-content/uploads/2018/05/word-image-5736.png" class="wp-image-6292" srcset="/wp-content/uploads/2018/05/word-image-5736.png 1171w, /wp-content/uploads/2018/05/word-image-5736-300x141.png 300w, /wp-content/uploads/2018/05/word-image-5736-768x360.png 768w, /wp-content/uploads/2018/05/word-image-5736-1024x480.png 1024w" sizes="(max-width: 1171px) 100vw, 1171px" /><br />
+<img loading="lazy" decoding="async" width="1365" height="604" src="/wp-content/uploads/2018/05/word-image-5737.png" class="wp-image-6293" srcset="/wp-content/uploads/2018/05/word-image-5737.png 1365w, /wp-content/uploads/2018/05/word-image-5737-300x133.png 300w, /wp-content/uploads/2018/05/word-image-5737-768x340.png 768w, /wp-content/uploads/2018/05/word-image-5737-1024x453.png 1024w" sizes="(max-width: 1365px) 100vw, 1365px" /></p>
+<h2>2、添加留言</h2>
+<h3>1）思路</h3>
+<ul>
+<li>
+    说 明：因为添加特殊（其和列表在同一个页面所以不需要重新加载视图）
+  </li>
+<li>
+    步骤1：修改路由
+  </li>
+<li>
+    步骤2：控制器接受数据，并添加到数据库
+  </li>
+</ul>
+<h3>2）代码</h3>
+<ul>
+<li>
+    步骤1：修改路由
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1050" height="396" src="/wp-content/uploads/2018/05/word-image-5738.png" class="wp-image-6294" srcset="/wp-content/uploads/2018/05/word-image-5738.png 1050w, /wp-content/uploads/2018/05/word-image-5738-300x113.png 300w, /wp-content/uploads/2018/05/word-image-5738-768x290.png 768w, /wp-content/uploads/2018/05/word-image-5738-1024x386.png 1024w" sizes="(max-width: 1050px) 100vw, 1050px" /></p>
+<ul>
+<li>
+    步骤2：控制器接受数据，并添加到数据库
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1160" height="650" src="/wp-content/uploads/2018/05/word-image-5739.png" class="wp-image-6295" srcset="/wp-content/uploads/2018/05/word-image-5739.png 1160w, /wp-content/uploads/2018/05/word-image-5739-300x168.png 300w, /wp-content/uploads/2018/05/word-image-5739-768x430.png 768w, /wp-content/uploads/2018/05/word-image-5739-1024x574.png 1024w" sizes="(max-width: 1160px) 100vw, 1160px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/6202.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

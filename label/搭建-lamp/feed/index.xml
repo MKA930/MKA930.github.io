@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>搭建 LAMP &#8211; 个人随笔</title>
+	<atom:link href="/label/%E6%90%AD%E5%BB%BA-lamp/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Tue, 29 Mar 2022 15:34:15 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>搭建 LAMP &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Linux（三） 搭建 LAMP SSH、FTP、SCP、Rmp&#038;Yum、挂载、阿里云、常用命令、关闭指定软件</title>
+		<link>/linux/4856.html</link>
+					<comments>/linux/4856.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 13:19:44 +0000</pubDate>
+				<category><![CDATA[Linux]]></category>
+		<category><![CDATA[环境搭建]]></category>
+		<category><![CDATA[搭建 LAMP]]></category>
+		<guid isPermaLink="false">/?p=4856</guid>
+
+					<description><![CDATA[Linux3 ︴免费虚拟虚拟主机（空间） 注册获取账号密码 http://free.3v.do/reg.htm [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>Linux3</h1>
+<h1>︴免费虚拟虚拟主机（空间）</h1>
+<h2>注册获取账号密码</h2>
+<p><a href="/goto/0os6" rel="nofollow">http://free.3v.do/reg.html</a></p>
+<h2>2、通过FTP软件远程连接</h2>
+<p><img fetchpriority="high" decoding="async" width="1346" height="537" src="/wp-content/uploads/2018/05/word-image-4376.png" class="wp-image-4857" srcset="/wp-content/uploads/2018/05/word-image-4376.png 1346w, /wp-content/uploads/2018/05/word-image-4376-300x120.png 300w, /wp-content/uploads/2018/05/word-image-4376-768x306.png 768w, /wp-content/uploads/2018/05/word-image-4376-1024x409.png 1024w" sizes="(max-width: 1346px) 100vw, 1346px" /><br />
+<img decoding="async" width="893" height="708" src="/wp-content/uploads/2018/05/word-image-4377.png" class="wp-image-4858" srcset="/wp-content/uploads/2018/05/word-image-4377.png 893w, /wp-content/uploads/2018/05/word-image-4377-300x238.png 300w, /wp-content/uploads/2018/05/word-image-4377-768x609.png 768w" sizes="(max-width: 893px) 100vw, 893px" /></p>
+<p>网页快速拨号：&lt;a href=&#8221;tel:1665466545&#8243;&gt;手机打开点击拨号&lt;/a&gt;</p>
+<p>页面广告，可以用js移除</p>
+<p>虚拟主机老程序员喜欢叫（空间） 云服务器老程序叫（vps）</p>
+<p>js验证后可以非法操作，所以php务必验证</p>
+<p>网页分享插件，如：百度分享等</p>
+<h1>SSH服务</h1>
+<h2>说明</h2>
+<p>SSH是英文Secure Shell简写，通过使用SSH可以把传输的数据进行加密。</p>
+<p>FTP 基于TCP来传输文件，明文传输用户信息和数据。</p>
+<p>SFTP 基于SSH来加密传输文件，可靠性高， 可断点续传。</p>
+<p>SCP 基于SSH来加密拷贝文件，可靠性高，不可断点续传（必须知道传输目录）。</p>
+<p>SFTP和SCP协议区别（简单概括）</p>
+<p>1）SCP比较简单，是轻量级的，SFTP的功能则比较多</p>
+<p>2）SFTP可断点续传，SCP不可以</p>
+<h2>SSH服务进程（管理SSH服务）</h2>
+<ul>
+<li>
+    SSH服务进程名为：sshd</li>
+</ul>
+<p>在linux中一般软件的进程名都是在名称后面+d，如：</p>
+<p>mysql（mysqld）、apache（httpd）</p>
+<ul>
+<li>
+    管理服务经常：service  服务器名称 restart/stop/start</li>
+</ul>
+<p><img decoding="async" width="570" height="166" src="/wp-content/uploads/2018/05/word-image-4378.png" class="wp-image-4859" srcset="/wp-content/uploads/2018/05/word-image-4378.png 570w, /wp-content/uploads/2018/05/word-image-4378-300x87.png 300w" sizes="(max-width: 570px) 100vw, 570px" /></p>
+<h2>3、SFTP命令</h2>
+<p>登录命令：sftp  账号@服务器ip地址 （注：回车后输入密码）</p>
+<p>上传命令：put  本地文件  远程文件</p>
+<p>获取命令：get  远程文件  本地文件</p>
+<p>退出命令：quit    exit    ctrl + c</p>
+<p>案例：登录</p>
+<p><img loading="lazy" decoding="async" width="484" height="132" src="/wp-content/uploads/2018/05/word-image-4379.png" class="wp-image-4860" srcset="/wp-content/uploads/2018/05/word-image-4379.png 484w, /wp-content/uploads/2018/05/word-image-4379-300x82.png 300w" sizes="(max-width: 484px) 100vw, 484px" /></p>
+<p>案例：上传</p>
+<p><img loading="lazy" decoding="async" width="1204" height="655" src="/wp-content/uploads/2018/05/word-image-4380.png" class="wp-image-4861" srcset="/wp-content/uploads/2018/05/word-image-4380.png 1204w, /wp-content/uploads/2018/05/word-image-4380-300x163.png 300w, /wp-content/uploads/2018/05/word-image-4380-768x418.png 768w, /wp-content/uploads/2018/05/word-image-4380-1024x557.png 1024w" sizes="(max-width: 1204px) 100vw, 1204px" /></p>
+<p>案例：获取</p>
+<p><img loading="lazy" decoding="async" width="1106" height="610" src="/wp-content/uploads/2018/05/word-image-4381.png" class="wp-image-4862" srcset="/wp-content/uploads/2018/05/word-image-4381.png 1106w, /wp-content/uploads/2018/05/word-image-4381-300x165.png 300w, /wp-content/uploads/2018/05/word-image-4381-768x424.png 768w, /wp-content/uploads/2018/05/word-image-4381-1024x565.png 1024w" sizes="(max-width: 1106px) 100vw, 1106px" /></p>
+<h2>4、SCP命令</h2>
+<p>上传命令：scp  本地文件  账号@服务器ip地址:远程文件</p>
+<p>获取命令：scp  账号@服务器ip地址:远程文件  本地文件</p>
+<p>案例：上传</p>
+<p><img loading="lazy" decoding="async" width="1160" height="472" src="/wp-content/uploads/2018/05/word-image-4382.png" class="wp-image-4863" srcset="/wp-content/uploads/2018/05/word-image-4382.png 1160w, /wp-content/uploads/2018/05/word-image-4382-300x122.png 300w, /wp-content/uploads/2018/05/word-image-4382-768x312.png 768w, /wp-content/uploads/2018/05/word-image-4382-1024x417.png 1024w" sizes="(max-width: 1160px) 100vw, 1160px" /></p>
+<p>案例：获取</p>
+<p><img loading="lazy" decoding="async" width="1250" height="447" src="/wp-content/uploads/2018/05/word-image-4383.png" class="wp-image-4865" srcset="/wp-content/uploads/2018/05/word-image-4383.png 1250w, /wp-content/uploads/2018/05/word-image-4383-300x107.png 300w, /wp-content/uploads/2018/05/word-image-4383-768x275.png 768w, /wp-content/uploads/2018/05/word-image-4383-1024x366.png 1024w" sizes="(max-width: 1250px) 100vw, 1250px" /></p>
+<h2>使用第三方软件上传下载</h2>
+<h3>端口</h3>
+<p>MySQL 	3306</p>
+<p>Apache  80</p>
+<p>FTP  	  21</p>
+<p>SFTP   22</p>
+<p>SCP    22</p>
+<h3>2）putty</h3>
+<p><img loading="lazy" decoding="async" width="623" height="464" src="/wp-content/uploads/2018/05/word-image-4384.png" class="wp-image-4866" srcset="/wp-content/uploads/2018/05/word-image-4384.png 623w, /wp-content/uploads/2018/05/word-image-4384-300x223.png 300w" sizes="(max-width: 623px) 100vw, 623px" /><br />
+<img loading="lazy" decoding="async" width="870" height="532" src="/wp-content/uploads/2018/05/word-image-4385.png" class="wp-image-4867" srcset="/wp-content/uploads/2018/05/word-image-4385.png 870w, /wp-content/uploads/2018/05/word-image-4385-300x183.png 300w, /wp-content/uploads/2018/05/word-image-4385-768x470.png 768w" sizes="(max-width: 870px) 100vw, 870px" /><br />
+<img loading="lazy" decoding="async" width="590" height="421" src="/wp-content/uploads/2018/05/word-image-4386.png" class="wp-image-4868" srcset="/wp-content/uploads/2018/05/word-image-4386.png 590w, /wp-content/uploads/2018/05/word-image-4386-300x214.png 300w" sizes="(max-width: 590px) 100vw, 590px" /></p>
+<h3>3）WinSCP（sftp、scp）</h3>
+<p><img loading="lazy" decoding="async" width="757" height="558" src="/wp-content/uploads/2018/05/word-image-4387.png" class="wp-image-4869" srcset="/wp-content/uploads/2018/05/word-image-4387.png 757w, /wp-content/uploads/2018/05/word-image-4387-300x221.png 300w" sizes="(max-width: 757px) 100vw, 757px" /><br />
+<img loading="lazy" decoding="async" width="609" height="575" src="/wp-content/uploads/2018/05/word-image-4388.png" class="wp-image-4870" srcset="/wp-content/uploads/2018/05/word-image-4388.png 609w, /wp-content/uploads/2018/05/word-image-4388-300x283.png 300w" sizes="(max-width: 609px) 100vw, 609px" /></p>
+<h1>Linux系统软件的安装与卸载</h1>
+<h2>1、Window常见安装软件方法</h2>
+<ol>
+<li>
+  下载软件：本地双击安装</li>
+<li>
+  杀毒软件：傻瓜式一键安装</li>
+</ol>
+<h2>2、Linux常见安装软件方法</h2>
+<p>1、rpm安装：下载rpm软件包，（rpm是二进制软件包，后缀.rpm）</p>
+<p>rmp安装快，但是安装和卸载有大量依赖</p>
+<ol>
+<li>
+  源代码编译安装：下载源代码软件包，（后缀.tar.gz 或者 .tar.bz2）</li>
+</ol>
+<p>安装慢，但是自定义强</p>
+<ol>
+<li>
+  yum安装：相当于杀毒软件傻瓜式一键安装</li>
+</ol>
+<p>必须上网，不能指定安装目录</p>
+<h2>3、rpm、yum和 源代码编译 方式优缺点</h2>
+<h3>1）二进制软件包（rpm）</h3>
+<p>说明：安装简单，安装速度快</p>
+<p>缺点：自定义性差，依赖性强</p>
+<p>举例：比如安装 A 软件，提示先要安装B软件，安装B软件，又提示先安装C软件，安装C软件，又提示先安装D软件。</p>
+<h3>2）源代码编译安装 （后缀.tar.gz 或者 .tar.bz2）</h3>
+<p>说明：开源，自由定制</p>
+<p>缺点：编译时间较长（先将源代码-&gt;编译-&gt;二进制文件-&gt;安装），一旦报错解决困难。</p>
+<h3>3）智能 yum方式</h3>
+<p>说明：要求服务器有网络，不灵活，不可以设置自己需要的具体软件版本。</p>
+<p>例如:</p>
+<p>安装PHP：【yum -y install php】</p>
+<p>安装Git：【 yum -y install git】</p>
+<p>安装vim：【yum -y install vim 】</p>
+<p>卸载软件：yum -y remove 包名</p>
+<h2>二进制软件包和源代码编译安装命令</h2>
+<h3>1）rpm命令</h3>
+<p>安装： rpm -ivh 包全名</p>
+<p>说明： i-安装（install）， v -详细信息， h-安装进度</p>
+<p>卸载： rpm -e 包全名 （注：&#8211;nodeps 强制卸载）</p>
+<p>查看所有rpm所有安装软件：rpm -qa 名称  （query   all）</p>
+<p>查看指定软件是否安装：rpm -qa |  grep  搜索的名称</p>
+<h3>2）tar命令</h3>
+<ul>
+<li>
+    说明：tar.gz和tar.bz2相当于win的zip和rar格式</li>
+<li>
+    【 .tar.gz】解压命令：tar -zxvf 包名</li>
+<li>
+    【 .tar.gz】压缩命令：tar -zcvf 包名  待打包的文件</li>
+<li>
+    【.tar.bz2】解压命令：tar -jxvf 包名</li>
+<li>
+    【.tar.bz2】压缩命令：tar -jcvf  包名  待打包的文件</li>
+<li>
+    参数：</li>
+<li>
+    z &#8211; 代表tar.gz    j &#8211; 代表tar.bz2</li>
+<li>
+    x &#8211; 解压 			c  &#8211; 打包</li>
+<li>
+    v &#8211; 显示详细信息</li>
+<li>
+    f &#8211; 后面必须写包名</li>
+</ul>
+<h1>三、挂载</h1>
+<h2>1、什么是挂载</h2>
+<p>在Linux插入外部设备无法直接访问，需要通过手动挂载到指定目录中才可以查看</p>
+<p>挂载：因为外部设备在Linux中变成文件，我们需要获取外部设备里面的东西，就通过映射文件到指定目录，从而获取的表现称之为挂载</p>
+<h2>语法</h2>
+<p>挂载：mount  挂载文件  挂载目录</p>
+<p>取消：umount 已挂载目录</p>
+<h2>通过挂载光驱安装firefox</h2>
+<ul>
+<li>
+    连接光驱</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="378" height="321" src="/wp-content/uploads/2018/05/word-image-4389.png" class="wp-image-4871" srcset="/wp-content/uploads/2018/05/word-image-4389.png 378w, /wp-content/uploads/2018/05/word-image-4389-300x255.png 300w" sizes="(max-width: 378px) 100vw, 378px" /><br />
+<img loading="lazy" decoding="async" width="907" height="693" src="/wp-content/uploads/2018/05/word-image-4390.png" class="wp-image-4872" srcset="/wp-content/uploads/2018/05/word-image-4390.png 907w, /wp-content/uploads/2018/05/word-image-4390-300x229.png 300w, /wp-content/uploads/2018/05/word-image-4390-768x587.png 768w" sizes="(max-width: 907px) 100vw, 907px" /></p>
+<ul>
+<li>
+    创建挂载目录并挂载</li>
+</ul>
+<p>mkdir /mnt/php12</p>
+<p>mount /dev/cdrom /mnt/php12</p>
+<p>cd /mnt/php12</p>
+<p>ls | grep firefox</p>
+<ul>
+<li>
+    测试安装挂载目录中的Firefox（rpm包）</li>
+</ul>
+<p>步骤1：先卸载</p>
+<p><img loading="lazy" decoding="async" width="894" height="552" src="/wp-content/uploads/2018/05/word-image-4391.png" class="wp-image-4873" srcset="/wp-content/uploads/2018/05/word-image-4391.png 894w, /wp-content/uploads/2018/05/word-image-4391-300x185.png 300w, /wp-content/uploads/2018/05/word-image-4391-768x474.png 768w" sizes="(max-width: 894px) 100vw, 894px" /></p>
+<p>步骤2：安装</p>
+<p>rpm -ivh 包全名 （注：如何知道包全名  【rpm -qa | grep firefox】 #搜索一下）</p>
+<h1>上午总结</h1>
+<p>一、虚拟主机</p>
+<p>&amp;网页快速拨号：&lt;a href=&#8221;tel:1665466545&#8243;&gt;手机打开点击拨号&lt;/a&gt;</p>
+<p>&amp;页面广告，可以用js移除</p>
+<p>&amp;虚拟主机老程序员喜欢叫（空间） 云服务器老程序叫（vps）</p>
+<p>&amp;js验证后可以非法操作，所以php务必验证</p>
+<p>&amp;网页分享插件，如：百度分享等</p>
+<p>===================================================</p>
+<p>【本地给linux上传文件】</p>
+<p>二、SSH</p>
+<p>SSH协议：加密传输</p>
+<p>FTP协议：明文传输</p>
+<p>SFTP协议：基于SSH协议，加密传输文件</p>
+<p>SCP协议：基于SSH协议，加密传输文件</p>
+<p>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-</p>
+<p>SCP和SFTP区别：SFTP功能比SCP强大，SFPT支持断点续传</p>
+<p>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;</p>
+<p>【SFTP命令】</p>
+<p>登录：sftp 账号@服务器ip地址 （注：回车后输入密码）</p>
+<p>上传：put  本地文件  远程文件</p>
+<p>获取：get  远程文件  本地文件</p>
+<p>退出：quit 或 exit</p>
+<p>留心：-r 递归， . 表示全部文件</p>
+<p>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;</p>
+<p>【SCP命令】</p>
+<p>上传：scp 本地文件 账号@服务器ip地址:远程文件</p>
+<p>获取：scp 账号@服务器ip地址:远程文件 本地文件</p>
+<p>留心：-r 递归， * 表示全部文件</p>
+<p>===================================================</p>
+<p>【Linux如何安装软件】</p>
+<p>#window有两种，分别为： 手动下载软件到本地双击安装，或通过杀毒软件的软件管家</p>
+<p>#linux有三种：</p>
+<p>1）rpm包安装（后缀是rpm）：好处快，瑕疵依赖强</p>
+<p>2）源代码包（后缀tar.gz或tar.bz2）：好处自已强，坏处安装慢麻烦</p>
+<p>3）yum安装（相当于win软件管家）：需要上网，并且不能自定义</p>
+<p>【Linux安装软件命令】</p>
+<p>#yum命令</p>
+<p>安装：yum -y install 名称</p>
+<p>卸载：yum -y remove  名称</p>
+<p>#rpm</p>
+<p>安装：rpm -ivh 包全名 （i 安装，v 详细信息 h 进度）</p>
+<p>卸载：rpm -e 包全名   （注：强制删除 &#8211;nodeps）</p>
+<p>查看所有包：rpm -qa    （q query   a all）</p>
+<p>查看指定包：rpm -qa | grep 搜索的关键词包名</p>
+<p>#源代码包（相当于win的zip或者rar文件）</p>
+<p>【tar.gz】解压：tar -zxvf   包名.tar.gz</p>
+<p>【tar.gz】打包：tar -zcvf   包名.tar.gz  待打包文件</p>
+<p>【tar.bz2】解压：tar -jxcf  包名.tar.bz2</p>
+<p>【tar.bz2】打包：tar -jcvf   包名.tar.bz2  待打包文件</p>
+<p>参数：</p>
+<p>z &#8211; tar.gz包   j &#8211; tar.bz2包</p>
+<p>x &#8211; 解压       c &#8211; 打包</p>
+<p>v &#8211; 信息</p>
+<p>f &#8211; 必须后面写包名</p>
+<p>=====================================</p>
+<p>挂载：因为linux硬件皆文件，当光盘连接时候无法获取里面的内容，这时候</p>
+<p>通过将文件映射到目录中方可获取，这种表现叫挂载</p>
+<p>挂载命令：mount 文件  挂载目录</p>
+<p>取消挂载：umount 挂载目录</p>
+<p>案例：测试firefox</p>
+<h1>四、LAMP安装（带注释）</h1>
+<h2>1、准备</h2>
+<h3>1）关闭防火墙</h3>
+<ul>
+<li>
+    说明</li>
+</ul>
+<p>一台计算机访问另一台计算机上的软件必须必须关闭防火墙或者添加防火墙例外</p>
+<ul>
+<li>
+    关闭防火墙（学习）</li>
+</ul>
+<p>service iptables stop</p>
+<ul>
+<li>
+    添加防火墙例外（线上）</li>
+</ul>
+<p>#打开文件</p>
+<p>vim /etc/sysconfig/iptables</p>
+<p>#输入下属代码，分别设置80、3306防火墙例外</p>
+<p>-A INPUT -m state &#8211;state NEW -m tcp -p tcp &#8211;dport 80 -j ACCEPT</p>
+<p>-A INPUT -m state &#8211;state NEW -m tcp -p tcp &#8211;dport 3306 -j ACCEPT</p>
+<p><img loading="lazy" decoding="async" width="567" height="217" src="/wp-content/uploads/2018/05/word-image-4392.png" class="wp-image-4874" srcset="/wp-content/uploads/2018/05/word-image-4392.png 567w, /wp-content/uploads/2018/05/word-image-4392-300x115.png 300w" sizes="(max-width: 567px) 100vw, 567px" /></p>
+<h3>2）卸载默认安装apache 、mysql</h3>
+<ul>
+<li>
+    说明：Linux或者MAC系统安装时自带PHP运行环境</li>
+<li>
+    语法：rpm -e 包名 &#8211;nodeps</li>
+<li>
+    参数：&#8211;nodeps可选参数，Linux存在文件依赖通过该参数可进行强力删除</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="839" height="320" src="/wp-content/uploads/2018/05/word-image-4393.png" class="wp-image-4875" srcset="/wp-content/uploads/2018/05/word-image-4393.png 839w, /wp-content/uploads/2018/05/word-image-4393-300x114.png 300w, /wp-content/uploads/2018/05/word-image-4393-768x293.png 768w" sizes="(max-width: 839px) 100vw, 839px" /></p>
+<h3>3）环境目录说明（便于后期管理）</h3>
+<p># 创建目录</p>
+<p>mkdir -p /php/tools</p>
+<p>mkdir -p /php/wwwroot</p>
+<p>mkdir -p /php/server/php</p>
+<p>mkdir -p /php/server/mysql</p>
+<p>mkdir -p /php/server/apache</p>
+<p>mkdir -p /php/server/data  # MySQL数据存放目录</p>
+<p><img loading="lazy" decoding="async" width="601" height="228" src="/wp-content/uploads/2018/05/word-image-4394.png" class="wp-image-4876" srcset="/wp-content/uploads/2018/05/word-image-4394.png 601w, /wp-content/uploads/2018/05/word-image-4394-300x114.png 300w" sizes="(max-width: 601px) 100vw, 601px" /></p>
+<h2>安装说明</h2>
+<p>Window     Apache -&gt; PHP -&gt; MySQL （MySQL配置麻烦）</p>
+<p>Linux      MySQL -&gt; Apache -&gt; PHP  （PHP依赖GD2麻烦）</p>
+<h2>安装MySQL</h2>
+<h3>安装cmake</h3>
+<p><em>shell&gt;</em>  cd /php/tools/mysql   				#进入tools目录</p>
+<p><em>shell&gt;</em>  tar zxvf cmake-2.8.5.tar.gz        #解压cmake安装包</p>
+<p><em>shell&gt;</em>  cd cmake-2.8.5 					   #进入解压目录</p>
+<p><em>shell&gt;</em>  ./bootstrap</p>
+<p><img loading="lazy" decoding="async" width="1037" height="566" src="/wp-content/uploads/2018/05/word-image-4395.png" class="wp-image-4877" srcset="/wp-content/uploads/2018/05/word-image-4395.png 1037w, /wp-content/uploads/2018/05/word-image-4395-300x164.png 300w, /wp-content/uploads/2018/05/word-image-4395-768x419.png 768w, /wp-content/uploads/2018/05/word-image-4395-1024x559.png 1024w" sizes="(max-width: 1037px) 100vw, 1037px" /></p>
+<p><em>shell&gt;</em>  make &amp;&amp; make install			   #源代码文件 -&gt; 进行编译 -&gt; 二进制文  &amp;&amp; 安装</p>
+<p><img loading="lazy" decoding="async" width="532" height="239" src="/wp-content/uploads/2018/05/word-image-4396.png" class="wp-image-4878" srcset="/wp-content/uploads/2018/05/word-image-4396.png 532w, /wp-content/uploads/2018/05/word-image-4396-300x135.png 300w" sizes="(max-width: 532px) 100vw, 532px" /></p>
+<h3>2）安装ncurses-devel（MySQL依赖）</h3>
+<p><em>shell&gt;</em>  cd /php/tools/mysql   								   #进入tools目录</p>
+<p><em>shell&gt;</em>  rpm -ivh ncurses-devel-5.7-3.20090208.el6.i686.rpm  	#通过rpm命令安装</p>
+<p><img loading="lazy" decoding="async" width="1251" height="291" src="/wp-content/uploads/2018/05/word-image-4397.png" class="wp-image-4879" srcset="/wp-content/uploads/2018/05/word-image-4397.png 1251w, /wp-content/uploads/2018/05/word-image-4397-300x70.png 300w, /wp-content/uploads/2018/05/word-image-4397-768x179.png 768w, /wp-content/uploads/2018/05/word-image-4397-1024x238.png 1024w" sizes="(max-width: 1251px) 100vw, 1251px" /></p>
+<h3>3）安装MySQL</h3>
+<p><em>shell&gt;</em>  cd /php/tools/mysql   					    #进入tools目录</p>
+<p><em>shell&gt;</em>  tar -zxvf mysql-5.6.35.tar.gz  				 #解压MySQL安装包</p>
+<p><em>shell&gt;</em>  cd mysql-5.6.35  						 	 #进入解压目录</p>
+<p><em>shell&gt;</em>  												 #配置</p>
+<p>cmake \</p>
+<p>-DCMAKE_INSTALL_PREFIX=/php/server/mysql \</p>
+<p>-DMYSQL_DATADIR=/php/server/data \</p>
+<p>-DDEFAULT_CHARSET=utf8 \</p>
+<p>-DDEFAULT_COLLATION=utf8_general_ci</p>
+<p><img loading="lazy" decoding="async" width="641" height="338" src="/wp-content/uploads/2018/05/word-image-4398.png" class="wp-image-4880" srcset="/wp-content/uploads/2018/05/word-image-4398.png 641w, /wp-content/uploads/2018/05/word-image-4398-300x158.png 300w" sizes="(max-width: 641px) 100vw, 641px" /></p>
+<p><em>shell&gt;</em>  make &amp;&amp; make install		#源代码文件 -&gt; 进行编译 -&gt; 二进制文  &amp;&amp; 安装</p>
+<p><img loading="lazy" decoding="async" width="567" height="428" src="/wp-content/uploads/2018/05/word-image-4399.png" class="wp-image-4881" srcset="/wp-content/uploads/2018/05/word-image-4399.png 567w, /wp-content/uploads/2018/05/word-image-4399-300x226.png 300w" sizes="(max-width: 567px) 100vw, 567px" /></p>
+<ul>
+<li>
+    复制配置文件 并 修改</li>
+</ul>
+<p><strong>#步骤1：</strong>复制配置文件</p>
+<p>\cp -f support-files/my-default.cnf /etc/my.cnf</p>
+<p><strong>#步骤2：</strong>修改配置文件声明MySQL数据存放目录</p>
+<p>#打开/etc/my.cnf文件</p>
+<p>vi /etc/my.cnf</p>
+<p>#在[mysqld]下设置这一行：datadir = /php/server/data</p>
+<p><img loading="lazy" decoding="async" width="539" height="427" src="/wp-content/uploads/2018/05/word-image-4400.png" class="wp-image-4882" srcset="/wp-content/uploads/2018/05/word-image-4400.png 539w, /wp-content/uploads/2018/05/word-image-4400-300x238.png 300w" sizes="(max-width: 539px) 100vw, 539px" /></p>
+<ul>
+<li>
+    创建MySQL用户组并创建用户加入用户组</li>
+</ul>
+<p>groupadd mysql</p>
+<p>useradd -g mysql <strong>-s /sbin/nologin</strong> mysql</p>
+<ul>
+<li>
+    将mysql文件的拥有者改为mysql组的mysql用户</li>
+</ul>
+<p>chown -R mysql:mysql /php/server/data/</p>
+<p>chown -R mysql:mysql /php/server/mysql/</p>
+<p>#说明：工作中需要管理mysql 通过root用户显然权限太大，所以单独新建mysql用户管理（后面等初始化数据后，将msyql安装目录的主人改为root用户，因为生产环境中只需要针对 data 数据目录有写权限）</p>
+<ul>
+<li>
+    初始化数据库</li>
+</ul>
+<p>/php/server/mysql/scripts/mysql_install_db \</p>
+<p>&#8211;basedir=/php/server/mysql \</p>
+<p>&#8211;datadir=/php/server/data \</p>
+<p>&#8211;user=mysql</p>
+<p><img loading="lazy" decoding="async" width="559" height="494" src="/wp-content/uploads/2018/05/word-image-4401.png" class="wp-image-4883" srcset="/wp-content/uploads/2018/05/word-image-4401.png 559w, /wp-content/uploads/2018/05/word-image-4401-300x265.png 300w" sizes="(max-width: 559px) 100vw, 559px" /></p>
+<ul>
+<li>
+    把mysql安装文件(除了data)的主人都改为root，避免数据库恢复为出厂设置。</li>
+</ul>
+<p>chown -R root /php/server/mysql</p>
+<ul>
+<li>
+    &amp;后台运行mysql服务</li>
+</ul>
+<p>/php/server/mysql/bin/mysqld_safe &#8211;user=mysql &amp;</p>
+<p><img loading="lazy" decoding="async" width="914" height="153" src="/wp-content/uploads/2018/05/word-image-4402.png" class="wp-image-4884" srcset="/wp-content/uploads/2018/05/word-image-4402.png 914w, /wp-content/uploads/2018/05/word-image-4402-300x50.png 300w, /wp-content/uploads/2018/05/word-image-4402-768x129.png 768w" sizes="(max-width: 914px) 100vw, 914px" /></p>
+<ul>
+<li>
+    查看mysql是否有启动</li>
+</ul>
+<p>ps -A | grep mysql</p>
+<p><img loading="lazy" decoding="async" width="387" height="62" src="/wp-content/uploads/2018/05/word-image-4403.png" class="wp-image-4885" srcset="/wp-content/uploads/2018/05/word-image-4403.png 387w, /wp-content/uploads/2018/05/word-image-4403-300x48.png 300w" sizes="(max-width: 387px) 100vw, 387px" /></p>
+<ul>
+<li>
+    初始化，设置root帐户的密码</li>
+</ul>
+<p>#初始化数据</p>
+<p>/php/server/mysql/bin/mysql -uroot -p</p>
+<p>drop database test; 					   &#8212; 删除测试数据库</p>
+<p>delete from mysql.user where user=&#8221;;   &#8212; 删除本机匿名连接的空密码帐号</p>
+<p># 修改密码</p>
+<p>update mysql.user set password=password(&#8216;admin888&#8242;) where user=&#8217;root&#8217;;</p>
+<p>flush privileges;</p>
+<p>多学一招：忘记密码，强制修改密</p>
+<p>1、打开mysql配置文件</p>
+<p>&gt;  vi /etc/my.cnf</p>
+<p>2、在[mysqld]下一行添加  skip-grant-tables</p>
+<p>3、重启mysql服务 （查看服务进程，结束进程，启动服务）</p>
+<p>4、重新登陆mysql（因为上面的操作，这时密码为空）</p>
+<p>5、修改密码</p>
+<p>6、删除mysql配置文件：my.cnf 中刚添加的： skip-grant-tables</p>
+<p>7、再重启 msyql服务即可</p>
+<h2>安装Apache</h2>
+<h3>1）安装zlib</h3>
+<p><em>shell&gt;</em>  cd /php/tools/apache  				  #进入tools目录</p>
+<p><em>shell&gt;</em>  tar zxvf zlib-1.2.5.tar.gz 				  #解压zlib安装包</p>
+<p><em>shell&gt;</em>  cd zlib-1.2.5   						  #进入解压目录</p>
+<p><em>shell&gt;</em>  ./configure   						 	  #这个配置编译命令不要加目录参数</p>
+<p><em>shell&gt;</em>  make &amp;&amp; make install				  #源代码文件 -&gt; 进行编译 -&gt; 二进制文  &amp;&amp; 安装</p>
+<p><img loading="lazy" decoding="async" width="680" height="231" src="/wp-content/uploads/2018/05/word-image-4404.png" class="wp-image-4886" srcset="/wp-content/uploads/2018/05/word-image-4404.png 680w, /wp-content/uploads/2018/05/word-image-4404-300x102.png 300w" sizes="(max-width: 680px) 100vw, 680px" /></p>
+<h3>2）安装apache</h3>
+<p><em>shell&gt;</em>  cd /php/tools/apache  				  #进入tools目录</p>
+<p><em>shell&gt;</em>  tar  -jxvf  httpd-2.2.19.tar.bz2		  #解压apache安装包</p>
+<p><em>shell&gt;</em>  cd httpd-2.2.19		  				  #进入解压目录</p>
+<p><em>shell&gt;</em> 							  				  #配置</p>
+<p>./configure &#8211;prefix=/php/server/apache \</p>
+<p>&#8211;enable-modules=all \</p>
+<p>&#8211;enable-mods-shared=all \</p>
+<p>&#8211;enable-so</p>
+<p><img loading="lazy" decoding="async" width="450" height="314" src="/wp-content/uploads/2018/05/word-image-4405.png" class="wp-image-4887" srcset="/wp-content/uploads/2018/05/word-image-4405.png 450w, /wp-content/uploads/2018/05/word-image-4405-300x209.png 300w" sizes="(max-width: 450px) 100vw, 450px" /></p>
+<p><em>shell&gt;</em>  make &amp;&amp; make install		 #源代码文件 -&gt; 进行编译 -&gt; 二进制文  &amp;&amp; 安装</p>
+<p><img loading="lazy" decoding="async" width="477" height="371" src="/wp-content/uploads/2018/05/word-image-4406.png" class="wp-image-4888" srcset="/wp-content/uploads/2018/05/word-image-4406.png 477w, /wp-content/uploads/2018/05/word-image-4406-300x233.png 300w" sizes="(max-width: 477px) 100vw, 477px" /></p>
+<p>说明：</p>
+<p>&#8211;enable-modules=all          // 编译所有模块</p>
+<p>&#8211;enable-mods-shared=all 	         // 动态编译，动态加载所有模块，httpd.conf中默认会动态加载51个模块（以LoadModule 开始的方式）</p>
+<p>&#8211;enable-so		 // 参数是使httpd服务能够动态加载模块功能，让&nbsp;Apache&nbsp;可以支持DSO模式，注意，这里采用的是&nbsp;Apache2.0&nbsp;的语法。如果你的Apache&nbsp;是1.3版本，应改为&#8211;enable-module=so（打开 so 模块，so 模块是用来提 DSO 支持的 apache 核心模块）</p>
+<p><img loading="lazy" decoding="async" width="631" height="239" src="/wp-content/uploads/2018/05/word-image-4407.png" class="wp-image-4889" srcset="/wp-content/uploads/2018/05/word-image-4407.png 631w, /wp-content/uploads/2018/05/word-image-4407-300x114.png 300w" sizes="(max-width: 631px) 100vw, 631px" /></p>
+<p>【静态编译和动态编译】</p>
+<p>静态编译其实就是编译的时候所有的模块自己编译进httpd&nbsp;这个文件中，启动的时候这些模块就已经加载进来了，也就是可以使用了，通常：&lt;ifmodule&gt; &lt;/ifmodule&gt;&nbsp;来配置。所以大家看到的配置都是&lt;ifmodule&nbsp;&nbsp;module.c&gt;，很显然，module.c这个东西已经存在httpd这个文件中了。</p>
+<p>那么动态显然就不编译进去了，也就是你启动的时候根本不会加载这个模块，&nbsp;而是给你一个module.so&nbsp;文件，你一定要使用&nbsp;LoadModule这个语法来加载，这个模块才有效。</p>
+<p>区别：静态的模块通常是在httpd.conf文件中使用&lt;ifmodule&gt;&lt;/ifmodule&gt;&nbsp;来配置，&nbsp;动态使用LoadMoule来加载，然后再配置。</p>
+<h3>■启动Apache</h3>
+<ul>
+<li>
+    shell&gt;  /php/server/apache/bin/apachectl <strong>start</strong>/<strong>stop</strong>/<strong>restart</strong></li>
+</ul>
+<p>httpd: Could not reliably determine the server&#8217;s fully qualified domain name, using localhost.localdomain for ServerName</p>
+<p>解决：</p>
+<p>#打开apache配置文件</p>
+<p>vi /php/server/apache/conf/httpd.conf</p>
+<p>#修改配置文件</p>
+<p><img loading="lazy" decoding="async" width="381" height="141" src="/wp-content/uploads/2018/05/word-image-4408.png" class="wp-image-4890" srcset="/wp-content/uploads/2018/05/word-image-4408.png 381w, /wp-content/uploads/2018/05/word-image-4408-300x111.png 300w" sizes="(max-width: 381px) 100vw, 381px" /></p>
+<p>#重启apache</p>
+<p>/php/server/apache/bin/apachectl restart</p>
+<h3>■测试</h3>
+<p>浏览器打开: http://虚拟机IP/</p>
+<p>看到 &#8220;it works!&#8221;,即为成功</p>
+<h3>■配置虚拟主机</h3>
+<ul>
+<li><strong>步骤1：配置host文件</strong></li>
+</ul>
+<p>打开C:/windows/system32/drivers/etc/hosts 文件</p>
+<p>增加域名记录</p>
+<p>如：</p>
+<p>192.168.xxx.xxx	 <a href="/goto/s96l" rel="nofollow">www.one.com</a></p>
+<p>192.168.xxx.xxx	 <a href="/goto/l9kv" rel="nofollow">www.two.com</a></p>
+<ul>
+<li><strong>步骤2：增加虚拟主机</strong></li>
+</ul>
+<p>vi  /php/server/apache/conf/httpd.conf</p>
+<p>引入自定义虚拟主机</p>
+<p>Include conf.d/*.conf</p>
+<p>保存退出</p>
+<p>【增加虚拟主机记录1】</p>
+<p>vi /php/server/apache/conf.d/one.conf</p>
+<p>NameVirtualHost *:80</p>
+<p>&lt;VirtualHost *:80&gt;</p>
+<p># 需要绑定的域名（改1）</p>
+<p>ServerName www.one.com</p>
+<p># 绑定多个域名</p>
+<p># 设置默认的访问的页面</p>
+<p>DirectoryIndex index.php index.html index.htm</p>
+<p># 指定网站/站点目录(虚拟主机)（改2）</p>
+<p>DocumentRoot &#8220;/php/wwwroot/one/&#8221;</p>
+<p># 指定目录的权限（改3）</p>
+<p>&lt;Directory &#8220;/php/wwwroot/one/&#8221;&gt;</p>
+<p># 如果首页不存在，则显示目录列表（Options Indexes FollowSymLinks）</p>
+<p>Options Indexes FollowSymLinks</p>
+<p># 允许哪些IP访问虚拟主机</p>
+<p>Allow from All</p>
+<p>&lt;/Directory&gt;</p>
+<p>&lt;/VirtualHost&gt;</p>
+<p>【增加虚拟主机记录2】</p>
+<p>vi /php/server/apache/conf.d/two.conf</p>
+<p>&lt;VirtualHost *:80&gt;</p>
+<p># 需要绑定的域名（改1）</p>
+<p>ServerName www.two.com</p>
+<p># 绑定多个域名</p>
+<p># 设置默认的访问的页面</p>
+<p>DirectoryIndex index.php index.html index.htm</p>
+<p># 指定网站/站点目录(虚拟主机)（改2）</p>
+<p>DocumentRoot &#8220;/php/wwwroot/two/&#8221;</p>
+<p># 指定目录的权限（改3）</p>
+<p>&lt;Directory &#8220;/php/wwwroot/two/&#8221;&gt;</p>
+<p># 如果首页不存在，则显示目录列表（Options Indexes FollowSymLinks）</p>
+<p>Options Indexes FollowSymLinks</p>
+<p># 允许哪些IP访问虚拟主机</p>
+<p>Allow from All</p>
+<p>&lt;/Directory&gt;</p>
+<p>&lt;/VirtualHost&gt;</p>
+<ul>
+<li><strong>步骤3：重启apache</strong></li>
+</ul>
+<p>/php/server/apache/bin/apachectl restart</p>
+<ul>
+<li><strong>步骤4：浏览器打开www.one.com,和www.two.com</strong></li>
+</ul>
+<p>看到不同的网站内容，虚拟主机创建完毕！</p>
+<h2>安装PHP</h2>
+<h3>■说明：安装图形库,为编译PHP做准备</h3>
+<p>libxml2-2.7.2.tar.gz</p>
+<p>jpegsrc.v8b.tar.gz</p>
+<p>libpng-1.4.3.tar.gz</p>
+<p>freetype-2.4.1.tar.gz</p>
+<p>gd-2.0.35.tar.gz</p>
+<h3>1）安装libxml2</h3>
+<p><em>shell&gt;</em>  cd /php/tools/php</p>
+<p><em>shell&gt;</em>  tar zxvf libxml2-2.7.2.tar.gz</p>
+<p><em>shell&gt;</em>  cd libxml2-2.7.2</p>
+<p><em>shell&gt;</em>  ./configure &#8211;prefix=/php/server/libxml2  &#8211;without-zlib</p>
+<p><em>shell&gt;</em>  make &amp;&amp; make install</p>
+<p><img loading="lazy" decoding="async" width="509" height="193" src="/wp-content/uploads/2018/05/word-image-4409.png" class="wp-image-4891" srcset="/wp-content/uploads/2018/05/word-image-4409.png 509w, /wp-content/uploads/2018/05/word-image-4409-300x114.png 300w" sizes="(max-width: 509px) 100vw, 509px" /></p>
+<h3>2）安装jpeg8</h3>
+<p><em>shell&gt;</em>  cd /php/tools/php</p>
+<p><em>shell&gt;</em>  tar -zxvf jpegsrc.v8b.tar.gz</p>
+<p><em>shell&gt;</em>  cd jpeg-8b</p>
+<p><em>shell&gt;</em>  ./configure &#8211;prefix=/php/server/jpeg &#8211;enable-shared &#8211;enable-static</p>
+<p><em>shell&gt;</em>  make &amp;&amp; make install</p>
+<p>&#8211;enable-shared  把jpeg需要的函数库程序都编译到该软件里边</p>
+<p>优点：函数调用速度快</p>
+<p>缺点：软件本身比较大</p>
+<p>&#8211;enable-static   静态方式函数处理，需要什么函数，马上include来</p>
+<p>优点：软件本身比较小</p>
+<p>缺点：函数调用速度慢</p>
+<p><img loading="lazy" decoding="async" width="648" height="233" src="/wp-content/uploads/2018/05/word-image-4410.png" class="wp-image-4892" srcset="/wp-content/uploads/2018/05/word-image-4410.png 648w, /wp-content/uploads/2018/05/word-image-4410-300x108.png 300w" sizes="(max-width: 648px) 100vw, 648px" /></p>
+<h3>3）安装libpng</h3>
+<p><em>shell&gt;</em>  cd /php/tools/php</p>
+<p><em>shell&gt;</em>  tar zxvf libpng-1.4.3.tar.gz</p>
+<p><em>shell&gt;</em>  cd libpng-1.4.3</p>
+<p><em>shell&gt;</em>  ./configure &#8211;prefix=/php/server/png</p>
+<p><em>shell&gt;</em>  make &amp;&amp; make install</p>
+<p><img loading="lazy" decoding="async" width="636" height="264" src="/wp-content/uploads/2018/05/word-image-4411.png" class="wp-image-4893" srcset="/wp-content/uploads/2018/05/word-image-4411.png 636w, /wp-content/uploads/2018/05/word-image-4411-300x125.png 300w" sizes="(max-width: 636px) 100vw, 636px" /></p>
+<h3>4）安装freetype(字体库)</h3>
+<p><em>shell&gt;</em>  cd /php/tools/php</p>
+<p><em>shell&gt;</em>  tar zxvf freetype-2.4.1.tar.gz</p>
+<p><em>shell&gt;</em>  cd freetype-2.4.1</p>
+<p><em>shell&gt;</em>  ./configure &#8211;prefix=/php/server/freetype</p>
+<p><em>shell&gt;</em>  make &amp;&amp; make install</p>
+<p><img loading="lazy" decoding="async" width="617" height="229" src="/wp-content/uploads/2018/05/word-image-4412.png" class="wp-image-4894" srcset="/wp-content/uploads/2018/05/word-image-4412.png 617w, /wp-content/uploads/2018/05/word-image-4412-300x111.png 300w" sizes="(max-width: 617px) 100vw, 617px" /></p>
+<h3>5）安装GD库</h3>
+<p><em>shell&gt;</em>  cd /php/tools/php</p>
+<p><em>shell&gt;</em>  tar -zvxf gd-2.0.35.tar.gz</p>
+<p><em>shell&gt;</em>  mkdir -p /php/server/gd</p>
+<p><em>shell&gt;</em>  cd gd-2.0.35</p>
+<p><em>shell&gt;</em>  ./configure &#8211;prefix=/php/server/gd  \</p>
+<p>&#8211;with-jpeg=/php/server/jpeg \</p>
+<p>&#8211;with-png &#8211;with-zlib \</p>
+<p>&#8211;with-freetype=/php/server/freetype</p>
+<p><img loading="lazy" decoding="async" width="558" height="374" src="/wp-content/uploads/2018/05/word-image-4413.png" class="wp-image-4895" srcset="/wp-content/uploads/2018/05/word-image-4413.png 558w, /wp-content/uploads/2018/05/word-image-4413-300x201.png 300w" sizes="(max-width: 558px) 100vw, 558px" /></p>
+<p><em>shell&gt;</em>  make &amp;&amp; make install</p>
+<p><img loading="lazy" decoding="async" width="638" height="370" src="/wp-content/uploads/2018/05/word-image-4414.png" class="wp-image-4896" srcset="/wp-content/uploads/2018/05/word-image-4414.png 638w, /wp-content/uploads/2018/05/word-image-4414-300x174.png 300w" sizes="(max-width: 638px) 100vw, 638px" /></p>
+<h3>6）安装PHP</h3>
+<p><em>shell&gt;</em>  cd /php/tools/php</p>
+<p><em>shell&gt;</em>  tar -zxvf php-5.6.31.tar.gz</p>
+<p><em>shell&gt;</em>  cd php-5.6.31</p>
+<p><em>shell&gt;</em>  配置复制</p>
+<p>./configure &#8211;prefix=/php/server/php \</p>
+<p>&#8211;with-apxs2=/php/server/apache/bin/apxs \</p>
+<p>&#8211;with-mysql=mysqlnd \</p>
+<p>&#8211;with-pdo-mysql=mysqlnd \</p>
+<p>&#8211;with-mysqli=mysqlnd \</p>
+<p>&#8211;with-freetype-dir=/php/server/freetype \</p>
+<p>&#8211;with-gd \</p>
+<p>&#8211;with-zlib &#8211;with-libxml-dir=/php/server/libxml2 \</p>
+<p>&#8211;with-jpeg-dir=/php/server/jpeg \</p>
+<p>&#8211;with-png-dir=/php/server/png \</p>
+<p>&#8211;enable-mbstring=all \</p>
+<p>&#8211;enable-mbregex \</p>
+<p>&#8211;enable-shared</p>
+<p><img loading="lazy" decoding="async" width="566" height="388" src="/wp-content/uploads/2018/05/word-image-4415.png" class="wp-image-4897" srcset="/wp-content/uploads/2018/05/word-image-4415.png 566w, /wp-content/uploads/2018/05/word-image-4415-300x206.png 300w, /wp-content/uploads/2018/05/word-image-4415-220x150.png 220w" sizes="(max-width: 566px) 100vw, 566px" /></p>
+<p>下面是说明</p>
+<p>./configure &#8211;prefix=/php/server/php \</p>
+<p>&#8211;with-apxs2=/php/server/apache/bin/apxs \</p>
+<p><img loading="lazy" decoding="async" width="416" height="66" src="/wp-content/uploads/2018/05/word-image-4416.png" class="wp-image-4898" srcset="/wp-content/uploads/2018/05/word-image-4416.png 416w, /wp-content/uploads/2018/05/word-image-4416-300x48.png 300w" sizes="(max-width: 416px) 100vw, 416px" /></p>
+<p>&#8211;with-mysql=mysqlnd \</p>
+<p>&#8211;with-pdo-mysql=mysqlnd \</p>
+<p>&#8211;with-mysqli=mysqlnd \</p>
+<p>说明：mysqlnd替代mysql安装目录参数值，动态激活php本身的mysql驱动</p>
+<p><img loading="lazy" decoding="async" width="720" height="337" src="/wp-content/uploads/2018/05/word-image-4417.png" class="wp-image-4899" srcset="/wp-content/uploads/2018/05/word-image-4417.png 720w, /wp-content/uploads/2018/05/word-image-4417-300x140.png 300w" sizes="(max-width: 720px) 100vw, 720px" /></p>
+<p>&#8211;with-freetype-dir=/php/server/freetype \</p>
+<p>&#8211;with-gd=/php/server/gd \</p>
+<p>&#8211;with-zlib &#8211;with-libxml-dir=/php/server/libxml2 \</p>
+<p>&#8211;with-jpeg-dir=/php/server/jpeg \</p>
+<p>&#8211;with-png-dir=/php/server/png \</p>
+<p>&#8211;enable-mbstring=all \</p>
+<p># 支持mbstring函数库</p>
+<p>&#8211;enable-mbregex \</p>
+<p># 支持正则表达式</p>
+<p>&#8211;enable-shared</p>
+<p># 生成动态链接库，又称为共享库，即编译时只对库进行简单的引用而不载入程序，在程序运行时才将动态库中的代码载入内存使用，因此使用动态库的程序在运行时需要其相关的动态库都存在。</p>
+<p>linux中，动态库的命名通常是*.so</p>
+<p>（注：扩展说明，有道云：linux c语言开发php扩展）</p>
+<p><em>shell&gt;</em>  make &amp;&amp; make install</p>
+<p><img loading="lazy" decoding="async" width="640" height="357" src="/wp-content/uploads/2018/05/word-image-4418.png" class="wp-image-4900" srcset="/wp-content/uploads/2018/05/word-image-4418.png 640w, /wp-content/uploads/2018/05/word-image-4418-300x167.png 300w" sizes="(max-width: 640px) 100vw, 640px" /></p>
+<h3>■配置Apache支持PHP</h3>
+<ul>
+<li><strong>步骤1：复制php.ini配置文件到指定目录</strong></li>
+</ul>
+<p><em>shell&gt;</em>  \cp -f php.ini-development /php/server/php/lib/php.ini</p>
+<ul>
+<li><strong>步骤2：修改Apache配置文件</strong></li>
+</ul>
+<p><em>shell&gt;</em>  vi /php/server/apache/conf/httpd.conf</p>
+<p>#在httpd.conf(Apache主配置文件)中增加：<strong>AddType application/x-httpd-php .php	</strong></p>
+<p><img loading="lazy" decoding="async" width="412" height="74" src="/wp-content/uploads/2018/05/word-image-4419.png" class="wp-image-4901" srcset="/wp-content/uploads/2018/05/word-image-4419.png 412w, /wp-content/uploads/2018/05/word-image-4419-300x54.png 300w" sizes="(max-width: 412px) 100vw, 412px" /></p>
+<p>#重启apache</p>
+<p><strong>/php/server/apache/bin/apachectl stop</strong></p>
+<p><strong>/php/server/apache/bin/apachectl start</strong></p>
+<p>#再次浏览器查看<strong>http://虚拟机IP/ </strong>如果看到php信息,工作就完成了!</p>
+<h2>■管理</h2>
+<h3>1）MySQL</h3>
+<p>【mysql配置文件】</p>
+<p>/etc/my.cnf</p>
+<p>【开启mysql服务】</p>
+<p>/php/server/mysql/bin/mysqld_safe &#8211;user=mysql &amp;</p>
+<p>【关闭mysql服务】</p>
+<p>ps -A | grep mysql        # 查看mysql进程</p>
+<p>kill -9 进程PID 进程PID   #  结束进程  关闭mysql服务</p>
+<p>【登陆MySQL数据库】</p>
+<p>/php/server/mysql/bin/mysql -uroot -p</p>
+<h3>2）Apache</h3>
+<p>/php/server/apache/bin/apachectl start</p>
+<p>/php/server/apache/bin/apachectl stop</p>
+<p>/php/server/apache/bin/apachectl restart</p>
+<h1>︴扩展：阿里云服务器的操作</h1>
+<h2>1、了解阿里云</h2>
+<h3>1）阿里云</h3>
+<p><a href="/goto/tqwa" rel="nofollow">https://www.aliyun.com/</a> 服务器供应商</p>
+<h3>2）实现注册功能</h3>
+<p>注册网址 <a href="/goto/file" rel="nofollow">https://account.aliyun.com/register/register.htm</a></p>
+<p><img loading="lazy" decoding="async" width="860" height="670" src="/wp-content/uploads/2018/05/word-image-4420.png" class="wp-image-4902" srcset="/wp-content/uploads/2018/05/word-image-4420.png 860w, /wp-content/uploads/2018/05/word-image-4420-300x234.png 300w, /wp-content/uploads/2018/05/word-image-4420-768x598.png 768w" sizes="(max-width: 860px) 100vw, 860px" /></p>
+<h3>3）购买阿里云服务器</h3>
+<p><img loading="lazy" decoding="async" width="777" height="188" src="/wp-content/uploads/2018/05/word-image-4421.png" class="wp-image-4903" srcset="/wp-content/uploads/2018/05/word-image-4421.png 777w, /wp-content/uploads/2018/05/word-image-4421-300x73.png 300w, /wp-content/uploads/2018/05/word-image-4421-768x186.png 768w" sizes="(max-width: 777px) 100vw, 777px" /><br />
+<img loading="lazy" decoding="async" width="1360" height="448" src="/wp-content/uploads/2018/05/word-image-4422.png" class="wp-image-4904" srcset="/wp-content/uploads/2018/05/word-image-4422.png 1360w, /wp-content/uploads/2018/05/word-image-4422-300x99.png 300w, /wp-content/uploads/2018/05/word-image-4422-768x253.png 768w, /wp-content/uploads/2018/05/word-image-4422-1024x337.png 1024w" sizes="(max-width: 1360px) 100vw, 1360px" /></p>
+<p>&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-</p>
+<p><img loading="lazy" decoding="async" width="942" height="437" src="/wp-content/uploads/2018/05/word-image-4423.png" class="wp-image-4905" srcset="/wp-content/uploads/2018/05/word-image-4423.png 942w, /wp-content/uploads/2018/05/word-image-4423-300x139.png 300w, /wp-content/uploads/2018/05/word-image-4423-768x356.png 768w" sizes="(max-width: 942px) 100vw, 942px" /><br />
+<img loading="lazy" decoding="async" width="702" height="157" src="/wp-content/uploads/2018/05/word-image-4424.png" class="wp-image-4906" srcset="/wp-content/uploads/2018/05/word-image-4424.png 702w, /wp-content/uploads/2018/05/word-image-4424-300x67.png 300w" sizes="(max-width: 702px) 100vw, 702px" /><br />
+<img loading="lazy" decoding="async" width="895" height="389" src="/wp-content/uploads/2018/05/word-image-4425.png" class="wp-image-4907" srcset="/wp-content/uploads/2018/05/word-image-4425.png 895w, /wp-content/uploads/2018/05/word-image-4425-300x130.png 300w, /wp-content/uploads/2018/05/word-image-4425-768x334.png 768w" sizes="(max-width: 895px) 100vw, 895px" /><br />
+<img loading="lazy" decoding="async" width="783" height="214" src="/wp-content/uploads/2018/05/word-image-4426.png" class="wp-image-4908" srcset="/wp-content/uploads/2018/05/word-image-4426.png 783w, /wp-content/uploads/2018/05/word-image-4426-300x82.png 300w, /wp-content/uploads/2018/05/word-image-4426-768x210.png 768w" sizes="(max-width: 783px) 100vw, 783px" /><br />
+<img loading="lazy" decoding="async" width="1159" height="628" src="/wp-content/uploads/2018/05/word-image-4427.png" class="wp-image-4909" srcset="/wp-content/uploads/2018/05/word-image-4427.png 1159w, /wp-content/uploads/2018/05/word-image-4427-300x163.png 300w, /wp-content/uploads/2018/05/word-image-4427-768x416.png 768w, /wp-content/uploads/2018/05/word-image-4427-1024x555.png 1024w" sizes="(max-width: 1159px) 100vw, 1159px" /><br />
+<img loading="lazy" decoding="async" width="1297" height="584" src="/wp-content/uploads/2018/05/word-image-4428.png" class="wp-image-4910" srcset="/wp-content/uploads/2018/05/word-image-4428.png 1297w, /wp-content/uploads/2018/05/word-image-4428-300x135.png 300w, /wp-content/uploads/2018/05/word-image-4428-768x346.png 768w, /wp-content/uploads/2018/05/word-image-4428-1024x461.png 1024w" sizes="(max-width: 1297px) 100vw, 1297px" /></p>
+<h2>2、阿里云服务器管理</h2>
+<h3>1）查看阿里云的公网ip</h3>
+<p><img loading="lazy" decoding="async" width="1351" height="423" src="/wp-content/uploads/2018/05/word-image-4429.png" class="wp-image-4911" srcset="/wp-content/uploads/2018/05/word-image-4429.png 1351w, /wp-content/uploads/2018/05/word-image-4429-300x94.png 300w, /wp-content/uploads/2018/05/word-image-4429-768x240.png 768w, /wp-content/uploads/2018/05/word-image-4429-1024x321.png 1024w" sizes="(max-width: 1351px) 100vw, 1351px" /></p>
+<h3>远程管理</h3>
+<p><img loading="lazy" decoding="async" width="1011" height="442" src="/wp-content/uploads/2018/05/word-image-4430.png" class="wp-image-4912" srcset="/wp-content/uploads/2018/05/word-image-4430.png 1011w, /wp-content/uploads/2018/05/word-image-4430-300x131.png 300w, /wp-content/uploads/2018/05/word-image-4430-768x336.png 768w" sizes="(max-width: 1011px) 100vw, 1011px" /></p>
+<h3>重启/开启</h3>
+<p><img loading="lazy" decoding="async" width="1363" height="416" src="/wp-content/uploads/2018/05/word-image-4431.png" class="wp-image-4913" srcset="/wp-content/uploads/2018/05/word-image-4431.png 1363w, /wp-content/uploads/2018/05/word-image-4431-300x92.png 300w, /wp-content/uploads/2018/05/word-image-4431-768x234.png 768w, /wp-content/uploads/2018/05/word-image-4431-1024x313.png 1024w" sizes="(max-width: 1363px) 100vw, 1363px" /><br />
+<img loading="lazy" decoding="async" width="1362" height="411" src="/wp-content/uploads/2018/05/word-image-4432.png" class="wp-image-4914" srcset="/wp-content/uploads/2018/05/word-image-4432.png 1362w, /wp-content/uploads/2018/05/word-image-4432-300x91.png 300w, /wp-content/uploads/2018/05/word-image-4432-768x232.png 768w, /wp-content/uploads/2018/05/word-image-4432-1024x309.png 1024w" sizes="(max-width: 1362px) 100vw, 1362px" /></p>
+<h3>4）重装系统</h3>
+<p><img loading="lazy" decoding="async" width="1123" height="448" src="/wp-content/uploads/2018/05/word-image-4433.png" class="wp-image-4915" srcset="/wp-content/uploads/2018/05/word-image-4433.png 1123w, /wp-content/uploads/2018/05/word-image-4433-300x120.png 300w, /wp-content/uploads/2018/05/word-image-4433-768x306.png 768w, /wp-content/uploads/2018/05/word-image-4433-1024x409.png 1024w" sizes="(max-width: 1123px) 100vw, 1123px" /></p>
+<h2>3、在阿里云上安装lamp环境</h2>
+<p>yum -y install php httpd mysql mysql-server</p>
+<p>http配置文件：/etc/httpd/conf/httpd.conf（AddType application/x-httpd-php .php）</p>
+<p>http管理：service httpd start/stop/restart</p>
+<p>http默认虚拟主机：/var/www/html</p>
+<p>mysql管理：service mysqld start/stop/restart</p>
+<p>修改默认的root密码：/usr/bin/mysqladmin -u root password &#8216;123456&#8217;</p>
+<p>登录mysql：/usr/bin/mysql -u用户名  -p密码</p>
+<h1>︴扩展：工作中常用的指令</h1>
+<h2>【find】命令</h2>
+<ul>
+<li>
+    作用：搜索指定文件</li>
+<li>
+    语法：find 目录 -name 指定文件名</li>
+<li>
+    场景：加入工作，需要查看对应lamp工作目录以及配置文件</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="552" height="144" src="/wp-content/uploads/2018/05/word-image-4434.png" class="wp-image-4916" srcset="/wp-content/uploads/2018/05/word-image-4434.png 552w, /wp-content/uploads/2018/05/word-image-4434-300x78.png 300w" sizes="(max-width: 552px) 100vw, 552px" /></p>
+<h2> 管道“|”  ☆</h2>
+<ul>
+<li>
+    作用：将管道“|”左侧的信息，进行筛选</li>
+<li>
+    语法：#  ls  |  grep  zs</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="530" height="312" src="/wp-content/uploads/2018/05/word-image-4435.png" class="wp-image-4917" srcset="/wp-content/uploads/2018/05/word-image-4435.png 530w, /wp-content/uploads/2018/05/word-image-4435-300x177.png 300w" sizes="(max-width: 530px) 100vw, 530px" /></p>
+<h2>【du -h [路径]】命令</h2>
+<ul>
+<li>
+    作用：查看目录大小</li>
+<li>
+    说明：路径可选参数，默认当前目录</li>
+</ul>
+<h2>【df -h】磁盘占用</h2>
+<p><img loading="lazy" decoding="async" width="585" height="120" src="/wp-content/uploads/2018/05/word-image-4436.png" class="wp-image-4918" srcset="/wp-content/uploads/2018/05/word-image-4436.png 585w, /wp-content/uploads/2018/05/word-image-4436-300x62.png 300w" sizes="(max-width: 585px) 100vw, 585px" /></p>
+<h2> linux下关闭指定软件 ☆</h2>
+<ul>
+<li>
+    ps -A 查看系统活跃进程process</li>
+<li>
+    ps -A | grep 软件   查看指定软件进程</li>
+<li>
+    kill  -9  pid       杀死指定进程</li>
+<li>
+    killall 进程名</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="567" height="258" src="/wp-content/uploads/2018/05/word-image-4437.png" class="wp-image-4919" srcset="/wp-content/uploads/2018/05/word-image-4437.png 567w, /wp-content/uploads/2018/05/word-image-4437-300x137.png 300w" sizes="(max-width: 567px) 100vw, 567px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/linux/4856.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

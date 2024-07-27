@@ -1,0 +1,1166 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Memcache &#8211; 个人随笔</title>
+	<atom:link href="/classify/%E6%95%B0%E6%8D%AE%E5%BA%93/memcache/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 14:32:49 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>Memcache &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Memcache 安装配置(C/S结构)、操作、算法、常见问题、分布式</title>
+		<link>/%e6%95%b0%e6%8d%ae%e5%ba%93/5259.html</link>
+					<comments>/%e6%95%b0%e6%8d%ae%e5%ba%93/5259.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 14:32:49 +0000</pubDate>
+				<category><![CDATA[Memcache]]></category>
+		<category><![CDATA[数据库]]></category>
+		<category><![CDATA[分布式]]></category>
+		<category><![CDATA[安装配置(C/S结构)]]></category>
+		<category><![CDATA[常见问题]]></category>
+		<category><![CDATA[操作]]></category>
+		<category><![CDATA[算法]]></category>
+		<guid isPermaLink="false">/?p=5259</guid>
+
+					<description><![CDATA[NoSQL（Memcache） 一、大型项目优化概述 1、PHP项目执行流程 【简单理解】 读取源码 -》 词 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>NoSQL（Memcache）</h1>
+<h1>一、大型项目优化概述</h1>
+<h2>1、PHP项目执行流程  </h2>
+<p><img fetchpriority="high" decoding="async" width="838" height="306" src="/wp-content/uploads/2018/05/word-image-4760.png" class="wp-image-5260" srcset="/wp-content/uploads/2018/05/word-image-4760.png 838w, /wp-content/uploads/2018/05/word-image-4760-300x110.png 300w, /wp-content/uploads/2018/05/word-image-4760-768x280.png 768w" sizes="(max-width: 838px) 100vw, 838px" /></p>
+<p>
+  【简单理解】
+</p>
+<p>
+  读取源码 -》 词法分析  -》 创建opcode -》 执行opcode 重复创建会增加额外的内存和CPU开销
+</p>
+<p>
+  【解决方案】
+</p>
+<p>
+  安装ZendOptimizer或APC2.0等可以加速PHP代码访问，主要用于缓存opcode而不是每次重复编译减少CPU和内存开销（php5.5+后不需要安装第三方软件，直接开启PHP配置文件中Opcache即可。
+</p>
+</p>
+<p><a href="http://www.cnblogs.com/HD/p/4554455.html">http://www.cnblogs.com/HD/p/4554455.html</a>
+</p>
+</p>
+<h2>2、大型项目优化的方向</h2>
+<h3>1）代码优化 </h3>
+<p>
+  开启opcode缓存
+</p>
+<p>
+  重模型，轻控制器（减少冗余、保证项目完整运行 -&gt; 单元测试）
+</p>
+<p>
+  能用单引号不用双引号，推荐PHP代码统一小驼峰，MySQL推荐下划线命名法
+</p>
+<h3>2）数据库优化</h3>
+<p>
+  架构：读写分离、主从复制
+</p>
+<p>
+  设计：三范式、存储引擎、字段类型
+</p>
+<p>
+  功能：索引、缓存、分区
+</p>
+<h3>缓存优化</h3>
+<p>
+  减少对数据库的操作，将数据保存到文件中或者内存（memcache）中&gt;内存 &gt;  文件（TP的S方法和F方法）  &gt; 数据库
+</p>
+<h3>架构优化</h3>
+<p>
+  负载均衡、集群（动静分离）、读写分离、主从复制、sphinx站内搜索、内存缓存（memcache和redis） 、CDN加速
+</p>
+<h1><a id="post-5259-_Toc477016872"></a>二、了解Memcache</h1>
+<h2><a id="post-5259-_Toc477016873"></a><a id="post-5259-_Toc451441600"></a>1、什么是Memcache</h2>
+<p>
+  Memcache是一个高性能分布式内存缓存服务器。一般的使用目的是，通过缓存数据库查询结果，减少数据库访问次数，以提高动态 Web 应用的速度、提高可扩展性。
+</p>
+<p>
+  集群：多个服务器实现同一个业务
+</p>
+<p>
+  分布式：多个服务器使用不同的的业务
+</p>
+<p>
+  简单概括：就是一软数据库软件，将数据保存到内存中。
+</p>
+<p>
+  将数据保存到内存中，如果电脑关机后数据丢失
+</p>
+<h2><a id="post-5259-_Toc441419437"></a>2、与mysql比较</h2>
+<ul>
+<li>
+    都是C/S架构（client/server）
+  </li>
+<li>
+    MySQL将数据保存在磁盘文件中，Memcache保存在内存中
+  </li>
+<li>
+    MySQL保存数据必须先创建数据库、再创建表最后才可以插入数据，Memcache直
+  </li>
+</ul>
+<p>
+  接插入键值对形式数据，如：数组[键=&gt;值,键=&gt;值]，js对象{键:值,键:值}。
+</p>
+<p>
+  键key   		值value
+</p>
+<p>
+  字串(唯一)    字符串,整数,浮点数,布尔,数组,对象,NULL,二进制数据(图片,视频,音频)
+</p>
+<h1>三、安装与配置Memcached（C/S结构）</h1>
+<h2><a id="post-5259-_Toc448485102"></a>1、服务器端软件安装（win）</h2>
+<h3>查看memcached.exe相关参数（常用参数说明）</h3>
+<ul>
+<li>
+    -l  localhost  				服务器ip地址
+  </li>
+<li>
+    -p  port		 				端口
+  </li>
+<li>
+    -d  install/uninstall/start    服务管理
+  </li>
+<li>
+    -m  memory					内存大小，默认64M
+  </li>
+</ul>
+<h3>1）安装memcache（绿色版：直接解压即可）	</h3>
+<p><img decoding="async" width="1103" height="533" src="/wp-content/uploads/2018/05/word-image-4761.png" class="wp-image-5261" srcset="/wp-content/uploads/2018/05/word-image-4761.png 1103w, /wp-content/uploads/2018/05/word-image-4761-300x145.png 300w, /wp-content/uploads/2018/05/word-image-4761-768x371.png 768w, /wp-content/uploads/2018/05/word-image-4761-1024x495.png 1024w" sizes="(max-width: 1103px) 100vw, 1103px" /></p>
+<p>
+  脚下留心：不能有中文或者空格
+</p>
+<h3>3）安装memcached服务</h3>
+<p>
+  命令：memcached -d install
+</p>
+<p><img decoding="async" width="338" height="170" src="/wp-content/uploads/2018/05/word-image-4762.png" class="wp-image-5262" srcset="/wp-content/uploads/2018/05/word-image-4762.png 338w, /wp-content/uploads/2018/05/word-image-4762-300x151.png 300w" sizes="(max-width: 338px) 100vw, 338px" /></p>
+<p>
+  脚下留心：必须使用管理员身份运行
+</p>
+<h3>4）启用memcached服务</h3>
+<p>
+  命令：memcached -d start
+</p>
+<p>
+  复杂：memcached -l 127.0.0.1 -p 11211 -d start -m 64
+</p>
+<p>
+  说明：处-d外其他参数必须，不写则默认
+</p>
+<p><img loading="lazy" decoding="async" width="545" height="258" src="/wp-content/uploads/2018/05/word-image-4763.png" class="wp-image-5264" srcset="/wp-content/uploads/2018/05/word-image-4763.png 545w, /wp-content/uploads/2018/05/word-image-4763-300x142.png 300w" sizes="(max-width: 545px) 100vw, 545px" /></p>
+<h3>5）检查是否安装成功</h3>
+<p>
+  说明：通过netstat -ano查看端口11211是否存在
+</p>
+<p><img loading="lazy" decoding="async" width="954" height="451" src="/wp-content/uploads/2018/05/word-image-4764.png" class="wp-image-5265" srcset="/wp-content/uploads/2018/05/word-image-4764.png 954w, /wp-content/uploads/2018/05/word-image-4764-300x142.png 300w, /wp-content/uploads/2018/05/word-image-4764-768x363.png 768w" sizes="(max-width: 954px) 100vw, 954px" /></p>
+<h2>2、客户端软件的安装（Telnet服务连接）</h2>
+<h3>1）通过电脑的telnet服务</h3>
+<p>
+  测试系统中是否安装了Telnet服务
+</p>
+<p><img loading="lazy" decoding="async" width="476" height="96" src="/wp-content/uploads/2018/05/word-image-4765.png" class="wp-image-5266" srcset="/wp-content/uploads/2018/05/word-image-4765.png 476w, /wp-content/uploads/2018/05/word-image-4765-300x61.png 300w" sizes="(max-width: 476px) 100vw, 476px" /></p>
+<p>
+  如果弹出以下界面，代表安装了Telnet服务，否则代表电脑中没有安装此服务
+</p>
+<p><img loading="lazy" decoding="async" width="567" height="125" src="/wp-content/uploads/2018/05/word-image-4766.png" class="wp-image-5267" srcset="/wp-content/uploads/2018/05/word-image-4766.png 567w, /wp-content/uploads/2018/05/word-image-4766-300x66.png 300w" sizes="(max-width: 567px) 100vw, 567px" /></p>
+<p>
+  【默认情况下,Win7/Win8/Win10都是没有安装Telnet的，安装步骤如下】
+</p>
+<p>
+  第一步：打开控制面板，找到程序和功能
+</p>
+<p><img loading="lazy" decoding="async" width="796" height="228" src="/wp-content/uploads/2018/05/word-image-4767.png" class="wp-image-5268" srcset="/wp-content/uploads/2018/05/word-image-4767.png 796w, /wp-content/uploads/2018/05/word-image-4767-300x86.png 300w, /wp-content/uploads/2018/05/word-image-4767-768x220.png 768w" sizes="(max-width: 796px) 100vw, 796px" /></p>
+<p>
+  第二步：打开和关闭Windows功能
+</p>
+<p><img loading="lazy" decoding="async" width="741" height="213" src="/wp-content/uploads/2018/05/word-image-4768.png" class="wp-image-5269" srcset="/wp-content/uploads/2018/05/word-image-4768.png 741w, /wp-content/uploads/2018/05/word-image-4768-300x86.png 300w" sizes="(max-width: 741px) 100vw, 741px" /></p>
+<p>
+  第三步：找到Telnet服务进行安装
+</p>
+<p>
+  z
+</p>
+<p><img loading="lazy" decoding="async" width="427" height="211" src="/wp-content/uploads/2018/05/word-image-4769.png" class="wp-image-5270" srcset="/wp-content/uploads/2018/05/word-image-4769.png 427w, /wp-content/uploads/2018/05/word-image-4769-300x148.png 300w" sizes="(max-width: 427px) 100vw, 427px" /></p>
+<p>
+  安装完成后，使用Telnet连接Memcached服务器
+</p>
+<p><img loading="lazy" decoding="async" width="510" height="88" src="/wp-content/uploads/2018/05/word-image-4770.png" class="wp-image-5271" srcset="/wp-content/uploads/2018/05/word-image-4770.png 510w, /wp-content/uploads/2018/05/word-image-4770-300x52.png 300w" sizes="(max-width: 510px) 100vw, 510px" /></p>
+<p>
+  回车，如下图所示，代表连接成功：
+</p>
+<p><img loading="lazy" decoding="async" width="539" height="136" src="/wp-content/uploads/2018/05/word-image-4771.png" class="wp-image-5272" srcset="/wp-content/uploads/2018/05/word-image-4771.png 539w, /wp-content/uploads/2018/05/word-image-4771-300x76.png 300w" sizes="(max-width: 539px) 100vw, 539px" /></p>
+<h3>2）通过putty第三方工具telnet协议</h3>
+<p><img loading="lazy" decoding="async" width="450" height="441" src="/wp-content/uploads/2018/05/word-image-4772.png" class="wp-image-5273" srcset="/wp-content/uploads/2018/05/word-image-4772.png 450w, /wp-content/uploads/2018/05/word-image-4772-300x294.png 300w" sizes="(max-width: 450px) 100vw, 450px" /><br />
+<img loading="lazy" decoding="async" width="561" height="260" src="/wp-content/uploads/2018/05/word-image-4773.png" class="wp-image-5274" srcset="/wp-content/uploads/2018/05/word-image-4773.png 561w, /wp-content/uploads/2018/05/word-image-4773-300x139.png 300w" sizes="(max-width: 561px) 100vw, 561px" /></p>
+<h1>操作Memcached</h1>
+<p><a href="http://www.runoob.com/memcached/memcached-tutorial.html">http://www.runoob.com/memcached/memcached-tutorial.html</a>
+</p>
+<h2>增/改键（set）</h2>
+<ul>
+<li>
+    基本语法：set 键 是否压缩 缓存时间/s 字符长度
+  </li>
+<li>
+    说    明：
+  </li>
+<li>
+    键    	 &#8211; 不能超过250个字符
+  </li>
+<li>
+    是否压缩 &#8211;  1-是，0-否（默认）   注：以空间换时间，以时间换空间
+  </li>
+<li>
+    缓存时间 &#8211;  0-理论永久，最大不超过30天（存满了，重启服务）
+  </li>
+<li>
+    字符长度 &#8211;  先声明回车后输入内容
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="271" height="217" src="/wp-content/uploads/2018/05/word-image-4774.png" class="wp-image-5275" /></p>
+<h2><a id="post-5259-_Toc448485109"></a>获取键值（get）</h2>
+<ul>
+<li>
+    基本语法：get 键
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="230" height="222" src="/wp-content/uploads/2018/05/word-image-4775.png" class="wp-image-5276" /></p>
+<h2><a id="post-5259-_Toc448485110"></a>添加键数据（add）  </h2>
+<ul>
+<li>
+    基本语法：add 键 是否压缩 时间 长度
+  </li>
+<li>
+    说    明：只能添加不能修改
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="375" height="196" src="/wp-content/uploads/2018/05/word-image-4776.png" class="wp-image-5277" srcset="/wp-content/uploads/2018/05/word-image-4776.png 375w, /wp-content/uploads/2018/05/word-image-4776-300x157.png 300w" sizes="(max-width: 375px) 100vw, 375px" /></p>
+<h2>修改键数据（replace）</h2>
+<ul>
+<li>
+    基本语法：replace 键 是否压缩 时间 长度
+  </li>
+<li>
+    说    明：只能修改不能添加
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="366" height="257" src="/wp-content/uploads/2018/05/word-image-4777.png" class="wp-image-5278" srcset="/wp-content/uploads/2018/05/word-image-4777.png 366w, /wp-content/uploads/2018/05/word-image-4777-300x211.png 300w" sizes="(max-width: 366px) 100vw, 366px" /></p>
+<h2>删除键（delete）</h2>
+<ul>
+<li>
+    基本语法：delete 键
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="264" height="227" src="/wp-content/uploads/2018/05/word-image-4778.png" class="wp-image-5279" /></p>
+<h2>删除所有键（flush_all）</h2>
+<ul>
+<li>
+    基本语法：flush_all
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="252" height="532" src="/wp-content/uploads/2018/05/word-image-4779.png" class="wp-image-5280" srcset="/wp-content/uploads/2018/05/word-image-4779.png 252w, /wp-content/uploads/2018/05/word-image-4779-142x300.png 142w" sizes="(max-width: 252px) 100vw, 252px" /></p>
+<h2>递增（incr）</h2>
+<ul>
+<li>
+    基本语法：incr 键 数字
+  </li>
+<li>
+    说    明：返回增加后的值，键必须存在（注：后期用过php操作必须提前存在）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="190" height="142" src="/wp-content/uploads/2018/05/word-image-4780.png" class="wp-image-5281" /></p>
+<h2>递减（decr）</h2>
+<ul>
+<li>
+    基本语法：decr 键 数字
+  </li>
+<li>
+    说    明：返回减少后的值
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="186" height="149" src="/wp-content/uploads/2018/05/word-image-4781.png" class="wp-image-5282" /></p>
+<h2>查看当前Memcached运行状态（stats）</h2>
+<p><img loading="lazy" decoding="async" width="447" height="592" src="/wp-content/uploads/2018/05/word-image-4782.png" class="wp-image-5283" srcset="/wp-content/uploads/2018/05/word-image-4782.png 447w, /wp-content/uploads/2018/05/word-image-4782-227x300.png 227w" sizes="(max-width: 447px) 100vw, 447px" /></p>
+<p>
+  pid：	memcache服务器进程ID
+</p>
+<p>
+  uptime：服务器已运行秒数
+</p>
+<p>
+  time：服务器当前Unix时间戳
+</p>
+<p>
+  version：memcache版本
+</p>
+<p>
+  pointer_size：操作系统指针大小
+</p>
+<p>
+  rusage_user：进程累计用户时间
+</p>
+<p>
+  rusage_system：进程累计系统时间
+</p>
+<p>
+  curr_connections：当前连接数量
+</p>
+<p>
+  total_connections：Memcached运行以来连接总数
+</p>
+<p>
+  connection_structures：Memcached分配的连接结构数量
+</p>
+<p>
+  cmd_get：get命令请求次数
+</p>
+<p>
+  cmd_set：set命令请求次数
+</p>
+<p>
+  cmd_flush：flush命令请求次数
+</p>
+<p>
+  get_hits：get命令命中次数
+</p>
+<p>
+  get_misses：get命令未命中次数
+</p>
+<p>
+  delete_misses：delete命令未命中次数
+</p>
+<p>
+  delete_hits：delete命令命中次数
+</p>
+<p>
+  incr_misses：incr命令未命中次数
+</p>
+<p>
+  incr_hits：incr命令命中次数
+</p>
+<p>
+  decr_misses：decr命令未命中次数
+</p>
+<p>
+  decr_hits：decr命令命中次数
+</p>
+<p>
+  cas_misses：cas命令未命中次数
+</p>
+<p>
+  cas_hits：cas命令命中次数
+</p>
+<p>
+  cas_badval：使用擦拭次数
+</p>
+<p>
+  auth_cmds：认证命令处理的次数
+</p>
+<p>
+  auth_errors：认证失败数目
+</p>
+<p>
+  bytes_read：读取总字节数
+</p>
+<p>
+  bytes_written：发送总字节数
+</p>
+<p>
+  limit_maxbytes：分配的内存总大小（字节）
+</p>
+<p>
+  accepting_conns：服务器是否达到过最大连接（0/1）
+</p>
+<p>
+  listen_disabled_num：失效的监听数
+</p>
+<p>
+  threads：当前线程数
+</p>
+<p>
+  conn_yields：连接操作主动放弃数目
+</p>
+<p>
+  bytes：当前存储占用的字节数
+</p>
+<p>
+  curr_items：当前存储的数据总数
+</p>
+<p>
+  total_items：启动以来存储的数据总数
+</p>
+<p>
+  evictions：LRU释放的对象数目
+</p>
+<p>
+  reclaimed：已过期的数据条目来存储新数据的数目
+</p>
+<h1>五、PHP操作Memcached</h1>
+<h2>1、开启php的php_memcache.dll扩展</h2>
+<ul>
+<li>
+    步骤1：下载扩展，网址：<a href="http://pecl.php.net/package/memcache/3.0.8/windows">http://pecl.php.net/package/memcache/3.0.8/windows</a>
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="717" height="317" src="/wp-content/uploads/2018/05/word-image-4783.png" class="wp-image-5284" srcset="/wp-content/uploads/2018/05/word-image-4783.png 717w, /wp-content/uploads/2018/05/word-image-4783-300x133.png 300w" sizes="(max-width: 717px) 100vw, 717px" /></p>
+<ul>
+<li>
+    步骤2：查看php相关信息选择对应的扩展库文件
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="829" height="628" src="/wp-content/uploads/2018/05/word-image-4784.png" class="wp-image-5285" srcset="/wp-content/uploads/2018/05/word-image-4784.png 829w, /wp-content/uploads/2018/05/word-image-4784-300x227.png 300w, /wp-content/uploads/2018/05/word-image-4784-768x582.png 768w" sizes="(max-width: 829px) 100vw, 829px" /></p>
+<ul>
+<li>
+    步骤3：将扩展文件移动到对应PHP版本的ext目录下
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="985" height="474" src="/wp-content/uploads/2018/05/word-image-4785.png" class="wp-image-5286" srcset="/wp-content/uploads/2018/05/word-image-4785.png 985w, /wp-content/uploads/2018/05/word-image-4785-300x144.png 300w, /wp-content/uploads/2018/05/word-image-4785-768x370.png 768w" sizes="(max-width: 985px) 100vw, 985px" /></p>
+<ul>
+<li>
+    步骤4：修改php的配置文件（php.ini）
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="909" height="60" src="/wp-content/uploads/2018/05/word-image-4786.png" class="wp-image-5287" srcset="/wp-content/uploads/2018/05/word-image-4786.png 909w, /wp-content/uploads/2018/05/word-image-4786-300x20.png 300w, /wp-content/uploads/2018/05/word-image-4786-768x51.png 768w" sizes="(max-width: 909px) 100vw, 909px" /><br />
+<img loading="lazy" decoding="async" width="439" height="76" src="/wp-content/uploads/2018/05/word-image-4787.png" class="wp-image-5288" srcset="/wp-content/uploads/2018/05/word-image-4787.png 439w, /wp-content/uploads/2018/05/word-image-4787-300x52.png 300w" sizes="(max-width: 439px) 100vw, 439px" /></p>
+<ul>
+<li>
+    步骤5：重启apache
+  </li>
+</ul>
+<h2>2、操作</h2>
+<h3>■ 语法</h3>
+<p>
+  创建对象：$mem = new Memcachd;
+</p>
+<p>
+  连接服务：$mem-&gt;connect(服务器ip地址，端口);
+</p>
+<p>
+  关闭连接：$mem-&gt;close();
+</p>
+<p>
+  添加数据：$mem-&gt;set（键，值 [,是否压缩，缓存时间]）   注：默认理论永久
+</p>
+<p>
+  读取数据：$mem-&gt;get（键）;
+</p>
+<p>
+  增加：$mem-&gt;incr(键，$num=1);
+</p>
+<p>
+  减少：$mem-&gt;decr(键，$num=1);
+</p>
+<h3>1）创建memcache对象</h3>
+<p><img loading="lazy" decoding="async" width="984" height="384" src="/wp-content/uploads/2018/05/word-image-4788.png" class="wp-image-5289" srcset="/wp-content/uploads/2018/05/word-image-4788.png 984w, /wp-content/uploads/2018/05/word-image-4788-300x117.png 300w, /wp-content/uploads/2018/05/word-image-4788-768x300.png 768w" sizes="(max-width: 984px) 100vw, 984px" /></p>
+<h3>2）添加和获取数据</h3>
+<p><img loading="lazy" decoding="async" width="626" height="386" src="/wp-content/uploads/2018/05/word-image-4789.png" class="wp-image-5290" srcset="/wp-content/uploads/2018/05/word-image-4789.png 626w, /wp-content/uploads/2018/05/word-image-4789-300x185.png 300w" sizes="(max-width: 626px) 100vw, 626px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //1.创建memcachd对象
+</p>
+<p>
+  $mem = new Memcache;
+</p>
+<p>
+  //2.连接服务
+</p>
+<p>
+  $mem-&gt;connect(&#8216;127.0.0.1&#8217;, 11211);
+</p>
+<p>
+  //3.设置数据
+</p>
+<p>
+  $mem-&gt;set(&#8216;laotie&#8217;, &#8216;mei mao baobing&#8217;);
+</p>
+<p>
+  //4.获取
+</p>
+<p>
+  echo $mem-&gt;get(&#8216;laotie&#8217;);
+</p>
+<p>
+  die;
+</p>
+<p><a id="post-5259-_Toc448485122"></a>
+</p>
+<h1>六、探究Memcache能存储的数据类型		</h1>
+<h2>回顾PHP中的八种数据类型</h2>
+<p><strong>PHP</strong>
+</p>
+<p>
+  基本类型：整型、浮点型、字符型、布尔型
+</p>
+<p>
+  复合类型：数组、对象
+</p>
+<p>
+  特殊类型：资源、null
+</p>
+<p><strong>JS</strong>
+</p>
+<p>
+  基本类型：数字型（整型、浮点型）、字符型、布尔型
+</p>
+<p>
+  复合类型：数组、对象
+</p>
+<p>
+  特殊类型：undefined、null
+</p>
+<h2>2、使用PHP存储标量类型</h2>
+<p>
+  数据：整型（8）、浮点型（8.88）、字符串型（php0225）、布尔型（true）
+</p>
+<p>
+  验证：
+</p>
+<p><img loading="lazy" decoding="async" width="877" height="628" src="/wp-content/uploads/2018/05/word-image-4790.png" class="wp-image-5291" srcset="/wp-content/uploads/2018/05/word-image-4790.png 877w, /wp-content/uploads/2018/05/word-image-4790-300x215.png 300w, /wp-content/uploads/2018/05/word-image-4790-768x550.png 768w" sizes="(max-width: 877px) 100vw, 877px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //1.创建memcache对象
+</p>
+<p>
+  $mem = new memcache;
+</p>
+<p>
+  //2.连接服务
+</p>
+<p>
+  $mem-&gt;connect(&#8216;localhost&#8217;, 11211);
+</p>
+<p>
+  //3.设置服务
+</p>
+<p>
+  $rs = $mem-&gt;set(&#8216;int1&#8217;, 8);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  $rs = $mem-&gt;set(&#8216;int2&#8217;, 8.88);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  $rs = $mem-&gt;set(&#8216;int3&#8217;, &#8216;php12&#8217;);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  $rs = $mem-&gt;set(&#8216;int4&#8217;, true);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  echo &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+  $rs = $mem-&gt;get(&#8216;int1&#8217;);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  $rs = $mem-&gt;get(&#8216;int2&#8217;);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  $rs = $mem-&gt;get(&#8216;int3&#8217;);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  $rs = $mem-&gt;get(&#8216;int4&#8217;);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  die;
+</p>
+<h2>3、使用PHP存储复合类型</h2>
+<ul>
+<li>
+    数组：array(&#8216;name&#8217;=&gt;zhangsan,&#8217;age&#8217;=&gt;18)
+  </li>
+<li>
+    对象：class test { public $name = 123}    $obj = new test()
+  </li>
+<li>
+    验证：
+  </li>
+</ul>
+<p><img loading="lazy" decoding="async" width="1097" height="567" src="/wp-content/uploads/2018/05/word-image-4791.png" class="wp-image-5292" srcset="/wp-content/uploads/2018/05/word-image-4791.png 1097w, /wp-content/uploads/2018/05/word-image-4791-300x155.png 300w, /wp-content/uploads/2018/05/word-image-4791-768x397.png 768w, /wp-content/uploads/2018/05/word-image-4791-1024x529.png 1024w" sizes="(max-width: 1097px) 100vw, 1097px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //1.创建memcache对象
+</p>
+<p>
+  $mem = new memcache;
+</p>
+<p>
+  //2.连接服务
+</p>
+<p>
+  $mem-&gt;connect(&#8216;localhost&#8217;, 11211);
+</p>
+<p>
+  //3.设置服务
+</p>
+<p>
+  $data1 = array(&#8216;name&#8217;=&gt;&#8217;zhangsan&#8217;,&#8217;age&#8217;=&gt;18);
+</p>
+<p>
+  class test { public $name = 123;}
+</p>
+<p>
+  $data2 = new test();
+</p>
+<p>
+  $rs = $mem-&gt;set(&#8216;arr1&#8217;, $data1);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  $rs = $mem-&gt;set(&#8216;obj2&#8217;, $data2);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  echo &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+  $rs = $mem-&gt;get(&#8216;arr1&#8217;);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  echo &#8216;&lt;br /&gt;&#8217;;
+</p>
+<p>
+  $rs = $mem-&gt;get(&#8216;obj2&#8217;);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  die;
+</p>
+<h2>4、使用PHP存储特殊类型</h2>
+<p><img loading="lazy" decoding="async" width="849" height="526" src="/wp-content/uploads/2018/05/word-image-4792.png" class="wp-image-5293" srcset="/wp-content/uploads/2018/05/word-image-4792.png 849w, /wp-content/uploads/2018/05/word-image-4792-300x186.png 300w, /wp-content/uploads/2018/05/word-image-4792-768x476.png 768w" sizes="(max-width: 849px) 100vw, 849px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //1.创建memcache对象
+</p>
+<p>
+  $mem = new memcache;
+</p>
+<p>
+  //2.连接服务
+</p>
+<p>
+  $mem-&gt;connect(&#8216;localhost&#8217;, 11211);
+</p>
+<p>
+  //3.设置服务
+</p>
+<p>
+  $data = fopen(&#8216;xxxx&#8217;, &#8216;a+&#8217;);
+</p>
+<p>
+  $rs = $mem-&gt;set(&#8216;source&#8217;, $data);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  $rs = $mem-&gt;set(&#8216;null1&#8217;, null);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  echo &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+  $rs = $mem-&gt;get(&#8216;source&#8217;);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  echo &#8216;&lt;br /&gt;&#8217;;
+</p>
+<p>
+  $rs = $mem-&gt;get(&#8216;null1&#8217;);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  die;
+</p>
+<h1>七、Memcache的相关算法【★★★】</h1>
+<h2>1、惰性过期机制（lazy expiration）</h2>
+<ul>
+<li>
+    说明：memcached内部不会监视记录是否过期，而是在get时查看记录的时间戳，
+  </li>
+</ul>
+<p>
+  检查记录是否过期。这种技术被称为惰性过期。
+</p>
+<ul>
+<li>
+    好处：memcached不会在过期监视上耗费CPU时间 。
+  </li>
+<li>
+    注意：memcached最大存储时间为30天
+  </li>
+<li>
+    验证：
+  </li>
+</ul>
+<p>
+  #关闭服务
+</p>
+<p>
+  memcached -d stop
+</p>
+<p>
+  #启动服务
+</p>
+<p>
+  memcached -d start
+</p>
+<p>
+  #查看状态
+</p>
+<p>
+  stats
+</p>
+<p>
+  #设置一个键
+</p>
+<p>
+  set php1 0 10 1
+</p>
+<p>
+  #10s内，再查看状态
+</p>
+<p>
+  stats
+</p>
+<p>
+  #10s后，再查看状态
+</p>
+<p>
+  #get后查看状态
+</p>
+<h2>2、最近最少使用算法（LRU：Least Recently Used）</h2>
+<p>
+  答：缓存空间已满，采用LRU策略，删除旧的缓存项（最近最少使用算法）
+</p>
+<p>
+  LRU：Least Recently USE。
+</p>
+<h1><a id="post-5259-_Toc448485123"></a>八、Memcache常见问题</h1>
+<h2><a id="post-5259-_Toc448485124"></a>1、单个key键名的最大长度是多少？</h2>
+<p>
+  答：最大不能超过250个字符
+</p>
+<h2><a id="post-5259-_Toc448485125"></a>2、每个item选项其最大可以存储多少M的数据</h2>
+<p>
+  答：每个item最大只能存储1M的数据
+</p>
+<h2><a id="post-5259-_Toc448485126"></a>3、最大存储时间（30天）</h2>
+<p><img loading="lazy" decoding="async" width="966" height="641" src="/wp-content/uploads/2018/05/word-image-4793.png" class="wp-image-5294" srcset="/wp-content/uploads/2018/05/word-image-4793.png 966w, /wp-content/uploads/2018/05/word-image-4793-300x199.png 300w, /wp-content/uploads/2018/05/word-image-4793-768x510.png 768w" sizes="(max-width: 966px) 100vw, 966px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //1.创建memcache对象
+</p>
+<p>
+  $mem = new Memcache;
+</p>
+<p>
+  //2.连接服务
+</p>
+<p>
+  $mem-&gt;connect(&#8216;127.0.0.1&#8217;, 11211);
+</p>
+<p>
+  //3.设置数据
+</p>
+<p>
+  $rs = $mem-&gt;set(&#8216;time1&#8217;, 111, 0, 3600 * 24 * 30 -1); //30天-1s
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  $rs = $mem-&gt;set(&#8216;time2&#8217;, 222, 0, 3600 * 24 * 30);    //30天
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  $rs = $mem-&gt;set(&#8216;time3&#8217;, 333, 0, 3600 * 24 * 30 +1); //30天+1s
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  echo &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+  //4.获取数据
+</p>
+<p>
+  $rs = $mem-&gt;get(&#8216;time1&#8217;);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  $rs = $mem-&gt;get(&#8216;time2&#8217;);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  $rs = $mem-&gt;get(&#8216;time3&#8217;);
+</p>
+<p>
+  var_dump($rs);
+</p>
+<p>
+  die;
+</p>
+<h2>memcached的cache机制是怎样的？ </h2>
+<p>
+  惰性过期机制：当过期之后不会删除，而是当get时候在删除
+</p>
+<p>
+  最近最少使用：内存存满之后，删除最近最少使用
+</p>
+<h2>6、memcache里面适合存储哪些数据</h2>
+<ul>
+<li>
+    明确使用场景：数据缓存
+  </li>
+<li>
+    适合存储哪些数据：
+  </li>
+</ul>
+<p>
+  访问比较频繁的数据，安全性差的数据，丢失无所谓的数据。
+</p>
+<p>
+  数据更新，比较频繁的数据，比如用户的在线状态。
+</p>
+<p>
+  数据的单个键值不能太大，不要超过1Mb数据。
+</p>
+<p>
+  文件缓存案例
+</p>
+<p>
+  //获取缓存中的数据
+</p>
+<p>
+  $data = file_get_contents（唯一标识）;
+</p>
+<p>
+  if (!$data) {
+</p>
+<p>
+  $data = 连接数据库获取的数据;
+</p>
+<p>
+  file_put_contents(唯一标识，$data);
+</p>
+<p>
+  }
+</p>
+<p>
+  $this-&gt;assign(&#8216;data&#8217;, $data);
+</p>
+<h1><a id="post-5259-_Toc448485128"></a>九、分布式Memcache服务器</h1>
+<h2><a id="post-5259-_Toc448485129"></a>1）分布式服务器原理</h2>
+<p><img loading="lazy" decoding="async" width="1147" height="307" src="/wp-content/uploads/2018/05/word-image-4794.png" class="wp-image-5295" srcset="/wp-content/uploads/2018/05/word-image-4794.png 1147w, /wp-content/uploads/2018/05/word-image-4794-300x80.png 300w, /wp-content/uploads/2018/05/word-image-4794-768x206.png 768w, /wp-content/uploads/2018/05/word-image-4794-1024x274.png 1024w" sizes="(max-width: 1147px) 100vw, 1147px" /></p>
+<h2><a id="post-5259-_Toc448485130"></a>2）使用PHP实现分布式Memcache</h2>
+<p><img loading="lazy" decoding="async" width="751" height="650" src="/wp-content/uploads/2018/05/word-image-4795.png" class="wp-image-5296" srcset="/wp-content/uploads/2018/05/word-image-4795.png 751w, /wp-content/uploads/2018/05/word-image-4795-300x260.png 300w" sizes="(max-width: 751px) 100vw, 751px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //1.创建memcache对象
+</p>
+<p>
+  $mem = new Memcache;
+</p>
+<p>
+  //2.通过addServer方法添加到memcache连接池
+</p>
+<p>
+  $mem-&gt;addServer(&#8216;127.0.0.1&#8217;, 11211);
+</p>
+<p>
+  $mem-&gt;addServer(&#8216;192.168.72.53&#8217;, 11211);
+</p>
+<p>
+  $mem-&gt;addServer(&#8216;192.168.72.38&#8217;, 11211);
+</p>
+<p>
+  //3.向连接池中保存数据
+</p>
+<p>
+  $mem-&gt;set(&#8216;userinfo&#8217;, [&#8216;name&#8217; =&gt; &#8216;瑶瑶&#8217;, &#8216;age&#8217; =&gt; 18]);
+</p>
+<p>
+  $mem-&gt;set(&#8216;orderinfo&#8217;, [&#8216;id&#8217; =&gt; 18, &#8216;price&#8217; =&gt; 1]);
+</p>
+<p>
+  $mem-&gt;set(&#8216;address&#8217;, 123);
+</p>
+<p>
+  $data = $mem-&gt;get(&#8216;userinfo&#8217;);
+</p>
+<p>
+  var_dump($data);
+</p>
+<p>
+  echo &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+  $data = $mem-&gt;get(&#8216;orderinfo&#8217;);
+</p>
+<p>
+  var_dump($data);
+</p>
+<p>
+  echo &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+  $data = $mem-&gt;get(&#8216;address&#8217;);
+</p>
+<p>
+  var_dump($data);
+</p>
+<p>
+  echo &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+  die;
+</p>
+<p><img loading="lazy" decoding="async" width="1070" height="415" src="/wp-content/uploads/2018/05/word-image-4796.png" class="wp-image-5297" srcset="/wp-content/uploads/2018/05/word-image-4796.png 1070w, /wp-content/uploads/2018/05/word-image-4796-300x116.png 300w, /wp-content/uploads/2018/05/word-image-4796-768x298.png 768w, /wp-content/uploads/2018/05/word-image-4796-1024x397.png 1024w" sizes="(max-width: 1070px) 100vw, 1070px" /></p>
+<h1><a id="post-5259-_Toc448485132"></a>十、Session入Memcache缓存</h1>
+<h2>方法1：修改php配置文件，永久（php.ini）</h2>
+<p><img loading="lazy" decoding="async" width="494" height="103" src="/wp-content/uploads/2018/05/word-image-4797.png" class="wp-image-5298" srcset="/wp-content/uploads/2018/05/word-image-4797.png 494w, /wp-content/uploads/2018/05/word-image-4797-300x63.png 300w" sizes="(max-width: 494px) 100vw, 494px" /><br />
+<img loading="lazy" decoding="async" width="693" height="99" src="/wp-content/uploads/2018/05/word-image-4798.png" class="wp-image-5299" srcset="/wp-content/uploads/2018/05/word-image-4798.png 693w, /wp-content/uploads/2018/05/word-image-4798-300x43.png 300w" sizes="(max-width: 693px) 100vw, 693px" /></p>
+<p>
+  =================================================================
+</p>
+<p><img loading="lazy" decoding="async" width="1165" height="603" src="/wp-content/uploads/2018/05/word-image-4799.png" class="wp-image-5300" srcset="/wp-content/uploads/2018/05/word-image-4799.png 1165w, /wp-content/uploads/2018/05/word-image-4799-300x155.png 300w, /wp-content/uploads/2018/05/word-image-4799-768x398.png 768w, /wp-content/uploads/2018/05/word-image-4799-1024x530.png 1024w" sizes="(max-width: 1165px) 100vw, 1165px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  session_start();
+</p>
+<p>
+  $_SESSION[&#8216;yaoyiyao&#8217;] = &#8216;别闹&#8217;;
+</p>
+<p>
+  $_SESSION[&#8216;huangyihuang&#8217;] = &#8216;哈哈&#8217;;
+</p>
+<p>
+  $_SESSION[&#8216;douyidou&#8217;] = &#8216;嘿咻&#8217;;
+</p>
+<p>
+  echo &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+  echo session_id();
+</p>
+<p>
+  echo &#8216;&lt;br /&gt;&#8217;;
+</p>
+<p>
+  print_r($_SESSION);
+</p>
+<p>
+  die;
+</p>
+<h2>方法2，临时，在php中使用 ini_set函数</h2>
+<p><img loading="lazy" decoding="async" width="1159" height="499" src="/wp-content/uploads/2018/05/word-image-4800.png" class="wp-image-5301" srcset="/wp-content/uploads/2018/05/word-image-4800.png 1159w, /wp-content/uploads/2018/05/word-image-4800-300x129.png 300w, /wp-content/uploads/2018/05/word-image-4800-768x331.png 768w, /wp-content/uploads/2018/05/word-image-4800-1024x441.png 1024w" sizes="(max-width: 1159px) 100vw, 1159px" /></p>
+<p>
+  &lt;?php
+</p>
+<p>
+  //1.更改session存储方式
+</p>
+<p>
+  ini_set(&#8216;session.save_handler&#8217;, &#8216;memcache&#8217;);
+</p>
+<p>
+  //2.存储路径（说明：分布式则逗号隔开）
+</p>
+<p>
+  ini_set(&#8216;session.save_path&#8217;, &#8216;tcp://127.0.0.1:11211,tcp://192.168.72.68:11211&#8217;);
+</p>
+<p>
+  session_start();
+</p>
+<p>
+  $_SESSION[&#8216;yaoyiyao&#8217;] = &#8216;别aaaaa闹&#8217;;
+</p>
+<p>
+  $_SESSION[&#8216;huangyihuang&#8217;] = &#8216;哈aaaa哈&#8217;;
+</p>
+<p>
+  $_SESSION[&#8216;douyidou&#8217;] = &#8216;嘿aa咻&#8217;;
+</p>
+<p>
+  echo &#8216;&lt;hr /&gt;&#8217;;
+</p>
+<p>
+  echo session_id();
+</p>
+<p>
+  echo &#8216;&lt;br /&gt;&#8217;;
+</p>
+<p>
+  print_r($_SESSION);
+</p>
+<p>
+  die;
+</p>
+<h1>总结</h1>
+<p>
+  什么是memcache：基于内存数据库（注：重启后数据丢失）
+</p>
+<p>
+  相关参数
+</p>
+<p>
+  -l  服务ip地址（localhost）
+</p>
+<p>
+  -p  端口（port）
+</p>
+<p>
+  -d  服务管理（start/stop/install/uninstall）
+</p>
+<p>
+  -m  内存大小（memory）
+</p>
+<p>
+  memcache命令
+</p>
+<p>
+  memcache的set：set 键 是否压缩  时间  长度（1-压缩，0-不压缩，时间：0-理论永久，最大不超过30天）
+</p>
+<p>
+  memcache的get：get 键
+</p>
+<p>
+  php操作memcache（http://pecl.php.net/package/memcache）
+</p>
+<p>
+  创建对象：$mem = new Memcache;
+</p>
+<p>
+  连接服务：$mem-&gt;connect(服务器ip地址，端口号)
+</p>
+<p>
+  关闭服务：$mem-&gt;close()
+</p>
+<p>
+  设置数据：$mem-&gt;set(键，值，[是否压缩，压缩时间])
+</p>
+<p>
+  获取数据：$mem-&gt;get(键)
+</p>
+<p>
+  递增：$mem-&gt;incr(键，值)
+</p>
+<p>
+  递减：$mem-&gt;decr(键，值)
+</p>
+<p>
+  算法，
+</p>
+<p>
+  惰性过期机制：不过监控是否过期，而是get后检测
+</p>
+<p>
+  最近最少使用算法：内存占满了就删除最近最少使用的
+</p>
+<p>
+  分布式：多台服务器实现不同的业务
+</p>
+<p>
+  分布式：$mem-&gt;addServer（服务器ip地址，端口）
+</p>
+<p>
+  session入库
+</p>
+<p>
+  ini_set(&#8216;session.save_handler);
+</p>
+<p>
+  ini_set(&#8216;session.save_path&#8217;, &#8216;tcp://服务器ip地址:端口,tcp://服务器ip地址:端口&#8217;)</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e6%95%b0%e6%8d%ae%e5%ba%93/5259.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

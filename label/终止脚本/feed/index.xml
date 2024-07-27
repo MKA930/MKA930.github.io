@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>终止脚本 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E7%BB%88%E6%AD%A2%E8%84%9A%E6%9C%AC/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Fri, 18 May 2018 12:17:39 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>终止脚本 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>PHP 语法（四）二分法、 传参、 全局变量、 函数、 匿名函数、 变量作用域、 变量生命周期、 终止脚本、 递归、 静态变量</title>
+		<link>/php/848.html</link>
+					<comments>/php/848.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 16:45:14 +0000</pubDate>
+				<category><![CDATA[PHP]]></category>
+		<category><![CDATA[PHP基本语法]]></category>
+		<category><![CDATA[二分法]]></category>
+		<category><![CDATA[传参]]></category>
+		<category><![CDATA[全局变量]]></category>
+		<category><![CDATA[函数]]></category>
+		<category><![CDATA[匿名函数]]></category>
+		<category><![CDATA[变量作用域]]></category>
+		<category><![CDATA[变量生命周期]]></category>
+		<category><![CDATA[终止脚本]]></category>
+		<category><![CDATA[递归]]></category>
+		<category><![CDATA[静态变量]]></category>
+		<guid isPermaLink="false">/?p=848</guid>
+
+					<description><![CDATA[PHP语法（四） 包含文件 include和require：包含多次 include_once和require [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h1>PHP语法（四）</h1>
+<h2>包含文件</h2>
+<ol>
+<li>
+  include和require：包含多次
+</li>
+<li>
+  include_once和require_once：包含一次
+</li>
+<li>
+  包含文件就相当于将包含文件中的代码拷贝粘贴到PHP页面中（魔术常量除外，魔术常量显示所在文件的文件信息），所以后缀是.html的包含文件中的PHP代码被文件包含后也是会执行的。
+</li>
+</ol>
+<h3>路径</h3>
+<p>
+  路径分为绝对路径和相对路径
+</p>
+<p>
+  绝对路径：从盘符开始  c:\aa\bb.txt
+</p>
+<p>
+  相对路径：从当前文件所在的目录开始   aa\bb.txt    ../aa.txt
+</p>
+<p>
+  ../表示上一级目录     ./当前目录
+</p>
+<p><img fetchpriority="high" decoding="async" width="865" height="65" src="/wp-content/uploads/2018/05/word-image-747.png" class="wp-image-850" srcset="/wp-content/uploads/2018/05/word-image-747.png 865w, /wp-content/uploads/2018/05/word-image-747-300x23.png 300w, /wp-content/uploads/2018/05/word-image-747-768x58.png 768w" sizes="(max-width: 865px) 100vw, 865px" /></p>
+<p>
+  区别：
+</p>
+<p>
+  ./就表示在当前目录下找
+</p>
+<p>
+  不带./受include_path配置的影响
+</p>
+<p><img decoding="async" width="1029" height="32" src="/wp-content/uploads/2018/05/word-image-748.png" class="wp-image-851" srcset="/wp-content/uploads/2018/05/word-image-748.png 1029w, /wp-content/uploads/2018/05/word-image-748-300x9.png 300w, /wp-content/uploads/2018/05/word-image-748-768x24.png 768w, /wp-content/uploads/2018/05/word-image-748-1024x32.png 1024w" sizes="(max-width: 1029px) 100vw, 1029px" /></p>
+<p>
+  作用：将项目中的包含文件统一放置到指定目录内，然后利用include_path指向这个目录。可以提高安全性，也可以不用写很长的地址字符串。
+</p>
+<p>
+  include_path的值可以写多个路径，从前往后找文件。
+</p>
+<p>
+  set_include_path(&#8220;F:\www1;d:\www2;c:\&#8221;);
+</p>
+<p><strong>获取虚拟目录地址</strong>
+</p>
+<p><img decoding="async" width="650" height="54" src="/wp-content/uploads/2018/05/word-image-749.png" class="wp-image-852" srcset="/wp-content/uploads/2018/05/word-image-749.png 650w, /wp-content/uploads/2018/05/word-image-749-300x25.png 300w" sizes="(max-width: 650px) 100vw, 650px" /></p>
+<p><strong>文件包含</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="944" height="113" src="/wp-content/uploads/2018/05/word-image-750.png" class="wp-image-853" srcset="/wp-content/uploads/2018/05/word-image-750.png 944w, /wp-content/uploads/2018/05/word-image-750-300x36.png 300w, /wp-content/uploads/2018/05/word-image-750-768x92.png 768w" sizes="(max-width: 944px) 100vw, 944px" /></p>
+<p><strong>路径中“/”和“\”的区别</strong>
+</p>
+<p>
+  /：斜杠，用于web路径			http://www.php.com/aa/bb/index.html
+</p>
+<p>
+  \：反斜杠 用于文件物理地址路径  C:\aa\bb\index.html
+</p>
+<p>
+  在windows中可以相互混淆，但是在Linux中不可以，Linux中严格区分。
+</p>
+<h2>函数</h2>
+<p>
+  函数是一个固定的代码块，也称为子程序，一个函数可以被多次调用，函数可以很好的实现计算机的模块化编程。
+</p>
+<h3>定义语法</h3>
+<p>
+  function 函数名(参数1,参数2,&#8230;){
+</p>
+<p>
+  	//函数体
+</p>
+<p>
+  }
+</p>
+<p>
+  函数的命名规则：
+</p>
+<ol>
+<li>
+  以字母、下划线开头，后面跟的是字母、数字、下划线
+</li>
+<li>
+  函数名不区分大小写（JS是区分大小写的）
+</li>
+</ol>
+<h3>调用函数</h3>
+<p>
+  通过函数名来调研函数。
+</p>
+<p>
+  例题：打印斐波那契数列
+</p>
+<p><img loading="lazy" decoding="async" width="996" height="401" src="/wp-content/uploads/2018/05/word-image-751.png" class="wp-image-854" srcset="/wp-content/uploads/2018/05/word-image-751.png 996w, /wp-content/uploads/2018/05/word-image-751-300x121.png 300w, /wp-content/uploads/2018/05/word-image-751-768x309.png 768w" sizes="(max-width: 996px) 100vw, 996px" /></p>
+<h3>参数的概念</h3>
+<p>
+  函数括号里面的数称为参数
+</p>
+<p>
+  参数分为形式参数和实际参数
+</p>
+<p>
+  形式参数没有具体的值，只起一个形式的作用，用来告诉调用者需要传递几个参数给函数。函数定义时候的参数是形式参数
+</p>
+<p>
+  实际参数：函数调用的时候传递给函数的参数。
+</p>
+<h3>可变函数</h3>
+<p>
+  将函数名保持在变量中。
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  function fun1() {
+</p>
+<p>
+  	echo &#8216;处理一年级的事情&lt;br&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  function fun2() {
+</p>
+<p>
+  	echo &#8216;处理二年级的事情&lt;br&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  function fun3() {
+</p>
+<p>
+  	echo &#8216;处理三年级的事情&lt;br&gt;&#8217;;
+</p>
+<p>
+  }
+</p>
+<p>
+  function fun($grade) {
+</p>
+<p>
+  	$f=&#8217;fun&#8217;.$grade;	//可变函数
+</p>
+<p>
+  	$f();
+</p>
+<p>
+  }
+</p>
+<p>
+  fun(1);
+</p>
+<p>
+  fun(2);
+</p>
+<p>
+  fun(3);
+</p>
+<p><img loading="lazy" decoding="async" width="233" height="59" src="/wp-content/uploads/2018/05/word-image-752.png" class="wp-image-855" /></p>
+<h3>匿名函数</h3>
+<p>
+  没有名字的函数，PHP5.3以后才支持的。
+</p>
+<p><img loading="lazy" decoding="async" width="490" height="148" src="/wp-content/uploads/2018/05/word-image-753.png" class="wp-image-856" srcset="/wp-content/uploads/2018/05/word-image-753.png 490w, /wp-content/uploads/2018/05/word-image-753-300x91.png 300w" sizes="(max-width: 490px) 100vw, 490px" /></p>
+<h3>函数的传值与传址</h3>
+<p>
+  默认情况下，函数参数传递是值传递，在定义函数的时候参数前面加上“&amp;”表示地址传递。
+</p>
+<p><img loading="lazy" decoding="async" width="501" height="153" src="/wp-content/uploads/2018/05/word-image-754.png" class="wp-image-857" srcset="/wp-content/uploads/2018/05/word-image-754.png 501w, /wp-content/uploads/2018/05/word-image-754-300x92.png 300w" sizes="(max-width: 501px) 100vw, 501px" /></p>
+<p>
+  脚下留心：如果函数的参数是引用传递，调用函数的时候不能直接写值，只能写变量，因为地址总是保存在变量中。
+</p>
+<p><img loading="lazy" decoding="async" width="967" height="99" src="/wp-content/uploads/2018/05/word-image-755.png" class="wp-image-858" srcset="/wp-content/uploads/2018/05/word-image-755.png 967w, /wp-content/uploads/2018/05/word-image-755-300x31.png 300w, /wp-content/uploads/2018/05/word-image-755-768x79.png 768w" sizes="(max-width: 967px) 100vw, 967px" /></p>
+<h3>参数的默认值</h3>
+<p>
+  如果参数有默认值的情况下，传递了参数就使用传递的值，没有传递参数就使用默认值。
+</p>
+<p><img loading="lazy" decoding="async" width="707" height="196" src="/wp-content/uploads/2018/05/word-image-756.png" class="wp-image-859" srcset="/wp-content/uploads/2018/05/word-image-756.png 707w, /wp-content/uploads/2018/05/word-image-756-300x83.png 300w" sizes="(max-width: 707px) 100vw, 707px" /></p>
+<p>
+  注意事项
+</p>
+<ol>
+<li>
+  默认值必须在一个存在的值，不能用变量来代替
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="846" height="110" src="/wp-content/uploads/2018/05/word-image-757.png" class="wp-image-860" srcset="/wp-content/uploads/2018/05/word-image-757.png 846w, /wp-content/uploads/2018/05/word-image-757-300x39.png 300w, /wp-content/uploads/2018/05/word-image-757-768x100.png 768w" sizes="(max-width: 846px) 100vw, 846px" /></p>
+<ol>
+<li>
+  常量可以做默认值
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="509" height="108" src="/wp-content/uploads/2018/05/word-image-758.png" class="wp-image-861" srcset="/wp-content/uploads/2018/05/word-image-758.png 509w, /wp-content/uploads/2018/05/word-image-758-300x64.png 300w" sizes="(max-width: 509px) 100vw, 509px" /></p>
+<ol>
+<li>
+  在定义函数的时候，没有默认值的参数写前面，有默认值的参数写后面。
+</li>
+<li>
+  形参合实参不匹配
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="739" height="118" src="/wp-content/uploads/2018/05/word-image-759.png" class="wp-image-862" srcset="/wp-content/uploads/2018/05/word-image-759.png 739w, /wp-content/uploads/2018/05/word-image-759-300x48.png 300w" sizes="(max-width: 739px) 100vw, 739px" /></p>
+<ul>
+<li>
+<ol>
+<li>
+      实际参数少于形式参数，报错，没有对应值的参数为null
+    </li>
+<li>
+      实际参数少于形式参数，只取前面对应的值。
+    </li>
+</ol>
+</li>
+</ul>
+<h3>传递不确定参数</h3>
+<p><img loading="lazy" decoding="async" width="940" height="170" src="/wp-content/uploads/2018/05/word-image-760.png" class="wp-image-863" srcset="/wp-content/uploads/2018/05/word-image-760.png 940w, /wp-content/uploads/2018/05/word-image-760-300x54.png 300w, /wp-content/uploads/2018/05/word-image-760-768x139.png 768w" sizes="(max-width: 940px) 100vw, 940px" /></p>
+<p>
+  在js中通过arguments关键字来获取传递的参数。
+</p>
+<h3>判断函数是否存在</h3>
+<p><img loading="lazy" decoding="async" width="503" height="139" src="/wp-content/uploads/2018/05/word-image-761.png" class="wp-image-864" srcset="/wp-content/uploads/2018/05/word-image-761.png 503w, /wp-content/uploads/2018/05/word-image-761-300x83.png 300w" sizes="(max-width: 503px) 100vw, 503px" /></p>
+<h2>return</h2>
+<h3>作用1：在函数中使用</h3>
+<ol>
+<li>
+  终止函数的执行
+</li>
+<li>
+  从函数内部将数据返回出来
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="516" height="231" src="/wp-content/uploads/2018/05/word-image-762.png" class="wp-image-865" srcset="/wp-content/uploads/2018/05/word-image-762.png 516w, /wp-content/uploads/2018/05/word-image-762-300x134.png 300w" sizes="(max-width: 516px) 100vw, 516px" /></p>
+<h3>作用2：在页面中使用</h3>
+<p>
+  第一步：创建9-config.php
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  return array(
+</p>
+<p>
+  	&#8216;host&#8217;=&gt;&#8217;lolcalhost&#8217;,
+</p>
+<p>
+  	&#8216;username&#8217;=&gt;&#8217;root&#8217;,
+</p>
+<p>
+  	&#8216;pwd&#8217;=&gt;&#8217;root&#8217;
+</p>
+<p>
+  );
+</p>
+<p>
+  第二步：在9-demo.php页面中包含9-config.php
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  $config=require &#8216;./9-config.php&#8217;;
+</p>
+<p>
+  var_dump($config);
+</p>
+<p><img loading="lazy" decoding="async" width="685" height="26" src="/wp-content/uploads/2018/05/word-image-763.png" class="wp-image-866" srcset="/wp-content/uploads/2018/05/word-image-763.png 685w, /wp-content/uploads/2018/05/word-image-763-300x11.png 300w" sizes="(max-width: 685px) 100vw, 685px" /></p>
+<p>
+  作用：用来做框架的配置文件。
+</p>
+<h3>作用3：终止脚本的执行</h3>
+<p><img loading="lazy" decoding="async" width="411" height="81" src="/wp-content/uploads/2018/05/word-image-764.png" class="wp-image-867" srcset="/wp-content/uploads/2018/05/word-image-764.png 411w, /wp-content/uploads/2018/05/word-image-764-300x59.png 300w" sizes="(max-width: 411px) 100vw, 411px" /></p>
+<h2>终止脚本的执行的方法</h2>
+<ol>
+<li>
+  return
+</li>
+<li>
+  exit——等同于die
+</li>
+<li>
+  die
+</li>
+</ol>
+<p>
+  区别：
+</p>
+<ol>
+<li>
+  return只能终止当前脚本，如果包含文件中含有return，只能终止包含文件。
+</li>
+<li>
+  exit和die用来终止所有脚本执行
+</li>
+<li>
+  exit和die后面都能跟参数（程序中有一个潜规则，没有参数用exit，有参数用die）。
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="677" height="30" src="/wp-content/uploads/2018/05/word-image-765.png" class="wp-image-868" srcset="/wp-content/uploads/2018/05/word-image-765.png 677w, /wp-content/uploads/2018/05/word-image-765-300x13.png 300w" sizes="(max-width: 677px) 100vw, 677px" /></p>
+<p>
+  测试
+</p>
+<ol>
+<li>
+  写一个包含文件
+</li>
+</ol>
+<p>
+  echo &#8216;包含文件开始&lt;br&gt;&#8217;;
+</p>
+<p>
+  return;
+</p>
+<p>
+  echo &#8216;包含文件结束&lt;br&gt;&#8217;;
+</p>
+<ol>
+<li>
+  写一个测试文件
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="644" height="71" src="/wp-content/uploads/2018/05/word-image-766.png" class="wp-image-869" srcset="/wp-content/uploads/2018/05/word-image-766.png 644w, /wp-content/uploads/2018/05/word-image-766-300x33.png 300w" sizes="(max-width: 644px) 100vw, 644px" /></p>
+<ol>
+<li>
+  将return换成exit或die，运行结果
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="403" height="56" src="/wp-content/uploads/2018/05/word-image-767.png" class="wp-image-870" srcset="/wp-content/uploads/2018/05/word-image-767.png 403w, /wp-content/uploads/2018/05/word-image-767-300x42.png 300w" sizes="(max-width: 403px) 100vw, 403px" /><br />
+<img loading="lazy" decoding="async" width="615" height="61" src="/wp-content/uploads/2018/05/word-image-768.png" class="wp-image-871" srcset="/wp-content/uploads/2018/05/word-image-768.png 615w, /wp-content/uploads/2018/05/word-image-768-300x30.png 300w" sizes="(max-width: 615px) 100vw, 615px" /></p>
+<h2>变量的作用域</h2>
+<ol>
+<li>
+  全局变量：作用范围在函数的外部
+</li>
+<li>
+  局部变量：作用范围在函数内部
+</li>
+<li>
+  超全局变量：在整个页面访问（函数内，函数外都能访问）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="738" height="116" src="/wp-content/uploads/2018/05/word-image-769.png" class="wp-image-872" srcset="/wp-content/uploads/2018/05/word-image-769.png 738w, /wp-content/uploads/2018/05/word-image-769-300x47.png 300w" sizes="(max-width: 738px) 100vw, 738px" /><br />
+<img loading="lazy" decoding="async" width="721" height="103" src="/wp-content/uploads/2018/05/word-image-770.png" class="wp-image-873" srcset="/wp-content/uploads/2018/05/word-image-770.png 721w, /wp-content/uploads/2018/05/word-image-770-300x43.png 300w" sizes="(max-width: 721px) 100vw, 721px" /><br />
+<img loading="lazy" decoding="async" width="575" height="107" src="/wp-content/uploads/2018/05/word-image-771.png" class="wp-image-874" srcset="/wp-content/uploads/2018/05/word-image-771.png 575w, /wp-content/uploads/2018/05/word-image-771-300x56.png 300w" sizes="(max-width: 575px) 100vw, 575px" /></p>
+<h3>在函数内部使用全局变量</h3>
+<p><strong>方法一：使用$GLOBALS</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="1043" height="50" src="/wp-content/uploads/2018/05/word-image-772.png" class="wp-image-875" srcset="/wp-content/uploads/2018/05/word-image-772.png 1043w, /wp-content/uploads/2018/05/word-image-772-300x14.png 300w, /wp-content/uploads/2018/05/word-image-772-768x37.png 768w, /wp-content/uploads/2018/05/word-image-772-1024x49.png 1024w" sizes="(max-width: 1043px) 100vw, 1043px" /></p>
+<p>
+  例题：
+</p>
+<p>
+  例题一：
+</p>
+<p><img loading="lazy" decoding="async" width="603" height="148" src="/wp-content/uploads/2018/05/word-image-773.png" class="wp-image-876" srcset="/wp-content/uploads/2018/05/word-image-773.png 603w, /wp-content/uploads/2018/05/word-image-773-300x74.png 300w" sizes="(max-width: 603px) 100vw, 603px" /></p>
+<p>
+  例题二：
+</p>
+<p><img loading="lazy" decoding="async" width="453" height="113" src="/wp-content/uploads/2018/05/word-image-774.png" class="wp-image-877" srcset="/wp-content/uploads/2018/05/word-image-774.png 453w, /wp-content/uploads/2018/05/word-image-774-300x75.png 300w" sizes="(max-width: 453px) 100vw, 453px" /></p>
+<p><strong>方法二：使用global关键字</strong>
+</p>
+<p><img loading="lazy" decoding="async" width="768" height="128" src="/wp-content/uploads/2018/05/word-image-775.png" class="wp-image-878" srcset="/wp-content/uploads/2018/05/word-image-775.png 768w, /wp-content/uploads/2018/05/word-image-775-300x50.png 300w" sizes="(max-width: 768px) 100vw, 768px" /></p>
+<p>
+  注意：只有变量有作用域的概念，常量没有作用域的概念
+</p>
+</p>
+<p><img loading="lazy" decoding="async" width="357" height="110" src="/wp-content/uploads/2018/05/word-image-776.png" class="wp-image-879" srcset="/wp-content/uploads/2018/05/word-image-776.png 357w, /wp-content/uploads/2018/05/word-image-776-300x92.png 300w" sizes="(max-width: 357px) 100vw, 357px" /><br />
+<img loading="lazy" decoding="async" width="348" height="107" src="/wp-content/uploads/2018/05/word-image-777.png" class="wp-image-880" srcset="/wp-content/uploads/2018/05/word-image-777.png 348w, /wp-content/uploads/2018/05/word-image-777-300x92.png 300w" sizes="(max-width: 348px) 100vw, 348px" /></p>
+<p><strong>方法三：匿名函数use()</strong>
+</p>
+<p>
+  use()将匿名函数外部的变量引入到匿名函数的内部。
+</p>
+<p><img loading="lazy" decoding="async" width="850" height="107" src="/wp-content/uploads/2018/05/word-image-778.png" class="wp-image-881" srcset="/wp-content/uploads/2018/05/word-image-778.png 850w, /wp-content/uploads/2018/05/word-image-778-300x38.png 300w, /wp-content/uploads/2018/05/word-image-778-768x97.png 768w" sizes="(max-width: 850px) 100vw, 850px" /></p>
+<p>
+  练习
+</p>
+<p><img loading="lazy" decoding="async" width="552" height="194" src="/wp-content/uploads/2018/05/word-image-779.png" class="wp-image-882" srcset="/wp-content/uploads/2018/05/word-image-779.png 552w, /wp-content/uploads/2018/05/word-image-779-300x105.png 300w" sizes="(max-width: 552px) 100vw, 552px" /></p>
+<h2>变量的生命周期</h2>
+<p>
+  全局变量声明的时候产生，页面执行完毕后销毁
+</p>
+<p>
+  局部变量调用函数的时候产生，函数执行完毕销毁。
+</p>
+<p>
+  静态变量程序加载的时候产生，只被初始化一次，页面执行完毕销毁
+</p>
+<h2>静态变量（static）</h2>
+<p>
+  静态变量一般指的是局部静态变量，PHP中没有全局的静态变量，因为全局的静态变量就是全局变量。
+</p>
+<table>
+<tr>
+<td><img loading="lazy" decoding="async" width="377" height="150" src="/wp-content/uploads/2018/05/word-image-780.png" class="wp-image-883" srcset="/wp-content/uploads/2018/05/word-image-780.png 377w, /wp-content/uploads/2018/05/word-image-780-300x119.png 300w" sizes="(max-width: 377px) 100vw, 377px" /></td>
+<td><img loading="lazy" decoding="async" width="417" height="161" src="/wp-content/uploads/2018/05/word-image-781.png" class="wp-image-884" srcset="/wp-content/uploads/2018/05/word-image-781.png 417w, /wp-content/uploads/2018/05/word-image-781-300x116.png 300w" sizes="(max-width: 417px) 100vw, 417px" /></td>
+</tr>
+</table>
+<p>
+  注意：静态变量是有作用域的
+</p>
+<p><img loading="lazy" decoding="async" width="496" height="192" src="/wp-content/uploads/2018/05/word-image-782.png" class="wp-image-885" srcset="/wp-content/uploads/2018/05/word-image-782.png 496w, /wp-content/uploads/2018/05/word-image-782-300x116.png 300w" sizes="(max-width: 496px) 100vw, 496px" /></p>
+<h2>递归</h2>
+<p>
+  在函数的内部自己调用自己。
+</p>
+<p>
+  递归的要素
+</p>
+<ol>
+<li>
+  递归点：函数内部调用自己的地方
+</li>
+<li>
+  递归出口：递归结束
+</li>
+</ol>
+<h3>例题：用递归实现从1加到任意一个数</h3>
+<p><img loading="lazy" decoding="async" width="663" height="340" src="/wp-content/uploads/2018/05/word-image-783.png" class="wp-image-886" srcset="/wp-content/uploads/2018/05/word-image-783.png 663w, /wp-content/uploads/2018/05/word-image-783-300x154.png 300w" sizes="(max-width: 663px) 100vw, 663px" /></p>
+<h3>例题：打印前十个斐波那契数列</h3>
+<p>
+  第n个斐波那契数等于第n-1和n-2的和
+</p>
+<p>
+  &lt;?php
+</p>
+<p>
+  /**
+</p>
+<p>
+  *$n是第n个斐波那契数
+</p>
+<p>
+  */
+</p>
+<p>
+  function fun($n) {
+</p>
+<p>
+  	if($n==1 || $n==2) {
+</p>
+<p>
+  		return 1;
+</p>
+<p>
+  	}
+</p>
+<p>
+  	return fun($n-1)+fun($n-2);
+</p>
+<p>
+  }
+</p>
+<p>
+  //打印前10个斐波那契数列
+</p>
+<p>
+  for($i=1;$i&lt;=10;$i++)
+</p>
+<p>
+  	echo fun($i),&#8217;&amp;nbsp;&#8217;;
+</p>
+<p>
+  /**
+</p>
+<p>
+  *分析第四个斐波那契数
+</p>
+<p>
+  fun(4)	=fun(3)+fun(2)
+</p>
+<p>
+  		=fun(2)+fun(1)+1
+</p>
+<p>
+  		=1+1+1
+</p>
+<p>
+  		=3
+</p>
+<p>
+  */
+</p>
+<p>
+  ?&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="235" height="31" src="/wp-content/uploads/2018/05/word-image-784.png" class="wp-image-887" /></p>
+<h2>算法：二分法查找</h2>
+<ol>
+<li>
+  前提：一个有序的数组
+</li>
+<li>
+  功能：在有序的数组中查找是否存在某个数
+</li>
+</ol>
+<p>
+  在1,5,9,12,56,78,102数组中查找102
+</p>
+<p>
+  第一步：找出数组中间的数12，12&lt;102，在12右边查找
+</p>
+<p>
+  第二步：剩下的数据有56,78,102，找中间的数是78，78&lt;102，在78的右边找
+</p>
+<p>
+  第三步：剩下的数据有102，找到了。
+</p>
+<h3>实现代码</h3>
+<p>
+  &lt;?php
+</p>
+<p>
+  /**
+</p>
+<p>
+  *@param $array array 查找的数组
+</p>
+<p>
+  *@param $min int 最小下标
+</p>
+<p>
+  *@param $max int 最大下标
+</p>
+<p>
+  *@param $search number 查询的数字
+</p>
+<p>
+  */
+</p>
+<p>
+  function binary($array,$min,$max,$search) {
+</p>
+<p>
+  	while($min&lt;=$max){
+</p>
+<p>
+  		$mid=floor(($min+$max)/2);	//计算中间元素的下表
+</p>
+<p>
+  		if($array[$mid]==$search)	//找到查找的元素
+</p>
+<p>
+  		{
+</p>
+<p>
+  			return $mid;	//返回下标
+</p>
+<p>
+  		}
+</p>
+<p>
+  		elseif($array[$mid]&lt;$search) {	//查找的元素比中间值大
+</p>
+<p>
+  			$min=$mid+1;		//更改最小下标值
+</p>
+<p>
+  		}
+</p>
+<p>
+  		else {
+</p>
+<p>
+  			$max=$mid-1;		//更改最大下标值
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  	return -1;	//没有找到
+</p>
+<p>
+  }
+</p>
+<p>
+  $num=array(1,5,9,12,56,78,102);
+</p>
+<p>
+  echo binary($num,0,count($num)-1,8),'&lt;br&gt;&#8217;;
+</p>
+<h2>作业：</h2>
+<ol>
+<li>
+  猴子吃桃子，第一天吃了一半又多吃一个，第二天一样，到第十天就剩下一个桃子，请问原来有几个桃子？
+</li>
+<li>
+  用递归实在二分法
+</li>
+</ol>
+]]></content:encoded>
+					
+					<wfw:commentRss>/php/848.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

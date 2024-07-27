@@ -1,0 +1,1203 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>数据表 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E6%95%B0%E6%8D%AE%E8%A1%A8/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sun, 10 Jun 2018 10:54:01 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>数据表 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP5 商城（一）环境部署、数据表、后台首页、用户 CURD、Ajax 状态切换、后台登录、后台退出、后台防翻墙、RBAC</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7682.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7682.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 09 Jun 2018 00:40:08 +0000</pubDate>
+				<category><![CDATA[TP5.0]]></category>
+		<category><![CDATA[TP5.0商城]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[Ajax 状态切换]]></category>
+		<category><![CDATA[RBAC]]></category>
+		<category><![CDATA[后台登录]]></category>
+		<category><![CDATA[后台退出]]></category>
+		<category><![CDATA[后台防翻墙]]></category>
+		<category><![CDATA[后台首页]]></category>
+		<category><![CDATA[数据表]]></category>
+		<category><![CDATA[环境部署]]></category>
+		<category><![CDATA[用户 CURD]]></category>
+		<guid isPermaLink="false">/?p=7682</guid>
+
+					<description><![CDATA[商城实战第一天 电商介绍 电子商务模式介绍 现在的电子商务平台主要分为以下几种类型： B2C ：全称-Busi [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>商城实战第一天</h1>
+<h1>电商介绍</h1>
+<h2>电子商务模式介绍</h2>
+<p>现在的电子商务平台主要分为以下几种类型：</p>
+<ul>
+<li>B2C ：全称-Business to Consumer , 即企业与消费者之间的电子商务。</li>
+</ul>
+<p>常见的有B2C网站有：天猫（商家入驻（实体店,保证金20W），需要营业许可证等资料）、京东(商家也可入驻)、当当网、唯品会、凡客、小米、华为、oppo等</p>
+<ul>
+<li>C2C: 全称-Consumer to Consumer，即消费者与消费者之间的电子商务。</li>
+</ul>
+<p>典型的C2C网站就是国内的淘宝（需要交保证金2000元左右），还有58同城，二手交易网站如：闲鱼二手交易网。</p>
+<ul>
+<li>O2O: 全称-Online to Offline,线上与线下相结合的电子商务。</li>
+</ul>
+<p>常见的有：苏宁、美团、国美、滴滴打车等。</p>
+<ul>
+<li>B2B：全称-Business to Business 即企业与企业之间的电子商务。（阿里妈妈）</li>
+</ul>
+<h2>常见的开源商城</h2>
+<h3>（1）Ecshop</h3>
+<p>ECShop是一款B2C独立网店系统，适合企业及个人快速构建个性化网上商店。系统是基于PHP语言及MYSQL数据库构架开发的跨平台开源程序。</p>
+<p>网址：<a href="/goto/c9pa" rel="nofollow">http://www.ecshop.com/</a></p>
+<p><img fetchpriority="high" decoding="async" width="1105" height="498" class="wp-image-7684" src="/wp-content/uploads/2018/06/word-image-286.png" srcset="/wp-content/uploads/2018/06/word-image-286.png 1105w, /wp-content/uploads/2018/06/word-image-286-300x135.png 300w, /wp-content/uploads/2018/06/word-image-286-768x346.png 768w, /wp-content/uploads/2018/06/word-image-286-1024x461.png 1024w" sizes="(max-width: 1105px) 100vw, 1105px" /></p>
+<p>特点：开源、免费(个人学习使用没有任何问题)。但是企业使用用来盈利的话需要一定的授权费用（3000元左右）。</p>
+<h3>（2）shopex</h3>
+<p>网址：<a href="/goto/zptp" rel="nofollow">http://www.shopex.cn/</a></p>
+<p>&nbsp;</p>
+<p><img decoding="async" width="1087" height="468" class="wp-image-7685" src="/wp-content/uploads/2018/06/word-image-287.png" srcset="/wp-content/uploads/2018/06/word-image-287.png 1087w, /wp-content/uploads/2018/06/word-image-287-300x129.png 300w, /wp-content/uploads/2018/06/word-image-287-768x331.png 768w, /wp-content/uploads/2018/06/word-image-287-1024x441.png 1024w" sizes="(max-width: 1087px) 100vw, 1087px" /></p>
+<p>特点：商业版，代码是加密过的。</p>
+<h3>（3）shopnc</h3>
+<p>网址: <a href="/goto/ajli" rel="nofollow">http://www.shopnc.net/</a></p>
+<p>演示地址： <a href="/goto/ubug" rel="nofollow">http://b2b2c.shopnctest.com/dema/shop/index.php</a></p>
+<p><img decoding="async" width="1104" height="416" class="wp-image-7686" src="/wp-content/uploads/2018/06/word-image-288.png" srcset="/wp-content/uploads/2018/06/word-image-288.png 1104w, /wp-content/uploads/2018/06/word-image-288-300x113.png 300w, /wp-content/uploads/2018/06/word-image-288-768x289.png 768w, /wp-content/uploads/2018/06/word-image-288-1024x386.png 1024w" sizes="(max-width: 1104px) 100vw, 1104px" /></p>
+<p>特点：不开源、不免费</p>
+<p>小结：</p>
+<p>开源不代表免费，可以自己学习研究使用，但是以盈利为目的使用需要交一定的授权费用。</p>
+<h2>安装Ecshop开源商城</h2>
+<p>现在的Ecshop主要有以下两个版本：</p>
+<ul>
+<li>3.0版本：需要php5.4版本以上</li>
+<li>2.7版本：需要在php5.3以下（如：phpstudy集成环境进行php降级），当然5.4、5、5版本也是可以的，只是需要修改部分代码。</li>
+</ul>
+<p>这里建议安装Ecshop的兼容版本，已经兼容各个php版本。</p>
+<p><img loading="lazy" decoding="async" width="246" height="27" class="wp-image-7687" src="/wp-content/uploads/2018/06/word-image-289.png" /></p>
+<h3>域名部署访问 ecshop</h3>
+<p>一般把第三方开源项目部署在自己的机子上面域名前建议加个vendor,如：vendor.shop.com。明确知道这个程序是第三方程序。本地自己开发的项目话建议使用local进行开头，如:local.shop.com。</p>
+<p>步骤1：把ecshop开源程序的所有的文件复制到我们的项目目录</p>
+<p><img loading="lazy" decoding="async" width="841" height="424" class="wp-image-7688" src="/wp-content/uploads/2018/06/word-image-290.png" srcset="/wp-content/uploads/2018/06/word-image-290.png 841w, /wp-content/uploads/2018/06/word-image-290-300x151.png 300w, /wp-content/uploads/2018/06/word-image-290-768x387.png 768w" sizes="(max-width: 841px) 100vw, 841px" /></p>
+<p>步骤2：配置虚拟主机，如域名为上面的vendor.ecshop.com</p>
+<ol>
+<li>phpstudy设置虚拟主机</li>
+<li>设置host文件映射</li>
+<li>重启phpstudy</li>
+</ol>
+<p>步骤3：输入域名进行安装配置</p>
+<ol>
+<li>勾选</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1088" height="661" class="wp-image-7689" src="/wp-content/uploads/2018/06/word-image-291.png" srcset="/wp-content/uploads/2018/06/word-image-291.png 1088w, /wp-content/uploads/2018/06/word-image-291-300x182.png 300w, /wp-content/uploads/2018/06/word-image-291-768x467.png 768w, /wp-content/uploads/2018/06/word-image-291-1024x622.png 1024w" sizes="(max-width: 1088px) 100vw, 1088px" /></p>
+<p>b、配置系统</p>
+<p><img loading="lazy" decoding="async" width="861" height="267" class="wp-image-7690" src="/wp-content/uploads/2018/06/word-image-292.png" srcset="/wp-content/uploads/2018/06/word-image-292.png 861w, /wp-content/uploads/2018/06/word-image-292-300x93.png 300w, /wp-content/uploads/2018/06/word-image-292-768x238.png 768w" sizes="(max-width: 861px) 100vw, 861px" /></p>
+<p>c、配置数据库的信息</p>
+<p><img loading="lazy" decoding="async" width="777" height="650" class="wp-image-7691" src="/wp-content/uploads/2018/06/word-image-293.png" srcset="/wp-content/uploads/2018/06/word-image-293.png 777w, /wp-content/uploads/2018/06/word-image-293-300x251.png 300w, /wp-content/uploads/2018/06/word-image-293-768x642.png 768w" sizes="(max-width: 777px) 100vw, 777px" /> <img loading="lazy" decoding="async" width="834" height="242" class="wp-image-7692" src="/wp-content/uploads/2018/06/word-image-294.png" srcset="/wp-content/uploads/2018/06/word-image-294.png 834w, /wp-content/uploads/2018/06/word-image-294-300x87.png 300w, /wp-content/uploads/2018/06/word-image-294-768x223.png 768w" sizes="(max-width: 834px) 100vw, 834px" /></p>
+<p>访问ecshop前台：<a href="/goto/z1k0" rel="nofollow">http:/域名/</a></p>
+<p>访问ecshop后台：<a href="/goto/1knx" rel="nofollow">http:/域名/admin/</a></p>
+<p><img loading="lazy" decoding="async" width="781" height="382" class="wp-image-7693" src="/wp-content/uploads/2018/06/word-image-295.png" srcset="/wp-content/uploads/2018/06/word-image-295.png 781w, /wp-content/uploads/2018/06/word-image-295-300x147.png 300w, /wp-content/uploads/2018/06/word-image-295-768x376.png 768w" sizes="(max-width: 781px) 100vw, 781px" /></p>
+<h1>部署tp5商城项目环境</h1>
+<h2>部署虚拟主机</h2>
+<p>三步：</p>
+<p>步骤1：把tp5项目程序复制指定虚拟目录</p>
+<p>步骤2：使用phpstudy配置域名如为：<a href="/goto/x9uh" rel="nofollow">www.php15shop.com</a>，虚拟目录需要绑定到public目录下面</p>
+<p>步骤3：设置hosts文件映射</p>
+<p>最后访问如下，说明配置成功：</p>
+<p><img loading="lazy" decoding="async" width="693" height="379" class="wp-image-7694" src="/wp-content/uploads/2018/06/word-image-296.png" srcset="/wp-content/uploads/2018/06/word-image-296.png 693w, /wp-content/uploads/2018/06/word-image-296-300x164.png 300w" sizes="(max-width: 693px) 100vw, 693px" /></p>
+<h2>导入商城项目所有数据表</h2>
+<p>建议使用navicat可视化工具进行完成，找到对应的sql文件，进行导入。</p>
+<p>要先创建一个数据库，如php15shop</p>
+<p><img loading="lazy" decoding="async" width="736" height="210" class="wp-image-7695" src="/wp-content/uploads/2018/06/word-image-297.png" srcset="/wp-content/uploads/2018/06/word-image-297.png 736w, /wp-content/uploads/2018/06/word-image-297-300x86.png 300w" sizes="(max-width: 736px) 100vw, 736px" /></p>
+<p>&nbsp;</p>
+<p>每张表的字段信息可以参考数据库文档：</p>
+<p><img loading="lazy" decoding="async" width="652" height="66" class="wp-image-7696" src="/wp-content/uploads/2018/06/word-image-298.png" srcset="/wp-content/uploads/2018/06/word-image-298.png 652w, /wp-content/uploads/2018/06/word-image-298-300x30.png 300w" sizes="(max-width: 652px) 100vw, 652px" /></p>
+<h2>项目前的一些配置</h2>
+<p>我们可以先把数据库、控制器后缀、静态资源目录等一些基本配置先定义好。</p>
+<ul>
+<li>数据库配置</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="935" height="629" class="wp-image-7697" src="/wp-content/uploads/2018/06/word-image-299.png" srcset="/wp-content/uploads/2018/06/word-image-299.png 935w, /wp-content/uploads/2018/06/word-image-299-300x202.png 300w, /wp-content/uploads/2018/06/word-image-299-768x517.png 768w" sizes="(max-width: 935px) 100vw, 935px" /></p>
+<ul>
+<li>控制器后缀</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="798" height="303" class="wp-image-7698" src="/wp-content/uploads/2018/06/word-image-300.png" srcset="/wp-content/uploads/2018/06/word-image-300.png 798w, /wp-content/uploads/2018/06/word-image-300-300x114.png 300w, /wp-content/uploads/2018/06/word-image-300-768x292.png 768w" sizes="(max-width: 798px) 100vw, 798px" /></p>
+<ul>
+<li>配置静态资源路径，把后台静态资源放到相应的目录,配置后台密码加密验salt</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="767" height="329" class="wp-image-7699" src="/wp-content/uploads/2018/06/word-image-301.png" srcset="/wp-content/uploads/2018/06/word-image-301.png 767w, /wp-content/uploads/2018/06/word-image-301-300x129.png 300w" sizes="(max-width: 767px) 100vw, 767px" /></p>
+<ul>
+<li>先设置默认模块为admin、开发前台时（项目上线）设置为home</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="785" height="161" class="wp-image-7700" src="/wp-content/uploads/2018/06/word-image-302.png" srcset="/wp-content/uploads/2018/06/word-image-302.png 785w, /wp-content/uploads/2018/06/word-image-302-300x62.png 300w, /wp-content/uploads/2018/06/word-image-302-768x158.png 768w" sizes="(max-width: 785px) 100vw, 785px" /></p>
+<ul>
+<li>并且开启调试模式,页面trace调试，看到错误的详细信息</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="866" height="277" class="wp-image-7701" src="/wp-content/uploads/2018/06/word-image-303.png" srcset="/wp-content/uploads/2018/06/word-image-303.png 866w, /wp-content/uploads/2018/06/word-image-303-300x96.png 300w, /wp-content/uploads/2018/06/word-image-303-768x246.png 768w" sizes="(max-width: 866px) 100vw, 866px" /></p>
+<p>开启页面trace调试，页面右下角多处一个图标。</p>
+<p><img loading="lazy" decoding="async" width="153" height="49" class="wp-image-7702" src="/wp-content/uploads/2018/06/word-image-304.png" srcset="/wp-content/uploads/2018/06/word-image-304.png 153w, /wp-content/uploads/2018/06/word-image-304-150x49.png 150w" sizes="(max-width: 153px) 100vw, 153px" /></p>
+<ul>
+<li>开启模型获取数据返回关联数组的配置</li>
+</ul>
+<p><img loading="lazy" decoding="async" width="901" height="177" class="wp-image-7703" src="/wp-content/uploads/2018/06/word-image-305.png" srcset="/wp-content/uploads/2018/06/word-image-305.png 901w, /wp-content/uploads/2018/06/word-image-305-300x59.png 300w, /wp-content/uploads/2018/06/word-image-305-768x151.png 768w" sizes="(max-width: 901px) 100vw, 901px" /></p>
+<ul>
+<li>修改重写文件.htaccess隐藏单一入口文件访问</li>
+</ul>
+<p>这里需要在httpd.conf开启rewrite重写模块，和在虚拟主机中把 AllowOverride None改为 AllowOverride All，这两步在安装phpstudy的时候和配置虚拟主机时其已经帮我们设置好了。</p>
+<p>只需要改修改重写文件.htaccess，前面加个问号?</p>
+<h1>三、搭建后台首页</h1>
+<p><img loading="lazy" decoding="async" width="844" height="270" class="wp-image-7704" src="/wp-content/uploads/2018/06/word-image-306.png" srcset="/wp-content/uploads/2018/06/word-image-306.png 844w, /wp-content/uploads/2018/06/word-image-306-300x96.png 300w, /wp-content/uploads/2018/06/word-image-306-768x246.png 768w" sizes="(max-width: 844px) 100vw, 844px" /></p>
+<p>步骤1：在后台admin建立一个index控制器，分别建立top、main、left、index</p>
+<p><img loading="lazy" decoding="async" width="774" height="613" class="wp-image-7705" src="/wp-content/uploads/2018/06/word-image-307.png" srcset="/wp-content/uploads/2018/06/word-image-307.png 774w, /wp-content/uploads/2018/06/word-image-307-300x238.png 300w, /wp-content/uploads/2018/06/word-image-307-768x608.png 768w" sizes="(max-width: 774px) 100vw, 774px" /></p>
+<p>步骤2：复制后台指定的模板到指定的目录，并且修改每个模板的静态资源路径</p>
+<p><img loading="lazy" decoding="async" width="1264" height="457" class="wp-image-7706" src="/wp-content/uploads/2018/06/word-image-308.png" srcset="/wp-content/uploads/2018/06/word-image-308.png 1264w, /wp-content/uploads/2018/06/word-image-308-300x108.png 300w, /wp-content/uploads/2018/06/word-image-308-768x278.png 768w, /wp-content/uploads/2018/06/word-image-308-1024x370.png 1024w" sizes="(max-width: 1264px) 100vw, 1264px" /></p>
+<p>访问效果：</p>
+<p><img loading="lazy" decoding="async" width="744" height="432" class="wp-image-7707" src="/wp-content/uploads/2018/06/word-image-309.png" srcset="/wp-content/uploads/2018/06/word-image-309.png 744w, /wp-content/uploads/2018/06/word-image-309-300x174.png 300w" sizes="(max-width: 744px) 100vw, 744px" /></p>
+<h1>四、用户表的CURD操作</h1>
+<h3>完成用户的添加功能</h3>
+<p>步骤1：在后台创建User控制器，并建立一个add方法输出模板内容</p>
+<p><img loading="lazy" decoding="async" width="794" height="286" class="wp-image-7708" src="/wp-content/uploads/2018/06/word-image-310.png" srcset="/wp-content/uploads/2018/06/word-image-310.png 794w, /wp-content/uploads/2018/06/word-image-310-300x108.png 300w, /wp-content/uploads/2018/06/word-image-310-768x277.png 768w" sizes="(max-width: 794px) 100vw, 794px" /></p>
+<p>步骤2：修改add.html模板的name名称</p>
+<p><img loading="lazy" decoding="async" width="1286" height="622" class="wp-image-7709" src="/wp-content/uploads/2018/06/word-image-311.png" srcset="/wp-content/uploads/2018/06/word-image-311.png 1286w, /wp-content/uploads/2018/06/word-image-311-300x145.png 300w, /wp-content/uploads/2018/06/word-image-311-768x371.png 768w, /wp-content/uploads/2018/06/word-image-311-1024x495.png 1024w" sizes="(max-width: 1286px) 100vw, 1286px" /></p>
+<p>步骤3：定义当前表的验证器</p>
+<p><img loading="lazy" decoding="async" width="1209" height="714" class="wp-image-7710" src="/wp-content/uploads/2018/06/word-image-312.png" srcset="/wp-content/uploads/2018/06/word-image-312.png 1209w, /wp-content/uploads/2018/06/word-image-312-300x177.png 300w, /wp-content/uploads/2018/06/word-image-312-768x454.png 768w, /wp-content/uploads/2018/06/word-image-312-1024x605.png 1024w" sizes="(max-width: 1209px) 100vw, 1209px" /></p>
+<p>步骤4：在模型中定义前入库的钩子事件，完成密码字段的加密</p>
+<p><img loading="lazy" decoding="async" width="1101" height="436" class="wp-image-7711" src="/wp-content/uploads/2018/06/word-image-313.png" srcset="/wp-content/uploads/2018/06/word-image-313.png 1101w, /wp-content/uploads/2018/06/word-image-313-300x119.png 300w, /wp-content/uploads/2018/06/word-image-313-768x304.png 768w, /wp-content/uploads/2018/06/word-image-313-1024x406.png 1024w" sizes="(max-width: 1101px) 100vw, 1101px" /></p>
+<p>步骤5：控制器完成验证入库操作</p>
+<p><img loading="lazy" decoding="async" width="1191" height="699" class="wp-image-7712" src="/wp-content/uploads/2018/06/word-image-314.png" srcset="/wp-content/uploads/2018/06/word-image-314.png 1191w, /wp-content/uploads/2018/06/word-image-314-300x176.png 300w, /wp-content/uploads/2018/06/word-image-314-768x451.png 768w, /wp-content/uploads/2018/06/word-image-314-1024x601.png 1024w" sizes="(max-width: 1191px) 100vw, 1191px" /></p>
+<h3>完成用户列表功能及分页</h3>
+<p>步骤1：在后台User控制器建立一个index方法，取出所有的用户数据，并分配到模板中</p>
+<p><img loading="lazy" decoding="async" width="831" height="395" class="wp-image-7713" src="/wp-content/uploads/2018/06/word-image-315.png" srcset="/wp-content/uploads/2018/06/word-image-315.png 831w, /wp-content/uploads/2018/06/word-image-315-300x143.png 300w, /wp-content/uploads/2018/06/word-image-315-768x365.png 768w" sizes="(max-width: 831px) 100vw, 831px" /></p>
+<p>步骤2：模板遍历数据</p>
+<p><img loading="lazy" decoding="async" width="1039" height="601" class="wp-image-7714" src="/wp-content/uploads/2018/06/word-image-316.png" srcset="/wp-content/uploads/2018/06/word-image-316.png 1039w, /wp-content/uploads/2018/06/word-image-316-300x174.png 300w, /wp-content/uploads/2018/06/word-image-316-768x444.png 768w, /wp-content/uploads/2018/06/word-image-316-1024x592.png 1024w" sizes="(max-width: 1039px) 100vw, 1039px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="941" height="192" class="wp-image-7715" src="/wp-content/uploads/2018/06/word-image-317.png" srcset="/wp-content/uploads/2018/06/word-image-317.png 941w, /wp-content/uploads/2018/06/word-image-317-300x61.png 300w, /wp-content/uploads/2018/06/word-image-317-768x157.png 768w" sizes="(max-width: 941px) 100vw, 941px" /></p>
+<h3>完成用户的编辑功能</h3>
+<p>编辑用户的时候，密码选项需要考虑两种情况：</p>
+<p>①如密码和确认密码都为空，说明用户不想修改密码，则保留原来的密码。</p>
+<p>②如果两个密码有一个不为空，说明用户想修改密码，则必须要求用户两次密码一致。</p>
+<p>代码如下：</p>
+<p>步骤1：给编辑的设置一个链接地址，携带一个主键值</p>
+<p><img loading="lazy" decoding="async" width="1260" height="305" class="wp-image-7716" src="/wp-content/uploads/2018/06/word-image-318.png" srcset="/wp-content/uploads/2018/06/word-image-318.png 1260w, /wp-content/uploads/2018/06/word-image-318-300x73.png 300w, /wp-content/uploads/2018/06/word-image-318-768x186.png 768w, /wp-content/uploads/2018/06/word-image-318-1024x248.png 1024w" sizes="(max-width: 1260px) 100vw, 1260px" /></p>
+<p>步骤2：使用jquery-validate对密码字段进行验证</p>
+<p><img loading="lazy" decoding="async" width="1008" height="318" class="wp-image-7717" src="/wp-content/uploads/2018/06/word-image-319.png" srcset="/wp-content/uploads/2018/06/word-image-319.png 1008w, /wp-content/uploads/2018/06/word-image-319-300x95.png 300w, /wp-content/uploads/2018/06/word-image-319-768x242.png 768w" sizes="(max-width: 1008px) 100vw, 1008px" /></p>
+<p>规则如下：</p>
+<p><img loading="lazy" decoding="async" width="841" height="711" class="wp-image-7718" src="/wp-content/uploads/2018/06/word-image-320.png" srcset="/wp-content/uploads/2018/06/word-image-320.png 841w, /wp-content/uploads/2018/06/word-image-320-300x254.png 300w, /wp-content/uploads/2018/06/word-image-320-768x649.png 768w" sizes="(max-width: 841px) 100vw, 841px" /> <img loading="lazy" decoding="async" width="590" height="144" class="wp-image-7719" src="/wp-content/uploads/2018/06/word-image-321.png" srcset="/wp-content/uploads/2018/06/word-image-321.png 590w, /wp-content/uploads/2018/06/word-image-321-300x73.png 300w" sizes="(max-width: 590px) 100vw, 590px" /></p>
+<p>注：要修改style.css文件样式，因为有样式冲突</p>
+<p><img loading="lazy" decoding="async" width="1138" height="179" class="wp-image-7720" src="/wp-content/uploads/2018/06/word-image-322.png" srcset="/wp-content/uploads/2018/06/word-image-322.png 1138w, /wp-content/uploads/2018/06/word-image-322-300x47.png 300w, /wp-content/uploads/2018/06/word-image-322-768x121.png 768w, /wp-content/uploads/2018/06/word-image-322-1024x161.png 1024w" sizes="(max-width: 1138px) 100vw, 1138px" /></p>
+<p>设置upd.html模板内容回显数据：</p>
+<p><img loading="lazy" decoding="async" width="1270" height="671" class="wp-image-7721" src="/wp-content/uploads/2018/06/word-image-323.png" srcset="/wp-content/uploads/2018/06/word-image-323.png 1270w, /wp-content/uploads/2018/06/word-image-323-300x159.png 300w, /wp-content/uploads/2018/06/word-image-323-768x406.png 768w, /wp-content/uploads/2018/06/word-image-323-1024x541.png 1024w" sizes="(max-width: 1270px) 100vw, 1270px" /></p>
+<p>步骤3：upd方法中完成编辑的验证编辑入库</p>
+<p><img loading="lazy" decoding="async" width="1160" height="520" class="wp-image-7722" src="/wp-content/uploads/2018/06/word-image-324.png" srcset="/wp-content/uploads/2018/06/word-image-324.png 1160w, /wp-content/uploads/2018/06/word-image-324-300x134.png 300w, /wp-content/uploads/2018/06/word-image-324-768x344.png 768w, /wp-content/uploads/2018/06/word-image-324-1024x459.png 1024w" sizes="(max-width: 1160px) 100vw, 1160px" /></p>
+<p>同时修改编辑场景的验证器：</p>
+<p><img loading="lazy" decoding="async" width="1002" height="485" class="wp-image-7723" src="/wp-content/uploads/2018/06/word-image-325.png" srcset="/wp-content/uploads/2018/06/word-image-325.png 1002w, /wp-content/uploads/2018/06/word-image-325-300x145.png 300w, /wp-content/uploads/2018/06/word-image-325-768x372.png 768w" sizes="(max-width: 1002px) 100vw, 1002px" /></p>
+<h3>ajax控制用户的登录状态</h3>
+<p>步骤1：先给标签加一个a标签，并且阻止默认行为，同时加一个is_active和user_id属性，目的是获取当前记录的状态值和主键值，并且绑定类名为changeActive。</p>
+<p><img loading="lazy" decoding="async" width="1197" height="259" class="wp-image-7724" src="/wp-content/uploads/2018/06/word-image-326.png" srcset="/wp-content/uploads/2018/06/word-image-326.png 1197w, /wp-content/uploads/2018/06/word-image-326-300x65.png 300w, /wp-content/uploads/2018/06/word-image-326-768x166.png 768w, /wp-content/uploads/2018/06/word-image-326-1024x222.png 1024w" sizes="(max-width: 1197px) 100vw, 1197px" /></p>
+<p>步骤2：给class=changeActive 绑定单击事件，发送ajax请求</p>
+<p><img loading="lazy" decoding="async" width="1244" height="493" class="wp-image-7725" src="/wp-content/uploads/2018/06/word-image-327.png" srcset="/wp-content/uploads/2018/06/word-image-327.png 1244w, /wp-content/uploads/2018/06/word-image-327-300x119.png 300w, /wp-content/uploads/2018/06/word-image-327-768x304.png 768w, /wp-content/uploads/2018/06/word-image-327-1024x406.png 1024w" sizes="(max-width: 1244px) 100vw, 1244px" /></p>
+<p>步骤3：在User控制器建立一个ajaxChangeActive方法，完成状态的更改</p>
+<p><img loading="lazy" decoding="async" width="831" height="646" class="wp-image-7726" src="/wp-content/uploads/2018/06/word-image-328.png" srcset="/wp-content/uploads/2018/06/word-image-328.png 831w, /wp-content/uploads/2018/06/word-image-328-300x233.png 300w, /wp-content/uploads/2018/06/word-image-328-768x597.png 768w" sizes="(max-width: 831px) 100vw, 831px" /></p>
+<p>注意：由于更改状态值的时候会触发编辑的前钩子，这时候没有携带密码字段前钩子会直接报错，解决办法：对前钩子有没有密码字段进行isset判断即可:</p>
+<p><img loading="lazy" decoding="async" width="971" height="482" class="wp-image-7727" src="/wp-content/uploads/2018/06/word-image-329.png" srcset="/wp-content/uploads/2018/06/word-image-329.png 971w, /wp-content/uploads/2018/06/word-image-329-300x149.png 300w, /wp-content/uploads/2018/06/word-image-329-768x381.png 768w" sizes="(max-width: 971px) 100vw, 971px" /></p>
+<p>提示：调试ajax的时候，务必要打开控制器network进行调试。可以打开response选项看报啥错，这样可以快速定位到错误的原因。</p>
+<h1>五、完成后台用户登录|退出|防翻墙功能</h1>
+<h2>完成后台登录功能</h2>
+<p>步骤1：在后台建立一个Public控制器，并建立一个login方法，输出登录模板同时，同时完成登录的功能实现</p>
+<p><img loading="lazy" decoding="async" width="1135" height="651" class="wp-image-7728" src="/wp-content/uploads/2018/06/word-image-330.png" srcset="/wp-content/uploads/2018/06/word-image-330.png 1135w, /wp-content/uploads/2018/06/word-image-330-300x172.png 300w, /wp-content/uploads/2018/06/word-image-330-768x441.png 768w, /wp-content/uploads/2018/06/word-image-330-1024x587.png 1024w" sizes="(max-width: 1135px) 100vw, 1135px" /></p>
+<p>同时在User模型中，定义一个checkUser的方法，检测用户名和密码是否相等</p>
+<p><img loading="lazy" decoding="async" width="1030" height="529" class="wp-image-7729" src="/wp-content/uploads/2018/06/word-image-331.png" srcset="/wp-content/uploads/2018/06/word-image-331.png 1030w, /wp-content/uploads/2018/06/word-image-331-300x154.png 300w, /wp-content/uploads/2018/06/word-image-331-768x394.png 768w, /wp-content/uploads/2018/06/word-image-331-1024x526.png 1024w" sizes="(max-width: 1030px) 100vw, 1030px" /></p>
+<p>步骤2：修改login.html模板内容，显示验证码</p>
+<p><img loading="lazy" decoding="async" width="1267" height="689" class="wp-image-7730" src="/wp-content/uploads/2018/06/word-image-332.png" srcset="/wp-content/uploads/2018/06/word-image-332.png 1267w, /wp-content/uploads/2018/06/word-image-332-300x163.png 300w, /wp-content/uploads/2018/06/word-image-332-768x418.png 768w, /wp-content/uploads/2018/06/word-image-332-1024x557.png 1024w" sizes="(max-width: 1267px) 100vw, 1267px" /> <img loading="lazy" decoding="async" width="1167" height="425" class="wp-image-7731" src="/wp-content/uploads/2018/06/word-image-333.png" srcset="/wp-content/uploads/2018/06/word-image-333.png 1167w, /wp-content/uploads/2018/06/word-image-333-300x109.png 300w, /wp-content/uploads/2018/06/word-image-333-768x280.png 768w, /wp-content/uploads/2018/06/word-image-333-1024x373.png 1024w" sizes="(max-width: 1167px) 100vw, 1167px" /></p>
+<p>步骤3：在验证器中定义登录场景的验证规则</p>
+<p><img loading="lazy" decoding="async" width="1264" height="690" class="wp-image-7732" src="/wp-content/uploads/2018/06/word-image-334.png" srcset="/wp-content/uploads/2018/06/word-image-334.png 1264w, /wp-content/uploads/2018/06/word-image-334-300x164.png 300w, /wp-content/uploads/2018/06/word-image-334-768x419.png 768w, /wp-content/uploads/2018/06/word-image-334-1024x559.png 1024w" sizes="(max-width: 1264px) 100vw, 1264px" /></p>
+<p>登录成功，在top.html中回显用户名</p>
+<p><img loading="lazy" decoding="async" width="1024" height="214" class="wp-image-7733" src="/wp-content/uploads/2018/06/word-image-335.png" srcset="/wp-content/uploads/2018/06/word-image-335.png 1024w, /wp-content/uploads/2018/06/word-image-335-300x63.png 300w, /wp-content/uploads/2018/06/word-image-335-768x161.png 768w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h2>完成后台退出功能</h2>
+<p>步骤1：在后台Public控制器建立一个logout的退出方法</p>
+<p><img loading="lazy" decoding="async" width="831" height="296" class="wp-image-7734" src="/wp-content/uploads/2018/06/word-image-336.png" srcset="/wp-content/uploads/2018/06/word-image-336.png 831w, /wp-content/uploads/2018/06/word-image-336-300x107.png 300w, /wp-content/uploads/2018/06/word-image-336-768x274.png 768w" sizes="(max-width: 831px) 100vw, 831px" /></p>
+<h2>防用户翻墙</h2>
+<p>防翻墙思想：建立一个父控制器如：CommonController,在此控制器的构造函数中做session的判断，其他需要进行验证session的控制器就继承此公共控制器即可防止翻墙，某些控制器不需要session判断则不继承即可。（如:PublicController）</p>
+<p><img loading="lazy" decoding="async" width="991" height="358" class="wp-image-7735" src="/wp-content/uploads/2018/06/word-image-337.png" srcset="/wp-content/uploads/2018/06/word-image-337.png 991w, /wp-content/uploads/2018/06/word-image-337-300x108.png 300w, /wp-content/uploads/2018/06/word-image-337-768x277.png 768w" sizes="(max-width: 991px) 100vw, 991px" /></p>
+<p>其中Index 和User控制器需要继承Common，public不需要继承</p>
+<p><img loading="lazy" decoding="async" width="831" height="164" class="wp-image-7736" src="/wp-content/uploads/2018/06/word-image-338.png" srcset="/wp-content/uploads/2018/06/word-image-338.png 831w, /wp-content/uploads/2018/06/word-image-338-300x59.png 300w, /wp-content/uploads/2018/06/word-image-338-768x152.png 768w" sizes="(max-width: 831px) 100vw, 831px" /> <img loading="lazy" decoding="async" width="834" height="172" class="wp-image-7737" src="/wp-content/uploads/2018/06/word-image-339.png" srcset="/wp-content/uploads/2018/06/word-image-339.png 834w, /wp-content/uploads/2018/06/word-image-339-300x62.png 300w, /wp-content/uploads/2018/06/word-image-339-768x158.png 768w" sizes="(max-width: 834px) 100vw, 834px" /></p>
+<h1>六、RBAC权限控制</h1>
+<h2>RBAC介绍</h2>
+<p>RBAC: Role Based Access Controller ,即基于角色的访问权限控制。</p>
+<p>简单的说,用户登录可以属于不同的角色，不同的角色拥有的后台访问菜单权限也不一样。</p>
+<p>如：</p>
+<p>如下面的每个菜单就是一个权限。</p>
+<p><img loading="lazy" decoding="async" width="190" height="124" class="wp-image-7738" src="/wp-content/uploads/2018/06/word-image-340.png" /></p>
+<p>后台菜单中权限一般只控制到两级权限，权限级别太深难以维护，具体要看项目需求。</p>
+<p>一级权限：如：商品管理。</p>
+<p>二级权限：如：商品添加、商品列表。</p>
+<p>三级权限：如：商品列表中的编辑或删除操作</p>
+<h2>RBAC表的表设计</h2>
+<p>一般RBAC权限控制都3张表和5张表，其核心都是一样。</p>
+<p>3张表：后台用户表、角色表、权限表。</p>
+<p>而5张表仅把用户表和角色表、角色表和权限表其相关联的字段分别使用一个表来维护。且表多了维护起来更加繁琐。</p>
+<p>这里我们采用3张表来做权限控制。</p>
+<p>三张表的关系如下：</p>
+<p><img loading="lazy" decoding="async" width="749" height="293" class="wp-image-7739" src="/wp-content/uploads/2018/06/word-image-341.png" srcset="/wp-content/uploads/2018/06/word-image-341.png 749w, /wp-content/uploads/2018/06/word-image-341-300x117.png 300w" sizes="(max-width: 749px) 100vw, 749px" /></p>
+<p>分析：</p>
+<ul>
+<li>用户表通过角色字段role_id，找到与其关联的角色表role_id。</li>
+<li>角色表通过所拥有的所有权限字段auth_id_list，找到与其关联的权限表的auth_id。</li>
+</ul>
+<p>控制权限图解：</p>
+<p><img loading="lazy" decoding="async" width="1127" height="449" class="wp-image-7740" src="/wp-content/uploads/2018/06/word-image-342.png" srcset="/wp-content/uploads/2018/06/word-image-342.png 1127w, /wp-content/uploads/2018/06/word-image-342-300x120.png 300w, /wp-content/uploads/2018/06/word-image-342-768x306.png 768w, /wp-content/uploads/2018/06/word-image-342-1024x408.png 1024w" sizes="(max-width: 1127px) 100vw, 1127px" /></p>
+<p>可见，一个用户对应着一个角色，一个角色可以拥有多个权限。</p>
+<h1>七、RBAC功能实现</h1>
+<h2>权限表的curd操作</h2>
+<h3>（1）完成权限的添加</h3>
+<p>步骤1：在后台建立一个Auth控制器，并建立一个add方法，输出模板内容，并完成添加权限的实现</p>
+<p><img loading="lazy" decoding="async" width="1028" height="717" class="wp-image-7741" src="/wp-content/uploads/2018/06/word-image-343.png" srcset="/wp-content/uploads/2018/06/word-image-343.png 1028w, /wp-content/uploads/2018/06/word-image-343-300x209.png 300w, /wp-content/uploads/2018/06/word-image-343-768x536.png 768w, /wp-content/uploads/2018/06/word-image-343-1024x714.png 1024w" sizes="(max-width: 1028px) 100vw, 1028px" /></p>
+<p>同时在Auth模型中取出权限的无限级分类数据：</p>
+<p><img loading="lazy" decoding="async" width="965" height="680" class="wp-image-7742" src="/wp-content/uploads/2018/06/word-image-344.png" srcset="/wp-content/uploads/2018/06/word-image-344.png 965w, /wp-content/uploads/2018/06/word-image-344-300x211.png 300w, /wp-content/uploads/2018/06/word-image-344-768x541.png 768w" sizes="(max-width: 965px) 100vw, 965px" /></p>
+<p>步骤2：设置add.html模板内容</p>
+<p><img loading="lazy" decoding="async" width="1230" height="699" class="wp-image-7743" src="/wp-content/uploads/2018/06/word-image-345.png" srcset="/wp-content/uploads/2018/06/word-image-345.png 1230w, /wp-content/uploads/2018/06/word-image-345-300x170.png 300w, /wp-content/uploads/2018/06/word-image-345-768x436.png 768w, /wp-content/uploads/2018/06/word-image-345-1024x582.png 1024w" sizes="(max-width: 1230px) 100vw, 1230px" /></p>
+<p>当选择顶级权限时，控制器名和方法名不可用，否则可用。因为顶级权限没有控制器名和方法名。</p>
+<p><img loading="lazy" decoding="async" width="1179" height="481" class="wp-image-7744" src="/wp-content/uploads/2018/06/word-image-346.png" srcset="/wp-content/uploads/2018/06/word-image-346.png 1179w, /wp-content/uploads/2018/06/word-image-346-300x122.png 300w, /wp-content/uploads/2018/06/word-image-346-768x313.png 768w, /wp-content/uploads/2018/06/word-image-346-1024x418.png 1024w" sizes="(max-width: 1179px) 100vw, 1179px" /></p>
+<p>注意：表单input设置disabled和readonly的区别</p>
+<p>相同点：都不可以编辑input中的数据</p>
+<p>不同点：设置disabled时，php中通过$_POST接收不到input框name的属性值</p>
+<p>设置readonly时，php中通过$_POST可以收到input的name的属性值</p>
+<p>步骤3：定义Auth验证器，进行验证</p>
+<p><img loading="lazy" decoding="async" width="773" height="636" class="wp-image-7745" src="/wp-content/uploads/2018/06/word-image-347.png" srcset="/wp-content/uploads/2018/06/word-image-347.png 773w, /wp-content/uploads/2018/06/word-image-347-300x247.png 300w, /wp-content/uploads/2018/06/word-image-347-768x632.png 768w" sizes="(max-width: 773px) 100vw, 773px" /></p>
+<p>模板效果：</p>
+<p><img loading="lazy" decoding="async" width="542" height="323" class="wp-image-7746" src="/wp-content/uploads/2018/06/word-image-348.png" srcset="/wp-content/uploads/2018/06/word-image-348.png 542w, /wp-content/uploads/2018/06/word-image-348-300x180.png 300w" sizes="(max-width: 542px) 100vw, 542px" /></p>
+<h3>完成权限的列表展示</h3>
+<h3>完成权限的编辑</h3>
+<h3>完成权限的删除</h3>
+<h2>角色表的curd操作</h2>
+<h3>添加角色及分配权限</h3>
+<p>注：一般系统角色名为超级管理员都会拥有所有的权限，其权限字段auth_id_list可以手动设置为*。</p>
+<h3>（2）角色的列表展示</h3>
+<p>把一个角色所拥有的权限都查出来，这里需要利用到两个mysql函数：</p>
+<p>FIND_IN_SET和group_concat(字段)</p>
+<ul>
+<li>FIND_IN_SET(str,strlist) :</li>
+</ul>
+<p>作用：查询出子串str，是否在由逗号分隔的目标字符串strlist中存在。</p>
+<p>如：判断5是否在字符串1,2,3,4,5中存在：FIND_IN_SET(5,‘1,2,3,4,5’) ，存在则返回所在目标字符串strlist的所在位置，不存在则返回0。</p>
+<p><img loading="lazy" decoding="async" width="643" height="83" class="wp-image-7747" src="/wp-content/uploads/2018/06/word-image-349.png" srcset="/wp-content/uploads/2018/06/word-image-349.png 643w, /wp-content/uploads/2018/06/word-image-349-300x39.png 300w" sizes="(max-width: 643px) 100vw, 643px" /> <img loading="lazy" decoding="async" width="476" height="77" class="wp-image-7748" src="/wp-content/uploads/2018/06/word-image-350.png" srcset="/wp-content/uploads/2018/06/word-image-350.png 476w, /wp-content/uploads/2018/06/word-image-350-300x49.png 300w" sizes="(max-width: 476px) 100vw, 476px" /></p>
+<ul>
+<li>group_concat(字段)</li>
+</ul>
+<p>作用：主要根据某个字段进行分组，把相同字段的值连接在一起。</p>
+<p>默认连接符号是逗号 ，如果用|连接则：</p>
+<p>group_concat(字段名 SEPARATOR “|”)</p>
+<p>例：如下是表tp_article表中的一些数据</p>
+<p><img loading="lazy" decoding="async" width="400" height="150" class="wp-image-7749" src="/wp-content/uploads/2018/06/word-image-351.png" srcset="/wp-content/uploads/2018/06/word-image-351.png 400w, /wp-content/uploads/2018/06/word-image-351-300x113.png 300w" sizes="(max-width: 400px) 100vw, 400px" /></p>
+<p>根据cat_id字段进行分组，把具有相同cat_id的title字段值连接在一起。</p>
+<p><img loading="lazy" decoding="async" width="766" height="159" class="wp-image-7750" src="/wp-content/uploads/2018/06/word-image-352.png" srcset="/wp-content/uploads/2018/06/word-image-352.png 766w, /wp-content/uploads/2018/06/word-image-352-300x62.png 300w" sizes="(max-width: 766px) 100vw, 766px" /></p>
+<h3>（3）完成角色编辑功能</h3>
+<h3>（4）完成角色删除功能</h3>
+<h1>实现不同用户登录展示不同后台菜单</h1>
+<h1>八、权限防翻墙</h1>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7682.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Mysql（一）关系型、 层次型、 数据库、 数据库引擎、 数据表、 网状型、 表属性</title>
+		<link>/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/944.html</link>
+					<comments>/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/944.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 17:14:51 +0000</pubDate>
+				<category><![CDATA[Mysql]]></category>
+		<category><![CDATA[关系型]]></category>
+		<category><![CDATA[层次型]]></category>
+		<category><![CDATA[数据库]]></category>
+		<category><![CDATA[数据库引擎]]></category>
+		<category><![CDATA[数据表]]></category>
+		<category><![CDATA[网状型]]></category>
+		<category><![CDATA[表属性]]></category>
+		<guid isPermaLink="false">/?p=944</guid>
+
+					<description><![CDATA[基本概念 数据库 database 什么是数据库：存放数据的仓库，用途就是存放，（永久存放） Word也是永久 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>基本概念</h1>
+<h2>数据库</h2>
+<p>
+  database
+</p>
+<p>
+  什么是数据库：存放数据的仓库，用途就是存放，（永久存放）
+</p>
+<p>
+  Word也是永久存放数据的地方，那么word是数据库吗？
+</p>
+<p>
+  Word 文档文件&#8212;-从定义上说，word就是数据库，为什么？
+</p>
+<p>
+  其实数据库的本质就是文件
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1033" height="327" src="/wp-content/uploads/2018/05/word-image-838.png" class="wp-image-945" srcset="/wp-content/uploads/2018/05/word-image-838.png 1033w, /wp-content/uploads/2018/05/word-image-838-300x95.png 300w, /wp-content/uploads/2018/05/word-image-838-768x243.png 768w, /wp-content/uploads/2018/05/word-image-838-1024x324.png 1024w" sizes="(max-width: 1033px) 100vw, 1033px" />
+</p>
+<h2>数据库发展史</h2>
+<h3>层次型</h3>
+<p>
+  什么是层次型数据库？
+</p>
+<p>
+  把数据分层，分类来存储好处，把数据归类了，层次分明
+</p>
+<p>
+  像一个倒立的树
+</p>
+<p>
+  现在你要找一个学生，那么必须从学校开始找  学校&#8212;-班级&#8212;-学生或学校&#8212;-教师&#8212;学生
+</p>
+<p>
+  出现了一个导航问题找C必须通过A再B
+</p>
+<p>
+  出现了重复数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="603" height="515" src="/wp-content/uploads/2018/05/word-image-839.png" class="wp-image-946" srcset="/wp-content/uploads/2018/05/word-image-839.png 603w, /wp-content/uploads/2018/05/word-image-839-300x256.png 300w" sizes="(max-width: 603px) 100vw, 603px" />
+</p>
+<h3>网状型</h3>
+<p>
+  好处：解决了数据的重复
+</p>
+<p>
+  坏处：但是导航问题没有根本的解决
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="522" height="523" src="/wp-content/uploads/2018/05/word-image-840.png" class="wp-image-947" srcset="/wp-content/uploads/2018/05/word-image-840.png 522w, /wp-content/uploads/2018/05/word-image-840-150x150.png 150w, /wp-content/uploads/2018/05/word-image-840-300x300.png 300w" sizes="(max-width: 522px) 100vw, 522px" />
+</p>
+<h3>关系型</h3>
+<p>
+  什么是关系型数据库
+</p>
+<p>
+  其实就是有关系的二维表
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="946" height="145" src="/wp-content/uploads/2018/05/word-image-841.png" class="wp-image-948" srcset="/wp-content/uploads/2018/05/word-image-841.png 946w, /wp-content/uploads/2018/05/word-image-841-300x46.png 300w, /wp-content/uploads/2018/05/word-image-841-768x118.png 768w" sizes="(max-width: 946px) 100vw, 946px" />
+</p>
+<h2>数据表</h2>
+<p>
+  关系型数据库中的二维表就是数据表，是二维的另外一个名字
+</p>
+<h3>记录</h3>
+<p>
+  数据表中一行就是一条记录
+</p>
+<h3>字段</h3>
+<p>
+  数据表中一列就是一个字段
+</p>
+<h3>数据</h3>
+<p>
+  一行和一列交差的地方就是数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="463" height="168" src="/wp-content/uploads/2018/05/word-image-842.png" class="wp-image-949" srcset="/wp-content/uploads/2018/05/word-image-842.png 463w, /wp-content/uploads/2018/05/word-image-842-300x109.png 300w" sizes="(max-width: 463px) 100vw, 463px" />
+</p>
+<h2>数据库管理系统（软件）</h2>
+<p>
+  Managerment  database  system
+</p>
+<p>
+  平时说的MySQL数据库这个定义不对  其实MySQL是管理数据库的，是一个数据库管理系统
+</p>
+<p>
+  常见的一些数据库管理系统有如下几个;
+</p>
+<p>
+  Oracle  mysql   sqlserver  sqllite   db2  access
+</p>
+<p>
+  如上的一些数据库管理系统都有一个特点&#8212;&#8211;都是管理关系型数据库的
+</p>
+<p>
+  用途：数据库管理系统就是用来管理数据库的
+</p>
+<h2>SQL</h2>
+<p>
+  Sql就是数据库管理系统管理数据库的一种命令
+</p>
+<p>
+  这里数据库管理系统可以不同但是sql命令确是可以共用的，说白了，SQL就是一种专门管理数据库的一种语言
+</p>
+<h2>数据库服务器（硬件）</h2>
+<p>
+  数据库服务器：就是提供数据库服务的一个计算机，安装了数据库管理系统
+</p>
+<h2>数据库系统</h2>
+<p>
+  数据库系统=数据库管理员+数据库管理系统+数据库
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1555" height="497" src="/wp-content/uploads/2018/05/word-image-843.png" class="wp-image-950" srcset="/wp-content/uploads/2018/05/word-image-843.png 1555w, /wp-content/uploads/2018/05/word-image-843-300x96.png 300w, /wp-content/uploads/2018/05/word-image-843-768x245.png 768w, /wp-content/uploads/2018/05/word-image-843-1024x327.png 1024w" sizes="(max-width: 1555px) 100vw, 1555px" />
+</p>
+<h2>今日数据库操作步骤</h2>
+<ul>
+<li>
+    数据库操作顺序
+  </li>
+<li>
+    第一步：打开数据库服务
+  </li>
+<li>
+    第二步：连接数据库
+  </li>
+<li>
+    第三步：数据库的‘库操作’</p>
+<ul>
+<li>
+<ul>
+<li>
+            对数据库的增删改查
+          </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+    第四步：进入数据库
+  </li>
+<li>
+    第五步：表操作（增加，删除，修改）
+  </li>
+</ul>
+<h1>数据库服务</h1>
+<h2>启动数据库服务</h2>
+<p>
+  第一种
+</p>
+<p>
+  右键计算机&#8212;管理&#8212;服务&#8212;MySQL数据库
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="759" height="285" src="/wp-content/uploads/2018/05/word-image-844.png" class="wp-image-951" srcset="/wp-content/uploads/2018/05/word-image-844.png 759w, /wp-content/uploads/2018/05/word-image-844-300x113.png 300w" sizes="(max-width: 759px) 100vw, 759px" />
+</p>
+<p>
+  第二种
+</p>
+<p>
+  Cmd 命令行方式启动
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="484" height="72" src="/wp-content/uploads/2018/05/word-image-845.png" class="wp-image-952" srcset="/wp-content/uploads/2018/05/word-image-845.png 484w, /wp-content/uploads/2018/05/word-image-845-300x45.png 300w" sizes="(max-width: 484px) 100vw, 484px" />
+</p>
+<p>
+  注意：配置path，net start mysql后没有分号；
+</p>
+<h2>关闭数据库服务</h2>
+<p>
+  语法： net stop mysql
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="563" height="132" src="/wp-content/uploads/2018/05/word-image-846.png" class="wp-image-953" srcset="/wp-content/uploads/2018/05/word-image-846.png 563w, /wp-content/uploads/2018/05/word-image-846-300x70.png 300w" sizes="(max-width: 563px) 100vw, 563px" />
+</p>
+<h1>MySQL客户端</h1>
+<h2>Windows命令窗口cmd</h2>
+<h3>连接数据库</h3>
+<p>
+  语法:  mysql -h主机名 -P端口号 -u用户名 -p密码
+</p>
+<ul>
+<li>
+    -h主机名，默认是localhost(127.0.0.1) ,如果是默认可以不填写
+  </li>
+<li>
+    -P端口号，默认是3306，如果是默认的可以不填写
+  </li>
+<li>
+    -u用户名
+  </li>
+<li>
+    -p密码
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="856" height="283" src="/wp-content/uploads/2018/05/word-image-847.png" class="wp-image-954" srcset="/wp-content/uploads/2018/05/word-image-847.png 856w, /wp-content/uploads/2018/05/word-image-847-300x99.png 300w, /wp-content/uploads/2018/05/word-image-847-768x254.png 768w" sizes="(max-width: 856px) 100vw, 856px" />
+</p>
+<p>
+  优化
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="895" height="306" src="/wp-content/uploads/2018/05/word-image-848.png" class="wp-image-955" srcset="/wp-content/uploads/2018/05/word-image-848.png 895w, /wp-content/uploads/2018/05/word-image-848-300x103.png 300w, /wp-content/uploads/2018/05/word-image-848-768x263.png 768w" sizes="(max-width: 895px) 100vw, 895px" />
+</p>
+<h3>退出数据库</h3>
+<p>
+  \q
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="706" height="63" src="/wp-content/uploads/2018/05/word-image-849.png" class="wp-image-956" srcset="/wp-content/uploads/2018/05/word-image-849.png 706w, /wp-content/uploads/2018/05/word-image-849-300x27.png 300w" sizes="(max-width: 706px) 100vw, 706px" />
+</p>
+<p>
+  Exit
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="535" height="84" src="/wp-content/uploads/2018/05/word-image-850.png" class="wp-image-957" srcset="/wp-content/uploads/2018/05/word-image-850.png 535w, /wp-content/uploads/2018/05/word-image-850-300x47.png 300w" sizes="(max-width: 535px) 100vw, 535px" />
+</p>
+<p>
+  Quit
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="611" height="86" src="/wp-content/uploads/2018/05/word-image-851.png" class="wp-image-958" srcset="/wp-content/uploads/2018/05/word-image-851.png 611w, /wp-content/uploads/2018/05/word-image-851-300x42.png 300w" sizes="(max-width: 611px) 100vw, 611px" />
+</p>
+<h2>Windows界面客户端</h2>
+<p>
+  Navicate (强烈不推荐使用)
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="579" height="275" src="/wp-content/uploads/2018/05/word-image-852.png" class="wp-image-960" srcset="/wp-content/uploads/2018/05/word-image-852.png 579w, /wp-content/uploads/2018/05/word-image-852-300x142.png 300w" sizes="(max-width: 579px) 100vw, 579px" />
+</p>
+<h2>Web界面（PHPadmin）</h2>
+<h3>配置web站</h3>
+<p>
+  解压放置到你的虚拟站点位置
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1016" height="353" src="/wp-content/uploads/2018/05/word-image-853.png" class="wp-image-961" srcset="/wp-content/uploads/2018/05/word-image-853.png 1016w, /wp-content/uploads/2018/05/word-image-853-300x104.png 300w, /wp-content/uploads/2018/05/word-image-853-768x267.png 768w" sizes="(max-width: 1016px) 100vw, 1016px" />
+</p>
+<p>
+  配置虚拟主机
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1091" height="321" src="/wp-content/uploads/2018/05/word-image-854.png" class="wp-image-962" srcset="/wp-content/uploads/2018/05/word-image-854.png 1091w, /wp-content/uploads/2018/05/word-image-854-300x88.png 300w, /wp-content/uploads/2018/05/word-image-854-768x226.png 768w, /wp-content/uploads/2018/05/word-image-854-1024x301.png 1024w" sizes="(max-width: 1091px) 100vw, 1091px" />
+</p>
+<p>
+  修改host
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="659" height="235" src="/wp-content/uploads/2018/05/word-image-855.png" class="wp-image-963" srcset="/wp-content/uploads/2018/05/word-image-855.png 659w, /wp-content/uploads/2018/05/word-image-855-300x107.png 300w" sizes="(max-width: 659px) 100vw, 659px" />
+</p>
+<p>
+  重启Apache访问站点
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1322" height="725" src="/wp-content/uploads/2018/05/word-image-856.png" class="wp-image-964" srcset="/wp-content/uploads/2018/05/word-image-856.png 1322w, /wp-content/uploads/2018/05/word-image-856-300x165.png 300w, /wp-content/uploads/2018/05/word-image-856-768x421.png 768w, /wp-content/uploads/2018/05/word-image-856-1024x562.png 1024w" sizes="(max-width: 1322px) 100vw, 1322px" />
+</p>
+<p>
+  我的错误：配置路径的时候多了一个s
+</p>
+<h3>连接数据库</h3>
+<p>
+  登录完成后的效果：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1355" height="506" src="/wp-content/uploads/2018/05/word-image-857.png" class="wp-image-965" srcset="/wp-content/uploads/2018/05/word-image-857.png 1355w, /wp-content/uploads/2018/05/word-image-857-300x112.png 300w, /wp-content/uploads/2018/05/word-image-857-768x287.png 768w, /wp-content/uploads/2018/05/word-image-857-1024x382.png 1024w" sizes="(max-width: 1355px) 100vw, 1355px" />
+</p>
+<h1>数据库操作</h1>
+<h2>创建数据库</h2>
+<p>
+  语法：create  database 数据库名字;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="520" height="89" src="/wp-content/uploads/2018/05/word-image-858.png" class="wp-image-966" srcset="/wp-content/uploads/2018/05/word-image-858.png 520w, /wp-content/uploads/2018/05/word-image-858-300x51.png 300w" sizes="(max-width: 520px) 100vw, 520px" />
+</p>
+<p>
+  注意;数据库命名有如下的规则
+</p>
+<p>
+  数据库名字是由字母，数字，下划线组成
+</p>
+<p>
+  数据库名字不能是纯数字
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="783" height="67" src="/wp-content/uploads/2018/05/word-image-859.png" class="wp-image-967" srcset="/wp-content/uploads/2018/05/word-image-859.png 783w, /wp-content/uploads/2018/05/word-image-859-300x26.png 300w, /wp-content/uploads/2018/05/word-image-859-768x66.png 768w" sizes="(max-width: 783px) 100vw, 783px" />
+</p>
+<p>
+  数据库名字不能是数据库的关键字
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="841" height="42" src="/wp-content/uploads/2018/05/word-image-860.png" class="wp-image-968" srcset="/wp-content/uploads/2018/05/word-image-860.png 841w, /wp-content/uploads/2018/05/word-image-860-300x15.png 300w, /wp-content/uploads/2018/05/word-image-860-768x38.png 768w" sizes="(max-width: 841px) 100vw, 841px" />
+</p>
+<p>
+  如果数据库名字是一个数据库关键字，那么用&#8220;（反引号）引起来
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="479" height="50" src="/wp-content/uploads/2018/05/word-image-861.png" class="wp-image-969" srcset="/wp-content/uploads/2018/05/word-image-861.png 479w, /wp-content/uploads/2018/05/word-image-861-300x31.png 300w" sizes="(max-width: 479px) 100vw, 479px" />
+</p>
+<p>
+  扩展;创建数据库的时候指定字符集
+</p>
+<p>
+  语法：create  database  数据库名字  charset  字符集;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="514" height="48" src="/wp-content/uploads/2018/05/word-image-862.png" class="wp-image-970" srcset="/wp-content/uploads/2018/05/word-image-862.png 514w, /wp-content/uploads/2018/05/word-image-862-300x28.png 300w" sizes="(max-width: 514px) 100vw, 514px" />
+</p>
+<h2>删除数据库</h2>
+<p>
+  语法: drop database 数据库名字;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="459" height="56" src="/wp-content/uploads/2018/05/word-image-863.png" class="wp-image-971" srcset="/wp-content/uploads/2018/05/word-image-863.png 459w, /wp-content/uploads/2018/05/word-image-863-300x37.png 300w" sizes="(max-width: 459px) 100vw, 459px" />
+</p>
+<h2>修改数据库</h2>
+<p>
+  修改数据库的名字
+</p>
+<p>
+  	这里没有直接修改数据库名字的语法，只能先删除数据库，再重建
+</p>
+<p>
+  修改数据库的字符集
+</p>
+<ul>
+<li>
+    alter database 数据库名字 charset 新字符集
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="482" height="53" src="/wp-content/uploads/2018/05/word-image-864.png" class="wp-image-972" srcset="/wp-content/uploads/2018/05/word-image-864.png 482w, /wp-content/uploads/2018/05/word-image-864-300x33.png 300w" sizes="(max-width: 482px) 100vw, 482px" />
+</p>
+<ul>
+<li>
+    alter database 数据库名字 charset = 新字符集
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="478" height="43" src="/wp-content/uploads/2018/05/word-image-865.png" class="wp-image-973" srcset="/wp-content/uploads/2018/05/word-image-865.png 478w, /wp-content/uploads/2018/05/word-image-865-300x27.png 300w" sizes="(max-width: 478px) 100vw, 478px" />
+</p>
+<ul>
+<li>
+    alter  database  数据库名字  default  character set 新字符集名字
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="553" height="45" src="/wp-content/uploads/2018/05/word-image-866.png" class="wp-image-974" srcset="/wp-content/uploads/2018/05/word-image-866.png 553w, /wp-content/uploads/2018/05/word-image-866-300x24.png 300w" sizes="(max-width: 553px) 100vw, 553px" />
+</p>
+<h2>查看数据库</h2>
+<p>
+  语法:show databases;
+</p>
+<p>
+  注意：系统数据库不要随意操作
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="920" height="556" src="/wp-content/uploads/2018/05/word-image-867.png" class="wp-image-975" srcset="/wp-content/uploads/2018/05/word-image-867.png 920w, /wp-content/uploads/2018/05/word-image-867-300x181.png 300w, /wp-content/uploads/2018/05/word-image-867-768x464.png 768w" sizes="(max-width: 920px) 100vw, 920px" />
+</p>
+<h2>查看数据库创建语句</h2>
+<p>
+  语法:show create database 数据库名;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="784" height="144" src="/wp-content/uploads/2018/05/word-image-868.png" class="wp-image-976" srcset="/wp-content/uploads/2018/05/word-image-868.png 784w, /wp-content/uploads/2018/05/word-image-868-300x55.png 300w, /wp-content/uploads/2018/05/word-image-868-768x141.png 768w" sizes="(max-width: 784px) 100vw, 784px" />
+</p>
+<h2>数据库保存目录</h2>
+<p>
+  <img loading="lazy" decoding="async" width="1409" height="245" src="/wp-content/uploads/2018/05/word-image-869.png" class="wp-image-977" srcset="/wp-content/uploads/2018/05/word-image-869.png 1409w, /wp-content/uploads/2018/05/word-image-869-300x52.png 300w, /wp-content/uploads/2018/05/word-image-869-768x134.png 768w, /wp-content/uploads/2018/05/word-image-869-1024x178.png 1024w" sizes="(max-width: 1409px) 100vw, 1409px" />
+</p>
+<p>
+  默认保存路径可以在my.ini中修改
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="872" height="190" src="/wp-content/uploads/2018/05/word-image-870.png" class="wp-image-978" srcset="/wp-content/uploads/2018/05/word-image-870.png 872w, /wp-content/uploads/2018/05/word-image-870-300x65.png 300w, /wp-content/uploads/2018/05/word-image-870-768x167.png 768w" sizes="(max-width: 872px) 100vw, 872px" />
+</p>
+<h1>表操作</h1>
+<h2>创建数据表</h2>
+<p>
+  Create table 表名
+</p>
+<p>
+  (
+</p>
+<p>
+  	字段名 类型  [字段属性],
+</p>
+<p>
+  字段名 类型  [字段属性],
+</p>
+<p>
+  字段名 类型  [字段属性]   &#8212;  最后一个字段后边不加逗号,
+</p>
+<p>
+  )[表属性]
+</p>
+<p>
+  创建表：只是创建了一个表的结构，而没有数据；
+</p>
+<h3>字段类型（介绍）</h3>
+<ul>
+<li>
+    整形  tinyint  smallint  mediumint  int   bigint
+  </li>
+<li>
+    小数 float  double  decimal
+  </li>
+<li>
+    字符串 char   varchar  text  set  enum  blob
+  </li>
+<li>
+    时间 time  date  datetime  timestamp
+  </li>
+</ul>
+<h3>字段属性（介绍）</h3>
+<p>
+  什么是字段属性：字段属性就是对字段的一种约束
+</p>
+<ul>
+<li>
+    Not null/null  允许为不为空/空
+  </li>
+<li>
+    Primary key  主键
+  </li>
+<li>
+    Unque key   唯一建
+  </li>
+<li>
+    Comment    说明
+  </li>
+<li>
+    Atuo_increment  自动增长
+  </li>
+</ul>
+<h3>表属性（介绍）</h3>
+<ul>
+<li>
+    Charset  表字符集
+  </li>
+<li>
+    Auto_increment   自动增长
+  </li>
+<li>
+    Collate   校对集
+  </li>
+<li>
+    Comment  说明
+  </li>
+<li>
+    Engine   数据表引擎
+  </li>
+</ul>
+<p>
+  案例：创建一个简单表
+</p>
+<p>
+  第一步：数据表创建，是创建到数据库中的，所以呢创建数据表之前应该选定创建到哪个数据库
+</p>
+<p>
+  选择数据库语法: use 数据库名字;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="403" height="47" src="/wp-content/uploads/2018/05/word-image-871.png" class="wp-image-979" srcset="/wp-content/uploads/2018/05/word-image-871.png 403w, /wp-content/uploads/2018/05/word-image-871-300x35.png 300w" sizes="(max-width: 403px) 100vw, 403px" />
+</p>
+<p><strong>第二步：创建表</strong>
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="679" height="190" src="/wp-content/uploads/2018/05/word-image-872.png" class="wp-image-980" srcset="/wp-content/uploads/2018/05/word-image-872.png 679w, /wp-content/uploads/2018/05/word-image-872-300x84.png 300w" sizes="(max-width: 679px) 100vw, 679px" />
+</p>
+<p><strong>英雄技能表案例：</strong>
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="806" height="203" src="/wp-content/uploads/2018/05/word-image-873.png" class="wp-image-981" srcset="/wp-content/uploads/2018/05/word-image-873.png 806w, /wp-content/uploads/2018/05/word-image-873-300x76.png 300w, /wp-content/uploads/2018/05/word-image-873-768x193.png 768w" sizes="(max-width: 806px) 100vw, 806px" />
+</p>
+<h2>查看数据表</h2>
+<p>
+  查看当前数据库有哪些数据表（所有的表查看）
+</p>
+<p>
+  语法：show tables；
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="715" height="143" src="/wp-content/uploads/2018/05/word-image-874.png" class="wp-image-982" srcset="/wp-content/uploads/2018/05/word-image-874.png 715w, /wp-content/uploads/2018/05/word-image-874-300x60.png 300w" sizes="(max-width: 715px) 100vw, 715px" />
+</p>
+<h2>删除数据表</h2>
+<p>
+  语法:  drop table 表名;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="493" height="45" src="/wp-content/uploads/2018/05/word-image-875.png" class="wp-image-983" srcset="/wp-content/uploads/2018/05/word-image-875.png 493w, /wp-content/uploads/2018/05/word-image-875-300x27.png 300w" sizes="(max-width: 493px) 100vw, 493px" />
+</p>
+<p>
+  扩展，一次删除多张数据表 drop  table 表1,表2…..;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="507" height="54" src="/wp-content/uploads/2018/05/word-image-876.png" class="wp-image-984" srcset="/wp-content/uploads/2018/05/word-image-876.png 507w, /wp-content/uploads/2018/05/word-image-876-300x32.png 300w" sizes="(max-width: 507px) 100vw, 507px" />
+</p>
+<h2>查看表结构</h2>
+<p>
+  查看表的结构:  desc 表名;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="714" height="224" src="/wp-content/uploads/2018/05/word-image-877.png" class="wp-image-985" srcset="/wp-content/uploads/2018/05/word-image-877.png 714w, /wp-content/uploads/2018/05/word-image-877-300x94.png 300w" sizes="(max-width: 714px) 100vw, 714px" />
+</p>
+<h2>查看表创建语法</h2>
+<p>
+  查看数据表的创建语句
+</p>
+<p>
+  语法; show create table 表名;、
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="777" height="234" src="/wp-content/uploads/2018/05/word-image-878.png" class="wp-image-986" srcset="/wp-content/uploads/2018/05/word-image-878.png 777w, /wp-content/uploads/2018/05/word-image-878-300x90.png 300w, /wp-content/uploads/2018/05/word-image-878-768x231.png 768w" sizes="(max-width: 777px) 100vw, 777px" />
+</p>
+<h1>数据简单操作</h1>
+<h2>增加</h2>
+<p>
+  提前准备：
+</p>
+<p>
+  删除老的hero表，创建新的hero表
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="792" height="204" src="/wp-content/uploads/2018/05/word-image-879.png" class="wp-image-987" srcset="/wp-content/uploads/2018/05/word-image-879.png 792w, /wp-content/uploads/2018/05/word-image-879-300x77.png 300w, /wp-content/uploads/2018/05/word-image-879-768x198.png 768w" sizes="(max-width: 792px) 100vw, 792px" />
+</p>
+<p>
+  执行命令 set names gbk 避免乱码错误
+</p>
+<p>
+  语法： insert    [into] 表名   [(插入的字段列表)]  values  (字段值1,字段值2,字段值3……)
+</p>
+<p>
+  注意：后边的值和前边的字段列表的顺序一定要对应
+</p>
+<ul>
+<li>
+    错误案例：
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="881" height="127" src="/wp-content/uploads/2018/05/word-image-880.png" class="wp-image-988" srcset="/wp-content/uploads/2018/05/word-image-880.png 881w, /wp-content/uploads/2018/05/word-image-880-300x43.png 300w, /wp-content/uploads/2018/05/word-image-880-768x111.png 768w" sizes="(max-width: 881px) 100vw, 881px" />
+</p>
+<ul>
+<li>
+    正确案例：
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="743" height="103" src="/wp-content/uploads/2018/05/word-image-881.png" class="wp-image-989" srcset="/wp-content/uploads/2018/05/word-image-881.png 743w, /wp-content/uploads/2018/05/word-image-881-300x42.png 300w" sizes="(max-width: 743px) 100vw, 743px" />
+</p>
+<ul>
+<li>
+    扩展：省略字段列表插入表数据
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="1100" height="87" src="/wp-content/uploads/2018/05/word-image-882.png" class="wp-image-990" srcset="/wp-content/uploads/2018/05/word-image-882.png 1100w, /wp-content/uploads/2018/05/word-image-882-300x24.png 300w, /wp-content/uploads/2018/05/word-image-882-768x61.png 768w, /wp-content/uploads/2018/05/word-image-882-1024x81.png 1024w" sizes="(max-width: 1100px) 100vw, 1100px" />
+</p>
+<p>
+  表创建的顺序如下
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="697" height="195" src="/wp-content/uploads/2018/05/word-image-883.png" class="wp-image-991" srcset="/wp-content/uploads/2018/05/word-image-883.png 697w, /wp-content/uploads/2018/05/word-image-883-300x84.png 300w" sizes="(max-width: 697px) 100vw, 697px" />
+</p>
+<p>
+  扩展：Select 语句复制表
+</p>
+<h2>修改</h2>
+<p>
+  语法形式如下：
+</p>
+<p>
+  	Update 表名 set 字段名 =字段值 where修改条件
+</p>
+<ul>
+<li>
+    修改大头的英雄伤害
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="681" height="71" src="/wp-content/uploads/2018/05/word-image-884.png" class="wp-image-992" srcset="/wp-content/uploads/2018/05/word-image-884.png 681w, /wp-content/uploads/2018/05/word-image-884-300x31.png 300w" sizes="(max-width: 681px) 100vw, 681px" />
+</p>
+<p>
+  结果
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="857" height="128" src="/wp-content/uploads/2018/05/word-image-885.png" class="wp-image-993" srcset="/wp-content/uploads/2018/05/word-image-885.png 857w, /wp-content/uploads/2018/05/word-image-885-300x45.png 300w, /wp-content/uploads/2018/05/word-image-885-768x115.png 768w" sizes="(max-width: 857px) 100vw, 857px" />
+</p>
+<p>
+  注意：修改表数据的时候一般都要指定修改的条件，如果修改不指定条件的话会把整张表的数据都修改
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="953" height="184" src="/wp-content/uploads/2018/05/word-image-886.png" class="wp-image-994" srcset="/wp-content/uploads/2018/05/word-image-886.png 953w, /wp-content/uploads/2018/05/word-image-886-300x58.png 300w, /wp-content/uploads/2018/05/word-image-886-768x148.png 768w" sizes="(max-width: 953px) 100vw, 953px" />
+</p>
+<ul>
+<li>
+    数据多字段的修改
+  </li>
+</ul>
+<p>
+  语法：update  表名 set 字段名=值1 ,字段名=字段值…. Where 修改条件
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="843" height="214" src="/wp-content/uploads/2018/05/word-image-887.png" class="wp-image-995" srcset="/wp-content/uploads/2018/05/word-image-887.png 843w, /wp-content/uploads/2018/05/word-image-887-300x76.png 300w, /wp-content/uploads/2018/05/word-image-887-768x195.png 768w" sizes="(max-width: 843px) 100vw, 843px" />
+</p>
+<h2>查找</h2>
+<ul>
+<li>
+    语法：select  *  from 表名
+  </li>
+</ul>
+<p>
+  说明：*代表所有的字段
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="940" height="176" src="/wp-content/uploads/2018/05/word-image-888.png" class="wp-image-996" srcset="/wp-content/uploads/2018/05/word-image-888.png 940w, /wp-content/uploads/2018/05/word-image-888-300x56.png 300w, /wp-content/uploads/2018/05/word-image-888-768x144.png 768w" sizes="(max-width: 940px) 100vw, 940px" />
+</p>
+<ul>
+<li>
+    我们还可已选择查看哪些字段的信息
+  </li>
+</ul>
+<p>
+  语法: select   字段1,字段2,字段3,字段4……  from  表名；
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="809" height="190" src="/wp-content/uploads/2018/05/word-image-889.png" class="wp-image-997" srcset="/wp-content/uploads/2018/05/word-image-889.png 809w, /wp-content/uploads/2018/05/word-image-889-300x70.png 300w, /wp-content/uploads/2018/05/word-image-889-768x180.png 768w" sizes="(max-width: 809px) 100vw, 809px" />
+</p>
+<ul>
+<li>
+    查看技能伤害大于50的英雄信息
+  </li>
+</ul>
+<p>
+  语法如下：select 字段列表 from 表名 where  条件
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="962" height="152" src="/wp-content/uploads/2018/05/word-image-890.png" class="wp-image-998" srcset="/wp-content/uploads/2018/05/word-image-890.png 962w, /wp-content/uploads/2018/05/word-image-890-300x47.png 300w, /wp-content/uploads/2018/05/word-image-890-768x121.png 768w" sizes="(max-width: 962px) 100vw, 962px" />
+</p>
+<h2>删除</h2>
+<p>
+  语法：delete  from 表名 where 删除的条件；
+</p>
+<p>
+  删除前数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="932" height="180" src="/wp-content/uploads/2018/05/word-image-891.png" class="wp-image-999" srcset="/wp-content/uploads/2018/05/word-image-891.png 932w, /wp-content/uploads/2018/05/word-image-891-300x58.png 300w, /wp-content/uploads/2018/05/word-image-891-768x148.png 768w" sizes="(max-width: 932px) 100vw, 932px" />
+</p>
+<p>
+  删除成功
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="750" height="75" src="/wp-content/uploads/2018/05/word-image-892.png" class="wp-image-1000" srcset="/wp-content/uploads/2018/05/word-image-892.png 750w, /wp-content/uploads/2018/05/word-image-892-300x30.png 300w" sizes="(max-width: 750px) 100vw, 750px" />
+</p>
+<p>
+  删除后数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="931" height="161" src="/wp-content/uploads/2018/05/word-image-893.png" class="wp-image-1001" srcset="/wp-content/uploads/2018/05/word-image-893.png 931w, /wp-content/uploads/2018/05/word-image-893-300x52.png 300w, /wp-content/uploads/2018/05/word-image-893-768x133.png 768w" sizes="(max-width: 931px) 100vw, 931px" />
+</p>
+<p>
+  注意;这里删除一般都需要制定删除的条件，如果不指定删除的条件那么整张表的数据都会被删除
+</p>
+<ul>
+<li>
+    没有条件的删除
+  </li>
+</ul>
+<p>
+  删除前
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="941" height="163" src="/wp-content/uploads/2018/05/word-image-894.png" class="wp-image-1002" srcset="/wp-content/uploads/2018/05/word-image-894.png 941w, /wp-content/uploads/2018/05/word-image-894-300x52.png 300w, /wp-content/uploads/2018/05/word-image-894-768x133.png 768w" sizes="(max-width: 941px) 100vw, 941px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="868" height="122" src="/wp-content/uploads/2018/05/word-image-895.png" class="wp-image-1003" srcset="/wp-content/uploads/2018/05/word-image-895.png 868w, /wp-content/uploads/2018/05/word-image-895-300x42.png 300w, /wp-content/uploads/2018/05/word-image-895-768x108.png 768w" sizes="(max-width: 868px) 100vw, 868px" />
+</p>
+<h1>表属性</h1>
+<p>
+  表属性就是用来约束表的，限定一些东西
+</p>
+<h2>字符集（乱码的解决）</h2>
+<p>
+  常见的字符集有：utf8  gbk  latin1  gb2312
+</p>
+<p>
+  什么是字符集？
+</p>
+<p>
+  	字符集就是字符和字符编码的对应关系
+</p>
+<p>
+  什么是字符？
+</p>
+<p>
+  	像 a,b,A,V,1中文 等都是字符
+</p>
+<p>
+  	什么是字符编码？
+</p>
+<p>
+  		比如 ‘a’这个字符在计算机中是以什么形式存的
+</p>
+<p>
+  		‘a’在计算机中是以二进制存储的，那么这个二进制的码值就是‘a’的字符编码
+</p>
+<p>
+  		 ‘a’&#8212;&#8212;-10110101   10110101就是a的字符编码
+</p>
+<p>
+  		‘b’&#8212;&#8212;-10110110   10110110就是b的字符编码
+</p>
+<p>
+  插入中文数据，插入失败
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="982" height="52" src="/wp-content/uploads/2018/05/word-image-896.png" class="wp-image-1004" srcset="/wp-content/uploads/2018/05/word-image-896.png 982w, /wp-content/uploads/2018/05/word-image-896-300x16.png 300w, /wp-content/uploads/2018/05/word-image-896-768x41.png 768w" sizes="(max-width: 982px) 100vw, 982px" />
+</p>
+<p>
+  错误原因
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1179" height="311" src="/wp-content/uploads/2018/05/word-image-897.png" class="wp-image-1005" srcset="/wp-content/uploads/2018/05/word-image-897.png 1179w, /wp-content/uploads/2018/05/word-image-897-300x79.png 300w, /wp-content/uploads/2018/05/word-image-897-768x203.png 768w, /wp-content/uploads/2018/05/word-image-897-1024x270.png 1024w" sizes="(max-width: 1179px) 100vw, 1179px" />
+</p>
+<p>
+  错误解决
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="839" height="366" src="/wp-content/uploads/2018/05/word-image-898.png" class="wp-image-1006" srcset="/wp-content/uploads/2018/05/word-image-898.png 839w, /wp-content/uploads/2018/05/word-image-898-300x131.png 300w, /wp-content/uploads/2018/05/word-image-898-768x335.png 768w" sizes="(max-width: 839px) 100vw, 839px" />
+</p>
+<p>
+  插入数据插入成功
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="706" height="64" src="/wp-content/uploads/2018/05/word-image-899.png" class="wp-image-1007" srcset="/wp-content/uploads/2018/05/word-image-899.png 706w, /wp-content/uploads/2018/05/word-image-899-300x27.png 300w" sizes="(max-width: 706px) 100vw, 706px" />
+</p>
+<p>
+  查看数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="912" height="147" src="/wp-content/uploads/2018/05/word-image-900.png" class="wp-image-1008" srcset="/wp-content/uploads/2018/05/word-image-900.png 912w, /wp-content/uploads/2018/05/word-image-900-300x48.png 300w, /wp-content/uploads/2018/05/word-image-900-768x124.png 768w" sizes="(max-width: 912px) 100vw, 912px" />
+</p>
+<p>
+  错误原因
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1191" height="343" src="/wp-content/uploads/2018/05/word-image-901.png" class="wp-image-1009" srcset="/wp-content/uploads/2018/05/word-image-901.png 1191w, /wp-content/uploads/2018/05/word-image-901-300x86.png 300w, /wp-content/uploads/2018/05/word-image-901-768x221.png 768w, /wp-content/uploads/2018/05/word-image-901-1024x295.png 1024w" sizes="(max-width: 1191px) 100vw, 1191px" />
+</p>
+<p>
+  错误解决
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="970" height="346" src="/wp-content/uploads/2018/05/word-image-902.png" class="wp-image-1010" srcset="/wp-content/uploads/2018/05/word-image-902.png 970w, /wp-content/uploads/2018/05/word-image-902-300x107.png 300w, /wp-content/uploads/2018/05/word-image-902-768x274.png 768w" sizes="(max-width: 970px) 100vw, 970px" />
+</p>
+<p>
+  再次查看数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="989" height="142" src="/wp-content/uploads/2018/05/word-image-903.png" class="wp-image-1011" srcset="/wp-content/uploads/2018/05/word-image-903.png 989w, /wp-content/uploads/2018/05/word-image-903-300x43.png 300w, /wp-content/uploads/2018/05/word-image-903-768x110.png 768w" sizes="(max-width: 989px) 100vw, 989px" />
+</p>
+<h2>校对集</h2>
+<p>
+  什么是校对集：校对集就是字符集中的一种比较规则，主要用于排序
+</p>
+<p>
+  Show  collation;查看所有的校对集
+</p>
+<p>
+  show collation like &#8216;utf8_%&#8217;;查看utf8的校对集
+</p>
+<p>
+   	utf8的两种校对集使用
+</p>
+<p>
+  utf8_general_ci  不区分大小写  (a  B  c)
+</p>
+<p>
+  utf8_bin   二进制排序 （B a c）
+</p>
+<p>
+  	B&#8212;-66
+</p>
+<p>
+  a&#8212;-97
+</p>
+<p>
+  c&#8212;-99
+</p>
+<p>
+  案例：
+</p>
+<p>
+  	创建两张表
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="674" height="247" src="/wp-content/uploads/2018/05/word-image-904.png" class="wp-image-1012" srcset="/wp-content/uploads/2018/05/word-image-904.png 674w, /wp-content/uploads/2018/05/word-image-904-300x110.png 300w" sizes="(max-width: 674px) 100vw, 674px" />
+</p>
+<p>
+  插入数据
+</p>
+<p>
+  insert into test1 values(&#8216;a&#8217;);
+</p>
+<p>
+  insert into test1 values(&#8216;B&#8217;);
+</p>
+<p>
+  insert into test1 values(&#8216;c&#8217;);
+</p>
+<p>
+  insert into test2 values(&#8216;a&#8217;);
+</p>
+<p>
+  insert into test2 values(&#8216;B&#8217;);
+</p>
+<p>
+  insert into test2 values(&#8216;c&#8217;);
+</p>
+<p>
+  排序查看
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="834" height="365" src="/wp-content/uploads/2018/05/word-image-905.png" class="wp-image-1013" srcset="/wp-content/uploads/2018/05/word-image-905.png 834w, /wp-content/uploads/2018/05/word-image-905-300x131.png 300w, /wp-content/uploads/2018/05/word-image-905-768x336.png 768w" sizes="(max-width: 834px) 100vw, 834px" />
+</p>
+<h2>数据库引擎</h2>
+<p>
+  什么是数据库引擎：就是数据库保存表数据的一种方式
+</p>
+<p>
+  常用的数据库引擎有 innodb myisam
+</p>
+<p>
+  默认的数据库引擎是innodb
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1224" height="195" src="/wp-content/uploads/2018/05/word-image-906.png" class="wp-image-1014" srcset="/wp-content/uploads/2018/05/word-image-906.png 1224w, /wp-content/uploads/2018/05/word-image-906-300x48.png 300w, /wp-content/uploads/2018/05/word-image-906-768x122.png 768w, /wp-content/uploads/2018/05/word-image-906-1024x163.png 1024w" sizes="(max-width: 1224px) 100vw, 1224px" />
+</p>
+<p>
+  默认的数据库引擎可以在配置文件中配置
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="874" height="197" src="/wp-content/uploads/2018/05/word-image-907.png" class="wp-image-1015" srcset="/wp-content/uploads/2018/05/word-image-907.png 874w, /wp-content/uploads/2018/05/word-image-907-300x68.png 300w, /wp-content/uploads/2018/05/word-image-907-768x173.png 768w" sizes="(max-width: 874px) 100vw, 874px" />
+</p>
+<p>
+  数据库引擎的支持
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="858" height="534" src="/wp-content/uploads/2018/05/word-image-908.png" class="wp-image-1016" srcset="/wp-content/uploads/2018/05/word-image-908.png 858w, /wp-content/uploads/2018/05/word-image-908-300x187.png 300w, /wp-content/uploads/2018/05/word-image-908-768x478.png 768w" sizes="(max-width: 858px) 100vw, 858px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/944.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

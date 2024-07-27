@@ -1,0 +1,1305 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>if &#8211; 个人随笔</title>
+	<atom:link href="/label/if/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 06:25:12 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>if &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>JS初级（二）else if、 if、 if else、 switch、 函数、 判断语句、 数组、 更改颜色</title>
+		<link>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/352.html</link>
+					<comments>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/352.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 14:15:55 +0000</pubDate>
+				<category><![CDATA[Javascript]]></category>
+		<category><![CDATA[前端技术]]></category>
+		<category><![CDATA[else if]]></category>
+		<category><![CDATA[if]]></category>
+		<category><![CDATA[if else]]></category>
+		<category><![CDATA[switch]]></category>
+		<category><![CDATA[函数]]></category>
+		<category><![CDATA[判断语句]]></category>
+		<category><![CDATA[数组]]></category>
+		<category><![CDATA[更改颜色]]></category>
+		<guid isPermaLink="false">/?p=352</guid>
+
+					<description><![CDATA[回顾 JavaScript是一个解释型、基于对象的脚本语言 可以运行在客户端和服务器端，但是一般运行在客户端。 [&#8230;]]]></description>
+										<content:encoded><![CDATA[</p>
+<h2>回顾</h2>
+<ol>
+<li>
+  JavaScript是一个解释型、基于对象的脚本语言
+</li>
+<li>
+  可以运行在客户端和服务器端，但是一般运行在客户端。
+</li>
+<li>
+  主要运用在页面的特效，页面交互。
+</li>
+<li>
+  变量：计算机内存中的一段空间
+</li>
+<li>
+  变量的命名规则：</p>
+<ol>
+<li>
+    变量名以字母、下划线、$开头，后面跟的是字母、数字、下划线、$
+  </li>
+<li>
+    关键字不能变量名  var
+  </li>
+<li>
+    变量名区分大小写
+  </li>
+</ol>
+</li>
+<li>
+  声明变量</p>
+<ol>
+<li>
+    显式声明：通过var声明
+  </li>
+<li>
+    隐式声明：不声明直接使用
+  </li>
+</ol>
+</li>
+<li>
+  变量的数据类型</p>
+<ol>
+<li>
+    基本类型</p>
+<ol>
+<li>
+      数字型（支持八进制，十进制，十六进制，支持无穷大）
+    </li>
+<li>
+      字符串型（单引号、双引号字符串是一样的）
+    </li>
+<li>
+      布尔型（true和false）
+    </li>
+</ol>
+</li>
+<li>
+    复合类型</p>
+<ol>
+<li>
+      对象
+    </li>
+<li>
+      数组
+    </li>
+</ol>
+</li>
+<li>
+    特殊类型</p>
+<ol>
+<li>
+      Null
+    </li>
+<li>
+      Undefined：如果一个变量声明了没有赋值，就是未定义型
+    </li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+  注释</p>
+<ol>
+<li>
+    单行  //
+  </li>
+<li>
+    多行  /*    */
+  </li>
+</ol>
+</li>
+<li>
+  常用的输出</p>
+<ol>
+<li>
+    document.write()：输出在浏览器上
+  </li>
+<li>
+    alert()：弹出一个对话框，对话框上有一个“确定”按钮
+  </li>
+<li>
+    prompt()：弹出一个可以输入的对话框
+  </li>
+<li>
+    confirm()：弹出一个对话框，对话框上“确定”和“取消”按钮
+  </li>
+<li>
+    console.log()：在控制器输出。
+  </li>
+</ol>
+</li>
+</ol>
+<h2>运算符</h2>
+<h3>算术运算符</h3>
+<p>
+  二元运算符：+  &#8211; *  /  %
+</p>
+<p>
+  “+”：不但可以做数字相加，还可以做字符串相加，字符串相加就是字符串相连
+</p>
+<p>
+  比如：1+2=3  “1”+”2”=”12”
+</p>
+<p>
+  一元运算符：++   &#8212;
+</p>
+<p>
+  ++前置先自增，++后置就是后自增。
+</p>
+<h3>关系运算符</h3>
+<table>
+<tr>
+<td>
+<p>
+  运算符
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &gt;
+</p>
+</td>
+<td>
+<p>
+  大于
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &gt;=
+</p>
+</td>
+<td>
+<p>
+  大于等于
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &lt;
+</p>
+</td>
+<td>
+<p>
+  小于
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &lt;=
+</p>
+</td>
+<td>
+<p>
+  小于等于
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  ==
+</p>
+</td>
+<td>
+<p>
+  等于
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  !=
+</p>
+</td>
+<td>
+<p>
+  不等于
+</p>
+</td>
+</tr>
+</table>
+<p>
+  关系运算符运算的结果就两个：true和false
+</p>
+<p>
+  5&gt;2		true
+</p>
+<p>
+  5&lt;2		false
+</p>
+<p>
+  5&gt;=2	true
+</p>
+<p>
+  5&gt;=5	true
+</p>
+<p>
+  5&lt;=5	true
+</p>
+<p>
+  5==5	true
+</p>
+<p>
+  5==2	false
+</p>
+<p>
+  5!=5	false
+</p>
+<p>
+  5!=2	true
+</p>
+<h3>逻辑运算符</h3>
+<table>
+<tr>
+<td>
+<p>
+  运算符
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  &amp;&amp;（与）
+</p>
+</td>
+<td>
+<p>
+  并且
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  ||（或）
+</p>
+</td>
+<td>
+<p>
+  或者
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  !（非）
+</p>
+</td>
+<td>
+<p>
+  取反
+</p>
+</td>
+</tr>
+</table>
+<p>
+  练习
+</p>
+<p>
+  true &amp;&amp; true		true
+</p>
+<p>
+  true &amp;&amp; false		false
+</p>
+<p>
+  false &amp;&amp; true		false
+</p>
+<p>
+  false &amp;&amp; false  false
+</p>
+<p>
+  true || true		true
+</p>
+<p>
+  true || false		true
+</p>
+<p>
+  false || true    true
+</p>
+<p>
+  false || false   false
+</p>
+<p>
+  !true    false
+</p>
+<p>
+  !false		true
+</p>
+<p>
+  练习：写出如下表达式
+</p>
+<p>
+  1、评三好学生的条件语文（ch）数学（math）不低于90
+</p>
+<p>
+  方法一：ch&gt;=90 &amp;&amp; math&gt;=90
+</p>
+<p>
+  方法二：!(ch&lt;90 || math&lt;90)
+</p>
+<p>
+  2、评三好学生的条件语文（ch）或者数学（math）超过90
+</p>
+<p>
+  方法一：Ch&gt;90 || math&gt;90
+</p>
+<p>
+  方法二：!(ch&lt;=90 &amp;&amp; math&lt;=90)
+</p>
+<p>
+  3、年龄（age）在20到30之间
+</p>
+<p>
+  方法一：age&gt;=20 &amp;&amp; age&lt;=30
+</p>
+<p>
+  方法二：!(age&lt;20 || age&gt;30)
+</p>
+<p><img fetchpriority="high" decoding="async" width="688" height="205" src="/wp-content/uploads/2018/05/word-image-319.png" class="wp-image-354" srcset="/wp-content/uploads/2018/05/word-image-319.png 688w, /wp-content/uploads/2018/05/word-image-319-300x89.png 300w" sizes="(max-width: 688px) 100vw, 688px" /></p>
+<p>
+  4、小红嫁人的条件，年龄（age）在20到30之间，而且兜里的钱（money）不低于100。
+</p>
+<p>
+  age&gt;=20 &amp;&amp; age&lt;=30 &amp;&amp; money&gt;=100
+</p>
+<p>
+  5、小红嫁人的条件，要么年龄（age）在20到30之间，要么兜里的钱（money）不低于100。
+</p>
+<p>
+  age&gt;=20 &amp;&amp; age&lt;=30 || money&gt;=100
+</p>
+<h3>赋值运算符（=）</h3>
+<p>
+  计算机的“=”和数学的“=”不一样。
+</p>
+<p>
+  a=5：计算机在内存中划出一段空间，取名为a，并且将5付给a。
+</p>
+<table>
+<tr>
+<td>
+<p>
+  运算符
+</p>
+</td>
+<td>
+<p>
+  描述
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  =
+</p>
+</td>
+<td>
+<p>
+  赋值   a=5  将5付给a
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  +=
+</p>
+</td>
+<td>
+<p>
+  a+=b    a=a+b
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  -=
+</p>
+</td>
+<td>
+<p>
+  a-=b     a=a-b
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  *=
+</p>
+</td>
+<td>
+<p>
+  a*=b     a=a*b
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  /=
+</p>
+</td>
+<td>
+<p>
+  a/=b     a=a/b
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  %=
+</p>
+</td>
+<td>
+<p>
+  a%=b    a=a%b
+</p>
+</td>
+</tr>
+</table>
+<p>
+  例题
+</p>
+<p><img decoding="async" width="529" height="142" src="/wp-content/uploads/2018/05/word-image-320.png" class="wp-image-355" srcset="/wp-content/uploads/2018/05/word-image-320.png 529w, /wp-content/uploads/2018/05/word-image-320-300x81.png 300w" sizes="(max-width: 529px) 100vw, 529px" /></p>
+<h2>条件语句（判断语句）</h2>
+<h3>单分支（if）</h3>
+<p>
+  流程图
+</p>
+<p><img decoding="async" width="546" height="89" src="/wp-content/uploads/2018/05/word-image-321.png" class="wp-image-356" srcset="/wp-content/uploads/2018/05/word-image-321.png 546w, /wp-content/uploads/2018/05/word-image-321-300x49.png 300w" sizes="(max-width: 546px) 100vw, 546px" /></p>
+<p>
+  语法：
+</p>
+<p>
+  if(条件表达式){
+</p>
+<p>
+        //代码
+</p>
+<p>
+  }
+</p>
+<p>
+  {：表示程序的开始
+</p>
+<p>
+  }：表示程序的结束
+</p>
+<p>
+  if中的条件如果为true，就执行if中的代码，如果为false，就不执行。
+</p>
+<p>
+  例题：
+</p>
+<p><img loading="lazy" decoding="async" width="762" height="193" src="/wp-content/uploads/2018/05/word-image-322.png" class="wp-image-357" srcset="/wp-content/uploads/2018/05/word-image-322.png 762w, /wp-content/uploads/2018/05/word-image-322-300x76.png 300w" sizes="(max-width: 762px) 100vw, 762px" /></p>
+<h3>双分支（if-else-）</h3>
+<p>
+  流程图：
+</p>
+<p><img loading="lazy" decoding="async" width="580" height="181" src="/wp-content/uploads/2018/05/word-image-323.png" class="wp-image-358" srcset="/wp-content/uploads/2018/05/word-image-323.png 580w, /wp-content/uploads/2018/05/word-image-323-300x94.png 300w" sizes="(max-width: 580px) 100vw, 580px" /></p>
+<p>
+  语法：
+</p>
+<p>
+  if(条件){
+</p>
+<p>
+  	//代码1，条件成立执行这段
+</p>
+<p>
+  }else{
+</p>
+<p>
+  	//代码2，条件不成立执行这段
+</p>
+<p>
+  }
+</p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="554" height="242" src="/wp-content/uploads/2018/05/word-image-324.png" class="wp-image-359" srcset="/wp-content/uploads/2018/05/word-image-324.png 554w, /wp-content/uploads/2018/05/word-image-324-300x131.png 300w" sizes="(max-width: 554px) 100vw, 554px" /></p>
+<h3>多分支（else if）</h3>
+<p>
+  场景：输入成绩，成绩大于90是A，大于80是B，以此类推…
+</p>
+<p>
+  语法：
+</p>
+<p>
+  if(条件){
+</p>
+<p>
+  	//代码1
+</p>
+<p>
+  }else if(条件){
+</p>
+<p>
+  	//代码2
+</p>
+<p>
+  }
+</p>
+<p>
+  else if(条件){
+</p>
+<p>
+  	//代码3
+</p>
+<p>
+  }else{
+</p>
+<p>
+  	//代码4
+</p>
+<p>
+  }
+</p>
+<ol>
+<li>
+  从上往下一次匹配，匹配到那段就执行那段代码
+</li>
+<li>
+  只要有一个匹配成功，下面的条件不再执行
+</li>
+<li>
+  如果上面都没有匹配成功，就执行else部分的代码
+</li>
+</ol>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="622" height="459" src="/wp-content/uploads/2018/05/word-image-325.png" class="wp-image-360" srcset="/wp-content/uploads/2018/05/word-image-325.png 622w, /wp-content/uploads/2018/05/word-image-325-300x221.png 300w" sizes="(max-width: 622px) 100vw, 622px" /></p>
+<h3>多路判断（switch-case-）</h3>
+<p>
+  语法：
+</p>
+<p>
+  switch(表达式){
+</p>
+<p>
+  	case 值1:
+</p>
+<p>
+  		代码;
+</p>
+<p>
+  		[break;]
+</p>
+<p>
+  case 值2:
+</p>
+<p>
+  	代码2;
+</p>
+<p>
+  	[break;]
+</p>
+<p>
+  default:      //如果上面都没有匹配到，就执行default这一段
+</p>
+<p>
+  	代码3
+</p>
+<p>
+  }
+</p>
+<p>
+  脚下留心：break是可以省略的，代码一直从匹配处开始执行，一直执行到break结束。
+</p>
+<p>
+  switch：开关
+</p>
+<p>
+  case：事件
+</p>
+<p>
+  break：中断
+</p>
+<p>
+  default：默认
+</p>
+<p>
+  例题
+</p>
+<p><img loading="lazy" decoding="async" width="637" height="430" src="/wp-content/uploads/2018/05/word-image-326.png" class="wp-image-361" srcset="/wp-content/uploads/2018/05/word-image-326.png 637w, /wp-content/uploads/2018/05/word-image-326-300x203.png 300w, /wp-content/uploads/2018/05/word-image-326-220x150.png 220w" sizes="(max-width: 637px) 100vw, 637px" /></p>
+<p>
+  思考：如下代码输入0,1,2 各输出什么?
+</p>
+<p>
+  var num=prompt(&#8216;请输入一个数&#8217;,&#8221;);
+</p>
+<p>
+  switch(num%3){
+</p>
+<p>
+  	case 0:
+</p>
+<p>
+  		alert(&#8216;十全十美&#8217;);
+</p>
+<p>
+  		break;
+</p>
+<p>
+  	case 1:
+</p>
+<p>
+  		alert(&#8216;一心一意&#8217;);
+</p>
+<p>
+  	case 2:
+</p>
+<p>
+  		alert(&#8216;两全其美&#8217;);
+</p>
+<p>
+  		break;
+</p>
+<p>
+  	default:
+</p>
+<p>
+  		alert(&#8216;输入错误&#8217;);
+</p>
+<p>
+  }
+</p>
+<p>
+  输入0		输出十全十美
+</p>
+<p>
+  输入1		输出 &#8216;一心一意&#8217;  &#8216;两全其美&#8217;
+</p>
+<p>
+  输入2		输出&#8217;两全其美&#8217;
+</p>
+<p>
+  多学一招：
+</p>
+<ol>
+<li>
+  判断语句中，如果代码就一句，“{}”是可以省略的
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="629" height="237" src="/wp-content/uploads/2018/05/word-image-327.png" class="wp-image-362" srcset="/wp-content/uploads/2018/05/word-image-327.png 629w, /wp-content/uploads/2018/05/word-image-327-300x113.png 300w" sizes="(max-width: 629px) 100vw, 629px" /></p>
+<ol>
+<li>
+  练习
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="490" height="167" src="/wp-content/uploads/2018/05/word-image-328.png" class="wp-image-363" srcset="/wp-content/uploads/2018/05/word-image-328.png 490w, /wp-content/uploads/2018/05/word-image-328-300x102.png 300w" sizes="(max-width: 490px) 100vw, 490px" /></p>
+<ol>
+<li>
+  switch语句与if语句的区别
+</li>
+</ol>
+<p>
+  答:switch的条件与一个固定的值匹配的，if的条件是比较表达式
+</p>
+<p><img loading="lazy" decoding="async" width="464" height="24" src="/wp-content/uploads/2018/05/word-image-329.png" class="wp-image-364" srcset="/wp-content/uploads/2018/05/word-image-329.png 464w, /wp-content/uploads/2018/05/word-image-329-300x16.png 300w" sizes="(max-width: 464px) 100vw, 464px" /><br />
+<img loading="lazy" decoding="async" width="492" height="44" src="/wp-content/uploads/2018/05/word-image-330.png" class="wp-image-365" srcset="/wp-content/uploads/2018/05/word-image-330.png 492w, /wp-content/uploads/2018/05/word-image-330-300x27.png 300w" sizes="(max-width: 492px) 100vw, 492px" /></p>
+<h3>if语句嵌套</h3>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  	var score=prompt(&#8216;请输入成绩&#8217;,&#8221;);
+</p>
+<p>
+  	if(score==&#8221; || score&lt;0 || score&gt;100)
+</p>
+<p>
+  		alert(&#8216;成绩必须在0~100之间&#8217;);
+</p>
+<p>
+  	else{
+</p>
+<p>
+  		if(score&gt;=60)
+</p>
+<p>
+  			alert(&#8216;及格&#8217;);
+</p>
+<p>
+  		else
+</p>
+<p>
+  			alert(&#8216;不及格&#8217;)
+</p>
+<p>
+  	}
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<h2>数组</h2>
+<p>
+  数组是计算机内存中一段连续的空间，这段连续的空间就一个名字（stu），通过下标来区分每个元素的值，下标从0开始，每次递增1。
+</p>
+<p><img loading="lazy" decoding="async" width="459" height="190" src="/wp-content/uploads/2018/05/word-image-331.png" class="wp-image-366" srcset="/wp-content/uploads/2018/05/word-image-331.png 459w, /wp-content/uploads/2018/05/word-image-331-300x124.png 300w" sizes="(max-width: 459px) 100vw, 459px" /></p>
+<h3>创建数组的方式</h3>
+<p>
+  方法一：var 数组名=[元素1,元素2,…]
+</p>
+<p>
+  方法二：var 数组名=new Array([元素1，元素2，…])
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  //方法一
+</p>
+<p>
+  var stu=[&#8216;tom&#8217;,&#8217;berry&#8217;,&#8217;ketty&#8217;];	//[]表示数组
+</p>
+<p>
+  document.write(stu[0]+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  document.write(stu[1]+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  document.write(stu[2]+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  document.write(&#8216;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;&lt;br&gt;&lt;br&gt;&#8217;);
+</p>
+<p>
+  //方法二：
+</p>
+<p>
+  stu=new Array(&#8216;张三&#8217;,&#8217;李四&#8217;);
+</p>
+<p>
+  document.write(stu[0]+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  document.write(stu[1]+'&lt;br&gt;&#8217;);
+</p>
+<p>
+  document.write(&#8216;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;&lt;br&gt;&lt;br&gt;&#8217;);
+</p>
+<p>
+  //方法三:
+</p>
+<p>
+  stu=new Array();
+</p>
+<p>
+  stu[0]=&#8217;李白&#8217;;
+</p>
+<p>
+  stu[1]=&#8217;杜甫&#8217;;
+</p>
+<p>
+  document.write(stu[0]+stu[1]);
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="159" height="186" src="/wp-content/uploads/2018/05/word-image-332.png" class="wp-image-367" /></p>
+<h2>多维数组</h2>
+<ol>
+<li>
+  二维及二维以上的数组都称为多维数组，多维数组中用的最多的就是二维数组
+</li>
+<li>
+  二维数组有行和列组成
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="676" height="160" src="/wp-content/uploads/2018/05/word-image-333.png" class="wp-image-368" srcset="/wp-content/uploads/2018/05/word-image-333.png 676w, /wp-content/uploads/2018/05/word-image-333-300x71.png 300w" sizes="(max-width: 676px) 100vw, 676px" /></p>
+<ol>
+<li>
+  JS不支持多维数组，我们可以通过数组中存放数组来实现二维数组。
+</li>
+</ol>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  //方法一：
+</p>
+<p>
+  var stu=[
+</p>
+<p>
+  	[&#8216;tom&#8217;,&#8217;berry&#8217;],
+</p>
+<p>
+  	[&#8216;李白&#8217;,&#8217;杜甫&#8217;]
+</p>
+<p>
+  ];
+</p>
+<p>
+  document.write(stu[0][0]+stu[0][1]+'&lt;br&gt;&#8217;);	//tomberry
+</p>
+<p>
+  document.write(stu[1][0]+stu[1][1]+'&lt;br&gt;&#8217;);	//李白杜甫
+</p>
+<p>
+  document.write(&#8216;&lt;br&gt;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&lt;br&gt;&#8217;);
+</p>
+<p>
+  //方法二：
+</p>
+<p>
+  var emp=new Array(new Array(),new Array());
+</p>
+<p>
+  emp[0][0]=&#8217;tom&#8217;;
+</p>
+<p>
+  emp[0][1]=&#8217;berry&#8217;;
+</p>
+<p>
+  emp[1][0]=&#8217;aa&#8217;;
+</p>
+<p>
+  emp[1][1]=&#8217;bb&#8217;;
+</p>
+<p>
+  document.write(emp[0]+'&lt;br&gt;&#8217;);	//tom,berry
+</p>
+<p>
+  document.write(emp[1]);			//aa,bb
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<h2>函数</h2>
+<p>
+  函数就是代码块，只要调用就可以执行。函数也叫方法
+</p>
+<p>
+  好处：
+</p>
+<ol>
+<li>
+  实现了代码的可重用性
+</li>
+<li>
+  实现模块化编程
+</li>
+</ol>
+<h3>函数的分类</h3>
+<ol>
+<li>
+  预定义函数，JS已经定义好了，我们只要调用就行（参照手册）
+</li>
+<li>
+  自定义函数
+</li>
+</ol>
+<h3>预定义函数例题（操作数组）</h3>
+<p><img loading="lazy" decoding="async" width="672" height="260" src="/wp-content/uploads/2018/05/word-image-334.png" class="wp-image-369" srcset="/wp-content/uploads/2018/05/word-image-334.png 672w, /wp-content/uploads/2018/05/word-image-334-300x116.png 300w" sizes="(max-width: 672px) 100vw, 672px" /></p>
+<h3>自定义函数</h3>
+<p>
+  语法：
+</p>
+<p>
+  function 函数名([参数1,参数2,…]){
+</p>
+<p>
+  	//函数体
+</p>
+<p>
+  }
+</p>
+<p>
+  函数名的命名规则：
+</p>
+<ol>
+<li>
+  义字母、下划线开头，后面跟的是字母、数字、下划线
+</li>
+<li>
+  关键字不能做函数名
+</li>
+</ol>
+<p>
+  最简单的函数
+</p>
+<p><img loading="lazy" decoding="async" width="443" height="237" src="/wp-content/uploads/2018/05/word-image-335.png" class="wp-image-370" srcset="/wp-content/uploads/2018/05/word-image-335.png 443w, /wp-content/uploads/2018/05/word-image-335-300x160.png 300w" sizes="(max-width: 443px) 100vw, 443px" /></p>
+<p>
+  参数的分类：
+</p>
+<ol>
+<li>
+  形式参数（形参），告诉调用者需要传递几个参数
+</li>
+<li>
+  实际参数（实参）
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="625" height="192" src="/wp-content/uploads/2018/05/word-image-336.png" class="wp-image-371" srcset="/wp-content/uploads/2018/05/word-image-336.png 625w, /wp-content/uploads/2018/05/word-image-336-300x92.png 300w" sizes="(max-width: 625px) 100vw, 625px" /></p>
+<h3>函数的调用</h3>
+<p>
+  通过函数名来调用函数
+</p>
+<p>
+  函数定义好了是不执行的，函数只有在调用的时候才执行。
+</p>
+<h2>例题</h2>
+<h3>判断奇偶数</h3>
+<ol>
+<li>
+  isNaN()：不是数字返回true，是数字返回false
+</li>
+<li>
+  indexOf()：返回字符串内第一次出现子字符串的字符位置，位置从0开始，没有找到返回-1
+</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="597" height="91" src="/wp-content/uploads/2018/05/word-image-337.png" class="wp-image-372" srcset="/wp-content/uploads/2018/05/word-image-337.png 597w, /wp-content/uploads/2018/05/word-image-337-300x46.png 300w" sizes="(max-width: 597px) 100vw, 597px" /></p>
+<p>
+  实现代码
+</p>
+<p><img loading="lazy" decoding="async" width="1101" height="599" src="/wp-content/uploads/2018/05/word-image-338.png" class="wp-image-373" srcset="/wp-content/uploads/2018/05/word-image-338.png 1101w, /wp-content/uploads/2018/05/word-image-338-300x163.png 300w, /wp-content/uploads/2018/05/word-image-338-768x418.png 768w, /wp-content/uploads/2018/05/word-image-338-1024x557.png 1024w" sizes="(max-width: 1101px) 100vw, 1101px" /></p>
+<h3>判断成绩</h3>
+<ol>
+<li>
+  parseInt()：转成数字整数
+</li>
+<li>
+  parseFloat()：转成浮点数（小数）
+</li>
+</ol>
+<p>
+  例题
+</p>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  function check(){
+</p>
+<p>
+  	var ch=frm.ch.value;		//字符串型
+</p>
+<p>
+  	var math=frm.math.value;	//字符串型
+</p>
+<p>
+  	if(ch==&#8221;){
+</p>
+<p>
+  		alert(&#8216;您没有输入语文成绩&#8217;);
+</p>
+<p>
+  		frm.ch.select();
+</p>
+<p>
+  	}
+</p>
+<p>
+  	else if(isNaN(ch)){
+</p>
+<p>
+  		alert(&#8216;语文成绩不是数字&#8217;);
+</p>
+<p>
+  		frm.ch.select();
+</p>
+<p>
+  	}
+</p>
+<p>
+  	else if(math==&#8221;){
+</p>
+<p>
+  		alert(&#8216;您没有输入数学成绩&#8217;);
+</p>
+<p>
+  		frm.math.select();
+</p>
+<p>
+  	}
+</p>
+<p>
+  	else if(isNaN(math)){
+</p>
+<p>
+  		alert(&#8216;数学成绩不是数字&#8217;);
+</p>
+<p>
+  		frm.math.select();
+</p>
+<p>
+  	}
+</p>
+<p>
+  	else{
+</p>
+<p>
+  		//ch=parseInt(ch);	//将语文成绩转成整数
+</p>
+<p>
+  		//math=parseInt(math);//将数学成绩转成整数
+</p>
+<p>
+  		ch=parseFloat(ch);
+</p>
+<p>
+  		math=parseFloat(math);	//转成浮点数
+</p>
+<p>
+  		if(ch&lt;0 || ch&gt;100){
+</p>
+<p>
+  			alert(&#8216;语文成绩必须在0-100之间&#8217;);
+</p>
+<p>
+  			frm.ch.select();
+</p>
+<p>
+  		}
+</p>
+<p>
+  		else if(!(math&gt;=0 &amp;&amp; math&lt;=100)){
+</p>
+<p>
+  			alert(&#8216;数学成绩必须在0-100之间&#8217;);
+</p>
+<p>
+  			frm.math.select();
+</p>
+<p>
+  		}
+</p>
+<p>
+  		else{
+</p>
+<p>
+  			var avg=(ch+math)/2;	//求平均分
+</p>
+<p>
+  			alert(&#8216;平均分是：&#8217;+avg);
+</p>
+<p>
+  			if(avg&gt;=90)
+</p>
+<p>
+  				alert(&#8216;孩子，你是我的骄傲&#8217;);
+</p>
+<p>
+  			else if(avg&gt;=80)
+</p>
+<p>
+  				alert(&#8216;好样的，宝贝&#8217;);
+</p>
+<p>
+  			else if(avg&gt;=70)
+</p>
+<p>
+  				alert(&#8216;你离优秀不远了&#8217;);
+</p>
+<p>
+  			else if(avg&gt;=60)
+</p>
+<p>
+  				alert(&#8216;你还是有潜力的&#8217;);
+</p>
+<p>
+  			else
+</p>
+<p>
+  				alert(&#8216;你不努力是不行了&#8217;);
+</p>
+<p>
+  		}
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;form action=&#8221;&#8221; name=&#8217;frm&#8217;&gt;
+</p>
+<p>
+  	语文：&lt;input type=&#8221;text&#8221; name=&#8221;ch&#8221; id=&#8221;&#8221;&gt; &lt;br&gt;
+</p>
+<p>
+  	数学：&lt;input type=&#8221;text&#8221; name=&#8221;math&#8221; id=&#8221;&#8221;&gt; &lt;br&gt;
+</p>
+<p>
+  	&lt;input type=&#8221;button&#8221; value=&#8221;判断成绩&#8221; onclick=&#8217;check()&#8217;&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="323" height="93" src="/wp-content/uploads/2018/05/word-image-339.png" class="wp-image-374" srcset="/wp-content/uploads/2018/05/word-image-339.png 323w, /wp-content/uploads/2018/05/word-image-339-300x86.png 300w" sizes="(max-width: 323px) 100vw, 323px" /></p>
+<h3>更改颜色</h3>
+<p>
+  &lt;script type=&#8221;text/javascript&#8221;&gt;
+</p>
+<p>
+  function change(){
+</p>
+<p>
+  	var num=frm.color.value;
+</p>
+<p>
+  	switch(num){
+</p>
+<p>
+  		case &#8220;1&#8221;:   /*num是字符串类型的*/
+</p>
+<p>
+  			shi.style.color=&#8217;#F00&#8242;;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		case &#8220;2&#8221;:
+</p>
+<p>
+  			shi.style.color=&#8217;#090&#8242;;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		case &#8220;3&#8221;:
+</p>
+<p>
+  			shi.style.color=&#8217;#00F&#8217;;
+</p>
+<p>
+  			break;
+</p>
+<p>
+  		default:
+</p>
+<p>
+  			shi.style.color=&#8217;#000&#8242;;
+</p>
+<p>
+  	}
+</p>
+<p>
+  }
+</p>
+<p>
+  &lt;/script&gt;
+</p>
+<p>
+  &lt;div id=&#8217;shi&#8217;&gt;
+</p>
+<p>
+  锄禾日当午，&lt;br&gt;
+</p>
+<p>
+  汗滴禾下土。&lt;br&gt;
+</p>
+<p>
+  谁知盘中餐，&lt;br&gt;
+</p>
+<p>
+  粒粒皆辛苦。
+</p>
+<p>
+  &lt;/div&gt;
+</p>
+<p>
+  &lt;form action=&#8221;&#8221; name=&#8217;frm&#8217;&gt;
+</p>
+<p>
+  	&lt;select name=&#8221;color&#8221; id=&#8221;&#8221; onchange=&#8217;change()&#8217;&gt;
+</p>
+<p>
+  		&lt;option value=&#8221;&#8221;&gt;&#8212;请选择&#8212;&lt;/option&gt;
+</p>
+<p>
+  		&lt;option value=&#8221;1&#8243;&gt;红色&lt;/option&gt;
+</p>
+<p>
+  		&lt;option value=&#8221;2&#8243;&gt;绿色&lt;/option&gt;
+</p>
+<p>
+  		&lt;option value=&#8221;3&#8243;&gt;蓝色&lt;/option&gt;
+</p>
+<p>
+  	&lt;/select&gt;
+</p>
+<p>
+  &lt;/form&gt;
+</p>
+<p><img loading="lazy" decoding="async" width="124" height="103" src="/wp-content/uploads/2018/05/word-image-340.png" class="wp-image-375" /></p>
+<h2>作业</h2>
+<p>
+  1、判断闰年</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af/352.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

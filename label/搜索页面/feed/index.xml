@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>搜索页面 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E6%90%9C%E7%B4%A2%E9%A1%B5%E9%9D%A2/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sat, 19 May 2018 16:36:19 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>搜索页面 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>DedeCMS二次开发（三）搜索页面、数据库操作</title>
+		<link>/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91/6348.html</link>
+					<comments>/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91/6348.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 19 May 2018 16:36:19 +0000</pubDate>
+				<category><![CDATA[DedeCMS]]></category>
+		<category><![CDATA[二次开发]]></category>
+		<category><![CDATA[搜索页面]]></category>
+		<category><![CDATA[数据库操作]]></category>
+		<guid isPermaLink="false">/?p=6348</guid>
+
+					<description><![CDATA[dedecms第三天 完成搜索页面 要实现的效果: 显示搜索页面 a 在plus目录中添加sou.php文件, [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p><a id="post-6348-_dedecms___"></a><a id="post-6348-_Toc256000000"></a><br />
+  dedecms第三天
+</p>
+<p><a id="post-6348-_____________"></a>
+</p>
+<h1><a id="post-6348-________2"></a><a id="post-6348-_Toc256000004"></a>完成搜索页面</h1>
+<p>
+  要实现的效果:
+</p>
+<p><img fetchpriority="high" decoding="async" width="1235" height="536" src="/wp-content/uploads/2018/05/word-image-5793.png" class="wp-image-6359" srcset="/wp-content/uploads/2018/05/word-image-5793.png 1235w, /wp-content/uploads/2018/05/word-image-5793-300x130.png 300w, /wp-content/uploads/2018/05/word-image-5793-768x333.png 768w, /wp-content/uploads/2018/05/word-image-5793-1024x444.png 1024w" sizes="(max-width: 1235px) 100vw, 1235px" /></p>
+<h2><a id="post-6348-________3"></a><a id="post-6348-_Toc256000005"></a><em>显示搜索页面</em></h2>
+<p>
+  a 在plus目录中添加sou.php文件,用于加载sou.html文件
+</p>
+<p><img decoding="async" width="1026" height="767" src="/wp-content/uploads/2018/05/word-image-5794.png" class="wp-image-6360" srcset="/wp-content/uploads/2018/05/word-image-5794.png 1026w, /wp-content/uploads/2018/05/word-image-5794-300x224.png 300w, /wp-content/uploads/2018/05/word-image-5794-768x574.png 768w, /wp-content/uploads/2018/05/word-image-5794-1024x766.png 1024w" sizes="(max-width: 1026px) 100vw, 1026px" /><br />
+<img decoding="async" width="653" height="257" src="/wp-content/uploads/2018/05/word-image-5795.png" class="wp-image-6361" srcset="/wp-content/uploads/2018/05/word-image-5795.png 653w, /wp-content/uploads/2018/05/word-image-5795-300x118.png 300w" sizes="(max-width: 653px) 100vw, 653px" /></p>
+<p>
+  b访问之后页面输出的效果如下所示
+</p>
+<p><img loading="lazy" decoding="async" width="1536" height="209" src="/wp-content/uploads/2018/05/word-image-5796.png" class="wp-image-6362" srcset="/wp-content/uploads/2018/05/word-image-5796.png 1536w, /wp-content/uploads/2018/05/word-image-5796-300x41.png 300w, /wp-content/uploads/2018/05/word-image-5796-768x105.png 768w, /wp-content/uploads/2018/05/word-image-5796-1024x139.png 1024w" sizes="(max-width: 1536px) 100vw, 1536px" /></p>
+<p>
+  c 引入每一个dede中的公共文件
+</p>
+<p><img loading="lazy" decoding="async" width="910" height="289" src="/wp-content/uploads/2018/05/word-image-5797.png" class="wp-image-6363" srcset="/wp-content/uploads/2018/05/word-image-5797.png 910w, /wp-content/uploads/2018/05/word-image-5797-300x95.png 300w, /wp-content/uploads/2018/05/word-image-5797-768x244.png 768w" sizes="(max-width: 910px) 100vw, 910px" /></p>
+<p>
+  d 将模板页面改名字为sou.html然后引入到sou.php文件中
+</p>
+<p><img loading="lazy" decoding="async" width="861" height="388" src="/wp-content/uploads/2018/05/word-image-5798.png" class="wp-image-6364" srcset="/wp-content/uploads/2018/05/word-image-5798.png 861w, /wp-content/uploads/2018/05/word-image-5798-300x135.png 300w, /wp-content/uploads/2018/05/word-image-5798-768x346.png 768w" sizes="(max-width: 861px) 100vw, 861px" /></p>
+<p>
+  在sou.php中进行引入
+</p>
+<p><img loading="lazy" decoding="async" width="844" height="289" src="/wp-content/uploads/2018/05/word-image-5799.png" class="wp-image-6365" srcset="/wp-content/uploads/2018/05/word-image-5799.png 844w, /wp-content/uploads/2018/05/word-image-5799-300x103.png 300w, /wp-content/uploads/2018/05/word-image-5799-768x263.png 768w" sizes="(max-width: 844px) 100vw, 844px" /></p>
+<p>
+  引入之后的页面:
+</p>
+<p><img loading="lazy" decoding="async" width="1076" height="417" src="/wp-content/uploads/2018/05/word-image-5800.png" class="wp-image-6366" srcset="/wp-content/uploads/2018/05/word-image-5800.png 1076w, /wp-content/uploads/2018/05/word-image-5800-300x116.png 300w, /wp-content/uploads/2018/05/word-image-5800-768x298.png 768w, /wp-content/uploads/2018/05/word-image-5800-1024x397.png 1024w" sizes="(max-width: 1076px) 100vw, 1076px" /></p>
+<p>
+  e 修改sou.html中的css文件路径和js路径
+</p>
+<p><img loading="lazy" decoding="async" width="764" height="302" src="/wp-content/uploads/2018/05/word-image-5801.png" class="wp-image-6367" srcset="/wp-content/uploads/2018/05/word-image-5801.png 764w, /wp-content/uploads/2018/05/word-image-5801-300x119.png 300w" sizes="(max-width: 764px) 100vw, 764px" /></p>
+<p>
+  如果直接使用dede中的标签是不被解析的,因为我们现在直接访问html页面,没有给他生成静态的页面,所以他不能解析dede的标签.
+</p>
+<p>
+  在这里我们直接使用原生的php标签进行引入即可
+</p>
+<p><img loading="lazy" decoding="async" width="907" height="229" src="/wp-content/uploads/2018/05/word-image-5802.png" class="wp-image-6368" srcset="/wp-content/uploads/2018/05/word-image-5802.png 907w, /wp-content/uploads/2018/05/word-image-5802-300x76.png 300w, /wp-content/uploads/2018/05/word-image-5802-768x194.png 768w" sizes="(max-width: 907px) 100vw, 907px" /></p>
+<p>
+  进行访问查看效果:
+</p>
+<p><img loading="lazy" decoding="async" width="1182" height="482" src="/wp-content/uploads/2018/05/word-image-5803.png" class="wp-image-6369" srcset="/wp-content/uploads/2018/05/word-image-5803.png 1182w, /wp-content/uploads/2018/05/word-image-5803-300x122.png 300w, /wp-content/uploads/2018/05/word-image-5803-768x313.png 768w, /wp-content/uploads/2018/05/word-image-5803-1024x418.png 1024w" sizes="(max-width: 1182px) 100vw, 1182px" /></p>
+<h2><a id="post-6348-_dede________"></a><a id="post-6348-_Toc256000006"></a><em>dede里面的数据库操作</em></h2>
+<h3><a id="post-6348-__________"></a><a id="post-6348-_Toc256000007"></a>数据库的初始化操作</h3>
+<p>
+  默认情况下数据核心类是在include/commen.inc.php文件中引入了数据库核心类文件。
+</p>
+<p>
+  dede默认提供了三种操作数据的核心类
+</p>
+<p>
+  我们默认的数据库操作类是dedesql.class.php文件
+</p>
+<p>
+  找到dedesql.class.php文件
+</p>
+<p><img loading="lazy" decoding="async" width="1243" height="506" src="/wp-content/uploads/2018/05/word-image-5804.png" class="wp-image-6370" srcset="/wp-content/uploads/2018/05/word-image-5804.png 1243w, /wp-content/uploads/2018/05/word-image-5804-300x122.png 300w, /wp-content/uploads/2018/05/word-image-5804-768x313.png 768w, /wp-content/uploads/2018/05/word-image-5804-1024x417.png 1024w" sizes="(max-width: 1243px) 100vw, 1243px" /></p>
+<p>
+  查看dedesql.class.php中是如何实例化和引用相关的数据库类的
+</p>
+<p><img loading="lazy" decoding="async" width="1163" height="383" src="/wp-content/uploads/2018/05/word-image-5805.png" class="wp-image-6371" srcset="/wp-content/uploads/2018/05/word-image-5805.png 1163w, /wp-content/uploads/2018/05/word-image-5805-300x99.png 300w, /wp-content/uploads/2018/05/word-image-5805-768x253.png 768w, /wp-content/uploads/2018/05/word-image-5805-1024x337.png 1024w" sizes="(max-width: 1163px) 100vw, 1163px" /></p>
+<p>
+  有上面可知,我们直接使用$dsql这个实例化的类即可引用
+</p>
+<h3><a id="post-6348-_____"></a><a id="post-6348-_Toc256000008"></a>查询操作</h3>
+<p>
+  查询多条记录的方法
+</p>
+<p>
+  $dsql-&gt;Execute(“me”,$sql语句) 类似于$res=mysql_query($sql语句)
+</p>
+<p>
+  注释:me的意思是将sql执行完成之后的结果赋给$me
+</p>
+<p>
+  取出数据的方法：
+</p>
+<p>
+  $dsql-&gt;GetArray(“me”);//该方法取出一次数据，游标就会向下移动一次
+</p>
+<p>
+  上面的这个方法的功能就类似于$row=mysql_fetch_assoc($res)
+</p>
+<p>
+  案例：
+</p>
+<p>
+  $sql=”select * from goods”;
+</p>
+<p>
+  $dsql-&gt;Execute(“abc”,$sql);
+</p>
+<p>
+  取出数据：
+</p>
+<p>
+  $data=[];
+</p>
+<p>
+  While($row=$dsql-&gt;GetArray(“abc”)){
+</p>
+<p>
+  		$data[]=$row;
+</p>
+<p>
+  }
+</p>
+<p>
+  取出单行数据的方式：
+</p>
+<p>
+  $dsql-&gt;GetOne($sql);//该方法只返回一行数据信息
+</p>
+<h3><a id="post-6348-________4"></a><a id="post-6348-_Toc256000009"></a>增删改的操作</h3>
+<p>
+  如果要想对表中的数据进行增删改操作，并且不需要关注影响记录条数
+</p>
+<p>
+  $dsql-&gt;ExecuteNoneQuery($sql语句)
+</p>
+<p>
+  如果想要对表中的数据进行增删改操作，同时也需要关注影响记录条数
+</p>
+<p>
+  $dsql-&gt; ExecuteNoneQuery2($sql语句)
+</p>
+<h2><a id="post-6348-___________"></a><a id="post-6348-_Toc256000010"></a><em>展示出搜索页面的头部</em></h2>
+<p>
+  需求:取出搜索页面的导航栏部分.
+</p>
+<p><img loading="lazy" decoding="async" width="993" height="101" src="/wp-content/uploads/2018/05/word-image-5806.png" class="wp-image-6372" srcset="/wp-content/uploads/2018/05/word-image-5806.png 993w, /wp-content/uploads/2018/05/word-image-5806-300x31.png 300w, /wp-content/uploads/2018/05/word-image-5806-768x78.png 768w" sizes="(max-width: 993px) 100vw, 993px" /></p>
+<p>
+  分析:1 导航栏的数据保存在dede_arctype表中.
+</p>
+<p>
+        2 只需要取出其中的电影模型下面的顶级导航栏.
+</p>
+<h3><a id="post-6348-______2"></a><a id="post-6348-_Toc256000011"></a>取出数据</h3>
+<p>
+  思路就是由于要取出的是栏目顶级导航，所以在查询时候要指定reid=0 并且要确定的就是我们是从dede_arctype表中取得数据信息
+</p>
+<p><img loading="lazy" decoding="async" width="1253" height="556" src="/wp-content/uploads/2018/05/word-image-5807.png" class="wp-image-6373" srcset="/wp-content/uploads/2018/05/word-image-5807.png 1253w, /wp-content/uploads/2018/05/word-image-5807-300x133.png 300w, /wp-content/uploads/2018/05/word-image-5807-768x341.png 768w, /wp-content/uploads/2018/05/word-image-5807-1024x454.png 1024w" sizes="(max-width: 1253px) 100vw, 1253px" /></p>
+<p>
+  打印的数据效果如夏所示:
+</p>
+<p><img loading="lazy" decoding="async" width="756" height="265" src="/wp-content/uploads/2018/05/word-image-5808.png" class="wp-image-6374" srcset="/wp-content/uploads/2018/05/word-image-5808.png 756w, /wp-content/uploads/2018/05/word-image-5808-300x105.png 300w" sizes="(max-width: 756px) 100vw, 756px" /></p>
+<p>
+  在sou.html页面中循环输出栏目数据
+</p>
+<p><img loading="lazy" decoding="async" width="1141" height="224" src="/wp-content/uploads/2018/05/word-image-5809.png" class="wp-image-6375" srcset="/wp-content/uploads/2018/05/word-image-5809.png 1141w, /wp-content/uploads/2018/05/word-image-5809-300x59.png 300w, /wp-content/uploads/2018/05/word-image-5809-768x151.png 768w, /wp-content/uploads/2018/05/word-image-5809-1024x201.png 1024w" sizes="(max-width: 1141px) 100vw, 1141px" /></p>
+<p>
+  最终的输出效果如下所示:
+</p>
+<p><img loading="lazy" decoding="async" width="799" height="302" src="/wp-content/uploads/2018/05/word-image-5810.png" class="wp-image-6376" srcset="/wp-content/uploads/2018/05/word-image-5810.png 799w, /wp-content/uploads/2018/05/word-image-5810-300x113.png 300w, /wp-content/uploads/2018/05/word-image-5810-768x290.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></p>
+<p>
+  多学一招:
+</p>
+<p>
+  这里要拼接处typeurl的地址:在arclist中找到这个标签即可
+</p>
+<p><img loading="lazy" decoding="async" width="1172" height="353" src="/wp-content/uploads/2018/05/word-image-5811.png" class="wp-image-6377" srcset="/wp-content/uploads/2018/05/word-image-5811.png 1172w, /wp-content/uploads/2018/05/word-image-5811-300x90.png 300w, /wp-content/uploads/2018/05/word-image-5811-768x231.png 768w, /wp-content/uploads/2018/05/word-image-5811-1024x308.png 1024w" sizes="(max-width: 1172px) 100vw, 1172px" /></p>
+<p><a id="post-6348-______3"></a>
+</p>
+<h2><a id="post-6348-______________2"></a><a id="post-6348-_Toc256000013"></a><em>取出电影数据</em></h2>
+<p>
+  页面的效果图如下所示:
+</p>
+<p><img loading="lazy" decoding="async" width="974" height="570" src="/wp-content/uploads/2018/05/word-image-5812.png" class="wp-image-6378" srcset="/wp-content/uploads/2018/05/word-image-5812.png 974w, /wp-content/uploads/2018/05/word-image-5812-300x176.png 300w, /wp-content/uploads/2018/05/word-image-5812-768x449.png 768w" sizes="(max-width: 974px) 100vw, 974px" /></p>
+<p>
+  分析：
+</p>
+<p>
+  该数据涉及到了附加表中的数据信息（语言、评分值）还有就是内容主表中的电影名称信息以及我们要进行处理的就是电影的对应url地址（arcurl）
+</p>
+<h3><a id="post-6348-________5"></a><a id="post-6348-_Toc256000014"></a>取出电影数据</h3>
+<p>
+  代码如下
+</p>
+<p><img loading="lazy" decoding="async" width="1579" height="367" src="/wp-content/uploads/2018/05/word-image-5813.png" class="wp-image-6379" srcset="/wp-content/uploads/2018/05/word-image-5813.png 1579w, /wp-content/uploads/2018/05/word-image-5813-300x70.png 300w, /wp-content/uploads/2018/05/word-image-5813-768x179.png 768w, /wp-content/uploads/2018/05/word-image-5813-1024x238.png 1024w" sizes="(max-width: 1579px) 100vw, 1579px" /></p>
+<p>
+  多学一招:arcurl的拼接需要在arclib.php中获取:
+</p>
+<p><img loading="lazy" decoding="async" width="1191" height="580" src="/wp-content/uploads/2018/05/word-image-5814.png" class="wp-image-6380" srcset="/wp-content/uploads/2018/05/word-image-5814.png 1191w, /wp-content/uploads/2018/05/word-image-5814-300x146.png 300w, /wp-content/uploads/2018/05/word-image-5814-768x374.png 768w, /wp-content/uploads/2018/05/word-image-5814-1024x499.png 1024w" sizes="(max-width: 1191px) 100vw, 1191px" /></p>
+<h3><a id="post-6348-___________2"></a><a id="post-6348-_Toc256000015"></a>完成电影数据的遍历</h3>
+<p><img loading="lazy" decoding="async" width="1225" height="344" src="/wp-content/uploads/2018/05/word-image-5815.png" class="wp-image-6381" srcset="/wp-content/uploads/2018/05/word-image-5815.png 1225w, /wp-content/uploads/2018/05/word-image-5815-300x84.png 300w, /wp-content/uploads/2018/05/word-image-5815-768x216.png 768w, /wp-content/uploads/2018/05/word-image-5815-1024x288.png 1024w" sizes="(max-width: 1225px) 100vw, 1225px" /></p>
+<p><a id="post-6348-________"></a><br />
+  最终的效果如下所示:
+</p>
+<p><img loading="lazy" decoding="async" width="992" height="306" src="/wp-content/uploads/2018/05/word-image-5816.png" class="wp-image-6382" srcset="/wp-content/uploads/2018/05/word-image-5816.png 992w, /wp-content/uploads/2018/05/word-image-5816-300x93.png 300w, /wp-content/uploads/2018/05/word-image-5816-768x237.png 768w" sizes="(max-width: 992px) 100vw, 992px" /></p>
+<p><a id="post-6348-______________3"></a>
+</p>
+<h2><a id="post-6348-____________"></a><a id="post-6348-_Toc256000018"></a><em>在搜索页面显示年代数据</em></h2>
+<p><img loading="lazy" decoding="async" width="972" height="206" src="/wp-content/uploads/2018/05/word-image-5817.png" class="wp-image-6383" srcset="/wp-content/uploads/2018/05/word-image-5817.png 972w, /wp-content/uploads/2018/05/word-image-5817-300x64.png 300w, /wp-content/uploads/2018/05/word-image-5817-768x163.png 768w" sizes="(max-width: 972px) 100vw, 972px" /></p>
+<p>
+  分析：
+</p>
+<p>
+  1、	首先每一个年代数据都要有一个url地址，
+</p>
+<p>
+  2、	需要有一个是否处于选中状态判断，
+</p>
+<p>
+  3、	同时也要考虑把其他条件参数给带上
+</p>
+<p>
+  4、	由于全部字样也需要考虑是否处于选中状态，所以也要封装到数组中来
+</p>
+<p>
+  思路：可以考虑将这个年代数据给封装成一个数组
+</p>
+<p>
+  $ndData=array(
+</p>
+<p>
+  array(
+</p>
+<p>
+  	‘name’=&gt;2016,
+</p>
+<p>
+  	‘url’=&gt;用来跳转的url地址 （diqu=欧美&amp; niandai=2016）
+</p>
+<p>
+  	‘selected’=&gt;判断是否处于选中状态
+</p>
+<p>
+  ),
+</p>
+<p>
+  array(
+</p>
+<p>
+  	‘name’=&gt;2015,
+</p>
+<p>
+  	‘url’=&gt;用来跳转的url地址（niandai=2015&amp;diqu=欧美）
+</p>
+<p>
+  	‘selected’=&gt;判断是否处于选中状态
+</p>
+<p>
+  ),
+</p>
+<p>
+  array(
+</p>
+<p>
+  	‘name’=&gt;’全部’,
+</p>
+<p>
+  	‘url’=&gt;用来跳转的url地址（niandai=2015&amp;diqu=欧美）
+</p>
+<p>
+  	‘selected’=&gt;判断是否处于选中状态
+</p>
+<p>
+  )
+</p>
+<p>
+  )
+</p>
+<h3><a id="post-6348-________6"></a><a id="post-6348-_Toc256000019"></a>取出年代数据</h3>
+<p>
+  if($_GET[&#8216;niandai&#8217;])
+</p>
+<p>
+       $sel = &#8221;;
+</p>
+<p>
+   else
+</p>
+<p>
+       $sel = &#8216;class=&#8221;all&#8221;&#8216;;
+</p>
+</p>
+<p>
+   $nianData[] = array(
+</p>
+<p>
+       &#8216;name&#8217;=&gt;&#8221;全部&#8221;,
+</p>
+<p>
+       &#8216;url&#8217;=&gt;getUrl(),
+</p>
+<p>
+       &#8216;selected&#8217;=&gt;$sel
+</p>
+<p>
+   );
+</p>
+</p>
+<p>
+  $sql = &#8220;select distinct niandai from dede_addonmovie&#8221;;
+</p>
+<p>
+  $dsql-&gt;Execute(&#8216;nian&#8217;,$sql);
+</p>
+<p>
+  while($row = $dsql-&gt;GetArray(&#8216;nian&#8217;)){
+</p>
+<p>
+       if($_GET[&#8216;niandai&#8217;]==$row[&#8216;niandai&#8217;]){
+</p>
+<p>
+           $sel = &#8216;class=&#8221;all&#8221;&#8216;;
+</p>
+<p>
+       }else
+</p>
+<p>
+           $sel = &#8221;;
+</p>
+</p>
+<p>
+       $nianData[] = array(
+</p>
+<p>
+           &#8216;name&#8217;=&gt;$row[&#8216;niandai&#8217;],
+</p>
+<p>
+           &#8216;url&#8217;=&gt;&#8217;?niandai=&#8217;.$row[&#8216;niandai&#8217;].getUrl(&#8216;niandai&#8217;),
+</p>
+<p>
+           &#8216;selected&#8217;=&gt;$sel
+</p>
+<p>
+       );
+</p>
+</p>
+<p>
+  }
+</p>
+<p>
+  url的拼接函数如下所示:
+</p>
+<p>
+  function getUrl($default=&#8221;){
+</p>
+<p>
+      $str = &#8221;;
+</p>
+<p>
+      if($default !=&#8217;niandai&#8217;){
+</p>
+<p>
+          if($_GET[&#8216;niandai&#8217;]){
+</p>
+<p>
+              $str .= &#8216;&amp;niandai=&#8217;.$_GET[&#8216;niandai&#8217;];
+</p>
+<p>
+          }
+</p>
+<p>
+      }
+</p>
+<p>
+      if($default!=&#8217;type&#8217;){
+</p>
+<p>
+          if($_GET[&#8216;type&#8217;])
+</p>
+<p>
+              $str .= &#8216;&amp;type=&#8217;.$_GET[&#8216;type&#8217;];
+</p>
+<p>
+      }
+</p>
+<p>
+      if($default!=&#8217;diqu&#8217;){
+</p>
+<p>
+          if($_GET[&#8216;diqu&#8217;])
+</p>
+<p>
+              $str .= &#8216;&amp;diqu=&#8217;.$_GET[&#8216;diqu&#8217;];
+</p>
+<p>
+      }
+</p>
+<p>
+  }
+</p>
+<h3><a id="post-6348-_________"></a><a id="post-6348-_Toc256000020"></a>完成年代数据遍历</h3>
+<p><img loading="lazy" decoding="async" width="1536" height="419" src="/wp-content/uploads/2018/05/word-image-5818.png" class="wp-image-6384" srcset="/wp-content/uploads/2018/05/word-image-5818.png 1536w, /wp-content/uploads/2018/05/word-image-5818-300x82.png 300w, /wp-content/uploads/2018/05/word-image-5818-768x210.png 768w, /wp-content/uploads/2018/05/word-image-5818-1024x279.png 1024w" sizes="(max-width: 1536px) 100vw, 1536px" /></p>
+<h3><a id="post-6348-______4"></a><a id="post-6348-_Toc256000021"></a>最终效果</h3>
+<p><img loading="lazy" decoding="async" width="428" height="76" src="/wp-content/uploads/2018/05/word-image-5819.png" class="wp-image-6385" srcset="/wp-content/uploads/2018/05/word-image-5819.png 428w, /wp-content/uploads/2018/05/word-image-5819-300x53.png 300w" sizes="(max-width: 428px) 100vw, 428px" /></p>
+<h2><a id="post-6348-_____________2"></a><a id="post-6348-_Toc256000022"></a><em>在搜索页面显示地区数据</em></h2>
+<h3><a id="post-6348-_________2"></a><a id="post-6348-_Toc256000023"></a>取出数据的代码</h3>
+<p><img loading="lazy" decoding="async" width="1133" height="194" src="/wp-content/uploads/2018/05/word-image-5820.png" class="wp-image-6386" srcset="/wp-content/uploads/2018/05/word-image-5820.png 1133w, /wp-content/uploads/2018/05/word-image-5820-300x51.png 300w, /wp-content/uploads/2018/05/word-image-5820-768x132.png 768w, /wp-content/uploads/2018/05/word-image-5820-1024x175.png 1024w" sizes="(max-width: 1133px) 100vw, 1133px" /></p>
+<h3><a id="post-6348-___________3"></a><a id="post-6348-_Toc256000024"></a>完成地区数据的遍历</h3>
+<p><img loading="lazy" decoding="async" width="1257" height="804" src="/wp-content/uploads/2018/05/word-image-5821.png" class="wp-image-6387" srcset="/wp-content/uploads/2018/05/word-image-5821.png 1257w, /wp-content/uploads/2018/05/word-image-5821-300x192.png 300w, /wp-content/uploads/2018/05/word-image-5821-768x491.png 768w, /wp-content/uploads/2018/05/word-image-5821-1024x655.png 1024w" sizes="(max-width: 1257px) 100vw, 1257px" /><br />
+<img loading="lazy" decoding="async" width="549" height="65" src="/wp-content/uploads/2018/05/word-image-5822.png" class="wp-image-6388" srcset="/wp-content/uploads/2018/05/word-image-5822.png 549w, /wp-content/uploads/2018/05/word-image-5822-300x36.png 300w" sizes="(max-width: 549px) 100vw, 549px" /></p>
+<h2><a id="post-6348-______________4"></a><a id="post-6348-_Toc256000025"></a><em>在搜索页面显示出类型数据</em></h2>
+<p><img loading="lazy" decoding="async" width="816" height="206" src="/wp-content/uploads/2018/05/word-image-5823.png" class="wp-image-6389" srcset="/wp-content/uploads/2018/05/word-image-5823.png 816w, /wp-content/uploads/2018/05/word-image-5823-300x76.png 300w, /wp-content/uploads/2018/05/word-image-5823-768x194.png 768w" sizes="(max-width: 816px) 100vw, 816px" /></p>
+<h3><a id="post-6348-_________3"></a><a id="post-6348-_Toc256000026"></a>取出数据的代码</h3>
+<p><img loading="lazy" decoding="async" width="1020" height="384" src="/wp-content/uploads/2018/05/word-image-5824.png" class="wp-image-6390" srcset="/wp-content/uploads/2018/05/word-image-5824.png 1020w, /wp-content/uploads/2018/05/word-image-5824-300x113.png 300w, /wp-content/uploads/2018/05/word-image-5824-768x289.png 768w" sizes="(max-width: 1020px) 100vw, 1020px" /><br />
+<img loading="lazy" decoding="async" width="1055" height="496" src="/wp-content/uploads/2018/05/word-image-5825.png" class="wp-image-6391" srcset="/wp-content/uploads/2018/05/word-image-5825.png 1055w, /wp-content/uploads/2018/05/word-image-5825-300x141.png 300w, /wp-content/uploads/2018/05/word-image-5825-768x361.png 768w, /wp-content/uploads/2018/05/word-image-5825-1024x481.png 1024w" sizes="(max-width: 1055px) 100vw, 1055px" /></p>
+<p>
+  最终的url函数如下所示:
+</p>
+<p><img loading="lazy" decoding="async" width="897" height="630" src="/wp-content/uploads/2018/05/word-image-5826.png" class="wp-image-6392" srcset="/wp-content/uploads/2018/05/word-image-5826.png 897w, /wp-content/uploads/2018/05/word-image-5826-300x211.png 300w, /wp-content/uploads/2018/05/word-image-5826-768x539.png 768w" sizes="(max-width: 897px) 100vw, 897px" /></p>
+<h3><a id="post-6348-__________2"></a><a id="post-6348-_Toc256000027"></a>完成类型数据遍历</h3>
+<p><img loading="lazy" decoding="async" width="1117" height="256" src="/wp-content/uploads/2018/05/word-image-5827.png" class="wp-image-6393" srcset="/wp-content/uploads/2018/05/word-image-5827.png 1117w, /wp-content/uploads/2018/05/word-image-5827-300x69.png 300w, /wp-content/uploads/2018/05/word-image-5827-768x176.png 768w, /wp-content/uploads/2018/05/word-image-5827-1024x235.png 1024w" sizes="(max-width: 1117px) 100vw, 1117px" /></p>
+<p>
+  最终效果：
+</p>
+<p><img loading="lazy" decoding="async" width="529" height="60" src="/wp-content/uploads/2018/05/word-image-5828.png" class="wp-image-6394" srcset="/wp-content/uploads/2018/05/word-image-5828.png 529w, /wp-content/uploads/2018/05/word-image-5828-300x34.png 300w" sizes="(max-width: 529px) 100vw, 529px" /></p>
+<p>
+  最终的效果如下所示:
+</p>
+<p><img loading="lazy" decoding="async" width="660" height="569" src="/wp-content/uploads/2018/05/word-image-5829.png" class="wp-image-6395" srcset="/wp-content/uploads/2018/05/word-image-5829.png 660w, /wp-content/uploads/2018/05/word-image-5829-300x259.png 300w" sizes="(max-width: 660px) 100vw, 660px" /></p>
+<h2><a id="post-6348-_____________SQL___"></a><a id="post-6348-_Toc256000028"></a><em>把地址栏里面的条件添加到SQL语句中</em></h2>
+</p>
+<p><img loading="lazy" decoding="async" width="1217" height="584" src="/wp-content/uploads/2018/05/word-image-5830.png" class="wp-image-6396" srcset="/wp-content/uploads/2018/05/word-image-5830.png 1217w, /wp-content/uploads/2018/05/word-image-5830-300x144.png 300w, /wp-content/uploads/2018/05/word-image-5830-768x369.png 768w, /wp-content/uploads/2018/05/word-image-5830-1024x491.png 1024w" sizes="(max-width: 1217px) 100vw, 1217px" /></p>
+<p><a id="post-6348-___________4"></a>
+</p>
+<p>
+  最终效果：
+</p>
+<p><a id="post-6348-_________4"></a>
+</p>
+<p><img loading="lazy" decoding="async" width="894" height="729" src="/wp-content/uploads/2018/05/word-image-5831.png" class="wp-image-6397" srcset="/wp-content/uploads/2018/05/word-image-5831.png 894w, /wp-content/uploads/2018/05/word-image-5831-300x245.png 300w, /wp-content/uploads/2018/05/word-image-5831-768x626.png 768w" sizes="(max-width: 894px) 100vw, 894px" /></p>
+<h2><a id="post-6348-____________2"></a><a id="post-6348-_Toc256000032"></a><em>把查询的条件显示出来</em></h2>
+<p>
+  分析：由于url地址栏中的查询参数信息，在这个位置都要显示出来，那么我们可以在处理查询条件的位置来同步我们的数组（就是用来在页面中遍历查询条件的）
+</p>
+<p>
+  $search=array(
+</p>
+<p>
+  array(
+</p>
+<p>
+  	‘name’=&gt;查询条件的名称,
+</p>
+<p>
+  	‘url’=&gt;对应url地址
+</p>
+<p>
+  )
+</p>
+<p>
+  );
+</p>
+<h3><a id="post-6348-____SQL___________"></a><a id="post-6348-_Toc256000033"></a>在拼接SQL语句的位置封装条件数组</h3>
+<p>
+  $searche = array();
+</p>
+<p>
+  $where = &#8221;;
+</p>
+<p>
+  if($_GET[&#8216;niandai&#8217;]){
+</p>
+<p>
+      $where .=&#8221;and addf.niandai='{$_GET[&#8216;niandai&#8217;]}'&#8221;;
+</p>
+<p>
+      $searche[] = array(
+</p>
+<p>
+          &#8216;name&#8217;=&gt;$_GET[&#8216;niadai&#8217;],
+</p>
+<p>
+          &#8216;url&#8217;=&gt;getUrl()
+</p>
+<p>
+      );
+</p>
+<p>
+  }
+</p>
+<p>
+  if($_GET[&#8216;diqu&#8217;]){
+</p>
+<p>
+      $where .=&#8221;and addf.diqu='{$_GET[&#8216;diqu&#8217;]}'&#8221;;
+</p>
+<p>
+      $searche[]= array(
+</p>
+<p>
+          &#8216;name&#8217;=&gt;$_GET[&#8216;diqu&#8217;],
+</p>
+<p>
+          &#8216;url&#8217;=&gt;getUrl()
+</p>
+<p>
+      );
+</p>
+<p>
+  }
+</p>
+<p>
+  if($_GET[&#8216;type&#8217;]){
+</p>
+<p>
+      $where .=&#8221;and cha.typename='{$_GET[&#8216;type&#8217;]}'&#8221;;
+</p>
+<p>
+      $searche[] =array(
+</p>
+<p>
+          &#8216;name&#8217;=&gt;$_GET[&#8216;type&#8217;],
+</p>
+<p>
+          &#8216;url&#8217;=&gt;getUrl()
+</p>
+<p>
+      );
+</p>
+<p>
+  }
+</p>
+<h3><a id="post-6348-________7"></a><a id="post-6348-_Toc256000034"></a>完成条件遍历</h3>
+<p><img loading="lazy" decoding="async" width="1172" height="342" src="/wp-content/uploads/2018/05/word-image-5832.png" class="wp-image-6398" srcset="/wp-content/uploads/2018/05/word-image-5832.png 1172w, /wp-content/uploads/2018/05/word-image-5832-300x88.png 300w, /wp-content/uploads/2018/05/word-image-5832-768x224.png 768w, /wp-content/uploads/2018/05/word-image-5832-1024x299.png 1024w" sizes="(max-width: 1172px) 100vw, 1172px" /></p>
+<p>
+  最终效果：
+</p>
+<p><img loading="lazy" decoding="async" width="289" height="48" src="/wp-content/uploads/2018/05/word-image-5833.png" class="wp-image-6399" /></p>
+<h2><a id="post-6348-________8"></a><a id="post-6348-_Toc256000035"></a><em>实现搜索功能</em></h2>
+<p><img loading="lazy" decoding="async" width="702" height="206" src="/wp-content/uploads/2018/05/word-image-5834.png" class="wp-image-6400" srcset="/wp-content/uploads/2018/05/word-image-5834.png 702w, /wp-content/uploads/2018/05/word-image-5834-300x88.png 300w" sizes="(max-width: 702px) 100vw, 702px" /></p>
+<h3><a id="post-6348-______5"></a><a id="post-6348-_Toc256000036"></a>修改表单</h3>
+<p><img loading="lazy" decoding="async" width="1190" height="331" src="/wp-content/uploads/2018/05/word-image-5835.png" class="wp-image-6401" srcset="/wp-content/uploads/2018/05/word-image-5835.png 1190w, /wp-content/uploads/2018/05/word-image-5835-300x83.png 300w, /wp-content/uploads/2018/05/word-image-5835-768x214.png 768w, /wp-content/uploads/2018/05/word-image-5835-1024x285.png 1024w" sizes="(max-width: 1190px) 100vw, 1190px" /></p>
+<h3><a id="post-6348-________SQL___"></a><a id="post-6348-_Toc256000037"></a>把条件给拼接到SQL语句中</h3>
+<p><img loading="lazy" decoding="async" width="1114" height="260" src="/wp-content/uploads/2018/05/word-image-5836.png" class="wp-image-6402" srcset="/wp-content/uploads/2018/05/word-image-5836.png 1114w, /wp-content/uploads/2018/05/word-image-5836-300x70.png 300w, /wp-content/uploads/2018/05/word-image-5836-768x179.png 768w, /wp-content/uploads/2018/05/word-image-5836-1024x239.png 1024w" sizes="(max-width: 1114px) 100vw, 1114px" /></p>
+<p>
+  最终效果：
+</p>
+<p><a id="post-6348-____________3"></a><a id="post-6348-______________5"></a>
+</p>
+<p><img loading="lazy" decoding="async" width="794" height="534" src="/wp-content/uploads/2018/05/word-image-5837.png" class="wp-image-6403" srcset="/wp-content/uploads/2018/05/word-image-5837.png 794w, /wp-content/uploads/2018/05/word-image-5837-300x202.png 300w, /wp-content/uploads/2018/05/word-image-5837-768x517.png 768w" sizes="(max-width: 794px) 100vw, 794px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91/6348.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

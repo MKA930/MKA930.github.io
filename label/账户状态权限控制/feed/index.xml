@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>账户状态权限控制 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E8%B4%A6%E6%88%B7%E7%8A%B6%E6%80%81%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Wed, 13 Jun 2018 13:29:51 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>账户状态权限控制 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>TP5 商城（三）账户状态权限控制、商品类型 CURD、商品属性 CURD、商品分类 CURD</title>
+		<link>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7899.html</link>
+					<comments>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7899.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Sat, 09 Jun 2018 00:38:08 +0000</pubDate>
+				<category><![CDATA[TP5.0]]></category>
+		<category><![CDATA[TP5.0商城]]></category>
+		<category><![CDATA[后台框架]]></category>
+		<category><![CDATA[商品分类 CURD]]></category>
+		<category><![CDATA[商品属性 CURD]]></category>
+		<category><![CDATA[商品类型 CURD]]></category>
+		<category><![CDATA[账户状态权限控制]]></category>
+		<guid isPermaLink="false">/?p=7899</guid>
+
+					<description><![CDATA[完善控制账户状态的权限控制 当用户点击下面列表的可用或禁用的功能的时候，ajax返回一个无权限操作。 这是因为 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>完善控制账户状态的权限控制</h1>
+<p>当用户点击下面列表的可用或禁用的功能的时候，ajax返回一个无权限操作。</p>
+<p>这是因为用户没有此权限，一般只有超级管理员才会有此权限。</p>
+<p>所以，我们也可以在后台添加此权限给用户进行分配：</p>
+<p><img fetchpriority="high" decoding="async" width="558" height="375" class="wp-image-7965" src="/wp-content/uploads/2018/06/word-image-560.png" srcset="/wp-content/uploads/2018/06/word-image-560.png 558w, /wp-content/uploads/2018/06/word-image-560-300x202.png 300w" sizes="(max-width: 558px) 100vw, 558px" /></p>
+<p>然后给对应的角色分配即可：</p>
+<p><img decoding="async" width="721" height="347" class="wp-image-7966" src="/wp-content/uploads/2018/06/word-image-561.png" srcset="/wp-content/uploads/2018/06/word-image-561.png 721w, /wp-content/uploads/2018/06/word-image-561-300x144.png 300w" sizes="(max-width: 721px) 100vw, 721px" /></p>
+<p>同时当某个角色没有此权限的时候，需要在Common控制器中给提示无权限访问：</p>
+<p><img decoding="async" width="1286" height="694" class="wp-image-7967" src="/wp-content/uploads/2018/06/word-image-562.png" srcset="/wp-content/uploads/2018/06/word-image-562.png 1286w, /wp-content/uploads/2018/06/word-image-562-300x162.png 300w, /wp-content/uploads/2018/06/word-image-562-768x414.png 768w, /wp-content/uploads/2018/06/word-image-562-1024x553.png 1024w" sizes="(max-width: 1286px) 100vw, 1286px" /></p>
+<p>在ajax中给出提示无权限：</p>
+<p><img loading="lazy" decoding="async" width="1210" height="427" class="wp-image-7968" src="/wp-content/uploads/2018/06/word-image-563.png" srcset="/wp-content/uploads/2018/06/word-image-563.png 1210w, /wp-content/uploads/2018/06/word-image-563-300x106.png 300w, /wp-content/uploads/2018/06/word-image-563-768x271.png 768w, /wp-content/uploads/2018/06/word-image-563-1024x361.png 1024w" sizes="(max-width: 1210px) 100vw, 1210px" /></p>
+<h1>一、商品有关的基本概念</h1>
+<p>这里主要涉及到以下几个概念：</p>
+<ul>
+<li>商品类型：不同的网站的卖的商品是不一样的，比如化妆品网站专门卖化妆品、手机网站专门卖手机、汽车网站专门卖汽车。</li>
+<li>商品属性：不同的商品类型对应的商品属性也是不一样的。</li>
+</ul>
+<p>比如卖汽车网站，商品(汽车)属性有轴距、变速箱、驱动方式、进气方式、排量等</p>
+<p>比如卖电脑网站，商品（电脑）属性有尺寸、内存、cpu、操作系统、系统核数等</p>
+<p>比如卖手机网站，商品（手机）属性有尺寸、内存、系统、颜色、网络类型、电池容量等</p>
+<p>商品类型决定了商品属性，商品属性依据商品类型走的。</p>
+<ul>
+<li>商品分类</li>
+</ul>
+<p>一个电商网站卖的商品不一样，其商品分类也是不一样的。</p>
+<p>比如：卖汽车分类有：国产（吉利、 广汽）、日产(本田、丰田)、德国（奔驰、宝马）、韩国（起亚、现代）。</p>
+<p>比如：卖手机分类有: 小米、华为、三星、苹果、oppo、vivo、魅族。</p>
+<p>比如：卖化妆品有: 补水、祛痘、气垫、BB霜、口红、&#8230;.</p>
+<ul>
+<li>商品（产品+属性=商品）</li>
+<li>商品（产品+属性=商品）</li>
+</ul>
+<p>如：iphoneX+64G(7888) , iphoneX+256G(9888)</p>
+<h2>1、商品类型</h2>
+<p>不同的商品类型会有不同的属性</p>
+<p>可以在ecshop后台中新建一个商品类型，如下：建立一个手机商品类型</p>
+<p><img loading="lazy" decoding="async" width="1344" height="238" class="wp-image-7969" src="/wp-content/uploads/2018/06/word-image-564.png" srcset="/wp-content/uploads/2018/06/word-image-564.png 1344w, /wp-content/uploads/2018/06/word-image-564-300x53.png 300w, /wp-content/uploads/2018/06/word-image-564-768x136.png 768w, /wp-content/uploads/2018/06/word-image-564-1024x181.png 1024w" sizes="(max-width: 1344px) 100vw, 1344px" /></p>
+<h2>2、商品属性</h2>
+<p>给商品类型添加商品属性： 商品类型&#8211;&gt;属性列表：</p>
+<p><img loading="lazy" decoding="async" width="1147" height="34" class="wp-image-7970" src="/wp-content/uploads/2018/06/word-image-565.png" srcset="/wp-content/uploads/2018/06/word-image-565.png 1147w, /wp-content/uploads/2018/06/word-image-565-300x9.png 300w, /wp-content/uploads/2018/06/word-image-565-768x23.png 768w, /wp-content/uploads/2018/06/word-image-565-1024x30.png 1024w" sizes="(max-width: 1147px) 100vw, 1147px" /> <img loading="lazy" decoding="async" width="1159" height="102" class="wp-image-7972" src="/wp-content/uploads/2018/06/word-image-566.png" srcset="/wp-content/uploads/2018/06/word-image-566.png 1159w, /wp-content/uploads/2018/06/word-image-566-300x26.png 300w, /wp-content/uploads/2018/06/word-image-566-768x68.png 768w, /wp-content/uploads/2018/06/word-image-566-1024x90.png 1024w" sizes="(max-width: 1159px) 100vw, 1159px" /></p>
+<p>给手机类型商品添加内存的属性：</p>
+<p><img loading="lazy" decoding="async" width="665" height="370" class="wp-image-7973" src="/wp-content/uploads/2018/06/word-image-567.png" srcset="/wp-content/uploads/2018/06/word-image-567.png 665w, /wp-content/uploads/2018/06/word-image-567-300x167.png 300w" sizes="(max-width: 665px) 100vw, 665px" /></p>
+<p>添加商品属性列表如下：</p>
+<p><img loading="lazy" decoding="async" width="955" height="200" class="wp-image-7974" src="/wp-content/uploads/2018/06/word-image-568.png" srcset="/wp-content/uploads/2018/06/word-image-568.png 955w, /wp-content/uploads/2018/06/word-image-568-300x63.png 300w, /wp-content/uploads/2018/06/word-image-568-768x161.png 768w" sizes="(max-width: 955px) 100vw, 955px" /></p>
+<p>属性解释：</p>
+<p>单选属性： 指买商品的时候，可以选择一个属性，不同的属性价格不一样</p>
+<p><img loading="lazy" decoding="async" width="676" height="145" class="wp-image-7975" src="/wp-content/uploads/2018/06/word-image-569.png" srcset="/wp-content/uploads/2018/06/word-image-569.png 676w, /wp-content/uploads/2018/06/word-image-569-300x64.png 300w" sizes="(max-width: 676px) 100vw, 676px" /></p>
+<p>唯一属性：只能看不能选。</p>
+<p><img loading="lazy" decoding="async" width="802" height="232" class="wp-image-7976" src="/wp-content/uploads/2018/06/word-image-570.png" srcset="/wp-content/uploads/2018/06/word-image-570.png 802w, /wp-content/uploads/2018/06/word-image-570-300x87.png 300w, /wp-content/uploads/2018/06/word-image-570-768x222.png 768w" sizes="(max-width: 802px) 100vw, 802px" /></p>
+<p>复选属性：可以选择多个，一般买商品的附加配件都是复选的。</p>
+<p><img loading="lazy" decoding="async" width="1016" height="261" class="wp-image-7977" src="/wp-content/uploads/2018/06/word-image-571.png" srcset="/wp-content/uploads/2018/06/word-image-571.png 1016w, /wp-content/uploads/2018/06/word-image-571-300x77.png 300w, /wp-content/uploads/2018/06/word-image-571-768x197.png 768w" sizes="(max-width: 1016px) 100vw, 1016px" /></p>
+<h2>3、属性类型和属性录入方式的组合</h2>
+<p>当在后台添加一个商品的时候要选择一个商品类型，选择了一个商品类型就决定了这个商品的有哪些属性，如下是添加商品设置其商品属性：</p>
+<p><img loading="lazy" decoding="async" width="359" height="255" class="wp-image-7978" src="/wp-content/uploads/2018/06/word-image-572.png" srcset="/wp-content/uploads/2018/06/word-image-572.png 359w, /wp-content/uploads/2018/06/word-image-572-300x213.png 300w" sizes="(max-width: 359px) 100vw, 359px" /></p>
+<p>给商品添加属性：</p>
+<p>&nbsp;</p>
+<p><img loading="lazy" decoding="async" width="794" height="225" class="wp-image-7979" src="/wp-content/uploads/2018/06/word-image-573.png" srcset="/wp-content/uploads/2018/06/word-image-573.png 794w, /wp-content/uploads/2018/06/word-image-573-300x85.png 300w, /wp-content/uploads/2018/06/word-image-573-768x218.png 768w" sizes="(max-width: 794px) 100vw, 794px" /></p>
+<p>特点如下：</p>
+<p>唯一属性（只能看，不能选）：前面没有【+】，不可以设置价格</p>
+<p>单选属性（可选择）：前面有【+】，点击+即可复制多个，不同的单选属性可设置不同的价格</p>
+<p>属性值手工输入：对应的是个input框，需要自己输入。</p>
+<p>属性值是列表选择： 对应的是个select下拉框，需选中一个属性值。</p>
+<h2>4、商品分类</h2>
+<p>一般一个网站决定卖什么类型商品就决定了其商品分类。</p>
+<p>如卖汽车网站：分类有国产、日系、德系、韩系等</p>
+<p>如卖化妆品网站：分类洗面奶、乳液、面膜、保湿、祛痘、眼霜等</p>
+<p><img loading="lazy" decoding="async" width="1323" height="236" class="wp-image-7980" src="/wp-content/uploads/2018/06/word-image-574.png" srcset="/wp-content/uploads/2018/06/word-image-574.png 1323w, /wp-content/uploads/2018/06/word-image-574-300x54.png 300w, /wp-content/uploads/2018/06/word-image-574-768x137.png 768w, /wp-content/uploads/2018/06/word-image-574-1024x183.png 1024w" sizes="(max-width: 1323px) 100vw, 1323px" /></p>
+<h1>二、完成商品类型的curd</h1>
+<h2>商品类型介绍</h2>
+<p>商品类型：不同的网站的卖的商品类型是不一样的，比如化妆品网站专卖化妆品、手机网站专卖手机、二手汽车网站专买二手汽车。</p>
+<p>网站决定卖什么商品类型，也就决定了商品的商品属性</p>
+<h2>商品类型的增加</h2>
+<p>商品类型表如下:</p>
+<p><img loading="lazy" decoding="async" width="986" height="155" class="wp-image-7981" src="/wp-content/uploads/2018/06/word-image-575.png" srcset="/wp-content/uploads/2018/06/word-image-575.png 986w, /wp-content/uploads/2018/06/word-image-575-300x47.png 300w, /wp-content/uploads/2018/06/word-image-575-768x121.png 768w" sizes="(max-width: 986px) 100vw, 986px" /></p>
+<p>1：在admin-TypeController-add中，完成添加商品类型完成</p>
+<p><img loading="lazy" decoding="async" width="1038" height="519" class="wp-image-7982" src="/wp-content/uploads/2018/06/word-image-576.png" srcset="/wp-content/uploads/2018/06/word-image-576.png 1038w, /wp-content/uploads/2018/06/word-image-576-300x150.png 300w, /wp-content/uploads/2018/06/word-image-576-768x384.png 768w, /wp-content/uploads/2018/06/word-image-576-1024x512.png 1024w" sizes="(max-width: 1038px) 100vw, 1038px" /></p>
+<ol>
+<li>在add模板中设置表单name名称</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1263" height="589" class="wp-image-7983" src="/wp-content/uploads/2018/06/word-image-577.png" srcset="/wp-content/uploads/2018/06/word-image-577.png 1263w, /wp-content/uploads/2018/06/word-image-577-300x140.png 300w, /wp-content/uploads/2018/06/word-image-577-768x358.png 768w, /wp-content/uploads/2018/06/word-image-577-1024x478.png 1024w" sizes="(max-width: 1263px) 100vw, 1263px" /></p>
+<p>3、同时建立一个Type的验证器和Type模型</p>
+<p>验证器：</p>
+<p><img loading="lazy" decoding="async" width="888" height="523" class="wp-image-7984" src="/wp-content/uploads/2018/06/word-image-578.png" srcset="/wp-content/uploads/2018/06/word-image-578.png 888w, /wp-content/uploads/2018/06/word-image-578-300x177.png 300w, /wp-content/uploads/2018/06/word-image-578-768x452.png 768w" sizes="(max-width: 888px) 100vw, 888px" /></p>
+<p>模型：</p>
+<p><img loading="lazy" decoding="async" width="796" height="268" class="wp-image-7985" src="/wp-content/uploads/2018/06/word-image-579.png" srcset="/wp-content/uploads/2018/06/word-image-579.png 796w, /wp-content/uploads/2018/06/word-image-579-300x101.png 300w, /wp-content/uploads/2018/06/word-image-579-768x259.png 768w" sizes="(max-width: 796px) 100vw, 796px" /></p>
+<h2>商品类型的列表</h2>
+<ol>
+<li>在admin-Type-index方法中取出所有的商品类型分配到模板中</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="746" height="314" class="wp-image-7986" src="/wp-content/uploads/2018/06/word-image-580.png" srcset="/wp-content/uploads/2018/06/word-image-580.png 746w, /wp-content/uploads/2018/06/word-image-580-300x126.png 300w" sizes="(max-width: 746px) 100vw, 746px" /></p>
+<ol>
+<li>index.html模板中遍历数据</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1263" height="493" class="wp-image-7987" src="/wp-content/uploads/2018/06/word-image-581.png" srcset="/wp-content/uploads/2018/06/word-image-581.png 1263w, /wp-content/uploads/2018/06/word-image-581-300x117.png 300w, /wp-content/uploads/2018/06/word-image-581-768x300.png 768w, /wp-content/uploads/2018/06/word-image-581-1024x400.png 1024w" sizes="(max-width: 1263px) 100vw, 1263px" /></p>
+<h2>商品类型的编辑</h2>
+<ol>
+<li>修改index.html的编辑的链接地址</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1201" height="404" class="wp-image-7988" src="/wp-content/uploads/2018/06/word-image-582.png" srcset="/wp-content/uploads/2018/06/word-image-582.png 1201w, /wp-content/uploads/2018/06/word-image-582-300x101.png 300w, /wp-content/uploads/2018/06/word-image-582-768x258.png 768w, /wp-content/uploads/2018/06/word-image-582-1024x344.png 1024w" sizes="(max-width: 1201px) 100vw, 1201px" /></p>
+<p>2、在admin-type-upd方法中完取出当前商品类型的数据回显到模板中，并完成编辑入库的实现</p>
+<p><img loading="lazy" decoding="async" width="1070" height="509" class="wp-image-7989" src="/wp-content/uploads/2018/06/word-image-583.png" srcset="/wp-content/uploads/2018/06/word-image-583.png 1070w, /wp-content/uploads/2018/06/word-image-583-300x143.png 300w, /wp-content/uploads/2018/06/word-image-583-768x365.png 768w, /wp-content/uploads/2018/06/word-image-583-1024x487.png 1024w" sizes="(max-width: 1070px) 100vw, 1070px" /></p>
+<p>3、模板upd.html回显内容</p>
+<p><img loading="lazy" decoding="async" width="1271" height="587" class="wp-image-7990" src="/wp-content/uploads/2018/06/word-image-584.png" srcset="/wp-content/uploads/2018/06/word-image-584.png 1271w, /wp-content/uploads/2018/06/word-image-584-300x139.png 300w, /wp-content/uploads/2018/06/word-image-584-768x355.png 768w, /wp-content/uploads/2018/06/word-image-584-1024x473.png 1024w" sizes="(max-width: 1271px) 100vw, 1271px" /></p>
+<h2>商品类型的删除</h2>
+<ol>
+<li>修改index.html的删除的链接地址</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1238" height="385" class="wp-image-7991" src="/wp-content/uploads/2018/06/word-image-585.png" srcset="/wp-content/uploads/2018/06/word-image-585.png 1238w, /wp-content/uploads/2018/06/word-image-585-300x93.png 300w, /wp-content/uploads/2018/06/word-image-585-768x239.png 768w, /wp-content/uploads/2018/06/word-image-585-1024x318.png 1024w" sizes="(max-width: 1238px) 100vw, 1238px" /></p>
+<ol>
+<li>在admin-type-del方法中完成删除</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="953" height="345" class="wp-image-7992" src="/wp-content/uploads/2018/06/word-image-586.png" srcset="/wp-content/uploads/2018/06/word-image-586.png 953w, /wp-content/uploads/2018/06/word-image-586-300x109.png 300w, /wp-content/uploads/2018/06/word-image-586-768x278.png 768w" sizes="(max-width: 953px) 100vw, 953px" /></p>
+<h1>三、完成商品属性的curd</h1>
+<h2>1、商品属性的认识</h2>
+<p>网站决定卖什么商品类型，也就决定了商品的商品属性</p>
+<p>可以参考ecshop添加属性的方式:</p>
+<p><img loading="lazy" decoding="async" width="960" height="427" class="wp-image-7993" src="/wp-content/uploads/2018/06/word-image-587.png" srcset="/wp-content/uploads/2018/06/word-image-587.png 960w, /wp-content/uploads/2018/06/word-image-587-300x133.png 300w, /wp-content/uploads/2018/06/word-image-587-768x342.png 768w" sizes="(max-width: 960px) 100vw, 960px" /></p>
+<p>属性这里重点两种属性：唯一属性和单选属性</p>
+<p>唯一属性：只能看，不能选。</p>
+<p><img loading="lazy" decoding="async" width="389" height="55" class="wp-image-7994" src="/wp-content/uploads/2018/06/word-image-588.png" srcset="/wp-content/uploads/2018/06/word-image-588.png 389w, /wp-content/uploads/2018/06/word-image-588-300x42.png 300w" sizes="(max-width: 389px) 100vw, 389px" /></p>
+<p>单选属性：我们购买商品的时候，可以选择的，后面添加商品的时候，不同的单选属性价格也是不一样的，如iphone6银色和iphone黑色价格是不一样的。</p>
+<p><img loading="lazy" decoding="async" width="678" height="186" class="wp-image-7995" src="/wp-content/uploads/2018/06/word-image-589.png" srcset="/wp-content/uploads/2018/06/word-image-589.png 678w, /wp-content/uploads/2018/06/word-image-589-300x82.png 300w" sizes="(max-width: 678px) 100vw, 678px" /></p>
+<p>②属性的值的录入方式</p>
+<p><img loading="lazy" decoding="async" width="643" height="114" class="wp-image-7996" src="/wp-content/uploads/2018/06/word-image-590.png" srcset="/wp-content/uploads/2018/06/word-image-590.png 643w, /wp-content/uploads/2018/06/word-image-590-300x53.png 300w" sizes="(max-width: 643px) 100vw, 643px" /></p>
+<p>手工输入：不可以输入属性值，且可选值列表是禁用状态，只能在添加商品的时候输入属性值。</p>
+<p>列表选择：在可选择列表输入一些我们指定的属性值，添加商品的时候，从中选中一个属性值即可。</p>
+<p>表结构：</p>
+<p><img loading="lazy" decoding="async" width="916" height="162" class="wp-image-7997" src="/wp-content/uploads/2018/06/word-image-591.png" srcset="/wp-content/uploads/2018/06/word-image-591.png 916w, /wp-content/uploads/2018/06/word-image-591-300x53.png 300w, /wp-content/uploads/2018/06/word-image-591-768x136.png 768w" sizes="(max-width: 916px) 100vw, 916px" /></p>
+<h2>完成商品属性的添加</h2>
+<ol>
+<li>在admin-attribute-add方法中完成添加属性的完成</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1161" height="711" class="wp-image-7998" src="/wp-content/uploads/2018/06/word-image-592.png" srcset="/wp-content/uploads/2018/06/word-image-592.png 1161w, /wp-content/uploads/2018/06/word-image-592-300x184.png 300w, /wp-content/uploads/2018/06/word-image-592-768x470.png 768w, /wp-content/uploads/2018/06/word-image-592-1024x627.png 1024w" sizes="(max-width: 1161px) 100vw, 1161px" /></p>
+<p>Attribute验证器定义验证场景验证：</p>
+<p><img loading="lazy" decoding="async" width="1110" height="598" class="wp-image-7999" src="/wp-content/uploads/2018/06/word-image-593.png" srcset="/wp-content/uploads/2018/06/word-image-593.png 1110w, /wp-content/uploads/2018/06/word-image-593-300x162.png 300w, /wp-content/uploads/2018/06/word-image-593-768x414.png 768w, /wp-content/uploads/2018/06/word-image-593-1024x552.png 1024w" sizes="(max-width: 1110px) 100vw, 1110px" /></p>
+<p>Attribue模型如下：</p>
+<p><img loading="lazy" decoding="async" width="756" height="393" class="wp-image-8000" src="/wp-content/uploads/2018/06/word-image-594.png" srcset="/wp-content/uploads/2018/06/word-image-594.png 756w, /wp-content/uploads/2018/06/word-image-594-300x156.png 300w" sizes="(max-width: 756px) 100vw, 756px" /></p>
+<ol>
+<li>在add.html模板中设置表单name属性值</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1219" height="683" class="wp-image-8001" src="/wp-content/uploads/2018/06/word-image-595.png" srcset="/wp-content/uploads/2018/06/word-image-595.png 1219w, /wp-content/uploads/2018/06/word-image-595-300x168.png 300w, /wp-content/uploads/2018/06/word-image-595-768x430.png 768w, /wp-content/uploads/2018/06/word-image-595-1024x574.png 1024w" sizes="(max-width: 1219px) 100vw, 1219px" /> <img loading="lazy" decoding="async" width="653" height="125" class="wp-image-8002" src="/wp-content/uploads/2018/06/word-image-596.png" srcset="/wp-content/uploads/2018/06/word-image-596.png 653w, /wp-content/uploads/2018/06/word-image-596-300x57.png 300w" sizes="(max-width: 653px) 100vw, 653px" /></p>
+<p>注意：当选择手工输入的时候，可选择列表是禁用disabled,若是列表选择，变为可用</p>
+<p>代码如下：</p>
+<p><img loading="lazy" decoding="async" width="1002" height="373" class="wp-image-8003" src="/wp-content/uploads/2018/06/word-image-597.png" srcset="/wp-content/uploads/2018/06/word-image-597.png 1002w, /wp-content/uploads/2018/06/word-image-597-300x112.png 300w, /wp-content/uploads/2018/06/word-image-597-768x286.png 768w" sizes="(max-width: 1002px) 100vw, 1002px" /></p>
+<h2>完成属性的列表</h2>
+<ol>
+<li>在admin-attribue-index方法中取出所有的属性数据，分配到模板中</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1026" height="476" class="wp-image-8004" src="/wp-content/uploads/2018/06/word-image-598.png" srcset="/wp-content/uploads/2018/06/word-image-598.png 1026w, /wp-content/uploads/2018/06/word-image-598-300x139.png 300w, /wp-content/uploads/2018/06/word-image-598-768x356.png 768w, /wp-content/uploads/2018/06/word-image-598-1024x475.png 1024w" sizes="(max-width: 1026px) 100vw, 1026px" /></p>
+<ol>
+<li>模板中遍历权限数据</li>
+</ol>
+<p>联表方式：</p>
+<p><img loading="lazy" decoding="async" width="984" height="518" class="wp-image-8005" src="/wp-content/uploads/2018/06/word-image-599.png" srcset="/wp-content/uploads/2018/06/word-image-599.png 984w, /wp-content/uploads/2018/06/word-image-599-300x158.png 300w, /wp-content/uploads/2018/06/word-image-599-768x404.png 768w" sizes="(max-width: 984px) 100vw, 984px" /></p>
+<p>不联表方式：</p>
+<p><img loading="lazy" decoding="async" width="1224" height="344" class="wp-image-8006" src="/wp-content/uploads/2018/06/word-image-600.png" srcset="/wp-content/uploads/2018/06/word-image-600.png 1224w, /wp-content/uploads/2018/06/word-image-600-300x84.png 300w, /wp-content/uploads/2018/06/word-image-600-768x216.png 768w, /wp-content/uploads/2018/06/word-image-600-1024x288.png 1024w" sizes="(max-width: 1224px) 100vw, 1224px" /></p>
+<h2>完成属性的编辑</h2>
+<p>1、修改index.html的编辑的链接地址</p>
+<p><img loading="lazy" decoding="async" width="1272" height="394" class="wp-image-8007" src="/wp-content/uploads/2018/06/word-image-601.png" srcset="/wp-content/uploads/2018/06/word-image-601.png 1272w, /wp-content/uploads/2018/06/word-image-601-300x93.png 300w, /wp-content/uploads/2018/06/word-image-601-768x238.png 768w, /wp-content/uploads/2018/06/word-image-601-1024x317.png 1024w" sizes="(max-width: 1272px) 100vw, 1272px" /></p>
+<ol>
+<li>在admin-attribute-upd方法中取出数据回显到模板中，并完成编辑的入库实现</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1065" height="702" class="wp-image-8008" src="/wp-content/uploads/2018/06/word-image-602.png" srcset="/wp-content/uploads/2018/06/word-image-602.png 1065w, /wp-content/uploads/2018/06/word-image-602-300x198.png 300w, /wp-content/uploads/2018/06/word-image-602-768x506.png 768w, /wp-content/uploads/2018/06/word-image-602-1024x675.png 1024w" sizes="(max-width: 1065px) 100vw, 1065px" /></p>
+<p>3、模板中显示数据</p>
+<p><img loading="lazy" decoding="async" width="1206" height="708" class="wp-image-8009" src="/wp-content/uploads/2018/06/word-image-603.png" srcset="/wp-content/uploads/2018/06/word-image-603.png 1206w, /wp-content/uploads/2018/06/word-image-603-300x176.png 300w, /wp-content/uploads/2018/06/word-image-603-768x451.png 768w, /wp-content/uploads/2018/06/word-image-603-1024x601.png 1024w" sizes="(max-width: 1206px) 100vw, 1206px" /></p>
+<p>让单选框两种方式默认选中：</p>
+<p>方式一：</p>
+<p><img loading="lazy" decoding="async" width="991" height="305" class="wp-image-8010" src="/wp-content/uploads/2018/06/word-image-604.png" srcset="/wp-content/uploads/2018/06/word-image-604.png 991w, /wp-content/uploads/2018/06/word-image-604-300x92.png 300w, /wp-content/uploads/2018/06/word-image-604-768x236.png 768w" sizes="(max-width: 991px) 100vw, 991px" /></p>
+<p>方式二：通过Jq实现，推荐写法</p>
+<p><img loading="lazy" decoding="async" width="1156" height="618" class="wp-image-8011" src="/wp-content/uploads/2018/06/word-image-605.png" srcset="/wp-content/uploads/2018/06/word-image-605.png 1156w, /wp-content/uploads/2018/06/word-image-605-300x160.png 300w, /wp-content/uploads/2018/06/word-image-605-768x411.png 768w, /wp-content/uploads/2018/06/word-image-605-1024x547.png 1024w" sizes="(max-width: 1156px) 100vw, 1156px" /></p>
+<h2>ajax完成商品属性的删除</h2>
+<ol>
+<li>给删除链接地址，绑定class和attr_id自定义属性，并且阻止默认行为</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1250" height="355" class="wp-image-8012" src="/wp-content/uploads/2018/06/word-image-606.png" srcset="/wp-content/uploads/2018/06/word-image-606.png 1250w, /wp-content/uploads/2018/06/word-image-606-300x85.png 300w, /wp-content/uploads/2018/06/word-image-606-768x218.png 768w, /wp-content/uploads/2018/06/word-image-606-1024x291.png 1024w" sizes="(max-width: 1250px) 100vw, 1250px" /></p>
+<ol>
+<li>给class=delAttr绑定单击事件，使用ajax进行删除</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1173" height="468" class="wp-image-8013" src="/wp-content/uploads/2018/06/word-image-607.png" srcset="/wp-content/uploads/2018/06/word-image-607.png 1173w, /wp-content/uploads/2018/06/word-image-607-300x120.png 300w, /wp-content/uploads/2018/06/word-image-607-768x306.png 768w, /wp-content/uploads/2018/06/word-image-607-1024x409.png 1024w" sizes="(max-width: 1173px) 100vw, 1173px" /></p>
+<ol>
+<li>在admin-attribute-ajaxDel方法中完成删除的实现</li>
+</ol>
+<h1>四、完成商品分类的curd</h1>
+<h2>1、分析分类表结构</h2>
+<p>表字段结构如下：</p>
+<p><img loading="lazy" decoding="async" width="760" height="153" class="wp-image-8014" src="/wp-content/uploads/2018/06/word-image-608.png" srcset="/wp-content/uploads/2018/06/word-image-608.png 760w, /wp-content/uploads/2018/06/word-image-608-300x60.png 300w" sizes="(max-width: 760px) 100vw, 760px" /></p>
+<h2>完成商品分类的添加</h2>
+<p>找当前分类的祖先分类：传递当前分类的pid ,谁的cat_id等于我的pid就找到我的祖先。</p>
+<p>找当前分类的子孙分类：传递当前分类的cat_id ,谁的pid等于我的cat_id就找到我的子孙</p>
+<ol>
+<li>在admin-category-add方法中完成添加分类的完成</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="949" height="536" class="wp-image-8015" src="/wp-content/uploads/2018/06/word-image-609.png" srcset="/wp-content/uploads/2018/06/word-image-609.png 949w, /wp-content/uploads/2018/06/word-image-609-300x169.png 300w, /wp-content/uploads/2018/06/word-image-609-768x434.png 768w" sizes="(max-width: 949px) 100vw, 949px" /></p>
+<p>验证器：</p>
+<p><img loading="lazy" decoding="async" width="730" height="546" class="wp-image-8016" src="/wp-content/uploads/2018/06/word-image-610.png" srcset="/wp-content/uploads/2018/06/word-image-610.png 730w, /wp-content/uploads/2018/06/word-image-610-300x224.png 300w" sizes="(max-width: 730px) 100vw, 730px" /></p>
+<p>模型：</p>
+<p><img loading="lazy" decoding="async" width="1109" height="639" class="wp-image-8017" src="/wp-content/uploads/2018/06/word-image-611.png" srcset="/wp-content/uploads/2018/06/word-image-611.png 1109w, /wp-content/uploads/2018/06/word-image-611-300x173.png 300w, /wp-content/uploads/2018/06/word-image-611-768x443.png 768w, /wp-content/uploads/2018/06/word-image-611-1024x590.png 1024w" sizes="(max-width: 1109px) 100vw, 1109px" /></p>
+<p>2、在add.html模板中设置表单name属性值</p>
+<p><img loading="lazy" decoding="async" width="1196" height="591" class="wp-image-8018" src="/wp-content/uploads/2018/06/word-image-612.png" srcset="/wp-content/uploads/2018/06/word-image-612.png 1196w, /wp-content/uploads/2018/06/word-image-612-300x148.png 300w, /wp-content/uploads/2018/06/word-image-612-768x380.png 768w, /wp-content/uploads/2018/06/word-image-612-1024x506.png 1024w" sizes="(max-width: 1196px) 100vw, 1196px" /></p>
+<h2>完成商品分类的列表</h2>
+<ol>
+<li>在admin-category-index方法中取出所有的分类数据，分配到模板中</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="785" height="352" class="wp-image-8019" src="/wp-content/uploads/2018/06/word-image-613.png" srcset="/wp-content/uploads/2018/06/word-image-613.png 785w, /wp-content/uploads/2018/06/word-image-613-300x135.png 300w, /wp-content/uploads/2018/06/word-image-613-768x344.png 768w" sizes="(max-width: 785px) 100vw, 785px" /></p>
+<p>同时为了不用联表，把分类的无限级分类的以cat_id作为下标</p>
+<p><img loading="lazy" decoding="async" width="1126" height="457" class="wp-image-8020" src="/wp-content/uploads/2018/06/word-image-614.png" srcset="/wp-content/uploads/2018/06/word-image-614.png 1126w, /wp-content/uploads/2018/06/word-image-614-300x122.png 300w, /wp-content/uploads/2018/06/word-image-614-768x312.png 768w, /wp-content/uploads/2018/06/word-image-614-1024x416.png 1024w" sizes="(max-width: 1126px) 100vw, 1126px" /></p>
+<p>2、模板index.html中遍历分类数据</p>
+<p><img loading="lazy" decoding="async" width="1279" height="572" class="wp-image-8021" src="/wp-content/uploads/2018/06/word-image-615.png" srcset="/wp-content/uploads/2018/06/word-image-615.png 1279w, /wp-content/uploads/2018/06/word-image-615-300x134.png 300w, /wp-content/uploads/2018/06/word-image-615-768x343.png 768w, /wp-content/uploads/2018/06/word-image-615-1024x458.png 1024w" sizes="(max-width: 1279px) 100vw, 1279px" /></p>
+<p>效果：</p>
+<p><img loading="lazy" decoding="async" width="1156" height="241" class="wp-image-8022" src="/wp-content/uploads/2018/06/word-image-616.png" srcset="/wp-content/uploads/2018/06/word-image-616.png 1156w, /wp-content/uploads/2018/06/word-image-616-300x63.png 300w, /wp-content/uploads/2018/06/word-image-616-768x160.png 768w, /wp-content/uploads/2018/06/word-image-616-1024x213.png 1024w" sizes="(max-width: 1156px) 100vw, 1156px" /></p>
+<h2>完成商品分类的编辑</h2>
+<ol>
+<li>修改index.html的编辑的链接地址</li>
+</ol>
+<p><img loading="lazy" decoding="async" width="1258" height="353" class="wp-image-8023" src="/wp-content/uploads/2018/06/word-image-617.png" srcset="/wp-content/uploads/2018/06/word-image-617.png 1258w, /wp-content/uploads/2018/06/word-image-617-300x84.png 300w, /wp-content/uploads/2018/06/word-image-617-768x216.png 768w, /wp-content/uploads/2018/06/word-image-617-1024x287.png 1024w" sizes="(max-width: 1258px) 100vw, 1258px" /></p>
+<p>2、在admin-category-upd方法中完取出当前分类的数据回显到模板中，并完成编辑入库的实现</p>
+<p><img loading="lazy" decoding="async" width="1000" height="644" class="wp-image-8024" src="/wp-content/uploads/2018/06/word-image-618.png" srcset="/wp-content/uploads/2018/06/word-image-618.png 1000w, /wp-content/uploads/2018/06/word-image-618-300x193.png 300w, /wp-content/uploads/2018/06/word-image-618-768x495.png 768w" sizes="(max-width: 1000px) 100vw, 1000px" /></p>
+<h2>5、【作业】完成商品分类的删除</h2>
+<p>自行完成</p>
+<p>CategoryController:</p>
+<p><img loading="lazy" decoding="async" width="577" height="326" class="wp-image-8025" src="/wp-content/uploads/2018/06/word-image-619.png" srcset="/wp-content/uploads/2018/06/word-image-619.png 577w, /wp-content/uploads/2018/06/word-image-619-300x169.png 300w" sizes="(max-width: 577px) 100vw, 577px" /></p>
+<p>Html:</p>
+<p><img loading="lazy" decoding="async" width="883" height="122" class="wp-image-8026" src="/wp-content/uploads/2018/06/word-image-620.png" srcset="/wp-content/uploads/2018/06/word-image-620.png 883w, /wp-content/uploads/2018/06/word-image-620-300x41.png 300w, /wp-content/uploads/2018/06/word-image-620-768x106.png 768w" sizes="(max-width: 883px) 100vw, 883px" /> <img loading="lazy" decoding="async" width="734" height="403" class="wp-image-8027" src="/wp-content/uploads/2018/06/word-image-621.png" srcset="/wp-content/uploads/2018/06/word-image-621.png 734w, /wp-content/uploads/2018/06/word-image-621-300x165.png 300w" sizes="(max-width: 734px) 100vw, 734px" /></p>
+<h1>六、完成商品类型列表中属性的查看</h1>
+<h1>七、完成商品的添加</h1>
+<h2>商品的认识</h2>
+<p>商品=产品+商品属性，即同一个产品，但是商品属性不同，就不是同一个商品。</p>
+<p>如：iphone6s黑色 和iphone6s银色</p>
+<h2>商品添加所需的数据表</h2>
+<p>当在后台添加一个商品的时候，商品相关数据需要入库到以下两个表：</p>
+<p>商品表sh_goods和商品属性表sh_goods_attr</p>
+<p><img loading="lazy" decoding="async" width="159" height="40" class="wp-image-8028" src="/wp-content/uploads/2018/06/word-image-622.png" /></p>
+<p>商品的基本信息数据存储在sh_goods表中，商品属性数据存储在sh_goods_attr中</p>
+<p>商品表sh_goods表结构：</p>
+<p>商品属性表sh_goods_attr表结构：</p>
+<h2>完成商品基本信息的入库</h2>
+<h3>（1）展示添加商品模板</h3>
+<h3>基本信息入库操作</h3>
+<h2>4、添加商品的多图片上传</h2>
+<h3>（1）思路分析</h3>
+<p>实现思路：可以参考ecshop开源商城：</p>
+<p><img loading="lazy" decoding="async" width="985" height="188" class="wp-image-8029" src="/wp-content/uploads/2018/06/word-image-623.png" srcset="/wp-content/uploads/2018/06/word-image-623.png 985w, /wp-content/uploads/2018/06/word-image-623-300x57.png 300w, /wp-content/uploads/2018/06/word-image-623-768x147.png 768w" sizes="(max-width: 985px) 100vw, 985px" /></p>
+<p>①构建布局：</p>
+<p>每个文件上传域名其实可以看做是一个li标签，其中包含a标签和input上传文件域</p>
+<p>如下结构：</p>
+<p>&lt;li&gt; &lt;a href=’javascript:;’ &gt;[+]&lt;/a&gt;&lt;input type=’file’/&gt; &lt;/li&gt;</p>
+<p>&lt;li&gt; &lt;a href=’javascript:;’ &gt;[-]&lt;/a&gt;&lt;input type=’file’/&gt; &lt;/li&gt;</p>
+<p>②怎么实现图片前的[+][-]加减功能？</p>
+<p>思路：</p>
+<ol>
+<li>给li中的a标签绑定单击事件，获取当前单击元素的内容</li>
+<li>判断内容，含两种情况[+]、[-]</li>
+</ol>
+<p>若是[+]: 则获取当前元素的父元素（即li），克隆一份，在把内部的a标签的[+]变成[-]。</p>
+<p>若是[-]: 则获取当前元素的父元素（即li），并移除。</p>
+<h3>多图片上传加减特效</h3>
+<h3>实现多图片的上传</h3>
+<h3>（4）生成多图片的缩略图</h3>
+<p>生成缩略图的步骤：</p>
+<ul>
+<li>Image打开源图片 $image = \Think\Image::open(源图片);</li>
+<li>进行缩放处理 $image -&gt; thumb(宽度，高度，类型)</li>
+<li>把缩放好的图片保存到服务器上 $image -&gt; save(小图路径名);</li>
+</ul>
+<h1>八、完成商品的属性添加</h1>
+<h2>1、分析商品动态属性的生成</h2>
+<p>添加一个商品，其商品属性可能有多个。</p>
+<p>即商品表sh_goods的一条记录对应商品属性表sh_goods_attr的多条记录，属于一对多关系。</p>
+<p>问题：怎么给商品设置商品属性？</p>
+<p>这里可以参考ecshop的方案，当添加商品的,必须先选择一个商品类型，在通过ajax动态获取商品类型的属性，再给商品设置这些属性值。</p>
+<p>如在ecshop后台添加商品的时候，选择手机类型，动态生成的属性框如下：</p>
+<p><img loading="lazy" decoding="async" width="1084" height="312" class="wp-image-8030" src="/wp-content/uploads/2018/06/word-image-624.png" srcset="/wp-content/uploads/2018/06/word-image-624.png 1084w, /wp-content/uploads/2018/06/word-image-624-300x86.png 300w, /wp-content/uploads/2018/06/word-image-624-768x221.png 768w, /wp-content/uploads/2018/06/word-image-624-1024x295.png 1024w" sizes="(max-width: 1084px) 100vw, 1084px" /></p>
+<p>从上面添加商品属性可以看出，动态生成商品属性的时候，共有四种组合情况。</p>
+<p>其实就是属性类型和属性值录入方式的互相组合：</p>
+<p>①唯一属性+手工输入</p>
+<p>②唯一属性+列表选择</p>
+<p>③单选属性+手工输入</p>
+<p>④单选属性+列表选择</p>
+<p>其实可以把上面每个动态生成的属性信息看作是被包含在一个li标签中。</p>
+<p>分析四种组合情况生成动态属性的特点如下：</p>
+<p>元素从左到右分析：</p>
+<ul>
+<li>单选属性属性名称前有个[+]或[-]号，可以进行加减，而唯一属性则没有</li>
+<li>属性名称</li>
+<li>属性值录入方式为手工输入，则对应属性值的输入方式的是一个输入框(&lt;input type=’text’/&gt;)，而属性值录入方式为列表选择的时候则对应属性值的输入方式的是一个select下拉框。</li>
+<li>单选属性可以输入价格，而唯一属性则没有</li>
+</ul>
+<h2>完成商品的动态属性生成</h2>
+<h2>完成商品动态属性的入库</h2>
+<p>分析：</p>
+<p>把单选属性值和单选属性价格通过属性attr_id归为同一组，方便后续获取对应属性的价格和值。</p>
+<p>单选属性值： name=goodsAttrValue[attr_id][]</p>
+<p>单选属性值价格： name=goodsAttrValue[attr_id][]</p>
+<p>因为单选属性用户可以点击[+]号会生成多个，所以多个单选属性值和价格name的值后面都必须加上中括号[]。</p>
+<p>由于唯一属性只能选择一个值，所以name后不需要加[]</p>
+<h1>九、商品列表展示</h1>
+<h1>十、使用ajax+layer弹出层查看商品详情</h1>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6/7899.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

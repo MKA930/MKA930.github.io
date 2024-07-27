@@ -1,0 +1,909 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>层次型 &#8211; 个人随笔</title>
+	<atom:link href="/label/%E5%B1%82%E6%AC%A1%E5%9E%8B/feed" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description></description>
+	<lastBuildDate>Sun, 20 May 2018 01:23:42 +0000</lastBuildDate>
+	<language>zh-CN</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.1</generator>
+
+<image>
+	<url>/wp-content/uploads/2022/01/cropped-截屏2022-01-01-18.57.09-32x32.png</url>
+	<title>层次型 &#8211; 个人随笔</title>
+	<link>/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Mysql（一）关系型、 层次型、 数据库、 数据库引擎、 数据表、 网状型、 表属性</title>
+		<link>/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/944.html</link>
+					<comments>/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/944.html#respond</comments>
+		
+		<dc:creator><![CDATA[Mr.Lee]]></dc:creator>
+		<pubDate>Thu, 17 May 2018 17:14:51 +0000</pubDate>
+				<category><![CDATA[Mysql]]></category>
+		<category><![CDATA[关系型]]></category>
+		<category><![CDATA[层次型]]></category>
+		<category><![CDATA[数据库]]></category>
+		<category><![CDATA[数据库引擎]]></category>
+		<category><![CDATA[数据表]]></category>
+		<category><![CDATA[网状型]]></category>
+		<category><![CDATA[表属性]]></category>
+		<guid isPermaLink="false">/?p=944</guid>
+
+					<description><![CDATA[基本概念 数据库 database 什么是数据库：存放数据的仓库，用途就是存放，（永久存放） Word也是永久 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<h1>基本概念</h1>
+<h2>数据库</h2>
+<p>
+  database
+</p>
+<p>
+  什么是数据库：存放数据的仓库，用途就是存放，（永久存放）
+</p>
+<p>
+  Word也是永久存放数据的地方，那么word是数据库吗？
+</p>
+<p>
+  Word 文档文件&#8212;-从定义上说，word就是数据库，为什么？
+</p>
+<p>
+  其实数据库的本质就是文件
+</p>
+<p>
+  <img fetchpriority="high" decoding="async" width="1033" height="327" src="/wp-content/uploads/2018/05/word-image-838.png" class="wp-image-945" srcset="/wp-content/uploads/2018/05/word-image-838.png 1033w, /wp-content/uploads/2018/05/word-image-838-300x95.png 300w, /wp-content/uploads/2018/05/word-image-838-768x243.png 768w, /wp-content/uploads/2018/05/word-image-838-1024x324.png 1024w" sizes="(max-width: 1033px) 100vw, 1033px" />
+</p>
+<h2>数据库发展史</h2>
+<h3>层次型</h3>
+<p>
+  什么是层次型数据库？
+</p>
+<p>
+  把数据分层，分类来存储好处，把数据归类了，层次分明
+</p>
+<p>
+  像一个倒立的树
+</p>
+<p>
+  现在你要找一个学生，那么必须从学校开始找  学校&#8212;-班级&#8212;-学生或学校&#8212;-教师&#8212;学生
+</p>
+<p>
+  出现了一个导航问题找C必须通过A再B
+</p>
+<p>
+  出现了重复数据
+</p>
+<p>
+  <img decoding="async" width="603" height="515" src="/wp-content/uploads/2018/05/word-image-839.png" class="wp-image-946" srcset="/wp-content/uploads/2018/05/word-image-839.png 603w, /wp-content/uploads/2018/05/word-image-839-300x256.png 300w" sizes="(max-width: 603px) 100vw, 603px" />
+</p>
+<h3>网状型</h3>
+<p>
+  好处：解决了数据的重复
+</p>
+<p>
+  坏处：但是导航问题没有根本的解决
+</p>
+<p>
+  <img decoding="async" width="522" height="523" src="/wp-content/uploads/2018/05/word-image-840.png" class="wp-image-947" srcset="/wp-content/uploads/2018/05/word-image-840.png 522w, /wp-content/uploads/2018/05/word-image-840-150x150.png 150w, /wp-content/uploads/2018/05/word-image-840-300x300.png 300w" sizes="(max-width: 522px) 100vw, 522px" />
+</p>
+<h3>关系型</h3>
+<p>
+  什么是关系型数据库
+</p>
+<p>
+  其实就是有关系的二维表
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="946" height="145" src="/wp-content/uploads/2018/05/word-image-841.png" class="wp-image-948" srcset="/wp-content/uploads/2018/05/word-image-841.png 946w, /wp-content/uploads/2018/05/word-image-841-300x46.png 300w, /wp-content/uploads/2018/05/word-image-841-768x118.png 768w" sizes="(max-width: 946px) 100vw, 946px" />
+</p>
+<h2>数据表</h2>
+<p>
+  关系型数据库中的二维表就是数据表，是二维的另外一个名字
+</p>
+<h3>记录</h3>
+<p>
+  数据表中一行就是一条记录
+</p>
+<h3>字段</h3>
+<p>
+  数据表中一列就是一个字段
+</p>
+<h3>数据</h3>
+<p>
+  一行和一列交差的地方就是数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="463" height="168" src="/wp-content/uploads/2018/05/word-image-842.png" class="wp-image-949" srcset="/wp-content/uploads/2018/05/word-image-842.png 463w, /wp-content/uploads/2018/05/word-image-842-300x109.png 300w" sizes="(max-width: 463px) 100vw, 463px" />
+</p>
+<h2>数据库管理系统（软件）</h2>
+<p>
+  Managerment  database  system
+</p>
+<p>
+  平时说的MySQL数据库这个定义不对  其实MySQL是管理数据库的，是一个数据库管理系统
+</p>
+<p>
+  常见的一些数据库管理系统有如下几个;
+</p>
+<p>
+  Oracle  mysql   sqlserver  sqllite   db2  access
+</p>
+<p>
+  如上的一些数据库管理系统都有一个特点&#8212;&#8211;都是管理关系型数据库的
+</p>
+<p>
+  用途：数据库管理系统就是用来管理数据库的
+</p>
+<h2>SQL</h2>
+<p>
+  Sql就是数据库管理系统管理数据库的一种命令
+</p>
+<p>
+  这里数据库管理系统可以不同但是sql命令确是可以共用的，说白了，SQL就是一种专门管理数据库的一种语言
+</p>
+<h2>数据库服务器（硬件）</h2>
+<p>
+  数据库服务器：就是提供数据库服务的一个计算机，安装了数据库管理系统
+</p>
+<h2>数据库系统</h2>
+<p>
+  数据库系统=数据库管理员+数据库管理系统+数据库
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1555" height="497" src="/wp-content/uploads/2018/05/word-image-843.png" class="wp-image-950" srcset="/wp-content/uploads/2018/05/word-image-843.png 1555w, /wp-content/uploads/2018/05/word-image-843-300x96.png 300w, /wp-content/uploads/2018/05/word-image-843-768x245.png 768w, /wp-content/uploads/2018/05/word-image-843-1024x327.png 1024w" sizes="(max-width: 1555px) 100vw, 1555px" />
+</p>
+<h2>今日数据库操作步骤</h2>
+<ul>
+<li>
+    数据库操作顺序
+  </li>
+<li>
+    第一步：打开数据库服务
+  </li>
+<li>
+    第二步：连接数据库
+  </li>
+<li>
+    第三步：数据库的‘库操作’</p>
+<ul>
+<li>
+<ul>
+<li>
+            对数据库的增删改查
+          </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+    第四步：进入数据库
+  </li>
+<li>
+    第五步：表操作（增加，删除，修改）
+  </li>
+</ul>
+<h1>数据库服务</h1>
+<h2>启动数据库服务</h2>
+<p>
+  第一种
+</p>
+<p>
+  右键计算机&#8212;管理&#8212;服务&#8212;MySQL数据库
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="759" height="285" src="/wp-content/uploads/2018/05/word-image-844.png" class="wp-image-951" srcset="/wp-content/uploads/2018/05/word-image-844.png 759w, /wp-content/uploads/2018/05/word-image-844-300x113.png 300w" sizes="(max-width: 759px) 100vw, 759px" />
+</p>
+<p>
+  第二种
+</p>
+<p>
+  Cmd 命令行方式启动
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="484" height="72" src="/wp-content/uploads/2018/05/word-image-845.png" class="wp-image-952" srcset="/wp-content/uploads/2018/05/word-image-845.png 484w, /wp-content/uploads/2018/05/word-image-845-300x45.png 300w" sizes="(max-width: 484px) 100vw, 484px" />
+</p>
+<p>
+  注意：配置path，net start mysql后没有分号；
+</p>
+<h2>关闭数据库服务</h2>
+<p>
+  语法： net stop mysql
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="563" height="132" src="/wp-content/uploads/2018/05/word-image-846.png" class="wp-image-953" srcset="/wp-content/uploads/2018/05/word-image-846.png 563w, /wp-content/uploads/2018/05/word-image-846-300x70.png 300w" sizes="(max-width: 563px) 100vw, 563px" />
+</p>
+<h1>MySQL客户端</h1>
+<h2>Windows命令窗口cmd</h2>
+<h3>连接数据库</h3>
+<p>
+  语法:  mysql -h主机名 -P端口号 -u用户名 -p密码
+</p>
+<ul>
+<li>
+    -h主机名，默认是localhost(127.0.0.1) ,如果是默认可以不填写
+  </li>
+<li>
+    -P端口号，默认是3306，如果是默认的可以不填写
+  </li>
+<li>
+    -u用户名
+  </li>
+<li>
+    -p密码
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="856" height="283" src="/wp-content/uploads/2018/05/word-image-847.png" class="wp-image-954" srcset="/wp-content/uploads/2018/05/word-image-847.png 856w, /wp-content/uploads/2018/05/word-image-847-300x99.png 300w, /wp-content/uploads/2018/05/word-image-847-768x254.png 768w" sizes="(max-width: 856px) 100vw, 856px" />
+</p>
+<p>
+  优化
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="895" height="306" src="/wp-content/uploads/2018/05/word-image-848.png" class="wp-image-955" srcset="/wp-content/uploads/2018/05/word-image-848.png 895w, /wp-content/uploads/2018/05/word-image-848-300x103.png 300w, /wp-content/uploads/2018/05/word-image-848-768x263.png 768w" sizes="(max-width: 895px) 100vw, 895px" />
+</p>
+<h3>退出数据库</h3>
+<p>
+  \q
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="706" height="63" src="/wp-content/uploads/2018/05/word-image-849.png" class="wp-image-956" srcset="/wp-content/uploads/2018/05/word-image-849.png 706w, /wp-content/uploads/2018/05/word-image-849-300x27.png 300w" sizes="(max-width: 706px) 100vw, 706px" />
+</p>
+<p>
+  Exit
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="535" height="84" src="/wp-content/uploads/2018/05/word-image-850.png" class="wp-image-957" srcset="/wp-content/uploads/2018/05/word-image-850.png 535w, /wp-content/uploads/2018/05/word-image-850-300x47.png 300w" sizes="(max-width: 535px) 100vw, 535px" />
+</p>
+<p>
+  Quit
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="611" height="86" src="/wp-content/uploads/2018/05/word-image-851.png" class="wp-image-958" srcset="/wp-content/uploads/2018/05/word-image-851.png 611w, /wp-content/uploads/2018/05/word-image-851-300x42.png 300w" sizes="(max-width: 611px) 100vw, 611px" />
+</p>
+<h2>Windows界面客户端</h2>
+<p>
+  Navicate (强烈不推荐使用)
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="579" height="275" src="/wp-content/uploads/2018/05/word-image-852.png" class="wp-image-960" srcset="/wp-content/uploads/2018/05/word-image-852.png 579w, /wp-content/uploads/2018/05/word-image-852-300x142.png 300w" sizes="(max-width: 579px) 100vw, 579px" />
+</p>
+<h2>Web界面（PHPadmin）</h2>
+<h3>配置web站</h3>
+<p>
+  解压放置到你的虚拟站点位置
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1016" height="353" src="/wp-content/uploads/2018/05/word-image-853.png" class="wp-image-961" srcset="/wp-content/uploads/2018/05/word-image-853.png 1016w, /wp-content/uploads/2018/05/word-image-853-300x104.png 300w, /wp-content/uploads/2018/05/word-image-853-768x267.png 768w" sizes="(max-width: 1016px) 100vw, 1016px" />
+</p>
+<p>
+  配置虚拟主机
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1091" height="321" src="/wp-content/uploads/2018/05/word-image-854.png" class="wp-image-962" srcset="/wp-content/uploads/2018/05/word-image-854.png 1091w, /wp-content/uploads/2018/05/word-image-854-300x88.png 300w, /wp-content/uploads/2018/05/word-image-854-768x226.png 768w, /wp-content/uploads/2018/05/word-image-854-1024x301.png 1024w" sizes="(max-width: 1091px) 100vw, 1091px" />
+</p>
+<p>
+  修改host
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="659" height="235" src="/wp-content/uploads/2018/05/word-image-855.png" class="wp-image-963" srcset="/wp-content/uploads/2018/05/word-image-855.png 659w, /wp-content/uploads/2018/05/word-image-855-300x107.png 300w" sizes="(max-width: 659px) 100vw, 659px" />
+</p>
+<p>
+  重启Apache访问站点
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1322" height="725" src="/wp-content/uploads/2018/05/word-image-856.png" class="wp-image-964" srcset="/wp-content/uploads/2018/05/word-image-856.png 1322w, /wp-content/uploads/2018/05/word-image-856-300x165.png 300w, /wp-content/uploads/2018/05/word-image-856-768x421.png 768w, /wp-content/uploads/2018/05/word-image-856-1024x562.png 1024w" sizes="(max-width: 1322px) 100vw, 1322px" />
+</p>
+<p>
+  我的错误：配置路径的时候多了一个s
+</p>
+<h3>连接数据库</h3>
+<p>
+  登录完成后的效果：
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1355" height="506" src="/wp-content/uploads/2018/05/word-image-857.png" class="wp-image-965" srcset="/wp-content/uploads/2018/05/word-image-857.png 1355w, /wp-content/uploads/2018/05/word-image-857-300x112.png 300w, /wp-content/uploads/2018/05/word-image-857-768x287.png 768w, /wp-content/uploads/2018/05/word-image-857-1024x382.png 1024w" sizes="(max-width: 1355px) 100vw, 1355px" />
+</p>
+<h1>数据库操作</h1>
+<h2>创建数据库</h2>
+<p>
+  语法：create  database 数据库名字;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="520" height="89" src="/wp-content/uploads/2018/05/word-image-858.png" class="wp-image-966" srcset="/wp-content/uploads/2018/05/word-image-858.png 520w, /wp-content/uploads/2018/05/word-image-858-300x51.png 300w" sizes="(max-width: 520px) 100vw, 520px" />
+</p>
+<p>
+  注意;数据库命名有如下的规则
+</p>
+<p>
+  数据库名字是由字母，数字，下划线组成
+</p>
+<p>
+  数据库名字不能是纯数字
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="783" height="67" src="/wp-content/uploads/2018/05/word-image-859.png" class="wp-image-967" srcset="/wp-content/uploads/2018/05/word-image-859.png 783w, /wp-content/uploads/2018/05/word-image-859-300x26.png 300w, /wp-content/uploads/2018/05/word-image-859-768x66.png 768w" sizes="(max-width: 783px) 100vw, 783px" />
+</p>
+<p>
+  数据库名字不能是数据库的关键字
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="841" height="42" src="/wp-content/uploads/2018/05/word-image-860.png" class="wp-image-968" srcset="/wp-content/uploads/2018/05/word-image-860.png 841w, /wp-content/uploads/2018/05/word-image-860-300x15.png 300w, /wp-content/uploads/2018/05/word-image-860-768x38.png 768w" sizes="(max-width: 841px) 100vw, 841px" />
+</p>
+<p>
+  如果数据库名字是一个数据库关键字，那么用&#8220;（反引号）引起来
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="479" height="50" src="/wp-content/uploads/2018/05/word-image-861.png" class="wp-image-969" srcset="/wp-content/uploads/2018/05/word-image-861.png 479w, /wp-content/uploads/2018/05/word-image-861-300x31.png 300w" sizes="(max-width: 479px) 100vw, 479px" />
+</p>
+<p>
+  扩展;创建数据库的时候指定字符集
+</p>
+<p>
+  语法：create  database  数据库名字  charset  字符集;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="514" height="48" src="/wp-content/uploads/2018/05/word-image-862.png" class="wp-image-970" srcset="/wp-content/uploads/2018/05/word-image-862.png 514w, /wp-content/uploads/2018/05/word-image-862-300x28.png 300w" sizes="(max-width: 514px) 100vw, 514px" />
+</p>
+<h2>删除数据库</h2>
+<p>
+  语法: drop database 数据库名字;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="459" height="56" src="/wp-content/uploads/2018/05/word-image-863.png" class="wp-image-971" srcset="/wp-content/uploads/2018/05/word-image-863.png 459w, /wp-content/uploads/2018/05/word-image-863-300x37.png 300w" sizes="(max-width: 459px) 100vw, 459px" />
+</p>
+<h2>修改数据库</h2>
+<p>
+  修改数据库的名字
+</p>
+<p>
+  	这里没有直接修改数据库名字的语法，只能先删除数据库，再重建
+</p>
+<p>
+  修改数据库的字符集
+</p>
+<ul>
+<li>
+    alter database 数据库名字 charset 新字符集
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="482" height="53" src="/wp-content/uploads/2018/05/word-image-864.png" class="wp-image-972" srcset="/wp-content/uploads/2018/05/word-image-864.png 482w, /wp-content/uploads/2018/05/word-image-864-300x33.png 300w" sizes="(max-width: 482px) 100vw, 482px" />
+</p>
+<ul>
+<li>
+    alter database 数据库名字 charset = 新字符集
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="478" height="43" src="/wp-content/uploads/2018/05/word-image-865.png" class="wp-image-973" srcset="/wp-content/uploads/2018/05/word-image-865.png 478w, /wp-content/uploads/2018/05/word-image-865-300x27.png 300w" sizes="(max-width: 478px) 100vw, 478px" />
+</p>
+<ul>
+<li>
+    alter  database  数据库名字  default  character set 新字符集名字
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="553" height="45" src="/wp-content/uploads/2018/05/word-image-866.png" class="wp-image-974" srcset="/wp-content/uploads/2018/05/word-image-866.png 553w, /wp-content/uploads/2018/05/word-image-866-300x24.png 300w" sizes="(max-width: 553px) 100vw, 553px" />
+</p>
+<h2>查看数据库</h2>
+<p>
+  语法:show databases;
+</p>
+<p>
+  注意：系统数据库不要随意操作
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="920" height="556" src="/wp-content/uploads/2018/05/word-image-867.png" class="wp-image-975" srcset="/wp-content/uploads/2018/05/word-image-867.png 920w, /wp-content/uploads/2018/05/word-image-867-300x181.png 300w, /wp-content/uploads/2018/05/word-image-867-768x464.png 768w" sizes="(max-width: 920px) 100vw, 920px" />
+</p>
+<h2>查看数据库创建语句</h2>
+<p>
+  语法:show create database 数据库名;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="784" height="144" src="/wp-content/uploads/2018/05/word-image-868.png" class="wp-image-976" srcset="/wp-content/uploads/2018/05/word-image-868.png 784w, /wp-content/uploads/2018/05/word-image-868-300x55.png 300w, /wp-content/uploads/2018/05/word-image-868-768x141.png 768w" sizes="(max-width: 784px) 100vw, 784px" />
+</p>
+<h2>数据库保存目录</h2>
+<p>
+  <img loading="lazy" decoding="async" width="1409" height="245" src="/wp-content/uploads/2018/05/word-image-869.png" class="wp-image-977" srcset="/wp-content/uploads/2018/05/word-image-869.png 1409w, /wp-content/uploads/2018/05/word-image-869-300x52.png 300w, /wp-content/uploads/2018/05/word-image-869-768x134.png 768w, /wp-content/uploads/2018/05/word-image-869-1024x178.png 1024w" sizes="(max-width: 1409px) 100vw, 1409px" />
+</p>
+<p>
+  默认保存路径可以在my.ini中修改
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="872" height="190" src="/wp-content/uploads/2018/05/word-image-870.png" class="wp-image-978" srcset="/wp-content/uploads/2018/05/word-image-870.png 872w, /wp-content/uploads/2018/05/word-image-870-300x65.png 300w, /wp-content/uploads/2018/05/word-image-870-768x167.png 768w" sizes="(max-width: 872px) 100vw, 872px" />
+</p>
+<h1>表操作</h1>
+<h2>创建数据表</h2>
+<p>
+  Create table 表名
+</p>
+<p>
+  (
+</p>
+<p>
+  	字段名 类型  [字段属性],
+</p>
+<p>
+  字段名 类型  [字段属性],
+</p>
+<p>
+  字段名 类型  [字段属性]   &#8212;  最后一个字段后边不加逗号,
+</p>
+<p>
+  )[表属性]
+</p>
+<p>
+  创建表：只是创建了一个表的结构，而没有数据；
+</p>
+<h3>字段类型（介绍）</h3>
+<ul>
+<li>
+    整形  tinyint  smallint  mediumint  int   bigint
+  </li>
+<li>
+    小数 float  double  decimal
+  </li>
+<li>
+    字符串 char   varchar  text  set  enum  blob
+  </li>
+<li>
+    时间 time  date  datetime  timestamp
+  </li>
+</ul>
+<h3>字段属性（介绍）</h3>
+<p>
+  什么是字段属性：字段属性就是对字段的一种约束
+</p>
+<ul>
+<li>
+    Not null/null  允许为不为空/空
+  </li>
+<li>
+    Primary key  主键
+  </li>
+<li>
+    Unque key   唯一建
+  </li>
+<li>
+    Comment    说明
+  </li>
+<li>
+    Atuo_increment  自动增长
+  </li>
+</ul>
+<h3>表属性（介绍）</h3>
+<ul>
+<li>
+    Charset  表字符集
+  </li>
+<li>
+    Auto_increment   自动增长
+  </li>
+<li>
+    Collate   校对集
+  </li>
+<li>
+    Comment  说明
+  </li>
+<li>
+    Engine   数据表引擎
+  </li>
+</ul>
+<p>
+  案例：创建一个简单表
+</p>
+<p>
+  第一步：数据表创建，是创建到数据库中的，所以呢创建数据表之前应该选定创建到哪个数据库
+</p>
+<p>
+  选择数据库语法: use 数据库名字;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="403" height="47" src="/wp-content/uploads/2018/05/word-image-871.png" class="wp-image-979" srcset="/wp-content/uploads/2018/05/word-image-871.png 403w, /wp-content/uploads/2018/05/word-image-871-300x35.png 300w" sizes="(max-width: 403px) 100vw, 403px" />
+</p>
+<p><strong>第二步：创建表</strong>
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="679" height="190" src="/wp-content/uploads/2018/05/word-image-872.png" class="wp-image-980" srcset="/wp-content/uploads/2018/05/word-image-872.png 679w, /wp-content/uploads/2018/05/word-image-872-300x84.png 300w" sizes="(max-width: 679px) 100vw, 679px" />
+</p>
+<p><strong>英雄技能表案例：</strong>
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="806" height="203" src="/wp-content/uploads/2018/05/word-image-873.png" class="wp-image-981" srcset="/wp-content/uploads/2018/05/word-image-873.png 806w, /wp-content/uploads/2018/05/word-image-873-300x76.png 300w, /wp-content/uploads/2018/05/word-image-873-768x193.png 768w" sizes="(max-width: 806px) 100vw, 806px" />
+</p>
+<h2>查看数据表</h2>
+<p>
+  查看当前数据库有哪些数据表（所有的表查看）
+</p>
+<p>
+  语法：show tables；
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="715" height="143" src="/wp-content/uploads/2018/05/word-image-874.png" class="wp-image-982" srcset="/wp-content/uploads/2018/05/word-image-874.png 715w, /wp-content/uploads/2018/05/word-image-874-300x60.png 300w" sizes="(max-width: 715px) 100vw, 715px" />
+</p>
+<h2>删除数据表</h2>
+<p>
+  语法:  drop table 表名;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="493" height="45" src="/wp-content/uploads/2018/05/word-image-875.png" class="wp-image-983" srcset="/wp-content/uploads/2018/05/word-image-875.png 493w, /wp-content/uploads/2018/05/word-image-875-300x27.png 300w" sizes="(max-width: 493px) 100vw, 493px" />
+</p>
+<p>
+  扩展，一次删除多张数据表 drop  table 表1,表2…..;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="507" height="54" src="/wp-content/uploads/2018/05/word-image-876.png" class="wp-image-984" srcset="/wp-content/uploads/2018/05/word-image-876.png 507w, /wp-content/uploads/2018/05/word-image-876-300x32.png 300w" sizes="(max-width: 507px) 100vw, 507px" />
+</p>
+<h2>查看表结构</h2>
+<p>
+  查看表的结构:  desc 表名;
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="714" height="224" src="/wp-content/uploads/2018/05/word-image-877.png" class="wp-image-985" srcset="/wp-content/uploads/2018/05/word-image-877.png 714w, /wp-content/uploads/2018/05/word-image-877-300x94.png 300w" sizes="(max-width: 714px) 100vw, 714px" />
+</p>
+<h2>查看表创建语法</h2>
+<p>
+  查看数据表的创建语句
+</p>
+<p>
+  语法; show create table 表名;、
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="777" height="234" src="/wp-content/uploads/2018/05/word-image-878.png" class="wp-image-986" srcset="/wp-content/uploads/2018/05/word-image-878.png 777w, /wp-content/uploads/2018/05/word-image-878-300x90.png 300w, /wp-content/uploads/2018/05/word-image-878-768x231.png 768w" sizes="(max-width: 777px) 100vw, 777px" />
+</p>
+<h1>数据简单操作</h1>
+<h2>增加</h2>
+<p>
+  提前准备：
+</p>
+<p>
+  删除老的hero表，创建新的hero表
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="792" height="204" src="/wp-content/uploads/2018/05/word-image-879.png" class="wp-image-987" srcset="/wp-content/uploads/2018/05/word-image-879.png 792w, /wp-content/uploads/2018/05/word-image-879-300x77.png 300w, /wp-content/uploads/2018/05/word-image-879-768x198.png 768w" sizes="(max-width: 792px) 100vw, 792px" />
+</p>
+<p>
+  执行命令 set names gbk 避免乱码错误
+</p>
+<p>
+  语法： insert    [into] 表名   [(插入的字段列表)]  values  (字段值1,字段值2,字段值3……)
+</p>
+<p>
+  注意：后边的值和前边的字段列表的顺序一定要对应
+</p>
+<ul>
+<li>
+    错误案例：
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="881" height="127" src="/wp-content/uploads/2018/05/word-image-880.png" class="wp-image-988" srcset="/wp-content/uploads/2018/05/word-image-880.png 881w, /wp-content/uploads/2018/05/word-image-880-300x43.png 300w, /wp-content/uploads/2018/05/word-image-880-768x111.png 768w" sizes="(max-width: 881px) 100vw, 881px" />
+</p>
+<ul>
+<li>
+    正确案例：
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="743" height="103" src="/wp-content/uploads/2018/05/word-image-881.png" class="wp-image-989" srcset="/wp-content/uploads/2018/05/word-image-881.png 743w, /wp-content/uploads/2018/05/word-image-881-300x42.png 300w" sizes="(max-width: 743px) 100vw, 743px" />
+</p>
+<ul>
+<li>
+    扩展：省略字段列表插入表数据
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="1100" height="87" src="/wp-content/uploads/2018/05/word-image-882.png" class="wp-image-990" srcset="/wp-content/uploads/2018/05/word-image-882.png 1100w, /wp-content/uploads/2018/05/word-image-882-300x24.png 300w, /wp-content/uploads/2018/05/word-image-882-768x61.png 768w, /wp-content/uploads/2018/05/word-image-882-1024x81.png 1024w" sizes="(max-width: 1100px) 100vw, 1100px" />
+</p>
+<p>
+  表创建的顺序如下
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="697" height="195" src="/wp-content/uploads/2018/05/word-image-883.png" class="wp-image-991" srcset="/wp-content/uploads/2018/05/word-image-883.png 697w, /wp-content/uploads/2018/05/word-image-883-300x84.png 300w" sizes="(max-width: 697px) 100vw, 697px" />
+</p>
+<p>
+  扩展：Select 语句复制表
+</p>
+<h2>修改</h2>
+<p>
+  语法形式如下：
+</p>
+<p>
+  	Update 表名 set 字段名 =字段值 where修改条件
+</p>
+<ul>
+<li>
+    修改大头的英雄伤害
+  </li>
+</ul>
+<p>
+  <img loading="lazy" decoding="async" width="681" height="71" src="/wp-content/uploads/2018/05/word-image-884.png" class="wp-image-992" srcset="/wp-content/uploads/2018/05/word-image-884.png 681w, /wp-content/uploads/2018/05/word-image-884-300x31.png 300w" sizes="(max-width: 681px) 100vw, 681px" />
+</p>
+<p>
+  结果
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="857" height="128" src="/wp-content/uploads/2018/05/word-image-885.png" class="wp-image-993" srcset="/wp-content/uploads/2018/05/word-image-885.png 857w, /wp-content/uploads/2018/05/word-image-885-300x45.png 300w, /wp-content/uploads/2018/05/word-image-885-768x115.png 768w" sizes="(max-width: 857px) 100vw, 857px" />
+</p>
+<p>
+  注意：修改表数据的时候一般都要指定修改的条件，如果修改不指定条件的话会把整张表的数据都修改
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="953" height="184" src="/wp-content/uploads/2018/05/word-image-886.png" class="wp-image-994" srcset="/wp-content/uploads/2018/05/word-image-886.png 953w, /wp-content/uploads/2018/05/word-image-886-300x58.png 300w, /wp-content/uploads/2018/05/word-image-886-768x148.png 768w" sizes="(max-width: 953px) 100vw, 953px" />
+</p>
+<ul>
+<li>
+    数据多字段的修改
+  </li>
+</ul>
+<p>
+  语法：update  表名 set 字段名=值1 ,字段名=字段值…. Where 修改条件
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="843" height="214" src="/wp-content/uploads/2018/05/word-image-887.png" class="wp-image-995" srcset="/wp-content/uploads/2018/05/word-image-887.png 843w, /wp-content/uploads/2018/05/word-image-887-300x76.png 300w, /wp-content/uploads/2018/05/word-image-887-768x195.png 768w" sizes="(max-width: 843px) 100vw, 843px" />
+</p>
+<h2>查找</h2>
+<ul>
+<li>
+    语法：select  *  from 表名
+  </li>
+</ul>
+<p>
+  说明：*代表所有的字段
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="940" height="176" src="/wp-content/uploads/2018/05/word-image-888.png" class="wp-image-996" srcset="/wp-content/uploads/2018/05/word-image-888.png 940w, /wp-content/uploads/2018/05/word-image-888-300x56.png 300w, /wp-content/uploads/2018/05/word-image-888-768x144.png 768w" sizes="(max-width: 940px) 100vw, 940px" />
+</p>
+<ul>
+<li>
+    我们还可已选择查看哪些字段的信息
+  </li>
+</ul>
+<p>
+  语法: select   字段1,字段2,字段3,字段4……  from  表名；
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="809" height="190" src="/wp-content/uploads/2018/05/word-image-889.png" class="wp-image-997" srcset="/wp-content/uploads/2018/05/word-image-889.png 809w, /wp-content/uploads/2018/05/word-image-889-300x70.png 300w, /wp-content/uploads/2018/05/word-image-889-768x180.png 768w" sizes="(max-width: 809px) 100vw, 809px" />
+</p>
+<ul>
+<li>
+    查看技能伤害大于50的英雄信息
+  </li>
+</ul>
+<p>
+  语法如下：select 字段列表 from 表名 where  条件
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="962" height="152" src="/wp-content/uploads/2018/05/word-image-890.png" class="wp-image-998" srcset="/wp-content/uploads/2018/05/word-image-890.png 962w, /wp-content/uploads/2018/05/word-image-890-300x47.png 300w, /wp-content/uploads/2018/05/word-image-890-768x121.png 768w" sizes="(max-width: 962px) 100vw, 962px" />
+</p>
+<h2>删除</h2>
+<p>
+  语法：delete  from 表名 where 删除的条件；
+</p>
+<p>
+  删除前数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="932" height="180" src="/wp-content/uploads/2018/05/word-image-891.png" class="wp-image-999" srcset="/wp-content/uploads/2018/05/word-image-891.png 932w, /wp-content/uploads/2018/05/word-image-891-300x58.png 300w, /wp-content/uploads/2018/05/word-image-891-768x148.png 768w" sizes="(max-width: 932px) 100vw, 932px" />
+</p>
+<p>
+  删除成功
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="750" height="75" src="/wp-content/uploads/2018/05/word-image-892.png" class="wp-image-1000" srcset="/wp-content/uploads/2018/05/word-image-892.png 750w, /wp-content/uploads/2018/05/word-image-892-300x30.png 300w" sizes="(max-width: 750px) 100vw, 750px" />
+</p>
+<p>
+  删除后数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="931" height="161" src="/wp-content/uploads/2018/05/word-image-893.png" class="wp-image-1001" srcset="/wp-content/uploads/2018/05/word-image-893.png 931w, /wp-content/uploads/2018/05/word-image-893-300x52.png 300w, /wp-content/uploads/2018/05/word-image-893-768x133.png 768w" sizes="(max-width: 931px) 100vw, 931px" />
+</p>
+<p>
+  注意;这里删除一般都需要制定删除的条件，如果不指定删除的条件那么整张表的数据都会被删除
+</p>
+<ul>
+<li>
+    没有条件的删除
+  </li>
+</ul>
+<p>
+  删除前
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="941" height="163" src="/wp-content/uploads/2018/05/word-image-894.png" class="wp-image-1002" srcset="/wp-content/uploads/2018/05/word-image-894.png 941w, /wp-content/uploads/2018/05/word-image-894-300x52.png 300w, /wp-content/uploads/2018/05/word-image-894-768x133.png 768w" sizes="(max-width: 941px) 100vw, 941px" />
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="868" height="122" src="/wp-content/uploads/2018/05/word-image-895.png" class="wp-image-1003" srcset="/wp-content/uploads/2018/05/word-image-895.png 868w, /wp-content/uploads/2018/05/word-image-895-300x42.png 300w, /wp-content/uploads/2018/05/word-image-895-768x108.png 768w" sizes="(max-width: 868px) 100vw, 868px" />
+</p>
+<h1>表属性</h1>
+<p>
+  表属性就是用来约束表的，限定一些东西
+</p>
+<h2>字符集（乱码的解决）</h2>
+<p>
+  常见的字符集有：utf8  gbk  latin1  gb2312
+</p>
+<p>
+  什么是字符集？
+</p>
+<p>
+  	字符集就是字符和字符编码的对应关系
+</p>
+<p>
+  什么是字符？
+</p>
+<p>
+  	像 a,b,A,V,1中文 等都是字符
+</p>
+<p>
+  	什么是字符编码？
+</p>
+<p>
+  		比如 ‘a’这个字符在计算机中是以什么形式存的
+</p>
+<p>
+  		‘a’在计算机中是以二进制存储的，那么这个二进制的码值就是‘a’的字符编码
+</p>
+<p>
+  		 ‘a’&#8212;&#8212;-10110101   10110101就是a的字符编码
+</p>
+<p>
+  		‘b’&#8212;&#8212;-10110110   10110110就是b的字符编码
+</p>
+<p>
+  插入中文数据，插入失败
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="982" height="52" src="/wp-content/uploads/2018/05/word-image-896.png" class="wp-image-1004" srcset="/wp-content/uploads/2018/05/word-image-896.png 982w, /wp-content/uploads/2018/05/word-image-896-300x16.png 300w, /wp-content/uploads/2018/05/word-image-896-768x41.png 768w" sizes="(max-width: 982px) 100vw, 982px" />
+</p>
+<p>
+  错误原因
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1179" height="311" src="/wp-content/uploads/2018/05/word-image-897.png" class="wp-image-1005" srcset="/wp-content/uploads/2018/05/word-image-897.png 1179w, /wp-content/uploads/2018/05/word-image-897-300x79.png 300w, /wp-content/uploads/2018/05/word-image-897-768x203.png 768w, /wp-content/uploads/2018/05/word-image-897-1024x270.png 1024w" sizes="(max-width: 1179px) 100vw, 1179px" />
+</p>
+<p>
+  错误解决
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="839" height="366" src="/wp-content/uploads/2018/05/word-image-898.png" class="wp-image-1006" srcset="/wp-content/uploads/2018/05/word-image-898.png 839w, /wp-content/uploads/2018/05/word-image-898-300x131.png 300w, /wp-content/uploads/2018/05/word-image-898-768x335.png 768w" sizes="(max-width: 839px) 100vw, 839px" />
+</p>
+<p>
+  插入数据插入成功
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="706" height="64" src="/wp-content/uploads/2018/05/word-image-899.png" class="wp-image-1007" srcset="/wp-content/uploads/2018/05/word-image-899.png 706w, /wp-content/uploads/2018/05/word-image-899-300x27.png 300w" sizes="(max-width: 706px) 100vw, 706px" />
+</p>
+<p>
+  查看数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="912" height="147" src="/wp-content/uploads/2018/05/word-image-900.png" class="wp-image-1008" srcset="/wp-content/uploads/2018/05/word-image-900.png 912w, /wp-content/uploads/2018/05/word-image-900-300x48.png 300w, /wp-content/uploads/2018/05/word-image-900-768x124.png 768w" sizes="(max-width: 912px) 100vw, 912px" />
+</p>
+<p>
+  错误原因
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1191" height="343" src="/wp-content/uploads/2018/05/word-image-901.png" class="wp-image-1009" srcset="/wp-content/uploads/2018/05/word-image-901.png 1191w, /wp-content/uploads/2018/05/word-image-901-300x86.png 300w, /wp-content/uploads/2018/05/word-image-901-768x221.png 768w, /wp-content/uploads/2018/05/word-image-901-1024x295.png 1024w" sizes="(max-width: 1191px) 100vw, 1191px" />
+</p>
+<p>
+  错误解决
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="970" height="346" src="/wp-content/uploads/2018/05/word-image-902.png" class="wp-image-1010" srcset="/wp-content/uploads/2018/05/word-image-902.png 970w, /wp-content/uploads/2018/05/word-image-902-300x107.png 300w, /wp-content/uploads/2018/05/word-image-902-768x274.png 768w" sizes="(max-width: 970px) 100vw, 970px" />
+</p>
+<p>
+  再次查看数据
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="989" height="142" src="/wp-content/uploads/2018/05/word-image-903.png" class="wp-image-1011" srcset="/wp-content/uploads/2018/05/word-image-903.png 989w, /wp-content/uploads/2018/05/word-image-903-300x43.png 300w, /wp-content/uploads/2018/05/word-image-903-768x110.png 768w" sizes="(max-width: 989px) 100vw, 989px" />
+</p>
+<h2>校对集</h2>
+<p>
+  什么是校对集：校对集就是字符集中的一种比较规则，主要用于排序
+</p>
+<p>
+  Show  collation;查看所有的校对集
+</p>
+<p>
+  show collation like &#8216;utf8_%&#8217;;查看utf8的校对集
+</p>
+<p>
+   	utf8的两种校对集使用
+</p>
+<p>
+  utf8_general_ci  不区分大小写  (a  B  c)
+</p>
+<p>
+  utf8_bin   二进制排序 （B a c）
+</p>
+<p>
+  	B&#8212;-66
+</p>
+<p>
+  a&#8212;-97
+</p>
+<p>
+  c&#8212;-99
+</p>
+<p>
+  案例：
+</p>
+<p>
+  	创建两张表
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="674" height="247" src="/wp-content/uploads/2018/05/word-image-904.png" class="wp-image-1012" srcset="/wp-content/uploads/2018/05/word-image-904.png 674w, /wp-content/uploads/2018/05/word-image-904-300x110.png 300w" sizes="(max-width: 674px) 100vw, 674px" />
+</p>
+<p>
+  插入数据
+</p>
+<p>
+  insert into test1 values(&#8216;a&#8217;);
+</p>
+<p>
+  insert into test1 values(&#8216;B&#8217;);
+</p>
+<p>
+  insert into test1 values(&#8216;c&#8217;);
+</p>
+<p>
+  insert into test2 values(&#8216;a&#8217;);
+</p>
+<p>
+  insert into test2 values(&#8216;B&#8217;);
+</p>
+<p>
+  insert into test2 values(&#8216;c&#8217;);
+</p>
+<p>
+  排序查看
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="834" height="365" src="/wp-content/uploads/2018/05/word-image-905.png" class="wp-image-1013" srcset="/wp-content/uploads/2018/05/word-image-905.png 834w, /wp-content/uploads/2018/05/word-image-905-300x131.png 300w, /wp-content/uploads/2018/05/word-image-905-768x336.png 768w" sizes="(max-width: 834px) 100vw, 834px" />
+</p>
+<h2>数据库引擎</h2>
+<p>
+  什么是数据库引擎：就是数据库保存表数据的一种方式
+</p>
+<p>
+  常用的数据库引擎有 innodb myisam
+</p>
+<p>
+  默认的数据库引擎是innodb
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="1224" height="195" src="/wp-content/uploads/2018/05/word-image-906.png" class="wp-image-1014" srcset="/wp-content/uploads/2018/05/word-image-906.png 1224w, /wp-content/uploads/2018/05/word-image-906-300x48.png 300w, /wp-content/uploads/2018/05/word-image-906-768x122.png 768w, /wp-content/uploads/2018/05/word-image-906-1024x163.png 1024w" sizes="(max-width: 1224px) 100vw, 1224px" />
+</p>
+<p>
+  默认的数据库引擎可以在配置文件中配置
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="874" height="197" src="/wp-content/uploads/2018/05/word-image-907.png" class="wp-image-1015" srcset="/wp-content/uploads/2018/05/word-image-907.png 874w, /wp-content/uploads/2018/05/word-image-907-300x68.png 300w, /wp-content/uploads/2018/05/word-image-907-768x173.png 768w" sizes="(max-width: 874px) 100vw, 874px" />
+</p>
+<p>
+  数据库引擎的支持
+</p>
+<p>
+  <img loading="lazy" decoding="async" width="858" height="534" src="/wp-content/uploads/2018/05/word-image-908.png" class="wp-image-1016" srcset="/wp-content/uploads/2018/05/word-image-908.png 858w, /wp-content/uploads/2018/05/word-image-908-300x187.png 300w, /wp-content/uploads/2018/05/word-image-908-768x478.png 768w" sizes="(max-width: 858px) 100vw, 858px" /></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>/%e6%95%b0%e6%8d%ae%e5%ba%93/mysql/944.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
