@@ -39,6 +39,41 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 		background: none !important;
 		padding: 0 !important;
 	}</style>
+<style>
+/* 缩小音频控件 */
+audio {
+    width: 100px;
+    height: 30px;
+}
+/* 隐藏音频控件，仅显示一个播放按钮 */
+.audio-wrapper {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+}
+.audio-wrapper audio {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+.play-button {
+    width: 30px;
+    height: 30px;
+    background-color: transparent; /* 设置背景透明 */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button::before {
+    content: '🎶';
+    color: #000;
+    font-size: 20px;
+}
+</style>
 <link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=6.6.1" type="text/css" media="all">
 <style id="classic-theme-styles-inline-css" type="text/css">/*! This file is auto-generated */
 .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}</style>
@@ -934,7 +969,12 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <div class="widget widget_jnews_about" id="jnews_about-3">
 <div class="jeg_block_heading jeg_block_heading_6 jnews_module_8871_0_66a474aa7cf4a">
                     <h3 class="jeg_block_title"><span>About Me</span></h3>
-                    
+    <div class="audio-wrapper">
+        <audio id="my-audio">
+            <source src="/wp-content/uploads/2024/07/FairyTown.mp4" type="video/mp4">
+        </audio>
+        <div class="play-button" onclick="togglePlay()"></div>
+    </div>
 				</div>        <div class="jeg_about jeg_aligncenter">
 			                <a class="footer_logo" href="/">
                     <img decoding="async" class="lazyload" src="/wp-content/themes/jnews/assets/img/jeg-empty.png" data-src="/wp-content/uploads/2022/01/截屏2022-01-01-18.57.09.png" data-srcset="/wp-content/uploads/2022/01/截屏2022-01-01-18.57.09.png 1x, /wp-content/uploads/2022/01/截屏2022-01-01-18.57.09.png 2x" alt="个人随笔" data-light-src="/wp-content/uploads/2022/01/截屏2022-01-01-18.57.09.png" data-light-srcset="/wp-content/uploads/2022/01/截屏2022-01-01-18.57.09.png 1x, /wp-content/uploads/2022/01/截屏2022-01-01-18.57.09.png 2x" data-dark-src="/wp-content/themes/jnews/assets/img/logo_darkmode.png" data-dark-srcset="/wp-content/themes/jnews/assets/img/logo_darkmode.png 1x, /wp-content/themes/jnews/assets/img/logo_darkmode@2x.png 2x" data-pin-no-hover="true">
@@ -1589,5 +1629,39 @@ var vcData = {"currentTheme":{"slug":"jnews"}};
 <script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"ItemList","url":"http:\/\/liyouran.site","itemListElement":[{"@type":"ListItem","position":1,"item":{"name":"Swoole 安装、扩展源码、线程、进程、执行过程、常用事件、Http 服务器、WebSocket 服务器、Mysql 连接池、毫秒定时器、异步文件读取","@id":"http:\/\/liyouran.site\/php\/6504.html","url":"http:\/\/liyouran.site\/?post_type=post&p=6504","image":"http:\/\/liyouran.site\/wp-content\/uploads\/2018\/05\/jnews-fashion-17.jpg"}},{"@type":"ListItem","position":2,"item":{"name":"Socket 七层网络、Socket 服务器","@id":"http:\/\/liyouran.site\/php\/6503.html","url":"http:\/\/liyouran.site\/?post_type=post&p=6503","image":"http:\/\/liyouran.site\/wp-content\/uploads\/2018\/05\/jnews-fashion-1.jpg"}},{"@type":"ListItem","position":3,"item":{"name":"PHP7 太空船、const 定数组、匿名函数和匿名类、字符串转换、函数调用类里面的方法、不同的名空间调用类、数组的赋值、函数的参数、多异常抛出、list 给数组赋值","@id":"http:\/\/liyouran.site\/php\/6502.html","url":"http:\/\/liyouran.site\/?post_type=post&p=6502","image":"http:\/\/liyouran.site\/wp-content\/uploads\/2018\/05\/gigi.jpg"}},{"@type":"ListItem","position":4,"item":{"name":"微信公众号（三）带参数的二维码接口、LBS 接口、语音识别、图灵机器人、网页授权接口（Oauth2.0）、微信 JSSDK 接口、扫码抽奖、授权登录","@id":"http:\/\/liyouran.site\/%e7%a7%bb%e5%8a%a8%e7%ab%af%e5%bc%80%e5%8f%91\/5516.html","url":"http:\/\/liyouran.site\/?post_type=post&p=5516","image":"http:\/\/liyouran.site\/wp-content\/uploads\/2018\/05\/jnews-fashion-8.jpg"}},{"@type":"ListItem","position":5,"item":{"name":"网站优化（二）MySQL 优化 千万级数据、索引、存储过程","@id":"http:\/\/liyouran.site\/%e7%bd%91%e7%ab%99%e4%bc%98%e5%8c%96\/5385.html","url":"http:\/\/liyouran.site\/?post_type=post&p=5385","image":"http:\/\/liyouran.site\/wp-content\/uploads\/2018\/05\/jnews-fashion-10-1140x570-1.jpg"}},{"@type":"ListItem","position":6,"item":{"name":"Linux（三） 搭建 LAMP SSH、FTP、SCP、Rmp&Yum、挂载、阿里云、常用命令、关闭指定软件","@id":"http:\/\/liyouran.site\/linux\/4856.html","url":"http:\/\/liyouran.site\/?post_type=post&p=4856","image":"http:\/\/liyouran.site\/wp-content\/uploads\/2018\/05\/jnews-fashion-12-1140x570-1.jpg"}},{"@type":"ListItem","position":7,"item":{"name":"copilot使用体验，神奇的代码提示","@id":"http:\/\/liyouran.site\/%e8%b5%84%e6%96%99\/8995.html","url":"http:\/\/liyouran.site\/?post_type=post&p=8995","image":"http:\/\/liyouran.site\/wp-content\/uploads\/2022\/01\/fashion5.jpg"}},{"@type":"ListItem","position":8,"item":{"name":"代码注释图生成方法","@id":"http:\/\/liyouran.site\/%e8%b5%84%e6%96%99\/8972.html","url":"http:\/\/liyouran.site\/?post_type=post&p=8972","image":"http:\/\/liyouran.site\/wp-content\/uploads\/2022\/01\/cropped-截屏2022-01-01-18.57.09.png"}},{"@type":"ListItem","position":9,"item":{"name":"[资料]常用linux命令","@id":"http:\/\/liyouran.site\/uncategorized\/8964.html","url":"http:\/\/liyouran.site\/?post_type=post&p=8964","image":"http:\/\/liyouran.site\/wp-content\/uploads\/2018\/05\/linux.jpg"}},{"@type":"ListItem","position":10,"item":{"name":"[避坑指南] Laravel知多少(👤个人总结)","@id":"http:\/\/liyouran.site\/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6\/laravel\/8954.html","url":"http:\/\/liyouran.site\/?post_type=post&p=8954","image":"http:\/\/liyouran.site\/wp-content\/uploads\/2021\/12\/laravel-8.png"}},{"@type":"ListItem","position":11,"item":{"name":"LaravelV8.6.10","@id":"http:\/\/liyouran.site\/%e5%90%8e%e5%8f%b0%e6%a1%86%e6%9e%b6\/laravel\/8773.html","url":"http:\/\/liyouran.site\/?post_type=post&p=8773","image":"http:\/\/liyouran.site\/wp-content\/uploads\/2021\/12\/laravel-8.png"}},{"@type":"ListItem","position":12,"item":{"name":"8小时转职Golang工程师","@id":"http:\/\/liyouran.site\/%e8%b5%84%e6%96%99\/9066.html","url":"http:\/\/liyouran.site\/?post_type=post&p=9066","image":"http:\/\/liyouran.site\/wp-content\/uploads\/2024\/04\/go.avif"}},{"@type":"ListItem","position":13,"item":{"name":"Python编写学生信息统计Demo","@id":"http:\/\/liyouran.site\/%e8%b5%84%e6%96%99\/8767.html","url":"http:\/\/liyouran.site\/?post_type=post&p=8767","image":"http:\/\/liyouran.site\/wp-content\/uploads\/2020\/12\/python.png"}},{"@type":"ListItem","position":14,"item":{"name":"WordPress 域名&服务器迁移","@id":"http:\/\/liyouran.site\/%e8%b5%84%e6%96%99\/8739.html","url":"http:\/\/liyouran.site\/?post_type=post&p=8739","image":"http:\/\/liyouran.site\/wp-content\/uploads\/2020\/02\/v2-2a81e337418fb77803321015c06fe667_1200x500.jpg"}}]}</script>
 <script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Webpage","headline":"JNews Home","url":"http:\/\/liyouran.site\/"}</script>
 <script type="text/javascript">;!function(){"use strict";window.jnews=window.jnews||{},window.jnews.first_load=window.jnews.first_load||{},window.jnews.first_load=function(){var e=this,t=jnews.library,n="object"==typeof jnews&&"object"==typeof jnews.library;e.data=null,e.run_ajax=!0,e.run_loginregister=!0,e.clear=function(){e.run_ajax=!0,e.run_loginregister=!0,e.data=null},e.init=function(){n&&(t.globalBody.querySelectorAll(".jeg_popup_account").length&&jnews.loginregister&&e.run_loginregister&&(e.run_loginregister=!1,jnews.loginregister.init(),jnews.loginregister.hook_form()),jfla.length&&e.run_ajax&&(e.run_ajax=!1,e.do_ajax({action:"jnews_first_load_action",jnews_id:jnewsoption.postid,load_action:jfla})))},e.update_counter=function(){if(n){var o={total_view:t.globalBody.querySelectorAll(".jeg_share_stats .jeg_views_count .counts"),total_share:t.globalBody.querySelectorAll(".jeg_share_stats .jeg_share_count .counts"),total_comment:t.globalBody.querySelectorAll(".jeg_meta_comment a span")};t.forEach(Object.entries(e.data.counter),(function([e,n]){o[e].length&&t.forEach(o[e],(function(e,o){t.setText(e,n)}))}))}},e.do_ajax=function(o){if(n){var a=new XMLHttpRequest;a.onreadystatechange=function(){XMLHttpRequest.DONE===a.readyState&&200==a.status&&(e.data=JSON.parse(a.responseText),e.data.counter&&"object"==typeof e.data.counter&&e.update_counter())},a.open("POST",jnews_ajax_url,!0),a.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8"),a.send(t.httpBuildQuery(o))}}},window.jnews.first_load=new window.jnews.first_load,jnews.first_load.init()}();</script>
+<script>
+    var audioElement = document.getElementById('my-audio');
+    var playButton = document.querySelector('.play-button');
+    // 设置音频默认音量为最大
+    audioElement.volume = 100;
+    function togglePlay() {
+        if (audioElement.paused) {
+            audioElement.play().then(function() {
+                console.log('Audio is playing.');
+            }).catch(function(error) {
+                console.log('Audio playback was prevented by the browser:', error);
+            });
+        } else {
+            audioElement.pause();
+        }
+    }
+
+    playButton.addEventListener('click', togglePlay);
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var audioElement = document.getElementById('my-audio');
+    var playPromise = audioElement.play();
+    // 设置音频默认音量为最大
+    audioElement.volume = 100;
+    if (playPromise !== undefined) {
+        playPromise.then(function() {
+            console.log('Audio is playing.');
+        }).catch(function(error) {
+            console.log('Audio playback was prevented by the browser:', error);
+        });
+    }
+});
+</script>
 </body>
 </html>
