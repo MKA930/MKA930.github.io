@@ -4,8 +4,8 @@
 
 
 >
-### [查看静态博客戳这里 👈️](http://leeyouran.github.io)
+### [To view the static blog click here 👈️](http://leeyouran.github.io)
 
 ## License
 
-遵循 MIT 许可证。有关详细,请参阅 [LICENSE](https://github.com/LeeYouRan/LeeYouRan.github.io/blob/master/LICENSE)。
+Under the MIT license. For details see [LICENSE](https://github.com/LeeYouRan/LeeYouRan.github.io/blob/master/LICENSE)。
