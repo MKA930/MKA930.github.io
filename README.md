@@ -4,7 +4,7 @@
 
 
 >
-### [查看静态博客戳这里 👆](http://leeyouran.github.io) 或 [查看线上博客戳这里 👆](https://www.liyouran.site)
+### [查看静态博客戳这里 👆](http://leeyouran.github.io)
 
 ## License
 
