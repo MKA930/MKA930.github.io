@@ -8,4 +8,4 @@
 
 ## License
 
-Under the MIT license. For details see [LICENSE](https://github.com/LeeYouRan/LeeYouRan.github.io/blob/master/LICENSE)。
+Under the MIT license. For details see [LICENSE](https://github.com/Mka930/Mka930.github.io/blob/master/LICENSE)。
